@@ -431,3 +431,57 @@ The tally remains three whole-entry candidates, one partial candidate,
 and zero established novel results. All work is local; no push,
 external contact, subagent or Kourovka mathematical/code transfer.
 The original deadline remains 30 September 2026 at 10:04:49 UTC.
+
+## 2026-09-28 17:29–17:45 UTC — M4 proof scope and N3 construction audit
+
+Obtained Artamonov's full 1978 English paper from MathNet im1711, read
+the whole extracted text and viewed printed pages 221–222. The theorem
+is finite-rank. Its module freeness and augmentation-compatible basis
+steps do not supply an infinite-rank argument. Read Bass's original
+big-projective theorem after locating its hypotheses in Lam's survey;
+the countable Laurent ring has zero Jacobson radical and is not
+Noetherian, so the direct invocation fails. Recorded the precise gap
+and committed this source audit as af1bc2d. No M4 candidate.
+
+A follow-up on locally nilpotent covers located GSW 2003, whose
+Corollary 3.7 states a full positive answer to N3. Read all of section 3,
+the full original GroupWorld nilpotent page and N3 fragment, and viewed
+the original statement plus printed pages 232–233. The construction
+lemma's degree-layer argument drops needed normal conjugates. A small
+UT4(Z) witness and independent GAP class-three calculation confirm
+that its proposed spanning subgroup is too small (ranks two versus
+three in the relevant intersection).
+
+A bounded nq probe of three-generator profiles with every coordinate
+pair class two found actual torsion at full class five. At class four
+there is a finite relative order but no group torsion; this distinction
+is retained. The first exact Magnus search looked only at individual
+Hall words and failed to find a witness; preserved its assertion log
+and source. The next search found a product of two weight-five Hall
+words with order two, a five-term square identity, and a mod-two
+separator supported on three tensor monomials.
+
+Wrote the proof that 78 relator/conjugation-difference vectors span the
+exact normal subgroup in gamma3 of the free class-five group. Since
+this layer is abelian and three conjugation differences vanish, its
+integer lattice is closed under both positive and negative generator
+conjugation. A dependency-free Python verifier reconstructs the words
+and checks the positive identity and every separator value. Independent
+GAP/nq checks the same positive identity in the free class-five group
+and verifies a nontrivial central order-two image in the quotient.
+The preliminary GAP check passed with a forward-global syntax warning;
+its source/log were retained and the final check has empty stderr.
+
+The final standalone and GAP checks take about 0.22 and 1.97 seconds.
+Peak requested simultaneous resources in this pass were two CPU cores
+and 12 GB memory. All failed/diagnostic runs and raw log hashes remain.
+Detailed audit and certificates: research/notes/N3-published-cover-audit.md.
+
+This disproves GSW Proposition 3.5, not N3 or the possibility of another
+cover. The finite example is itself covered by the free class-five
+group. Record N3 under published-claim/proof review, not as a verified
+prior resolution and not as a new negative answer. The tally remains
+three whole-entry candidates, one partial candidate, zero established
+novel results. No subagents, external review/contact, push, parent-repo
+modification or imported Kourovka mathematics/code. Original deadline
+remains 30 September 2026 at 10:04:49 UTC.

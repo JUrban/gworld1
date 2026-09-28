@@ -179,3 +179,20 @@ merely enlarging existing validation suites: further computations
 should answer a new mathematical question or a specific audit concern.
 The tally remains three whole-entry candidates, one partial candidate,
 and zero established novel results. No external review has occurred.
+
+## Working focus after the 17:45 UTC source-audit checkpoint
+
+M4's full finite-rank proof has been obtained; the countable module and
+augmentation-basis gaps remain. N3 cannot be retired on the strength of
+GSW 2003 alone: its Proposition 3.5 has an explicit class-five torsion
+counterexample, independently checked. This is a supplementary audit,
+not a negative answer to N3 or another counted partial result. The
+finite example already has a torsion-free nilpotent cover.
+
+The new audit has a compact proof and two independent arithmetic
+verifiers. Do not enlarge the torsion search merely to obtain bigger
+examples. Return to the wider unresolved portfolio and candidate proof
+audits; any attempt to repair the N3 construction must impose and prove
+new sufficient hypotheses on the profile while preserving arbitrary
+cardinality. No external specialist review or novelty certification has
+occurred. The original clock and three-whole/one-partial tally remain.
