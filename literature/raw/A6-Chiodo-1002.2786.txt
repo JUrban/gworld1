@@ -1,0 +1,816 @@
+                                                             Finding non-trivial elements
+                                                               and splittings in groups
+arXiv:1002.2786v3 [math.GR] 6 Jun 2010
+
+
+
+
+                                                                                 Maurice Chiodo
+
+
+                                                                                     Abstract
+                                                   It is well known that the triviality problem for finitely presented groups is
+                                               unsolvable; we ask the question of whether there exists a general procedure to
+                                               produce a non-trivial element from a finite presentation of a non-trivial group. If
+                                               not, then this would resolve an open problem by J. Wiegold: ‘Is every finitely
+                                               generated perfect group the normal closure of one element?’ We prove a weak-
+                                               ened version of our question: there is no general procedure to pick a non-trivial
+                                               generator from a finite presentation of a non-trivial group. We also show there
+                                               is neither a general procedure to decompose a finite presentation of a non-trivial
+                                               free product into two non-trivial finitely presented factors, nor one to construct
+                                               an embedding from one finitely presented group into another in which it embeds.
+                                               We apply our results to show that a construction by Stallings on splitting groups
+                                               with more than one end can never be made algorithmic, nor can the process of
+                                               splitting connect sums of non-simply connected closed 4-manifolds.
+
+
+
+                                         1    Introduction
+                                         Combinatorial group theory involves the study of groups given by presentations G =
+                                         hX|Ri, where X is a set of generators and R a set of defining relations, both often
+                                         taken to be finite. Yet despite this simplification many interesting algorithmic questions
+                                         about such groups have been shown to be recursively unsolvable. In particular there
+                                         are groups G given by finite presentations for which the word problem, of determining
+                                         whether a word w in the generators is trivial in G, is recursively unsolvable ([2]). The
+                                         isomorphism problem of deciding whether two presentations define isomorphic groups
+                                         is also unsolvable. Even the triviality problem of deciding whether or not G ∼      = {1}
+                                         is unsolvable ([1],[12]). However, if we consider certain classes of groups then these
+                                         problems are sometimes more tractable. For example, in the class of finitely presented
+                                         abelian groups, one can solve the word problem uniformly for all presentations, as well
+                                         as the isomorphism problem. For an excellent survey on decision problems in group
+                                         theory discussing these results and many others, see [10].
+                                             A good example to consider is the class of finitely presented non-trivial simple
+                                         groups, which can be shown to have solvable word problem as follows: take a finite
+                                         presentation hX|Ri=hx1 , . . . xn |Ri of a non-trivial simple group and a fixed word s
+                                             2010 AMS Classification: 20F10 (03D80).
+                                             Key words: decision problems in groups, partial algorithms in groups, recursion theory.
+                                             The author was supported by an Australian Postgraduate Award.
+
+
+
+                                                                                          1
+representing a non-trivial element. Given an arbitrary word w on X, begin an enumer-
+ation w1 , w2 , . . . of all trivial words in hX|Ri, and at the same time an enumeration
+y1 , y2 , . . . of all trivial words in hX|R, wi. Now look for w in the first list, and s in
+the second list. If w is trivial then it will appear in the first list, if w is non-trivial
+then s will appear in the second list; it is clear that precisely one of these will occur
+as hX|Ri defines a non-trivial simple group. Moreover, this algorithm can easily be
+made uniform (that is, recursively constructible for each case) by searching for w in
+the first list, and searching for all xi in the second list. If the first search halts then w
+is trivial, if the second halts then w is non-trivial; again, precisely one will halt.
+     Notice that our first algorithm works for each individual simple group because in any
+non-trivial group there exists a non-trivial element. But there is no reason to assume
+that the process of selecting a non-trivial element can be made uniform. The word
+problem mentions nothing about being able to recursively construct such an algorithm
+for the given presentation, only that one must exist. In fact there is no universal
+algorithm to solve the word problem on all groups with soluble word problem, nor is
+the class of finitely presented groups with soluble word problem recursively enumerable
+(see [4]).
+     By taking a little step back, we see that we have come across an interesting problem:
+Is there a general method that, when given ANY non-trivial group, produces a single
+non-trivial element? We state this formally below; it will be the motivation behind all
+our further work in this paper.
+Motivating question. Is there a partial algorithm on finite presentations of groups
+that, on input of a finite presentation P of a non-trivial group, outputs a word w on
+the generators of P such that w is non-trivial in that group?
+    One would presume a sensible place to start looking would be the finite generating
+set, naively hoping to sift out one of the generators as non-trivial (like panning for
+gold). We shall later show that this approach is impossible in general. Note that
+we are only asking for a partial algorithm, and are only concerned with its behaviour
+when given a non-trivial group. If such an algorithm was to be given a presentation
+of the trivial group, it may never halt, or my halt and output some word w which
+would of course be trivial. Therefore such an algorithm can’t be used in the ‘obvious’
+way to enumerate all finite presentations of non-trivial groups, a set known to be not
+recursively enumerable ([13]).
+    Our question is easily reduced to the recursive class of finitely presented perfect
+groups. For if our group G is not perfect then we can recursively form the abelianisation
+and identify a non-trivial generator there, which is possible since the word problem is
+uniformly solvable for finitely presented abelian groups. Any preimage of this generator
+will therefore be non-trivial in G. So from hereon we shall usually assume that we
+have already recursively tested our group to be perfect. Notice that if G happens to
+be presented with 2 generators, and is perfect and non-trivial, then neither generator
+can be trivial. So our question is fully resolved for non-trivial two generator groups.
+    As the world of mathematics is heavily intertwined, it is not surprising to find
+connections to existing open problems. One such example is the following open problem
+in group theory, posed by J. Wiegold as 5.52 in [9]: ‘Is every finitely generated perfect
+group the normal closure of one element?’ If the answer to this is yes, then we would
+have an algorithm that satisfies our motivating question as follows: With G assumed
+
+                                             2
+to be perfect, we recursively enumerate all presentations with the same generating set
+as G and precisely one extra relator (some wi ). Assuming Wiegold’s question has a
+positive answer, at least one such presentation will describe the trivial group, which we
+can recursively search for and will eventually find. The corresponding wi is then non-
+trivial in G. We note here the author believes that the answer to Wiegold’s question
+and to the motivating question is ‘no’ in each case.
+    Looking back at our motivating question again, one may ask why a proof that the
+triviality problem is undecidable doesn’t extend to show that there is no algorithm to
+extract a non-trivial element. The known proofs involve the Adian-Rabin theorem ([1],
+[12]). That is, there is a uniform procedure that, on input of a finite presentation P
+of a group and a word w on the generators, recursively constructs a finite presentation
+P (w) such that this new group is trivial if and only if w is trivial in P , and moreover
+whenever w is non-trivial then P embeds in P (w). All this is done without prior
+knowledge of whether w is trivial in P or not. This reduces the triviality problem
+to the word problem (thus showing it is undecidable). However, by construction, the
+group P (w) is known to be 2 generator and perfect, so as mentioned previously neither
+generator will be trivial. So we have such an algorithm for these P (w) groups whenever
+they are non-trivial. But this does not suffice, as we want an algorithm for all finitely
+presented non-trivial groups.
+    We are quickly led to modify our main question, by replacing ‘non-trivial’ with other
+group properties. For example, knowing our presentation defines a non-abelian group,
+can we extract two elements that do not commute? Or, knowing our presentation
+defines a group that is the free product of two non-trivial groups, can we re-write it as
+a free product with non-trivial factors? Similarly, knowing that a finite presentation
+P defines a group that embeds into the group defined by another finite presentation
+Q, can we construct such an embedding? It is known that the properties of being
+trivial, or abelian, or a free product, or a subgroup, are not algorithmically recognisable
+for finitely presented groups ([10]). But is the knowledge that a group lies outside
+one such class sufficient to algorithmically demonstrate it? These particular types
+of decision problems are interesting as we are dancing very close to problems known
+to be algorithmically impossible, but hoping that our extra piece of algorithmically
+indeterminable information may be of some use. We resolve some of these types of
+questions with the following main results of this paper:
+
+Theorem 4.2. Fix any k > 0. Then there is no algorithm that, on input of a finite
+presentation P = hX|Ri of a non-trivial group P , outputs a word w on X of length at
+most k such that w is non-trivial in P (If P is a group presentation, then P denotes
+the group presented by P ).
+
+   Though this does not resolve our motivating question, it is still an enlightening
+result in its own right. We use it to deduce the following corollary.
+
+Corollary 4.4. Fix any k > 0. Then there is no algorithm that, on input of a finite
+presentation P = hX|Ri of a non-abelian group P , outputs two words w, w′ on X, each
+of length at most k, such that [w, w′ ] is non-trivial in P .
+
+   The next two results are proved in full generality, without needing to weaken the
+questions. We use theorem 5.5 later to show that a construction by Stallings on
+
+
+                                            3
+splitting groups with more than one end can never be made algorithmic, nor can
+the process of decomposing the connect sum of two non-simply connected closed 4-
+manifolds into non-simply connected summands.
+
+Theorem 5.5. There is no algorithm that, on input of a finite presentation P = hX|Ri
+of a group that is a free product of two non-trivial finitely presented groups, outputs
+two finite presentations P1 , P2 which present non-trivial groups and whose free product
+is isomorphic to P .
+
+Theorem 6.6. There is no algorithm that, on input of two finite presentations P =
+hX|Ri and Q = hY |Si such that P embeds in Q, outputs an explicit map θ from X to
+words in Y such that θ extends to an embedding θ : P ֒→ Q.
+
+     The main tool to be used in proving all the above results will be the following inter-
+esting application of a construction by Boone: there is an explicit recursive procedure
+that, on input of m, n ∈ N, outputs a finite presentation Πm,n of a torsion free perfect
+group such that Πm,n = {1} if and only if n ∈ Wm , the mth recursively enumerable
+set. This is done without knowing a priori whether n lies in Wm or not.
+     Using these Πm,n we are able to encode the following two ideas from recursion
+theory, providing the algorithmic complexity for our final group theoretic results. It
+helps to think of these as alternative recursion theoretic results to the standard fact
+that there is a recursively enumerable yet non-recursive set.
+     1. Given a recursively enumerable set Wn and a finite set F * Wn , there is no
+general procedure to recursively find a proper subset A ⊂ F such that A * Wn (we
+use this to prove theorem 4.2 and corollary 4.4).
+     2. Given a recursively enumerable set Wn and a finite set F such that |F ∩ Wn | ≤ 1,
+there is no general procedure to recursively find an element of F not lying in Wn (we
+use this to prove theorem 5.5 and theorem 6.6).
+     We will eventually show, by taking various free products of some well-chosen Πm,n ,
+that the existence of any algorithm described in theorem 4.2, corollary 4.4, theorem
+5.5 or theorem 6.6 would yield algorithms violating these recursion theory results.
+     Notation: We shall adopt the following notation and conventions for the remainder
+of this paper. When P = hX|Ri is a (semi)group presentation, we denote by P the
+(semi)group presented by P . If Q is another finite presentation then we denote their
+free product presentation, given by taking the disjoint union of their generators and
+relators, by P ∗ Q. If {x1 , . . . , xn } is a finite set, then for any 1 ≤ i ≤ n we define
+{x1 , . . . , x̂i , . . . , xn } := {x1 , . . . , xn } \ {xi }. If X is a set, then we denote by X −1 a set
+of the same cardinality as X (considered an ‘inverse’ set to X), and W (X) the finite
+words on X ∪ X −1 , including the empty word. A word w ∈ W (X) is said to be positive
+if it contains no element of X −1 ; denote the set of all such words by Ω(X). The length
+l(w) of a word w ∈ W (X) is the number of symbols in w before free reductions. For a
+finitely-generated group G the Rank of G, rank(G), is the minimal size of a generating
+set for G, and G is indecomposable if it is non-trivial yet cannot be written as the free
+product of two non-trivial groups.
+     Acknowledgements: The author wishes to thank Chuck Miller for his many
+conversations and valuable insight, Rod Downey for his guidance with recursion theory,
+and Andrew Glass for his time in considering many of these problems. Thanks also go
+to Lawrence Reeves and Jack Button for their help with proof reading.
+
+                                                    4
+2    Turing Machines and Group Constructions
+The following section is taken largely from [14] chapter 12 which the reader may wish
+to familiarise himself with, we give a summary of the necessary ideas and results.
+    There are various definitions of Turing machines and partial recursive functions, all
+of which can be shown to be equivalent. See [13] chapter 1 for an excellent introduction
+to recursive function theory, especially §1.6. We shall employ the definition found in
+[14], and shall adhere to the following notation.
+Definition 2.1. Let T be a Turing machine with alphabet S. The halting set e(T )
+of T is the set of tapes that T eventually halts on, which can be viewed as a subset
+of Ω(S). We adopt the notation T (w) ↓ whenever T (w) halts (w ∈ e(T )), and T (w) ↑
+whenever T (w) doesn’t halt (w ∈ / e(T )). We define the mth partial recursive function
+                             th
+ϕm as follows: Take the m Turing machine Tm with alphabet {s0 , s1 }. Then ϕm
+takes as input values in N via ϕm (n) := Tm (sn+1
+                                                1   ); sn+1
+                                                        1   being the tape with n + 1
+                                     th
+successive images of s1 on it. The m partial recursive set Wm is then defined as the
+domain of ϕm .
+  We recall some important constructions and results in group theory by Post, Boone,
+Adian and Rabin.
+Theorem 2.2 (Post, [14] lemma 12.4). Let T be a Turing machine with alphabet S.
+Then we can recursively construct a finite semigroup presentation denoted Γ(T ) such
+that, whenever w ∈ Ω(S), we have hq1 wh = q in Γ(T ) if and only if T (w) halts (where
+h, q, q1 are fixed generators from Γ(T )).
+   Using this and the existence of a recursively enumerable but non-recursive set as
+given in [13] §5.2 theorem V I, Post ([11]) was able to show that there exists a finitely
+presented semigroup with insoluble word problem.
+Theorem 2.3 (Boone, [14] lemma 12.7). Let T be a Turing machine with alphabet S.
+Then we can recursively construct a finite presentation of a group B(T ) = hXT |RT i,
+uniform in T . This has the property that, for any w ∈ Ω(S) we can form a word
+β(w) ∈ W (XT ), uniform in w, such that β(w) = e in B(T ) if and only if T (w) halts.
+    Though we do not provide a proof here, we note that B(T ) is built up of amalga-
+mated products and HNN extensions, beginning with free groups. Since amalgamated
+products and HNN extensions preserve the property of being torsion free (see theorem
+6.2), then B(T ) must be torsion free.
+    Using theorem 2.3 and the existence of a recursively enumerable but non-recursive
+set, Boone ([2]) was able to show that there exists a finitely presented group with
+insoluble word problem. Most of our efforts in this paper will involve encoding some-
+what more elaborate Turing machines into generalisations of the construction B(T ) to
+obtain our desired results. We will also make use of the following important result,
+known as the Adian-Rabin theorem ([1],[12]).
+Theorem 2.4 (Adian-Rabin). There is a uniform construction that, for each finite
+presentation P = hX|Ri of a group and each w ∈ W (X), produces a finite presentation
+P (w) of a group and an explicit homomorphism φ : P → P (w) such that:
+1. If w 6= e in P , then φ : P ֒→ P (w) is an embedding.
+2. If w = e in P , then P (w) = {1}.
+
+                                           5
+   Though we do not provide a full proof here, we explicitly state the presentation
+used. Note that this is neither Adian’s nor Rabin’s original construction, but a later
+version due to Gordon ([5]). From P = hX|Ri we construct the presentation P (w)
+with generating set X ∪ {a, b, c}, and relators R along with:
+
+                                    a−1 ba = c−1 b−1 cbc
+                              a−2 b−1 aba2 = c−2 b−1 cbc2
+                               a−3 [w, b]a3 = c−3 bc3
+                         a−(3+i) xi ba(3+i) = c−(3+i) bc(3+i) ∀xi ∈ X
+
+We also note that in this proof P (w) is built up from amalgamated products and HNN
+extensions, beginning with the presentation P . Thus, whenever w is non-trivial, P (w)
+has torsion if and only if P has torsion (see theorem 6.2). From this presentation we
+can immediately observe the following corollary.
+
+Corollary 2.5. Using the notation above, if P (w) is non-trivial then it is perfect and
+has rank precisely 2, generated by b and ca−1 .
+
+    We combine the above results in the following way, as pointed out to the author by
+Chuck Miller: Given any pair m, n ∈ N, take the mth Turing machine Tm with alphabet
+{s0 , s1 }. Now use Boone’s construction to form the group presentation B(Tm ) and word
+β(sn+1
+    1    ). Input this presentation/word pair into Gordon’s construction for the Adian-
+Rabin theorem to form the presentation (B(Tm ))(β(sn+1  1   )), which we shall denote as
+Πm,n . Then by the properties of the Boone and Gordon constructions, we have that
+n ∈ Wm if and only if β(sn+1 ) = e in B(Tm ) (theorem 2.3), if and only if Πm,n = {1}
+(theorem 2.4). From the comments after theorems 2.3 and 2.4, we observe that if Πm,n
+is non-trivial then it must be torsion free. So we have just proven the following:
+
+Theorem 2.6. There is an explicit recursive procedure that, on input of m, n ∈ N,
+outputs a finite presentation Πm,n of a torsion free, perfect group such that Πm,n = {1}
+if and only if n ∈ Wm .
+
+
+3    Tools from recursion theory and decidability
+Recalling Cantor’s pairing function h., .i : N × N → N, hx, yi := 12 (x + y)(x + y + 1) + y
+which is a bijection from N×N to N, one can extend this inductively to define a bijection
+from Nn to N by hx1 , . . . , xn i := hhx1 , . . . , xn−1 i , xn i. We note that this function, and
+all its extensions, are recursively computable. The following two results can be found
+in [13] as §1.8 theorem V , and §11.2 theorem I.
+
+Theorem 3.1 (The s-m-n theorem, or substitution theorem). For all m, n ∈ N, a
+partial function f : Nm+n → N is partial-recursive if and only if there is a recursive
+function s : Nm → N such that, for all e1 , . . . , em , x1 , . . . , xn ∈ N we have that
+f (e1 , . . . , em , x1 , . . . , xn ) = ϕs(e1 ,...,em ) (hx1 , . . . , xn i).
+
+Theorem 3.2 (Kleene recursion theorem). Let f : N → N be a recursive function.
+Then there exists n ∈ N with ϕn = ϕf (n) .
+
+
+                                                6
+   The following two lemmata were inspired by a correspondence between the author
+and Rod Downey, and will form the recursion theoretic basis of our main results in
+group theory.
+Lemma 3.3. Fix any k > 0. Then there is no partial recursive function g : Nk+2 →
+N such that, given n, x0 , . . . , xk ∈ N satisfying {x0 , . . . , xk } * Wn , we have that
+g(n, x0 , . . . , xk ) halts with output xi ∈ {x0 , . . . , xk } such that {x0 , . . . , x̂i , . . . xk } * Wn .
+That is, given a recursively enumerable set Wn and a finite set F * Wn , we can’t, in
+general, recursively find a proper subset A ⊂ F such that A * Wn .
+Proof. Assume such a g exists. Define f : N × N → N by
+                 
+                   0 if g(n, 0, . . . , k) = j ∈ {0, . . . , k} and m ∈ {0, . . . , ĵ, . . . , k}
+     f (n, m) :=
+                   ↑ in all other cases
+
+Then f is partial-recursive, since g is. By theorem 3.1, there exists a recursive function
+s : N → N such that f (n, m) = ϕs(n) (m) for all m, n. Since s is recursive, theorem
+3.2 shows that there must be some n′ such that ϕs(n′ ) = ϕn′ . Thus f (n′ , m) = ϕn′ (m)
+for all m ∈ N. Moreover, by definition, ϕn′ (m) can halt on at most k of the k + 1
+cases m = 0, . . . , m = k (if at all), and no other values. Thus |Wn′ | ≤ k since Wn′
+is precisely the halting set of ϕn′ . So we must have that at least one of {0, . . . , k}
+does not lie in Wn′ . Thus g(n′ , 0, . . . , k) will halt and output some j in {0, . . . , k}
+such that {0, . . . , ĵ, . . . , k} * Wn′ (by construction of g). But since g(n′ , 0, . . . , k) halts
+and outputs j in {0, . . . , k}, then f (n′ , m) will halt for all m ∈ {0, . . . , ĵ, . . . , k} (by
+construction of f ). Hence ϕn′ (m) will halt for all m ∈ {0, . . . , ĵ, . . . , k} (by definition
+of ϕn′ ), and so {0, . . . , ĵ, . . . , k} ⊆ Wn′ since Wn′ is precisely the halting set of ϕn′ .
+Thus we have a contradiction, as we showed {0, . . . , ĵ, . . . , k} * Wn′ , so no such g can
+exist.
+
+Lemma 3.4. Fix any k > 0. Then there is no partial recursive function g : Nk+2 → N
+such that, given n, x0 , . . . , xk ∈ N satisfying |{x0 , . . . , xk } ∩ Wn | ≤ 1, we have that
+g(n, x0 , . . . , xk ) halts with output xi ∈ {x0 , . . . , xk } such that xi ∈
+                                                                              / Wn .
+That is, given a recursively enumerable set Wn and a finite set F such that |F ∩Wn | ≤ 1,
+we can’t, in general, recursively find an element of F not lying in Wn .
+Proof. Assume such a g exists. Define f : N × N → N by
+                       
+                         0 if g(n, 0, . . . , k) = j ∈ {0, . . . , k} and m = j
+           f (n, m) :=
+                         ↑ in all other cases
+
+Then f is partial-recursive, since g is. By theorem 3.1, there exists a recursive function
+s : N → N such that f (n, m) = ϕs(n) (m) for all m, n. Since s is recursive, theorem
+3.2 shows that there must be some n′ such that ϕs(n′ ) = ϕn′ . Thus f (n′ , m) = ϕn′ (m)
+for all m ∈ N. Moreover, by definition, ϕn′ (m) can halt on at most one of the cases
+m = 0, . . . , m = k (if at all), and no other values. Thus |{0, . . . , k} ∩ Wn′ | ≤ 1. So
+g(n′ , 0, . . . , k) will halt and output j in {0, . . . , k} but not in Wn′ (by construction of
+g). But since g(n′ , 0, . . . , k) halts with output j in {0, . . . , k}, then f (n′ , j) halts (by
+construction of f ). Hence ϕn′ (j) halts (by definition of ϕn′ ), and so j ∈ Wn′ since
+Wn′ is precisely the halting set of ϕn′ . Thus we have a contradiction, as we showed
+j∈/ Wn′ , so no such g can exist.
+
+                                                       7
+   We require the following fundamental results in group computability, made clear in
+[10], which we shall appeal to in our final proofs.
+
+Lemma 3.5. Given a finite group presentation P = hX|Ri, we can recursively form
+the abelianisation presentation P ab by adding the relations [xi , xj ] for all xi , xj ∈ X.
+Then P ab is the abelianisation of the group P . Moreover, the word and isomorphism
+problems are uniformly solvable for finitely presented abelian groups.
+
+Lemma 3.6. There is an algorithm that, on input of two finite presentations of groups
+P, Q, halts if and only if P ∼= Q, and outputs an explicit isomorphism between them
+as a map on the generators. Hence, given a finite group presentation P , the set of all
+finite presentations Pi satisfying Pi ∼
+                                      = P is recursively enumerable.
+
+
+4    Finding non-trivial or non-commuting elements
+We are now able to prove the first of the main results of this paper on finding non-trivial
+or non-commuting elements.
+
+Lemma 4.1. Fix any k > 0. Then there is no algorithm that, on input of k + 1 finite
+presentations of groups such that at least one describes a non-trivial group, removes
+one so that of the remaining presentations at least one describes a non-trivial group.
+
+Proof. Assume such an algorithm exists; we use this to contradict lemma 3.3. Given
+any (k + 2)-tuple (n, x0 , . . . , xk ) with {x0 , . . . , xk } * Wn , form the groups with presen-
+tations Πn,x0 , . . . , Πn,xk as in theorem 2.6 whereby Πn,xi = {e} if and only if xi ∈ Wn .
+Hence at least one of Πn,x0 , . . . , Πn,xk 6= {e}. Now algorithmically remove one of these
+presentations such that those remaining do not all define trivial groups. This immedi-
+ately yields one of x0 , . . . , xk to remove such that not all remaining xi lie in Wn . But
+lemma 3.3 asserts that no such algorithm can exist.
+
+Theorem 4.2. Fix any k > 0. Then there is no algorithm that, on input of a finite
+presentation P = hX|Ri of a non-trivial group P , outputs a word w ∈ W (X) of length
+at most k such that w is non-trivial in P .
+
+Proof. Assume such an algorithm exists; we use this to contradict lemma 4.1. Given
+any k + 1 finite presentations of groups P0 = hX0 |R0 i , . . . , Pk = hXk |Rk i for which
+at least one describes a non-trivial group, form their free product with presentation
+Q = hX0 , . . . , Xk |R0 , . . . , Rk i. Apply the algorithm to Q to give a non-trivial word w
+of length at most k. Then there is an i such that no element of Xi appears in w. So
+removing Pi from our original collection will not leave only presentations of the trivial
+group. But theorem 4.1 asserts no such algorithm can exist.
+
+Corollary 4.3. There is no algorithm that, on input of a finite presentation P =
+hX|Ri of a non-trivial group P , outputs a generator x in X such that x is non-trivial
+in P .
+
+   It is tempting to try and generalise the above results, by removing the bound on
+the length of output words. Thus we think it natural to ask the following, which was
+our motivating question from the introduction:
+
+
+                                                8
+Question 1. Is there an algorithm that, on input of a finite presentation P = hX|Ri
+of a non-trivial group P , outputs a word w ∈ W (X) such that w is non-trivial in P ?
+
+    We conjecture that the answer to this question is no, on the basis of the results
+we have already obtained in this section. As a corollary to theorem 4.2, we show the
+following closely related result.
+
+Corollary 4.4. Fix any k > 0. Then there is no algorithm that, on input of a finite
+presentation P = hX|Ri of a non-abelian group P outputs two words w, w′ ∈ W (X),
+each of length at most k, such that [w, w′ ] is non-trivial in P .
+
+Proof. Assume such an algorithm exists; we use this to contradict theorem 4.2. Given
+any finite presentation P = hX|Ri of a non-trivial group, recursively form the abelian-
+isation presentation P ab and recursively test if P ab is trivial. If not, then recursively
+test all the generators from P ab to find a non-trivial one; the corresponding generator
+in P , call this w, must also be non-trivial, and has length 1. If however P ab is triv-
+ial, then P must be perfect and hence non-abelian, since it is non-trivial. So use the
+algorithm to output words w, w′ ∈ W (X), each of length at most k, such that [w, w′ ]
+is non-trivial in P . In either case we have recursively constructed a word w ∈ W (X)
+that has length at most k and is non-trivial in P , contradicting theorem 4.2.
+
+Corollary 4.5. There is no algorithm that, on input of a finite presentation P =
+hX|Ri of a non-abelian group P , outputs two generators x, y ∈ X such that [x, y] is
+non-trivial in P .
+
+   Again, we are tempted to generalise this by removing the bound on the length of
+the output words, as stated in the following question:
+
+Question 2. Is there an algorithm that, on input of a finite presentation P = hX|Ri of
+a non-abelian group P , outputs two words w, w′ ∈ W (X) such that [w, w′ ] is non-trivial
+in P .
+
+   We conjecture that the answer to this question is no. It can be easily shown by an
+argument almost identical to the proof of corollary 4.4 that ‘no’ to question 2 implies
+‘no’ to question 1. Our partial results on these two questions have used very similar
+methods of proof, and it can be seen that the two questions are very closely and
+naturally related.
+
+
+5    Finding splittings
+We now proceed to our results regarding the splitting of groups into free products. As
+we shall see later, our results have applications to existing constructions in splittings
+of groups with more than one end, as well as splittings of manifolds.
+   The following two theorems can be found in [7], on p. 192 and p. 245 respectively.
+Using these we demonstrate an important property of the groups constructed in theo-
+rem 2.6.
+
+Theorem 5.1 (Grushko-Neumann theorem). Let G be a finitely generated group, and
+suppose that G ∼
+               = A ∗ B. Then rank(G) = rank(A) + rank(B).
+
+
+                                            9
+Theorem 5.2 (Grushko-Neumann decomposition). Let P be a finite presentation of
+a group that splits as a free product A1 ∗ · · · ∗ An , with all the Ai indecomposable. Let
+B1 ∗ · · · ∗ Bk be another such splitting into indecomposable groups. Then n = k, and
+there exists a permutation σ ∈ Sn such that Ai ∼    = Bσ(i) for all 1 ≤ i ≤ n.
+Lemma 5.3. If the group Πm,n from theorem 2.6 is non-trivial (equivalently, n ∈
+                                                                              / Wm ),
+then it is indecomposable.
+Proof. Assume it is not; we proceed by contradiction. If Πm,n is non-trivial then by
+corollary 2.5 it is perfect and has rank precisely 2. However, the Grushko-Neumann
+theorem asserts that a non-trivial splitting of it must have rank 2, so would be the
+free product of 2 groups of rank 1; two cyclic groups. This would have non-trivial
+abelianisation, namely the direct sum of two non-trivial cyclic groups, contradicting
+the fact that Πm,n is perfect.
+
+   We can now prove the main technical result for this section; theorem 5.5 follows as
+an immediate consequence.
+Lemma 5.4. There is no algorithm that, on input of a finite presentation of the form
+Q := Πn,a ∗Πn,b ∗Πn,c where |{a, b, c}∩ Wn | ≤ 1, outputs two finite presentations P1 , P2
+which represent non-trivial groups and whose free product P 1 ∗ P 2 is isomorphic to Q.
+   Note that the above group Q will always split as a non-trivial free product, as at
+least two of the groups Πn,a , Πn,b , Πn,c must be non-trivial since |{a, b, c} ∩ Wn | ≤ 1.
+
+Proof. Assume such an algorithm exists; we proceed to contradict lemma 3.4. So given
+n, a, b, c with |{a, b, c} ∩ Wn | ≤ 1, we can construct the presentation Q := Πn,a ∗ Πn,b ∗
+Πn,c , and use the algorithm to split this as the free product of two non-trivial groups
+with presentations P1 , P2 . There are two possible cases to consider:
+    Case 1. Precisely one of a, b, c lies in Wn . If a ∈ Wn , then Q ∼  = Πn,b ∗ Πn,c , and both
+of these two factors are non-trivial by theorem 2.6, and indecomposable by lemma 5.3.
+So Πn,b ∗ Πn,c ∼ = P 1 ∗ P 2 . Since the splitting on the left is into indecomposable groups,
+then theorem 5.2 asserts that so too is the splitting on the right, and moreover that
+at least one of Πn,b , Πn,c is isomorphic to P 1 . If instead b ∈ Wn (resp. c ∈ Wn ), then
+an identical argument would show that at least one of Πn,a , Πn,c (resp. Πn,a , Πn,b ) is
+isomorphic to P 1 . So regardless of which of a, b, c lies in Wn , we can conclude that at
+least one of Πn,a , Πn,b , Πn,c is isomorphic to P 1 .
+    Case 2. None of a, b, c lie in Wn . Then Q ∼         = Πn,a ∗ Πn,b ∗ Πn,c is a splitting
+into indecomposable groups. So precisely one of P 1 , P 2 splits as a free product since
+Πn,a ∗ Πn,b ∗ Πn,c ∼= P 1 ∗ P 2 (using theorem 5.2 and observing that the left hand side in
+this expression is split into indecomposable groups). So at least one of Πn,a , Πn,b , Πn,c
+is isomorphic to at least one of P 1 or P 2 .
+In either case, at least one of Πn,a , Πn,b , Πn,c is isomorphic to at least one of P 1 , P 2 ;
+these latter two being non-trivial groups. Lemma 3.6 allows us to recursively search for
+an isomorphism between one of Πn,a , Πn,b , Πn,c and one of P 1 , P 2 , which will eventually
+halt and yield an isomorphic pair. This will identify one of the Πn,a , Πn,b , Πn,c as non-
+trivial, and hence one of a, b, c not in Wn . As all the above steps have been algorithmic,
+we thus have an algorithm that on input of a 4-tuple (n, a, b, c) with |{a, b, c}∩Wn | ≤ 1,
+outputs z ∈ {a, b, c} such that z ∈   / Wn . But this contradicts lemma 3.4, so our original
+algorithm cannot possibly exist.
+
+                                              10
+Theorem 5.5. There is no algorithm that, on input of a finite presentation P of a
+group that is a free product of two non-trivial finitely presented groups, outputs two
+finite presentations P1 , P2 which represent non-trivial groups and whose free product is
+isomorphic to P .
+
+
+6    Finding embeddings
+Our final results relate to finding explicit embeddings of finitely presented groups,
+and finding finitely presented subgroups of finitely presented groups. From hereon, |g|
+denotes the order of a group element g; we say g is torsion if 1 < |g| < ∞.
+
+Definition 6.1. Let G be any group. We define the set TorOrd(G) := {n ∈ N | ∃g ∈
+G with |g| = n ≥ 2}, the set of orders of non-trivial torsion elements of G. Note that
+TorOrd(G) never contains 0 or 1.
+
+    The following theorem is from [14] theorem 11.69.
+
+Theorem 6.2 (Torsion theorem for amalgamated products and HNN extensions).
+Let g ∈ G have finite order in G. Then:
+1. If G = K1 ∗H K2 is an amalgamated product, then g is conjugate to an element of
+K1 or K2 . Hence TorOrd(K1 ∗H K2 ) = TorOrd(K1 ) ∪ TorOrd(K2 ).
+2. If G = K∗H is an HNN extension, then g lies in the base group K. Hence
+TorOrd(K∗H ) = TorOrd(K).
+
+   We note here that in the proof of theorem 2.4 found in [5], P (w) is built up from
+amalgamated products and HNN extensions, beginning with the finite presentation P
+and a free group. Thus we have the following immediate corollary.
+
+Corollary 6.3. Let P be a finite presentation of a group, and
+                                                             w a word on its gener-
+                                                                                 
+ators representing a non-trivial element of P . Then TorOrd P (w) = TorOrd P .
+
+   The following is a simple construction based on the above corollary; we later use it
+to prove further results.
+
+Definition 6.4. Let pi be the ith prime (starting at p0 = 2), and xi one of the two
+generators of Πn,i . Then for any n, i ∈ N we define the finite presentations Ψn,i :=
+(Πn,i ×Cpi )(xi ) and Φn,i := (Πn,i ×C2 )(xi ), as described in theorem 2.4. Hence if i ∈
+                                                                                        / Wn
+then TorOrd(Ψn,i ) = {pi } and TorOrd(Φn,i ) = {2}; if i ∈ Wn then TorOrd(Ψn,i ) =
+TorOrd(Φn,i ) = ∅ as they are both trivial.
+
+  Using the above observations as well as our previous results in recursion theory, we
+now prove the main technical result for this section.
+
+Lemma 6.5. There is no algorithm that, on input of a finite presentation P = hX|Ri
+of a group with torsion, and some n ∈ TorOrd(P ), outputs a word w ∈ W (X) which
+represents any torsion element of P (not necessarily of order n).
+
+Proof. Suppose such an algorithm exists; we proceed to contradict lemma 3.4. So
+take n, a, b with |{a, b} ∩ Wn | ≤ 1. Now construct the presentations Φn,a , Φn,b as in
+definition 6.4. Finally, form the free product presentation Φn,a ∗ Φn,b and call this P .
+
+                                            11
+Now, since at least one of a, b ∈ / Wn , we must have that at least one of Πn,a , Πn,b is
+non-trivial (say Πn,i , where i ∈ {a, b}). Hence xi is non-trivial in Πn,i by corollary
+2.5, and so Φn,i is non-trivial by theorem 2.4. So by the properties of HNN extensions
+and amalgamated products, along with the construction from theorem 2.4, we have
+that C2 ֒→ Πn,i × C2 ֒→ (Πn,i × C2 )(xi ) = Φn,i ֒→ Φn,a ∗ Φn,b . Now knowing that
+Φn,a ∗ Φn,b has an element of order 2, we can apply our algorithm to produce a word
+w representing a torsion element in Φn,a ∗ Φn,b . By theorem 6.2 we have that w must
+be conjugate to an element in either Φn,a or Φn,b . We can recursively search for this,
+and find one of these which w is conjugated into. This gives us one of Φn,a , Φn,b which
+is non-trivial, hence one of xa , xb which is non-trivial, hence one of Πn,a , Πn,b which
+is non-trivial, hence one of a, b ∈/ Wn . All stages in this process have been recursive,
+hence we have contradicted lemma 3.4.
+
+   It is a straightforward application of this technical result to prove the following
+theorem.
+Theorem 6.6. There is no algorithm that, on input of two finite presentations P =
+hX|Ri and Q = hY |Si such that P embeds in Q, outputs an explicit map θ : X → W (Y )
+such that θ extends to an embedding θ : P ֒→ Q.
+Proof. Assume we have such an algorithm; we proceed to contradict lemma 6.5. So
+take a finite presentation Q = hY |Si of a group with torsion, and some n ∈ TorOrd(Q).
+Then the group Cn with finite presentation ht|tn i must embed in Q. Now we apply
+our algorithm to construct a map θ : {t} → W (Y ) which extends to an embedding
+θ : Cn ֒→ Q. Taking w := θ(t) we have that |w| = n, so w represents a torsion element
+of Q. All stages in this process have been recursive, hence we have algorithmically
+constructed a word representing a torsion element of Q, contradicting lemma 6.5.
+
+   Remarkably, even if we specify an order n, we still can’t find such a torsion element
+w. Not only do we lack an algorithm to output torsion elements; we can’t even say
+much about TorOrd(G) for an arbitrary group G, as the following shows.
+Theorem 6.7. There is no algorithm that, on input of a finite presentation P = hX|Ri
+of a group with torsion, outputs some n ∈ TorOrd(P ).
+Proof. We again proceed to contradict lemma 3.4. So take n, a, b with |{a, b} ∩ Wn | ≤
+1, and recursively construct the presentations Ψn,a , Ψn,b as in definition 6.4. Then
+TorOrd(Ψn,a ) is either ∅ or {pa }, and TorOrd(Ψn,b ) is either ∅ or {pb }. So by theorem
+6.2, TorOrd(Ψn,a ∗ Ψn,b ) ⊂ {pa , pb }. Moreover, pa ∈ TorOrd(Ψn,a ∗ Ψn,b ) if and only if
+a∈ / Wn (and similarly for pb ); TorOrd(Ψn,a ∗ Ψn,b ) is non-empty since at least one of
+     / Wn . Now if we could algorithmically output one of pa , pb ∈ TorOrd(Ψn,a ∗ Ψn,b ),
+a, b ∈
+we would then have one of a, b ∈ / Wn , contradicting lemma 3.4.
+
+    At this point is seems relevant to make the following remark about the enumerability
+of finitely presented subgroups of finitely presented groups.
+Theorem 6.8. There exists a finitely presented group G such that the set of all finite
+presentations that define groups which embed into G is not recursively enumerable.
+   We break up the proof into preparatory lemmas, beginning with the following two
+results found in [14] as corollary 11.72 and theorem 12.18 respectively.
+
+                                           12
+Lemma 6.9. Let G be a countable group with generator and relator sets that are
+recursively enumerable. Then G can be uniformly embedded into some 2-generator
+recursively presented group E such that TorOrd(G) = TorOrd(E).
+
+Theorem 6.10 (Higman). Let G be a finitely generated recursively presented group.
+Then G can be uniformly embedded into some finitely presented group H such that
+TorOrd(G) = TorOrd(H).
+
+   In both cases, the group so constructed is built up from amalgamated products and
+HNN extensions, beginning with G and some finitely generated free groups. Hence, by
+theorem 6.2, TorOrd(G) = TorOrd(E) (respectively, TorOrd(H)).
+
+Lemma 6.11. There is a uniform procedure than, on input of any n ∈ N, constructs a
+finite presentation Qn such that TorOrd(Qn ) is one-one equivalent to N \ Wn . Taking
+n′ with Wn′ non-recursive thus gives that TorOrd(Qn′ ) is not recursively enumerable.
+
+   See [13] section §7.1 for an introduction to one-one equivalent sets. We wish to
+thank Chuck Miller for pointing out a more elegant presentation for the group P n
+used in the following proof.
+
+Proof. For any given n ∈ N, we may form the presentation Pn := hx0 , x1 , . . . |xpi i =
+e ∀i ≥ 0, xj = e ∀j ∈ Wn i with recursively enumerable generating and relating sets; by
+construction TorOrd(P n ) = {pj |j ∈
+                                   / Wn }. We use lemma 6.9 to uniformly construct a
+2-generator recursive presentation Hn with P n ֒→ H n and TorOrd(H n ) = TorOrd(P n ),
+and theorem 6.10 to uniformly construct a finite presentation Qn with H n ֒→ Qn and
+TorOrd(Qn ) = TorOrd(H n ) = TorOrd(P n ). Since pj ∈ TorOrd(Qn ) if and only if
+j∈/ Wn , we have that TorOrd(Qn ) is one-one equivalent to N \ Wn . And as all stages
+in this construction have been uniform, we conclude that such a presentation Qn can
+be uniformly constructed from n.
+
+Proof of theorem 6.8. We make the simple observation that ht|tm i embeds in a group
+G if an only if m ∈ TorOrd(G). Now take G to be Qn′ from lemma 6.11, with Wn′
+non-recursive. Begin an enumeration of the finite presentations which embed in Qn′
+and look for those of the form ht|tm i, which will in turn give a recursive enumeration
+of TorOrd(Qn′ ). This is impossible by lemma 6.11.
+
+
+7    Applications
+We now show an application that relates to the following result by Stallings ([17]
+Theorem 4.A.6.5 and Theorem 5.A.9) on splitting groups with more than one end. For
+an introduction to the ends of a group, see [15].
+
+Theorem 7.1 (Stallings). A finitely generated group G has more than one end if and
+only if it splits over a finite subgroup via an amalgamated product or HNN extension.
+
+Corollary 7.2. There is no algorithm that, on input of a finite presentation P of a
+group P with more than one end, splits P over a finite subgroup. That is, re-writes the
+presentation P as an HNN extension or amalgamated product over a finite subgroup.
+
+
+
+                                          13
+Proof. Whenever |{a, b, c} ∩ Wn | ≤ 1, we have that at least two of Πn,a , Πn,b , Πn,c
+are non-trivial by theorem 2.6, and all three are torsion free and indecomposable. So
+Πn,a ∗ Πn,b ∗ Πn,c splits, but not over a non-trivial finite subgroup. Also, since the
+non-trivial Πn,− groups are perfect and hence non-cyclic, their free product cannot be
+an HNN extension over the trivial group (equivalently, a free product with Z). So the
+only way to split Πn,a ∗ Πn,b ∗ Πn,c over a finite subgroup is to split it as a free product.
+But lemma 5.4 asserts that this cannot always be done algorithmically.
+
+   We finish with an application involving a proof by Markov ([8]) that there is no
+algorithmic classification of closed 4-manifolds. We write the connect sum of two
+manifolds M and N as M #N , and if they are homeomorphic we denote this by M ≃ N .
+For the remainder of the geometry concepts used below, we recommend the reader
+consult a reference such as [6].
+
+Theorem 7.3 (Markov). There is a recursive procedure that, on input of a finite
+presentation P = hX|Ri of a group, constructs a finite triangulation M (P ) of a closed
+4-manifold with the following properties:
+1. π1 (M (P )) ∼
+               = P.
+2. If P and Q are finite presentations, then M (P ∗ Q) ≃ M (P )#M (Q).
+
+   We wish to thank Jacob Rasmussen for his careful explanation of the following
+construction (originally due to Markov).
+
+Proof. Property 1 is explicitly stated, and a construction given, in [8]. However, a more
+detailed exposition can be found in [3]. It remains only to prove that the construction
+satisfies property 2. We loosely describe the construction given in [8]: Start with the
+4-ball B 4 . For each generator of the finite presentation P , attach a 1-handle to B 4 .
+For each relator, attach a 2-handle in some prescribed way. This can be done in such a
+way that the resulting space is a 4-manifold, and by taking the double of this space we
+obtain our closed 4-manifold having fundamental group isomorphic to P . If we choose
+a separating 3-ball D through our original ball B 4 , then by starting with a presentation
+P ∗ Q one can observe that all the 1-handles corresponding to generators from P can
+be attached to one side of D, and those from Q can all be attached to the other side.
+Also, the 2-handles can be attached in such a way that those induced by P remain on
+the same side of D as all the 1-handles from P , and likewise for Q. Now, when we
+take the double of the resulting space, the two copies of D are identified along their
+boundaries, thus forming a separating sphere S 3 . Hence our resulting space splits as
+the connect sum of two spaces; it is not hard to see that these two are just the spaces
+obtained by applying the procedure to P and Q.
+
+Corollary 7.4. There is no algorithm that, on input of a finite triangulation of a closed
+4-manifold M which splits as a connect sum of two non-simply connected manifolds,
+outputs two finite triangulations of non-simply connected closed 4-manifolds M1 , M2
+whose connect sum is homeomorphic to M .
+
+Proof. Assume such an algorithm exists; we proceed to contradict lemma 5.4. So given
+n, a, b, c with |{a, b, c}∩Wn | ≤ 1, we construct M := M (Πn,a ∗Πn,b ∗Πn,c ) as in theorem
+7.3. We know this splits as a connect sum of non-simply connected closed 4-manifolds
+by property 2 and the fact that at least two of Πn,a , Πn,b , Πn,c are non-trivial. Applying
+
+                                             14
+our algorithm to M gives two finite triangulations of non-simply connected closed 4-
+manifolds M1 and M2 such that M1 #M2 ≃ M . From the finite triangulation of M1
+we can algorithmically construct a finite presentation A of π1 (M1 ) (see [16] §46), and
+likewise a finite presentation B of π1 (M2 ). By the Seifert-van Kampen theorem ([6])
+and theorem 7.3 we have Πn,a ∗ Πn,b ∗ Πn,c ∼ = π1 (M ) ∼
+                                                       = π1 (M1 ) ∗ π1 (M2 ) ∼
+                                                                             = A ∗ B, with
+A and B both non-trivial. Since all the above steps have been uniform, we have thus
+algorithmically constructed a non-trivial free product splitting of Πn,a ∗ Πn,b ∗ Πn,c ,
+contradicting lemma 5.4.
+
+    We can also apply the Markov construction to carry over some of our other algo-
+rithmic results from algebra to geometry.
+
+Corollary 7.5. There is no algorithm that, on input of a finite triangulation of a
+closed 4-manifold M such that π1 (M ) has torsion, outputs an essential loop γ in M
+which represents a torsion element in π1 (M ). Nor is there an algorithm that, on the
+same input as above, outputs some n ≥ 2 such that there exists an essential loop β in
+M with [β] having order precisely n in π1 (M ).
+
+Proof. Given a finite presentation P such that P has torsion, we may use theorem 7.3
+to uniformly construct M (P ) with π1 (M (P )) ∼
+                                               = P . Existence of the first algorithm
+would thus contradict lemma 6.5; existence of the second, theorem 6.7.
+
+Remark. By looking closely at the proof of lemma 6.5 and applying it to the Markov
+construction, we see that we have actually shown a stronger result: There is no al-
+gorithm that, on input of a finite triangulation of a closed 4-manifold M such that
+π1 (M ) has torsion, and 2 loops γ, β such that at least one represents an element of or-
+der precisely 2 in π1 (M ), outputs any essential loop α in M which represents a torsion
+element of any order in π1 (M ).
+
+
+References
+ [1] S. I. Adian, Finitely presented groups and algorithms, Dokl. Akad. Nauk SSSR
+     117, 9–12 (1957).
+
+ [2] W. W. Boone, The word problem, Ann. of Math., 70, 207–265 (1959).
+
+ [3] W. W. Boone, W. Haken, V. Poenaru, On recursively unsolvable problems in
+     topology and their classification, Contributions to Mathematical Logic, North-
+     Holland Publishing, Amsterdam, (1968).
+
+ [4] W. W. Boone, H. Rogers Jr., On a problem of J.H.C. Whitehead and a problem
+     of Alonzo Church, Math. Scand. 19, 185–192 (1966).
+
+ [5] C. Gordon, Some embedding theorems and undecidability questions for groups.
+     Combinatorial and geometric group theory (Edinburgh, 1993), London Math. Soc.
+     Lecture Note Ser., 204, Cambridge Univ. Press, Cambridge, 105–110 (1995).
+
+ [6] A. Hatcher, Algebraic Topology, Cambridge Univ. Press, Cambridge, (2002).
+
+ [7] W. Magnus, A. Karrass, D. Solitar, Combinatorial group theory, Dover, (2004).
+
+                                           15
+ [8] A. A. Markov, The insolubility of the problem of homeomorphy (Russian), Dokl.
+     Akad. Nauk SSSR 121, 218–220 (1958).
+
+ [9] The Kourovka notebook, Edited by V. D. Mazurov and E. I. Khukhro, Russian
+     Acad. Sci. Siber. Div., Inst. Math., Novosibirsk, (2006).
+
+[10] C. F. Miller III, Decision problems for groups-survey and reflections. Algorithms
+     and classification in combinatorial group theory (Berkeley, CA, 1989), Math. Sci.
+     Res. Inst. Publ., 23, Springer, New York, 1–59 (1992).
+
+[11] E. L. Post, Recursive unsolvability of a problem of Thue, J. Symbolic Logic 12,
+     1–11 (1947).
+
+[12] M. O. Rabin, Recursive unsolvability of group theoretic problems, Annals of Math.
+     67, 172–194 (1958).
+
+[13] H. Rogers Jr, Theory of recursive functions and effective computability, MIT Press,
+     (1987).
+
+[14] J. Rotman, An introduction to the theory of groups, Springer-Verlag, New York,
+     (1995).
+
+[15] P. Scott, T. Wall, Topological methods in group theory, Homological group the-
+     ory (Proc. Sympos., Durham, 1977), London Math. Soc. Lecture Note Ser., 36,
+     Cambridge Univ. Press, Cambridge-New York, 137–203 (1979).
+
+[16] H. Seifert, W. Threlfall, A textbook of Topology (translated from the 1934 German
+     original Lehrbuch der Topologie), Academic Press Inc, London, (1980).
+
+[17] J. R. Stallings, Group theory and three dimensional manifolds, Yale Math., mono-
+     graphs no. 4, New Haven, Yale University Press (1971).
+
+
+
+Maurice Chiodo
+Department of Mathematics and Statistics
+The University of Melbourne
+Parkville, VIC, 3010
+AUSTRALIA
+m.chiodo@pgrad.unimelb.edu.au
+
+
+
+
+                                          16
+

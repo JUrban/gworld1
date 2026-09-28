@@ -155,3 +155,20 @@ All four original paragraphs and primary theorem pages were inspected visually. 
 - Further N8 class-seven/free-nilpotent commutator searches located no matching algorithm theorem. Earlier primary Roman'kov background remains credited. The rank-two extension proves its additional Lie minor and polynomial-lattice facts explicitly. Novelty remains provisional.
 
 The original F20, GA2 and GA3 paragraph screenshots were inspected. No new whole-entry or additional partial count arises from these scope checks.
+
+## Equations, algorithmic scope and N8 structure, 28 September 2026 approximately 14:48–15:11 UTC
+
+- [Sela, arXiv:1012.0044](https://arxiv.org/abs/1012.0044), Theorem 9.1 and all of section 9: E5 has a prior full positive answer, including systems with coefficients and factors of arbitrary cardinality. Archived primary source and read printed pages 138–142; earlier Makanin–Razborov machinery was not independently audited.
+- [Groves–Hull, arXiv:1704.03491](https://arxiv.org/abs/1704.03491), Theorem D, introduction and Definition 3.1: H12 has a prior positive answer, including torsion. The authors credit earlier Reinfeldt–Weidmann work. The coefficient/family distinction and the finite-generation conversion are recorded in `research/notes/equations-and-algorithms-scope-audit.md`; the full shortening proof was not independently audited.
+- [Chiodo, arXiv:1002.2786v3](https://arxiv.org/abs/1002.2786v3), introduction and Theorem 4.2: bounded-length nontrivial-element output is impossible. This restricted result does not answer full A6. Archived and read the exact scope; original E5/H12/A6 full HTML and screenshots inspected.
+- [Bryant–Kovacs–Stohr, 2005](https://archives.maths.anu.edu.au/people/Kovacs/K110.pdf), introduction, printed pp.147–148: explicitly states the homogeneous irredundant-set form of Shirshov's lemma for ordinary free Lie algebras. Archived and read this structural ingredient for the all-rank class-seven N8 argument. The restricted-Lie correction discussed elsewhere in that paper is not invoked.
+
+Further searches for “free nilpotent commutator class seven”, “free nilpotent single commutator algorithm”, and “free nilpotent commutator equation decidable” did not locate a matching full decision theorem. The old class-two result and undecidability of general systems remain different scopes. This search does not certify novelty. Targeted F28/N5/M0 checks likewise did not locate a matching full prior answer; their novelty and correctness remain separate provisional assessments.
+
+A title-level lead for Truss, [*Equation-Solving in Free Nilpotent groups Class 2 and 3*](https://doi.org/10.1112/blms/27.1.39), was checked against the primary publisher abstract: its negative class-three result concerns general unification, and its positive restricted result concerns class two. Neither statement supplies the present higher-class single-commutator algorithm. Only the abstract was read in this follow-up; no full-text claim is made.
+
+## A4 follow-up, 28 September 2026 approximately 15:18–15:21 UTC
+
+[Hass, arXiv:math/9712269](https://arxiv.org/abs/math/9712269), section6/Theorem10: archived and read the full finite-quotient argument. Its positive branch uses a geometric disk search. Replacing that branch by enumeration of proofs that all generator commutators vanish gives the requested presentation-only cyclicity algorithm, since knot-group abelianization is Z. This routine consequence of prior residual finiteness is excluded from discovery counts. Full original page, background and exact screenshot inspected. See `research/notes/A4-prior-cyclicity-algorithm.md`.
+
+A further S5 search again found restricted direct-product results and the 2026 Deré–Vandermeersch co-Hopfian minimax paper, not a full answer for arbitrary finitely generated solvable Hopfian factors. No new scope claim or computation follows.

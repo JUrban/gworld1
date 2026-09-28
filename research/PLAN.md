@@ -104,3 +104,19 @@ large computations. Useful mathematical questions include whether the
 (1,4) correction kernel admits a proved all-rank bound, and whether any
 other target can be handled by a finite number of one-variable polynomial
 conditions. Such leads are not part of the counted scope until complete.
+
+## Working focus after the all-rank class-seven checkpoint
+
+The exceptional N8 kernel now has an all-rank proof, and the extended
+prototype has independent GAP certificates. Keep this as the same
+partial candidate; do not infer class-eight completeness. Larger
+integer systems and repeated Magnus multiplication caused two saved
+timeouts before arithmetic improvements. Further computational scaling
+should follow a new mathematical question, not just larger examples.
+
+E5,H12 and A4 are prior positive answers/consequences and leave the
+discovery queue. A6's unrestricted-word scope remains separate from
+Chiodo's bounded-length theorem. Return to the broader unresolved
+portfolio and adversarial review of F28,N5,M0 before another N8
+extension. The proofs and bibliographic status still need external
+specialist review; computation is supporting evidence only.

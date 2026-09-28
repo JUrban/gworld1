@@ -17,3 +17,14 @@ The renderer opens archived original HTML with external HTTP(S) requests blocked
 Runtime installations and package downloads are ignored rather than embedded in Git. These dependencies support source inspection; they are not mathematical evidence or imported Kourovka arguments.
 
 For the N8 exact prototype installed SymPy 1.14.0 and mpmath 1.3.0 in the ignored virtual environment. Smith decompositions use `sympy.polys.matrices.normalforms.smith_normal_decomp`; the implementation checks D=S*A*T on each use.
+
+At approximately 15:01 UTC on 28 September, installed python-flint 0.9.0
+with `uv pip install --python /project/gworld1/.venv/bin/python python-flint`
+for the larger N8 class-seven integral systems. The new Hermite solver
+checks its integer transformation identity and unimodular determinant.
+FLINT's LLL output is used only to shorten a solution modulo its kernel;
+its basis transformation is likewise checked exactly, and the subsequent
+nearest-plane subtraction uses exact rational arithmetic. LLL's internal
+approximations are not used to decide membership. The package also makes
+FLINT available as SymPy's automatic ground arithmetic backend; earlier
+successful runs predate this installation and retain their original logs.
