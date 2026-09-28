@@ -1,0 +1,2584 @@
+ISSN 1364-0380 (on line) 1465-3060 (printed)                                1835
+
+
+Geometry & Topology                                                   G     T
+                                                                   G G TT TG T T
+Volume 9 (2005) 1835–1880                                        G
+                                                                 G    T     G T
+Published: 25 September 2005                                     G    T     G   T
+                                                                  G T GG TT
+                                                                    GGG T T
+
+
+
+
+      The Grushko decomposition of a finite graph
+        of finite rank free groups: an algorithm
+                                  Guo-An Diao
+                                  Mark Feighn
+
+                School of Arts and Sciences, Holy Family University
+                           Philadelphia, PA 19114, USA
+                                        and
+                Department of Mathematics and Computer Science
+                   Rutgers University, Newark, NJ 07102, USA
+      Email: gdiao@holyfamily.edu and feighn@andromeda.rutgers.edu
+
+
+
+Abstract
+
+A finitely generated group admits a decomposition, called its Grushko decom-
+position, into a free product of freely indecomposable groups. There is an
+algorithm to construct the Grushko decomposition of a finite graph of finite
+rank free groups. In particular, it is possible to decide if such a group is free.
+
+
+AMS Classification numbers            Primary: 20F65
+Secondary: 20E05
+
+
+Keywords:      Graph of groups, Grushko decomposition, algorithm, labeled graph
+
+
+
+
+Proposed: Benson Farb                                   Received: 5 February 2005
+Seconded: Martin Bridson, Joan Birman                  Revised: 11 September 2005
+
+
+c Geometry & Topology Publications
+1836                                                       Guo-An Diao and Mark Feighn
+
+
+1       Introduction
+
+Theorem 1.1 (Grushko [15]) A finitely generated group G is a free product
+of a finite rank free subgroup and finitely many freely indecomposable non-free
+subgroups.
+
+Up to reordering and conjugation, the non-free factors appearing in this the
+Grushko decomposition of G are unique. The rank of the free factor is also an
+invariant of G. The main result of this paper is:
+
+Theorem 1.2 There is an algorithm which produces the Grushko decompo-
+sition of a finite graph1 of finite rank free groups2 .
+
+A relative version is given in Section 2.11.
+The class of finite graphs of finite rank free groups is fascinating and has received
+much attention. For example, mapping tori of free group automorphisms are
+in this class, see [3, 10, 12, 7]. Also, limit groups which appear in the recent
+work on the Tarski problem, see [19, 24], have a hierarchy in which those limit
+groups appearing on the first level are finite graphs of finite rank free groups.
+The algorithm is given in Section 2. Theorem 2.8 is a refined version of The-
+orem 1.2 and is proved in Section 10. Work of Shenitzer or Swarup when
+combined with Whitehead’s algorithm for deciding if a given element of a free
+group is primitive3 gives the case of Theorem 1.2 where edge groups are cyclic.
+
+Theorem 1.3 (Shenitzer–Swarup [26],[29], [31],[30], see also [28]) There is
+an algorithm to decide whether a finite graph of finite rank free groups with
+cyclic edge groups is free.
+
+There are other notable situations where the Grushko decomposition may be
+found algorithmically. For example, given a presentation with one relation for
+a group G, the Grushko decomposition of G can be constructed (eg, [21]).
+Also, from a triangulation of a closed orientable 3–manifold M , the connected
+sum decomposition of M can be found (see [17]). The referee points out two
+other papers [13] and [20] that consider respectively hyperbolic groups and limit
+groups.
+    1
+      in the sense of Bass–Serre [25]
+    2
+      ie, vertex and edge groups are free of finite rank, see Section 2.7
+    3
+      an element of some basis
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                  1837
+
+
+Here is a sketch of the proof of Theorem 1.2. There are three steps. Suppose
+that S is a cocompact G–tree with finitely generated edge stabilizers. Suppose
+further that G is freely decomposable and that T is a G–tree with one orbit
+of edges and with trivial edge stabilizers. Give the product S × T the diagonal
+G–action. S × T is a union of squares (edge×edge). There is a cocompact G–
+subcomplex XS (T ) that is a G–deformation retract of S × T (see Section 5).
+As XS (T ) is contained in S × T , there is a natural map XS (T ) → T . The
+preimage in XS (T ) of the midpoint of an edge of T is a compact forest. A
+valence one vertex of this forest corresponds to a square in XS (T ) that may
+be equivariantly collapsed. We may iteratively collapse until each component
+of this tree is a point. These points exhibit free decompositions of G that are
+compatible with the original splitting given by S .
+
+An argument similar to the one in this first step was used by Bestvina–Feighn
+in [2] to among other things reprove Theorem 1.3. The use of products of trees
+is inspired by the Fujiwara–Papasoglu [11] approach to the Rips–Sela JSJ –
+theorem [23].
+
+The second step is to translate these collapses of XS (T ) into corresponding
+simplifications of the original graph of groups. This is straightforward and is
+done in Section 8. These first two steps do not use the hypothesis that edge
+and vertex groups are free.
+
+In the third step (Section 9), we show how Gersten representatives [14] of con-
+jugacy classes of subgroups of free groups can be used to detect simplifications.
+This is probably the heart of the paper.
+
+A special case of Theorem 1.2 solves Problem F24b on the problem list at
+http://www.grouptheory.org.
+
+For the convenience of readers interested primarily in using the algorithm, it is
+described in the next section (Section 2). Definitions are given, but proofs are,
+for the most part, deferred until later in the paper. The first two steps of the
+proof are more general and therefore somewhat cleaner, see Sections 3–8 which
+can be read independently of Section 2.
+
+The first named author’s thesis [9] included an algorithm to decide if a finite
+graph of finite rank free groups is free. The second named author warmly
+thanks Mladen Bestvina for helpful conversations and gratefully acknowledges
+the support of the National Science Foundation.
+
+
+Geometry & Topology, Volume 9 (2005)
+1838                                                    Guo-An Diao and Mark Feighn
+
+
+2      The algorithm
+
+Mainly to establish notation, we first recall the definition of a graph of groups.
+
+
+2.1     Graphs of groups
+
+A reference for this section is [25]. A graph is a 1–dimensional CW –complex
+and is determined by the following combinatorial data: a 4–tuple (V, Ê, op, ∂0 )
+where
+    • V and Ê are sets;
+    • op : Ê → Ê satisfies
+        (1) op ◦ op = Id, and
+        (2) op(e) 6= e, for all e ∈ Ê ; and
+    • ∂0 : Ê → V .
+For e ∈ Ê , we also write e−1 for op(e) and set ∂1 e = ∂0 e−1 . For v ∈ V ,
+Ê(v) = {e ∈ Ê : ∂0 e = v}. The valence of v is the cardinality |Ê(v)| of Ê(v).
+Such a 4–tuple is a combinatorial graph. The graph
+                                Γ = Γ(V, Ê, op, ∂0 )
+so determined has vertex set identified with V . The set Ê corresponds to
+the set of oriented edges of Γ; the set E of edges of Γ is identified with
+{{e, e−1 } : e ∈ Ê}. The map op reverses edge orientations, and ∂0 deter-
+mines the characteristic maps of Γ. Up to isomorphism, a graph uniquely
+determines a combinatorial graph and vice versa. In particular, properties of
+one give properties of the other. The interior of an edge e is denoted e̊.
+A graph of groups is a 4–tuple
+        G = (Γ(V, Ê, op, ∂0 ), {Gv : v ∈ V }, {Ge : e ∈ Ê}, {ϕe : e ∈ Ê})
+where
+    • Γ(V, Ê, op, ∂0 ) is a connected combinatorial graph Γ(G);
+    • for e ∈ Ê and v ∈ V , Ge = Ge−1 and Gv are groups; and
+    • for e ∈ Ê , ϕe : Ge → G∂0 e is a monomorphism.
+The groups Ge and Gv are respectively edge and vertex groups. The ϕe ’s are
+bonding maps. We say that G is reduced if
+    • ϕe : Ge → Gv is not an isomorphism for any valence one vertex v ; and
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                     1839
+
+
+   • if v has valence two and if ϕe : Ge → Gv is an isomorphism, then Ê(v) =
+     {e, e−1 } (in which case Γ(G) is a loop).
+Associated to a graph of groups G is an isomorphism type of group π1 (G),
+see [25]. If G ∼ = π1 (G) then we say that G is a graph of groups decomposition
+for G. Let G and G ′ be graphs of groups with the same underlying graphs,
+edge groups, and vertex groups. We say that G and G ′ are conjugate, written
+G ∼ G ′ , if there is a sequence ~h = {he ∈ G∂0 e : e ∈ Ê} such that ϕ′e = ihe ◦ ϕe
+where ihe denotes the inner automorphism induced by he , ie, ihe (g) = he gh−1   e .
+If G and G ′ are conjugate, then π1 (G ′ ) and π1 (G) are isomorphic.
+A simplicial action of a group G on a tree T determines a graph of groups
+with underlying graph T /G and with vertex and edge groups given by vertex
+and edge stabilizers of in T . Conversely, a graph of groups G determines up to
+simplicial isomorphism a G ∼ = π1 (G)–tree T (G). See [25]. G is a trivial graph of
+                             ∼
+groups decomposition if G = π1 (G) fixes a point of T (G). If G is a non-trivial
+graph of groups decomposition for G then we also say that G is a splitting for
+G. If the edge groups of G are contained in some class of groups then we say
+that G splits over this class. For example, if G is a non-trivial graph of groups
+decomposition for G and all edge groups of G are trivial then we say that G
+splits over 1 where 1 denotes the trivial group.
+If G is a graph of groups with G =∼ π1 (G) then the edges e of Γ(G) with Ge = 1
+determine a free product decomposition Fm ∗ G1 ∗ · · · ∗ Gn where m is the rank
+of the graph obtained from Γ(G) by collapsing all edges f with Gf 6= 1 and the
+Gi ’s are the fundamental groups of graphs of groups given by the components
+of Γ(G) \ (∪e {e̊ | Ge = 1}). This decomposition is called the decomposition of
+G determined by the edges of G with trivial stabilizer.
+Now we describe some operations on a graph of groups G . These will be the
+simplifying moves of the algorithm. The moves will transform
+                             G = (Γ, {Gv }, {Ge }, {ϕe })
+into G ′ = (Γ′ , {Gv′ }, {Ge′ }, {ϕe′ }). Much of the data will be the same for G and
+G ′ , so in describing the moves we will usually only record the differences.
+
+
+2.2    Reducing
+
+If a bonding map at a valence one or two vertex is an isomorphism then there
+is an obvious simplification that we now describe.
+Suppose v ∈ V has valence one, ie, Ê(v) = {e}. Suppose further that ϕe is an
+isomorphism. Then, define G ′ by setting V ′ = V \ {v} and Ê ′ = Ê \ {e, e−1 }.
+
+
+Geometry & Topology, Volume 9 (2005)
+1840                                                       Guo-An Diao and Mark Feighn
+
+
+Next suppose that v ∈ V has valence two and that Γ is not a loop, ie, Ê(v) =
+{e, f 6= e−1 }. Suppose further that ϕe is an isomorphism. Then, define G ′ by
+setting V ′ = V \ {v}, setting Ê ′ = Ê \ {e, e−1 }, redefining ∂0 f to be ∂1 e, and
+redefining ϕf to be ϕe−1 ◦ ϕ−1e ◦ ϕf .
+
+If Γ(G) is finite then, since each of these operations decreases the number of
+vertices, after finitely many operations we obtain a reduced graph of groups
+that has been obtained from G by reducing. See Figure 1.
+
+
+
+                                             Ge   Reduce
+
+                                      Ge
+
+
+                       Gf             Ge       Reduce          Gf
+                              Ge
+
+                                   Figure 1: Reducing
+
+In the remaining moves, some vertex group admits a graph of groups decom-
+position that is compatible with the bonding maps.
+
+
+2.3    Blowing up
+
+There are two types of blowing up. Suppose first that, for some v ∈ V , Gv =
+G′v ∗hti where t has infinite order, and ϕe (Ge ) ⊂ G′v for e ∈ Ê(v). Then, define
+G ′ as follows:
+   • the vertex sets are the same, ie, V ′ = V ;
+   • add a new oriented loop so that Ê ′ = Ê ∪ {et , e−1                    −1
+                                                        t }, with ∂0 et = ∂0 et =
+     v , Get = 1, and redefine Gv to be G′v ; and
+   • bonding maps are given by restricting the codomains of the bonding maps
+     of G ′ if necessary.
+Secondly, suppose that, for some v ∈ V , Gv = G′v ∗ G′′v and, for each e ∈ Ê(v),
+ϕe (Ge ) is either contained in G′v or G′′v . Then, define G ′ as follows:
+   • replace v by two vertices v ′ and v ′′ , ie, V ′ = V ∪ {v ′ , v ′′ } \ {v};
+   • add a new oriented edge so that Ê ′ = Ê ∪ {et , e−1                ′
+                                                        t } with ∂0 et = v ,
+              ′′
+     ∂1 et = v , and Get = 1;
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                    1841
+
+
+
+                        G′v ∗ hti   Blow up                  G′v
+                                                                       1
+
+
+
+                         Figure 2: The first type of blowup
+
+
+   • if e ∈ Ê(v) then ∂0 e is v ′ or v ′′ depending on whether Ge ⊂ Gv′ or
+     Ge ⊂ Gv′′ ; and
+   • bonding maps are given by restricting the codomains of the bonding maps
+     of G ′ if necessary.
+
+
+                                                              G′′v
+                               G′v ∗ G′′v     Blow up
+                                                                   1
+
+                                                              G′v
+
+
+                        Figure 3: The second type of blowup
+
+In each of these cases, we say that the new graph of groups is obtained from G
+by blowing up. See Figures 2 and 3.
+
+
+2.4    Unpulling
+
+Suppose that, for some v ∈ V and e ∈ Ê(v), we have Gv = G′v ∗Z, Ge = G′e ∗Z,
+ϕe (G′e ) ⊂ G′v , ϕe (Z) = Z, and ϕf (Gf ) ⊂ G′v for f ∈ Ê(v) \ {e}. Then, define
+G ′ as follows:
+   •   V′ =V ;
+   •   Ê ′ = Ê ;
+   •   redefine Gv to be G′v , Ge to be G′e ; and
+   •   bonding maps are given by restricting codomains of bonding maps of G ′
+       if necessary.
+We say that the new graph of groups is obtained from G by unpulling.4 See
+Figure 4.
+  4
+    We use the term unpulling because the inverse operation pulls an element of G′v
+across the edge e.
+
+
+Geometry & Topology, Volume 9 (2005)
+1842                                                             Guo-An Diao and Mark Feighn
+
+
+
+                           G′v ∗ Z                Unpull               G′v
+                                    G′e ∗ Z                                   G′e
+
+
+
+                                       Figure 4: Unpulling
+
+
+2.5      Unkilling
+
+Suppose that, for some v ∈ V and e ∈ Ê(v), Gv = G′v ∗ hti where t has infinite
+order, Ge = G′e ∗ G′′e , ϕe (G′e ) ⊂ G′v , ϕe (G′′e ) ⊂ tG′v t−1 , and ϕf (Gf ) ⊂ G′v for
+f ∈ Ê(v) \ {e}. Then, define G ′ as follows:
+
+   • V′ =V ;
+
+   • the oriented edge {e, e−1 } is replaced with two oriented edges having the
+     same endpoints as e:
+
+                          Ê ′ = Ê ∪ {e′ , e′′ , (e′ )−1 , (e′′ )−1 } \ {e, e−1 }
+
+        with ∂0 e′ = ∂0 e′′ = ∂0 e and ∂1 e′ = ∂1 e′′ = ∂1 e;
+
+   • Ge′ = G′e , Ge′′ = G′′e , Gv is redefined to be G′v ; and
+
+   • ϕe′′ = it−1 ◦ ϕe |G′′e and other bonding maps are given by restricting do-
+     mains and/or codomains of bonding maps of G ′ if necessary.
+
+We say that the new graph of groups is obtained from G by unkilling.5 See
+Figure 5.
+
+                                                                      G′e
+                   G′v ∗ hti                  Unkill           G′v
+                       G′e ∗ G′′e
+                                                                      G′′e
+
+
+                                        Figure 5: Unkilling
+
+
+  5
+      We use the term unkilling because the inverse operation kills a cycle.
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                         1843
+
+
+2.6    Cleaving
+
+Suppose that, for some v ∈ V and e ∈ Ê(v), Gv = G′v ∗ G′′v non-trivially,
+Ge = G′e ∗ G′′e , ϕe (G′e ) ⊂ G′v , ϕe (G′′e ) ⊂ G′′v , and for f ∈ Ê(v) \ {e} either
+ϕf (Gf ) ⊂ G′v or ϕf (Gf ) ⊂ G′′v . Then, define G ′ as follows:
+   • v is replaced by two vertices: V ′ = V ∪ {v ′ , v ′′ } \ {v};
+   • the oriented edge {e, e−1 } is replaced by two oriented edges:
+                        Ê ′ = Ê ∪ {e′ , e′′ , (e′ )−1 , (e′′ )−1 } \ {e, e−1 }
+     with ∂0 e′ = v ′ , ∂0 e′′ = v ′′ , and ∂1 e′ = ∂1 e′′ = ∂1 e;
+   • for f ∈ Ê(v) \ {e}, ∂0 f = v ′ if ϕe (Gf ) ⊂ G′v and ∂0 f = v ′′ if ϕe (Gf ) ⊂
+     G′′v ;
+   • Gv′ = G′v , Gv′′ = G′′v , Ge′ = G′e , Ge′′ = G′′e ; and
+   • bonding maps are given by restricting domains and/or codomains of bond-
+     ing maps of G ′ if necessary.
+We say that the new graph of groups is obtained from G by cleaving. See
+Figure 6. Each of the operations blowing up, unpulling, unkilling, and cleaving
+
+
+                                                                G′v
+                   G′v ∗ G′′v                Cleave                    G′e
+                       G′e ∗ G′′e
+                                                                       G′′e
+                                                                G′′v
+
+
+                                    Figure 6: Cleaving
+
+is a simplification.
+
+Proposition 2.1 If G ′ is obtained from G by reducing or simplifying, then
+π1 (G ′ ) and π1 (G) are isomorphic.
+
+Proof In the first type of reducing move, π1 (G) ∼
+                                                 = π1 (G ′ ) ∗Ge Ge where the
+map Ge → Ge is an isomorphism. By van Kampen’s theorem, π1 (G) ∼    = π1 (G ′ ).
+                                               ′
+In all of the other cases, G is obtained from G by a Stallings fold and so
+π1 (G) ∼
+       = π1 (G ′ ), see [4, Section 2].
+
+Remark 2.2 If π1 (G) is not infinite cyclic then the first type of blow up
+is a composition of a second type of blow up, an unkilling, and a reduction.
+Therefore, we will not have to consider the first type of blow up.
+
+
+Geometry & Topology, Volume 9 (2005)
+1844                                                 Guo-An Diao and Mark Feighn
+
+
+2.7    Our case
+
+Given a graph of groups, we want to iteratively simplify until the resulting
+graph of groups can’t be simplified. In order to do this algorithmically, we need
+be able to recognize when a simplification is possible. To this end, we restrict
+the graphs of groups that we will consider to the case where Γ is a finite graph,
+ie, where E is finite, and where, for v ∈ V and e ∈ E , Gv and Ge are finite
+rank free groups. Such a G is a finite graph of finite rank free groups.
+
+
+
+2.8    Labeled graphs
+
+ Graphs will have two uses in this paper. The first we have already seen–these
+ are as the underlying graphs of graphs of groups and are denoted by Γ’s. The
+ other use will be to represent subgroups of free groups and these will be denoted
+ by Σ’s. We now explain this second usage. Let FB denote the free group with
+ basis B . For S ⊂ FB , S ±1 is defined to be S ∪ S −1 where S −1 is {s−1 : s ∈ S}.
+ A labeled graph or a B –graph is a connected graph Σ = Σ(V, Ê, op, ∂0 ) with a
+ labeling function Ê → B ±1 such that the label assigned to op(c) = c−1 is the
+ inverse of the label assigned to c. The B –rose is a B –graph RB with one vertex
+ and a bijective labeling function. We identify π1 (RB ) with FB . (The homotopy
+ class of the path formed by the edge labeled b is identified with b.) There is
+ a natural map λΣ : Σ → RB sending 1–cells to 1–cells and preserving labels
+ and orientations. Since λΣ determines the labeling function and vice versa, we
+ will call λΣ the labeling function as well. The graph Σ is based if there is a
+ distinguished vertex ∗. On the level of fundamental groups, the image of λΣ is
+ a subgroup of FB denoted [(Σ, ∗)]. If we forget the basepoint then the image
+ is only defined up to conjugacy and Σ determines a conjugacy class [[Σ]] of
+ subgroups FB . We say that (Σ, ∗) represents [(Σ, ∗)] and that Σ represents
+                           ~ is a sequence of labeled graphs then a sequence [[Σ]]
+ [[Σ]]. More generally, if Σ                                                    ~
+ of conjugacy classes of subgroups of FB is determined. If there are basepoints
+                       ~ ∗)] of subgroups of FB is determined.
+~∗ then a sequence [(Σ,~
+
+It is well-known, see eg [16, Section 1.A], that a generating set [Σ, ∗] may be
+obtained as follows. Choose a maximal tree T for Σ and choose orientations
+for the edges not in T . The generating set is indexed by these oriented edges.
+Specifically, the generator corresponding to the oriented edge c is the word in
+B ±1 determined by reading the labels of the loop obtained by concatenating
+the path in T from ∗ to ∂0 c, c, and the path in T from ∂1 c back to ∗.
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                   1845
+
+
+2.9    Stallings and Gersten representatives
+
+The complexity c(Σ) of the labeled graph Σ is |E(Σ)|                            ~
+                 ~                                   P and the complexity
+                                                                      ~
+                                                                              c(Σ)
+of the sequence Σ = {Σi }i∈I of labeled graphs is      i∈I c(Σi ). If H is a finite
+sequence of finitely generated subgroups of FB , the Stallings representative for
+H~ with respect to B is the sequence Σ    ~ S = ΣS (H,
+                                                    ~ B) of based B –graphs of
+minimal complexity representing H    ~ . We often omit the B from the notation.
+    ~
+If H is represented by a finite sequence H   ~ = {Hi = hSi i} where each Si is a
+                          ±1
+finite set of words in B , then there is an algorithm due to Stallings [27] to
+find Σ~ S from {Si }, see also [10].
+
+If H~ is a sequence of conjugacy classes of non-trivial subgroups of FB , the
+Stallings representative for H~ with respect to B is the B –graph ΣS (H)~ of mini-
+                               ~               ~                   ~
+mal complexity representing H. In fact, if H is represented by H = {Hi = hSi i}
+as above then ΣS (H)~ is the sequence core(ΣS (H))
+                                                 ~ of cores of elements of ΣS (H).
+                                                                                ~
+Recall that if Σ is graph then the core of Σ, denoted core(Σ), is the union of
+all immersed circuits in Σ, see also Section 9.2.1. In particular, there is an
+                             ~ from {Si } as well as a sequence ~h of elements
+algorithm to find core(ΣS (H))
+of FB such that core(ΣS (H))~ = ΣS (H  ~ ~h ) where H~ ~h is the sequence of groups
+obtained by conjugating a component of H      ~ with the corresponding component
+   ~                                         ~
+of h. In fact, if Σ is a component of ΣS (H) then the corresponding component
+h of ~h can be taken to be the inverse of the word read along the shortest path
+from the basepoint ∗ of Σ to core(Σ). It is convenient to also allow conjugacy
+                              ~ Since the core of a tree is empty, we take the
+classes of trivial groups in H.
+Stallings representative of the conjugacy class of the trivial group to be the
+empty set.
+
+A Gersten representative ΣG (H)~ for H ~ is a sequence of B –graphs of minimal
+complexity among sequences of B –graphs representing αH     ~ as α varies over
+Aut(FB ). (If H~ represents H,~ then αH ~ represents αH, ~ where α is applied
+                     ~                    ~
+coordinate-wise.) If H is represented by H = {Hi = hSi i} as above, then there
+is an algorithm that produces a ΣG (H) ~ as well as an automorphism α such
+                ~          ~
+that core(ΣS (αH)) = ΣG (H), see [14], [18], and also Section 9.5.
+
+Example 2.3 If B = {a, b} and if H = haaba−1 , ab−1 abba−1 i, then the graph
+(Σ, ∗) pictured in Figure 7 represents H . (The open arrows denote ‘a’ and the
+closed ‘b’.) The graph (ΣS , ∗) is the Stallings representative of H . For the au-
+tomorphism α : FB → FB given by a 7→ ab−1 , b 7→ b, a Gersten representative
+ΣG of H is the core of the Stallings representative for αH .
+
+
+
+Geometry & Topology, Volume 9 (2005)
+1846                                                   Guo-An Diao and Mark Feighn
+
+
+
+
+                                                         (Σ, ∗)
+
+
+
+
+                                                        (ΣS , ∗)
+
+
+
+
+                                                            ΣG
+
+
+                                       Figure 7
+
+Notation 2.4 If Σ   ~ ′ = {Σ′ }i∈I and Σ   ~ ′′ = {Σ′′ }j∈J are sequences of B –graphs
+                            i                         j
+                            ~ ′    ~ ′′
+and if {0} = I ∩ J then Σ ∨ Σ = {Σk }k∈I∪J is a sequence of graphs with
+labels in B of the following form:
+                            
+                                 ′      ′′
+                            Σ0 ∨ Σ0 , if k = 0;
+                            
+                       Σk = Σ′i ,              if k ∈ I \ {0}; and
+                            
+                             ′′
+                                Σj ,           if k ∈ J \ {0}.
+
+                   ~ = {Σi }i∈I be a sequence of B –graphs.
+Definition 2.5 Let Σ
+ (1) If there is a non-trivial partition B = B ′ ⊔ B ′′ such that, for each i ∈ I ,
+                                                                              ~ can
+     the labels of Σi are either all in B ′ or all in B ′′ , then we say that Σ
+     be visibly blown up.
+ (2) Suppose that b ∈ B appears as a label in only one element Σ of Σ         ~ and
+     that only one oriented edge c0 of Σ has label b. Suppose further that
+     c0 ⊂ core(Σ).
+     (a) If c0 does not separate Σ then we say that Σ      ~ can be visibly unpulled.
+     (b) If c0 does separate Σ then we say that Σ can be visibly unkilled.
+                                                                  ~ = Σ
+ (3) If there is a non-trivial partition B = B ′ ⊔ B ′′ such that Σ     ~′ ∨ Σ
+                                                                             ~ ′′
+            ~ ′                   ′             ~ ′′                 ′′
+     where Σ is a sequence of B –graphs and Σ is a sequence of B –graphs
+     then we say that Σ~ can be visibly cleaved.
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups               1847
+
+
+   ~ can be visibly blown up, visibly unpulled, visibly unkilled, or visibly
+If Σ
+                          ~ can be visibly simplified.
+cleaved, then we say that Σ
+
+
+After the statement of the next proposition, we can describe the algorithm.
+The proof of this proposition is almost obvious, but requires some bookkeeping
+which is postponed until the appendix. This proposition is subsumed into
+Proposition A.3.
+
+
+Notation 2.6 Let G be a graph of finite rank free groups with notation as
+                                ~
+in Section 2.1. For v ∈ V , let H(v)  denote the sequence of subgroups of Gv
+                                                 ~
+represented by {ϕe (Ge ) : e ∈ Ê(v)}. Also let H(v)   denote the sequence of
+                                                     ~
+conjugacy classes of subgroups of Gv represented by H(v).
+
+                                                      ~
+Proposition 2.7 Suppose that for some v ∈ V , ΣG (H(v))     can be visibly
+simplified. Then, G ∼ G can be algorithmically found such that G out can be
+                   out
+
+simplified.
+
+
+
+2.10    The algorithm
+
+Here is the algorithm. See Figure 8 for a flow chart. More details on the
+algorithm are given in Section 9, Section 10, and the appendix.
+
+Step 0 Input G , a finite graph of finite rank free groups.
+Step 1 Reduce G .
+                                 ~
+Step 2 If, for some v ∈ V , ΣG (H(v))  can be visibly simplified, then replace
+     G by a simplified conjugate and return to Step 1. Else, done.
+
+The main result of the paper is:
+
+
+Theorem 2.8 Suppose that a finite graph G of finite rank free groups is input
+into the above algorithm and that G out is output. Then, the decomposition of
+π1 (G) determined by the edges of G out with trivial stabilizer is the Grushko
+decomposition of π1 (G).
+
+
+The proof of Theorem 2.8 is found in Section 10.
+
+
+Geometry & Topology, Volume 9 (2005)
+1848                                                   Guo-An Diao and Mark Feighn
+
+
+
+                            Reduce G                   START
+                                                       Input G
+
+
+
+
+                               ∃? v
+                               ~
+                      s.t. ΣG (H(v))  visibly            DONE
+                            simplifies          No
+
+
+                                    Yes
+
+
+                             Simplify
+
+
+
+                                Figure 8: Flow chart
+
+
+2.11    Relative version
+
+In this section we describe a relative version of Theorem 2.8. If H is a subgroup
+of a group G, then we say that G is freely decomposable rel H if there is a free
+decomposition G = G′ ∗ G′′ with H ⊂ G′ and G′′ non-trivial. Otherwise,
+G is freely indecomposable rel H . The relative version of Grushko’s theorem
+(Theorem 1.1) is:
+
+Theorem 2.9 Suppose H is a subgroup of the finitely generated group G.
+Then, G is a free product GH ∗ G1 ∗ · · · ∗ Gn ∗ F where H ⊂ GH , GH is freely
+indecomposable rel H , Gi for 1 ≤ i ≤ n is freely indecomposable and not free,
+and F is a finite rank free group.
+
+The subgroup GH is unique in this the Grushko decomposition of G rel H . Up
+to reordering and conjugation, the Gi , 1 ≤ i ≤ n, are unique. Also, the rank
+of F is an invariant of the pair H ⊂ G.
+Suppose now that G is a finite graph of finite rank free groups, that v0 ∈ V
+has valence one with incident edge e0 , and that ϕe0 is an isomorphism. We
+are going to describe a slight modification of the algorithm of Section 2.10
+that produces the Grushko decomposition of π1 (G) rel Gv0 . Intuitively, in the
+modified algorithm we only reduce or visibly simplify only if the special edge
+group Ge0 is unchanged. Specifically, we modify the algorithm as follows.
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                   1849
+
+
+Steps 0 and 1 are replaced by:
+Step 0 ′ Input G , a finite graph of finite rank free groups as above.
+Step 1 ′ Reduce G rel v0 , ie, apply the reducing moves displayed in Figure 1
+               / {e0 , e−1
+     only if e ∈        0 }.
+
+To describe the modification of Step 2, we need a definition. In Definition 2.5(2),
+the component Σ of Σ   ~ is special. In Definition 2.5(3), the component of Σ    ~
+                          ′    ′′
+corresponding to Σ0 = Σ0 ∨ Σ0 in Notation 2.4 is special. In Definition 2.5(1),
+none of the components of Σ  ~ are special. The components of ΣG (H(v))  ~      are
+                                                              ~
+parametrized by the set Ê(v) of edges incident to v . If ΣG (H(v)) can be visibly
+simplified, then the edge corresponding to the special component is special. If
+the special edge e is not in {e0 , e−1
+                                    0 }, then the resulting simplification will not
+change Ge0 . Step 2 of the algorithm is replaced by:
+Step 2 ′ If, for some v ∈ V , ΣG (H(v))~      can be visibly simplified and the
+                                   −1
+     special edge is not in {e0 , e0 }, then replace G by a simplified conjugate
+     and return to Step 1′ . Else, done.
+
+Theorem 2.10 Suppose that G as above is input into the modified algorithm
+and that G out is output. Then, the decomposition of π1 (G) determined by the
+edges of G out with trivial stabilizer gives the Grushko decomposition of π1 (G)
+rel Gv0 .
+
+The proof of the relative version requires only minor notational changes to the
+proof of Theorem 2.8 and is left to the reader.
+
+
+
+3    Laminated square complexes and models
+
+This section contains a discussion of certain laminated two complexes called
+models whose 2–cells are squares. For an interesting study of complexes built
+from squares see [6].
+Let I denote the unit interval [0, 1]. An n–cube is a metric space isometric to
+I n . A metric space is a cube if it is an n–cube for some n. A cube complex is a
+union of cubes glued by isometries of faces. A finite dimensional cube complex
+X admits a maximal metric such that the inclusion C → X is a local isometry
+for each cube C of X [5]. A square is a 2–cube, and we only have need to
+consider square complexes, ie, cube complexes of dimension at most two. A
+
+
+Geometry & Topology, Volume 9 (2005)
+1850                                                  Guo-An Diao and Mark Feighn
+
+
+graph is a 1–dimensional cube complex6 , a tree is a simply connected graph and
+a forest is a disjoint union of trees.
+A decomposition of a square is standard if it is induced by projection to a
+codimension–1 face. A decomposition of a 1–cube is standard if all decomposi-
+tion elements are points. It is trivial if the only decomposition element is the
+1–cube itself. A laminated square complex is a simply connected square complex
+X with a decomposition D such that:
+(M1) The link of every vertex of X is a flag complex.
+(M2) For each square C of X , the induced decomposition of C is standard. In
+     other words, the decomposition of C whose elements are the components
+     of C intersected with elements of D is standard. For each 1–cube of X ,
+     the induced decomposition is either standard or trivial.
+In this context, (M1) means that every link is a simplicial graph with no circuits
+of length three. A decomposition element is also called a leaf.
+
+Proposition 3.1 Let (X, D) be a laminated square complex. Then,
+ (1) X is contractible and
+ (2) leaves are forests.
+
+Proof (M1) implies that the the metric on X is CAT (0) [5]. Hence, (1).
+A vertex of a square with a standard decomposition is contained in exactly
+one edge that is contained in a leaf. So, links of vertices in X are bipartite
+and leaves are totally geodesic. In particular, leaves are 1–dimensional and
+contractible.
+
+A model is a laminated square complex (X, D) such that:
+(M3) Leaves are connected.
+The next proposition is immediate from definitions.
+
+Proposition 3.2 Let (X, D) be a laminated square complex and let D̂ be the
+decomposition of X whose elements are the connected components of elements
+of D. Then, (X, D̂) is a model.
+  6
+    1–dimensional CW –complexes and 1–dimensional cube complexes are both called
+graphs. Since we will only be using combinatorial properties, the distinction is not
+important to us.
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                     1851
+
+
+Definition 3.3 We say that (X, D̂) is induced by (X, D).
+
+Proposition 3.4 If (X, D) is a model, then the decomposition space X/D is
+a tree.
+
+Proof Since a leaf is totally geodesic, it intersects each square C in a connected
+set. In particular, the decomposition C ∩ D of C obtained by intersecting C
+with elements of D is standard, I = C/C ∩ D → X/D is injective, and X/D
+is naturally a graph. Leaves are connected, and so X → X/D is π1 –surjective.
+Thus, X/D is a tree.
+
+If (X, D) is a model, we say that X is a model for the tree S = X/D or that
+X → S is a model. The preimage in X of s ∈ S is Xs . If c is an edge of S
+and if s, s′ ∈ c̊, then Xs and Xs′ have the same isomorphism type Xc . We will
+sometimes abuse notation and identify Xc with Xs for s ∈ c̊.
+
+Notation 3.5 If the group G acts on the set X and if S is a subset of X ,
+then GX,S is the stabilizer of S , ie, the subgroup elements g ∈ G such that
+g(S) = S . If S = {s} then we also write GX,s for GX,S . We will suppress the
+X if the space is understood.
+
+An action of a group G on (X, D) is an (isometric) action of G on X permuting
+cubes and decomposition elements. In this case, (X, D) is a G–model. There is
+an induced action of G on S = X/D. The quotients X/G and S/G are denoted
+X̄ and S̄ respectively. We say that G acts without inversions if, for all cubes
+C ⊂ X , GC fixes C pointwise. By subdividing X , we may arrange that G
+acts without inversions. Hence, we always assume that our actions are without
+inversions. Note that the space Xs is Gs –invariant and Xc is Gc –invariant.
+
+
+4    Trees
+
+We review some tree basics. A G–tree S is minimal if it has no proper G–
+invariant subtrees. It is trivial if has a fixed point. In this case we also say that
+the G–action is elliptic. If S has a unique minimal invariant G–subtree, then
+it is denoted SG . This occurs, for example, if G contains a hyperbolic element,
+that is an element that fixes no point of S [1]. A morphism S → T of G–trees
+is a simplicial G–map. It is strict if no edge is mapped to a point. If there is a
+morphism S → T , then S resolves T .
+
+
+Geometry & Topology, Volume 9 (2005)
+1852                                                 Guo-An Diao and Mark Feighn
+
+
+If e is an edge of S , then we say that S ′ is obtained from S by collapsing e if
+S ′ is the result of equivariantly collapsing e. A morphism S → S ′ is a collapse
+if S ′ is obtained from S by iteratively collapsing edges. If edges e1 and e2 of
+S share the vertex s, then we say that S ′ is obtained from folding e1 and e2 if
+S ′ is the result of equivariantly identifying e1 and e2 with an isometry fixing
+s. The resulting morphism S → S ′ is a fold.
+
+
+
+5      Examples of Models
+
+Example 5.1 First a non-example. Glue two squares along three sides and
+laminate so that restrictions to squares are standard and so that the unglued
+sides form a leaf. The result is not a laminated square complex even though
+it is contractible (there are vertices whose links consist of distinct edges with
+the same endpoints–such a link is not a simplicial graph). Notice that not all
+leaves are trees.
+
+Example 5.2 The quotient X̄ → S̄ of a G–model X → S with G free of
+rank 2 is depicted in Figure 9. The preimage in X̄ of a point in the interior of
+the edge of S̄ is isomorphic to a circle. The preimage of the vertex is a ‘pair of
+eyeglasses’. The stabilizer of a vertex of S is free of rank two; the stabilizer of
+an edge of S is infinite cyclic.
+
+
+
+
+                     X̄                      −→             S̄
+
+
+
+
+                                       Figure 9
+
+
+Example 5.3 If S and T are G–trees, then
+            S × T = ∪{e × f : e is an edge of S, f is an edge of T }
+is a union of squares with projection maps qS : S × T → S and qT : S × T → T .
+The induced decomposition with quotient S (respectively T ) gives S × T the
+structure of a model for S (respectively T ).
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                  1853
+
+
+Example 5.4 Let (X, D) be a G–model and let Y be a simply connected G–
+subcomplex of X . Then, Y with the decomposition D(Y ) = {D ∩ Y | D ∈ D}
+is a laminated square complex and Y /D(Y ) → X/D is an inclusion. If we let
+D̂(Y ) be the decomposition of Y induced by D(Y ) (see Definition 3.3), then
+(Y, D̂(Y ))) is a model and Y /D̂(Y ) → X/D is a morphism. We call D̂(Y ) the
+restricted decomposition of Y .
+Example 5.5 Main Example Suppose that S and T are G–trees and that,
+for each s ∈ S , there
+                   F is a unique minimal Gs –invariant subtree Ts of T . The
+union XS (T ) = s∈S ({s} × Ts ) is a subcomplex of S × T and is simply-
+connected (being a union of simply-connected spaces along simply-connected
+spaces). XS (T ) → S is a model as is XS (T ) → T̂ where T̂ is the quotient
+of the decomposition induced from XS (T ) ⊂ S × T → T by restriction (see
+Example 5.4). If S = S/G and all T s = Ts /Gs are compact, then XS (T ) =
+XS (T )/G is also compact.
+Proposition 5.6 T̂ as in Example 5.5 is minimal.
+
+Proof We may identify Ts with the image of the injection {s} × Ts → T̂ . By
+construction, T̂ = ∪s∈S Ts . If t̂ ∈ T̂ is not contained in an invariant G–subtree
+R of T̂ and if t̂ ∈ Ts , then R ∩ Ts is a proper Gs –invariant subtree of Ts ,
+contradiction.
+
+
+6     Operations on models
+In this section, we assume that G is a group, S is a G–tree, and X → S is
+a model. We will describe operations on X . In each case, the result X ′ is a
+model for S ′ where S ′ resolves S . The operations are geometric generalizations
+of the simplifications of Section 2.
+
+6.1    0–Simplifying
+
+Let C = I ⊂ X be a 1–cube and set C0 = {0}. Suppose that
+    • C meets cubes of X other than faces of C only in {1}; and
+    • the restriction of the decomposition to C is {C}.
+Let X ′ be the result of equivariantly replacing C by {1}, ie,
+                              X ′ = X \ ∪g∈G g · [0, 1).
+We say that X ′ with the restricted decomposition is obtained from X by 0–
+simplifying C from C0 . Here S ′ = S . See Figure 10.
+
+
+Geometry & Topology, Volume 9 (2005)
+1854                                                  Guo-An Diao and Mark Feighn
+
+                                  111
+                                  000
+                                  000
+                                  111                  111
+                                                       000
+                                                       000
+                                                       111
+                                  000
+                                  111
+                                  000 0-Simplify
+                                  111                  000
+                                                       111
+                                                       000
+                                                       111
+                        C0        000
+                                  111                  000
+                                                       111
+                                  000
+                                  111
+                                  000
+                                  111                  000
+                                                       111
+                                                       000
+                                                       111
+                             C    000
+                                  111
+                                  000
+                                  111                  000
+                                                       111
+                                                       000
+                                                       111
+                    X             000
+                                  111            X′    000
+                                                       111
+                                  000
+                                  111                  000
+                                                       111
+
+                                       Figure 10
+
+
+6.2    I–Simplifying
+
+Let C = I × I n ⊂ X (n = 0 or 1) be a cube and set C0 = {0} × I n . Suppose
+that
+   • C meets cubes of X other than faces of C only in {1} × I n ; and
+   • C0 is a decomposition element.
+Let X ′ be the result of equivariantly replacing C by {1} × I n . We say that X ′
+with the restricted decomposition is obtained from X by I–simplifying C from
+C0 . S → S ′ is a collapse. See Figure 11.
+                                0000
+                                1111
+                                0000
+                                1111                   000
+                                                       111
+                                0000
+                                1111                   000
+                                                       111
+                                0000
+                                1111                   000
+                                                       111
+                                                      ′111
+                                                       000
+                   X            0000
+                                1111
+                                0000
+                                1111               X   000
+                                                       111
+                                0000
+                                1111                   000
+                                                       111
+                                0000
+                                1111                   000
+                                                       111
+                                                       000
+                                                       111
+                                0000
+                                1111
+                                0000 I-Simplify 111
+                                1111                   000
+                                0000
+                                1111                   000
+                                                       111
+                   C0      C 1111
+                                0000                   000
+                                                       111
+                                                       000
+                                                       111
+                                0000
+                                1111                   000
+                                                       111
+                                0000
+                                1111
+                                0000
+                                1111                   000
+                                                       111
+                                0000
+                                1111                   000
+                                                       111
+                                                       000
+                                                       111
+                                0000
+                                1111
+                                0000
+                                1111                   000
+                                                       111
+                                0000
+                                1111                   000
+                                                       111
+                                0000
+                                1111                   000
+                                                       111
+                                                       000
+                                                       111
+                                0000
+                                1111                   000
+                                                       111
+
+                                       Figure 11
+
+
+
+6.3    II–Simplifying
+
+Let C = I 2 ⊂ X be a square and set C0 = {0} × I . Suppose that
+   • C meets cubes of X other than faces of C only in
+                                 ({1} × I) ∪ (I × {1});
+   • it is not possible to I–simplify from C0 , ie, [0, 1) × {1} meets a cube other
+     than a face of C ; and
+   • C0 is an element of the decomposition restricted to C .
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                 1855
+
+
+The model X ′ with restricted decomposition elements obtained by equivariantly
+replacing C by
+                             ({1} × I) ∪ (I × {1})
+
+is the result of II–simplifying C from C0 . Note that S ′ = S . See Figure 12.
+                1111111111
+                0000000000                        1111111111
+                                                  0000000000
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+               X1111111111
+                0000000000
+                0000000000
+                1111111111
+                0000000000
+                1111111111
+                                                  0000000000
+                                                  1111111111
+                                                     ′
+                                                  0000000000
+                                                  1111111111
+                                                  X
+                                                  0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                                         II-Simplify
+                0000000000
+                1111111111
+                 C0  C                            0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+
+                                       Figure 12
+
+
+
+
+6.4    III–Simplifying
+
+Let C = I 2 ⊂ X be a square and set C0 = {0} × I . Suppose that
+
+   • C meets cubes of X other than faces of C only in (∂I × I) ∪ (I × {1});
+   • it is not possible to I–, or II–simplify from C0 ; and
+   • C0 is an element of the decomposition restricted to C .
+
+The model X ′ with restricted decomposition elements obtained by equivariantly
+replacing C by (∂I × I) ∪ (I × {1}) is the result of III–simplifying C from C0 .
+Note that S ′ → S is a non-trivial fold. See Figure 13.
+                1111111111
+                0000000000                        1111111111
+                                                  0000000000
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+               X1111111111
+                0000000000
+                0000000000
+                1111111111
+                0000000000
+                1111111111                       X0000000000
+                                                  1111111111
+                                                     ′
+                                                  0000000000
+                                                  1111111111
+                                                  0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111
+                 C0  C                            0000000000
+                                                  1111111111
+                                         III-Simplify
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+                0000000000
+                1111111111                        0000000000
+                                                  1111111111
+
+                                       Figure 13
+
+
+
+
+Geometry & Topology, Volume 9 (2005)
+1856                                                 Guo-An Diao and Mark Feighn
+
+
+6.5    Blowing up
+
+If there is a cube C = I ⊂ X such that ˚I meets no cube other than faces of
+C and such that the decomposition restricted to C is {C} then we may refine
+the decomposition by G–equivariantly replacing the decomposition element XC
+containing C with
+          {{g · t} | t ∈ ˚
+                         I, g ∈ GXC } ⊔ {components of XC \ GXC · ˚
+                                                                  I}.
+We say that X ′ → S ′ is obtained from X → S by blowing up C . The induced
+map S ′ → S collapses to points the edges of S ′ corresponding to the orbit of
+C , explaining the term “blowing up”. See Figure 14.
+                    111
+                    000
+                    000
+                    111
+                    000
+                    111
+                    000
+                    111
+                    000
+                    111
+                    000
+                    111                        111
+                                               000         111
+                                                           000
+                    000
+                    111                        000
+                                               111         000
+                                                           111
+                    000
+                    111                        000
+                                               111         000
+                                                           111
+                    000
+                    111                        000
+                                               111         000
+                                                           111
+                    000
+                    111                        000
+                                               111    C    000
+                                                           111
+               X    000
+                    111
+                     C 111
+                       000                X′   000
+                                               111         000
+                                                           111
+                    000
+                    111000
+                       111                     000
+                                               111         000
+                                                           111
+                       000
+                       111                     000
+                                               111         000
+                                                           111
+                       000
+                       111                     000
+                                               111         000
+                                                           111
+                       000
+                       111                     000
+                                               111         000
+                                                           111
+                       000
+                       111                     000
+                                               111         000
+                                                           111
+                       000
+                       111                     000
+                                               111         000
+                                                           111
+                       000
+                       111
+                       000
+                       111
+                       000
+                       111
+                       000
+                       111        Blow up
+                       000
+                       111
+
+
+               S                          S′
+
+
+
+                                       Figure 14
+
+
+Definition 6.1 Let S ′ → S a morphism. If there is a model Y → S and a
+cube C of Y with face C0 such that 0–simplifying C from C0 yields Y ′ → S ′ ,
+then we say that S ′ is obtained from S by 0–G0 –simplifying or equivalently by
+0–simplifying over G0 where G0 is the stabilizer of C0 in Y . The definitions
+for I–G0 –, II–G0 –, and III–G0 –simplifying are analogous. If there is a model
+Y → S with a cube C such that Y ′ → S ′ is the result of blowing up C , then
+we say that S ′ is obtained from S by G0 –blowing up or equivalently by blowing
+up over G0 where G0 is the stabilizer of C in Y . In each of these cases, we
+say that S ′ is obtained from S by simplifying over G0 or just by simplifying if
+G0 is understood.
+
+Remark 6.2 Since the identity map S → S is an example of a model, blowing
+up as defined in Section 2.3 is an example of 1–blowing up.
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                    1857
+
+
+7    Generalized Shenitzer–Swarup
+
+In the next lemma, we use the notation of Example 5.5.
+
+Lemma 7.1 Suppose that G is a group and that S and T are G–trees such
+that
+ (1) S is compact;
+ (2) for each s ∈ S there is a unique minimal cocompact Gs –subtree Ts of T ;
+     and
+ (3) for each edge f ⊂ T , the action of Gf on S is elliptic.
+Then, there is a sequence
+               {Xs (T ) = X0 → S = S0 , X1 → S1 , · · · , XN → SN }
+of I–, II–, and III–simplifications such that (XN )fˆ is a point for each edge fˆ of
+T̂ . Further, all the simplifications are over subgroups of edge stabilizers of T .
+
+Proof Recall from Example 5.5 that X0 → T̂ is obtained by restricting S ×
+T → T . It is not possible to 0–simplify X0 → S0 . Indeed, in order to 0–simplify
+X0 there would have to be a 1–cube as in the definition of 0–simplifying. By
+the construction of X0 , the restriction of the decomposition giving X0 → T̂
+to this 1–cube is standard. This is impossible since, by Proposition 5.6, T̂ is
+minimal. Further, if Xi is obtained from X0 by a sequence of I–, II–, and III–
+simplifications, then the restriction to Xi of the decomposition giving X0 →
+T̂ still has decomposition space T̂ . (It is the decomposition space Si of the
+restriction of S × T → S that can change.) In particular, it is also not possible
+to 0–simplify Xi .
+Suppose we have constructed the sequence
+              {XS (T ) = X0 → S = S0 , X1 → S1 , · · · , Xi → Si }.
+We will describe how to proceed. Let t̂ be a point in the interior of an edge of
+T̂ . The preimage (Xi )t̂ of t̂ under Xi → T̂ is a Gt̂ –subtree of S × {t̂}. By (1)
+and (2), X0 , and so also Xi , is cocompact. Therefore, (Xi )t̂ /Gt̂ is compact.
+Since T ′ resolves T , by (3) the action of Gt̂ on S × {t̂}, and hence also on
+Xt̂ is elliptic. We see that Xt̂ /Gt̂ is a finite tree. If this finite tree is not a
+single vertex then Xt̂ contains a valence one vertex whose stabilizer equals the
+stabilizer of the incident edge.
+
+
+Geometry & Topology, Volume 9 (2005)
+1858                                                    Guo-An Diao and Mark Feighn
+
+
+If there is such a valence one vertex, then this vertex is contained in a cube
+C0i = I ⊂ Xi that projects to a point in Si . In this case, simplify from C0i to
+obtain Xi+1 → Si+1 . Stop if, for each edge fˆ of T̂ , T̂fˆ is a point.
+The process must eventually stop since there are only finitely many G–orbits
+of cubes in XS (T ).
+The final claim of the lemma follows from the observation that C0i projects to
+an edge of T̂ and so the stabilizer Gi0 of C0i fixes an edge of T̂ . Since T̂ resolves
+T , Gi0 fixes an edge of T as well.
+
+Theorem 7.2 Let S be a cocompact G–tree with finitely generated edge
+stabilizers and with G finitely generated. Suppose that G splits over a finite
+group. Then, S may be iteratively I–, II–, and III–simplified and then blown
+up to a G–tree S ′ such that the decomposition of G given by edges of S ′ with
+finite stabilizer is non-trivial. Further, the simplifications and blow ups are all
+over finite groups. In particular, all point stabilizers of S ′ are finitely generated.
+
+Proof Choose T to be a minimal G–tree with one orbit of edges and with
+finite edge stabilizers. If an edge stabilizer of S is finite then we may set
+S ′ = S and we are done. We may assume then that the edges stabilizers of S
+are infinite.
+Since edge stabilizers of S are finitely generated and since G is finitely gener-
+ated, for each s ∈ S , Gs is finitely generated, see for example [8, Lemma 32].
+The edge stabilizers of T are finite and by assumption Gs is infinite and so
+either Gs is contained in a unique vertex stabilizer of T or some element of Gs
+acts hyperbolically on T . In particular, there is a unique minimal cocompact
+Gs –subtree Ts of T . Therefore we may apply Lemma 7.1 to simplify XS (T )
+to obtain XN → SN .
+Blow up XN → SN to obtain X ′ → S ′ . Since (XN )fˆ is a point for each
+edge fˆ of T̂ , S ′ resolves T̂ . By Proposition 5.6, T̂ is minimal and so S ′ is
+non-trivial.
+
+Corollary 7.3 (Generalized Shenitzer–Swarup) Let S be a minimal G–tree
+with finitely generated edge stabilizers. Suppose that G splits over 1. Then,
+S may be iteratively 1–simplified to a tree S ′ such that the decomposition of
+G determined by the edges of S ′ with trivial stabilizer is non-trivial.
+
+The focus of this paper is on splittings over 1, ie, on free decompositions.
+In a future paper, we plan to explore splittings over small groups. Here is a
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                           1859
+
+
+sample analogue of Lemma 7.1 in that setting. Again, we use the notation of
+Example 5.5.
+
+Theorem 7.4 Suppose that G is a freely indecomposable group. Suppose
+that S and T are G–trees such that
+ (1) S is compact;
+ (2) for each s ∈ S , there is a unique minimal cocompact Gs –subtree Ts of
+     T ; and
+ (3) edge stabilizers of T are infinite cyclic and T has one orbit of edges.
+Then, XS (T ) → S may be iteratively simplified to X ′ → S ′ where, for each
+edge fˆ of T̂ , X ′ˆ is either a point with infinite cyclic stabilizer or a line with infi-
+                 f
+nite cyclic stabilizer with generator acting by a non-trivial translation. Further,
+these simplifications are over 1 or Z.
+
+Proof Since T̂ resolves T , T̂ is minimal, and G is freely indecomposable, it
+follows that the edge stabilizers of T̂ are infinite cyclic. Thus, for fˆ an edge
+of T̂ , (XS (T ))fˆ is a Z–tree. If this tree is not a point or a line, then it has a
+valence one vertex and a simplification is possible. Iterate.
+
+
+8    Algebraic consequences
+
+This section will be needed for algorithmic questions. We use the notation of
+Section 6. The goal is to describe the effect of simplifying on edge and vertex
+stabilizers.
+
+Definition 8.1 Let S be a G–tree and let X → S be a model with a cube
+C with face C0 such that X ′ → S ′ is the result of III–simplifying C from C0 .
+Further, let e be the image in S of C , let s0 be the image of C0 , and let se ∈ e̊.
+Set Cse = Xse ∩ C . Denote by C se the image of Cse in X se and by C 0 the
+image of C0 in X s0 . There are three cases.
+ (1) C se separates X se and C 0 separates X s0 .
+ (2) C se separates X se , but C 0 does not separate X s0 .
+ (3) C se does not separate X se and C 0 does not separate X s0 .
+Let G0 be the stabilizer in X of C0 . In Case (1), we say the simplification is
+a G0 –cleaving, in Case (2) a G0 –unkilling, and in Case (3) a G0 –unpulling.
+
+
+Geometry & Topology, Volume 9 (2005)
+1860                                             Guo-An Diao and Mark Feighn
+
+
+For the moment, we forget models and make some purely algebraic definitions.
+                                         ~ is a sequence of conjugacy classes
+Here G0 is a subgroup of the group G and H
+of subgroups of G.
+
+Definition 8.2 If there are subgroups G′ ⊂ G and G′′ ⊂ G containing G0
+such that
+   • G = G′ ∗G0 G′′ , ie, the natural map G′ ∗G0 G′′ → G is an isomorphism;
+   • some H0 ∈ H~ has a representative H0 ∈ H0 with subgroups H ′ ⊂ H0
+                                                                     0
+          ′′
+     and H0 ⊂ H0 satisfying
+       – G0 ⊂ H0′ ⊂ G′ ;
+       – G0 ⊂ H0′′ ⊂ G′′ ; and
+       – H0 = H0′ ∗G0 H0′′ ; and
+   • for all H =       ~ there is H ∈ H such that either H ⊂ G′ or H ⊂ G′′
+               6 H0 in H,
+                 ~ can be G0 –cleaved in G.
+then we say that H
+
+Definition 8.3 If there is a subgroup G′ ⊂ G containing G0 , a monomorphism
+h : G0 → G′ , and t ∈ G such that
+   • G = G′ ∗h = hG′ , t | tgt−1 = h(g), g ∈ G0 i;
+   • some H0 ∈ H~ has a representative H0 ∈ H0 with subgroups H ′ and H ′′
+                                                               0       0
+     satisfying
+       – G0 ⊂ H0′ ⊂ G′ ;
+       – h(G0 ) ⊂ H0′′ ⊂ G′ ; and
+       – H0 = H0′ ∗G0 t−1 H0′′ t; and
+   • for all H =
+               6 H0 in H~ there is H ∈ H with H ⊂ G′
+                 ~ can be G0 –unkilled in G.
+then we say that H
+
+Definition 8.4 If there is a subgroup G′ ⊂ G containing G0 , a monomorphism
+h : G0 → G′ , and t ∈ G such that
+   • G = G′ ∗h ;
+               ~ has a representative H0 ∈ H0 with a subgroup H ′ satisfy-
+   • some H0 ∈ H                                               0
+     ing
+        – t ∈ H0 ;
+        – H0′ ⊂ G′ ;
+        – G0 ⊂ H0′ ;
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                  1861
+
+
+        – h(G0 ) ⊂ H0′ ; and
+        – H0 = H0′ ∗h ; and
+               6 H0 , there is H ∈ H such that H ⊂ G′
+   • for all H =
+                 ~ can be G0 –unpulled in G.
+then we say that H
+   ~ can be G0 –cleaved, G0 –unkilled, or G0 –unpulled then we say it can be
+If H
+III–G0 –simplified.
+                                                     ~
+Recall that if s is a vertex of the G–tree S then H(s)     denotes the sequence
+of conjugacy classes of subgroups of the stabilizer of s represented by the sta-
+bilizers of edges incident to s. The sequence is indexed by the oriented edges
+S = S/G that are incident to the image in S of s.
+Lemma 8.5 Let S be a G–tree. If S can be G0 –cleaved, G0 –unkilled, or
+                                                     ~
+G0 –unpulled then there is a vertex s of S such that H(s) can be G0 –cleaved,
+G0 –unkilled, or G0 –unpulled in Gs .
+
+Proof Assume that S can be III–G0 –simplified. Let X → S be a model with
+a cube C = I × I and face C0 = {0} × I such that III–simplifying C from C0
+produces X ′ → S ′ . In particular, G0 is the stabilizer of C0 . Let s0 be the
+image of C0 in S , let e be the image of C in S , and let H0 be the stabilizer
+of e. Choose se ∈ e̊, and set Cse = Xse ∩ C .
+The desired splitting of Gs0 is obtained by collapsing all edges of the Gs0 –
+tree Xs0 that are not in the orbit of C0 . The desired H0 –tree is obtained by
+collapsing all edges of the G0 –tree Xse that are not in the orbit of Cse . Thus,
+ ~
+H(s)  can be III–G0 –simplified.
+Definition 8.6 Suppose that G is a group and that H  ~ is a sequence of con-
+jugacy classes of subgroups of G. Suppose that G = G′ ∗G0 G′′ or G = G′ ∗G0
+                       ~ H is conjugate into G′ or G′′ . Then we say that H
+and that, for all H ∈ H,                                                  ~
+can be G0 –blown up in G.
+The proofs of the Lemmas 8.7 and 8.8 are very similar to that of Lemma 8.5
+and are not provided.
+Lemma 8.7 Let G be a group and let S be a G–tree. If S can be G0 –blown
+                                           ~
+up then there is a vertex s of S such that H(s) can be G0 –blown up in Gs .
+Lemma 8.8 Let G be a group and let S be a G–tree. If S can be G0 –I–
+simplified then S has a valence one vertex with stabilizer G0 whose incident
+edge has isomorphic stabilizer.
+Remark 8.9 Recall that a II–simplification has no effect on S .
+
+
+Geometry & Topology, Volume 9 (2005)
+1862                                                                                                                  Guo-An Diao and Mark Feighn
+
+
+9      Algorithmic Results
+
+9.1    More labeled graphs
+
+A map of labeled graphs g : Σ1 → Σ2 is a morphism if
+
+    • the induced map between universal covers is a morphism; and
+    • g is label-preserving, ie, the following diagram commutes.
+                                                                             g
+                                      Σ1 ................................................................................. Σ2
+                                                 ...
+                                                   ....                                                      ....
+                                                      ....                                                ....
+                                                         ....                                           ...
+                                                            ...                                      ....
+                                                                                                  ...
+                                           λ                                                           λ
+                                                              ....                              ...
+                                                                                           ......
+                                                 Σ1 ..........                                                 Σ2
+                                                                 ..
+                                                                                         ......
+
+                                                                          RB
+
+It is strict if this induced map is also strict. Stallings introduced labeled graphs
+into the study of free groups. The next lemma is key.
+
+
+Lemma 9.1 (Stallings [27]) An immersion of labeled graphs induces an in-
+jection of fundamental groups.
+
+
+An edge path in a labeled graph Σ is a strict morphism I → Σ where I is
+an oriented compact interval. If I is a point then the edge path is trivial.
+A nontrivial edge path may be identified with a sequence of oriented edges
+e0 · · · em where, for 1 ≤ i ≤ m, ∂1 ei−1 = ∂0 ei . The product of edge paths
+σ1 and σ2 is denoted σ1 σ2 . An edge path is closed if the initial and terminal
+vertices of I have the same image.
+
+A loop in Σ is a strict morphism S → Σ where S is an oriented circle. A loop
+may be represented by a cyclic sequence of edges of Σ. An oriented edge of Σ
+is crossed by a path or a loop if appears in the edge sequence representing the
+path or loop. The graph Σ is tight if its labeling function λΣ : Σ → RB is an
+immersion. We record a simple corollary of Lemma 9.1.
+
+
+Corollary 9.2 If g : I → Σ is a tight non-trivial edge path then the element of
+π1 (RB ) represented by λΣ ◦ g is non-trivial. Equivalently, if e0 · · · em represents
+a tight non-trivial edge path and if the label of ei is bδi i (δi = ±1) then bδ00 · · · bδmm
+is non-trivial in FB .
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                     1863
+
+
+9.2     Operations on graphs
+
+9.2.1    Coring
+
+A core graph is a graph such that every edge is crossed by an immersed loop.
+By Zorn’s lemma, every graph Σ has a unique maximal core subgraph, its core,
+denoted core(Σ). A core graph contains no valence 0 or 1 vertices. If Σ is
+connected and has finite fundamental group, then core(Σ) is finite. The core of
+a tree is empty. If Σ is labeled, then so is core(Σ). In fact, core is a functor from
+the category of labeled graphs and immersions to the category of labeled core
+graphs and immersions. The map core(Σ) ⊂ Σ is natural with respect to this
+functor. The conjugacy class [[H]] of a subgroup of FB is uniquely represented
+by the core Σ(H) of the cover RB,H of RB corresponding to H . The simple
+proof of the next lemma is left to the reader.
+
+Lemma 9.3 Let e be an edge of the labeled graph Σ.
+   • Suppose that e does not separate Σ. Then, e ⊂ core(Σ) if and only if
+     there is an immersed loop crossing e exactly once.
+   • Suppose that e separates Σ. Then, e ⊂ core(Σ) if and only if there is an
+     immersed loop crossing each of e and e−1 exactly once.
+
+
+9.2.2    Folds and tightening
+
+A morphism g : Σ1 → Σ2 of graphs is a fold if the induced map between
+universal covers is a fold. A fold induces a surjection on the level of fundamental
+groups. It is a homotopy equivalence unless the edges that are identified share
+both initial and terminal vertices [10].
+A finite graph Σ may be iteratively folded until it is tight. If Σ is not finite,
+then the direct limit of the system of finite sequences of folds is well-defined.
+The result is the tightening of Σ and is denoted tight(Σ). Fix a base vertex for
+Σ (if Σ is non-empty) and let H denote the image (λΣ )# (π1 (Σ)) ⊂ π1 (RB ).
+Then, λΣ lifts to Σ → RB,H . The graph tight(Σ) may be identified with the
+image of this lift. In fact, tight is a functor from the category of labeled graphs
+and strict morphisms to the category of tight labeled graphs and immersions.
+The quotient map Σ → tight(Σ) is natural with respect to this functor. More
+generally, if b ∈ B and if Σ is a labeled graph, then we define tightb (Σ) as above
+except that only edges labeled b or b−1 are folded.
+
+
+Geometry & Topology, Volume 9 (2005)
+1864                                                   Guo-An Diao and Mark Feighn
+
+
+9.2.3   Applying an automorphism
+
+If Σ is a labeled graph and α ∈ Aut(FB ), then αΣ is the labeled graph obtained
+by replacing each labeled oriented edge e of Σ by the sequence of labeled
+oriented edges αe. More precisely, if the oriented edge e has the label b and
+if α(b) = w where w is a reduced word of length k in B , then αe is obtained
+from e by subdividing e into k subedges. The ith letter of w has the form cδ
+where c ∈ B , and δ = ±1. The ith subedge of e is given the label c and an
+orientation agreeing with that of e if δ is positive and the opposite orientation
+otherwise. The operation of applying the automorphism α is a functor from
+the category of labeled graphs and morphisms to itself. The construction gives
+a cellular map α : Σ → αΣ that is well defined up to a homotopy rel vertices
+and that is natural (but not a morphism).
+
+Lemma 9.4 If σ is an immersed edge path in αΣ, then there are an immersed
+edge path σ̂ in Σ represented by e0 · · · em , an initial edge subpath σ0 of α(e0 ),
+and a terminal edge subpath σm of α(em ) such that
+ (1) σ0 6= α(e0 );
+ (2) σm 6= α(em ); and
+ (3) α(σ̂) is the immersed edge path σ0 σσm .
+
+Proof We may view αΣ as being obtained from Σ by subdividing and rela-
+beling. With this in mind, any immersed edge path σ in αΣ gives an immersed
+path σ ′ in Σ that may not have endpoints vertices. This path extends uniquely
+to an immersed edge path σ̂ that is minimal with respect to containing σ ′ .
+
+
+9.2.4   Collapsing edges
+
+If e is an edge of the labeled graph Σ, then g : Σ → Σ′ is a collapse of e if the
+induced map between universal covers is the morphism collapsing a lift of e. In
+this case, we denote Σ′ by collapsee (Σ). More generally, if E is a set of edges
+in Σ then we may collapse each edge in E to a point and obtain collapseE (Σ).
+If g : Σ → Σ′ is a morphism, and if E ′ is a set of edges in Σ′ , then there is an
+induced morphism collapseE ′ (g) : collapseg−1 (E ′ ) (Σ) → collapseE ′ (Σ′ ). To each
+edge e′ in collapseE (Σ), we may associate the unique edge e of Σ such that
+collapseE (e) = e′ . The proof of the next lemma is left to the reader.
+
+Lemma 9.5 (See [10]) (1) The quotient map Σ → collapseE (Σ) induces a
+   surjection of fundamental groups.
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                 1865
+
+
+ (2) If e′ ⊂ core(collapseE (Σ)) then e ⊂ core(Σ).
+
+Remark 9.6 If E is the set of edges labeled b, then the operations tightb and
+collapseE commute.
+
+
+9.2.5    Operations on tight labeled core graphs
+
+If Σ is a tight labeled core graph and if α ∈ Aut(FB ), then α# Σ is the labeled
+core graph core(tight(αΣ)) obtained by coring the tightening of αΣ. If Σ
+represents [[H]], then α# Σ represents [[αH]].
+
+
+9.2.6    Sequences
+
+All the above notions extend to sequences of labeled graphs. For example, if
+~ = {Σk } is a sequence of labeled graphs, then a path in Σ
+Σ                                                         ~ is a path I → Gk
+                                                                             0
+                             ~
+for some choice k0 of k , α# Σ denotes {α# Σk }, etc.
+A sequence H ~ of conjugacy classes of subgroups of FB is uniquely represented
+       ~
+by Σ(H). In the following definitions, Σ~ is a sequence of labeled graphs. For
+a labeled graph Σ, |Σ|b is the number of oriented edges of Σ with label b. If
+~ = {Σi } is a sequence of labeled graphs then |Σ|
+Σ                                               ~ b is the sum of the |Σi |b .
+
+
+9.3     Elementary Whitehead automorphisms
+
+A reference for this section is [18]. An extended permutation of FB is an auto-
+morphism of FB induced by a permutation of B ±1 . An elementary Whitehead
+automorphism is an automorphism α of FB that is either an extended permu-
+tation or has the following form. There is an element b ∈ B ±1 and a subset A
+of B ±1 \ {b±1 } such that
+   • if c ∈ A \ A−1 then α(c) = bc;
+   • if c ∈ A ∩ A−1 then α(c) = bcb−1 ; and
+   • if c 6∈ A ∪ A−1 then α(c) = c.
+We call b the distinguished label of α.
+
+Remark 9.7 Let Σ  ~ be a sequence of labeled graphs and let α be an ele-
+mentary Whitehead automorphism with distinguished label b. There is a 1–1
+                                           ~ not labeled b and the edges of
+correspondence between the set of edges of Σ
+
+
+Geometry & Topology, Volume 9 (2005)
+1866                                                                                        Guo-An Diao and Mark Feighn
+
+
+αΣ~ not labeled b. In αΣ,
+                       ~ there are old and new edges labeled b. The terminal
+vertex of each new edge has valence 2 and the other incident edge is not labeled
+b. Such a valence 2 vertex is new ; other vertices are old. The subgraph of αΣ ~
+consisting of new edges is a forest each component of which is a cone over a
+set of new vertices with base an old vertex. All edges of the cone have initial
+vertex the base. See Figure 15.
+
+
+
+
+                       Figure 15: α(a) = a, α(b) = aba−1
+
+
+Remark 9.8 For α ∈ Aut(FB ), the sequence of folds needed to tighten αRB
+algorithmically gives a factorization of α as a product of elementary Whitehead
+automorphisms.
+
+The next lemma is a consequence of Step 1 of the proof of the proposition on
+page 455 of [4].
+
+Lemma 9.9 Let g : Σ0 → Σ1 be a strict morphism of labeled graphs that is
+surjective on the level of fundamental groups. Then, there is a fold g′ : Σ0 → Σ′
+such that g factors as
+                                  g′
+                              Σ0 → Σ′ → Σ1 .
+
+Lemma 9.10 Let g : Σ0 → Σ1 be a strict morphism of labeled graphs that is
+surjective on the level of fundamental groups. Suppose that, for some b ∈ B ,
+|Σ1 |b < |Σ0 |b . Then, there are strict morphisms making the following diagram
+commute
+                                                   σ
+                                       I .............................. Σ0
+                                               ...                          ...
+
+                                  g′ ...............                                    g
+                                                 ...                          ...
+                                                   .                            ...
+                                                                                  ...
+                                               ..                      .........
+                                                                          ..
+
+                                           T .............................. Σ1
+where
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                                                                                                                                                                                                                                                                           1867
+
+
+    • where σ is an immersed edge path represented by e0 e1 · · · em ;
+    • T is a labeled tree;
+    • e0 and e−1                ′
+              m are labeled by b = b or b
+                                          −1 ;
+
+    • for 0 < i < m, ei is not labeled by b or b−1 ; and
+    • g′ (e0 ) = g′ (e−1
+                      m ).
+
+
+Proof Since |Σ1 |b < |Σ0 |b there are distinct edges e and e′ in Σ0 each labeled
+b that are identified under g . Consider the lift g̃ : Σ̃0 → Σ̃1 to universal covers.
+Because g induces a surjection on the level of fundamental groups, there are
+lifts ẽ and ẽ′ of e and e′ to Σ̃0 that are identified under g̃ . Choose ẽ and ẽ′
+with this property so that the subtree I they span has minimal diameter (with
+respect to the edge metric). The edge path σ : I → Σ0 is the restriction of
+the first covering projection. The edge path σ factors as I → T = g̃(I) → Σ1
+where the first factor is induced by the restriction of g̃ to I and the second
+factor is the restriction of the second covering projection.
+
+Lemma 9.11 Let Σ     ~ be a sequence of tight labeled graphs and let α ∈ Aut(FB )
+be an elementary Whitehead automorphism with distinguished label b. Let E
+(respectively E ′ ) be the set of edges of Σ (respectively tight(αΣ)) that are
+labeled b. Then, the following diagram commutes and the lower horizontal
+arrow is an isomorphism.
+                                                                                                                                                                                                                       ~
+                                                                                                ~ ............................................................................................................. tight(αΣ)
+                                                                                                Σ
+                                                                                                .      ...                                                                                                           .         ...
+                                                                                                         ...                                                                                                                     ...
+                                                                                                           ...                                                                                                                     ...
+                                                                                                             ..                                                                                                                      ..
+                                                                                                 .........                                                                                                               ..........
+                                                                                                    ..                                                                                                                      ..
+
+                                                                                  ~ .................................................... collapseE ′ (tight(αΣ))
+                                                                       collapseE (Σ)                                                                         ~
+
+                                                                      ~ not
+In particular, there is a natural 1–1 correspondence between edges of Σ
+         ±1                      ~
+labeled b and edges of tight(αΣ) not labeled b .±1
+
+
+
+Proof Let E ′′ be the set of edges of αΣ that are labeled b. We have a com-
+muting diagram
+                 ~ .................................................................................................................................. αΣ
+                 Σ                                                                                                                                                                                                                                                                                                              ~
+                                                                                                                                                       ~ ............................................................................................................................................................... tight(αΣ)
+                 .    ...                                                                                                                     ...      .                                                                                                                                                     ...              .
+                        ...                                                                                                                     ...                                                                                                                                                            ...
+                          ...                                                                                                                     ...                                                                                                                                                            ...
+                            ..                                                                                                                      ..                                                                                                                                                             ..
+                  ........                                                                                                               .........                                                                                                                                                      .........
+                     ..                                                                                                                     ..                                                                                                                                                             ..
+
+  collapseE (Σ)                                                                                                                                                                                                        ~
+                                                                                                   ~ ............................................................................................. collapseE ′ (tight(αΣ))
+             ~ .................................................................... collapseE ′′ (αΣ)
+
+It is clear that the lower left horizontal arrow is an isomorphism and that the
+lower right arrow is strict and surjective.
+
+
+Geometry & Topology, Volume 9 (2005)
+1868                                                 Guo-An Diao and Mark Feighn
+
+
+In order to obtain a contradiction, assume
+                                   ~ → collapseE ′ (tight(αΣ))
+                    collapseE ′′ (αΣ)                      ~
+
+is not injective. Since this map is π1 –surjective, by Lemma 9.9 there are two
+edges not labeled b or b−1 with the same image. It follows that there are two
+edges not labeled b or b−1 with the same image under αΣ   ~ → tight(αΣ).
+                                                                     ~ Using
+Lemma 9.10 and taking a subpath if necessary, there is an immersed edge path
+σ : I → αΣ ~ represented by e0 e1 · · · em such that
+
+   • the label of e0 and e−1    ′
+                          m is b 6= b
+                                      ±1 ;
+
+   • the label of ei is b±1 for all 0 < i < m; and
+   • I → αΣ ~ → tight(αΣ)~ factors through a tree.
+                                   ~ determined by σ as in Lemma 9.4 then
+If σ̂ is the immersed edge path in Σ
+   • the label of ê0 and ê−1     ′
+                            m̂ is b ; and
+   • êi is labeled b±1 for 1 < i < m̂.
+Since σ̂ is an immersion, all the êi , 1 < i < m̂, are consistently oriented. It
+is easy to see then that I → αΣ ~ → tight(αΣ)  ~ cannot factor through a tree,
+contradiction.
+
+Lemma 9.12 Let Σ    ~ be a sequence of tight labeled core graphs and let α be
+an elementary Whitehead automorphism with distinguished label b, let e be an
+        ~ not labeled b±1 , and let e′ be the corresponding edge in tight(αΣ).
+edge of Σ                                                                  ~
+        ′         ~                 ~
+Then, e is in α# Σ = core(tight(αΣ)). In particular, there is a natural 1–1
+correspondence between edges of Σ   ~ not labeled b±1 and edges of α# Σ  ~ not
+          ±1
+labeled b .
+
+Proof Suppose that e separates (respectively does not separate) its compo-
+nent. By Lemma 9.3, there is an immersed loop g : S → Σ    ~ crossing e (respec-
+                 ′
+tively crossing e and e′−1 each) exactly once. It follows from Lemma 9.11 that
+the immersed loop tight(αg) crosses e′ (respectively e′ and e′−1 each) exactly
+once. By Lemma 9.3, e′ is contained in α# Σ.~
+
+
+9.4    Complexity
+   ~ is a finite sequence of conjugacy classes of finitely generated subgroups of
+If H
+FB and if b ∈ B , then |H|~ b is the number of edges in Σ(H)  ~ that are labeled
+with b. The complexity        ~             ~
+                          of H, denoted c(H), is the number of edges in Σ(H)  ~
+                 P
+or equivalently b∈B |H| ~ b.
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                   1869
+
+
+We will also need a finer measure of complexity of H.   ~ Define the lexity of
+~ denoted lex(H),
+H,               ~ to be the sequence of non-negative integers {|Σ(H)|
+                                                                     ~ b }b∈B
+arranged in non-decreasing order. The set L of non-decreasing sequences of
+                                                                    ~ denote
+non-negative integers is well-ordered lexicographically. Let minlex(H)
+           ~
+minb∈B {|Σ(H)|b }.
+
+Lemma 9.13 Let H     ~ be a finite sequence of conjugacy classes of finitely gen-
+erated subgroups of FB and let α be an elementary Whitehead automorphism.
+Then c(αH) ~ < c(H)~ if and only if lex(αH) ~ < lex(H).
+                                                     ~    If further α has dis-
+                                ~         ~
+tinguished label b, then lex(αH) ≤ lex(H) if and only if |αH|  ~ b ≤ |H|~ b with
+                          ~ b = |H|
+equality if and only if |αH|      ~ b.
+
+
+Proof Since extended permutations preserve both c and lex, we may suppose
+that α has distinguished label b ∈ B . It follows from Lemma 9.12 that if
+                                                           ~ is the same as
+b′ 6= b±1 , then the number of times that b′ appears in Σ(αH)
+                           ′
+the number of times that b appears in Σ(H).~
+
+
+9.5    Gersten’s Theorem
+
+Let H~ be a finite sequence of conjugacy classes of finitely generated subgroups of
+          ~ = min{c(αH)
+FB . If c(H)              ~ | α ∈ Aut(FB )} then H   ~ is a Gersten representative
+for the orbit Aut(FB )H.~ We also write that H     ~ is a Gersten representative
+                                         ~
+for any element of the orbit. Since H is an element of this orbit, we often
+simply write that H   ~ is a Gersten representative. A finite set of generators
+for a representative H ∈ H for each H ∈ H     ~ is a finite generating system for
+ ~
+H. S M Gersten [14][18] gave an algorithm that when input a finite generating
+system for H ~ outputs the finite set of Gersten representatives for H. ~
+
+Theorem 9.14 [14],[18]
+        ~ is a finite sequence of conjugacy classes of finitely generated sub-
+ (1) If H
+     groups of FB that is not a Gersten representative, then there is an ele-
+     mentary Whitehead automorphism α such that c(αH)     ~ < c(H).
+                                                                  ~
+        ~ and H
+ (2) If H      ~ ′ are Gersten representatives for H,
+                                                   ~ then there is a finite se-
+                  m
+     quence {αk }k=1 of elementary Whitehead automorphisms and a sequence
+                               ~ =H
+                              {H  ~ 0, H
+                                       ~ 1, · · · , H
+                                                    ~m = H
+                                                         ~ ′}
+                                              ~ k−1 = H
+      of Gersten representatives such that αk H       ~ k for 1 ≤ k ≤ m.
+
+
+Geometry & Topology, Volume 9 (2005)
+1870                                                 Guo-An Diao and Mark Feighn
+
+
+Corollary 9.15 If H  ~ is a finite sequence of conjugacy classes of finitely gen-
+erated subgroups of FB , then there is an algorithm that when input a finite
+generating system for H~ outputs a Gersten representative for H.~
+
+
+Proof Iteratively apply elementary Whitehead automorphisms to H    ~ until
+complexity cannot be decreased. The resulting sequence is a Gersten repre-
+sentative by Theorem 9.14(1).
+
+Corollary 9.16 Let H   ~ be a finite sequence of conjugacy classes of finitely
+generated subgroups of FB . Then, there is an algorithm that when input a finite
+generating system for H~ outputs the finitely many Gersten representatives of
+~
+H.
+
+Proof By Corollary 9.15, we may assume that H   ~ is a Gersten representative.
+Consider the graph whose vertices are finite sequences of conjugacy classes of
+finitely generated subgroups of FB of complexity equal to c(H),~ and where
+two vertices H~ 1 and H~ 2 are connected by an edge if there is an elementary
+Whitehead automorphism α such that αH     ~1 = H~ 2 . By Theorem 9.14(2), the
+                                     ~
+component of this graph containing H has vertices that are precisely the Ger-
+                        ~
+sten representatives of H.
+
+
+9.6    Consequences of Lemma 9.13
+
+In this section we show that simplifications can be detected using Gersten repre-
+sentatives. Throughout this section, H ~ is a finite sequence of conjugacy classes
+of finitely generated subgroups of FB .
+
+Lemma 9.17 The following are equivalent.
+ (1) There is an α ∈ Aut(FB ) such that minlex(αH)~ = 0.
+ (2) For some (any) Gersten representative H~ ′ of H,
+                                                   ~ minlex(H
+                                                            ~ ′ ) = 0.
+
+
+Proof By Lemma 9.13, for any α ∈ Aut(FB ) and any Gersten representative
+~ ′ of H,
+H      ~ lex(αH)
+              ~ ≥ lex(H
+                      ~ ′ ). Thus, (1) ⇐⇒ (2).
+
+Lemma 9.18 Let B ′ ⊂ B and suppose that H     ~ ′ is a finite sequence of conjugacy
+classes of finitely generated subgroups of FB′ . The following are equivalent.
+     ~ ′ is a Gersten representative with respect to B ′ .
+ (1) H
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                   1871
+
+
+     ~ ′ is a Gersten representative with respect to B .
+ (2) H
+
+Proof That (2) =⇒ (1) is clear. Suppose (1), but not (2). By Lemma 9.13
+there is then an elementary Whitehead automorphism α ∈ Aut(FB ) with dis-
+                                          ~ ′ |b < |H
+                   / (B ′ )±1 such that |αH
+tinguished label b ∈                                ~ ′ |b = 0, contradiction.
+
+Recall that the terms visibly blown up, visibly unpulled, visibly unkilled, visibly
+uncleaved, and visibly simplified were defined in Definition 2.5.
+
+Lemma 9.19 The following are equivalent.
+                                            ~ can be visibly blown up.
+ (1) There is an α ∈ Aut(FB ) such that Σ(αH)
+                                             ~ ′ of H,
+ (2) For some (every) Gersten representative H      ~ Σ(H~ ′ ) can be visibly
+     blown up.
+
+Proof The lemma will follow from:
+
+Claim If Σ(H) ~ can be visibly blown up and if α is an elementary Whitehead
+automorphism with lex(αH)~ ≤ lex(H) ~ then either Σ(αH)
+                                                      ~ can be visibly blown
+                                  ′
+up or there is an automorphism α with lex(α H)′ ~ < lex(H)
+                                                        ~ such that Σ(α′ H)
+                                                                          ~
+can be visibly blown up.
+
+We now prove the claim. Suppose B = B ′ ⊔ B ′′ is a non-trivial partition such
+                     ~ has a representative in either FB′ or FB′′ . If α is an
+that each element of H
+extended permutation, then the claim is clear.
+Alternatively, let b ∈ B ±1 be the distinguished label of α and suppose without
+loss that b ∈ (B ′ )±1 . Let α′ be the automorphism that agrees with α on B ′
+                                                         ~ can be visibly blown
+and that is the identity on B ′′ . It is clear that Σ(α′ H)
+up. Now, Σ(αH)  ~ can be visibly blown up if and only if, for each H ∈ H ~ with
+a representative in FB′′ , αH has a representative in FB′′ . By Lemma 9.13,
+this occurs if and only if |αH|b > 0 for such H and this occurs if and only if
+    ~ b < |αH|
+|α′ H|      ~ b.
+
+                                                              ~ ′ of H
+Lemma 9.20 Suppose that for some (any) Gersten representative H      ~
+               ~ ′
+we have minlex(H ) 6= 0. Then, the following are equivalent.
+ (1) There is an α ∈ Aut(FB ) such that minlex(αH)~ = 1.
+ (2) For some (any) Gersten representative H~ ′ of H,
+                                                   ~ minlex(H
+                                                            ~ ′ ) = 1.
+     ~ can be either visibly unkilled or visibly unpulled.
+ (3) H
+
+
+Geometry & Topology, Volume 9 (2005)
+1872                                                                                                                                                                      Guo-An Diao and Mark Feighn
+
+
+Proof In the presence of minlex(H    ~ ′ ) 6= 0, (1) ⇐⇒ (2) by Lemma 9.13. Sup-
+pose that (2) holds. There are two cases: there is a label b ∈ B that appears
+exactly once in Σ(H~ ′ ) and (a) the edge labeled b separates its component and
+(b) edge labeled b does not separate its component. It is an easy exercise to
+show that in case (a) Σ(H) ~ can be visibly unkilled and in case (b) Σ(H)~ can
+be visibly unpulled.
+Suppose that (3) holds. Then there is free factorization FB = F 1 ∗h1i = F 1 ∗ hti
+as in Definition 8.3 or Definition 8.4. Let B 1 be a basis for F 1 . Choose an
+α ∈ Aut(FB ) so that α(B 1 ⊔ {t}) = B . Then minlex(αH)~ = 1.
+
+The next lemma will be used to prove Lemma 9.23.
+
+Lemma 9.21 Suppose that
+            ~ > 1;
+ (1) minlex(H)
+   (2) B = B ′ ⊔ B ′′ is a non-trivial partition;
+   (3) Σ(H) ~ = Σ(H ~ ′ ) ∨ Σ(H
+                              ~ ′′ ) where H
+                                           ~ ′ is a Gersten representative in FB′ and
+       ~ ′′
+       H is a Gersten representative in FB′′ ; and
+   (4) α ∈ Aut(FB ) is an elementary Whitehead automorphism with distin-
+       guished label b ∈ (B ′ )±1 such that lex(αH)  ~ ≤ lex(H).
+                                                               ~
+Then,
+   • αH ~ ′′ = H~ ′′ ;
+   • αH ~ ′ is a Gersten representative for H~ ′ ; and
+   • Σ(αH)  ~ = Σ(αH   ~ ′ ) ∨ Σ(H
+                                 ~ ′′ ).
+In particular, H~ satisfying (1), (2), and (3) is a Gersten representative.
+
+Proof Note:
+        ~ = tight Σ(αH     ~ ′ ) ∨ I ∨ Σ(αH                                                       ~ ′′ ) for some labeled graph I homeo-
+                                                                                                                      
+  • Σ(αH)
+    morphic to a compact interval. This follows because in tightening αΣ(H),                                                                                                                         ~
+                           ~ ′
+    we can tighten αΣ(H ) and αΣ(H ) first.                                                ~        ′′
+
+  • The subgraph of Σ(αH        ~ ′′ ) consisting of edges labeled b is a tree whose
+    components are single (non-loop) edges. This follows from Remark 9.7
+    and the following commutative diagram where E is the set of edges of
+    Σ(αH~ ′′ ) that are labeled b.
+                      Σ(H ~ ′′ ) ......................................................................................................................................................... Σ(αH
+                                                                                                                                                                                              ~ ′′ )
+                                                                        .......                                                                                                               .....
+                                                                              .......
+                                                                                    .......                                                                                             .......
+                                                                                          .......                                                                                 .......
+                                                                                                                                                                            .......
+                                                                                        =
+                                                                                                .......                                                               .......
+                                                                                                      .......                                                       .
+                                                                                                                                                                    ...
+                                                                                                                                                                          collapseE
+                                                                                                            .......                                               ..
+                                                                                                                  ....... .                                 .......
+                                                                                                                        .........                  . ........
+                                                                                                                         . .                   ..........
+                                                                                                                                      ~ ′′ )
+                                                                                                                                    Σ(H
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                                          1873
+
+
+It follows that in tightening Σ(αH~ ′ ) ∨ I ∨ Σ(αH
+                                                 ~ ′′ ) at most one edge of Σ(αH
+                                                                               ~ ′)
+folds with an edge of Σ(αH  ~ ). Hence,
+                             ′′
+
+              ~ ′ ) + c(H
+            c(H         ~ ′′ ) = c(H)
+                                   ~ ≥ c(αH)  ~
+                                    ~ ′ ) + c(αH
+                               ≥ c(αH           ~ ′′ ) − 1 ≥ c(H
+                                                               ~ ′ ) + c(H
+                                                                         ~ ′′ ) − 1.
+                ~ ′′ ) = c(H
+Thus, either c(αH          ~ ′′ ) or c(αH
+                                        ~ ′′ ) = c(H~ ′′ ) + 1. In the former case, we
+are done. The latter case cannot occur. Indeed, otherwise |αH           ~ ′′ |b = 1. But
+                                               ~ ′′
+then, by Lemmas 9.18 and 9.20 , minlex(H ) ≤ 1 and hence minlex(H)               ~ ≤ 1,
+contradiction.
+
+Remark 9.22 Without (1), Lemma 9.21 is false. Consider B = {a, b} ⊔ {c},
+H = hab−1 , ci, and α(a) = a, α(b) = b, α(c) = bc.
+
+Lemma 9.23 Suppose that minlex(H   ~ ′ ) > 1 for some (any) Gersten represen-
+       ~ ′  ~
+tative H of H. Then, the following are equivalent.
+                                        ~ can be visibly cleaved.
+ (1) There is α ∈ Aut(FB ) such that Σ(αH)
+                                             ~ ′ of H,
+ (2) For some (every) Gersten representative H      ~ Σ(H~ ′ ) can be visibly
+     cleaved.
+
+Proof (2) =⇒ (1) is clear. We now show (1) =⇒ (2). Suppose that Σ(αH)                               ~ =
+    ~    ′            ~ ′′
+Σ(H ) ∨ Σ(H ) where all labels of Σ(H ) are in B      ~   ′               ′±1                        ~ ′′ )
+                                                                                 and all labels of Σ(H
+are in B         ′′±1                                                 ′       ′′
+                       for some non-trivial partition B = B ⊔ B . Choose α ∈ Aut(FB′ )       ′
+
+and α ∈ Aut(FB′′ ) such that α′ H
+            ′′                                    ~ ′ and α′′ H   ~ ′′ are Gersten representatives.
+Let α ∈ Aut(FB ) agree with α on FB′ and α′′ on FB′′ . Then, Σ(αH)
+                                                ′                                                   ~ =
+Σ(α H  ′   ~ ) ∨ I ∨ I ∨ Σ(α H
+             ′       ′     ′′       ′′ ~ ) where I and I are labeled graphs homeomorphic
+                                        ′′         ′           ′′
+
+to compact intervals, all labels of I ′ are in (B ′ )±1 , and all labels of I ′′ are in
+(B ′′ )±1 . We will now show that Σ(α′ H             ~ ′ ) ∨ Σ(α′′ H ~ ′′ ) is also a representative for
+ ~ Suppose that I ′′ is not trivial and that the edge e of I ′′ with initial vertex in
+H.
+Σ(α′ H     ~ ′ ) ∨ I ′ is labeled b. Let αb be the elementary Whitehead automorphism
+that is conjugation by b on B ′ and the identity on B ′′ . Then, Σ(αb αH)                           ~ is
+                              ′ ~ ′        ′ ′′       ′′  ~ ′′
+obtained from Σ(α H ) ∨ I ∨ I ∨ Σ(α H ) by collapsing e. We may continue
+until I ′′ and symmetrically I ′ are trivial. It follows from Lemma 9.21 that the
+result is a Gersten representative and that all Gersten representatives have this
+form.
+
+
+10       Proof of the Main Theorem
+
+Proposition 10.1 The algorithm of Section 2.10 is in fact an algorithm.
+
+
+Geometry & Topology, Volume 9 (2005)
+1874                                                  Guo-An Diao and Mark Feighn
+
+
+Proof To detect a reduction, it is only necessary to be able to decide algo-
+rithmically if a homomorphism α : FB → FB′ between free groups is an isomor-
+phism. According to Stallings [27], α is injective if and only if the rank of the
+Stallings representative of αF (B) with respect to B ′ is |B|. It is surjective if
+and only if this Stallings representative is RB′ . Thus Step 1 is algorithmic.
+
+Step 2 only depends on being able to find a Gersten representative and this is
+algorithmic by Corollary 9.15.
+
+After reducing and 1–simplifying, complexity has been reduced where complex-
+ity is the sequence of ranks of conjugacy classes of edge stabilizers viewed as an
+element of L. Therefore this process stops.
+
+
+We are finally in a position to prove Theorem 2.8.
+
+
+Proof of Theorem 2.8 By Proposition 10.1, we may assume that G is re-
+duced. Let S be the corresponding G–tree. We may also assume that no edge
+stabilizer is trivial of S . (Otherwise, G has an obvious free decomposition and
+we may work with the factors instead of G.) If G is freely decomposable, then
+by Lemma 8.5, there is a vertex v ∈ V such that H(v)   ~     can be 1–simplified.
+In particular, by definition there is a basis B for Gv with respect to which
+   ~
+Σ(H(v))    may be visibly simplified. Since Aut(FB ) acts transitively on bases,
+     ~
+ΣG (H(v))   may be visibly simplified by Lemmas 9.19, 9.20, and 9.23.
+
+
+We end with a few questions.
+
+
+Question 1 Is there an algorithm to decide if the fundamental group of a
+finite graph of finite rank free groups is a surface group?
+
+
+Question 2 Is there an algorithm to decide if the fundamental group of a
+finite graph of finite rank free groups splits over Z?
+
+
+Question 3 Is there an algorithm to find the JSJ –decomposition of the fun-
+damental group of a finite graph of finite rank free groups?
+
+
+One can’t hope to go too far in this direction since according to C. Miller [22] the
+isomorphism problem for finite graphs of finite rank free groups is unsolvable.
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                                     1875
+
+
+Appendix
+
+A      Bookkeeping
+
+In this section, details are provided as to how we record a finite graph of finite
+rank free groups G and how that data changes under a simplification. See
+Section 2.1 for notation.
+A finite graph of finite rank free groups G is given by the following data:
+    • for each e ∈ Ê , a basis Be for Ge such that Be = Be−1 ;
+    • for v ∈ V , a basis Bv for Gv ; and
+    • w
+      ~ = {w               ~ e = {we,b }b∈Be is a sequence of reduced words in
+           ~ e }e∈Ê where w
+       ±1
+      Bv representing {ϕe (b)}b∈Be .
+The Stallings algorithm referred to in Section 2.9 can be used to decide if a
+sequence w~ e determines a monomorphism. Indeed, check if the rank of ΣS
+obtained from w~ e is equal to the rank of Ge .
+
+Definition A.1 If {w       ~ e }e∈Ê is a sequence as above, then we say another se-
+quence {w ~ eout }e∈Ê is conjugate to {w   ~ e }e∈Ê , written {w ~ eout }e∈Ê ∼ {w    ~ e }e∈Ê , if
+there are {ψe = ψe−1 ∈ Aut(Ge )}e∈Ê , {ψv ∈ Aut(Gv )}v∈V , and h = {he ∈             ~
+Gv }e∈Ê so that w  ~ eout represents {ψv ◦ ihe ◦ ϕe ◦ ψe (b)}b∈Be . If {ψe } and {ψv }
+are viewed as changing bases, then we see that {w           ~ e }e∈Ê and {w   ~ eout }e∈Ê deter-
+mine conjugate graphs of groups.
+
+Definition A.2 For e ∈ Ê and v = ∂0 e, we say that given bases Be and
+Bv are good if they determine decompositions of Ge and Gv that give a visual
+simplification. Specifically, we say that Bv and Be are good in any of the
+following four cases.
+blowing up There is a distinguished element bv ∈ Bv so that ϕf (Bf ) ⊂ hb̂v i,
+     f ∈ Ê(v). There is no condition on Be in this case. (We use the notation
+     b̂v = Bv \ {bv }.)
+unpulling There are distinguished elements bv ∈ Bv and be ∈ Be so that
+    ϕe (b̂e ) ⊂ hb̂v i, ϕe (be ) = bv , and ϕf (Gf ) ⊂ hb̂v i, f ∈ Ê(v) \ {e}.
+unkilling There is a distinguished element bv ∈ Bv and a partition Be =
+     Be′ ⊔ Be′′ such that ϕe (Be′ ) ⊂ hb̂v i, ϕ(Be′′ ) ⊂ bv hb̂v ib−1
+                                                                   v , and ϕf (Gf ) ⊂ hb̂v i,
+     f ∈ Ê(v) \ {e}.
+
+
+Geometry & Topology, Volume 9 (2005)
+1876                                                   Guo-An Diao and Mark Feighn
+
+
+cleaving There are partitions Bv = Bv′ ⊔ Bv′′ and Be = Be′ ⊔ Be′′ such that
+     ϕe (Be′ ) ⊂ hBv′ i, ϕ(Be′′ ) ⊂ hBv′′ i, and for f ∈ Ê(v) \ {e} either ϕf (Gf ) ⊂
+     hBv′ i or ϕf (Gf ) ⊂ hBv′′ i.
+
+If Be and Bv are good bases, then the corresponding simplification can be
+performed. The bases associated to edges and vertices of the simplified graphs
+are as follows. Unless explicitly mentioned, the words we,b representing ϕe (b)
+do not change. We use the notation as above and in Sections 2.3–2.6.
+blowing up After blowing up, Bv = b̂v .
+unpulling After unpulling, Be = b̂e and Bv = b̂v .
+unkilling After unkilling, Be′ = Be′ , Be′′ = Be′′ , Bv = b̂v , and we′′ ,b represents
+     b−1                   ′′
+       v ϕe (b)bv for b ∈ Bv .
+cleaving After cleaving, Bv′ = Bv′ , Bv′′ = Bv′′ , Be′ = Be′ , and Be′′ = Be′′ .
+
+Proposition A.3 Let G be a finite graph of finite rank free groups given as
+                                                                     ~
+in the beginning of this section. Suppose that, for some v ∈ V , ΣG (H(v)) can
+be visibly simplified. Then,
+ (1) there is G out ∼ G such that G out can be simplified; and
+ (2) If w                                                             ~ out
+        ~ specifies the bonding maps of G , then a conjugate sequence w
+     may be found algorithmically so that in G out bases are good.
+
+Proof Since (2) implies (1), it is enough to prove (2). The conjugate se-
+quence w ~ out will be specified by supplying change of basis automorphisms
+{ψf = ψf −1 ∈ Aut(Gf )}f ∈Ê and {ψu ∈ Aut(Gu )}u∈V as well as the conju-
+gating elements ~h = {hf ∈ Gf }      as in Definition A.1. The change of basis
+                                   f ∈Ê
+automorphisms can be given by specifying new bases.
+                                                            ~
+Gersten’s algorithm supplies α ∈ Aut(Gv ) so that core(ΣS (αH(v)))         ~
+                                                                   = ΣG (H(v)).
+By taking ψv = α, we obtain a conjugate sequence (still denoted w  ~ ) such that
+                                                  ~
+core(Σ) can be visibly simplified where Σ = ΣS (H(v)). We are using the con-
+vention that all unmentioned change of basis and conjugating automorphisms
+are identities.
+Recall that each component of Σ has a basepoint. Choose shortest paths in
+each component of Σ from the basepoint to the core and take as conjugating
+elements the words read off along the inverses of these paths. The resulting
+conjugate sequence has basepoints in core(Σ). Hence, we may further assume
+that Σ = core(Σ).
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                    1877
+
+
+If Σ can be visibly blown up, then bases are good and if b ∈ Bv is an element
+that does not appear as a label on Σ we take b for the distinguished element
+bv .
+
+In each of the remaining cases, there is a distinguished e ∈ Ê(v). Let Σe
+be the component of Σ indexed by e, ie, Σe = ΣS (ϕe (Ge )). There is the
+natural factorization Ge → π1 (Σe , ∗) → Gv of ϕe where the first map is the
+isomorphism coming from Stallings algorithm (see Section 2.9) and the second
+map is induced by natural map of Section 2.8. We will use this first map to
+identify Ge with π1 (Σe , ∗). If a basis for π1 (Σe , ∗) is given via a maximal tree
+T for Σe , it is easy to write this isomorphism in terms of the given bases. To
+make this identification explicit, it is necessary to invert the automorphism and
+this can be done algorithmically, see Remark 9.8. Via our identification, T
+determines a new basis for Ge and hence a conjugate sequence.
+
+If Σ can be visibly unpulled, then choose an edge c of Σe that does not separate
+its component and whose label b ∈ Bv appears exactly once in Σ. Choose a
+maximal tree T for Σe so that c 6⊂ T and let Beout be the basis determined by
+T . There is an element be ∈ Beout corresponding to c. Let bv be ϕe –image in Gv
+of be . Set Bvout = {bv } ⊔ b̂ which is a basis for Gv since b appears exactly once
+in bv when expressed as a Bv –word. The new bases are good and determine
+change of basis automorphisms giving rise to the desired w     ~ out .
+
+If Σ can be visibly unkilled, then choose an edge c of Σe that separates its
+component and whose label b ∈ Bv appears exactly once in Σ. By changing
+the orientation of c and inverting b if necessary, we may assume that ∂0 c and
+the basepoint are in the same component of the graph obtained by removing c
+from Σe . Let T be a maximal tree for Σe . This gives the desired new basis
+Beout . Choosing a shortest path in T from the ∂0 c to the basepoint gives rise
+to a conjugating element he which has the effect of changing the basepoint of
+Σe to ∂0 c. The new bases are good. Indeed, the partition of Beout is induced by
+the separating edge. More precisely, let (Beout )′′ be the elements of Beout that
+contain the letter b and let (Beout )′ be the complement. Set bv = b.
+
+If Σ can be visibly cleaved, then write Σ = Σ′ ∨ Σ′′ respecting the non-trivial
+partition Bv′ ⊔ Bv′′ of Bv . A choice of maximal tree T for Σe gives the desired
+new basis Beout and a shortest path from the wedge point to the basepoint de-
+termines a conjugating element he . With these choices, the new bases are good.
+Indeed, the partition of Beout is induced by the wedge. More precisely, (Beout )′
+corresponds to the set of edges of Σ′ ∩ Σe not in T and (Beout )′′ corresponds to
+the remaining edges not in T .
+
+
+Geometry & Topology, Volume 9 (2005)
+1878                                                          Guo-An Diao and Mark Feighn
+
+
+Example A.4 Let G have underlying graph Γ as in Figure 16. Suppose that
+Be = {a1 , a2 }, Bv = {b1 , b2 }, and Bf = {z}. We will not specify Gu since
+it will not change. Suppose that ϕe (a1 ) = b21 b22 , ϕe (a2 ) = b21 b22 b21 , ϕf (z) =
+                                           ~
+b1 , ϕf −1 (z) = b2 . Then, Σ(v) = ΣS (H(v))     is a Gersten representative, ie,
+     ~
+ΣS (H(v))          ~
+             = ΣG (H(v)).   Σ(v) is displayed in Figure 16, and it can be visibly
+cleaved. The given bases are not good. A good basis for Ge corresponds to the
+one determined by the wedge point in Σ(v). The change of basis automorphism
+ψe ∈ Aut(Ge ) is given by ψe (a1 ) = a−1                         −1
+                                          1 a2 and ψe (a2 ) = a2 a1 a1 , ie, ϕe ◦
+ψe (a1 ) = b21 and ϕe ◦ ψe (a2 ) = b22 .
+If G ′ is the result of cleaving G , then Be′ = {a1 }, Be′′ = {a2 }, Bv′ = {b1 },
+Bv′′ = {b2 }, ϕe′ (a1 ) = b21 , ϕe′′ (a2 ) = b22 , ϕ(e′ )−1 (a1 ) = ϕe−1 ◦ ψe (a1 ), and
+ϕ(e′′ )−1 (a2 ) = ϕe−1 ◦ ψe (a2 ).
+The next step in the algorithm would be to reduce G ′ . The example could have
+been complicated by post-composing ϕe , ϕf , and ϕf −1 by some ψv ∈ Aut(Gv ).
+In that case, we would use Gersten’s algorithm first (and discover ψv ).
+
+                     G                                  G′          v′
+                                                               ′
+                                                              e
+                 u            e   v         f            u
+                                                Split                       f
+
+                                                              e′′
+                                                                    v ′′
+                                           Σ(v)
+                         b1           b2
+
+                                                         b1                b2
+
+                         b1           b2
+
+
+                                           Figure 16
+
+
+
+References
+
+  [1] H Bass, Some remarks on group actions on trees, Comm. Algebra 4 (1976)
+      1091–1126 MathReview
+  [2] M Bestvina, M Feighn, Outer limits, preprint (1994)
+  [3] M Bestvina, M Feighn, A combination theorem for negatively curved groups,
+      J. Differential Geom. 35 (1992) 85–101 MathReview
+
+
+Geometry & Topology, Volume 9 (2005)
+The Grushko decomposition of a finite graph of free groups                     1879
+
+
+  [4] M Bestvina, M Feighn, Bounding the complexity of simplicial group actions
+      on trees, Invent. Math. 103 (1991) 449–469 MathReview
+  [5] M R Bridson, A Haefliger, Metric spaces of non-positive curvature,
+      Grundlehren series 319, Springer-Verlag, Berlin (1999) MathReview
+  [6] M R Bridson, D T Wise, VH complexes, towers and subgroups of F × F ,
+      Math. Proc. Cambridge Philos. Soc. 126 (1999) 481–497 MathReview
+  [7] P Brinkmann, Splittings of mapping tori of free group automorphisms, Geom.
+      Dedicata 93 (2002) 191–203 MathReview
+  [8] D E Cohen, Combinatorial group theory: a topological approach, London Math-
+      ematical Society Student Texts 14, Cambridge University Press, Cambridge
+      (1989) MathReview
+  [9] G-A Diao, Is a graph of finitely generated free groups free? An algorithm, PhD
+      thesis, Rutgers University, Newark (2003)
+ [10] M Feighn, M Handel, Mapping tori of free group automorphisms are coherent,
+      Ann. of Math. (2) 149 (1999) 1061–1077 MathReview
+ [11] K Fujiwara, P Papasoglu, JSJ-decompositions of finitely presented groups
+      and complexes of groups, to appear in GAFA
+ [12] R Geoghegan, M L Mihalik, M Sapir, D T Wise, Ascending HNN exten-
+      sions of finitely generated free groups are Hopfian, Bull. London Math. Soc. 33
+      (2001) 292–298 MathReview
+ [13] V Gerasimov, Detecting connectedness of the boundary of a hyperbolic group,
+      preprint (1999)
+ [14] S M Gersten, On Whitehead’s algorithm, Bull. Amer. Math. Soc. (N.S.) 10
+      (1984) 281–284 MathReview
+ [15] IA Grushko, On generators of a free product of groups, Matem. Sbornik N. S.
+      8 (1940) 169–182
+ [16] A Hatcher, Algebraic topology, Cambridge University Press, Cambridge (2002)
+      MathReview
+ [17] W Jaco, D Letscher, J H Rubinstein, Algorithms for essential surfaces
+      in 3-manifolds, from: “Topology and geometry: commemorating SISTAG”,
+      Contemp. Math. 314, Amer. Math. Soc., Providence, RI (2002) 107–124
+      MathReview
+ [18] S Kalajdžievski, Automorphism group of a free group: centralizers and stabi-
+      lizers, J. Algebra 150 (1992) 435–502 MathReview
+ [19] O Kharlampovich, A Myasnikov, Irreducible affine varieties over a free
+      group. I. Irreducibility of quadratic equations and Nullstellensatz, J. Algebra
+      200 (1998) 472–516 MathReview
+ [20] O Kharlampovich, A Myasnikov, Effective JSJ decompositions, from:
+      “Groups, languages, algorithms”, (Borovik, editor), Contemp. Math. 378, Amer.
+      Math. Soc., Providence, RI (2005) 87–212
+
+
+Geometry & Topology, Volume 9 (2005)
+1880                                                   Guo-An Diao and Mark Feighn
+
+
+ [21] R C Lyndon, P E Schupp, Combinatorial group theory, Classics in Mathe-
+      matics, Springer-Verlag, Berlin (2001) MathReview
+ [22] C F Miller, III, On group-theoretic decision problems and their classification,
+      Princeton University Press, Princeton, N.J. (1971) MathReview
+ [23] E Rips, Z Sela, Cyclic splittings of finitely presented groups and the canonical
+      JSJ decomposition, Ann. of Math. (2) 146 (1997) 53–109 MathReview
+ [24] Z Sela, Diophantine geometry over groups. I. Makanin-Razborov diagrams,
+      Publ. Math. Inst. Hautes Études Sci. (2001) 31–105 MathReview
+ [25] J-P Serre, Trees, Springer Monographs in Mathematics, Springer-Verlag,
+      Berlin (2003) MathReview
+ [26] A Shenitzer, Decomposition of a group with a single defining relation into a
+      free product, Proc. Amer. Math. Soc. 6 (1955) 273–279 MathReview
+ [27] J R Stallings, Topology of finite graphs, Invent. Math. 71 (1983) 551–565
+      MathReview
+ [28] J R Stallings, Foldings of G-trees, from: “Arboreal group theory (Berkeley,
+      CA, 1988)”, Math. Sci. Res. Inst. Publ. 19, Springer, New York (1991) 355–368
+      MathReview
+ [29] G A Swarup, Decompositions of free groups, J. Pure Appl. Algebra 40 (1986)
+      99–102 MathReview
+ [30] J H C Whitehead, On certain sets of elements in a free group, Proc. Lon-
+      don Math. Soc. 41 (1936) 48–56
+ [31] J H C Whitehead, On equivalent sets of elements in a free group, Ann. of
+      Math. (2) 37 (1936) 782–800 MathReview
+
+
+
+
+Geometry & Topology, Volume 9 (2005)
+

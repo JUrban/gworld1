@@ -763,3 +763,8 @@ candidate; two partial candidates remain, zero established novel results.
 N4 and MA6 primary-source checks produced scope qualifications only;
 recorded them without adding candidates. No agents, contacts or push.
 Original clock and all frozen source inputs unchanged.
+
+
+## 2026-09-28T21:27:09.306817+00:00 — wider scope audit
+
+Broader portfolio pass retired F24(b) using Diao-Feighn 2005, whose introduction explicitly names the problem. Read its input and algorithm statements. Audited H5 recognition versus decision and compared the H4 size obstruction with polynomial hyperbolicity certification methods; no conflict found in their stated scopes. Saved exact primary sources and F24/H5 rendered audits. No new count. The prior preparation-only response made no progress on mathematical discovery; this continuation resumes the same original run and deadline.

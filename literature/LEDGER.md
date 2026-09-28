@@ -315,3 +315,8 @@ metacyclic presentations. It is a candidate under explicit uniform
 input/output, with novelty unresolved. Search queries and exact credit:
 `problems/H4/audit.md`. No reliance on a claim that a historical problem
 list establishes current openness.
+
+
+## 2026-09-28T21:27:09.307003+00:00 — wider scope audit
+
+Archived Diao-Feighn 2005 (F24(b), explicit prior full answer), Rees arXiv:2205.14911 (automatic-group scope), and the 22 July 2020 manuscript Polynomial-time proofs that groups are hyperbolic (positive certification may fail). Reading limits and exact implications are in research/notes/F24-automatic-scope-refresh.md. No exhaustive novelty or proof audit claimed.

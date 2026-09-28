@@ -84,3 +84,8 @@ nilpotent groups, not the full N4 scope. July2026 primary work still
 states rational parabolic non-freeness as a conjecture and disproves
 the converse of the orbit test. Neither check produces a new result.
 See `research/notes/N4-MA6-current-scope.md`.
+
+
+## 2026-09-28T21:27:09.307132+00:00 — wider scope audit
+
+F24(b) is excluded as a prior full positive answer: Diao-Feighn 2005 explicitly identifies it as a consequence of its Grushko algorithm. H5 recognition methods still supply no negative decision here. The H4 candidate is compatible with polynomial hyperbolicity certifiers that permit failure; see research/notes/F24-automatic-scope-refresh.md.
