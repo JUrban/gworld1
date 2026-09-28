@@ -2,19 +2,20 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately22:53 UTC: four whole-entry candidates
+Latest checkpoint, approximately23:35 UTC: four whole-entry candidates
 (F28,N5,M0,H4), four partial candidates (N8,F41,F38(a),F34(a)), zero
-established novel results. F34/F38 now have a shared audit and a finite
-control-path bound. The generic determinant substitution fails for F39.
-GA1's proposed surface obstruction is excluded by prior Z^2-free actions.
+established novel results. N8 now covers every target in class ten,
+completing classes three through ten in all finite ranks. The new coupled
+integer and quadratic branches have independent rank-two GAP certificates;
+rank-three structural Python checks passed, but both GAP attempts timed out.
+The first group run exposed a class-ten conjugation term omitted by the old
+optimized tail; the corrected routine and failed evidence are retained.
 
-N8(b) now also covers every gamma_8 target in class ten, subsuming its
-earlier nonlinear family. All-rank proof and rank-two independent GAP
-evidence are recorded; the rank-three structural timeout is incomplete.
-Next return to the broader unresolved portfolio and specific adversarial
-proof/novelty concerns. Do not spend the run merely enlarging validation
-samples or optimizing the timed-out rank-three benchmark. The original
-48-hour deadline and resource budget remain unchanged.
+F38(c)'s boundedness condition cannot use the injection substitution of
+F38(a), and the rank-three F1(b)/F26 scopes are prior. Next return to a
+concrete unresolved question in the wider portfolio or a specific adversarial
+proof/novelty concern. Do not spend the run merely scaling the timed-out
+rank-three benchmark. The original 48-hour clock and budget are unchanged.
 
 ## First pass: source and literature triage
 

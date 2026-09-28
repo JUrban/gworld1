@@ -800,3 +800,8 @@ Completed the class-ten gamma_8 extension: a fresh-letter quotient lemma, comple
 ## 2026-09-28T23:14:32.455430+00:00 — boundedness and fixed-subgroup scope
 
 The preceding preparation-only response made no mathematical progress on this active goal; revalidated the original clock and resumed gworld1. The saved F38 boundedness jobs are terminal and passed with empty stderr. Archived and read the primary Lee--Ventura example, recorded the automorphism/injection/real-tree distinction, and credited prior rank-three F1(b)/F26 scope from Martino and Ventura. No candidate count changes. A concrete full-class-ten N8 lead is saved separately as unproved, with missing kernels and an exceptional obstruction to investigate. No agents, contacts or push; original deadline unchanged.
+
+
+## 2026-09-28T23:36:21.500599+00:00 — all-target class-ten extension
+
+Completed an all-target class-ten N8 candidate using six kernel arguments and an injective coupled stage followed by a quadratic obstruction. Both Python structural suites passed; rank-two GAP passed, two rank-three GAP attempts timed out without per-case confirmation. The first group run failed on a discarded class-ten conjugation term; a new tail routine retained it. Main and supplemental Python/GAP suites then passed, covering all coupled outcomes and the older degree-seven exception. Exact failed/successful sources and checks retained. Extended the same N8 partial scope, with no tally increase. All jobs terminal, original frozen inputs and clock unchanged, no agents/push/contacts.

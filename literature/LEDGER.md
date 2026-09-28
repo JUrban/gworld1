@@ -350,3 +350,8 @@ Repeated bounded searches for free-nilpotent single-commutator algorithms and de
 ## 2026-09-28T23:14:32.455430+00:00 — boundedness and fixed-subgroup scope
 
 Archived Lee--Ventura2010 (bounded example and explicit commutator convention), Martino2004 (F26 rank-three and UPG scope), and Ventura fixed-closures2010/2011 (Theorem9/Corollary10). Read relevant statements and local arguments; viewed Lee--Ventura p2, Martino p197, Ventura p182. Exact reading limits and implications are in the two new F38 and F1/F26 notes. No full imported-proof or exhaustive novelty audit.
+
+
+## 2026-09-28T23:36:21.500599+00:00 — all-target class-ten extension
+
+Bounded searches for free-nilpotent commutator algorithms and single-commutator decidability returned the already credited class-two/general-nilpotent sources, no matching full-class-ten theorem. This is not a novelty certification. Re-read the frozen N8 HTML and viewed its screenshot around23:31 UTC; the structural source dependencies are unchanged. Exact queries, proof dependencies and limitations are recorded in problems/N8/class10-audit.md.
