@@ -32,3 +32,9 @@ Current counts: **1 partial candidate**, **3 whole-entry candidate solutions**, 
 - GAP 4.16.1 and relevant packages are available. Chromium rendering works using locally extracted system libraries, without root access. The first GAP check exposed an nq crash on the rank-one/class-three request; the rerun handles the infinite cyclic case directly, and the failed log is retained.
 
 See `research/PLAN.md` for the portfolio and `research/LOG.md` for dated progress. Known results and bibliographic updates are not counted as new solutions.
+
+Latest scope refresh: S9 is a prior full positive answer (Timoshenko2006),
+already recorded in the final paragraph of the website background. For
+S3, the 1998 primary paper also covers last-derived relators; the broader
+module-invariant route retains a group-ring annihilator obstruction.
+See `research/notes/S3-S9-scope-followup.md`. Neither adds a candidate.

@@ -485,3 +485,25 @@ three whole-entry candidates, one partial candidate, zero established
 novel results. No subagents, external review/contact, push, parent-repo
 modification or imported Kourovka mathematics/code. Original deadline
 remains 30 September 2026 at 10:04:49 UTC.
+
+## 2026-09-28 approximately 17:49–18:03 UTC — wider scope and S3 module lead
+
+Returned to algorithmic, growth, automatic and solvable-group entries.
+The full original S9 background ends with Timoshenko's 2006 answer in
+all derived lengths; an initial reading of its preceding paragraph
+would incorrectly retain d>=4. Archived the primary paper and abstract,
+read the theorem/corollary, viewed p.456, and retired S9 from discovery.
+
+For S3, obtained Timoshenko1998. Its English endpoint was not a PDF;
+the Russian original downloaded successfully but has garbled extracted
+text. Viewed the statement and exact source pages925,926,930,931.
+Last-derived relators, including proper powers, are already covered.
+The broader theorem requires a centreless lower quotient and a group
+ring without zero divisors. Wrote out the cover-chain-complex reduction
+of the remaining centre problem to invariant elements in a quotient
+Fox module. Proper powers surviving in the lower quotient produce an
+explicit annihilator, preventing the naive cancellation step. No new
+candidate or solvable-quotient computational search follows.
+
+H16's automatic/biautomatic distinction and S4–S8's existing scope gaps
+remain. No imported Kourovka mathematics, author contact or push.
