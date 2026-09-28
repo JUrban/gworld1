@@ -118,3 +118,8 @@ GA1's proposed nonorientable-surface obstruction is ruled out by prior Z^2-free 
 ## 2026-09-28T22:55:03.075849+00:00 — complete gamma_8 stratum in class ten
 
 Extended the same N8(b) partial candidate to every gamma_8 target in class ten, in all finite ranks. The new proof excludes all first-kernel exceptions except the previously handled nonlinear family. GAP independently verified24 structural cases and the complete rank-two target certificates:9 witnesses,44 linear decisions,1 polynomial certificate,5 samples. A rank-three structural run timed out after9 completed records; two initial GAP fixture-loading failures are retained. No full class-ten theorem or new problem count is claimed. See `problems/N8/class10-third-proof.md` and `class10-third-audit.md`.
+
+
+## 2026-09-28T23:14:32.455430+00:00 — boundedness and fixed-subgroup scope
+
+F38(c)'s automorphism quantifier cannot be replaced by all injective endomorphisms. A prior rank-two pair and 108 Python/GAP word checks document the obstruction and failure under free-factor inclusion; F38(a) is unaffected. See research/notes/F38-bounded-scope-boundary.md. F1(b)'s rank-three case and F26's rank-three/UPG cases are prior and excluded; see research/notes/F1-F26-prior-rank-three.md. New class-ten N8 ideas remain uncounted. Tally:4 whole,4 partial,0 established novel.

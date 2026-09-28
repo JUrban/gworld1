@@ -795,3 +795,8 @@ A GA1 surface-obstruction lead fails by Martino–ORourke's prior Z^2 actions, i
 ## 2026-09-28T22:55:03.075849+00:00 — class-ten third-layer extension
 
 Completed the class-ten gamma_8 extension: a fresh-letter quotient lemma, complete type(1,7) classification and three injectivity arguments give finite integral lifting for all leading degree-eight targets. Rank-two Python/GAP structural and group suites passed. Nine rank-three structural cases completed before a180-second timeout; the full suite is incomplete. Both initial GAP attempts lacked required exported fixtures and failed despite exit0; corrected exports preceded the successful v2 replays. Exact sources, failures and docstring-only changes are retained. Extended the same N8 partial scope; tally stays4 whole,4 partial,0 established novel. Original clock unchanged, all jobs terminal, no push/contact/agents.
+
+
+## 2026-09-28T23:14:32.455430+00:00 — boundedness and fixed-subgroup scope
+
+The preceding preparation-only response made no mathematical progress on this active goal; revalidated the original clock and resumed gworld1. The saved F38 boundedness jobs are terminal and passed with empty stderr. Archived and read the primary Lee--Ventura example, recorded the automorphism/injection/real-tree distinction, and credited prior rank-three F1(b)/F26 scope from Martino and Ventura. No candidate count changes. A concrete full-class-ten N8 lead is saved separately as unproved, with missing kernels and an exceptional obstruction to investigate. No agents, contacts or push; original deadline unchanged.

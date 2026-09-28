@@ -1,0 +1,1447 @@
+                                          ARTICLE IN PRESS                                                             YJABR:12925
+JID:YJABR         AID:12925 /FLA                                    [m1G; v 1.38; Prn:27/04/2010; 8:47] P.1 (1-23)
+                                                Journal of Algebra ••• (••••) •••–•••
+
+
+
+                                           Contents lists available at ScienceDirect
+
+
+                                                Journal of Algebra
+                                               www.elsevier.com/locate/jalgebra
+
+
+
+
+Volume equivalence of subgroups of free groups
+Donghi Lee a,∗ , Enric Ventura b
+a
+    Department of Mathematics, Pusan National University, San-30 Jangjeon-Dong, Geumjung-Gu, Pusan, 609-735, Republic of Korea
+b
+    EPSEM, Universitat Politècnica de Catalunya, Av. Bases de Manresa 61-73, 08242 Manresa, Barcelona, Spain
+
+
+
+a r t i c l e            i n f o                        a b s t r a c t
+
+Article history:                                        Let F n be a free group of ﬁnite rank n ⩾ 2. Due to Kapovich,
+Received 25 January 2009                                Levitt, Schupp and Shpilrain (2007) [1], two ﬁnitely generated
+Available online xxxx                                   subgroups H and K of F n are called volume equivalent, if for
+Communicated by Eﬁm Zelmanov
+                                                        every free and discrete isometric action of F n on an R-tree T ,
+MSC:
+                                                        we have vol( T H / H ) = vol( T K / K ). We give a more algebraic and
+20E36                                                   combinatorial characterization of volume equivalence and discuss
+20F05                                                   a counterexample of volume equivalence in order to justify our
+20F10                                                   characterization. We also provide a speciﬁc example to answer
+20F28                                                   a question of Kapovich, Levitt, Schupp and Shpilrain in the
+                                                        negative: volume equivalence does not imply equality in rank.
+Keywords:                                                                             © 2010 Elsevier Inc. All rights reserved.
+Combinatorial group theory
+Free groups
+Automorphisms of free groups
+Translation equivalence
+Volume equivalence
+
+
+
+
+1. Introduction
+
+    Let F n be a free group of ﬁnite rank n ⩾ 2. Two elements g and h in F n are called transla-
+tion equivalent if for every free and discrete isometric action of F n on an R-tree T , the elements
+g and h have equal translation lengths on T , namely infx∈ T d(x, gx) = infx∈ T d(x, hx). This concept was
+ﬁrst introduced by Kapovich, Levitt, Schupp and Shpilrain [1] motivated by several notions studied
+in Teichmüller theory related to spectral geometry of hyperbolic surfaces, particularly the notions
+of “hyperbolic equivalence” and “simple intersection theory” there (cf. [7]). It is easy to see that
+if g is conjugate to h±1 in F n , then g and h are translation equivalent. However it was not ob-
+vious and not known that more complicated examples of translation equivalence exist. The paper
+of Kapovich et al. [1] gave several combinatorial characterizations of translation equivalence in free
+
+
+    * Corresponding author.
+      E-mail addresses: donghi@pusan.ac.kr (D. Lee), enric.ventura@upc.edu (E. Ventura).
+
+0021-8693/$ – see front matter © 2010 Elsevier Inc. All rights reserved.
+doi:10.1016/j.jalgebra.2010.03.027
+
+    Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+    doi:10.1016/j.jalgebra.2010.03.027
+                                      ARTICLE IN PRESS                                                             YJABR:12925
+JID:YJABR     AID:12925 /FLA                                    [m1G; v 1.38; Prn:27/04/2010; 8:47] P.2 (1-23)
+2                                   D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••
+
+
+groups and also exhibited two unexpected sources of translation equivalence: one associated with
+traces of SL(2, C)-representations of F n (where the proof is ultimately analytic) and the other of a
+combinatorial nature involving some R-tree techniques. In the same paper, Kapovich et al. proposed
+a problem about other possible sources of translation equivalence in free groups, which was later
+solved in the aﬃrmative by the ﬁrst author [4]. Furthermore, the ﬁrst author [5] proved that there is
+an algorithm to decide whether or not two given elements of F 2 are translation equivalent.
+   Kapovich et al. [1] also introduced two natural generalizations of the notion of translation equiv-
+alence: one is the bounded translation equivalence in free groups and the other is the volume
+equivalence of subgroups of free groups which is the main topic of the present paper.
+
+Deﬁnition 1.1. Two elements g and h in F n are called boundedly translation equivalent if there is C > 0
+such that
+
+                                                    1        φ( g )
+                                                         ⩽            ⩽C
+                                                    C        φ(h)
+
+for every automorphism φ of F n .
+
+   Clearly every pair of translation equivalent elements in F n are boundedly translation equivalent,
+but not vice versa. As an easy example of bounded translation equivalent elements which are not
+translation equivalent, we can take two elements g = a and h = a[a, b] in F (a, b) which is the free
+group with basis {a, b}. Indeed, it was shown in [6, Introduction] that, for these two elements g and h,
+
+                                                              
+                                                 φ(h) = φ( g ) + 4
+
+for every automorphism φ of F (a, b) and thus
+
+                                                     1       φ( g )
+                                                         ⩽            ⩽1
+                                                     5       φ(h)
+
+for every automorphism φ of F (a, b). The ﬁrst author also proved in [6] that bounded transla-
+tion equivalence in the free group of rank two is algorithmically decidable. Recently, Kapovich and
+Lustig [2] showed that any two “suﬃciently random” elements in F n are boundedly translation equiv-
+alent.
+
+Deﬁnition 1.2. Two ﬁnitely generated subgroups H and K of F n are called volume equivalent, if for
+every free and discrete isometric action of F n on an R-tree T , we have vol( T H / H ) = vol( T K / K ). Here
+T H is the unique minimal H -invariant subtree of T ; thus T H / H is a ﬁnite graph whose edges inherit
+the same lengths as their lifts to T . The volume vol( T H / H ) is the sum of the lengths of the edges of
+this graph.
+
+    Once again, if H is conjugate to K , then, obviously, H and K are volume equivalent. Also, if H
+and K are subgroups of index m < ∞ in a subgroup L of F n , then H and K are volume equivalent. If
+H = h and K =  g  are inﬁnite cyclic subgroups of F n , then H and K are volume equivalent if and
+only if g and h are translation equivalent. Furthermore, if H and K are volume equivalent in F n and if
+φ : F n → F m is an injective homomorphism, then φ( H ) and φ( K ) are volume equivalent in F m . Apart
+from these observations, no other sources of volume equivalence have been known.
+    Let F n be the free group of ﬁnite rank n ⩾ 2 with basis Σ . It is well known that every ﬁnitely
+generated subgroup H of F n has a unique ﬁnite graphical representation Γ H up to graph isomorphism.
+The graph Γ H is a cyclically reduced Σ -labeled directed graph which depends only on the conjugacy
+class [ H ]. We refer the reader to [3] and [8] for the construction of the graph Γ H . By V (Γ H ), we
+denote the number of vertices of the graph Γ H , whereas E (Γ H ) denotes the number of edges of Γ H .
+As in [8], for S ⊂ Σ ±1 , the capacity of S, denoted by cap(Γ H ; S ), means the number of vertices v
+
+Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+doi:10.1016/j.jalgebra.2010.03.027
+                                      ARTICLE IN PRESS                                                             YJABR:12925
+JID:YJABR      AID:12925 /FLA                                     [m1G; v 1.38; Prn:27/04/2010; 8:47] P.3 (1-23)
+                                     D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••                                3
+
+
+of Γ H such that the set of labels of incoming edges of v meets both S and its complement S c . The
+terminology “capacity” comes from hipergraph versions of Whitehead graphs for ﬁnitely generated
+subgroups of free groups.
+   We now introduce our main results of the present paper. Motivated by [1, Theorem A], we give a
+more algebraic and combinatorial characterization of volume equivalence as follows.
+
+Theorem A.
+
+(1) For n ⩾ 3, two ﬁnitely generated subgroups H and K of F n are volume equivalent if and only if E (Γφ( H ) ) =
+    E (Γφ( K ) ) for every automorphism φ of F n .
+(2) Two ﬁnitely generated subgroups H and K of F 2 = F (a, b) are volume equivalent if and only if E (Γφ( H ) ) =
+    E (Γφ( K ) ) and cap(Γφ( H ) ; {a±1 }) = cap(Γφ( K ) ; {a±1 }) for every automorphism φ of F 2 .
+
+   The following corollary is immediate.
+
+Corollary 1.3.
+
+(1) For n ⩾ 3, two ﬁnitely generated subgroups H and K of F n are volume equivalent if and only if
+    vol( X ( F n , A ) H / H ) = vol( X ( F n , A ) K / K ) for Cayley graphs X ( F n , A ) of F n with respect to all possible
+    free bases A of F n .
+(2) Two ﬁnitely generated subgroups H and K of F 2 are volume equivalent if and only if vol( X ( F 2 , A ) H / H ) =
+    vol( X ( F 2 , A ) K / K ) and cap( X ( F 2 , A ) H / H ; {x±1 }) = cap( X ( F 2 , A ) K / K ; {x±1 }) for every free basis A
+    of F 2 and every x ∈ A.
+
+   The proof of Theorem A will appear in Section 2, and it is only a modiﬁcation and generalization
+of the proof of [1, Theorem A]. As stated in Theorem A, our combinatorial characterization of vol-
+ume equivalence in F 2 requires one additional condition on “capacities”. We justify that this extra
+condition cannot be dropped by proving the following theorem, whose proof will be given also in
+Section 2.
+
+Theorem B. Let
+
+                                                                                         
+                                       H = [a, b]          and    K = a, b2 , bab−1
+
+be subgroups of F (a, b). Then we have E (Γφ( H ) ) = E (Γφ( K ) ) for every automorphism φ of F (a, b), but H
+and K are not volume equivalent.
+
+    Introducing the notion of volume equivalence, Kapovich et al. [1] asked whether the volume equiv-
+alence of two subgroups H and K of F n necessarily implies that H and K have the same rank. The
+following theorem answers this question in the negative.
+
+Theorem C. Let
+
+                                                                               
+                                           H = b, a−1 b b, a−1 ba−1 ba ,
+                                                          2                          
+                                            K = b, a−1 , ba−1 [b, a]b−2 a
+
+be subgroups of F (a, b). Then H and K are volume equivalent in F (a, b) but rank( H ) = rank( K ).
+
+   The proof of Theorem C will appear in Section 4, and it heavily relies on the technical analysis
+to be done in Section 3 where we will analyze the effect of automorphisms of F 2 on the subgroup
+graphs of F 2 with the use of an explicit description of automorphisms of F 2 obtained in [5].
+
+Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+doi:10.1016/j.jalgebra.2010.03.027
+                                       ARTICLE IN PRESS                                                             YJABR:12925
+JID:YJABR      AID:12925 /FLA                                    [m1G; v 1.38; Prn:27/04/2010; 8:47] P.4 (1-23)
+4                                    D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••
+
+
+Remark 1.4. (1) Using arguments similar to the proof of Theorem C, we can also prove:
+
+    (i) Two subgroups
+
+                                                            2                     
+                                   H = a , b −1 a a , b −1 , a −1 b −1 a , b −1 ,
+                                                            2                                
+                                   K = a , b −1 a a , b −1 , a −1 b −1 a , b −1 a a , b −1
+
+     are volume equivalent in F (a, b).
+(ii) Two subgroups
+
+                                                               3                       
+                                              H = a5 , ab−1 a−2 , ab−1 a2 b−1 ,
+                                                               3                       
+                                              K = a5 , ab−1 a−1 , ab−1 a2 b−1
+
+       satisfy E (Γφ( H ) ) = E (Γφ( K ) ) for every automorphism φ of F (a, b), but H and K are not volume
+       equivalent in F (a, b).
+
+   (2) If H = h and K =  g 1 , g 2  are as in Theorem C and if K 1 is a subgroup of K of index m ⩾ 1,
+then K 1 is volume equivalent to hm . The rank of K 1 is equal to m + 1. Thus Theorem C yields
+an example of a subgroup of F (a, b) of arbitrary rank k ⩾ 2 which is volume equivalent to a cyclic
+subgroup.
+
+2. A combinatorial characterization of volume equivalence
+
+    Throughout this section, let F n be the free group of ﬁnite rank n ⩾ 2 with basis Σ . We begin this
+section by recalling that a Whitehead automorphism α of F n is deﬁned to be an automorphism of one
+of the following two types (cf. [5]):
+
+(W1) α permutes elements in Σ ±1 .
+(W2) α is deﬁned by a letter x ∈ Σ ±1 and a set S ⊂ Σ ±1 \ {x, x−1 } in such a way that if c ∈ Σ ±1 then
+     (a) α (c ) = cx provided c ∈ S and c −1 ∈
+                                             / S; (b) α (c ) = x−1 cx provided both c , c −1 ∈ S; (c) α (c ) = c
+                         −
+     provided both c , c ∈ 1
+                             / S.
+
+If α is of type (W2), we write α = ( S , x). Note that in the expression of α = ( S , x) it is conventional
+to include the deﬁning letter x in the deﬁning set S, but for the sake of brevity of notation we will
+omit x from S as deﬁned above.
+    We establish two lemmas that are used in the proof of Theorem A from the Introduction. If Γ is a
+ﬁnite cyclically reduced Σ -labeled directed graph and x ∈ Σ ±1 , then n(Γ ; x) denotes the number of
+edges of Γ labeled by x. Clearly n(Γ ; x) = n(Γ ; x−1 ).
+
+Lemma 2.1. For two ﬁnitely generated subgroups H and K of F n , if E (Γφ( H ) ) = E (Γφ( K ) ) for every automor-
+phism φ of F n , then n(Γ H ; x) = n(Γ K ; x) for every x ∈ Σ ±1 .
+
+Proof. Let Σ = {a1 , a2 , . . . , an }. For each i , j ∈ {1, . . . , n} with i = j, let φi j = ({ai }, a j ) be a Whitehead
+automorphism of F n of type (W2). By [8], we have
+
+                                                                                 
+                              V (Γφi j ( H ) ) − V (Γ H ) = cap Γ H ; {ai , a j } − n(Γ H ; a j ).                              (1)
+
+Since φi j is an automorphism of F n , Γφi j ( H ) has the same number of faces as Γ H does. So, by (1), we
+have
+
+                                                                                 
+                              E (Γφi j ( H ) ) − E (Γ H ) = cap Γ H ; {ai , a j } − n(Γ H ; a j ).                              (2)
+
+ Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+ doi:10.1016/j.jalgebra.2010.03.027
+                                        ARTICLE IN PRESS                                                                    YJABR:12925
+JID:YJABR      AID:12925 /FLA                                            [m1G; v 1.38; Prn:27/04/2010; 8:47] P.5 (1-23)
+                                      D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••                                      5
+
+
+For a similar reason, we get
+
+                                                                                         
+                               E (Γφ ji ( H ) ) − E (Γ H ) = cap Γ H ; {ai , a j } − n(Γ H ; ai ).                                  (3)
+
+Subtract (3) from (2) to obtain
+
+
+                                 E (Γφi j ( H ) ) − E (Γφ ji ( H ) ) = n(Γ H ; ai ) − n(Γ H ; a j ).
+
+So, for each i = 1, . . . , n, we have
+
+
+                             E (Γφi j ( H ) ) − E (Γφ ji ( H ) ) = (n − 1)n(Γ H ; ai ) −                   n(Γ H ; a j ).
+                      j =i                                                                          j =i
+
+
+Here, since       j =i n(Γ H ; a j ) = E (Γ H ) − n(Γ H ; ai ), we obtain
+
+                                                                                                                 
+                                              1
+                             n(Γ H ; ai ) =       E (Γ H ) +              E (Γφi j ( H ) ) − E (Γφ ji ( H ) )        .
+                                              n
+                                                                  j =i
+
+
+The same argument is applied to K to get
+
+                                                                                                                 
+                                              1
+                             n(Γ K ; ai ) =       E (Γ K ) +              E (Γφi j ( K ) ) − E (Γφ ji ( K ) )        .
+                                              n
+                                                                  j =i
+
+
+By the hypothesis of the lemma, we ﬁnally have
+
+                                                                                                          
+                                n Γ H ; a−
+                                         i
+                                           1
+                                             = n(Γ H ; ai ) = n(Γ K ; ai ) = n Γ K ; a−
+                                                                                      i
+                                                                                        1
+
+
+
+for every i = 1, . . . , n, which proves the lemma.                 2
+
+Lemma 2.2. For two ﬁnitely generated subgroups H and K of F n with n ⩾ 3, if E (Γφ( H ) ) = E (Γφ( K ) ) for every
+automorphism φ of F n , then cap(Γ H ; S ) = cap(Γ K ; S ) for every subset S ⊂ Σ ±1 such that S ±1 = S.
+
+Proof. Let Σ = {a1 , a2 , . . . , an }, and let S be a subset of Σ ±1 such that S ±1 = S. Without loss of
+generality, we may assume that S = {a1 , . . . , ak }±1 with k < n. Put N = E (Γ H ) = E (Γ K ). There are two
+cases to consider.
+
+Case 1. 1 < k < n − 1.
+
+    For a ﬁnite cyclically reduced Σ -labeled directed graph Γ , by L (Γ ) we denote the number of
+vertices v of Γ such that v has only two incident edges labeled by a1 and an into the vertex v. Now
+let φ be an automorphism of F n deﬁned by
+
+                                                           − N  − N      N
+                                      φ(a1 ) = a1− N a2 a1N     a1 a1 a2 a1N ;
+
+                                      φ(ai ) = a1− N ai a1N        for 2 ⩽ i ⩽ k;
+                                                   −N
+                                      φ(a j ) = an      a j anN
+                                                        for k + 1 ⩽ j ⩽ n − 1;
+                                                 −N      − N  − N        N
+                                      φ(an ) = an an−1anN     an an an−1 anN .
+
+ Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+ doi:10.1016/j.jalgebra.2010.03.027
+                                      ARTICLE IN PRESS                                                             YJABR:12925
+JID:YJABR     AID:12925 /FLA                                    [m1G; v 1.38; Prn:27/04/2010; 8:47] P.6 (1-23)
+6                                   D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••
+
+
+
+
+                                                             Fig. 1.
+
+
+It is not hard to observe that
+
+
+                                                cap(Γ H ; S ) = L (Γφ( H ) ),
+
+                                                cap(Γ K ; S ) = L (Γφ( K ) ),                                                  (4)
+
+and that in the graphs Γφ( H ) and Γφ( K ) there is no vertex v such that v has more than two incident
+edges two labeled by a1 and an into the vertex v . This observation yields that
+
+
+                              E (Γψφ( H ) ) − E (Γφ( H ) ) = n(Γφ( H ) ; a1 ) − 2L (Γφ( H ) ),
+
+                              E (Γψφ( K ) ) − E (Γφ( K ) ) = n(Γφ( K ) ; a1 ) − 2L (Γφ( K ) ),                                 (5)
+
+where ψ is the Whitehead automorphism ({a1 }, an ) of F n . Here, by the hypothesis of the lemma,
+E (Γφ( H ) ) = E (Γφ( K ) ) and E (Γψφ( H ) ) = E (Γψφ( K ) ), which implies
+
+
+                                E (Γψφ( H ) ) − E (Γφ( H ) ) = E (Γψφ( K ) ) − E (Γφ( K ) ).
+
+Also by Lemma 2.1, we have n(Γφ( H ) ; a1 ) = n(Γφ( K ) ; a1 ). It then follows from (5) that
+
+
+                                                 L (Γφ( H ) ) = L (Γφ( K ) ),
+
+so that, by (4), we ﬁnally have
+
+
+                                               cap(Γ H ; S ) = cap(Γ K ; S ).
+
+Case 2. k = 1 or k = n − 1.
+
+    For every ﬁnite cyclically reduced Σ -labeled directed graph Γ , since
+
+                                                                                   
+                                   cap Γ ; a± 1          ±1
+                                            1 , . . . , an−1           = cap Γ ; an±1 ,
+
+we may assume that S = {a±        1
+                                1 }. Let L 1 (Γ ), L 2 (Γ ) and L 3 (Γ ) denote the number of vertices of Γ of
+type I, II and III, respectively, as depicted in Fig. 1.
+   Let φ be an automorphism of F n deﬁned by
+
+
+                                    φ(a1 ) = a1 ;
+                                    φ(ai ) = an− N ai anN for 2 ⩽ i ⩽ n − 1;
+                                                           − N  − N        N
+                                    φ(an ) = an− N an−1 anN     an an an−1 anN .
+
+It is not hard to observe that
+
+Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+doi:10.1016/j.jalgebra.2010.03.027
+                                        ARTICLE IN PRESS                                                               YJABR:12925
+JID:YJABR      AID:12925 /FLA                                     [m1G; v 1.38; Prn:27/04/2010; 8:47] P.7 (1-23)
+                                      D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••                                  7
+
+
+                     cap(Γ H ; S ) = cap(Γφ( H ) ; S ) = L 1 (Γφ( H ) ) + L 2 (Γφ( H ) ) + L 3 (Γφ( H ) ),
+
+                     cap(Γ K ; S ) = cap(Γφ( K ) ; S ) = L 1 (Γφ( K ) ) + L 2 (Γφ( K ) ) + L 3 (Γφ( K ) ).                      (6)
+
+   Let ψ1 and ψ2 be the Whitehead automorphisms ({an }, a1 ) and ({an }, a−1
+                                                                          1 ) of F n , respectively.
+Then, by the hypothesis of the lemma,
+
+
+                                E (Γψ j φ( H ) ) − E (Γφ( H ) ) = E (Γψ j φ( K ) ) − E (Γφ( K ) ),
+
+for j = 1, 2. Note that
+
+
+                      E (Γψ1 φ( H ) ) − E (Γφ( H ) ) = n(Γφ( H ) ; an ) − 2L 2 (Γφ( H ) ) − L 3 (Γφ( H ) ),
+
+                      E (Γψ1 φ( K ) ) − E (Γφ( K ) ) = n(Γφ( K ) ; an ) − 2L 2 (Γφ( K ) ) − L 3 (Γφ( K ) ),
+
+and that
+
+
+                      E (Γψ2 φ( H ) ) − E (Γφ( H ) ) = n(Γφ( H ) ; an ) − 2L 1 (Γφ( H ) ) − L 3 (Γφ( H ) ),
+
+                      E (Γψ2 φ( K ) ) − E (Γφ( K ) ) = n(Γφ( K ) ; an ) − 2L 1 (Γφ( K ) ) − L 3 (Γφ( K ) ).
+
+Here, since n(Γφ( H ) ; an ) = n(Γφ( K ) ; an ) by Lemma 2.1, we have
+
+
+                               2L 2 (Γφ( H ) ) + L 3 (Γφ( H ) ) = 2L 2 (Γφ( K ) ) + L 3 (Γφ( K ) ),
+
+                               2L 1 (Γφ( H ) ) + L 3 (Γφ( H ) ) = 2L 1 (Γφ( K ) ) + L 3 (Γφ( K ) ).
+
+Adding these two equalities yields
+
+
+           2L 1 (Γφ( H ) ) + 2L 2 (Γφ( H ) ) + 2L 3 (Γφ( H ) ) = 2L 1 (Γφ( K ) ) + 2L 2 (Γφ( K ) ) + 2L 3 (Γφ( K ) ),
+
+that is,
+
+
+                L 1 (Γφ( H ) ) + L 2 (Γφ( H ) ) + L 3 (Γφ( H ) ) = L 1 (Γφ( K ) ) + L 2 (Γφ( K ) ) + L 3 (Γφ( K ) ).
+
+It then follows from (6) that
+
+
+                                                cap(Γ H ; S ) = cap(Γ K ; S ),
+
+as required.     2
+
+   Now we are in a position to prove Theorem A from the Introduction.
+
+Theorem A.
+
+(1) For n ⩾ 3, two ﬁnitely generated subgroups H and K of F n are volume equivalent if and only if E (Γφ( H ) ) =
+    E (Γφ( K ) ) for every automorphism φ of F n .
+(2) Two ﬁnitely generated subgroups H and K of F 2 = F (a, b) are volume equivalent if and only if E (Γφ( H ) ) =
+    E (Γφ( K ) ) and cap(Γφ( H ) ; {a±1 }) = cap(Γφ( K ) ; {a±1 }) for every automorphism φ of F 2 .
+
+ Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+ doi:10.1016/j.jalgebra.2010.03.027
+                                       ARTICLE IN PRESS                                                             YJABR:12925
+JID:YJABR      AID:12925 /FLA                                     [m1G; v 1.38; Prn:27/04/2010; 8:47] P.8 (1-23)
+8                                    D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••
+
+
+Proof. We ﬁrst prove the “only if” part of (1) and (2). Suppose that H and K are volume equivalent
+in F n (n ⩾ 2). So, for every free and discrete isometric action of F n on an R-tree X , vol( X H / H ) =
+vol( X K / K ). Let φ be an automorphism of F n . Obviously Σ = φ(Σ) is a free basis of F n . Take an R-
+tree X as the Cayley graph of F n with respect to Σ . Then vol( X H / H ) = E (Γφ( H ) ) and vol( X K / K ) =
+E (Γφ( K ) ), and thus we have E (Γφ( H ) ) = E (Γφ( K ) ).
+    To show that the additional assertion on “capacities” holds in (2), let μ be a monomorphism from
+F (a, b) to F (a, b, c ) deﬁned by μ(a) = c −1 ac and μ(b) = b. Then μφ is a monomorphism from F (a, b)
+to F (a, b, c ). Since H and K are volume equivalent in F (a, b), μφ( H ) and μφ( K ) are also volume
+equivalent in F (a, b, c ). Hence E (Γμφ( H ) ) = E (Γμφ( K ) ), and thus
+
+
+                                 E (Γμφ( H ) ) − E (Γφ( H ) ) = E (Γμφ( K ) ) − E (Γφ( K ) ).
+
+It then follows from E (Γμφ( H ) ) − E (Γφ( H ) ) = cap(Γφ( H ) ; {a±1 }) and E (Γμφ( K ) ) − E (Γφ( K ) ) =
+cap(Γφ( K ) ; {a±1 }) that
+
+                                                                                  
+                                      cap Γφ( H ) ; a±1          = cap Γφ( K ) ; a±1 ,
+
+as required.
+    Next, we prove the “if” part of (1) and (2). Suppose that F n (n ⩾ 2) is acting freely, discretely and
+isometrically on an R-tree X . Let Y = X / F n be the quotient graph of X . Since X is a metric tree, the
+edges e of Y come equipped with the lengths l(e ). Thus every edge-path in Y has a length which is
+the sum of the lengths of the edges of this path. There is an obvious canonical identiﬁcation between
+F n and π1 (Y , v ), where v is a vertex of Y . Choose an orientation E Y = E + Y E − Y on Y . Then for
+every maximal tree in Y there is a canonically associated free basis of π1 (Y , v ).
+    On the other hand, let X H be the unique minimal H -invariant subtree. Since vol( X H / H ) is the sum
+of lengths of the edges of the metric graph X H / H , we have
+
+
+                                         vol( X H / H ) =              n( X H / H ; e )l(e ),
+                                                            e∈ E + Y
+
+
+where n( X H / H ; e ) is the number of times that e occurs in X H / H .
+    We consider two cases separately. First, suppose that e ∈ E + Y does not separate Y . Choose a
+maximal tree not containing e, and consider the associated free basis  of F n = π1 (Y , v ). Let φ be
+an automorphism of F n which sends  to Σ . Then n( X H / H ; e ) = n(Γφ( H ) ; φ(ae )) where ae ∈  is the
+generator corresponding to e. Hence the assertion follows from Lemma 2.1.
+    Suppose next that e separates Y , so that Y = Y 1 ∪ e ∪ Y 2 . Choose a basis Λ of F n associated
+to any maximal tree in Y . This basis is partitioned as Λ = Λ1 Λ2 , with b ∈ Λi if and only if
+it corresponds to an edge in Y i . Let ψ be an automorphism of F n which sends Λ to Σ . Then
+n( X H / H ; e ) = cap(Γψ( H ) ; ψ(Λ±1
+                                    1 )). Thus the assertion follows from Lemma 2.2 and the hypothesis
+of the lemma. 2
+
+   As stated in Theorem A, our combinatorial characterization of volume equivalence in F 2 requires
+one additional condition on “capacities” compared to the case of free groups of higher rank. We justify
+that this extra condition cannot be dropped by proving the following:
+
+Theorem B. Let
+
+                                                                                         
+                                        H = [a, b]        and      K = a, b2 , bab−1
+
+be subgroups of F (a, b). Then we have E (Γφ( H ) ) = E (Γφ( K ) ) for every automorphism φ of F (a, b), but H
+and K are not volume equivalent in F (a, b).
+
+ Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+ doi:10.1016/j.jalgebra.2010.03.027
+                                       ARTICLE IN PRESS                                                             YJABR:12925
+JID:YJABR      AID:12925 /FLA                                     [m1G; v 1.38; Prn:27/04/2010; 8:47] P.9 (1-23)
+                                      D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••                                  9
+
+
+Proof. Let φ be an arbitrary automorphism of F 2 = F (a, b). Then φ([a, b]) is conjugate to [a, b]±1
+and hence E (Γφ( H ) ) = 4. Note that K has index 2 in F 2 . So the subgroup φ( K ) also has index 2
+in F 2 . This implies that Γφ( K ) is a 2-fold cover of the wedge of two circles labeled by a, b and hence
+E (Γφ( K ) ) = 4.
+    However, we show that H and K are not volume equivalent in F 2 . One can see this either us-
+ing Theorem A (indeed, we can check cap(Γ H ; {a±1 }) = 4 = 2 = cap(Γ K ; {a±1 })) or directly using the
+deﬁnition of volume equivalence. Namely, let Γ be a graph consisting of two disjoint loop-edges x
+and y with a non-loop edge z joining the base point ∗ of x with a base point of y. Then π1 (Γ, ∗)
+is isomorphic to F 2 via a = x, b = zyz−1 . The universal cover of Γ is a tree T where we give every
+edge length 1. Then T K / K = T / K is the double-cover of Γ and thus has volume 6. The volume of
+T H / H is equal to the translation length inft ∈ T d(t , [a, b]t ) which we can compute by ﬁnding a cycli-
+cally reduced loop in Γ representing [a, b]. Thus we have [a, b] = aba−1 b−1 = xzyz−1 x−1 zy −1z−1 .
+Hence vol( T H / H ) = inft ∈ T d(t , [a, b]t ) = 8 = 6. Thus H and K are not volume equivalent in F 2 . 2
+
+3. The effect of automorphisms on the subgroup graphs of F 2
+
+   This section is the technical heart of the present paper. Throughout this section, let F 2 = F (a, b),
+the free group with basis {a, b}. For two automorphisms φ and ψ of F 2 , by writing φ ≡ ψ we mean
+the equality of φ and ψ over all cyclic words in F 2 , that is, φ( w ) = ψ( w ) as cyclic words for every
+cyclic word w in F 2 . From now on, we let
+
+                                                                                                      
+                  σ = {a}, b ,            τ = {b}, a ,            σ̄ = {a}, b−1 ,            τ̄ = b−1 , a
+
+be Whitehead automorphisms of F 2 of type (W2). As proved in [5], every automorphism of F 2 can be
+represented in one of two particular types over all cyclic words of F 2 as follows:
+
+Lemma 3.1. (See Lemma 2.3 of [5].) Every automorphism φ of F 2 can be represented as φ ≡ βφ , where β is a
+Whitehead automorphism of F 2 of type (W1) and φ is a chain of one of the forms
+
+
+                                             (C1)      φ ≡ τ mk σ lk · · · τ m1 σ l1 ,
+                                             (C2)      φ ≡ τ̄ mk σ̄ lk · · · τ̄ m1 σ̄ l1
+
+with k ∈ N and both li , mi ⩾ 0 for every i = 1, . . . , k.
+
+   Lemma 3.1 provides us with an advantage of dealing with automorphisms of F 2 . Indeed, in order
+to see how graphs of subgroups of F 2 are transformed by applying automorphisms of F 2 , it suﬃces
+to consider how these graphs are affected by only 4 Whitehead automorphisms σ , τ , σ̄ and τ̄ .
+   Now we introduce the notation that is used throughout the remainder of this paper. Let Γ be a
+ﬁnite cyclically reduced {a, b}-labeled directed graph. It is clear that there are 11 possible types of
+vertices of Γ as shown in Fig. 2. We put
+
+
+                  A (Γ ) = the number of vertices in Γ of the form II-1, II-2, II-5 and III-3;
+
+                  B (Γ ) = the number of vertices in Γ of the form II-4, II-5, II-6 and III-4;
+
+                  C (Γ ) = the number of vertices in Γ of the form II-5;
+
+                  D (Γ ) = the number of vertices in Γ of the form II-3.                                                        (7)
+
+Also we put
+
+
+                  Ā (Γ ) = the number of vertices in Γ of the form II-1, II-3, II-6 and III-1;
+
+ Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+ doi:10.1016/j.jalgebra.2010.03.027
+                                      ARTICLE IN PRESS                                                             YJABR:12925
+JID:YJABR      AID:12925 /FLA                                  [m1G; v 1.38; Prn:27/04/2010; 8:47] P.10 (1-23)
+10                                  D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••
+
+
+
+
+                                           Fig. 2. 11 possible types of vertices of Γ .
+
+
+                 B̄ (Γ ) = the number of vertices in Γ of the form II-4, II-5, II-6 and III-4;
+
+                 C̄ (Γ ) = the number of vertices in Γ of the form II-6;
+
+                 D̄ (Γ ) = the number of vertices in Γ of the form II-2.                                                       (8)
+
+   For the remainder of this section, let M be a ﬁnitely generated subgroup of F 2 . The following
+Proposition 3.2–Remark 3.7, that are repeatedly used in Section 4, discuss the effect of Whitehead
+automorphisms σ , τ , σ̄ and τ̄ on the subgroup graph Γ M .
+
+Proposition 3.2. Under the foregoing notation, we have
+
+
+                                E (Γσ ( M ) ) − E (Γ M ) = A (Γ M ) − C (Γ M ) − D (Γ M );
+
+                                E (Γτ ( M ) ) − E (Γ M ) = B (Γ M ) − C (Γ M ) − D (Γ M ).
+
+Proof. Due to a recent result of [8], we have
+
+                                                                               
+                               V (Γσ ( M ) ) − V (Γ M ) = cap Γ M ; {a, b} − n(Γ M ; b);
+                                                                               
+                               V (Γτ ( M ) ) − V (Γ M ) = cap Γ M ; {a, b} − n(Γ M ; a).
+
+Since σ and τ are automorphisms of F 2 , σ ( M ) and τ ( M ) have the same rank as M does. This implies
+that the graphs Γσ ( M ) and Γτ ( M ) have the same number of faces as Γ M does. So the vertex difference
+is the same as the edge difference, and thus we have
+
+                                                                               
+                               E (Γσ ( M ) ) − E (Γ M ) = cap Γ M ; {a, b} − n(Γ M ; b);
+                                                                               
+                                E (Γτ ( M ) ) − E (Γ M ) = cap Γ M ; {a, b} − n(Γ M ; a).
+
+     Expressing the right-hand sides of these equalities using the notation in (7) and (8), we get
+
+
+                                E (Γσ ( M ) ) − E (Γ M ) = A (Γ M ) − C (Γ M ) − D (Γ M );
+
+                                E (Γτ ( M ) ) − E (Γ M ) = B (Γ M ) − C (Γ M ) − D (Γ M ),
+
+as required.    2
+
+Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+doi:10.1016/j.jalgebra.2010.03.027
+                                       ARTICLE IN PRESS                                                             YJABR:12925
+JID:YJABR      AID:12925 /FLA                                   [m1G; v 1.38; Prn:27/04/2010; 8:47] P.11 (1-23)
+                                      D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••                                11
+
+
+
+
+                                                          Fig. 3. Claim 1.
+
+
+
+
+                                                          Fig. 4. Claim 2.
+
+
+Remark 3.3. The same statement as in Proposition 3.2 holds if we replace σ , τ and A , B , C , D by σ̄ ,
+τ̄ and Ā , B̄ , C̄ , D̄, respectively.
+
+Proposition 3.4. Under the foregoing notation, we have
+
+
+                                 A (Γσ ( M ) ) = A (Γ M );
+
+                                 B (Γσ ( M ) ) = A (Γ M ) + B (Γ M ) − C (Γ M ) − D (Γ M ).
+
+Proof. Let μ be the labeling function from the edges of Γ M to {a, b}±1 . In the following 11 claims,
+we observe how each vertex in Γ M is transformed in the process of obtaining Γσ ( M ) . In the proof of
+each claim, we assume that every reduced path p i consists of at least two edges.
+
+Claim 1. A vertex of the form II-1 in Γ M is transformed to a vertex of the form II-6 in Γσ ( M ) , in which process
+a vertex of the form II-2 newly occurs in Γσ ( M ) .
+
+Proof. Let Q be a vertex of the form II-1 in Γ M . Also let p 1 and p 2 be reduced paths in Γ M with
+terminus Q and labels ending in a and a−1 , respectively. Then σ (μ( p 1 )) and σ (μ( p 2 )) end in ab
+and a−1 , respectively. This implies that the vertex Q is transformed to a vertex of the form II-6 by σ
+and in this process a new vertex of the form II-2 occurs as depicted in Fig. 3. 2
+
+Claim 2. A vertex of the form II-2 in Γ M is transformed to
+
+either (i) a vertex of the form II-4 or III-2 in Γσ ( M ) , in which process a vertex of the form II-2 newly occurs
+       in Γσ ( M ) ;
+    or (ii) a vertex of the form II-3 in Γσ ( M ) , in which process a vertex of the form II-2 newly occurs in Γσ ( M )
+       and a vertex of the form II-3 in Γ M disappears.
+
+Proof. Let Q be a vertex of the form II-2 in Γ M . Also let p 1 and p 2 be reduced paths in Γ M with ter-
+minus Q and labels ending in a and b−1 , respectively. Then σ (μ( p 1 )) ends in ab, whereas σ (μ( p 2 ))
+ends in a (this happens when μ( p 2 ) ends in ab−1 ) or b−1 .
+    There are three possibilities. First, for every p 2 , σ (μ( p 2 )) ends in b−1 , in which case the vertex Q
+is transformed to a vertex of the form II-4 as depicted in Fig. 4(a). Next, for some p 2 , σ (μ( p 2 )) ends
+in b−1 , and for another p 2 , σ (μ( p 2 )) ends in a, in which case the vertex Q is transformed to a vertex
+of the form III-2 as depicted in Fig. 4(b). Finally, for every p 2 , σ (μ( p 2 )) ends in a, in which case the
+vertex Q is transformed to a vertex of the form II-3 and a vertex of the form II-3 in Γ M disappears
+as depicted in Fig. 4(c). In any of three cases above, a new vertex of the form II-2 occurs in Γσ ( M ) ,
+because σ (μ( p 1 )) ends in ab. 2
+
+ Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+ doi:10.1016/j.jalgebra.2010.03.027
+                                       ARTICLE IN PRESS                                                             YJABR:12925
+JID:YJABR      AID:12925 /FLA                                   [m1G; v 1.38; Prn:27/04/2010; 8:47] P.12 (1-23)
+12                                   D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••
+
+
+Claim 3. A vertex of the form II-3 in Γ M disappears, in which process no other vertex newly occurs or disap-
+pears.
+
+Proof. Let Q be a vertex of the form II-2 in Γ M . Also let p 1 and p 2 be reduced paths in Γ M with
+terminus Q and labels ending in a and b, respectively. Then σ (μ( p 1 )) ends in ab and σ (μ( p 2 ))
+ends in b. This implies that Q is transformed to a vertex of degree 1 and then it is removed by the
+construction of the reduced {a, b}-labeled graph Γσ ( M ) . 2
+
+Claim 4. A vertex of the form II-4 in Γ M is transformed to
+
+either (i) a vertex of the form II-4 or III-2 in Γσ ( M ) , in which process no other vertex newly occurs or disap-
+       pears;
+    or (ii) a vertex of the form II-3 in Γσ ( M ) , in which process a vertex of the form II-3 in Γ M disappears.
+
+Proof. Let Q be a vertex of the form II-4 in Γ M . Also let p 1 and p 2 be reduced paths in Γ M with
+terminus Q and labels ending in b and b−1 , respectively. Then σ (μ( p 1 )) ends in b, whereas σ (μ( p 2 ))
+ends in a (this happens when p 2 has label ending in ab−1 ) or b−1 .
+    There are three possibilities. First, for every p 2 , σ (μ( p 2 )) ends in b−1 , in which case the vertex Q
+is transformed to a vertex of the form II-4. Next, for some p 2 , σ (μ( p 2 )) ends in b−1 , and for an-
+other p 2 , σ (μ( p 2 )) ends in a, in which case the vertex Q is transformed to a vertex of the form III-2.
+Finally, for every p 2 , σ (μ( p 2 )) ends in a, in which case the vertex Q is transformed to a vertex of
+the form II-3 and a vertex of the form II-3 in Γ M disappears. 2
+
+Claim 5. A vertex of the form II-5 in Γ M is transformed to
+
+either (i) a vertex of the form II-5 or III-3 in Γσ ( M ) , in which process no other vertex newly occurs or disap-
+       pears;
+    or (ii) a vertex of the form II-1 in Γσ ( M ) , in which process a vertex of the form II-3 in Γ M disappears.
+
+Proof. Let Q be a vertex of the form II-5 in Γ M . Also let p 1 and p 2 be reduced paths in Γ M with
+terminus Q and labels ending in a−1 and b−1 , respectively. Then σ (μ( p 1 )) ends in a−1 , whereas
+σ (μ( p 2 )) ends in a (this happens when μ( p 2 ) ends in ab−1 ) or b−1 .
+    There are three possibilities. First, for every p 2 , σ (μ( p 2 )) ends in b−1 , in which case the vertex Q
+is transformed to a vertex of the form II-5. Next, for some p 2 , σ (μ( p 2 )) ends in b−1 , and for an-
+other p 2 , σ (μ( p 2 )) ends in a, in which case the vertex Q is transformed to a vertex of the form III-3.
+Finally, for every p 2 , σ (μ( p 2 )) ends in a, in which case the vertex Q is transformed to a vertex of
+the form II-1 and a vertex of the form II-3 in Γ M disappears. 2
+
+Claim 6. A vertex of the form II-6 in Γ M is transformed to a vertex of the form II-6 in Γσ ( M ) , in which process
+no other vertex newly occurs or disappears.
+
+Proof. Let Q be a vertex of the form II-6 in Γ M . Also let p 1 and p 2 be reduced paths in Γ M with
+terminus Q and labels ending in a−1 and b, respectively. Then σ (μ( p 1 )) ends in a−1 and σ (μ( p 2 ))
+ends in b. Hence Q is transformed to a vertex of the form II-6. 2
+
+Claim 7. A vertex of the form III-1 in Γ M is transformed to a vertex of the form II-6 in Γσ ( M ) , in which process
+no other vertex newly occurs or disappears.
+
+Proof. Let Q be a vertex of the form III-1 in Γ M . Also let p 1 , p 2 and p 3 be reduced paths in Γ M with
+terminus Q and labels ending in a, a−1 and b, respectively. Then σ (μ( p 1 )) ends in ab, σ (μ( p 2 ))
+ends in a−1 , and σ (μ( p 3 )) ends in b. This implies that Q is transformed to a vertex of the form II-6.
+Also we can see that there does not occur any new vertex in this process by the construction of the
+reduced {a, b}-labeled graph Γσ ( M ) . 2
+
+ Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+ doi:10.1016/j.jalgebra.2010.03.027
+                                       ARTICLE IN PRESS                                                             YJABR:12925
+JID:YJABR      AID:12925 /FLA                                   [m1G; v 1.38; Prn:27/04/2010; 8:47] P.13 (1-23)
+                                      D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••                                13
+
+
+Claim 8. A vertex of the form III-2 in Γ M is transformed to
+
+either (i) a vertex of the form II-4 or III-2 in Γσ ( M ) , in which process no other vertex newly occurs or disap-
+       pears;
+    or (ii) a vertex of the form II-3 in Γσ ( M ) , in which process a vertex of the form II-3 in Γ M disappears.
+
+Proof. Let Q be a vertex of the form III-2 in Γ M . Also let p 1 , p 2 and p 3 be reduced paths in Γ M with
+terminus Q and labels ending in a, b and b−1 , respectively. Then σ (μ( p 1 )) ends in ab, and σ (μ( p 2 ))
+ends in b, whereas σ (μ( p 3 )) ends in a (this happens when p 3 has label ending in ab−1 ) or b−1 .
+    There are three possibilities. First, for every p 3 , σ (μ( p 3 )) ends in b−1 , in which case the vertex Q
+is transformed to a vertex of the form II-4. Next, for some p 3 , σ (μ( p 3 )) ends in b−1 , and for an-
+other p 3 , σ (μ( p 3 )) ends in a, in which case the vertex Q is transformed to a vertex of the form III-2.
+Finally, for every p 3 , σ (μ( p 3 )) ends in a, in which case the vertex Q is transformed to a vertex of
+the form II-3 and a vertex of the form II-3 in Γ M disappears. 2
+
+Claim 9. A vertex of the form III-3 in Γ M is transformed to
+
+either (i) a vertex of the form III-4 or IV-1 in Γσ ( M ) , in which process a vertex of the form II-2 newly occurs
+       in Γσ ( M ) ;
+    or (ii) a vertex of the form III-1 in Γσ ( M ) , in which process a vertex of the form II-2 newly occurs in Γσ ( M )
+       and a vertex of the form II-3 in Γ M disappears.
+
+Proof. Let Q be a vertex of the form III-3 in Γ M . Also let p 1 , p 2 and p 3 be reduced paths in Γ M
+with terminus Q and labels ending in a, a−1 and b−1 , respectively. Then σ (μ( p 1 )) ends in ab, and
+σ (μ( p 2 )) ends in a−1 , whereas σ (μ( p 3 )) ends in a (this happens when p 3 has label ending in ab−1 )
+or b−1 .
+    There are three possibilities. First, for every p 3 , σ (μ( p 3 )) ends in b−1 , in which case the vertex Q
+is transformed to a vertex of the form III-4. Next, for some p 3 , σ (μ( p 3 )) ends in b−1 , and for an-
+other p 3 , σ (μ( p 3 )) ends in a, in which case the vertex Q is transformed to a vertex of the form IV-1.
+Finally, for every p 3 , σ (μ( p 3 )) ends in a, in which case the vertex Q is transformed to a vertex of the
+form III-1 and a vertex of the form II-3 in Γ M disappears. In any of three cases above, a new vertex
+of the form II-2 occurs in Γσ ( M ) , because σ (μ( p 1 )) ends in ab. 2
+
+Claim 10. A vertex of the form III-4 in Γ M is transformed to
+
+either (i) a vertex of the form III-4 or IV-1 in Γσ ( M ) , in which process no other vertex newly occurs or disap-
+       pears;
+    or (ii) a vertex of the form III-1 in Γσ ( M ) , in which process a vertex of the form II-3 in Γ M disappears.
+
+Proof. Let Q be a vertex of the form III-4 in Γ M . Also let p 1 , p 2 and p 3 be reduced paths in Γ M
+with terminus Q and labels ending in a−1 , b and b−1 , respectively. Then σ (μ( p 1 )) ends in a−1 , and
+σ (μ( p 2 )) ends in b, whereas σ (μ( p 3 )) ends in a (this happens when p 3 has label ending in ab−1 )
+or b−1 .
+    There are three possibilities. First, for every p 3 , σ (μ( p 3 )) ends in b−1 , in which case the vertex Q
+is transformed to a vertex of the form III-4. Next, for some p 3 , σ (μ( p 3 )) ends in b−1 , and for an-
+other p 3 , σ (μ( p 3 )) ends in a, in which case the vertex Q is transformed to a vertex of the form IV-1.
+Finally, for every p 3 , σ (μ( p 3 )) ends in a, in which case the vertex Q is transformed to a vertex of
+the form III-1 and a vertex of the form II-3 in Γ M disappears. 2
+
+Claim 11. A vertex of the form IV-1 in Γ M is transformed to
+
+either (i) a vertex of the form III-4 or IV-1 in Γσ ( M ) , in which process no other vertex newly occurs or disap-
+       pears;
+    or (ii) a vertex of the form III-1 in Γσ ( M ) , in which process a vertex of the form II-3 in Γ M disappears.
+
+ Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+ doi:10.1016/j.jalgebra.2010.03.027
+                                      ARTICLE IN PRESS                                                             YJABR:12925
+JID:YJABR     AID:12925 /FLA                                   [m1G; v 1.38; Prn:27/04/2010; 8:47] P.14 (1-23)
+14                                  D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••
+
+
+                               Table 1
+                               Vertex transformations used in the process Γ M → Γσ ( M ) .
+
+                                 Vertex transformation       New occurrence       Disappearance
+                                 S1: II-1 → II-6             II-2
+                                 S2: II-2 → II-4             II-2
+                                 S3: II-2 → III-2            II-2
+                                 S4: II-2 → II-3             II-2                 II-3
+                                 S5: II-3 disappears
+                                 S6: II-4 → II-4
+                                 S7: II-4 → III-2
+                                 S8: II-4 → II-3                                  II-3
+                                 S9: II-5 → II-5
+                                 S10: II-5 → III-3
+                                 S11: II-5 → II-1                                 II-3
+                                 S12: II-6 → II-6
+                                 S13: III-1 → II-6
+                                 S14: III-2 → II-4
+                                 S15: III-2 → III-2
+                                 S16: III-2 → II-3                                II-3
+                                 S17: III-3 → III-4          II-2
+                                 S18: III-3 → IV-1           II-2
+                                 S19: III-3 → III-1          II-2                 II-3
+                                 S20: III-4 → III-4
+                                 S21: III-4 → IV-1
+                                 S22: III-4 → III-1                               II-3
+                                 S23: IV-1 → III-4
+                                 S24: IV-1 → IV-1
+                                 S25: IV-1 → III-1                                II-3
+
+
+
+Proof. Let Q be a vertex of the form III-4 in Γ M . Also let p 1 , p 2 , p 3 and p 4 be reduced paths in Γ M
+with terminus Q and labels ending in a, a−1 , b and b−1 , respectively. Then σ (μ( p 1 )) ends in ab,
+σ (μ( p 2 )) ends in a−1 , and σ (μ( p 3 )) ends in b, whereas σ (μ( p 4 )) ends in a (this happens when
+p 4 has label ending in ab−1 ) or b−1 .
+    There are three possibilities. First, for every p 4 , σ (μ( p 4 )) ends in b−1 , in which case the vertex Q
+is transformed to a vertex of the form III-4. Next, for some p 4 , σ (μ( p 4 )) ends in b−1 , and for an-
+other p 4 , σ (μ( p 4 )) ends in a, in which case the vertex Q is transformed to a vertex of the form IV-1.
+Finally, for every p 4 , σ (μ( p 4 )) ends in a, in which case the vertex Q is transformed to a vertex of
+the form III-1 and a vertex of the form II-3 in Γ M disappears. 2
+
+   Claims 1–11 are summarized in Table 1.
+   Note that A (Γ M ) is the total number of vertices of the form II-1, II-2, II-5 or III-3 in Γ M . Table 1
+shows that every vertex of the form II-1, II-2 or III-3 in Γ M is transformed to a vertex not belonging
+to A (Γσ ( M ) ), in the process of which a vertex of the form II-2 newly occurs in Γσ ( M ) . Also every
+vertex of the form II-5 in Γ M is transformed to a vertex belonging to A (Γσ ( M ) ), in the process of
+which no vertex newly occurs in Γσ ( M ) . Moreover since every vertex belonging to Γσ ( M ) is obtained
+from a vertex belonging to A (Γ M ) in the process of applying σ , we have
+
+
+                                                    A (Γσ ( M ) ) = A (Γ M ).
+
+    On the other hand, note that B (Γ M ) is the total number of vertices of the form II-4, II-5, II-6 or
+III-4 in Γ M . By [ S j ] (1 ⩽ j ⩽ 25), we mean the number of vertices in Γ M which are transformed to
+vertices in Γσ ( M ) by the vertex transformation of type [ S j ]. From Table 1, we see that
+
+
+                           D (Γ M ) = [ S4] + [ S8] + [ S11] + [ S16] + [ S19] + [ S22],
+
+Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+doi:10.1016/j.jalgebra.2010.03.027
+                                      ARTICLE IN PRESS                                                             YJABR:12925
+JID:YJABR     AID:12925 /FLA                                   [m1G; v 1.38; Prn:27/04/2010; 8:47] P.15 (1-23)
+                                     D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••                                  15
+
+
+and that
+
+
+              A (Γ M ) + B (Γ M ) − C (Γ M ) = [ S1] + [ S2] + [ S3] + [ S4] + [ S6] + [ S7]
+
+                                                     + [ S8] + [ S9] + [ S10] + [ S11] + [ S12] + [ S17]
+
+                                                     + [ S18] + [ S19] + [ S20] + [ S21] + [ S22].
+
+It then follows that
+
+
+                A (Γ M ) + B (Γ M ) − C (Γ M ) − D (Γ M ) = [ S1] + [ S2] + [ S3] + [ S6] + [ S7]
+
+                                                                     + [ S9] + [ S10] + [ S12] − [ S16]
+
+                                                                     + [ S17] + [ S18] + [ S20] + [ S21].                       (9)
+
+    Since every cyclically reduced ﬁnite {a, b}-labeled graph Γ has the same number of faces as
+1/2(the number of vertices in Γ of the form III-1, III-2, III-3 or III-4) + (the number of vertices in Γ
+of the form IV-1) + 1, and since Γ M has the same number of faces as Γσ ( M ) does, we have
+
+
+                [ S3] + [ S7] + [ S10] + [ S18] + [ S21] = [ S13] + [ S14] + [ S16] + [ S23].
+
+Using this equality rewrites the right-hand side of (9) as
+
+
+                      A (Γ M ) + B (Γ M ) − C (Γ M ) − D (Γ M ) = [ S1] + [ S2] + [ S6] + [ S9]
+
+                                                                          + [ S12] + [ S13] + [ S14]
+
+                                                                          + [ S17] + [ S20] + [ S23].                          (10)
+
+According to Table 1, the right-hand side of (10) equals B (Γσ ( M ) ), which completes the proof.                        2
+
+Remark 3.5. The same statement as in Proposition 3.4 holds if we replace σ and A , B , C , D by σ̄ and
+Ā , B̄ , C̄ , D̄, respectively.
+
+
+Proposition 3.6. Under the foregoing notation, we have
+
+
+                                A (Γτ ( M ) ) = A (Γ M ) + B (Γ M ) − C (Γ M ) − D (Γ M );
+
+                                B (Γτ ( M ) ) = B (Γ M ).
+
+Proof. As in the proof of Proposition 3.4, we can analyze how each vertex in Γ M is transformed in
+the process of obtaining Γτ ( M ) . We summarize our analysis in Table 2.
+   We may apply an argument similar to the proof of Proposition 3.4 to get the required result, which
+completes the proof of the proposition. 2
+
+
+Remark 3.7. The same statement as in Proposition 3.6 holds if we replace τ and A , B , C , D by τ̄ and
+Ā , B̄ , C̄ , D̄, respectively.
+
+Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+doi:10.1016/j.jalgebra.2010.03.027
+                                      ARTICLE IN PRESS                                                             YJABR:12925
+JID:YJABR     AID:12925 /FLA                                   [m1G; v 1.38; Prn:27/04/2010; 8:47] P.16 (1-23)
+16                                  D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••
+
+
+                               Table 2
+                               Vertex transformations used in the process Γ M → Γτ ( M ) .
+
+                                 Vertex transformation      New occurrence        Disappearance
+                                 T1: II-1 → II-1
+                                 T2: II-1 → III-1
+                                 T3: II-1 → II-3                                  II-3
+                                 T4: II-2 → II-2
+                                 T5: II-3 disappears
+                                 T6: II-4 → II-2            II-6
+                                 T7: II-5 → II-5
+                                 T8: II-5 → III-4
+                                 T9: II-5 → II-4                                  II-3
+                                 T10: II-6 → II-1           II-6
+                                 T11: II-6 → III-1          II-6
+                                 T12: II-6 → II-3           II-6                  II-3
+                                 T13: III-1 → II-1
+                                 T14: III-1 → III-1
+                                 T15: III-1 → II-3                                II-3
+                                 T16: III-2 → II-2
+                                 T17: III-3 → III-3
+                                 T18: III-3 → IV-1
+                                 T19: III-3 → III-2                               II-3
+                                 T20: III-4 → III-3         II-6
+                                 T21: III-4 → IV-1          II-6
+                                 T22: III-4 → III-2         II-6                  II-3
+                                 T23: IV-1 → III-3
+                                 T24: IV-1 → IV-1
+                                 T25: IV-1 → III-2                                II-3
+
+
+
+4. An example of volume equivalence without rank equivalence
+
+   Throughout this section, let F 2 = F (a, b), the free group with basis {a, b}. We start with ﬁxing
+the notation that is used throughout this section. Let Γ be a ﬁnite cyclically reduced {a, b}-labeled
+directed graph. In the beginning of Section 3, 11 possible types of vertices of Γ are depicted in Fig. 2.
+Then we put
+
+
+                 P i (Γ ) = the number of vertices in Γ of the form II-i for each 1 ⩽ i ⩽ 6;
+
+                Q j (Γ ) = the number of vertices in Γ of the form III- j for each 1 ⩽ j ⩽ 4;
+
+                 R (Γ ) = the number of vertices in Γ of the form IV-1.
+
+     The following lemma is needed to prove Theorem C from the Introduction.
+
+Lemma 4.1. For ﬁnitely generated subgroups H and K of F 2 , if E (Γφ( H ) ) = E (Γφ( K ) ) for every automor-
+phism φ of F 2 , then
+
+                                                                               
+                      cap Γφ( H ) ; a±1         + R (Γφ( H ) ) = cap Γφ( K ) ; a±1 + R (Γφ( K ) )
+
+for every automorphism φ of F 2 .
+
+Proof. Let φ be an automorphism of F 2 , and put
+
+
+                                           H 1 = φ( H ) and          K 1 = φ( K ).
+
+Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+doi:10.1016/j.jalgebra.2010.03.027
+                                                ARTICLE IN PRESS                                                                                 YJABR:12925
+JID:YJABR          AID:12925 /FLA                                            [m1G; v 1.38; Prn:27/04/2010; 8:47] P.17 (1-23)
+                                              D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••                                                  17
+
+
+By the hypothesis of the theorem, we have
+
+
+                                             E (Γσ ( H 1 ) ) − E (Γ H 1 ) = E (Γσ ( K 1 ) ) − E (Γ K 1 );
+
+                                             E (Γσ̄ ( H 1 ) ) − E (Γ H 1 ) = E (Γσ̄ ( K 1 ) ) − E (Γ K 1 );
+
+                                             E (Γτ ( H 1 ) ) − E (Γ H 1 ) = E (Γτ ( K 1 ) ) − E (Γ K 1 );
+
+                                           E (Γτ −1 ( H 1 ) ) − E (Γ H 1 ) = E (Γτ −1 ( K 1 ) ) − E (Γ K 1 ).
+
+In view of Proposition 3.2, the above equalities yield that
+
+
+      P 1 (Γ H 1 ) + P 2 (Γ H 1 ) − P 3 (Γ H 1 ) + Q 3 (Γ H 1 ) = P 1 (Γ K 1 ) + P 2 (Γ K 1 ) − P 3 (Γ K 1 ) + Q 3 (Γ K 1 );
+
+      P 1 (Γ H 1 ) − P 2 (Γ H 1 ) + P 3 (Γ H 1 ) + Q 1 (Γ H 1 ) = P 1 (Γ K 1 ) − P 2 (Γ K 1 ) + P 3 (Γ K 1 ) + Q 1 (Γ K 1 );
+
+      P 4 (Γ H 1 ) − P 3 (Γ H 1 ) + P 6 (Γ H 1 ) + Q 4 (Γ H 1 ) = P 4 (Γ K 1 ) − P 3 (Γ K 1 ) + P 6 (Γ K 1 ) + Q 4 (Γ K 1 );
+
+      P 4 (Γ H 1 ) + P 3 (Γ H 1 ) − P 6 (Γ H 1 ) + Q 2 (Γ H 1 ) = P 4 (Γ K 1 ) + P 3 (Γ K 1 ) − P 6 (Γ K 1 ) + Q 2 (Γ K 1 ).
+
+Adding altogether these equalities, we get
+
+                                                         4                                                                   4
+               2 P 1 (Γ H 1 ) + P 4 (Γ H 1 ) +                 Q j (Γ H 1 ) = 2 P 1 (Γ K 1 ) + P 4 (Γ K 1 ) +                     Q j (Γ K 1 ),
+                                                        j =1                                                             j =1
+
+
+so that
+
+                                                         4                                                               4
+                                                    1                                                               1
+                 P 1 (Γ H 1 ) + P 4 (Γ H 1 ) +                 Q j (Γ H 1 ) = P 1 (Γ K 1 ) + P 4 (Γ K 1 ) +                      Q j (Γ K 1 ).          (11)
+                                                    2                                                               2
+                                                        j =1                                                            j =1
+
+
+                                   4                                                                   4
+Since rank H 1 = 1/2               j =1 Q j (Γ H 1 ) + R (Γ H 1 ) and rank K 1 = 1/2                   j =1 Q j (Γ K 1 ) + R (Γ K 1 ), we obtain
+from (11) that
+
+
+          P 1 (Γ H 1 ) + P 4 (Γ H 1 ) + rank H 1 − R (Γ H 1 ) = P 1 (Γ K 1 ) + P 4 (Γ K 1 ) + rank K 1 − R (Γ K 1 ).                                    (12)
+
+Also, since E (Γ H 1 ) = E (Γ K 1 ), we have
+
+           6                           4                                        6                           4
+                                  3                                                                    3
+                 P i (Γ H 1 ) +              Q j (Γ H 1 ) + 2R (Γ H 1 ) =             P i (Γ K 1 ) +              Q j (Γ K 1 ) + 2R (Γ K 1 ),
+                                  2                                                                    2
+          i =1                        j =1                                     i =1                        j =1
+
+
+so that
+
+                                                                                              
+                                  P 1 (Γ H 1 ) + P 4 (Γ H 1 ) + cap Γφ( H ) ; a±1     + rank H 1
+                                                                                             ±1
+                                      = P 1 (Γ K 1 ) + P 4 (Γ K 1 ) + cap Γφ( K ) ; a     + rank K 1 .                                                  (13)
+
+Subtract (12) from (13) to obtain
+
+                                                                                        
+                              cap Γ H 1 ; a±1                + R (Γ H 1 ) = cap Γ K 1 ; a±1 + R (Γ K 1 ),
+ Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+ doi:10.1016/j.jalgebra.2010.03.027
+                                      ARTICLE IN PRESS                                                             YJABR:12925
+JID:YJABR     AID:12925 /FLA                                       [m1G; v 1.38; Prn:27/04/2010; 8:47] P.18 (1-23)
+18                                  D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••
+
+
+
+
+                                           Fig. 5. The subgroup graphs Γ H and Γ K .
+
+
+namely,
+
+                                                                               
+                     cap Γφ( H ) ; a±1          + R (Γφ( H ) ) = cap Γφ( K ) ; a±1 + R (Γφ( K ) ),
+
+as desired.    2
+
+   The following theorem answers, in the negative, the question of whether or not the volume equiv-
+alence of two subgroups H and K of F n necessarily implies that H and K have the same rank (cf. [1]).
+
+Theorem C. Let
+
+                                                                                 
+                                           H = b, a−1 b b, a−1 ba−1 ba ,
+                                                            2                          
+                                           K = b, a−1 , ba−1 [b, a]b−2 a
+
+be subgroups of F (a, b). Then H and K are volume equivalent in F (a, b) but rank( H ) = rank( K ).
+
+Proof. The subgroup graphs Γ H and Γ K are depicted in Fig. 5.
+   From Fig. 5, we see that
+
+
+                                                        E (Γ H ) = E (Γ K ),                                                   (14)
+
+and that
+
+
+                                                    R (Γ H ) = 0 = R (Γ K ).
+
+Also, from Fig. 5, it is easy to count
+
+
+                       A (Γ H ) = 6,         B (Γ H ) = 7,           C (Γ H ) = 3,            D (Γ H ) = 3;
+
+                        A (Γ K ) = 5,        B (Γ K ) = 6,           C (Γ K ) = 2,            D (Γ K ) = 3;
+
+                       Ā (Γ H ) = 6,        B̄ (Γ H ) = 7,          C̄ (Γ H ) = 3,           D̄ (Γ H ) = 3;
+
+                        Ā (Γ K ) = 5,          B̄ (Γ K ) = 6,       C̄ (Γ K ) = 2,           D̄ (Γ K ) = 3.                   (15)
+
+Hence we have
+
+
+                             A (Γ H ) − C (Γ H ) − D (Γ H ) = A (Γ K ) − C (Γ K ) − D (Γ K );
+
+                             B (Γ H ) − C (Γ H ) − D (Γ H ) = B (Γ K ) − C (Γ K ) − D (Γ K );
+
+Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+doi:10.1016/j.jalgebra.2010.03.027
+                                        ARTICLE IN PRESS                                                            YJABR:12925
+JID:YJABR      AID:12925 /FLA                                      [m1G; v 1.38; Prn:27/04/2010; 8:47] P.19 (1-23)
+                                      D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••                                  19
+
+
+
+
+                                           Fig. 6. The subgroup graphs Γτ ( H ) and Γτ ( K ) .
+
+
+                             Ā (Γ H ) − C̄ (Γ H ) − D̄ (Γ H ) = Ā (Γ K ) − C̄ (Γ K ) − D̄ (Γ K );
+
+                             B̄ (Γ H ) − C̄ (Γ H ) − D̄ (Γ H ) = B̄ (Γ K ) − C̄ (Γ K ) − D̄ (Γ K ),
+
+which implies that
+
+
+                                       E (Γσ ( H ) ) − E (Γ H ) = E (Γσ ( K ) ) − E (Γ K );
+
+                                       E (Γτ ( H ) ) − E (Γ H ) = E (Γτ ( K ) ) − E (Γ K );
+
+                                       E (Γσ̄ ( H ) ) − E (Γ H ) = E (Γσ̄ ( K ) ) − E (Γ K );
+
+                                       E (Γτ̄ ( H ) ) − E (Γ H ) = E (Γτ̄ ( K ) ) − E (Γ K ).                                   (16)
+
+    Let φ be a chain of type (C1) or (C2). We deﬁne the length of φ , denoted by |φ|, to be the number
+of factors σ and τ in φ if φ is of type (C1), and the number of factors σ̄ and τ̄ in φ if φ is type of (C2).
+By induction on |φ| ⩾ 1, we shall prove both R (Γφ( H ) ) = R (Γφ( K ) ) and E (Γφ( H ) ) = E (Γφ( K ) ). Then, in
+view of Lemma 4.1, the equality cap(Γφ( H ) ; {a±1 }) = cap(Γφ( K ) ; {a±1 }) will follow immediately.
+
+Case 1. φ is a chain of type (C1).
+
+    We may assume that φ begins with τ , because the graphs Γ H and Γ K remain unchanged by
+applying σ . The subgroup graphs of τ ( H ) and τ ( K ) are depicted in Fig. 6.
+    From Fig. 6, we see that there are no vertices of degree 4 in any of Γτ ( H ) and Γτ ( K ) . Hence,
+if |φ| = 1, then the equality R (Γφ( H ) ) = R (Γφ( K ) ) is obvious. Also, the equality E (Γφ( H ) ) = E (Γφ( K ) )
+follows from (14) and (16).
+    So let |φ| > 1. First, we shall prove that R (Γφ( H ) ) = R (Γφ( K ) ). Obviously R (Γφ( H ) ) = 0. Let us now
+consider R (Γφ( K ) ). From Tables 1 and 2 from Section 3, we see that every vertex of degree 4, if any,
+in the graph Γφ( K ) can be obtained only from a vertex of type II-5, III-3 or III-4 in the graph Γτ ( K ) .
+However, in the graph Γτ ( K ) , there is no vertex of type III-3 or III-4, and, moreover, every vertex of
+type II-5 remains unchanged even if we apply further σ and τ . So there cannot occur any vertex of
+degree 4 in Γφ( K ) , which means that R (Γφ( K ) ) = 0, as desired.
+    Next, we shall prove that E (Γφ( H ) ) = E (Γφ( K ) ). Observe from Fig. 6 that
+
+
+                                           C (Γτ ( H ) ) = 2,         D (Γτ ( H ) ) = 2;
+
+                                            C (Γτ ( K ) ) = 2,         D (Γτ ( K ) ) = 1,
+
+and, furthermore, that for arbitrary non-negative integers                      i and mi (1 ⩽ i ⩽ t),
+
+
+                        C (Γτ mt σ t ···τ m1 σ 1 τ ( H ) ) = 2,       D (Γτ mt σ t ···τ m1 σ 1 τ ( H ) ) = 2;
+
+                         C (Γτ mt σ t ···τ m1 σ 1 τ ( K ) ) = 2,       D (Γτ mt σ t ···τ m1 σ 1 τ ( K ) ) = 1.                  (17)
+
+ Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+ doi:10.1016/j.jalgebra.2010.03.027
+                                       ARTICLE IN PRESS                                                            YJABR:12925
+JID:YJABR     AID:12925 /FLA                                     [m1G; v 1.38; Prn:27/04/2010; 8:47] P.20 (1-23)
+20                                   D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••
+
+
+     We consider two cases separately.
+
+Case 1.1. φ ends in σ .
+
+     Again, we divide this case into two subcases.
+
+Case 1.1.a. φ ends in σ 2 .
+
+     Put
+
+
+                                                           φ = σ 2 φ1 ,
+
+where φ1 is a chain of type (C1). Also put
+
+
+                                           H 1 = φ1 ( H ) and           K 1 = φ1 ( K ).
+
+It then follows from (17) that
+
+
+                                C (Γσ ( H 1 ) ) + D (Γσ ( H 1 ) ) − C (Γ H 1 ) − D (Γ H 1 )
+
+                                   = C (Γσ ( K 1 ) ) + D (Γσ ( K 1 ) ) − C (Γ K 1 ) − D (Γ K 1 ).                              (18)
+
+In view of Proposition 3.2, we have
+
+
+                              E (Γσ ( H 1 ) ) − E (Γ H 1 ) = A (Γ H 1 ) − C (Γ H 1 ) − D (Γ H 1 );
+
+                              E (Γσ ( K 1 ) ) − E (Γ K 1 ) = A (Γ K 1 ) − C (Γ K 1 ) − D (Γ K 1 ).
+
+Then by the induction hypothesis,
+
+
+                        A (Γ H 1 ) − C (Γ H 1 ) − D (Γ H 1 ) = A (Γ K 1 ) − C (Γ K 1 ) − D (Γ K 1 ).                           (19)
+
+     Again, by Proposition 3.2, we have
+
+
+                      E (Γσ 2 ( H 1 ) ) − E (Γσ ( H 1 ) ) = A (Γσ ( H 1 ) ) − C (Γσ ( H 1 ) ) − D (Γσ ( H 1 ) );
+
+                      E (Γσ 2 ( K 1 ) ) − E (Γσ ( K 1 ) ) = A (Γσ ( K 1 ) ) − C (Γσ ( K 1 ) ) − D (Γσ ( K 1 ) ).               (20)
+
+Here, in view of Proposition 3.4,
+
+
+                               A (Γσ ( H 1 ) ) = A (Γ H 1 )    and       A (Γσ ( K 1 ) ) = A (Γ K 1 ).
+
+These equalities together with (18), (19) and (20) yield that
+
+
+                              E (Γσ 2 ( H 1 ) ) − E (Γσ ( H 1 ) ) = E (Γσ 2 ( K 1 ) ) − E (Γσ ( K 1 ) ).
+
+Combine this with the induction hypothesis to ﬁnally get
+
+
+                                                E (Γσ 2 ( H 1 ) ) = E (Γσ 2 ( K 1 ) ),
+
+Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+doi:10.1016/j.jalgebra.2010.03.027
+                                         ARTICLE IN PRESS                                                            YJABR:12925
+JID:YJABR      AID:12925 /FLA                                      [m1G; v 1.38; Prn:27/04/2010; 8:47] P.21 (1-23)
+                                       D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••                                 21
+
+
+that is,
+
+
+                                                     E (Γφ( H ) ) = E (Γφ( K ) ).
+
+Case 1.1.b. φ ends in σ τ .
+
+   Put
+
+
+                                                            φ = σ τ φ2 ,
+
+where φ1 is a chain of type (C1). Also put
+
+
+                                             H 2 = φ2 ( H ) and           K 2 = φ2 ( K ).
+
+It then follows from (15) and (17) that
+
+
+                                 C (Γτ ( H 2 ) ) + D (Γτ ( H 2 ) ) − C (Γ H 2 ) − D (Γ H 2 )
+
+                                    = C (Γτ ( K 2 ) ) + D (Γτ ( K 2 ) ) − C (Γ K 2 ) − D (Γ K 2 ).                              (21)
+
+Apply Proposition 3.2 to get
+
+
+                               E (Γτ ( H 2 ) ) − E (Γ H 2 ) = B (Γ H 2 ) − C (Γ H 2 ) − D (Γ H 2 );
+
+                                E (Γτ ( K 2 ) ) − E (Γ K 2 ) = B (Γ K 2 ) − C (Γ K 2 ) − D (Γ K 2 ).
+
+Then by the induction hypothesis,
+
+
+                          B (Γ H 2 ) − C (Γ H 2 ) − D (Γ H 2 ) = B (Γ K 2 ) − C (Γ K 2 ) − D (Γ K 2 ).                          (22)
+
+Also, by Proposition 3.2 and the induction hypothesis,
+
+
+                         A (Γ H 2 ) − C (Γ H 2 ) − D (Γ H 2 ) = A (Γ K 2 ) − C (Γ K 2 ) − D (Γ K 2 ).                           (23)
+
+   Apply again Proposition 3.2 to obtain
+
+
+                       E (Γσ τ ( H 2 ) ) − E (Γτ ( H 2 ) ) = A (Γτ ( H 2 ) ) − C (Γτ ( H 2 ) ) − D (Γτ ( H 2 ) );
+
+                        E (Γσ τ ( K 2 ) ) − E (Γτ ( K 2 ) ) = A (Γτ ( K 2 ) ) − C (Γτ ( K 2 ) ) − D (Γτ ( K 2 ) ).              (24)
+
+Here, in view of Proposition 3.6,
+
+
+                              A (Γτ ( H 2 ) ) = A (Γ H 2 ) + B (Γ H 2 ) − C (Γ H 2 ) − D (Γ H 2 );
+
+                               A (Γτ ( K 2 ) ) = A (Γ K 2 ) + B (Γ K 2 ) − C (Γ K 2 ) − D (Γ K 2 ).
+
+These equalities together with (21)–(24) yield that
+
+
+                               E (Γσ τ ( H 2 ) ) − E (Γτ ( H 2 ) ) = E (Γσ τ ( K 2 ) ) − E (Γτ ( K 2 ) ).
+
+ Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+ doi:10.1016/j.jalgebra.2010.03.027
+                                           ARTICLE IN PRESS                                                                YJABR:12925
+JID:YJABR      AID:12925 /FLA                                            [m1G; v 1.38; Prn:27/04/2010; 8:47] P.22 (1-23)
+22                                      D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••
+
+
+
+
+                                              Fig. 7. The subgroup graphs Γτ̄ ( H ) and Γτ̄ ( K ) .
+
+
+Combine this with the induction hypothesis to ﬁnally get
+
+
+                                                     E (Γσ τ ( H 2 ) ) = E (Γσ τ ( K 2 ) ),
+
+that is,
+
+
+                                                        E (Γφ( H ) ) = E (Γφ( K ) ).
+
+Case 1.2. φ ends in τ .
+
+     This case is treated similarly to Case 1.1 to obtain the equality E (Γφ( H ) ) = E (Γφ( K ) ).
+
+Case 2. φ is a chain of type (C2).
+
+    We may assume that φ begins with τ̄ , because the graphs Γ H and Γ K remain unchanged by
+applying σ̄ . The subgroup graphs of τ̄ ( H ) and τ̄ ( K ) are depicted in Fig. 7.
+    From Fig. 7, we see that there are no vertices of degree 4 in any of Γτ̄ ( H ) and Γτ̄ ( K ) . Hence, if
+|φ| = 1, then the equality R (Γφ( H ) ) = R (Γφ( K ) ) is clear. Also, the equality E (Γφ( H ) ) = E (Γφ( K ) ) imme-
+diately follows from (14) and (16).
+    So let |φ| > 1. First, we shall prove that R (Γφ( H ) ) = R (Γφ( K ) ). It is obvious that R (Γφ( H ) ) = 0. So,
+let us consider R (Γφ( K ) ). There are two vertices of type III-1 in the graph Γτ̄ ( H ) . Denote any one of
+these vertices by v K . Let p 1 , p 2 and p 3 be arbitrary reduced paths in Γτ̄ ( H ) with terminus v K and
+labels ending in a, a−1 and b, respectively. Then we see that μ( p 1 ), μ( p 2 ) and μ( p 3 ) always end
+in b−1 a, ba−1 and a−1 b, respectively. This yields that the vertex v K always remains as a vertex of
+degree 3 even if we apply further σ̄ and τ̄ . So there cannot occur any vertex of degree 4 in Γφ( K ) ,
+which implies R (Γφ( K ) ) = 0, as desired.
+    Next, we shall prove that E (Γφ( H ) ) = E (Γφ( K ) ). Observe from Fig. 7 that
+
+
+                                              C̄ (Γτ̄ ( H ) ) = 2,         D̄ (Γτ̄ ( H ) ) = 2;
+
+                                               C̄ (Γτ̄ ( K ) ) = 1,        D̄ (Γτ̄ ( K ) ) = 2,
+
+and that for arbitrary non-negative integers                      i and mi (1 ⩽ i ⩽ t),
+
+
+                        C̄ (Γτ̄ mt σ̄ t ···τ̄ m1 σ̄ 1 τ̄ ( H ) ) = 2,      D̄ (Γτ̄ mt σ̄ t ···τ̄ m1 σ̄ 1 τ̄ ( H ) ) = 2;
+
+                         C̄ (Γτ̄ mt σ̄ t ···τ̄ m1 σ̄ 1 τ̄ ( K ) ) = 1,     D̄ (Γτ̄ mt σ̄ t ···τ̄ m1 σ̄ 1 τ̄ ( K ) ) = 2.
+
+This situation is similar to (17). So, from now on, we can follow the proof of Case 1 to derive the
+equality E (Γφ( H ) ) = E (Γφ( K ) ).
+   Now the proof of Theorem C is completed. 2
+
+ Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+ doi:10.1016/j.jalgebra.2010.03.027
+                                        ARTICLE IN PRESS                                                              YJABR:12925
+JID:YJABR       AID:12925 /FLA                                  [m1G; v 1.38; Prn:27/04/2010; 8:47] P.23 (1-23)
+                                      D. Lee, E. Ventura / Journal of Algebra ••• (••••) •••–•••                                  23
+
+
+Acknowledgments
+
+   The authors are grateful to the referee for the valuable comments and suggestions which led to an
+improvement of this paper. The authors also gratefully acknowledge the support of Centre de Recerca
+Matemàtica in Barcelona. The ﬁrst author was supported by the Korea Research Foundation Grant
+funded by the Korean Government (KRF-2006-531-C00011). And the second author was partially sup-
+ported by MCI (Spain) and the EFRD (EC) through project MTM2006-13544.
+
+References
+
+[1] I. Kapovich, G. Levitt, P.E. Schupp, V. Shpilrain, Translation equivalence in free groups, Trans. Amer. Math. Soc. 359 (4) (2007)
+    1527–1546.
+[2] I. Kapovich, M. Lustig, Intersection form, laminations and currents on free groups, Geom. Funct. Anal. 19 (5) (2010) 1426–
+    1467.
+[3] I. Kapovich, A.G. Myasnikov, Stallings foldings and subgroups of free groups, J. Algebra 248 (2) (2002) 608–668.
+[4] D. Lee, Translation equivalent elements in free groups, J. Group Theory 9 (2006) 809–814.
+[5] D. Lee, An algorithm that decides translation equivalence in a free group of rank two, J. Group Theory 10 (2007) 561–569.
+[6] D. Lee, On several problems about automorphisms of the free group of rank two, J. Algebra 321 (2009) 167–193.
+[7] C.J. Leininger, Equivalent curves in surfaces, Geom. Dedicata 102 (2003) 151–177.
+[8] A. Roig, E. Ventura, P. Weil, On the complexity of the Whitehead minimization problem, Internat. J. Algebra Comput. 17
+    (2007) 1611–1634.
+
+
+
+
+ Please cite this article in press as: D. Lee, E. Ventura, Volume equivalence of subgroups of free groups, J. Algebra (2010),
+ doi:10.1016/j.jalgebra.2010.03.027
+

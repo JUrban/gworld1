@@ -345,3 +345,8 @@ Archived author-hosted Martino–ORourke *Some free actions on non-archimedean t
 ## 2026-09-28T22:55:03.075849+00:00 — class-ten third-layer extension
 
 Repeated bounded searches for free-nilpotent single-commutator algorithms and decidability by class; found the previously credited class-two/general-nilpotent results, no matching gamma_8-in-class-ten theorem. No exhaustive novelty claim. Re-read the N8 fragment and viewed its existing screenshot. Existing structural source dependencies are unchanged; exact limits are in problems/N8/class10-third-audit.md.
+
+
+## 2026-09-28T23:14:32.455430+00:00 — boundedness and fixed-subgroup scope
+
+Archived Lee--Ventura2010 (bounded example and explicit commutator convention), Martino2004 (F26 rank-three and UPG scope), and Ventura fixed-closures2010/2011 (Theorem9/Corollary10). Read relevant statements and local arguments; viewed Lee--Ventura p2, Martino p197, Ventura p182. Exact reading limits and implications are in the two new F38 and F1/F26 notes. No full imported-proof or exhaustive novelty audit.

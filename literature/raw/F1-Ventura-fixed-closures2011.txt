@@ -1,0 +1,514 @@
+Illinois Journal of Mathematics
+Volume 54, Number 1, Spring 2010, Pages 175–186
+S 0019-2082
+
+
+
+
+       COMPUTING FIXED CLOSURES IN FREE GROUPS
+
+                                    ENRIC VENTURA
+
+                        To Paul Schupp, colleague and friend.
+
+          Abstract. Let F be a ﬁnitely generated free group. We present
+          an algorithm such that, given a subgroup H ≤ F , decides whether
+          H is the ﬁxed subgroup of some family of automorphisms, or
+          family of endomorphisms of F and, in the aﬃrmative case, ﬁnds
+          such a family. The algorithm combines both combinatorial and
+          geometric methods.
+
+
+
+                                    1. Introduction
+    For all the paper, let A = {a1 , . . . , an } be an alphabet with n diﬀerent
+letters, and F be the free group (of rank r(F ) = n) with basis A.
+    Let End(F ) denote the endomorphism monoid of F , and Aut(F ) the auto-
+morphism group of F , so Aut(F ) is the group of units of End(F ). Throughout,
+we let elements of End(F ) act on the right on F , so x → (x)φ. Accordingly,
+compositions are like (x)φψ = (xφ)ψ.
+   In the last decade, a lot of literature has appeared studying the ﬁxed sub-
+group of a single, or a family, of automorphisms, or endomorphisms, of F (see
+the survey [19] for details). But very few algorithmic results are known in this
+direction. Only few years ago, O. Maslakova (see [13]) has found an algorithm
+to compute a set of generators for the ﬁxed subgroup of an automorphism of
+F (which is quite complicated, and whose complexity is quite high). One can
+easily extend this to compute generators for the ﬁxed subgroup of a ﬁnite
+family of automorphisms, while the related questions on endomorphisms are
+still open.
+
+  Received October 5, 2009; received in ﬁnal form April 27, 2010.
+  The author gratefully acknowledges partial support from the MEC (Spain) and the
+EFRD (EC) through project number MTM2008-01550.
+  2000 Mathematics Subject Classiﬁcation. 20E05, 20E36.
+
+                                                             2011
+                                                             c     University of Illinois
+
+                                              175
+176                              E. VENTURA
+
+
+   In this note, we shall address the dual problem. We present an algorithm
+such that, given a subgroup H ≤ F , decides whether H is the ﬁxed subgroup
+of some ﬁnite family of automorphisms, or ﬁnite family of endomorphisms of
+F and, in the aﬃrmative case, ﬁnds such a family. We advice the reader that
+the provided algorithms are theoretical and far from eﬀective, in the sense
+that their complexities will be way too high to think about possible eﬀective
+implementations. A natural open question is whether there exist more natural
+and eﬃcient algorithms, say polynomial time, for solving such problems.
+   Recognizing whether H is the ﬁxed subgroup of a family of automorphisms
+is not diﬃcult, because a classical result by McCool already established that
+the stabilizer of a ﬁnitely generated subgroup of F is ﬁnitely generated and
+computable (as subgroup of Aut(F )), see Theorem 8 below. However, recog-
+nizing whether H is the ﬁxed subgroup of a family of endomorphisms is much
+trickier, because the stabilizer of H, in general, need not be ﬁnitely generated
+as a submonoid of End(F ) (see Example 1 below).
+   More precisely, the two algorithms given in this paper take a ﬁnitely gen-
+erated subgroup H ≤ F as the input, and compute a basis of its automor-
+phism (resp. endomorphism) closure, that is, the smallest subgroup K such
+that H ≤ K ≤ F and K = Fix(S) for some S ⊆ Aut F (resp. S ⊆ End F ), see
+the precise deﬁnitions below. The main technique used to deal with these
+problems is the graphical tool called “fringe of a subgroup”, which allows to
+compute the collection of algebraic extensions of a given subgroup H.
+   In Section 2, we deﬁne the concepts, and state the results that will be used,
+with the corresponding references. Along Section 3, we prove the main result
+and give the two announced algorithms. Finally, in Section 4, we collect a list
+of related questions and open problems.
+
+
+                              2. Needed tools
+   Definition 1. For any S ⊆ End(F ), let Fix(S) denote the subset con-
+sisting of those elements of F which are ﬁxed by every element of S (read
+Fix(S) = F for the case where S is empty). Then Fix(S) is a subgroup of F ,
+called the ﬁxed subgroup of S.
+   A subgroup H of F is called an endo-ﬁxed subgroup of F if H = Fix(S) for
+some S ⊆ End(F ). If S can be chosen to lie in Aut(F ), we further say that
+H is an auto-ﬁxed subgroup of F .
+   A subgroup H of F is called a 1-endo-ﬁxed subgroup of F if H = Fix(φ)
+for some φ ∈ End(F ) (here, and throughout, to simplify notation we write
+Fix(φ) rather than Fix({φ})). If φ can be chosen to lie in Aut(F ), we further
+say that H is a 1-auto-ﬁxed subgroup of F . For example, any maximal cyclic
+subgroup of F is 1-auto-ﬁxed, since it is the subgroup ﬁxed by a suitable
+inner automorphism. And nonmaximal cyclic subgroups of F are not even
+                COMPUTING FIXED CLOSURES IN FREE GROUPS                       177
+
+
+endo-ﬁxed, because every endomorphism ﬁxing a power of an element must
+ﬁx the element itself.           
+   Notice that, since Fix(S) = α∈S Fix(α), an auto-ﬁxed (resp. endo-ﬁxed)
+subgroup is an intersection of 1-auto-ﬁxed (resp. 1-endo-ﬁxed) subgroups, and
+vice-versa. And, clearly, the families of auto-ﬁxed and endo-ﬁxed subgroups
+of F are closed under arbitrary intersections.
+    A natural question that arises in this context asks about the relation be-
+tween the four mentioned families of subgroups of F , namely 1-auto-ﬁxed,
+1-endo-ﬁxed, auto-ﬁxed and endo-ﬁxed subgroups. Apart from the obvious
+inclusions, the relationship among these families is partially known, though
+not completely since there still are interesting questions in this direction that
+remain open. For example, it is not known (and conjectured) whether the fam-
+ilies of 1-auto-ﬁxed and auto-ﬁxed subgroups (resp. 1-endo-ﬁxed and endo-
+ﬁxed subgroups) do coincide; in other words, it is not known whether the
+family of 1-auto-ﬁxed (resp. 1-endo-ﬁxed) subgroups is closed under intersec-
+tions. As far as we are aware, this is only known to be true when the ambient
+rank is n = 2, and when the involved ﬁxed subgroups have maximal rank,
+see [10]. In this direction, A. Martino and E. Ventura showed in [10] that
+every auto-ﬁxed (resp. endo-ﬁxed) subgroup of F is a free factor of a 1-auto-
+ﬁxed (resp. 1-endo-ﬁxed) subgroup of F . However, they also gave an example
+of a free factor of a 1-auto-ﬁxed subgroup which is not even endo-ﬁxed.
+    We point out that, in the deﬁnitions of auto-ﬁxed and endo-ﬁxed subgroups,
+one can always assume that the involved families of morphisms are ﬁnite. This
+was proven by A. Martino and E. Ventura in [12, Corollary 4.2], answering
+a question previously posed by G. Levitt. So, from now on, a “family” of
+endomorphisms will always mean a “ﬁnite family”.
+   Proposition 2 (Martino–Ventura, [12]). Let F be a ﬁnitely generated free
+group. For every S ⊆ End(F ) there exists a ﬁnite subset S0 ⊆ S with |S0 | ≤
+2r(F ), and such that Fix(S0 ) = Fix(S).
+   We do not include in this discussion the families of 1-mono-ﬁxed and mono-
+ﬁxed subgroups, because they are known to coincide with the families of 1-
+auto-ﬁxed and auto-ﬁxed subgroups, respectively (see [11, Theorem 11]).
+   On the other hand, it is known that the families of 1-endo-ﬁxed and 1-auto-
+ﬁxed subgroups (and the families of endo-ﬁxed and auto-ﬁxed subgroups, as
+well) do not coincide: in [11], the authors exhibited the ﬁrst known examples
+of 1-endo-ﬁxed subgroups which are not 1-auto-ﬁxed; see also [3] for more
+interesting calculations about this phenomena. Hence, determining whether a
+given subgroup H is an auto-ﬁxed or an endo-ﬁxed subgroup are two diﬀerent
+algorithmic problems (the ﬁrst being much simpler than the second, as will
+be seen below).
+   The deepest and most important result about 1-auto-ﬁxed subgroups in
+the literature was obtained by M. Bestvina and M. Handel in [2], where they
+178                                E. VENTURA
+
+
+developed the theory of train tracks for graphs, and showed that every 1-
+auto-ﬁxed subgroup of F has rank at most r(F ), which had previously been
+conjectured by G. P. Scott. Soon after the announcement of this result, and
+using it, W. Imrich and E. Turner showed, in [5], that any 1-endo-ﬁxed sub-
+group of F also has rank at most r(F ). Later, W. Dicks and E. Ventura
+in [4], using the techniques of [2], showed that any auto-ﬁxed subgroup of F
+has rank at most r(F ); in fact, they proved a stronger result, namely that
+any mono-ﬁxed subgroup of F is F -inert (a subgroup H ≤ F is F -inert if
+r(H ∩ K) ≤ r(K) for every K ≤ F ). And after this, G. M. Bergman [1], using
+the result of [4], showed that any endo-ﬁxed subgroup of F also has rank at
+most r(F ) (however, it is not known whether endo-ﬁxed subgroups of F are
+necessarily F -inert; it is conjectured to be so in the inertia conjecture, see [12]
+and [19]). This brief history is appropriate for our purposes, but is far from
+complete; for example, it does not mention the ground-breaking work of S. M.
+Gersten, who ﬁrst showed that 1-auto-ﬁxed subgroups are ﬁnitely generated.
+   As we mentioned in the Introduction, few algorithmic results are known
+about ﬁxed subgroups of free groups. The main one is the computability of
+ﬁxed subgroups of automorphisms which, by the moment, it has only theoret-
+ical interest because no precise bound on the complexity is known, and one
+expects it to be quite high. The corresponding fact for endomorphisms is still
+an open problem.
+  Theorem 3 (Maslakova, [13]). Let ϕ : F → F be an automorphism of a
+ﬁnitely generated free group F . Then, a basis for Fix(ϕ) is computable.
+   An interesting notion to study these questions is the notion of “closure” of
+a subgroup.
+  Definition 4. Let H ≤ F . We denote by AutH (F ) the subgroup of
+Aut(F ) consisting of all automorphisms of F which ﬁx H pointwise,
+                    AutH (F ) = {ϕ ∈ Aut(F ) | H ≤ Fix(ϕ)},
+usually called the stabilizer of H. Analogously, we denote by EndH (F ) the
+submonoid of End(F ) consisting of all endomorphisms of F which ﬁx every
+element of H. Clearly, AutH (F ) ≤ EndH (F ).
+   Now, Aut(−) (F ) is a function from the set of subgroups of F to the set of
+subsets of Aut(F ), and Fix(−) is a function in the reverse direction. This pair
+of functions form a Galois connection, and their images are called closed sub-
+sets (in Aut(F ) and F , respectively). Clearly, Aut(F )-closed subgroups of F
+are precisely the auto-ﬁxed subgroups. Mimicking the classical Galois notions,
+we deﬁne the auto-closure of H in F , denoted a-Cl F (H), as Fix(AutH (F )),
+that is, the smallest auto-ﬁxed subgroup of F containing H.
+   Replacing Aut to End everywhere in the previous paragraph, we obtain
+another Galois connection, and we similarly deﬁne the endo-closure of H in F ,
+denoted e-Cl F (H), as Fix(EndH (F )), i.e., the smallest endo-ﬁxed subgroup
+                 COMPUTING FIXED CLOSURES IN FREE GROUPS                        179
+
+
+of F containing H. Since AutH (F ) ≤ EndH (F ), an obvious relation between
+closures is
+          e-Cl F (H) = Fix(EndH (F )) ≤ Fix(AutH (F )) = a-Cl F (H).
+However, the equality does not hold in general, because of the existence of
+1-endo-ﬁxed subgroups which are not auto-ﬁxed.
+   Note that, by the results mentioned above, the ranks of a-Cl F (H) and
+e-Cl F (H) are always less than or equal to r(F ), even if that of H is not.
+   The main goal of this note is to show that, for any ﬁnitely generated H ≤ F
+(given by a set of generators), one can algorithmically compute a basis for both
+a-Cl F (H) and e-Cl F (H). Using this algorithm, one can immediately decide
+whether the given H is auto-ﬁxed (resp. endo-ﬁxed) or not: H is auto-ﬁxed
+(resp. endo-ﬁxed) if and only if a-Cl F (H) = H (resp. e-Cl F (H) = H).
+   To do this, we need to use the concepts of retract and stable image, and
+the graphical technique called “fringe of a subgroup” to compute the set of
+algebraic extensions of H. We brieﬂy review now on these two topics.
+   A subgroup H ≤ F is called a retract of F (just retract if there is no
+risk of confusion) if there exists a homomorphism ρ : F → H which ﬁxes the
+elements of H (i.e., such that ρ2 = ρ); such a morphism is called a retraction.
+The obvious examples of retracts are the free factors of F , but there are
+retracts which are not free factors. Recognizing retracts is algorithmically
+possible, as showed in [14, Proposition 4.6] following an argument indicated
+by E. Turner, though quite complicated in practice, because it makes use of
+Makanin’s algorithm to solve systems of equations in free groups.
+   Proposition 5 (Proposition 4.6 in [14]). Let H ≤ F be a ﬁnitely generated
+subgroup of F , given by a ﬁnite set of generators. It is algorithmically decidable
+whether H is a retract of F and, in the aﬃrmative case, ﬁnd a retraction
+ρ : F → H.
+   For agiven endomorphism ϕ : F → F , deﬁne the stable image of ϕ as
+           ∞
+F ϕ∞ = m=1 F ϕm . With a simple argument, W. Imrich and E. Turner
+showed in [5] that: (1) F ϕ∞ is a ϕ-invariant subgroup of F ; (2) the restriction
+of ϕ to its stable image is always an automorphism; and (3) F ϕ∞ is a retract
+of F . This will be used later in order to reduce a certain computation with
+endomorphisms, to a similar one with automorphisms.
+   Let H ≤ K ≤ F . We say that the extension H ≤ K is algebraic, denoted
+H ≤alg K, if H is not contained in any proper free factor of K. The antago-
+nistic situation consists of H being a free factor of K, denoted H ≤ﬀ K. It is
+not diﬃcult to see (see [14]) that every extension H ≤ K of ﬁnitely generated
+(free) subgroups of F can be decomposed, in a unique way, as an algebraic
+extension followed by a free extension, namely H ≤alg L ≤ﬀ K (just take L
+to be the smallest free factor of K containing H, or the biggest algebraic
+extension of H contained in K). The uniqueness refers to the fact that L
+180                                E. VENTURA
+
+
+is completely determined by the original extension H ≤ K; again, mimicking
+the classical Galois theory, L is called the algebraic closure of H in K. We
+refer the reader to [14] for a detailed development of these ideas, including
+an analysis of the similarities and the signiﬁcant diﬀerences with respect to
+classical ﬁeld theory.
+    The important fact in this story is an old result by M. Takahasi, origi-
+nally proven by combinatorial methods in [17] (and reproduced in Section 2.4,
+Exercise 8 of [8]). However, the modern graphical techniques developed by
+Stalling’s in the 1980s (see [16]) lead to a new, clear, concise and very natural
+proof of Takahasi’s theorem, which was discovered independently by E. Ven-
+tura in [18], and by I. Kapovich and A. Miasnikov in [6]. S. Margolis, M. Sapir
+and P. Weil, also independently, considered the same construction in [9] for a
+slightly diﬀerent purposes. See [14] for a uniﬁcation of these three points of
+view, written in the language of algebraic extensions. In this setting, Taka-
+hasi’s theorem says the following.
+   Theorem 6 (Takahasi). Let H ≤ F be a subgroup of a free group F . If H
+is ﬁnitely generated, then it has ﬁnitely many algebraic extensions, that is,
+                         AE(H) = {K ≤ F | H ≤alg K}
+is ﬁnite. Furthermore, the elements in AE(H) are ﬁnitely generated, and bases
+of all of them are computable from any given set of generators for H.
+   Sketch of proof (See [14, Proposition 3.7] for details). Think F = A |
+as the fundamental group of a bouquet of n circles, and then H as the cor-
+responding covering X(H), which can be though of as a graph with labels
+from A on the edges (this graph is easily computable from any given set of
+generators of H). When H is of inﬁnite index in F , the graph X(H) is inﬁ-
+nite but, if H is ﬁnitely generated, X(H) consists on a ﬁnite core Γ(H) with
+attached inﬁnite trees (each isomorphic to a subtree of the Cayley graph of
+F with respect to A). Now, consider an arbitrary extension H ≤ K ≤ F . It
+corresponds to another covering X(K), which is in turn covered by X(H).
+That is, X(K) is a quotient of X(H) and so, can be obtained from X(H) by
+performing several identiﬁcations of vertices and edges. These identiﬁcations
+may destroy Γ(H), but some quotient of Γ(H) always remains as a subgraph
+of X(K) (in fact, of Γ(K)). If H is ﬁnitely generated then Γ(H) is ﬁnite,
+and so has ﬁnitely many quotients, which are computable from Γ(H) (i.e.,
+from any given set of generators of H). This gives a computable ﬁnite list of
+extensions of H, called the fringe of H, O(H) = {H1 , . . . , Hp }, p ≥ 1. And, by
+construction, it is clear that, for every H ≤ K, there exists i = 1, . . . , p such
+that H ≤ Hi ≤ﬀ K. This implies that AE(H) ⊆ O(H) and so, we already
+have a proof of the ﬁniteness part of Takahasi’s theorem. Unfortunately, the
+equality between these two sets is not true in general, as one can possibly ﬁnd
+free factor relations between the Hi ’s. But, after a cleaning process (checking
+                 COMPUTING FIXED CLOSURES IN FREE GROUPS                         181
+
+
+for every pair (i, j) whether Hi ≤ﬀ Hj and, in this case, deleting Hj from
+the list) one can algorithmically compute AE(H) = {H1 , . . . , Hq }, 1 ≤ q ≤ p.
+See [15] for a polynomial time algorithm to check free factorness.            
+   Note that the smallest and the biggest of the Hi ’s in O(H) correspond, re-
+spectively, to the quotient identifying nothing, which gives H itself, and to the
+quotient identifying all vertices down to a single one, which gives A ≤ﬀ F ,
+where A ⊆ A is the set of all letters involved in the generators of H. Note also
+that the ﬁrst one belongs to AE(H) (since H ≤alg H) and the same happens
+for either the second one or a free factor of it. In particular, AE(H) contains
+at least H, and a free factor of F (which may coincide). This fact will be used
+later.
+   Finally, we mention one of the results in [16]. Given two ﬁnitely generated
+subgroups H, K ≤ F (by sets of generators, say), one can algorithmically
+compute a basis for H ∩ K using the technique of pull-backs of graphs.
+   Proposition 7 (Stallings, [16]). Let H, K ≤ F be two ﬁnitely generated
+subgroups of a free group F , given by ﬁnite sets of generators. Then, a basis
+for H ∩ K is algorithmically computable.
+
+                              3. The algorithms
+   Let H ≤ F be a ﬁnitely generated subgroup of F , given by a set of gen-
+erators. We shall give two algorithms to compute a basis for a-Cl F (H) and
+e-Cl F (H), respectively. The basic fact that we use is a classical result due
+to J. McCool (see Proposition 5.7 in Chapter I of [7], and the subsequent
+paragraph).
+   Theorem 8 (McCool, [7]). Let H ≤ F be a ﬁnitely generated subgroup of
+a (ﬁnitely generated) free group, given by a ﬁnite set of generators. Then the
+stabilizer, AutH (F ), of H is also ﬁnitely generated (in fact ﬁnitely presented),
+and a ﬁnite set of generators (and relations) is algorithmically computable
+from H.
+3.1. The automorphism case. By Theorem 8, AutH (F ) is ﬁnitely gener-
+ated; furthermore, a list of generators, say AutH (F ) = ϕ1 , . . . , ϕm ≤ Aut(F ),
+can be algorithmically found from a set of generators of H. Now it is clear
+that
+                                     
+  a-Cl F (H) = Fix(AutH (F )) =              Fix(ϕ) = Fix(ϕ1 ) ∩ · · · ∩ Fix(ϕm ).
+                                  ϕ∈AutH (F )
+
+By Maslakova’s Theorem 3, we can then compute generators for each of the
+Fix(ϕi )’s and, using Proposition 7, ﬁnd a basis for their intersection that is
+a-Cl F (H). Finally, Proposition 2 ensures us that a certain subset of at most
+2r(F ) of those ϕi ’s also makes the job; it only remains to recurrently compute
+intersections until ﬁnding such a set. Thus, we have proven the following.
+182                                E. VENTURA
+
+
+   Theorem 9. Let H ≤ F be a ﬁnitely generated subgroup of a free group,
+given by a ﬁnite set of generators. Then, a basis for the auto-closure a-ClF (H)
+of H is algorithmically computable, together with a set of m ≤ 2r(F ) automor-
+phisms ϕ1 , . . . , ϕm ∈ Aut(F ), such that a-ClF (H) = Fix(ϕ1 ) ∩ · · · ∩ Fix(ϕm ).
+   Corollary 10. Let H ≤ F be a ﬁnitely generated subgroup of a free group,
+given by a ﬁnite set of generators. Then, it is algorithmically decidable whether
+H is auto-ﬁxed and, in the aﬃrmative case, ﬁnd a set of m ≤ 2r(F ) automor-
+phisms ϕ1 , . . . , ϕm ∈ Aut(F ), such that H = Fix(ϕ1 ) ∩ · · · ∩ Fix(ϕm ).
+   Proof. Apply Theorem 9 to H. If a-Cl F (H) is strictly bigger than H, then
+H is not auto-ﬁxed (there are elements outside H which are ﬁxed by every
+automorphism of F ﬁxing H). Otherwise, a-Cl F (H) = H and the algorithm
+in Theorem 9 also outputs a list of m ≤ 2r(F ) automorphisms ϕ1 , . . . , ϕm ∈
+Aut(F ), such that Fix(ϕ1 ) ∩ · · · ∩ Fix(ϕm ) = a-Cl F (H) = H.             
+
+   We don’t play much attention to the complexity of this algorithm be-
+cause it seems far from fast. McCool’s algorithm is a brute force search
+which is not conceptually complicated, but has strongly exponential complex-
+ity. Maslakova’s algorithm is conceptually much more sophisticated, and its
+complexity also seems to be quite high. Finally, the algorithm to compute
+intersections is both easy and fast.
+
+3.2. The endomorphism case. There is no hope that a similar strategy
+could work in general for endomorphisms instead of automorphisms. On one
+hand, Maslakova’s theorem makes strong use of train tracks, a machinery
+that only works for monomorphisms and deﬁnitely does not work in presence
+of nontrivial kernel; in fact, at the time of writing, no algorithm is known to
+compute the ﬁxed subgroup of an arbitrary endomorphism of F . On the other
+hand, as the following example shows, EndH (F ) is not always ﬁnitely gener-
+ated as submonoid of End(F ) and so, there is no hope of having a variation
+of McCool’s result for endomorphisms.
+    Example 1 (Ciobanu–Dicks, [3]). We reproduce here Example 1.4 of [3]
+to show that EndH (F ) is not always ﬁnitely generated as a submonoid of
+End(F ), even with H being ﬁnitely generated as a subgroup of F .
+    Let F = a, b, c be the free group of rank 3, let d = ba[c2 , b]a−1 (where
+[x, y] = xyx−1 y −1 ), and consider the subgroup H = a, d ≤ F . Consider the
+endomorphism ψ : F → F given by a → a, b → d, c → 1, and the automor-
+phism φ : F → F given by a → a, b → b, c → cb. Straightforward computa-
+tions show that dψ = d hence, ψ ∈ EndH (F ). Moreover, φn ψ acts as a → a,
+b → d, c → dn and so, we also have φn ψ ∈ EndH (F ) for every n ∈ Z. Now,
+Corollary 3.4 from [3] shows that this is precisely the whole stabilizer of H,
+                   EndH (F ) = {1, φn ψ | n ∈ Z} = {1} ∪ φ ψ.
+                 COMPUTING FIXED CLOSURES IN FREE GROUPS                          183
+
+
+Again, an easy calculation shows that (φn ψ)·(φm ψ) = φn ψ, for every n, m ∈ Z.
+Thus, the monoid EndH (F ) is not ﬁnitely generated.
+   Being convinced that the above algorithm for the automorphism case can-
+not be adapted to the endomorphism case, a diﬀerent strategy is needed. We
+shall use algebraic extensions, Takahasi’s theorem and retractions to reduce
+the computation of the endo-closure e-Cl F (H) to ﬁnitely many computations
+of auto-closures.
+   Theorem 11. Let H ≤ F be a ﬁnitely generated subgroup of a free group,
+given by a ﬁnite set of generators. Then, a basis for the endo-closure e-ClF (H)
+of H is algorithmically computable, together with a set of m ≤ 2r(F ) endomor-
+phisms ϕ1 , . . . , ϕm ∈ End(F ), such that e-ClF (H) = Fix(ϕ1 ) ∩ · · · ∩ Fix(ϕm ).
+   Proof. Consider the set AE(H) = {H1 , H2 , . . . , Hq } of algebraic extensions
+of H, and the subset of those which are retracts of F , say AE ret (H) =
+{H1 , . . . , Hr }, 1 ≤ r ≤ q (note that AE ret (H) is not empty because, as we
+noted above, AE(H) contains at least a free factor (and so a retract) of F ).
+By Theorem 6, we can algorithmically compute q ≥ 1, and a basis for each
+H1 , . . . , Hq . Now, using Theorem 5, we can algorithmically decide which of
+these Hi ’s are retracts of F , and so compute r ≥ 1, AE ret (H) = {H1 , . . . , Hr },
+and retractions ρi : F → Hi , for i = 1, . . . , r. Then, write the generators of H
+in terms of the computed bases of each one of these Hi ’s, and apply r times
+Theorem 9 to compute, for every i = 1, . . . , r, a basis for a-Cl Hi (H) together
+ a collection of (at most 2r(Hi )) automorphisms αi,j ∈ Aut(Hi ) such that
+with
+  j Fix(αi,j ) = a-Cl Hi (H), and bases for all these
+                                                    r
+                                                         ﬁxed subgroups Fix(αi,j ).
+Finally, use Proposition7 to ﬁnd a basis for i=1 a-Cl Hi (H).
+                              r
+   Now, we claim that i=1 a-Cl Hi (H) = e-Cl F (H). In fact, we shall prove
+this equality under the form
+                     
+                     r                             
+(1)                                   Fix(α) =               Fix(β),
+                     i=1 α∈Aut(Hi )              β∈End(F )
+                         H≤Fix(α)                H≤Fix(β)
+
+by showing that every intersecting subgroup in one side is also present in the
+opposite side (or otherwise a subgroup of it).
+   Let β ∈ End(F ) be such that H ≤ Fix(β). Consider the stable image of
+β, which is a retract of F , and contains Fix(β) and so H; then, look at the
+algebraic closure of H in it,
+                            H ≤alg Hi ≤ﬀ F β ∞ ≤ret F.
+Since free factors of retracts of F are retracts of F , this Hi is an element of
+AE ret (H). Furthermore, the endomorphism β restricts to an automorphism
+of F β ∞ which, in turn, restricts to an automorphism α = β|Hi of Hi : the au-
+tomorphism β|F β ∞ leaves H invariant (in fact, pointwise ﬁxed) and sends free
+184                               E. VENTURA
+
+
+factors of F β ∞ to free factors of F β ∞ ; hence, the smallest one containing H,
+which is Hi , must be sent to itself. And, clearly, H ≤ Fix(α) ≤ Fix(β). This
+shows inclusion “≤” in equation (1).
+    Now, let Hi ∈ AE ret (H), and let α ∈ Aut(Hi ) with H ≤ Fix(α). Consider
+β = ρi αιi ∈ End(F ), where ρi : F → Hi is a retraction, and ιi : Hi → F is
+the inclusion map. It is clear that H ≤ Fix(α) = Fix(β) and so, Fix(α) is
+also one of the subgroups appearing in the intersection on the right-hand side
+of (1). This shows inclusion “≥” in equation (1) and completes the proof of
+the claim.
+    Thus, the algorithm described in the ﬁrst paragraph of this proof, certainly
+computes a basis for e-Cl F (H) (together with some side information, namely
+the retractions ρi , the collection of automorphisms αi,j ∈ Aut(Hi ), and bases
+for their ﬁxed subgroups Fix(αi,j )). To conclude, it only remains to explicitly
+construct a list of at most 2r(F ) endomorphisms of F whose ﬁxed set is
+exactly e-Cl F (H). This is easy from the previous paragraph: the collection
+of endomorphisms βi,j = ρi αi,j ιi ∈ End(F ) satisfy Fix(βi,j ) = Fix(αi,j ) and
+so,
+                                       
+            Fix(βi,j ) =        Fix(αi,j ) = a-Cl Hi (H) = e-Cl F (H).
+           i,j           i   j                i
+
+It could happen that the computed set, {βi,j | i, j}, of endomorphisms of F
+exceeded in number the maximum wanted quantity of 2r(F ). In this case,
+Proposition 2 ensures us that a certain subset of cardinal at most 2r(F ) makes
+the job, too. Since, as a side product of our computation, we also have a basis
+of each Fix(βi,j ) = Fix(αi,j ), it only remains to recurrently compute inter-
+sections until ﬁnding the desired set (knowing it exists). This concludes the
+proof.                                                                       
+
+   Corollary 12. Let H ≤ F be a ﬁnitely generated subgroup of a free group,
+given by a ﬁnite set of generators. Then, it is algorithmically decidable whether
+H is endo-ﬁxed and, in the aﬃrmative case, ﬁnd a set of m ≤ 2r(F ) endo-
+morphisms ϕ1 , . . . , ϕm ∈ End(F ) such that H = Fix(ϕ1 ) ∩ · · · ∩ Fix(ϕm ).
+
+                             4. Open problems
+   In this last section, we collect a list of interesting questions and open prob-
+lems in this subject.
+      Problem 1. Find an algorithm to compute Fix(ϕ) for a given ϕ ∈ End(F ).
+   Problem 2. Find an algorithm to determine whether a given ﬁnitely gen-
+erated subgroup H ≤ F is 1-auto-ﬁxed, or 1-endo-ﬁxed.
+  Problem 3. Do the families of auto-ﬁxed and 1-auto-ﬁxed subgroups of
+F coincide? And those of 1-endo-ﬁxed and endo-ﬁxed subgroups?
+                  COMPUTING FIXED CLOSURES IN FREE GROUPS                              185
+
+
+   Problem 4. Find eﬀective, say polynomial time, algorithms to compute
+the ﬁx subgroup of a given endomorphism, and to determine whether a given
+ﬁnitely generated subgroup H of F is 1-auto-ﬁxed, or 1-endo-ﬁxed, or auto-
+ﬁxed, or endo-ﬁxed.
+   Problem 5. Are endo-ﬁxed subgroups of F F -inert?
+   Problem 6. Find an algorithm to decide whether a given subgroup H ≤ F
+is F -inert.
+
+                                     References
+ [1] G. M. Bergman, Supports of derivarions, free factorizations and ranks of ﬁxed sub-
+     groups in free groups, Trans. Amer. Math. Soc. 351 (1999), 1531–1550. MR 1458296
+ [2] M. Bestvina and M. Handel, Train tracks and automorphisms of free groups, Ann. of
+     Math. (2) 135 (1992), 1–51. MR 1147956
+ [3] L. Ciobanu and W. Dicks, Two examples in the Galois theory of free groups, J. Algebra
+     305 (2006), 540–547. MR 2264142
+ [4] W. Dicks and E. Ventura, The group ﬁxed by a family of injective endomorphism of a
+     free group, Contemp. Math. 195 (1996), 1–81. MR 1385923
+ [5] W. Imrich and E. C. Turner, Endomorphisms of free groups and their ﬁxed points,
+     Math. Proc. Cambridge Philos. Soc. 105 (1989), 421–422. MR 0985677
+ [6] I. Kapovich and A. Miasnikov, Stallings foldings and subgroups of free groups, J.
+     Algebra 248 (2002), 608–668. MR 1882114
+ [7] R. Lyndon and P. Schupp, Combinatorial group theory, Springer-Verlag, Berlin, 1977.
+     MR 0577064
+ [8] W. Magnus, A. Karrass and D. Solitar, Combinatorial group theory, Interscience, New
+     York, 1966. MR 207802
+ [9] S. Margolis, M. Sapir and P. Weil, Closed subgroups in pro-V topologies and the exten-
+     sion problems for inverse automata, Internat. J. Algebra Comput. 11 (2001), 405–445.
+     MR 1850210
+[10] A. Martino and E. Ventura, On automorphism-ﬁxed subgroups of a free group, J.
+     Algebra 230 (2000), 596–607. MR 1775805
+[11] A. Martino and E. Ventura, Examples of retracts in free groups that are not the ﬁxed
+     subgroup of any automorphism, J. Algebra 269 (2003), 735–747. MR 2015863
+[12] A. Martino and E. Ventura, Fixed subgroups are compressed in free groups, Comm.
+     Algebra 32 (2004), 3921–3935. MR 2097438
+[13] O. S. Maslakova, The ﬁxed point group of a free group automorphism, Algebra Logika
+     42 (2003), 422–472, 510–511; english translation at Algebra Logic 42 (2003), 237–265.
+     MR 2017513
+[14] A. Miasnikov, E. Ventura and P. Weil, Algebraic extensions in free groups, Geometric
+     group theory: Geneva and Barcelona Conferences, Trends in Mathematics, Birkhaüser,
+     Basel, 2007, pp. 225–253. MR 2395796
+[15] A. Roig, E. Ventura and P. Weil, On the complexity of the Whitehead minimization
+     problem, Internat. J. Algebra Comput. 17 (2007), 1611–1634. MR 2378055
+[16] J. R. Stallings, Topology of ﬁnite graphs, Invent. Math. 71 (1983), 551–565.
+     MR 0695906
+[17] M. Takahasi, Note on chain conditions in free groups, Osaka Math. J. 3 (1951), 221–
+     225. MR 0046362
+[18] E. Ventura, On ﬁxed subgroups of maximal rank, Comm. Algebra 25 (1997), 3361–
+     3375. MR 1465119
+186                                   E. VENTURA
+
+
+[19] E. Ventura, Fixed subgroups in free groups: A survey, Contemp. Math. 296 (2002),
+     231–255. MR 1922276
+    Enric Ventura, Departament de Matemàtica Aplicada III, Universitat Poli-
+tècnica de Catalunya, Manresa, Barcelona, Catalonia
+      E-mail address: enric.ventura@upc.edu
+
