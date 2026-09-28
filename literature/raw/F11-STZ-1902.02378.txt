@@ -1,0 +1,553 @@
+arXiv:1902.02378v1  [math.GR]  6 Feb 2019
+RETRACTS OF FREE GROUPS AND A QUESTION OF
+BERGMAN
+ILIR SNOPCE, SLOBODAN TANUSHEVSKI, AND PA VEL ZALESSKII
+Abstract. Let Fn be a free group of ﬁnite rank n ≥ 2. We prove that if H
+is a subgroup of Fn with rk( H) = 2 and R is a retract of Fn, then H ∩ R is a
+retract of H. However, for every m ≥ 3 and every 1 ≤ k ≤ n − 1, there exist a
+subgroup H of Fn of rank m and a retract R of Fn of rank k such that H ∩ R
+is not a retract of H. This gives a complete answer to a question of Bergman.
+Furthermore, we provide positive evidence for the inertia conject ure of Dicks
+and Ventura. More precisely, we prove that rk( H ∩ Fix(S)) ≤ rk(H) for every
+family S of endomorphisms of Fn and every subgroup H of Fn with rk( H) ≤ 3.
+1. Introduction
+Throughout, Fn denotes a free group of ﬁnite rank n ≥ 2. A subgroup R ≤Fn
+is a retract of Fn if there exists a homomorphism r :Fn →R (called a retraction)
+that restricts to the identity on R. In 1999, Bergman proved the following
+Theorem 1.1 (Bergman, [2]) . The intersection of any family of retracts of Fn is
+a retract of Fn.
+In the same paper, he raised the following
+Question 1.2 (Bergman, [2]) . LetR be a retract of Fn. Is H ∩R a retract of H
+for every ﬁnitely generated subgroup H of Fn?
+The same question also appears in [1, Problem F11], [8, Problem 17.19] and
+[23]. In addition to being important on its own right, another reason f or the
+sustained interest in Bergman’s question is due to its connection to t he study of
+ﬁxed subgroups of endomorphisms of free groups.
+For a given family S of endomorphisms of Fn, let
+Fix(S) = {w ∈Fn |ϕ(w) = w for every ϕ ∈S}
+denote the ﬁxed subgroup of S. In the seminal paper [3], Bestvina and Handel
+proved that rk(Fix(α)) ≤n for every automorphism α ofFn. By an elementary al-
+gebraic argument, Imrich and Turner [6] extended this result to all endomorphisms
+ofFn. In the monograph [4], Dicks and Ventura introduced the concept o f inertia
+of subgroups of free groups: A subgroup H ofFn is inert if rk(K ∩H) ≤ rk(K) for
+every subgroup K of Fn. After reformulating (in a more algebraic language) and
+2010 Mathematics Subject Classiﬁcation. 20E05, 20E36, 20E07, 20E18 .
+1
+
+2 ILIR SNOPCE, SLOBODAN TANUSHEVSKI, AND PA VEL ZALESSKII
+extending the Bestvina-Handel theory, Dicks and Ventura prove d that Fix( S) is
+inert (in particular, rk(Fix(S)) ≤n) for every family S of injective endomorphisms
+ofFn. Furthermore, they conjectured that Fix( S) is inert for an arbitrary family S
+of endomorphisms of Fn. In [2], Bergman provided evidence for the Dicks-Ventura
+conjecture by proving the pinnacle result on the ranks of ﬁxed sub groups of endo-
+morphisms of free groups: rk(Fix( S)) ≤ n for every family S of endomorphisms
+of Fn.
+By an argument due to Turner [22], the Dicks-Ventura conjecture is equivalent
+to the following
+Conjecture 1.3 (Dicks-Ventura, [4]). Every retract of Fn is inert.
+Since the rank of a retract of Fn is at most n (in fact, every proper retract of Fn
+has rank smaller than n), it follows that a positive answer to Bergman’s question
+would imply the Dicks-Ventura conjecture. (For a comprehensive h istory of the
+theory of ﬁxed subgroups of endomorphisms of free groups, we r efer the reader to
+the survey paper [23].)
+In this paper, we answer the question of Bergman.
+Theorem A. (i) Let H be a subgroup of Fn of rank two, and let R be a retract
+of Fn. Then H ∩R is a retract of H.
+(ii) For every m ≥ 3 and every 1 ≤k ≤n − 1, there exist a subgroup H of Fn of
+rankm and a retract R of Fn of rank k such that H ∩R is not a retract of
+H.
+In contrast to the negative result of Theorem A ( ii), our next theorem provides
+further evidence for the Dicks-Ventura conjecture.
+Theorem B. Let R be a retract of Fn, and let H be a subgroup of Fn such that
+rk(H) ≤ 3. Then rk (H ∩R) ≤ rk(H).
+As a consequence of this theorem, we get the following
+Corollary C. LetS be a family of endomorphisms of Fn, and let H be a subgroup
+of Fn with rk (H) ≤ 3. Then rk (H ∩ Fix(S)) ≤ rk(H).
+In Section 2, we prove Theorem A ( i). The proof uses recent results on test
+elements of free pro- p groups; the main step is a result reminiscent of the Prime
+Avoidance Lemma from commutative algebra (see Lemma 2.5). After some prelim-
+inary ‘positive’ results on visible elements (which, we believe, are of ind ependent
+interest), in Section 3, we complete the proof of Theorem A. The ar guments in
+this section have a more geometric ﬂavor. Section 4 is dedicated to t he proof of
+Theorem B; here we use pro- p techniques and the Hanna Neumann conjecture
+(proved in 2011 independently by Friedman and Mineyev ).
+
+RETRACTS OF FREE GROUPS AND A QUESTION OF BERGMAN 3
+2. When H is of rank two
+An element g of a group G is called a test element if every endomorphism of G
+that ﬁxes g is an automorphism. Let x1,x 2,...,x n be a basis of Fn; then
+• the commutator [x1,x 2] is a test element of F2 (Nielsen, [11]);
+• [x1,x 2][x3,x 4] · · · [x2m− 1,x 2m] is a test element of F2m (Zieschang, [24]);
+• every higher commutator of weight n (with arbitrary disposition of com-
+mutator brackets) involving all n letters x1,x 2,...,x n is a test element of
+Fn (Rips, [16]);
+• xk1
+1 xk2
+2 · · ·xkn
+n is a test element of Fn if and only if ki ⁄= 0 for all 1 ≤i ≤n
+and gcd(k1,...,k n) ⁄= 1 (Turner, [22]);
+• the set of test elements of Fn forms a net in the Cayley graph of Fn ([18]).
+There is a close connection between retracts and test elements of free groups.
+Theorem 2.1 (Turner, [22]). An element w ∈Fn is a test element if and only if
+it does not belong to a proper retract of Fn.
+Letp be a prime. A pro- p group is a compact Hausdorﬀ topological group whose
+open subgroups form a base for the neighborhoods of the identity and every open
+normal subgroup has index a power of p. Equivalently, a pro-p group is an inverse
+limit of an inverse system of ﬁnite p-groups.
+Given a discrete group G, the pro-p completion ˆGp ofG is deﬁned as the inverse
+limit of the (obvious) inverse system formed by the ﬁnite quotients G/N, where
+N runs through the normal subgroups of G of index a ﬁnite power of p. There is a
+natural homomorphism p :G → ˆGp determined by the projections G →G/N. If
+G is residually ﬁnite-p, then p is an embedding and we identify p(G) with G. The
+pro-p completion ˆFn,p ofFn is a free pro- p group. Since free groups are residually
+ﬁnite-p, Fn ≤ ˆFn,p and every basis of Fn is a basis of ˆFn,p (as a free pro- p group).
+We refer the reader to [12, Section 3.2 and Section 3.3] for more det ails on pro-p
+completions and free pro- p groups.
+In [17], test elements in pro- p groups were studied. In particular, the following
+results were proved.
+Theorem 2.2. (i) [17, Corollary 3.6] Letp be a prime. Then w ∈ ˆFn,p is a test
+element of ˆFn,p if and only if it is not contained in a proper free factor of
+ˆFn,p.
+(ii) [17, Corollary 7.2] If w ∈Fn is a test element of ˆFn,p for some prime p, then
+it is a test element of Fn.
+(iii) [17, Proposition 7.6] w ∈F2 is a test element of F2 if and only if it is a test
+element of ˆF2,p for some prime p.
+(iv) [17, Proposition 5.13 ( b) and Proposition 5.10 ( b)] Let p be any prime and
+let x1,x 2 be a basis of ˆF2,p. Then [x1,x 2] is a test element of ˆF2,p.
+
+4 ILIR SNOPCE, SLOBODAN TANUSHEVSKI, AND PA VEL ZALESSKII
+Remark 2.3. Theorem 2.2 ( iii) does not extend to free groups of higher rank.
+Indeed, it was proved in [19] that for each n ≥ 3, there are test elements of Fn
+that are not test elements of ˆFn,p for any prime p.
+In the following proposition, we collect a few basic facts on retracts of free pro-p
+groups that will be used several times in the ensuing arguments.
+Proposition 2.4. Letp be a prime.
+(i) [17, Corollary 3.6 and Proposition 7.1] If R is a retract of Fn, then R (the
+closure of R in ˆFn,p) is a free factor of ˆFn,p.
+(ii) [9, Lemma 3.7] If H is a (topologically) ﬁnitely generated closed subgroup of
+ˆFn,p and K is a free factor of ˆFn,p, then H ∩K is a free factor of H.
+The following Lemma will be essential in the proof of Theorem A ( i), however,
+it seems to be of independent interest as well.
+Lemma 2.5. Let H be a subgroup of Fn, and let {Ri | i ∈ I} be a family of
+retracts of Fn. Then the following holds:
+(a) If x1,...,x m is a basis of H and [x1,...,x m] ∈ Ri for some i ∈ I, then
+H ≤Ri.
+(b) If H ⊆ ⋃
+i∈ IRi, then H ≤Ri for some i ∈I.
+Proof. (a) Suppose thatRi contains the higher commutatort = [x1,...,x m], where
+x1,...,x m is a basis of H. The proof is by induction on m. The case m = 1 being
+trivial, we may assume that m ≥ 2.
+Let r : Fn → Ri be a retraction; set s = [x1,...,x m− 1], L = ⟨s,x m⟩, S =
+⟨r(s),r (xm)⟩, and K = ⟨L,S ⟩. The restriction of r to K is a retraction from K
+onto S. Furthermore, as t ∈Ri, we have [ r(s),r (xm)] = r(t) = t ⁄= 1; thus S has
+rank two.
+Let p be any prime and consider the pro- p completion ˆKp of K. Since L (the
+closure of L in ˆKp) is a free pro- p group of rank two with basis s,x m, it follows
+from Theorem 2.2 ( iv) that t = [s,x m] is a test element of L. By Proposition 2.4,
+the closure of S in ˆKp is a free factor of ˆKp and S ∩L is a free factor of L. Since
+t ∈S∩L andt is a test element of L, it follows from Theorem 2.2 (i) thatS∩L =L.
+Therefore, ˆKp =S, and thus ˆKp has rank two. This implies that K also has rank
+two. Since S andK have the same rank and S is a retract of K, we may conclude
+that K = S. Hence, s,x m ∈ Ri, and by applying the induction hypothesis to s
+and the subgroup ⟨x1,x 2,...,x m− 1⟩, we get that x1,x 2,...,x m− 1 ∈Ri. Therefore,
+H ≤Ri, as claimed.
+(b) Suppose that H ⊆ ⋃
+i∈ IRi. First we consider the case when H has ﬁnite
+rank. Let x1,...,x m be a basis of H; then [ x1,...,x m] ∈ Ri for some i ∈ I, and
+it follows from part ( a) that H ≤Ri.
+Now suppose that H has inﬁnite rank. Let x1,x 2,... be a basis of H. Put
+Hk = ⟨x1,...,x k⟩ for k ≥ 1. Then H = ⋃ ∞
+k=1Hk, and it follows from the ﬁnite
+
+RETRACTS OF FREE GROUPS AND A QUESTION OF BERGMAN 5
+rank case that for every k ≥ 1, there is ik ∈I such that Hk ≤Rik. If none of the
+retracts Rik(k ≥ 1) contains H, then it is easy to see that there is a subsequence
+of indices k1 <k 2 <... such that
+∞⋂
+j=1
+Rikj
+/lessnotequal
+∞⋂
+j=2
+Rikj
+/lessnotequal
+∞⋂
+j=3
+Rikj
+/lessnotequal...
+By Theorem 1.1, each one of these intersections is a proper retrac t of Fn, and thus
+it has rank at most n − 1. This is a contradiction with the well-known fact that
+every ascending sequence of subgroups of Fn of bounded rank is stationary.
+□
+Proof of Theorem A (i). Let x1,x 2 be a basis of H. Of course, we may assume
+that H ∩R ⁄= {1}. We consider two cases.
+Case I: R does not contain a test element of H; by Howson’s theorem, R ∩H
+is ﬁnitely generated, and it follows from Theorem 2.1 that it can be cov ered by
+proper retracts of H:
+R ∩H ⊆
+⋃
+i∈ I
+Si,
+whereSi is a proper retract of H for everyi ∈I. By Lemma 2.5 ( b),R∩H ≤Si for
+somei ∈I. Since Si is a proper retract of H, it must be cyclic. Furthermore, since
+retracts of free groups are isolated subgroups, it follows that Si ≤ R. Therefore,
+H ∩R =Si.
+Case II: R contains a test element u(x1,x 2) of H; set S = ⟨r(x1),r (x2)⟩ and
+K = ⟨H,S ⟩. By Theorem 2.2 ( iii), there is a prime p such that u is a test element
+of ˆHp. Since H is of rank two, the inclusion֒→K extends to an isomorphism
+from ˆHp ontoH ≤ ˆKp. Hence, u is a test element of H.
+Observe that S is a retract of K. Hence, by Proposition 2.4, S is a free fac-
+tor of ˆKp and S ∩H is a free factor of H. Since u(x1,x 2) = r(u(x1,x 2)) =
+u(r(x1),r (x2)) ∈ S ∩H, it follows from Theorem 2.2 ( i) that S = ˆKp. Conse-
+quently,S and K both have rank two, and since S is a retract of K, it follows
+that S =K. Therefore, H ∩R =H. □
+3. When H is of rank ≥ 3
+An element a = (a1,...,a n) ∈ Zn is called visible (or primitive) if it belongs to
+a basis of Zn, or equivalently, if gcd( a1,...,a n) = 1. Let πab : Fn → F ab
+n be the
+quotient homomorphism from Fn onto its abelianization. An element w ∈ Fn is
+said to be visible if πab(w) is visible in F ab
+n .
+The visible elements of Fn are precisely the generators of cyclic retracts, that is,
+⟨w⟩ ≤Fn is a retract of Fn if and only if w is a visible element of Fn. Therefore, in
+the case of cyclic retracts, Bergman’s question admits the following reformulation.
+
+6 ILIR SNOPCE, SLOBODAN TANUSHEVSKI, AND PA VEL ZALESSKII
+Question 3.1. Letw be a visible element of Fn, and let H be a ﬁnitely generated
+subgroup of Fn that contains some non-trivial power of w. Let m be the smallest
+positive integer such that wm ∈H. Is wm a visible element of H?
+The search for an H for which the above question has a negative answer could
+be narrowed down to ﬁnite index subgroups. Indeed, suppose tha t R is a retract
+ofFn andH is a ﬁnitely generated subgroup of Fn such that R ∩H is not a retract
+ofH. By Marshall Hall’s theorem, H is a free factor of some ﬁnite index subgroup
+K of Fn. Furthermore, by the Kurosh subgroup theorem, R ∩H is a free factor
+ofR ∩K. We claim that R ∩K is not a retract of K; otherwise R ∩H would also
+be a retract of K, and thus a retract of H, which contradicts our assumption.
+Our next result provides further guidance for ﬁnding the right H and w. We
+begin with some preliminaries.
+Let Γ be an oriented 1-dimensional CW complex (a directed graph) wit h one
+0-cell (vertex), denoted by ∗, and n oriented 1-cells (edges), e1,e 2,...,e n. We
+think of Fn as the fundamental group of Γ, and we let xi ∈ Fn stand for the
+homotopy class of the loop determined by the (directed) edge ei (1 ≤i ≤n).
+For 1 ≤i ≤n, let σxi :Fn → Z be the homomorphism deﬁned by σxi(xj) = δij,
+where δij is the Kronecker delta. (Thus for w ∈ Fn, σxi(w) is the sum of the
+exponents of all occurrences of xi in w.) The ﬁrst homology group of Γ (with
+coeﬃcients in Z) is a free abelian group with basis e1,...,e n; moreover, there is
+a homomorphism σ :Fn →H1(Γ), deﬁned by σ(w) = ∑ n
+i=1σxi(w)ei, that factors
+through an isomorphism from F ab
+n ontoH1(Γ).
+For a given ﬁnite index subgroup H of Fn, we denote by θH : Fn → H ab the
+transfer map. In the geometric context of covering spaces, θH can be described as
+follows. Let fH : ( ˜Γ H, ˜∗H ) → (Γ, ∗) be the pointed covering space corresponding
+to H. Given an element w =xǫ1
+i1xǫ2
+i2...x ǫk
+ik ∈Fn (1 ≤ij ≤n and ǫj ∈ {− 1, 1} for
+every 1 ≤ j ≤ k), let p = eǫ1
+i1eǫ2
+i2...e ǫk
+ik be the corresponding path in Γ, and for
+each vertex v of ˜Γ H, let ˜pv be the lift of p with origin v. Let c1,c 2,...,c s be the
+cycles of the permutation induced by w on the vertices of ˜Γ H. If ct = (v1v2...v l)
+(1 ≤ t ≤ s), then ˜pv1 · ˜pv2 ·... · ˜pvl is a closed path in ˜Γ H; we denote by hct
+the corresponding homology class in H1(˜Γ H). Then, upon identifying H ab with
+H1(˜Γ H), we have θH (w) = hc1 +hc2 +... +hcs.
+Lemma 3.2. The transfer map θH : Fn → H ab sends visible elements to visible
+elements.
+Proof. For each 1 ≤ i ≤ n, let ˜ei be the lift of ei to an oriented edge of ˜Γ H
+with origin ˜∗H . Let C1(˜Γ H) be the group of (cellular) 1-chains of ˜Γ H, and let
+ϕ : H1(˜Γ H) → H1(Γ) be the restriction of the homomorphism from C1(˜Γ H) to
+H1(Γ) that sends ˜ei to ei (1 ≤i ≤n) and maps all of the other edges of ˜Γ H to 0.
+We claim that the following diagram commutes:
+
+RETRACTS OF FREE GROUPS AND A QUESTION OF BERGMAN 7
+Fn ∼=π1(Γ)
+θH /d47/d47
+σ
+/d40/d40PPPPPPPPPPPP H1(˜Γ H) ∼=H ab
+ϕ
+/d15/d15
+H1(Γ) ∼=F ab
+n
+Let w =xǫ1
+i1xǫ2
+i2...x ǫk
+ik ∈Fn, and let p =eǫ1
+i1eǫ2
+i2...e ǫk
+ik be the corresponding path
+in Γ. For every vertex v of ˜Γ H, let ˜pv be the lift of p to a path in ˜Γ H with origin
+v. Then σ(w) = ϕ(θH(w)) is a consequence of the fact that for each 1 ≤ j ≤ k,
+there is a unique vertex v such that in ˜pv the edge e
+ǫij
+ij is lifted to ˜e
+ǫij
+ij .
+If θH(w) (for some w ∈ Fn) is not a visible element of H ab, then we can write
+θH (w) = ma for some a ∈H ab and m ≥ 2. Therefore, σ(w) = ϕ(θH (w)) = mϕ(a)
+is not a visible element of F ab
+n , and thus w is not visible in Fn. □
+Proposition 3.3. Let H be a ﬁnite index subgroup of Fn, and let w ∈ Fn be a
+visible element. Suppose that m is the smallest positive integer such that wm ∈H.
+Then wm is a visible element of H if one of the following holds:
+(a) ⟨w⟩ acts transitively on the (right) cosets of H;
+(b) H is a subnormal subgroup of Fn.
+Proof. If (a) holds, then θH(w) coincides with the image of wm inH ab; hence, wm
+is visible in H by Lemma 3.2.
+Suppose that (b) holds; by induction, we may further assume that H is a normal
+subgroup of Fn. Let c1,c 2,...,c s be the cycles of the permutation induced by w on
+the vertices of ˜Γ H, and let hc1,h c2,...,h cs be the corresponding homology classes
+(deﬁned as above). Suppose that c1 is the cycle containing ˜∗H; then hc1 is the
+image of wm in H ab.
+The group of deck transformations, G/H, of ˜Γ H acts transitively on the set
+{hc1,h c2,...,h cs} ⊆ H1(˜Γ H ); for each 2 ≤j ≤s, ﬁx gj ∈G/H such thath
+gj
+c1 =hcj .
+If hc1 =ma for some a ∈H ab and m ≥ 1, then
+θH (w) = hc1 +hc2 +... +hcs =h1 +hg2
+1 +... +hgs
+1 =m(a +ag1 +... +ags).
+Since, by Lemma 3.2, θH(w) is visible in H ab, it follows that m = 1. Therefore,
+hc1 is visible in H ab and wm is visible in H. □
+For a while, our discussion will be restricted to the free group of ran k two.
+Accordingly, we let Γ denote the CW complex with one 0-cell and two (o riented)
+1-cells, e and f . We think of F2 as the fundamental group of Γ, and we let x and
+y stand for the homotopy classes of the loops determined by e andf , respectively.
+Form ≥ 2, let Γ m be a CW complex with m 0-cells, v0,v 1,...,v m− 1, and 2 m
+(oriented) 1-cells, ei,f i (0 ≤i ≤m − 1). The origin of both ei andfi is the vertex
+vi; the terminus of ei is vm− i and the terminus of fi is vi+1, where the indices are
+taken modulo m (see Figure 1). Let hm : Γ m → Γ be the (graph) map deﬁned by
+
+8 ILIR SNOPCE, SLOBODAN TANUSHEVSKI, AND PA VEL ZALESSKII
+v0
+v1 v2 v3 v4
+v8 v7 v6 v5
+f0
+f1 f2 f3
+f4
+f5f6f7
+f8
+e1 e2 e3 e4e8 e7 e6 e5e0
+Figure 1. The graph Γ 9.
+hm(ei) = e andhm(fi) = f for every 1 ≤i ≤m − 1. It is straightforward to verify
+that hm is a covering map.
+Consider the subgroupHm = (hm)∗(π1(Γ m,v 0)) ofF2. The edges f0,f 1,...,f m− 2
+form a spanning subtree of Γ m; the basis of Hm determined (in the standard way)
+by this tree is x,t 1 =yxy − (m− 1),t 2 =y2xy− (m− 2),...,t m− 1 =ym− 1xy− 1,y m.
+It will be convenient to have another way of describing the subgrou p Hm. Let
+ψm : F2 → Dm = ⟨t,s | t2 = 1,s m = 1,tst = s− 1⟩ be the homomorphism deﬁned
+by ψm(x) = t and ψm(y) = s. We claim that Hm = ψ− 1
+m (⟨t⟩). Indeed, it is easy
+to check that Hm ≤ψ− 1
+m (⟨t⟩), and since both subgroups have index m in F2, they
+must coincide.
+For k ≥ 1, set wk = x[x,y ]k ∈ F2. (Here, [ x,y ] = xyx− 1y− 1.) Each wk is a
+visible element in F2. Since ψm(wk) = t[t,s ]k = ts− 2k, we have that wk ∈ Hm if
+and only if m | 2k. Moreover, ψm(w2
+k) = 1, and thus w2
+k ∈Hm for every k ≥ 1.
+Lemma 3.4. Letm = 2k + 1 with k ≥ 1. Then wk /∈Hm and
+w2
+k =x2t− 1
+m− 1tm− 2t− 1
+m− 3tm− 4...t − 1
+2 t1tm− 1t− 1
+m− 2tm− 3t− 1
+m− 4...t 2t− 1
+1 ∈Hm.
+In particular, w2
+k is not a visible element of Hm.
+Proof. Sincem does not divide 2k, it follows from the discussion before the lemma
+that wk /∈Hm. Consider the path
+pk =ee (fe − 1f − 1e)(fe − 1f − 1e)... (fe − 1f − 1e)/bracehtipupleft /bracehtipdownright/bracehtipdownleft /bracehtipupright
+k times
+e (fe − 1f − 1e)... (fe − 1f − 1e)/bracehtipupleft /bracehtipdownright/bracehtipdownleft /bracehtipupright
+(k− 1) times
+fe − 1f − 1
+in Γ; it determines the element w2
+k ∈F2.
+For each 0 ≤ i ≤ m − 3, the path fe − 1f − 1e in Γ lifts in Γ m to the path
+fie− 1
+m− (i+1)f − 1
+m− (i+2)em− (i+2) with origin vi and terminusvi+2. Furthermore, the path
+fe − 1f − 1 lifts to the path fm− 2e− 1
+1 f − 1
+0 with origin vm− 2 and terminus v0.
+
+RETRACTS OF FREE GROUPS AND A QUESTION OF BERGMAN 9
+It follows now easily that pk lifts to the following loop at v0 in Γ m:
+˜pk =e0e0(f0e− 1
+m− 1f − 1
+m− 2em− 2)(f2e− 1
+m− 3f − 1
+m− 4em− 4)... (fm− 3e− 1
+2 f − 1
+1 e1)
+em− 1(f1e− 1
+m− 2f − 1
+m− 3em− 3)... (fm− 4e− 1
+3 f − 1
+2 e2)fm− 2e− 1
+1 f − 1
+0 .
+Finally, the expression for w2
+k in terms of the basis of Hm can be read from ˜pk. □
+Example 3.5. For a simple example that provides a negative answer to Bergman’s
+question, take K = ⟨x,t 1 = yxy − 2,t 2 = y2xy− 1⟩ ≤ F2. Then w1 = x[x,y ] is a
+visible element of F2, and thus R = ⟨w1⟩ is a retract of F2; since w2
+1 = x2[t− 1
+2 ,t 1]
+is not a visible element of K, it follows that K ∩R = ⟨w2
+1⟩ is not a retract of K.
+Proof of Theorem A (ii). Form ≥ 3, we set Lm = Hm− 1 if m is even; otherwise
+we deﬁne Lm to be the subgroup of Hm generated by x,t 0,t 1,...,t m− 1. Observe
+that rk(Lm) = m for every m ≥ 3.
+Form ≥ 1, let Rm = ⟨wk⟩ ≤F2, where k = ⌊ m− 1
+2 ⌋. Then Rm is a retract of F2,
+and it follows from Lemma 3.4 that Rm ∩Lm is not a retract of Lm. This proves
+Theorem A (ii) in the case when n = 2.
+For the general case, we write Fn = F2 ∗Fn− 2 (F1 stands for an inﬁnite cyclic
+group), and we consider Lm and Rm as subgroups of the ﬁrst factor of the free
+product decomposition of Fn. Given any retract S of the second factor, we have
+thatRm ∗S is a retract of Fn. However, (Rm ∗S) ∩Lm =Rm ∩Lm is not a retract
+of Lm. □
+In [20], the following conjecture was made
+Conjecture 3.6. LetH be a ﬁnitely generated subgroup of Fn that is not contained
+in a proper retract of Fn. Then every test element of H is a test element of Fn.
+As a consequence of Theorem A, we obtain the following
+Theorem 3.7. Conjecture 3.6 does not hold.
+Proof. Choose a subgroup H of Fn of rank three for which there exists a retract
+R of Fn such that H ∩R is not a retract of H. Let S be the intersection of all
+retracts of Fn that contain H. By Theorem 1.1, S and R ∩S are retracts of Fn.
+Furthermore,R∩S is a proper retract of S,H ∩(R∩S) = H ∩R is not a retract of
+H, and H is not contained in a proper retract of S. Hence, after replacing Fn by
+S and replacing R byR ∩S, we may assume that H is not contained in a proper
+retract of Fn.
+If H ∩R does not contain a test element of H, then by Theorem 2.1, there are
+proper retracts Ti,i ∈ I, of H such that H ∩R ⊆ ⋃
+i∈ ITi. By Lemma 2.5 ( b),
+H ∩R ⊆Ti for some i ∈I. Since Ti is a proper retract of H, it has rank at most
+two, and it follows from Theorem A ( i) that Ti ∩R is a retract of Ti. This implies
+that H ∩R =Ti ∩R is a retract of H, a contradiction.
+Therefore, H ∩R contains a test element of H. However, by Theorem 2.1, no
+element contained in R is a test element of Fn. □
+
+10 ILIR SNOPCE, SLOBODAN TANUSHEVSKI, AND PA VEL ZALESSKII
+4. The Dicks-Ventura Conjecture
+Throughout this section, p denotes a ﬁxed prime. The pro- p topology of Fn is
+the coarsest topology with respect to which Fn is a topological group and every
+homomorphism from Fn into a ﬁnite p-group is continuous. The normal subgroups
+ofFn of index a ﬁnite power of p form a base for the neighborhoods of the identity
+for the pro-p topology.
+Given a subgroup H of Fn, we denote by cl( H) the closure of H in the pro- p
+topology of Fn (the notation H continues to be used for the closure of H in ˆFn,p).
+Lemma 4.1. LetR be a retract of Fn, and let H be a ﬁnitely generated subgroup
+of Fn. Then the following holds:
+(a) If H is closed in the pro- p topology of Fn, then either H ≤R or rk (H ∩R)<
+rk(H).
+(b) If H is not contained in R, then rk (cl(H) ∩R)< rk(H).
+Proof. Suppose that H is closed in the pro- p topology of Fn and that R does not
+contain H. Since R is a retract of Fn, it follows from [12, Lemma 3.1.5] that it
+is closed in the pro- p topology of Fn. Hence, R ∩H is also closed in the pro- p
+topology. Furthermore, by [14, Proposition 2.3] (see also [15, Pro position 13.1.4]),
+H ∩R =H ∩R in ˆFn,p, and it follows from [13, Lemma 5.3 (2) and Corollary 5.8
+(b)] that
+rk(H ∩R) = rk(H ∩R) = rk(H ∩R).
+By Proposition 2.4, R is a free factor of ˆFn,p and H ∩R is a free factor of H.
+Moreover, by [13, Lemma 5.4], Fn ∩H ∩R = H ∩R < H= Fn ∩H. It follows
+that H ∩R is in fact a proper free factor of H. Hence,
+rk(H ∩R) = rk(H ∩R)< rk(H) = rk(H).
+Now (b) follows from ( a) and the fact that rk( cl(H)) ≤ rk(H) (see [15, Propo-
+sition 11.3.1]). □
+Proof of Theorem B. We may suppose thatH is not contained inR. By Lemma 4.1
+(b),
+rk(cl(H) ∩R)< rk(H) ≤ 3.
+By the Hanna Neumann conjecture (see [5], [10] and [7]; in fact, here we only need
+the special case, ﬁrst proved in [21], when one of the intersecting s ubgroups is of
+rank two), we have
+rk(H ∩R) = rk(H ∩ (cl(H) ∩R)) ≤ rk(H).
+□
+For completeness, we prove Corollary C, although it follows from The orem B
+by a well-known argument.
+
+RETRACTS OF FREE GROUPS AND A QUESTION OF BERGMAN 11
+Proof of Corollary C. We call a subgroup H ofFn 3-inert if rk(K ∩H) ≤ rk(K) for
+every subgroup K ofFn with rk(K) ≤ 3. We need to show that Fix( S) is a 3-inert
+subgroup of Fn for every family S of endomorphisms of Fn. Since the property
+of being 3-inert is closed under intersections, we may assume that S consists of a
+single endomorphism ϕ of Fn.
+By [22, Theorem 1], ϕ∞ (Fn) = ⋂ ∞
+k=1ϕk(Fn) is a retract of Fn. Moreover, by [6,
+Theorem 1], ϕ(ϕ∞ (Fn)) = ϕ∞ (Fn) and ϕ∞ =ϕ|ϕ∞ (Fn) :ϕ∞ (Fn) →ϕ∞ (Fn) is an
+automorphism. It follows from the main theorem of [4] that Fix( ϕ) = Fix(ϕ∞ ) is
+3-inert in ϕ∞ (Fn). By Theorem B, ϕ∞ (Fn) is 3-inert in Fn. Since the property of
+being 3-inert is transitive, it follows that Fix( ϕ) is 3-inert in Fn. □
+We end the paper with some further evidence for the Dicks-Ventur a conjecture.
+Proposition 4.2. Let R be a retract of Fn, and let H be a ﬁnitely generated
+subgroup of Fn with [cl(H) : H]< ∞. Then rk (H ∩R) ≤ rk(H).
+Proof. Set m = [cl(H) : H] and k = [cl(H) ∩R :H ∩R]; observe that k ≤m. It
+follows from Lemma 4.1 ( a) and the Schreier formula that
+rk(H ∩R) = k(rk(cl(H) ∩R) − 1) + 1 ≤m(rk(cl(H)) − 1) + 1 = rk(H).
+□
+Acknowledgement The ﬁrst author acknowledges support from the Alexan-
+der von Humboldt Foundation, CAPES (grant 88881.145624/2017-01) and F APERJ.
+The third author is partially supported by CNPq. The authors thank the Heinrich
+Heine University in D¨ usseldorf for its hospitality.
+References
+[1] G. Baumslag, A. G. Myasnikov, and V. Shpilrain, Open problems in co mbinatorial group
+theory. Contemp. Math. 250 (1999), 127.
+[2] G. M. Bergman, Supports of derivations, free factorizations, and ranks of ﬁxed subgroups
+in free groups , Trans. Amer. Math. Soc. 351 (1999), 1531–1550.
+[3] M. Bestvina and M. Handel, Train tracks and automorphisms of free groups , Ann. of Math.
+135 (1992), 1-51.
+[4] W. Dicks and E. Ventura, The group ﬁxed by a family of injective en domorphisms of a free
+group. Contemp. Math. 195 (1996).
+[5] J. Friedman, Sheaves on graphs, their homological invariants, and a proo f of the Hanna
+Neumann conjecture: with an appendix by Warren Dicks , Mem. Amer. Math. Soc. 233,
+no.1100 (2015).
+[6] W. Imrich and E. Turner, Endomorphisms of free groups and their ﬁxed points , Math. Proc.
+Cambridge Philos. Soc. 105 (1989), 21-22.
+[7] A. Jaikin-Zapirain, Approximation by subgroups of ﬁnite index and the Hanna Neum ann
+conjecture, Duke Math. J. 166 (2017), 1955–1987.
+[8] E. I. Khukhro and V. D. Mazurov, editors. Unsolved Problems in G roup Theory, The
+Kourovka Notebook 19th edition, Novosibirsk, 2018.
+[9] A. Lubotzky, Combinatorial group theory for pro- p groups, J. Pure Appl. Algebra 25 (1982),
+311–325.
+
+12 ILIR SNOPCE, SLOBODAN TANUSHEVSKI, AND PA VEL ZALESSKII
+[10] I. Mineyev, Submultiplicativity and the Hanna Neumann conjecture , Ann. of Math. 175
+(2012), 393–414.
+[11] J. Nielsen, Die Isomorphismen der allgemeinen, unendlichen Gruppe mit zwei Erzeugenden.
+Math. Ann. 79 (1918), 385–397.
+[12] L. Ribes and P. Zalesskii, Proﬁnite groups. Second edition. Sprin ger-Verlag, Berlin (2010).
+[13] L. Ribes and P. Zalesskii, Pro-p trees and applications. In: M. P. F. Du Sautoy, D. Segal,
+A. Shalev (eds.) New Horizons in Pro- p Groups. Progress in Mathematics, vol. 184, pp.
+75–119, Birkhauser Boston (2000).
+[14] L. Ribes and P. Zalesskii, Normalizers in groups and in their proﬁnite completions , Rev.
+Mat. Iberoam. 30 (2014), 165–190.
+[15] L. Ribes, Proﬁnite graphs and groups. Springer, Cham (2017) .
+[16] E. Rips, Commutator equations in free groups , Israel J. Math. 39 (1981), 326–340.
+[17] I. Snopce and S. Tanushevski, Test elements in pro- p groups with applications in discrete
+groups, Israel J. Math. 219 (2017), 783–816.
+[18] I. Snopce and S. Tanushevski, Asymptotic density of test elements in free groups and surfa ce
+groups, Int. Math. Res. Not. 2017 (2017), 5577–5590.
+[19] I. Snopce and S. Tanushevski, Products of test elements of free factors of a free group , J.
+Algebra 474 (2017), 271-287.
+[20] I. Snopce and S. Tanushevski, Test elements: from pro- p groups to discrete groups, to appear
+in Proceedings of groups–St. Andrews 2017.
+[21] G. Tardos, On the intersection of subgroups of a free group , Invent. Math. 108 (1992),
+29–36.
+[22] E. C. Turner, Test words for automorphisms of free groups , Bull. London Math. Soc. 28
+(1996), 255–263.
+[23] E. Ventura, Fixed subgroups in free groups: a survey. Conte mp. Math. 296 (2002), 231255.
+[24] H. Zieschang Alternierende Produkte in freien Gruppen , Abh. Math. Sem. Univ. Hamburg
+27 (1964), 12–31.
+Universidade Federal do Rio de Janeiro, Instituto de Matem ´atica, 21941-909
+Rio de Janeiro, RJ, Brazil
+E-mail address : ilir@im.ufrj.br
+Universidade Federal Fluminense, Instituto de Matem ´atica e Estat´ıstica, 24210-
+201, Niter ´oi, RJ, Brazil
+E-mail address : tanusevski1@gmail.com
+University of Bras´ılia, Department of Mathematics, 70910-9000, Bras´ılia, Brazil
+E-mail address : pz@mat.unb.br

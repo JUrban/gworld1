@@ -1,6 +1,8 @@
-# GroupWorld: preparation for a 48-hour experiment
+# GroupWorld: a 48-hour experiment
 
-**Preparation only. The experiment has not started.** No problems have been investigated or claimed solved in this repository.
+**Active run: 28 September 2026, 10:04:49 UTC → 30 September 2026, 10:04:49 UTC.**
+
+[Current progress](reports/PROGRESS.md) · [Research plan](research/PLAN.md) · [Research log](research/LOG.md). The initial preparation snapshot is preserved in Git.
 
 This is a fresh repository for the collection of [open problems in combinatorial group theory](https://shpilrain.ccny.cuny.edu/gworld/problems/oproblems.html) selected by G. Baumslag, A. G. Myasnikov and V. Shpilrain, together with its [Hall of Fame](https://shpilrain.ccny.cuny.edu/gworld/problems/Halloffame.html). The snapshot was downloaded on 28 September 2026.
 
@@ -21,12 +23,11 @@ Locally this checkout is `/project/gworld1`, excluded from the enclosing Kourovk
 Python 3 and Git suffice for the preparation utilities. Set up `config/local-tools.json` from [the example](config/local-tools.example.json), or set `GWORLD_GAP_ROOT`, to use `bin/gap`. The local GAP 4.16.1 installation and `smallgrp`, `fga`, `kbmag`, `nq`, `polycyclic`, and `ace` packages passed a load check. [Environment record](provenance/environment.json).
 
 ```sh
-python3 scripts/verify_preparation.py
 python3 scripts/session.py status
 python3 -m unittest discover -s tests -v
 ```
 
-The proposed run budget is 48 hours, 20 CPU cores and 100 GB RAM, inherited from Kourovka and adjustable before launch. Research commands launched through `scripts/run_recorded.py` are disabled during preparation. No background solver or timer is running.
+The authorized run budget is 48 hours, 20 CPU cores and 100 GB RAM. `scripts/run_recorded.py` records bounded research commands and refuses jobs after the deadline. `state/session.json` is the authoritative clock.
 
 Source bytes, retrieval metadata, links and SHA-256 hashes are retained in [sources/manifest.json](sources/manifest.json). One malformed publisher link, `Back.htm`, returns 404; its adjacent correct `Back.html` link is downloaded. [Source scope and limitations](sources/README.md).
 

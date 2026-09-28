@@ -1,6 +1,6 @@
 # Starting the experiment
 
-We are in **preparation**. Wait for the user's explicit instruction to start the two-day run. Preparing this directory is not launch authorization.
+**The experiment has now started.** The clock is in `state/session.json`; do not restart it. The procedure below is retained as the launch protocol. When resuming, read the current state, research log, and progress report, then continue within the existing deadline.
 
 On that instruction:
 
