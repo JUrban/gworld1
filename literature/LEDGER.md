@@ -246,3 +246,34 @@ original PDF. The fixed-group question is still unresolved, and an
 attempted encoding by retracts of a fixed base fails by equation
 reflection. See `research/notes/N9-fixed-ambient-and-coproduct.md`.
 No new candidate or novelty assertion follows.
+
+## F41: rank-two growth and a candidate transfer, approximately 18:22--18:45 UTC
+
+Archived and read the exact conjecture in [Puder--Wu,
+Question 5.4](https://arxiv.org/abs/1304.7979), viewing PDF page18.
+Archived [Puder's expansion paper](https://arxiv.org/abs/1212.5216),
+read Lemma4.1/Claim4.2/Proposition4.3 and Theorem8.2, and viewed
+pages14,37. The twice-traversal lemma is prior work. The primitivity-rank
+bound already implies F41 for pi=2 in ambient ranks at least five.
+
+[Erlandsson--Souto, Theorem1.1](https://arxiv.org/abs/1508.02265)
+gives a polynomial bound for fixed curve orbits on the punctured torus.
+Its precise statement was read and page1 viewed. Converting geodesic
+length to an upper word-length count gives the needed polynomial
+Aut(F2) cyclic-orbit bound, with powers and peripheral curves handled
+separately. The entire deep curve-counting proof is not independently
+audited here. The cited Khan rank-two bound in Shpilrain's
+[Whitehead paper](https://shpilrain.ccny.cuny.edu/White3.pdf) was not
+used, because the accessible descriptions concern minimum-length words
+and the original Khan paper was not obtained.
+
+A candidate transfer estimate through labelled core graphs yields
+F41 for pi(w)<=2. Only pi=2 in ambient ranks three and four is retained
+as potentially new scope, pending specialist/bibliographic review.
+Bounded searches found no matching theorem, which is not proof of
+novelty. The [2025 orbit-blocking paper](https://arxiv.org/abs/2505.00477)
+and [Shpilrain's recent survey](https://arxiv.org/abs/2510.00889) were
+also checked for scope and archived; neither is used to establish
+novelty. Culler1981 was read for an abandoned quadratic-word route,
+not used in the final argument. Exact reading limits, prior credit,
+proof and finite evidence: `problems/F41/audit.md`.

@@ -564,3 +564,39 @@ an explicit zero-target control. First run passed with parser warnings;
 its exact source/logs remain. The locally scoped rerun passed in1.93s
 with empty stderr, one core/8GB. No new whole or partial candidate,
 external review, imported Kourovka argument, contact or push.
+
+## 2026-09-28 approximately 18:22--18:45 UTC — F41 rank-two transfer candidate
+
+Read the full original free-group page and background, rendered F41,
+and viewed its screenshot. The identity exception and distinction
+between spherical limits, limsups and balls are explicit. No literal
+loophole is counted.
+
+Developed a core-graph estimate for injective images of a filling
+nonprimitive word. The abstract loop is counted in a single intrinsic
+automorphic orbit; every edge is traversed twice, so extra label length
+costs at least twice as much ambient word length. After summing over
+the finitely many graph types and restoring conjugators, polynomial
+intrinsic cyclic-orbit growth implies the ambient square-root bound.
+
+Located Puder's exact prior twice-traversal lemma and threshold theorem,
+and credited them. Replaced an uncertain all-length interpretation of
+the Khan citation by Erlandsson--Souto's precise punctured-torus curve
+counting theorem. This gives F41 for pi(w)<=2. Ambient rank two and
+pi=2 in ranks>=5 are already prior; only ranks three and four remain
+potentially new in this partial candidate. No matching result was
+found in bounded searches, but novelty and specialist review remain
+outstanding.
+
+The deterministic Python graph audit checked11,048 closed paths of
+length<=8, including9,912 filling nonprimitive paths, with unused-edge
+and primitive single-traversal controls. It also generated18 marked
+immersed labelled examples in ambient ranks3,4. GAP/fga independently
+verified their Nielsen markings, injective rank-two subgroup images,
+word identities, immersion and lengths. Runs passed in0.42s and1.87s,
+one core/8GB each, empty stderr. Three noninjective controls demonstrate
+why the theorem must not be extended to arbitrary homomorphic images.
+
+Proof and audit are in problems/F41/. Tally becomes three whole-entry
+candidates and two partial candidates, with zero established novel
+results. No external contact, push, subagents or parent-repo changes.

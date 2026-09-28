@@ -1,0 +1,540 @@
+                                                           ORBIT-BLOCKING WORDS IN FREE GROUPS
+
+                                             LUCY KOCH-HYDE, SIOBHÁN O’CONNOR, ÉAMONN OLIVE, AND VLADIMIR SHPILRAIN
+
+                                                 Abstract. By strengthening known results about primitivity-blocking words in free groups,
+                                                 we prove that for any element w of a free group of finite rank, there are words that cannot
+                                                 be subwords of any cyclically reduced automorphic image of w. This has implications for
+                                                 the average-case complexity of a variant of Whitehead’s problem.
+arXiv:2505.00477v2 [math.GR] 8 Aug 2025
+
+
+
+
+                                                                                   1. Introduction
+                                             Let Fr be a free group with a free generating set (i.e. basis) x1 , . . . , xr . Call an element
+                                          u ∈ Fr primitive if there is an automorphism of Fr that takes x1 to u.
+                                             For a given element w ∈ Fr , we say a word v is w-orbit-blocking (or just orbit-blocking
+                                          if w is clear from the context) if for any automorphism φ ∈ Aut(Fr ), the word v is not a
+                                          subword of the cyclic reduction of φ(w).
+                                             Primitivity-blocking words are the same as x1 -orbit-blocking. The existence of primitivity-
+                                          blocking words easily follows from Whitehead’s observation that the Whitehead graph of
+                                          any cyclically reduced primitive element is either disconnected or has a cut vertex. More
+                                          about this in Section 2.
+                                             We first show that primitivity-blocking words cannot appear as subwords of some wider
+                                          classes of primitive elements that are not necessarily cyclically reduced; see Lemma 3.2,
+                                          Lemma 3.5, and Theorem 3.7.
+                                             We give new examples of primitivity-blocking words and an algorithm for detecting primitivity-
+                                          blocking words in F2 (Theorem 5.5). Algorithmically detecting primitivity-blocking words
+                                          in Fr where r > 2 remains an open problem.
+                                             Based on Lemma 3.2, we show in Section 6 that for any w ∈ Fr , there are w-orbit-blocking
+                                          words (in fact, depending only on the length of w), thus giving a complete solution of Problem
+                                          (F40) from [3]. Previously [8], we gave a solution in the special case r = 2 based on a very
+                                          special and explicit description of bases in F2 from [5].
+                                             In Section 7, we apply our main result to show that the average-case time complexity of
+                                          the following variant of Whitehead’s problem is constant with respect to n: given a fixed
+                                          u ∈ Fr , decide, on an input v ∈ Fr of length n, whether or not v is an automorphic image of
+                                          u.
+
+                                                                                    2. Background
+                                            The Whitehead graph Wh(w) of w ∈ Fr has 2r vertices that correspond to the generators
+                                          and their inverses. For each occurrence of a subword xi xj in the word w ∈ Fr , there is an
+                                          edge in Wh(w) that connects the vertex xi to the vertex x−1                               −1
+                                                                                                        j ; if w has a subword xi xj ,
+                                          then there is an edge connecting xi to xj , etc. There is one more edge (the external edge):
+                                          this is the edge that connects the vertex corresponding to the last letter of w to the vertex
+                                          corresponding to the inverse of the first letter.
+                                                                                             1
+2                            ORBIT-BLOCKING WORDS IN FREE GROUPS
+
+   It was observed by Whitehead himself in his cut vertex lemma (see [16]) that the Whitehead
+graph of any cyclically reduced primitive element w is either disconnected or has a cut vertex,
+i.e. a vertex that, having been removed from the graph together with all incident edges,
+increases the number of connected components of the graph. A short and elementary proof
+of this result was recently given in [7], and a more general case of primitive elements in
+subgroups of Fr was recently treated in [1].
+   Thus, for example, if the Whitehead graph of w (without the external edge) is complete
+(i.e., any two vertices are connected by at least one edge), then w is primitivity-blocking
+because in this case, if w is a subword of u, then the Whitehead graph of u, too, is complete
+and therefore is connected and does not have a cut vertex. Here are some examples of
+primitivity-blocking words: xn1 xn2 · · · xnr x1 (for any n ≥ 2), [x1 , x2 ][x3 , x4 ] · · · [xn−1 , xn ]x−1
+                                                                                                          1
+(for an even n), etc. Here [x, y] denotes x−1 y −1 xy.
+   Primitivity blocking was used for the first time in [2] to show that for any k, there is
+w ∈ Fr that is not a product of ≤ k primitive elements.
+   In [8], we showed that for any w ∈ F2 , there are w-orbit-blocking words. This was based
+on an explicit description of bases (equivalently, of automorphisms) of F2 from [5].
+
+                                     3. Blocking primitivity
+Definition 3.1. Call a basis of Fr strongly reduced if there is no element g ∈ Fr such that
+conjugating each element of the basis by g decreases the sum of the lengths of the basis
+elements.
+   Note that every basis of Fr has a strongly reduced basis in its conjugacy class. Since there
+is a one-to-one correspondence between bases and automorphisms of Fr , we will also refer
+to strongly reduced automorphisms as those corresponding to strongly reduced bases.
+   Then we have the following technical result of independent interest.
+Lemma 3.2. Let B be a strongly reduced basis of Fr . No primitivity-blocking word appears
+as a subword of any element in B.
+Proof. Fix u in B. We will show it does not contain a primitivity-blocking subword. If u
+is cyclically reduced, then it cannot contain a primitivity-blocking subword by definition.
+Suppose now that u is not cyclically reduced.
+   Let p be the first letter appearing in u. Since u is not cyclically reduced, p−1 is the last
+letter appearing in u. Now consider two cases:
+1. Every element of the basis B either starts with p or ends with p−1 (or both). In this
+case, conjugating every element of B by p (i.e. taking every z ∈ B to p−1 zp) will decrease
+the total length of elements of B, contradicting the fact that B is strongly reduced.
+2. There is an element v ∈ B that neither starts with p nor ends with p−1 . Then consider
+the element w = uv. Since v has neither left nor right cancellation with u, this w is cyclically
+reduced. Furthermore, since both u and v belong to the same basis of Fr , w must be primitive
+in Fr . Since w is primitive and cyclically reduced, it, and thus u as well, cannot contain a
+primitivity-blocking subword.                                                                 □
+
+  Even though Lemma 3.2 suffices to prove our main result (Theorem 6.1 in Section 6), we
+believe the following generalization might be useful, too.
+                          ORBIT-BLOCKING WORDS IN FREE GROUPS                                   3
+
+Definition 3.3. We call a basis B weakly reduced if there is no letter p such that every
+element of B begins with p and ends with p−1 .
+  First we need the following
+Lemma 3.4. Suppose w, v ∈ Fr such that w and v are not powers of the same element. Let
+u(m) = wm vw−m . Then there exists m ≥ 0 such that the following are true:
+   (1) The first letters of u(m) and w are the same.
+   (2) The last letters of u(m) and w−1 are the same.
+Proof. Suppose by way of contradiction that for all m, w or w−1 completely cancels in
+u(m + 1) = wu(m)w−1 . It follows that |u(m + 1)| ≤ 2|w| + |u(m)| − 2|w| = |u(m)|. Since
+the sequence |u(i)|∞i=0 is non-increasing and bounded below, there must be some k such that
+for all i ≥ k, |u(i)| = |u(i + 1)|. That is, the sequence must eventually become constant.
+Thus, {u(i)}∞i=0 must eventually form a cycle of equal length words. Since conjugation is a
+one-to-one map, the entire sequence must be a cycle, and so u(0) = v must be a member of
+the cycle. Therefore, each conjugation rotates v by m letters. Thus, w and v are powers of
+the same element, a contradiction with the condition of the lemma.                       □
+Lemma 3.5. Let B be a weakly reduced basis of Fr , where r ≥ 3, and let w ∈ B. Then w
+does not contain any primitivity-blocking subwords.
+Proof. If w is cyclically reduced then it does not contain a primitivity-blocking subword.
+Thus, assume that w begins with p and ends with p−1 .
+   Since B is weakly reduced, there exists u ∈ B such that it either does not begin with p or
+it does not end with p−1 . We will assume, without loss of generality, that u does not begin
+with p. Let v ∈ B be an element such that v ̸= w and v ̸= u. Take the word z = um vu−m
+with m given by Lemma 3.4. The word wz is a primitive cyclically reduced word containing
+w.                                                                                         □
+  Note that in F2 , a weakly reduced basis can contain a primitivity-blocking word. For
+instance, the basis {aba−1 , ba−1 } is weakly reduced, but contains aba−1 , which is primitivity-
+blocking in F2 .
+  Lemma 3.5 can be generalized further, as follows.
+Definition 3.6. We say that a basis B is partially reduced if there exists a proper subset
+X of B such that there are non-trivial words w, v ∈ ⟨X⟩ that do not begin with the same
+letter.
+Theorem 3.7. Let B be a partially reduced basis of Fr , where r ≥ 3, and let u ∈ B. Then
+u does not contain a primitivity-blocking subword.
+Proof. If B is weakly reduced, then we are done. Thus we will proceed under the assumption
+that B is not weakly reduced, and let u ∈ B start with a letter p and end with p−1 . We are
+going to construct a new basis B ′ ∋ u that is weakly reduced.
+  Since B is not weakly reduced, each basis element of B begins with p and ends with p−1 .
+We will assume, without loss of generality, that B \ X contains just one element, call it β.
+Let w ∈ ⟨X⟩ be a word beginning with a letter q ̸= p. We will consider two cases:
+Case 1. β = u.
+Then for each γ ∈ X, let mγ be the value given by Lemma 3.4 such that wmγ γw−mγ begins
+with q and ends with q −1 . Let m be the maximum of such numbers mγ . In this case, we
+4                          ORBIT-BLOCKING WORDS IN FREE GROUPS
+
+construct the basis B ′ = wm Xw−m ∪ {u}. We can verify this is a basis by conjugating B by
+wm to get wm Bw−m and then applying the automorphism which maps u to w−m uwm and
+maps X to itself. Then B ′ is a weakly reduced basis containing u.
+Case 2. β ̸= u.
+In this case we construct the basis B ′ = X ∪ {w|β|+1 β}. Then B ′ is a weakly reduced basis
+containing u.                                                                             □
+    Lemma 3.2 can also be generalized in a different direction.
+Definition 3.8. We call a word w slender if there exists a generator x1 such that the number
+of letters in w equal to x1 or x−1
+                                1 is 1 or 0.
+
+Theorem 3.9. Let φ be a strongly reduced automorphism of Fr , where r ≥ 3. Let w be a
+slender word. Then φ(w) does not contain a primitivity-blocking subword.
+Proof. Assume first that some x = xi appears in w exactly once. If φ(w) is cyclically
+reduced, then φ(w) is a cyclically reduced primitive word, and thus it cannot contain a
+primitivity-blocking subword.
+   Suppose now that φ(w) is not cyclically reduced. Let p be the first letter of φ(w)
+(and thereby p−1 is the last letter of φ(w)). Let B be the basis associated with φ, i.e.
+{φ(xj ) : j = 1, 2, . . . , r}. If there is some element φ(y) ∈ B not equal to φ(x) which nei-
+ther begins with p nor ends with p−1 , then φ(w)φ(y) is a cyclically reduced primitive word.
+Otherwise, since r ≥ 3 and φ is strongly reduced, there exists φ(z) ∈ (B \ φ(x))±1 that
+does not begin with p. Then let φ(s) be a basis element not equal to φ(z) or φ(x), and let
+u = φ(w)φ(z)m φ(s)φ(z)−m , where m is the value given by Lemma 3.4. Then u is a cyclically
+reduced primitive word containing φ(w), so φ(w) is not primitivity-blocking.
+   Now suppose that for some x = xi , there is no letter x or x−1 in w. Select y from the set
+of generators and their inverses such that y ̸= x±1 and there is no cancellation in φ(y)φ(w).
+Since φ is strongly reduced and r ≥ 3, such a y exists. Let m be the value given by Lemma
+3.4 such that φ(y)−m xφ(y)m has the same last letter as φ(y). Then let v = y −m xy m w. v
+contains x exactly once and does not contain its inverse. Thus by the argument above, φ(v)
+is not primitivity-blocking, so there is a cyclically reduced primitive word containing φ(v),
+and therefore also φ(w). Therefore, φ(w) is not primitivity-blocking.                       □
+  Just as we will use Lemma 3.2 to produce orbit-blocking words in Theorem 6.1, we will
+use Theorem 3.9 to establish Theorem 7.3.
+
+                4. On the structure of primitivity-blocking words
+  To show that blocking primitivity does not have to be due to connectivity properties of
+the Whitehead graph, we include the following examples.
+Proposition 4.1. (a) In the group F2 , the words xk1 xk2 are primitivity-blocking for any k ≥ 2.
+(b) In the group Fr , r ≥ 3, the words xk1 . . . xkr are not primitivity-blocking for any k ≥ 1.
+Proof. (a) Theorem 5.2 says that in a cyclically reduced primitive word in F2 , at least one
+of the generators either only appears with the exponent 1 throughout or the exponent −1
+throughout. Thus, xk1 xk2 cannot be a subword of a cyclically reduced primitive element if
+k ≥ 2.
+                           ORBIT-BLOCKING WORDS IN FREE GROUPS                                      5
+
+(b) Let r ≥ 3. The word u = xkr x2 is obviously primitive in Fr for any k ≥ 1. Applying to
+u the automorphisms xr 7→ xki xr x−k
+                                  i , xj 7→ xj if j ̸= r, for i = 1, . . . , r − 1 in order gives the
+element
+                                   xk1 . . . xkr x−k         −k
+                                                  r−1 . . . x1 x2 ,
+which is a cyclically reduced primitive word containing xk1 . . . xkr as a subword.                □
+  Part (b) of Proposition 4.1 can be generalized as follows:
+Proposition 4.2. Let Fr where r ≥ 3 be generated by the set X ⊔Y . Let ⟨X⟩ and ⟨Y ⟩ denote
+the subgroups of Fr generated by X and Y , respectively. Let w = wX wY , where wX ∈ ⟨X⟩,
+wY ∈ ⟨Y ⟩. Then w is not a primitivity-blocking word.
+Proof. Since r ≥ 3, we can also assume, without loss of generality, that |Y | ≥ 2.
+  Now select y ∈ Y such that there is no cancellation in wY y or in ywY−1 . Consider the word
+v = wY−1 wX wY y. This word is cyclically reduced and contains w as a subword. To show that
+v is primitive we apply the automorphism that conjugates all generators in X by wY and
+acts as the identity on Y . Since Y and X are disjoint, this is indeed an automorphism.
+  Applying this automorphism to v gives v ′ = wX y. Since v ′ contains the letter y exactly
+once, it is primitive, and therefore so is v. Thus, w is not primitivity-blocking.         □
+ We note that the shortest primitivity-blocking word in F2 is x−1   1 x2 x1 . Note that the
+Whitehead graph (with or without the external edge) of this word does have a cut vertex.
+ It is natural then to look for the shortest primitivity-blocking words in Fr for r > 2.
+Theorem 4.3. The word w = x1 x2 x3 . . . xr−1 x2r xr−1 . . . x3 x2 x−1
+                                                                    1 ∈ Fr is the shortest primitivity-
+blocking word for r > 2.
+Proof. First we will show that there can be no shorter primitivity-blocking words. For a
+word u of length < 2r there is an xk which appears (positively or negatively) one or fewer
+times in u. If xk appears zero times then the word uxk is primitive, cyclically reduced and
+contains u. If xk appears only once, then u is primitive, and if u is cyclically reduced, then
+u cannot be primitivity-blocking. If u is not cyclically reduced, then let y be a letter such
+that y ̸= x±1 and y is not the letter the begins or ends u, then uy is cyclically reduced and
+primitive, and so u is not primitivity-blocking.
+  Now we will show that w is primitivity-blocking. Assume by way of contradiction that
+v is a cyclically reduced primitive word which contains w as a subword. Assume further
+that no shorter cyclically reduced primitive word contains w (i.e. v is minimal). Since w is
+not cyclically reduced, it must be a proper subword of v. We remark that the Whitehead
+graph of w (Figure 4.4) consists of a single cycle of all the vertices other than x−1 1 . The
+Whitehead graph of v must contain Wh(w) as a subgraph. Since w begins with x1 and
+
+
+          Figure 4.4. The Whitehead graph of x1 x2 x3 . . . xr−1 x2r xr−1 . . . x3 x2 x−1
+                                                                                       1
+
+                                 x1    x12   x23   x34   xr−1   xr
+
+                                                   ···
+
+                                x−1
+                                 1  x−1
+                                     2
+                                     1  x−1
+                                         3
+                                         2  x−1
+                                             4
+                                             3  x−1   −1
+                                                 r−1 xr
+6                           ORBIT-BLOCKING WORDS IN FREE GROUPS
+
+ends with x−1
+            1 , there must be an edge in Wh(v) from x1
+                                                           −1
+                                                              to some other vertex. If there
+is more than one such edge, then Wh(v) is connected and has no cut vertices. Since we
+assumed v was a cyclically reduced primitive word, this contradicts the cut vertex lemma.
+So, Wh(v) has exactly one such edge. We will call the other vertex in this edge y. Applying
+the automorphism φ = x1 7→ y −1 x1 then cancels a y or y −1 respectively for each x1 or x1 that
+appears, thus reducing the total length of v. Furthermore, φ(w) = y −1 wy, of which only the
+y −1 and y cancel in φ(v). Thus w is a subword of φ(v), contradicting our assumption that
+v was minimal.                                                                               □
+
+    The details of the above proof are heavily inspired by the proof of Theorem 3.7 in [1].
+Remark 4.5. The word w = x1 x22 x23 . . . x2r x−1
+                                               1 is also a primitivity-blocking word of the same
+length as the one in Theorem 4.3. Since it has a Whitehead graph consisting of a cycle of all
+vertices other than x−1                                      −1
+                     1 , begins with x1 , and ends with x1 , the proof of Theorem 4.3 applies
+without adjustment to this word as well.
+Remark 4.6. A similar word w = x1 x2 . . . xr−1 x2r xr−1 . . . x2 x1 is not primitivity-blocking in
+any Fr , r ≥ 2. Indeed, for r = 2, w is a subword of x2 x1 x22 x1 , which is a cyclically reduced
+primitive word.
+  For r > 2, let u = x2 x3 . . . xr−1 x2r xr−1 . . . x3 x2 . We will now consider the word v =
+ux1 ux1 x3 . This v clearly contains w as a subword and is cyclically reduced. Apply the
+automorphism φ = x1 7→ u−1 x1 , xi 7→ xi , i ≥ 2. Then φ(v) = x21 x3 is a primitive element,
+and therefore so is v.
+
+                        5. Detecting primitivity-blocking words
+    In light of the results above, it is natural to ask:
+Problem 5.1. Is there an algorithm that, for a given word u ∈ Fr , would decide whether or
+not u is primitivity-blocking?
+  Below, we give a solution for the case r = 2. First we will need the following fact about
+the structure of bases in F2 that builds on a result of [5]. For details about this version of
+the statement, see Lemma 1 of [8].
+Theorem 5.2 ([5, p. 1]). Up to switching a with b or a with a−1 , or conjugating u and v by
+the same word, every basis (u, v) of F (a, b) is of the form
+                                      u = abm1 . . . abmp
+                                      v = (br1 abn1 . . . abnq abr2 )ε
+where ε = ±1 and {m1 , . . . , mp } = {r1 + r2 , n1 , . . . , nq } = {t, t + 1} for some fixed integer t.
+  We will need two more tools that further build on this fact before we can describe our
+algorithm.
+Lemma 5.3. Let w be a positive word in F2 whose first syllable is bn . Let q be the largest
+exponent appearing on b in w. If n < q, then w is primitivity-blocking if and only if b−n w
+is. If n = q then w is primitivity-blocking if and only if aw is. Analogous statements hold if
+bn is the last syllable.
+                          ORBIT-BLOCKING WORDS IN FREE GROUPS                                 7
+
+Proof. We will argue assuming that bn is the first syllable.
+   Suppose that b−n w is primitivity-blocking. Then, since b−n w is a subword of w, w is
+primitivity-blocking. Similarly, if w is primitivity-blocking, then so is aw.
+   Now suppose that n < q and w′ = b−n w is not primitivity-blocking. Then there exists
+v such that vw′ is cyclically reduced and primitive with no cancellation between v and w′ .
+This w′ starts with a by our hypothesis. Theorem 5.2 then implies that the last syllable
+of v is bk where k ≥ q − 1. Since n ≤ q − 1, w is a subword of vw′ and is therefore not
+primitivity-blocking.
+   Finally, suppose that n = q and w is not primitivity-blocking. Then there exists v such
+that vw is cyclically reduced and primitive with no cancellation between v and w. If the last
+syllable of w is bk for some k < q, then by the argument above we may consider ŵ = wb−k
+instead. Thus assume without loss of generality that w ends with a or bq . Suppose somewhere
+in w b appears to a smaller exponent than q. Then Theorem 5.2 implies that v ends with a,
+so aw is a subword of vw and is therefore not primitivity-blocking. Suppose every exponent
+on b in w is q. If every exponent on a in w is 1, then either w ends in bq so awb is primitive,
+or w ends in a, so awbq+1 is primitive. Otherwise, by Theorem 5.2, every exponent on b in
+vw must be 1, so v must end in a and we have that aw is not primitivity-blocking.            □
+Lemma 5.4. Suppose u ∈ F2 is of the form abm1 . . . abmp , where each mi is in {t, t + 1}
+where t ≥ 0. Denote the automorphism a 7→ ab−t by φ. Then u is primitivity-blocking if and
+only if φ(u) is.
+Proof. Suppose u is not primitivity-blocking. We will show that φ(u) is not primitivity-
+blocking either. Suppose uv is a cyclically reduced primitive word such that there is no
+cancellation between u and v. Then φ(uv) is primitive. Since u is positive, v must also be
+positive by Theorem 5.2. Thus, φ(v) cannot end in a−1 . So, since φ(u) starts with a, φ(uv)
+is cyclically reduced. Furthermore, since mp ≥ t, there is no cancellation between φ(u) and
+φ(v), so φ(u) is a subword of φ(uv) and we have that φ(u) is not primitivity-blocking.
+   We must also show that if φ(u) is not primitivity-blocking, neither is u. Let φ(u)v
+be primitive and cyclically reduced such that there is no cancellation between u and v.
+φ−1 (φ(u)v) = uφ−1 (v) is then primitive. If φ(u) ̸= ap , then v must be a positive word
+by Theorem 5.2. If φ(u) = ap , assume without loss of generality that v = b. φ−1 sends a
+to abt , so since a−1 does not appear in φ(u)v, we have that uφ−1 (v) is cyclically reduced.
+Furthermore, φ(u) ends in a or ab and the first letter in v must be either a or b, so there
+is no cancellation between u and φ−1 (v). It follows that all of u appears as a subword of
+uφ−1 (v), so it cannot be primitivity-blocking.                                           □
+Theorem 5.5. There is an algorithm that decides, for a given word u ∈ F2 of length n,
+whether or not u is primitivity-blocking and has the worst-case time complexity O(n2 ).
+Proof. Call our algorithm A and let F2 have generators a and b. After each step we will
+replace u by the result of that step and still call it u.
+Step 1. A checks whether there is a generator that either only appears with the exponent 1
+        throughout or the exponent −1 throughout. If not, then Theorem 5.2 implies that
+        u is primitivity-blocking, so we stop. Otherwise A swaps a with b and/or swaps a
+        with a−1 if necessary so that a only appears with the exponent 1 in u.
+Step 2. A checks whether all the exponents on b in u have the same sign. If not, then
+        Theorem 5.2 implies that u is primitivity-blocking, so we stop. Otherwise A swaps
+        b with b−1 if necessary to make all the exponents on b positive.
+8                         ORBIT-BLOCKING WORDS IN FREE GROUPS
+
+Step 3. A checks whether there exists an integer t such that every exponent on b in u belongs
+         to {t, t + 1} except for any times b appears before the first occurrence of a or after
+         the last one. (If b always appears to the same exponent, take that exponent to be
+         t + 1.) If not, then u is primitivity-blocking by Theorem 5.2.
+Step 4. A checks whether there is an exponent on b appearing before the first a or after the
+         last a, that is greater than t + 1. If so, then u is primitivity-blocking by Theorem
+         5.2.
+Step 5. Suppose bk is the power of b appearing before the first a. Then A checks whether k is
+         the largest exponent on b appearing in u. If it is, then A replaces u by au. Otherwise
+         it replaces u by b−k u. This does not change the primitivity-blocking property by
+         Lemma 5.3. Again using Lemma 5.3, if the exponent on b appearing after the last
+         a is less than t (including if it is 0), then A changes that exponent to t. Note that
+         at the end of this step, our word is of the form abm1 . . . abmp , where each mi is in
+         {t, t + 1}.
+Step 6. A applies the automorphism a 7→ ab−t to the word u obtained as a result of Step 5.
+         By Lemma 5.4, this does not change whether or not u is primitivity-blocking.
+Step 7. A swaps a with b and checks whether the word u has two or fewer syllables. If it does,
+         then it is of the form bm or bm a for some non-negative m. These are both subwords of
+         bm a, which is a cyclically reduced primitive word, so neither are primitivity-blocking
+         and thus A stops and returns that u is not primitivity-blocking. If the word u has
+         more than two syllables, then A goes to Step 3.
+   Now we note that Step 5 of the algorithm A adds at most t + 1 to the length of the word
+and Step 6 adds exactly −pt to the length of the word. Thus, as long as p is greater than
+1, repeating steps 3 through 7 decreases the length of the word. If p = 0, the word must
+be either a or the empty word after Step 5, and either way the algorithm will stop at Step
+7. If p = 1, then after Step 5, u is of the form abmp , so at Step 7, u will have two or fewer
+syllables, so the algorithm will stop. Thus, A always terminates. Furthermore, it follows
+that each step takes at most linear time in n (the length of the input word), and the number
+of repetitions of steps 3 through 7 is also bounded by n, so the worst-case time complexity
+of A is O(n2 ).                                                                               □
+
+                            6. Blocking automorphic orbits
+    Now we establish the main result of the paper.
+Theorem 6.1. Let w ∈ Fr have cyclically reduced length ℓ. Let {vi }ℓ+1  i=1 be a sequence of
+primitivity-blocking words such that thereQis no cancellation between adjacent terms of the
+sequence, nor between vℓ+1 and v1 . Then ℓ+1i=1 vi is w-orbit-blocking.
+
+Proof. Let φ be an automorphism of Fr . Let φ̄ be a strongly reduced automorphism of the
+form γ ◦ φ where γ is conjugation by some element of Fr . Suppose w = a1 . . . aℓ , where
+each ai is a letter. Then each φ̄(aj ) does not contain any vi by Lemma 3.2. Thus if some vi
+appears in φ̄(w), it cannot be contained entirely within any single φ̄(aj ) and thus must be
+contained partially in one and partially in an adjacent one.
+   Consider φ̄(w) as a cyclic word. Since there are ℓ pairs of adjacent images of letters under
+φ̄, there are at most ℓ non-intersecting words vi in φ̄(w).
+   Note that φ(w) and φ̄(w) may differ, but they are in the same conjugacy class, so the cyclic
+reduction of φ(w) also contains at most ℓ non-intersecting subwords belonging to {vi }ℓ+1   i=1 .
+                           ORBIT-BLOCKING WORDS IN FREE GROUPS                                     9
+
+Therefore, no cyclically reduced element in the orbit of w can contain the product of all ℓ + 1
+words vi .                                                                                   □
+  A sequence of primitivity-blocking words mentioned in the statement of Theorem 6.1 can
+be built as follows. Take a particular primitivity-blocking word, e.g. u = x21 x22 · · · x2r x1 (see
+Section 2). Let vi = u for all i = 1, . . . , k + 1. This sequence of vi satisfies all conditions of
+Theorem 6.1.
+
+             7. Average-case complexity of the Whitehead problem
+   Here we address the computational complexity of the following version of the Whitehead
+problem on automorphic equivalence in Fr : given a fixed u ∈ Fr , decide, on an input v ∈ Fr
+of length n, whether or not v is an automorphic image of u. We show that the average-case
+complexity of this version of the Whitehead problem is constant if the input v is a cyclically
+reduced word. For a formal definition of the average-case complexity of an algorithm in the
+context of group theory we refer the reader to [9].
+   This version is a special case of the general Whitehead problem [15] that asks, given two
+elements u, v ∈ Fr , whether or not u can be taken to v by an automorphism of Fr . The
+worst-case complexity of the Whitehead problem is unknown in general (cf. [3, Problem
+(F25)]) but is at most quadratic in max(|u|, |v|) if r = 2, see [13] and [11].
+   The version of the Whitehead problem that we consider here is different in that the input
+consists of just one element v, and the complexity of an algorithm that solves the problem
+is a function of the length of v, while the length of u is considered constant.
+   To construct an algorithm with constant average-case complexity, we use the same ap-
+proach that we used in [8] in the special case where the rank of the ambient free group is
+2.
+   Our algorithm will be a combination of two different algorithms running in parallel: one
+is fast but may be inconclusive, whereas the other one is conclusive but relatively slow. This
+idea has been used for group theoretic algorithms since at least [9].
+   Before running the two algorithms, a pre-computation would be performed on u. The
+algorithm would reduce the length of the fixed word u by the process of “Whitehead min-
+imization”. The minimization process successively applies elementary Whitehead automor-
+phisms to the word that reduce its length until its length cannot be reduced any further.
+This process takes worst-case quadratic time in |u|. However, since u is a fixed word, this
+amounts to constant time for the algorithm. Denote the obtained element of minimum length
+in the orbit of u by ū. Once the word has been minimized, the two algorithms will be run
+in parallel on the result.
+   A fast algorithm T would detect a ū-orbit-blocking subword B(ū) of a (cyclically reduced)
+input word v, as follows. Let n be the length of v. The algorithm T would read the initial
+segments of v of length k, k = 1, 2, . . . , adding one letter at a time, and check if this initial
+segment has B(ū) as a subword. This takes time bounded by C · k for some constant C, see
+e.g. [12, p. 338].
+   The “usual” Whitehead algorithm, call it W, would minimize |v| taking time quadratic
+in |v|. Denote the obtained element of minimum length in the orbit of v by v̄. If |v̄| ̸= |ū|,
+then W stops and reports that v is not in the automorphic orbit of u. If |v̄| = |ū|, then the
+algorithm W would apply all possible sequences of elementary Whitehead automorphisms
+that do not change the length of v̄ to see if any of the resulting elements are equal to ū. This
+part may take exponential time in |v̄| = |ū|, but since we consider |u| constant with respect
+10                        ORBIT-BLOCKING WORDS IN FREE GROUPS
+
+to |v| and |u| bounds |ū| above, exponential time in |ū| is still constant with respect to |v|.
+Thus, the total time that the algorithm W takes is quadratic in |v|.
+  To address complexity of the algorithm T , we use a result from [4]:
+Lemma 7.1 ([4, Example 1]). The number of (freely reduced) words of length L with (any
+number of ) “forbidden” subwords (e.g. u-orbit-blocking subwords) grows exponentially slower
+than the number of all freely reduced words of length L does.
+  In our situation, we have at least one B(u) as a forbidden subword. Therefore, the
+probability that the initial segment of length k of the word v does not have B(u) as a
+subword is O(sk ) P
+                  for some s, 0 < s < 1. Thus, the average time complexity of the algorithm
+T is bounded by nk=1 C · k · sk , which is bounded by a constant.
+Theorem 7.2. Suppose possible inputs of the above algorithm A are cyclically reduced words
+that are selected uniformly at random from the set of cyclically reduced words of length n.
+Then the average-case time complexity (i.e. expected runtime) of the algorithm A, working
+on a classical Turing machine, is O(1), a constant that does not depend on n. If one uses the
+“Deque” (double-ended queue) model of computing [6] instead of a classical Turing machine,
+then the “cyclically reduced” condition on the input can be dropped.
+Proof. As stated above, given the existence of orbit-blocking words for all groups Fr , where
+r ≥ 2 (according to Theorem 6.1), we can proceed essentially as in the proof of Theorem
+3 in [8], with only minimal modifications needed. For instance, the first statement quickly
+follows from Lemma 7.1.                                                                    □
+7.1. Reducing complexity further. While the above offers a theoretically fast algorithm,
+one may be skeptical about its practical performance. The algorithm A has constant time
+average-case complexity, but it appears that this constant may be quite large. Indeed, our
+proof of Theorem 6.1 offers w-orbit-blocking words of length (2r + 1) · |w|, and thus it is
+impossible to speed up the whole algorithm A until the fast part of the algorithm reads a
+prefix that exceeds this length. We will offer a few ways to improve practical performance
+of the fast part of the algorithm.
+   The first idea is to use shorter primitivity-blocking words to construct our orbit-blocking
+words. In Theorem 4.3 we give the shortest possible primitivity-blocking word, however this
+word has cancellation when multiplied by itself, and so we cannot simply raise it to a power.
+In order to prevent cancellation we can use vi = x1 x2 . . . x2r . . . x2 x−1
+                                                                           1  when i is even and
+vi = x−1
+       1 x 2 . . . x2
+                    r . . . x  x
+                              2 1 when i is odd.
+   Another option is to decrease the number of primitivity-blocking words required. By
+applying Theorem 3.9 in place of Lemma 3.2, we have the following theorem:
+Theorem 7.3. Let w ∈ Fr , r ≥ 3, be such that its cyclic reduction can be written as a
+product of k slender words. Let {vi }k+1
+                                     i=1 be a sequence of primitivity-blocking words such that
+there is no cancellation between adjacent terms of the sequence, nor between vk+1 and v1 .
+Then k+1
+      Q
+         i=1 vi is w-orbit-blocking.
+
+   The proof follows in the same manner as that of Theorem 6.1, applying Theorem 3.9 rather
+than Lemma 3.2.
+   Every word of length ≤ 2r − 1 must necessarily be slender. Thus partitioning a word into
+chunks of that size (or smaller) splits it as a product of slender words. For a word of length
+ℓ, Theorem 6.1 implies there is an orbit-blocking word of length 2r (ℓ + 1) (using the short
+                            ORBIT-BLOCKING WORDS IN FREE GROUPS                                         11
+
+primitivity-blocking words as described above). Comparatively,
+                                                                 by Theorem
+                                                                               7.3 a word of
+                                                                 ℓ
+length ℓ has an orbit-blocking word of length at most 2r               +1 .
+                                                              2r − 1
+   Lastly, one could look for multiple orbit-blocking words simultaneously. Theorems 6.1
+and 7.3 in essence give a limit on the number of disjoint primitivity-blocking words that can
+appear in the orbit of a given word. An alternative algorithm could simply count primitivity-
+blocking words in the input until the number exceeds the bound given by the fixed word.
+This highlights the significance of Problem 5.1.
+                                             References
+   [1] D. Ascari, A fine property of Whitehead’s algorithm, Groups Geom. Dyn. 18 (2024), 235–264.
+   [2] V. Bardakov, V. Shpilrain and V. Tolstykh, On the palindromic and primitive widths of a free group,
+       J. Algebra 285 (2005), 574–585.
+   [3] G. Baumslag, A. G. Myasnikov, V. Shpilrain, Open problems in combinatorial group theory,
+       http://shpilrain.ccny.cuny.edu/gworld/problems/oproblems.html
+   [4] T. Ceccherini-Silberstein, W. Woess, Growth and ergodicity of context-free languages, Trans. Amer.
+       Math. Soc. 354 (2002), 4597–4625.
+   [5] M. Cohen, W. Metzler, A. Zimmermann, What does a basis of F(a,b) look like?, Math. Ann. 257
+       (1981), 435–445.
+   [6] Double-ended queue, Wikipedia (2024), https://en.wikipedia.org/w/index.php?title=
+       Double-ended_queue&oldid=1225841227
+   [7] M. Heusener, R. Weidmann, A remark on Whitehead’s cut-vertex lemma, J. Group Theory 22 (2019),
+       15–21.
+   [8] L. Hyde, S. O’Connor, V. Shpilrain, Orbit-blocking words and the average-case complexity of White-
+       head’s problem in the free group of rank 2, J. Group Theory 28 (2025), 423–430.
+   [9] I. Kapovich, A. G. Myasnikov, P. Schupp, V. Shpilrain, Average-case complexity and decision problems
+       in group theory, Advances in Math. 190 (2005), 343–359.
+  [10] I. Kapovich, P. Schupp, V. Shpilrain, Generic properties of Whitehead’s algorithm and isomorphism
+       rigidity of random one-relator groups, Pacific J. Math. 223 (2006), 113–140.
+  [11] B. Khan, The structure of automorphic conjugacy in the free group of rank 2, Contemp. Math. Amer.
+       Math. Soc. 349 (2004), 115–196.
+  [12] D. Knuth, J. H. Morris, V. Pratt, Fast pattern matching in strings, SIAM Journal on Computing 6
+       (2) (1977), 323–350.
+       https://en.wikipedia.org/wiki/index.php?title=Knuth%E2%80%93Morris%E2%80%93Pratt_
+       algorithm&oldid=1246760417
+  [13] A. Myasnikov and V. Shpilrain, Automorphic orbits in free groups, J. Algebra 269 (2003), 18–27.
+  [14] V. Shpilrain, Average-case complexity of the Whitehead problem for free groups, Comm. Algebra 51
+       (2023), 799–806.
+  [15] J. H. C. Whitehead, On equivalent sets of elements in free groups, Ann. of Math. 37 (1936), 782–800.
+  [16] J. H. C. Whitehead, On certain sets of elements in a free group, Proc. London Math. Soc. 41 (1936),
+       48–56.
+
+  Department of Mathematics, CUNY Graduate Center, New York, NY 10016
+  Email address: lhyde@gradcenter.cuny.edu
+
+  Department of Mathematics, CUNY Graduate Center, New York, NY 10016
+  Email address: doconnor@gradcenter.cuny.edu
+
+  Email address: ejolive97@gmail.com
+
+  Department of Mathematics, The City College of New York, New York, NY 10031
+  Email address: shpilrain@yahoo.com
+

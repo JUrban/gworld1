@@ -1,0 +1,2378 @@
+                                                COUNTING CURVES IN HYPERBOLIC SURFACES
+
+                                                                VIVEKA ERLANDSSON AND JUAN SOUTO
+arXiv:1508.02265v1 [math.GT] 10 Aug 2015
+
+
+
+
+                                                  Abstract. Let Σ be a hyperbolic surface. We study the set of curves
+                                                  on Σ of a given type, i.e. in the mapping class group orbit of some fixed
+                                                  but otherwise arbitrary γ0 . For example, in the particular case that Σ
+                                                  is a once-punctured torus, we prove that the cardinality of the set of
+                                                  curves of type γ0 and of at most length L is asymptotic to L2 times a
+                                                  constant.
+
+
+
+
+                                                                                    1.
+                                              Throughout this paper we let Σ be a complete hyperbolic surface of finite
+                                           area, with genus g and r punctures, and distinct from a thrice punctured
+                                           sphere. By an immersed multicurve, or simply multicurve, in Σ we will
+                                           mean an immersed compact 1-dimensional submanifold of Σ each of whose
+                                           components represents (the conjugacy class of) a primitive non-peripheral
+                                           element in π1 (Σ). Two multicurves γ, γ 0 are of the same type if they belong
+                                           to the same mapping class orbit, meaning that there is a diffeomorphism
+                                           φ of Σ such that γ and φ(γ 0 ) are isotopic as immersed submanifolds. In
+                                           general, isotopic geodesics are considered to be equivalent. For instance,
+                                           every multicurve γ is isotopic to a geodesic multicurve and the length `Σ (γ)
+                                           is the length of the latter.
+                                              In this paper we study the set Sγ0 = Map(Σ) · γ0 of (isotopy classes of)
+                                           multicurves of some given type γ0 . More precisely, we are interested in the
+                                           behavior, when L tends to infinity, of the number |{γ ∈ Sγ0 |`Σ (γ) ≤ L}|
+                                           of multicurves in Σ of type γ0 and of at most length L. Since this number
+                                           grows coarsely like a polynomial of degree 6g − 6 + 2r (see [18] for the case
+                                           that γ0 is simple and [20, 21] or Corollary 3.6 below for the general case),
+                                           the perhaps most grappling question is whether the limit
+                                                                          |{γ ∈ Sγ0 |`Σ (γ) ≤ L}|
+                                           (1.1)                      lim
+                                                                     L→∞        L6g−6+2r
+                                           exists. Our main result is that it does if Σ is a once-punctured torus:
+                                           Theorem 1.1. Let Σ be a complete hyperbolic surface of finite volume home-
+                                           omorphic to a once punctured torus and let γ0 ⊂ Σ be a multicurve. The
+                                           limit (1.1) exists and moreover we have
+                                                   |{γ ∈ Sγ0 |`Σ (γ) ≤ L}|
+                                                lim                        = Cγ0 · µThu ({λ ∈ ML(Σ)|`Σ (λ) ≤ 1})
+                                               L→∞            L2
+                                             August 11, 2015.
+                                                                                     1
+2                  VIVEKA ERLANDSSON AND JUAN SOUTO
+
+where µThu is the Thurston measure on the space of measured laminations
+ML(Σ) and Cγ0 > 0 depends only on γ0 .
+   In the case of simple multicurves Theorem 1.1 is due to McShane-Rivin
+[12]. Also, for simple multicurves, Mirzakhani [13] proved that the limit
+(1.1) exists for all g and r. Building on the work of Mirzakhani, Rivin
+[19] established the existence of the limit (1.1) for multicurves with a single
+self-intersection.
+Remark. Recently, and independently of our work, Mirzakhani [14] has es-
+tablished the existence of (1.1) in complete generality. Her argument and
+ours are different in nature and in some sense complementary. See the re-
+marks following the statement of Corollary 4.4 in this introduction for more
+on the relation between Mirzakhani’s result and ours.
+   Still in the setting of simple multicurves, the case of the torus is much
+more treatable than the general one because any two simple multicurves
+in the torus are of the same type as long as they have the same number
+of components. This means that, in the case of the torus, counting simple
+multicurves of some fixed type basically reduces to counting all simple mul-
+ticurves, a much simpler problem. In fact, if Σ is an arbitrary hyperbolic
+surface of finite area with genus g and r punctures, if S is the set of all
+multicurves in Σ, and if we set
+                    cΣ = µThu ({λ ∈ ML(Σ)|`Σ (λ) ≤ 1})
+then
+      |{γ ∈ S|`Σ (γ) ≤ L, ι(γ, γ) = 0}|
+    lim                                    = cΣ
+ L→∞              L6g−6+2r
+      |{γ ∈ S|`Σ (γ) ≤ L, ι(γ, γ) = 1}|
+  lim                                      = 3(2g − 2 + r) · cΣ
+ L→∞              L6g−6+2r
+      |{γ ∈ S|`Σ (γ) ≤ L, ι(γ, γ) = 2}|      9                          
+  lim               6g−6+2r
+                                           = (2g + r)(2g + r − 3) + 2 · cΣ .
+ L→∞              L                          2
+See Proposition 3.1 in [13] for the first limit and Corollary 4.7 for the other
+two.
+   As was the case in [13], the basic strategy of this paper is to translate
+the problem of the existence of the limit (1.1) to the existence of a limit of
+a suitable family of measures. More concretely, we will consider, for γ0 and
+Sγ0 as above and for each L, the measure
+                                   1       X
+                         νγL0 = 6g−6+2r        δ1γ
+                               L                 L
+                                          γ∈Sγ0
+
+on the space C(Σ) of geodesic currents on Σ. Here, δ 1 γ is the Dirac measure
+                                                      L
+centred in the current L1 γ. We will study these measures when L → ∞
+and prove, for instance, that they can only accumulate to multiples of the
+Thurston measure µThu on the space ML(Σ) of measure laminations:
+                                                                                3
+
+Proposition 4.1. Any sequence (Ln )n of positive numbers with Ln → ∞
+                                                   Ln
+has a subsequence (Lni )i such that the measures (νγ0 i )i converge in the
+weak-*-topology to the measure α · µThu on ML(Σ) ⊂ C(Σ) for some α > 0.
+   The point of considering limits of these measures is that actual existence
+of the limit of the measures νγL0 implies (is equivalent to) the existence of
+the limit (1.1). Before making this statement precise, recall that there is
+a (filling) current associated to the hyperbolic metric, the Liouville current
+λΣ ∈ C(Σ), satisfying
+(1.2)                          ι(λΣ , γ) = `Σ (γ)
+for every curve γ. Here ι(·, ·) is the intersection form on the space of currents
+and a current λ is filling if every geodesic in Σ is transversally intersected
+by some geodesic in the support of λ.
+   In light of (1.2), we can consider the limit (1.1) as a special case of the
+limit
+                                |{γ ∈ Sγ0 |ι(λ0 , γ) ≤ L}|
+(1.3)                     lim
+                         L→∞             L6g−6+2r
+where λ0 ∈ C(Σ) is filling. We prove:
+Proposition 4.3. Let (Ln )n be a sequence with limn→∞ νγL0n = α · µThu for
+some α ∈ R+ . Then
+         |{γ ∈ Sγ0 |ι(λ0 , γ) ≤ Ln }|
+    lim                               = α · µThu ({λ ∈ ML(Σ)|ι(λ0 , λ) ≤ 1})
+   n→∞           Ln 6g−6+2r
+for every filling current λ0 ∈ C(Σ).
+  As a direct consequence we will get that the existence or non-existence of
+the limit (1.3) does not depend on the concrete (filling) current λ0 . In fact,
+we get something better:
+Corollary 4.4. Let Σ be a hyperbolic surface of finite area, and let λ1 , λ2 ∈
+C(Σ) be filling currents. Then we have
+          |{γ ∈ Sγ0 |ι(λ1 , γ) ≤ L}|   µThu ({λ ∈ ML(Σ)|ι(λ1 , λ) ≤ 1})
+        lim                          =
+     L→∞ |{γ ∈ Sγ0 |ι(λ2 , γ) ≤ L}|    µThu ({λ ∈ ML(Σ)|ι(λ2 , λ) ≤ 1})
+for every multicurve γ0 in Σ. Here µThu is as always the Thurston measure
+on the space of measured laminations ML(Σ).
+Remark. In view of Corollary 4.4, it follows from Mirzakhani’s result [14]
+on the existence of limit (1.1) that the limit (1.3) also exists for any pos-
+sible filling current for any arbitrary hyperbolic surface of finite type. For
+instance, it follows that the analogue of the limit (1.1) also exists if we mea-
+sure lengths with respect to an arbitrary metric of negative curvature [15],
+or with respect to a singular flat structure [6]. All this might be worth not-
+ing because Mirzakhani’s arguments, using trace relations, may be hard to
+apply directly in these situations. This is what we meant when we claimed
+that the results in this paper and in [14] are to some extent complementary.
+4                   VIVEKA ERLANDSSON AND JUAN SOUTO
+
+Remark. As we will explain in a short digression at the end of section 4.4,
+it follows from Corollary 4.4 and the work of Mirzakhani [14] that more
+general limits of the form (1.3) exist, where one replaces the multicurve γ0
+by a current α.
+    As we have seen, to establish the existence or non-existence of either
+limit (1.1) and (1.3) what we have to figure out is whether the measures
+νγL0 converge. Our strategy is to relate these measures to some other mea-
+sures which are supported from the very beginning on the space of measured
+laminations. To do so we need to establish a relationship between the mul-
+ticurves in Sγ0 , which are in general non-simple, and simple multicurves. In
+some sense, establishing this relation is the main goal of the paper.
+    In the case that Σ has no punctures this relation is pretty straight forward.
+Namely, we will prove that “generic” multicurves in Sγ0 have intersections
+with extremely small angles:
+Theorem 1.2. Let Σ be a closed hyperbolic surface of genus g ≥ 2 and
+let ](γ) ∈ (0, π2 ] denote the largest angle among the self-intersections of a
+multicurve γ ⊂ Σ. Then
+                                                           
+                     1       γ ⊂ Σ multicurve, ι(γ, γ) = k,
+            lim                                                =0
+           L→∞ L6g−6              ](γ) ≥ δ, `Σ (γ) ≤ L
+for every k and every δ > 0.
+   Hence, if Σ is closed it follows from Theorem 1.2 that generically ele-
+ments of Sγ0 have, if their length is large, extremely flat self-intersections.
+This means thus that there is a well-determined way to resolve the self-
+intersections of such generic γ to produce a simple multicurve which locally
+is almost parallel to the original curve. Doing so we obtain a map
+                            π,γ0 : Sγ0 → MLZ (Σ)
+from a generic subset Sγ0 of Sγ0 to the set MLZ (Σ) of simple multicurves
+in Σ. Here, genericity of Sγ0 just means that
+                          |{γ ∈ Sγ0 \ Sγ0 |`Σ (γ) ≤ L}|
+                     lim                                    = 0.
+                    L→∞            L6g−6+2r
+The map π,γ0 maps multicurves in Sγ0 to simple multicurves of basically
+the same length. By itself, this property already implies that π,γ0 is finite-
+to-one. What is more remarkable is that the cardinality of the preimages
+  −1 (γ)| is uniformly bounded from above (see section 3.4 for precise state-
+|π,γ 0
+ments).
+   The basic idea of the proof of Proposition 4.1 is to push the measures
+ L
+νγ0 via the map π,γ0 to the space of measured laminations and compare
+them to the so obtained measures µL    ,γ0 . The latter measures can be more
+concretely written as
+                                 1       X
+                                                   −1
+                    µL
+                     ,γ0 =                      |π,γ  (γ)|δ 1 γ
+                             L6g−6+2r                 0       L
+                                       γ∈MLZ
+                                                                                 5
+
+where δx is again the Dirac measure centred at x. We will show that the
+measures µL            L
+            ,γ0 and νγ0 get closer and closer to each other as L increases (see
+Lemma 4.2). In particular, to establish the convergence of νγL0 it suffices to
+prove that µL ,γ0 converges.
+   The key observation is that, since |π,γ   −1 (γ)| is uniformly bounded, any
+                                                0
+accumulation point µ of (µL   ,γ0 ) is absolutely continuous with respect to the
+Thurston measure µThu on ML(Σ). Since µ is also a limit of the mapping
+class group invariant measures νγL0 , it is itself also mapping class group in-
+variant. Thus we get from a theorem due to Masur [10] asserting that µThu
+is ergodic, that the limit µ is actually a multiple of the Thurston measure,
+as we claimed in Proposition 4.1.
+   Note at this point that if the map π,γ0 were equivariant under the map-
+ping class group, then the existence of the limit limL→∞ µL    ,γ0 would directly
+follow from the work of Mirzakhani [13] on the distribution of simple multi-
+curves. However, the map π,γ0 is unfortunately not equivariant because its
+domain Sγ0 is not mapping class group invariant.
+   To partially by-pass this problem we will observe that if τ is an almost
+geodesic maximal train-track in Σ then
+                              −1               −1
+(1.4)                       |π,γ0
+                                   (φ(γ))| ≥ |π,γ0
+                                                    (γ)|
+for all γ carried by and filling τ and for every mapping class φ in the semi-
+group
+                        Γτ = {φ ∈ Map(Σ)|φ(τ ) ≺ τ }
+consisting of those mapping classes which map τ to a train-track carried by
+τ . This is relevant because from (1.4) and Proposition 4.1 we get:
+Proposition 4.6. Let τ be a maximal recurrent train-track and U ⊂ {λ ∈
+ML(Σ)|λ ≺ τ } open with µThu (U ) > 0 and µThu (∂U ) = 0. Suppose also
+that the following holds:
+        (*) If I ⊂ {γ ∈ MLZ (Σ)|γ ≺ τ } is a non-empty Γτ -invariant
+        set of simple multicurves carried by τ then there is α > 0 with
+                            1
+                    lim 6g−6+2r |I ∩ L · U | = α · µThu (U ).
+                   L→∞ L
+
+Then the limit limL→∞ νγL0 exists.
+   The virtue of Proposition 4.6 is that it reduces the problem of showing
+that the measures νγL0 converge to a problem about distribution of simple
+multicurves. On the other hand, working with semigroups is harder than
+working with groups.
+   However, in the case of a punctured torus we can identify the semigroup
+Γτ with the positive semigroup SL2 N of the mapping class group Map(Σ) ≃
+SL2 Z, the set of multicurves carried by τ with N2 , the space of measured
+laminations with R2 /±1, and the Thurston measure with Lebesgue measure.
+In other words we are in a very concrete situation and we can use results of
+Maucourant [11] to prove:
+6                   VIVEKA ERLANDSSON AND JUAN SOUTO
+
+Theorem 1.3. Every SL2 N-invariant set I ⊂ N2 has a density, meaning
+that there is α ∈ R with
+                           1
+                       lim   |I ∩ L · U | = α · vol(U )
+                      L→∞ L2
+
+for any U ⊂ R2 open and bounded by a rectifiable Jordan curve. Here
+L · U = {v ∈ R2 | L1 v ∈ U } is the set obtained by scaling U by L and vol(U )
+is the area of U with respect to Lebesgue measure.
+   Theorem 1.1 will follow from Theorem 1.3, Proposition 4.6 and Proposi-
+tion 4.3.
+    Before concluding the introduction, note that Theorem 1.2 was only stated
+for closed surfaces. Indeed, the statement is wrong in general. In the pres-
+ence of cusps there are small and large angles due to the fact that the
+intersections might well occur in the vicinity of the cusps. This means that
+the construction of the map π,γ0 is going to be more subtle in the pres-
+ence of cusps than in the closed case. In fact, section 2 and section 3 are
+basically devoted to constructing the map π,γ0 and to study some of its
+properties. More concretely, in section 2 we introduce a generalization of
+the notion of train-track, to which we give the beautiful Finnish name of
+radalla. A radalla is basically an immersed version of a train-track, and the
+main result of this section is Proposition 2.1 which asserts that for every k
+and every radalla τ̂ there is a uniform upper bound for the cardinality of the
+set of multicurves carried by τ̂ , with k self-intersections and which represent
+a given solution of the switch equations. In section 3 we study the Hausdorff
+limits of sequences of multicurves with self-intersections and prove that for
+every k there are finitely many almost geodesic radallas which carry all but
+finitely many multicurves with at most k self-intersection. We use this fact
+to prove that the number |{γ ∈ Sγ0 |`X (γ) ≤ L}| grows polynomially of
+degree L6g−6+2r (Corollary 3.6) and to prove Theorem 1.2. Finally, in sec-
+tion 3 we also construct the map π,γ0 . In section 4 we study the measures
+νγL0 and µL,γ0 and prove Proposition 4.1, Proposition 4.3, Corollary 4.4 and
+Proposition 4.6. In section 5 we discuss the case when Σ is a once-punctured
+torus, prove Theorem 1.3 and conclude the proof of Theorem 1.1.
+Remark. Before concluding we would like to point out that all the results in
+this paper hold true if we replace the mapping class group Map(Σ) by one
+of its finite index subgroups Γ, that is, if we consider the set Γ · γ0 instead
+of the set Sγ0 = Map(Σ) · γ0 . The point is that we rely on Masur’s theorem
+on the ergodicty of the Thurston measure and this result also holds true for
+finite index subgroups of the mapping class group.
+
+Acknowledgements. Many thanks are due to Maryam Mirzakhani for
+interesting comments and for sharing a draft of her paper [14]. We also
+thank François Maucourant for basically proving Proposition 5.2 for us.
+We also thank Benjamin Bandli for interesting conversations. We are also
+                                                                                        7
+
+grateful to the organizers of the Sixth Iberoamerican Congress on Geometry,
+especially to Ara Basmajian, because it was during this event that we began
+this work. In fact, we were motivated by a beautiful talk by Moira Chas.
+
+                                           2.
+   Train-tracks are a key tool to study the structure of the set of all simple
+curves on surfaces. In this section we introduce a small variation, basically
+an immersed version of a train-track, which we will use to study curves with
+self-intersections. We refer to [17, 16, 9] for basic facts about train-tracks.
+2.1. Train-tracks and radallas. By a smoothly embedded 1-complex τ in
+a surface Σ we mean a finite embedded complex whose edges are smoothly
+embedded arcs with well-defined tangent lines at the end-points. We more-
+over require that for every vertex v all the lines tangent to edges adjacent
+to it agree – we denote this line by Tv τ .
+   If τ is such an embedded 1-complex and v ∈ τ is a vertex, then the set of
+(germs of) edges adjacent to v can be divided into two sets, according to the
+two directions of Tv τ . We say that τ is a pre-train-track if these two sets are
+non-empty for each vertex – equivalently, every vertex v of τ is contained
+in the interior of a smoothly embedded arc I ⊂ τ . A complementary region
+∆ of a pre-train-track τ is the metric completion of a connected component
+of Σ \ τ . Note that the boundary of ∆ is smooth except at a finite number
+of cusp points corresponding to vertices of τ . If v happens to be a trivalent
+vertex, then v corresponds to a single cusp in a single complementary region.
+A pre-train-track τ is a train-track if no complementary region is a disk with
+at most 2 cusps or a disk with one puncture and no cusp.
+Remark. We will only consider trivalent train-tracks, meaning that all ver-
+tices have degree 3.
+  By definition, train-tracks are embedded in Σ – we now define an im-
+mersed version:
+Definition. A radalla1 in a surface Σ is a triple (τ̂ , τ, φ : τ̂ # Σ) where
+   (1) τ̂ is a finite graph and τ ⊂ τ̂ is a subgraph containing all vertices.
+   (2) φ : τ̂ # Σ is a smooth immersion whose restriction to τ is an
+       embedding and φ(τ ) is a train-track in Σ.
+   (3) If e is an edge of τ̂ \ τ , then
+           • φ(e) is contained in a complementary region ∆ of the train-track
+             φ(τ ).
+           • The end points of e are mapped into cusps of ∆.
+           • φ|e cannot be homotoped relative to the endpoints to a map with
+             image in φ(τ ).
+   1According to Google Translate, radalla means track in Finnish. According to our
+Finnish connection it is mostly used in the form olla radalla as in to be on track to pick
+up girls in bars but we ignored it when we coined this term.
+8                      VIVEKA ERLANDSSON AND JUAN SOUTO
+
+            • φ|e cannot be homotoped to φ|e0 relative to the endpoints for any
+              edge e0 of τ̂ \ τ distinct from e.
+   We will often denote the radalla (τ̂ , τ, φ : τ̂ # Σ) just by τ̂ and we will
+identify the subgraph τ with the train-track φ(τ ). In fact, one should think
+of a radalla τ̂ as a diagonal extension of the underlying train-track τ where
+the added diagonals are possibly neither simple nor disjoint – compare with
+figure 1.
+
+
+
+
+         Figure 1. Part of the image of a radalla τ̂ – the solid lines
+         are part of the underlying train-track τ and the black dot is
+         a cusp.
+
+    Recall that an immersed curve γ : S1 → Σ is isotopic to a second curve
+γ 0 : S1 → Σ if there is a smooth map
+                           S1 × [0, 1] → Σ, (t, s) 7→ γs (t)
+such that γ0 = γ, γ1 = γ 0 and γs is an immersion for all s. Note that by
+definition any curve isotopic to an immersed curve is immersed as well.
+Definition. Let τ̂ = (τ̂ , τ, φ : τ̂ # Σ) be a radalla. An immersed but possibly
+non-simple curve γ : S1 → Σ is carried by τ̂ if there is a map γ 0 : S1 → τ̂
+such that γ and φ ◦ γ 0 are isotopic.
+   Curves carried by a radalla behave very much like curves carried by a
+train-track. For instance, if Σ is endowed with a hyperbolic metric then
+there is a constant L = L(τ̂ , Σ) such that for every curve γ : R → τ̂ for
+which φ ◦ γ : R → Σ has constant velocity, any lift φ]         ◦ γ : R → Σ̃ = H2
+                                                             1
+is an L-bilipschitz embedding. In particular, if γ : S → τ̂ is such that
+φ ◦ γ is a smooth immersion, then γ is an essential curve in Σ. Moreover,
+if γ, γ 0 : S1 → τ̂ where φ ◦ γ and φ ◦ γ 0 are homotopic smooth immersions,
+then there is h : S1 → S1 with γ 0 = γ ◦ h.
+   Recall that a train-track τ is carried by another train-track τ 0 – that is
+τ ≺ τ 0 – if the embedding of τ into Σ is smoothly isotopic to an immersion
+τ → Σ with image contained in τ 0 . This definition carries over to radallas as
+follows: we say that τ̂ = (τ̂ , τ, φ : τ̂ # Σ) is carried by τ̂ 0 = (τ̂ 0 , τ 0 , φ0 : τ̂ 0 #
+Σ) – and write τ̂ ≺ τ̂ 0 – if there is a smooth immersion ψ : τ̂ → τ̂ 0 mapping
+                                                                                   9
+
+τ into τ 0 and such that φ0 ◦ ψ is homotopic to φ. Clearly, being carried is
+a transitive property, meaning for instance that if multicurve γ ≺ τ̂ and if
+τ̂ ≺ τ̂ 0 then γ ≺ τ̂ 0 .
+     While train-tracks and radallas are topological objects, we will be mostly
+interested in those that are geometrically well-behaved. A radalla τ̂ =
+(τ̂ , τ, φ : τ̂ # Σ) is -geodesic if the image φ(e) of each edge e of τ̂ has
+at most geodesic curvature  and length at least 1 . Note that it follows
+from this definition that, as long as  is small enough, every curve carried
+                                                   1
+by an -geodesic radalla has at least length 2      . Also note that, since all the
+vertices of τ̂ are also vertices of τ , if the train-track φ(τ ) is -geodesic, then
+the radalla is isotopic to an -geodesic radalla.
+
+2.2. Thickenings of radallas. Train-tracks can be consider as graphs or
+as band complexes, and the same is true for radallas. We recall briefly the
+definition of a band complex. For us, a band is just a rectangle [0, a] × [0, b]
+with long horizontal sides and short vertical sides (a >>> b), foliated by
+the vertical segments {t} × [0, b]. A band complex is a space X obtained by
+gluing finitely many bands together along the short vertical sides in such
+a way that in the end the whole boundary of X consists of the horizontal
+components of the bands. Note that the vertical foliations of the bands
+match up to a foliation FX of the band complex X.
+Definition. A thickening of a radalla (τ̂ , τ, φ : τ̂ # Σ) is a triple (X, ι, φ̄)
+where
+      • X is a surface endowed with a structure of a band complex,
+      • ι : τ̂ → X is an embedding transversal to the vertical foliation FX
+        such that each band contains a leaf of FX which meets ι(τ̂ ) exactly
+        once, and
+      • φ̄ : X → Σ is an immersion with φ = φ̄ ◦ ι.
+  We note that each radalla has a thickening and that thickenings are unique
+up to homeomorphism of X and isotopy of φ̄. Note also that a curve γ :
+S1 → Σ is carried by a radalla (τ̂ , τ, φ : τ̂ # Σ) if and only if whenever
+(X, ι, φ̄) is a thickening there is an immersion γ̄ : S1 → X transversal to the
+vertical foliation FX and with φ̄ ◦ γ̄ isotopic to γ. The curve γ̄ : S1 → X is
+unique up to isotopy.
+   Recall that by a multicurve λ in Σ we mean a closed immersed 1-manifold,
+each one of whose components represents a primitive non-peripheral element
+in π1 (Σ), and that ι(λ, λ) is the minimum number of self-intersections of
+those λ0 in general position and isotopic to λ. The condition that each com-
+ponent of a multicurve represents a non-trivial primitive element in π1 (Σ)
+amounts to asserting that each multicurve is determined by the associated
+geodesic current. Moreover, the self-intersection number agrees with the
+self-intersection number when we see multicurves as currents.
+10                   VIVEKA ERLANDSSON AND JUAN SOUTO
+
+   Suppose that the multicurve λ in Σ is carried by a radalla τ̂ = (τ̂ , τ, φ :
+τ̂ # Σ), meaning that each component is carried by τ̂ . Let X = (X, ι, φ̄) be
+a thickening of τ̂ and λ̄ ⊂ X a multicurve transversal to the vertical foliation
+FX such that φ̄(λ̄) is isotopic to λ. Since λ̄ is unique up to isotopy we get
+that the self-intersection number
+                                          def
+(2.1)                           ιX (λ, λ) = ι(λ̄, λ̄)
+of λ̄ with itself depends only on λ and X. We note that
+                                ι(λ, λ) ≥ ιX (λ, λ)
+but that in general equality does not hold: for instance the self-intersections
+arriving from the edges of τ̂ which are not embedded under φ are not counted
+when computing ιX (λ, λ).
+
+2.3. Switch equations. Let (τ̂ , τ, φ : τ̂ # Σ) be a radalla and denote by
+E(τ̂ ) and V (τ̂ ) the sets of edges and vertices of τ̂ . At each vertex v choose
+an orientation of Tv τ̂ and denote by Ev+ (τ̂ ) (resp. Ev− (τ̂ )) all the (germs
+of) edges starting at v in positive (resp. negative) direction. These choices
+yield a linear map
+                                                                     
+                                                  X           X
+    Wτ̂ : RE(τ̂ ) → RV (τ̂ ) , (ae )e∈E(τ̂ ) 7→      ae −         ae 
+                                                e∈Ev+ (τ̂ )    e∈Ev− (τ̂ )   v∈V (τ̂ )
+
+                                                      E(τ̂ )
+We refer to the entries of the elements in R+            as weights. Elements in
+                                                                               E(τ̂ )
+ker(Wτ̂ ) are said to satisfy the switch equations. More concretely, w ∈ R+
+satisfies the switch equations if at every vertex the sum of positive weights
+equal the sum of negative weights.
+   Every curve γ : S1 → τ̂ with φ ◦ γ an immersion yields a solution ωγ to
+the weight equation by associating to each edge e ∈ E(τ̂ ) the cardinality of
+γ −1 (x) for some interior point x ∈ e. Note that ωγ = ωγ 0 if φ ◦ γ and φ ◦ γ 0
+are homotopic. The vector ωγ associated to a multicurve is the sum of the
+vectors associated to the individual components.
+   Basically, the difference between a train track and a radalla is that the
+later is not embedded, meaning that there are edges which cross themselves
+or which cross another edge. This implies that often curves carried by a
+radalla are going to have self-intersections. In fact, if e and e0 are (possibly
+equal) edges of a radalla τ̂ with ι(e, e0 ) = r and if γ : S1 → τ̂ is an immersion
+with associated vector of weights ωγ then γ has at least r · ωγ (e) · ωγ (e0 ) self-
+intersections. Here ι(e, e0 ) is the minimal number of interior intersection
+points of edges isotopic to e and e0 in the complement of the underlying
+train-track and relative to the respective endpoints.
+Remark. In fact, it is possible to establish a more precise version of this last
+fact. Namely, if (τ̂ , τ, φ : τ̂ # Σ) is a radalla with thickening (X, ι, φ̄), then
+                                                                                              11
+
+we have
+                                             X
+          ι(λ, λ0 ) = ιX (λ, λ0 ) +                          ι(e, e0 ) · ωλ (e) · ωλ0 (e0 )
+                                      {e,e0 }⊂E(τ̂ )\E(τ )
+
+for any two, possibly equal, multicurves λ, λ0 carried by τ̂ . Here ιX (λ, λ0 ) is
+defined as in (2.1).
+2.4. The meat. It is well-known that a simple multicurve γ carried by a
+train-track is determined by the associated vector of weights ωγ . It is on the
+other hand easy to find examples showing that this is no longer true if the
+multicurves under consideration are not simple. We will see however that
+as long as one only allows a bounded number of self-intersections, then γ is
+determined by ωγ up to bounded indeterminacy. In fact, Proposition 2.1 is
+the most important result of this section:
+Proposition 2.1. For every radalla (τ̂ , τ, φ : τ̂ # Σ) and every k there is K
+                                                     E(τ̂ )
+such that for every integral positive solution ω ∈ Z+ ⊂ RE(τ̂ ) of the switch
+equation there are at most K homotopy classes of multicurves γ carried by
+τ̂ with ωγ = ω and with ι(γ, γ) = k.
+   The proof of Proposition 2.1 is pretty long – we suggest that the reader
+skips over it in a first reading.
+Proof. The basic strategy of the proof is to show that each multicurve γ
+carried by τ̂ = (τ̂ , τ, φ : τ̂ # Σ), with ι(γ, γ) = k and with ωγ = ω, can
+be isotoped into “normal form”, and that the number of curves in the said
+normal form is bounded in terms of the radalla τ̂ and the bound k on the
+number of self-intersections.
+   To begin with we choose a thickening X = (X, ι, φ̄) of τ̂ . We will draw
+a pattern, of which we think of as millimeter paper, on a subset X̄ of X.
+Before describing the construction in words, we refer the reader to figure
+2 and suggest to keep this drawing in mind while reading the following
+lines. Well, starting with the construction denote by B(e) the band of X
+corresponding to the edge e of τ̂ . Draw ωe disjoint segments on B(e) that are
+transversal to the vertical foliation of B(e), joins the two vertical boundary
+components, and such that when we consider the union of all these segments
+over all bands we obtain a simple multicurve Ω in X with ωΩ = ω. Now,
+we choose for each edge e of τ̂ a finite set L(e) consisting of at least 200k
+vertical leaves contained in the band B(e) and we set L = ∪L(e) – abusing
+notation we will use L (resp. L(e)) to refer both to the finite set of leaves
+and to the union of those leaves as a subset of X. The multicurve Ω and the
+set L determine a tiling by closed squares of a subset X̄ of X, namely the
+closure of the union of those squares in X whose boundary consists of two
+subsegments of L and two subsegments of Ω. The boundary ∂ X̄ consists of
+finitely many vertical and finitely many horizontal subsegments – we refer
+to the vertical subsegments as the exceptional vertical segments. Note that
+the exceptional segments appear only at the vertices of τ̂ – more concretely,
+12                  VIVEKA ERLANDSSON AND JUAN SOUTO
+
+if a vertex is such that s edges of τ̂ merge into an edge, then we find there
+s − 1 exceptional vertical segments.
+
+
+
+
+        Figure 2. The milllimeter paper pattern on X: the dotted
+        lines are the boundary of X, the solid vertical segments are
+        the leaves in L, the solid horizontal segments are the trace
+        of the multicurve Ω, the shaded region is X̄, and finally the
+        thick and short vertical segment is the exceptional segment
+        corresponding to the vertex in the picture.
+
+   We will refer to the closed squares in X̄ as tiles. For lack of a better
+word, if Q is a tile we will refer to the two horizontal sides and to the two
+diagonals of Q as being non-vertical. A multicurve γ : S1 t · · · t S1 → X is
+in preliminary normal form (cf. figure 3) if
+      • the set of self-intersections is discrete,
+      • the image is the union of non-vertical segments, and
+      • γ is C 0 -close to a smooth multicurve in X which is transversal to
+        the vertical foliation FX .
+Observe that every curve in preliminary normal form is carried by τ̂ and
+that by construction we have ωγ (e) ≤ ω(e) for every edge e and every such
+multicurve γ. Note also that since we are only going to be interested in
+homotopy classes of multicurves, we will identify multicurves in preliminary
+normal form with the same image.
+Claim 1. Every multicurve γ in X transversal to the vertical foliation FX ,
+with ωγ = ω, and with ιX (γ, γ) ≤ k is isotopic (transversally to FX ) to a
+multicurve γ 0 in preliminary normal form and with ιX (γ 0 , γ 0 ) = ιX (γ, γ).
+Proof of Claim 1. We can perturb γ so that, while keeping all its listed
+properties, we also have that γ is contained in the tiled part X̄ of X, no
+crossing of γ lies on L, and there is at most a single crossing between any two
+consecutive leaves of L. Here we say that two leaves `, `0 of L are consecutive
+if there is a square whose vertical boundary is contained in ` ∪ `0 .
+   Note that all of this means that each ` ∈ L(e) meets γ in ωγ (e) = ω(e)
+points. We can thus isotope γ so that, while keeping all its properties so
+far, it meets (for every e) each leave ` ∈ L(e) in the points ` ∩ Ω, i.e. in the
+                                                                               13
+
+
+
+
+        Figure 3. A curve γ in preliminary normal form with weight
+        vector ωγ = ω.
+
+vertices of the tiling of X̄. Now, the image of γ consists of segments I which
+join points in L ∩ Ω and whose interiors are disjoint from L. Moreover, the
+two endpoints of any such segment I are contained in some tile. Replacing
+each segment I by the corresponding straight segment in the tile we obtain
+a curve in preliminary normal form, as we wanted to construct.              
+   Having brought multicurves in preliminary normal form is not enough
+to prove Proposition 2.1 because the number of multicurves in such form
+depends not only on the radalla and on the number k of allowed crossings,
+but also on the entries of the vector ω. To avoid this dependence, we are
+going to associate a complexity κ(γ) to every multicurve γ in preliminary
+normal form and with ιX (γ, γ) ≤ k. Note that each such curve γ determines
+a collection Cγ of ιX (γ, γ) closed tiles, namely the tiles containing a crossing
+– let |Cγ | be the support of Cγ , i.e. the union of the closed tiles therein.
+   We set the complexity of γ to be
+κ(γ) =the number of tiles in Cγ contained in those connected components
+        of |Cγ | which do NOT contain an exceptional vertical segment.
+We will say that a multicurve γ is in normal form if it is in preliminary
+normal form and has vanishing complexity κ(γ) = 0. We are going to prove:
+
+Claim 2. Every multicurve γ in X transversal to the vertical foliation FX ,
+with ωγ = ω, and with ιX (γ, γ) ≤ k is isotopic (transversally to FX ) to a
+multicurve γ 0 in normal form, and with ιX (γ 0 , γ 0 ) = ιX (γ, γ).
+   Assuming Claim 2 for a moment, we conclude the proof of Proposition
+2.1. Any multicurve λ carried by τ̂ lifts to a multicurve λ̄ ⊂ X, meaning
+that φ̄(λ̄) isotopic to λ. We know moreover that
+                            ιX (λ̄, λ̄) ≤ ι(λ, λ) = k
+Now, from Claim 2 we get that λ̄ is isotopic to a multicurve γ ⊂ X in normal
+form and with ιX (γ, γ) ≤ k. The claim of Proposition 2.1 will follow once we
+prove that the number of choices for γ is bounded just in terms of k and the
+14                   VIVEKA ERLANDSSON AND JUAN SOUTO
+
+radalla τ̂ . To see that this is the case endow the quadrangulated part X̄ with
+a metric which makes each tile isometric to the euclidean square of diameter
+1. Now, if γ is a curve in preliminary normal form, with ιX (γ, γ) ≤ k we
+have that each connected component of |Cγ | has at most diameter k. If γ is
+in normal form then each component of |Cγ | contains an exceptional vertical
+segment, meaning that all the crossings of γ are located in one of the tiles
+within distance k of one of these exceptional vertical segments. Since the
+number of exceptional vertical segments just depends on the radalla τ̂ we
+obtain that all the crossings of γ are in a set of tiles whose cardinality just
+depends on τ̂ and k, as we needed to show.
+   It remains to prove Claim 2.
+Proof of Claim 2. By Claim 1 we know that γ is isotopic to a multicurve
+γ (0) ⊂ X in preliminary normal form and with ιX (γ (0) , γ (0) ) = ιX (γ, γ).
+Among all choices for γ (0) , consider those with minimal complexity κ(γ (0) ),
+and among those with minimal complexity, suppose that the number of
+connected components of |Cγ (0) | is also minimal. We will show that κ(γ (0) ) =
+0, meaning that γ (0) is in normal form. Seeking a contradiction suppose that
+there is a component |Cγ∗(0) | of |Cγ (0) | which does not contain an exceptional
+vertical segment. Choose one of the tiles T forming |Cγ∗(0) | and orient it
+transversally to the vertical foliation but otherwise arbitrarily – for the sake
+of concreteness we will refer to the positively oriented side as “left”. Note
+that this orientation of T induces an orientation of each other tile in the
+connected component |Cγ∗(0) |. We can now isotope the curve γ (0) to a curve
+γ (1) by shifting the crossings in |Cγ∗(0) | to the left. More precisely γ (1) is the
+curve in preliminary normal form with the same number of crossings as γ (0) ,
+such that each crossing of γ (0) which does not lie in |Cγ∗(0) | is still a crossing
+of γ (1) , and finally such that each crossing of γ (0) contained in |Cγ∗(0) | has
+been replaced by a crossing on the tile to the left – compare with figure 4.
+
+
+
+
+        Figure 4. The process by which γ (1) is obtained from γ (0) .
+
+   The sets of tiles Cγ (1) and Cγ (0) containing the crossings of γ (1) and γ (0) are
+identical, besides the fact that the set of tiles Cγ∗(0) has been shifted to the left
+- denote the new set by Cγ∗(1) . If the set |Cγ∗(1) | does not touch neither another
+component of |Cγ (1) |, nor contains a exceptional vertical segment, then we
+can repeat this process and obtain curves γ (2) and so on. For instance, in
+                                                                                 15
+
+the example presented in figure 4 one can repeat this process 4 times but
+no more – compare with figure 5.
+
+
+
+
+        Figure 5. The shaded tiles can be moved 4 times to the left
+        but no more because the cloud corresponding to γ (4) contains
+        an exceptional vertical segment.
+
+   Note that the minimality assumptions on our curve γ (0) imply that the
+process in question can be repeated infinitely often. This implies that there
+is some s such that Cγ∗(s) = Cγ∗(0) because there are only finitely many tiles
+and hence only finitely many configurations of tiles. But then, this implies
+that X̄ contains a closed annulus
+                                 A = ∪si=0 |Cγ∗(i) |
+made out of tiles and such that the only (closed) tiles in |Cγ (0) | which in-
+tersect A are those in Cγ∗(0) . This implies that every component of γ (0)
+which meets A is contained therein. Since we are assuming that γ (0) realizes
+ιX (γ (0) , γ (0) ) = ιX (γ, γ) and since there are crossings in A, it follows that
+some component of γ (0) ∩ A represents a multiple of the soul of A, contra-
+dicting the assumption that γ (0) is isotopic to the multicurve γ, and hence
+that each of its components is primitive in π1 . This proves Claim 2.            
+  Having proved Claim 2, we have also proved Proposition 2.1.                    
+   Continuing with the same notation as in the proof of Proposition 2.1,
+note that the number s(τ̂ , ω, k) of isotopy classes of multicurves γ carried
+by the radalla τ̂ = (τ̂ , τ, φ : τ̂ # Σ), with ωγ = ω and with ι(γ, γ) = k
+can be algorithmically computed. In fact, when k is small the quantity
+s(τ̂ , ω, k) does not depend on ω as long as ω(e) is bounded from below by
+some threshold to ensure that all possibilities can be realized.
+   Suppose for the sake of concreteness that the radalla τ̂ is actually a triva-
+lent train-track (meaning that all vertices have degree 3 and that τ̂ = τ ) and
+              E(τ̂ )
+that ω ∈ N+ is such that the weight of each edge is relatively large, say
+ω(e) ≥ 10 for all e ∈ E(τ̂ ). Then, since simple multicurves in train-tracks
+are determined by the associated weights we have
+                                  s(τ̂ , ω, 0) = 1
+Things are more complicated if we allow for intersections, and in fact we
+have
+                                           V
+                            s(τ̂ , ω, 1) =
+                                           2
+16                   VIVEKA ERLANDSSON AND JUAN SOUTO
+
+where V is the number of vertices of the train-track τ = τ̂ . Indeed, if
+a multicurve γ carried by τ̂ is in normal form and satisfies ωγ = ω and
+ι(γ, γ) = 1, then the unique crossing of γ has to be in one of the V tiles
+adjacent to an exceptional segment. Conversely, for each one of these tiles
+we get one such curve, meaning that there are exactly V curves γ ≺ τ̂ in
+normal form, with ι(γ, γ) = 1 and ωγ = ω. On the other hand, s(τ̂ , ω, 1) = V2
+because each multicurve γ in normal form with ωγ = ω and ι(γ, γ) = 1 is
+isotopic to precisely another one such multicurve γ 0 obtained as follows: let
+T0 be the tile containing the crossing of γ0 = γ, let T1 be the tile adjacent
+to T0 and opposite to the exceptional segment contained in T0 , and let γ1 be
+the multicurve in preliminary normal form, with ωγ1 = ω and with a single
+crossing in T1 . Then let T2 be the tile adjacent to T1 and opposite to T0
+and let γ2 be the multicurve in preliminary normal form with ωγ2 = ω and
+with a single crossing in T2 . Define inductively T3 , T4 , . . . pushing the tile
+away from the exceptional segment and let γ3 , γ4 , . . . be the corresponding
+curves. This process has to end with γ 0 = γk when Tk is adjacent to a second
+exceptional segment. Note that γ 0 is in normal form, that γ 0 6= γ, and that
+γ and γ 0 are isotopic.
+   A similar computation can be done if one counts multicurves with 2 self-
+intersections – one obtains that
+                                               V (V + 6)
+                                s(τ̂ , ω, 2) =
+                                                   8
+Leaving the details of the computation of s(τ̂ , ω, 2) to the reader, we just
+sketch a possible approach. We think of the two crossings as railroad cars,
+assign to each one of them a weight and a direction and let them run around
+subject to the condition that if they touch each other then they get stuck
+together and travel in the direction of the heavier one. The argument in the
+proof of Claim 2 shows that at some point they both have to get stranded
+at an exceptional segment (cf. with figure 5). In this way we associate, after
+choosing weights and directions, to each multicurve in preliminary normal
+form a multicurve in normal form satisfying additional condition on the
+directions and weight of the cars. There are V (V + 6) such say ”labeled
+normal forms” and 8 possible distributions of labels, which implies that
+s(τ̂ , ω, 2) = V (V8+6) , as we claimed.
+Remark. The threshold ω(e) ≥ 10 for every edge is very generous – in fact,
+for the two treated cases k = 1, 2, it would have sufficed to require that
+ω(e) ≥ k + 2 for every edge e.
+
+                                       3.
+     With the same notation as all along let
+(3.1)             Sk = {γ multicurve in Σ with ι(γ, γ) = k}
+be the set of all multicurves in Σ with k self-intersections. In this section
+we will show that there is a finite collection of radallas that carry all but
+                                                                                 17
+
+finitely many elements in Sk . In the absence of cusps most element in Sk are
+in fact carried by maximal train-tracks – in the presence of cusps they are
+carried by radallas whose associated train-track is maximal and has finitely
+many extra edges around the punctures. Below we will see that these facts
+together with Proposition 2.1 prove the polynomial growth of the number
+of elements in Sk of length `Σ ≤ L. We will also describe how one can
+associate a simple multicurve to each generic (in a precise sense) multicurve
+with self-intersections.
+3.1. Finding radallas. The basic idea used to prove that there is a finite
+collection of radallas that carry all but finitely many elements in Sk is to
+consider the possible Hausdorff limits of sequences of such multicurves and
+find radallas that carry their limits.
+   We start by extending some basic facts about simple multicurves to the
+setting of multicurves with self-intersections. It is well-known that the set
+of simple closed geodesics on Σ are contained in a compact subset of Σ. A
+direct generalization of this argument also shows the following lemma that
+we state here for further reference:
+Lemma 3.1. For every k there exists a compact set K ⊂ Σ such that every
+geodesic multicurve γ ⊂ Σ with at most k self-intersections is contained in
+K.                                                                       
+  Note that Lemma 3.1 implies that any sequence (γn ) of multicurves in Σ
+with ι(γ, γ) = k has a Hausdorff convergent subsequence.
+   Recall that a lamination is a compact subset of Σ which is foliated by
+simple geodesics, and recall that the Hausdorff limits of sequences of sim-
+ple multicurves are laminations (see [5] for basic facts and definitions about
+laminations). Similarly, the Hausdorff limit λ of a sequence (γn ) of mul-
+ticurves with self-intersections is a union of geodesics but, naturally, they
+can intersect. However, if the multicurves γn have a bounded number of
+intersections, then the non-simple leaves in λ are finite and isolated in the
+following sense:
+Lemma 3.2. Given k, let (γn ) be a sequence in Sk , and suppose that it
+converges to some λ ⊂ Σ in the Hausdorff topology as n → ∞. Then
+λ = λ0 ∪ A where λ0 is a lamination and A is the union of finitely many
+geodesics g1 , . . . , gr such that for each i there exists j, possibly j = i, such
+that gi and gj intersect transversely.
+Proof. As we mentioned above, the Hausdorff limit λ is a union of (images
+of) geodesics. We call a point x ∈ λ singular if there exist geodesics g, ḡ :
+R → Σ parametrized by arc length with g(R), ḡ(R) ⊂ λ and such that
+g(0) = ḡ(0) = x but ḡ 0 (0) 6= ±g 0 (0). Say that a geodesic with image in
+λ is singular if it goes through a singular point and note that the same
+argument used to prove that the closure of a set of simple disjoint geodesics
+is a lamination (see Lemma 3.2 in [5]) shows that
+18                   VIVEKA ERLANDSSON AND JUAN SOUTO
+
+     • any geodesic with image in λ and sufficiently close to a singular
+       geodesic is singular as well,
+     • λ has at most k singular points and hence, up to reparametrization,
+       at most 2k singular geodesics, and
+     • the union A of the images of the singular geodesics is open in its
+       closure.
+The last point implies that λ0 = λ \ A is closed and hence compact. Since
+by construction λ0 does not contain any singular points, it is a lamination,
+as we needed to prove.                                                    
+   Equipped with this lemma we can construct radallas that carry all but
+finitely many multicurves with bounded number of self-intersections. More-
+over, we can do it in such a way that after fixing some arbitrary  > 0, each
+radalla is -geodesic and only finitely many radallas are needed. The basic
+idea is to construct, for each Hausdorff limit λ = λ0 ∪ A as in Lemma 3.2,
+a train-track carrying the lamination λ0 in the usual way, and then add an
+edge for each of the finite leaves in A.
+Lemma 3.3. For any k and  > 0 there exists a finite collection of -geodesic
+radallas τ̂1 , τ̂2 , . . . , τ̂n such that for all but finitely many γ ∈ Sk there is i
+with γ ≺ τ̂i .
+   Note that by definition the curves carried by an -geodesic radalla are
+very long when  is small – this is because we assumed not only that the
+edges have small geodesic curvature but also that they are very long. In
+particular, once can think of the finite exceptional collection in Lemma 3.3
+as the set of short curves in Sk .
+Proof. Let Sk be the closure of Sk in the set of all compact subsets of Σ
+with respect to the Hausdorff topology. Lemma 3.1 implies that Sk is itself
+compact. Let λ ∈ Sk \ Sk be an accumulation point. Fixing an arbitrary
+ > 0, we will construct an -geodesic radalla τ̂λ that carries all γ ∈ Sk that
+are sufficiently (Hausdorff) close to λ. By Lemma 3.2, λ = λ0 ∪ A where
+λ0 is a lamination and A is the finite set of singular leaves. Let 0 > 0 be
+very small and take a regular 0 -neighborhood of λ and denote it by N (λ).
+For each of the finitely many singular points in A take a 20 -ball around it
+and let B be the union of these balls. Then N (λ) \ B admits a foliation
+transversal to λ. Let γ be a geodesic multicurve which is a distance less than
+0 from λ. This curve can be isotoped to a curve which remains transverse
+to the foliation in N (λ) \ B and which follows the leaves of A inside each
+ball in B. After isotoping each such curve in this manner, collapse N (λ)
+along the transverse foliation (in N (λ) \ B) and to the leaves of A inside B.
+This results in a radalla τ̂λ , where the associated train-track is the image of
+λ0 under this collapse. By choosing 0 small enough, we can assume τ̂λ is
+-geodesic.
+   Note that, by construction, every multicurve in Sk contained in some open
+neighborhood in Sk of λ is carried by the -geodesic radalla τ̂λ . Compactness
+                                                                                19
+
+of Sk implies that finitely many such open sets cover a neighborhood of Sk \Sk
+in Sk . The claim follows.                                                  
+3.2. Generic curves. Suppose Σ has genus g and r punctures. As in (3.1),
+let Sk be the set of all multicurves in Σ with k self-intersections.
+Definition. Let Z ⊂ Sk be arbitrary. A subset Z 0 ⊂ Z is negligible if
+                         1
+                 lim           |{γ ∈ Z 0 , `Σ (γ) ≤ L}| = 0
+                L→∞ L6g−6+2r
+The complement Z \ Z 0 of a negligible set Z 0 is said to be generic in Z.
+  If Z 0 is generic in Z, and if the ambient set Z is understood from the
+context, then we just say that Z 0 is generic.
+Remark. Note that Z 0 ⊂ Z could be negligible and generic at the same time.
+Note also that the image under a mapping class of a negligible set is also
+negligible.
+   In this section we prove that the set of all γ ∈ Sk which fill an almost
+geodesic maximal radalla is generic. Here we say that a multicurve γ carried
+by a radalla τ̂ fills if the corresponding vector of weights ωγ is positive,
+meaning that ωγ (e) > 0 for every e ∈ E(τ̂ ). If γ fills τ̂ we write γ ≺fills τ̂ .
+A radalla τ̂ = (τ̂ , τ, φ : τ̂ ,→ Σ) is maximal if φ(τ ) is a maximal recurrent
+train-track. Recall that a train-track τ is recurrent if it is filled by some
+multicurve. A recurrent train-track is maximal if it is not properly contained
+in any other recurrent train-track.
+Remark. If Σ is not a once-punctured torus, then the complementary regions
+of a maximal train-track are just triangles and once-punctured monogons
+(see section 5 for a discussion of the case of the once punctured torus). It
+follows that if Σ is closed, then all complementary regions of a maximal
+recurrent train-track are triangles, which in turn implies that a maximal
+radalla is nothing but a maximal recurrent train-track.
+  We can now state precisely the main goal of this section:
+Proposition 3.4. For any  > 0, the set
+      Sk = {γ ∈ Sk | γ ≺fills τ̂ for some maximal -geodesic radalla τ̂ }
+is a generic subset of Sk .
+  Proposition 3.4 is going to follow easily from Lemma 3.3 once we deter-
+mine “how many” multicurves in Sk are carried by each radalla:
+Lemma 3.5. Let Σ be a hyperbolic surface of genus g with r punctures, let
+(τ̂ , τ, φ : τ̂ # Σ) be a radalla, and suppose that the underlying train-track
+τ is trivalent and is not properly contained in any other τ 0 ⊂ τ̂ such that
+(τ̂ , τ 0 , φ : τ̂ # Σ) is a radalla. Then we have
+                                                                  
+                                1        γ multicurve, γ ≺fills τ̂
+               C = lim sup 6g−6+2r                                   <∞
+                     L→∞ L               ι(γ, γ) = k, `Σ (γ) ≤ L
+20                  VIVEKA ERLANDSSON AND JUAN SOUTO
+
+for every k ∈ N. Moreover C = 0 unless φ(τ ) is a maximal recurrent train-
+track.
+Proof. Given a multicurve γ ∈ Sk carried by τ̂ let `τ̂ (γ) be the length of
+some, and hence any, immersion homotopic to γ and of the form φ ◦ γ 0
+where
+                              γ 0 : S1 t · · · t S1 → τ̂ .
+As mentioned earlier, lifts to the universal cover of curves carried by a radalla
+are bi-lipschitz embeddings where the bi-lipschitz constant is uniform. It
+follows that it suffices to prove that
+                                                                 
+           0                1           γ multicurve, γ ≺fills τ̂
+         C = lim sup 6g−6+2r                                        <∞
+                L→∞ L                   ι(γ, γ) = k, `τ̂ (γ) ≤ L
+and that C 0 = 0 unless φ(τ ) is a maximal recurrent train-track. Let c be an
+upper bound for the length of the images φ(e) of the edges of τ̂ and note
+that for any multicurve γ carried by τ̂ one has
+                                `τ̂ (γ) ≤ c · kωγ k1
+where k · k1 stands for the L1 -norm. Letting V denote the subset of NE(τ̂ )
+consisting of solutions of the switch equations corresponding to some filling
+multicurve γ with ι(γ, γ) = k we have thus
+                                    
+           γ multicurve, γ ≺fills τ̂
+                                        ≤ K · |{ω ∈ V, kωk1 ≤ c · L}|
+           ι(γ, γ) = k, `τ̂ (γ) ≤ L
+where K is the constant provided by Proposition 2.1.
+   Note that the assumption that the vectors ω ∈ V correspond to weights
+of filling multicurves implies that each entry ω(e) is positive. Now, if e ∈
+E(τ̂ ) \ E(τ ) is an edge which is not contained in the train-track part, then
+there is another (possibly identical) edge e0 with ι(e, e0 ) ≥ 1. Recalling that
+                         ω(e) · ω(e0 ) · ι(e, e0 ) ≤ ι(γ, γ)
+for any γ with ωγ = ω we get that
+                                     ω(e) ≤ k
+for every ω ∈ V and every edge e in τ̂ \ τ . This implies that V is contained
+in finitely many translates of the set WZ of integral points in the linear
+subspace
+      W = {ω ∈ RE(τ ) | solution of the switch equations in τ } ⊂ RE(τ̂ )
+of solutions of the switch equations supported by the train-track τ . It follows
+that there is some C with
+          |{ω ∈ V, kωk1 ≤ c · L}| ≤ C |{ω ∈ WZ , kωk1 ≤ c · L}|
+The linear space W is defined over Z, and this implies that the number of
+integer points in W grows like a polynomial of degree equal to its dimension
+dimR (W). Since, as it is well-known, dimR (W) ≤ 6g − 6 + 2r with equality
+if and only if τ is a maximal recurrent train-track, the claim follows.    
+                                                                               21
+
+  We can now prove Proposition 3.4:
+Proof of Proposition 3.4. By Lemma 3.3 there are, for all , finitely many
+-geodesic radallas τ̂1 , . . . , τ̂n which carry all but finitely many curves in
+Sk . Since each radalla contains only finitely many other radallas, we can
+assume, up to adding finitely many radallas to our list, that the radallas τ̂i
+satisfy the condition in Lemma 3.5 and that for all but finitely many γ ∈ Sk
+there is some i with γ ≺fills τ̂i . Now, it follows from Lemma 3.5 that the set
+of those multicurves carried and filling a non-maximal radalla is negligible.
+The claim follows because the finite union of negligible sets is negligible. 
+  Note at this point that in fact it follows from Lemma 3.5 and from the
+argument used in the proof of Proposition 3.4 that set Sk has at most poly-
+nomial growth of degree L6g−6+2r :
+                           1
+               lim sup 6g−6+2r |{γ ∈ Sk |`Σ (γ) ≤ L}| < ∞
+                 L→∞ L
+A lower bound of the same order of magnitude can be obtained just by
+adding crossings to the simple multicurves carried by some maximal recur-
+rent train-track, but it is anyways due to Sapir [20, 21]:
+Corollary 3.6. Let Σ be a hyperbolic surface of genus g and r punctures.
+Then there is C ≥ 1 with
+                   1      1
+                     ≤ 6g−6+2r |{γ ∈ Sk |`Σ (γ) ≤ L}| ≤ C
+                  C     L
+for all L large enough.                                               
+3.3. Angles. We prove Theorem 1.2 from the introduction next:
+Theorem 1.2. Let Σ be a closed hyperbolic surface of genus g ≥ 2 and
+let ](γ) ∈ (0, π2 ] denote the largest angle among the self-intersections of a
+multicurve γ ⊂ Σ. Then
+                                                           
+                     1       γ ⊂ Σ multicurve, ι(γ, γ) = k,
+            lim                                                =0
+           L→∞ L6g−6              ](γ) ≥ δ, `Σ (γ) ≤ L
+for every k and every δ > 0.
+Proof. Given δ > 0 there is  with ](γ) < δ for every multicurve γ carried
+by some -geodesic train-track. In other words, the set
+                      Sk,]<δ = {γ ∈ Sk with ](γ) < δ}
+contains the set
+(3.2)     {γ ∈ Sk | γ ≺fills τ for some maximal -geodesic train-track τ }
+of all multicurves with k self-intersections which fill some -geodesic train-
+track. As noted earlier, the assumption that Σ is closed implies that a
+maximal radalla is in fact a maximal recurrent train-track. It follows thus
+from Proposition 3.4 that the set (3.2) is generic in Sk .                  
+22                   VIVEKA ERLANDSSON AND JUAN SOUTO
+
+   Theorem 1.2 fails if Σ is not closed. We can in fact divide the self-
+intersections into two types which we refer to as small and large. Supposing
+hat Σ is not a once punctured torus (see section 5 for this case) and with no-
+tation as in Proposition 3.4, let τ̂ = (τ̂ , τ, φ : τ̂ # Σ) be a maximal -geodesic
+radalla which is filled by some curve with k self-intersections. Since τ̂ is max-
+imal, and since we are assuming that Σ is not a once-punctured torus, it
+follows that all the complementary regions of φ(τ ) are either triangles or
+once punctured monogons. If  is small enough they are indeed almost ideal
+triangles and almost ideal once-punctured monogons. The ideal triangles
+cannot contain any additional leaves of φ(τ̂ ) but the punctured monogons
+can have one or several such leaves which then have self-intersections with
+relatively large angles. In fact, a simple computation in hyperbolic geometry
+yields that if  is small enough then every intersection between leaves e, e0 of
+a maximal -geodesic radalla happen at an angle greater than k1 whenever
+k ≥ ι(e, e) and k ≥ ι(e0 , e0 ).
+   Moreover, as long as  is chosen small enough we get as in the proof of
+Theorem 1.2 that the self-intersection angles of a geodesic multicurve carried
+by an -geodesic τ̂ are close to those of the representative in the radalla. In
+other words we get:
+Lemma 3.7. Suppose that Σ is not a once-punctured torus. For every k
+and δ positive there is  such that if γ ⊂ Σ is a multicurve with ι(γ, γ) = k
+and which is carried by a maximal -geodesic radalla, then γ has no self-
+intersection with angle in [δ, k1 ].                                       
+   We will refer to intersections with angle larger than k1 as being large. The
+remaining ones are small. Recall that it follows from the argument leading
+to Lemma 3.7 that, as long as  is small enough, large self-intersections of
+multicurves γ ∈ Sk which are carried by a maximal -geodesic radalla τ̂
+correspond to intersection points of (possibly equal) edges of the radalla.
+3.4. The map. Still assuming that Σ is not a once punctured torus, fix
+some k and δ with δ ≪ k1 and fix once and for all  positive but very small
+satisfying Lemma 3.7.
+   Our goal is to construct a map
+                              π,k : Sk → MLZ (Σ)
+from the set Sk of multicurves with k self-intersections carried by a maximal
+-geodesic radalla, to the set MLZ (Σ) = S0 of simple multicurves – this map
+will be the key to relate the growth of the number of self-intersecting curves
+of some type to the growth of simple multicurves. To intuitively explain
+the construction, suppose that all the self-intersections of γ ∈ Sk are small.
+In this case we let π,k (γ) ∈ MLZ (Σ) be the multicurve obtained from γ
+by resolving the self-intersections in such a way that γ and π,k (γ) remain
+almost parallel.
+   Consider now the general case. Suppose that we are given γ ∈ Sk and a
+maximal -geodesic radalla τ̂ = (τ̂ , τ, φ : τ̂ ,→ Σ) with γ ≺fills τ̂ . We start by
+                                                                              23
+
+associating to γ a simple multicurve πτ̂ (γ) with the help of the radalla. As
+before, let E(τ̂ ) be the set of edges of τ̂ and E(τ ) ⊂ E(τ̂ ) the set of edges
+of the associated train-track. Recall that we are assuming that Σ is not a
+once-punctured torus. As we mentioned before, this implies that each edge
+in E(τ̂ ) \ E(τ ) is contained in some punctured monogon. In particular, we
+can associate to each e ∈ E(τ̂ ) \ E(τ ) a locally embedded loop ẽ ⊂ τ in
+the train-track with the same endpoint as e and whose image represents the
+boundary of the punctured monogon containing e (see figure 6).
+
+
+
+
+        Figure 6. The solid line on the left image is an edge e ∈
+        E(τ̂ ) \ E(τ ) and on the right it represents the loop ẽ. In the
+        middle we see an intermediate step given by deleting loops
+        around the puncture.
+
+  We denote by ωẽ ∈ RE(τ ) the vector of weights of ẽ and define a linear
+map
+(3.3)                         πτ̂ : RE(τ̂ ) → RE(τ )
+as the identity on RE(τ ) ⊂ RE(τ̂ ) and as mapping the basis vector e ∈ RE(τ̂ )
+to the vector ωẽ ∈ RE(τ ) for all e ∈ E(τ̂ ) \ E(τ ) (see figure 7).
+    Note that this map can also be viewed as being induced by a smooth map
+τ̂ → τ from the radalla to the train-track, where τ is fixed point-wise and
+where each additional edge e ∈ E(τ̂ ) \ E(τ ) is mapped to the corresponding
+path ẽ ⊂ τ . An alternative description: each edge e ∈ τ̂ \τ has one or several
+loops around a puncture and we are cutting out such loops and homotopying
+the obtained segment into the train-track (compare with figure 6).
+    Anyways, we obtain thus a way to associate to each γ ≺fills τ̂ a simple
+multicurve carried by the underlying train-track τ as follows: consider the
+vector ωγ ∈ RE(τ̂ ) of weights associated to γ, apply πτ̂ as in (3.3) and let
+πτ̂ (γ) ≺ τ be the simple multicurve with
+                               ωπτ̂ (γ) = πτ̂ (ωγ ).
+Next we give a different description of πτ̂ (γ) which does not use the radalla
+τ̂ , just its existence.
+     Recall that by Lemma 3.7, and by the choice of , we can divide the in-
+tersection points of any γ ≺fills τ̂ into two types: small and large. We resolve
+24                 VIVEKA ERLANDSSON AND JUAN SOUTO
+
+
+
+
+        Figure 7. The map πτ̂ : each number is the weight of the
+        edge underneath. The upper picture is in the radalla φ(τ̂ )
+        and the lower in the train-track φ(τ ). The weights on the
+        train-track are the images of the weights on the radalla under
+        the map πτ̂ .
+
+
+
+
+        Figure 8. The effect of the map π on a curve. In the
+        picture, two small intersections and one large intersection
+        have been resolved.
+
+small intersections using the obvious local move: replace two intersecting
+segments by two which are disjoint to each other and almost parallel to the
+original ones (see figure 8). To resolve large intersections note that each one
+of them corresponds to a loop around a puncture – we just remove all such
+loops (see again figure 8). Proceeding like this for all intersection points we
+obtain a simple multicurve γ0 which is in fact homotopic to the simple mul-
+ticurve that we get applying πτ̂ (compare figure 7 and figure 8). It follows
+                  def
+thus that π,k (γ) = πτ̂ (γ) does not depend on the radalla τ̂ , meaning that
+we have a well-defined map
+(3.4)                         π,k : Sk → MLZ
+                                                                                25
+
+Remark. We stress that the only requirement that we put on  is that it
+                                                                 1
+satisfies Lemma 3.7 for some δ small enough, say for δ = 100k      . In fact,
+we will not need to reduce  later on. However, the reader might find it
+reassuring to observe that if 0 ≤ , then π,k |S 0 = π0 ,k .
+                                                          k
+
+     We establish some properties of the map (3.4). Suppose that τ̂ = (τ̂ , τ, φ :
+τ̂ ,→ Σ) is a radalla and that η ⊂ Σ is a simple closed curve transversal to
+τ̂ , by which we mean that both are in general position with respect to each
+other and there are no proper smooth arcs I ⊂ η and J ⊂ τ̂ such that I
+and φ(J) are isotopic to each other relative to their endpoints. Suppose also
+that U is a complementary region of the train-track φ(τ ), and that U is a
+punctured monogon. Then each component of η ∩ U meets the image φ(e)
+exactly twice for each edge e ∈ E(τ̂ ) \ E(τ ) with φ(e) ⊂ U . It follows thus
+directly from the definition of πτ̂ that
+                X                        X
+                     |η ∩ φ(e)| · ω(e) =     |η ∩ φ(e)| · (πτ̂ ω)(e)
+              e∈E(τ̂ )                         e∈E(τ )
+
+for every ω ∈ RE(τ̂ ) . Applying this to ω = ωγ for γ ≺fills τ̂ we get that
+                                 X
+                       ι(η, γ) =      |η ∩ φ(e)| · ω(e)
+                                   e∈E(τ̂ )
+                                    X
+                               =              |η ∩ φ(e)| · (πτ̂ ω)(e)
+                                   e∈E(τ )
+                               = ι(η, π,k (γ)
+where the first (resp. last) equality holds because η and γ (resp. π,k (γ))
+are transversal. We record this fact:
+Lemma 3.8. Suppose that τ̂ is an -geodesic radalla and that η ⊂ Σ is a
+simple closed geodesic transversal to τ̂ . Then we have
+                                ι(η, π,k (γ)) = ι(η, γ)
+for every γ ∈ Sk with γ ≺fills τ̂ .                                            
+   In some sense Lemma 3.8 asserts that γ and π,k (γ) are close to each
+other. Compare with Fact 1 in the next section.
+   Observe that the map (3.4) maps curves of some length to curves of
+roughly the same length. By itself, this already implies that π,k is finite-
+to-one. The main content of the following proposition is that it is actually
+bounded-to-one:
+                                       −1
+Proposition 3.9. There is κ with |π,k    (γ)| ≤ κ for all γ ∈ MLZ . On the
+other hand, if τ is an -geodesic maximal train-track, and φ ∈ Map(Σ) is a
+                                               −1             −1
+mapping class with φ(τ ) ≺ τ , then one has |π,k (φ(γ))| ≥ |π,k (γ)| for every
+simple multicurve γ ≺fills τ .
+26                    VIVEKA ERLANDSSON AND JUAN SOUTO
+
+Proof. Note that the image of π,k consists of simple multicurves which are
+carried and fill some maximal -geodesic train-track. Given such a train-
+                                                      −1
+track τ and a simple multicurve γ ≺fills τ then π,k       (γ) consists of elements
+      
+of Sk which are carried by some radalla τ̂ extending τ . Recall also that
+maximality of τ implies that the leaves e in τ̂ \ τ are contained in once-
+punctured monogons – if r is the number of cusps, there are r such punctured
+monogons. Each one of these leaves in a punctured monogon intersects
+itself and in fact there are, up to isotopy, only k leaves with at most k
+self-intersections. All this implies that there are at most r2k + 1 radallas τ̂
+extending τ and which are filled by some curve in Sk .
+    Hence, to prove the first claim it suffices to bound, for each one of these
+radallas, the number of multicurves γ 0 ∈ Sk with γ 0 ≺fills τ̂ and π,k (γ 0 ) = γ.
+Note that, by construction of the map, the weights ωγ 0 of each such curve
+γ 0 belong to the preimage of the map in (3.3). Since ι(γ 0 , γ 0 ) = k and since
+ι(e, e) ≥ 1 for each e ∈ E(τ̂ ) \ E(τ ) we get that ωγ 0 (e) ≤ k for any such edge.
+It follows that ωγ 0 belongs to a collection of at most k 2 vectors in RE(τ̂ ) . By
+Proposition 2.1 we know that there is some K such that each vector in E(τ̂ )
+corresponds to at most K curves carried by τ̂ and with k self-intersections.
+                          −1
+Altogether we get that π,k  (γ) consists of at most κ = (r2k +1)k 2 K elements.
+We have proved the first claim.
+    To prove the second claim vote that it suffices to show that
+                              π,k (φ(γ 0 )) = φ(π,k (γ 0 ))
+                                                                                  −1
+for every mapping class φ ∈ Map(Σ) with φ(τ ) ≺ τ , and every γ 0 ∈ π,k             (γ)
+                                     0
+for each γ ≺fills τ . Any such γ is carried by some radalla τ̂ extending the
+train-track τ . Since φ(τ ) ≺ τ , we get that φ(τ̂ ) is carried by some radalla
+τ̂ 0 extending τ . Note that τ̂ 0 can be isotoped to be -geodesic. Since we can
+compute π,k (γ 0 ) and π,k (φ(γ 0 )) using the radallas τ̂ and τ̂ 0 , we get thus that
+π,k (φ(γ 0 )) = φ(π,k (γ 0 )) = φ(γ), as we wanted to prove. This concludes the
+proof of Proposition 3.9.                                                             
+    Before moving on, note that the bound we gave in the proof of the first
+claim of Proposition 3.9 is rather brutal. In fact, in the absence of cusps we
+can replace the bound by the constant K from Proposition 2.1. Moreover,
+in the cases when we computed K explicitly (i.e. k = 1, 2) after the proof of
+Proposition 2.1 one can give a formula, even in the presence of cusps, for the
+number of preimages. To see this, let τ be a maximal -geodesic train-track
+and γ a simple multicurve carried by and filling τ . Suppose moreover that
+ωγ (e) ≥ 10 for every edge e ∈ E(τ ). Consider the case of k = 1 and let
+         −1
+γ 0 ∈ π,1  (γ) ⊂ S1 . Then γ 0 ≺fills τ̂ for some radalla τ 0 extending τ . Since
+τ is maximal, any leaf of τ̂ \ τ is contained in one of the r once-punctured
+monogons. Since γ 0 fills τ̂ and has exactly one self-intersection it follows that
+there is at most one edge in τ̂ \ τ and hence there are (up to isotopy) exactly
+r + 1 such radallas. Now, if γ 0 ≺fills τ̂ where τ̂ 6= τ then (the homotopy class
+of) γ 0 is uniquely determined by τ̂ . If instead τ̂ = τ there are, as explained in
+                                                                             27
+
+the discussion following the proof of Proposition 2.1, V2 choices for γ 0 where
+V = 12g − 12 + 4r is the number of vertices of the maximal train-track τ .
+                   −1
+Hence we have |π,1   (γ)| = 6g − 6 + 3r. A similar computation can be made
+for the case k = 2 and we record the resulting count here, but leave the
+proof to the reader.
+Lemma 3.10. Suppose that Σ has genus g and r punctures and is not
+homeomorphic to a once punctured torus. For some  small enough, let τ
+be a maximal recurrent -geodesic train-track and γ ≺ τ a simple multicurve
+which traverses each edge of τ at least 10 times, that is ωγ (e) ≥ 10 for all
+e ∈ E(τ ). Then we have
+          −1
+     • |π,1 (γ)| = 6g − 6 + 3r.
+          −1
+     • |π,2 (γ)| = 92 (2g + r)(2g + r − 3) + 2 .
+                                               
+                                                                           
+
+                                     4.
+   Suppose that Σ is a hyperbolic surface other than a punctured torus and
+fix some natural number k – the case of the torus with be discussed in section
+5. We also fix γ0 ∈ Sk , i.e. a multicurve in Σ with ι(γ0 , γ0 ) = k, and let
+                           Sγ0 = Map(Σ) · γ0 ⊂ Sk
+be the set of curves of type γ0 . In this section we associate to this set and
+to every L > 0 a measure νγL0 on the space C(Σ) of currents on Σ. We
+will show that every accumulation point of νγL0 when L → ∞ is a multiple
+of the Thurston measure µThu on the subspace ML(Σ) of C(Σ) consisting
+of measured laminations. We will moreover prove that the existence of an
+actual limit is equivalent to the existence of the limit (1.1). We begin by
+recalling a few facts on currents, measured laminations, and the Thurston
+measure. Before doing so we refer to [5, 22, 7] for basic facts on measured
+laminations (or equivalently, measured foliations) and their relation to train-
+tracks, and to [2, 3, 4, 15] for basic facts on currents and their relation to
+laminations. Both laminations and currents are treated in the extremely
+readable paper [1].
+4.1. Currents. The total space P T Σ of the projective tangent bundle of
+Σ has a 1-dimensional foliation, the geodesic foliation, whose leaves are
+the traces of geodesics in Σ. This foliation is intrinsic in the sense that
+any homeomorphism Σ → Σ0 between hyperbolic (or even just negatively
+curved) surfaces induces a homeomorphism P T Σ → P T Σ0 which maps the
+geodesic foliation on P T Σ to the geodesic foliation on P T Σ0 . This is basi-
+cally the well-known fact that geodesic flows on homeomorphic negatively
+curved manifolds of finite volume are orbit equivalent to each other.
+   A geodesic current is a Radon transverse measure to the geodesic foliation.
+Equivalently a geodesic current is a π1 (Σ)-invariant Radon measure on the
+space G(Σ̃) of geodesic in the universal cover Σ̃ of Σ. Also, geodesic currents
+are in one-to-one correspondence with Radon measures invariant under both
+28                    VIVEKA ERLANDSSON AND JUAN SOUTO
+
+the geodesic flow and the geodesic flip. Recall that a Borel measure is Radon
+if it is locally finite and inner regular.
+    We denote the space of all geodesic currents endowed with the weak-*-
+topology by C(Σ). If Σ → Σ0 is a homotopy equivalence, then the map
+C(Σ) → C(Σ0 ) between the spaces of currents induced by the foliation pre-
+serving homeomorphism P T Σ → P T Σ0 is also a homeomorphism. In par-
+ticular, the mapping class group Map(Σ) acts on C(Σ) by homeomorphisms.
+    If K ⊂ P T Σ is a compact set invariant under the geodesic flow, i.e. K is
+saturated with respect to the geodesic foliation, let
+                      CK (Σ) = {λ ∈ C(Σ)|λ(P T Σ \ K) = 0}
+denote the set of currents (considered as measures invariant under the ge-
+odesic flow) supported by K. We will be interested in currents supported
+by a compact set because by Lemma 3.1 all curves in Sγ0 live in a fixed
+compact set. On the other hand, currents such as the Liouville current λΣ
+associated to the hyperbolic metric of Σ belongs to some CK (Σ) only if Σ
+itself is compact.
+   Every primitive curve (and in fact, every multicurve) in Σ can be consid-
+ered as a current: namely the Dirac measure centred at the said curve. In
+this way we can see the set S = S(Σ) of all multicurves in Σ as a subset
+of the space C(Σ) of currents. In fact, it is known that the set R+ S of all
+weighted multicurves is dense in C(Σ). Moreover, when Σ is closed, then the
+geometric intersection number S × S → N extends uniquely to a continu-
+ous symmetric map C(Σ) × C(Σ) → R+ . In the presence of cusps things
+are more complicated, for instance because the map might take the value
+∞. Anyways, the standard argument [2] proves that for every compact set
+K ⊂ P T Σ invariant under the geodesic flow we have that
+(4.1)                         ι : C(Σ) × CK (Σ) → R+
+takes finite values and is continuous. Moreover, ι(a · λ, b · µ) = ab · ι(λ, µ)
+whenever a, b ∈ R+ are positive reals and λ ∈ C(Σ) and µ ∈ CK (Σ) are
+currents. The map (4.1) is called the intersection form. Note that if Σ →
+Σ0 is again a homotopy equivalence between hyperbolic surfaces, then the
+homeomorphism C(Σ) → C(Σ0 ) commutes with the scaling action of R+
+and with the intersection form. In particular, the intersection form (4.1) is
+invariant under the mapping class group of the surface.
+   We list a few facts on the intersection form (4.1):
+        • If λΣ is the Liouville current of the hyperbolic metric on Σ then
+                                  ι(λΣ , γ) = `Σ (γ)
+          for every multicurve γ ⊂ Σ.
+        • A current µ is filling if every geodesic in Σ is transversally intersected
+          by some geodesic in the support of µ. For instance, if γ ∈ S is a filling
+          multicurve in the sense that it cuts Σ into polygons and punctured
+                                                                                  29
+
+        monogons, then γ is also filling as a current. The Liouville current
+        λΣ is also filling.
+      • If λ is a filling current and K ⊂ P T Σ is compact, then the set
+        {µ ∈ CK (Σ)|ι(λ, µ) ≤ 1} is compact in CK (Σ).
+      • For any compact set K ⊂ P T Σ invariant under the geodesic flow,
+        and for any two filling currents µ, λ ∈ C(Σ), there is some L with
+                           1
+                             ι(µ, η) ≤ ι(λ, η) ≤ Lι(µ, η)
+                          L
+        for every η ∈ CK (Σ).
+See the references given earlier for proofs, keeping in mind that we are re-
+stricting (4.1) on the second factor to compactly supported currents. Under
+this restriction, the proofs are exactly the same as in the case that Σ is
+closed.
+   As above, suppose that γ0 ∈ Sk is a multicurve in Σ with ι(γ0 , γ0 ) = k,
+and let
+                             Sγ0 = Map(Σ) · γ0 ⊂ Sk
+be the set of curves of type γ0 . Consider the elements of Sγ0 as currents on
+Σ and let K ⊂ P T Σ be a compact set, given by Lemma 3.1, such that
+(4.2)                                Sγ0 ⊂ CK (Σ).
+For L > 0 we consider the measure
+                                         1      X
+(4.3)                       νγL0 =                      δ1γ
+                                     L6g−6+2r            L
+                                                γ∈Sγ0
+
+on CK (Σ) ⊂ C(Σ), where δx stands for the Dirac measure centered at x.
+The goal of the sequel is to study the behavior of the measures νγL0 when
+L tends to ∞. Among other things we will prove that every accumulation
+point of νγL0 when L → ∞ is a multiple of the Thurston measure on µThu on
+the subspace of C(Σ) consisting of measured laminations.
+4.2. Measured laminations. Recall that a measured lamination is a lam-
+ination endowed with a transverse measure of full support. As such, a mea-
+sured lamination is also a current. In fact, a current λ ∈ C(Σ) is a measured
+lamination if and only if ι(λ, λ) = 0. Noting that laminations are contained
+in the compact set provided by Lemma 3.1, we can see the space ML(Σ) of
+all measured laminations on Σ is thus a subset of CK (Σ) with the same K
+as in (4.2):
+(4.4)                           ML(Σ) ⊂ CK (Σ).
+Being a subset of C(Σ), the space ML(Σ) of measured laminations has an
+induced topology. In fact, Thurston proved that ML(Σ) is homeomorphic
+to R6g−6+2r . Moreover, similar to the classical Fenchel-Nielsen coordinates,
+there is a finite collection (see for instance [8]) of simple curves η1 , . . . , ηs
+such that
+(4.5)               if ι(λ, ηi ) = ι(µ, ηi ) for all i then λ = µ
+30                 VIVEKA ERLANDSSON AND JUAN SOUTO
+
+for any two λ, µ ∈ ML(Σ). Note that the collection of curves η1 , . . . , ηs is
+very far from being unique – for instance, transforming this collection via a
+mapping class we get a new collection with the same property.
+   The space ML(Σ) has not only a natural topology, but also a compatible
+mapping class group invariant integral PL-manifold structure. Here, inte-
+gral means that the change of charts are given by linear transformations
+with integral coefficients. In particular, the set of integral points in ML(Σ)
+is well-defined. In fact, for every recurrent train-track τ in Σ one has the
+simplex in ML(Σ) consisting of all measured laminations carried by τ –
+the integral points in this simplex correspond simply to the integral solu-
+tions of the weight equations. It follows that the set of integral points of
+ML(Σ) is just the set MLZ (Σ) of simple multicurves in Σ. Note before
+going further that the set of measured laminations carried by a train-track
+τ is full-dimensional if and only if τ is a maximal recurrent train-track.
+   The PL-manifold ML(Σ) is in fact endowed with a mapping class group
+invariant symplectic structure [17] and hence with a mapping class group
+invariant measure in the Lebesgue class. This measure is the so-called
+Thurston measure µThu . It is an infinite but locally finite measure, posi-
+tive on non-empty open sets, and satisfying
+                      µThu (L · U ) = L6g−6+2r µThu (U )
+for all U ⊂ ML(Σ) and L > 0. Note that this implies that µThu (A) = 0 if
+A ∩ L · A = ∅ for all L > 0. In particular,
+                    µThu ({λ ∈ ML(Σ)|ι(λ0 , λ) = 1}) = 0
+for every filling current λ0 ∈ C(Σ).
+   On charts, the measure µThu is just the standard Lebesgue measure and
+the integral points of ML(Σ) are just points in the integral lattice. Hence
+we get, under weak assumptions on U , that the Thurston measure of a set
+U can be computed by counting the integral points in L · U , dividing by the
+appropriate power of L, and letting L go to ∞. In a more succinct way
+                                      1      X
+                       µThu = lim 6g−6+2r         δ1γ
+                               L→∞ L               L
+                                             γ∈MLZ
+
+where δx is as always the Dirac measured centered at x. Finally, but most
+crucially, it is a theorem of Masur [10] that µThu is invariant and ergodic
+under the action of the mapping class group.
+4.3. Sub-convergence of the measures νγL0 . As we mentioned earlier, we
+are interested in the behavior of the measures νγL0 defined in (4.3) when L
+grows. Our first goal is to prove that any accumulation point is a multiple
+of the Thurston measure µThu :
+Proposition 4.1. Any sequence (Ln )n of positive numbers with Ln → ∞
+                                                   Ln
+has a subsequence (Lni )i such that the measures (νγ0 i )i converge in the
+weak-*-topology to the measure α · µThu on ML(Σ) ⊂ C(Σ) for some α > 0.
+                                                                                 31
+
+    In preparation to prove Proposition 4.1 fix  as in the beginning of section
+3.4 and consider the corresponding set Sγ0 of those elements in Sγ0 which
+fill a maximal -geodesic radalla. Let
+                      π,γ0 = π,k |Sγ : Sγ0 → MLZ (Σ)
+                                     0
+
+be the restriction of the map (3.4) to Sγ0 .
+   In order to prove Proposition 4.1 we will make use of another family of
+measures on C(Σ):
+                               1       X
+                                                −1
+(4.6)               µL,γ0 = 6g−6+2r          |π,γ0
+                                                     (γ)|δ 1 γ
+                            L                              L
+                                         γ∈MLZ
+
+The measures νγL0   and µL
+                         ,γ0  are closely related to each other, and in fact
+the first step of the proof of Proposition 4.1 is to show that the asymptotic
+behaviors of the measures νγL0 and µL ,γ0 are identical:
+
+Lemma 4.2. Let (Ln )n be a sequence tending to ∞. If one of the limits
+                            lim µL n           Ln
+                                 ,γ0 and lim νγ0
+                           n→∞              n→∞
+exists with respect to the weak-*-topology on the space of locally finite mea-
+sures on the space of currents C(Σ), then the other also exists and both
+agree.
+  Note that it follows from (4.2) and (4.4) that the measures νγL0 and µL
+                                                                        ,γ0
+are all supported by CK (Σ) for some fixed compact set K ⊂ P T Σ – we will
+use this fact a number of times in the following pages.
+Proof. It will be convenient to consider the restriction of the measure νγL0 to
+the set L1 Sγ0 :
+                           L         1      X
+(4.7)                    ν,γ 0
+                                = 6g−6+2r        δ1γ
+                                 L             
+                                                  L
+                                            γ∈Sγ0
+
+Since the set Sγ0 \ Sγ0 is negligible by Proposition 3.4, we have that
+                     1
+            lim            |{γ ∈ Sγ0 \ Sγ0 |ι(λΣ , γ) ≤ C · Ln }| = 0
+            n→∞ L6g−6+2r
+                 n
+for all C > 0. Here λΣ is the Liouville current of the hyperbolic metric on
+Σ and we remind the reader that `Σ (γ) = ι(λΣ , γ) for every multicurve γ.
+By the very definition of the measures νγL0 and ν,γ
+                                                   L , this means that the
+                                                     0
+difference
+  νγL0n ({λ ∈ CK (Σ)|ι(λΣ , λ) ≤ C}) − ν,γ
+                                        Ln
+                                            0
+                                              ({λ ∈ CK (Σ)|ι(λΣ , λ) ≤ C}) → 0
+of measures tends to 0 when n grows. Since, varying C, the sets {λ ∈
+CK (Σ)|ι(λΣ , λ) ≤ C} form a compact exhaustion of CK (Σ) we deduce that
+whenever one of the limits
+                            lim ν Ln and lim νγL0n
+                           n→∞ ,γ0      n→∞
+32                   VIVEKA ERLANDSSON AND JUAN SOUTO
+
+exists, then the other also exists and both agree.
+   It follows that it suffices to prove that limn→∞ ν,γLn = µ if and only if
+                                                           0
+limn→∞ µL    n = µ. Note that µL
+           ,γ0                   ,γ0 is the push-forward                  L
+                                                            of the measure ν,γ0
+under the map
+                   L        1          1     1
+                  π,γ  :    S → ML(Σ),   γ 7→ π,γ0 (γ).
+                      0
+                            L γ0        L     L
+                                                                     L , when
+In particular, the desired result follows easily once we prove that π,γ0
+L is large, almost does not move points. More precisely, fixing for the sake
+of concreteness a distance d : CK (Σ) × CK (Σ) → R+ inducing the topology
+of CK (Σ) (see [6] for a concrete choice), we prove:
+Fact 1. For all C, ρ > 0 there is L0 with
+                                        
+                             1     L     1
+                         d     γ, π,γ0    γ ≤ρ
+                             L           L
+for every γ ∈ Sγ0 (Σ) with ι(λΣ , γ) ≤ C · L and for every L ≥ L0 .
+Proof. We argue by contradiction: Suppose there exist C, ρ positive, a se-
+quence Ln → ∞, and a sequence γn ∈ Sγ0 with ι(λΣ , γ) ≤ C · Ln satisfying
+                                                                   
+d L1n γ, π,γ
+            Ln     1
+                     γ    ≥ ρ. Both  sequences    1
+                                                    γ
+                                                 Ln n    and    π Ln   1
+                                                                         γ
+                                                                 ,γ0 Ln n    =
+             0
+                Ln
+   1
+  Ln π,γ0 (γn ) are contained in the compact set {λ ∈ CK (Σ)|ι(λΣ , λ) ≤ C}.
+It follows, by passing to a subsequence, that we can assume that they con-
+verge:
+                                         
+                  1                   1         1
+                               Ln
+                     γn → µ, π,γ0      γn =      π,γ0 (γn ) → µ0 .
+                 Ln                  Ln        Ln
+By construction, µ0 is a limit of simple curves and hence it is a measured
+lamination. On the other hand, by continuity of the intersection form we
+have
+                                 
+                      1       1            ι(γn , γn )       ι(γ0 , γ0 )
+   ι(µ, µ) = lim ι      γn ,    γn = lim        2
+                                                       = lim             = 0,
+            n→∞      Ln      Ln      n→∞      Ln        n→∞     L2n
+proving that also µ ∈ ML(Σ).
+   Recall that by Lemma 3.3 and the definition of Sγ0 , there is a finite set
+of -geodesic radallas carrying all curves in Sγ0 . In particular, by passing to
+a further subsequence, we can assume there is a fixed -geodesic radalla τ̂
+with γn ≺ τ̂ for all n. Let τ ⊂ τ̂ be the underlying train-track, and η1 , . . . , ηs
+curves transversal to τ and satisfying (4.5). Since ηi is transversal to τ̂ we
+get from Lemma 3.8 that
+                             ι(γn , ηi ) = ι(π,γ0 (γn ), ηi )
+for all n. The continuity of the intersection form implies that
+                                 ι(µ, ηi ) = ι(µ0 , ηi ).
+                                                                                 33
+
+Since i was arbitrary we have µ = µ0 by (4.5). But this implies that L1n γn
+      Ln ( 1 γ ) have the same limit and hence that their distance tends to
+and π,γ0 Ln n
+0, contradicting our assumption. We have proved Fact 1.                  
+   Now, suppose that f : CK (Σ) → R is continuous with compact support,
+and note that there is some C such that the interior of the compact set
+Z = {λ ∈ CK (Σ)|ι(λΣ , λ) ≤ C} contains the support of f . Note also that f is
+uniformly continuous, meaning that for all 0 there is ρ with |f (α)−f (α0 )| ≤
+0 whenever d(α, α0 ) ≤ ρ. This means that with L0 as in Fact 1 and for all
+Ln ≥ L0 and all γ ∈ Sγ0 we have
+                                             
+                          1          Ln     1
+                     f      γ − f π,γ0        γ     ≤ 0
+                         Ln                Ln
+Since µL                                            L            L
+       ,γ0 is the push-forward of the measure ν,γ0 under π,γ0 , this implies
+that
+       Z                          Z
+                f (λ)dµL n
+                       ,γ0 (λ) −            Ln
+                                      f (λ)dν,γ 0
+                                                             Ln
+                                                   (λ) ≤ 0 ν,γ 0
+                                                                   (Z) and
+         CK (Σ)                       CK (Σ)
+       Z                              Z
+                  f (λ)dµL
+                         ,γ0 (λ) −
+                           n                          Ln
+                                               f (λ)dν,γ 0
+                                                            (λ) ≤ 0 µL n
+                                                                      ,γ0 (Z)
+         CK (Σ)                       CK (Σ)
+
+for any 0 small enough. If limn→∞ ν,γLn = µ, we get that ν Ln (Z) is bounded
+                                         0                   ,γ0
+independently of n. Since 0 was arbitrary we get thus that
+                  Z                        Z                    !
+            lim         f (λ)dµL,γ0 (λ) −
+                                  n                     Ln
+                                                f (λ)dν,γ0
+                                                            (λ) = 0
+           n→∞       CK (Σ)                        CK (Σ)
+
+which implies, because f was arbitrary, that also limn→∞ µL
+                                                          ,γ0 = µ.
+                                                            n
+
+                                                     L
+  The same argument proves also that if limn→∞ µ,γn0 = µ then we also
+               Ln = µ.
+have limn→∞ ν,γ                                                    
+                 0
+
+  We are finally ready to prove Proposition 4.1:
+Proof of Proposition 4.1. To begin we prove that the sequence (µL ,γ0 )n has a
+                                                                    n
+
+convergent subsequence. In order to do so it suffices to prove that for every
+compact set K ⊂ ML(Σ) with µThu (∂K) = 0 the sequence (µL        ,γ0 (K))n is
+                                                                   n
+
+bounded.
+   Note that
+                                 1        X
+                                                     −1
+                   µL n
+                    ,γ0 (K) = 6g−6+2r             |π,γ0
+                                                          (λ)|
+                              Ln        MLZ ∩Ln ·K
+                                 κ
+                             ≤ 6g−6+2r |MLZ ∩ Ln · K|
+                              Ln
+where κ is the constant provided by Proposition 3.9. Since the last quantity
+converges to κ · µThu (K) when n → ∞, it follows that our original sequence
+is bounded, as we needed to prove. At this point we know that the sequence
+               Ln ) contains a subsequence (µLni ) which converges to some
+of measures (µ,γ 0 n                         ,γ0 i
+34                     VIVEKA ERLANDSSON AND JUAN SOUTO
+
+measure µ. Moreover, since µ(K) ≤ κ · µThu (K) for every K we deduce that
+the limit µ is absolutely continuous with respect to the Thurston measure,
+with Radon-Nikodym derivative dµdµ  Thu
+                                        bounded by κ.
+  Note at this point that it follows from Lemma 4.2 that we also have
+                                         Ln
+                                   lim νγ0 i = µ.
+                                   i→∞
+
+This means that it only remains to be proved that the Radon-Nikodym de-
+                                                                 Ln
+rivative dµdµ
+            Thu
+                 is essentially constant. To that end note that νγ0 i is invariant
+under the mapping class group, since for all U ⊂ C(Σ) and all φ ∈ Map(Σ)
+we have
+         Ln            Ln                1
+     φ∗ νγ0 i (U ) = νγ0 i (φ(U )) = 6g−6+2r |Sγ0 ∩ φ(Lni · U )|
+                                     Lni
+                          1                             1
+                   = 6g−6+2r |φ−1 Sγ0 ∩ Lni · U | = 6g−6+2r |Sγ0 ∩ Lni · U |
+                      Lni                           Lni
+                       Ln
+                   = νγ0 i (U ).
+This implies that the measure µ is also invariant under the mapping class
+group. Hence, the Radon-Nikodym derivative dµdµ  Thu
+                                                     is a mapping class group
+invariant measurable function on ML(Σ). Since the Thurston measure µThu
+is ergodic with respect to the mapping class group action [10], it follows that
+  dµ
+dµThu is essentially constant as we needed to prove.                         
+
+4.4. Limits of measures and counting. After the hard work of proving
+Proposition 4.1 we can reap some of its consequences. They are all based
+on the following simple observation:
+Proposition 4.3. Let (Ln )n be a sequence with limn→∞ νγL0n = α · µThu for
+some α ∈ R+ . Then
+            |{γ ∈ Sγ0 |ι(λ0 , γ) ≤ Ln }|
+      lim                                = α · µThu ({λ ∈ ML(Σ)|ι(λ0 , λ) ≤ 1})
+     n→∞           Ln 6g−6+2r
+for every filling current λ0 ∈ C(Σ).
+Proof. We have that
+         |{γ ∈ Sγ0 |ι(λ0 , γ) ≤ Ln }|
+     lim                              = lim νγL0n ({λ ∈ CK (Σ)|ι(λ0 , λ) ≤ 1})
+     n→∞        Ln 6g−6+2r              n→∞
+                                      = α · µThu ({λ ∈ CK (Σ)|ι(λ0 , λ) ≤ 1})
+                                      = α · µThu ({λ ∈ ML(Σ)|ι(λ0 , λ) ≤ 1}).
+
+Here the first equality follows from the very definition of the measures νγL0 .
+The second equality follows from the assumption in the proposition because
+as we noted earlier µThu ({λ ∈ CK (Σ)|ι(λ0 , λ) = 1}) = 0. Finally, the last
+equality holds because µThu is supported by ML(Σ).                          
+                                                                                35
+
+   We will later prove that the limit limL→∞ νγL0 actually exists if Σ is a
+once-punctured torus, which in light of Proposition 4.3 will mean that the
+                             |{γ∈Sγ0 |ι(λ0 ,γ)≤L}|
+corresponding limit limL→∞            L2
+                                                   also exists. For a general sur-
+face we only prove that the following weaker statement:
+Corollary 4.4. Let Σ be a hyperbolic surface of finite area, and let λ1 , λ2 ∈
+C(Σ) be filling currents. Then we have
+            |{γ ∈ Sγ0 |ι(λ1 , γ) ≤ L}|
+                                    µThu ({λ ∈ ML(Σ)|ι(λ1 , λ) ≤ 1})
+      lim                                =
+     L→∞ |{γ ∈ Sγ0 |ι(λ2 , γ) ≤ L}| µThu ({λ ∈ ML(Σ)|ι(λ2 , λ) ≤ 1})
+for every multicurve γ0 in Σ. Here µThu is as always the Thurston measure
+on the space of measured laminations ML(Σ).
+Proof. It suffices to prove that every sequence (Ln ) has a subsequence (Lni )
+for which the claimed equality holds. Well, from Proposition 4.1 we know
+                                             Ln
+that (Ln ) has a subsequence for which νγ0 i converges to α · µThu for some
+α > 0. Thus by Proposition 4.3 we get that
+        |{γ ∈ Sγ0 |ι(λ1 , γ) ≤ Lni }|
+    lim                               = α · µThu ({λ ∈ ML(Σ)|ι(λ1 , λ) ≤ 1})
+   i→∞           Lni 6g−6+2r
+and that
+        |{γ ∈ Sγ0 |ι(λ2 , γ) ≤ Lni }|
+    lim                               = α · µThu ({λ ∈ ML(Σ)|ι(λ2 , λ) ≤ 1})
+   i→∞           Lni 6g−6+2r
+The claim follows by taking the quotient of these two equations.             
+  As we mentioned in the introduction, combining Corollary 4.4 and the
+work of Mirzakhani [14] one gets immediately that the limit
+                               |{γ ∈ Sγ0 |ι(λ0 , γ) ≤ L}|
+                           lim
+                         L→∞          L6g−6+2r
+exists for every multicurve γ0 and every filling current λ0 . It is thus natural
+to wonder if more generally the limit
+                       |{f (α)|f ∈ Map(Σ), ι(λ0 , f (α)) ≤ L}|
+(4.8)              lim
+                  L→∞                  L6g−6+2r
+also exists for currents α ∈ C(Σ) other than those arising from multicurves.
+This is indeed the case. To explain why, suppose for the sake of concreteness
+that Σ is closed of genus g, that α ∈ C(Σ) has trivial stabilizer in the mapping
+class group, and consider for L > 0 the measure
+                                   1       X
+                          ναL = 6g−6              δ 1 f (α)
+                                 L                  L
+                                         f ∈Map(Σ)
+
+on the space of currents. Noting that there is some K ≥ 1 with
+                     1
+                        · ι(λ, λΣ ) ≤ ι(λ, α) ≤ K · ι(λ, λΣ )
+                    K
+for all λ ∈ C(Σ), we get that the ναL -measure of the compact sets {λ ∈
+C(Σ)|ι(λ, λΣ ) ≤ C} is bounded from above for all C by some number which
+36                   VIVEKA ERLANDSSON AND JUAN SOUTO
+
+does not depend on L. It follows that every sequence (ναLn )n has a convergent
+subsequence. Moreover, as in the proof of Proposition 4.3 we have that if
+ναLn converges to µ then
+           |{f ∈ Map(Σ)|ι(λ0 , f (α)) ≤ Ln }|
+     lim                                        = µ({λ ∈ C(Σ)|ι(λ0 , λ) ≤ 1})
+     n→∞                 L6g−6
+                          n
+In particular, to prove that the limit (4.8) exists it suffices to prove that the
+quantity
+(4.9)                     µ({λ ∈ C(Σ)|ι(λ0 , λ) ≤ 1})
+does not depend on the particular sequence Ln . Well, we want to prove the
+independence of (4.9) for every every filling current λ0 , but since weighted
+currents corresponding to multicurves are dense in C(Σ), it suffices to prove
+it for multicurves λ0 , which we moreover might assume to be filling and with
+trivial stabilizer in the mapping class group. In this case we have that
+                                            |{f ∈ Map(Σ)|ι(λ0 , f (α)) ≤ Ln }|
+     µ({λ ∈ C(Σ)|ι(λ0 , λ) ≤ 1}) = lim
+                                      n→∞               Ln6g−6
+                                            |{f ∈ Map(Σ)|ι(α, f (λ0 )) ≤ Ln }|
+                                   = lim
+                                      n→∞                  Ln6g−6
+                                            |{γ ∈ Sλ0 |ι(α, γ) ≤ Ln }|
+                                   = lim
+                                      n→∞          Ln6g−6
+where the second equality holds because the intersection form is symmetric
+and invariant under the mapping class group – the third limit is just a
+rewriting of the second one. However, from the work of Mirzakhani [14] and
+Corollary 4.4 we get that the third limit does not depend on the sequence
+Ln . It follows thus that the limit (4.8) exists, as claimed.
+
+4.5. Criteria for convergence. We discuss now some conditions ensuring
+that the measures νγL0 converge when L → ∞. Note that by Lemma 4.2
+it suffices to give conditions ensuring the convergence of the measures µL
+                                                                         ,γ0
+defined in (4.6). The first basic observation is the following:
+Lemma 4.5. Suppose that there is a non-empty open set U ⊂ ML(Σ) with
+µThu (∂U ) = 0 and for which the limit limL→∞ µL ,γ0 (U ) = αU exists and is
+                               L
+finite. Then the limit limL→∞ νγ0 = µ also exists and we have µ(U ) = αU .
+Proof. Recall that by Proposition 4.1 every sequence Ln → ∞ contains a
+                                Ln
+subsequence (Lni )i such that (νγ0 i )i converges in the weak-*-topology to a
+multiple α · µThu of the Thurston measure. By Lemma 4.2 we get that
+                                      Ln
+                                 lim µ,γ0i = α · µThu
+                              i→∞
+as well. Therefore
+                                               Ln
+                       α · µThu (U ) = lim µ,γ0i (U ) = αU
+                                         i→∞
+                                                                             37
+
+meaning that the constant α does not depend on the particular convergent
+           Ln
+sequence (νγ0 i )i . The claim follows.                               
+
+   Next we give a criterion ensuring the existence of a limit for the mea-
+sures νγL0 in terms of the existence of densities of sets of simple multicurves
+invariant under a certain semi-group. More precisely, if τ is train-track let
+
+(4.10)                    Γτ = {φ ∈ Map(Σ)|φ(τ ) ≺ τ }
+
+be the semi-group consisting of those mapping classes which map τ to a
+train-track carried by τ .
+
+Proposition 4.6. Let τ be a maximal recurrent train-track and U ⊂ {λ ∈
+ML(Σ)|λ ≺ τ } open with µThu (U ) > 0 and µThu (∂U ) = 0. Suppose also
+that the following holds:
+         (*) If I ⊂ {γ ∈ MLZ (Σ)|γ ≺ τ } is a non-empty Γτ -invariant
+         set of simple multicurves carried by τ then there is α > 0 with
+                             1
+                    lim            |I ∩ L · U | = α · µThu (U ).
+                   L→∞ L6g−6+2r
+
+Then the limit limL→∞ νγL0 exists.
+
+   Before proving Proposition 4.6 let us comment on two of its features. On
+the one hand, Proposition 4.6 has the virtue that it reduces the problem of
+showing that the measures νγL0 converge to a problem about distribution of
+simple multicurves. On the other hand, working with semigroups is harder
+than working with groups. Also, even if we were to replace the semigroup
+by the whole mapping class group, the statement would still not be at all
+obvious – in fact, it would be the main result of [13].
+
+Proof. Note first that, up to choosing a different hyperbolic metric on the
+surface Σ, we can assume τ is -geodesic. In particular, we get from Propo-
+sition 3.9 that if φ ∈ Γτ then
+                              −1            −1
+                            |π,γ0
+                                   (γ)| ≤ |π,γ0
+                                                 (φ(γ))|
+
+for every simple multicurve γ ≺fills τ . It follows that the set
+                                                 −1
+                Is = {γ ∈ MLZ (Σ), γ ≺fills τ, |π,γ 0
+                                                       (γ)| ≥ s}
+
+is Γτ -invariant for all s. Note also that Proposition 3.9 asserts that there
+is κ with Is = ∅ for all s > κ. Now, by assumption, for all s there is some
+number αs with
+                             1
+                   lim            |Is ∩ L · U | = αs · µThu (U ).
+                  L→∞ L6g−6+2r
+38                         VIVEKA ERLANDSSON AND JUAN SOUTO
+
+Also, we can compute µL
+                      ,γ0 (U ) as follows:
+
+                                       1            X
+                                                                  −1
+                   µL
+                    ,γ0 (U ) =                                 |π,γ  (γ)|
+                                  L6g−6+2r                           0
+                                             γ∈MLZ (Σ)∩L·U
+                                       1                 X
+                                                                           −1
+                              ∼                                          |π,γ  (γ)|
+                                  L6g−6+2r                                    0
+                                             γ∈MLZ (Σ)∩L·U, γ ≺fills τ
+                                             k
+                                       1     X
+                              =                    |Is ∩ L · U |.
+                                  L6g−6+2r
+                                             s=1
+
+Here ∼ means that the difference between the quantities tends to 0 when L
+grows – this is so because the set of multicurves carried by τ but which do
+                                                               −1 (γ)| can only
+not fill τ is negligible. The final equality holds because |π,γ 0
+take the values 0, 1, . . . , κ.
+  Combining the previous equations we get that µL     ,γ0 (U ) converges when
+L → ∞ to the number
+                      lim µL
+                           ,γ0 (U ) = (α1 + α2 + · · · + ακ ) · µThu (U ).
+                     L→∞
+
+The claim now follows from Lemma 4.5.                                                             
+
+     At this point we can prove:
+Corollary 4.7. Let Σ be a hyperbolic surface of genus g with r cusps and
+suppose that 2g + r > 3. Then we have:
+      |{γ ∈ S|`Σ (γ) ≤ L, ι(γ, γ) = 1}|
+     lim                                = 3(2g − 2 + r) · cΣ
+ L→∞              L6g−6+2r
+      |{γ ∈ S|`Σ (γ) ≤ L, ι(γ, γ) = 2}|   9                       
+  lim               6g−6+2r
+                                        = (2g + r)(2g + r − 3) + 2 · cΣ .
+ L→∞              L                       2
+where cΣ = µThu ({λ ∈ ML(Σ)|`Σ (λ) ≤ 1}).
+   Before launching the proof of Corollary 4.7 note that all the results proved
+in this section for the measures νγL0 and µL
+                                           ,γ0 also apply to the measures
+
+                      1       X                             1         X
+                                                                                −1
+           νkL =                     δ 1 γ and µL
+                                                ,k =                         |π,k (γ)|δ 1 γ .
+                   L6g−6+2r           L                 L6g−6+2r                          L
+                              γ∈Sk                                  γ∈MLZ
+
+The proofs are identical.
+
+Proof. Let τ ⊂ Σ be a maximal recurrent train-track and O ⊂ ML(Σ) the
+set of measured laminations carried by τ and let U = {λ ∈ O|`Σ (λ) ≤ 1}.
+Finally, let V ⊂ MLZ (Σ) ∩ O be the set of all simple multicurves γ ≺ τ
+carried by τ and traversing each edge of τ at least 10 times, that is ωγ (e) ≥ 10
+for all e ∈ E(τ ). Note that V is generic in the set MLZ (Σ) ∩ O of simple
+multicurves carried by τ . Genericity of V in MLZ (Σ) ∩ O, together with the
+                                                                            39
+
+universal bound given by Proposition 3.9 on the cardinality of the fibers of
+π,k , implies that
+                        1           X
+                                                −1
+                  lim 6g−6+2r                 |π,k (γ)| = 0
+                 L→∞ L
+                               γ∈(MLZ (Σ)∩L·U )\V
+
+This means that if either one of the limits
+                                         1          X
+                                                             −1
+             lim µL,k (U ) and lim    6g−6+2r
+                                                           |π,k (γ)|
+            L→∞                 L→∞ L
+                                                 γ∈V∩L·U
+
+exists then the other also exists, and when the limits exist, they agree.
+  Consider the cases k = 1 and recall that by Lemma 3.10 we have
+                         (π1 )−1 (γ) = 3(2g − 2 + r)
+for all γ ∈ V. We thus have
+               1       X
+                              −1                           |V ∩ L · U |
+        lim 6g−6+2r         |π,1 (γ)| = 3(2g − 2 + r) lim
+       L→∞ L                                          L→∞ L6g−6+2r
+                     γ∈V∩L·U
+
+Using again that V is generic in U ∩ MLZ (Σ) we get that the latter limit
+converges to the Thurston measure of U :
+                                       |V ∩ L · U |
+                         µThu (U ) = lim
+                                    L→∞ L6g−6+2r
+Altogether we have proved that
+                   lim µL
+                        ,1 (U ) = 3(2g − 2 + r) · µThu (U )
+                   L→∞
+
+Lemma 4.5 implies that that the measures µL   ,1 converge to a measure µ with
+µ(U ) = 3(2g − 2 + r) · µThu (U ). Lemma 4.2 implies that µ = limL→∞ ν1L and
+we get from Proposition 4.1 that µ is a multiple of the Thurston measure.
+Since we know the measure of U we thus get that
+                          µ = 3(2g − 2 + r) · µThu
+The claim for k = 1 follows now from Proposition 4.3. Exactly the same
+argument applies for k = 2.                                          
+
+                                     5.
+  In this section we prove Theorem 1.1. We start by recalling a few facts
+about curves and train-tracks in the once punctured torus.
+5.1. Train-tracks and simple curves in the punctured torus. Let
+T = T1,1 be the once punctured torus and recall the following well-known
+fact:
+Fact 2. The inclusion map T1,1 → T1,0 from the once punctured torus T1,1
+to the closed torus T1,0 induces a bijection between their respective sets of
+oriented simple non-peripheral curves. Moreover, this bijection preserves
+both the geometric and algebraic intersection number.
+40                 VIVEKA ERLANDSSON AND JUAN SOUTO
+
+  It follows that choosing a basis for the homology H1 (T1,1 , Z) of the torus,
+we can identify the set of simple multicurves in the once punctured torus
+with the integral homology classes in the torus up to sign:
+(5.1)                       MLZ (T1,1 ) = Z2 / ± 1
+In fact, this identification extends to an identification between R2 / ± 1 and
+the space of measured laminations on T1,1 :
+(5.2)                       ML(T1,1 ) = R2 / ± 1
+This last identification is compatible with the scaling by positive scalars in
+R+ on the left and the right. Moreover, (5.1) and (5.2) are also compatible
+under the identification
+(5.3)                        Map(T1,1 ) = SL2 Z
+between the mapping class group and SL2 Z, where the actions are on the
+left by mapping classes and on the right by matrix multiplication.
+   We describe next the maximal recurrent train-tracks in T . For every pair
+of oriented simple essential curves α, β ⊂ T which intersect once, there is a
+train-track τα,β which carries the curves α, β as well as the simple curve αβ
+whose homology class is the sum of the classes of α and β (compare with
+figure 9). Observe that
+              τα,β = τ−α,−β = τβ,α = τ−β,−α but τα,β 6= τα,−β .
+Moreover, with notation as in (5.2), we have
+            {λ ∈ ML(T1,1 )|λ ≺ τα,β } = {xα + yβ|x, y ≥ 0}/ ± 1
+
+
+
+
+        Figure 9. The train-track associated to two essential simple
+        curves which intersect once.
+
+   Note that τα,β is a maximal recurrent train-track. Conversely, it is well-
+known that every maximal recurrent train-track τ on the torus T1,1 differs
+from τα,β by a diffeomorphism. Moreover, since every orientation preserving
+diffeomorphism φ : T1,1 → T1,1 with φ(τα,β ) = τα,β is either isotopic to Id or
+to − Id we obtain that the mapping class of the homeomorphism mapping
+τ to τα,β is unique up to composition by − Id. In other words we have:
+                                                                          41
+
+Fact 3. Let T be a once punctured torus and let α and β be oriented simple
+curves intersecting once. If τ is a maximal recurrent train-track in T then
+there is an orientation preserving homeomorphism φ : T → T with φ(τα,β ) =
+τ . Moreover, the mapping class [φ] ∈ Map(T ) of f is uniquely determined
+up to composition by − Id.
+  Observe that the train-tracks ταβ,β and τα,αβ are carried by τα,β :
+                              ταβ,β , τα,αβ ≺ τα,β .
+Also, note that if (α, β) corresponds to a positively oriented basis of Z2
+under (5.1), we have
+                     δβ−1 (τα,β ) = ταβ,β , δα (τα,β ) = τα,αβ
+where δβ and δα are the right Dehn-twist along β and α, respectively. We
+obtain:
+Fact 4. Let T be a once punctured torus and let α and β be oriented simple
+curves with algebraic intersection number hα, βi = 1 and φ ∈ Map(T ). Then
+we have
+            Γτα,β = {φ ∈ Map(T1,1 )|φ(τα,β ) ≺ τα,β } = hδα , δβ−1 i+
+where hδα , δβ−1 i+ is the semigroup generated by δα and δβ−1 .
+
+   Still with the same notation, consider the identification π1 (T1,0 ) = Z2
+with respect to which the two simple curves α and β correspond to the
+standard basis:                           
+                               1              0
+                        α=          , β=          .
+                               0              1
+With respect to the induced identification (5.3) between the mapping class
+group Map(T ) and the group SL2 Z we have that
+                                                  
+                           1 1                  1 0
+                    δα =           , δβ =
+                           0 1                 −1 1
+which means that the semigroup generated by δα , δβ−1 corresponds to the
+positive semigroup SL2 N ⊂ SL2 Z:
+                                                                
+                     −1                a b
+      Γτα,β = hδα , δβ i+ = SL2 N =          ∈ SL2 Z a, b, c, d ≥ 0
+                                       c d
+5.2. Radallas and the map π in the punctured torus. Let τ = τα,β
+be a maximal train-track in the punctured torus T1,1 . The train-track τ has
+3 edges a, b, c labeled in such a way that
+                                                           
+                    1                 0                  ωγ (a)
+         ωα =  0  and ωβ =  1  where ωγ =  ωγ (b)  .
+                    1                 1                  ωγ (c)
+Note that the complement T1,1 \ τ of this train-track is a punctured bigon,
+but, after labelling the edges, has a structure reminiscent of a punctured
+42                 VIVEKA ERLANDSSON AND JUAN SOUTO
+
+hexagon where opposite sides are identified in T1,1 . This means that τ can
+be drawn as in figure 9 or as the boundary of an hexagon in the fundamental
+domain of an hexagonal torus. See the left part of figure 10.
+Remark. The only reason why we assumed that Σ was not a once punctured
+torus in earlier sections was because we used the fact that the complemen-
+tary regions of a maximal train-track could only be triangles and punctured
+monogons. This additional “complication” in the case of the torus is in fact
+not such a problem since we are instead in a very concrete setting.
+
+
+
+
+       Figure 10. The left half is the train-track τ as the boundary
+       of a hexagon – the picture is drawn in the universal homology
+       cover of T1,1 , i.e. in R2 \ Z2 . The right image represents a
+       possible radalla extending τ .
+
+  Suppose that τ̂ is an arbitrary radalla extending τ . If γ ≺ τ̂ then the
+coefficients ωγ (a), ωγ (b) and ωγ (c) satisfy
+                           ωγ (c) ≥ ωγ (a) + ωγ (b)
+with equality if and only if γ ≺ τ . Let
+                       ρ(γ) = ωγ (c) − (ωγ (a) + ωγ (b))
+denote the defect and define a map
+                             πτ̂ : RE(τ̂ ) → RE(τ )
+such that                                           
+                                      ωγ (a) + ρ(γ)
+                        πτ̂ (ωγ ) =  ωγ (b) + ρ(γ) 
+                                      ωγ (c) + ρ(γ).
+As in section 3.4, we can give a direct description of the map πτ̂ in terms of
+the radalla, i.e. without giving formulas for the weights. To do so, we just
+consider the image φ(τ̂ ) of the radalla in question and remove all punctured
+monogons and all bigon and homotope what is left into τ (cf. with figure
+11). Similarly, as long as we restrict to curves which are carried by some
+-geodesic radalla, for  small enough, we can describe the map without
+making use of any concrete carrying radalla. Instead we can define the map
+only using the geodesic representative of the curve in question, just as we
+                                                                            43
+
+
+
+
+             Figure 11. The map πτ̂ at the level of radallas.
+
+did in 3.4. Hence, as we did in the previous section, we get a well-defined
+map
+                          π : ST 1,1 ,k → MLZ (T1,1 )
+which satisfies Lemma 3.8 and Proposition 3.9. Moreover, the arguments in
+section 4 remain valid – in particular Proposition 4.3 and Proposition 4.6
+still hold. We leave the details to the reader.
+5.3. Proof of Theorem 1.1. Recall Theorem 1.3 stated in the introduc-
+tion:
+Theorem 1.3. Every SL2 N-invariant set I ⊂ N2 has a density, meaning
+that there is α ∈ R with
+                               1
+                         lim 2 |I ∩ L · U | = α · vol(U )
+                        L→∞ L
+                 2
+for any U ⊂ R open and bounded by a rectifiable Jordan curve. Here
+L · U = {v ∈ R2 | L1 v ∈ U } is the set obtained by scaling U by L and vol(U )
+is the area of U with respect to Lebesgue measure.
+  Assuming Theorem 1.3 for now, we prove Theorem 1.1:
+Theorem 1.1. Let Σ be a complete hyperbolic surface of finite volume home-
+omorphic to a once punctured torus and let γ0 ⊂ Σ be a multicurve. The
+limit (1.1) exists and moreover we have
+         |{γ ∈ Sγ0 |`Σ (γ) ≤ L}|
+     lim                         = Cγ0 · µThu ({λ ∈ ML(Σ)|`Σ (λ) ≤ 1})
+    L→∞             L2
+where µThu is the Thurston measure on the space of measured laminations
+ML(Σ) and Cγ0 > 0 depends only on γ0 .
+Proof. We start by proving that the measures νγL0 defined in (4.6) converge.
+By Proposition 4.6 it suffices to exhibit a maximal recurrent train-track
+τ and an open set U ⊂ {λ ∈ ML(Σ)|λ ≺ τ } with µThu (U ) > 0 and
+µThu (∂U ) = 0 and such that the following holds:
+       (*) If I ⊂ {γ ∈ MLZ (Σ)|γ ≺ τ } is a non-empty Γτ -invariant
+       set of simple multicurves carried by τ then there is α > 0
+       with
+                           1
+                      lim 2 |I ∩ L · U | = α · µThu (U ),
+                     L→∞ L
+44                 VIVEKA ERLANDSSON AND JUAN SOUTO
+
+        where Γτ = {φ ∈ Map(Σ)|φ(τ ) ≺ τ }.
+Let τ = τα,β be a standard maximal train-track in the once punctured
+torus. As discussed earlier, identify the set of all simple multicurves carried
+by τ with N2 and the semi-group Γτ with SL2 N in such a way that the
+action of φ ∈ Γγ on curves carried by τ corresponds to the action by matrix
+multiplication. In particular, we can identify the Γτ -invariant set I with an
+SL2 N-invariant set I ⊂ N2 . Moreover, the identification {γ ∈ MLZ | γ ≺
+τ } = N2 extends to an identification
+                       {λ ∈ ML(T1,1 ) | λ ≺ τ } = R2+
+in such a way that scaling by positive reals is preserved. It follows that for
+                     U ⊂ {λ ∈ ML(T1,1 ) | λ ≺ τ } = R2+
+open one has
+                         1                1
+                           |I ∩ L · U | = 2 |I ∩ L · U |
+                        L2               L
+where the left is computed in ML(T1,1 ) and the right is computed in R2 .
+From Theorem 1.3 we get that, when working in R2 , the limit limL→∞ L12 |I ∩
+L · U | exists and hence (*) holds. We have proved that the limit
+                                νγ0 = lim νγL0
+                                      L→∞
+exists. Moreover, it follows from Proposition 4.1 that
+                               νγ0 = Cγ0 · µThu
+for some Cγ0 ∈ R+ . Applying Proposition 4.3 to the Liouville current λΣ
+we get that
+       |{γ ∈ Sγ0 |ι(λΣ , γ) ≤ L}|
+     lim                          = Cγ0 · µThu ({λ ∈ ML(Σ)|ι(λΣ , λ) ≤ 1}).
+     L→∞           L2
+The claim follows since ι(λΣ , ·) = `Σ (·).                                 
+  In fact, using either the arguments in the proof of Theorem 1.1, or the
+combination of Theorem 1.1 and Corollary 4.4, note that the claim of The-
+orem 1.1 holds true in much more generality:
+Corollary 5.1. Let Σ be a complete hyperbolic surface of finite volume and
+homeomorphic to a once punctured torus and let γ0 ⊂ Σ be a multicurve.
+The limit (1.3) exists and moreover we have
+        |{γ ∈ Sγ0 |ι(λ0 , γ) ≤ L}|
+     lim                           = Cγ0 · µThu ({λ ∈ ML(Σ)|ι(λ0 , λ) ≤ 1})
+     L→∞            L2
+for every filling current λ0 ∈ C(Σ).                                        
+  It follows in particular that Theorem 1.1 also holds for instance if we
+replace hyperbolic length by length with respect to a metric with pinched
+negative curvature.
+  It remains to prove Theorem 1.3 which we devote the next section to.
+                                                                             45
+
+5.4. Densities of SL2 N-invariant sets in N2 . The semigroup SL2 N is
+the free semigroup generated by the two matrices
+                                         
+                             1 1       1 0
+(5.4)                               ,          .
+                             0 1       1 1
+In this section we consider the action of SL2 N on N2 ⊂ (0, ∞)2 . Note that
+this action is free. Note also that the inverses of the matrices in (5.4) are
+the matrices                                   
+                              1 −1         1 0
+                                       ,            .
+                              0 1          −1 1
+                                                              
+                   a        2                                a0
+It follows that         ∈ N belongs to the SL2 N-orbit of          if and only
+                   b                                         b0
+                                                                         
+                                                                          a
+if while running the euclidean algorithm step by step beginning with
+                                                                          b
+                                                           
+                   a0                                          1
+one passes by           . In particular, the SL2 N-orbit of         is exactly
+                   b0                                          1
+the set of positive integer vectors whose entries are prime to each other:
+                                                       
+                          1          a       2
+(5.5)           SL2 N          =          ∈ N gcd(a, b) = 1 .
+                          1          b
+It is well-known that this set has a density:
+                             
+                  1            1              6
+(5.6)         lim 2 SL2 N          ∩ L · U = 2 vol(U ∩ (0, ∞)2 )
+             L→∞ L             1              π
+for every set U ⊂ R2 bounded by a rectifiable Jordan curve. Here vol stands
+                                        2
+for the standard volume in R2P   and π6 = ζ(2) is famously the value of the
+                                   ∞
+Riemann zeta function ζ(s) = n=1 n−s at s = 2.
+   As a first step towards the proof of Theorem 1.3 we prove a generalization
+of (5.6).
+                                           
+                                            p
+Proposition 5.2. The set Sp,q = SL2 N           has a density for all p, q ∈ N.
+                                            q
+In fact,
+                   1                    6
+(5.7)           lim 2
+                      |Sp,q ∩ L · U | = 2 vol(U ∩ (0, ∞)2 )
+               L→∞ L                   π pq
+for every set U ⊂ R2 bounded by a rectifiable Jordan curve. Moreover, we
+have that
+                                                   L2
+                                          
+                       x
+                           ∈ Sp,q x + y ≤ L ≤
+                       y                           2pq
+for all L.
+Proof. We deduce the existence of the density from a beautiful theorem of
+Maucourant [11]. Consider SL2 N as a subset of the vector space M2,2 (R) of
+2-by-2 real matrices and recall that SL2 N is exactly the intersection of SL2 Z
+46                   VIVEKA ERLANDSSON AND JUAN SOUTO
+
+with the set of matrices in M2,2 (R) all of whose entries are non-negative.
+For all L > 0, consider the measure
+                                  1 X
+                            νL = 2          δ1A
+                                 L           L
+                                            A∈SL2 N
+
+on M2,2 (R) where δx is the Dirac probability measure centered at x. From
+[11] we obtain that when L tends to ∞ the sequence of measures νL converges
+to some measure ν on M2,2 (R). Although we will not need this fact, we
+remark that the measure ν is given explicitly in [11, p. 361].
+   Anyways, consider the map
+                                                  
+                                     2              p
+                     P : M2,2 (R) → R , A 7→ A
+                                                    q
+
+and notice that for all U ⊂ R2 we have that
+                             1
+(5.8)                           |Sp,q ∩ L · U | = (P∗ νL )(U )
+                             L2
+where P∗ is the push-forward of the measure νL under P . It follows that
+                             1
+(5.9)                    lim    |Sp,q ∩ L · U | = (P∗ ν)(U )
+                         L→∞ L2
+
+for any open set U with (P∗ ν)(Ū \ U ) = 0. Moreover, from (5.8) and (5.9)
+we get that P∗ ν(U ) is bounded from above by vol(U ). It follows that P∗ ν is
+absolutely continuous with respect to the Lebesgue measure and hence that
+(5.9) holds for all sets bounded by rectifiable Jordan curves.
+   Now, the measure P∗ ν is by construction invariant under the action of
+SL2 N on (0, ∞)2 . More concretely, this means that for any A ∈ SL2 N and
+U ⊂ (0, ∞)2 we have that P∗ ν(AU ) = P∗ ν(U ). Moreover, the measure P∗ ν
+has the same scaling behavior as Lebesgue measure, meaning that for U as
+above and L ∈ R+ one has P∗ ν(L·U ) = L2 ·P∗ ν(U ). Up to scaling, Lebesgue
+measure is the only measure in the Lebesgue class with this behavior. Hence
+there is a constant c with P∗ ν(·) = c · vol(·) and thus
+                          1
+                 lim          |Sp,q ∩ L · U | = c · vol(U ∩ (0, ∞)2 )
+                L→∞ L2
+
+for every U bounded by a rectifiable Jordan curve. To conclude the proof of
+(5.7) we need to show that c = π26pq . To see this, let a, b > 0 and consider
+the triangle
+                                                        
+                         x                         x
+              ∆a,b =          ∈ (0, ∞)2 (a, b) ·         ≤1 .
+                         y                         y
+Note that                                                
+                         p                              1
+                 A                ∈ L · ∆1,1 ⇔ At               ∈ L · ∆p,q
+                         q                              1
+                                                                              47
+
+where A ∈ SL2 N and At is the transpose of A. Since SL2 N is invariant
+under taking transposes we deduce that
+                                    
+               p
+(5.10)    A        ∈ L · ∆1,1 A ∈ SL2 N =
+               q
+                                                              
+                                         1
+                                       A     ∈ L · ∆p,q A ∈ SL2 N
+                                         1
+for all L > 0. From (5.5) and (5.6) we obtain that
+                                         
+          1        1                               6          1 6
+     lim 2 A            ∈ L · ∆p,q A ∈ SL2 N = 2 vol(∆p,q ) =
+    L→∞ L          1                              π           2 π 2 pq
+and when combining this with (5.10) it follows that
+                                             
+           1         p                               6
+       lim 2 A           ∈ L · ∆1,1 A ∈ SL2 N = 2 vol(∆1,1 )
+      L→∞ L          q                              π pq
+which proves that c = π26pq , as we wanted. We have established (5.7).
+  The final claim in Proposition 5.2 follows from (5.10) together with the
+                                                                     L2
+observation that (L·∆p,q )∩N2 has at most cardinality vol(L·∆p,q ) = 2pq . 
+  Armed with Proposition 5.2 we are ready to prove Theorem 1.3.
+Proof of Theorem 1.3. Recall that the semigroup SL2 N acts freely on           2
+                                                                          N.
+                                                                            p
+Moreover, because SL2 N is a free semigroup, two orbits Sp,q = SL2 N
+                                                                            q
+                   
+                     r
+and Sr,s = SL2 N          intersect if and only if one orbit is contained in the
+                     s
+other. It follows that any invariant set I can be written in a unique way as
+the disjoint union of a set O of orbits
+                                        G
+                                I=          Sp,q
+                                    (p,q)t ∈O
+
+where the superscript t denotes, as always, the transpose. Note that the
+infinite sum
+                                  X      6
+                            λ=           2
+                                    t
+                                        π pq
+                                   (p,q) ∈O
+exists because it is bounded from above by 1 and all its summands are
+positive. We claim that for any U ⊂ (0, ∞)2 with rectifiable boundary we
+have
+                             1
+                         lim 2 |I ∩ L · U | = λ vol(U ).
+                        L→∞ L
+Since the orbits Sp,q are pairwise disjoint, the claim follows directly from
+Proposition 5.2 if the set O is finite. In particular, one has that
+                                                      
+                       1                    X      6 
+(5.11)        lim inf 2 |I ∩ L · U | ≥            2
+                                                         · vol(U )
+               L→∞ L                              π pq
+                                                0
+                                          (p,q)∈O
+48                    VIVEKA ERLANDSSON AND JUAN SOUTO
+
+for any finite subset O0 ⊂ O. Note that for any  we can find a finite set O0
+such that if P = O \ O0 is its complement we have
+                                X     6
+(5.12)                                2
+                                          ≤ .
+                                 t
+                                     π pq
+                                    (p,q) ∈P
+
+The claim will follow then from (5.11) if we show that for any U ⊂ (0, 1)2
+as above and set P ⊂ O satisfying (5.12) we have
+                                        
+                        1      G
+                lim sup 2          Sp,q  ∩ L · U ≤ cU · 
+                  L→∞ L         t   (p,q) ∈P
+
+for some constant cU depending on U . In fact, letting `U be such that
+U ⊂ `U · ∆1,1 we will prove that cU = `2U does the trick – here ∆1,1 is as in
+the proof of Proposition 5.2. For any such U we get that
+                                          
+       G                           G
+            Sp,q  ∩ L · U ≤          Sp,q  ∩ L · `U · ∆1,1
+      (p,q)t ∈P                        (p,q)t ∈P
+                                                     
+                                                                        
+                                          G              x
+                                =                 Sp,q  ∩    x + y ≤ L`U
+                                                          y
+                                      (p,q)t ∈P
+                                                                    
+                                      X                x
+                                =             Sp,q ∩       x + y ≤ L`U
+                                       t
+                                                       y
+                                    (p,q) ∈P
+                                      X         L2 `2U             X           6
+                                ≤                      < L2 cU                        ≤ L2 cU 
+                                                 2pq                         π 2 pq
+                                    (p,q)t ∈P                    (p,q)t ∈P
+
+Having established the bound we needed, we have proved Theorem 1.3.                               
+   The reader might wonder if one really needed to say anything justifying
+that the density of a disjoint union of set is the sum of the densities of the
+individual sets. Well, this statement is in fact not true in general: in general
+every countable set is the countable union of singletons, which obviously
+have density 0. In other words, the last claim of Proposition 5.2 actually
+plays a central role in the proof of Theorem 1.3.
+
+                                     References
+ [1] J. Aramayona and C. Leininger, Hyperbolic structures on surfaces and geodesic cur-
+     rents, to appear in Algorithms and geometric topics around automorphisms of free
+     groups, Advanced Courses CRM-Barcelona, Birkhäuser.
+ [2] F. Bonahon, Bouts des variétés hyperboliques de dimension 3, Ann. of Math. 124
+     (1986).
+ [3] F. Bonahon, The geometry of Teichmüller space via geodesic currents, Invent. Math.
+     92 (1988).
+ [4] F. Bonahon, Geodesic currents on negatively curved groups, in Arboreal group theory
+     MSRI Publ., 19, Springer, 1991.
+                                                                                          49
+
+ [5] A. Casson and S. Bleiler, Automorphisms of surfaces after Nielsen and Thurston,
+     Cambridge University Press, 1988.
+ [6] M. Duchin, C. Leininger and K. Rafi, Length spectra and degeneration of flat metrics,
+     Invent. Math. 182, (2010).
+ [7] A. Fathi, F. Laudenbach and V. Póenaru, Travaux de Thurston sur les surfaces,
+     Astérisque, vol. 66-67, 1979.
+ [8] U. Hamenstädt, Parametrizations of Teichmüller space and its Thurston boundary,
+     in Geometric analysis and nonlinear partial differential equations, J. Geom. Anal. 14
+     (2004).
+ [9] A. Hatcher, Measured lamination spaces for surfaces, from the topological viewpoint,
+     Topology and its Applications 30, (1988).
+[10] H. Masur, Ergodic actions of the mapping class group, Proc. AMS 94, (1985).
+[11] F.Maucourant, Homogeneous asymptotic limits of Haar measures of semisimple linear
+     groups and their lattices, Duke Math. J. 136, (2007).
+[12] G. McShane and I. Rivin, A Norm on Homology of Surfaces and Counting Simple
+     Geodesics, IMRN 2, (1995).
+[13] M. Mirzakhani, Growth of the number of simple closed geodesics on hyperbolic sur-
+     faces, Annals of Math. 168, (2008).
+[14] M. Mirzakhani, Counting mapping class group orbits on hyperbolic surfaces.
+[15] J.-P. Otal, Le spectre marqué des longueurs des surfaces à courbure négative, Ann. of
+     Math. 131, (1990).
+[16] A. Papadopoulos, Reseaux ferroviaires, difféomorphismes pseudo-Anosov eu auto-
+     morphismes symplectiques de l’homologie d’une surface, Publications Mathematiques
+     d’Orsay, 1983.
+[17] R. Penner and J. Harer, Combinatorics of Train Tracks, Princeton University Press,
+     1992.
+[18] M. Rees, An alternative approach to the ergodic theory of measured foliations on
+     surfaces, Ergodic Theory Dynamical Systems 1, (1982).
+[19] I. Rivin, Geodesics with one self-intersection, and other stories, Adv. Math. 231,
+     (2012).
+[20] J. Sapir, Lower bound for the number of non-simple geodesics on surfaces,
+     arXiv:1505.06805.
+[21] J. Sapir, Bounds on the number of non-simple closed geodesics on a surface,
+     arXiv:1505.07171
+[22] W. Thurston, The Geometry and Topology of Three-manifolds, Unpublished notes,
+     1980.
+
+   Aalto Science Institute, Aalto University
+   E-mail address: viveca.erlandsson@aalto.fi
+
+   IRMAR, Université de Rennes 1
+   E-mail address: juan.souto@univ-rennes1.fr
+

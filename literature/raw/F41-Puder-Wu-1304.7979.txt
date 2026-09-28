@@ -1,0 +1,1181 @@
+                                                          Growth of Primitive Elements in Free Groups
+                                                                                   D. Puder† and C. Wu
+
+                                                                                      September 12, 2018
+arXiv:1304.7979v3 [math.GR] 23 Oct 2014
+
+
+
+
+                                                                                              Abstract
+                                                    In the free group Fk , an element is said to be primitive if it belongs to a free generating
+                                                 set. In this paper, we describe what a generic primitive element looks like. We prove that up
+                                                 to conjugation, a random primitive word of length N contains one of the letters exactly once
+                                                 asymptotically almost surely (as N → ∞).
+                                                    This also solves a question from the list ‘Open problems in combinatorial group theory’
+                                                 [Baumslag-Myasnikov-Shpilrain 02’]. Let pk,N be the number of primitive words of length N
+                                                 in Fk . We show that for k ≥ 3, the exponential growth rate of pk,N is 2k − 3. Our proof also works
+                                                 for giving the exact growth rate of the larger class of elements belonging to a proper free factor.
+
+                                          2010 Mathematics Subject Classification: 20E05 (Primary) 05A16 (Secondary)
+
+
+                                          Contents
+                                          1 Introduction                                                                                                 1
+
+                                          2 Whitehead Graphs                                                                                             4
+
+                                          3 Proof of Theorems                                                                                            7
+                                              3.1   Primitives and cyclic primitives . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      7
+                                              3.2   Ingredients for bounding cyclic primitives . . . . . . . . . . . . . . . . . . . . . . . . . .        8
+                                              3.3   Proof of Theorem 1.3 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+                                              3.4   The growth of non-primitives belonging to free factors . . . . . . . . . . . . . . . . . . . 14
+
+                                          4 Most Triplets are Negligible                                                                                14
+
+                                          5 Open Questions                                                                                              18
+
+
+                                          1      Introduction
+                                          Let Fk be the free group on k generators X = {x1 , . . . , xk } (k ≥ 2). Elements in Fk are represented
+                                          by reduced words in the alphabet X ±1 = x±1    ±1           ±1
+                                                                                   
+                                                                                     1, x2, · · · , xk    . A word w ∈ Fk is called primitive if it
+                                          belongs to some free generating set. We let Pk,N denote the set of primitive elements of word length                Pk,N
+                                              † Supported by the Adams Fellowship Program of the Israel Academy of Sciences and Humanities, and by the ERC.
+
+
+
+
+                                                                                                  1
+N in Fk . It is known (see, for example, [BMS02b]) that as N → ∞ the set of primitive words is
+exponentially small in Fk . Namely, the exponential growth rate                                                  ρk
+                                                       q
+                                             def
+                                          ρk = lim sup N |Pk,N |
+                                                     N →∞
+
+
+is strictly smaller than that of the whole free group Fk , which is 2k − 1. As observed in [Riv04],
+      √
+ρ2 = 3, which gives the only case where the growth rate is known. For k ≥ 3, various upper bounds
+on ρk have been established [BV02, BMS02b, Shp05]. The best upper bound to date is due to Shpilrain
+                                                                           
+[Shp05] who showed ρk ≤ λk , where λk is the greatest real root of λ λ2 − 1 (λ − (2k − 2)) + 1. Here
+λk < 2k − 2 for each k, but λk approaches 2k − 2 in the limit. A simple lower bound of ρk ≥ 2k − 3
+stems from the fact that every word of the form x1 w(x2 , x3 , · · · , xk ), where w is a word of length N − 1
+in x±1            ±1
+   
+     2 , . . . , xk  , forms a free generating set together with {x2 , x3 , · · · , xk }, hence is primitive.
+   The exact value of ρk is the content of one of the open questions, attributed to M. Wicks, in
+[BMS02a, Problem F17] (see also the active website [BMS, Problem F19]). Here we answer the
+question and show the following tight result:
+
+Theorem 1.1. For all k ≥ 3,                           q
+                                                      N
+                                      ρk = lim            |Pk,N | = 2k − 3.
+                                            N →∞
+
+Moreover, there are positive constants ck and Ck such that
+
+                                                N                               N
+                            ck · N · (2k − 3)       ≤ |Pk,N | ≤ Ck · N · (2k − 3) .
+
+Remark 1.2. The second statement of Theorem 1.1 can be sharpened to |Pk,N | = (1 + oN (1)) · C
+                                                                                             ck ·
+            N
+N · (2k − 3) for a specific constant C
+                                     ck which can be computed. This can be inferred from Theorem
+1.3 and the analysis in Proposition 3.1 below.
+   The above theorem follows from an analysis of conjugacy classes of primitives in free groups. A
+word w = a1 a2 · · · aN is called cyclically reduced if a1 6= a−1
+                                                               N . Such words, up to a cyclic permutation
+of letters, uniquely represent conjugacy classes in Fk . Hence for w ∈ Fk we call the conjugacy class
+[w] the cyclic word associated with w. Let the cyclic length of w, denoted by |w|c , be the length of            [w]
+the cyclically reduced representatives of [w].                                                                   |w|c
+   There is a stark difference between the behavior of P2,N and that of Pk,N when k ≥ 3: whereas in
+F2 ‘most’ long primitives are conjugates of short ones, it turns out that for higher rank free groups the
+generic primitive word is nearly cyclically-reduced. In particular, the growth of the set of primitive
+elements is the same as that of primitive conjugacy classes (cyclic words) with respect to cyclic length.
+(This is the content of Proposition 3.1 below.)
+   Consider the set                                                                                              Ck,N
+                            Ck,N = {[w] | w ∈ Fk is primitive and |w|c = N } .
+
+We compare the size of Ck,N with its subset of cyclic-words in which some letter x ∈ X appears exactly
+once (either as itself or its inverse), namely the set                                                           Lk,N
+
+                      Lk,N = {[w] | some x ∈ X appears in w exactly once} ⊆ Ck,N .
+
+
+
+                                                          2
+                                                                                                N −2
+The size of Lk,N can be easily approximated as† |Lk,N | ≈ 2k (2k − 2) (2k − 3)                         . So that
+                                                    q
+                                            lim sup N |Lk,N | = 2k − 3.
+                                             N →∞
+
+
+Theorem 1.3. For k ≥ 2                              q
+                                            lim sup N |Ck,N | = 2k − 3.
+                                             N →∞
+
+For k ≥ 3,                                       q
+                                         lim sup N |Ck,N \ Lk,N | < 2k − 3.
+                                         N →∞
+
+Moreover,
+                                                           2k (2k − 2)                 N
+                                |Ck,N | = (1 + oN (1)) ·              2    (2k − 3) .
+                                                               (2k − 3)
+    The second statement of theorem 1.3 means that except for an exponentially small set, all primitive
+cyclic-words contain one of the letters exactly once. When k ≥ 3 the first and last statements are an
+immediate consequence of the second one and the approximated size of Lk,N as given above.
+    Note that the first statement of theorem 1.3 is also valid for k = 2: the exponential growth rate of
+conjugacy classes of primitives in F2 is 1. This special case was already shown in [MS03, Prop 1.4]:
+                                                                                                √
+it turns out the size of C2,N is exactly 4ϕ (n), where ϕ (·) is the Euler function. Whereas ρ2 = 3 is
+strictly larger than 1, for all k ≥ 3 the growth of primitive cyclic-words is the same as the growth of
+primitive words.
+    A natural question along the same vein would be to estimate the growth of the larger set Sk,N                        Sk,N
+consisting of words in Fk which are contained in a proper free factor (clearly, Pk,N ⊆ Sk,N ). Our proof
+of Theorem 1.1 also applies to this question and yields that Sk,N has the same exponential growth
+rate as Pk,N :
+
+Corollary 1.4. For k ≥ 3 we have
+                                     q              q
+                                     N
+                               lim    |Sk,N | = lim N |Sk,N \ Pk,N | = 2k − 3.
+                              N →∞                  N →∞
+
+                         p
+    We show that limN →∞ N |Sk,N | ≤ 2k − 3 in Section 3.4. This requires only a small variation
+on the proof of Theorem 1.1. The lower bound is, again, easier, and follows immediately from the
+fact that primitives are exponentially negligible in Fk (this fact follows from Theorem 1.1 but also, as
+mentioned above, from previous results concerning the growth of primitives). Indeed, this fact shows
+that most words in any size k − 1 subset of the letters are non-primitive. We conclude that the number
+                                                                                 N
+of non-primitive words in Sk,N grows at least as fast as (2k − 3) . Thus Sk,N is indeed larger than
+Pk,N in a non-negligible manner, namely,
+                                     q                                           q
+                                     N                                           N
+                               lim       |Sk,N \ Pk,N | ≥ 2k − 3 = lim               |Pk,N |.
+                              N →∞                                        N →∞
+
+† This expression is very close to the truth, except that we double count words in which two or more letters appear
+exactly once. The exact cardinality of Lk,N can be obtained by an application of the inclusion-exclusion formula. Note
+that the share of doubly-counted words is exponentially negligible in Lk,N : it is of exponential order (2k − 5)N .
+
+
+
+
+                                                           3
+                                                       p
+Remark 1.5. For a different proof showing that limN →∞ N |Sk,N \ Pk,N | = 2k − 3, see [Pud14a, Thm
+8.2] (in the terminology therein, every word in Sk,N \ Pk,N has primitivity rank ≤ k − 1). In the
+techniques of that paper (especially [Pud14a, Prop. 4.3]), it can be shown that a generic word in
+Sk,N \ Pk,N is, up to conjugation, a word in some (k − 1)-subset of the letters of X.
+
+
+    Our proofs rely on a thorough analysis of the Whitehead algorithm to detect primitive elements.
+To a lesser extent, we also use a characterization of primitive elements based on the distribution they
+induce on finite groups. In Section 2 we give some background on Whitehead algorithm and describe
+the graphs used in it, called Whitehead graphs. We then divide the set of primitives into finitely many
+classes according to certain properties of their Whitehead graphs. Most of these classes turn out to be
+of negligible size, but we postpone the somewhat technical proof of this fact to Section 4. In Section 3
+we give some background on the aforementioned “statistical” characterization of primitives, estimate
+the size of the remaining classes of primitives and complete the proofs of Theorems 1.1, 1.3 and of
+Corollary 1.4. We end with some open questions in Section 5.
+
+
+Acknowledgements
+We would like to thank Tsachik Gelander for bringing our attention to the question. We thank Warren
+Dicks, Ilya Kapovich, Nati Linial, Shahar Mozes and Alexey Talambutsa for beneficial comments. We
+also thank the anonymous referee for his valuable comments. The second author would like to thank
+the Hebrew University for providing hospitality and stimulating mathematical environment during
+which part of this work was conducted.
+
+
+2     Whitehead Graphs
+In [Whi36a], Whitehead introduced the first algorithm to detect primitive words in Fk (and more
+generally subsets of bases of Fk ). (Subsequently, in [Whi36b], he solved a more general question:
+Given two words w1 , w2 ∈ Fk , when does there exist an automorphism φ ∈ Aut (Fk ) mapping w1 to
+w2 ? Note that w1 is primitive if and only if there is an automorphism mapping it to a single-letter
+word.) Along the years it has become the most standard way of detecting primitive elements. Stallings
+generalized the algorithm in order to detect words belonging to free factors of Fk [Sta99]. For other
+algorithms to detect primitives see, e.g., [LS70, Chapter I.2] or [Pud14b].
+    The algorithm is based on the following construction: Let Mk be a 3-manifold which is the con-
+nected sum of k copies of S1 × S2 . Clearly, we have π1 (Mk ) = Fk . Fix a set of k disjoint 2-spheres
+                                                                  ck = Mk \ Sk Si is simply connected
+S1 , S2 , · · · , Sk , one corresponding to each summand, so that M            i=1
+with 2k boundary components S1+ , S1− , S2+ , · · · , Sk− . The manifold Mk may be visualized as the double
+of a handlebody Hk with {Si } being the double of a cut system of Hk (a cut system is a set of disjoint
+discs that cuts the handlebody into a ball). For every w ∈ Fk = π1 (Mk ), the cyclic word [w] can be
+realized as a simple curve in Mk . Conversely, given any oriented curve in Mk one can write down a
+cyclic word in Fk by reading off the sequence of spheres the curve intersects, with signs. Hence we get
+a bijective correspondence between cyclic words [w] and homotopy classes of oriented simple curves in
+
+
+                                                    4
+Mk .
+
+
+                                                                           SU        -
+                                                                                     +
+
+                                                       -
+         +
+             -                                     +        S4
+    S1
+
+
+                      +
+                                            -
+                          -             +
+                 S2                         S3
+
+                          Figure 2.1: Spheres Si in Hk and SU with U = S1+ , S1− , S2+ , S3−
+                                                                      
+
+
+     Given any proper non-empty subset U ⊂ S1+ , S1− , · · · , Sk− , there is an embedded 2-sphere SU in
+                                          
+
+ck separating the boundary components in U from those not in U. For every v ∈ X ±1 denote by
+M
+                                           c (so Sx = S + and S −1 = S − ). If there exists some
+Sv the corresponding boundary component of M                           i   i    xi       i
+v = xjε ∈ X ±1 such that Sv ∈
+                            / U and Sv−1 ∈ U then SU is an essential non-separating sphere† in
+ck ∪ Sj . The Whitehead automorphism ϕ(U ,v) of Fk is then defined by replacing the sphere Sj by
+M
+SU and writing each cyclic word as the intersection pattern of the corresponding curve with the new
+                                                      / U and S3− ∈ U hence we may replace S3 with
+set of spheres. In the example illustrated above, S3+ ∈
+SU . Writing down ϕ(U ,v) formally one gets:
+
+• ϕ(U ,v) (v) = v ; ϕ(U ,v) (v −1 ) = v −1 ;
+
+• for u 6= v,
+
+    – ϕ(U ,v) (u) = u if Su , Su−1 ∈
+                                   / U;
+    – ϕ(U ,v) (u) = vuv −1 if Su , Su−1 ∈ U;
+    – ϕ(U ,v) (u) = vu and ϕ(U ,v) (u−1 ) = uv −1 if Su ∈ U, Su−1 ∈
+                                                                  / U;
+
+By forgetting the order in which the spheres are intersected and looking only at the arcs connecting
+                          ck one gets a finite graph with 2k vertices labeled X ±1 = x±1 , · · · , x±1 .
+                                                                                    
+boundary components in M                                                                           1          k
+This is called the Whitehead graph of the cyclic word [w], denoted by Γ(w). For example, Γ (w) for                    Γ (w)
+w = x1 x22 x−1 −2
+            3 x2 ∈ F3 is:
+
+
+                                                       x1            x−1
+                                                                      1
+
+
+
+
+                                                       x2            x−1
+                                                                      2
+
+
+
+
+                                                       x3            x−1
+                                                                      3
+
+†                                                                            ck ∪ Sj into two connected components.
+    Namely, a non-contractible embedding of a sphere which does not separate M
+
+
+
+                                                                 5
+Going from manifolds to graphs, to every (U, v) defined as above corresponds a partition of the vertices
+by Z = {xu | Su ∈ U} and Y = X ±1 \(Z ∪ {v}). Denote φY,Z,v = ϕ(U ,v) , and notice that X ±1 =               φY,Z,v
+Y q Z q {v}. The following theorem, part of the foundation for Whitehead’s algorithm, plays a central
+role in our argument:
+
+Theorem 2.1. [Sta99, Thm 2.4] If w is contained in a proper free factor of Fk , then Γ (w) has a cut
+vertex.
+
+   Namely, there exists a vertex v such that Γ(w)\ {v} is disconnected. This includes the case where
+Γ (w) is itself disconnected. Note that, in particular, all primitive elements are contained in a rank
+one free factor, hence have Whitehead graphs with cut vertices.
+   Note that the cyclic length |w|c of w is the number of edges in the Whitehead graph corresponding
+to a cyclically reduced representative. A natural candidate for a length reducing Whitehead automor-
+phism is therefore to replace the sphere corresponding to the cut vertex v by one that separates a
+connected component of Γ(w)\ {v}. Indeed, we have the following:
+
+Proposition 2.2. [Sta99, Prop 2.3] Let v be a cut-vertex of Γ (w), and let Y and Z be a non-trivial
+partition of the remaining vertices so that there are no edges between Y and Z, and v −1 ∈ Z. Then
+
+                                     |φY,Z,v (w)|c = |w|c − E (Y, v) .
+
+   Here E (Y, v) is the number of edges connecting v to Y . For instance, for w = x1 x22 x−13 x2
+                                                                                                −2
+                                                                                                    as
+                                                    −1                                      −1   −1
+                                                                                     
+above, there are two possible cut-vertices: x2 and x2 . If one chooses v = x2 and Z = x1 , x1 , x2 ,
+then [φY,Z,v (w)] = [x2 x1 x2 x−1 −2            −1 −1
+                               3 x2 ] = [x1 x2 x3 x2 ] has cyclic length 4.
+   Moreover, it is easy to see that if w is contained in a proper free factor then it is almost always
+possible to find a triplet (Y, Z, v) as in Proposition 2.2 with E (Y, v) > 0: the only exceptions are
+|w|c ≤ 1 or when w is a word in a proper subset of the letters, say x1 , . . . , xj (j < k), and it does
+not belong to a proper free factor in F (x1 , . . . , xj ). This is the crux of the Whitehead algorithm to
+detect primitives: since the second case cannot occur for primitive elements with |w|c > 1, if w is
+primitive one can always apply a sequence of Whitehead automorphisms according to cut vertices in
+the Whitehead graph, until it becomes a (conjugate of a) single-letter word.
+   Our proof of Theorem 1.1 (and of Corollary 1.4) relies on a rigorous analysis of the possible triplets
+(Y, Z, v). We say that a triplet (Y, Z, v) is valid for the cyclic word [w] if it satisfies the statement
+in Proposition 2.2 (namely, if v is a cut-vertex of Γ (w), Y and Z are a non-trivial partition of the
+remaining vertices with E (Y, Z) = 0, and v −1 ∈ Z). Let AY,Z,v denote the set of all cyclic words
+having (Y, Z, v) as a valid triplet; namely                                                                  AY,Z,v
+
+                           AY,Z,v = {[w] | (Y, Z, v) is a valid triplet for w}
+
+and                                                                                                          AN
+                                                                                                              Y,Z,v
+
+
+                                  AN
+                                   Y,Z,v = {[w] ∈ AY,Z,v | |w|c = N } .
+
+
+
+
+                                                    6
+By Theorem 2.1,
+                                                      [
+                                          Ck,N ⊆               AN
+                                                                Y,Z,v
+                                                     (Y,Z,v)
+
+taking the union over all possible triplets partitioning X ±1 (with Y, Z 6= ∅ and v −1 ∈ Z).
+    We proceed by bounding the growth of primitives in AY,Z,v for each of the finitely many triplets
+(Y, Z, v). Intuitively, the cut vertex and partition will restrict the number of possible ways to connect
+vertices, hence result in a smaller growth rate. In the extreme case, if both sets Y and Z contain
+roughly half of the elements of X ±1 , namely |Y | ≈ k and |Z| ≈ k; then from any vertex in Y one can
+connect only to another vertex in Y ∪ {v}, resulting in ∼ k choices. If we ignore the possibility of going
+through v, then the possible number of such cyclic words would be roughly only k N , which amounts
+to an exponential growth rate of k (note that this applies to the whole set AY,Z,v and not only to the
+primitives in it). Hence we should expect AY,Z,v to grow faster for triplets (Y, Z, v) where one of Y, Z
+is almost all of X ±1 .
+    Indeed it turns out that AY,Z,v is negligible unless one of Y, Z is very small:
+
+Proposition 2.3. Every triplet (Y, Z, v) satisfies
+                                                r
+                                      lim sup   N
+                                                    AN
+                                                     Y,Z,v < 2k − 3,
+                                       N →∞
+
+
+unless min(|Y |, |Z|) = 1 or Y = x, x−1 for some letter x.
+                                
+
+
+    The proof of this proposition involves some careful analysis in various cases, and we postpone it
+to Section 4. In Section 3 we assume this proposition, give the precise growth rates for the remaining
+essential partitions and obtain our theorems.
+
+
+3      Proof of Theorems
+In this section we complete the proofs of Theorems 1.1 and 1.3 and of Corollary 1.4.
+
+
+3.1    Primitives and cyclic primitives
+Here, we present the observation that, unlike in F2 , for k ≥ 3 it suffices to count conjugacy classes
+containing primitive words.
+
+Proposition 3.1. For k ≥ 3, if |Ck,N | ≤ C · (2k − 3)N for some C > 0 as follows from Theorem 1.3,
+then
+                                       |Pk,N | ≤ D · N · (2k − 3)N
+
+for some D > 0.
+
+Proof. Each w ∈ Pk,N is of the form
+                                                    uw0 u−1
+
+where w0 ∈ Fk is cyclically reduced and primitive. Let ` be the word length of u, so that 0 ≤ ` ≤ N 2−1
+and |w|c = |w0 |c = N − 2`.
+
+
+                                                       7
+   Since w0 is primitive, in particular, it is not a proper power, hence each of its cyclic shifts is different.
+Namely, the cyclic word [w0 ] is represented by exactly N − 2` distinct cyclically reduced words. On
+the other hand, u can be any word of length ` as long as the first letter of u−1 and the last letter of u
+                                                                                        `−1
+do not cancel out their adjacent letters in w0 . There are (2k − 1)                            (2k − 2) such words. Therefore,
+
+                                            −1
+                                         bN
+                                          X 2 c
+                                                                                                             `−1
+                           |Pk,N | =              (N − 2`) |Ck,N −2` | (2k − 2) (2k − 1)
+                                           `=0
+                                                 −1
+                                              bN
+                                               X 2 c
+                                                                                    `
+                                     ≤ N·               |Ck,N −2` | (2k − 1)
+                                                 `=0
+                                                 −1
+                                              bN 2 c
+                                                                          N −2`
+                                               X                                                   `
+                                     ≤ N·               C · (2k − 3)              (2k − 1)
+                                                 `=0
+                                                                        −1
+                                                                     bN 2 c
+                                                                                                   !`
+                                                                N
+                                                                      X            2k − 1
+                                     = N · C · (2k − 3)                                        2        .
+                                                                      `=0
+                                                                                (2k − 3)
+                          
+                  2k−1
+For k ≥ 3,       (2k−3)2
+                               ≤ 59 < 1. Bounding the geometric series, we deduce that |Pk,N | ≤ D · N ·
+        N
+(2k − 3) .
+
+   The proposition shows that Theorem 1.1 follows from Theorem 1.3: For the lower bound in Theorem
+1.1 recall that the number of cyclically reduced primitive words of length N with one of the letters
+appearing exactly once is
+
+                                                                                                            N −2
+                           N · |Lk,N | = (1 − oN (1)) · N · 2k · (2k − 2) · (2k − 3)                               .
+
+To complete the proofs of Theorems 1.1 and 1.3, it remains to bound from above the growth of cyclic
+primitives. Before starting the proof we present in Section 3.2 a couple of useful facts which will be
+used in the sequel.
+
+
+3.2    Ingredients for bounding cyclic primitives
+First, we give some background on a line of thought regarding primitive words which is different from
+Whitehead’s and leads to a measure-theoretic characterization of primitives. Let w = xiε11 xiε22 · · · xiεNN
+be a word in Fk . For every group G, w induces a word map from the Cartesian product Gk to G, by
+substitutions:
+                                         w : (g1 , . . . , gk ) 7→ giε11 giε22 · · · giεNN .
+
+When G is finite (compact) and Gk is given the uniform (Haar, resp.) measure, the push forward by w
+of this measure results in a new measure on G, which we denote by Gw . It is an easy observation that                            Gw
+if w1 and w2 are in the same Aut Fk -orbit of Fk , then they induce the same measure on every finite
+or compact group, namely Gw1 = Gw2 (see [PP15, Observation 1.2]). In particular, if w is primitive,
+then Gw = Gx1 which is clearly the uniform (Haar) measure on G.
+   It is natural to ask whether the converse also holds. Namely, if Gw1 = Gw2 for every finite (compact)
+
+
+                                                                 8
+group, does it imply that w1 and w2 are in the same Aut Fk -orbit? This conjecture is still wide open.
+However, the special case concerning primitives was settled in [PP15]. It is shown there that if Gw is
+uniform for every finite group G, then w is primitive. In the heart of the argument in [PP15] lies a
+result about the distributions induced by words on the symmetric groups Sn . We re-formulate it as
+follows:
+
+Theorem 3.2. [PP15, Thm 1.7] Let w ∈ Fk . For every n ∈ N let σw,n be a random permutation in
+Sn distributed according to (Sn )w . Then w is non-primitive if and only if there exists some n0 such
+that for all n > n0 we have
+
+
+                                             E(|Fix (σw,n )|) > 1,
+
+where Fix (σ) denotes the set of fixed points of σ.
+
+   Note that for w primitive, σw,n is a uniformly distributed random permutation in Sn , hence the
+expected number of fixed points is exactly 1. From this theorem we derive the following fact which
+will be useful in the argument. We say that w1 and w2 are letter disjoint words if their reduced forms
+use disjoint subsets of the alphabet X.
+
+Proposition 3.3. Let w1 , w2 ∈ Fk be letter disjoint words. If the concatenation w1 w2 is primitive,
+then at least one of w1 or w2 is primitive.
+
+Proof. Since the push-forward measure by w is a class function, the probability P r(σw,n (i) = i) is
+independent of i (here i ∈ {1, . . . , n}), and likewise, P r(σw,n (i) = j) is independent of i and j as long
+as i 6= j. Thus, E(|Fix(σw,n )|) > 1 if and only if P r(σw,n (1) = 1) > n1 . Let p(w, n) = P r(σw,n (1) = 1).
+   Since w1 and w2 are letter disjoint, they induce independent push-forward measures on Sn . If both
+words are non-primitive then for large enough n, both p(w1 , n) > n1 and p(w2 , n) > n1 , which implies
+
+                p (w1 w2 , n)   = P r(σw1 w2 ,n (1) = 1)
+                                  Xn
+                                =     P r(σw1 ,n (1) = j) · P r(σw2 ,n (j) = 1)
+                                    j=1
+                                                               1 − p(w1 , n) 1 − p(w2 , n)
+                                = p(w1 , n)p(w2 , n) + (n − 1)              ·
+                                                                  n−1           n−1
+                                                                              
+                                  1       n                  1                 1      1
+                                =   +         · p(w1 , n) −      · p(w2 , n) −     > .
+                                  n n−1                      n                 n      n
+
+This contradicts the assumption that w1 w2 is primitive.
+
+   Recall that by Proposition 2.3 primitives from AY,Z,v for most triplets (Y, Z, v) are negligible. We
+make some simple observations about the remaining three types of triplets:
+
+• If |Y | = 1, say Y = {a}, and w ∈ AY,Z,v then each appearance of a is followed by v −1 and
+  each appearance
+          q       of a−1 is preceded by v. It is not hard to see that the growth rate here is
+                       2
+  at least    (2k − 3) + 1 > 2k − 3. Indeed, consider the (2k − 2) (2k − 3) ordered reduced pairs
+  of letters not containing a±1 and, in addition, the pair av −1 . Each one of these pairs can be
+  followed by one of (2k − 3) (2k − 3) + 1 of these pairs, which shows the lower bound.                Since
+
+
+                                                      9
+                                                                                    2
+  every possible pair of letters is followed by one of less than (2k − 1) possible pairs, the growth
+  rate is strictly less than 2k − 1.                In fact, the exact growth rate is the largest (real) root of
+   5                4          3                2
+  λ − (2k − 3) λ − 3λ + (2k − 3) λ + 3λ + (2k − 3), which tends to 2k − 3 as k → ∞.
+
+
+               a, a−1       then every instance of a±1 in a word from AY,Z,v is in the form . . . vam v −1 . . .
+           
+• If Y =
+  for some 0 6= m ∈ Z.                   The exponential growth rate here is the largest (real) root of
+   4                    3                2
+  λ − (2k − 2) λ + (2k − 4) λ + (2k − 2) λ − 6k + 11, which again approaches 2k − 3 from
+  above as k → ∞. Again, looking at pairs of letters one can easily infer the growth rate is strictly
+  less than 2k − 1.
+
+
+• Finally, if |Z| = 1, namely Z = v −1 , then v −1 is followed only by v −1 , and v is preceded only by
+                                 
+
+  v. So AY,Z,v consists of all cyclic words not containing v ±1 (together with {v m | m ∈ Z}). Hence,
+  the growth rate is exactly (2k − 3).
+
+In particular, this analysis gives rise to the following naive bound:
+
+Corollary 3.4. Let k ≥ 2. Every triplet (Y, Z, v) satisfies
+                                                         r
+                                               lim sup   N
+                                                             AN
+                                                              Y,Z,v < 2k − 1.
+                                                N →∞
+
+
+3.3      Proof of Theorem 1.3
+The moral of the following proof will be that even when the set AY,Z,v has exponential growth rate larger
+than 2k − 3, every cyclic primitive [w] ∈ AY,Z,v can be shortened ‘fast enough’ by the corresponding
+Whitehead automorphism φY,Z,v . Recall that the second statement of Theorem 1.3 is that for k ≥ 3,
+                                                     q
+                                             lim sup N |Ck,N \ Lk,N | < 2k − 3.                            (3.1)
+                                             N →∞
+
+
+As mentioned in Section 1, when k ≥ 3 the other two statements of the theorem follow from (3.1), and
+                                                p
+for k = 2, the relevant statement (lim supN →∞ N |C2,N | = 1) is already known [MS03, Prop. 1.4].
+Therefore, we shall prove (3.1) by induction on k, assuming only that k ≥ 3 and that for k − 1 we have
+                                                       q
+                                               lim sup N |Ck−1,N | = 2k − 5.
+                                                N →∞
+
+   Assume then that k ≥ 3, and let Mk,N ⊆ Ck,N \Lk,N be the set of cyclic primitive words such that                Mk,N
+either
+
+• [w] ∈ AN
+         Y,Z,v with Y = {x} and x appearing at least 4 times in [w], or
+
+                            −1
+                                and [w] containing at least 2 instances of vxm v −1 (for any 0 6= m ∈
+                        
+• [w] ∈ AN
+         Y,Z,v with Y = x, x
+  Z).
+     c                                                                                                              c
+Let Mk,N denote the complement of Mk,N inside Ck,N \Lk,N . We proceed by showing that the expo-                    Mk,N
+                                      c
+nential growth rates of |Mk,N | and |Mk,N | are both strictly less than 2k − 3.
+
+
+                                                              10
+Lemma 3.5.                                                    r
+                                                             c
+                                                  lim sup N Mk,N < 2k − 3.
+                                                   N →∞
+                                                                                          c
+Proof. In light of Proposition 2.3 we only need to consider cyclic primitive words [w] ∈ Mk,N with a
+Whitehead partition (Y, Z, v) where min {|Y |, |Z|} = 1 or Y = {x, x−1 }.
+    If |Z| = 1 then by definition Z = {v −1 }, and every cyclic word in AY,Z,v is either a power of v
+or a word in the alphabet X ±1 \ v ±1 . The set {v n } is clearly negligible. In the latter case, [w]
+                                   
+
+is primitive in the letters X \ v ±1 . It follows from the induction hypothesis that the exponential
+                                
+
+growth rate of this set of cyclic primitives is 2k − 5 < 2k − 3 .
+   Assume next that Y = {x, x−1 } and [w] has exactly one instance of vxm v −1 for some |m| ≥ 2 (the
+                               c
+case |m| = 1 is impossible as Mk,N ∩ Lk,N = ∅). Pick a representative of [w] of the form [xm w0 ], where
+w0 has length < N and does not contain the letter x. By Proposition 3.3, w0 is primitive in Fk−1 hence
+this set has exponential growth rate 2k − 5.
+   The remaining case is Y = {x} and x±1 appearing exactly twice or thrice in [w] (again, if x±1
+appears only once, then [w] belongs to Lk,N ). Consider first the case where x±1 appears exactly twice:
+We can write [w] in the form                  h                                        i
+                                                              ±1                ±1
+                                                  (u1 xu2 )        w1 (u1 xu2 )      w2 ,
+
+where u1 , u2 are maximal sequence of letters preceding and following both instances of x±1 , respectively.
+   Let `i be the length of ui . Up to a factor of N 3 , which is negligible in terms of exponential growth
+                                                                                         ` +`2
+rates, we know `1 , `2 , |w1 | and |w2 |. There are about (2k − 3) 1                             options for the values of u1 and
+u2 . The automorphism ψ ∈ Aut (Fk ) which maps x 7→ u−1  −1
+                                                     1 xu2 and leaves unchanged the remaining
+letters, maps [w] to the primitive cyclic word
+
+                                                     [w0 ] = x±1 w1 x±1 w2 .
+                                                                         
+
+
+Let N 0 = N − 2 (`1 + `2 ) be the length of w0 . We claim that the number of possible w0 is bounded
+                              N0
+above by C · (2k − 3 − ε)          for some C, ε > 0, ε small. This will suffice as the number of possible [w]
+is then bounded by some polynomial in N times
+
+                     N0               ` +`2                           N −2`1 −2`2
+                                                                                         √            2`1 +2`2                N
+       (2k − 3 − ε)       · (2k − 3) 1        = (2k − 3 − ε)                         ·       2k − 3              ≤ (2k − 3 − ε) .
+
+Firstly, if one of w1 or w2 is trivial, then as in the preceding case, the number of options for [w0 ] is at
+                                         N0                                                                                         0
+most some constant times (2k − 5)             . So, assume w1 , w2 6= 1. The word [w0 ] belongs to some AN
+                                                                                                         Y 0 ,Z 0 ,v 0 .
+By the maximality of u1 and u2 , each of the vertices x and x−1 in the Whitehead graph Γ (w0 ) has
+at least two neighbors innX ±1 \ ox, x−1 . Hence, Y 0 6= {x} , x−1 , x, x−1 . Also, it is not possible
+                                                                    
+                               −1
+that v 0 = x±1 and Z 0 = (v 0 )    , since cyclic words corresponding to this triplet are either words in
+                                                                                                                                        ±1
+X \{v 0 } or powers of v 0 . Hence, the triplet (Y 0 , Z 0 , v 0 ) induces some non-trivial partition of (X \ {x})
+                                              ±1
+(both Y 0 and Z 0 intersect (X \ {x})              ). Hence, w1 and w2 are words (albeit not cyclic) corresponding
+                                                                    ±1
+to some non-trivial triplet partitioning (X \ {x})                       . But by Corollary 3.4, the exponential growth of
+such subsets is strictly less than 2 (k − 1) − 1 = 2k − 3.
+   Finally, consider the case where Y = {x} and x±1 appears exactly three times in [w]:
+                                                                          N
+The proof that this subset grows slower than (2k − 3)                         is very similar to the previous case. This time,
+
+
+                                                                     11
+each such word is of the form
+                                  h                                                           i
+                                              ±1                  ±1                ±1
+                                      (u1 xu2 )    w1 (u1 xu2 )        w2 (u1 xu2 )      w3
+
+with u1 , u2 maximal. It can be shortened via an automorphism to
+
+                                             [w0 ] = x±1 w1 x±1 w2 x±1 w3
+                                                                         
+
+
+of length N 0 . Again, up to a polynomial factor of N 4 we know `1 , `2 , |w1 | , |w2 | and |w3 |, and we claim
+                                                                                                      N0
+that the number of options for [w0 ] is bounded by some constant times (2k − 3 − ε)                        with ε > 0.
+Hence the total number of options for [w] is bounded by some polynomial in N times
+
+                                            N −3`1 −3`2                 ` +`2                     N
+                            (2k − 3 − ε)                  · (2k − 3) 1          ≤ (2k − 3 − ε)
+
+for ε small enough. Indeed, if two of w1 , w2 and w3 are trivial, we are again in the same situation as
+                                                                                                  0
+in the case Y = x, x−1 . Otherwise, the exact same argument as before shows that [w0 ] ∈ AN
+                 
+                                                                                                Y 0 ,Z 0 ,v 0
+                                                             ±1
+for some triplet (Y 0 , Z 0 , v 0 ) partitioning (X \ {x})        non-trivially.
+                                   c
+    This covered all the cases of Mk,N and hence the lemma is established.
+
+    Now we move on to the remaining set Mk,N . The idea is to shorten such words by applying
+appropriate Whitehead automorphisms until the result falls outside of Mk,∗ (i.e. outside of Mk,n for
+all n). To achieve this goal we first consider cyclic words [w] ∈ Mk,N such that the corresponding
+automorphism φY,Z,v maps them into Lk,∗ : [φY,Z,v (w)] ∈ Lk,∗ . Denote this subset by L
+                                                                                      e k,N ⊆ Mk,N .                     L
+                                                                                                                         e k,N
+We claim that:
+
+Lemma 3.6.                                             r
+                                                       N    e k,N < 2k − 3.
+                                             lim sup        L
+                                              N →∞
+
+Proof. Consider first the words [w] ∈ L
+                                      e k,N with triplet (Y, Z, v) where Y = {x}. The effect of
+φ = φY,Z,v on [w] is precisely that: each instance of the form . . . xv −1 . . . becomes simply . . . x . . .,
+and each instance of . . . vx−1 . . . turns into . . . x−1 . . .. In particular, the only letter whose number of
+appearances in [w] is changed by φ is v. By definition, [w] ∈ L        e k,N ⊆ Mk,N ⊆ Ck,N \ Lk,N , so the letter
+which [φ (w)] contains exactly once is necessarily v ±1 . Hence, aside for one, all occurrences of v ±1 in
+[w] are as part of either xv −1 or vx−1 . We deduce that [w] is of the form
+
+                                                            [vw0 ]
+                                                                                              ±1
+with w0 being a word of length N − 1 in 2 (k − 2) building blocks of length 1: X \ x±1 , v ±1
+                                                                                  
+                                                                                                  and
+                                  −1 ±1                     0
+                                    
+2 building blocks of length 2: xv       . (In other words, w is any word in Fk−1 but where one of the
+letters is of length 2). This kind of words clearly has exponential growth rate strictly less than 2k − 3.
+(To be precise, the growth rate is the larger root of λ2 − (2k − 4) λ − 2.)
+    The complement of this latter subset inside L e k,N consists of primitive cyclic words belonging to
+                       −1
+                           . This time, φ turns each instance of . . . vxm v −1 . . . into . . . xm . . .. The
+                   
+ANY,Z,v with Y = x, x
+
+
+
+
+                                                             12
+same arguments as before show that if [w] is such a word, then
+
+                                                             [w] = [vw0 ]
+                                                                       ±1
+where w0 is composed of building blocks from            X \ x±1 , v ±1
+                                                           
+                                                                           together with
+ m −1                                0
+ vx v   0 6= m ∈ Z . Every letter in w is followed by one of at most (2k − 4) possible let-
+ters, showing this type of words also has exponential growth rate < 2k − 3, and thus completing the
+proof.
+
+Lemma 3.7.                                            q
+                                              lim sup N |Mk,N | < 2k − 3.
+                                               N →∞
+
+Proof. Every [w] ∈ Mk,N is equipped with some triplet (Y, Z, v) from the definition of Mk,N (so
+Y = {x} or Y = x, x−1 for some x ∈ X ±1 ). First, we observe that the corresponding Whitehead
+                 
+
+automorphism φY,Z,v shortens [w] by at least 4. There are in total 2k (2k − 2) triplets with Y = {x}
+and k (2k − 2) triplets with Y = x, x−1 . Let W denote the set of these 2k (2k − 2) + k (2k − 2) =
+                                
+
+6k (k − 1) possible Whitehead automorphisms.
+   In other words, for every [w] ∈ Mk,N there exists φ1 ∈ W such that |φ1 (w) |c = N 0 ≤ N − 4. If
+[φ1 (w)] ∈ Mk,N 0 we apply the corresponding automorphism φ2 ∈ W and obtain a cyclic word of length
+                                                          c
+≤ N − 8. Since for all n we have Ck,n = Lk,n ∪ Mk,n ∪ Mk,n   , one can continue this process until the
+                                     c
+resulting cyclic word is either in M   or in Lk,n for some 2 ≤ n ≤ N (note that each cyclic word in
+                                             e
+                                            k,n
+                                  c
+Mk,∗ is of length ≥ 8). Let [w]
+                             b ∈ Mk,n ∪L
+                                       e k,n be the cyclic-word we obtain this way, i.e.
+
+                                                  φ1          φ2                 φr
+                                            [w] → [w1 ] → [w2 ] → . . . → [w]
+                                                                           b .
+
+                                                                    c
+Each element in Mk,N is uniquely determined by r, n = |w|     b ∈ Mk,n
+                                                       b c , [w]       ∪L e k,n and (φ1 , φ2 , · · · , φr ) ∈
+W r , where r ≤ R = N −n
+                        
+                      4   . For each n, the number of possible tuples (φ1 , φ2 , · · · , φr ) is
+
+                    R             R                                             R+1
+                    X       i
+                                  X                     i      [6k (k − 1)]    −1                 R
+                          |W| =         [6k (k − 1)] ≤                            ≤ 2 [6k (k − 1)] .
+                    i=0           i=0
+                                                                  6k (k − 1) − 1
+
+By Lemmas 3.5 and 3.6, the possible number of [w]
+                                               b of length n is bounded from above by
+                n
+C · (2k − 3 − ε) for some C, ε > 0. Summing over all possible values of n we obtain:
+
+                                                       N
+                                                       X                    n           R
+                           |Mk,N |      ≤    2C ·            (2k − 3 − ε) · [6k (k − 1)]
+                                                       n=2
+                                                       N
+                                                       X                 n
+                                                                             p
+                                        ≤    2C ·            (2k − 3 − ε) · ( 4 6k(k − 1))N −n .
+                                                       n=2
+
+
+For k ≥ 3 we can pick ε small enough so that
+                                               p
+                                               4
+                                                   6k (k − 1) < 2k − 3 − ε,
+
+
+
+
+                                                                   13
+hence
+                                                                            N
+                                        |Mk,N | < 2C · N · (2k − 3 − ε) .
+
+
+
+    This completes the proof of (3.1), hence also of Theorem 1.3. Theorem 1.1 now follows by Propo-
+sition 3.1.
+
+
+3.4     The growth of non-primitives belonging to free factors
+Finally, let us say some words about the variation of the proof required for Corollary 1.4. Recall that
+Sk,N denotes the set of words of length N in Fk belonging to a proper free factor. We ought to show
+that |Sk,N | grows exponentially with base (2k − 3). We already mentioned on Page 3 why (2k − 3) is
+a lower bound. To show it is also an upper bound, we repeat similar arguments as above† :
+    Firstly, the same argument as in Section 3.1 shows the exponential growth of Sk,N is the same as
+the exponential growth of Sk,N , the set of cyclic-words of length N belonging to a proper free factor.                     Sk,N
+By Theorem 2.1, each [w] ∈ Sk,N belongs to some AN
+                                                 Y,Z,v . For most triplets, Proposition 2.3 shows
+                              N
+they grow slower than (2k − 3) . When Z = v −1 , AN
+                                             
+                                                     Y,Z,v ⊆ Sk,N and grows exponentially with
+base (2k − 3).
+   Consider next words in AN
+                           Y,Z,v such that either
+
+• Y = x, x−1 and there is exactly one instance of vxm v −1 , or
+      
+
+
+• Y = {x} and there are up to three instances of x±1 .
+
+It is evident that this set of words has exponential growth rate (2k − 3).
+    The remaining words from Sk,N , which we denote by Qk,N , can be described in a similar fashion
+to the cyclic words from Mk,N . In a similar argument as in Lemma 3.7, we can shorten each word
+from Qk,N by the corresponding Whitehead automorphisms until we get a word outside Qk,N . Since
+we have already seen that Sk,N \ Qk,N has exponential growth rate (2k − 3), we can complete the
+proof of Corollary 1.4 in the same manner we proved Lemma 3.7.
+
+
+4     Most Triplets are Negligible
+The last section is dedicated to proving Proposition 2.3, stating that for most triplets, the set AY,Z,v
+has exponential growth rate strictly smaller than (2k − 3). This is done by way of considering different
+cases according to the cardinalities |Y | and |Z|, and treating each case separately. To simplify the
+notation we denote |Y | and |Z| by y and z, respectively. Note that y + z = 2k − 1. The assumptions
+of Proposition 2.3 are that y, z ≥ 2 and Y 6= {x, x−1 }. The main technique is to rely on the following
+intuitive lemma. We call a set of words in Fk Markovian if it is closed under taking prefixes and if to
+every x ∈ X ±1 corresponds a fixed subset Σx ⊆ X ±1 of letters which can follow x. Namely, if w ∈ A is
+† In fact, the proof of Corollary 1.4 alone could be shorter than the proof of Theorem 1.3. The same shorter proof would
+                           p
+show that lim supN →∞ N Ck,N = 2k − 3. In other words, much of the complexity of the analysis in Sections 3.2 and
+3.3 is required only for showing the stronger result that the growth rate of Ck,N \ Lk,N is strictly smaller than 2k − 3.
+
+
+
+
+                                                           14
+of length N and terminates with x, one can extend it to a word in A of length (N + 1) by appending
+one of the letters from Σx . Obviously, the sets AY,Z,v are all Markovian (to be precise, the set of all
+cyclically reduced representatives of the cyclic words in some AY,Z,v is Markovian).
+
+Lemma 4.1. Let A be a Markovian set of words in Fk and let α > 1. Assume that for each letter
+x ∈ X ±1 there is some 1 ≤ r = r (x) ∈ N such that x is followed by one of less than αr possible r-tuples
+of letters. Then the exponential growth of A is less than α.
+
+Proof. For every x ∈ X ±1 and 1 ≤ i ≤ r (x) let Tx,i denote the number of possible i-tuples which
+can follow x in words from A. (In particular, Tx,r(x) < αr(x) .) For w1 , w2 ∈ A we say that w2 is an
+i-extension of w1 if w1 is a prefix of w2 and |w2 | − |w1 | = i.
+   Let AN be the set of words of length N in A. Define a subset B ⊆ A by the following recursive
+rules: A1 ⊆ B and if w ∈ B terminates with x, then
+
+• all i-extensions of w for 1 ≤ i ≤ r (x) − 1 do not belong to B (there are Tx,1 + Tx,2 + . . . + Tx,r(x)−1
+  such words), and
+
+• all the Tx,r(x) words which are r (x)-extensions of w belong to B.
+
+   Define f : A → R as follows: for every w ∈ B terminating with the letter x,
+
+• set f(w) = 1, and
+
+• for every 1 ≤ i ≤ r (x) − 1 and every i-extension u of w, set
+                                                        i/r(x)
+                                                Tx,r(x)            αi
+                                        f (u) =                 <      .
+                                                    Tx,i          Tx,i
+
+                       P
+   Now, set g (N ) =      w∈AN f (w).    For w ∈ B terminating with x and 1 ≤ i ≤ r (x), the sum of f
+over all i-extensions of w is less than α times the sum over all (i − 1)-extensions of w. We obtain that
+g (N + 1) < α · g (N ), so the exponential growth rate of g is < α. We end the proof by claiming that
+c < g(N )
+    |AN | < C for some positive constants c, C. Indeed, one can set
+
+                                               i/r(x)                              i/r(x)
+                                       Tx,r(x)                              Tx,r(x)
+                       c=     min                      ,    C=    max                       .
+                             x∈X ±1        Tx,i                   x∈X ±1        Tx,i
+                            1≤i≤r(x)                             1≤i≤r(x)
+
+
+
+
+   We now return to the proof of Proposition 2.3. We shall use Lemma 4.1 for the sets AY,Z,v with
+α = 2k − 3.
+Case 1: |Y |, |Z| ≥ 4:     Let [w] ∈ AY,Z,v and let x ∈ X ±1 appear in w. If x ∈ Y then either the inverse
+of the following letter is v or it belongs to Y \ {x}, so there are y options, and y = 2k − 1 − z ≤ 2k − 5.
+The same argument applies for x ∈ Z . Finally, the only letter that cannot follow v is v −1 , so v is
+followed by:
+
+• one of y letters from Y , which are followed in turn by one of y letters, or
+
+
+                                                           15
+• one of z − 1 letters from Z \ v −1 , which are followed in turn by one of z letters, or
+                               
+
+• v, which is followed by one of 2k − 1 letters.
+Overall, there are y 2 + z (z − 1) + (2k − 1) possibilities for the two letters following v. It is easy to see
+that under the assumptions in the current case, this expression is largest when y = 2k − 5 and z = 4.
+But even in this case,
+
+                                                                2                                2
+                     y 2 + z (z − 1) + (2k − 1) = (2k − 5) + 12 + (2k − 1) < (2k − 3) ,
+
+(note that if y, z ≥ 4 then k ≥ 5). This completes the proof.
+
+
+Case 2: |Y | = 3:         Assume first that k ≥ 5, so 2k − 3 ≥ 7. As in the previous proof, let x ∈ X ±1
+be a letter in a word from AY,Z,v . If x ∈ Y , the following letter is one of y = 3 possibilities. If x ∈ Z
+there are at most z = 2k − 4 possibilities. Finally, if x = v, then v is followed by
+• one of 3 letters from Y , which are followed in turn by one of 3 letters, or
+
+• one of 2k − 5 letters from Z \ v −1 , which are followed in turn by one of 2k − 4 letters, or
+                                 
+
+• v, which is followed by one of 2k − 1 letter.
+Overall, there are 32 + (2k − 5) (2k − 4) + (2k − 1) possibilities for the two letters following v. This is
+                              2
+strictly less than (2k − 3) for k ≥ 5.
+    Suppose next that k = 4, so now 2k − 3 = 5. Any x ∈ X ±1 \ {v} is followed by at most 4 possible
+letters. As for v itself, we need to distinguish between two cases: either Y does not contain a letter and
+its inverse, in which case w.l.o.g. Y = {a, b, c} and Z = a−1 , b−1 , c−1 , v −1 ; or w.l.o.g. Y = a, a−1 , b
+                                                                                                 
+
+and Z = b−1 , v −1 , c±1 . In the first case an easy computation† shows that v is followed by one of
+           
+
+115 possible triplets of letters, and we are done as 115 < 53 . In the second case, v is followed by one
+of 617 possible quadruplets, and 617 < 54 .
+    Finally, if y = 3 and k = 3 (k cannot be smaller than 3 if y = 3), then 2k − 3 = 3. The partition
+is, up to name changes, Y = a, a−1 , b and Z = b−1 , v −1 . An easy computation shows that any
+                                                  
+
+letter x 6= v is followed by at most 8 possible pairs of letters, and v is followed by at most 17,883
+possible 9-tuples (and 17,833 < 39 = 19,683).‡
+
+
+Case 3: |Z| = 3         Assume first that k ≥ 4, hence 2k − 3 ≥ 5. If x ∈ Y , it is followed by the inverse of
+one of 2k − 5 letters from Y \ {x} or by v −1 , a total of 2k − 4 possibilities. A letter from Z is followed
+by one of 3 < 2k − 3 letters (v −1 and two letters whose inverse belongs to Z).
+   To analyze the number of possibilities after v, we distinguish between two cases:
+(1) Assume that Z contains a letter and its inverse, i.e. Z = v −1 , a, a−1 . In this case,
+                                                                
+
+
+    • Every x ∈ Y , is followed either by one of 2k − 5 letters from Y \ x−1 which are then followed
+                                                                         
+
+       by one of (2k − 4) letters, or by v −1 which is followed by one of 3 possible letters: a total of
+       (2k − 5) (2k − 4) + 3 = 4k 2 − 18k + 23 possible pairs.
+† Computation of this kind can be easily carried out in some Excel-type spreadsheet program. ‡ Alternatively, one
+can show that the exponential growth rate here equals the largest real root of λ5 − 3λ4 + λ3 − λ2 − λ + 7, which is about
+2.68.
+
+
+                                                           16
+     • The letter a is followed either by one of two letters from Z (a or v −1 ), which are in turn followed
+        by one of 3 possible letters, or by v which is followed by one of 2k − 1 letters: a total of
+        2 · 3 + (2k − 1) = 2k + 5 possible pairs. The same computation holds for a−1 .
+     • Every pair of letters following v starts either with some x ∈ Z (2 · 3 options), by v (2k − 1
+                                                  2                                                2
+        options) or by some x ∈ Y ((2k − 4) options): a total of 6 + 2k − 1 + (2k − 4) = 4k 2 − 14k + 21
+        possible pairs.
+
+     We can now count the number of possible triplets of letters following v:
+
+     • 2 (2k + 5) triplets begin with a or a−1 .
+                                 
+     • (2k − 4) 4k 2 − 18k + 23 triplets begin with some x ∈ Y .
+     • 4k 2 − 14k + 21 triplets begin with v.
+
+     The total number of possible triplets following v is, therefore, 8k 3 − 48k 2 + 108k − 61 which is
+                                    3
+     strictly less than (2k − 3) when k ≥ 4.
+
+(2) The other possibility is that Z does not contain a letter and its inverse, hence Z = v −1 , a, b . A
+                                                                                        
+
+     similar computation shows that v is followed in this case by one of 8k 3 − 56k 2 + 160k − 145 which
+                                             3
+    is again strictly less than (2k − 3) when k ≥ 4.
+
+Finally, if k = 3 then Z = v −1 , a, b and Y = a−1 , b−1                 (for otherwise Y = x, x−1 ). Another
+                                                                                         
+
+technical computation shows that a−1 and b−1 are followed by at most 2 possible letters, v −1
+by at most 7 possible pairs of letters, a and b by at most 237 < 35 5-tuples, and v by at most
+41,372,449 < 316 16-tuples of letters† .
+
+
+                          Since Y 6= x, x−1 , assume w.l.o.g. that Y = {a, b}. The possibility k = 3 was
+                                    
+Case 4: |Y | = 2
+already dealt with in the previous case, so assume k ≥ 4. Similar calculations to those above show
+that:
+
+• a and b are followed by one of 2 < (2k − 3) letters.
+                                                                   2
+• a−1 and b−1 are followed by one of 4k 2 − 14k + 16 < (2k − 3) pairs of letters.
+                                                       
+
+                                                                                    2
+• Any letter x such that x, x−1 ∈ Z is followed by one of 4k 2 − 16k + 21 < (2k − 3) pairs of letters.
+                                                                         
+
+                                                         2
+• v −1 is followed by one of 4k 2 − 16k + 19 < (2k − 3) pairs of letters.
+                                             
+
+                                                     
+• v is followed by one of 8k 3 − 44k 2 + 106k − 91 triplets of letters. This is strictly less than
+            3
+    (2k − 3) for k ≥ 5. For k = 4, a concrete computation shows v is followed by one of 613 < 54
+    possible 4-tuples of letters.
+
+
+                          Assume w.l.o.g. that Z = a, v −1 . The case k = 3 was handled in the case
+                                                  
+Case 5: |Z| = 2
+|Y | = 3, so assume k ≥ 4. Again, the following formulas can be easily computed:
+† Alternatively, the exponential growth rate here equals the largest real root of λ4 − 2λ3 − 4λ2 + 2λ + 7, which is about
+2.85.
+
+
+                                                           17
+• a and v −1 are each followed by one of 2 < (2k − 3) letters.
+                                                         2
+• a−1 is followed by one of 4k 2 − 14k + 14 < (2k − 3) pairs of letters.
+                                             
+
+                                                                                          2
+• Any letter x such that x, x−1 ∈ Y is followed by one of 4k 2 − 16k + 19 < (2k − 3) pairs of letters.
+                                                                            
+
+                                                                                                         3
+• v is followed by one of 8k 3 − 40k 2 + 80k − 51 triplets of letters. This is strictly less than (2k − 3)
+    for k ≥ 6. For k = 5, a concrete computation shows v is followed by one of 1,951 < 74 possible
+    4-tuples of letters, and for k = 4, v is followed by one of 557 < 54 possible 4-tuples of letters.
+
+This finishes the proof of Proposition 2.3.
+
+
+5      Open Questions
+Finally, we mention the following closely related questions which are still open:
+
+Question 5.1. What can be said about the growth of Aut (Fk ) with respect to standard generating sets
+such as
+     i) Nielsen moves?
+     ii) Whitehead automorphisms?
+
+Question 5.2. What is the smallest possible exponential growth rate of Pk,N (or Ck,N ) with respect
+to arbitrary finite generating sets of Fk (not necessarily bases)?
+
+Question 5.3. What is the growth of Ck,N \ Lk,N ? What does a generic primitive cyclic element
+containing every letter at least twice (or not at all) look like? Is it, up to permuting the letters,
+of the form x1 w (x1 x2 , x3 , x4 , . . . , xk )? (In particular, the latter set of words shows that the growth of
+Ck,N \ Lk,N is at least λk , the largest root of λ3 − (2k − 5) λ2 − λ − (2k − 3), which satisfies λk & 2k − 5
+as k → ∞.)
+
+Question 5.4. What is the growth of other Aut (Fk )-orbits in Fk ? Which orbits, other than that of
+the primitives, have the largest growth?
+We conjecture the following is true: For w ∈ Fk , let µ (w) denote the minimal (positive) number of
+instances of some letter x ∈ X in any element of the Aut (Fk )-orbit of w (this number does not depend
+                                                                           √
+on x). Then the growth of the set of cyclic words in the orbit of w is µ(w) 2k − 3. If true, this shows
+that unless w is primitive, most words in its orbit are conjugates of small words, so that the growth of
+                    √
+the orbit is always 2k − 1.
+
+
+References
+[BMS]        G. Baumslag, A. Myasnikov, and V. Shpilrain, Open problems in Combinatorial and Geo-
+             metric Group Theory, http://www.grouptheory.info/.
+
+[BMS02a]            , Open problems in Combinatorial Group Theory., Contemporary Mathematics 296
+             (2002), 1–38.
+
+
+
+                                                       18
+[BMS02b] A.V. Borovik, A.G. Myasnikov, and V. Shpilrain, Measuring sets in infinite groups, Com-
+           putational and Statistical Group Theory (Las Vegas, NV/Hoboken, NJ), Contemp. Math.,
+           American Mathematical Society, 2002, pp. 21–42.
+
+[BV02]     J. Burillo and E. Ventura, Counting primitive elements in free groups, Geometriae Dedicata
+           93 (2002), no. 1, 143–162.
+
+[LS70]     R.C Lyndon and P.E. Schupp, Combinatorial Group Theory, Springer-Verlag, Berlin; New
+           York, 1970.
+
+[MS03]     A. Myasnikov and V. Shpilrain, Automorphic orbits in free groups, Journal of Algebra 269
+           (2003), no. 1, 18–27.
+
+[PP15]     Doron Puder and Ori Parzanchevski, Measure preserving words are primitive, Journal of
+           American Mathematical Society 28 (2015), no. 1, 63–97.
+
+[Pud14a] Doron Puder, Expansion of random graphs: New proofs, new results, arXiv preprint
+           arXiv:1212.5216 (2014+).
+
+[Pud14b]          , Primitive words, free factors and measure preservation, Israel Journal of Mathe-
+           matics 201 (2014), no. 1, 25–73.
+
+[Riv04]    I. Rivin, A remark on ’Counting primitive elements in free groups’ (by J. Burillo and E.
+           Ventura), Geometriae Dedicata 107 (2004), no. 1, 99–100.
+
+[Shp05]    V. Shpilrain, Counting primitive elements of a free group, Contemporary Mathematics 372
+           (2005), 91–98.
+
+[Sta99]    J. R. Stallings, Whitehead graphs on handlebodies, Geometric group theory down under
+           (J. Cossey, C. F. Miller, W.D. Neumann, and M. Shapiro, eds.), de Gruyter, Berlin, 1999,
+           pp. 317–330.
+
+[Whi36a] J.H.C. Whitehead, On certain sets of elements in a free group, Proc. London Math. Soc.
+           41 (1936), 48–56.
+
+[Whi36b]          , On equivalent sets of elements in a free group, Ann. of Math. 37 (1936), 768–800.
+
+Doron Puder,
+Einstein Institute of Mathematics,
+Edmond J. Safra Campus, Givat Ram
+The Hebrew University of Jerusalem
+Jerusalem, 91904, Israel
+doronpuder@gmail.com
+
+
+Conan Wu,
+Department of Mathematics,
+Princeton University
+
+
+                                                 19
+Fine Hall, Washington Road
+Princeton NJ 08544-1000 USA
+shuyunwu@princeton.edu
+
+
+
+
+                              20
+

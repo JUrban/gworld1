@@ -2,6 +2,16 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
+Latest checkpoint, approximately 18:45 UTC: F41 adds a partial candidate
+for primitivity rank two in ambient ranks three and four. The more
+general stated range includes credited prior cases. The graph transfer
+estimate, source distinctions and finite verification are in
+`problems/F41/`. Current tally: three whole-entry candidates, two partial
+candidates, zero established novel results. Earlier checkpoint counts
+below are historical. Continue alternating unresolved entries with
+adversarial review; do not infer a solution for primitivity rank >=3
+or spend time merely enlarging the F41 finite sample.
+
 ## First pass: source and literature triage
 
 Survey all 195 entries and their named subparts, including heading-star entries with possible residual questions. Record evidence and exact scope in `research/triage.csv` and a dated literature ledger. Prioritize current primary sources over old surveys and search snippets. Distinguish a new preprint's claim from an established result. Do not treat a website's unstarred status as current openness.
