@@ -1,0 +1,366 @@
+                                                      Braid groups and Burnside groups
+                                                                                 Ethan Dlugie
+                                                                                    July 2026
+arXiv:2607.13316v1 [math.GR] 14 Jul 2026
+
+
+
+
+                                                                                     Abstract
+                                                     There exists an exceptional quotient of braid groups Br4 ↠ Br3
+                                                 that is related to many interesting constructions in algebra, topol-
+                                                 ogy, and geometry. This quotient map also descends to a quotient
+                                                 of “truncated” braid groups Br4 (d) ↠ Br3 (d), which have an added
+                                                 torsion relation on their half twist generators. In this article, we find
+                                                 a presentation for the kernel of this truncated quotient map that takes
+                                                 the form of what we deem a “primitive” Burnside group. We give a
+                                                 few finiteness results on these primitive Burnside groups. Our meth-
+                                                 ods are purely group theoretic, but we comment on an interpretation
+                                                 involving Lefschetz fibrations at the end.
+
+
+                                           1     Introduction
+                                           The braid groups are a family of groups with wide application in topology,
+                                           number theory, algebraic geometry, and more. The n-strand braid group for
+                                           us will be defined by the presentation
+
+                                               Brn (d) = ⟨σ1 , . . . , σn−1 ∣ σi σi+1 σi = σi+1 σi σi+1 , σi σj = σj σi if ∣i − j∣ > 1⟩ .
+
+                                           It is known that the normal subgroup ⟪σ1 σ3−1 ⟫ ◁ Br4 is isomorphic to a free
+                                           group of rank 2 (with earliest written sources [Gas61, Theorem 7] and [GL69,
+                                           Theorem 2.6]). A fun exercise shows that appending the relation σ1 σ3−1 = 1
+                                           to Br4 yields a presentation of Br3 . Therefore we have a short exact sequence
+                                                                                               ψ
+                                                                           1 → F2 → Br4 Ð
+                                                                                        → Br3 → 1                                           (1)
+
+                                           which splits by a standard inclusion of braid groups Br3 ≤ Br4 .
+
+                                                                                           1
+    In this article, we are concerned with what we call truncated braid groups.
+For positive integers n and d, such a group is defined as Brn (d) = Brn /⟪σ1d ⟫,
+where ⟪−⟫ denotes normal closure. (Note that all σi are conjugate in Brn .)
+These groups were first considered in [Cox59]. The quotient map ψ descends
+to a quotient map of truncated braid groups:
+
+                                ψ̄ ∶ Br4 (d) ↠ Br3 (d).
+
+For small values of d, these groups are finite, allowing for computer investiga-
+tion. The author was surprised to see that the kernel of ψ̄ in some cases was
+isomorphic to a free Burnside group of rank 2. Recall that the free Burnside
+group of rank n and exponent d is defined by the presentation
+
+           Fn (d) = ⟨x1 , . . . , xn ∣ w(x1 , . . . , xn )d = 1 for all words w⟩.
+
+The study of the free Burnside groups and their relatives, specifically ques-
+tions about their finiteness, led to profound developments in algebra in the
+20th century (see e.g. [Ols91]), including the work of Zelmanov that garnered
+a Fields medal in 1994.
+    To identify the kernel of ψ̄ in all cases, we introduce a new construction
+in the world of Burnside-flavored groups.
+
+Definition 1.1. The primitive Burnside group of rank n and exponent d is
+the group P Fn (d) given by the presentation
+
+    P Fn (d) = ⟨x1 , . . . , xn ∣ w(x1 , . . . , xn )d = 1 for all primitive words w⟩.
+
+    Recall here that a word in a free group is primitive if it can be extended
+to a basis for the free group. For example xy 3 is primitive in ⟨x, y⟩, but x2 y 2
+is not.
+
+Theorem 1.2. For all d, there is a short exact sequence
+                                                   ψ̄
+                       1 → P F2 (d) → Br4 (d) Ð
+                                              → Br3 (d) → 1
+
+In fact, the sequence is split, and we have a semidirect product decomposition
+
+                             Br4 (d) ≈ P F2 (d) ⋊ Br3 (d).
+
+
+
+                                             2
+    Our methods are purely of combinatorial group theory, but they come
+from topological intuition as explained in Section 3.
+    The truncated braid groups are well understood as examples of complex
+reflection groups. In particular, their orders are known. This yields the
+following corollary concerning the orders of some primitive Burnside groups.
+
+Corollary 1.3. We have the following identifications:
+
+    • P F2 (2) ≈ F2 (2) of order 4
+
+    • P F2 (3) ≈ F2 (3) of order 27
+
+    • P F2 (4) and P F2 (5) are both infinite groups
+
+   Note by contrast that F2 (4) is finite. The group F2 (5) is the lowest case
+in which the finiteness or infiniteness of a free Burnside group is unknown.
+Perhaps this knowledge of the associated primitive Burnside group could
+shed some light on this question.
+
+Acknowledgments
+Thanks to Eduardo Reyes for topological discussions that led to the semidi-
+rect product description of Proposition 2.3. Thanks to Seraphina Lee, Faye
+Jackson, and Trent Lucas for discussions about the Lefschetz fibration in-
+terpretation of these results (as discussed in Section 3). Google’s Gemini
+assisted drafting Lemma 2.5.
+
+
+2     Proofs
+The main tool for proving Theorem 1.2 is a semidirect product decomposition
+of Br4 coming from a section of ψ. First, we define the relevant action. Write
+F2 = ⟨x, y⟩ for the free group of rank 2. Then
+
+Definition 2.1. The modular action of the 3-strand braid group is the ho-
+momorphism ϕ ∶ Br3 → Aut(F2 ) given by
+                         ⎧                             ⎧
+                         ⎪x ↦ x
+                         ⎪                             ⎪x ↦ y
+                                                       ⎪
+                ϕ(σ1 ) = ⎨     −1
+                                      ,       ϕ(σ2 ) = ⎨      −1
+                         ⎩y ↦ x y                      ⎩y ↦ yx y
+                         ⎪
+                         ⎪                             ⎪
+                                                       ⎪
+
+
+                                          3
+     One can readily check that this is a well defined action by automorphisms,
+i.e. that these maps have inverses and satisfy the braid relation ϕ(σ1 σ2 σ1 ) =
+ϕ(σ2 σ1 σ2 ).
+Lemma 2.2. The braid group acts transitively on conjugacy classes of prim-
+itive words in F2 via the modular action.
+Proof. Let u, v ∈ F2 be primitive words. Then there exists some f ∈ Aut(F2 )
+with f (u) = v. Considering elements of the group up to conjugacy suggests
+that we might look at their images in the abelianization F2ab ≈ Z2 . The
+group elements map to primitive vectors [u], [v] ∈ Z2 , and the induced map
+Aut(F2 ) → GL(2, Z) maps the automorphism to a linear transformation [f ] ∈
+GL(2, Z). Without loss of generality, e.g. by inverting the value of f on a
+second element of a basis with u, we assume that [f ] ∈ SL(2, Z).
+    Now consider the induced map on the automorphisms of the modular
+action. We see that ϕ(σ1 ) and ϕ(σ2 ) map to the matrices
+
+                                1 −1                      0 −1
+                         A=(         )      and B = (          )
+                                0 1                       1 2
+
+respectively. A quick computation gives
+
+                                                     0 −1
+                             C ∶= A−1 BABA = (            ),
+                                                     1 0
+
+so we see that A and C generate all of SL(2, Z). Therefore there is an
+element g ∈ Br3 such that [ϕ(g)] = [f ] ∈ SL(2, Z). Nielsen [Nie17] showed
+that the kernel of the map Aut(F2 ) → GL(2, Z) is exactly the subgroup of
+inner automorphisms, so ϕ(g) and f differ by a conjugation. Therefore, ϕ(g)
+maps the conjugacy class of u to that of v.
+   Now that we have defined and analyzed the modular action, we can form
+the associated semidirect product group
+
+  F2 ⋊ϕ Br3 = ⟨x, y, σ1 , σ2 ∣ σ1 σ2 σ1 = σ2 σ1 σ2 , σi wσi−1 = ϕ(σi )(w)⟩w∈{x,y},i∈{1,2} .
+
+This yields a presentation for Br4 .
+Proposition 2.3. There is an isomorphism Br4 ≈ F2 ⋊ϕ Br3 .
+Remark 2.4. Note that this proposition yields the d = ∞ case of Theorem 1.2,
+in which case we view the torsion relations as empty.
+
+                                             4
+Proof of Proposition 2.3. Define a map F2 ⋊ϕ Br3 → Br4 by x ↦ σ1−1 σ3 , y ↦
+σ2 (σ1−1 σ3 )σ2−1 , and σi ↦ σi . (The last part is the section of ψ ∶ Br4 → Br3 .)
+    The inverse map is Br4 → F2 ⋊ϕ Br3 via σ1 ↦ σ1 , σ2 ↦ σ2 , and σ3 ↦ σ1 x.
+That these two maps give well defined homomorphisms is a tedious exercise
+in applying group relations. Given this, it is clear that the two maps are
+inverses.
+   With this identification, the map ψ ∶ Br4 → Br3 becomes the projection
+onto the second factor of the semidirect product. To prove Theorem 1.2, we
+must identify the kernel of this projection after quotienting by the normal
+subgroup generated by σ1d . This follows from the following group theoretic
+lemma.
+Lemma 2.5 (Quotients of semidirect products). Suppose that
+                                             ψ
+                               1→K →GÐ
+                                     →Q→1
+
+is a split short exact sequence of groups. Let N ◁ Q be a normal subgroup
+of Q. Then the natural quotient map ψ̄ ∶ G/⟪N ⟫ → Q/N has kernel isomor-
+phic to K/[K, N ] where [K, N ] = ⟨knk −1 n−1 ⟩k∈K,n∈N is the mixed commutator
+subgroup. In addition, the short exact sequence
+                                                 ψ̄
+                     1 → K/[K, N ] → G/⟪N ⟫ Ð
+                                            → Q/N → 1
+
+is split in the clear way.
+Proof. Write ψ ′ ∶ G → Q/N for the quotient of the original map ψ. The
+splitting gives a unique way to write elements of G as products kq for some
+k ∈ K and q ∈ Q, and then ψ ′ (kq) = qN . Therefore ker ψ ′ = {kq ∣ k ∈ K, q ∈
+N } = KN .
+    Since ψ ′ (⟪N ⟫) is trivial in Q/N (by normality of N ), we have ⟪N ⟫◁KN .
+Now ψ ′ descends to the map ψ̄ ∶ G/⟪N ⟫ → Q/N in question. It follows then
+that ker(ψ̄) = KN /⟪N ⟫.
+    Elements of ⟪N ⟫ are products of elements of the form
+
+           (kq)n(kq)−1 = k(qnq −1 )k −1 (qnq −1 )−1 (qnq −1 ) ∈ [K, N ]N.
+
+It also clear that [K, N ]N ≤ ⟪N ⟫, so that ⟪N ⟫ = [K, N ]N . So now we have
+
+                             ker(ψ̄) = KN /([K, N ]N ).
+
+                                         5
+   Since N normalizes K, it follows that [K, N ] ≤ K. Furthermore, this
+subgroup is normal in K by the identity
+
+                        k̄[k, n]k̄ −1 = [k̄k, n][k̄, n]−1 ∈ [K, N ].
+
+So we finally define a map KN → K/[K, N ] by kn ↦ k[K, N ]. This is a
+homomorphism because
+
+(k1 n1 )(k2 n2 ) = k1 (n1 k2 n−1
+                              1 )n1 n2
+                          ↦ k1 n1 k2 n−1                   −1
+                                       1 [K, N ] = k1 k2 [k2 , n1 ][K, N ] = k1 k2 [K, N ].
+
+The homomorphism is clearly surjective, and its kernel is {kn ∣ k ∈ [K, N ]} =
+[K, N ]N . The first isomorphism theorem finishes the proof.
+Proof of Theorem 1.2. Proposition 2.3 allows us to apply Lemma 2.5 with
+K = F2 , G = Br4 , Q = Br3 and N = ⟨gσ1d g −1 ∣ g ∈ Br3 ⟩. For convenience, we
+will write g.w = ϕ(g)(w) for g ∈ Br3 and w ∈ F2 . Then we obtain the kernel
+of ψ ∶ Br4 (d) → Br3 (d) as
+
+     F2 /⟨wnd w−1 n−d ⟩w∈F2 ,n∈N = ⟨x, y ∣ w = (gσ1d g −1 )w(gσ1d g −1 )−1 ⟩w∈F2 ,g∈Br3
+                                   = ⟨x, y ∣ w = (gσ1d g −1 ).w⟩w∈F2 ,g∈Br3 .
+
+Note here that this conjugation relation need only be recorded for each
+gσ1d g −1 ; the relation follows in turn for products of such elements of N .
+     Note also that we need not include such relations for each w ∈ F2 . If
+for each conjugate in Br3 , we record the relation for a pair of words in a
+suitable basis for F2 , then the relation follows for all elements of the free
+group. Concretely, for each g ∈ Br3 the pair {g.x, g.y} forms a basis for F2 .
+So we have further that the kernel is presented as
+
+F2 /⟨wnd w−1 n−d ⟩w∈F2 ,n∈N = ⟨x, y ∣ g.x = (gσ1d g −1 ).(g.x), g.y = (gσ1d g −1 ).(g.y)⟩g∈Br3
+                             = ⟨x, y ∣ g.x = g.x, g.y = (g.x)−d (g.y)⟩g∈Br3
+                             = ⟨x, y ∣ 1 = (g.x)d ⟩g∈Br3 .
+
+Finally by Lemma 2.2, the orbit {g.x}g∈Br3 covers exactly the set of primitive
+conjugacy classes in F2 . This yields the primitive Burnside presentation.
+Proof of Corollary 1.3. We clearly have quotient maps from the primitive
+Burnside groups to the free Burnside groups: P Fn (d) ↠ Fn (d). The first
+
+                                             6
+Figure 1: A Cayley graph for a group all of whose elements have order 3,
+embedded in a torus T 2 . This group is a quotient of F2 (3), and it has order
+27 = #F2 (3), so it must be isomoprhic to F2 (3). The relations can be read
+off from the cells in the obvious 2-complex and from generators for π1 (T 2 ).
+
+few instances of free Burnside groups already have finite presentations with
+power relations on primitive elements:
+            F2 (2) = ⟨x, y ∣ x2 = y 2 = (xy)2 = 1⟩
+            F2 (3) = ⟨x, y ∣ x3 = y 3 = (xy)3 = (xy −1 )3 = (x−1 y)3 = 1⟩
+Thus we also have quotient maps F2 (d) ↠ P F2 (d) for d = 2, 3. The isomor-
+phisms follow.
+    For the statements about the orders of the groups, we turn to Coxeter’s
+results about truncated braid groups [Cox59]. Coxeter showed in particular
+that
+                # Br3 (2) = 6                      # Br4 (2) = 24
+                # Br3 (3) = 24                     # Br4 (3) = 648
+                # Br3 (4) < ∞                      # Br4 (4) = ∞
+                # Br3 (5) < ∞                      # Br4 (5) = ∞
+
+
+Then the index of P F2 (d) in Br4 (d) is given by # Br3 (d).
+
+
+3    A topological interpretation
+The ideas in this section are shared without proof, but we think they are
+useful to share nonetheless. The map ψ ∶ Br4 → Br3 is not purely group
+
+                                         7
+Figure 2: The space Conf 3 [d] is the 3-sphere with a Z/d orbifold locus along
+a trefoil knot. The space Conf 4 [d] is a S1,1 bundle on this space away from
+the knot, while the fibers collapse to pinched surfaces along the knot. The
+pinch points correspond to 4-point configurations with two double collisions.
+
+theoretic. It is the map on π1 induced by a map of configuration spaces
+Conf 4 (C) → Conf 3 (C) given as {a, b, c, d} ↦ {ab + cd, ac + bd, ad + bc}. See
+[CS25] for more discussion of this map and its relatives. This map of config-
+uration spaces turns out to be a fiber bundle with fiber the once-punctured
+torus S1,1 . The long exact sequence on homotopy groups yields the short
+exact sequence (1).
+    To obtain the analogous map on truncated braid groups, one must per-
+form a sort of orbifold filling on the configuration spaces. For Conf 3 (C),
+which is homotopy equivalent to the trefoil knot complement in the 3-sphere,
+this is rather direct. See e.g. my earlier article [DS25]. Call the filled space
+Conf 3 [d].
+    For Conf 4 (C), one has to be a bit careful. The obvious compactification
+of configuration space needs to be blown up along the part corresponding
+to triple collisions of points, along the lines of [FM94]. After doing this,
+orbifold surgery should be more direct, yielding a space Conf 4 [d]. The map
+on orbifolds is no longer a fiber bundle but should be thought of as an orbifold
+Lefschetz fibration, since the fibers over the singular part of Conf 3 [d] are
+pinched surfaces and have nontrivial ambient orbifold isotropy. The cartoon
+is something like Figure 2.
+    The typical short exact sequence of Lefschetz fibrations should have an
+orbifold version akin to
+
+
+
+                                       8
+   1        π1 (S1,1 )/C d      π1 (Conf 4 [d])       π1 (Conf 3 [d])      1
+                                     ≈                     ≈
+
+                                   Br4 (d)               Br3 (d)
+
+where C ⊂ π1 (S1,1 ) denotes the set of so-called vanishing cycles, a particular
+set of simple closed curves in the fiber along with their orbits under the
+monodromy action. In this case, the monodromy action Br3 ↷ π1 (S1,1 ) is
+given by Definition 2.1, and C consists of all simple closed curves in S1,1
+(which are the same as primitive elements of F2 ).
+    This topological interpretation led me to discover the main result of this
+work. I find the topological story more enlightening, but I felt that the group
+theory was more direct than trying to develop a theory of orbifold Lefschetz
+fibrations. Perhaps the development of such a theory could come in future
+work.
+
+
+References
+[Cox59] H.S.M. Coxeter. “Factor Groups of the Braid Group”. In: Proceed-
+        ings of the Fourth Can. Math. Cong., Banff 1957. University of
+        Toronto Press, 1959, pp. 95–122. url: http : / / www . lamfa . u -
+        picardie.fr/marin/docs/coxeter.pdf.
+[CS25]    William Chen and Nick Salter. “Families of elliptic curves over
+          the four-pointed configuration space and exceptional sequences for
+          the braid group on four strands”. In: Proceedings of the American
+          Mathematical Society 153.8 (June 2025), pp. 3253–3262. issn: 1088-
+          6826. doi: 10.1090/proc/17221.
+[DS25]    Ethan Dlugie and Tahsin Saffat. “The 3-strand braid group with
+          torsion”. In: arXiv: Geometric Topology (Sept. 2025). url: https:
+          //arxiv.org/abs/2509.17900.
+[FM94]    William Fulton and Robert MacPherson. “A Compactification of
+          Configuration Spaces”. In: The Annals of Mathematics 139.1 (Jan.
+          1994), p. 183. issn: 0003486X. doi: 10.2307/2946631.
+[Gas61]   Betty Jane Gassner. “On braid groups”. In: Abhandlungen aus dem
+          Mathematischen Seminar der Universität Hamburg 25.1-2 (Apr.
+          1961), pp. 10–22. issn: 0025-5858. doi: 10.1007/BF02992772.
+
+
+                                         9
+[GL69]    E A Gorin and V J Lin. “Algebraic Equations with Continuous
+          Coefficients and Some Problems of the Algebraic Theory of Braids”.
+          In: Mathematics of the USSR-Sbornik 7.4 (Apr. 1969), pp. 569–596.
+          issn: 0025-5734. doi: 10.1070/SM1969v007n04ABEH001104.
+[Nie17]   Jakob Nielsen. “Die Isomorphismen der allgemeinen, unendlichen
+          Gruppe mit zwei Erzeugenden”. In: Mathematische Annalen 78
+          (1917), pp. 385–397. issn: 0025-5831. url: http://eudml.org/
+          doc/158774.
+[Ols91]   A. Yu. Ol’shanskii. Geometry of Defining Relations in Groups.
+          Vol. 70. Dordrecht: Springer Netherlands, 1991. isbn: 978-94-010-
+          5605-2. doi: 10.1007/978-94-011-3618-1.
+
+
+
+
+                                    10
+

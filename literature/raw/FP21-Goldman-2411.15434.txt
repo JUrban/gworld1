@@ -1,0 +1,1939 @@
+                                                             2-DIMENSIONAL SHEPHARD GROUPS
+
+
+                                                                           KATHERINE M. GOLDMAN
+arXiv:2411.15434v1 [math.GR] 23 Nov 2024
+
+
+
+
+                                                    Abstract. The 2-dimensional Shephard groups are quotients of 2-dimensional
+                                                    Artin groups by powers of standard generators. We show that such a quotient
+                                                    is not CAT(0) if the powers taken are sufficiently large. However, for a given
+                                                    2-dimensional Shephard group, we construct a CAT(0) piecewise Euclidean cell
+                                                    complex with a cocompact action (analogous to the Deligne complex for an
+                                                    Artin group) that allows us to determine other non-positive curvature proper-
+                                                    ties. Namely, we show the 2-dimensional Shephard groups are acylindrically
+                                                    hyperbolic (which was known for 2-dimensional Artin groups), and relatively
+                                                    hyperbolic (which most Artin groups are known not to be). As an application,
+                                                    we show that a broad class of 2-dimensional Artin groups are residually finite.
+
+
+
+
+                                                                                1. Introduction
+                                               Shephard groups (named for G.C. Shephard [She52]) are specific quotients of
+                                           Artin groups and include, for example, the Coxeter groups and graph products of
+                                            cyclic groups as special cases. In a previous paper [Gol23], the author identified a
+                                            specific class of Shephard groups which exhibit Coxeter-like behavior, and proved
+                                            that these are CAT(0). However, the Shephard groups form a very broad class,
+                                            and because of this, we can find examples which exhibit behavior that diverges
+                                            quite a bit from the intuition that Coxeter groups and Artin groups provide. The
+                                            motivating criteria in [Gol23] can be roughly summarized by saying that the finite
+                                            parabolic subgroups are identical to the finite parabolic subgroups of the “associated”
+                                            Coxeter group. This class is rather inflexible, though; there are only so many finite
+                                            Shephard groups that are not finite Coxeter groups. Our main motivation, then, is
+                                            to begin the study of Shephard groups which do not satisfy this criteria. That is to
+                                            say, to study those Shephard groups which possess some infinite parabolic subgroup
+                                           whose associated Coxeter group is finite.
+                                               It turns out that such groups are quite fascinating even in the 2-generator (or
+                                           “dihedral”) case, and possess a rather interesting geometry which deviates from the
+                                           Artin and Coxeter groups. These dihedral groups will be one of the main focuses of
+                                            the current article. The other main focus are the 2-dimensional Shephard groups.
+                                           These are the Shephard groups which can be reasonably said to be “built-up” out
+                                            of their dihedral subgroups. From our results on 2-generator Shephard groups, we
+                                            derive interesting information about the geometry of the 2-dimensional Shephard
+                                            groups, some known for Artin groups, some different than Artin groups, and some
+                                           which can be used to show new properties of Artin groups. The full definitions and
+                                            statements are as follows.
+                                               Let Γ be a simplicial graph with vertices i labeled by pi ∈ Z≥2 ∪ {∞} and
+                                            edges {i, j} labeled by mij ∈ Z≥2 . If mij is odd then we require pi = pj . We call
+                                            Γ an extended (or Shephard ) presentation graph. The Shephard group ShΓ with
+                                                                                          1
+2                               KATHERINE M. GOLDMAN
+
+
+presentation graph Γ is
+                                                                           
+                        prod(i, j; mij ) = prod(j, i; mij ) if {i, j} ∈ E(Γ)
+        ShΓ = V (Γ)                                                           ,
+                                         ipi = 1 if pi < ∞
+where prod(a, b; m) denotes (ab)m/2 if m is even and (ab)(m−1)/2 a if m is odd. If
+          q
+Γ= p          r is a single edge, then we will write ShΓ = Sh(p, q, r) and call this an
+edge (Shephard) group or a dihedral Shephard group.
+   If Γ is an extended presentation graph and p ∈ Z≥2 ∪ {∞}, we denote by Γ(p)
+the extended presentation graph obtained from Γ by replacing all pi with p. In
+particular, for any extended presentation graph Γ, we define
+                                     WΓ = ShΓ(2)
+                                      AΓ = ShΓ(∞) ,
+which are the Coxeter group and Artin group, resp., associated to Γ. Thus we
+see that every Shephard group is a quotient of an Artin group by some powers of
+standard generators.
+Assumption. In the rest of the paper, “extended presentation graph” will be
+taken to mean “extended presentation graph with all pi finite” (so the kernel of
+AΓ → ShΓ contains powers of every generator), unless we explicitly mention Γ(∞),
+and “Shephard group” will mean “Shephard group with all finite-order generators”.
+    We write Λ ≤ Γ if Λ is a full subgraph of Γ and inherits the edge and vertex
+labels of Γ. (A full or “induced” subgraph Λ of Γ is one where if v, w ∈ V (Λ) and
+{v, w} ∈ E(Γ), then {v, w} ∈ E(Λ).) Then Λ is also an extended presentation graph
+and thus determines a Shephard group ShΛ , a Coxeter group WΛ , and an Artin
+group AΛ . If WΛ is finite, then we will call each of Λ, ShΛ , and AΛ “spherical-type”.
+(Similarly, if WΓ is word hyperbolic, then we will call each of Γ, ShΓ , and AΓ
+“hyperbolic-type”.) A property of an extended presentation graph Γ commonly of
+interest for Artin groups and Coxeter groups is
+   (2D) For all spherical-type Λ ≤ Γ, |V (Λ)| ≤ 2.
+If a graph Γ satisfies (2D), we will call Γ 2-dimensional. Much of the behavior of
+2-dimensional Shephard groups can be deduced from their dihedral subgroups. Our
+first main result concerns solely these dihedral Shephard groups.
+Theorem A. Let (p, q, r) be a triple of integers each ≥ 2, with p = r if q is odd,
+and let h = 1/p + 2/q + 1/r. If h ≤ 1, then Sh(p, q, r) cannot admit a proper action
+by semi-simple isometries on any CAT(0) space. In particular, Sh(p, q, r) is not
+CAT(0). Moreover,
+     (1) If h = 1, Sh(p, q, r) is commensurable to the 3-dimensional integer Heisenberg
+         group; in particular, it is virtually nilpotent and not semihyperbolic.
+     (2) If h < 1, Sh(p, q, r) is commensurable to the “universal central extension”
+         of a hyperbolic surface group, is a uniform lattice in Isom(SL   ^   2 R), and is
+         biautomatic.
+In particular, Sh(p, q, r) is linear, and if an element of Sh(p, q, r) has finite order, it
+is conjugate to a power of one of the standard generators.
+    Not mentioned is the case 1/p + 2/q + 1/r > 1; this is because if this holds, then
+Sh(p, q, r) is finite (and is handled in [Gol23]). In other words, 1/p + 2/q + 1/r ≤ 1
+if and only if Sh(p, q, r) is infinite. The fact that finite dihedral Shephard groups
+                            2-DIMENSIONAL SHEPHARD GROUPS                                     3
+
+
+are linear is shown in [Cox75]; hence, the above Theorem also implies all dihedral
+Shephard groups are linear.
+Example. The braid group on three strands Sh(∞, 3, ∞) is known to be CAT(0)
+(e.g., in [BM10]), but its quotient Sh(p, 3, p) is not CAT(0) when p ≥ 6 (when p < 6,
+this quotient is finite).
+   The broadest class of Shephard groups to which Theorem A applies are described
+in the following.
+Corollary. Let Γ be an extended presentation graph (possibly with infinite vertex
+labels) with an edge e = {i, j} such that
+    (1) the parabolic She generated by e embeds1 in ShΓ ,
+    (2) the edge and vertex labels of e are finite, and
+    (3) She is infinite
+Then ShΓ cannot admit a proper action on a CAT(0) space by semi-simple isometries.
+In particular, ShΓ is not CAT(0). Moreover, 1/pi + 2/mij + 1/pj = 1, then ShΓ is
+not semihyperbolic.
+   To rephrase this corollary, an embedded infinite edge subgroup with all labels
+finite is a “poison subgroup” for being CAT(0), or even semihyperbolic in some cases.
+It is a conjecture that given any extended presentation graph, its edge parabolics
+embed, so, conjecturally, (1) is unnecessary and infinite edge groups with finite
+labels are always poison subgroups. But, as a consequence of the upcoming Theorem
+B, the edge groups of a 2-dimensional presentation graph always embed, so we can
+say
+Corollary. Let Γ be a 2-dimensional extended presentation graph with an edge
+e = {i, j} such that pi < ∞, pj < ∞, mij < ∞, and p1i + m2ij + p1j ≤ 1. Then
+ShΓ cannot admit a proper action by semi-simple isometries on a CAT(0) space,
+and in particular is not CAT(0). Moreover, if p1i + m2ij + p1j = 1, then ShΓ is not
+semihyperbolic.
+Example. Suppose Γ is an XXL-type presentation graph (meaning all edge labels
+are ≥ 5); in particular Γ is 2-dimensional. Then AΓ is CAT(0) [Hae22]. However
+there is some N such that the quotient ShΓ(p) is not CAT(0) for all p ≥ N .
+   In light of these examples, Theorem A may seem perplexing. Perhaps it is less
+surprising when one considers that the CAT(0) condition requires non-positive
+curvature at all scales, and we are able to show that (most of) these groups possess
+other, less restrictive non-positive curvature properties.
+Theorem B. If Γ is any 2-dimensional extended presentation graph, then its edge
+groups embed, and ShΓ acts cocompactly on a piecewise Euclidean CAT(0) cell
+complex with cell stabilizers the conjugates of ShΛ for spherical-type Λ ≤ Γ.
+   This complex is the Shephard group analogue of the Deligne complex for Artin
+groups and the Davis-Moussong complex for Coxeter groups. We give the full
+definition and proof of Theorem B in Section 5. This allows one to adapt techniques
+used for 2-dimensional Artin groups to show similar properties of 2-dimensional
+    1Meaning Sh is isomorphic to the subgroup ⟨V (e)⟩ of Sh via the map induced by the inclusion
+               e                                           Γ
+e ,→ Γ on generators.
+4                              KATHERINE M. GOLDMAN
+
+
+Shephard groups. As an example, the next Theorem is based on the analogous
+result for 2-dimensional Artin groups [Vas22].
+Theorem C. Suppose Γ is an extended presentation graph satisfying
+    (1) |V (Γ)| ≥ 3,
+    (2) Γ is 2-dimensional,
+    (3) ShΓ does not split as a direct product (i.e., it is irreducible), and
+    (4) every connected component of Γ has an edge e such that She is infinite.
+Then ShΓ is acylindrically hyperbolic.
+   Past adapting proofs from 2-dimensional Artin groups, the condition that the
+vertex labels of Γ are finite allows us to show novel results, that were either unknown
+or untrue for Artin groups. Our primary example is:
+Theorem D. Suppose Γ is a hyperbolic-type, 2-dimensional extended presentation
+graph, and let P = { ShΛ : |V (Λ)| = 2, WΛ finite, ShΛ infinite }, the collection of
+spherical-type edges of Γ which give rise to infinite Shephard groups. Then (ShΓ , P)
+is a relatively hyperbolic group pair. In particular, if every edge group ShΛ is finite,
+then ShΓ is hyperbolic.
+   The fact that the stabilizers of the CAT(0) cell complex from Theorem B are
+precisely the edge (and vertex) subgroups indicate that in some sense, the poison
+subgroups are the only obstruction to being non-positively curved. The above
+theorem makes this idea more rigorous.
+   This Theorem is notable, because Artin groups are rarely hyperbolic relative to
+spherical-type subgroups; see [KS04] for a discussion on why this is. However, it was
+shown in [CC07] that Theorem D holds for Artin groups if relative hyperbolicity
+is replaced with “weak relative hyperbolicity” (which we will not define here).
+Upgrading this to relative hyperbolicity has the following noteworthy consequences:
+
+
+Corollary E. Suppose Γ is a hyperbolic-type 2-dimensional extended presentation
+graph. Then ShΓ
+    (1) has solvable word problem,
+    (2) satisfies the Tits alternative,
+    (3) has finite asymptotic dimension, and
+    (4) has the rapid decay property.
+If, in addition, there is no edge {i, j} of Γ with 1/pi + 2/mij + 1/pj = 1, then ShΓ
+is biautomatic.
+   If we restrict ourselves slightly further, it turns out we also have the following
+very desirable property for a large subclass of 2-dimensional Shephard groups.
+ Corollary F. Suppose Γ is an extended presentation graph with no 3-cycle (or is
+“triangle-free”) and no 4-cycle whose edges are each labeled 2. Then ShΓ is residually
+ finite.
+   These are precisely the 2-dimensional graphs Γ such that Γ is hyperbolic-type
+and “type FC” (the spherical-type subgraphs are exactly the complete subgraphs).
+   One of the more broadly appealing aspects of Shephard groups with finite vertex
+labels are their potential to be used to prove results for Artin groups. For example,
+                         2-DIMENSIONAL SHEPHARD GROUPS                              5
+
+
+Theorem G. Suppose Γ is a triangle-free presentation graph with no 4-cycle with
+all edges labeled 2. Then AΓ is residually finite.
+   Residual finiteness is unknown for most Artin groups, and was previously unknown
+even for most 2-dimensional Artin groups. For a discussion on residual finiteness of
+Artin groups, including some past results see [Jan22].
+1.1. Organization of paper. In Section 2 we recall the relationship between
+central extensions and cohomology in preparation for Theorem A. Then in Section
+3 we complete the proof of this Theorem by detailing the geometry of the dihedral
+Shephard groups through the perspective of central extensions. In Section 4, we
+prove the main technical lemma which implies Theorem B, namely that the dihedral
+Shephard groups satisfy a “syllable length” condition similar to that enjoyed by
+dihedral Artin groups. Following this, we construct the complex from and complete
+the proof of Theorem B in Section 5. The consequences of this complex being
+CAT(0) are discussed in the remaining sections: Section 6 deals with acylindrical
+hyperbolicity, Section 7 deals with relative hyperbolicity and its consequences, and
+Section 8 deals with residual finiteness of the related Artin groups.
+Acknowledgements. The author would like to thank Mike Davis, Jingyin Huang,
+and Piotr Przytycki for their valuable discussions and input. This work is partially
+supported by NSF grant DMS-2402105.
+
+                               2. Central Extensions
+   We begin by recalling some background on central extensions of groups and how
+they relate to cohomology. Recall that if A is abelian, an (A-)central extension of a
+group G is a group G̃ fitting into a short exact sequence
+
+                           0      A      G̃     G       0,
+
+with the image of A contained in the center of G̃. If G̃1 and G̃2 are A-central
+extensions of G, then we say they are (A-)equivalent if there is an isomorphism
+f : G̃1 → G̃2 making the diagram
+
+                                         G̃1
+
+                           0      A        f     G       0
+
+                                         G̃2
+commute.
+Notation 2.1. For an arbitrary group G, we will denote its identity element by e.
+For an abelian group A, we will denote its identity element by 0, and if it is cyclic,
+we will let 1 denote a generator.
+   Let E(G, A) denote the set of equivalence classes of A-central extensions of G
+under A-equivalence. It is well known that there is a natural abelian group structure
+on E(G, A), under which E(G, A) ∼    = H 2 (G; A) (for example, see [Bro82, Thm. 3.12]
+or [DK18, §5.9.6]). There is a natural way to view the map H 2 (G; A) → E(G, A).
+Fix a presentation G = ⟨ S | R ⟩ and let Y be a K(G, 1) such that the 2-skeleton
+Y 2 is the presentation complex for the given presentation of G. Let Ci be the free
+abelian group on the i-cells of Y . Then in particular, the generators of C1 are S and
+6                              KATHERINE M. GOLDMAN
+
+
+the generators of C2 are R. Let di : Ci → Ci−1 be the standard cellular boundary
+map, and define Zi = ker(di ) and Bi = im(di+1 ), so that Hi (G) = Zi /Bi . We
+then dualize to obtain C i = Hom(Ci , A), di : C i → C i+1 defined by φ 7→ φ ◦ di+1 ,
+Z i = ker(di ), B i = im(di−1 ), and H n (G; A) = Z i /B i .
+   Now choose a class [φ] ∈ H 2 (G; A) = Z 2 /B 2 and a representative φ ∈ Z 2 ⊆
+Hom(C2 , A) (or in other words, some morphism φ from the free abelian group on R
+to A). Suppose A = ⟨ T | Q ⟩ is a presentation for A. Let R̃ = { r−1 φ(r) : r ∈ R }
+and C = { [s, t] : s ∈ S, t ∈ T }, subsets of the free group on the disjoint union S ⨿ T .
+We then define a group
+                             Gφ = ⟨ S ⨿ T | R̃ ⨿ Q ⨿ C ⟩.                           (2.1)
+It is straightforward to see that the map [φ] → Gφ is a well-defined injective
+homomorphism from H 2 (G; A) to E(G, A). The construction of an inverse to this
+map is standard and unnecessary for our purposes, so we omit it, but it may be
+found in [DK18, §5.9.6]. We will call [φ] the Euler class of Gφ , and denote it by
+e(Gφ ) = [φ].
+   One standard result is
+Proposition 2.2. The underlying set of Gφ is in bijection with A × G, but Gφ is
+isomorphic to A × G as a group if and only if [φ] = 0 in H 2 (G; A).
+   We are interested in group-theoretic properties of central extensions induced by
+cohomological properties of their Euler classes. One first step in this direction is
+provided by this Lemma:
+Lemma 2.3. Suppose G̃ and H̃ are A-central extensions of a group G such that
+e(H̃) = ne(G̃), where n is not a zero divisor of the Z-module A. Then H̃ is
+isomorphic to a subgroup of G̃ with index [A : nA].
+
+Proof. Let [ψ] = e(H̃) and [φ] = e(G̃) with representatives ψ and φ, resp., chosen
+such that ψ = nφ. We will write Gψ ∼    = H̃ and Gφ ∼= G̃, using the notation given
+above for the presentation of Gψ and Gφ .
+   Define a map Ψ : Gψ → Gφ by Ψ(s) = s for s ∈ S and Ψ(t) = nt for t ∈ T . To
+check that this is a well-defined homomorphism we need to verify that Ψ(r) = e for
+all r ∈ R̃ ⨿ Q ⨿ T . This is immediate for r ∈ Q or r ∈ C, so we only need to verify
+this for r ∈ R̃; that is, we must verify that Ψ(r) = φ(Ψ(r)) for all r ∈ R. But this
+is also immediate since
+                        Ψ(r) = r                                      (r is a word in S)
+                              = φ(r)
+                              = nψ(r)
+                              = Ψ(ψ(r)).                          (ψ(r) is a word in T )
+Thus this map is a well-defined homomorphism. Since n is not a zero divisor, it is
+also injective. It is clear from the definition of Ψ that its image has index [A : nA]
+in Gφ .                                                                             □
+
+    Now consider a group homomorphism f : H → G. This induces in a standard
+way a morphism f ∗ : H 2 (G; A) → H 2 (H; A) on cohomology and thus a map
+f ∗ : E(G, A) → E(H, A) on central extensions via Gφ 7→ Hf ∗ φ . In addition, f can
+                          2-DIMENSIONAL SHEPHARD GROUPS                                 7
+
+
+be lifted to a morphism fφ : Hf ∗ φ → Gφ . This gives the commutative diagram
+                                             fφ
+                                    Hf ∗ φ        Gφ
+
+
+                                      H      f
+                                                  G
+
+As a consequence of the above diagram commuting, we have:
+Lemma 2.4. For all [φ] ∈ H 2 (G; A), [Gφ : fφ (Hf ∗ φ )] = [G : f (H)]. In particular,
+if f (H) has finite index in G, then fφ (Hf ∗ φ ) has finite index in Gφ .
+Proof. Denote the rightmost vertical morphism of the diagram by Φ : Gφ → G.
+Then fφ (Hf ∗ φ ) ∼
+                  = Φ−1 (f (H)). Since Gφ = Φ−1 (G) and Φ is a surjective morphism,
+it follows that [Gφ : fφ (Hf ∗ φ )] = [Φ−1 (G) : Φ−1 (f (H))] = [G : f (H)].     □
+   It is a standard fact that if f is injective, so is fφ [DK18, Ex. 5.140.3], so in
+particular, if H is a finite index subgroup of G, then for any central extension G̃
+of G, there is a finite index subgroup H̃ which is a central extension of H over the
+same central copy of A.
+   We also know:
+Proposition 2.5. [Hat02, §3.G] If n = [G : f (H)], then ker(f ∗ ) consists only of
+elements whose order divides n.
+   In particular, f ∗ is always injective on the free part of H 2 (G; A).
+   This leads us to:
+Proposition 2.6. Suppose G is finitely generated and A ∼  = Zn for some n. If G̃
+is an A-central extension of G such that e(G̃) has infinite order, then G̃ cannot
+act properly by semi-simple isometries on a CAT(0) space. In particular G̃ is not
+CAT(0).
+Proof. We want to utilize [BH13, Thm. II.6.12], which states that if a finitely
+generated group K acts by isometries on a CAT(0) space, and if K contains a
+central copy of Zd which acts faithfully by hyperbolic isometries (save for the
+identity), then this copy of Zd is virtually a direct factor of K.
+   To apply this to our situation, let H̃ be a finite index subgroup of G̃ containing
+the canonical copy of A ∼= Zn contained in Z(G̃). We claim that there is no subgroup
+H ′ of H̃ such that H̃ ∼
+                       = H ′ × A. In order for such a subgroup to exist, we must have
+A ⊆ Z(H̃). But then H = H̃/A is a subgroup of G, and since H̃ has finite index
+in G̃, we know H has finite index in G. In particular, if ι : H → G denotes the
+inclusion morphism, then Proposition 2.5 tells us that e(H̃) = ι∗ e(G̃) is nontrivial
+in H 2 (H; A) since e(G̃) has infinite order. Since this class is non-trivial, H̃ does not
+split as a direct product by Proposition 2.2.
+   By [BH13, Thm. II.6.12], we conclude that if G̃ acts by semi-simple isometries
+on a CAT(0) space X, then the central copy of A in G̃ cannot act faithfully by
+hyperbolic isometries. If the action is not faithful, then since A ∼    = Zn the action
+cannot be proper. So assume the action is not by hyperbolic isometries, meaning
+A contains some non-trivial elliptic isometry γ of X (parabolic isometries are not
+semi-simple). Since A ∼  = Zn , we know ⟨γ⟩ ∼   = Z. Since γ is elliptic, then ⟨γ⟩ ∼  =Z
+fixes a point of X, and hence does not act properly.
+8                                KATHERINE M. GOLDMAN
+
+
+  The fact that G̃ cannot be CAT(0) follows from [BH13, Prop. II.6.10(2)]. (Recall
+that a group is CAT(0) if it acts properly and cocompactly by isometries on a
+CAT(0) space.)                                                                  □
+2.1. Central products. For some later results, it becomes useful to use a commu-
+tative version of the amalgamated product.
+Definition 2.7. Let G1 , G2 , and Z be any groups equipped with injective homo-
+morphisms θi : Z → Z(Gi ). Let N = { (θ1 (z), θ2 (z)−1 ) : z ∈ Z } ≤ G1 × G2 . We
+define the amalgamated direct product or central product of G1 and G2 over Z by
+                               G1 ×Z G2 := (G1 × G2 )/N
+   Note that N is a central subgroup of G1 × G2 , so this construction always gives
+a well-defined group.
+   Take subgroups Hi of Gi and let N ′ = (H1 × H2 ) ∩ N and Z ′ = θ1−1 (H1 ) ∩
+ −1
+θ2 (H2 ) ⊆ Z. Note that N ′ = { (θ1 (z), θ2 (z)−1 ) : z ∈ Z ′ }. By the isomorphism
+theorems,
+          H1 ×Z ′ H2 = (H1 × H2 )/N ′ ∼
+                                      = (H1 × H2 )N/N ≤ (G1 × G2 )/N.
+This demonstrates H1 ×Z ′ H2 as a natural subgroup of G1 ×Z G2 . By the stan-
+dard proof of the isomorphism theorems, the map that realizes this inclusion is
+(h1 , h2 )N ′ 7→ (h1 , h2 )N . In addition, one readily sees that if Hi is finite index in Gi
+(i = 1, 2), then H1 ×Z ′ H2 is finite index in G1 ×Z G2 .
+   As a special case, we can take H1 = G1 and H2 = {idG2 }, in which case Z ′ =
+{idZ } (or similarly, H1 = {idG1 } and H2 = G2 ). It is clear that G1 ∼     = G1 ×Z ′ {idG2 }
+via the map g 7→ (g, idG2 ), since Z ′ is trivial. We then apply our previous remarks
+to this situation to obtain
+Proposition 2.8. For any groups Gi and Z as above, the groups G1 and G2
+embed into G1 ×Z G2 via the maps ϵ1 : g 7→ (g, idG2 )N and ϵ2 : g 7→ (idG1 , g)N ,
+respectively.
+   Just as one has the notion of internal direct product, we may define an internal
+central product.
+Proposition 2.9. Suppose G is any group with subgroups H1 , H2 such that h1 h2 =
+h2 h1 for all hi ∈ Hi (i = 1, 2). Let Z = H1 ∩ H2 . Then H1 H2 ≤ G is isomorphic
+to H1 ×Z H2 .
+Proof. First note that since the elements of H1 and the elements of H2 commute,
+Z ⊆ Z(Hi ) for i = 1, 2. Let ιi : Z → Hi (i = 1, 2) denote the inclusion map.
+Let α : H1 × H2 → G be given by (h1 , h2 ) 7→ h1 h2 . Clearly α is a surjective
+homomorphism. The kernel of α is { (h1 , h2 ) : h1 = h−1
+                                                      2 }, or rewritten,
+
+       { (h1 , h−1
+                2 ) : h1 = h2 , hi ∈ Hi } = { (ι1 (h), ι2 (h)
+                                                              −1
+                                                                 ) : h ∈ H1 ∩ H2 = Z }.
+Thus
+                        H1 H2 ∼
+                              = (H1 × H2 )/ker(α) ∼
+                                                  = H1 ×Z H2 .                            □
+    We need one final property of central products before we can continue.
+Proposition 2.10. Take Gi and Z as above, and identify Gi with the subgroup of
+G1 ×Z G2 as in Proposition 2.9. Then [G1 ×Z G2 : G1 ] = [G2 : Z] (and similarly,
+[G1 ×Z G2 : G2 ] = [G1 : Z]).
+                            2-DIMENSIONAL SHEPHARD GROUPS                                      9
+
+
+   This follows immediately from Proposition 2.9 and standard counting results
+([G1 G2 : G1 ] = [G2 : G1 ∩ G2 ] = [G2 : Z]).
+
+                            3. Dihedral Shephard groups
+   The goal of this section is to study the geometry of the infinite dihedral Shephard
+groups in detail. We display them as Z-central extensions of infinite triangle groups
+whose Euler class has infinite order, proving the first statement of Theorem A.
+Following this, we determine finer properties which we believe are interesting in
+their own right (and in particular complete the proof of Theorem A).
+3.1. Dihedral Shephard groups as central extensions. We start by examining
+the second integral cohomology of the triangle groups. Let (p, q, r) be a triple of
+positive integers, and define h = p1 + 1q + 1r . We let Y = S, E, or H when h > 1,
+h = 1, or h < 1, respectively. Define a triangle T (p, q, r) in Y2 with vertices a, b, and
+c, and angles π/p, π/q, π/r at a, b, and c, respectively. The triangle group ∆(p, q, r)
+is the group generated by rotations of angle 2π/p, 2π/q, and 2π/r about the vertices
+a, b, and c, resp., of T in Y2 . (We note that sometimes ∆(p, q, r) is called a von
+Dyck group and “triangle group” is sometimes used to refer to 3-generator Coxeter
+groups.) This group has the well-known presentations
+                      ∆(p, q, r) = ⟨ a, b, c | ap = bq = cr = abc = e ⟩
+                                 = ⟨ a, c | ap = (ac)q = cr = e ⟩
+where, by abusing notation, the generators a, b, and c correspond to the respective
+aforementioned rotations about the vertices a, b, and c of T . We will use the second
+presentation to compute the cohomology. Since we’re interested in only the second
+integral cohomology, we describe a construction of the 3-skeleton of a K(∆, 1).
+    First let K (2) be the presentation complex for ∆(p, q, r); that is, the cell complex
+with one 0-cell x, two (oriented) 1-cells labeled a and b, and three 2-cells labeled ea ,
+ec , and eac . The attaching map of the cell ea takes the boundary ∂ea to the loop
+ap with positive orientation, and similarly ec and eac are attached to the loops cr
+and (ac)q , respectively.
+    Let Ke (2) denote the universal cover of K (2) . Note that K      e (2) is the Cayley 2-
+                                                      (2)
+complex of ∆(p, q, r) and the 1-skeleton of K       e     is the Cayley graph of ∆(p, q, r).
+This Cayley graph is the 1-skeleton of the semiregular tiling T = T (p, 2q, r) of Y2
+by p-gons, 2q-gons, and r-gons (e.g., [MS16]). See Figure 1 for an example. The cell
+structure on K    e (2) is obtained from this tiling T by gluing (n − 1) extra cells to the
+boundary of each n-gon.
+    We now obtain the cell complex K     e by filling the generators of π2 (K e (2) ) as follows.
+Choose an n-gon E of T , and label all cells attached to ∂E in K          e (2) (including E)
+by E1 , . . . , En . The cells Ei ∪ Ei+1 (with indices mod n) form                      e (2)
+                                                                  S a sphere in K , so
+attach a 3-cell Ei,i+1 to this sphere. We will denote ES = Ei,i+1 . Notice that ES
+is homeomorphic to a 3-sphere. We obtain K          e from T by replacing each n-gon E
+with the sphere ES . Notice that K is the wedge of the spheres ES . In particular,
+                                        e
+π2 (K)
+     e = 0.
+    There is a natural action of ∆(p, q, r) on K    e coming from the action on K        e (2) by
+                                                                           S
+deck transformations. For an n-gon of T , The stabilizer of the set Ei is conjugate
+to exactly one of ⟨a⟩, ⟨ac⟩, or ⟨c⟩ (depending on if n = p, 2q, or r, respectively). The
+action of this stabilizer on ES is simply the standard action of Z/nZ on S3 . This
+10                             KATHERINE M. GOLDMAN
+
+
+
+
+        Figure 1. The tiling T (3, 6, 4) whose 1-skeleton is the Cayley
+        graph of ∆(3, 3, 4) [Kal]
+
+
+action is still free and properly discontinuous, so we may define the quotient space
+K = K/∆e     such that K e is the universal cover of K. Note that K (2) (as defined
+before) is the 2-skeleton of K.
+   Since Ke is the universal cover of K, we know π2 (K) ∼    = π2 (K)
+                                                                   e = 0. This means
+              ∼                2        ∼   2
+that H2 (∆) = H2 (K) and H (∆; Z) = H (K; Z), where ∆ = ∆(p, q, r). Note that
+for any n-gon E of T , the cell Ei of K e maps to exactly one of the cells ea , eac , or
+ec if n = p, 2q, or r, respectively. In particular, for all such E, the 3-cell ES in Ke
+maps to a single 3-cell of K which we will denote fa , fac , and fc if n = p, 2q, or
+r, resp. Topologically, ∂fg = eg ∪ g ∪ x if g = a or c, and ∂fac = eac ∪ a ∪ c ∪ x.
+Moreover, the closure f g of fg is the 3-dimensional lens space of order |g| with its
+standard cell structure for g = a, b and f ac is the 3-dimensional lens space of order
+q with two points identified at x.
+   To fix notation for the computation of the cohomology of K, let Cn denote the free
+abelian group on the n-cells of K and dn : Cn → Cn−1 the standard cellular boundary
+map. We then let Zn = ker(dn ) and Bn = im(dn+1 ) so that Hn (K) = Zn /Bn . As
+usual, we dualize to obtain C n = Hom(Cn , Z), dn = (dn+1 )∗ : C n → C n+1 given by
+φ 7→ φ ◦ dn+1 , Z n = ker(dn ), B n = im(dn−1 ), so that H n (K; Z) = Z n /B n .
+   By a computation identical to that of the lens spaces (e.g., [Hat02, Ex. 2.43]), we
+see that d3 is the zero map and
+                                   d2 (ea ) = pa
+                                   d2 (ec ) = rc
+                                  d2 (eac ) = q(a + c)
+
+
+This allows one to easily compute that B2 = 0 and Z2 (hence H2 (K)) is infinite
+cyclic generated by
+                     lcm(p, q, r)       lcm(p, r)      lcm(p, r)
+                                  eac −           ea −           ec .
+                         q                 p              r
+                          2-DIMENSIONAL SHEPHARD GROUPS                             11
+
+
+Lemma 3.1. Define a map φ ∈ C 2 by
+                                          φ(ea ) = 0
+                                          φ(ec ) = 0
+                                         φ(eac ) = 1.
+Then the class [φ] ∈ H 2 (K, Z) has infinite order.
+Proof. Let ρ : Z2 → Z2 /B2 denote the quotient map and R : C 2 → Hom(Z 2 ; Z)
+denote the restriction map ψ 7→ ψ|Z2 .
+    The restriction φ|Z2 is nontrivial, and B2 = 0, so ρ ◦ R ◦ φ gives a nontrivial
+element of Hom(H2 ; Z). By the universal coefficient theorem, the free part of
+H 2 (K; Z) is isomorphic to Hom(H2 ; Z) via the map ψ 7→ ρ ◦ R ◦ ψ (where ψ is some
+lift of ψ along the quotient map Z 2 → Z 2 /B 2 ), so it follows that the image of φ in
+H 2 (K; Z) has infinite order.                                                       □
+
+Lemma 3.2. Let φ be as above. Then Sh(p, 2q, r) ∼
+                                                = ∆φ . In particular, Sh(p, 2q, r)
+has infinite cyclic center generated by (st)q .
+Proof. By the definition of ∆φ , we see that it has presentation
+                 ⟨ a, c, z | ap = cr = e, (ac)q = z, [z, a] = [z, c] = e ⟩.
+Since z commutes with a and b,
+                            z = a−1 za = a−1 (ac)q a = (ca)q ,
+so we just as well may write
+             ⟨ a, c, z | ap = cr = e, (ac)q = (ca)q = z, [z, a] = [z, c] = e ⟩.
+But then notice that
+                          (ac)q a = a(ca)q = a(ac)q ,            and
+                                q         q          q
+                          c(ac) = (ca) c = (cb) c,
+so the relations [z, a] = [z, c] = 1 are now redundant, and we may write
+                       ⟨ a, c, z | ap = cr = e, (ac)q = (ca)q = z ⟩.
+But now the generator z is redundant, so we arrive at
+               ∆φ = ⟨ a, c | ap = cr = e, (ac)q = (ca)q ⟩ ∼
+                                                          = Sh(p, 2q, r).
+Since (ac)q = z ∈ Z(∆φ ) and ∆φ /⟨z⟩ ∼ = ∆ is centerless (because h ≤ 1), it follows
+that (ac)q = (st)q generates the center of Sh(p, 2q, r).                          □
+
+   Next, we examine the Shephard groups Sh(p, q, p) for q odd.
+Lemma 3.3. The subgroup of Sh(p, 2q, 2) generated by s and tst is index-2 and
+isomorphic to Sh(p, q, p).
+Proof. First, we fix the presentations of these groups as
+                 Sh(p, q, p) = ⟨ σ, τ | σ p = τ p = e, στ               {z. .}. ⟩
+                                                          σ . .}. = τ| στ
+                                                       | {z
+                                                          q letters    q letters
+                                         p      2           q          q
+               Sh(p, 2q, 2) = ⟨ s, t | s = t = e, (st) = (ts) ⟩.
+12                                  KATHERINE M. GOLDMAN
+
+
+Let the generator υ of Z/2Z act on Sh(p, q, p) by interchanging σ and τ . Then the
+semidirect product of Sh(p, q, p) and Z/2Z under this action has the presentation
+ Sh(p, q, p) ⋊ Z/2Z = ⟨ σ, τ, υ | σ p = τ p = e, |στ {z                                 2
+                                                                   {z. .}. , σ = υτ υ, υ = e ⟩.
+                                                     σ . .}. = τ| στ
+                                                       q letters   q letters
+
+Since this is a semidirect product, the subgroup generated by σ and τ is isomorphic
+to Sh(p, q, p). We claim this product is isomorphic to Sh(p, 2q, 2).
+   The relation σ = υτ υ makes τ p = e redundant, so we may remove it. In addition,
+notice that
+                                                     (q−1)/2
+                                 τ| στ
+                                     {z. .}. = (τ σ)         τ
+                                  q letters
+
+                                              = (υσυσ)(q−1)/2 υσυ
+                                              = (υσ)(q−1) υσυ
+                                              = (υσ)q υ.
+Similarly,
+                                   στ σ . .}. = (στ )(q−1)/2 σ
+                                   | {z
+                                   q letters
+
+                                               = (συσυ)(q−1)/2 σ
+                                               = (συ)(q−1) σ.
+Thus the relation στ σ . .}. = τ| στ
+                  | {z             {z. .}. is equivalent to
+                     q letters     q letters
+
+                                      (υσ)q υ = (συ)(q−1) σ,
+which in turn is equivalent to
+                                 (υσ)q = (συ)(q−1) συ = (συ)q .
+Therefore,
+         Sh(p, q, p) ⋊ Z/2Z = ⟨ σ, τ, υ | σ p = υ 2 = e, (υσ)q = (συ)q , σ = υτ υ ⟩.
+And with this presentation, τ is obviously redundant, so we see that
+                         Sh(p, q, p) ⋊ Z/2Z ∼
+                                            = Sh(p, 2q, 2)
+via the map σ 7→ s and υ 7→ t.                                                                □
+   Since Sh(p, q, p) viewed inside Sh(p, 2q, 2) is generated by σ = s and τ = tst, we
+have that the element (στ )q = (st)2q is both in Z(Sh(p, 2q, 2)) and Z(Sh(p, q, p)),
+since (st)2q = (stst)q = (στ )q . The image of Sh(p, q, p) under the quotient map
+Sh(p, 2q, 2) → ∆(p, q, 2) is the subgroup D of ∆(p, q, 2) generated by a and cac.
+This subgroup is finite index in ∆(p, q, 2) (e.g., since Sh(p, q, p) is finite index in
+Sh(p, 2q, 2)). In particular,
+Lemma 3.4. Sh(p, q, p) is a Z-central extension of D via the image of the class [φ]
+from H 2 (∆; Z) to H 2 (D, Z) (which has infinite order).
+     Note that this restriction of [φ] has infinite order by Proposition 2.5.
+     As a brief aside, using this central extension structure, we can show
+Corollary 3.5. Suppose Sh(p, q, r) is infinite and g ∈ Sh(p, q, r) has finite order.
+Then g is conjugate to a power of one of the standard generators of Sh(p, q, r).
+                          2-DIMENSIONAL SHEPHARD GROUPS                                 13
+
+
+Proof. Let s and t denote the generators of order p and r, resp., of Sh(p, q, r). The
+central quotient Sh(p, q, r)/Z of Sh(p, q, r) acts properly and cocompactly on either
+E2 or R2 , where the generators s and t are sent to rotations a and c, resp., by an angle
+of 2π/p and 2π/r, resp. Since g has finite order, it cannot be contained in the center
+of Sh(p, q, r), and thus has non-trivial image g in Sh(p, q, r)/Z, still with finite order.
+Then by standard facts about isometries of E2 and H2 (and in particular, facts about
+the triangle groups), g is conjugate (within Sh(p, q, r)/Z) to a power of either a or c.
+                                                      −1
+Without loss of generality, we may assume g = h ak h for some h ∈ Sh(p, q, r)/Z
+and 0 < k < p (the argument for conjugates of powers of c is identical). This means
+there is some lift h ∈ Sh(p, q, r) of h such that gZ = (h−1 sk h)Z. In particular, there
+is some z ∈ Z such that g = (h−1 sk h)z = h−1 (zsk )h. If z ̸= e, then z has infinite
+order, thus so does zsk (since z commutes with sk ), contradicting the assumption
+that g has finite order. Thus z = e and g = h−1 sk h.                                   □
+   We now prove the first part of Theorem A, namely
+Theorem 3.6. Let (p, q, r) be a triple of integers each ≥ 2, with p = r if q is odd.
+If 1/p + 2/q + 1/r ≤ 1, then Sh(p, q, r) cannot admit a proper action by semi-simple
+isometries on any CAT(0) space. In particular, Sh(p, q, r) is not CAT(0).
+Proof. First suppose q is even, say q = 2k for a positive integer k. Then
+                   1 1 1          1    2    1    1 2 1
+                     + + = +             + = + + ≤ 1.
+                   p k       r    p 2k      r    p q       r
+So by Lemma 3.2, Sh(p, q, r) = Sh(p, 2k, r) is a Z-central extension of the infinite
+group ∆(p, k, r) via a second cohomology class (of infinite order by Lemma 3.1) of
+∆(p, k, r). Thus by Proposition 2.6, Sh(p, q, r) cannot act properly by semi-simple
+isometries on a CAT(0) space and is not CAT(0).
+   Now assume q is odd (implying p = r). This means
+                                    1 2 1 2 2
+                               1≥    + + = + ,
+                                    p q r p q
+implying
+                                       1 1 1
+                                        + ≤ ,
+                                       p q 2
+and so
+                                   1 1 1
+                                     + + ≤ 1.
+                                   p q      2
+Thus Sh(p, q, p) is a Z-central extension of a finite index subgroup of ∆(p, q, 2) via
+a second cohomology class of infinite order (Lemma 3.4). By Proposition 2.6 cannot
+act properly by semi-simple isometries on a CAT(0) space and is not CAT(0). □
+3.2. Further geometry of the extension. We can give insight into the geometry
+of the dihedral Shephard groups beyond the general fact of Proposition 2.6. Namely,
+we will discuss the remainder of Theorem A.
+   To encompass both types of dihedral Shephard groups dealt with above (depending
+on the parity of q), we fix notation for this section. First, we let Sh = Sh(p, 2q, r)
+or Sh = Sh(p, q, p) (in which case we say r = 2). In the first case, we define
+D = ∆ = ∆(p, q, r), and in the second case, we define D to be the subgroup of
+∆ = ∆(p, q, 2) generated by a and cac. To summarize the results of the previous
+section in this notation, Sh is a Z-central extension of D whose Euler class has
+14                             KATHERINE M. GOLDMAN
+
+
+infinite order, where D acts geometrically on E2 or H2 if h = 1 or h < 1, resp., as a
+finite index subgroup of a triangle group ∆.
+   As a consequence of the latter point, D contains a finite index torsion-free
+subgroup M [Mil75, Thm. 2.7], and in particular M must be a (closed) surface
+group. By Lemma 2.4, M lifts to a finite index subgroup Mφ of Sh. Since M is a
+surface group, H 2 (M ; Z) ∼
+                           = Z. Let Mf denote a central extension of M such that
+                           2
+e(M ) is a generator of H (M ; Z). (Sometimes M
+   f                                             f is called the “universal central
+extension” of M , although this conflicts with the standard definition of universal
+central extension which applies only to perfect groups.) When h = 1, M ∼   = Z2 and
+M   ∼
+f = H(3), the 3-dimensional integer Heisenberg group. When h < 1, then M is
+a hyperbolic surface group, and M f is a uniform lattice in SL
+                                                            ^  2 R. Since e(M ) is a
+                                                                             f
+generator of the second cohomology, e(Mφ ) is a non-zero multiple of e(M    f). By
+Lemma 2.3, this means Mφ is finite index in M . Thus Sh is commensurable to M
+                                              f                                   f.
+As an immediate consequence, we have
+Proposition 3.7. For any triple (p, q, r) of integers ≥ 2 (with p = r when q is
+odd), the group Sh(p, q, r) is linear.
+Proof. When Sh(p, q, r) is finite, this was shown in [Cox75]. So, suppose Sh(p, q, r)
+is not finite, i.e., h = 1/p + 2/q + 1/r ≤ 1. It is an easy exercise to see that if H is
+a finite index subgroup of G, then G is linear if and only if H is linear. Thus if two
+groups G and H are commensurable, one is linear if and only if the other is. So
+it suffices to note that M f is always linear: if h = 1, then Mf is the 3-dimensional
+integer Heisenberg group H(3) (well-known to be linear), and, if h < 1, then M      f is
+linear by [dLH00, §IV.48] (via an explicit injection from M to SL2 R × H(3)). □
+                                                             f
+
+   We will note here that the Shephard group analogue of the Tits representation
+used to show finite Shephard groups are linear in [Cox75] is not faithful for infinite
+dihedral Shephard groups. (A quick computation shows that the center of the image
+under this representation is always finite.) Finding an explicit representation for
+the Shephard groups is straightforward using the information given above, so we
+leave it as an exercise. The h < 1 Shephard groups have an interesting explicit (but
+non-linear) representation as isometries of SL
+                                            ^  2 R, which will discuss soon. First we
+examine the “Euclidean-like” case of h = 1.
+Proposition 3.8. Suppose h = 1. Then Sh is virtually nilpotent and is not
+semihyperbolic.
+Proof. Virtual nilpotency of Sh follows from the Q.I. rigidity of virtual nilpo-
+tency and the nilpotency of the 3-dimensional Heisenberg group. Moreover, the
+3-dimensional Heisenberg group has cubic Dehn function, and thus so does Sh.
+Since semihyperbolic groups have at-most quadratic Dehn function, it follows that
+Sh cannot be semihyperbolic.                                                   □
+
+  This implies, for example, that if such a Shephard group embeds in an arbitrary
+Shephard group ShΓ , then ShΓ is not semihyperbolic.
+  The case h < 1 is quite rich. For example, since the central quotient is word
+hyperbolic in this case, by [NR97], this immediately implies
+Proposition 3.9. If h < 1, then Sh is biautomatic.
+                              2-DIMENSIONAL SHEPHARD GROUPS                                           15
+
+
+   Past knowing that such a Shephard group is commensurable to a uniform lattice
+in SL2 R, we can also explicitly demonstrate it as a group of isometries of SL
+   ^                                                                        ^  2 R. In
+some sense this is “more natural” than the linearity of Proposition 3.7, because
+it directly generalizes the method in which the presentation for the finite dihedral
+Shephard groups are derived in [Cox75, §9]. (The main technical difference is the
+fact that 1/ lcm(p, q, r) ̸= 1/p + 1/q + 1/r − 1 when 1/p + 1/q + 1/r ≤ 1, unlike in
+the finite case.)
+
+Proposition 3.10. If h < 1, then Sh is a uniform lattice in Isom(SL
+                                                                 ^  2 R).
+
+Proof. Since h < 1 and each of p, q, and r are finite, we know that ∆, D, and
+M are uniform lattices in G := PSL2 R. Recall that G is isometric to the unit
+tangent bundle of H2 (under the Sasaki metric), which itself can be thought of as a
+U (1)-bundle over H2 . This bundle is topologically trivial (since H2 is contractible)
+but is well known to be metrically non-trivial. Let Ge (= SL
+                                                          ^  2 R) denote the universal
+cover of PSL2 R. Then G is a (metrically non-trivial) R-bundle over H2 . Note that
+                        e
+f (as defined above) is actually the preimage of M under the covering map Ge → G .
+M
+Let ∆e denote the preimage of ∆ under this covering map. By [Mil75, Lem. 3.1] this
+group has the presentation
+                              e = ⟨ ã, b̃, c̃ | ãp = b̃q = c̃r = ãb̃c̃ ⟩,
+                              ∆
+where each of ã, b̃, and c̃ are lifts of the respective rotations a, b, and c to Ge.
+Moreover, the proof of said Lemma shows that ãb̃c̃ generates the center of Ge and the
+center of ∆.  e Note that ∆   e is also a uniform lattice in Ge since ∆ is a uniform lattice
+in G . In order to display the dihedral Shephard groups as subgroups of Isom(Ge),
+we introduce another class of isometries.
+    For θ ∈ R, define a map rθ which acts on G by preserving the U (1)-fiber structure
+over H2 , such that rθ projects down to the identity map of H2 and rotates each
+fiber by 2πθ. Since the bundle is topologically trivial, there is no issue with the
+existence and well-defined-ness of this map. Moreover, it is clear that this map is
+an isometry for any θ. We can also see that each rθ commutes with the action of
+G . The group of all rθ is isomorphic to U (1). Each rθ can be lifted to a map r̃θ
+of Ge which translates along the R-fibers a common distance 2πθ. Note that this
+action commutes with the left action of Ge. Since rθ is an isometry of G, it follows
+that r̃θ is an isometry of Ge. Let R = { r̃θ : θ ∈ R }. As a straightforward exercise,
+one may verify that R along with the left-multiplication maps of Ge generate the
+entirety of Isom(Ge). Since the elements of R commute with the elements of Ge (and
+vice versa), this means Isom(Ge) = R Ge. But note that Ge ∩ R = { r̃θ : θ ∈ Z } ∼      = Z;
+                                      e ∼
+so, by Proposition 2.9, Isom(G ) = G ×Z R. e
+    Now let k = lcm(p, q, r). Define ∆     e k to be the subgroup of Isom(Ge) generated by
+ã, b̃, c̃, and z := r̃1/k . Since r̃1/k commutes with the left multiplication action of Ge,
+this group has the presentation
+        e k = ⟨ ã, b̃, c̃, z | ãp = b̃q = c̃r = ãb̃c̃ = z k , [ã, z] = [b̃, z] = [c̃, z] = e ⟩.
+        ∆
+Note that this is isomorphic to a central product ∆      e ×Z ⟨r̃1/k ⟩. Since ∆
+                                                                              e is a uniform
+lattice in Ge and ⟨r̃1/k ⟩ is a uniform lattice in R, it follows easily that ∆
+                                                                             e k is a uniform
+             e        ∼
+lattice in G ×Z R = Isom(G ). We claim that Sh(p, 2q, r) is isomorphic to a finite
+                                 e
+16                                 KATHERINE M. GOLDMAN
+
+
+index subgroup of ∆ e k , hence is a uniform lattice in Isom(Ge) as well. Since Sh(p, q, p)
+is finite index in Sh(p, 2q, 2), the result follows for these groups as well.
+    Let m = kp + kq + kr − k, and consider the group
+
+           G = ⟨ s, t, ϕ | sp = tr = e, (st)q = (ts)q = ϕ−qm , [s, ϕ] = [t, ϕ] = e ⟩.     (3.1)
+
+Since 1/p + 1/q + 1/r = h ≠ 1, we know m = ̸ 0. Then G is an amalgamated direct
+product of Sh(p, 2q, r) and ⟨ϕ⟩ ∼
+                                = Z along the subgroup Z ∼   = ⟨(st)q ⟩ ∼
+                                                                        = ⟨ϕ−qm ⟩. By
+Proposition 2.8, the subgroup of G generated by s and t is isomorphic to Sh(p, 2q, r),
+and by Proposition 2.10, the index of this subgroup in G is [⟨ϕ⟩ : ⟨ϕm ⟩] = m < ∞.
+We now show that G ∼   =∆ek
+   We start by adding a redundant generator u = (ϕm ts)−1 to G to obtain the
+presentation
+
+     ⟨ s, t, u, ϕ | sp = tr = e, (st)q = (ts)q = ϕ−qm , [s, ϕ] = [t, ϕ] = e, u = (ϕm ts)−1 ⟩.
+
+           e k → G by
+Define Φ : ∆
+
+                                           ã 7→ ϕk/p s
+                                           b̃ 7→ ϕk/q u
+                                           c̃ 7→ ϕk/r t
+                                           z 7→ ϕ,
+
+then define Ψ : G → ∆
+                    e k by
+
+                                          s 7→ z −k/p ã
+                                          u 7→ z −k/q b̃
+                                          t 7→ z −k/r c̃
+                                          ϕ 7→ z
+
+
+We will show that Φ and Ψ define surjective homomorphisms. Once this is shown,
+then clearly Φ and Ψ are mutually inverse, and thus the proof of the Proposition is
+complete.
+   Starting with Φ, we must show
+
+                     Φ(ã)p = Φ(b̃)q = Φ(c̃)r = Φ(ã)Φ(b̃)Φ(c̃) = Φ(z)k
+
+and Φ(z) commutes with each of Φ(ã), Φ(b̃), and Φ(c̃). First, since Φ(z) = ϕ and ϕ
+is in the center of G, the latter relation holds. We verify
+
+                                       Φ(ã)p = (ϕk/p s)p
+                                              = ϕk sp
+                                              = ϕk
+                                              = Φ(z)k ,
+                            2-DIMENSIONAL SHEPHARD GROUPS                           17
+
+
+with an identical result for Φ(c)r . Next,
+                                   Φ(b̃)q = (ϕk/q u)q
+                                            = ϕk uq
+                                            = ϕk (ϕm ts)−q
+                                            = ϕk ϕ−qm (ts)−q
+                                            = ϕk (ts)q (ts)−q
+                                            = Φ(z)k .
+Last,
+                     Φ(ã)Φ(b̃)Φ(c̃) = (ϕk/p s)(ϕk/q u)(ϕk/r t)
+                                       = ϕk/p+k/q+k/r sut
+                                       = ϕk/p+k/q+k/r s(ϕm ts)−1 t
+                                       = ϕk/p+k/q+k/r−m ss−1 t−1 t
+                                       = ϕk/p+k/q+k/r−(k/p+k/q+k/r−k)
+                                       = ϕk
+                                       = Φ(z)k .
+   In order to show Ψ is a surjective morphism, we must show
+                                      Ψ(s)p = Ψ(t)r = e,
+
+                         (Ψ(s)Ψ(t))q = (Ψ(t)Ψ(s))q = Ψ(ϕ)−qm ,
+                                Ψ(u) = (Ψ(ϕ)m Ψ(t)Ψ(s))−1 ,
+and Ψ(ϕ) commutes with Ψ(s) and Ψ(t). Since Ψ(ϕ) = z, which is in the center of
+∆
+e k , this last relation is immediate. We begin by computing
+
+                                      Ψ(s)p = (z −k/p ã)p
+                                               = z −k ãp
+                                               = z −k z k
+                                               = e,
+with an identical computation for Ψ(t)r . Before proceeding, we need a lemma
+regarding the relations in ∆
+                           e k:
+
+Lemma. The relations ãb̃c̃ = b̃c̃ã = c̃ãb̃ hold in ∆
+                                                      e k.
+
+Proof (of Lemma). Since ãb̃c̃ = z k and z is in the center of ∆
+                                                               e k , we have
+
+                         b̃ = ã−1 z k c̃−1 = z k ã−1 c̃−1 = ã−1 c̃−1 z k .
+
+Solving each equation for z k gives z k = ãb̃c̃ = b̃c̃ã = c̃ãb̃.                 □
+
+   For notational convenience, let r1 = Ψ(s), r2 = Ψ(u), and r3 = Ψ(t). The above
+lemma implies that r1 r2 r3 = r2 r3 r1 = r3 r1 r2 , and in particular r2 commutes with
+18                            KATHERINE M. GOLDMAN
+
+
+the product r3 r1 . Moreover, we know r2 has order q, since (z −k/q b̃)q = z −k b̃q =
+z −k z k = 1. Now,
+                           (Ψ(s)Ψ(t))q = (r1 r3 )q
+                                         = r1 (r3 r1 )q r1−1
+                                         = r1 r2q (r3 r1 )q r1−1
+                                         = r1 (r2 r3 r1 )q r1−1
+                                         = (r1 r2 r3 )q                            (∗)
+                                                       q
+                                         = (r2 r3 r1 )
+                                         = r2q (r3 r1 )q
+                                         = (r3 r1 )q
+                                         = (Ψ(t)Ψ(s))q
+Moreover, using (∗) we compute
+                       (Ψ(s)Ψ(t))q = (r1 r2 r3 )q
+                                    = (z −k/p ãz −k/q b̃z −k/r c̃)q
+                                    = (z −k/p−k/q−k/r ãb̃c̃)q
+                                    = (z −k/p−k/q−k/r z k )q
+                                    = (z −k/p−k/q−k/r+k )q
+                                    = (z −m )q
+                                    = z −mq
+                                    = Ψ(ϕ)−mq .
+Last,
+                  (Ψ(ϕ)m Ψ(t)Ψ(s))−1 = [z m (z −k/r c̃)(z −k/p ã)]−1
+                                        = z k/r+k/p−m ã−1 c̃−1
+                                        = z k−k/q ã−1 c̃−1
+                                        = z −k/q z k ã−1 c̃−1
+                                        = z −k/q (b̃c̃ã)ã−1 c̃−1
+                                        = z −k/q b̃
+                                        = Ψ(u).                                     □
+
+                      4. The syllable length condition
+   We now turn our attention to proving Theorem B. To do this, we follow the
+overarching idea used to show that the Deligne complex for a 2-dimensional Artin
+group is CAT(0) [CD95]. The first step in this process is to show that certain words
+have a minimal length. We make this precise now.
+Definition 4.1. Let S be a finite set and W (S) the set of (finite) words in S ∪ S −1 .
+If w ∈ W (S) with w = si11 . . . sinn (sj ∈ S, ij ∈ Z) is cyclically reduced, then we
+define the syllable length of w with respect to S to be ℓ(w) = ℓS (w) = n.
+                          2-DIMENSIONAL SHEPHARD GROUPS                                 19
+
+
+Definition 4.2. If G is a group with finite generating set S, and w ∈ W (S), then
+we denote by w ∈ G the image of w under the map induced by the obvious map
+sending the word si11 . . . sinn in W (S) to the element si11 . . . sinn in G.
+   The main result of this section is the following proposition, which, as mentioned
+before, is one of the key steps in showing the analogue of the Deligne complex for
+Shephard groups is also CAT(0). It is based on a result of Appel and Schupp [AS83],
+but requires a minor extra hypothesis in order to account for the torsion in the
+generators.
+Proposition 4.3. Consider the dihedral Shephard group Sh(p, q, r) (with p = r if
+q is odd) on standard generating set S = {s, t} and identity element e. Suppose
+w ∈ W (S) has a cyclically reduced expression w = si11 . . . sinn , with ij ̸∈ Zpsj (where
+ps = p and pt = r). If w = e, then ℓ(w) ≥ 2q.
+   We will first establish notation and some brief lemmas.
+Definition 4.4. Let (p, q, r) be a triple of integers all ≥ 2 with p = r if q is odd.
+Let Sh = Sh(p, q, r). If q is even, let D = D(p, q, r) = ∆(p, q/2, r), σ = a, and τ = c,
+and if q is odd, let D = D(p, q, r) denote the subgroup of ∆(p, q, 2) generated by
+σ = a and τ = cac. Define a simplicial graph D = D(p, q, r) whose vertices are the
+cosets of ⟨σ⟩ and ⟨τ ⟩ in D, with an edge between two vertices if the cosets have
+non-trivial intersection.
+  Sometimes D is called a “(rank 2) coset geometry”. It is the quotient of the
+complex Θ
+        b = Θ(Sh(p,
+            b       q, r)) by the center of Sh(p, q, r) (see Proposition 5.2).
+Lemma 4.5. For any triple (p, q, r) (with p, q, r ≥ 2 and p = r if q is odd), the
+complex D(p, q, r) is (the 1-skeleton of ) a tiling of either E2 or H2 by q-gons.
+Proof. The case when q is even is proven in [MS16], so assume q is odd and
+D = ⟨a, cac⟩ ≤ ∆(p, q, 2). Note that the result holds for D(p, 2q, 2) (since 2q
+is even and D(p, 2q, 2) = ∆(p, q, 2)) and D(p, q, r) is a finite index subgroup of
+D(p, 2q, 2) (by definition). In particular, D(p, 2q, 2) is a subdivision of D(p, q, p);
+the added vertices come from adding cosets of c, which correspond to midpoints
+of edges of D(p, q, p). In particular, since D(p, 2q, 2) consists of 2q-gons and is the
+first barycentric subdivision of D(p, q, p), it follows that D(p, q, p) is a tiling by
+q-gons.                                                                              □
+   The graph D(p, q, r) can be thought of as “collapsing” the polygons in the Cayley
+graph of ∆ corresponding to the conjugates of the subgroups ⟨s⟩ and ⟨t⟩. For
+example, the Cayley graph and coset geometry of ∆(3, 3, 3) (coming from Sh(3, 6, 3))
+are shown in Figure 2. They are overlaid in Figure 3 to demonstrate how the
+triangles induced by the orbit of s and t can be shrunken to their respective cosets
+(where these cosets are given by solid and empty vertices, respectively).
+   We may now prove the main Proposition of this section. The argument is based
+on one given in [Cri05, Lemma 39].
+Proof (of Prop. 4.3). Let E denote the edge of Θ   b coming from the intersection of
+the cosets ⟨s⟩ and ⟨t⟩ in Sh. The word w gives rise to a path γ in Θ     b which is the
+                                                             i1 i2      ij−1
+concatenation E1 E2 · · · En of the edges Ej given by Ej = s1 s2 · · · sj−1 Ej−1 . Since
+ij is not a multiple of psj , every pair of consecutive edges in this list are distinct.
+In addition, notice that En = wE. So, γ is a locally embedded closed loop, and in
+20                                        KATHERINE M. GOLDMAN
+
+
+
+
+                          sts
+              sts2       = tst        tst2                         st⟨s⟩            ts⟨t⟩
+
+                st                                               s⟨t⟩                     t⟨s⟩
+                                 ts          ts2
+        st2          s
+                                      t                                 ⟨s⟩         ⟨t⟩
+
+                          e
+                s2
+                                 t2
+
+
+
+
+                                                                              (b)
+
+
+                         (a)
+
+
+     Figure 2. The Cayley graph (a) and coset geometry (b) for ∆(3, 3, 3)
+
+
+
+
+       Figure 3. The Cayley graph (dashed) and coset geometry (solid)
+       of ∆(3, 3, 3) overlaid
+                            2-DIMENSIONAL SHEPHARD GROUPS                                     21
+
+
+particular, the edge length ℓ(γ) = n of γ is precisely the syllable length ℓ(w) of w.
+Without loss of generality, we may assume that this loop is embedded; otherwise,
+we may repeat the argument on embedded subloops. In addition, we may assume
+without loss of generality that 0 < ij < psj by replacing ij with its remainder after
+division by psj ; clearly this gives the same word in Sh and same path in Θ.     b In
+particular, this assumption does not change the syllable length.
+    Let γ be the image of γ under the covering map Θ  b → D induced by the central
+quotient. This is still a closed loop in D, but now may no longer be embedded.
+However, can find a subpath of γ which is an embedded closed loop. After repa-
+rameterization, we write γ as the concatenation γ 0 γ 1 , with γ 0 an embedded closed
+loop in D and γ 1 not necessarily embedded, possibly trivial. Let γ0 be the lift of
+γ 0 to Θb contained in γ and let γ1 be the (possibly trivial) path in Θ    b such that
+                                                                        i1 i2    i
+γ = γ0 γ1 . Then γ0 and γ1 represent subwords of w of the form w0 = s1 s2 · · · sjj and
+        i    i
+w1 = sj+1 j+1   j+2
+              sj+2   · · · sinn for some 1 ≤ j ≤ n. In particular, ℓ(w) = ℓ(γ) = ℓ(γ0 ) + ℓ(γ1 ).
+    Since γ 0 is a non-trivial embedded loop in D, it must enclose at least one q-gon,
+implying ℓ(γ0 ) = ℓ(γ 0 ) ≥ q. We claim that γ1 is non-empty, or in other words,
+that γ = ̸ γ0 . Since γ is closed, it suffices to show that γ0 is not a closed loop. If
+we show this, then, since γ 1 will be a (nontrivial) closed path in D, we can apply
+the argument given for γ and γ 0 to γ 1 and a simple subpath of γ 1 to show that
+ℓ(γ 1 ) ≥ q, and thus ℓ(w) ≥ ℓ(γ 0 ) + ℓ(γ 1 ) ≥ q + q = 2q, as claimed.
+    Showing that γ0 is not closed is equivalent to showing w0 ̸= e. If q is even, let
+∆ = ∆(p, q/2, r) and if q is odd, let ∆ = ∆(p, q, 2) (so either D = ∆ or D is finite
+index in ∆). Let K be the (3-skeleton of a) K(∆, 1) space defined in Section 3, with
+universal cover K,    e and let C be the Cayley graph of Sh. Note that C is a covering
+of Ke (1) (with K  e (1) the Cayley graph of ∆). The word w0 gives rise to a path in C in
+the standard way, hence also a path ρ̃ in K        e (1) via the covering map C → K e (1) , and
+                  (1)
+a path ρ ∈ K under the covering map K → K. The path ρ induces a cycle ρ ∈ C1
+                                                  e
+(see Section 3 for notation). Since w0 represents the trivial word in ∆, [ρ] = 0. This
+means ρ ∈ B1 = im(d2 ), so we may choose an element R ∈ C2 such that d2 (R) = ρ,
+say R = na ea + nc ec + nac eac for some na , nc , nac ∈ Z. Since γ0 is simple and we
+have assumed 0 < ij < psj , we know that ρ̃ is a simple loop, it must enclose at least
+one cell of K  e (2) which maps to eac , and it must traverse the boundaries of each such
+cell with a consistent (positive) orientation. This means that nac ̸= 0, so φ(R) ̸= 0.
+Therefore w0 cannot be trivial in Sh(p, q, r) if q is even. If q is odd this shows that
+w0 is not trivial in Sh(p, 2q, 2), but since D lifts to Sh(p, q, p) ≤ Sh(p, 2q, 2) and w0
+lies in this subgroup by assumption, the result also holds for q odd.                         □
+
+Example 4.6. We will give an illustrative example with the complexes D(p, q, r)
+and Θ.
+     b (We use these over the Cayley graphs since the figures are much clearer,
+but a similar conceptualization works for the Cayley graphs.)
+   Consider the two hexagons in D(3, 3, 3) highlighted in Figure 4(a). Figure 5(a)
+shows lifts of these hexagons to the complex Θ   b for the Shephard group Sh(3, 6, 3).
+(The dashed lines show which vertices are identified under the covering map; they
+are not part of Θ.)
+                  b The entire preimage of a hexagon under the covering map is
+a vertical column which resembles the universal cover of the circle with the cell
+structure coming from the hexagon. Consider the path encircling these two hexagons
+in D(3, 3, 3), shown in red in Figure 4(b). Its lift to Θ
+                                                        b is shown in Figure 5(b). The
+22                            KATHERINE M. GOLDMAN
+
+
+
+
+                   (a)                                          (b)
+
+
+          Figure 4. Hexagons in D(3, 3, 3) and a path enclosing them
+
+
+
+
+                   (a)                                          (b)
+
+
+                         Figure 5. Lifts to Θ
+                                            b for Sh(3, 6, 3)
+
+
+
+
+endpoints of this path are “distance 2” along the fiber of the base vertex. This
+corresponds to the fact that the path encloses exactly two hexagons. One may
+compare this to the usual description of the Cayley graph of the 3-dimensional
+integer Heisenberg group H(3), the main difference being that the vertical dashed
+lines would be actual edges of the Cayley graph of H(3). This also illustrates how
+the center of Sh(p, q, r) acts on its complex Θ,
+                                              b since it acts by deck transformations;
+it is a uniform “vertical translation” along the dashed lines in Figure 5 (the fibers
+of the map to D(p, q, r)).
+                          2-DIMENSIONAL SHEPHARD GROUPS                                  23
+
+
+     5. A CAT(0) cell complex for 2-dimensional Shephard groups
+   In this section, we recall the definition of Θ(Γ) for an arbitrary extended presen-
+tation graph Γ, which largely follows [Gol23, §3]. We then show that this complex
+is CAT(0) when Γ is 2-dimensional.
+Definition 5.1. Let Γ be an extended presentation graph. We define K = KΓ =
+|(SΓf )′ |, where (SΓf )′ denotes the derived complex of SΓf and |(SΓf )′ | is its geometric
+realization. We will denote an n-simplex of K by
+                                  [Λ0 < Λ1 < · · · < Λn ]
+for a chain Λ0 < Λ1 < · · · < Λn with each Λi ∈ S f . We note that the vertices are
+indexed by elements of S f ; we will let vΛ = [Λ] denote the vertex of K coming
+from Λ. Define a complex of groups G = G(ShΓ , KΓ ) over K by declaring the local
+group at vΛ to be ShΛ and the edge maps to be the natural maps coming from the
+inclusion of generators.
+   Next, define ∆ = ∆Γ to be a simplex whose vertices are labeled by the generators
+V (Γ) of ShΓ . For Λ ⊆ Γ, let σΛ denote the face of ∆Γ spanned by the elements of
+V (Λ). We define a complex of groups Gb = G(Sh
+                                            b Γ , ∆Γ ) by declaring the local group
+at the face σΛ to be the group ShΛb , where Λ
+                                            b is the full subgraph of Γ generated by
+the vertices V (Γ) \ V (Λ). The edge maps are the standard maps induced by the
+inclusion of generating sets.
+   Note that G is a simple complex of groups. Hence by [BH13, Def. II.12.12],
+the fundamental group of G is the direct limit over the edge maps; when Γ is
+2-dimensional, this direct limit is clearly ShΓ . In general, neither complex of
+groups is a priori developable. If G is developable, we will denote its development
+Θ = Θ(Γ) = ΘΓ . If Gb is developable, we will denote its development Θ
+                                                                     b = Θ(Γ)
+                                                                          b     =Θb Γ.
+For dihedral Shephard groups, it turns out that Θ b has a straightforward description.
+Proposition 5.2. If Λ is the graph which is a single edge between vertices s and
+t with all labels finite, then G(Sh
+                               b Λ , ∆Λ ) is developable, and Θb Λ can be described
+as follows: the vertex set of ΘΛ are the cosets of ⟨s⟩ and ⟨t⟩ in ShΛ , and there is
+                               b
+an edge between two vertices if the corresponding cosets intersect nontrivially. In
+particular, the center acts freely on Θ
+                                      b Λ.
+
+Proof. The fact that Gb is developable follows from the characterizations of Sh(p, q, r)
+given in Section 3. Namely, in each case the cyclic groups Z/pZ and Z/rZ embed as
+the vertex groups. The statement regarding the vertices and edges of Θ      b is identical
+to Coxeter groups and Artin groups; e.g., [CD95, Proof of Lemma 4.3.2]. The center
+acts freely because the stabilizers of vertices and edges are finite (they are conjugates
+of ⟨s⟩ or ⟨t⟩ in the first case, and are trivial in the second), while the center has
+infinite order.                                                                         □
+   When G is developable, it too has a straightforward description.
+Proposition 5.3. Let ShΓ SΓf = { gShΛ : Λ ∈ SΓf }, ordered by inclusion. If
+G(ShΓ , KΓ ) is developable, then ΘΓ ∼             f
+                                        = |(ShΓ SΓ )′ |. In particular, the n-simplices of
+ΘΓ correspond to (n + 1)-chains g0 ShΛ0 < · · · < gn ShΛn of cosets, and the action
+of ShΓ is just the left multiplication action. We will denote the simplex arising from
+such a chain by
+                                [g0 ShΛ0 < · · · < gn ShΛn ].
+24                              KATHERINE M. GOLDMAN
+
+
+The stabilizer of this simplex is g0−1 ShΛ0 g0 .
+   With this description, for developable G it is clear that K embeds in ΘΓ as the
+subcomplex consisting of simplices of the form [ShΛ0 , ShΛ1 , . . . , ShΛn ]. This allows
+one to easily see that K is a fundamental domain for the action of ShΛ on ΘΛ . In
+particular, we may view the vertices vΛ as being in ΘΓ as well as K.
+   In order to show G is developable (under certain conditions), we show that it is
+“nonpositively curved” in the following sense.
+Lemma 5.4. [BH13, Thm. II.12.28] If H is a (simple) complex of groups over a
+simply connected domain and the local development at each vertex is locally CAT(0),
+then H is developable and has locally CAT(0) development.
+   It is clear that K is simply connected, since v∅ is a cone point. We will describe
+the local development shortly. We begin with putting a metric on the fundamental
+domain K.
+Definition 5.5. For Λ ∈ S f , let
+                f                                                 f
+               S≥Λ = { Λ′ ∈ S f : Λ′ ≥ Λ }                FΛ = |(S≥Λ )′ |
+                f                                                  f
+               S≤Λ = { Λ′ ∈ S f : Λ′ ≤ Λ }                FΛ∗ = |(S≤Λ )′ |.
+   Notice that FΛ∗ is combinatorially a cube whose faces are FΛ1 ∩ FΛ∗2 where
+Λ1 ⊆ Λ2 ⊆ Λ. So K itself has a cubical structure with faces FΛ1 ∩ FΛ∗2 for
+Λ1 ⊆ Λ2 ∈ S f . This Proposition is a straightforward exercise:
+Proposition 5.6. With the cubical cell structure above, FΛ∗ is isomorphic to the cone
+on the first barycentric subdivision ∆′Λ of ∆Λ with cone point vΛ . The isomorphism
+is induced by the map sending vΛ0 to the barycenter of σΛc0 .
+  Thus we may identify lk(vΛ , FΛ∗ ) and ∆Λ . With this connection we can define an
+explicit metric on K.
+Definition 5.7. We give the cell FΛ1 ∩FΛ∗2 of K the metric of a Coxeter block. Briefly,
+this is (the closure of) a connected component of the Coxeter zonotope associated
+to the finite Coxeter group WΛ2 minus its reflection hyperplanes. (See [CD95, §4.4],
+where this metric is defined in detail for the Davis-Moussong complex and Deligne
+complex.) In this metric, if Λ ∈ S f , then ∆Λ is a spherical simplex where the length
+of the edge between the vertices corresponding to i and j is π/mij .
+   Since K is a (strict) fundamental domain, we can use the action of ShΛ to metrize
+all of ΘΓ . We will call this the Moussong metric on ΘΓ .
+   Now we recall the local development, focusing on the case of G. Let vΛ be a
+vertex of K, with Λ ∈ S f . The upper star StΛ of vΛ in G is the (full) subcomplex
+of K spanned by the vertices vΛ′ with Λ′ ≥ Λ. The lower link LkΛ of vΛ in G is
+the development of the subcomplex of groups G(K
+                                              b <Λ ) of G(K), where K<Λ denotes
+the subcomplex spanned by vertices vΛ′ with Λ′ ⪇ Λ. Both of these objects are
+simplicial complexes which inherit the metric placed on K. The local development
+at vΛ is the spherical join
+                                   D(Λ) = StΛ ∗ LkΛ .
+Its metric naturally comes from the metric on K. The link of vΛ in the local
+development is
+                               lk(vΛ , D(Λ)) = Lk Λ ∗ LkΛ ,
+                          2-DIMENSIONAL SHEPHARD GROUPS                                 25
+
+
+where Lk Λ is the upper link, meaning the (full) subcomplex of K spanned by the
+vertices vΛ′ with Λ′ ⪈ Λ. We may also sometimes refer to this complex as K>Λ .
+   Note that K>Λ is isomorphic to lk(vΛ , FΛ ) and K<Λ is isomorphic to lk(vΛ , FΛ∗ ).
+We use the previous proposition to identify K<Λ with ∆Λ . With this identification,
+the complex of groups G(K
+                        b <Λ ) is isomorphic to G(G   b Λ , ∆Λ ) as defined above, and
+thus LkΛ is isomorphic to Θb Λ . It is straightforward to check that the metrics placed
+on K above agree with the claimed metrics on ∆Λ . In other words, there is an
+isometry
+                          lk(vΛ , D(Λ)) ∼  = lk(vΛ , FΛ ) ∗ Θ
+                                                            b Λ,
+where the join is the usual spherical join. There are two special cases to note. When
+Λ = ∅, then Θ  b ∅ is empty, so lk(vΛ , D(Λ)) ∼= lk(vΛ , FΛ ). When Λ is maximal in S f ,
+FΛ is a single point vΛ , so lk(vΛ , FΛ ) is empty and lk(vΛ , D(Λ)) ∼
+                                                                     =Θ  b Λ.
+   Showing the local development is nonpositively curved amounts to showing that
+these components of the links are CAT(1). Since a spherical join is CAT(1) if and
+only if both components are [BH13, Cor. II.3.15], this reduces to showing that
+lk(vΛ , FΛ ) and Θb Λ are CAT(1) when Λ ∈ S f . With this in mind, we can now
+complete the proof of Theorem B. It will follow immediately by the next theorem
+and general facts about simple complexes of groups.
+Theorem 5.8. Suppose Γ is a 2-dimensional extended presentation graph. Then G
+is developable and its development ΘΓ is CAT(0).
+Proof. As in the Artin group and Coxeter group case, lk(vΛ , FΛ ) is CAT(1) whenever
+Λ ∈ SΓf (see discussion before and after Lemma 4.4.1 in [CD95]), so it remains to
+show that Θ b Λ is CAT(1) for Λ ∈ S f . Since Γ is 2-dimensional, the only elements of
+                                       Γ
+S f are ∅, singletons, and edges. In the first two cases, Θ  b Λ is either empty or finite,
+resp., so we may assume we are in the third case. Note that if ShΛ is finite (i.e.,
+has labels 1/pi + 2/mij + 1/pj > 1), then this complex was shown to be CAT(1)
+in [Gol23, Lemma 6.1], so we may assume this group is infinite.
+   By [BH13, Lem. II.5.6], it suffices to show that Θ   b Λ has no closed loops of length
+< 2π. Since the length of an edge of ΘΛ is π/mij , we must show that the edge
+                                            b
+length of any closed loop in Θ    b Λ is at least 2mij . Let γ be an embedded closed
+loop in Θb Λ , say γ = E1 · · · En for edges Ei of Θ. b Note that the edge path length
+ℓ(γ) is n. For 1 ≤ i ≤ n, let vi be the vertex at which the edges Ei−1 and Ei meet
+(with indices taken cyclically). Let si be the generator of ShΛ such that vi = gi ⟨si ⟩
+for some gi ∈ ShΛ . We can write Ei = gi sm       i Ei−1 for some mi ∈ Z. Since γ is
+                                                    i
+
+
+embedded, mi is not a multiple of psi (the order of si ). Stringing together these
+equalities gives a word sm     1 m2
+                            1 s2 · · · sn
+                                         mn
+                                             = 1 in ShΛ . Since si ̸= si+1 , the syllable
+length of this word is n = ℓ(γ. By Proposition 4.3, we must have ℓ(γ) = n ≥ 2mij .
+The result now follows from Lemma 5.4.                                                  □
+   When the local groups of a nonpositively curved complex of groups are all finite,
+this determines all finite subgroups of the fundamental group (namely, they are
+the conjugates of the local groups). While we can’t exactly say that here, we can
+determine all elements of finite order.
+Corollary 5.9. Suppose Γ is a 2-dimensional extended presentation graph. If
+h ∈ ShΓ has finite order, then it is conjugate to a power of one of the standard
+generators of ShΓ .
+26                             KATHERINE M. GOLDMAN
+
+
+Proof. Suppose h ∈ ShΓ \ {e} has finite order. By [BH13, Cor. II.2.8(1)], the fixed
+point set F ix(h) = { x ∈ ΘΓ : hx = x } is a non-empty convex subset of ΘΓ .
+Since Γ is 2-dimensional, the simplices of ΘΓ are at most dimension 2, and these
+top-dimensional simplices are of the form
+                                [g0 Sh∅ , g1 Sh{s} , g2 She ]
+for e an edge of Γ and s a vertex of e. But the stabilizer of any point x in the interior
+of such a cell is g0−1 Sh∅ g0 , which is the trivial group. In particular, F ix(h) must be
+a tree in the 1-skeleton of ΘΓ and avoid vertices of type [gSh∅ ]. If F ix(h) contains a
+vertex V = [gSh{s} ] or an edge E = [gSh{s} , g ′ She ], then h ∈ Stab(V ) = g −1 Sh{s} g
+and so is conjugate to a power of s. So suppose neither of these cases occur. This
+implies F ix(h) = [gShe ] for an edge e of Γ with vertices s and t, and h ∈ g −1 She g.
+By translating, we may assume g = e, so h ∈ She . Corollary 3.5 then implies h is
+conjugate to a power of s or t.                                                         □
+
+                         6. Acylindrical hyperbolicity
+   In [Vas22], it is shown that (irreducible) 2-dimensional Artin groups of rank at
+least 3 are acylindrically hyperbolic. By modifying the proof appropriately, we
+obtain an analogous result for 2-dimensional Shephard groups as an application of
+Theorem B:
+Theorem C. Suppose Γ is an extended presentation graph satisfying
+   (1) |V (Γ)| ≥ 3,
+   (2) Γ is 2-dimensional,
+   (3) ShΓ does not split as a direct product (i.e., it is irreducible), and
+   (4) every connected component of Γ has an edge e such that She is infinite.
+Then ShΓ is acylindrically hyperbolic.
+     This follows from
+Proposition 6.1. [Vas22, Theorem D] Let X be a CAT(0) simplicial complex,
+together with an action by simplicial isomorphisms of a group G. Assume that there
+exists a vertex v of X with stabilizer Gv such that:
+    (1) The orbits of Gv on the link lk(v, X) are unbounded, for the associated
+         angular metric.
+    (2) Gv is weakly malnormal in G, i.e., there exists an element g ∈ G such that
+         Gv ∩ gGv g −1 is finite.
+Then G is either virtually cyclic or acylindrically hyperbolic.
+   Thus the extra assumption (4) of Theorem C is necessary to guarantee condition
+(1) of Proposition 6.1 is satisfied; otherwise, all links would be finite graphs.
+Lemma 6.2. Let Γ be a presentation graph satisfying the hypotheses of Theorem
+C, and let e be any edge of Γ for which She is infinite. Then the orbits of She on
+lk(ve , ΘΓ ) are unbounded.
+Proof. Since ΘΓ is 2-dimensional, we know that lk(ve , ΘΓ ) ∼   =Θ b e (see Section 5).
+Suppose e has terminal vertices i and j, with labels p = pi , m = mij , and q = pj .
+Since She is infinite, we know that 1/p + 2/m + 1/q ≤ 1, and She is a non-trivial
+Z-central extension of a finite index subgroup of a triangle group in either E2 or H2
+(see Section 3). As discussed in Section 3, the quotient of Θ
+                                                            b e by the center of She is
+                         2-DIMENSIONAL SHEPHARD GROUPS                              27
+
+
+the 1-skeleton of a semiregular tiling of E2 or H2 , and this quotient is a covering
+map. In particular, the group of deck transformations (which act hyperbolically)
+of this cover is the central copy of Z in She ; thus the orbits of this copy of Z are
+unbounded.                                                                         □
+
+   In order to show that the Shephard groups in question satisfy (2) of Proposition
+6.1, we will detail the portions of the argument which must be modified, and refer
+the reader to [Vas22, §5] for the full original argument.
+Definition 6.3. Let Γ be an extended presentation graph. For vertices s, t of Γ, let
+Γst denote the presentation graph with the same vertex and edge sets and labels as
+Γ, but with the addition of an edge est labeled 6 if there is no edge between s and t
+in Γ. (If there is already an edge between s and t, we leave Γ unchanged.) We then
+define the domain KΓst and metric as in [Vas22, Def. 5.3]. Our complex of groups
+over KΓst is defined similarly as well, but we place the free product Z/ps Z ∗ Z/pt Z
+as the edge group corresponding to est if this edge was added; we make no changes
+if there were no changes made to Γ. This is in contrast to the Artin group case,
+where the rank-2 free group is placed on this edge. We denote the development of
+this complex of groups by Θst Γ.
+
+   With this modification, the following key lemmas still hold, with completely
+identical proofs after appropriate replacements are made with the definition(s)
+above.
+Lemma 6.4. [Vas22, Lemma 5.6] Let ShΓ be a 2-dimensional Shephard group with
+|V (Γ)| ≥ 3, and suppose that we are in the second case of [Vas22, Proposition 5.2].
+Then ΘbcΓ is CAT(0).
+
+Lemma 6.5. [Vas22, Lemma 5.7] Let ShΓ be a 2-dimensional Shephard group with
+|V (Γ)| ≥ 3, such that Γ is connected and not right-angled (i.e., has some edge not
+labeled 2). Then there exists an edge e of Γ between vertices a and b with coefficient
+mab ≥ 3 and an element g ∈ She such that She ∩ gShe g −1 = e.
+   Now we may complete the proof of Theorem C.
+
+Proof (of Theorem C). We may assume Γ is connected, otherwise ShΓ splits as
+a free product, and each free summand is an infinite group by (4); such groups
+are always acylindrically hyperbolic. We may assume as well that Γ(∞) is not
+right-angled; in this case, ShΓ is a graph product of non-trivial (cyclic) groups,
+which by [MO15, Cor. 2.13] implies ShΓ is either virtually cyclic or acylindrically
+hyperbolic. Taking e to be the edge guaranteed by (4), we know She is infinite, not
+virtually cyclic, and embeds in ShΓ , so under our assumptions ShΓ is not virtually
+cyclic (hence acylindrically hyperbolic). The proof of [Vas22, Prop. 5.2] and Lemma
+6.5 imply that we may choose the edge e in Lemma 6.5 to be the edge e guaranteed
+by (4). We note that this edge has label ≥ 3, since otherwise She would be a direct
+product of finite groups and hence finite. So Lemmas 6.2 and 6.5 imply ShΓ satisfy
+the hypotheses of Proposition 6.1, and hence is acylindrically hyperbolic.        □
+
+            7. Relative hyperbolicity and residual finiteness
+  Recall the following characterization of relative hyperbolicity, due to Bowditch
+[Bow12]. This phrasing comes from [Osi06, Def. 6.2].
+28                                     KATHERINE M. GOLDMAN
+
+
+Proposition 7.1. Let G be a group and P = {P1 , . . . , Pn } a collection of infinite
+finitely generated subgroups (we will call (G, P) a group pair and the elements of
+P the peripheral subgroups). Then (G, P) is relatively hyperbolic if and only if G
+admits an action on a hyperbolic graph Y such that each of the following hold.
+     (1) All edge stabilizers are finite.
+     (2) All vertex stabilizers are either finite or conjugate to one of the subgroups
+         of P.
+     (3) The number of orbits of edges is finite.
+     (4) The graph Y is fine.
+   There are a number of equivalent definitions of a fine graph, but the one that
+shall be useful for us is:
+Definition 7.2. [Bow12, Def 2.1.(F5)] Let Y be a graph and let dY denote the
+metric on Y which assigns all edges length 1. (By convention, for any graph Y
+with such a metric, if y and z are in different connected components of Y , we say
+dY (y, z) = ∞.) Fix a vertex x ∈ V (Y ) and let Y \ x denote the largest full subgraph
+of Y which avoids x. Let Vx (Y ) be the set of vertices of Y which are adjacent
+to x. Let dY \x denote the induced length metric on Y \ x coming from dY , and
+let dx denote the restriction of the metric dY \x to Vx (Y ) (not the induced length
+metric). We say that Y is fine if the metric space (Vx (Y ), dx ) is locally finite2 for
+every x ∈ V (Y ).
+   In order to show that (certain) Shephard groups ShΓ are relatively hyperbolic,
+we will use the action of ShΓ on its complex ΘΓ . Specifically, we will let Y = YΓ
+denote the 1-skeleton of ΘΓ endowed with the edge-path metric (each edge is given
+length 1). When ΘΓ is Gromov hyperbolic, so too is its 1-skeleton as a metric graph
+under the induced length metric. But this metric graph is quasi-isometric to Y , and
+hence Y is also hyperbolic. So, our first task is to determine when ΘΓ is hyperbolic.
+Lemma 7.3. Let Γ be a 2-dimensional extended presentation graph. If WΓ is word
+hyperbolic, then ΘΓ is Gromov hyperbolic.
+Proof. By Theorem 5.8, ΘΓ is CAT(0). So by the Flat Plane Theorem, ΘΓ is
+Gromov hyperbolic if and only if it contains no isometrically embedded copy of E2 .
+Suppose such an embedded plane exists (so ΘΓ is not hyperbolic). This plane must
+be a subcomplex of ΘΓ , and in particular must pass through a vertex v of the form
+[gSh∅ ] for some g ∈ ShΛ . This gives rise to an embedded loop of length exactly 2π
+                                                                           b∅ ∼
+in the link of v. The link of such a vertex is isometric to lk(v∅ , F∅ ) ∗ Θ  = lk(v∅ , K)
+(see discussion after Definition 5.7). As in the Artin group case, such a link contains
+a circuit of length exactly 2π if and only if WΓ is not hyperbolic [Cri05, Proof of
+Lemma 5]. In summary, if WΓ is hyperbolic, then ΘΓ has no embedded flat plane,
+and thus ΘΓ is Gromov hyperbolic.                                                       □
+   We would like to say that this is an “if and only if” statement, as in the Artin
+group setting [CC07], but are unsure how to proceed. For the Artin groups, this
+relies on the existence of an embedding of the Davis complex in the Deligne complex,
+which is not yet known to exist for arbitrary Shephard groups. However, if such an
+embedding exists, then the reverse implication is immediate.
+
+     2Every finite-radius ball is a finite set.
+                         2-DIMENSIONAL SHEPHARD GROUPS                              29
+
+
+Proposition 7.4. Suppose Γ is a 2-dimensional extended presentation graph such
+that the Davis complex ΣΓ for the Coxeter group WΓ embeds isometrically in the
+complex ΘΓ . Then if ΘΓ is Gromov hyperbolic, WΓ must be word hyperbolic.
+Proof. Suppose WΓ is not hyperbolic. Then ΣΓ is not hyperbolic (since WΓ is
+quasiisometric to ΣΓ ), so it contains an embedded flat plane. Since ΣΓ embeds
+isometrically in ΘΓ , we have that ΘΓ also contains an embedded flat plane, so is
+not hyperbolic.                                                                □
+   The existence or non-existence of such an embedding is outside our current scope
+of consideration. (Although it is natural to conjecture that there is always such an
+embedding, since it exists for Artin groups and can be constructed case-by-case for
+finite Shephard groups.)
+   Now we show that Y is fine. First recall the following notation. If X is a cell
+complex and x ∈ X, the open star st(x) = st(x, X) is the union of all open cells
+containing x, the closed star St(x) = St(x, X) is the (topological) closure of the
+open star, and the boundary of the closed star is ∂St(x) = St(x) \ st(x).
+Lemma 7.5. Suppose Γ is 2-dimensional. Let x be a vertex of ΘΓ (equivalently, of
+YΓ ) of the form [gShe ] for g ∈ ShΓ and an edge e of Γ. Let ℓx denote the induced
+length metric on ∂St(x) ⊆ ΘΛ . Then there is a C ≥ 1 and D ≥ 0 such that
+ℓx (y, z) ≤ Cdx (y, z) + D for all y, z ∈ Vx (Y ).
+Proof. Let ι : YΓ → ΘΓ denote the inclusion map which realizes the quasi-isometry
+of YΓ with the edge length metric and ΘΓ with the Moussong metric. The restriction
+of ι to Y \ x is a quasi-isometry onto ΘΓ \ st(x), under the respective induced length
+metrics dY \x and dΘΓ \st(x) . We choose our C and D to be the constants from this
+restricted quasi-isometry, i.e., those constants which satisfy
+                 1 Y \x
+                   d     (y, z) − D ≤ dΘΓ \st(x) (y, z) ≤ CdY \x (y, z) + D
+                 C
+for all y, z ∈ Y \ {x}. Recall that dx is the restriction of dY \x to Vx (Y ), so if we
+restrict ourselves to elements y, z of Vx (Y ), then we can say
+                    1
+                      dx (y, z) − D ≤ dΘΓ \st(x) (y, z) ≤ Cdx (y, z) + D
+                    C
+   Fix y, z ∈ Vx (Y ). Let γ be a geodesic in ΘΓ \ st(x) from y to z. Then
+                       ℓ(γ) = dΘΓ \st(x) (y, z) ≤ Cdx (y, z) + D.
+Let ρ : ΘΓ → St(x) be the closest point projection onto the closed star St(x) (the
+map which sends a point p ∈ X to a point ρ(p) ∈ St(x) which minimizes dΘΓ (p, ρ(p))).
+Note that St(x) is a convex set: it is made up of Euclidean right triangles which have
+one of their acute angles meeting at the common vertex x. Thus ρ is a well-defined,
+distance non-increasing retraction [BH13, Prop. II.2.4(4)], and in particular restricts
+to a well-defined distance non-increasing retraction ρ : ΘΓ \ st(x) → ∂St(x). So ρ(γ)
+is a (rectifiable) path in ∂St(x) between y and z, implying
+                     ℓx (y, z) ≤ ℓ(ρ(γ)) ≤ ℓ(γ) ≤ Cdx (y, z) + D.                    □
+  We can now complete the proof of Theorem D.
+Theorem D. Suppose Γ is a hyperbolic-type, 2-dimensional extended presentation
+graph, and let P = { ShΛ : |V (Λ)| = 2, WΛ finite, ShΛ infinite }, the collection of
+spherical-type edges of Γ which give rise to infinite Shephard groups. Then (ShΓ , P)
+30                              KATHERINE M. GOLDMAN
+
+
+is a relatively hyperbolic group pair. In particular, if every edge group ShΛ is finite,
+then ShΓ is hyperbolic.
+Proof. When WΓ is hyperbolic, then ΘΓ is hyperbolic by Lemma 7.3. In particular,
+Y is a hyperbolic graph since it is quasi-isometric to the 1-skeleton of ΘΓ . By
+Proposition 5.3, the edge stabilizers of ShΓ acting on Y are either finite cyclic
+(coming from the subgroups generated by the vertices) or trivial. Similarly, the
+vertex stabilizers are the conjugates of ShΛ for Λ ∈ S f . And since this is a cocompact
+action with a strict fundamental domain, there are finitely many orbits of edges.
+Once we show that Y is fine, the result will follow by Proposition 7.1.
+    Since the action of ShΓ on Y has a strict fundamental domain, we may restrict
+our consideration to vertices of the form vΛ for Λ ∈ S f (using notation from Section
+5). Since Γ is 2-dimensional, there are three types of vertices x = vΛ to consider:
+Λ = ∅, Λ = {s} a single vertex, or Λ = e a single edge. If Λ = ∅, then, as a set,
+Vx (Y ) is simply the vertex set of lk(v∅ , F∅ ), which is finite. Similarly, if Λ = {s},
+then Vx (Y ) is the vertex set of the join of lk(v{s} , F{s} ) and Θ
+                                                                   b {s} , which are both
+finite, and hence Vx (Y ) is finite.
+    Suppose Λ = e is an edge between vertices s and t of Γ. Since ΘΓ is a piecewise
+Euclidean simplicial complex with finitely many isometry types of faces, lk(x, ΘΓ )
+is isometric to a sufficiently small sphere centered at x, and this sphere is a radial
+deformation retract of ∂St(x). This graph isomorphism is actually a quasi-isometry.
+We also know that Θ   b e with the Moussong metric is quasi-isometric to Θ    b e with the
+metric d which assigns all edges length 1. In particular, there are C ′ ≥ 1 and
+          Θ
+          be
+
+D′ ≥ 0 such that dΘe (y, z) ≤ C ′ ℓx (y, z) + D′ for all y, z ∈ ∂St(x) (or Θ b e ).
+                     b
+
+    Now, let C and D be the constants guaranteed by Lemma 7.5. Fix a vertex y of
+∂St(x) (or Vx (Y )). For N > 0, define
+                   VN = { z ∈ Vx (Y ) : dx (y, z) ≤ N },
+                              b e : dΘ
+                   LN = { z ∈ Θ         (y, z) ≤ C ′ (CN + D) + D′ }.
+                                     be
+
+
+Let z ∈ VN . Then
+     dΘe (y, z) ≤ C ′ ℓx (y, z) + D′ ≤ C ′ (Cdx (y, z) + D) + D′ ≤ C ′ (CN + D) + D′ .
+      b
+
+
+ℓx (y, z) ≤ Cdx (y, z) + D ≤ CN + D, so z ∈ SN . Hence VN ⊆ LN for all N > 0. We
+know that Θ                                                b e coming from cosets of ⟨s⟩
+            b e is a locally finite graph: the vertices of Θ
+have valence ps and the vertices coming from cosets of ⟨t⟩ have valence pt , both
+of which we have assumed to be finite. This implies LN is finite for every N , and
+hence so is VN . Therefore VK (x) is locally finite and YΓ is fine.                   □
+   This result is in stark contrast to the Artin group case, where it is very uncommon
+for Artin groups to be relatively hyperbolic rather than just weakly relatively
+hyperbolic. We can leverage this not only to show many nice properties of Shephard
+groups, but also of many Artin groups as well. In the following section, we will
+discuss an application to Artin groups, but first we will detail some easy consequences
+of relatively hyperbolicity for Shephard groups.
+Corollary E. Suppose Γ is a hyperbolic-type 2-dimensional extended presentation
+graph. Then ShΓ
+    (1) has solvable word problem,
+    (2) satisfies the Tits alternative,
+                         2-DIMENSIONAL SHEPHARD GROUPS                               31
+
+
+    (3) has finite asymptotic dimension, and
+    (4) has the rapid decay property.
+If, in addition, there is no edge {i, j} of Γ with 1/pi + 2/mij + 1/pj = 1, then ShΓ
+is biautomatic.
+Proof. Each property in the list holds for all of ShΓ if and only if it holds for the
+peripheral subgroups. In more detail:
+    (1) The dihedral Shephard groups are linear, hence have solvable word problem.
+        This implies ShΓ has solvable word problem by [Far98].
+    (2) If (G, P) is a relatively hyperbolic pair, then it was shown in [Tuk94] that any
+        subgroup of G which does not contain a free group is either finite, virtually
+        infinite cyclic, or is contained in an element of P. Since the peripheral
+        subgroups of ShΛ are linear, they satisfy the Tits alternative, so we can
+        conclude ShΛ does as well.
+    (3) By [BD08], asymptotic dimension of finitely generated groups is preserved
+        by commensurability. Since the 3-dimensional integral Heisenberg group
+        and the universal central extensions of surface groups have finite asymptotic
+        dimension, so too do the peripheral subgroups of ShΛ . By [Osi05], this
+        implies ShΓ has finite asymptotic dimension.
+    (4) If e = {i, j} is an edge of Γ with 1/pi + 2/mij + 1/pj = 1, then She
+        has polynomial growth since it is commensurable to the 3-dimensional
+        integral Heisenberg group; groups of polynomial growth have the rapid decay
+        property by [Jol90]. If e = {i, j} is an edge of Γ with 1/pi +2/mij +1/pj < 1,
+        then She is a Z-central extension of a hyperbolic group; such groups have
+        the rapid decay property by [Nos92]. This implies ShΓ has the rapid decay
+        property by [DS05].
+  Last, if each edge {i, j} of Γ satisfies 1/pi +2/mij +1/pj ̸= 1, then each peripheral
+subgroup is biautomatic by Proposition 3.9. This implies ShΛ is biautomatic
+by [Reb01].                                                                          □
+
+   A more substantial corollary is residual finiteness for certain 2-dimensional
+Shephard groups and their Artin groups. To discuss residual finiteness, we begin by
+recalling the notion of a relatively geometric action recently introduced by Einstein
+and Groves.
+Definition 7.6. [EG22, Def 1.1] Suppose (G, P) is a group pair. An action of G
+on a cell complex X is relatively geometric (with respect to P) if
+    (1) X/G is compact,
+    (2) Each group in P acts elliptically on X, and
+    (3) Each stabilizer of a cell in X is either finite, or conjugate to a finite index
+        subgroup of an element of P.
+   It is clear from Proposition 5.3 that if G = ShΓ is a 2-dimensional Shephard
+group and P is as defined previously, then the action of ShΓ on its complex ΘΓ is
+relatively geometric with respect to P. We want to make use of:
+Proposition 7.7. [EG22, Cor 1.7] Suppose (G, P) is relatively hyperbolic and acts
+relatively geometrically (with respect to P) on a CAT(0) cube complex X. If every
+P ∈ P is residually finite, then G is residually finite.
+32                             KATHERINE M. GOLDMAN
+
+
+   We have a characterization of when ShΓ is relatively hyperbolic; if we can
+determine when ΘΓ is a CAT(0) cube complex, we will determine a class of residually
+finite Shephard groups.
+Lemma 7.8. If Γ is 2-dimensional and type FC, then ΘΓ is a CAT(0) cube complex
+under the “cubical metric”.
+Proof. The cubical metric on the complex ΘΓ is defined as follows: rather than
+metrize the cell FΛ1 ∩ FΛ∗2 to be a Coxeter block as in Definition 5.7, we simply give
+it the metric of a standard Euclidean cube [0, 1]n (since this cell is combinatorially
+a cube). Under this metric, the link of a vertex vΓ is still isometric to the spherical
+join of lk(vΛ , FΛ ) and Θb Λ , where the metric on these complexes now assigns edge
+lengths of π/2.
+    In order to show that ΘΓ is a CAT(0) cube complex, we must show that the
+links are flag complexes. Since the spherical join of flag complexes is flag, this is
+equivalent to showing lk(vΛ , FΛ ) and Θ b Λ are flag for all Λ ∈ S f . This is well known
+for lk(vΛ , FΛ ) since Γ is type FC [CD95, Lemma 4.3.4]. If Λ = ∅ or a single vertex
+{s}, then Θ  b Λ is either empty or a finite set, resp., so there is nothing to check.
+So, suppose Λ is an edge between vertices s and t. Since Θ         b Λ is a graph (i.e., a
+1-dimensional simplicial complex), it suffices to show that it contains no 3-cycles.
+But by Theorem 5.8, the girth of this graph is ≥ 2mst ≥ 4.                               □
+     Thus we may conclude,
+ Corollary F. Suppose Γ is an extended presentation graph with no 3-cycle (or is
+“triangle-free”) and no 4-cycle whose edges are each labeled 2. Then ShΓ is residually
+ finite.
+   We note that the condition that Γ is 2-dimensional and type FC is equivalent to
+requiring Γ has no 3-cycles (sometimes called “triangle-free”). For a triangle-free
+presentation graph, having no 4-cycles with all edges labeled 2 is equivalent to WΓ
+being hyperbolic (originally due to Moussong in [Mou88], rephrased in terms of the
+presentation graph in [Cri05, Lemma 5] or [CC07, Prop. 3.1]).
+Proof. Since WΓ is hyperbolic, ShΓ is hyperbolic relative to its infinite spherical-type
+edge subgroups (Theorem D). Since Γ is 2-dimensional and type FC, ΘΓ is a CAT(0)
+cube complex under the cubical metric (Lemma 7.8) and the action is relatively
+geometric with respect to the spherical-type edge subgroups. Since the dihedral
+Shephard groups are residually finite (Proposition 3.7), we conclude that ShΓ is
+residually finite (Proposition 7.7).                                                  □
+     In tandem with Corollary 5.9, we can show
+Corollary 7.9. If Γ is triangle-free and has no 4-cycle with all labels 2, then ShΓ
+is virtually torsion-free.
+Proof. Let s ∈ V (Γ) be a standard generator of ShΓ . Since ShΓ is residually finite,
+there is a finite index subgroup Gs < ShΓ which avoids s (meaning s ̸∈ Gs ), and by
+taking finitely many
+                 T     intersections, we can choose Gs to avoid all nontrivial powers
+of s. Let G = s∈V (Γ) Gs , a finite index subgroup of ShΓ avoiding all nontrivial
+powers of standard generators. Let N = g∈ShΓ g −1 Gg < G. It is a standard
+                                              T
+
+exercise to show that N (the “normal core” of G) is finite index when G is finite
+index. Suppose g ∈ N has finite order. By Corollary 5.9, we can write g = h−1 sk h
+                           2-DIMENSIONAL SHEPHARD GROUPS                               33
+
+
+for some h ∈ ShΓ , some s ∈ V (Γ), and some k ∈ Z. The definition of N implies
+g ∈ h−1 Gh, so sk ∈ G. Since the only power of a generators contained in G is e, we
+must have that sk = e, and consequently g = e. Thus N is torsion-free.           □
+
+                          8. Application to Artin groups
+   We now establish the analogue of Corollary F for Artin groups. First, we recall
+the definition of the Deligne complex of an Artin group to establish the notation
+and terminology which we will use, as it may differ from some references.
+Definition 8.1. Let Γ be any presentation graph and AΓ S f = { aAΛ : a ∈ AΓ , Λ ∈
+S f } ordered by inclusion. The Deligne complex ΦΓ of AΓ is |(AΓ S f )′ |, the geometric
+realization of the derived complex (AΓ S f )′ . An n-simplex of ΦΓ is written as
+                            [a0 AΛ0 < a1 AΛ1 < · · · < an AΛn ]
+where a0 AΛ0 < a1 AΛ1 < · · · < an AΛn is a chain of elements of AΓ S f . For Λ ∈ SΓf ,
+the spherical Deligne complex Φ   b Λ is the simplicial complex whose vertices are all
+cosets of Asb for s ∈ Λ, with a set of n + 1 vertices spanning an n-simplex if and only
+if they have nontrivial (global) intersection3.
+  AΓ acts on ΦΓ with a strict fundamental domain isomorphic to KΓ . Thus we may
+endow the fundamental domain of ΦΓ with the “same” metric as ΘΓ (the Moussong
+metric). For the vertex vΛ = [AΛ ] of ΦΓ , the link lk(vΛ , ΦΓ ) is isometric to the
+spherical join
+                                 lk(vΛ , FΛ ) ∗ Φ
+                                                bΛ
+under this metric [CD95], where FΛ is defined as in Section 5.
+  One of the key properties which will allow us to pass between an Artin group
+and its Shephard quotients is product separability. The following is one of the many
+equivalent notions of product separability.
+Definition 8.2. Let G be any group. We say that G is product separable if for any
+(finite) collection {G1 , . . . , Gn } of finitely generated subgroups of G, their product
+G1 G2 · · · Gn is closed in the profinite topology on G.
+   Recall that the profinite topology on G is the topology whose basis of closed sets
+are the finite-index subgroups of G. So it is equivalent to say that G1 G2 · · · Gn is
+an intersection of finite-index subgroups of G.
+Lemma 8.3. Let G be any group and H a finite-index subgroup. Then G is product
+separable if and only if H is product separable.
+Proof. Suppose G is product separable. Let {H1 , . . . , Hn } be a collection of finitely
+generated subgroups of H. The inclusion map H ,→ G is continuous for any
+subgroup; the intersection of H with a finite index subgroup of G is finite index in
+H regardless of the index of H in G. In particular, H1 H2 · · · Hn is closed in G and
+is contained in H, so H1 H2 · · · Hn is closed in H.
+   Now suppose H is product separable. By replacing H with the normal core of
+H, we may assume H is normal in G. (When H is finite index, so is its normal
+core, and product separability is inherited by subgroups.) Now let {G1 , . . . , Gn } be
+a collection of finitely generated subgroups of G, and let Hi = Gi ∩ H for each i.
+Each Hi is finitely generated since the Gi are, and Hi is finite index in Gi for each
+   3By s
+       b, we mean the largest full subgraph of Λ which does not contain s.
+34                                  KATHERINE M. GOLDMAN
+
+                            (i)        (i)
+i. So, for each i, let {h1 , . . . , hki } be a system of representatives of the left cosets
+                                                       (1)       (2)         (n)
+of Hi in Gi . For j = (j1 , . . . , jn ), let Sj = hj1 H1 hj2 H2 . . . hjn Hn . Then
+                                                       [
+                                G1 G2 · · · Gn =              Sj .
+                                                     j=(j1 ,...,jn )
+                                                                                               (i)
+We claim that each Sj is closed in G. For convenience, fix j and let hi = hji . Then
+we can rewrite Sj as
+              Sj = (h1 H1 h−1
+                           1 )(h1 h2 H2 (h1 h2 )
+                                                −1
+                                                   )(h1 h2 h3 H3 (h1 h2 h3 )−1 ) . . .
+                  . . . (h1 h2 · · · hn−1 Hn−1 (h1 h2 · · · hn−1 )−1 )(h1 h2 · · · hn Hn ).
+Since H is normal in G,
+     Sj (h1 h2 · · · hn )−1 = (h1 H1 h−1
+                                      1 )(h1 h2 H2 (h1 h2 )
+                                                           −1
+                                                              )(h1 h2 h3 H3 (h1 h2 h3 )−1 ) . . .
+                                                         . . . (h1 h2 · · · hn Hn (h1 h2 · · · hn )−1 )
+is the product of finitely generated subgroups of H, thus closed in H. Since H is
+finite index in G, it is closed in G as well. The profinite topology is invariant under
+multiplication (from the left or right), so Sj is also closed in G. Thus G1 G2 · · · Gn
+is the union of finitely many closed subsets of G, so is itself closed.               □
+Corollary 8.4. Dihedral Artin groups are product separable.
+Proof. Suppose A is a dihedral Artin group with edge label m. If m = 2, then
+A∼ = Z2 , and product separability in this case is an easy exercise (following directly
+from the fact that abelian groups are subgroup separable, i.e., every f.g. subgroup
+is closed). If m > 2, then A is virtually Z × Fn , where Fn is a rank-n free
+group [HJP16, Lemma 4.3]. By [You97], Z × Fn is product separable for any n, so
+by Lemma 8.3, so is A.
+   By [RZ93, Thm. 2.1], the rank-2 free group F2 is also product separable; this is
+the dihedral Artin group whose graph is two vertices not joined by an edge.          □
+Lemma 8.5. If G is any group and C is closed in the profinite topology on G, then
+for all g ̸∈ C, there exists a finite group F and a surjective morphism φ : G → F
+such that φ(g) ̸∈ φ(C).
+Proof. Since C is closed in the profinite topology, it is the intersection of the finite-
+index subgroups of G containing it. At least one of these subgroups, say H, must
+avoid g. Let K denote the normal core of H, a finite-index normal subgroup of
+G contained in H. Let φ denote the standard quotient map G → G/K. Then
+gK ̸⊂ CK since CK ⊆ H, implying φ(g) ̸∈ φ(C).                                          □
+   The following lemma is the main ingredient in the proof of residual finiteness for
+these Artin groups.
+Lemma 8.6. Suppose Λ = e is a single edge with label q < ∞. Let x, y ∈ Φ    b Λ be
+any two points. Then there is some N ∈ Z>0 such that for all k ≥ 1, the images of
+x and y under the quotient map ΦbΛ → Θb Λ(kN ) remain at the same distance.
+
+Proof. Suppose s and t are the vertices of e, let S = ⟨s⟩ and T = ⟨t⟩, and let E be
+the edge between S and T in Φ
+                            b Λ . First, suppose x and y are vertices. By symmetry
+and translating, we may assume x = S. Let γ = E1 E2 · · · En be a geodesic edge
+path connecting x and y. Notice that E1 and E both contain x = S; this means
+                           2-DIMENSIONAL SHEPHARD GROUPS                                  35
+
+
+there is some k1 ∈ Z such that E1 = sk1 E (we could have k1 = 0 if E1 = E).
+Similarly, E2 and E1 both contain the vertex sk1 T , so there is some k2 ∈ Z such
+that E2 = sk1 tk2 E1 . Since γ is a geodesic, it is locally embedded, so k2 ̸= 0.
+Repeating this, for all i > 1, we see Ei = αi Ei−1 , where
+                                       αi = s|k1 tk2{z
+                                                     sk3 · ·}·,
+                                                 i syllables
+
+for some ki ̸= 0. (A syllable is a word of the form sj or tj .)
+   Let α = αn . Notice that
+                                    α ̸∈ C := ST S · ·}· ,
+                                              | {z
+                                                    n−1 cosets
+
+since otherwise we could reverse the above argument to construct a path from x to
+y with strictly shorter length than γ. Since AΛ is product separable (Corollary 8.4),
+C is closed in the profinite topology on AΛ , so we can find a finite group F and
+surjective morphism φ : AΛ → F so that φ(α) ̸∈ φ(C) (Lemma 8.5). Let ps and pt
+be the orders of φ(s) and φ(t), respectively, and let N = lcm{ps , pt }. Fix k ≥ 1, and
+let · : AΛ → ShΛ(kN ) denote the standard quotient map. The orders of φ(s) and
+φ(t) divide the orders of s and t, resp., or in other words, skN , tkN ∈ ker(φ). Since
+ker( · ) is the normal closure of skN and tkN in AΛ , it follows that ker( · ) ≤ ker(φ).
+This means there exists a surjection ρ : ShΛ(kN ) → F which makes the diagram
+                                                    φ
+                                       AΛ                      F
+
+                                            ·              ρ
+
+                                                ShΛ(kN )
+commute. This implies in particular that α ̸∈ C; otherwise φ(α) = ρ(α) ∈ ρ(C) =
+φ(C).
+    By abuse of notation, let · : Φ    bΛ → Θ    b Λ(kN ) denote the map induced by the
+quotient AΛ → ShΛ(kN ) . We claim that γ is still a geodesic between x and y. Let
+γ ′ be a geodesic from x to y in Θ  b Λ(kN ) , say γ ′ = E ′ · · · Em
+                                                           1
+                                                                    ′
+                                                                      . By the same reasoning
+                                                      ′     ′
+    b Λ , for each i we can find ℓi ∈ Z so that E = α E , where ′
+in Φ                                                  i     i i−1
+                                                    ℓ
+                                       αi′ = s|ℓ1 t 2{z
+                                                      sℓ3 · ·}·,
+                                                 i syllables
+
+and ℓi ̸= 0 when i > 1. Let α′ = αm  ′
+                                       .
+            ′
+   Notice Em and E n meet at y. Since Θ   b Λ(kN ) is bipartite, we know m and n have
+the same parity. If they are odd, let h = t and H = T , and if they are even, let
+h = s and H = S. In either case, y is a coset of H, so there is some ℓm+1 ∈ Z such
+              ℓm+1
+that α = α′ h      . Writing out α′ , we see
+                                   ℓ              ℓm+1              ℓ
+                        α = (s|ℓ1 t 2{z
+                                      sℓ3 · ·}·)h          = s|ℓ1 t 2{z
+                                                                      sℓ3 · ·}· .
+                                m syllables                    m+1 syllables
+
+Since α ̸∈ C = S T S · · · (n − 1 cosets), we know m + 1 > n − 1, i.e., m > n − 2.
+But since m and n are the same parity, m ≥ n. Thus γ is a geodesic and d(x, y) =
+ℓ(γ) = (π/q)n = ℓ(γ) = d(x, y).
+   Now suppose x and y are any two points of Φ b Λ . If x is a vertex, let X1 = X2 = x,
+and if x is not a vertex, let X1 and X2 be the two distinct vertices of the edge
+36                              KATHERINE M. GOLDMAN
+
+
+containing x. Similarly, if y is a vertex, let Y1 = Y2 = y, and if y is not a vertex, let
+Y1 and Y2 be the two distinct vertices of the edge containing y. For i, j ∈ {1, 2},
+let γij be a geodesic from Xi to Yj . For each i, j, by our work above we can find
+Nij ≥ 1 so that γij remains a geodesic of the same length under the quotient to
+b Λ(kN ) for each k ≥ 1. Let N = lcm{Nij } and fix k ≥ 1. Let · : Φ
+Θ                                                                         bΛ → Θ b Λ(kN )
+        ij
+
+be the quotient map. Then each γij is a geodesic in ΘΛ(kN ) of the same length
+                                                             b
+as γij . Suppose γ is a geodesic from x to y in Θ  b Λ(kN ) . Then there is some I and
+some J so that γ passes through XI and YJ . Note that since · is a simplicial map,
+d(x, XI ) = d(x, XI ) and d(y, YJ ) = d(y, YJ ). Then
+                    d(x, y) = ℓ(γ)
+                           = ℓ(γ|[x,X I ] ) + ℓ(γ|[X I ,Y J ] ) + ℓ(γ|[Y J ,y] )
+                           = d(x, X I ) + ℓ(γ|[X I ,Y J ] ) + d(Y J , y)
+                           = d(x, X I ) + ℓ(γ IJ ) + d(Y J , y)
+                           = d(x, XI ) + ℓ(γIJ ) + d(YJ , y)
+                           = d(x, XI ) + d(XI , YJ ) + d(YJ , y)
+                           ≥ d(x, y).
+
+Since the quotient clearly cannot increase distance, d(x, y) = d(x, y).                  □
+
+Lemma 8.7. Suppose Γ is a 2-dimensional presentation graph. Let γ be a geodesic
+segment of ΦΓ . Then there is some k ≥ 2 so that the image of γ under the natural
+quotient ΦΓ → ΘΓ(k) remains a geodesic segment of the same length.
+
+Proof. For k ≥ 2, let ρk : ΦΓ → ΘΓ(k) denote the usual quotient map induced by
+the quotient qk : AΓ → ShΓ(k) . Let x be a point in the interior of γ.
+    If x is in the interior of a 2-simplex of ΦΓ , then ρk (γ) is locally geodesic at ρk (x)
+for any value of k, since ρp maps 2-simplices isometrically to 2-simplices. In this
+case, define nx = 2.
+    If there is a neighborhood of x in γ which is contained in an edge, then there
+is nothing to show since edges are mapped isometrically to edges (in other words,
+ρk (γ) is locally geodesic at ρk (x) for any value of k). In this case, as above, define
+nx = 2.
+    Suppose x is a point contained in the interior of an edge E of ΦΓ with no
+neighborhood of x in γ also contained in this edge. First, suppose E = [a1 A∅ , a2 As ]
+for a vertex s of Γ or E = [a1 A∅ , a2 Ae ] for an edge e of Γ. Then the stabilizer of
+E is trivial, and in particular, the link of E is mapped isomorphically to the link
+of ρk (E) for any k. So suppose E = [a1 As , a2 Ae ] for a vertex s of Γ and an edge
+e of Γ containing s. Let ∆1 and ∆2 denote the distinct 2-simplices containing E
+whose interiors nontrivially intersect Γ. The stabilizer of E is conjugate to ⟨s⟩ and
+acts transitively on the link of E, so there is some g ∈ AΓ and some nx ∈ Z such
+that ∆2 = (g −1 snx g)∆1 . (Since γ is a geodesic, nx =  ̸ 0.) For k > |nx |, ρk (∆1 ) and
+ρk (∆2 ) are the 2-simplices of ΘΓ(k) containing ρk (E) (and ρk (x)) whose interiors
+intersect ρk (γ). Moreover, ρk (∆2 ) = qk (g −1 snx g)ρk (∆1 ). If ρk (∆2 ) = ρk (∆1 ), then
+qk (g −1 snx g) = e, but this happens if and only if qk (snx ) = e. Since k > |nx |, this
+can’t happen, so ρk (∆2 ) ̸= ρk (∆1 ) and ρk (γ) is locally geodesic at ρk (x) for all
+k > |nx |.
+                            2-DIMENSIONAL SHEPHARD GROUPS                                     37
+
+
+   Last, suppose x is a vertex of ΦΓ . Then x = [gAΛ ] for some g ∈ AΓ and some
+Λ ∈ S f . There are three subcases to consider.
+   First, assume Λ = ∅. Then for any k ≥ 2, ρk (x) = [qk (g)Sh∅ ], and ρk induces an
+isometry of the link of x and the link of ρk (x) (both being isometric to lk(v∅ , F∅ )).
+   Next, assume Λ = {s} for a vertex s of Γ. The link of x is the join of lk(vs , Fs )
+and Φb {s} , the latter of which is in bijection with ⟨s⟩ ∼    = Z. The intersection of the
+ε-sphere of x with γ induces two points y, z ∈ lk(x) of distance ≥ π apart. Every
+point of Φ b {s} is distance π/2 from every point of lk(vs , Fs ) (by the definition of
+spherical join), so either y, z ∈ lk(vs , Fs ) or y, z ∈ Φb {s} . If y, z ∈ lk(vs , Fs ), then as
+in the previous case ρk acts isometrically on lk(vs , Fs ) for any k ≥ 2, so y and z
+remain at the same distance under ρk . If y, z ∈ Φ     b {s} , then they can be represented
+by some powers of s, say sn and sm with n ̸= m ∈ Z. (Since γ is a geodesic, these
+points are distinct.) By translating we may assume these points are in fact e (= s0 )
+and snx for nx = m − n =    ̸ 0. Choosing k > |nx |, ρk acts by the standard quotient
+Z → Z/kZ and thus these points remain distinct. In other words, for k > |nx |,
+ρk (γ) is locally geodesic at ρk (x).
+   Finally, suppose Λ is an edge with finite label m. Then, as before, the intersection
+of γ with the ε-sphere of x induces two points y, z ∈ lk(x) = Φ           b Λ of distance ≥ π.
+Lemma 8.6 implies that there is some nx ≥ 1 so that the distance between y and z
+remains ≥ π in the quotient via ρk for all k which are (positive) multiples of nx . In
+other words, for all such k, ρk (γ) is locally geodesic at ρk (x).
+   Let k ≥ 2 be a common multiple of { |nx | : x ∈ int(γ) }. (This set is finite and
+consists of positive integers, so k exists.) Our above arguments show that ρk (γ) is
+locally geodesic at ρk (x) for all x, or in other words, that ρk (γ) is a local geodesic
+in ΘΓ(k) . Since ΘΓ(k) is CAT(0), this implies ρk (γ) is a geodesic and has the same
+length as γ.                                                                                   □
+   Now we may complete the proof of
+Theorem G. Suppose Γ is a triangle-free presentation graph with no 4-cycle with
+all edges labeled 2. Then AΓ is residually finite.
+Proof. Let g ∈ AΓ \{e}. Let γ be the geodesic in ΦΓ from [A∅ ] to [gA∅ ]. By Lemma
+8.7, there is some k so that the image γ of γ under the quotient map to ΘΓ(k) is
+a geodesic. If g denotes the image of g under the quotient AΓ → ShΓ(k) , then γ
+is a geodesic from [Sh∅ ] to [gSh∅ ]. Since ΘΓ(k) is CAT(0), this means g ̸= e. But
+ShΓ(k) is residually finite (Corollary F), so there is a further quotient ShΓ(k) → F
+to a finite group F under which g remains nontrivial. Composing these maps gives
+a quotient AΓ → F to a finite group where the image of g is nontrivial.            □
+
+                                        References
+[AS83]  Kenneth I Appel and Paul E Schupp. Artin groups and infinite Coxeter groups. Inventiones
+        mathematicae, 72(2):201–220, 1983.
+[BD08] Greg Bell and Alexander Dranishnikov. Asymptotic dimension. Topology and its Applica-
+        tions, 155(12):1265–1296, 2008.
+[BH13] Martin R Bridson and André Haefliger. Metric spaces of non-positive curvature, volume
+        319. Springer Science & Business Media, 2013.
+[BM10] Tom Brady and Jon McCammond. Braids, posets and orthoschemes. Algebraic & Geo-
+        metric Topology, 10(4):2277–2314, 2010.
+[Bow12] Brian H Bowditch. Relatively hyperbolic groups. International Journal of Algebra and
+        Computation, 22(03):1250016, 2012.
+38                                KATHERINE M. GOLDMAN
+
+
+[Bro82] Kenneth S Brown. Cohomology of Groups. Springer Science & Business Media, 1982.
+[CC07] Ruth Charney and John Crisp. Relative hyperbolicity and Artin groups. Geometriae
+        Dedicata, 129:1–13, 2007.
+[CD95] Ruth Charney and Michael W Davis. The K(π, 1)-problem for hyperplane complements
+        associated to infinite reflection groups. Journal of the American Mathematical Society,
+        8(3):597–627, 1995.
+[Cox75] H.S.M. Coxeter. Regular Complex Polytopes. Cambridge University Press, 1975.
+[Cri05] John Crisp. Automorphisms and abstract commensurators of 2–dimensional Artin groups.
+        Geometry & Topology, 9(3):1381–1441, 2005.
+[DK18] Cornelia Druţu and Michael Kapovich. Geometric group theory, volume 63. American
+        Mathematical Soc., 2018.
+[dLH00] Pierre de La Harpe. Topics in geometric group theory. University of Chicago Press, 2000.
+[DS05] Cornelia Druţu and Mark Sapir. Relatively hyperbolic groups with rapid decay property.
+        International Mathematics Research Notices, 2005(19):1181–1194, 2005.
+[EG22] Eduard Einstein and Daniel Groves. Relatively geometric actions on CAT(0) cube com-
+        plexes. Journal of the London Mathematical Society, 105(1):691–708, 2022.
+[Far98] Benson Farb. Relatively hyperbolic groups. Geometric and functional analysis, 8(5):810–
+        840, 1998.
+[Gol23] Katherine Goldman. CAT(0) and cubulated Shephard groups. arXiv preprint
+        arXiv:2310.10883, 2023.
+[Hae22] Thomas Haettel. XXL type Artin groups are CAT(0) and acylindrically hyperbolic. In
+        Annales de l’Institut Fourier, volume 72, pages 2541–2555, 2022.
+[Hat02] Allen Hatcher. Algebraic Topology. Cambridge University Press, 2002.
+[HJP16] Jingyin Huang, Kasia Jankiewicz, and Piotr Przytycki. Cocompactly cubulated 2-
+        dimensional Artin groups. Commentarii Mathematici Helvetici, 91(3):519–542, 2016.
+[Jan22] Kasia Jankiewicz. Residual finiteness of certain 2-dimensional Artin groups. Advances in
+        Mathematics, 405:108487, 2022.
+[Jol90] Paul Jolissaint. Rapidly decreasing functions in reduced C ∗ -algebras of groups. Transac-
+        tions of the American Mathematical Society, 317(1):167–196, 1990.
+[Kal]   Generated with KaleidoTile by Jeff Weeks:
+        https://www.geometrygames.org/KaleidoTile/index.html.en.
+[KS04] Ilya Kapovich and Paul Schupp. Relative hyperbolicity and Artin groups. Geometriae
+        Dedicata, 107:153–167, 2004.
+[Mil75] John Milnor. On the 3-dimensional Brieskorn manifolds M (p, q, r). Knots, groups and
+        3-Manifolds, 3:175–225, 1975.
+[MO15] Ashot Minasyan and Denis Osin. Acylindrical hyperbolicity of groups acting on trees.
+        Mathematische Annalen, 362(3):1055–1105, 2015.
+[Mou88] Gabor Moussong. Hyperbolic Coxeter groups. PhD thesis, The Ohio State University,
+        1988.
+[MS16] Giovanni Moreno and Monika Ewa Stypa. On the vertex-to-edge duality between the
+        Cayley graph and the coset geometry of von Dyck groups. Mathematica Slovaca, 66(3):527–
+        538, 2016.
+[Nos92] Gennady Andreevich Noskov. Algebras of rapidly decreasing functions on groups and
+        cocycles of polynomial growth. Sibirskii Matematicheskii Zhurnal, 33(4):97–103, 1992.
+[NR97] Walter D Neumann and Lawrence Reeves. Central extensions of word hyperbolic groups.
+        Annals of mathematics, 145(1):183–192, 1997.
+[Osi05] Denis Osin. Asymptotic dimension of relatively hyperbolic groups. International Mathe-
+        matics Research Notices, 2005(35):2143–2161, 2005.
+[Osi06] Denis Osin. Relatively Hyperbolic Groups: Intrinsic Geometry, Algebraic Properties, and
+        Algorithmic Problems, volume 843. American Mathematical Soc., 2006.
+[Reb01] Donovan Yves Rebbechi. Algorithmic properties of relatively hyperbolic groups. PhD
+        thesis, 2001.
+[RZ93] Luis Ribes and Pavel A Zalesskii. On the profinite topology on a free group. Bulletin of
+        the London Mathematical Society, 25(1):37–43, 1993.
+[She52] G. C. Shephard. Regular complex polytopes. Proceedings of the London Mathematical
+        Society, s3-2(1):82–97, 1952.
+[Tuk94] Pekka Tukia. Convergence groups and Gromov’s metric hyperbolic spaces. New Zealand
+        J. Math., 23(2):157, 1994.
+                           2-DIMENSIONAL SHEPHARD GROUPS                                    39
+
+
+[Vas22] Nicolas Vaskou. Acylindrical hyperbolicity for Artin groups of dimension 2. Geometriae
+        Dedicata, 216(1):7, 2022.
+[You97] Shihong You. The product separability of the generalized free product of cyclic groups.
+        Journal of the London Mathematical Society, 56(1):91–103, 1997.
+

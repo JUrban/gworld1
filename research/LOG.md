@@ -241,3 +241,44 @@ finding a gap; this is not independent validation or a new experiment.
 
 No Kourovka mathematics or code was imported. No subagents, pushes or
 external contacts occurred. The original 48-hour deadline is unchanged.
+
+## 2026-09-28 approximately 15:23–15:47 UTC — wider scope and FP21 reformulation
+
+Confirmed prior answers for H13 and FP6 from primary texts: Bridson's
+synchronous combable examples have cubic Dehn function and are not
+automatic; virtual fibering covers all knot-exterior cases and gives
+a finite-index free-by-cyclic subgroup. Read the original complete
+pages, exact fragments and rendered paragraphs. Also checked N1's
+existing full-classification update against Papistas's primary abstract;
+it is not limited to rank two. Full Papistas/Formanek proofs were not
+obtained. A direct publisher download returned 403; the web abstract
+was available. A misspelled monograph URL returned 404 before correction.
+
+Read the primitive Burnside results of Bou-Rabee–Hooper and Dlugie.
+Wrote out the consequence that BP(2,m) is residually finite if and only
+if the four-strand truncated braid group Br_4(m) is residually finite.
+The argument proves the needed three-strand residual finiteness via
+cyclic central extensions of triangle groups and finite Heisenberg
+quotients, and gives the finitely-generated split-extension lemma.
+Goldman's dihedral theorem corroborates the three-strand case; her
+triangle-free theorem does not apply to the four-strand presentation.
+The commuting label-2 edge must be included in its presentation graph.
+This is an uncounted reformulation, with no novelty claim and no
+large-exponent answer. An infinite linear quotient is insufficient.
+
+A deterministic GAP check verified Dlugie's explicit splitting maps
+using the faithful Artin action and a separate semidirect-product
+calculation, including an incorrect-sign control. It passed in 1.83
+seconds on one core with a 2GB limit and empty stderr. Raw stdout,
+including its leading carriage return, is preserved. This finite
+identity check does not itself establish residual finiteness.
+
+H4's preprocessing literature was read without confusing a recognition
+procedure with an arbitrary promise algorithm. Other broad searches
+and tentative routes in nilpotent, solvable and tree-action questions
+produced no completed new argument. The records identify these gaps.
+
+Tally unchanged: three whole-entry candidates (F28,N5,M0), one partial
+candidate (N8), zero established novel results. No Kourovka mathematics
+or code imported; no subagents, pushes or external contacts. Original
+deadline unchanged.

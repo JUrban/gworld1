@@ -1,0 +1,1803 @@
+                                               JSJ DECOMPOSITIONS AND POLYTOPES FOR
+                                                TWO-GENERATOR ONE-RELATOR GROUPS
+
+                                                   GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+arXiv:2101.02193v3 [math.GR] 21 Oct 2025
+
+
+
+
+                                                  Abstract. We provide a direct connection between the Zmax (or
+                                                  essential) JSJ decomposition and the Friedl–Tillmann polytope of
+                                                  a hyperbolic two-generator one-relator group with abelianisation
+                                                  of rank 2.
+                                                     We deduce various structural and algorithmic properties, like
+                                                  the existence of a quadratic-time algorithm computing the Zmax -
+                                                  JSJ decomposition of such groups.
+
+
+
+
+                                                        Dedicated to the memory of Stephen J. Pride
+
+
+
+
+                                                                       1. Introduction
+                                              A two-generator one-relator group is a group that admits a presen-
+                                           tation of the form ⟨a, b | R⟩. One-relator groups are a cornerstone of
+                                           Geometric Group Theory (see, for example, the classic texts in com-
+                                           binatorial group theory [MKS04] [LS77] or the early work of Mag-
+                                           nus [Mag30] [Mag32]), and they continue to have fruitful interactions
+                                           with, for example, 3-dimensional topology and knot theory. Motivated
+                                           by the Thurston norm of a 3-manifold, Friedl–Tillmann introduced a
+                                           polytope for presentations ⟨a, b | R⟩ with R ∈ F (a, b)′ [FT20], which
+                                           has subsequently been shown to be a group invariant [HK20] (another
+                                           proof of this fact follows from the work of Friedl–Lück [FL17] com-
+                                           bined with a more recent result of Jaikin-Zapirain–López-Álvarez on
+                                           the Atiyah conjecture [JZLA20]).
+                                              In this paper we focus on hyperbolic one-relator groups, and more
+                                           generally one-relator groups with no Baumslag–Solitar subgroups ⟨a, t |
+                                           t−1 am t = an ⟩; we call these algebraic generalisations of hyperbolic one-
+                                           relator groups BS-free one-relator groups. JSJ-theory rose to promi-
+                                           nence due to Sela’s work on Zmax -JSJ decompositions (originally called
+
+                                             2010 Mathematics Subject Classification. 20E34, 20F05, 20F65, 20F67, 20J05.
+                                             Key words and phrases. One-relator group, JSJ decomposition, polytope.
+                                                                                 1
+2         GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+“essential” JSJ decompositions) of hyperbolic groups, which are graph
+of groups decompositions encoding all the “important” virtually-Z split-
+tings of the group; these decompositions are significant because they
+are a group invariant (up to certain moves), and they, and hence the
+splittings they encode, govern for example the model theory [Sel09]
+and (coarsely) the outer automorphism group [Sel97] [Lev05a] of the
+group. Moreover, computing Zmax -JSJ decompositions is a key step in
+the algorithm to solve the isomorphism problem for hyperbolic groups
+[Sel95] [DG08] [DG11]. The notation Zmax relates to a certain class
+of maximal virtually cyclic subgroups, but for one-relator groups these
+subgroups are necessarily infinite cyclic; therefore one can view our re-
+sults as being about “Zmax -JSJ decompositions”, but we maintain the
+Zmax notation for consistency with the literature.
+   Our main theorem connects Zmax -JSJ decompositions and Friedl–
+Tillmann polytopes [FT20]. This connection is significant because it
+means that, under our assumptions, the Zmax -JSJ decomposition of
+⟨a, b | R⟩ can be understood simply by investigating the relator R,
+which yields fast algorithmic results (see below). Furthermore, this
+gives a connection between JSJ decompositions and these polytopes, as
+JSJ decompositions are refinements of Zmax -JSJ decompositions [GL17,
+Section 9.5].
+   Friedl–Tillmann polytopes are only defined for two-generator one-
+relator groups, and such groups are of central importance in the theory
+of one-relator groups. For example, it is a classical result that ev-
+ery one-relator group embeds into a two-generator one-relator group
+[MKS04, Corollary 4.10.1], while Louder–Wilton have pointed out that
+all known examples of pathological one-relator groups have two gener-
+ators [LW22]. Moreover, BS-free two-generator one-relator groups are
+particularly important: It is a famous conjecture of Gersten that every
+BS-free one-relator group is hyperbolic (see [Ger92, p. 228], [AG99, Re-
+mark, p. 734]), and Linton proved that this conjecture reduces to the
+two generator case [Lin24, Corollary 5.7], i.e. every BS-free one-relator
+group is hyperbolic if and only if every BS-free two-generator one-
+relator group is hyperbolic.
+   We say that a one-ended group has trivial Zmax -JSJ decomposition if
+it has a Zmax -JSJ decomposition which is a single vertex with no edges,
+and non-trivial otherwise (see Convention 2.8).
+Theorem A (Theorem 5.4). Let G be a BS-free group admitting a two-
+generator one-relator presentation P = ⟨a, b | R⟩ with R ∈ F (a, b)′ \
+{1}. The following are equivalent.
+   (1) G has non-trivial Zmax -JSJ decomposition.
+  JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS                   3
+
+   (2) There exists a word T of shortest length in the Aut(F (a, b))-
+       orbit of R such that T ∈ ⟨a, b−1 ab⟩ but T is not conjugate to
+       [a, b]k for any k ∈ Z.
+   (3) The Friedl–Tillmann polytope of P is a straight line, but not a
+       single point.
+   It is unclear how intrinsic hyperbolicity is to this theorem. If Ger-
+sten’s conjecture is true, then the result is simply for hyperbolic two-
+generator one-relator groups. On the other hand, an analogue of The-
+orem A will hold for any class of one-relator groups for which Theorem
+4.1, below, on Friedl–Tillmann polytopes is applicable, and which sat-
+isfy a certain description of splittings first given by Kapovich–Weidmann
+[KW99a, Theorem 3.9], and extended by the authors [GKL21, Corol-
+lary 8.6]. (Indeed, Zmax -JSJ decompositions are not required. They
+just give context and a convenient language for our results, which in-
+stead can be stated in terms of “essential Z-splittings”, as in Theorem
+2.9.)
+   We now illustrate Theorem A with an example.
+Example 1.1. Let G be the group defined by the presentation ⟨a, b |
+(a2 b2 a−1 b−1 a−1 b−1 )n ⟩ where n > 1. By using Whitehead’s algorithm, it
+can be seen that (2) of Theorem A does not hold, and so G has trivial
+Zmax -JSJ decomposition. Alternatively one can consider the Friedl–
+Tillmann polytope, which we see from Figure 1 is a triangle. There-
+fore, (3) of Theorem A does not hold, and so G has trivial Zmax -JSJ
+decomposition.
+   The proof of Theorem A splits into two cases: either G is a one-
+relator group with torsion, or is torsion-free. The difficulty lies in the
+torsion-free case; see in particular Section 4.
+   If G does not have Z2 abelianisation, so R ̸∈ F (a, b)′ , then the Friedl–
+Tillmann polytope is less useful (it is always a straight line!). However,
+we can still ask if (1) and (2) from Theorem A are equivalent. To prove
+this, we could try to apply the machinery underlying these polytopes,
+which is that of the universal L2 torsion, but unfortunately this lies be-
+yond our current understanding of these L2 invariants. We can however
+use more classical techniques to prove this equivalence for one-relator
+groups with torsion.
+
+One-relator groups with torsion. The easier case in the proof of
+Theorem A is that of one relator groups with torsion. Such groups
+are characterised by having presentations ⟨x | S n ⟩ where n > 1 [LS77,
+Proposition II.5.18]. They are always hyperbolic [LS77, Theorem IV.5.5]
+(Nyberg-Brodda has put this fact in its historical context [NB21]), and
+4         GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+
+
+
+      Figure 1. To obtain the Friedl–Tillmann polytope, trace
+      the reduced word (a2 b2 a−1 b−1 a−1 b−1 )n on the ab-plane
+      to obtain a closed loop γ, as in the first diagram (this
+      is independent of n). Take the convex hull of γ, as in
+      the second diagram; this is a polytope P ′ . Then take
+      the bottom-left corner of all squares contained in γ that
+      touch the vertices of P ′ , as in the third diagram. The
+      Friedl–Tillmann polytope P is the polytope with these
+      points as vertices, as in the fourth diagram.
+
+      Note that the Friedl–Tillmann polytope is in fact a
+      “marked” polytope, but we only care about the shape
+      so we have omitted these details from this example. In
+      the third diagram we took the bottom-left corner of the
+      squares; this is different from Friedl and Tillmann who take
+      the centre points of these squares, but this is not an issue
+      because the polytope is only well-defined up to translation.
+
+
+as such these groups are of great interest as test-cases for both hyper-
+bolic groups and one-relator groups. For example, one-relator groups
+with torsion are residually finite [Wis12], while it is an open problem of
+Gromov whether all hyperbolic groups are residually finite; similarly,
+one-relator groups with torsion were shown to be coherent in [LW20],
+while it took another five years to show that in fact all one-relator
+groups are coherent [JZL25].
+  Our results for one-relator groups with torsion include the case of
+R ̸∈ F (a, b)′ . A primitive element of F (a, b) is an element which is
+part of a basis for F (a, b).
+
+Theorem B (Theorem 3.4). Let G be a group admitting a two-generator
+one-relator presentation P = ⟨a, b | R⟩ where R = S n in F (a, b) with
+n > 1 maximal and S ∈ F (a, b) is non-trivial and non-primitive. The
+following are equivalent.
+    (1) G has non-trivial Zmax -JSJ decomposition.
+  JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS                  5
+
+   (2) There exists a word T of shortest length in the Aut(F (a, b))-
+       orbit of S such that T ∈ ⟨a, b−1 ab⟩ but T is not conjugate to
+       [a, b]±1 .
+
+  The conditions on S are because Zmax -JSJ decompositions are only
+meaningful for one-ended groups, and if S is primitive or trivial then
+the group defined by ⟨a, b | S n ⟩ is not one-ended (it is a free product of
+cyclic groups, Z ∗ Cn or Z ∗ Z). In contrast, all the groups in Theorem
+A are one-ended.
+
+Forms of Zmax -JSJ decompositions. The following corollary de-
+scribes the Zmax -JSJ decompositions of the groups from Theorems A
+and B as HNN-extensions of one-relator groups.
+   In the torsion-free case, a previous result of the authors describes
+such Zmax -JSJ decompositions as HNN-extensions [GKL21, Corollary
+8.6]; Corollary C further says that the base groups are one-relator
+groups, which is surprising. In the corollary, we view R as a power
+S n for n ⩾ 1 maximal. We view R like this because Theorem B deals
+with the root S of the relator R = S n . We lose nothing by doing this
+since if the group in the corollary is torsion-free then n = 1 and R = S.
+We use |W | to denote the length of a word W ∈ F (x).
+
+Corollary C (Corollary 6.1). Let the group G and the presentation
+P be as in Theorem A or B, and write R = S n for n ⩾ 1 maximal.
+Suppose that G has non-trivial Zmax -JSJ decomposition Γ. Then the
+graph underlying Γ consists of a single rigid vertex and a single loop
+edge. Moreover, the corresponding HNN-extension has vertex group
+⟨a, y | T0n (a, y)⟩, stable letter b, and attaching map given by y = b−1 ab,
+where T0 (a, b−1 ab) is the word T from the theorem. Finally, |T0 | < |S|.
+
+   In the case of Theorem B, the base group ⟨a, y | T0 (a, y)⟩ also sat-
+isfies the conditions of Theorem B. Therefore, the “|T0 | < |S|” con-
+dition gives a strong accessibility result, similar to a general result of
+Louder–Touikan [LT17], but where all the groups involved are one-
+relator groups. If we are in the case of Theorem A then T0 (a, y) may
+not be in the derived subgroup, and so we do not obtain the analogous
+result.
+
+Example 1.2. Set G = ⟨a, b | (a−2 b−1 a2 b)n ⟩, n > 1. Then G is an
+HNN-extension of the group H = ⟨a, y | (a−2 y 2 )n ⟩, with attaching map
+y = b−1 ab. This obvious decomposition of G as an HNN-extension
+corresponds to its Zmax -JSJ decomposition, by Corollary C.
+6         GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+   This example illustrates an important point: we can spot Zmax -JSJ
+decompositions of the groups in Theorem A or B, since if a decomposi-
+tions looks like a Zmax -JSJ decomposition then it is indeed a Zmax -JSJ
+decomposition (see Theorems 2.9 and 3.2). Now, the group G from
+Example 1.2 can also be viewed as an HNN-extension of the group
+H ′ = ⟨a, z | (a−2 z)n ⟩, with attaching map z = b−1 a2 b. This is not
+a Zmax -splitting (as ⟨z⟩ is not maximal in G), but it could be a JSJ
+decomposition of G. However, we were unable to prove analogues of
+Theorems 2.9 and 3.2 for JSJ decompositions, and so we are unable to
+conclude that this splitting is in fact a JSJ decomposition.
+
+Algorithmic consequences. Computing Zmax -JSJ decompositions
+has implications for the isomorphism problem, gives information about
+outer automorphism groups, and is potentially an important first step
+for many algorithmic questions about the elementary theory of hyper-
+bolic groups [DG08]. However, current algorithms for computing JSJ
+decompositions or Zmax -JSJ decompositions have bad computational
+complexity.
+   For example, algorithms of Barrett [Bar18], Dahmani–Groves [DG08],
+Dahmani–Guirardel [DG11], and Dahmani–Touikan [DT19] work in
+very general settings, but each of them when applied to hyperbolic
+groups has no recursive bound on its time complexity. For the algo-
+rithms of Barrett, Dahmani–Groves, and Dahmani–Guirardel, this is
+because they require computation of the hyperbolicity constant δ, and
+there is no recursive bound on the time complexity for computing δ
+(as hyperbolicity is undecidable). The algorithm of Dahmani–Touikan
+requires a solution to the word problem, but all known general solu-
+tions for hyperbolic groups require preprocessing for which there is no
+recursive bound on the time complexity (for example, computing an
+automatic structure or Dehn presentation). Even if we assume an or-
+acle gives us δ, these algorithms are brute force algorithms, with each
+proceeding by detecting a splitting and then searching blindly through
+all presentations of the given group to find some presentation which
+realises the detected splitting; this procedure clearly has an awful time
+complexity. As far as the authors are aware, the only algorithm which
+computes the JSJ decompositions for a class of hyperbolic groups and
+which has a known (reasonable) bound on its time complexity is due
+to Suraj Krishna [MS20], but here the computed bound is doubly ex-
+ponential and is not in general applicable to one-relator groups.
+   Theorems A and B can be applied to give fast algorithms for both de-
+tecting and computing Zmax -JSJ decompositions in our setting. Firstly,
+  JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS                7
+
+there is a quadratic-time algorithm to find the Zmax -JSJ decomposi-
+tion of a given group (essentially, the algorithm is to compute all of the
+shortest possible elements of the Aut(F (a, b))-orbit of the relator R).
+Corollary D (Corollary 6.2). There exists an algorithm with input a
+presentation P = ⟨a, b | R⟩ of a group G from Theorem A or B, and
+with output the Zmax -JSJ decomposition of G.
+  This algorithm terminates in O(|R|2 )-steps.
+   In the case of Theorem A, the polytope allows us to detect a non-
+trivial Zmax -JSJ decomposition in linear time (essentially, the algorithm
+is to draw the Friedl–Tillmann polytope).
+Corollary E (Corollary 6.3). There exists an algorithm with input a
+presentation P = ⟨a, b | R⟩ of a group G from Theorem A, and with
+output yes if the group G has non-trivial Zmax -JSJ decomposition and
+no otherwise.
+  This algorithm terminates in O(|R|)-steps.
+   Detecting non-trivial Zmax -JSJ decompositions is useful in its own
+right. We demonstrate this with the following application of Corollaries
+D and E to hyperbolic groups.
+Corollary F (Corollary 6.4). There exists an algorithm with input a
+presentation P = ⟨a, b | R⟩ of a hyperbolic group G from Theorem
+A or B that determines which one of the following three possibilities
+holds: the outer automorphism group of G is finite, is virtually Z, or
+is isomorphic to GL2 (Z).
+   If G is as in Theorem A, this algorithm terminates in O(|R|)-steps.
+Else, it terminates in O(|R|2 )-steps.
+
+Relationships between outer automorphism groups. Write Gk
+for the group defined by ⟨a, b | S k ⟩, where k ⩾ 1 is maximal and S is
+fixed. In general there is very little relationship between Out(G1 ) and
+Out(Gn ) for n > 1. For example, if S = b−1 a2 ba−4 then G1 = BS(2, 4)
+has non-finitely generated outer automorphism group [CL83], while
+Out(Gn ) for n ⩾ 2 is virtually-Z [Log16b]. In contrast, Theorems A
+and B imply that if S ∈ F (a, b)′ and G1 is hyperbolic then the triviality
+of the Zmax -JSJ decomposition of Gk depends solely on the word S; the
+exponent k is irrelevant. We can then apply the relationship between
+Zmax -JSJ decompositions and outer automorphism groups to see that
+Out(Gm ) and Out(Gn ) are commensurable for m, n ⩾ 1. Our next
+corollary says that this relationship is much stronger.
+8         GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+Corollary G (Corollary 6.5). Write Gk for the group defined by ⟨a, b |
+S k ⟩, where k ⩾ 1 is maximal. If S ∈ F (a, b)′ \ {1} and G1 is hyperbolic
+then:
+
+    (1) Out(Gm ) ∼
+                 = Out(Gn ) for all m, n > 1.
+    (2) Out(Gn ) embeds with finite index in Out(G1 ).
+
+  The isomorphism of (1) is essentially already known, and holds un-
+der the more general restriction that S is non-primitive [Log16b]; we
+include it for completeness. All the maps here are extremely natural,
+and in particular the embedding Out(Gn ) ,→ Out(G1 ) is induced by
+the natural map Gn → G1 with kernel normally generated by S.
+
+What about JSJ decompositions? Most of our main results can
+be stated in terms of JSJ decompositions, but we state them in terms
+of Zmax -JSJ decompositions as this gives a smoother exposition. Noth-
+ing is lost by doing this as Zmax -JSJ decompositions encode all the
+information we are interested in and motivated by (outer automor-
+phism groups, isomorphism problem), and in fact we gain Corollary
+D, which we are unable to rephrase in terms of JSJ decompositions.
+Additionally, when we rephrase Corollary C in these terms then the
+phrase “T0 (a, b−1 ab) is the word T from the theorem” is replaced with
+“T0 (a, b−1 ab) is some word”, so we lose the explicit connection with the
+theorems.
+
+Outline of the paper. In Section 2 we build a theory of Zmax -JSJ
+decompositions applicable to the non-hyperbolic groups in Theorem
+A, and we prove a useful theorem which allows us to spot Zmax -JSJ
+decompositions of these groups (Theorem 2.9). In Section 3 we prove
+Theorem B. In Section 4 we prove our main technical result involving
+polytopes, Theorem 4.1, which takes as input a pair of compatible
+presentations of some group G, one having the form ⟨a, b | R⟩ with
+R ∈ F (a, b)′ and the other the form ⟨a, b | s⟩ with s ⊂ ⟨a, b−1 ab⟩, and
+proves that the Friedl–Tillmann polytope of G is a straight line. In
+Section 5 we prove Theorem A. In Section 6 we prove Corollaries C–G.
+
+Acknowledgements. We are very grateful to Nicholas Touikan for
+several helpful comments and suggestions. We thank the referee for
+their helpful comments. This work has received funding from the Eu-
+ropean Research Council (ERC) under the European Union’s Hori-
+zon 2020 research and innovation programme, Grant agreement No.
+850930, from the European Union (ERC, SATURN, 101076148), from
+  JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS                9
+
+the UK’s Engineering and Physical Sciences Research Council (EP-
+SRC), grant EP/R035814/1, and from the Deutsche Forschungsgemein-
+schaft (DFG, German Research Foundation) – Project-ID 427320536 –
+SFB 1442, as well as under Germany’s Excellence Strategy EXC 2044–
+390685587 and EXC-2047/1 – 390685813.
+
+    2. JSJ-theory and algebraically hyperbolic groups
+   JSJ-theory plays a key role in the theory of hyperbolic groups [RS97,
+Sel95, Lev05a, Sel09, DG11]. Mirroring the JSJ decomposition of 3-
+manifolds, the JSJ and Zmax -JSJ decompositions of a one-ended hyper-
+bolic group are graph of groups decompositions where all edge groups
+are virtually-Z, and are (in an appropriate sense) unique if certain ver-
+tices, called “flexible vertices”, are treated as pieces to be left intact
+and not decomposed. Zmax -JSJ decompositions were originally called
+“essential JSJ decompositions” by Sela, and they contain all the im-
+portant information used in the applications of JSJ-theory cited above.
+We refer the reader to Guirardel–Levitt’s monograph for further back-
+ground and motivation, in particular their Section 9.5 on Zmax -JSJ
+decompositions [GL17].
+   In this section we define JSJ decompositions and Zmax -JSJ decompo-
+sitions. We then build a theory of Zmax -JSJ decompositions for certain
+algebraically hyperbolic (CSAQ ) groups, as defined below, and which
+is applicable to the BS-free one-relator groups considered in this pa-
+per. Our main result here is Theorem 2.9, which can be summarised
+by: when a decomposition looks like a Zmax -JSJ decomposition, it is
+indeed a Zmax -JSJ decomposition.
+   This section deals with graph of groups splittings, so we now fix
+some conventions and notation (based on Serre’s book [Ser03]). In
+a graph Γ, every edge e, with initial and terminal vertices ι(e) and
+τ (e), respectively, has an associated reverse edge e such that ι(e) =
+τ (e) and τ (e) = ι(e). We use Γ to denote a graph of groups, with
+a connected underlying graph Γ, associated vertex groups (or vertex
+stabilisers) {Gv | v ∈ V (Γ)} and edge groups (or edge stabilisers)
+{Ge | e ∈ E(Γ), Ge = Ge }, and set of monomorphisms θe : Ge → Gι(e) .
+
+JSJ decompositions. We fix a finitely generated group G, and a
+family A of subgroups of G. (It is usual to assume that A is closed
+under conjugating and taking subgroups, but the main class we focus
+on, Zmax subgroups, is not closed under these operations.)
+  An A-tree of G is a tree T equipped with an action of G, written
+G ↷ T , whose edge stabilisers are in A. A subgroup H ⩽ G is elliptic
+10        GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+in T if it fixes a point in T (and hence is contained in a vertex stabiliser
+of T ), and universally A-elliptic if it is elliptic in every A-tree of G. An
+A-tree T is universally A-elliptic if its edge stabilisers are universally
+A-elliptic. An A-tree T dominates the A-tree T ′ if every subgroup of
+G which is elliptic in T is elliptic in T ′ . An A-JSJ tree T of G is an
+A-tree such that:
+    (1) T is universally A-elliptic, and
+    (2) T dominates every other universally A-elliptic tree T ′ .
+The quotient graph of groups Γ, with underlying graph Γ = T /G, is
+an A-JSJ decomposition of G. A vertex of an A-tree T is elementary if
+its group is in A, while a non-elementary vertex is rigid if its group is
+universally A-elliptic, and flexible otherwise. Flexible vertices are the
+“pieces to be left intact and not decomposed” mentioned above, and
+these play a very minor role in this paper.
+   We shall principally consider four such families A:
+    (1) The family of VC subgroups consists of virtually-Z subgroups of
+         G. All the trees we consider are VC, so we shall abbreviate “VC-
+         tree”, “VC-JSJ tree” and “VC-JSJ decomposition” to simply
+         tree, JSJ tree and JSJ decomposition, respectively.
+    (2) The family of Z subgroups consists of virtually-Z subgroups of
+         G with infinite centre. For all the groups we are dealing with,
+         any Z subgroup is infinite cyclic [KS71, Č71], so we often use Z
+         in place of Z.
+    (3) The family of Zmax subgroups consists of maximal virtually-Z
+         subgroups of G with infinite centre. For the same reason as
+         above, we often use Zmax in place of Zmax .
+    (4) The family of Z  e subgroups consists of those Z subgroups H such
+         that if K is abelian with H ⩽ K ⩽ G then K is also infinite
+         cyclic.
+   The theory of Zmax -JSJ decompositions for hyperbolic groups is es-
+pecially powerful because there are canonical structures: for each group
+G there is a unique “deformation space” of Zmax -JSJ trees, and there is
+a canonical Zmax -JSJ tree [GL17, Section 9.5]. We wish to extend these
+results to Zmax -JSJ trees of the groups in Theorem A. To facilitate this,
+we consider algebraically hyperbolic groups.
+
+2.1. Algebraically hyperbolic groups. A torsion-free group is alge-
+braically hyperbolic, written CSAQ , if it is commutative-transitive and
+contains no subgroups of the form H ⋊ Z with H non-trivial locally
+cyclic. We are interested in algebraically hyperbolic groups because
+torsion-free one-relator groups are algebraically hyperbolic if and only
+  JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS 11
+
+if they are BS-free [GKL21, Theorem B], and because we can readily
+study their Zmax -JSJ decompositions, or equivalently (by torsion-free-
+ness) their Zmax -JSJ decompositions.
+   The results in this section and at the start of the next are already
+known for hyperbolic groups, so the reader who is only interested in
+hyperbolic groups may skip to Proposition 2.5 of Section 2.2.
+   A group G is called CSA (for conjugately separated abelian) if every
+maximal abelian subgroup of G is malnormal. Algebraically hyperbolic
+groups are CSA [GKL21, Theorem D], and so our starting point for the
+study of their Zmax -JSJ decompositions is the existing theory of JSJ
+decompositions of CSA groups [GL17, Theorem 9.5]. (The notation
+CSAQ comes from the fact that a torsion-free group is algebraically hy-
+perbolic if and only if it is a CSA group where every non-trivial abelian
+subgroup is locally infinite cyclic, i.e. CSA and abelian subgroups em-
+bed into (Q, +)).
+   We have kept this section short, and only prove the few results we
+need. In particular, we focus on CSAQ groups rather than CSA groups,
+and we only prove that Zmax -JSJ decompositions exist under certain
+conditions. We suspect that this section can be extended into a com-
+plete Zmax -JSJ theory for CSA groups.
+
+
+2.1.1. Existence. We start by proving that certain CSAQ groups have
+Zmax -JSJ decompositions. To do this we follow the analogous existence
+proof for hyperbolic groups (see for example [GL17, Section 9.5] or
+[DG11, Sections 4.3 & 4.4]), although an extra step is needed to deal
+with the existence of cyclic subgroups not contained in Z.  e
+   We restrict ourselves to those CSAQ groups whose JSJ decomposi-
+tions have no flexible vertices. This sidesteps subtleties in the proof for
+hyperbolic groups (see the discussion following Remark 9.29 of [GL17],
+or [DG11, Remark 4.13]), but is the only situation used in this paper.
+
+The cyclic collapsed tree of cylinders TJSJ . Let G be a finitely
+generated one-ended CSAQ group. Then G admits a canonical JSJ
+tree TJSJ , namely the cyclic collapsed tree of cylinders of Guirardel–
+Levitt [GL17, Theorem 9.5]. This is a bipartite tree with vertex set
+V0 (TJSJ ) ⊔ V1 (TJSJ ), where V0 (TJSJ ) consists of non-elementary vertices
+and V1 (TJSJ ) consists of elementary vertices. Note that edge groups are
+subgroups of finite index in the vertex groups of elementary vertices,
+essentially since non-trivial subgroups of Z are of finite index. The
+action G ↷ TJSJ is minimal, that is TJSJ has no proper G-invariant sub-
+tree (this is an ambient assumption in Guirardel–Levitt’s monograph
+12        GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+[GL17, Section 1.2]). We adapt this tree to obtain a canonical Zmax -
+JSJ tree TZmax , which also has certain nice properties (e.g. invariance
+under group automorphisms).
+  There are two obstacles to overcome for TJSJ . Firstly, elementary
+vertex groups may be contained in non-cyclic abelian subgroups, and
+secondly, elementary vertex groups may not be maximal abelian.
+
+The Z e c -collapse of TJSJ . Let C be a Z subgroup of a CSAQ group G.
+Zorn’s lemma guarantees the existence of a maximal abelian subgroup
+A of G containing C. Let A′ be another maximal abelian subgroup
+of G containing C. Take a ∈ A′ . As a centralises C, we have that C
+is a non-trivial subgroup of aAa−1 , and so by malnormality of A we
+have that a ∈ A. Hence A′ = A, and we have shown that if C is a
+Z subgroup of a CSAQ group G then there exists a unique maximal
+abelian subgroup containing C; we will denote this subgroup by Ĉ.
+Note that Ĉ is locally cyclic, although may not be cyclic, and that
+the family Z   e consists of those Z subgroups C such that Ĉ is still a Z
+subgroup.
+   We will use Z   e c to denote the complement of the family Z     e within
+Z-subgroups, so the family consisting of Z subgroups C of G such that
+Ĉ is not finitely generated.
+   The Z e c -collapse of TJSJ , written Te , is the quotient of TJSJ by the
+                                           Z
+smallest equivalence relation such that for vertices v, w of TJSJ , v ∼ w
+if Gv ∩ Gw ∈ Z    e c . Equivalently, the tree Te is the G-tree constructed
+                                                 Z
+from TJSJ as follows: For all elementary vertices v of TJSJ such that
+Ĝv is non-cyclic, collapse the subgraph of TJSJ consisting of v and all
+adjacent edges and their endpoints (i.e. the star of v) to a single point.
+As orbits of vertices have conjugate vertex groups we have Ĝv ∼      = Ĝg·v
+for all g ∈ G, so if v is collapsed in this way then so is every vertex in
+its orbit, and so TZe is a G-tree, and hence a Z-tree.
+                                                  e      We also see that TZe
+inherits the bipartite structure from TJSJ . Since the action G ↷ TJSJ is
+minimal, the action G ↷ TZe is also minimal, and the first description
+of TZe gives us that, because TJSJ is canonical, the tree TZe is canonical.
+Lemma 2.1. Let G be a finitely generated one-ended CSAQ group
+whose JSJ-tree has no flexible vertices. Then the Z  e c -collapse Te of
+                                                                     Z
+the cyclic collapsed tree of cylinders TJSJ of G is a canonical Z-JSJ
+                                                                   e
+tree of G, and has no flexible vertices.
+Proof. We first prove that TZe is universally Z-elliptic.
+                                               e          The collapsing
+used to get from TJSJ to TZe reduces the set of edge stabilisers, but does
+not add any new edge stabilisers, and so edge stabilisers of TZe are edge
+   JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS 13
+
+stabilisers of TJSJ . As TJSJ is universally Z-elliptic, its edge stabilisers
+are universally Z-elliptic, and hence the edge stabilisers of TZe are also
+universally Z-elliptic. As every Z-treee      is a Z-tree, and as TZe is a Z-tree,
+                                                                            e
+it follows that the edge stabilisers of TZe are universally Z-elliptic,
+                                                                   e               as
+claimed.
+   We now prove that vertex groups of non-elementary vertices of TZe
+are universally Z-elliptic,
+                   e           i.e. non-elementary vertices are rigid. So con-
+sider a Z-tree S, and let v be a non-elementary vertex of TZe . As TZe is
+           e
+constructed from TJSJ by collapsing stars of Z        e c elementary vertices to
+single points, the subgroup Gv acts on TJSJ so that there is a minimal
+                           (v)
+Gv -invariant subtree TJSJ with vertex (resp. edge) stabilisers which are
+themselves vertex (resp. edge) stabilisers in the action on G on TJSJ (as
+opposed to subgroups of vertex, resp. edge, stabilisers), and with an in-
+herited bipartite structure of elementary and non-elementary vertices.
+                                                                            (v)
+Therefore, all elementary vertex stabilisers in the action Gv ↷ TJSJ are
+in Ze c , and all non-elementary vertex stabilisers are universally elliptic
+(as they are rigid in the action of G on the JSJ tree TJSJ ). Suppose
+                                                                        (v)
+Gvi is a non-elementary vertex group of the action Gv ↷ TJSJ . Then
+Gvi is universally elliptic, and hence universally Z-elliptic,
+                                                            e          and so el-
+liptic in the Z-tree S. Suppose Gvi is an elementary vertex group of
+                 e
+                       (v)
+the action Gv ↷ TJSJ . Now let ej be an edge with ι(ej ) = vi . As TJSJ
+is universally elliptic, and as Gej is an edge stabiliser of TJSJ , we have
+that Gej is elliptic in S, i.e. fixes a point of S. As Gvi is cyclic with
+generator x such that xn fixes a point of S for some n ⩾ 1 (specifically,
+Gej = ⟨xn ⟩), we have that Gvi is elliptic in S [Ser03, Proposition 25].
+As S is a Z-tree
+             e       but Gvi is not a Z  e subgroup, Gv in fact fixes a unique
+                                                          i
+                                                                                  (v)
+vertex of S. Therefore, every vertex group Gvi in the action Gv ↷ TJSJ
+fixes a vertex of S. On the other hand, none of these groups Gvi are
+in Z,
+    e but S is a Z-tree,
+                      e         so no vertex group Gvi fixes an edge of S.
+Now suppose Gvi and Gvj are adjacent vertices in the graph of groups
+                                                              (v)
+decomposition of Gv corresponding to its action on TJSJ . Then Gvi and
+Gvj fix vertices wi , wj of S respectively, and the intersection Gvi ∩ Gvj
+fixes the geodesic [wi , wj ]. However, as one of Gvi or Gvj is in Z        e c , we
+have that Gvi ∩ Gvj is in Z    e c , and hence is not an edge stabiliser of the
+Z-tree
+e         S. It follows that wi = wj , and inductively we see that each Gvi
+fixes the same point of S, and hence Gv is elliptic in S as required.
+   Finally, we prove that TZe dominates every other universally Z-elliptic
+                                                                         e
+tree S. The collapsing used to get from TJSJ to TZe reduces the set of
+14         GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+elementary vertex groups, but does not add any new elementary vertex
+groups, and so elementary vertex groups of TZe are elementary vertex
+groups of TJSJ . As S is a Z-tree,
+                            e       it is a Z-tree, and so is dominated
+by TJSJ . Therefore, the elementary vertex groups of TJSJ are elliptic in
+S, and hence the elementary vertex groups of TZe are also elliptic in S.
+For non-elementary vertices, note that their stabilisers are rigid, and
+so are elliptic in every Z-tree,
+                         e       and hence are elliptic in S. It follows
+that TZe dominates S, as required.                                     □
+
+The Zmax -fold of TZe . We now define the Zmax -fold of TZe , written
+TZmax , which is the tree we require for the rest of this paper; under
+our assumptions, it is a canonical Zmax -JSJ tree and has no flexible
+vertices.
+   Given two distinct edges e1 , e2 of a tree S such that ι(e1 ) = ι(e2 ), we
+can fold these edges together by identifying τ (e1 ) with τ (e2 ), e1 with e2 ,
+and the reverse edge e1 with e2 , and we obtain a new tree S/[e1 = e2 ].
+If G acts on S and E ⊂ E(S) is some set of edges of S with the same
+initial vertex then an orbit-fold of the edges E is the tree S/[G ↷ E]
+obtained by folding together all the edges in g · E for every g ∈ G. This
+ensures that G acts on the new tree S/[G ↷ E].
+   Let TZe′ be the quotient of TZe by the smallest equivalence relation such
+that, for all edges e of TZe and all h ∈ Ĝe , we have h · e ∼ e. We shall
+use a constructive definition of TZe′ , which is equivalent [GL17, Proof
+of Lemma 9.27] (see also [DG11, Section 4.3]). The tree TZe′ is the G-
+tree constructed from TZe by iteratively orbit-folding together edges as
+follows: Let e be an edge such that Ge ̸= Ĝe . If one of the endpoints
+of e is fixed by Ĝe , then orbit-fold together the set of edges in the
+Ĝe -orbit of e. If not, then as Ĝe is cyclic with generator x, say, such
+that xn fixes an edge for some n ⩾ 1 (specifically, Ge = ⟨xn ⟩), we have
+that the subtree Fix(Ĝe ) fixed by Ĝe is non-empty [Ser03, Proposition
+25]. Let e′ be the first edge in the shortest path joining Fix(Ĝe ) to e,
+so ι(e′ ) ∈ Fix(Ĝe ) but τ (e′ ) ̸∈ Fix(Ĝe ). Then orbit-fold together the
+set of edges in the Ĝe′ -orbit of e′ . The first description of TZe′ gives us
+that, because TZe is canonical, the tree TZe′ is canonical. The second
+description of TZe′ gives us that the edge stabilisers of TZe′ are contained
+in the set {Ĝe | e ∈ E(TZe )}, i.e. are Zmax -subgroups which contain an
+edge stabiliser of TZe , and so TZe′ is a Zmax -tree. The Zmax -fold of TZe ,
+written TZmax , is the minimal G-invariant subtree of TZe′ ; this tree is
+again both canonical and a Zmax -tree.
+  JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS 15
+
+Lemma 2.2. Let G be a finitely generated one-ended CSAQ group
+whose JSJ trees have no flexible vertices. Then the Zmax -fold TZmax
+of TZe is a canonical Zmax -JSJ tree of G, and has no flexible vertices.
+Proof. We first prove that TZmax is universally Zmax -elliptic. Recall
+that edge stabilisers of TZe′ , and hence of TZmax , are contained in the set
+{Ĝe | e ∈ E(TZe )}. So, let Gf be an edge stabiliser of TZmax , so Gf = Ĝe
+for some e ∈ E(TZe ), and let S be an arbitrary Zmax -tree of G. Note
+that S is also a Z-tree
+                      e     of G, as Zmax subgroups are also Z. e As Te is
+                                                                         Z
+universally Z-elliptic,
+                e          Ge is universally Z-elliptic,
+                                              e          and hence Ge fixes
+some point p of S. As S is a Zmax -tree, and as Ĝe is the unique Zmax -
+subgroup of G containing Ge , it follows that Ĝe also fixes the point p
+of S. As the edge f ∈ E(TZmax ) and the Zmax -tree S were arbitrary, we
+have that TZmax is universally Zmax -elliptic, as claimed.
+   We now prove that vertex groups of non-elementary vertices of TZmax
+are elliptic in every Zmax -tree S, i.e. non-elementary vertices are rigid.
+As above, note that S is also a Z-tree
+                                    e      of G. Let v be a non-elementary
+vertex of TZmax . Then there exists a non-elementary vertex w in TZe and
+edges f1 , . . . , fm adjacent to w such that Gv has stabiliser a multiple
+amalgam Gv = Gw (∗Gfi Ĝfi )m    i=1 [DG11, Lemma 4.10]. By Lemma 2.1,
+w is a rigid vertex of TZe , and so Gw is elliptic in the Z-tree
+                                                           e     S. Now, as
+S is a Zmax -tree, for each edge fi adjacent to w the subgroup Ĝfi must
+fix the same points as Gfi , and so as Gw is elliptic we also have that
+Gv is elliptic. As S is an arbitrary Zmax -tree, v is rigid as required.
+   Finally, we prove that TZmax dominates every other universally Zmax -
+elliptic tree S. Let v be a vertex of TZmax . Suppose v is elementary.
+Then any edge f ∈ E(TZmax ) adjacent to v satisfies Gf ⩽ Gv and
+Ĝf = Ĝv . Therefore, as Gf = Ĝf because TZmax is a Zmax -tree, we have
+that Gv = Gf . As TZmax is universally Zmax -elliptic, Gv = Gf is elliptic
+in every Zmax -tree, and hence in every universally Zmax -elliptic tree, as
+required for domination. Suppose v is non-elementary. Then v is rigid,
+and so is elliptic in every Zmax -tree, and hence in every universally
+Zmax -elliptic tree, as required for domination.                           □
+
+2.1.2. Uniqueness of deformation space. JSJ trees or Zmax -JSJ trees
+are not in general unique, but instead unique up to certain moves.
+More formally: The deformation space of a tree T is the set of trees T ′
+such that T dominates T ′ and T ′ dominates T . Equivalently, two trees
+are in the same deformation space if and only if they have the same
+elliptic subgroups. Elements of a deformation space are connected by
+moves of a certain type [GL17, Remark 2.13] [CF09, Theorem 1.1].
+16        GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+Therefore, the following says that Zmax -JSJ decompositions of a CSAQ
+group are unique, up to the moves cited above. The proof is clear
+because, by the definition of Zmax -JSJ trees, they pairwise dominate
+one another and so all lie in the same deformation space.
+
+Proposition 2.3. Let G be a finitely generated one-ended CSAQ group.
+If G has a Zmax -JSJ tree, then all Zmax -JSJ trees of G lie in the same
+deformation space DZmax .
+
+2.2. Two-generated groups. We now apply the above results and
+discussions to the Zmax -JSJ decompositions of one-ended two-generator
+CSAQ groups. In particular, we prove both existence and uniqueness of
+Zmax -JSJ decomposition for these groups, and classify their structure
+(see Proposition 2.7). This lets us define, in Convention 2.8, the Zmax -
+JSJ decomposition of a one-ended two-generator CSAQ group, and of a
+two-generator one-relator group with torsion. Theorem 2.9 then allows
+us to readily determine if a given splitting is, in fact, the Zmax -JSJ
+decomposition of such a CSAQ group.
+
+Existence. We prove existence of Zmax -JSJ decompositions by apply-
+ing Lemma 2.2 to the following lemma. The proof of the lemma uses
+the canonical JSJ tree T of G [GL17, Theorem 9.5] which we previously
+used in the proof of Lemma 2.2. However, here we have no restriction
+on flexible vertices so our description changes slightly: The canonical
+JSJ tree T is a bipartite tree with vertex set V0 (T )⊔V1 (T ), where V0 (T )
+consists of rigid and flexible vertices, and V1 (T ) consists of elementary
+vertices.
+
+Lemma 2.4. Let G be a one-ended two-generator CSAQ group. Then
+no JSJ tree of G has a flexible vertex.
+
+Proof. As G is CSAQ , it has a (canonical) JSJ tree T [GL17, Theorem
+9.5]. This tree can be altered to give a new tree T c which has no
+elementary vertices: on the level of T /G, for each elementary vertex
+v pick an incident edge e and collapse the subgraph (v, e, τ (e)) to a
+point. The quotient graph T c /G either consists of a single vertex and
+no edges, or a single vertex and a single loop edge [GKL21, Corollary
+8.6].
+   Then by reversing the above moves, and using the bipartite structure
+of T , we have that T /G consists of a single non-elementary vertex v,
+possibly an elementary vertex u with incident edges e, f each connected
+to v (this corresponds to the loop edge), and possibly some elementary
+vertices of degree one each connected to v.
+  JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS 17
+
+   It follows that the vertex group Gv is one-ended and two-generated
+[GKL21, Propositions 8.1 and 8.3] (we apply one of these citations
+for each elementary vertex). Suppose v is flexible. Then Gv is the
+fundamental group of a compact surface [GL17, Theorem 9.5]. It fol-
+lows that Gv must contain Z2 (for example because such groups are
+Fuchsian and by applying the classification of two-generated Fuchsian
+groups [Ros86, Lemma 1]), which contradicts G being CSAQ . There-
+fore, T does not have a flexible vertex.
+   The result now follows as, by Proposition 2.3, any JSJ-tree has the
+same elliptic subgroups as T , so has a flexible vertex if and only if T
+has a flexible vertex.                                                 □
+  We now summarise what we know so far, whilst replacing the Zmax
+notation with the Zmax notation. For torsion-free hyperbolic groups,
+the first paragraph of this proposition is standard, while the second is
+due to Kapovich and Weidmann [KW99a, Proof of Theorem 3.11].
+Proposition 2.5. Let G be a one-ended two-generator CSAQ group.
+Then G has a canonical Zmax -JSJ tree TZmax , and all Zmax -JSJ trees
+of G lie in the same deformation space DZmax .
+   Moreover, no Zmax -JSJ tree of G has a flexible vertex.
+Proof. By Lemma 2.4, we can apply Lemma 2.2 to get a canonical
+Zmax -JSJ tree TZmax for G, and this tree has no flexible vertices. The
+result then follows by Proposition 2.3, and because one Zmax -JSJ tree
+has a flexible vertex if and only if they all have a flexible vertex. □
+
+Uniqueness and structure. We therefore have a unique deforma-
+tion space of Zmax -JSJ trees, but we wish to strengthen this to obtain
+uniqueness of trees. To do this, we require an additional property.
+   An essential Zmax -tree is a Zmax -tree such that no edge group has fi-
+nite index in an adjacent vertex group, while an essential Zmax -splitting
+of a group is a corresponding graph of groups decomposition. We de-
+fine essential Z-trees and essential Z-splittings analogously, for Z-trees.
+We now prove Proposition 2.7, which says that essential Zmax -trees are
+unique for our groups. Note that a Zmax -JSJ decomposition with no
+elementary vertices is an essential Zmax -splitting.
+   The following says that (up to conjugation), there is a single essential
+Zmax -tree of G, and that this is a Zmax -JSJ tree of G. This uniqueness is
+unusual, and is obtained by a result of Levitt on reduced trees, which
+are trees S where if an edge e has the same stabiliser as one of its
+endpoints, then both endpoints of e are in the same G-orbit of S, i.e.
+e projects onto a loop in the quotient graph S/G [Lev05b, Theorem 1]
+18          GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+(see also [DG11, Theorem 5.13] for hyperbolic groups). If G contains
+no Z2 subgroups (e.g. is a hyperbolic or CSAQ group), a Zmax -tree S
+of G is reduced if and only if it is essential; an essential tree has no
+elementary vertices so is necessarily reduced, while if S is a reduced
+non-essential Zmax -tree then T /G contains a loop edge with endpoints
+an elementary vertex, which by maximality of the edge groups gives a
+Z2 subgroup of G.
+   We now give the specific form of Levitt’s result we will use, which
+assumes malnormal edge stabilisers; this assumption holds for CSAQ
+groups, and for one-relator groups with torsion. A G-tree T is rigid if
+it is the unique reduced tree in its deformation space.
+Lemma 2.6. Suppose T is a reduced G-tree such that the quotient
+graph T /G consists of a single vertex with a single loop edge. Sup-
+pose moreover G is not an ascending HNN-extension, and that edge
+stablisers are malnormal in G. Then T is rigid.
+Proof. Suppose that g ∈ G fixes a two-edge path p = (v0 , e, v1 , f, v2 ) of
+T . Then g ∈ Ge ∩ Gf . Assume that g is non-trivial. As T /G has only
+one edge, there exists an element x ∈ G which takes f to either e or
+the reverse edge e. Observing that Ge = Ge yields
+                          Ge = Gxf = x−1 Gf x,
+and so g ∈ Gf ∩ x−1 Gf x. By malnormality of edge stabilisers, we have
+that x ∈ Gf , and so f = e. As p is assumed to be a reduced path, this
+is a contradiction. Therefore, we conclude that no non-trivial element
+g ∈ G fixes a reduced two-edge path p of T .
+   Let v be a vertex of T and e, f be edges with ι(e) = v = ι(f ). By
+the above paragraph, Ge ∩ Gf is trivial. Therefore, for all v ∈ V (T ),
+there are no edges e, f ∈ E(T ) such that ι(e) = v = ι(f ) and Ge ⩽ Gf ,
+and so T is rigid [Lev05b, Theorem 1].                               □
+     We are now able to prove our main uniqueness result:
+Proposition 2.7. Let G be a one-ended two-generator CSAQ group,
+or a one-ended two-generator one-relator group with torsion which is
+not isomorphic to ⟨a, b | [a, b]n ⟩ for any n > 1.
+  If G has an essential Zmax -tree T which contains at least one edge,
+then this tree is unique and is a Zmax -JSJ tree of G. The Zmax -JSJ
+decomposition T /G consists of a single rigid vertex with a single loop
+edge.
+Proof. Let T be as in the statement. If G is a one-relator group with
+torsion then every Zmax -subgroup is infinite cyclic [KS71, Č71], and so
+every edge group of T is infinite cyclic. Recall from Proposition 2.5 that
+  JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS 19
+
+if G is a CSAQ group then no Zmax -JSJ tree of G has a flexible vertex.
+The same is true if G is a one-relator group with torsion, as here Out(G)
+is virtually-Z [Log16b, Theorem A], but if T has a flexible vertex then
+there exists a Z-tree T ′ such that the quotient graph T ′ /G has two
+edges, and so Out(G) contains a Z2 subgroup [Lev05a, Proposition
+3.1.], and so is not virtually cyclic, a contradiction.
+   We first prove that T /G consists of a single vertex v and a single loop
+edge. If G is a CSAQ group then this is known [GKL21, Corollary 8.6],
+so suppose G is a two-generator one-relator groups with torsion. Here,
+Out(G) is virtually-Z [Log16b, Theorem A], and as noted above every
+Zmax -splitting is a Z-splitting. If T /G contains more than one edge then
+Out(G) is not virtually-Z [Lev05a, Proposition 3.1.], a contradiction.
+Hence, T /G contains at most one edge. If it contained more than one
+vertex then G would decompose as H ∗c K with C ∼       = Z and H, K ̸∼= Z,
+but this is not possible, as explained in the third paragraph of the proof
+of Lemma 5.1 of [Log16b]. Hence, T /G consists of a single rigid vertex
+with a single loop edge.
+   Recall from the preamble that T is reduced. As T is a Zmax tree,
+edge stabilisers are malnormal, and so by Lemma 2.6 T is rigid. As
+T was an arbitrary essential Zmax tree, we further have that T is the
+unique essential tree in its deformation space.
+   We now prove that the tree T is a Zmax -JSJ tree. Let TZmax be the
+canonical Zmax -JSJ tree guaranteed to exist either by Proposition 2.5,
+if G is CSAQ , or by existing theory otherwise [GL17, Proposition 9.30].
+As every vertex of T is rigid, every vertex stabiliser Gv , v ∈ V (T ),
+is universally Zmax -elliptic, and hence elliptic in TZmax . Therefore, T
+dominates TZmax . As TZmax dominates every universally Zmax -elliptic
+tree, it follows that T also dominates every universally Zmax -elliptic
+tree. To see that T is a universally Zmax -elliptic tree, consider again
+the tree TZmax . As this is a Zmax -tree, if e is an edge incident to an
+elementary vertex v of TZmax then Ge = Gv . Therefore, we can slide an
+orbit of elementary vertices of TZmax into an orbit of adjacent vertices
+(so on the level of TZmax /G, slide a single elementary vertex into an
+adjacent vertex), and the resulting tree is still a Zmax -JSJ tree of G,
+and has the same non-elementary vertex stabilisers as TZmax . As there
+are finitely many orbits of elementary vertices of TZmax , this process
+terminates at an essential Zmax tree S (essential as it has no elemen-
+tary vertices). As TZmax is universally Zmax -elliptic and as S has vertex
+stabilisers precisely the non-elementary vertex stabilisers of TZmax , we
+have that S is also universally Zmax -elliptic. There are then two op-
+tions: either S/G consists of a single rigid vertex, or S/G contains at
+least one edge. If S/G consists of a single rigid vertex then the whole
+20        GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+group G is elliptic in every Zmax -splitting of G, and therefore G has no
+Zmax -splittings, contradicting the existence of the Zmax -tree T which
+has an edge. Therefore, S contains an edge, so is as in the statement,
+and so by the above S/G consists of a single rigid vertex and a single
+loop edge. As S is universally-Zmax elliptic, it is elliptic with respect
+to T , and so there exists a tree Ŝ (called a “standard refinement” of
+S [GL17, Definition 2.5]) such that every edge stabilizer of T contains
+an edge stabilizer of Ŝ [GL17, Proposition 2.2.(iii)], and moreover this
+tree is itself a Zmax -tree [GL17, Discussion following Definition 9.25].
+These facts combine to give us that every edge stabilizer of T is an
+edge stabilizer of Ŝ. Now, the tree S can be obtained from Ŝ by col-
+lapsing certain edges to points [GL17, Proposition 2.2.1]. This means
+that the vertex groups of S have graph-of-groups decompositions com-
+ing from their actions on Ŝ, but as the only vertex in S/G is rigid,
+these decompositions must be trivial. Since every vertex group of S is
+contained in some vertex group of T , we see that the edges collapsed in
+this procedure have necessarily the same stabilisers as at least one of
+their endpoints, and so the collapsing does not change the set of edge
+stabilisers. It follows that edge stabilisers of Ŝ correspond precisely
+to edge stabilisers of S. Therefore, every edge stabilizer of T is an
+edge stabilizer of S. As S is universally Zmax -elliptic, T is universally
+Zmax -elliptic. Hence, T is a Zmax -JSJ tree, as required
+   The result now follows, as Zmax -JSJ trees always lie in the same
+deformation space (as they dominate one another).                       □
+
+
+  Fuchsian groups are treated differently in the theory of JSJ decom-
+positions. For example, Bowditch excludes these groups from his main
+theorem [Bow98, Theorem 0.1]. These groups play a minor role in
+this article (the only Fuchsian groups we consider are ⟨a, b | [a, b]n ⟩ for
+n > 1), and it is easiest if, similarly to Bowditch, we simply define the
+Zmax -JSJ decomposition of such groups to be trivial.
+
+Convention 2.8. Let G be a one-ended two-generator CSAQ group,
+or a one-ended two-generator one-relator group with torsion. If G is
+isomorphic to ⟨a, b | [a, b]n ⟩ for n > 1, then “the Zmax -JSJ decompo-
+sition of G” is the graph of groups consisting a single vertex and no
+edges. Otherwise, “the Zmax -JSJ decomposition of G” is a Zmax -JSJ
+decomposition with no elementary vertices; by Proposition 2.7 this is
+unique (up to conjugation).
+   Such a group G has trivial Zmax -JSJ decomposition if its Zmax -JSJ
+decomposition (as above) consists of a single vertex and no edges.
+  JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS 21
+
+
+
+Spotting Zmax -JSJ decompositions. Our next result is only for
+CSAQ groups; the analogous result for one-relator groups with torsion
+has a stronger statement bespoke for one-relator groups, so we post-
+pone it until the next section. These results give conditions which are
+equivalent to one of our groups having non-trivial Zmax -JSJ decompo-
+sition, and these conditions work well with algorithms. In particular,
+algorithms can easily detect Conditions (2) and (3) of the following
+theorem, and hence can detect a non-trivial Zmax -JSJ decomposition,
+while crucially Condition (4) says that Condition (3) actually finds,
+rather than just detects, the Zmax -JSJ decomposition of G.
+Theorem 2.9. Let G be a one-ended two-generator CSAQ group with
+Z2 abelianisation. The following are equivalent.
+   (1) G has non-trivial Zmax -JSJ decomposition.
+   (2) G has an essential Z-splitting.
+   (3) G admits a presentation ⟨a, b | t(a, b−1 ab)⟩ for some subset
+       t(a, y) ⊂ F (a, y).
+   (4) G has Zmax -JSJ decomposition with a single rigid vertex and a
+       single loop edge, corresponding to an HNN-extension with stable
+       letter b:
+                       ⟨a, y, b | t(a, y), y = b−1 ab⟩
+       for some subset t(a, y) ⊂ F (a, y).
+Moreover, the presentations in (3) and (4) are related in the obvious
+way, so in each presentation the letters a, b represent the same group
+elements of G and the subsets t(a, y) are the same subsets of F (a, y).
+Proof. We first prove the chain of implications (4) ⇒ (2) ⇒ (1) ⇒ (4).
+(4) ⇒ (2) The splitting given by (4) is a Z-splitting, and is essential as
+the base group H = ⟨a, y⟩ of the HNN-extension is not virtually-cyclic
+as it is one-ended [GKL21, Proposition 8.3].
+(2) ⇒ (1) If G has an essential Z-splitting then G is not universally
+Zmax -elliptic, i.e. the Zmax -JSJ decomposition of G does not consist of
+a single rigid vertex with no edges. By Proposition 2.5, the Zmax -JSJ
+decomposition of G does not consist of a single flexible vertex with
+no edges. Thus, the Zmax -JSJ decomposition of G has an edge, as
+required.
+(1) ⇒ (4) By Proposition 2.7, the Zmax -JSJ decomposition of G consists
+of a single rigid vertex v and a single loop edge e, as claimed. This
+corresponds to an HNN-extension ⟨H, t | t−1 pn t = q m ⟩ where ⟨p⟩ and
+⟨q⟩ are maximal cyclic in G. As this is a Zmax -JSJ decomposition
+22          GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+we have |m| = |n| = 1, so without loss of generality we may assume
+m = n = 1. Now, there exists some h ∈ H such that G = ⟨th, p⟩
+and H = ⟨p, h−1 qh⟩ [GKL21, Proposition 8.3], and so by taking a = p,
+b = th and y = h−1 qh we obtain the following presentation for G, as
+an HNN-extension with stable letter b:
+                        ⟨a, y, b | t(a, y), y = b−1 ab⟩
+This still corresponds to the Zmax -JSJ decomposition of G as the Bass–
+Serre tree is the same for the two HNN-extensions, and this tree is
+precisely the Zmax -JSJ tree. Hence, (4) holds.
+     Finally we prove (4) ⇔ (3).
+(3) ⇒ (4) First, apply the Tietze transformation corresponding to
+adding the new generator y as b−1 ab to get from the presentation in
+(3) to the presentation in (4):
+            ⟨a, b | t(a, b−1 ab)⟩ ∼
+                                  = ⟨a, y, b | t(a, y), y = b−1 ab⟩.
+As G has Z2 abelianisation, both the subgroups ⟨a⟩ and ⟨y⟩ are maximal
+infinite cyclic subgroups of G. Therefore, the resulting presentation
+describes an HNN-extension, with base group H = ⟨a, y | t(a, y)⟩ and
+stable letter b, as claimed. Now, this HNN-extension corresponds to
+some essential Z-splitting, because H is one-ended as G is one-ended
+[GKL21, Proposition 8.3], and so by Proposition 2.7 the vertex is rigid
+and this splitting is in fact the Zmax -JSJ decomposition of G. Hence,
+(4) holds.
+(4) ⇒ (3) This is obvious, by reversing the Tietze transformation from
+the above equivalence.                                               □
+
+               3. One-relator groups with torsion
+   Recall that a one relator group with torsion is a group given by a
+presentation ⟨x | S n ⟩ where n > 1; such groups are always hyper-
+bolic, and so when they are one-ended we can discuss their Zmax -JSJ
+decompositions.
+   In this section we prove Theorem B; we also prove a result about
+the automorphic orbits of elements in the subgroup ⟨a, b−1 ab⟩ which is
+used in the proofs of both Theorems A and B.
+   Zmax -JSJ decompositions are only defined for one-ended groups and
+Fuchsian groups must be treated with care in JSJ theory (see Conven-
+tion 2.8 and the discussion preceding it). The following classification
+of when two-generator one-relator groups are one-ended and are Fuch-
+sian is therefore useful. Recall that a primitive element of F (a, b) is
+   JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS 23
+
+an element which is part of a basis for F (a, b). We say a free product
+A ∗ B is trivial if either A or B is trivial, and is non-trivial otherwise.
+Proposition 3.1. The group defined by ⟨a, b | S n ⟩, n ≥ 1 maximal, is:
+  (1) one-ended if and only if S is non-primitive and non-trivial.
+  (2) one-ended and Fuchsian if and only if n > 1 and S is conjugate
+      to [a, b]±1 .
+Proof. Let G = ⟨a, b | S n ⟩, n ≥ 1 maximal.
+   For (1), if S is trivial then G is free and so not one-ended, while if
+S is primitive then G ∼    = ⟨a, b | an ⟩, so G is either two-ended (if n = 1)
+or infinitely ended (if n > 1). Hence, if G is one-ended then S is non-
+primitive and non-trivial. For the other direction, if S is non-primitive
+and non-trivial then the group G1 defined by ⟨a, b | S⟩ does not split
+non-trivially as a free product [LS77, Proposition II.5.13] and is not
+cyclic [LS77, Proposition II.5.11], but is torsion-free [LS77, Proposition
+II.5.18]. Hence, G1 is one-ended, and so also G is one-ended [Log16a,
+Lemma 3.2].
+   For (2), the group G is one-ended and Fuchsian if and only if n > 1
+and G ∼ = ⟨a, b | [a, b]n ⟩ [Ros86, Lemma 1], if and only if there exists an
+automorphism ϕ ∈ Aut(F (a, b)) such that ϕ(S n ) = [a, b]±n [Pri77], if
+and only if S is conjugate to [a, b]±1 [MKS04, Theorem 3.9], as required.
+                                                                            □
+   Next we prove the analogue of Theorem 2.9 for two-generator one-
+relator groups with torsion. The main differences is that the set t(a, y)
+is replaced with a single word T (a, y)n , and that Condition (3) gives
+information about this word. The restrictions on the word S in this
+theorem correspond precisely to G being one-ended and non-Fuchsian,
+by Proposition 3.1. In the theorem, the pair of letters (a, b) in (4) and
+(5) represent the same pair of group elements of G. However, the pair
+(a, b) from P are different, and are related to those in (4) and (5) via
+the map ψ.
+Theorem 3.2. Let G be a group admitting a two-generator one-relator
+presentation P = ⟨a, b | R⟩ where R = S n with n > 1 maximal and
+where S ∈ F (a, b) is non-trivial, non-primitive, and not conjugate to
+[a, b]±1 . The following are equivalent.
+     (1) G has non-trivial Zmax -JSJ decomposition.
+     (2) G has an essential Z-splitting.
+     (3) There exists an automorphism ψ ∈ Aut(F (a, b)) such that ψ(S) ∈
+          ⟨a, b−1 ab⟩.
+     (4) G admits a presentation ⟨a, b | T (a, b−1 ab)n ⟩ for some word
+          T ∈ F (a, y).
+24          GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+    (5) G has Zmax -JSJ decomposition with a single rigid vertex and a
+        single loop edge, corresponding to an HNN-extension with stable
+        letter b:
+                       ⟨a, y, b | T (a, y)n , y = b−1 ab⟩
+Moreover, the presentations in (4) and (5) are related in the obvious
+way, so in each presentation the letters a, b represent the same elements
+of G and the words T (a, y) are the same, and indeed may be taken to
+be such that T (a, b−1 ab) = ψ(S), with ψ as in (3).
+Proof. We start with (3) ⇔ (4).
+(3) ⇒ (4) It is a standard result in the theory of group presentations
+that ⟨a, b | S n ⟩ ∼
+                   = ⟨a, b | ψ(S n )⟩, so the result follows by taking T (a, y) ∈
+F (a, y) such that T (a, b−1 ab) = ψ(S).
+(4) ⇒ (3) This holds as the word S ′ := T (a, b−1 ab) ∈ ⟨a, b−1 ab⟩ is in
+the Aut(F (a, b))-orbit of S [Pri77], as required.
+     Finally we prove (5) ⇒ (1) ⇒ (2) ⇒ (4) ⇒ (5).
+(5) ⇒ (1) This is clear as the stated Zmax -JSJ decomposition is non-
+trivial.
+(1) ⇒ (2) This is immediate from the definitions (see Convention 2.8).
+(2) ⇒ (4) Suppose G has an essential Z-splitting. Then G has infinite
+outer automorphism group [Lev05a, Theorem 5.1], and so there exists
+S ′ ∈ ⟨a, b−1 ab⟩ such that G ∼
+                              = ⟨a, b | S ′ ⟩ [Log16b, Lemma 5.1]. Setting
+T (a, y) to be the word such that T (a, b−1 ab) = S ′ gives the result.
+(4) ⇒ (5) The group G has presentation
+         ⟨a, b | T (a, b−1 ab)n ⟩ ∼
+                                  = ⟨a, b, y | T (a, y)n , y = b−1 ab⟩
+which has the claimed form. This is an HNN-extension with base group
+H = ⟨a, y | T (a, y)n ⟩ and stable letter b as the subgroups ⟨a⟩ and ⟨y⟩
+of H are isomorphic, because a, and hence its conjugate y = b−1 ab,
+have infinite order in G by the B.B. Newman Spelling Theorem [LS77,
+Theorem IV.5.5]. Indeed, G has presentations ⟨a, b | T (a, b−1 ab)n ⟩ and
+⟨y, b | T (byb−1 , y)n ⟩, whence it follows that the subgroups ⟨a⟩ and ⟨y⟩
+are maximal cyclic subgroups of G [New73, Lemma 2.1].
+   Therefore, the HNN-extension describes a graph of groups decompo-
+sition Γ of G with a single vertex and a single loop edge, and where the
+edge groups are maximal cyclic in G. By Proposition 2.7, the vertex is
+rigid and Γ is the Zmax -JSJ decomposition of G, as required.           □
+  Before proving Theorem 3.4 (which corresponds to Theorem B) we
+need the following result about orbits of elements of ⟨a, b−1 ab⟩ under
+   JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS 25
+
+automorphisms of F (a, b). We also use this result in the proof of The-
+orem 5.4 (Theorems 3.4 and 5.4 combine to prove Theorem A). For a
+letter z ∈ z and a word W ∈ F (z), a z-syllable of W is a maximal
+subword of the form z i , i ̸= 0.
+Proposition 3.3. Let W ∈ ⟨a, b−1 ab⟩. Then there exists a cyclic shift
+W ′ of W such that W ′ has shortest length in its Aut(F (a, b))-orbit,
+and W ′ ∈ ⟨a, b−1 ab⟩.
+Proof. For a conjugacy class [U ] of an element U ∈ F (a, b), we write
+|[U ]| := min{|V | | V ∈ [U ]}. So |[U ]| is simply the length of U after
+cyclic reduction. Therefore, the proposition says in particular that for
+W ∈ ⟨a, b−1 ab⟩, there is no automorphism α ∈ Aut(F (a, b)) such that
+|[α(W )]| < |[W ]|. Clearly the result is true if [W ] contains some power
+of a. Therefore, assume that [W ] ∩ ⟨a⟩ = ∅, and suppose that there
+exists an automorphism α ∈ Aut(F (a, b)) such that |[α(W )]| < |[W ]|.
+We find a contradiction.
+   By the “peak reduction” lemma from Whitehead’s algorithm [LS77,
+Proposition I.4.20], there exists a Whitehead automorphism β of the
+second kind (so a Whitehead automorphism which is not a permutation
+of {a, b}±1 ) such that |[β(W )]| < |[W ]|. Writing γb ∈ Aut(F (a, b)) for
+conjugation by b, the only four such Whitehead automorphisms which
+do not fix [W ] are β1 : a 7→ ab, b 7→ b, β−1 : a 7→ ab−1 , b 7→ b, γb β1 , and
+γb β−1 .
+   We find a contradiction for the automorphisms β1 and β−1 ; the cases
+of γb β1 and γb β−1 follow immediately as [γb β1 (W )] = [β1 (W )] and
+[γb β−1 (W )] = [β−1 (W )]. Consider a cyclically reduced conjugate W ′ of
+W which begins with a or a−1 and ends with b. Then W ′ ∈ ⟨a, b−1 ab⟩,
+and we write this word as a reduced word U (a, b−1 ab). Let X, Y
+denote the total number of x-terms, y-terms respectively in U (x, y),
+and Syl(X), Syl(Y ) the total number of x-syllables, y-syllables respec-
+tively in U (x, y). Then |W ′ | = X + Y + 2 Syl(Y ). Now, [β1 (W ′ )] =
+[U (ba, ab)] and [β−1 (W ′ )] = [U (ab−1 , b−1 a)], and no free reduction or
+cyclic reduction happens when forming U (ba, ab) or U (ab−1 , b−1 a), and
+so |[β1 (W ′ )]| = 2X + 2Y = |[β−1 (W ′ )]|. Now, clearly Y ≥ Syl(Y ),
+while Syl(X) = Syl(Y ) as U (x, y) starts with an x-syllable and ends
+with a y-syllable, by our choice of W ′ , and so X ≥ Syl(Y ). Therefore,
+2X + 2Y ≥ X + Y + 2 Syl(Y ). However, by assumption 2X + 2Y <
+X + Y + 2 Syl(Y ), so we have our promised contradiction.                     □
+  We now prove Theorem B.
+Theorem 3.4 (Theorem B). Let G be a group admitting a two-generator
+one-relator presentation P = ⟨a, b | R⟩ where R = S n in F (a, b) with
+26        GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+n > 1 maximal and where S is non-trivial and not a primitive element
+of F (a, b). The following are equivalent.
+   (1) G has non-trivial Zmax -JSJ decomposition.
+   (2) There exists a word T of shortest length in the Aut(F (a, b))-
+        orbit of S such that T ∈ ⟨a, b−1 ab⟩ but T is not conjugate to
+        [a, b]±1 .
+Proof. Suppose (1) holds. Then G is not Fuchsian and so, by Propo-
+sition 3.1, S is not conjugate to [a, b]±1 . Then by Theorem 3.2 there
+exists an automorphism ψ ∈ Aut(F (a, b)) such that ψ(S) ∈ ⟨a, b−1 ab⟩.
+By Proposition 3.3, there exists a cyclic shift T of ψ(S) which has
+shortest length in its Aut(F (a, b))-orbit, and T ∈ ⟨a, b−1 ab⟩. Moreover,
+as S is not conjugate to [a, b]±1 , neither is T [MKS04, Theorem 3.9].
+Hence, the word T satisfies (2).
+   If (2) holds then (1) follows from Theorem 3.2.                      □
+        4. Splittings and Friedl–Tillmann polytopes
+  Theorem 2.9 gives a clear link between Zmax -JSJ decompositions
+and presentations of the form P ′ = ⟨x, y | t(x, y −1 xy)⟩ for subsets
+t(x, y −1 xy) of ⟨x, y −1 xy⟩. In this section we suppose that this JSJ-
+presentation P ′ for a group G is “close” to being one-relator (specifi-
+cally, the generating pair (x, y) also admits a one-relator presentation
+⟨x, y | S⟩), and we prove that the Friedl–Tillmann polytope of G is
+a straight line (Theorem 4.1), and hence that any one-relator presen-
+tation for G has this JSJ-form ⟨a, b | R0 (a, b−1 ab)⟩, up to a Nielsen
+transformation (Lemma 4.2).
+  In Section 5 we prove that Theorem 4.1 applies to CSAQ groups,
+and hence to torsion-free hyperbolic groups. The proof of Theorem 4.2
+reviews the notion of a Friedl–Tillmann polytope.
+Theorem 4.1. Let G be a torsion-free two-generator one-relator group
+with Z2 abelianisation, and let P = ⟨a, b | R⟩ be any one-relator pre-
+sentation of G. Suppose there exists a normal subgroup N of F (x, y)
+such that:
+   (1) F (x, y)/N ∼
+                  = G,
+   (2) N can be normally generated by a single element RN ∈ F (x, y),
+   (3) There exists a subset tN of ⟨x, y −1 xy⟩ such that tN normally
+        generates N .
+Then the Friedl–Tillmann polytope FT of P is a straight line.
+Proof. Let X denote the Cayley 2-complex associated to the one-relator
+presentation ⟨x, y | RN ⟩ of G. Since G is torsion-free, X is aspherical
+[Lyn50]. As G is finitely presentable, there exists a finite subset t′N
+   JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS 27
+
+of tN which also normally generates N . Therefore, G admits a finite
+presentation
+                         ⟨x, y | t′N (x, y −1 xy), RN ⟩,
+and let Y be the Cayley 2-complex of this presentation. Note that X
+is a subcomplex of Y . Moreover, since every relator r in t′N (x, y −1 xy)
+corresponds to a closed loop γr in X, we can form a 3-complex Z from
+Y by G-equivariantly gluing in 3-cells, one G orbit for each element
+in t′N (x, y −1 xy), in such a way that the boundary of the 3-cell is the
+union of two 2-discs glued along their boundary, where the first disc
+fills in the relator r in Y , and the second fills in the loop γr in X. It is
+clear that Z is a 3-dimensional cofinite G-complex which retracts onto
+X, and hence is aspherical.
+    We will now use Z, together with the fact that G satisfies the Atiyah
+conjecture [JZLA20] and that it is L2 -acyclic [DL07], and compute the
+L2 -torsion polytope P (2) (G) of G, as defined by Friedl–Lück [FL17].
+Note that, in general, P (2) is not necessarily a polytope, but a formal
+difference of two polytopes. Nevertheless, when G is a one-relator group
+then P (2) (G) coincides with the Friedl–Tillmann polytope by [FL17,
+Remark 5.5], and is a single polytope.
+    We start by looking at the cellular chain complex C• of Z. For every
+n, the n-chains Cn form a free ZG-module. We pick a natural cellular
+basis for C• , namely: the vertex 1 forms the basis for C0 ; the edges
+connecting 1 to y and x form the basis of C1 ; the discs filling-in RN
+in X and the relators from t′N (x, y −1 xy) in Y form the basis for C2 ;
+and finally the 3-cells attached to the basic discs filling-in relators from
+t′N (x, y −1 xy) form the basis of C3 .
+    We may now identify C• with
+                      ZGα → ZGα+1 → ZG2 → ZG
+where α = |t′N (x, y −1 xy)|.
+   Before proceeding any further, we need to deal with the special case
+                             ∂r
+in which the Fox derivatives ∂x are zero for all r ∈ t′N (x, y −1 xy). The
+fundamental formula of Fox calculus [Fox53] tells us that
+                   ∂r           ∂r
+                      (1 − x) +    (1 − y) = 1 − r = 0
+                   ∂x           ∂y
+               ∂r                            ∂r
+in ZG. Hence ∂y   (1 − y) = 0, which forces ∂y  = 0, as G satisfies the
+Atiyah conjecture and hence ZG has no non-trivial zero divisors. (A
+careful reader might observe that for this argument we need y ̸= 1 in
+G, which is true since otherwise the abelianisation of G would not be
+28        GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+Z2 .) In fact, we can conclude that ZG does not have non-trivial zero-
+divisors from an earlier work of Lewin–Lewin [LL78]. Now, since both
+Fox derivatives of r vanish, the 1-cycle corresponding to r is trivial.
+   Since RN lies in the normal closure of t′N (x, y −1 xy), the 1-cycle given
+by RN must also be trivial. Hence, the differential C2 → C1 is zero.
+We know that C• is L2 -acyclic. For torsion-free groups satisfying the
+Atiyah conjecture, like G, this amounts to saying that D(G) ⊗ZG C•
+is acyclic, where D(G) is the Linnell skew-field, a skew-field which
+contains ZG. In our case, if the differential C2 → C1 is trivial, then
+tensoring C• with D(G) yields the chain
+                                                      0
+               D(G)α −→ D(G)α+1 −→ D(G)2 −→ D(G)
+
+which cannot be acyclic for dimension reasons. This is a contradiction.
+   Let r ∈ t′N (x, y −1 xy) be such that the Fox derivative ∂x
+                                                            ∂r
+                                                               is not zero.
+Let d denote the 2-chain given by the disc filling-in r in Y ; note that
+d is a basis element of C2 . We now look at the commutative diagram
+with exact columns
+
+                    0                       /0                 /0                   /0
+
+
+                                                                               
+                    0                      / ⟨d⟩              / ZG2            / ZG
+
+                                                                    id                    id
+                                                                                   
+(†)            ZGα                       / ZGα+1              / ZG2            / ZG
+
+               id
+                                                                                   
+               ZG               α      / ZGα+1 /⟨d⟩            /0                   /0
+
+
+                                                                                   
+                    0                       /0                 /0                   /0
+
+
+where ⟨d⟩ denotes the ZG-span of d. Note that (†) is really a short
+exact sequence of chain complexes.
+  By assumption, the middle row of (†) is L2 -acyclic. We claim that
+so is the second row, which we will denote by B• . To prove the claim,
+we need to look at the chain complex B• in more detail:
+                                                                        
+                                       ∂r ∂r 
+                                                          
+                                                              1−y 
+                                       ∂y ∂x /                1−x
+                                ⟨d⟩            ZG2                           / ZG
+  JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS 29
+
+                                                          ∂r
+Since G is not cyclic, we have 1 − y ̸= 0; we also have ∂x   ̸= 0 by
+assumption. Now B• fits into the exact sequence of chain complexes
+                             0               /0        /0
+
+
+                                               (1−y) 
+                             0              / ZG      / ZG
+
+                                                            id
+                                                      
+(‡)                      ⟨d⟩                / ZG2    / ZG
+
+                        id
+                                    ∂r
+                                   ( ∂x )              
+                         ⟨d⟩                / ZG       /0
+
+
+                                                      
+                             0               /0        /0
+
+where the middle column represents the inclusion of the first coordinate
+into ZG2 and then the projection onto the second coordinate. Since
+both horizontal differentials labelled in the diagram are multiplications
+by non-zero elements of ZG, they are invertible over D(G), and hence
+the second and fourth rows of this commutative diagram are exact
+upon tensoring with D(G). By [FL17, Lemma 2.9], the middle row
+also becomes exact upon tensoring with D(G). This proves the claim.
+   We are now back to examining (†). We have just shown that the
+second row is L2 -acyclic, and hence [FL17, Lemma 2.9] tells us that so
+is the fourth row, and that
+                    P (2) (C• ) = P (2) (B• ) + P (2) (D• )
+where D• denotes the fourth row of (†). We can split P (2) (B• ) further
+using diagram (‡) and [FL17, Lemma 1.9], and obtain
+                                 P (2) (B• ) = P − Q
+where −P is the L2 -torsion polytope of
+                                             1−y
+                                    ZG −→ ZG
+and −Q of
+                                              ∂r
+                                        ∂x
+                                    ZG −→  ZG
+Now we need to recall how the polytope P (2) is actually constructed,
+at least in the above (simple) cases. When considering a chain complex
+of the form
+                                     z
+                               ZG −→ ZG
+30        GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+with z ∈ ZG∖{0}, the polytope is obtained by first taking the support
+supp(z) ⊆ G, then taking the image of this set in H1 (G; R), and then
+taking the convex hull. At the end the polytope is given a sign, negative
+in this situation, and in general depending on whether the single non-
+trivial differential starts in an even or an odd dimension.
+   With the construction in mind, it is now immediate that, since r is
+a word in x and y −1 xy, the polytope P is contained within the strip
+[−1, 0] × R. The polytope Q is obtained from 1 − y, and hence it is the
+segment [0, 1] × {0}.
+   Since D• is concentrated around a single differential from odd to
+even degree chains, P (2) (D• ) = −R where R is some polytope. Hence
+                   P (2) (G) = P (2) (C• ) = P − Q − R
+Since G is a one-relator group, P (2) (G) is actually a single polytope.
+Hence, in particular, P − Q must be a single polytope, and therefore
+it must lie on the line {−1} × R. Subtracting a further polytope from
+such a polytope does not alter this fact, and hence we have finished
+the proof.                                                            □
+  Next, we prove the converse to Theorem 4.1. This is applied to prove
+that (3) implies (2) in the proof of Theorem 5.4.
+Lemma 4.2. Let G be a group admitting a two-generator one-relator
+presentation P = ⟨a, b | R⟩ with R ∈ F (a, b)′ \ {1}. The Friedl–
+Tillmann polytope of P is a straight line if and only if there exists
+a word T of shortest length in the Aut(F (a, b))-orbit of R such that
+T ∈ ⟨a, b−1 ab⟩.
+Proof. Suppose that the Friedl–Tillmann polytope is a line. By apply-
+ing a suitable Nielsen automorphism, we may assume that G is given
+by the presentation ⟨x, y | S⟩ and that the polytope lies on the line
+{0} × R.
+   To construct the Friedl–Tillmann polytope, we first define an aux-
+iliary polytope P by tracing the closed loop the word S gives in the
+Cayley graph of the free part of the abelianisation of G taken with
+respect to the image of {x, y} as a generating set, and then taking the
+convex hull of the image of the loop in H1 (G; R). Then we observe
+that P has to be the Minkowski sum of another polytope, say P ′ , and
+the square [−1, 0] × [−1, 0]. The polytope P ′ is precisely the Friedl–
+Tillmann polytope. Note that the polytope is only well-defined up to
+translation, so it does not matter which square we choose. (When G
+is torsion-free, the polytope P ′ coincides with the L2 -torsion polytope
+constructed above.)
+  JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS 31
+
+   Now, we know that P ′ is a line, which forces P to lie inside the strip
+[−1, 0]×R. Hence, the loop given by S must also lie in this strip. Since
+S ∈ F (x, y)′ , it can be written as a product of right conjugates of x by
+powers of y. We now see that the only conjugates of x appearing can
+be x and y −1 xy. Therefore, there exists a word T ′ in the Aut(F (a, b))-
+orbit of R such that T ′ ∈ ⟨a, b−1 ab⟩, and so by Proposition 3.3 there
+exists a word T of shortest length in the Aut(F (a, b))-orbit of R with
+T ∈ ⟨a, b−1 ab⟩, as required.
+   Now suppose that there exists a word T of shortest length in the
+Aut(F (a, b))-orbit of R such that T ∈ ⟨a, b−1 ab⟩. Then we may assume
+that G is given by a presentation ⟨a, b | T ′ ⟩ with T ′ ∈ ⟨a, bab−1 ⟩. It
+follows that the loop given by T must lie inside the strip [−1, 0]×R, and
+so P also lies inside this strip. As P is the Minkowski sum of P ′ and
+the square [−1, 0] × [−1, 0], we see that P ′ is a straight segment.    □
+  If the polytope is a single point then the conditions on the relator
+are much stronger. We use this lemma in the proof of Theorem A.
+Lemma 4.3. Let G be a group admitting a two-generator one-relator
+presentation P = ⟨a, b | R⟩ with R ∈ F (a, b)′ \ {1}. The Friedl–
+Tillmann polytope of P is a point if and only if R is conjugate to [a, b]k
+for some k ∈ Z.
+Proof. Suppose the Friedl–Tillmann polytope P ′ of P is a point. As
+in the proof of Lemma 4.2, we may assume that G is given by the
+presentation ⟨x, y | S⟩ and that the polytope lies on the line {0} × R.
+As P ′ is a point, the polytope P is the square [0, 1] × [0, 1] (up to
+translation). This means precisely that S = [a, b]k for some non-zero
+k ∈ Z.
+  Now suppose that R is conjugate to [a, b]k for some k ∈ Z. Then we
+may assume that G is given by the presentation ⟨a, b | (aba−1 b−1 )k ⟩,
+and this presentation is easily seen to have Friedl–Tillmann polytope
+a point.                                                             □
+                       5. The main theorem
+   In this section we prove our main theorem, Theorem A. We require
+the results proven in Section 2, which were for CSAQ groups. These
+results are applicable to the BS-free one-relator groups of Theorem
+A as a torsion-free one-relator group is CSAQ if and only if it is BS-
+free [GKL21, Theorem B]. We start with a lemma which allows us to
+apply Theorem 4.1.
+Lemma 5.1. Let G be a torsion-free BS-free two-generator one-relator
+group with Z2 abelianisation. Suppose G admits an HNN-presentation
+32         GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+⟨H, t | t−1 pn t = q⟩ where p, q are nontrivial elements of H and the
+subgroups ⟨p⟩ and ⟨q⟩ are malnormal in H. Then there exist a normal
+subgroup N of F (x, y) such that:
+   (1) F (x, y)/N ∼= G,
+   (2) N can be normally generated by a single element RN ∈ F (x, y),
+   (3) There exists a finite subset tN of ⟨x, y −1 xy⟩ such that tN nor-
+        mally generates N .
+
+Proof. Suppose that G admits a one-relator presentation ⟨a, b | R⟩.
+   The subgroups ⟨p⟩ and ⟨q⟩ are “conjugacy separated” in H, that
+is, for every h ∈ H we have h−1 ⟨p⟩h ∩ ⟨q⟩ = 1. To see this, suppose
+otherwise, so h−1 pi h = q j for |i|, |j| > 0. It follows that h−1 pi h =
+t−1 pnj t, and as G is CSAQ we have that th−1 and p share a common
+power, a contradiction by Britton’s Lemma.
+   As ⟨p⟩ and ⟨q⟩ are conjugacy separated in H, there exists a Nielsen
+transformation ψ of F (a, b) and some g ∈ G such that ψ(a) =G g −1 pi g
+and ψ(b) =G g −1 thg for some i ∈ Z and some h ∈ H [KW99b, Corollary
+3.1]. Therefore, writing x := p and y := th, the pair (x, y) generates G.
+But also the pair (xi , y) generates G, and as G has abelianisation Z2 we
+have that |i| = 1. Note that as the generating pair (a, b) of G admits a
+one-relator presentation, and as ψ is a Nielsen transformation, we have
+that the pair (x, y) also admits a one-relator presentation ⟨x, y | RN ⟩.
+Hence, points (1) and (2) of the theorem hold for some subgroup N ≤
+F (x, y).
+   We now establish (3) for N ≤ F (x, y). Firstly, note that H =
+⟨p, h−1 qh⟩ by [GKL21, Proposition 8.3], and so H has presentation
+⟨x, z | s(x, z)⟩ where x := p (as above) and z := h−1 qh. Therefore,
+G has presentation ⟨x, z, t | s(x, z), t−1 xn t = w(x, z)zw(x, z)−1 ⟩ where
+w(x, z) represents the element h ∈ H. As remarked above the theorem,
+because G is finitely presentable we may assume for our purposes with
+G (but not H) that the set s(x, z) is finite. As y = th, we can apply
+Tietze transformations as follows, where the generators x and y corre-
+spond precisely to the generators x and y in the previous paragraph:
+
+     ⟨x, z, t | s(x, z), t−1 xn t = w(x, z)zw−1 (x, z)⟩
+      ∼
+      = ⟨x, y, z, t | s(x, z), t−1 xn t = w(x, z)zw−1 (x, z), y = tw(x, z)⟩
+     ∼
+     = ⟨x, y, z, t | s(x, z), y −1 xn y = z, y = tw(x, z)⟩
+     ∼
+     = ⟨x, y, z | s(x, z), y −1 xn y = z⟩
+     ∼
+     = ⟨x, y | s(x, y −1 xn y)⟩
+     ∼
+     = ⟨x, y | tN ⟩
+  JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS 33
+
+for some finite subset tN = s(x, y −1 xn y) of ⟨x, y −1 xy⟩. As the symbols
+x and y in this presentation of G and the one-relator presentation
+⟨x, y | RN ⟩ of G both represent the same elements of G, it follows that
+N is the normal closure of the set tN in F (x, y), as required.          □
+  Our next result is the torsion-free part of our main theorem. It is
+worth stating separately because it does not include the exceptional
+cases of points (2) and (3).
+Theorem 5.2. Let G be a torsion-free BS-free group admitting a two-
+generator one-relator presentation P = ⟨a, b | R⟩ with R ∈ F (a, b)′ \
+{1}. The following are equivalent.
+   (1) G has non-trivial Zmax -JSJ decomposition.
+   (2) There exists a word T of shortest length in the Aut(F (a, b))-
+       orbit of R such that T ∈ ⟨a, b−1 ab⟩.
+   (3) The Friedl–Tillmann polytope of P is a straight line.
+Proof. Note that G is one-ended by Proposition 3.1, and is a CSAQ
+group. Therefore, Theorem 2.9 is applicable.
+  Items (2) and (3) are equivalent by Lemma 4.2.
+(2) ⇒ (1) The word T gives a presentation for G:
+                    ⟨a, b | T ⟩ = ⟨a, b | T0 (a, b−1 ab)⟩.
+Then (1) follows by Theorem 2.9.
+(1) ⇒ (3) By Theorem 2.9 the conditions of Lemma 5.1 are satisfied,
+so we may apply Theorem 4.1, and (3) follows.                    □
+  We wish to combine Theorem 5.2 and Theorem B to prove Theorem
+A. However, if R = S n with n > 1 in Theorem A then we cannot
+immediately apply Theorem B, as this theorem deals with the root S
+rather than the relator R = S n . The following observation is therefore
+useful.
+Lemma 5.3. If n > 1 and S ∈ F (a, b), then S has shortest length
+in its Aut(F (a, b))-orbit if and only if S n has shortest length in its
+Aut(F (a, b))-orbit.
+Proof. Suppose that α, β ∈ Aut(F (a, b)) are such that α(S) and β(S n )
+are shortest-length in their respective Aut(F (a, b))-orbits. In particu-
+lar, they are both cyclically reduced and since β(S n ) = β(S)n is cycli-
+cally reduced if and only if β(S) is cyclically reduced, we see that
+|α(S)n | = n|α(S)| and |β(S)n | = n|β(S)|. Now by the shortest-length
+assumptions we have
+           |α(S n )| ≥ |β(S n )| = n|β(S)| ≥ n|α(S)| = |α(S n )|
+34          GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+so equality holds. The conclusion follows by taking α or β to be the
+identity as appropriate.                                          □
+     We now combine Theorem 5.2 and Theorem B to prove Theorem A.
+Theorem 5.4 (Theorem A). Let G be a BS-free group admitting a two-
+generator one-relator presentation P = ⟨a, b | R⟩ with R ∈ F (a, b)′ \
+{1}. The following are equivalent.
+   (1) G has non-trivial Zmax -JSJ decomposition.
+   (2) There exists a word T of shortest length in the Aut(F (a, b))-
+       orbit of R such that T ∈ ⟨a, b−1 ab⟩ but T is not conjugate to
+       [a, b]k for any k ∈ Z.
+   (3) The Friedl–Tillmann polytope of P is a straight line, but not a
+       single point.
+Proof. If there exists a word T in the Aut(F (a, b))-orbit of R which
+is conjugate to [a, b]k for some k ∈ Z, then G is either abelian (when
+|k| = 1) or contains torsion (when k > 1). Applying this to Lemma
+4.3, we also have that if P is a single point then G is either abelian or
+contains torsion. Therefore, if G is torsion-free then the result follows
+by Theorem 5.2.
+   Suppose G contains torsion, so R = S n in F (a, b) for some n > 1
+maximal.
+(2) ⇔ (3) This follows from Lemmas 4.2 and 4.3.
+(1) ⇒ (2) If G has non-trivial Zmax -JSJ decomposition then, by The-
+orem B, there exists a word T ′ of shortest length in the Aut(F (a, b))-
+orbit of S such that T ′ ∈ ⟨a, b−1 ab⟩ but T ′ is not conjugate to [a, b]±1 .
+Then the word T := (T ′ )n has shortest length in its Aut(F (a, b))-orbit,
+by Lemma 5.3, and hence in the Aut(F (a, b))-orbit of R, is contained
+in ⟨a, b−1 ab⟩, and is not conjugate to [a, b]±n (we are using uniqueness
+of roots in free groups here). As n is maximal, T is not conjugate to
+any other power of [a, b]±1 , and so (2) holds.
+(2) ⇒ (1) For T as in (2) , write ψ ∈ Aut(F (a, b)) for the automorphism
+such that ψ(R) = T , and set T ′ := ψ(S). Then T ′ has shortest length
+in the Aut(F (a, b))-orbit of S, by Lemma 5.3, is in ⟨a, b−1 ab⟩ and is
+not conjugate to [a, b]±1 . Therefore, by Theorem B, (1) holds.        □
+
+              6. Consequences of the main theorem
+     We now prove Corollaries C–G from the introduction
+
+Forms of Zmax -JSJ decompositions. We first prove Corollary C,
+which describes the Zmax -JSJ decompositions of our groups.
+  JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS 35
+
+Corollary 6.1 (Corollary C). Let the group G and the presentation
+P be as in Theorem A or B, and write R = S n for n ≥ 1 maximal.
+Suppose that G has non-trivial Zmax -JSJ decomposition Γ. Then the
+graph underlying Γ consists of a single rigid vertex and a single loop
+edge. Moreover, the corresponding HNN-extension has vertex group
+⟨a, y | T0n (a, y)⟩, stable letter b, and attaching map given by y = b−1 ab,
+where T0 (a, b−1 ab) is the word T from the respective theorem. Finally,
+|T0 | < |S|.
+Proof. By (2) of Theorem A or B, as appropriate, G admits a presen-
+tation of the form ⟨a, b | T0n (a, b−1 ab)⟩, n ≥ 1, where T0n (a, b−1 ab) and
+T n (a, b) are the same words. Hence, G has a presentation
+                      ⟨a, b, y | T0n (a, y), b−1 ab = y⟩,
+which is an HNN-extension with stable letter b, and corresponds to a
+graph of groups decomposition Γ as in the statement of the corollary.
+This decomposition corresponds to the Zmax -JSJ decomposition of G
+and has rigid vertex by Theorem 2.9, if G is as in Theorem A, and by
+Theorem 3.2 otherwise.
+  Finally, as T is not a power of a primitive we have that |T0 | < |T |,
+and so |T0 | < |T | ≤ |S|, as required.                              □
+
+Algorithmic consequences. We now prove Corollary D, on comput-
+ing Zmax -JSJ decompositions. Note that it is possible to calculate a
+precise bound for the time complexity of this algorithm, as the con-
+stants are known for the time complexity of Whitehead’s algorithm in
+F (a, b) [Kha04] [CR15, Theorem 1.1].
+Corollary 6.2 (Corollary D). There exists an algorithm with input a
+presentation P = ⟨a, b | R⟩ of a group G from Theorem A or B, and
+with output the Zmax -JSJ decomposition for G.
+  This algorithm terminates in O(|R|2 )-steps.
+Proof. Write R as S n with n ≥ 1 maximal. Write OS for the set of
+shortest elements in the Aut(F (a, b))-orbit of S.
+   Firstly, use Whitehead’s algorithm to compute the set OS ; this takes
+O(|S|2 ) ≤ O(|R|2 ) steps [Kha04]. Then compute T := OS ∩ ⟨a, b−1 ab⟩;
+Khan gave a linear bound on the cardinality of OS [Kha04] and we
+can (constructively) test membership of any fixed finitely generated
+subgroup of a free group in time linear in the length of the input word,
+so this takes O(|S|2 ) ≤ O(|R|2 ) steps. If the intersection T is empty
+then, by Theorem A or B as appropriate, the Zmax -JSJ decomposition
+of G is trivial. Therefore, output as the Zmax -JSJ decomposition of G
+36         GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+the graph of groups consisting of a single vertex, with vertex group G,
+and no edges.
+   If T is non-empty then take some T ∈ T . Rewrite this word T as
+a word T0 (a, b−1 ab); this takes O(|T |) ≤ O(|R|) steps. By Corollary
+C, the Zmax -JSJ decomposition of G is the graph of groups with a
+single vertex, a single loop edge, vertex group ⟨a, y | T0n (a, y)⟩ and
+the attaching map a = byb−1 , and so output this as the Zmax -JSJ
+decomposition of G.                                                   □
+
+  We next prove Corollary E, on detecting non-trivial Zmax -JSJ de-
+compositions.
+Corollary 6.3 (Corollary E). There exists an algorithm with input a
+presentation P = ⟨a, b | R⟩ of a group G from Theorem A, and with
+output yes if the group G has non-trivial Zmax -JSJ decomposition and
+no otherwise.
+  This algorithm terminates in O(|R|)-steps.
+Proof. We describe an algorithm to decide in O(|R|) steps whether
+or not the Friedl–Tillmann polytope is a line; the result then follows
+from Theorem A. We need to avoid computing the entire convex hull,
+because that cannot in general be done in linear time. Suppose that the
+Friedl–Tillmann polytope P is a line, namely from (x0 , y0 ) to (x1 , y1 )
+with x0 ≤ x1 . Then the Minkowski sum P ′ of P and [0, 1] × [0, 1] will
+be the convex hull of 6 points (with only 4 needed in the vertical or
+horizontal case). If y0 ≤ y1 , the points are (x0 + 1, y0 ), (x0 , y0 ), (x0 , y0 +
+1) in the bottom left corner and (x1 , y1 + 1), (x1 + 1, y1 + 1), (x1 + 1, y1 )
+in the top right corner, and the minimal bounding box (axis-parallel
+rectangle) has opposite corners (x0 , y0 ) and (x1 + 1, y1 + 1). If y0 > y1 ,
+the minimal bounding box instead has opposite corners (x0 , y0 + 1) and
+(x1 + 1, y1 )
+   The algorithm proceeds as follows. If necessary, we put the word
+into reduced form in linear time using a stack (for each letter, if it
+is inverse to the top of the stack then discard it and pop from the
+stack, else push it onto the stack). We then determine two candidate
+polytopes P0′ and P1′ , each on 6 points, by computing the minimal
+bounding box of (the convex hull of) the path γ by walking the path and
+keeping track of the minimal and maximal x and y coordinates visited,
+then applying the two possibilities for P ′ in terms of the bounding
+box discussed in the previous paragraph. It remains to check if the
+convex hull of γ is contained in and contains some candidate. For each
+candidate, we now walk the path again and check that we stay inside
+the polytope (a constant time check, as it is on 6 points) and visit the 6
+  JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS 37
+
+defining points. If either candidate matches, we have determined that
+the Friedl–Tillman polytope is a line, otherwise it is not.        □
+   Finally, we prove Corollary F, on determining the commensurability
+classes of outer automorphism groups. This result is only applicable
+to hyperbolic groups, as it relies on a connection between Zmax -JSJ
+decompositions and outer automorphism groups which is only known
+for hyperbolic groups.
+Corollary 6.4 (Corollary F). There exists an algorithm with input a
+presentation P = ⟨a, b | R⟩ of a hyperbolic group G from Theorem
+A or B that determines which one of the following three possibilities
+holds: the outer automorphism group of G is finite, is virtually Z, or
+is isomorphic to GL2 (Z).
+   If G is as in Theorem A, this algorithm terminates in O(|R|)-steps.
+Else, it terminates in O(|R|2 )-steps.
+Proof. If R is conjugate to [a, b]n for some n ∈ Z then Out(G) ∼      =
+GL2 (Z) [Log16b, Theorem A]. Else if G has non-trivial Zmax -JSJ de-
+composition then, by Theorems 2.9 and 3.2, G has an essential Z-
+splitting, and so Out(G) is virtually Z [Lev05a, Theorem 5.1]. Else,
+by Theorems 2.9 and 3.2, G admits no essential Z-splittings, and so
+Out(G) is finite [Lev05a, Theorem 5.1].
+   Our algorithm is therefore as follows: Firstly, determine whether
+R is conjugate to [a, b]n for some n ∈ Z; this takes O(|R|) steps. If
+it is, then Out(G) ∼ = GL2 (Z). Otherwise determine whether G has
+trivial Zmax JSJ decomposition; this takes O(|R|) steps if R ∈ F (a, b)′ ,
+by Corollary E, and otherwise takes O(|R|2 ) steps, by Corollary D. If
+G has non-trivial Zmax -JSJ decomposition Out(G) is virtually Z, else
+Out(G) is finite.                                                     □
+
+Relationships between outer automorphism groups. We now
+prove Corollary G, on embeddings of outer automorphism groups. As
+with the above, this requires the groups involved to be hyperbolic.
+Corollary 6.5 (Corollary G). Write Gk for the group defined by ⟨a, b |
+S k ⟩, where k ⩾ 1 is maximal. If S ∈ F (a, b)′ \ {1} and G1 is hyperbolic
+then:
+     (1) Out(Gm ) ∼
+                  = Out(Gn ) for all m, n > 1.
+     (2) Out(Gn ) embeds with finite index in Out(G1 ).
+Proof. We first prove (1). For k > 1, every automorphism ϕ of Gk
+is induced by a Nielsen transformation ϕt of F (a, b) [Pri77, Principal
+Lemma]. This gives a homomorphism θk : Hk ↠ Out(Gk ) for some
+38         GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+subgroup Hk of Out(F (a, b)). Now, such a map ϕt sends S to a con-
+jugate of S or of S −1 in F (a, b) [MKS04, Theorem N5], so the maps
+are dependent only on the word S, and independent of the exponent
+k in S k , and therefore Hm = Hn for all m, n > 1. Moreover, the
+maps θk are all isomorphisms [Log16b, Theorem 4.2], and so we have
+Out(Gm ) ∼ = Hm = Hn ∼   = Out(Gn ) as required.
+   For (2), as we observed in the previous paragraph, the automor-
+phisms of Gn depend solely on S and so we have a sequence of homo-
+                 θn             ξn
+morphisms Hn −→      Out(Gn ) −→ Out(G1 ) where θn is injective (it is an
+isomorphism in fact). Then ξn θn is injective, by an identical proof to
+the proof that θn is injective [Log16b, Lemma 4.4], and so ξn is injective.
+To see that im(ξn ) has finite index in Out(G1 ) note that because G1
+is hyperbolic, S is not conjugate to [a, b]±1 , and so G1 has non-trivial
+Zmax -JSJ decomposition if and only if Gn has non-trivial Zmax -JSJ de-
+composition by Theorems A and B. If both Zmax -JSJ decompositions
+are non-trivial then, by Corollary C, both Zmax -JSJ decomposition are
+essential Z-splittings consisting of a single rigid vertex with a single loop
+edge, and so both Out(G1 ) and Out(Gn ) are virtually Z [Lev05a, The-
+orem 5.1], and the result follows. If both Zmax -JSJ decompositions are
+trivial then both Out(G1 ) and Out(Gn ) are finite [Lev05a, Theorem
+5.1], and the result follows.                                               □
+
+   The above proof uses the fact that S ∈ F (a, b)′ in two places; firstly
+to prove that Out(Gn ) embeds in Out(G1 ) (which is hidden in the
+citation), and secondly to obtain finite index (by using Theorem A).
+If S ̸∈ F (a, b)′ then we can still ask if Out(Gn ) embeds in Out(G1 ).
+                                          n  θ              ξn
+Indeed, we still obtain a sequence Hn −→     Out(Gn ) −→ Out(G1 ), but
+here the proof that θn is injective does not extend to the map ξn θn
+[Log16b, Lemma 4.6] (as the proof uses the theory of one-relator groups
+with torsion, in the form of a strengthened version of the B.B. Newman
+Spelling Theorem). Therefore, we are currently unable to prove that
+Out(Gn ) embeds in Out(G1 ) in general.
+
+                                References
+[AG99] D. J. Allcock and S. M. Gersten, A homological characterization of hyper-
+      bolic groups, Invent. Math. 135 (1999), no. 3, 723–742. MR 1669272
+[Bar18] Benjamin Barrett, Computing JSJ decompositions of hyperbolic groups, J.
+      Topol. 11 (2018), no. 2, 527–558. MR 3828057
+[Bow98] Brian H. Bowditch, Cut points and canonical splittings of hyperbolic
+      groups, Acta Math. 180 (1998), no. 2, 145–186. MR 1638764
+[CF09] Matt Clay and Max Forester, Whitehead moves for G-trees, Bull. Lond.
+      Math. Soc. 41 (2009), no. 2, 205–212. MR 2496498
+   JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS 39
+
+[CL83] D.J. Collins and F. Levin, Automorphisms and Hopficity of certain
+      Baumslag-Solitar groups, Arch. Math. (Basel) 40 (1983), no. 5, 385–400.
+      MR 707725
+[CR15] Bobbe Cooper and Eric Rowland, Classification of automorphic conjugacy
+      classes in the free group on two generators, Algorithmic problems of group
+      theory, their complexity, and applications to cryptography, Contemp. Math.,
+      vol. 633, Amer. Math. Soc., Providence, RI, 2015, pp. 13–40. MR 3364219
+[DG08] François Dahmani and Daniel Groves, The isomorphism problem for toral
+      relatively hyperbolic groups, Publ. Math. Inst. Hautes Études Sci. (2008),
+      no. 107, 211–290. MR 2434694
+[DG11] François Dahmani and Vincent Guirardel, The isomorphism problem for
+      all hyperbolic groups, Geom. Funct. Anal. 21 (2011), no. 2, 223–300.
+      MR 2795509
+[DL07] Warren Dicks and Peter A. Linnell, L2 -Betti numbers of one-relator groups,
+      Math. Ann. 337 (2007), no. 4, 855–874. MR 2285740
+[DT19] François Dahmani and Nicholas Touikan, Deciding isomorphy using Dehn
+      fillings, the splitting case, Invent. Math. 215 (2019), no. 1, 81–169.
+      MR 3904450
+[FL17] Stefan Friedl and Wolfgang Lück, Universal L2 -torsion, polytopes and ap-
+      plications to 3-manifolds, Proc. Lond. Math. Soc. (3) 114 (2017), no. 6,
+      1114–1151. MR 3661347
+[Fox53] Ralph H. Fox, Free differential calculus. I. Derivation in the free group
+      ring, Ann. of Math. (2) 57 (1953), 547–560. MR 53938
+[FT20] Stefan Friedl and Stephan Tillmann, Two-generator one-relator groups and
+      marked polytopes, Ann. Inst. Fourier (Grenoble) 70 (2020), no. 2, 831–879.
+      MR 4105952
+[Ger92] S. M. Gersten, Problems on automatic groups, Algorithms and classification
+      in combinatorial group theory (Berkeley, CA, 1989), Math. Sci. Res. Inst.
+      Publ., vol. 23, Springer, New York, 1992, pp. 225–232. MR 1230636
+[GKL21] Giles Gardam, Dawid Kielak, and Alan D Logan, Algebraically hyperbolic
+      groups, Groups Geom. Dyn. (to appear), arXiv:2112.01331 (2021).
+[GL17] Vincent Guirardel and Gilbert Levitt, JSJ decompositions of groups,
+      Astérisque (2017), no. 395, vii+165. MR 3758992
+[HK20] Fabian Henneke and Dawid Kielak, The agrarian polytope of two-generator
+      one-relator groups, J. Lond. Math. Soc. (2) 102 (2020), no. 2, 722–748.
+      MR 4171432
+[JZL25] Andrei Jaikin-Zapirain and Marco Linton, On the coherence of one-relator
+      groups and their group algebras, Ann. of Math. (2) 201 (2025), no. 3, 909–
+      959. MR 4899802
+[JZLA20] Andrei Jaikin-Zapirain and Diego López-Álvarez, The strong Atiyah and
+      Lück approximation conjectures for one-relator groups, Math. Ann. 376
+      (2020), no. 3-4, 1741–1793. MR 4081128
+[Kha04] Bilal Khan, The structure of automorphic conjugacy in the free group of
+      rank two, Computational and experimental group theory, Contemp. Math.,
+      vol. 349, Amer. Math. Soc., Providence, RI, 2004, pp. 115–196. MR 2077762
+[KS71] A. Karrass and D. Solitar, Subgroups of HNN groups and groups with one
+      defining relation, Canadian J. Math. 23 (1971), 627–643. MR 301102
+40          GILES GARDAM, DAWID KIELAK, AND ALAN D. LOGAN
+
+[KW99a] Ilya Kapovich and Richard Weidmann, On the structure of two-generated
+      hyperbolic groups, Math. Z. 231 (1999), no. 4, 783–801. MR 1709496
+[KW99b]            , Two-generated groups acting on trees, Arch. Math. (Basel) 73
+      (1999), no. 3, 172–181. MR 1705011
+[Lev05a] Gilbert Levitt, Automorphisms of hyperbolic groups and graphs of groups,
+      Geom. Dedicata 114 (2005), 49–70. MR 2174093
+[Lev05b]          , Characterizing rigid simplicial actions on trees, Geometric meth-
+      ods in group theory, Contemp. Math., vol. 372, Amer. Math. Soc., Provi-
+      dence, RI, 2005, pp. 27–33. MR 2139674
+[Lin24] Marco        Linton,       Hyperbolic     one-relator      groups,      Cana-
+      dian     Journal       of    Mathematics       (2024),      published    online,
+      https://doi.org/10.4153/S0008414X24000427.
+[LL78] Jacques Lewin and Tekla Lewin, An embedding of the group algebra of a
+      torsion-free one-relator group in a field, J. Algebra 52 (1978), no. 1, 39–74.
+      MR 485972
+[Log16a] Alan D. Logan, The JSJ-decompositions of one-relator groups with tor-
+      sion, Geom. Dedicata 180 (2016), 171–185. MR 3451463
+[Log16b]          , The outer automorphism groups of two-generator, one-relator
+      groups with torsion, Proc. Amer. Math. Soc. 144 (2016), no. 10, 4135–4150.
+      MR 3531167
+[LS77] Roger C. Lyndon and Paul E. Schupp, Combinatorial group theory, Classics
+      in Mathematics, Springer-Verlag, Berlin, 1977, Reprint of the 1977 edition.
+      MR 1812024
+[LT17] Larsen Louder and Nicholas Touikan, Strong accessibility for finitely pre-
+      sented groups, Geom. Topol. 21 (2017), no. 3, 1805–1835. MR 3650082
+[LW20] Larsen Louder and Henry Wilton, One-relator groups with torsion are co-
+      herent, Math. Res. Lett. 27 (2020), no. 5, 1499–1512. MR 4216595
+[LW22]          , Negative immersions for one-relator groups, Duke Math. J. 171
+      (2022), no. 3, 547–594. MR 4382976
+[Lyn50] Roger C. Lyndon, Cohomology theory of groups with a single defining re-
+      lation, Ann. of Math. (2) 52 (1950), 650–665. MR 47046
+[Mag30] Wilhelm Magnus, Über diskontinuierliche Gruppen mit einer definierenden
+      Relation. (Der Freiheitssatz), J. Reine Angew. Math. 163 (1930), 141–165.
+      MR 1581238
+[Mag32]          , Das Identitätsproblem für Gruppen mit einer definierenden Rela-
+      tion, Math. Ann. 106 (1932), no. 1, 295–307. MR 1512760
+[MKS04] Wilhelm Magnus, Abraham Karrass, and Donald Solitar, Combinatorial
+      group theory, second ed., Dover Publications, Inc., Mineola, NY, 2004, Pre-
+      sentations of groups in terms of generators and relations. MR 2109550
+[MS20] Suraj Krishna Meda Satish, Immersed cycles and the JSJ decomposition,
+      Algebr. Geom. Topol. 20 (2020), no. 4, 1877–1938. MR 4127086
+[NB21] Carl-Fredrik Nyberg-Brodda, The B B Newman spelling theorem, Br. J.
+      Hist. Math. 36 (2021), no. 2, 117–131. MR 4280006
+[New73] B. B. Newman, The soluble subgroups of a one-relator group with torsion,
+      J. Austral. Math. Soc. 16 (1973), 278–285, Collection of articles dedicated
+      to the memory of Hanna Neumann, III. MR 0338188
+   JSJ DECOMPOSITIONS AND POLYTOPES FOR ONE-RELATOR GROUPS 41
+
+[Pri77] Stephen J. Pride, The isomorphism problem for two-generator one-relator
+       groups with torsion is solvable, Trans. Amer. Math. Soc. 227 (1977), 109–139.
+       MR 430085
+[Ros86] Gerhard Rosenberger, All generating pairs of all two-generator Fuchsian
+       groups, Arch. Math. (Basel) 46 (1986), no. 3, 198–204. MR 834836
+[RS97] E. Rips and Z. Sela, Cyclic splittings of finitely presented groups and the
+       canonical JSJ decomposition, Ann. of Math. (2) 146 (1997), no. 1, 53–109.
+       MR 1469317
+[Sel95] Z. Sela, The isomorphism problem for hyperbolic groups. I, Ann. of Math.
+       (2) 141 (1995), no. 2, 217–283. MR 1324134
+[Sel97]         , Structure and rigidity in (Gromov) hyperbolic groups and discrete
+       groups in rank 1 Lie groups. II, Geom. Funct. Anal. 7 (1997), no. 3, 561–593.
+       MR 1466338
+[Sel09]         , Diophantine geometry over groups. VII. The elementary theory of
+       a hyperbolic group, Proc. Lond. Math. Soc. (3) 99 (2009), no. 1, 217–273.
+       MR 2520356
+[Ser03] Jean-Pierre Serre, Trees, Springer Monographs in Mathematics, Springer-
+       Verlag, Berlin, 2003, Translated from the French original by John Stillwell,
+       Corrected 2nd printing of the 1980 English translation. MR 1954121
+[Č71] A. A. Čebotar’, Subgroups of groups with one defining relation that do not
+       contain free subgroups of rank 2, Algebra i Logika 10 (1971), 570–586.
+       MR 0313404
+[Wis12] Daniel T. Wise, From riches to raags: 3-manifolds, right-angled Artin
+       groups, and cubical geometry, CBMS Regional Conference Series in Math-
+       ematics, vol. 117, Published for the Conference Board of the Mathematical
+       Sciences, Washington, DC; by the American Mathematical Society, Provi-
+       dence, RI, 2012. MR 2986461
+
+  Mathematisches Institut, Universität Bonn, Endenicher Allee 60,
+53115 Bonn, Germany
+  Email address: gardam@math.uni-bonn.de
+
+  University of Oxford, Oxford, OX2 6GG, UK
+  Email address: kielak@maths.ox.ac.uk
+
+  Heriot-Watt University, Edinburgh, EH14 4AS, UK
+  Email address: A.Logan@hw.ac.uk
+

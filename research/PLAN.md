@@ -120,3 +120,19 @@ Chiodo's bounded-length theorem. Return to the broader unresolved
 portfolio and adversarial review of F28,N5,M0 before another N8
 extension. The proofs and bibliographic status still need external
 specialist review; computation is supporting evidence only.
+
+## Working focus after the 15:45 UTC scope checkpoint
+
+H13 and FP6 leave the discovery queue as prior answers; N1's existing
+full-classification update is corroborated. FP21 now has a precise
+rank-two equivalence with residual finiteness of Br_4(m), but neither
+an infinite linear image nor the triangle-free Shephard theorem
+resolves that case. Do not count this reformulation as another partial
+solution. H4's promise/preprocessing distinction also remains open here.
+
+Next, give a concrete unresolved mathematical lead a bounded attempt,
+then return to adversarial review of the four candidates. Avoid merely
+repeating the broad searches or increasing the size of earlier finite
+enumerations. For FP21, any further representation argument must prove
+faithfulness or separate every nontrivial element, not just produce
+an infinite residually finite quotient.
