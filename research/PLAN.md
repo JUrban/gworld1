@@ -85,3 +85,7 @@ bounded pass, using the precise B9 terminology warning in
 four candidates and return to the unresolved N8 kernels only after
 this wider pass. Preserve the distinction between exploratory reductions
 and complete candidates.
+
+## Working focus after the 14:17 UTC checkpoint
+
+B3, B8 and B13 are prior results. B9 has reproducible finite lower bounds but no fixed-strand stopping argument; avoid spending the run merely enlarging these lists. Continue the remaining group-action and free-group scopes, with exact quantifiers, before returning to N8 higher correction kernels. Existing candidates still need adversarial proof and novelty review.

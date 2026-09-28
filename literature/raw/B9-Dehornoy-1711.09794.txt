@@ -1,0 +1,1279 @@
+                                                                           THE BRAID SHELF
+
+                                                                              PATRICK DEHORNOY
+arXiv:1711.09794v2 [math.GR] 8 Feb 2018
+
+
+
+
+                                                   Abstract. The braids of B∞ can be equipped with a selfdistributive opera-
+                                                   tion ⊲ enjoying a number of deep properties. This text is a survey of known
+                                                   properties and open questions involving this structure, its quotients, and its
+                                                   extensions.
+
+
+
+
+                                                                               1. Introduction
+                                             According to an approach that can be traced back to Joyce [39], Matveev [51],
+                                          and Brieskorn [4], selfdistributivity (SD) is an algebraic distillation of Reidemeis-
+                                          ter’s move of type III and, therefore, it is not surprising that structures involving
+                                          SD operations often appear in low-dimensional topology, typically when one wishes
+                                          to attach isotopy-invariant colourings to the strands of a diagram. In this approach,
+                                          which, for instance, leads to the fundamental quandle of a knot and to a number of
+                                          nontrivial invariants [10, 11, 9], SD structures are external tools outside the world
+                                          of topological objects. However, there also exists a disjoint approach, in which the
+                                          topological objects themselves are equipped with an SD operation: this happens
+                                          for the braids of B∞ , and for the elements of various related structures. As can
+                                          be expected, combining the internal and external aspects of SD is what leads to
+                                          interesting results. Our aim is to explore this a priori strange situation.
+                                             Most of the results presented below already appeared in literature (with the ex-
+                                          ception of some in Section 4), in particular in [27], where the connection between
+                                          the SD operation on braids and the standard braid ordering is explained. However,
+                                          a number of side results are disseminated in various papers and not easily accessi-
+                                          ble. Moreover, SD operations mainly occur as auxiliary tools, and there existed no
+                                          comprehensive presentation specifically concentrating on the SD operations them-
+                                          selves. These notes aim at filling this gap. A particular orientation toward open
+                                          questions has been given, appealing for further research.
+                                             The text is organized in four sections after this introduction. In Section 2, we
+                                          recall the existence of a selfdistributive operation ⊲ on the family B∞ of braids in-
+                                          volving an unlimited number of strands, and its basic properties. In Section 3, we
+                                          concentrate on special braids, which are those braids obtained from the unit braid
+                                          using the SD operation ⊲. Special braids form a free left-shelf, and give rise to
+                                          canonical decompositions for arbitrary braids. Section 4 is devoted to a few obser-
+                                          vations about SD operations in quotients of braid groups, typically in permutation
+                                          groups. Finally, we discuss in Section 5 three examples of SD operations living in
+                                          extensions of the group B∞ , and leading to further open questions.
+
+                                             1991 Mathematics Subject Classification. 20F36, 20N02, 57M25, 57M60.
+                                             Key words and phrases. selfdistributivity, shelf, braid, special braid, symmetric group, Laver
+                                          table, charged braid, parenthesied braid.
+                                                                                         1
+2                                  PATRICK DEHORNOY
+
+
+                  2. A selfdistributive operation on braids
+   The central object of interest in these notes is a certain binary operation ⊲ defined
+on the braid group B∞ . After recalling the standard terminology for selfdistributive
+structures, we introduce the operation ⊲ in Subsection 2.1. In Subsection 2.2, we
+briefly recall its origin as a projection from a certain geometry group of selfdistribu-
+tivity. Next, we state a few typical algebraic properties of ⊲ (Subsection 2.3), and we
+explain how it can be used to color the strands of braid diagrams (Subsection 2.4).
+
+2.1. A self-distributive operation on B∞ . The selfdistributivity law comes in
+two versions:
+(LD)           left selfdistributivity:     x ⊲ (y ⊲ z) = (x ⊲ y) ⊲ (x ⊲ z),
+(RD)          right selfdistributivity:      (x ⊳ y) ⊳ z = (x ⊳ z) ⊳ (y ⊳ z).
+It is often more convenient in topology to use the right version (and, accordingly,
+the symbol ⊳), but, here, in order both to be coherent with the existing literature
+and because of some specific features that are not invariant under symmetry (see
+Remark 2.11), we shall use the left version, and the symbol ⊲. We use the prefix
+“left” everywhere to avoid ambiguity.
+Definition 2.1 (selfdistributive structures). (i) A left-shelf is a structure (S, ⊲),
+where ⊲ is a binary operation on S that obeys the law LD.
+    (ii) A left-spindle is a left-shelf (S, ⊲), in which x ⊲ x = x always holds.
+    (iii) A left-rack is a left-shelf (S, ⊲), in which left translations are bijective, that
+is, for every a in S, the map La : y 7→ a ⊲ y is a bijection from S to itself.
+    (iv) A left-quandle is a left-rack that is also a left-spindle.
+   Lots of examples are known. We refer to [26] for a general picture of the struc-
+tures known so far, and, in particular, for a survey of results about (left) shelves
+that are not racks or spindles.
+   In a non-associative context, paying attention to brackets is necessary, and, for a
+in a set equipped with a binary operation ⊲, we write a[m] and a[m] for the mth
+right and left powers of a inductively defined by
+(2.1)         a[1] := a[1] := a,   a[m+1] := a ⊲ a[m] ,   a[m+1] := a[m] ⊲ a.
+   Let us now turn to the braid operation. The braid group Bn is the group of
+isotopy classes of n-strand braid diagrams, as well as the mapping class group of
+an n-punctured disk—see for instance [2] or [27]. It admits the presentation
+                                                                    
+                                    σi σj = σj σi    for |i − j| ⩾ 2
+(2.2)             σ1 , ..., σn−1                                       .
+                                 σi σj σi = σj σi σj for |i − j| = 1
+For every n, the inclusion of {σ1 , ..., σn−1 } into {σ1 , ..., σn } extends into an embed-
+ding in,n+1 of Bn into Bn+1 . The group B∞ is the limit of the inductive system so
+obtained, hence simply the union of all Bn s when in,n+1 is identified with identity.
+The group B∞ admits the presentation analogous to (2.2) with an infinite sequence
+of generators σ1 , σ2 , ...
+   From the presentation, it is clear that mapping σi to σi+1 for every i defines an
+endomorphism sh of B∞ , hereafter called the shift endomorphism. Note that sh is
+not surjective: σ1 does not lie in Im(sh).
+                                         THE BRAID SHELF                                                  3
+
+
+Definition 2.2 (shifted conjugation). For β1 , β2 in B∞ , we put
+(2.3)                        β1 ⊲ β2 := β1 · sh(β2 ) · σ1 · sh(β1 )−1 .
+  The braid β1 ⊲ β2 is a sort of conjugate of β2 under β1 , but with shifts and an
+additional factor σ1 added, see Fig. 1. The reader can check the values
+                    1 ⊲ 1 = σ1 ,     1 ⊲ σ1 = σ2 σ1 ,     σ1 ⊲ 1 = σ12 σ2−1 ,    ...
+                            [m]
+and, more generally, 1       = σm−1 ···σ2 σ1 for every m ⩾ 1. The above equalities
+show that ⊲ is neither commutative nor idempotent. Note that, because of the
+shift operator in (2.3), the operation ⊲ is defined on B∞ only, and it induces no
+well-defined operation on Bn for any finite n.
+                          ..            ..               ..
+                           .             .                .
+
+                                               β2                    β1−1
+                              β1
+
+
+
+          Figure 1. Braid diagram for β1 ⊲ β2 : a sort of conjugation of β2
+          under β1 , with shifts and one σ1 added.
+
+   Our interest in the operation ⊲ on B∞ stems from
+Proposition 2.3 (braid shelf ). The operation of (2.3) obeys the law LD, that is,
+(B∞ , ⊲) is a left-shelf. It is neither a left-spindle, nor a left-rack.
+Proof. A simple verification. Expanding the definition, we find for all β1 , β2 , β3
+         β1 ⊲ (β2 ⊲ β3 ) = β1 · sh(β2 ) · sh2 (β3 ) · σ2 · sh2 (β2 )−1 · σ1 · sh(β1 )−1 ,
+ (β1 ⊲ β2 ) ⊲ (β1 ⊲ β3 ) = (β1 · sh(β2 ) · σ1 · sh(β1 )−1 ) ⊲ (β1 · sh(β3 ) · σ1 · sh(β1 )−1 )
+                           = (β1 · sh(β2 ) · σ1 · sh(β1 )−1 ) · sh(β1 · sh(β3 ) · σ1 · sh(β1 )−1 )
+                                                    · σ1 · sh(β1 · sh(β2 ) · σ1 · sh(β1 )−1 )−1
+                           = β1 · sh(β2 ) · σ1 · sh(β1 )−1 · sh(β1 ) · sh2 (β3 ) · σ2 · sh2 (β1 )−1
+                                                    · σ1 · sh2 (β1 ) · σ2−1 · sh2 (β2 )−1 · sh(β1 )−1
+                           = β1 · sh(β2 ) · σ1 · sh2 (β3 ) · σ2 · sh2 (β1 )−1
+                                                    · σ1 · sh2 (β1 ) · σ2−1 · sh2 (β2 )−1 · sh(β1 )−1 .
+As σ1 commutes with every braid in Im(sh2 ) and σ1 σ2 σ1 σ2−1 = σ2 σ1 holds, we find
+β1 ⊲ (β2 ⊲ β3 ) = (β1 ⊲ β2 ) ⊲ (β1 ⊲ β3 ) = β1 · sh(β2 ) · sh2 (β3 ) · σ2 σ1 · sh2 (β2 )−1 · sh(β1 )−1 ,
+and the law LD is satisfied.
+   We already noted the equality 1 ⊲ 1 = σ1 , which shows that (B∞ , ⊲) is not a left
+spindle. Observe that, more generally, we always have
+(2.4)                                        β 6= β ⊲ β,
+as an equality would expand into 1 = sh(β)σ1 sh(β)−1 , clearly imposible.
+   On the other hand, we have 1 ⊲ β = sh(β) σ1 . As σ1 does not belong to the image
+of sh, it is impossible to have 1 ⊲ β = 1, so the left translation associated with 1 is
+not bijective, and (B∞ , ⊲) is not a left-rack.                                      
+4                                  PATRICK DEHORNOY
+
+
+Remark 2.4. Of course, we can obtain a right selfdistributive operation ⊳ by
+considering the opposite operation, namely
+(2.5)                     β1 ⊳ β2 := sh(β2 )−1 · σ1 · sh(β1 ) · β2 .
+2.2. Where does the braid shelf come from? The braid operation ⊲ was in-
+troduced in Def. 2.2 without any explanation, and Formula (2.3) may look odd. We
+refer to [18] for a complete explanation, but a few words here could be welcome.
+    One can naturally associate with every algebraic law, or family of algebraic laws,
+a certain “geometry monoid” that, in some sense, captures the specific properties
+of the involved laws. When the law is the associativity law x(yz) = (xy)z, the
+geometry monoid is essentially Richard Thompson’s group F [8, 20] and, similarly,
+when both associativity and commutativity are considered, the geometry monoid
+is Thompson’s group V .
+    In the case of the selfdistributivity law LD, the geometry monoid turns out to
+be closely connected with a certain group GLD generated by an infinite family of
+elements ldα indexed by finite sequences of 0s and 1s and subject to an explicit
+list of relations RelLD . A basic property of LD says that, if a left-shelf (S, ⊲) is
+generated by a single element g, then, for every a in S, the equality
+(2.6)                                 g [n+1] = a ⊲ g [n]
+holds for n large enough: the result is trivial when a is g and the inductive argument
+(2.7)   g [n+1] = a ⊲ g [n] = a ⊲ (b ⊲ g [n−1] ) = (a ⊲ b) ⊲ (a ⊲ g [n−1] ) = (a ⊲ b) ⊲ g [n]
+gives (2.6) for a ⊲ b starting from (2.6) for a and for b.
+   By construction, every formal consequence of the law LD is encoded in an ele-
+ment of the group GLD . From there, the four equalities in (2.7) are encoded in a
+product of four elements in GLD , and they correspond to defining on GLD a binary
+operation ∗ by
+(2.8)                      f ∗ g := f · sh1 (g) · ld∅ · sh1 (f )−1 ,
+where sh1 is the endomorphism that maps each element ldα to ld1α (appending an
+initial 1 in the finite sequence α). The operation ∗ on GLD is not selfdistributive,
+but, due to the connection of ∗ with (2.6), the “LD-defect” of ∗, namely the quotient
+                           (f ∗ (g ∗ h))−1 · ((f ∗ g) ∗ (f ∗ h))
+must lie in the image of the endomorphism sh0 that maps ldα to ld0α for each α.
+As a consequence, when the subgroup sh0 (GLD ) is collapsed, the operation ∗ on GLD
+must induce on the quotient an operation with no LD-defect, that is, a selfdistribu-
+tive operation.
+   It should not be a surprise to hear that the quotient-group GLD /sh0 (GLD ) is
+(isomorphic to) the braid group B∞ , and that the operation induced by ∗ on B∞ is
+the operation ⊲ of (2.3). More precisely, collapsing sh0 (GLD ) amounts to collapsing
+all elements ldα such that α contains 0. All relations of RelLD then become trivial,
+except the following ones:
+            ld1i ld1j ld1i = ld1j ld1i ld1j ld1i 0            for j = i + 1 ⩾ 1
+                     ld1i ld1j = ld1j ld1i           for j ⩾ i + 2 ⩾ 2.
+Then collapsing ld1i 0 and mapping ld1i to σi+1 defines the expected epimorphism
+from GLD onto B∞ . Then (2.8) projects to (2.3), since sh1 projects to sh, and ld∅
+is mapped to σ1 . Thus, the braid operation ⊲ does not come out of the blue.
+                                    THE BRAID SHELF                                     5
+
+
+2.3. Algebraic properties. The left-shelf (B∞ , ⊲) is rather different from usual
+selfdistributive structures such as the various racks and quandles appearing in topol-
+ogy. Here we mention some of its algebraic properties, mainly those involving left
+translations, which are typical both in their statement and in their proof.
+   We already noted that (B∞ , ⊲) is not a left-rack, since the left translations Lβ :
+y 7→ β ⊲ y need not be bijections. More is known about such translations [18].
+Proposition 2.5 (left translations). (i) For every braid β, the left translation Lβ
+is injective, that is, (B∞ , ⊲) is left cancellative.
+   (ii) A braid γ lies in the image of Lβ if, and only if, β ⊲ γ = β [2] ⊲ γ holds.
+Proof (sketch). (i) Expanding β ⊲ γ = β ⊲ γ ′ gives
+                  β · sh(γ) · σ1 · sh(β)−1 = β · sh(γ ′ ) · σ1 · sh(β)−1 ,
+whence sh(γ) = sh(γ ′ ) as cancellation is legal in the group B∞ . This implies γ = γ ′ ,
+as sh is injective. We deduce that (B∞ , ⊲) is left cancellative.
+   (ii) Assume γ = β ⊲ β ′ . The selfdistributivity law implies
+                  β ⊲ γ = β ⊲ (β ⊲ β ′ ) = (β ⊲ β) ⊲ (β ⊲ β ′ ) = β [2] ⊲ γ,
+so the condition is necessary. The converse is more tricky. We begin with a general
+auxiliary result, namely the fact that, for every β in B∞ ,
+(2.9)    β belongs to sh(B∞ )          if, and only if,       sh(β) and σ1 commute.
+Indeed, if β belongs to the image of sh, then sh(β) belongs to the image of sh2 ,
+hence it commutes with σ1 in the group B∞ . Conversely, for every β in Bn , the
+handle trick of Fig. 2 gives
+               sh(β)−1 σ1−1 sh(β) σ1 = sh(β)−1 σ2 ··· σn β σn−1 ··· σ2−1 .
+So, if sh(b) and σ1 commute, we obtain β = σn−1 . . . σ2−1 sh(β) σ2 ··· σn , which
+belongs to sh(B∞ ) explicitly.
+   Now assume β ⊲ γ = β [2] ⊲ γ. Expanding the expressions gives
+   β sh(γ) σ1 sh(β)−1 = β sh(β)σ1 sh(β)−1 sh(γ) σ1 sh2 (β) σ2−1 sh2 (β)−1 sh(β)−1 ,
+which can be rewritten as sh(β −1 γsh(β))σ1 = σ1 sh(β −1 γsh(β))σ1 σ2−1 , whence, us-
+ing the braid relations, into
+                 sh(β −1 γ sh(β) σ1−1 ) · σ1 = σ1 · sh(β −1 γ sh(β) σ1−1 ),
+which expresses that sh(β −1 γ sh(β) σ1−1 ) and σ1 commute. By (2.9), this implies
+that β −1 γ sh(β) σ1−1 belongs to sh(B∞ ), hence there exists β ′ satisfying
+β −1 γ sh(β) σ1−1 = sh(β ′ ). The latter equality is γ = β ⊲ β ′ . Hence, γ lies in
+the image of the left translation Lβ .                                           
+
+
+
+                     β
+                                            ∼
+                                                                     β
+
+
+
+                              Figure 2. The handle trick.
+6                                     PATRICK DEHORNOY
+
+
+   Again about left translations, let us mention another result, which is reminiscent
+of (2.6), but is quite different in that (B∞ , ⊲) is not monogenerated.
+Proposition 2.6 (absorption). A braid β of B∞ belongs to Bn if, and only if,
+the equality β ⊲ 1[n] = 1[n+1] is satisfied.
+Proof. By definition, we find in every case
+              β ⊲ 1[n] = β · σn ··· σ2 · σ1 · sh(β)−1 = β · 1[n+1] · sh(β)−1 .
+Assume β ∈ Bn . Then β can be expressed as a product of generators σi±1 with
+i < n. Hence, by the handle trick of Fig. 2, β · σn ··· σ1 is equal to σn ··· σ1 · sh(β),
+implying β ⊲ 1[n] = 1[n+1] .
+   Conversely, assume β ∈  / Bn . Let m > n be minimal such that β belongs to Bm .
+                                                                                        −1
+By [17], we know that β admits an expression where exactly one of σm−1 , σm−1
+                                                                                  −1
+occurs. It follows that sh(β) has an expression where exactly one of σm , σm occurs,
+and the same holds for β · 1[n+1] · sh(β)−1 · (1[n+1] )−1 , since β, 1[n+1] , and (1[n+1] )−1
+                              ±1
+can be expressed without σm      . Hence, by [13], the latter braid cannot be the unit
+                     [n]    [n+1]
+braid, that is, β ⊲ 1 = 1         fails.                                                   
+   The case of right translations Rβ : x 7→ x ⊲ β is different, since they need not
+be injective, but, again, the image can be characterized, this time using conjugacy
+instead of equality, see [18].
+Remark 2.7. Because of the similarity with conjugacy, the operation ⊲ gives rise
+to potentially difficult algorithmic problems and, therefore, it might be used in
+cryptographic protocols [23, 40, 49]. This remains marginal so far.
+2.4. The partial action of braids on sequences of braids. If (S, ⊲) is a left-
+rack and we use ⊲ for the inverse operation so that a⊲b = c is equivalent to a⊲c = b,
+it is well known that the formulas
+(2.10)         (a1 , ..., an ) • σi = (a1 , ···, ai−1 , ai ⊲ ai+1 , ai , ai+2 , ..., an )
+(2.11)       (a1 , ..., an ) • σi−1 = (a1 , ..., ai−1 , ai+1 , ai+1 ⊲ ai , ai+2 , ..., an )
+define an action of Bn on S n . This action can be described in terms of strand
+colorings: for β an n-strand braid and ~a a sequence in S n , the value of ~a • β is the
+sequence of output colors obtained when the input colors ~a are attributed to the
+initial ends of the strands of β and the colors are propagated according to the rules
+                           b      a                 a     a⊲b
+
+                              a        a⊲b                    b        a
+
+When (S, ⊲) is only a left-shelf, (2.11) need not make sense. Restricting to positive
+braids (those that can be expressed without any letter σi−1 ), and using Bn+ for the
+monoid of n-strand positive braids, we obtain, see Fig. 3:
+Lemma 2.8. If (S, ⊲) is a left-shelf, (2.10) defines an action of Bn+ on S n .
+   However, whenever (S, ⊲) is a left cancellative left-shelf, we can extend the action
+of Bn+ into a partial action of the braid group Bn on S n : using ⊲ for the partial
+operation on S such that a ⊲ b = c is equivalent to a ⊲ c = b when such an element b
+exists, (2.11) can still be used. The technical result that makes this partial action
+possibly useful is the following one, whose proof is nontrivial (see [18, Sec. 3.1]):
+                                         THE BRAID SHELF                                        7
+
+
+   c           b                     a             c                      a      a
+
+   b         b⊲c          a         a⊲b            b           a        a⊲c     a⊲b
+
+   a                                a ⊲ (b ⊲ c)    a         a⊲b                (a ⊲ b) ⊲ (a ⊲ c)
+
+          Figure 3. Standard translation of Reidemeister III move into the
+          language of selfdistributivity: when colours from a set S are put on
+          the left ends of the strands and then propagated so that a b-coloured
+          strand becomes a ⊲ b-coloured when it overcrosses an a-coloured arc,
+          then the output colours are invariant under Reidemeister III move if,
+          and only if, ⊲ obeys the law LD.
+
+Lemma 2.9 (partial action). If (S, ⊲) is a left cancellative left-shelf, then (2.10)–
+(2.11) induce a partial action of braid words such that:
+   (i) For every finite family of braid words w, ..., wp , there exists a sequence ~a in S n
+such that ~a • wi is defined for every i;
+   (ii) If w and w′ represent the same braid of B∞ and both ~a • w and ~a • w′ are
+defined, then they are equal.
+   In the above context, ~a • β can be unambiguously defined to be ~a • w for any
+word w such that w represents β and ~a • w is defined, if at least one exists.
+   As (B∞ , ⊲) is a left cancellative left-shelf, it is eligible for the above (total)
+action of Bn+ , and partial action of Bn on (B∞ )n . Such an action is crucial for the
+developments of Section 3. For the moment, we observe that the external action
+            n
+of Bn on B∞     can be connected with an internal multiplication, at the expense of
+introducing a shifted version of the product.
+                                                            n
+Lemma 2.10 (shifted product). For (β1 , ..., βn ) in B∞        , define
+                Qsh
+(2.12)              (β1 , ..., βn ) := β1 · sh(β2 ) ··· shn−1 (βn ).
+                                    n
+Then, for all (β1 , ..., βn ) in B∞      and β in Bn+ , we have
+                         Qsh                         Q
+(2.13)                        ((β1 , ..., βn ) • β) = sh (β1 , ..., βn ) · β.
+Proof. For an induction, it suffices to consider the case β = σi . Next, because the
+action of σi keeps the first i − 1 entries fixed and is a shifting of the action of σ1 ,
+it is even sufficient to consider the case β = σ1 . For n = 2, we find
+    Qsh                      Qsh
+        ((β1 , β2 ) • σ1 ) =     (β1 ⊲ β2 , β1 ) = (β1 ⊲ β2 ) · sh(β1 )
+                                                                          Qsh
+          = β1 · sh(β2 ) · σ1 · sh(β1 )−1 · sh(β1 ) = β1 · sh(β2 ) · σ1 =     (β1 , β2 ) · σ1 ,
+Finally, going from n = 2 to n ⩾ 3 amounts to append some entries shj−1 (βj ) with
+j ⩾ 3 on the right of the shifted products. These entries are invariant under the
+action of σ1 , and σ1 commutes with all of them, so (2.13) remains valid.       
+Remark 2.11. Formula (2.13) is instrumental in subsequent applications of ⊲, in
+particular in the construction of a braid orderings in Section 3.3. This is where
+using left selfdistributivity LD, and not its right counterpart RD, matters. With
+the right version, a shifted product starting from the right should be considered:
+the problem is that one needs to consider braid sequences of arbitrary length, with
+8                                PATRICK DEHORNOY
+
+
+no fixed position to start from. It is certainly possible to translate the statements,
+but at the expense of losing naturalness.
+
+                                 3. Special braids
+   The braid shelf (B∞ , ⊲) is a large structure, about which little is known, see for
+instance Questions 5.1 and 5.4. Here we consider a substructure of the braid shelf,
+namely the one generated (as a left-shelf) by the unit braid 1. This structure is
+much better understood, as we shall explain now.
+   We begin by recalling (without proof) a few general results about monogener-
+ated left-shelves, in particular a useful freeness criterion (Subsection 3.1). Then
+special braids and the canonical braid decompositions they lead to are described in
+Subsection 3.2. Finally, we recall in Subsection 3.3 the connection between special
+braids and the canonical (Dehornoy) braid order, leading to the Laver conjecture,
+a deep open question.
+3.1. Monogenerated left-shelves. Every braid β generates under ⊲ a substruc-
+ture of (B∞ , ⊲), hence a sub-left-shelf. By definition, such left-shelves are mono-
+generated, that is, generated by a single element. This implies a number of conse-
+quences because of the so-called comparison property involving left division.
+Definition 3.1 (division relation). For ⊲ a binary operation on S and a, b in S,
+we say that a (left) divides b, written a ⊏ b, if a ⊲ x = b holds for some x. We
+write ⊏∗ for the transitive closure of ⊏.
+   If ⊲ is associative, there is no need to distinguish between ⊏ and ⊏∗ , since we
+then have (a ⊲ x1 ) ⊲ x2 = a ⊲ (x1 ⊲ x2 ), but, in general, ⊏ need not be transitive.
+   The following result about selfdistributivity is fundamental:
+Lemma 3.2 (comparison property). If (S, ⊲) is a monogenerated left-shelf
+and a, b belong to S, then at least one of a ⊏∗ b, a = b, b ⊏∗ a holds.
+   If φ is a morphism, a ⊏∗ b implies φ(a) ⊏∗ φ(b), so the point is to prove Lemma 3.2
+when S is a free left-shelf with one generator. We use the result (which is nontrivial)
+as a black box, referring for instance to [26] for an idea of the proof.
+   One of the interests of the comparison property is to provide a simple criterion
+for recognizing free monogenerated left-shelves. We recall the formal definition:
+Definition 3.3 (free family, free shelf ). If (S, ⊲) is left-shelf, a subfamily X of S
+is said to be free in S if, for every left-shelf S ♯ , every map from X to S ♯ extends
+in a morphism from the subshelf of S generated by X to S ♯ . We say that (S, ⊲) is
+free based on X if X generates S and is free in S.
+Lemma 3.4 (freeness criterion). If (S, ⊲) is a left-shelf generated by a single
+element g and division has no cycle in S, then (S, ⊲) is free based on g. Moreover,
+the relation ⊏∗ is a (strict) linear order on S, and, for all a, b, c in S, we have
+(3.1)              a ⊏∗ a ⊲ b,    and      b ⊏∗ c ⇔ a ⊲ b ⊏∗ a ⊲ c.
+Proof. By definition, the relation ⊏∗ is transitive, and the assumption that ⊏ has
+no cycle implies that ⊏∗ is irreflexive (a ⊏∗ a is always false). Hence, ⊏∗ is a strict
+order on S. The comparison property implies that this order is linear. The relation
+a ⊏ a ⊲ b holds by definition, hence so does a ⊏∗ a ⊲ b. Moreover, b ⊏ c, say b ⊲ x = c,
+implies (a ⊲ b) ⊲ (a ⊲ x) = a ⊲ c by LD, hence a ⊲ b ⊏ a ⊲ c. Thus, b ⊏∗ c implies
+                                     THE BRAID SHELF                                       9
+
+
+a ⊲ b ⊏∗ a ⊲ c. The converse implication must holds, since ⊏∗ is a strict linear order:
+a ⊲ b ⊏ a ⊲ c excludes b = c and b ⊐∗ c, so b ⊏∗ c is the only possibility. So (3.1) is
+satisfied.
+   Let S ♯ be an arbitrary left-shelf, and let g ♯ lie in S ♯ . By assumption, every
+element of S is the evaluation at g of some expression T (x) involving a variable x
+and ⊲ (a “term”). We construct a morphism φ from S to S ♯ by mapping T (g),
+that is, T (x) evaluated at g in S, to T (g ♯ ), that is, T (x) evaluated at g ♯ in S ♯ . The
+problem is that an element of S is the evaluation of several terms, whose evaluations
+need not a priori coincide.
+   Let Term⊲ (x) be the family of all terms constructed from x and ⊲, and let =LD
+be the congruence on Term⊲ (x) generated by the instances of the law LD: two
+terms T, T ′ are =LD -equivalent if, and only if, one can go from T to T ′ by repeat-
+edly applying the law LD. If T =LD T ′ holds, the assumption that (S ♯ , ⊲) obeys
+the law LD implies T (g ♯ ) = T ′ (g ♯ ) in S ♯ . Now assume T 6=LD T ′ . By construction,
+Term⊲ (x)/=LD is a monogenerated left-shelf, hence it satisfies the comparison prop-
+erty. The assumption T 6=LD T ′ means that the classes of T and T ′ do not coincide,
+hence they must be connected by ⊏∗ or ⊐∗ . Assume the former. By definition, this
+means that there exists n ⩾ 1 and terms T1 , ..., Tn satisfying
+                          (··· ((T ⊲ T1 ) ⊲ T2 ) ⊲ ···) ⊲ Tn =LD T ′ ,
+which in turn implies in the left-shelf S
+                 (··· ((T (g) ⊲ T1 (g)) ⊲ T2 (g)) ⊲ ···) ⊲ Tn (g) =LD T ′ (g),
+whence T (g) ⊏∗ T ′ (g) and, a fortiori, T (g) 6= T ′ (g). So, finally, T (g) = T (g ′ ) can
+occur only when T =LD T ′ holds, and, therefore, it implies T (g ♯ ) = T ′ (g ♯ ) in S ♯ . So
+the morphism φ is well defined, and S is free.                                              
+
+   The previous criterion is important here because of the following results.
+Lemma 3.5 (σ1 -positivity). Call a braid σ1 -positive if it admits at least one
+expression in which the letter σ1 occurs and no letter σ1−1 does. Then, for all
+braids β, β ′ , the relation β ⊏∗ β ′ in B∞ implies that β −1 β ′ is σ1 -positive.
+Proof. By definition, β ⊏∗ β ′ holds if, and only if, there exist n ⩾ 1 and β1 , ..., βn
+satisfying
+(3.2)                       (··· ((β ⊲ β1 ) ⊲ β2 ) ···) ⊲ βn = β ′ .
+According to the definition of ⊲, this expands into an equality of the form
+(3.3)                  β −1 β ′ = sh(γ0 ) σ1 sh(γ1 ) σ1 ··· σ1 sh(γn ),
+where the right hand term is explicitly σ1 -positive.                                     
+
+Lemma 3.6 (no cycle). [13] Division has no cycle in (B∞ , ⊲).
+Proof (sketch). By Lemma 3.5, a cycle for ⊏∗ , hence a relation β ⊏∗ β, would provide
+a σ1 -positive braid that is trivial (equal to 1). Hence, for excluding (3.2), it suffices
+to prove that a σ1 -positive braid is never trivial.
+   Several arguments exist, see in particular [13, 17]. The simplest argument is
+the one, due to D. Larue [43], that appeals to the Artin representation of B∞
+in Aut(F∞ ), where F∞ is a free group based on an infinite family {xi | i ⩾ 1},
+10                                     PATRICK DEHORNOY
+
+
+identified with the family of freely reduced words on {x±1
+                                                        i  | i ⩾ 1}. Artin’s repre-
+sentation is defined by the rules
+     ρ(σi )(xi ) := xi xi+1 x−1
+                             i ,   ρ(σi )(xi+1 ) := xi ,   ρ(σi )(xk ) := xk for k 6= i, i + 1,
+and simple arguments about free reduction show that, if γ is a σ1 -positive braid,
+then ρ(γ) maps x1 to a reduced word that finishes with the letter x−1
+                                                                   1 and, therefore,
+γ cannot be trivial, since ρ(1) maps x1 to x1 , which does not finish with x−1
+                                                                            1 .   
+     Merging Lemma 3.6 with the criterion of Lemma 3.4, we deduce
+Proposition 3.7 (free). For every braid β, the substructure hβi of (B∞ , ⊲) gen-
+erated by β is free based on {β}. Moreover, the division relation provides a linear
+order on hβi that satisfies (3.1).
+  Another consequence of Lemma 3.6 is that the sufficient freeness condition of
+Lemma 3.4 is also necessary:
+Corollary 3.8. Division in a free left-shelf has no cycle.
+Proof. Let (S, ⊲) be a free left-shelf based on X. By the universal property of free
+left-shelves, the map from X to B∞ sending every element to the braid 1 extends
+to a morphism π from (S, ⊲) to (B∞ , ⊲). Then the image under π of a cycle for ⊏
+in S would be a cycle for ⊏ in B∞ . By Lemma 3.6, such a cycle cannot exist. 
+3.2. Special braids and special decompositions. Hereafter, we concentrate on
+the particular case of the substructure of (B∞ , ⊲) generated by 1 (unit braid).
+                                              sp
+Definition 3.9 (special braid). We denote by B∞  the closure of {1} in (B∞ , ⊲).
+                 sp
+The elements of B∞ are called special braids.
+   A braid is special if it admits an expression that exclusively involves the braid 1
+and the operation ⊲—in other words, if it is the evaluation at 1 of a term of Term⊲ (x)
+in (B∞ , ⊲). For instance, 1, σ1 , σ2 σ1 , σ12 σ2−1 are special braids, as we have
+                  σ1 = 1 ⊲ 1,      σ2 σ1 = 1 ⊲ (1 ⊲ 1),    σ12 σ2−1 = (1 ⊲ 1) ⊲ 1.
+Similarly, the braid σm ··· σ2 σ1 is special, as we saw above that it is the right
+power 1[m+1] . On the other hand, lots of braids are not special: for instance,
+Lemma 3.17 below implies that σi is not special for i ⩾ 2.
+                                              sp
+  Let us begin with a closure property of B∞     .
+Lemma 3.10 (closure). Special braids are closed under left division, in the sense
+that, if β and γ are special and β ⊲ β ′ = γ holds, then β ′ is necessarily special.
+Proof (sketch). By the easy direction of Prop. 2.5, the existence of β ′ in B∞ sat-
+isfying β ⊲ β ′ = γ implies β ⊲ γ = β [2] ⊲ γ in B∞ , hence in B∞    sp
+                                                                        . Conversely, it is
+known that, since (B∞ , ⊲) is a free monogenerated left-shelf, β ⊲ γ = β [2] ⊲ γ implies
+                       sp
+
+the existence in B∞ sp
+                       of β ′′ satisfying β ⊲ β ′′ = γ: this is a highly nontrivial result
+about free shelves based on the existence of an explicit normal form [19]. Then left
+cancellativity forces β ′ = β ′′ , hence β ′ ∈ B∞
+                                                sp
+                                                   .                                     
+                                                           sp
+   As it is a substructure of (B∞ , ⊲), the structure (B∞     , ⊲) is a left-shelf, hence
+eligible for Lemma 2.8, and, moreover, it is left cancellative, hence eligible for
+                                                                      sp n
+Lemma 2.9. Therefore, there exists a (total) action of Bn+ on (B∞       ) , and a partial
+                     sp n
+action of Bn on (B∞ ) . These actions are fundamental in the sequel.
+   The first result is a characterization of special braids in terms of the action.
+                                         THE BRAID SHELF                                           11
+
+
+Lemma 3.11 (special vs. action). (See Fig. 4.) A braid β is special if, and only
+if, (1, 1, 1, ···) • β exists and is equal to (β, 1, 1, ···).
+Proof. First, we inductively show that the condition is satisfied for every special
+braid β. It is obvious for β = 1. For β = β1 ⊲ β2 with β1 , β2 special, we find
+                (1, 1, ···) • β = ((((1, 1, ···) • β1 ) • sh(β2 )) • σ1 ) • sh(β1 )−1
+                                = (((β1 , 1, 1, ···) • sh(β2 )) • σ1 ) • sh(β1 )−1
+                                = ((β1 , β2 , 1, 1, ···) • σ1 ) • sh(β1 )−1
+                                = (β, β1 , 1, 1, ···) • sh(β1 )−1 = (β, 1, 1, 1, ···).
+For the last step, the induction hypothesis for β1 implies that (1, 1, 1, ···) • β1
+is defined and equal to (β1 , 1, 1, ···). By reversing the diagram, we deduce that
+that (β1 , 1, 1, ···) • β1−1 is defined and equal to (1, 1, ···), and, from there, that
+(β, β1 , 1, 1, ···) • sh(β1 )−1 is defined and equal to (β, 1, 1, ···), as expected.
+    Conversely, we claim that, whenever (1, 1, 1, ···) • w = (β1 , β2 , ···) holds, then
+all braids βi are special. The claim is true when w is empty. It is preserved
+under adding a positive letter σi , because special braids are closed under ⊲, and
+it is preserved under adding a negative letter σi−1 because of Lemma 3.10. So, in
+particular, (1, 1, 1, ···) • β = (β, 1, 1, ···) implies that β is special.             
+                                                 ..
+                                  1               .            1
+                                  1                                     1
+                                                   β
+                                  1                                     1
+                                  1                                     β
+
+         Figure 4. A special braid is a braid that produces itself using braid
+         coloring and starting from unit braids.
+
+   We now arrive at the main result, namely decompositions of arbitrary braids in
+terms of special braids.
+Proposition 3.12 (special decomposition). (i) For every braid β in Bn+ , there
+is a unique sequence of special braids β1 , ..., βn satisfying
+(3.4)                           β = β1 · sh(β2 ) · ··· · shn−1 (βn ).
+(ii) For every braid β in Bn , there are special braids β1 , ..., βn , β1′ , ..., βn′ satisfying
+(3.5)       β = shn−1 (βn−1 )· ··· ·sh(β2−1 ) · β1 −1 · β1′ · sh(β2′ )· ··· ·shn−1 (βn′ ).
+Proof. (i) Starting from β in Bn+ , define (β1 , ..., βn ) := (1, ..., 1) • β. As the input
+                                                          sp
+sequence (1, ..., 1) consists of special braids and B∞       is closed under ⊲, all braids
+involved in the coloring of a positive diagram representing β are special. So, in
+                                                                           Qsh
+particular, the output colours β1 , ..., βn are special. Next, we have           (1, ..., 1) = 1,
+so applying (2.13) directly gives (3.4).
+   As for uniqueness, assume β = β1′ · sh(β2′ ) · ··· · shn−1 (βn′ ) with β1′ , ..., βn′ special.
+Then Lemma 3.11 implies (1, 1, ···) • βi′ = (βi′ , 1, 1, ···) for every i. Using ⌢ for
+concatenation of finite sequences, we deduce
+           (1, 1, ···) • β1′ · sh(β2′ ) = (β1′ , 1, ···) • sh(β2′ ) = (β1′ ) ⌢ (1, 1, ···) • β2′
+                                       = (β1′ ) ⌢ (β2′ , 1, 1, ···) = (β1′ , β2′ , 1, 1, ···),
+12                                       PATRICK DEHORNOY
+
+
+whence, repeating the argument,
+                (1, 1, 1, ···) • β1′ · sh(β2′ ) · ··· · shn−1 (βn′ ) = (β1′ , β2′ , ..., βn′ ),
+which is (1, 1, 1, ···) • β = (β1′ , ..., βn′ ). It follows that (β1′ , ..., βn′ ) must be the result
+of the action of β on (1, 1, 1, ···), which is unique by Lemma 2.9.
+   (ii) It is known that every braid in Bn can be expressed as a quotient β ′−1 · β ′′
+with β ′ , β ′′ in Bn+ . The result then follows from applying (i) to β ′ and β ′′ .               
+Example 3.13. Consider β = σ1−2 σ2 σ1 , which is β ′−1 β ′′ with β ′ = σ12 and
+β ′′ = σ2 σ1 . By (2.10), we find (1, 1, 1) • β ′ = (σ12 σ2−1 , σ1 , 1), and (1, 1, 1) • β ′′ =
+(σ2 σ1 , 1, 1). We deduce the expression
+              β = sh2 (1)−1 · sh(σ1 )−1 · (σ12 σ2−1 )−1 · (σ2 σ1 ) · sh(1) · sh2 (1),
+or, using the trivial braid 1 and the operations ⊲, −1 and sh exclusively,
+(3.6)      β = sh2 (1)−1 · sh(1 ⊲ 1)−1 · ((1 ⊲ 1) ⊲ 1)−1 · (1 ⊲ (1 ⊲ 1)) · sh(1) · sh2 (1),
+that is, when trivial terms are removed, sh(1[2] )−1 · (1[3] )−1 · 1[3] .
+Remark 3.14. For β in Bn+ , Prop. 3.12 gives β = β1 sh(β2 ) ··· shn−1 (βn ) with
+β1 , ..., βn special. However, the braids βi need not lie in Bn : for instance, the
+decomposition of σ12 , a braid of B2 , is (σ12 σ2−1 ) sh(σ1 ), with σ12 σ2−1 ∈
+                                                                             / B2 .
+     The previous results imply that for a braid to be special is a decidable property.
+Proposition 3.15 (decidability). There is an algorithm that decides whether a
+given braid word represents a special braid, and, if so, returns an expression of this
+braid in terms of 1 and ⊲.
+Proof (sketch). Let w be a braid word. We can decide whether w represents a
+special braid as follows. First, we reverse w into an equivalent braid word uv −1 with
+u, v positive using the reversing method of [24]. Next, we compute (1, 1, 1, ···) • uv −1 .
+By [13], it is known that, if ~a • w is defined, then so is ~a • uv −1 when u and v are
+obtained as above, namely so as to ensure that the elements of B∞       +
+                                                                          representing u
+and v have no common right divisor. By Lemma 3.11, w represents a special braid
+if, and only if, the computation is successful and it leads to a sequence of the form
+(β, 1, 1, ···), that is, all components from the second are trivial. The latter point can
+be tested using any algorithm for the word problem of braids. Moreover, there exists
+an effective left division algorithm in free monogenerated shelves [14]. Hence, we can
+effectively obtain an expression of the special braids involved in (1, 1, 1, ···) • uv −1
+in terms of 1 and ⊲.                                                                    
+Example 3.16. Let w := σ2−1 σ1−1 σ22 σ1 . Reversing w yields the equivalent positive–
+negative word σ12 σ2−1 , so, here, u is σ12 , and v is σ2 . Then we compute the value of
+(1, 1, 1)•σ12 , namely (σ12 σ2−1 , σ1 , 1), that is, (1[3] , 1[2] , 1). Then, in order to apply v −1 ,
+we have to left divide 1[2] by 1. In the present case, the result is obvious: division
+is possible and the quotient is 1. So we obtain (1, 1, 1) • σ12 σ2−1 = (1[3] , 1, 1), and we
+conclude that w represents the special braid 1[3] .
+  We conclude with a characterisation first of braids that are positive and special,
+and of braids whose special decomposition only contains positive braids.
+Lemma 3.17 (positive special). For every m, there is a unique special positive
+braid of length m, namely 1[m+1] .
+                                      THE BRAID SHELF                                         13
+
+
+Proof. We saw above the equality 1[m+1] = σm ··· σ2 σ1 , a positive braid of length m.
+Conversely, assume that β is positive and special of length m. We use induction
+on m. For m = 0, the only possibility is β = 1 = 1[1] . Assume m ⩾ 1, and write
+β = β ′ σi . By Lemma 3.11, the assumption that β is special implies the equality
+(1, 1, 1, ···) • β = (β, 1, 1, . . . ). Since β ′ is positive, (1, 1, ···) • β ′ exists. Call it
+(β1′ , β2′ , ···). If we had i ⩾ 2, the ith entry in (1, 1, ···) • β ′ σi would be βi′ ⊲ βi+1
+                                                                                            ′
+                                                                                                ,
+                                                                      ′     ′    ′     ′
+which cannot be 1. Thus we must have i = 1, whence β = β1 ⊲ β2 , β1 = β3 =···= 1,
+that is, (1, 1, ···) • β ′ = (1, β2′ , 1, 1, ···). By (3.4), we deduce β ′ = sh(β2′ ). Hence β2′
+is positive and special. The induction hypothesis implies β2′ = 1[m] , and we deduce
+β = 1 ⊲ 1[m] = 1[m+1] .                                                                       
+Proposition 3.18 (positive special decomposition). A braid β admits a special
+decomposition consisting of positive braids if, and only if, β is a positive simple
+braid, that is, there exists an integer n such that β divides Garside’s fundamental
+braid ∆n in the monoid B∞    +
+                               .
+                       Qsh
+Proof. Assume β =          (β1 , ..., βn ) with β1 , ..., βn special and positive. Then, as
+seen in the proof of Prop. 3.12, (1, 1, 1, ···) • β is defined and equal to (β1 , β2 , ···).
+Hence, by Lemma 3.17, there exists for each i a number mi satisfying βi = 1[mi +1] .
+Then (3.4) expands into
+(3.7)                      β = (σm1 ··· σ1 ) · sh(σm2 ··· σ1 ) · ···
+This shows that β is a positive braid, in which any two strands cross at most once,
+thus a divisor of ∆n for n large enough.
+   Conversely, assume that β is a positive simple braid. Then it is known that β
+admits a decomposition of the form (3.7), where mi + 1 is the initial position of the
+strand that finishes at position i in β. By uniqueness, this decomposition coincides
+with the one associated with (1, 1, 1, ···) • β, meaning that the entries of (1, 1, 1, ···) • β
+are the positive braids 1[mi +1] .                                                           
+   In particular, the special decomposition of ∆n is
+                  ∆n = (σn−1 ··· σ1 ) · sh(σn−2 ··· σ1 ) · ··· · shn−2 (σ1 ).
+   In contrast to Lemma 3.17, which completely describes special braids lying in Bn+ ,
+very little is known about special braids that lie in Bn . Inductively defining the
+complexity of a special braid β by c(1) := 0 and
+                    c(β) := min{sup(c(β1 ), c(β2 )) + 1 | β = β1 ⊲ β2 },
+one easily checks that c(β) ⩽ n implies β ∈ Bn .
+Question 3.19 (special n-strand braids). Is the converse true, that is, does
+c(β) ⩽ n hold for every special braid β that lies in Bn ?
+  A positive answer would in particular imply that there are at most 2n special
+braids in Bn .
+3.3. Ordering braids. Together with the acyclicity result of Lemma 3.6, the com-
+parison property of Lemma 3.2 implies that the iterated division relation ⊏∗ is a
+                                                       sp
+linear ordering on the family of all special braids B∞    . As every braid admits a
+decomposition in terms of special braids, it is not surprising that the linear order
+     sp
+on B∞   extends to a linear order on arbitrary braids. We briefly recall the construc-
+tion. The interest here is not to establish the orderability of B∞ , now a standard
+14                                      PATRICK DEHORNOY
+
+
+result [27], but to explain the connection with the shelf operation ⊲ and state the
+Laver conjecture.
+   We recall from Lemma 3.5 that a braid β is said to be σ1 -positive if it admits
+at least one expression where σ1 occurs and σ1−1 does not. We define σ1 -negative
+(no σ1 and at least one σ1−1 ) and σ1 -free (no σ1 and no σ1−1 ) accordingly.
+Lemma 3.20 (order on special). If β, β ′ are special braids, the relation β ⊏∗ β ′
+    sp
+in B∞  is equivalent to β −1 β ′ being σ1 -positive.
+Proof. We saw in Lemma 3.5 that, if β ⊏∗ β ′ holds in B∞ , hence in particular if
+β ⊏∗ β ′ holds in B∞sp
+                       , then β −1 β ′ is σ1 -positive. Conversely, assume that β and β ′
+are special and β β is σ1 -positive. By Lemma 3.2, at least one of β ⊏∗ β ′ , β = β ′ ,
+                   −1 ′
+
+or β ⊐∗ β ′ holds in B∞  sp
+                            . The second option implies that β −1 β ′ is trivial, hence,
+by Lemma 3.6, not σ1 -positive. The third option implies that β ′−1 β is σ1 -positive,
+which again contradicts the σ1 -positivity of β −1 β ′ , as the product of the σ1 -positive
+braids β −1 β ′ and β ′−1 β, which is 1, would be σ1 -positive. So β ⊏∗ β ′ is the only
+possibility.                                                                             
+     Using the special decomposition of Prop. 3.12, we immediately deduce:
+Proposition 3.21 (order). Every braid is σ1 -positive, σ1 -negative, or σ1 -free,
+each possibility excluding the others.
+Proof. Let β ∈ Bn . By Prop. 3.12, there exist β1 , ..., βn , β1′ , ..., βn′ special satisfying
+            β = shn−1 (βn−1 ) · ··· · sh(β2−1 ) · β1−1 · β1′ · sh(β2′ ) · ··· · shn−1 (βn′ ),
+which has the form β = sh(γ) · β1−1 β1′ · sh(γ ′ ). By Lemma 3.20, β1−1 β1′ is either σ1 -
+positive, in which case so is β, or equal to 1, in which case β is σ1 -free, or σ1 -negative,
+in which case so is β. The three cases exclude one another by Lemma 3.6.                   
+Remark 3.22. The previous simple argument takes place in B∞ , and does not
+guarantee that a braid of Bn necessarily admits a σ1 -positive expression by an n-
+strand braid word. The latter property is true, but it requires a further proof [17].
+     From that point, it is straightforward to define an order on B∞ .
+Corollary 3.23 (order). Say that a braid is σi -positive if it is the image of a σ1 -
+positive braid under shi−1 . For β1 , β2 in B∞ , define β1 < β2 to mean that β1−1 β2 is
+σi -positive for some i. Then the relation < is a linear order on B∞ ; it is compatible
+                                                                 sp
+with multiplication on the left, and extends the order ⊏∗ on B∞     .
+   It is then easy to check that the order so defined on B∞ is a lexicographic
+extension of the order ⊏∗ on special braids: for every braid β, the relation β > 1
+holds if, and only if, whenever β1 , ..., βn , β1′ , ..., βn′ are special and we have
+                                  (β1 , ..., βn ) • β = (β1′ , ..., βn′ ),
+the sequence (β1 , ..., βn ) is smaller than (β1′ , ..., βn′ ) with respect to the lexicograph-
+ical extension of ⊏∗ (look at the first i such that βi and βi′ do not coincide).
+   Let us return to the monoid B∞       +
+                                          . The following was proved by R. Laver [46],
+and then made more precise by S. Burckel [7] and J. Fromentin [35, 36, 37]:
+Proposition 3.24 (well-order). For every n, the restriction of the braid order <
+                                                           n−2
+to Bn+ is a well-order of order type the Cantor ordinal ω ω ; the restriction of <
+                                         ω
+to B∞
+    +
+        is a well-order of order type ω ω .
+                                  THE BRAID SHELF                                    15
+
+
+   If β is a positive n-strand braid, Lemma 2.8 guarantees that (β1 , ..., βn ) • β is
+defined for every sequence of braids (β1 , ..., βn ). Thus, reversing the perspective
+and starting from the sequence (β1 , ..., βn ), we see that the family of all braids β
+for which (β1 , ..., βn ) • β is defined includes the monoid Bn+ .
+Question 3.25 (Laver conjecture). For every sequence of braids (β1 , ..., βn ), is
+the family of all braids β for which (β1 , ..., βn ) • β is defined well-ordered by <?
+   R. Laver conjectured a positive answer. A similar question can be raised for
+every left-shelf (S, ⊲), and, in some cases, the family in question reduces to Bn+ [43].
+But this is not the case in general, in particular in the case of B∞ , and the question
+remains open, and it seems difficult. Note that this is a pure question of topology,
+in that it exclusively involves braids and no other structure.
+
+                                    4. Quotients
+   We now summarize results about the selfdistributive operations obtained from
+the braid operation ⊲ by quotienting the group or shelf structure. Although several
+natural and simple questions arise, little is known here. We successively consider
+the case of the symmetric group (Subsection 4.1) and of the Burau representation
+(Subsection 4.2), which arise when the group structure is quotiented, and the case
+of Laver tables, which arise when the shelf structure is quotiented (Subsection 4.3).
+
+4.1. Permutations. For every n, a well understood quotient of the group Bn
+appears when the elements σi2 are collapsed, namely the symmetric group Sn .
+Geometrically, the projection corresponds to associating with a braid β the permu-
+tation perm(β) so that, for 1 ⩽ i < n, the strand finishing at position i begins at
+position perm(β)(i) in any braid diagram representing β. The projection extends
+to B∞ , the image being the symmetric group S∞ of all permutations of Z>0 that
+move finitely many entries, equipped with composition.
+   We denote by si the projection of σi , that is, the transposition exchanging i
+and i + 1. We use sh for the shift endomorphism of S∞ defined, for f in S∞ ,
+by sh(f )(1) := 1 and sh(f )(n) := f (n − 1) + 1 for n ⩾ 2.
+   As the operation ⊲ on B∞ is defined from the group multiplication and the endo-
+morphism sh, every group morphism from B∞ to a group G that carries sh to some
+convenient endomorphism of G induces a ⊲-morphism, and the image operation
+automatically obeys the selfdistributivity law LD. In this way, we obtain:
+Proposition 4.1 (permutation shelf ). For f, g in S∞ , define
+(4.1)                      f ⊲ g := f · sh(g) · s1 · sh(f )−1 .
+Then (S∞ , ⊲) is a left-shelf, and perm is a surjective morphism from (B∞ , ⊲)
+to (S∞ , ⊲).
+   On the shape of what was done for braids in Section 3, it is natural to consider
+the substructure of (S∞ , ⊲) generated by the identity map id of Z>0 .
+Definition 4.2 (special permutation). We denote by Ssp       ∞ the closure of {id}
+in (S∞ , ⊲). The elements of Ssp
+                              ∞  are called special permutations.
+  Clearly, (Ssp
+             ∞ , ⊲) is a monogenerated left-shelf, and perm induces a surjective
+                   sp
+morphism from (B∞     , ⊲) onto (Ssp
+                                  ∞ , ⊲), since id is the permutation associated with
+16                                            PATRICK DEHORNOY
+
+
+the unit braid. One easily checks that, for every n, the right power id[n] is the
+n-cycle sn−1 ··· s2 s1 . The left powers id[n] are more mysterious; the first values are
+             id[2] = s1 ,          id[3] = s2 ,    id[4] = s2 s3 s1 ,   id[5] = s3 s4 s2 s3 s4 , ...
+see Fig. 5 for an embryo of the table of (Ssp
+                                           ∞ , ⊲) starting with left powers.
+
+
+           Ssp
+            ∞                 id                  s1             s2            s2 s3 s1          ···
+             id                s1               s2 s1           s3 s1         s3 s4 s2 s1        ···
+             s1                s2               s2 s1           s3 s2         s3 s4 s2 s1        ···
+             s2             s2 s3 s1            s3 s1           s2 s1      s3 s4 s2 s3 s4 s1     ···
+          s2 s3 s1       s3 s4 s2 s3 s4   s3 s4 s2 s3 s4 s1     s4 s3            s3 s1           ···
+             ···               ···               ···             ···              ···            ···
+        Figure 5. An embryo of the table of (Ssp
+                                              ∞ , ⊲) based on left powers of id.
+
+
+   In the left-shelf (Ssp
+                       ∞ , ⊲), the division relation ⊏ of Def. 3.1 admits cycles: for
+instance, one can check the equality
+(4.2)                                 s2 s1 = ((s2 s1 ) ⊲ s1 ) ⊲ s2 s3 s1 ,
+whence s2 s1 ⊏ s2 s1 . It follows from Corollary 3.8 that (Ssp
+                     ∗
+                                                                      ∞ , ⊲) is not a free left-
+shelf: typically, (4.2) translates into id[3] = (id[3] ⊲ id[2] ) ⊲ id[4] , a nontrivial relation
+                               sp
+whose counterpart fails in B∞     .
+Question 4.3 (presentation). Does the left-shelf (Ssp
+                                                   ∞ , ⊲) admit a finite presen-
+tation in terms of its generator id?
+   Nothing is known. One of the very few results about (S∞ , ⊲) known so far is an
+alternative definition of ⊲ using conjugation of injections.
+Proposition 4.4 (injection shelf ). Let I∞ be the monoid of all injections from Z>0
+to itself equipped with composition, and let sh be the element of I∞ (“shift”) that
+maps n to n + 1 for every n. For f, g in I∞ , define f ⊲ g in I∞ by
+(4.3)      f ⊲ g(n) := f (g(f −1 (n))) for n ∈ Im(f ), and f ⊲ g(n) := n otherwise.
+Then (I∞ , ⊲) is a left-shelf, and the map φ : f 7→ f · sh defines an embedding
+from (S∞ , ⊲) into (I∞ , ⊲).
+Proof. For all f, g, the definition implies Im(f ⊲ g) = f (Im(g)) ∪ coIm(f ) and
+coIm(f ⊲ g) = f (coIm(g)). From there, one easily checks that, for every n, both
+f ⊲ (g ⊲ h) and (f ⊲ g) ⊲ (f ⊲ h) map n to f (g(h(g −1 (f −1 (n))))) for n in Im(f · g),
+and to n otherwise. Thus ⊲ obeys the selfdistributivity law LD.
+   To prove that φ is a morphism, carefully applying the definitions shows that,
+for all f, g in S∞ , both φ(f ⊲ g) and φ(f ) ⊲ φ(g) keep f (1) fixed, and map n
+to f (g(f −1 (n)) + 1) for n 6= f (1). Finally, φ(f ) = φ(f ′ ) implies sh(f ) = sh(f ′ ),
+whence f = f ′ , so φ is injective.                                                    
+   By definition, the morphism φ of Prop. 4.4 maps the identity permutation id
+to the injection sh. Hence it induces an isomorphism from the left-shelf (Ssp         ∞ , ⊲)
+to its image, which is the substructure Isp    ∞  of (I ∞ , ⊲) generated  by sh.  The  left-
+shelf (Isp
+        ∞  , ⊲) is directly reminiscent of the left-shelf Iter(j) constructed in set theory
+using the iterations of an elementary embedding j under the “application” oper-
+ation, see [45] or [18, Chapter XII]: the latter structure implies the existence of
+                                   THE BRAID SHELF                                         17
+
+
+an injection sf h in I∞ and of a partial selfdistributive operation e     ⊲ on (a subset
+of) I∞ such that e ⊲ is everywhere defined on the substructure generated by sf    h, and
+fe⊲ g(n) = f (g(f −1 (n))) holds for n in Im(f ), but, instead of “stupidly” completing
+with f ⊲ g(n) := n for n in coIm(f ) as in (4.3), the operation e⊲ is constructed so that
+fe⊲ g is increasing when defined. The latter condition implies that the injection sf    h
+must be a fast growing function [29, 30, 38], and its existence is currently proved
+only from a large cardinal axiom (“Laver cardinal”) [18, Chapter XIII].
+Question 4.5 (increasing injections). Can one define without any set theoretical
+assumption a selfdistributive operation on increasing injections of Z>0 ?
+   The question seems very difficult. J.T. Moore wondered whether there could be
+a connection with the Følner function of Thompson’s group F [52].
+
+4.2. Linear representations. Linear representations of braid groups provide fur-
+ther quotients. The Lawrence–Krammer representation is known to be faithful [1,
+42], so its image is just isomorphic to its domain, and nothing new seems to be
+expectable here.
+   By contrast, the Burau representation is not faithful [48], and, therefore, its
+image is a proper quotient. To work with B∞ , we have to consider the direct
+limit GL∞ (Z[t, t−1 ]) of the groups GLn (Z[t, t−1 ]) (identified with invertible n-mat-
+rices) with the top–left embeddings of matrices. The (unreduced) version of the
+representation is defined by
+                                                         
+                                                 1−t t
+                          ρ(σi ) = Σi := shi−1                  ,
+                                                    1     0
+where sh is the obvious bottom–right shift of matrices.
+   Projecting the braid operation ⊲ yields a selfdistributive operation on the image
+of ρ. The latter turns out to extend to arbitrary elements of GL∞ (Z[t, t−1 ]):
+Proposition 4.6 (Burau shelf ). For A, B in GL∞ (Z[t, t−1 ]), define
+(4.4)                     A ⊲ B := A · sh(B) · Σ1 · sh(A)−1 .
+Then (GL∞ (Z[t, t−1 ]), ⊲) is a left-shelf, and the Burau representation is a morphism
+from (B∞ , ⊲) to (GL∞ (Z[t, t−1 ]), ⊲).
+   The verification is the same as for B∞ : the point is that Σ1 commutes with every
+matrix in the image of sh2 , and that Σ1 Σ2 Σ1 Σ−12 is equal to Σ2 Σ1 . We may wonder
+whether the identity matrix generates under ⊲ a free left-shelf. The answer must be
+negative: if so, the division relation would have no cycle in (GL∞ (Z[t, t−1 ]), ⊲), im-
+plying that the Burau image of a σ1 -positive braid would never be trivial, implying
+in turn that ρ is injective—which is false. By the way, an example of a σ1 -positive
+braid (with five σ1 and no σ1−1 ) whose Burau image is trivial is constructed in [15].
+This corresponds to a cycle of length 5 for division in (GL∞ (Z[t, t−1 ]), ⊲).
+   Of course, on the model of Question 4.3, we may ask for a presentation of the sub-
+shelf of (GL∞ (Z[t, t−1 ]), ⊲) generated by the identity matrix. But so little is known
+about the matrix operation ⊲ that the question seems out from reach. Clearly, (4.4)
+implies the relation det(A ⊲ B) = −t · det(B). A similar but more exotic relation is
+                              shtr(A ⊲ B) = shtr(B) + t,
+                                                                          P
+where shtr(A) (“shifted trace”) is the sum of all overdiagonal entries        i Ai,i+1 .
+18                               PATRICK DEHORNOY
+
+
+4.3. Laver tables. For every positive integer N , there exists a unique binary op-
+eration ⊲ on {1, ..., N } that satisfies x ⊲ 1 = x + 1 mod N and obeys the law
+x ⊲ (y ⊲ 1) = (x ⊲ y) ⊲ (x ⊲ 1); the structure so obtained is a left-shelf if, and only
+if, N is a power of 2. The structure with 2n elements is called the nth Laver
+table, usually denoted by An , see Fig. 6 for the first four tables. Laver tables ap-
+pear as the elementary building bricks for constructing all (finite) monogenerated
+shelves [31, 32, 53], and can adequately be seen as counterparts of cyclic groups
+in the SD-world. We refer to [19, Chapter X], [25, Chapitre XIV] (in French), or
+to [33] for a more complete introduction. For every n, projection modulo 2n defines
+a surjective homomorphism from An+1 to An . It is conjectured that the inverse
+limit of the system so obtained is free. A proof of the conjecture is known under
+some large cardinal axiom [47], a very unusual and puzzling situation.
+                                                       A3   1   2   3   4   5   6   7   8
+                                                       1    2   4   6   8   2   4   6   8
+                                  A2   1   2   3   4   2    3   4   7   8   3   4   7   8
+                     A1   1 2     1    2   4   2   4   3    4   8   4   8   4   8   4   8
+          A0   1
+                     1    2 2     2    3   4   3   4   4    5   6   7   8   5   6   7   8
+          1    1
+                     2    1 2     3    4   4   4   4   5    6   8   6   8   6   8   6   8
+                                  4    1   2   3   4   6    7   8   7   8   7   8   7   8
+                                                       7    8   8   8   8   8   8   8   8
+                                                       8    1   2   3   4   5   6   7   8
+
+        Figure 6. The first four Laver tables; observe the periodic behaviour
+        of the rows, which consist of the repetition of a pattern whose length
+        is itself a power of 2, a general phenomenon.
+
+   Because of the fundamental position of Laver tables in the world of monogener-
+ated left-shelves, a natural question is to connect them with the braid shelf (B∞ , ⊲).
+       sp
+As (B∞    , ⊲) is a free monogenerated left-shelf, there must exist for every n a con-
+                      sp                 sp
+gruence ≡n on (B∞        , ⊲) such that B∞  /≡n is isomorphic to An .
+Question 4.7 (An as quotient of B∞ ). Does there exist a simple topological/algeb-
+raic/combinatorial characterization of the relation ≡n on special braids? Can this
+relation be extended to arbitrary braids in a natural way?
+   At the moment, almost nothing is known about the question. In lack of an an-
+swer, we can look at the possible connection between the known quotient of (B∞ , ⊲),
+namely the left-shelf (S∞ , ⊲) of Section 4.1, and Laver tables. Such a connection
+exists typically for the 2-element Laver table A1 .
+Proposition 4.8 (A1 as quotient of S∞ ). Define the class cl(f ) of a permu-
+tation f in S∞ to be f −1 (1). Let Ssm ∞ := {f ∈ S∞ | cl(f ) ⩽ 2} (“small class”
+permutations).
+   (i) The set Ssm                                       sp
+                 ∞ is closed under ⊲, and it includes S∞ .
+   (ii) Class equality is a congruence on the left-shelf (Ssm                  sp
+                                                            ∞ , ⊲), hence on (S∞ , ⊲).
+In both cases, the quotient is the Laver table A1 .
+Proof. (i) As sn−1 ···s2 s1 maps 1 to n, a permutation f in S∞ is of class n if, and
+only if, f sn−1 ···s1 is of class 1. On the other hand, a permutation f in S∞ keeps 1
+fixed if, and only if, it lies in the image of the shift mapping. Thus, for every n, a
+permutation f has class n if, and only if, it can be written as sh(f ′ )s1 s2 ···sn−1 for
+some f ′ . In particular, the elements of Ssm                       ′           ′
+                                              ∞ are of the form sh(f ) or sh(f )s1 .
+                                           THE BRAID SHELF                                                19
+
+
+   Assume that f has class 1, say f = sh(f ′ ). For every g in S∞ , we find
+                f ⊲ g = sh(f ′ ) sh(g) s1 sh2 (f ′ )−1 = sh(f ′ ) sh(g) sh2 (f ′ )−1 s1 ,
+of class 2. Assume now that f has class 2, say f = sh(f ′ )s1 , and g has class 1,
+say g = sh(g ′ ). Using again that s1 commutes with sh2 (f ′ ) and s21 = 1, we find
+           f ⊲ g = sh(f ′ ) s1 sh2 (g ′ ) s1 s2 sh2 (f ′ )−1 = sh(f ′ ) sh2 (g ′ ) s2 sh2 (f ′ )−1 ,
+explicitly of class 1. Finally, assume that f has class 2, say f = sh(f ′ )s1 , and g has
+class 2, say g = sh(g ′ )s1 . Using now s1 s2 s1 s2 = s2 s1 , we find
+        f ⊲ g = sh(f ′ ) s1 sh2 (g ′ ) s2 s1 s2 sh2 (f ′ )−1 = sh(f ′ ) sh2 (g ′ ) s2 sh2 (f ′ )−1 s1 ,
+of class 1. Thus, applying ⊲ to permutations in Ssm                              sm
+                                                     ∞ yields permutations in S∞ ,
+           sm                                                 sm
+that is, S∞ is closed under ⊲. Because id belongs to S∞ (it has class 1), the
+substructure of (S∞ , ⊲) generated by id, which is Ssp                   sm
+                                                     ∞ , is included in S∞ .
+                                           sm
+   (ii) Let ≡ denote class equality on S∞ . The above three computations show
+that ≡ is compatible with the operation ⊲, and that the table of Ssm  ∞ /≡ coincides
+with that of the Laver table A1 , as displayed in Fig. 6.                         
+  Composing with the projection of braids to permutations, we deduce a partial
+answer to Question 4.7 in the case of A1 :
+Corollary 4.9. Call a braid β of class n if, in any braid diagram representing β,
+                                                                    sm
+the strand starting at position 1 finishes at position n. Let B∞       := {β ∈ B∞ |
+                        sm                                     sp
+cl(β) ⩽ 2}. Then B∞ is closed under ⊲ and includes B∞ . Class equality is a
+                  sm            sp
+congruence on (B∞    , ⊲) and (B∞  , ⊲), and the quotient is the Laver table A1 .
+   This answer is not fully satisfactory, in that the considered equivalence relation
+                                                         sm
+is defined only on a proper subset of B∞ , namely B∞        . However, the situation
+with A2 is worse:
+Fact 4.10. There is no congruence on (Ssp
+                                       ∞ , ⊲) such that the quotient is isomorphic
+to a Laver table An with n ⩾ 2.
+Proof. As A2 is a quotient of every table An with n ⩾ 2, it suffices to consider A2 .
+Assume that φ is a morphism from (Ssp     ∞ , ⊲) to A2 . As id is the unique generator
+of (Ssp
+     ∞  , ⊲) and 1 is the unique generator of A2 , we necessarily have φ(id) = 1. Now,
+we see on Fig. 6 that, in A2 , we have 1 ⊲ 3 = 2 and 3 ⊲ 2 = 4, hence
+(4.5)                                     1 ⊲ 1[3] 6= 1[3] ⊲ 1[2] ,
+whereas, in Ssp
+             ∞ , we read in Fig. 5
+(4.6)                               id ⊲ id[3] = s3 s1 = id[3] ⊲ id[2] :
+this contradicts the assumption that φ is a homomorphism.                                                 
+   The above fact does not prove that there is no answer to Question 4.7, but it
+shows that, for n ⩾ 2, the relation ≡n cannot be defined in terms of the associ-
+ated permutations. It might be interesting to try further quotients of the braid
+groups [12], or linear representations. Typically, considering the Burau representa-
+tion of Section 4.2 leads to
+Question 4.11 (Burau). Is the Laver table A2 a quotient of (GL∞ (Z[t, t−1 ]), ⊲)?
+   At the least, writing I for the identity matrix, one checks I ⊲ I[3] 6= I[3] ⊲ I[2] , so
+the obstruction (4.6) in S∞ vanishes in GL∞ (Z[t, t−1 ]).
+20                                   PATRICK DEHORNOY
+
+
+                                        5. Extensions
+   We conclude with hints about extensions of the braid operation ⊲ to larger struc-
+tures. In Subsection 5.1, we describe the group CB∞ of charged braids, a natural
+extension of B∞ , in which extra space enables one to realize free shelves on any
+number of generators. Next, in Subsection 5.2, we describe the monoid EB∞ of
+extended braids, in which a second, associative operation exists beside the selfdis-
+tributive one. Finally, we mention in Subsection 5.3 the group of parenthesized
+                                                    d , another extension of B∞
+braids B• , also called the braided Thompson group BV
+equipped with a selfdistributive operation.
+5.1. Charged braids. By Prop. 3.7, every braid generates under the selfdistribu-
+tive operation ⊲ a substructure that is a free monogenerated left-shelf. Plenty of
+space is left aside: for instance, we saw that no generator σi with i ⩾ 2 belongs to
+                     sp
+the substructure B∞     generated by 1.
+Question 5.1 (free family). Does (B∞ , ⊲) include a free left-shelf of rank 2, that
+is, does there exists a cardinal 2 free family in (B∞ , ⊲) (in the sense of Def. 3.3)?
+    A negative answer is likely. Indeed, one can show [18] that, for all β1 , β2 , β in B∞
+such that β is special, β1 ⊲ β [m] = β2 ⊲ β [m] holds for m large enough, whereas, if
+{β1 , β2 } is free in (B∞ , ⊲), then β1 ⊲ β = β2 ⊲ β holds for no β in hβ1 , β2 i. Therefore,
+if {β1 , β2 } is a free family, the subshelf hβ1 , β2 i generated by β1 and β2 contains no
+special braid. So, in particular, there exists no braid β such that {1, β} is free.
+    In order to possibly construct a braid realization for free left-shelves of rank
+larger than 1, it is therefore natural to introduce extensions of B∞ in which enough
+space is explicitly granted. A first solution was described by D. Larue in [44] using
+a (very large) algebraic extension. Here we briefly mention the alternative solution
+of [16], which is simpler and admits a natural topological description.
+Definition 5.2 (charged braids). For n ⩾ 1, we let CBn be the extension of Bn
+obtained by adding mutually commuting elements ρ1 , ..., ρn subject to the relations
+(5.1)       σi ρj = ρj σi   for j < i or j ⩾ i + 2,               σi ρi ρi+1 = ρi ρi+1 σi .
+   In topological terms, CBn is the group of isotopy classes of enhanced braid
+diagrams, in which the strands wear integer-valued charges and ρi corresponds to
+adding an elementary charge +1 on the ith strand, see Fig. 7. The rule is that
+charges freely move on the strands, but a charge on the ith strand may move
+through a crossing σi±1 if, and only if, a similar charge on the (i + 1)st strand
+simultaneously does, see Fig. 7.
+   The group Bn embeds in CBn . On the other hand, erasing charges, that is,
+collapsing all generators ρi defines a projection πn from CBn to Bn , which is a
+retraction of the embedding. Note that Ker(πn ) is, already for n = 2, quite big:
+mapping an even length sequence of integers (e0 , ..., e2ℓ , e) to
+                         ρe10 σ1 ρe11 σ1−1 ρe12 σ1 ρe13 σ1−1 ··· σ1−1 ρe12ℓ ρe2
+produces pairwise distinct elements of Ker(π2 ) since the only eligible relations con-
+sist in moving the final ρe2 and shifting some ρe1i accordingly.
+   We denote by CB∞ the direct limit of the groups CBn when n grows to infinity.
+Proposition 5.3 (charged braid shelf ). Extend the operation ⊲ from B∞ to CB∞
+by defining sh(ρi ) := ρi+1 for every i and keeping (2.3). Then (CB∞ , ⊲) is a left-
+shelf, and, for every n ⩾ 2, the family {1, ρ1 , ..., ρ1n−1 } is free in (CB∞ , ⊲).
+                                     THE BRAID SHELF                                 21
+
+                              ⊕⊕       ⊖                                 ⊕
+
+
+           ⊕         ⊖⊖                ⊖⊖                          ⊖     ⊖      ⊖
+                                                 ∼
+           ⊕⊕                                           ⊕          ⊕
+
+
+
+        Figure 7. Typical charged braid diagrams, represented with ⊕
+        on the ith strand for ρi , and ⊖ for ρ−1       i :   here the diagrams
+        encoded by ρ21 ρ2 σ1 ρ−22  σ ρ 2 −1 −1 −2
+                                        σ
+                                    1 3 2  ρ 3 ρ 2 , corresponding   to evaluat-
+        ing (ρ21 ⊲ρ1 )⊲1 with the operation of Prop. 5.3, and the equivalent dia-
+        gram ρ1 σ1 ρ1 ρ−1         −1 −1 −1
+                        2 σ1 ρ3 ρ2 σ2 ρ2 , in which two initial ⊕ charges have
+        been moved rightwards through σ1 , one cancelling one of the ⊖, and,
+        similarly, two final ⊖ charges have been moved leftwards through σ2−1 ,
+        one cancelling one of the ⊕.
+
+   The proof relies on extending the freeness criterion of Lemma 3.4 to rank ⩾ 2,
+which is not very hard as, essentially, free shelves of higher rank are sort of lexico-
+graphic extensions of rank 1 free shelves [19, Prop. V.6.6].
+   Let us mention that nothing is known about the following informal question,
+related to Question 5.1:
+Question 5.4 (generators). Does the structure (B∞ , ⊲) admit a natural family
+of generators?
+5.2. Extended braids. Another extension of potential interest in topology in-
+volves the monoid of “extended braids” [18]. In a number of (left) shelves (S, ⊲),
+there exists a second, associative operation ◦, admitting a unit 1 and connected
+with ⊲ by the mixed laws
+(5.2)           (x ◦ y) ⊲ z = x ⊲ (y ⊲ z),      x ⊲ (y ◦ z) = (x ⊲ y) ◦ (x ⊲ z)
+(5.3)               x ◦ y = (x ⊲ y) ◦ x,      1 ⊲ x = x,           x ⊲ 1 = 1.
+In particular, if G is a group and ⊲ is the conjugation defined by x ⊲ y := xyx−1 ,
+then the multiplication of G provides such a second operation.
+   Whereas the selfdistributive operation can be used to label the strands of a (braid
+or knot) diagram, such a second operation can be used to label the regions between
+the strands using the convention that crossing from left to right a strand labelled a
+multiplies the region label by a. Then the first law of (5.3) expresses the coherence
+of region and strand colourings, according to the scheme
+                                   b       x         a
+
+(5.4)                                 b◦x               a◦x
+                                       a                 a⊲b
+                                     a ◦ b ◦ x = (a ⊲ b) ◦ a ◦ x
+It is worth noting that the first law of (5.3) and the associativity of ◦ imply that
+the map (a, x) 7→ a ◦ x turns S into an S-module (or S-set), so the region labelling
+of (5.4) is a particular case of the shadow colorings from knot theory [41]. The
+second operation ◦ can also be used to color braids with zip and unzip vertices; in
+this case all the mixed laws for ◦ and ⊲ receive a topological meaning, appearing as
+algebraic distillations of R-moves for knotted graphs [3].
+22                                   PATRICK DEHORNOY
+
+
+   It is therefore natural to look for a possible second operation on (B∞ , ⊲). First,
+the operation ◦ cannot be the group multiplication, nor any group operation on B∞ ,
+since (5.3) would then imply x ⊲ y = x ◦ y ◦ x−1 , which contradicts ⊲ not being
+idempotent. Hence, the best we could expect is a monoid structure that properly
+extends the group structure of B∞ .                              
+     Such a structure exists, and it can be defined as a       n
+(partial) topological completion of B∞ [18]. Hereafter,
+we denote by τp,n the positive braid where n strands cross       n
+over p strands. So τp,0 is 1, and τ2,3 is shown on the right.  p
+
+Lemma 5.5 (topology). For β1 , β2 in B∞ , put d(β1 , β2 ) := 0 for β1 = β2 and
+d(β1 , β2 ) := 2−p for β1−1 β2 in Im(shp ) \ Im(shp−1 ). Then d is an ultrametric dis-
+tance on B∞ . For every braid β and every p, the sequence (βτp,n )n⩾0 is a Cauchy
+sequence without limit in B∞ . Furthermore, the limits of (βτp,n )n⩾0 and (γτq,n )n⩾0
+(in a completion) coincide if, and only if, we have p = q and β −1 γ ∈ Bp .
+                                                            −1
+   The key point in the proof is the conjugation formula τp,n  βτp,n = shn (β), which
+holds for every n and every β in Bp , as a picture similar to Fig.2 shows. Using the
+last statement in Lemma 5.5, it is easy to describe a completion:
+Proposition 5.6 (completion). For (β, p), (γ, q) in B∞ ×N, declare (β, p) ≡ (γ, q)
+for p = q and β −1 γ ∈ Bp , write [β, p] for the ≡-class of (β, q), put d([β, p], [γ, q]) :=
+limn→∞ d(βτp,n , γτq,n ), and define EB∞ to be the family of all ≡-classes. Then
+mapping β to [β, 0] identifies B∞ with a dense subset of EB∞ , and the latter is
+obtained by adding [β, p] as the limit of (βτp,n )n⩾0 for all β and p.
+                                                                                    p
+                                                                         ..       z}|{
+     The elements of EB∞ are called “extended braids”.                    .
+The introduction of [β, p] as the limit of the braids βτp,n
+when n goes to ∞ makes it natural to associate with the
+extended braid [β, p] the diagram shown on the right,                    β
+where p strands vanish at infinity.
+   Now the nice feature is that EB∞ possesses a rich algebraic structure:
+Proposition 5.7 (operations). For [β, p], [γ, q] in EB∞ , define
+(5.5)                       [β, p] · [γ, q] := [β · shp (γ), p + q],
+(5.6)                      ⊲ [γ, q] := [β · shp (γ) · τp,q · shq (β)−1 , q].
+                    [β, p] b
+(i) (EB∞ , ·, 1) is a monoid; B∞ is its group of units, and EB∞ is obtained from B∞
+by adding a unique additional element, namely τ := [1, 1], subject to the relations
+                      σ1 τ 2 = τ 2   and    σi τ = τ σi−1     for i ⩾ 2.
+(ii) (EB∞ , b
+            ⊲) is a left-shelf; (EB∞ , b
+                                       ⊲, ·) obeys the mixed laws (5.2) and (5.3).
+   Point (i) implies the equality [β, p] = β τ p for all β and p. By construction,
+EB∞ is the disjoint union of the groups B∞ /Bp . As B0 and B1 are trivial, EB∞
+includes two copies of B∞ , namely B∞ , and B∞ τ := {βτ | β ∈ B∞ }. Then the
+selfdistributive operation b
+                           ⊲ leaves each layer B∞ /Bp stable. On B∞ , (5.6) cooks
+down to group conjugacy: β b  ⊲ γ = βγβ −1 . By constrast, on the second copy B∞ τ ,
+(5.6) yields βτ b⊲ γτ = β sh(γ) σ1 sh(β)−1 τ , in which we recognize the operation ⊲
+of (2.3) on B∞ .
+   So, at the expense of embedding B∞ into a (moderately) larger space, we ob-
+tained a complete positive solution to the initial two operations problem.
+                                      THE BRAID SHELF                                          23
+
+
+5.3. Parenthesized braids. We conclude with still another extension of the braid
+group B∞ that contains an interesting selfdistributive structure, namely the braided
+Thompson group BVd of [5, 6], also described as the group of parenthesized braids
+and denoted B• in [21].
+Proposition 5.8 (parenthesized braids). Let B• be the extension of B∞ ob-
+tained by adding an infinite sequence of generators a1 , a2 ,... subject to
+(5.7)         σi+1 σi ai+1 = ai σi    and        σi σi+1 ai = ai+1 σi   for every i,
+(5.8)      σi aj = aj σi ,   ai aj−1 = aj ai ,     and      ai σj−1 = σj ai   for j ⩾ i + 2.
+Extending sh by sh(ai ) := ai+1 for every i, define ⊲ and ◦ on B• by
+(5.9)       β ⊲ γ := β · sh(γ) · σ1 · sh(β)−1         and     β ◦ γ := β · sh(γ) · a1 .
+Then (B• , ⊲) is a left-shelf, and (B• , ⊲, ◦) obeys the mixed laws (5.2).
+    In the (large) group B• , the elements σi generate a copy of B∞ , whereas the
+elements ai generate a copy of R. Thompson’s group F [8]. Topologically, the
+elements of B• can be thought of as braids in which the distance between adjacent
+strands need not be constant. Then ai corresponds to moving the strand(s) at
+position i + 1 or infinitely close to position i + ε with ε infinitely small (but not
+merging them: a subsequent a−1  i  may separate them back). It is shown in [21] and
+in [6] that B• is a group of right fractions for the submonoid B•+ generated by the
+                                                                                   +
+σi s and the aj s, and that the latter is a Zappa–Szep product of the monoids B∞
+       +                                                                −1
+and F . This implies that every element of B• can be expressed as f βg, with β
+in B∞ and f, g in F + , resulting in diagrams like the one shown in Fig. 8.
+
+
+
+
+         Figure 8. Typical parenthesized braid diagram witnessing for the
+         decomposition of B•+ as a Zappa–Szep product of B∞    +
+                                                                  and F + , here
+          −1 −1
+         a1 σ2 σ1 σ2 a2 : diverging, braiding, and finally merging.
+
+   The selfdistributive structure on B• is not so perfect as the one on EB∞ in that
+the second operation is not associative, and the laws of (5.3) all fail in (B• , ⊲, ◦).
+However, calling B•sp the closure of 1 under ⊲ and ◦ in B• , one obtains decompo-
+sitions of arbitrary parenthesized braids into special ones as in Prop. 3.12. From
+there, one can order B• , and, calling “augmented left-shelf” a left-shelf equipped
+with a second operation satisfying (5.2), establish that B•sp is a free monogenerated
+augmented left-shelf [22, 28].
+
+                                         References
+ [1] S. Bigelow, Braid groups are linear, J. Amer. Math. Soc. 14 (2001) 471–486.
+ [2] J. Birman, Braids, Links, and Mapping Class Groups, Annals of Math. Studies 82 Princeton
+     Univ. Press (1975).
+ [3] P. Blain, G. Bowlin, T. Fleming, J. Foisy, J. Hendricks & J. LaCombe, Some results on intrin-
+     sically knotted graphs, J. Knot Theory Ramifications 16 (2007) 749–760.
+24                                    PATRICK DEHORNOY
+
+
+ [4] E. Brieskorn, Automorphic sets and braids and singularities, Braids, Contemporary Maths
+     AMS 78 (1988) 45–117.
+ [5] M. Brin, The algebra of strand splitting. I. A braided version of Thompson’s group V , J.
+     Group Th.; 10; 2007; 757–788.
+ [6] M. Brin, The algebra of strand splitting. II. A presentation for the braid group on one strand,
+     Intern. J. of Algebra and Computation 16 (2006) 203–219.
+ [7] S. Burckel, The wellordering on positive braids, J. Pure Appl. Algebra 120 (1997) 1–17.
+ [8] J.W. Cannon, W.J. Floyd, & W.R. Parry, Introductory notes on Richard Thompson’s groups,
+     Ens. Math. 42 (1996) 215–257.
+ [9] S. Carter, A survey of quandle ideas, in: Introductory lectures on Knot Theory, Kauffmann
+     and al. eds, Series on Knots and Everything vol. 46, World Scientific (2012), pages 22–53.
+[10] J.S. Carter, S. Kamada, & M. Saito, Geometric interpretations of quandle homology, J. Knot
+     Theory Ramifications 10 (2001) 345–386.
+[11] J.S. Carter, D. Jelsovsky, S. Kamada, L. Langford, & M. Saito, Quandle cohomology and state-
+     sum invariants of knotted curves and surfaces, Trans. Amer. Math. Soc. 355(10) (2003)
+     3947–3989.
+[12] H.M.S. Coxeter, Factor groups of the braid group, Proc. 4th Canad. Math. Cong. (1959)
+     95–122.
+[13] P. Dehornoy, Braid groups and left distributive operations, Trans. Amer. Math. Soc. 345
+     (1994) 115–151.
+[14] P. Dehornoy, A normal form for the free left distributive law, Internat J. Algebra Comput. 4
+     (1994) 499–528.
+[15] P. Dehornoy, Weak faithfulness properties for the Burau representation, Topology and its
+     Applic 69 (1996) 121–143.
+[16] P. Dehornoy, Construction of left distributive operations and charged braids, Internat J. Al-
+     gebra Comput. 10 (2000) 173–190.
+[17] P. Dehornoy, A fast method for comparing braids, Adv. Math. 125 (1997) 200–235.
+[18] P. Dehornoy, Strange questions about braids, J. Knot Theory Ramifications 8 (1999) 589–620.
+[19] P. Dehornoy, Braids and Self-Distributivity, Progress in Math. vol. 192, Birkhäuser (2000).
+[20] P. Dehornoy, Geometric presentations of Thompson’s groups, J. Pure Appl. Algebra 203
+     (2005) 1–44.
+[21] P. Dehornoy, The group of parenthesized braids, Adv. Math. 205 (2006) 354–409.
+[22] P. Dehornoy, Free augmented LD-systems, J. Algebra & Appl. 6 (2007) 173–187.
+[23] P. Dehornoy, Using shifted conjugacy in braid-based cryptography, Contemp. Math. 418
+     (2006) 65–73.
+[24] P. Dehornoy, The subword reversing method, Internat. J. Algebra Comput. 21 (2011) 71–118.
+[25] P. Dehornoy, La thorie des ensembles, Calvage & Mounet (2017).
+[26] P. Dehornoy, Some aspects of the SD-world, Proc. 4th Milehigh conference, Denver (2017),
+     Contemp. Math., submitted, arXiv:1711.09792.
+[27] P. Dehornoy, with I. Dynnikov, D. Rolfsen, B. Wiest, Ordering Braids, Mathematical Surveys
+     and Monographs vol. 148, Amer. Math. Soc. (2008).
+[28] P. Dehornoy and V. van Oostrom, Using groups for investigating rewrite systems, Math.
+     Struct. in Comp. Sci. 18 (2008) 1133–1167.
+[29] R. Dougherty, Critical points in an algebra of elementary embeddings, Ann. P. Appl. Logic
+     65 (1993) 211–241.
+[30] R. Dougherty & T. Jech, Finite left-distributive algebras and embedding algebras, Adv. Math.
+     130 (1997) 201–241.
+[31] A. Drápal, Finite left distributive algebras with one generator, J. Pure Appl. Algebra 121
+     (1997) 233–251.
+[32] A. Drápal, Finite left distributive groupoids with one generator, Int. J. for Algebra Compu-
+     tation 7 (1997) 723–748.
+[33] A. Drápal, About Laver tables, Proc. 4th Milehigh conference, Denver (2017), Contemp.
+     Math., to appear.
+[34] R. Fenn, C.P. Rourke, and B. Sanderson, James bundles and applications                        ,
+     http://www.maths.warwick.ac.uk/∼cpr/ftp/james.ps.
+[35] J. Fromentin, The well ordering on dual braid monoids, J. Knot Theory Ramifications 19
+     (2010) 631–654.
+                                       THE BRAID SHELF                                            25
+
+
+[36] J. Fromentin, Every braid admits a short sigma-definite expression, J. Europ. Math. Soc. 13
+     (2011) 1591–1631.
+[37] J. Fromentin and L. Paris, A simple algorithm for finding short sigma-definite representatives,
+     J. Algebra 350 (2012) 405–415.
+[38] T. Jech, Large ordinals, Adv. Math. 125 (1997) 155–170.
+[39] D. Joyce, A classifying invariant of knots: the knot quandle, J. of Pure and Appl. Algebra
+     23 (1982) 37–65;
+[40] A. Kalka, E. Liberman & M. Teicher, Note on the shifted conjugacy problem in braid groups,
+     Groups-Complexity-Cryptology 1 (2009) 227–230.
+[41] S. Kamada, Knot invariants derived from quandles and racks, Geometry & Topology Mono-
+     graphs vol. 4: Invariants of knots and 3-manifolds (Kyoto 2001), pp. 103–117.
+[42] D. Krammer, Braid groups are linear, Ann. Math. 151 (2002) 131–156.
+[43] D.M. Larue, On braid words and irreflexivity, Algebra Univ. 31 (1994) 104–112.
+[44] D.M. Larue, Left-distributive and left-distributive idempotent algebras, Ph D Thesis, Univer-
+     sity of Colorado, Boulder (1994).
+[45] R. Laver, The left distributive law and the freeness of an algebra of elementary embeddings,
+     Adv. Math. 91 (1992) 209–231.
+[46] R. Laver, A division algorithm for the free left distributive algebra, Oikkonen & al. eds, Logic
+     Colloquium ’90, Lect. Notes Logic 2 (1993) 155–162.
+[47] R. Laver, On the algebra of elementary embeddings of a rank into itself, Adv. Math. 110
+     (1995) 334–346.
+[48] D. Long & M. Paton, The Burau representation is not faithful for n ⩾ 6, Topology 32 (1993)
+     439–447.
+[49] J. Longrigg & A. Ushakov, Cryptanalysis of shifted conjugacy authentication protocol, J.
+     Math. Cryptology 2 (2008) 107–114.
+[50] A. Mathas, Iwahori-Hecke algebras and Schur algebras of the symmetric group, Univ. Lect.
+     Ser. vol.15, Amer. Math. Soc. (1999)
+[51] S.V. Matveev, Distributive groupoids in knot theory, Math. Sbornik 119 (1982) 73–83.
+[52] J.T. Moore, Fast growth in the Følner function for Thompson’s group F , Groups Geom. Dyn.
+     7 (2013) 633–651.
+[53] M. Smedberg, A dense family of well-behaved finite monogenerated left-distributive groupoids,
+     Arch. Math. Logic 52 (2013) 377–402.
+
+  Laboratoire de Mathématiques Nicolas Oresme UMR 6139, Université de Caen, 14032 Caen,
+France, patrick.dehornoy@unicaen.fr, URL: dehornoy.users.lmno.cnrs.fr
+

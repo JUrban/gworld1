@@ -1,0 +1,2033 @@
+J. Eur. Math. Soc. 13, 1591–1631                             c European Mathematical Society 2011
+DOI 10.4171/JEMS/289
+
+
+
+
+Jean Fromentin
+
+Every braid admits a short sigma-definite expression
+Received March 31, 2009
+
+Abstract. A result by Dehornoy (1992) says that every nontrivial braid admits a σ -definite expres-
+sion, defined as a braid word in which the generator σi with maximal index i appears with exponents
+that are all positive, or all negative. This is the ground result for ordering braids. In this paper, we
+enhance this result and prove that every braid admits a σ -definite word expression that, in addition,
+is quasi-geodesic. This establishes a longstanding conjecture. Our proof uses the dual braid monoid
+and a new normal form called the rotating normal form.
+
+Keywords. Braid group, braid ordering, dual braid monoid, normal form
+
+
+
+     It has been known since [6] that Artin’s braid groups are orderable, by an ordering that
+enjoys many remarkable properties [11]. The key point in the existence of this ordering
+is the property that every nontrivial braid admits a σ -definite expression, defined to be a
+braid word w in the standard Artin generators σi in which the generator σi with highest
+index i occurs only positively (no σi−1 ), in which case w is called σ -positive, or only
+negatively (no σi ), in which case w is called σ -negative. For β a braid, let kβkσ denote
+the length of the shortest expression of β in terms of the Artin generators σi±1 . Our main
+goal in this paper is to prove the following result.
+Theorem 1. Each n-strand braid β admits a σ -definite expression of length at most
+6(n − 1)2 kβkσ .
+Theorem 1 answers a puzzling open question in the theory of braids. Indeed, the prob-
+lem of finding a short σ -definite expression word for every braid has a long history. In
+the past two decades, at least five or six different proofs of the existence of such σ -
+definite expressions have been given. The first one by Dehornoy in 1992 relies on self-
+distributive algebra [6]. The next one, by Larue [18], uses the Artin representation of
+braids as automorphisms of a free group, an argument that was independently rediscov-
+ered by Fenn–Greene–Rolfsen–Rourke–Wiest [14] in a topological language of so-called
+curve diagrams. A completely different proof based on the geometry of the Cayley graph
+of Bn and on Garside’s theory appears in [7]. Further methods have been proposed in
+connection with relaxation algorithms, which are strategies for inductively simplifying
+
+J. Fromentin: Laboratoire de Mathématiques Nicolas Oresme, UMR 6139 CNRS, Université de
+Caen BP 5186, 14032 Caen, France; e-mail: jean.fromentin@gmail.com
+Mathematics Subject Classification (2010): 20F36, 20M05, 06F05
+1592                                                                              Jean Fromentin
+
+
+some geometric object associated with the braid under consideration, typically a family
+of closed curves drawn in a punctured disk. Both the methods of Dynnikov–Wiest in [12]
+and of Bressaud in [4] lead to σ -definite expressions. However, a frustrating feature of all
+the above methods is that, when one starts with a braid word w of length `, one obtains
+in the best case the existence of a σ -definite word w 0 equivalent to w whose length is
+bounded above by an exponential in `—in the cases of [18, 14, 7, 12, 4], the original
+method of [6] is much worse. By contrast, experiments, specially those based on the al-
+gorithms derived from [7] and [12], strongly suggested the existence of short σ -definite
+expressions, making it natural to conjecture that every braid word of length ` is equiva-
+lent to a σ -definite word of length O(`). This is what Theorem 1 establishes. It is fair to
+mention that the method of [12] proves the existence of “relatively short σ -definite ex-
+pressions”. Indeed, it provides for every length ` braid word a σ -definite equivalent word
+whose length with respect to some conveniently extended alphabet lies in O(`). However,
+when the output word is translated back to the alphabet of Artin’s generators σi , the only
+upper bound Dynnikov and Wiest could deduce so far is exponential in `.
+    The statement of Theorem 1 is essentially optimal. Indeed, it is observed in [11, Chap-
+ter XVI] that the length 4(n − 2) braid word
+
+                            σn−1 σn−2
+                                   −2 . . . σ2
+                                              −2e 2e 2e
+                                                 σ1 σ2 . . . σn2−2 σn−−11 ,
+
+with e = ±1 according to the parity of n, is equivalent to no σ -definite word of length
+smaller than n2 − n − 2. Thus, in any case, the factor (n − 1)2 of Theorem 1 could not be
+possibly replaced with a factor less than O(n).
+    Our proof of Theorem 1 is effective, and it directly leads to an algorithm that returns,
+for every n-strand braid β, a distinguished σ -definite word NFn (β) that represents β.
+Analyzing the complexity of this algorithm leads to
+
+Theorem 2. There exists an effective algorithm which, for each n-strand braid specified
+by a word of length `, computes the σ -definite word NFn (β) in O(`2 ) steps.
+
+We prove Theorems 1 and 2 using the dual braid monoid Bn+∗ associated with the Birman–
+Ko–Lee generators and introducing a new normal form on Bn+∗ , called the rotating normal
+form, which is analogous to the alternating normal form of [5] and [10]. The rotating
+normal form is based on the φn -splitting operation, a natural way of expressing every
+n-strand dual braid in terms of a finite sequence of (n − 1)-strand dual braids.
+     The principle of the argument is as follows. Given an n-strand braid β, we first express
+it as a fraction δn−t β 0 , where δn is the Garside element of the monoid Bn+∗ and β 0 belongs
+to Bn+∗ . If the exponent t happens to be greater than the length of the above-mentioned
+φn -splitting of β 0 , then the σ -negative factor δn−t wins over the σ -positive factor β 0 , and
+a σ -negative word representing β can be obtained by an easy direct computation. Oth-
+erwise, we determine the rotating normal form w of β 0 and try to find a σ -positive ex-
+pression of β by pushing the negative factor δn−t to the right through the positive part w.
+The process is incremental. The problem is that certain special σ -negative words, called
+dangerous, appear in the process. The key point is that rotating normal words satisfy some
+Every braid admits a short sigma-definite expression                                     1593
+
+
+syntactic conditions that enable them to neutralize dangerous words. In this way, one fi-
+nally obtains a word expression of β that contains no σn−−11 , hence is either σ -positive, or
+involves no σn−1 at all. An induction on the braid index n then allows one to conclude.
+     The basic step of the above process consists in switching one dangerous factor and
+one rotating normal word. This step increases the length by a multiplicative factor 3 at
+most, and this is the way the length and time upper bounds of Theorems 1 and 2 arise.
+     In this paper, the braid ordering is not used—on the contrary, the existence of the
+latter can be (re)-deduced from our current results. However, the braid ordering is present
+behind our approach. What actually explains the existence of our normal form is the
+connection between the rotating normal form of Section 2 and the restriction of the braid
+ordering to the dual braid monoid, which is sketched in [15]. It is also worth noting that
+the results of the current paper give a new, entirely self-contained proof of the existence
+of the Dehornoy order of braids.
+     The paper is organized as follows. In Section 1, we briefly recall the definition of the
+dual braid monoids and the properties of these monoids that are needed in what follows,
+in particular those connected with the Garside structure. In Section 2, we introduce the
+rotating normal form, which is our new normal form on Bn+∗ . In Section 3, we establish
+syntactic constraints on rotating normal words, namely that every normal word is what we
+call a ladder. In Section 4, we introduce the notion of a dangerous braid word and define
+the so-called reversing algorithm, which transforms each word consisting of a dangerous
+word followed by a ladder into a particular type of σ -definite word called a wall. In
+Section 5 we compute the complexity of the above reversing algorithm. Finally, we put
+all pieces together and establish Theorems 1 and 2 in Section 6.
+
+
+1. Dual braid monoids
+
+Our first ingredient for investigating braids will be the Garside structure of the so-called
+dual braid monoid Bn+∗ . Here we recall the needed definitions and results.
+
+
+1.1. Birman–Ko–Lee generators
+We recall that Artin’s braid group Bn is defined for n ≥ 2 by the presentation
+                                                                               
+                                              σi σj = σj σi for |i − j | ≥ 2
+                       σ1 , . . . , σn−1 ;                                        .     (1.1)
+                                           σi σj σi = σj σi σj for |i − j | = 1
+
+    The submonoid of Bn generated by {σ1 , . . . , σn−1 } is denoted by Bn+ , and its ele-
+ments are called positive braids. As is well known, the monoid Bn+ equipped with Gar-
+side’s fundamental braid 1n has the structure of what is now usually called a Garside
+monoid [16, 8].
+    The dual braid monoid is another submonoid of Bn . It is generated by a subset of Bn
+that properly includes {σ1 , . . . , σn−1 }, and consists of the so-called Birman–Ko–Lee gen-
+erators introduced in [3].
+1594                                                                                     Jean Fromentin
+
+
+Definition 1.1. (See Figure 1.) For 1 ≤ p < q, we put
+                               ap,q = σp . . . σq −2 σq −1 σq−−12 . . . σp−1 .                    (1.2)
+
+
+                      4
+                      3
+                      2
+                          1
+Fig. 1. From left to right: diagram of the braids a2,3 (= σ2 ), a1,3 (= σ1 σ2 σ1−1 ) and a1,4
+(= σ1 σ2 σ3 σ2−1 σ1−1 ). The generator ap,q corresponds to the half-twist where the qth strand crosses
+over the pth strand, both remaining under all intermediate strands.
+
+Remark 1.2. In [3], ap,q is defined to be σq −1 . . . σp+1 σp σp−+11 . . . σq−−11 , i.e., it corresponds
+to the strands at positions p and q passing in front of all intermediate strands, not behind.
+Both options lead to isomorphic monoids, but our choice naturally leads to the suitable
+embedding of Bn+−∗ 1 into Bn+∗ , indeed, we need that Bn+−∗ 1 is an initial segment of Bn+∗ with
+respect to the standard braid ordering.
+   The family of all braids ap,q enjoys nice invariance properties with respect to cyclic
+permutations of indices, which are better visualized when ap,q is represented on a cylinder
+—see Figure 2. Then it is natural to associate with ap,q the chord connecting the vertices p
+and q in a circle with n marked vertices [2].
+
+                                                                                     4
+               6                              4
+                                                                                 3       5
+                                          3
+                                          2                                      2       6
+               1                              1
+                                                                            1
+Fig. 2. Rolling up the usual diagram helps to visualize the symmetries of the braids ap,q . On the
+resulting cylinder, ap,q naturally corresponds to the chord connecting the vertices p and q.
+
+    Hereafter, we write [p, q] for the interval {p, . . . , q} of N, and we say that [p, q] is
+nested in [r, s] if r < p < q < s. A nicely symmetric presentation of Bn in terms of the
+generators ap,q is as follows.
+Lemma 1.3 ([3]). In terms of the ap,q , the group Bn is presented by the relations
+       ap,q ar,s = ar,s ap,q                      for [p, q] and [r, s] disjoint or nested,       (1.3)
+       ap,q aq,r = aq,r ap,r = ap,r ap,q          for 1 ≤ p < q < r ≤ n.                          (1.4)
+In the representation of Figure 2, relations of type (1.4) mean that, in each chord triangle,
+the product of two adjacent edges taken clockwise does not depend on the edges: for
+instance, the triangle (1, 3, 5) gives a1,3 a3,5 = a3,5 a1,5 = a1,5 a1,3 . Relations of type (1.3)
+Every braid admits a short sigma-definite expression                                      1595
+
+
+say that the generators associated with nonintersecting chords commute: for instance,
+in Figure 2, we read that a2,4 and a1,5 commute—but, for instance, nothing is claimed
+about a2,4 and a1,3 .
+
+1.2. The dual braid monoid Bn+∗ and its Garside structure
+By definition, we have σp = ap,p+1 for each p: every Artin generator is a Birman–Ko–
+Lee generator. On the other hand, the braid a1,3 belongs to no monoid Bn+ . Hence, for
+n ≥ 3, the submonoid of Bn generated by the Birman–Ko–Lee braids ap,q is a proper
+extension of Bn+ : this submonoid is what is called the dual braid monoid.
+Definition 1.4. For n ≥ 2, the dual braid monoid Bn+∗ is defined to be the submonoid
+of Bn generated by the braids ap,q with 1 ≤ p < q ≤ n.
+    So, every positive n-strand braid belongs to Bn+∗ , but the converse is not true for n ≥ 3:
+the braid a1,3 , i.e., σ1 σ2 σ1−1 , belongs to B3+∗ but not to B3+ .
+Proposition 1.5 ([3]). For each n, the relations of Lemma 1.3 yield a presentation of Bn+∗
+in terms of the generators ap,q , and Bn+∗ is a Garside monoid with Garside element
+                         δn = a1,2 a2,3 . . . an−1,n   (= σ1 σ2 . . . σn−1 ).            (1.5)
+Proposition 1.5 implies that the left- and right-divisibility relations in the dual braid
+monoid Bn+∗ have lattice properties, i.e., any two elements of Bn+∗ admit (left and right)
+greatest common divisors and least common multiples. It also implies that Bn is a group
+of fractions for the monoid Bn+∗ , and that every element of Bn+∗ admits a distinguished
+decomposition similar to the greedy normal form of Bn+ [3]. This decomposition involves
+the so-called simple elements of Bn+∗ , which are the divisors of δn , and are in one-to-one
+correspondence with the noncrossing partitions of {1, . . . , n} [3, 1].
+
+1.3. The rotating automorphism
+An important role will be played by the so-called rotating automorphism φn of Bn+∗ .
+In every Garside monoid, conjugating under the Garside element defines an automor-
+phism [8]. In the case of the monoid Bn+ and its Garside element 1n , the associated
+automorphism is the flip automorphism that exchanges σi and σn−i for each i, thus an
+involution that corresponds to a symmetry in braid diagrams. In the case of the dual
+monoid Bn+∗ and its Garside element δn , the associated automorphism has order n, and it
+is similar to a rotation.
+Lemma 1.6 (See Figure 3.). For each β in Bn+∗ , let φn (β) be defined by
+                                        δn β = φn (β)δn .                                (1.6)
+Then, for all p, q with 1 ≤ p < q ≤ n, we have
+                                     (
+                                       ap+1,q +1 for q ≤ n − 1,
+                        φn (ap,q ) =                                                     (1.7)
+                                       a1,p+1    for q = n.
+1596                                                                               Jean Fromentin
+
+                                   4                          4
+                            3             5     φ6     3             5
+
+                            2             6            2             6
+                                     1                        1
+Fig. 3. Representation of the rotating automorphism φn as a clockwise rotation of the marked circle
+by 2π/n.
+
+The proof is an easy verification from (1.2), (1.5) and the relations (1.3), (1.4). Note that
+the relation φn (ap,q ) = ap+1,q +1 always holds provided the indices are taken mod n and
+possibly switched so that, for instance, ap+1,n+1 means a1,p+1 .
+    The formulas of (1.7) show that Bn+∗ is globally invariant under φn . By contrast, note
+that Bn+∗ is not invariant under the flip automorphism 8n : σi 7 → σn−i . For instance,
+83 (a1,3 ), which is σ2 σ1 σ2−1 , does not belong to B3+∗ .
+
+
+2. The rotating normal form
+
+Besides the Garside structure, the main tool we shall use in this paper is a new normal
+form for the elements of the dual braid monoid Bn+∗ , i.e., a new way of associating with
+every element of Bn+∗ a distinguished word (in the letters ap,q ) that represents it. This nor-
+mal form is called the rotating normal form, as it relies on the rotating automorphism φn
+which we have seen is similar to a rotation.
+    The rotating normal form is reminiscent of the alternating normal form introduced
+in [10] for the case of the monoid Bn+ —which is itself connected with Burckel’s approach
+of [5]. It is also closely connected with the normal forms introduced in [17], which are
+other developments, in a different direction, of the alternating normal form. As the prop-
+erties of Bn+∗ and φn are essentially the same as those of Bn+ and 8n , adapting the results
+of [10] is easy, and therefore constructing the rotating normal form is not very hard—
+what will be harder is identifying the needed properties of rotating normal words, as will
+be done in subsequent sections.
+
+
+2.1. The φn -splitting
+The basic observation of [10] is that each braid in the monoid Bn+ admits a unique maximal
+right-divisors that lies in the submonoid Bn+−1 . A similar phenomenon occurs in the dual
+monoid Bn+∗ .
+
+Lemma 2.1. For n ≥ 3, every braid β of Bn+∗ admits a maximal right-divisor lying
+in Bn+−∗ 1 . The latter is the unique right-divisor β1 of β such that ββ1−1 has no nontriv-
+ial (i.e., 6 = 1) right-divisor lying in Bn+−∗ 1 .
+Proof. The submonoid Bn+−∗ 1 of Bn+∗ is closed under right-divisors and left-lcm’s. Hence
+we can apply Lemma 1.12 of [10].                                                        t
+                                                                                        u
+Every braid admits a short sigma-definite expression                                                      1597
+
+
+Definition 2.2. The braid β1 of Lemma 2.1 is called the Bn+−∗ 1 -tail of β and it is denoted
+by tailn−1 (β).
+
+Example 2.3. Let us compute the B2+∗ -tail of δ32 . As B2+∗ is generated by a1,2 , this
+B2+∗ -tail is the maximal power of a1,2 that right-divides δ32 . By definition, we have
+δ32 = a1,2 a2,3 a1,2 a2,3 . By applying (1.4) twice, we obtain
+
+                                δ32 = a1,2 a2,3 a1,3 a1,2 = a1,2 a1,3 a1,2
+                                                                       2
+                                                                           .
+
+As the word a1,2 a1,3 is alone in its equivalence class, the braid it represents cannot be
+                                                               2 .
+right-divisible by a1,2 . Therefore, the B2+∗ -tail of δ32 is a1,2
+
+    In the context of the monoid Bn+ , one obtains a distinguished decomposition for every
+braid in Bn+ by considering the Bn+−1 -tail and the 8n (Bn+−1 )-tail alternately, which is pos-
+sible because Bn+ is generated by Bn+−1 and 8n (Bn+−1 ). In our context of Bn+∗ , we shall
+use the Bn+−∗ 1 -tail, the φn (Bn+−∗ 1 )-tail, . . . , the φnn−1 (Bn+−∗ 1 )-tail cyclically to obtain a distin-
+guished decomposition for every braid of Bn+∗ .
+    In order to show that every braid in Bn+∗ admits such a decomposition, we must check
+that the images of Bn+−∗ 1 under the powers of φn cover Bn+∗ . Actually, iterating twice is
+enough.
+
+Lemma 2.4. For n ≥ 3, every generator ap,q of Bn+∗ belongs to Bn+−∗ 1 ∪ φn (Bn+−∗ 1 ) ∪
+φn2 (Bn+−∗ 1 ).
+Proof. For q ≤ n − 1, the braid ap,q belongs to Bn+−∗ 1 . Next, for q = n and p ≥ 2, we
+have ap,n = φn (ap−1,n−1 ), which belongs to φn (Bn+−∗ 1 ). Finally, for p = 1 and q = n, we
+find ap,q = φn (an−1,n ) = φn2 (an−2,n−1 ), which belongs to φn2 (Bn+−∗ 1 ).               t
+                                                                                           u
+By iterating the tail construction, we then associate with every braid of Bn+∗ a finite se-
+quence of braids of Bn+−∗ 1 that specifies it completely.
+
+Proposition 2.5. Assume n ≥ 3. Then, for each nontrivial braid β of Bn+∗ , there exists a
+unique sequence (βb , . . . , β1 ) in Bn+−∗ 1 satisfying βb 6 = 1 and
+
+                                   β = φnb−1 (βb ) · . . . · φn (β2 ) · β1 ,                              (2.1)
+              for each k ≥ 1, the braid βk is the B           +∗
+                                                              n−1   -tail of φnb−k (βb ) · . . . · βk .   (2.2)
+
+Proof. Starting from β (0) = β, we define two sequences, denoted β (k) and βk , by
+
+               β (k) = φn−1 (β (k −1) βk−1 )   and βk = tailn−1 (β (k −1) )             for k ≥ 1.        (2.3)
+
+Using induction on k ≥ 1, we prove the relations
+
+                                  β = φnk (β (k) ) · φnk −1 (βk ) · . . . · β1 ,                          (2.4)
+                                                   (k)
+                                  tailn−1 (φn (β         )) = 1.                                          (2.5)
+1598                                                                                         Jean Fromentin
+
+
+Assume k = 1. Lemma 2.1 implies that the Bn+−∗ 1 -tail of ββ1−1 is trivial. Then, as φn (β (1) )
+is equal to ββ1−1 , the Bn+−∗ 1 -tail of φn (β (1) ) is trivial, and the relation β = φn (β (1) ) · β1
+holds. Assume k ≥ 2. By the construction of β (k) , we have φn (β (k) ) = β (k −1) βk−1 , hence
+β (k −1) = φn (β (k) ) · βk . Then we have the relation
+                                φnk −1 (β (k −1) ) = φnk (β (k) ) · φnk −1 (βk ).                       (2.6)
+On the other hand, by induction hypothesis, we have
+                             β = φnk −1 (β (k −1) ) · φnk −2 (βk −1 ) · . . . · β1 .                    (2.7)
+
+Substituting (2.6) in (2.7), we obtain (2.4). As βk is the Bn+−∗ 1 -tail of β (k −1) , Lemma 2.1
+gives (2.5).
+    By construction, the sequence of right-divisors of β,
+                                β1 , φn (β2 )β1 , φn2 (β3 )φn (β2 )β1 , . . .
+is nondecreasing for divisibility, and therefore, for length reasons, it must be eventually
+constant. Hence, by right cancellativity of Bn+∗ , there exists b such that for k ≥ b, we have
+φnk −1 (βk ) · . . . · β1 = φnb−1 (βb ) · . . . · β1 . Then (2.4) implies
+
+                                  β = φnb (β (b) )φnb−1 (βb ) · . . . · β1 ,
+with βb 6 = 1 whenever b is chosen to be minimal.
+    By the definition of b, we have βk = 1, and therefore φn (β (k) ) = β (k −1) by (2.3),
+for k ≥ b + 1. Then we have β (b) = φn (β (b+1) ), φn−1 (β (b) ) = φn (β (b+2) ) and φn−2 (β (b) ) =
+φn (β (b+3) ). By (2.5), the Bn+−∗ 1 -tails of β (b) , φn−1 (β (b) ) and φn−2 (β (b) ) are trivial. Hence, for
+every generator x of Bn+−∗ 1 , the braid β (b) is not right-divisible by x, nor by φn (x) or φn2 (x).
+Then Lemma 2.4 implies that β (b) is right-divisible by no ap,q with 1 ≤ p < q ≤ n, i.e.,
+we have β (b) = 1, whence β = φnb−1 (βb ) · . . . · β1 .
+    We now prove the uniqueness of (βb , . . . , β1 ). Let φnc−1 (γc ) · . . . · φn (γ2 ) · φn (γ1 ) be a
+decomposition of β satisfying γc 6 = 1 and γk = tailn−1 (φnc−k (γc ) · . . . · γk ) for each k ≥ 1.
+Using induction on k ≥ 1, we prove the relations
+                   γk = βk      and φnc−k −1 (γc ) · . . . · φn (γk +2 ) · γk +1 = β (k) .
+
+For k = 1, by hypothesis, we have β = (φnc−1 (γc ) · . . . · φn (γ2 )) · γ1 , where γ1 is the Bn+−∗ 1 -
+tail of β, hence, by Lemma 2.1, we have β1 = γ1 and β (1) = φnc−2 (γc ) · . . . · φn (γ3 ) · γ2 .
+By the induction hypothesis,
+                            (φnc−k −1 (γc ) · . . . · φn (γk +2 )) · γk +1 = β (k) ,
+
+and by the hypothesis about γk +1 , the braid γk +1 is the Bn+−∗ 1 -tail of β (k) . Then, by Lemma
+2.1 again, γk +1 = βk +1 and φnc−k −2 (γc ) · . . . · φn (γk+3 ) · γk +2 = β (k +1) . We proved γk = βk
+for b ≥ k ≥ 1, hence
+                             φnc−b−1 (γc ) · . . . · φn (γb+2 ) · γb+1 = β (b) .                        (2.8)
+Every braid admits a short sigma-definite expression                                                      1599
+
+
+By the definition of b, we have β (b) = 1, whereas, by hypothesis, the braid γc is nontrivial.
+So (2.8) may hold only for c = b.                                                           t
+                                                                                            u
+Definition 2.6. The sequence (βb , . . . , β1 ) of Proposition 2.5 is called the φn -splitting
+of β. Its length, i.e., the parameter b, is called the n-breadth of β.
+    The idea of the φn -splitting is very simple: starting with a braid β of Bn+∗ , we ex-
+tract the maximal right-divisor that lies in Bn+−∗ 1 , i.e., that leaves the nth strand unbraided,
+then we extract the maximal right-divisor of the remainder that leaves the first strand
+unbraided, and so on rotating by 2π/n at each step—see Figure 4.
+
+                                                                                                    4
+                                                                                                    5
+                                     φ62 (β3 )                                                  3
+                                                        φ6 (β2 )                 β1
+                φ63 (β4 )                                                                           6
+                                                                                                2
+                                                                                                    1
+
+Fig. 4. The φ6 -splitting of a braid of B6+∗ . Starting from the right, we extract the maximal right-
+divisor that keeps the sixth strand unbraided, then rotate by 2π/6 and extract the maximal right-
+divisor that keeps the first strand unbraided, etc.
+
+
+    In practice, we shall use the following criterion for recognizing a φn -splitting.
+Lemma 2.7. Condition (2.2) is equivalent to
+             for each k ≥ 1, the Bn+−∗ 1 -tail of φnb−k (βb ) · . . . · φn (βk +1 ) is trivial.          (2.9)
+                                                                          +∗
+Proof. By Lemma 2.1, for every k ≥ 1, the braid βk is the B -tail of the braid φnb−k (βb )·
+                                                                          n−1
+. . . · φn (βk +1 ) · βk if and only if the Bn+−∗ 1 -tail of φnb−k (βb ) · . . . · φn (βk +1 ) is trivial. Hence
+(2.2) and (2.9) are equivalent.                                                                                t
+                                                                                                               u
+As the notion of φn -splitting is both new and fundamental for what follows, we mention
+several examples.
+Example 2.8. Let us first determine the φn -splitting of the Birman–Ko–Lee generators
+of Bn+∗ . For q ≤ n − 1, the braid ap,q belongs to Bn+−∗ 1 , so its φn -splitting is (ap,q ). As
+ap,n does not lie in Bn+−∗ 1 , the rightmost entry in its φn -splitting must be 1. Now, we
+have φn−1 (ap,n ) = ap−1,n−1 for p ≥ 2. Hence, for p ≥ 2, the φn -splitting of ap,n is
+(ap−1,n−1 , 1). Finally, the braids a1,n and φn−1 (a1,n ) = an−1,n do not lie in Bn+−∗ 1 , but
+φn−2 (a1,n ) = an−2,n−1 does. So the φn -splitting of a1,n is the sequence (an−2,n−1 , 1, 1). To
+summarize, the φn -splitting of ap,q is
+                          
+                          (ap,q )
+                                              for p < q ≤ n − 1,
+                            (ap−1,n−1 , 1)     for 2 ≤ p and q = n,                       (2.10)
+                          
+                            (an−2,n−1 , 1, 1) for p = 1 and q = n.
+                          
+1600                                                                                     Jean Fromentin
+
+
+Example 2.9. Let us compute the φ3 -splitting of δ32 . With the notation of the proof of
+Proposition 2.5, we obtain
+       β (0) = β = (a1,2 a2,3 )2 ,                                                           2
+                                                                      β1 = tail2 (β (0) ) = a1,2 ,
+       β (1) = φ3−1 (β (0) β1−1 ) = φ3−1 (a1,2 a1,3 ) = a1,3 a2,3 ,   β2 = tail2 (β (1) ) = 1,
+       β (2) = φ3−1 (β (1) β2−1 ) = φ3−1 (a1,3 a2,3 ) = a2,3 a1,2 ,   β3 = tail2 (β (2) ) = a1,2 ,
+       β (3) = φ3−1 (β (2) β3−1 ) = φ3−1 (a2,3 ) = a1,2 ,             β4 = tail2 (β (3) ) = a1,2 ,
+       β (4) = φ3−1 (β (3) β4−1 ) = 1,
+
+and we stop as the remainder β (4) is trivial. Thus the φ3 -splitting of δ32 is the sequence
+                   2 ).
+(a1,2 , a1,2 , 1, a1,2
+
+2.2. The rotating normal form
+Using the φn -splitting, we shall now construct a unique normal form for the elements
+of Bn+∗ , i.e., we identify for each braid β in Bn+∗ a distinguished word that represents β.
+    The principle is as follows. First, each braid of B2+∗ is represented by a unique
+word a1,2k . Then the φ -splitting provides a distinguished decomposition for every braid
+                          n
+of Bn in terms of braids of Bn+−∗ 1 . So, using induction on n, we can define a normal form
+     +∗
+
+for β in Bn+∗ starting with the normal form of the entries in the φn -splitting of β.
+    For the rest of this paper, it will be convenient to make the following conventions for
+braid words and the braids they represent.
+Definition 2.10. A word on the letters σi±1 (resp. ap,q
+                                                     ±1 ) is called a σ -word (resp. an a-
+
+word). The set of all positive n-strand a-words (including the empty word ε) is denoted
+by B+n∗ . The braid represented by an a-word or a σ -word w is denoted by w. For w a
+σ -word or an a-word and w 0 a σ -word or an a-word, we say that w is equivalent to w 0 ,
+denoted w ≡ w0 , if w = w0 .
+    According to the formulas (1.7), φn maps each braid ap,q to another similar braid ar,s .
+Using this observation, we can introduce the alphabetical homomorphism, still de-
+noted φn , that maps the letter ap,q to the corresponding letter ar,s , and extends to every
+a-word. Note that, in this way, if the a-word w represents the braid β, then φn (w) repre-
+sents φn (β).
+Definition 2.11. (i) For β in B2+∗ , the φ2 -rotating normal form of β is defined to be the
+     unique a-word a1,2    k that represents β.
+                 +∗
+(ii) For β in Bn with n ≥ 3, the φn -rotating normal form of β is defined to be the a-word
+     φnb−1 (wb ) . . . w1 , where (βb , . . . , β1 ) is the φn -splitting of β and wk is the φn−1 -
+     rotating normal form of βk for each k.
+    As the φn -splitting of a braid β lying in Bn+−∗ 1 is the length 1 sequence (β), the φn -
+normal form and the φn−1 -normal form of β coincide. Therefore, we can drop the sub-
+script n, and speak of the rotating normal form, or simply normal form, of a braid of Bn+∗ .
+Every braid admits a short sigma-definite expression                                                       1601
+
+
+We naturally say that a positive a-word is normal if it is the normal form of the braid it
+represents.
+Example 2.12. Let us compute the normal form of δ42 . First, we check the equality δ42 =
+a1,2 a1,4 δ32 . Then the φ4 -splitting of δ42 turns out to be (a2,3 , a2,3 , 1, δ32 ). The φ3 -splitting
+of a2,3 is (a1,2 , 1), and therefore its normal form is φ3 (a1,2 ), which is a2,3 . Next, we saw
+in Example 2.9 that the φ3 -splitting of δ32 is (a1,2 , a1,2 , 1, a1,2  2 ). Therefore, its normal form
+     3            2
+is φ3 (a1,2 ) · φ3 (a1,2 ) · φ3 (ε) · a1,2 a1,2 , hence a1,2 · a1,3 · ε · a1,2 a1,2 , i.e., a1,2 a1,3 a1,2 a1,2 .
+So, finally, the normal form of δ42 is
+
+                            φ43 (a2,3 ) · φ42 (a2,3 ) · φ4 (ε) · a1,2 a1,3 a1,2 a1,2 ,
+hence a1,2 ·a1,4 ·ε·a1,2 a1,3 a1,2 a1,2 , i.e., a1,2 a1,4 a1,2 a1,3 a1,2 a1,2 . When expressed in terms
+of the standard Artin generators, this amounts to saying that the rotating normal form of
+the braid δ42 , i.e., (σ1 σ2 σ3 )2 , is σ1 · σ1 σ2 σ3 σ2−1 σ1−1 · σ1 · σ1 σ2 σ1−1 · σ1 · σ1 , a result that has
+no interest in itself but to show how different the current normal form is from the usual
+normal forms.
+    As the relations of Lemma 1.3 preserve the length, positive equivalent a-words always
+have the same length. Hence, if w 0 is the unique normal word equivalent to some word w
+of B+n∗ , then w and w0 have the same length.
+Proposition 2.13. For each length ` word w of B+n∗ , the normal form of w can be com-
+puted in at most O(`2 ) elementary steps.
+Proof. Computing the Bn+−∗ 1 -tail of the braid w can be done in O(`) steps. Hence com-
+puting the φn -splitting can be done in O(`2 ) steps. Taking into account the observation
+that the lengths of equivalent words are equal, one deduces using an easy induction on n
+that computing the rotating normal form of w can be done in O(`2 ) steps.               t
+                                                                                        u
+We considered above the question of going from w to an equivalent normal word, thus
+first identifying the φn -splitting of w and then finding the normal form of the successive
+entries. Conversely, when we start with a normal word w, it is easy to isolate the suc-
+cessive entries of the φn -splitting of the braid w, i.e., to group the successive letters in
+blocks: one finds the last block as the maximal block that contains no letter ai,n , then one
+removes this block, applies the rotation φn−1 , and iterates the process.
+     Hereafter, if w is an n-normal word, the (unique) sequence of (n − 1)-normal words
+of (wb , . . . , w1 ) such that (wb , . . . , w1 ) is the φn -splitting of w is naturally called the
+φn -splitting of w.
+Lemma 2.14. Assume n ≥ 3. For each normal word w of B+n∗ , the φn -splitting of w can
+be computed in at most O(`) elementary steps.
+Proof. By the definition of φn , a generator ap,q lies in φnk (Bn+−∗ 1 ) if and only if we have
+p 6 = k mod n and q 6 = k mod n. Therefore, given a normal word w in B+n∗ , we can directly
+read the φn -splitting (wb , . . . , w1 ) of w. Indeed, reading w from right to left, w1 is the
+maximal suffix of w that lies in B+n∗−1 , then φn (w2 ) is the maximal suffix of the remaining
+braid lying in φn (Bn+−∗ 1 ), etc., until the empty word is left.                             t
+                                                                                              u
+1602                                                                                    Jean Fromentin
+
+
+Example 2.15. Let us consider the normal word w = a1,2 a1,4 a2,3 a1,2 and compute
+the φ4 -splitting of w. Reading w from right to left, we find that the maximal suffix
+of w containing no letter ap,q with p = 0 mod n or q = 0 mod n is the word
+a2,3 a1,2 . The latter is the maximal suffix of w lying in B+3∗ , so we have the relation
+w1 = a2,3 a1,2 . Repeating this process, one easily finds that the φ4 -splitting of w is
+(φ4−3 (a1,2 ), φ4−2 (a1,4 ), φ4−1 (1), a2,3 a1,2 ), hence the sequence (a2,3 , a2,3 , 1, a2,3 a1,2 ).
+
+
+3. Ladders
+
+The φn -splitting operation associates with every braid in Bn+∗ a finite sequence of braids
+in Bn+−∗ 1 . Now, in the other direction, a sequence of braids in Bn+−∗ 1 need not be the φn -
+splitting of a braid in Bn+∗ . The aim of this section is to establish constraints that are
+satisfied by the entries of a φn -splitting. The main constraint is that a φn -splitting neces-
+sarily contains what we call ladders, which are sequences of (nonadjacent) letters ap,q
+whose indices q make an increasing sequence (the bars of the ladder).
+
+3.1. Last letters
+We begin with some elementary observations about the last letters of the normal forms of
+the entries in a φn -splitting.
+Definition 3.1. For each nonempty word w, the last letter of w is denoted by w # . Then,
+for each nontrivial braid β in Bn+∗ , we define the last letter of β, denoted β # , to be the last
+letter in the normal form of β.
+Lemma 3.2. Assume n ≥ 3, and let (βb , . . . , β1 ) be a φn -splitting.
+  (i) For k ≥ 2, the letter βk# is ap,n−1 for some p, unless βk = 1.
+ (ii) For k ≥ 3, we have βk 6 = 1.
+(iii) For k ≥ 2, if the normal form of βk is wan−2,n−1 with w nonempty, then the letter w#
+      is ap,n−1 for some p.
+Proof. (i) Assume k ≥ 2. Put ap,q = βk# . By (2.9), the Bn+−∗ 1 -tail of φnb−k +1 (βb )·. . .·φn (βk )
+is trivial. In particular, φn (βk# ) cannot lie in Bn+−∗ 1 , so βk# must be a letter of the form ap,n−1 .
+     (ii) Assume that βc = 1 with c ≥ 3 and βk 6 = 1 for b ≥ k > c. By the definition of a
+φn -splitting, we have βb 6 = 1, hence c ≤ b − 1. By the definition of c, we have βc+1 6 = 1,
+hence, by (i), βc#+1 = ar,n−1 for some r. By (2.9), the Bn+−∗ 1 -tail of φnb−c+1 (βb ) · . . . ·
+φn2 (βc+1 )φn (βc ) is 1. As βc = 1, we deduce that the Bn+−∗ 1 -tail of φnb−c+1 (βb )·. . .·φn2 (βc+1 )
+is 1 as well. This implies that the last letter of φn2 (βc+1 ), which is φn2 (ar,n−1 ), does not
+belong to Bn+−∗ 1 . Then (1.7) implies r = n − 2 and φn3 (ar,n−1 ) = a1,2 . As the normal form
+of βc−1 is a word of B+n∗−1 , the braid φn (βc−1 ) can be represented by a word that contains
+no letter a1,q . Now the relations
+                                              (
+                                                ap,q a1,2 for 2 < p,
+                                a1,2 ap,q ≡
+                                                a1,q a1,2 for 2 = p,
+Every braid admits a short sigma-definite expression                                          1603
+
+
+imply that there exists a braid β 0 in Bn+∗ satisfying a1,2 φn (βc−1 ) ≡ β 0 a1,2 . Therefore
+a1,2 is a right-divisor of φn3 (βc+1 ) · φn2 (βc ) · φn (βc−1 ). As c − 1 ≥ 2 by hypothesis, this
+contradicts (2.9).
+     (iii) Assume that the normal form of βk is wan−2,n−1 with w 6 = ε. Let ap,q be the last
+letter of w. As                          (
+                                            an−2,n−1 ap,q for q < n − 2,
+                      ap,q an−2,n−1 ≡                                                      (3.1)
+                                            ap,n−1 ap,q        for q = n − 2,
+we must have q = n − 1. Indeed, otherwise, ap,q would be a right-divisor of βk , i.e.,
+the Bn+−∗ 1 -tail of φn (βk ) would be nontrivial, contradicting (2.9).             t
+                                                                                    u
+
+
+3.2. Barriers
+If (βb , . . . , β1 ) is the φn -splitting of a braid of Bn+∗ , then Lemma 3.2 says that, for k ≥ 3,
+the letter βk# must be some letter ap−1,n−1 . We shall see now that the braid βk −1 cannot be
+an arbitrary braid of Bn+−∗ 1 : its normal form has to satisfy some constraints involving the
+integer p, namely containing a letter called an ap,n -barrier—a key point in subsequent
+results.
+
+Definition 3.3. The letter ar,s is called an ap,n -barrier if
+
+                                    1 ≤ r < p < s ≤ n − 1.                                    (3.2)
+
+There exists no ap,n -barrier with n ≤ 3; the only ap,4 -barrier is a1,3 , which is an a2,4 -
+barrier.
+    By definition, if the letter x is an ap,n -barrier, then in the presentation of Bn+∗ there
+exists no relation of the form ap,n · x = y · ap,n allowing one to push the letter ap,n to
+the right through the letter x: so, in some sense, x acts as a barrier. We shall prove now
+that (almost) every nonterminal entry βk of a splitting necessarily contains a barrier—a
+key point for what follows. The reason is simple: if there were no barrier in βk , then
+the relations would enable one to push the last letter of φn2 (βk +1 ) through φn (βk ) and
+incorporate it in βk −1 , contradicting the definition of a splitting.
+
+Lemma 3.4. Assume that n ≥ 3, β is a braid of Bn+−∗ 1 and the Bn+−∗ 1 -tail of φn (ap,n β) is
+trivial for p ≤ n − 2. Then the normal form of β is not the empty word and it contains an
+ap,n -barrier.
+Proof. We assume that the normal form w of β contains no ap,n -barrier, and derive a
+contradiction. Let w0 be the word ap,n w and let X be the set of all letters aq,r with
+p < r ≤ n − 1. Write w0 = uv where v is the maximal suffix of w containing letters
+from X only. By hypothesis, the Bn+−∗ 1 -tail of φn (w0 ) is trivial. Hence the word w0 ends
+with aq,n−1 for some q, i.e., v is not empty. As the first letter of w0 is ap,n , which is
+not in X, the word u is not empty. Let as,t be the last letter of u. By the construction
+of u, the letter as,t is either ap,n or satisfies t ≤ p. In both cases, the braid φn (as,t ) lies
+in Bn+−∗ 1 . We shall now prove that as,t quasi-commutes with v, i.e., there exists a word v 0
+1604                                                                                   Jean Fromentin
+
+
+satisfying as,t v ≡ v 0 as,t . Any letter aq,r occurring in v is not an ap,n -barrier, i.e., it
+satisfies p ≤ q < r ≤ n − 1. Hence, by the relations
+                               
+                               aq,r as,t for p < q or t < p
+                                                                 by (1.3),
+                  as,t aq,r ≡ as,r as,t for q = t = p             by (1.4),
+                               
+                                 ar,t as,t for q = s = p          by (1.4),
+                               
+
+the letter as,t quasi-commutes with v. Then φn (as,t ) is a right-divisor of φn (ap,n β). This
+contradicts the hypothesis that the Bn+−∗ 1 -tail of φn (ap,n β) is trivial since the braid φn (as,t )
+belongs to Bn+−∗ 1 .                                                                               t
+                                                                                                   u
+We now show how Lemma 3.4 can be used in the context of a φn -splitting.
+
+Lemma 3.5. Let (βb , . . . , β1 ) be a φn -splitting of some braid of Bn+∗ with n ≥ 3. Then,
+for each k in {b − 1, . . . , 2} such that βk#+1 is not an−2,n−1 (if any), the normal form of βk
+contains an φn (βk#+1 )-barrier.
+Proof. Condition (2.9) implies that the Bn+−∗ 1 -tail of φnb−k+1 (βb ) · . . . · φn2 (βk +1 )φn (βk ) is
+trivial. In particular the Bn+−∗ 1 -tail of φn2 (βk#+1 )φn (βk ) is trivial. Then Lemma 3.4 implies
+that the normal form of βk contains an ap,n -barrier.                                                 t
+                                                                                                      u
+
+Example 3.6. Let us consider the braid β whose normal form is
+
+                                   a2,4 a1,3 a4,5 a2,4 a2,4 a3,5 a4,5 .
+
+The φ5 -splitting of β is (β4 , β3 , β2 , β1 ) with
+
+           β4 = a1,4 ,     β3 = a1,4 ,     β2 = a3,4 a1,3 a1,3 a2,4 a3,4   and β1 = 1.
+
+The letter β4# is a1,4 , hence by Lemma 3.5 the normal form of β3 must contain an a2,5 -
+barrier; indeed, a1,4 is an a2,5 -barrier. The letter β3# is a1,4 . Then, again by Lemma 3.5,
+the normal form of β2 has to contain an a2,5 -barrier; indeed, the normal form of β2 is
+a3,4 a1,3 a1,3 a2,4 a3,4 , which contains the a2,5 -barrier a1,3 .
+
+
+3.3. Ladders
+We have seen above in Lemma 3.4 that every normal word w of B+n∗−1 such that the Bn+−∗ 1 -
+tail of φn (ap,n w), with p ≤ n − 2, is trivial contains at least one ap,n -barrier. We shall see
+now that, under the same hypotheses, w contains not only one barrier, but even a sequence
+of overlapping barriers. Words containing such sequences are what we shall call ladders.
+
+Definition 3.7. For n ≥ 3, we say that a normal word w is an ap,n -ladder of height h lent
+on aq −1,n−1 if there exists a decomposition
+
+                                   w = w0 x1 w1 . . . wh−1 xh wh                                  (3.3)
+
+and a sequence p = f (0) < f (1) < · · · < f (h) = n − 1 such that
+Every braid admits a short sigma-definite expression                                                1605
+
+
+  (i) for each k ≤ h, the letter xk is an af (k −1),n -barrier of the form a.,f (k) ,
+ (ii) for each k < h, the word wk contains no af (k),n -barrier,
+(iii) the last letter of w is aq −1,n−1 .
+
+    By convention, any a-word whose last letter is aq −1,n−1 is an an−1,n -ladder lent
+on aq −1,n−1 and its height is 0. There exist no ap,n -barrier with n ≤ 3, hence there exist
+only a2,3 -ladders in B+3∗ .
+    The concept of a ladder is easily illustrated by representing the generators ap,q as a
+vertical line from the pth line to the qth line on an n-line stave. Then, for every k ≥ 0,
+the letter xk looks like a bar of a ladder—see Figure 5.
+
+                                                                                                6
+
+
+
+
+                                                                                                1
+Fig. 5. An a2,6 -ladder lent on a3,5 (the last letter). The gray line starts at position 2 and goes up to
+position 5 using the bars of the ladder. The empty spaces between bars in the ladder are represented
+by a framed box. In such boxes the vertical line representing the letter ai,j does not cross the gray
+line. The bars of the ladder are represented by black thick vertical lines.
+
+    Our aim is to prove that the normal form of each nonterminal entry in a φn -splitting
+is a ladder. In order to do that, we begin with a preparatory lemma showing that barriers
+necessarily occur after certain letters of a normal form. Applying this result repeatedly
+will eventually provide us with a ladder.
+
+Lemma 3.8. Assume that n ≥ 4, w is a suffix of a normal word of B+n∗−1 , ap,q belongs
+to Bn+−∗ 2 , and the Bn+−∗ 1 -tail of φn (ap,q w) is trivial. Then w contains an aq,n -barrier.
+Proof. (The method is formally similar to that for Lemma 3.4, but we repeat it because
+the technical details are actually different.) Let X be the set of all letters ar,s with s > q.
+Write ap,q w = uv where v is the maximal suffix containing letters of X only. As, by
+hypothesis, the Bn+−∗ 1 -tail of φn (ap,q w) is trivial, the last letter of w exists and has the
+form a.,n−1 , hence v is nonempty.
+     As the letter ap,q does not lie in X, the word u is not empty. Let x = at,t 0 be the last
+letter of u. By the definition of u, we have t 0 ≤ q. We suppose that v contains no aq,n -
+barrier, i.e., every letter ar,s of v satisfies r ≥ q, and eventually derive a contradiction.
+By (1.3) and (1.4), we have
+                                      (
+                                        ar,s x for r > q or t 0 < q,
+                              xar,s ≡
+                                        at,s x for q = r = t 0 ,
+
+which implies that x and v quasi-commute, i.e., there exists an a-word v 0 satisfying
+xv ≡ v 0 x. Then φn (x) is a right-divisor of the braid represented by φn (ap,q w). The
+1606                                                                                       Jean Fromentin
+
+
+hypothesis about ap,q and the relation t 0 ≤ q imply that φn (x) lies in Bn+−∗ 1 , which contra-
+dicts the hypothesis that the Bn+−∗ 1 -tail of φn (ap,q w) is trivial.                        t
+                                                                                              u
+We can now show that every normal word satisfying some mild additional condition is a
+ladder.
+
+Proposition 3.9. Assume that n ≥ 3, β belongs to Bn+−∗ 1 and the Bn+−∗ 1 -tail of φn (ap,n β)
+is trivial for some p ≤ n − 2. Then the normal form of β is an ap,n -ladder lent on β # .
+Proof. We put f (0) = p and let w be the normal form of β. Lemma 3.5 implies that w
+admits a decomposition w0 x1 w(0) , where w0 is the maximal prefix of w that contains no
+ap,n -barrier and x1 = a.,f (1) is an ap,n -barrier. By hypothesis, the Bn+−∗ 1 -tail of the braid
+φn (ap,n w) is trivial, i.e., the Bn+−∗ 1 -tail of φn (x1 w(0) ) is trivial. Assume f (1) 6 = n − 1.
+Lemma 3.8 implies that the word w(0) admits a decomposition w1 x2 w(1) , where w1 is the
+maximal prefix of w(0) that contains no af (1),n -barrier and x2 is an af (1),n -barrier. The
+same argument repeats until we find a decomposition w0 x1 w1 . . . xh w(h−1) with f (h) =
+n − 1. Then, putting wh = w(h−1) , we have obtained for β an expression that satisfies all
+requirements of Definition 3.7.                                                                   t
+                                                                                                  u
+Applying Proposition 3.9 to the successive entries of a φn -splitting allows one to deduce
+that its entries contain ladders.
+
+Corollary 3.10. Assume that n ≥ 3 and (βb , . . . , β1 ) is a sequence in Bn+−∗ 1 that is the
+φn -splitting of some braid of Bn+∗ . Then, for each k in {b − 1, . . . , 2}, the normal form
+of βk is a φn (βk#+1 )-ladder lent on βk# .
+Proof. Condition (2.9) implies that the Bn+−∗ 1 -tail of φn2 (βk +1 )φn (βk ) is trivial. In particu-
+lar, the Bn+−∗ 1 -tail of φn2 (βk#+1 )φn (βk ) is trivial. By Lemma 3.2, the letter βk#+1 has the form
+a.,n−1 . Then Proposition 3.9 implies that the normal form of βk is a φn (βk#+1 )-ladder lent
+on βk# .                                                                                             t
+                                                                                                     u
+For subsequent use it is worth noting that, by the definition of a ladder, as the letter an−2,n−1
+is not a barrier, if a word wan−2,n−1 is an ap,n -ladder and w is nonempty, then w is an
+ap,n -ladder lent on ar −1,n−1 for some r—see Lemma 3.2(iii).
+    Another consequence of Proposition 3.9 is:
+
+Corollary 3.11. Assume that n ≥ 3 and (βb , . . . , β1 ) is a sequence in Bn+−∗ 1 that is the
+φn -splitting of some braid of Bn+∗ . Then, for each c in {b − 1, . . . , 2} such that βc is
+either 1 or an−2,n−1 , we have βc#+1 = an−2,n−1 .
+Proof. Assume βc ∈ {1, an−2,n−1 }. Let ap−1,n−1 be the last letter of βc+1 . Condi-
+tion (2.9) implies that the Bn+−∗ 1 -tail of φn2 (βc+1 )φn (βc ) is trivial. In particular the Bn+−∗ 1 -tail
+of φn (ap,n βc ) is trivial. Then, as the normal form of βc contains no barrier, Proposition 3.9
+implies p = n − 1. Therefore βc#+1 = an−2,n−1 .                                                           t
+                                                                                                          u
+
+Example 3.12. Let us consider the braid of Example 3.6 again. Its φ4 -splitting is is
+(β4 , . . . , β1 ) with β4 = a1,4 , β3 = a1,4 , β2 = a3,4 a1,3 a1,3 a2,4 a3,4 and β1 = 1. The
+normal form of β4 ends with a1,4 , hence the normal form of β3 must be an a2,5 -ladder
+Every braid admits a short sigma-definite expression                                        1607
+
+
+lent on a1,4 . Indeed, the ladder is ε · a1,4 · ε, and it has height 1, corresponding, with
+the notation of Definition 3.7, to w0 = ε, x1 = a1,4 and w1 = ε. Similarly, the nor-
+mal form of β3 ends with a1,4 , hence by Corollary 3.10, the normal form of β2 must be
+an a2,5 -ladder lent on a3,4 . Indeed, here the ladder has height 2, and its decomposition is
+a3,4 ·a1,3 ·a1,3 ·a2,4 ·a3,4 , corresponding, with the notation of Definition 3.7, to w0 = a3,4 ,
+x1 = a1,3 , w1 = a1,3 , x2 = a2,4 and w2 = a3,4 . We observe that a1,3 is an a2,5 -barrier
+and a2,4 is an a3,5 -barrier.
+
+
+4. Reversing
+
+In Section 3, we have established that almost every normal word is a ladder. We wish
+to use this result to establish Theorem 1, i.e., to obtain (short) σ -definite expressions.
+The basic question is as follows. Starting with a braid word that contains letters σi with
+both positive and negative exponents, we shall try to obtain an equivalent word that is
+σ -positive—it is known that one cannot obtain both a σ -positive and a σ -negative expres-
+sion, so our attempt must fail in some cases. The problem is to get rid of the letters σi−1
+with maximal index i. We shall see that, without loss of generality, we can assume that
+the initial word consists of an initial fragment—that will be called dangerous—containing
+negative letters (those with a negative exponent), followed by a normal word, hence by
+a ladder according to Proposition 3.9. Then the main technical step consists in proving
+that the product of a dangerous word with a ladder can be transformed using a simple al-
+gorithmic process called reversing into an equivalent σ -positive word: roughly speaking,
+ladders protect against dangerous elements.
+
+
+4.1. D-words
+Up to now, we have considered braid words involving letters of two different alphabets,
+namely the Artin generators σi and the Birman–Ko–Lee generators ap,q . From now on,
+we shall also use a third alphabet, corresponding to the following braids.
+
+Definition 4.1. For 1 ≤ p < q, we put
+
+                  dp,q = ap,p+1 ap+1,p+2 . . . aq −1,q   (= σp σp+1 . . . σq −1 ).
+
+    So, in particular, the equalities
+                                       −1                     −1
+                          ap,q = dp,q dp,q−1 = dp,q −1 σq −1 dp,q −1                       (4.1)
+
+hold for 1 ≤ p < q.
+     Hereafter it is convenient to use dp,q as a single letter. In this context, a word on the
+         ±1
+letters dp,q          ±1
+             (resp. ap,q       ±1
+                         and dp,q  , resp. σi±1 ) will be called a d-word (resp. an ad-word,
+resp. a σ -word). We adopt the convention that the d-word dp,p is the empty word ε for
+all p.
+1608                                                                                             Jean Fromentin
+
+
+    All words over the above alphabets represent braids, and they can be translated into
+σ -words. It is coherent with the intended braid interpretations to define words a p,q and
+d p,q by
+                 a p,q = σp . . . σq −2 σq −1 σq−−12 . . . σp−1 ,     d p,q = σp . . . σq −1 .            (4.2)
+In this way, for each ad-word w, the braid represented by w coincides with the braid
+represented by the σ -word w obtained from w by replacing every letter ap,q by a p,q and
+every letter dp,q by d p,q , and no ambiguity can result from using different alphabets. Of
+course, if w and w0 are two ad-words, we declare that w ≡ w0 if the σ -words w and w0
+are equivalent under the braid relations (1.1). Note in particular that the braid represented
+by the d-word d1,n is the Garside braid δn .
+    The following equivalences of ad-words easily result from the definitions.
+
+Lemma 4.2. The following relations are satisfied:
+
+                               dp,r ≡ dp,q dq,r                     for p < q < r,                       (4.3a)
+                          φn (dp,q ) ≡ dp+1,q +1                    for p < q ≤ n − 1,                  (4.3b)
+                          dp,q dr,s ≡ dr,s dp,q                     for p < q < r < s,                   (4.3c)
+                     −1                    −1
+                    dr,s ap,q dr,s ≡ φs (φr (ap,q ))                for p < q ≤ r < s.                  (4.3d)
+Proof. Relation (4.3a) holds by the definition of dp,q . Relation (4.3b) is an immediate
+consequence of (1.7). For (4.3c), we observe that the σi of greatest index occurring in dp,q
+is σq −1 , while the σi of lower index occurring in dr,s is σr . As q < r implies q − 1 ≤ r −2,
+we can apply Artin’s commutativity relation (1.1) to obtain the expected result.
+                                                                                          −1
+     It remains to prove (4.3d). First, (4.3a) implies d1,s ≡ d1,r dr,s , hence dr,s ≡ d1,r  d1,s .
+                −1                −1            −1                                        +∗
+We deduce dr,s ap,q dr,s ≡ d1,s d1,r ap,q d1,r d1,s . As, by hypothesis, ap,q lies in Br , the
+                       −1
+subword d1,r ap,q d1,r    is equivalent to φr (ap,q ). Finally the conjunction of Br+∗ ⊆ Bs+∗ and
+                              −1
+φr (ap,q ) ∈ Br+∗ implies d1,s   φr (ap,q )d1,s ≡ φs−1 (φr (ap,q )).                            t
+                                                                                                u
+
+
+4.2. Sigma-positive words
+Our aim is to obtain σ -positive and σ -negative expression words. We shall need slightly
+more precise versions of these notions.
+
+Definition 4.3. (i) A σ -word w is called σi -positive (resp. σi -negative) if w contains at
+      least one letter σi and no letter σi−1 (resp. at least one letter σi−1 and no letter σi ) and
+      no letter σj±1 for j > i.
+ (ii) A σ -word w is said to be σi -nonnegative if it is either σi -positive, or contains no
+      letter σj±1 with j ≥ i.
+(iii) An ad-word w is called σi -positive (resp. σi -negative, resp. σi -nonnegative) if the
+      word w is σi -positive (resp. σi -negative, resp. σi -nonnegative).
+
+Example 4.4. A σ -word cannot be simultaneously σi -positive and σi -negative, but, on
+the other hand, a σ -word can be neither σi -positive nor σi -negative for any i. For instance,
+Every braid admits a short sigma-definite expression                                            1609
+
+
+σ2 σ1 σ2−1 is neither σ2 -positive (since it contains a letter σ2−1 ), nor σ2 -negative (since it con-
+tains a letter σ2 ), nor σ1 -positive or σ1 -negative (since it contains a letter σ2 ). By contrast,
+the equivalent word σ1−1 σ2 σ1 is σ2 -positive. On the other hand, the empty word, σ1−1 , and
+σ2 σ1−1 are σ2 -nonnegative words, since the letter σ2−1 does not occur in them.
+                           −1
+     As for a-words, a2,3     a1,3 is not σ2 -positive, since its translation under (4.2) is the σ -
+word σ2−1 σ1 σ2 σ1−1 , which is not σ2 -positive as it contains the letter σ2−1 . However, the pre-
+                                                        −1
+vious a-word is equivalent to the a-word a1,3 a1,2         , which translates into σ1 σ2 σ1−1 σ1−1 and
+is therefore σ2 -positive, since σ1 σ2 σ1−1 σ1−1 contains one letter σ2 and no letter σ2−1 .
+
+    An immediate consequence of Definition 4.3(iii) is
+
+Lemma 4.5. An ad-word w is σi -positive if w contains at least one letter a.,i +1 or d.,i +1 ,
+               −1        −1        ±1        ±1
+and no letter a.,i +1 , d.,i +1 , a.,j , or d.,j with j > i + 1.
+
+
+
+4.3. Dangerous words
+We arrive at a key notion. The problem is to identify the generic form of the σ -negative
+fragments we wish to control and, possibly, get rid of. It turns out that the convenient
+                                           −1
+notion is defined in terms of the letters dp,q , and it is what we call a dangerous word.
+
+Definition 4.6. For n ≥ 3, a d-word is called ap,n -dangerous of type q if it has the form
+
+                                df−1(d),n−1 df−1(d −1),n−1 . . . df−1(1),n−1                    (4.4)
+
+with q = f (d) ≥ f (d − 1) ≥ · · · ≥ f (1) = p.
+
+    By convention the unique an−1,n -dangerous word is the empty word.
+    Note that a dangerous d-word w is completely determined by the σ -word w. Indeed,
+we recover w from w by gathering the σi−1 ’s and cutting before each letter σn−−12 . For in-
+stance, σ3−1 σ2−1 σ3−1 σ2−1 σ1−1 can only be the translation of the a1,5 -dangerous word d2,4−1 −1
+                                                                                                d1,4 .
+    At this point, the definition of a dangerous word comes out of a hat. For the moment,
+                                                                 −1                            −1
+let us observe that the letter ap,n is equivalent to dp,n dp,n      −1 . In this expression, dp,n−1 ,
+which is ap,n -dangerous, corresponds to the negative fragment of ap,n . This reflects the
+intuition that dangerous words are associated with the negative parts of a-words—hence
+with their dangerous parts in view of our aim, which is to find σ -positive expressions.
+
+
+4.4. The reversing algorithm
+The aim of this section is to describe an algorithm that, starting with an ap,n -dangerous
+word u and an ap,n -ladder w, returns a σn−2 -positive word w 0 that is equivalent to uw and
+that is close to being an ap,n -ladder in a sense that will be defined below.
+    The basic ingredient is a process called reversing that transforms (certain) ad-words
+                −1                                                    −1
+with letters d.,n  −1 on the left into equivalent words with letters d.,n−1 on the right (or with
+            −1                                                              −1
+no letter d.,n −1 at all). Thus reversing is a process of pushing letters d.,n−1 to the right.
+1610                                                                                    Jean Fromentin
+
+
+Definition 4.7. Let w, w0 be ad-words. We write wy(1) w0 if w0 is obtained from w by
+replacing a subword u of w by a word u0 such that (u, u0 ) is one of the pairs
+      −1                       −1
+    (dp,n −1 ar,s , Rp (ar,s )dp,n−1 )           with s ≤ p ≤ n − 2 or p ≤ r ≤ n − 2,              (4.5)
+       −1                             −1
+    (dp,n−1 ar,s , dr,n−1 Rp0 (ar,s )ds,n −1 )   with r < p < s ≤ n − 1,                           (4.6)
+      −1
+    (dp,n−1 dr,n−1 , dr,n−1 Rp00 )               with r < p ≤ n − 2,                               (4.7)
+
+with
+                         
+                           ar,n−1          for s = p,                               −1
+                                                          Rp0 (ar,s ) = dp−1−1,n−2 dr,s
+                         
+                                                                                        −1 ,
+                         
+                         
+                         a
+                            r,s            for s < p,
+            Rp (ar,s ) =
+                         
+                         
+                          as −1,n−1       for r = p,     Rp00 = dp−1−1,n−2 .
+                         
+                           ar −1,s −1      for r > p.
+
+We say that w reverses to w 0 , denoted w y w 0 , if there exists a sequence of words
+w0 , w1 , . . . , w` satisfying w0 = w, w` = w 0 , and wk y(1) wk +1 for every k.
+
+    Before giving an example, we introduce the notion of a reversing diagram, which en-
+ables one to conveniently illustrate the reversing process. Assume that w0 , w1 , . . . , w` is
+a reversing sequence, i.e., is a sequence of ad-words such that wk y(1) wk +1 for every k.
+First, we associate with w0 a path labeled with the successive letters of w0 : we asso-
+                         −1
+ciate to every letter dp,n   −1 a vertical down-oriented edge labeled dp,n−1 , and to every
+other letter x a horizontal right-oriented edge labeled x. Then we successively repre-
+                                                                                        −1
+sent the words w1 , . . . , w` as follows: if wk +1 is obtained from wk by replacing dp,n  −1 x
+       −1              −1         (1)  −1
+by udq,n−1 (where dp,n−1 xy udq,n−1 ), then we complete the pattern associated with
+                −1
+the subword dp,n   −1 x using right-oriented edges labeled u and down-oriented edge la-
+beled dq,n−1 ; see Figure 6.
+
+              x                                           x                                    x
+
+ dp,n−1                                          dp,n−1          dq,n−1          dp,n−1              ε
+                         is completed to                                    or
+
+                                                          u                                    u
+                        −1
+Fig. 6. Reversing of dp,n−1 x into udq,n−1 . We replace the down-oriented edge labeled dq,n−1 by
+a vertical double line labeled ε whenever q = n − 1, i.e., dq,n−1 ≡ ε.
+
+
+    Assume that w and w0 are ad-words and w reverses to w 0 . Then the reversing se-
+quence going from w to w0 is not unique in general, but the resulting reversing dia-
+gram depends on w and w0 only. Reversing can easily be turned into a (deterministic)
+algorithm by choosing to always reverse the rightmost possible subword. The algorithm
+                                             −1                  −1         0
+terminates when a word with no subword dp,n     −1 x satisfying dp,n−1 x y u for some
+  0
+u has been obtained. This algorithm is called reversing algorithm. See Figure 7 for an
+example.
+Every braid admits a short sigma-definite expression                                                                 1611
+
+                                      a1,3                         a1,3                    a2,4
+
+       d2,4                                                d3,4             d3,4                                 ε
+
+
+                        d1,4              d −1            −1
+                                                         d1,2      a1,4         d2,4        −1
+                                                                                           d2,3       −1
+                                                                                                     d2,3
+       d3,4                              ε 1,3
+
+                 d1,4           −1
+                               d2,3
+                                                                   −1 −1
+Fig.    7. Reversing           diagram       for   the    word    d3,4 d2,4 a1,3 a1,3 a2,4 .   We   end     up       with
+       −1   −1   −1               −1    −1
+d1,4 d2,3 d1,3 d1,2 a1,4 d2,4 d2,3 d2,3 . Each rectangle in the diagram corresponds to one relation
+uy(1) u0 , hence the number of rectangles is the length of every reversing sequence (w0 , . . . , w` )
+from w0 to w` : the sequence is not unique, but its length and the corresponding diagram are.
+
+
+Remark 4.8. Formally, the above notion of reversing is similar to the transformation
+called “word reversing” in [9]. However, similarity is superficial only: what is common is
+the idea of iteratively pushing some specific factors to the right, but the factors considered
+and the basic switching rules are completely different.
+
+    The first, easy observation is that reversing transforms a braid word into an equivalent
+braid word.
+
+Lemma 4.9. For w, w0 ad-words, w y w 0 implies w ≡ w0 .
+
+We skip the proof, which is a simple verification from the formulas of Lemma 4.2.
+
+
+5. Walls
+
+We shall now apply the reversing algorithm of Section 4.4 to those words that consist of an
+ap,n -dangerous word followed by an ap,n -ladder, with the aim of obtaining an equivalent
+σi -positive word whenever possible.
+     Once again, the problem is to identify the generic form of the final words we can
+obtain. A new type of braid word called wall occurs here, and the main result is that
+reversing a word consisting of a dangerous word followed by a ladder always results in a
+σ -nonnegative word that is a wall.
+
+
+5.1. Dangerous against ladders: case of length 1
+We first concentrate on the case when the dangerous word has length 1, i.e., it consists
+of a single negative d-letter—the general case will be handled in Section 5.3. In view of
+Theorems 1 and 2, we shall not only describe the resulting ad-word, but also compute
+both the time and space complexity of the algorithm involved in the transformation.
+    First we introduce the notion of a wall, a weak variant of a ladder. It comes in two
+versions called high and low.
+1612                                                                             Jean Fromentin
+
+
+Definition 5.1. For n ≥ 3 and p ≤ n − 2, we say that an ad-word w is a high ap,n -wall
+lent on aq −1,n−1 if there exists a decomposition
+                               w = u · dr,n−1 · w0 · dq −1,n−1 · v
+such that
+• u is a positive a-word,                                                                 (5.1a)
+• r < p,                                                                                  (5.1b)
+• w 0 is a σn−2 -nonnegative ad-word,                                                     (5.1c)
+• v is aq −1,n−1 -dangerous.                                                              (5.1d)
+We say that an ad-word w is a low ap,n -wall lent on aq −1,n−1 if there exists a decompo-
+sition
+                                w = u · dq −1,n−1 · v
+such that
+• u is a positive a-word,                                                                 (5.2a)
+• q − 1 < p,                                                                              (5.2b)
+• v is aq −1,n−1 -dangerous of type p 0 < p.                                              (5.2c)
+In both cases, we write F (w) for the word denoted u above, and D(w) for the word
+denoted v above.
+
+    We say that an a-word w is an ap,n -wall if it is either a high or a low ap,n -wall.
+    Note that the condition satisfied by the letter dr,n−1 occurring in the decomposition of
+a high wall is the condition satisfied by the ap,n -barrier ar,n−1 . The same property holds
+for the letter dq −1,n−1 occurring in the decomposition of a low wall.
+    So far we have defined ap,n -walls for p ≤ n − 2 only. We now consider an−1,n -walls,
+which are special as are an−1,n -ladders.
+
+Definition 5.2. For n ≥ 3, we say that an ad-word w is an an−1,n -wall lent on aq −1,n−1
+if w can be decomposed as u · dq −1,n−1 · v with u a positive a-word and v an aq −1,n−1 -
+dangerous word. Then we define F (w) = u and D(w) = v.
+
+    By definition, every ap,n -wall lent on aq −1,n−1 is also an ar,n -wall lent on aq −1,n−1 for
+r ≥ p.
+    Walls are introduced in order to describe the output of the reversing algorithm running
+on those words that consist of an ap,n -dangerous word followed by an ap,n -ladder.
+
+Lemma 5.3. Let w be an ap,n -ladder lent on aq −1,n−1 with p ≤ n − 2 and n ≥ 3. Let
+                                                               −1
+w0 x1 . . . xh wh be the decomposition of w as a ladder. Then dp,n −1 w is equivalent to an
+               0
+ap,n -wall w lent on aq −1,n−1 . The latter can be computed using at most |w| reversing
+steps plus one basic operation, and it satisfies
+• |F (w0 )| = |w0 |,                                                                 (5.3a)
+• |D(w0 )| ≤ 2,                                                                      (5.3b)
+• |w0 | ≤ |w| + 2(h − 1) + 2|wh | + |D(w0 )|,                                        (5.3c)
+• w 0 is a high wall for wh 6 = ε.                                                   (5.3d)
+Every braid admits a short sigma-definite expression                                           1613
+
+                w0              x1                        wh−1              xh            wh
+
+    dp,n−1                                                                            ε
+
+                u0        y1         v1                   uh−1      yh           vh
+                               −1
+        Fig. 8. Reversing dp,n−1 w into a wall when w is a ladder (proof of Lemma 5.3).
+
+
+                                                                                 −1
+Proof. The main idea is illustrated in Figure 8: starting with dp,n                 −1 w, i.e., with
+  −1
+dp,n    w
+     −1 0 1 x   . . . x w
+                       h h  , we  reverse the diagram by pushing   the vertical (negative) d-arrows
+to the right until a wall is obtained. The success at each elementary step is guaranteed by
+Lemma 4.9. In general we obtain a high wall. A few particular cases have to be considered
+separately, namely when wh is empty, in which case we obtain a low wall if the height h
+is 1.
+     We start with a description of elementary blocks of the diagram of Figure 8. Write
+xk = ae(k),f (k) for k = 1, . . . , h, and put f (0) = p. Fix k with 0 ≤ k ≤ h − 1. Put uk =
+Rf (k) (wk ), yk +1 = de(k +1),n−1 and vk +1 = Rf0 (k) (xk +1 ). Then we have df−1(k),n−1 wk xk +1 y
+uk yk +1 vk +1 df−1(k +1),n−1 , corresponding to the diagram
+
+                                     wk            xk+1
+
+                      df (k),n−1            df (k),n−1           df (k+1),n−1
+
+                                     uk        yk+1       vk+1
+
+
+    Gathering the reversing diagrams corresponding to the successive values of the pa-
+rameter k, we precisely obtain the diagram of Figure 8. Put wk0 = uk yk +1 vk +1 for
+0 ≤ k ≤ h − 1.
+    At this point, we have to consider three slightly different cases. Assume first wh = ε
+and h ≥ 2, the easiest case, from which the other two cases will be derived.
+                                                                −1
+    Put w 0 = w00 . . . wh0 −1 . By construction, we have dp,n                0
+                                                                   −1 w y w . Hence, by Lem-
+            −1
+ma 4.9, dp,n−1 w is equivalent to w0 . We shall now prove that w0 is a wall of the expected
+type, and that the complexity statements are satisfied.
+    As wh is empty, the last letter of w is xh . This implies xh = aq −1,n−1 , hence yh =
+dq −1,n−1 . Put w 00 = v1 w10 . . . wh0 −2 uh−1 . We recall that wk0 is equal to uk yk +1 vk +1 . By
+construction, we have
+                            w0 = u0 · de(1),n−1 · w 00 · dq −1,n−1 · vh .
+We shall now check that w0 is a high ap,n -wall lent on aq −1,n−1 . As the image of an a-
+letter under Rp is an a-letter, the word u0 is a positive a-word whose length is |w0 |. Hence
+(5.1a) and (5.3a) are satisfied.
+     Next, by the definition of a ladder, the letter x1 is an ap,n -barrier, hence e(1) < p
+holds, i.e., (5.1b) is satisfied.
+1614                                                                                       Jean Fromentin
+
+
+    As the words uk , yk +1 , vk +1 are σn−2 -nonnegative, the word w00 is also σn−2 -
+nonnegative. So (5.1c) holds.
+                                                          −1
+    Now, we recall that vh is equal to df−1(h−1)−1,n−2 de(h),n  −2 with e(h) = q − 1. By the
+definition of a ladder, the letter xh is an af (h−1),n -barrier. Therefore, we have q − 1 <
+f (h − 1), which implies f (h − 1) − 1 ≥ q − 1. Hence vh is aq −1,n−1 -dangerous of
+length 2. So (5.1d) and (5.3b) are satisfied.
+    Finally, for (5.3c), we compute
+                  |wk0 | = |uk | + |yk +1 | + |vk +1 | = |wk | + 1 + 2 = |wk xk +1 | + 2.
+Then, as wh is empty, we obtain
+                                     h−1
+                                     X                h−1
+                                                      X
+                           |w0 | =         |wk0 | =         |wk xk +1 | + 2h = |w| + 2h.
+                                     k=0              k=0
+
+As in this case wh is empty and the length of D(w0 ) is 2, i.e., the length of vh is 2,
+condition (5.3c) holds. So the case of wh empty with h ≥ 2 is completed, except for the
+time complexity analysis.
+    Assume now wh = ε and h = 1. Then w0 is equal to u0 · dq −1,n−1 · v1 . As in the
+previous case, the word u0 is a positive a-word of length w0 and we have |w0 | = |w| + 2.
+The word v1 is equal to dp−1−1,n−2 dq−−1 1,n−2 , which is aq −1,n−1 -dangerous of type p − 1 and
+has length 2. Therefore, w 0 is a low ap,n -wall lent on aq −1,n−1 satisfying (5.3a), (5.3b)
+and (5.3c).
+    Assume finally wh 6 = ε. Then we decompose wh as wh00 aq −1,n−1 . Put
+
+                                  w0 = w00 . . . wh0 −1 wh00 dq −1,n−1 dq−−1 1,n−2
+
+and w 00 = v1 w10 . . . wh0 −1 wh00 . We have w0 = u0 · de(1),n−1 · w00 · dq −1,n−1 · dq−−1 1,n−2 .
+Then (5.1a), (5.1b), (5.1c) are checked as in the case wh = ε. By construction, the
+word dq−−1 1,n−2 is aq −1,n−1 -dangerous of length at most 1. We recall that we use the con-
+vention that the d-word dn−2,n−2 is the empty word ε. So (5.1d) and (5.3b) are satis-
+fied. Then, by the definition of w 0 , (5.3d) holds. We check now (5.3c). Starting from
+|wk0 | = |wk xk +1 | + 2, we obtain
+                  h−1
+                  X                              h−1
+                                                 X
+       |w 0 | ≤         |wk0 | + |wh00 | + 2 =         |wk xk +1 | + |wh | + 2h + 1 = |w| + 2h + 1.
+                  k=0                            k=0
+
+As wh is not empty, we have |wh | ≥ 1, hence 2|wh | ≥ 2. Moreover, in this case, the
+length of D(w0 ) is at most 1. Therefore, we get 3 ≤ 2|wh | + |D(w0 )|, and eventually
+                               |w0 | ≤ |w| + 2(h − 1) + 2|wh | + |D(w0 )|.
+    So, all cases have been considered. It only remains to consider the time complexity. In
+the first and second cases, at most |w| reversing operations are needed. In the last case—
+wh 6 = ε—at most |w| reversing operations are needed, plus the decomposition of wh# into
+at most two d-letters.                                                                    t
+                                                                                          u
+Every braid admits a short sigma-definite expression                                                  1615
+
+
+Example 5.4. We saw in Example 3.12 that the word w = a3,4 a1,3 a1,3 a2,4 a3,4 is an a2,5 -
+                                                                                        −1
+ladder lent on a3,4 . Let us compute the a2,5 -wall lent on a3,4 that is equivalent to d2,5 w.
+                                       −1
+Applying the reversing algorithm to d2,4 w gives
+                                    −1 −1               −1 −1
+                   w00 = a2,3 d1,4 d1,3 d1,2 a1,4 d2,4 d2,3 d2,3 a3,4    (see Figure 9).
+         a3,4                    a1,3                  a1,3                 a2,4               a3,4
+
+ d2,4       d2,4                               d3,4       d3,4                             ε
+
+         a2,3         d1,4    −1
+                            d1,3       −1
+                                      d1,2      a1,4       d2,4        −1
+                                                                     d2,3         −1
+                                                                                 d2,3
+                                                        −1
+                Fig. 9. Reversing diagram for the word d2,4 a3,4 a1,3 a1,3 a2,4 a3,4 .
+
+The word w00 is not a wall because its last letter does not have the correct form. However,
+if we replace the last letter a3,4 of w00 by d3,4 we obtain the high wall
+                                             −1 −1               −1 −1
+                        w 0 = a2,3 · d1,4 · d1,3 d1,2 a1,4 d2,4 d2,3 d2,3 · d3,4 · ε.
+The word F (w0 ) of w0 is a2,3 , whereas D(w 0 ) is empty.
+
+5.2. Dangerous against wall
+In the previous section, we studied the action of the reversing algorithm running on a
+word uw in the special case when u is an ap,n -dangerous word of length 1 and w is an
+ap,n -ladder. We proved that the output word is an ap,n -wall. Before turning to the general
+case of an initial dangerous word with an arbitrary length—that will be done in the next
+section—we consider here the case of an ap,n -dangerous word of length 1 followed by
+an ap,n -wall. The result is that the output word is again an ap,n -wall. This shows that, in
+contrast to the family of ladders, the family of walls enjoys good closure properties that
+will make inductive arguments possible.
+    We start with a technical result that will be used twice in the proof of Lemma 5.6.
+Lemma 5.5. Assume that n ≥ 3, w is a positive a-word containing an ap,n -barrier and
+                      −1
+r < p. Then the word dp,n −1 wdr,n−1 reverses to the ad-word
+
+                                        udt,n−1 u0 dr,n−1 ds−−11,n−2 ,
+which is obtained in at most |w| + 1 steps and satisfies
+• t < p and r < s,                                                                                (5.4a)
+• u is a positive a-word with |u| < |w|,                                                          (5.4b)
+• u0 is a σn−2 -nonnegative ad-word,                                                              (5.4c)
+• |udt,n−1 u0 dr,n−1 ds−−11,n−2 | ≤ |wdr,n−1 | + 2|w| − 2|u| + 1.                                 (5.4d)
+Proof. Write w as w 0 at,t 0 v where w 0 is the maximal prefix of w that contains no ap,n -
+barrier, and with at,t 0 an ap,n -barrier. The argument is illustrated in Figure 10: starting
+       −1
+with dp,n −1 wdr,n−1 , we reverse the diagram by pushing the vertical (negative) d-arrows
+to the right until a wall is obtained. The success at each elementary step is guaranteed by
+Lemma 4.9.
+1616                                                                                         Jean Fromentin
+
+                           w0               at,t 0               v           dr,n−1
+
+               dp,n−1                                dt 0 ,n−1        ds,n−1                 ε
+
+                        Rp (w 0 )   dt,n−1 Rp0 (at,t 0 )         v0     dr,n−1        Rs00
+                                                    −1
+           Fig. 10. Reversing diagram for the word dp,n −1 wdr,n−1 (proof of Lemma 5.5).
+
+
+                                                               −1             0 −1
+   As w 0 does not contain any ap,n -barrier, we have dp,n            0
+                                                                  −1 w y Rp (w )dp,n−1 . By
+                                                        0
+construction at,t 0 is an ap,n -barrier, i.e., t < p < t . We deduce
+                                 −1                      0           −1
+                                dp,n −1 at,t 0 y dt,n−1 Rp (at,t 0 )dt 0 ,n−1 .
+
+                                                                              −1
+By the definition of elementary reversing steps, we obtain dt−01,n−1 v y v 0 ds,n −1 for some
+ad-word v 0 with |v 0 | ≤ 3|v| and some s ≥ t 0 . The hypothesis r < p together with p < t 0
+                                    −1
+and t 0 ≤ s implies r < s. Hence ds,n                      00
+                                       −1 dr,n−1 y dr,n−1 Rs .
+                       0       0     0        0
+   Write u = Rp (w ) and u = Rp (at,t 0 )v . By construction, we have
+                              −1                      0        −1
+                             dp,n −1 wdr,n y udt,n−1 u dr,n−1 ds −1,n−2 ,
+
+and we claim that the latter word has the expected properties.
+    Condition (5.4a) is an immediate consequence of the above results.
+    As the image of an a-letter under Rp is an a-letter, the word u is a positive a-word
+of length |w 0 |. By definition, w 0 is a proper prefix of w. Then |w0 | < |w|, i.e., (5.4b) is
+satisfied.
+    By the definition of elementary reversing steps, the image of a positive a-word un-
+der R and R 0 is σn−2 -nonnegative, hence v 0 is σn−2 -nonnegative. As Rp0 (at,t 0 ) is σn−2 -
+nonnegative, u0 is σn−2 -nonnegative, i.e., (5.4c) holds.
+    For (5.4d), we compute
+                |udt,n−1 u0 dr,n−1 ds−−11,n−2 | = |w 0 | + |u0 | + 3 = |w 0 | + |v 0 | + 5.
+By the construction of v 0 , we have |v 0 | ≤ 3|v|. Using |w| = |w0 | + 1 + |v|, we deduce
+       |udt,n−1 u0 dr,n−1 ds−−11,n−2 | ≤ 3|w| − 2|w 0 | + 2 = |wdr,n−1 | + 2(|w| − |w0 |) + 1,
+which is the expected inequality since |w 0 | = |u| by (5.4b).
+    An easy bookkeeping argument gives the bound on the number of steps in the revers-
+ing process.                                                                        t
+                                                                                    u
+We are now able to establish the main result of this section.
+                                                                    −1
+Lemma 5.6. Assume that w is an ap,n -wall lent on aq −1,n−1 . Then dp,n −1 w reverses in
+                                            0
+at most |F (w)| + 1 steps to an ap,n -wall w satisfying
+• |F (w0 )| ≤ |F (w)|,                                                            (5.5a)
+• |D(w0 )| ≤ |D(w)| + 1,                                                          (5.5b)
+• |w 0 | ≤ |w| + 2|F (w)| − 2|F (w0 )| + 1,                                       (5.5c)
+• w 0 is a high wall whenever w is a high wall.                                   (5.5d)
+Every braid admits a short sigma-definite expression                                         1617
+
+
+Proof. Assume that w is a low wall. Then w admits the decomposition w =
+F (w)dq −1,n−1 D(w). By the definition of a wall, we have q − 1 < p. First, assume in
+addition that F (w) contains no ap,n -barrier. Then the reversing process gives
+     −1                    −1                                          −1
+    dp,n −1 w y Rp (F (w))dp,n−1 dq −1,n−1 D(w) y Rp (F (w))dq −1,n−1 dp −1,n−2 D(w).
+
+Write w 0 = u · dq −1,n−1 · v with u = Rp (F (w)) and v = dp−1−1,n−2 D(w). As the image
+of a positive a-letter under Rp is a positive a-letter, the word u is a positive a-word
+of length |F (w)|. Then q − 1 < p implies that w 0 is a low ap,n -wall lent on aq −1,n−1
+satisfying (5.5a) and (5.5b) because D(w0 ) = v. Condition (5.5c) is a direct consequence
+of the construction of w 0 together with |v| = |D(w)| + 1.
+    Next, assume in addition that F (w) contains an ap,n -barrier. By Lemma 5.5 applied
+to F (w)dq −1,n−1 , there exist two words u and u0 and two integers s and t satisfying
+                         −1                  0           −1
+                        dp,n −1 w y udt,n−1 u dq −1,n−1 ds −1,n−2 D(w).
+
+Write w0 = u · dt,n−1 · u0 · dq −1,n−1 · v, with v = ds−−11,n−2 D(w). Condition (5.4a) implies
+that v is an aq −1,n−1 -dangerous word of length at most |D(w)| + 1, and that t < p holds.
+Then, (5.4b) and (5.4c) imply that w is a high ap,n -wall lent on aq −1,n−1 and it satisfies
+(5.5a) and (5.5b). Using (5.4d), we compute
+                      |w 0 | = |F (w)dq −1,n−1 | + 2|F (w)| − 2|u| + |v|,
+which implies (5.5c) since we have F (w0 ) = u and D(w0 ) = ds−−11,n−2 D(w) = v.
+   Assume now that w is a high wall. Then w admits the decomposition
+                              w = F (w)dr,n−1 w00 dq −1,n−1 D(w),
+with r < p. First, assume that F (w) contain no ap,n -barrier. Then the reversing process
+gives
+                  −1                          −1        00
+                dp,n −1 w y Rp (F (w))dr,n−1 dp −1,n−2 w dq −1,n−1 D(w).
+
+Write w0 = Rp (F (w)) · dr,n−1 · dp−1−1,n−2 w 00 · dq −1,n−1 · D(w). A direct verification, based
+on the fact that w is a high ap,n -wall lent on aq −1,n−1 , gives that w0 is a high ap,n -wall lent
+on aq −1,n−1 satisfying (5.5a), (5.5b) and (5.5d). For (5.5c), we compute |w 0 | = |w| + 1.
+    Assume now that F (w) contains an ap,n -barrier. Then, by Lemma 5.5 applied to
+F (w)dr,n−1 , there exist two words u, u0 and two integers s, t satisfying
+                   −1                  0           −1        00
+                  dp,n −1 w y udt,n−1 u dr −1,n−1 ds −1,n−2 w dq −1,n−1 D(w).
+
+Write w 0 = u · dt,n−1 · u0 dr −1,n−1 ds−−11,n−2 w00 · dq −1,n−1 · D(w). Condition (5.4c) implies
+that the word u0 dr −1,n−1 ds−−11,n−2 w00 is σn−2 -nonnegative, and even σn−2 -positive. Then, a
+direct verification, based on the fact that w is a high ap,n -wall lent on aq −1,n−1 , shows
+that w 0 is a high ap,n -wall lent on aq −1,n−1 and it satisfies (5.5a), (5.5b) and (5.5d). Using
+(5.4d), we compute
+            |w0 | ≤ |F (w)dr,n−1 | + 2|F (w)| − 2|u| + 1 + |w00 | + 1 + |D(w)|,
+which implies (5.5c) since F (w 0 ) = u.
+    As for the number of reversing steps, it follows from an easy bookkeeping argument
+using Lemma 5.5.                                                                    t
+                                                                                    u
+1618                                                                              Jean Fromentin
+
+
+5.3. Dangerous against ladders: the general case
+In the previous section, we studied the action of the reversing algorithm running on a
+word uw in the special case when u is ap,n -dangerous of length 1 and w is an ap,n -ladder.
+We proved that the output word is an ap,n -wall. The aim of this section is to describe the
+reversing algorithm in the general case, i.e., for a dangerous word of arbitrary length.
+
+Proposition 5.7. Assume that w is an ap,n -ladder lent on aq −1,n−1 and u is an ap,n -
+dangerous word of type t with n ≥ 3. Then uw is equivalent to an at,n -wall w 0 lent
+on aq −1,n−1 which can be computed using at most |u| |w| reversing steps, plus one basic
+operation, hence in time O(|u| |w| + 1), and it satisfies
+• |D(w0 )| ≤ |u| + 1,                                                                      (5.6a)
+• |w0 | ≤ 3|w| + |u| − 1.                                                                  (5.6b)
+
+Moreover, if w is an ap,n -ladder lent on an−2,n−1 but different from an−2,n−1 , then w0
+admits the decomposition w0 = w 00 dn−2,n−1 , where w 00 is a σn−2 -positive word.
+Proof. All ladders and walls in this proof are supposed to be lent on aq −1,n−1 . We shall
+construct an ap,n -wall w0 that is equivalent to uw by induction on the length of u.
+    Assume first p ≤ n − 2. Then u is not empty. Write u as df−1(d),n−1 · . . . · df−1(1),n−1 . By
+the definition of a dangerous word, we have f (1) = p and f (d) = t. Define w(1) to be the
+af (1),n -wall provided by Lemma 5.3 that is equivalent to df−1(1),n−1 w. Starting from w(1) ,
+we inductively define w(k +1) to be the ad-word obtained by reversing df−1(k +1),n−1 w(k) .
+    We claim that w(k) is an af (k),n -wall. Indeed, by the definition of a wall, the relation
+f (k) ≥ f (k − 1) implies that w(k −1) is also an af (k),n -wall. Then Lemma 5.6 guarantees
+that w(k) is an af (k),n -wall.
+    By construction, we have uw ≡ w(d) . In particular, uw is an at,n -wall. We shall now
+prove that w(d) satisfies the complexity statements.
+    Lemma 5.3 gives |D(w(1) )| ≤ 2. For 1 ≤ k ≤ d − 1, (5.5b) implies |D(w(k +1) )| ≤
+|D(w(k) )| + 1. Hence, |D(w(d) )| ≤ |u| + 1, i.e., (5.6a) is satisfied.
+    Let w0 x1 . . . xh wh be the decomposition of the ap,n -ladder w. Then, by (5.5c), for
+each k ≥ 1 we have
+
+                    |w(k +1) | ≤ |w(k) | + 2|F (w(k) )| − 2|F (w(k +1) )| + 1.              (5.7)
+
+Gathering the various relations (5.7) for k = 1, . . . , d − 1, we obtain
+
+  |w(d) | ≤ |w(1) | + 2|F (w(1) )| − 2|F (w(d) )| + d − 1 ≤ |w(1) | + 2|F (w(1) )| + d − 1.
+
+By (5.3a), we have |F (w(1) )| = |w0 |, hence
+
+                              |w(d) | ≤ |w(1) | + 2|w0 | + d − 1.
+
+Condition (5.3c) implies |w(1) | ≤ |w| + 2(h − 1) + 2|wh | + |D(w(1) )|. Using the relation
+|w| ≥ |w0 | + h + |wh |, we obtain
+
+                             |w(d) | ≤ 3|w| + d + |D(w(1) )| − 3.
+Every braid admits a short sigma-definite expression                                                    1619
+
+
+By construction, d is the length of u. As (5.3b) implies |D(w(1) )| ≤ 2, we find
+                                       |w(d) | ≤ 3|w| + |u| − 1,
+which completes the case p ≤ n − 2 writing w0 = w(d) .
+     Assume now p = n − 1. Then the word u is empty. Put w = w00 aq −1,n−1 , and write
+w = w00 dq −1,n−1 dq−−1 1,n−2 . The word w0 is clearly an an−1,n -wall lent on aq −1,n−1 and
+  0
+
+all complexity statements are satisfied. Moreover, for q = n − 1 and w 6 = an−2,n−1 ,
+Lemma 3.2(iii) implies that w 00 ends with ar,n−1 for some r, hence it is σn−2 -positive.
+Then w0 has the expected properties.
+     Finally, assume p 6 = n − 1, q = n − 1 and w 6 = an−2,n−1 . Then u is not empty. By
+hypothesis, the last letter of w is an−2,n−1 , which is not a barrier. Hence the word wh is not
+empty and its last letter an−2,n−1 . Then (5.3d) implies that the wall w(1) is high. Hence,
+(5.5d) implies that the wall w(k) is high for every d ≥ k ≥ 1, and therefore w0 is a high
+wall. By definition, w0 can be expressed as udr,n−1 w   bdn−2,n−1 . By construction, udr,n−1 w
+                                                                                             b
+is a σn−2 -positive word, so w0 has all expected properties.
+     As for the time complexity upper bound, it follows from an easy bookkeeping argu-
+ment using Lemmas 5.3 and 5.6, and the fact that the cost of one reversing step is O(1).
+                                                                                             t
+                                                                                             u
+Example 5.8. Let w be the a3,7 -ladder a4,6 a1,4 a2,6 and u be the a3,7 -dangerous word
+ −1 −1 −1
+d5,6 d3,6 d3,6 . The reversing diagram for uw is displayed in Figure 11.
+
+              a4,6                                     a1,4                              a2,6
+
+ d3,6                       d3,6                                        d4,6                               ε
+                                                               −1     −1                   −1        −1
+              a3,5                       d1,6                 d2,5   d1,3      d2,6       d3,5      d2,5
+
+ d3,6                       d3,6                       ε
+                                                 −1
+              a4,6                  d1,6        d2,5
+
+ d5,6          −1         −1
+                                ε
+    d4,6      d4,5       d4,5
+                                                                                −1 −1 −1
+Fig. 11. Reversing uw into a wall. Here u is the a3,7 -dangerous word d5,6        d3,6 d3,6 and w is the
+a3,7 -ladder a4,6 a1,4 a2,6 , which is lent on a2,6 . With the notation of Proposition 5.7, w(1) is the
+                 −1 −1         −1 −1
+word a3,5 d1,6 d2,5 d1,3 d2,6 d3,5 d2,5 : it can be read (from left to right) on the third row from the
+                                                    −1 −1 −1           −1 −1
+bottom. Then w(2) is the word a4,6 d1,6 d2,5           d2,5 d1,3 d2,6 d3,5 d2,5 : it can be read on the second
+row, continuing on the third row when the vertical ε-labeled edge is met. Finally w(3) is the word
+      −1 −1          −1 −1 −1            −1 −1
+d4,6 d4,5 d4,5 d1,6 d2,5 d2,5 d1,3 d2,6 d3,5 d2,5 : it can be read on the bottom row, continued on the sec-
+ond row, and finally on the third row. The point is that we had three negative d.,6 -letters at first and,
+at each step, we got rid of one of them, ending with a word that contains negative d.,q -letters for
+q ≤ 5 only.
+
+    We conclude the section with one more technical result, which provides the precise
+basic step needed in the inductive definition of our final normal form NFn .
+1620                                                                              Jean Fromentin
+
+
+Lemma 5.9. Assume that n ≥ 3, and
+• (wb , . . . , w1 ) is the φn -splitting of a normal word w, with b ≥ 3,
+• ub is a wb# -dangerous word,
+• c is a number in {b, . . . , 3}.
+Then there exists
+• a σn−1 -nonnegative word w0 ,
+• a wc# -dangerous word uc ,
+both computable in time O(|ub | |w|2 ), that satisfy
+     −b+3 b−1                                    −c+3 c−1
+    d1,n φn (ub )φnb−2 (wb−1 ) . . . w1 ≡ w 0 · d1,n φn (uc )φnb−2 (wc−1 ) . . . w1 ,      (5.8)
+
+with |w 0 | ≤ 3|wb−1 | + · · · + 3|wc | + |ub | − |uc | − b + c and |uc | ≤ |ub | + b.
+Proof. The idea is as follows: using induction on k going from b to c + 1, we compute a
+σn−1 -nonnegative word wk0 −1 and a wk# -dangerous word uk −1 satisfying
+                     −k+3 k −1                             −k+4 k −2
+                    d1,n φn (uk )φnk −2 (wk −1 ) ≡ wk0 −1 d1,n φn (uk −1 ).                (5.9)
+
+Then we define w0 to be wb0 −1 . . . wc0 .
+    Let us go into details. First we construct the words wk0 and uk . Fix k in {b, . . . , c + 1}
+and assume that uk is a wk# -dangerous word. Corollary 3.10 guarantees that wk −1 is a
+φn (wk# )-ladder lent on wk# −1 . Then, by Proposition 5.7, the word φn (uk )wk −1 is equivalent
+to an at,n -wall vk −1 lent on wk# −1 for some t. By the definition of a wall, we have
+
+                                  vk −1 = vk0 −1 dp−1,n−1 uk −1 ,
+
+where vk0 −1 is a σn−2 -nonnegative word, uk −1 is a wk# −1 -dangerous word and ap−1,n−1 is
+the last letter of wk −1 . Then we obtain
+               −k+3 k −1                      −k+3 k −2 0
+              d1,n φn (uk )φnk −2 (wk −1 ) ≡ d1,n φn (vk −1 dp−1,n−1 uk −1 ).
+                      −1
+We push the power of d1,n to the last word between dp−1,n−1 and uk −1 :
+           −k+3 k −2 0                                            −k+3 k −2
+          d1,n φn (vk −1 dp−1,n−1 uk −1 ) ≡ φn (vk0 −1 dp−1,n−1 )d1,n φn (uk −1 )
+                                           −1     −1
+By relation (4.3a), we have φn (dp−1,n−1 )d1,n ≡ d1,p . Eventually, we obtain
+               −k+3 k −1                                       −k+4 k −2
+              d1,n φn (uk )φnk −2 (wk −1 ) ≡ φn (vk0 −1 )d1,p
+                                                          −1
+                                                              d1,n φn (uk −1 ).           (5.10)
+                              −1
+Writing wk0 −1 = φn (vk0 −1 )d1,p , Relation (5.10) implies (5.9). By construction, wk0 −1 is
+σn−1 -nonnegative and uk is an wk# -dangerous word.
+    Gathering the relations (5.9) for k from b to c + 1, we obtain the relation (5.8) for
+w0 = wb0 −1 . . . wc0 .
+    By construction, wk0 is σn−1 -nonnegative for each k, hence w0 is σn−1 -nonnegative as
+well.
+Every braid admits a short sigma-definite expression                                         1621
+
+
+   It remains to establish the complexity statements. For every k in {b, . . . , c + 1}, (5.6b)
+implies |vk −1 | ≤ 3|wk −1 | + |uk | − 1. Then, by the construction of wk0 −1 , we have |wk0 −1 | ≤
+3|wk −1 | + |uk | − |uk −1 | − 1. We deduce
+               |w0 | = |wb0 −1 . . . wc0 | ≤ 3|wb−1 . . . wc | + |ub | − |uc | − b + c.
+     For each k, (5.6a) implies |uk | ≤ |uk +1 | + 1. Then we find |uk | ≤ |ub | + b − k, hence
+|uk | ≤ |ub | + b. By Proposition 5.7, computing uk and vk from wk and uk +1 requires
+at most O(|uk +1 | |w| + 1) steps. Therefore, computing w0 and uc from ub and the φn -
+splitting of w requires at most O((|ub | + b)|w| + b − c) steps. As b ≤ |w| + 2, we deduce
+that computing w0 and uc from ub and the φn -splitting of w requires at most O(|ub | |w|2 )
+steps.                                                                                        t
+                                                                                              u
+
+
+6. The main result
+
+We are now ready to establish Theorems 1 and 2 of the introduction. What we shall do is
+to construct, for each n-strand braid β, a certain ad-word NFn (β) that represents β and is
+σ -definite, i.e., a word on the letters ap,q and dp,q which, translated to the alphabet of σi ,
+becomes either σ -positive or σ -negative.
+    The construction of NFn (β) involves two steps. The first (easy) step, described in
+Section 6.1, consists in extending the rotating normal form of Section 2.2 to all of Bn by
+appending convenient denominators. The process is based on the Garside structure of the
+monoid Bn+∗ .
+    The second step starts from the rotating normal form, and is described in Section 6.2.
+The process splits into three cases according to the relative size of two parameters associ-
+ated with β, namely the breadth of the numerator and the exponent of the denominator in
+the rotating normal form of β. The reversing machinery developed in Sections 4 and 5 is
+needed to treat the difficult case when the above two parameters are close to one another.
+
+6.1. The rotating normal form of an arbitrary braid
+As mentioned above, we first extend the rotating normal form, so far defined only for
+those braids that belong to the monoid Bn+∗ , to all braids.
+                                                             −t
+Proposition 6.1. Each braid β admits a unique expression d1,n   w where t is a nonnega-
+tive integer, w is a (rotating) normal word, and the braid w is not left-divisible by d1,n
+unless t is zero.
+Proof. By Proposition 1.5, the monoid Bn+∗ is a Garside monoid with Garside element
+δn , and the group Bn is a group of fractions for the monoid Bn+∗ . Hence, there exists a
+smallest integer t such that δnt β belongs to Bn+∗ . If t is positive, the minimality hypothesis
+implies that δn is not a left-divisor of δnt β. Taking for w the rotating normal form of δnt β
+gives a pair (t, w) of the expected form—we recall that d1,n ≡ δn .
+                                                                                     0
+     Assume that (t 0 , w0 ) is another pair with the above properties. Then δnt β belongs
+                                                                                0
+to Bn+∗ , hence t 0 ≥ t. If we had t 0 > t, the hypothesis δn−t w = δn−t w0 would yield
+1622                                                                               Jean Fromentin
+
+  0
+δnt −t w = w0 , implying that w 0 is left-divisible by δn , which contradicts t 0 > 0. Hence
+t 0 = t, whence w 0 = w by uniqueness of the rotating normal form.                         t
+                                                                                           u
+
+                                 −t
+Definition 6.2. The ad-word d1,n     w involved in Proposition 6.1 is called the n-rotating
+normal form of the braid β. The number t is called the n-depth of β; the number t + |w|,
+                                 −t
+i.e., the length of the ad-word d1,n w, is called the n-length of β, denoted |β|n ; finally, for
+n ≥ 3, the n-breadth of w is called the n-breadth of β.
+
+    By definition, the rotating normal form of a braid is an ad-word, i.e., a word involving
+                                                −1
+the letters ap,q and dp,q (actually the letter d1,n only). The terminology is coherent since,
+           +∗
+for β in Bn , the rotating normal form as defined above coincides with the rotating normal
+form of Definition 2.11: indeed, β belongs to Bn+∗ if and only if its n-depth is 0.
+    Building on Proposition 2.13 and on the Garside structure of Bn+∗ , we easily see that
+the rotating normal form of an arbitrary braid can be computed in quadratic time.
+
+Lemma 6.3. For n ≥ 3 and 1 ≤ i ≤ n − 1, let θi,n be the a-word φni +1 (δn−1 ). Then θi,n
+is equivalent to δn σi−1 , and it has length n − 2.
+
+Proof. By Lemma 1.6, we have φni +1 (an−1,n ) = ai,i +1 . We deduce φni +1 (δn ) ≡ φni +1 (δn−1 )σi
+= θi,n σi . As δn is invariant under φn , we have δn = θi,n σi . The length of the a-word δn−1
+is n − 2. As φn preserves the length of a-words, the length of θi,n is n − 2.                    t
+                                                                                                 u
+
+We recall that, for β a braid, kβkσ denotes the length of the shortest expression of β in
+terms of the Artin generators σi .
+
+Proposition 6.4. For each n-strand braid β, we have |β|n ≤ (n − 1)kβkσ . Moreover, if
+β is specified by a word of length `, the rotating normal form of β can be computed in
+time O(`2 ).
+
+Proof. The case n = 2 is trivial. Starting with a word on the alphabet {σ1 , σ1−1 }, we freely
+reduce it to σ1k by deleting the factors σ1 σ1−1 and σ1−1 σ1 . The rotating normal form is a1,2
+                                                                                            k
+                          k in the case k < 0, and it is geodesic.
+in the case k ≥ 0, and d1,2
+    Assume now n ≥ 3. Let w be an n-strand braid word representing β. Then the rotating
+normal form of β is obtained as follows:
+
+• Replace each positive letter σi in w with ai,i +1 , so as to obtain
+
+                                  u = w0 σi−1 1 w1 . . . wc−1 σi−c 1 wc .
+
+• Put v = φnc (w0 )φnc−1 (θi1 ,n w1 ) . . . φn (θic−1 ,n wc−1 )θic ,n wc .
+• Let s be the maximal integer such that δns left-divides v in Bn+∗ , and let v 0 be a positive
+  a-word satisfying v ≡ δns v 0 .
+• If s ≥ c, put t = 0 and w 00 = δns−c v 0 ; otherwise put t = c − s and w 00 = v 0 .
+                                                                                  −t 0
+• Let w 0 be the normal form of w00 . Then the rotating normal form of β is d1,n      w.
+Every braid admits a short sigma-definite expression                                                  1623
+
+
+Indeed, Lemma 6.3 and δn ≡ d1,n imply
+                               −1                   −1                 −1
+                       w ≡ w0 d1,n θi1 ,n w1 . . . d1,n θic−1 ,n wc−1 d1,n θic ,n wc .
+                     −1
+Pushing the letters d1,n to the left, we obtain
+                  −c c                                                                 −c
+             w ≡ d1,n φn (w0 )φnc−1 (θi1 ,n w1 ) . . . φn (θic−1 ,n wc−1 )θic ,n wc = d1,n v.
+                                                                                 −t 0
+Using the relation d1,n ≡ δn and the construction of w0 , we obtain w ≡ d1,n        w , where w0
+is not left-divisible by d1,n unless t is zero.
+    As for the length, replacing σi−k 1 by d1,n
+                                            −1
+                                                θik multiplies it by at most n − 1. Applying the
+construction in the case when w is a shortest expression of β gives |β|n ≤ (n − 1)kβkσ .
+    As for the time complexity, v is obtained in time O(`), the integer s is obtained in time
+O(`2 )—see for instance [13]—and w0 is obtained in time O(|w 00 |2 ) by Proposition 2.13.
+Hence, as |w00 | ≤ `, the rotating normal form of β is obtained from the word w in time
+O(`2 ).                                                                                        t
+                                                                                               u
+Example 6.5. Consider β = σ1 σ3−2 σ2 σ3 . We use the notation of Proposition 6.4. First,
+we write u = w0 σ3−1 w1 σ3−1 w2 with w0 = a1,2 , w1 = ε and w2 = a2,3 a3,4 . Then we have
+θ3,4 = φ44 (δ3 ) = a1,2 a2,3 , and we find
+
+                v = φ42 (w0 )φ4 (θ3,4 w1 )θ3,4 w2 = a3,4 a2,3 a3,4 a1,2 a2,3 a2,3 a3,4 .
+The maximal power of δ4 that left-divides v is 1 and we have v ≡ δ4 a2,3 a1,2 a2,3 a2,4 .
+So we find s = 1 and v 0 = a2,3 a1,2 a2,3 a2,4 . Here we have c = 2 and s = 1, hence we
+put t = 1 and w 00 = a2,3 a1,2 a2,3 a2,4 . The rotating normal form w0 of w 00 turns out to be
+a1,2 a1,4 a2,3 a1,2 . So, finally, the rotating normal form of β is
+                                          −1
+                                         d1,4 a1,2 a1,4 a2,3 a1,2 .
+Hence the 4-depth of β is 1, its length is 5, and its 4-breadth is 4, since we saw in Exam-
+ple 2.15 that the 4-breadth of a1,2 a1,4 a2,3 a1,2 is 4: its φ4 -splitting is (a2,3 , a2,3 , 1, a2,3 a1,2 ),
+a sequence of length 4.
+
+6.2. The word NFn (β): the easy cases
+Starting from the rotating normal form, we shall now define for each braid β a new dis-
+tinguished expression NFn (β) that is a σ -definite word. The word NFn (β) will be con-
+structed as a word on the letters ap,q and dp,q . At the end, it will be obvious how to
+translate it into an ordinary braid word, i.e., a word on the letters σi .
+    The construction of NFn (β) depends on the relative values of the n-depth and the n-
+breadth of β. The first case, which is easy, is when the n-depth of β is 0, i.e., β belongs
+to Bn+∗ , or it is |β|n , i.e., β is a negative power of d1,n . Note that this case is the only
+possible one in the case of B2 .
+Definition 6.6. Assume that β is a braid of Bn whose n-depth is 0 or |β|n . Then we define
+NFn (β) to be the n-rotating normal form of β.
+1624                                                                             Jean Fromentin
+
+
+    In this case, everything is clear.
+
+Proposition 6.7. Under the hypotheses of Definition 6.6, the word NFn (β) is a σ -definite
+expression of β, and its length is at most |β|n . Moreover, if β is specified by a σ -word of
+length `, the word NFn (β) can be computed in time O(`2 ).
+Proof. If |β|n is equal to 0, then β is the trivial braid 1 and its rotating normal form is
+the empty word. If β is nontrivial and its n-depth is 0, then the rotating normal form is
+a nonempty positive a-word, i.e., a σ -positive word. If β is nontrivial and its n-depth t
+                                                      −t
+equals |β|n , then the rotating normal form of β is d1,n , which is σn−1 -negative. The com-
+plexity statements are clear from Proposition 6.4.                                         t
+                                                                                           u
+The second case, which is easy as well, is when the depth is large. We recall that, if w is
+a normal word, then the φn -splitting of w is the sequence of normal words that represent
+the entries in the φn -splitting of the braid represented by w.
+
+Definition 6.8. Assume that β is a nontrivial braid of Bn with n ≥ 3 whose n-depth t
+                                                                        −t
+satisfies t 6 = 0 and t > b − 2, where b is the n-breadth of β. Let d1,n   w be the rotating
+normal form of β and (wb , . . . , w1 ) be the splitting of w. Then we put
+                                  −t b 1 + −   −1                −1
+                       NFn (β) = d1,n    · wb d1,n · . . . · w2 d1,n · w1 .
+
+Proposition 6.9. Under the hypotheses of Definition 6.8, the word NFn (β) is a σ -nega-
+tive expression of β, and its length is at most |β|n . Moreover, if β is specified by a σ -word
+of length `, the word NFn (β) can be computed in time O(`2 ).
+                                                                    −t
+Proof. First, we claim that NFn (β) is an expression of β. Let d1,n    w be the rotating normal
+form of β and (wb , . . . , w1 ) be the φn -splitting of w. We have
+                          −t       −t
+                         d1,n w = d1,n · φnb−1 (wb ) · . . . · φn (w2 ) · w1 .            (6.1)
+
+Pushing b − 1 powers of d1,n to the right in (6.1) and dispatching them between the
+factors wk , we find
+             −t       −t
+            d1,n w = d1,n · φnb−1 (wb ) · . . . · φn (w2 ) · w1
+                      −t b 1    −b +1
+                                      · φnb−1 (wb ) · . . . · φn (w2 ) · w1
+                           + −
+                   = d1,n    · d1,n
+                      −t b 1
+                           + −       −1     −b+2
+                   ≡ d1,n    · wb · d1,n · d1,n  · . . . · φn (w2 ) · w1
+                              −t b 1
+                                  + −        −1                  −1
+                   ≡ · · · ≡ d1,n    · wb · d1,n · . . . · w2 · d1,n · w1 = NFn (β).
+                                                           −1
+    Next, t being the n-depth of β, exactly t powers of d1,n   occur in NFn (β). Hence, as t
+                        −1
+is not 0, at least one d1,n appears in NFn (β). By construction, the intermediate words wk
+contain no letter ap,n . Therefore, the word NFn (β) is σn−1 -negative.
+    As for the length, we find
+
+                |NFn (β)| = t − b + 1 + |wb | + 1 + · · · + |w2 | + 1 + |w1 |
+                                                         −t 0
+                           = t − b + 1 + |w| + b − 1 = |d1,n w | = |β|n .
+Every braid admits a short sigma-definite expression                                         1625
+
+
+   Finally, assume that β is specified by a word of length `. Then, by Proposition 6.4,
+we can compute the rotating normal form of β in at most O(`2 ) steps. By Lemma 2.14,
+computing the φn -splitting of w can be done in O(|w|) steps. Hence, NFn (β) can be
+computed in time O(`2 ).                                                             t
+                                                                                     u
+
+
+6.3. The word NFn (β): the difficult case
+There remains the case of a braid β whose n-depth t satisfies t 6 = 0 and t ≤ b − 2, where
+b is the n-breadth of β: this is the difficult case. In this case, it is impossible to directly
+predict whether β has a σn−1 -positive or a σn−1 -neutral word (i.e., one in which neither
+σn−1 nor σn−−11 occurs), and this is the point where we shall use the ladder and reversing
+machinery developed in Sections 3, 4 and 5.
+
+Definition 6.10. Assume that β is a nontrivial braid of Bn with n ≥ 3 whose n-depth t
+                                                                              −t
+satisfies t 6 = 0 and t ≤ b − 2, where b is the n-breadth of β. Let d1,n          w be the rotating
+normal form of β, and (wb , . . . , w1 ) be the φn -splitting of w. Write wt +2 = wt0 +2 ap−1,n−1 .
+Put
+              v = φnb−1−t (wb ) . . . φn2 (wt+3 ) φn (wt0 +2 ) d1,p
+                                                                −1
+                                                                    , ut +2 = dp−1−1,n−2 .
+Case 1: w2 6 = ε. Then we put
+
+                                  NFn (β) = vw 00 φn (w20 )w1 ,
+
+where w00 and u3 are the words produced by Lemma 5.9 applied to the sequence
+(wt+2 , . . . , w1 ), the word ut+2 and the integer 3, and where w20 is the word given by
+Proposition 5.7 applied to the words w2 and φn (u3 ).
+Case 2: w2 = ε, w3 = · · · = wk −1 = an−2,n−1 and wk 6 = an−2,n−1 for some k ≤ t + 1.
+Then we put
+                                                     −k+2
+                           NFn (β) = vw 00 φn (wk0 )d1,n −1 w1 ,
+
+where w 00 and uk +1 are the words given by Lemma 5.9 applied to the sequence
+(wt+2 , . . . , w1 ), the word ut+2 and the integer k + 1, and where wk0 an−2,n−1 is the word
+produced by Proposition 5.7 applied to the words wk and φn (uk +1 ).
+                                                        −1
+Case 3: w2 = ε, w3 = · · · = wt+1 = an−2,n−1 and v 6 = d1,n −1 . Then we put
+
+                                                 −t+1
+                                     NFn (β) = vd1,n −1 w1 .
+
+                                                      −1
+Case 4: w2 = ε, w3 = · · · = wt+1 = an−2,n−1 and v = d1,n −1 . Then we put
+
+
+                                  NFn (β) = NFn−1 (δn−t−1 w1 ).
+
+Proposition 6.11. Under the hypotheses of Definition 6.10, the word NFn (β) is a σ -
+definite expression of β, and its length is at most 3|β|n . Moreover, if β is specified by a
+σ -word of length `, the word NFn (β) can be computed in time O(`2 ).
+1626                                                                                          Jean Fromentin
+
+
+Proof. We use the notation of Definition 6.10. First, we claim that the following equiva-
+lence holds:
+                   −t         −t+1 t +1
+                 d1,n w ≡ v d1,n   φn (ut +2 )φnt (wt +1 ) . . . φn (w2 )w1 .       (6.2)
+Indeed, as the sequence (wb , . . . , w1 ) is the φn -splitting of w, we have
+                       −t       −t b−1
+                      d1,n w = d1,n φn (wb ) . . . φnt +1 (wt +2 ) . . . φn (w2 )w1 .                  (6.3)
+
+By construction, wt +2 is wt0 +2 ap−1,n−1 . By (4.1), we have ap−1,n−1 ≡ dp−1,n−1 ut +2 , hence
+                                                −t
+wt +2 ≡ wt0 +2 dp−1,n−1 ut +2 . Then the word d1,n w is equivalent to
+        −t b−1
+       d1,n φn (wb ) . . . φnt +1 (wt0 +2 dp−1,n−1 )φnt +1 (ut +2 )φnt (wt +1 ) . . . φn (w2 )w1 .     (6.4)
+                        −t
+We push the factor d1,n    appearing in (6.4) to the right, until it arrives at the left of the
+        t +1
+factor φn (ut +2 ). In this way, we obtain
+    −t                                                 −t t +1
+   d1,n w ≡ φnb−t−1 (wb ) . . . φn (wt0 +2 dp−1,n−1 ) d1,n φn (ut +2 )φnt (wt +1 ) . . . φn (w2 )w1 .
+                                                  −1      −1
+Relations (4.3a) and (4.3b) imply φn (dp−1,n−1 )d1,n ≡ d1,p  . Inserting the latter value in
+the relation above, we obtain (6.2), as expected.
+    Next, by construction, the word v is σn−1 -nonnegative, and its length satisfies
+
+                                      |v| = |wb | + · · · + |wt +2 |.                                  (6.5)
+
+    To go further, we consider the four cases of Definition 6.10 separately. In the first
+three cases, we shall show that NFn (β) is σn−1 -positive; in the fourth case, we shall show
+that NFn (β) is σ -definite using induction on n and possibly Propositions 6.7 and 6.9.
+                                         −t
+Case 1. First, NFn (β) is equivalent to d1,n w. Indeed, Lemma 5.9 implies
+                                    −t
+                                   d1,n w ≡ vw 00 φn2 (u3 )φn (w2 )w1 ,
+
+while Proposition 5.7 implies φn (u3 )w2 ≡ w20 . We deduce
+                                 −t
+                                d1,n w ≡ vw00 φn (w20 )w1 = NFn (β).
+
+   Next, by construction, w20 is a wall lent on w2# , hence, by definition, it is σn−2 -positive.
+So φn (w20 ) is σn−1 -positive. As v, w00 and w1 are σn−1 -nonnegative, NFn (β) is σn−1 -
+positive.
+   As for the length, Lemma 5.9 and Proposition 5.7 imply
+
+        |w 00 | ≤ 3|wt +1 | + · · · + 3|w3 | − |u3 | − t + 2,         |w20 | ≤ 3|w2 | + |u3 | − 1.
+
+Merging these values with (6.5), and t > 0, we deduce |NFn (β)| ≤ 3|w|.
+Case 2. First, we observe that the last letter of wk must be an−2,n−1 : this follows from
+Corollary 3.11 since, by the construction of k, the word wk −1 is either ε or an−2,n−1 .
+Every braid admits a short sigma-definite expression                                              1627
+
+                                                 −t
+    Now, we check that NFn (β) is equivalent to d1,n w. By Lemma 5.9, we have
+         −t             −k+2 k
+        d1,n w ≡ vw 00 d1,n φn (uk +1 )φnk −1 (wk )φnk −2 (an−2,n−1 ) . . . φn2 (an−2,n−1 )w1 .
+
+By Proposition 5.7, φn (uk +1 )wk is equivalent to a wall w̃k lent on wk# = an−2,n−1 . We
+define wk0 by setting w̃k = wk0 an−2,n−1 . Then
+              −t             −k+2 k −1
+             d1,n w ≡ vw 00 d1,n φn (wk0 )φnk −1 (an−2,n−1 ) . . . φn2 (an−2,n−1 )w1 .            (6.6)
+
+Pushing the negative powers of d1,n appearing in (6.6) to the right and dispatching them
+between the φn. (an−2,n−1 ), we find
+            −t                     −k+2 k −1
+           d1,n w ≡ vw00 φn (wk0 )d1,n φn (an−2,n−1 ) . . . φn2 (an−2,n−1 )w1
+                                                  −1 −k+3
+                   ≡ vw00 φn (wk0 )φn (an−2,n−1 )d1,n d1,n . . . φn2 (an−2,n−1 )w1
+                                                           −1                       −1
+                   ≡ · · · ≡ vw 00 φn (wk0 )φn (an−2,n−1 )d1,n . . . φn (an−2,n−1 )d1,n w1 .
+                    −1     −1
+Then φn (an−2,n−1 )d1,n ≡ d1,n −1 implies
+
+                           −t                     −k+2
+                          d1,n w ≡ vw00 φn (wk0 )d1,n −1 w1 = NFn (β).
+
+
+    Next, by the construction of wk0 and the last statement of Proposition 5.7, the word
+                                                                        −k+2
+wk0 is σn−2 -positive. So φn (wk0 ) is σn−1 -positive. As v, w00 , and d1,n −1 w1 , are σn−1 -non-
+negative, the word NFn (β) is σn−1 -positive.
+    As for the length, Lemma 5.9 and Proposition 5.7 imply
+
+ |w00 | ≤ 3|wt +1 | + · · · + 3|w3 | − |uk +1 | − t + 2,    |wk0 an−2,n−1 | ≤ 3|wk | + |uk +1 | − 1.
+
+Merging these values with (6.5) and the hypothesis t > 0, we find |NFn (β)| ≤ 3|w|.
+Case 3. As above, we observe that the last letter of wt +2 is an−2,n−1 , which follows from
+Corollary 3.11, since wt +1 is either 1 or an−2,n−1 .
+                                                   −t
+    Then we check that NFn (β) is equivalent to d1,n  w. As the last letter of wt +2 is an−2,n−1 ,
+the word ut +2 is empty. Then we find
+                    −t        −t+1 t
+                   d1,n w ≡ vd1,n φn (an−2,n−1 ) . . . φn2 (an−2,n−1 )φn (ε)w1 .                  (6.7)
+
+Pushing again the negative powers of d1,n of (6.7) to the right and dispatching them
+between the φn. (an−2,n−1 ), we find
+            −t                      −1 −t+2 t −1
+           d1,n w ≡ vφn (an−2,n−1 )d1,n d1,n φn (an−2,n−1 ) . . . φn2 (an−2,n−1 )w1
+                                             −1                       −1
+                   ≡ · · · ≡ vφn (an−2,n−1 )d1,n . . . φn (an−2,n−1 )d1,n w1 .
+                    −1     −1
+Then φn (an−2,n−1 )d1,n ≡ d1,n −1 implies
+
+                                 −t        −t+1
+                                d1,n w ≡ vd1,n −1 w1 = NFn (β).
+1628                                                                              Jean Fromentin
+
+
+    Next, we check that NFn (β) is σn−1 -positive. As wt#+2 = an−2,n−1 , we have
+                                                                        −1
+                      v = φnb−1−t (wb ) . . . φn2 (wt+3 ) φn (wt0 +2 ) d1,n −1
+
+By Lemma 3.2(iii), if the word wt0 +2 is not empty, it ends with a letter of the form a.,n−1 ,
+hence v is σn−1 -positive. Assume that wt0 +2 is empty and t ≤ b − 3. As the word
+wt +2 is an−2,n−1 , Corollary 3.11 implies that wt+3 ends with an−2,n−1 . Then v ends with
+                −1                      −1
+φn2 (an−2,n−1 )d1,n −1 , which is a1,n d1,n−1 , hence v is σn−1 -positive.
+     Relation (6.5) directly implies |NFn (β)| = |w|.
+                                        −1
+Case 4. By construction, we have v = d1,n  −1 . The same analysis as in Case 3 gives
+t = b − 2 and
+                                 −t        −t
+                                d1,n w ≡ d1,n −1 w1 .
+                                                                          −t
+The induction hypothesis together with Propositions 6.7 and 6.9 gives d1,n   −1 w1 ≡
+        −t               −t
+NFn−1 (δn−1 w1 ), hence d1,n w ≡ NFn (β) by definition.
+   Always by the induction hypothesis and Propositions 6.7 and 6.9, we have
+                       |NFn (β)| = |NFn−1 (δn−t−1 w1 )| ≤ 3|δn−t−1 w1 |n−1 .
+By definition, we have |β|n = t + |wb | + · · · + |w1 | and |δn−t−1 w1 |n−1 ≤ t + |w1 |, hence
+|δn−t−1 w1 |n−1 ≤ |β|n . Thus, we obtain |NFn (β)| ≤ 3|β|n .
+    So all cases have been considered, and it only remains to analyze the time complexity.
+By Proposition 6.4 and Lemma 2.14, the rotating normal form of β and the φn -splitting
+of w can be computed in time O(`2 ). Then, in Cases 1 and 2, Lemma 5.9 is used once for
+(wt +2 , . . . , w1 ) and ut +2 , with a cost O(`2 ). In addition, Proposition 5.7 is used at most
+once with φn (uk +1 ) and wk (k = 2 for Case 1), with a cost at most O(max(1, |uk +1 |`)).
+Lemma 5.9 guarantees |uk +1 | ≤ |uk +1 |+t +1−c, i.e., |ut +2 | ≤ t. So the total cost entailed
+by Proposition 5.7 is at most O(`2 ). The other computations in Cases 1, 2, and 3 require
+at most O(`) steps, and therefore the total cost of the computation of NFn (β) is O(`2 )
+in Cases 1, 2 and 3. The result is similar for Case 4, using the induction hypothesis, and
+possibly Propositions 6.7 and 6.9.                                                              t
+                                                                                                u
+
+6.4. Putting things together
+Using the σ -definite words NFn (β) constructed in Sections 6.2 and 6.3, we are now ready
+to establish Theorems 1 and 2 of the introduction. As a preliminary remark, we observe
+that the words NFn (β) do not really depend on the index n.
+Lemma 6.12. If β belongs to Bn−1 , the words NFn (β) and NFn−1 (β) coincide.
+Proof. An easy verification shows that, if β belongs to Bn−1 and has n-depth t, then either
+t = 0 (if β belongs to Bn+−∗ 1 ), or we are in Case 4 of Definition 6.10. In both cases, the
+definition of NFn (β) implies NFn (β) = NFn−1 (β).                                         t
+                                                                                           u
+So, from now on, we can skip the subscript n and write NF(β) without ambiguity. The
+main result, of which Theorems 1 and 2 are easy consequences, is as follows. We recall
+that, for β a braid, kβkσ denotes the length of the shortest expression of β in terms of the
+Artin generators σi .
+Every braid admits a short sigma-definite expression                                           1629
+
+
+Theorem 6.13. For each n-strand braid β, the ad-word NF(β) is a σ -definite expression
+of β, and its length is at most 3(n − 1)kβkσ . Moreover, if β is specified by a σ -word of
+length `, the word NF(β) can be computed in time O(`2 ).
+Proof. Everything is obvious in the case n = 2, so we assume n ≥ 3. Applying Propo-
+sition 6.1, and, according to the case, Proposition 6.7, 6.9, or 6.11, the word NF(β) is, in
+any case, a σ -definite expression of β, and its length is at most 3|β|n . On the other hand,
+Proposition 6.4 implies |β|n ≤ (n − 1)kβkσ , so we deduce the expected upper bound
+
+                                   |NF(β)| ≤ 3(n − 1)kβkσ .                                    (6.8)
+
+Finally, gathering the complexity analysis of Propositions 6.4, 6.7, 6.9, and 6.11 shows
+that, in all cases, NF(β) can be computed in O(`2 ) steps when β is specified by an initial
+word of length `.                                                                        t
+                                                                                         u
+As promised, we can now deduce Theorems 1 and 2 in a few words.
+Proof of Theorem 1. Let NF(β) be the translation of the ad-word NF(β) into a σ -word.
+The formulas of (4.2) show that the translation of a letter ap,q or dp,q with q ≤ n has
+length at most 2n − 3. So (6.8) implies |NF(β)| ≤ 6(n − 1)2 kβkσ .                   t
+                                                                                     u
+Proof of Theorem 2. Translating NF(β) into NF(β) has a linear time cost, so the quadratic
+upper bound for the computation of NF(β) established in Theorem 6.13 immediately
+gives a quadratic upper bound for the computation of NF(β).                            t
+                                                                                       u
+Let us now give a concrete example of the previous constructions.
+
+Example 6.14. We consider the braid β = σ1 σ3−2 σ2 σ3 of Example 6.5 again. We saw
+above that its rotating normal form is the ad-word
+                                        −1
+                                       d1,4 a1,2 a1,4 a2,3 a1,2 .
+
+We saw in Example 2.15 that the φ4 -splitting of a1,2 a1,4 a2,3 a1,2 is (w4 , . . . , w1 ), with
+
+                w4 = a2,3 ,     w3 = a2,3 ,      w2 = ε,       and   w1 = a2,3 a1,2 .
+
+So the 4-depth of β is 1, whereas its 4-breadth is 4. As 1 ≤ 4 − 2, we are in the difficult
+case. With the notation of Definition 6.10, we have t = 1 and w3 = ε · a2,3 , so we
+                                                       −1
+first put w30 = ε, p = 3, v = φ42 (w4 )φ4 (w30 )d1,p       , and u3 = dp−1−1,2 , i.e., in the current
+                  −1                                                                      −1
+case, v = a1,4 d1,3   and u3 = ε. Then, as w2 = ε, w3 = a2,3 and v 6 = d1,3                  , we are
+in Case 3 of Definition 6.10. According to the latter, we define NF(β) = vd1,3 w1 , i.e.,  0
+                 −1
+NF(β) = a1,4 d1,3    a2,3 a1,2 . This ad-word is σ3 -positive: indeed, its σ -translation is the
+σ -word
+                                NF(β) = σ1 σ2 σ3 σ2−1 σ1−1 σ2−1 σ1−1 σ2 σ1
+
+which contains one σ3 , but no σ3−1 , and no σi±1 with i ≥ 4.
+1630                                                                                Jean Fromentin
+
+
+    In the very simple case of Example 6.14, the reversing machinery is not used (and
+directly guessing a σ -definite word equivalent to the initial word would have been easy).
+However, much more complicated phenomena may occur in general, in particular when
+the braid index reaches 5, which is the smallest value for which there exist ladders with
+more than one bar. All situations considered in Definition 6.10 may occur when the length
+and the braid index increase, and explicit examples can easily be found using a computer.
+The examples witnessing really complicated behaviors, typically requiring more than one
+reversing step, involve words that are too long to be given here. However their existence
+confirms the amazing intricacy of the braid relations.
+    As a consequence, we deduce that the complexity of the Dehornoy order of braids is
+at most quadratic.
+
+Acknowledgments. The author thanks P. Dehornoy for his help in writing this paper.
+
+
+References
+
+ [1] Bessis, D.: The dual braid monoid. Ann. Sci. École Norm. Sup. (4) 36, 647–683 (2003)
+     Zbl 1064.20039 MR 2032983
+ [2] Bessis, D., Digne, F., Michel, J.: Springer theory in braid groups and the Birman–Ko–Lee
+     monoid. Pacific J. Math. 205, 287–309 (2002) Zbl 1056.20023 MR 1922736
+ [3] Birman, J., Ko, K. H., Lee, S. J.: A new approach to the word and conjugacy problems in the
+     braid groups. Adv. Math. 139, 322–353 (1998) Zbl 0937.20016 MR 1654165
+ [4] Bressaud, X.: A normal form for braids. J. Knot Theory Ramif. 17, 697–732 (2008)
+     Zbl 1158.20019 MR 2427952
+ [5] Burckel, S.: The wellordering on positive braids. J. Pure Appl. Algebra 120, 1–17 (1997)
+     Zbl 0958.20032 MR 1466094
+ [6] Dehornoy, P.: Braid groups and left distributive operations. Trans. Amer. Math. Soc. 345,
+     115–150 (1994) Zbl 0837.20048 MR 1214782
+ [7] Dehornoy, P.: A fast method for comparing braids. Adv. Math. 125, 200–235 (1997)
+     Zbl 0882.20021 MR 1434111
+ [8] Dehornoy, P.: Groupes de Garside. Ann. Sci. École Norm. Sup. (4) 35, 267–306 (2002)
+     Zbl 1017.20031 MR 1914933
+ [9] Dehornoy, P.: Complete positive group presentations. J. Algebra 268, 156–197 (2003)
+     Zbl 1067.20035 MR 2004483
+[10] Dehornoy, P.: Alternating normal forms for braids and locally Garside monoids. J. Pure Appl.
+     Algebra 212, 2413–2439 (2008) Zbl 1191.20033 MR 2440256
+[11] Dehornoy, P., Dynnikov, I., Rolfsen, D., Wiest, B.: Ordering Braids. Math. Surveys Monogr.
+     148, Amer. Math. Soc. (2002) Zbl 1163.20024 MR 2463428
+[12] Dynnikov, I., Wiest, B.: On the complexity of braids. J. Eur. Math. Soc. 9, 801–840 (2007)
+     Zbl 1187.20045 MR 2341833
+[13] Epstein, D., Cannon, J., Holt, D., Levy, S., Paterson, M., Thurston, W.: Word Processing in
+     Groups. Jones & Bartlett (1992) Zbl 0764.20017 MR 1161694
+[14] Fenn, R., Greene, M. T., Rolfsen, D., Rourke, C., Wiest, B.: Ordering the braid groups. Pacific
+     J. Math. 191, 49–74 (1999) Zbl 1009.20042 MR 1725462
+[15] Fromentin, J.: A well-ordering of dual braid monoids. C. R. Math. Acad. Sci. Paris 346, 729–
+     734 (2008) Zbl 1146.20313 MR 2427071
+Every braid admits a short sigma-definite expression                                         1631
+
+
+[16] Garside, F. A.: The braid group and other groups. Quart. J. Math. Oxford Ser. 20, 235–254
+     (1969) Zbl 0194.03303 MR 0248801
+[17] Ito, T.: On finite Thurston-type orderings of braid groups. Groups Complex. Cryptol. 2, 123–
+     155 (2010) Zbl pre05873470 MR 2747146
+[18] Larue, D. M.: Left-distributive and left-distributive idempotent algebras. Ph.D. thesis, Univ.
+     of Colorado, Boulder (1994) MR 2692162
+

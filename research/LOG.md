@@ -139,3 +139,11 @@ Archived and read the exact primary scope of Krasilnikov's finite-basis theorem 
 Recorded why several tempting reductions are incomplete: a kernel's ordinary infinite generation does not show failure of finite normal generation; solvable word-problem undecidability is not itself metabelianity-recognition undecidability; the bounded-degree linear embedding theorem does not cover arbitrary locally linear groups. An abstract countable universal tree of groups for FP9 was written out, with its missing effective diagram and recursive-presentation step explicit. It is not a counted partial answer.
 
 Updated live triage, the literature ledger and the next portfolio focus. No mathematical computation or subagent was launched during this pass, and no Kourovka-run mathematics or code was imported. Tally unchanged: three whole-entry candidates, one partial candidate, zero established novel results. Deadline unchanged.
+
+## 2026-09-28 approximately 14:02–14:17 UTC — braid prior answers and bounded B9 evidence
+
+Confirmed three prior positive answers: Fromentin for B8, Bell–Schleimer for B13, and the July 2026 Bharathram–Birman–Brendle preprint (September v2) for B3. Archived the primary texts, inspected the original complete braid page and each exact rendered paragraph, and documented proof-audit limitations. All three are excluded from discovery counts.
+
+For B9, exact Artin-action enumeration through term height four produced 52 special braids in B5. GAP independently checked every recursive witness, equality classes and finite-height closure, and separated all52 by finite Burau matrices. A height-five Artin run timed out at120seconds and is preserved. A different finite-matrix calculation then certified1930 distinct special braids in B6 at height at most five; GAP independently checked the free-word parent identities and all matrix images. Successful runs used one core and4GB, with empty stderr. The numerical bound2^n printed in Dehornoy p.13 cannot hold, but no fixed-strand exhaustion theorem or disproof of the height-converse question follows. This evidence is not an additional counted partial candidate.
+
+Tally unchanged: three whole-entry candidates, one partial candidate, zero established novel results. No Kourovka mathematics/code imported; no subagents or external contacts; deadline unchanged.
