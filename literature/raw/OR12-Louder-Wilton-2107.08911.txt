@@ -1,0 +1,1893 @@
+                                           Uniform negative immersions and the coherence
+                                                       of one-relator groups
+arXiv:2107.08911v2 [math.GR] 8 Feb 2024
+
+
+
+
+                                                              Larsen Louder and Henry Wilton
+                                                                         February 9, 2024
+
+                                                                              Abstract
+                                                   Previously, the authors proved that the presentation complex of a one-
+                                               relator group G satisfies a geometric condition called negative immersions
+                                               if every two-generator, one-relator subgroup of G is free. Here, we prove
+                                               that one-relator groups with negative immersions are coherent, answering
+                                               a question of Baumslag in this case. Other strong constraints on the
+                                               finitely generated subgroups also follow such as, for example, the co-Hopf
+                                               property. The main new theorem strengthens negative immersions to
+                                               uniform negative immersions, using a rationality theorem proved with
+                                               linear-programming techniques.
+
+
+                                          1    Introduction
+                                          Definition 1.1 (Coherence). A group G is said to be coherent if all its finitely
+                                          generated subgroups are finitely presentable.
+                                              A notorious question of Baumslag [Bau74, p. 76] asks whether every one-
+                                          relator group G = F/⟨⟨w⟩⟩ is coherent. It is a curious fact that the many
+                                          known examples of one-relator groups with pathological propertes — for in-
+                                          stance, Baumslag–Solitar groups, the Baumslag–Gersten group [Bau69], or the
+                                          recent examples of Gardam–Woodhouse [GW19] — all have two generators.
+                                          Our first theorem resolves Baumslag’s question, as long as such subgroups are
+                                          excluded.
+
+                                          Theorem A. Let G = F/⟨⟨w⟩⟩ be a one-relator group. If every two-generator,
+                                          one-relator subgroup of G is free, then G is coherent.
+                                              The case where G has torsion was proved independently by the authors
+                                          [LW20] and Wise [Wis20]. Sapir and Spakulova showed that a generic one-
+                                          relator group with at least three generators is coherent [Sv11].
+                                              The hypothesis of Theorem A — that every two-generator, one-relator sub-
+                                          group is free — appears on its face to be difficult to check. However, the results
+                                          of [LW22] imply that it is equivalent to other, more effective, conditions. The
+
+
+
+                                                                                   1
+following theorem, which follows from [LW22, Theorems 1.3 and 1.5], sum-
+marises these equivalences. (The relevant definitions are explained below.) By
+convention, the relator w is always assumed to be non-trivial.
+Theorem 1.2 ([LW22]). Let G = F/⟨⟨w⟩⟩ be a one-relator group, and let X be
+the natural presentation complex. The following conditions are equivalent:
+
+ (i) the primitivity rank π(w) > 2;
+ (ii) X has negative immersions;
+(iii) every two-generator subgroup of G is free;
+
+(iv) every two-generator, one-relator subgroup of G is free.
+   Since it is the briefest to state, if any of these hold we say that X or G has
+negative immersions.
+Remark 1.3. Puder’s primitivity rank π(w) is a positive integer (or infinite if w
+is a basis element) [Pud14]. We will not need its definition here, but we make
+the following remarks.
+ (i) The primitivity rank π(w) can be computed algorithmically: see [LW22,
+     Lemma 6.4] or [Pud14, Appendix A] for algorithms, and see [CHar] for
+     extensive computations.
+ (ii) Puder also showed that a generic word w in a free group of rank r has
+      π(w) = r [Pud15, Corollary 8.3], so generic one-relator groups with more
+      than two generators have negative immersions. (A more refined result was
+      later proved by Kapovich [Kap22].)
+(iii) Combining [Pud15, Corollary 8.3] with Theorems A and 1.2 recovers the
+      result of Sapir–Spakulova that random one-relator groups with at least
+      three generators are coherent. Instead of [Pud15, Corollary 8.3], one can
+      also appeal to the work of Arzhantseva–Olshanskii, who proved that a
+      random group with at least 3 generators is 2-free [AO96].
+   Condition (ii) of Theorem 1.2 is a geometric condition on the 2-complex X.
+An immersion is a combinatorial map of 2-complexes that is locally injective.
+Roughly, a 2-complex X has negative immersions if, for any finite, connected
+2-complex Y immersing into X, either
+ (i) χ(Y ) < 0, or
+ (ii) Y is homotopic to a graph.
+
+See Definition 3.20 for a precise definition. As usual, χ(Y ) denotes the Euler
+characteristic of Y . The negative immersions property is motivated by an anal-
+ogy with the concept of non-positive immersions, which is defined similarly but
+with (i) replaced by the inequality χ(Y ) ≤ 0. The presentation complex of any
+torsion-free one-relator group has non-positive immersions [HW16, LW17].
+
+
+                                       2
+   The proof of Theorem A leads to various other strong constraints on the
+subgroups of one-relator groups with negative immersions. The next theorem
+summarises these.
+Theorem B. Let G = F/⟨⟨w⟩⟩ be a one-relator group with negative immersions.
+
+ (i) Every finitely generated, one-ended subgroup H of G is co-Hopfian, i.e. H
+     is not isomorphic to a proper subgroup of itself. In particular, if G itself
+     is one-ended then it is co-Hopfian.
+ (ii) For any integer r, there are only finitely many conjugacy classes of finitely
+      generated, one-ended subgroups H of G such that the abelianisation of H
+      has rational rank at most r.
+(iii) Every finitely generated non-cyclic subgroup H of G is large in the sense
+      of Pride, i.e. there is a subgroup H0 of finite index in H that surjects a
+      non-abelian free group.
+    In an earlier paper, the authors conjectured that every one-relator group
+G with negative immersions is hyperbolic [LW22, Conjecture 1.9]. Theorem B
+proves various consequences of this conjecture. Specifically, item (i) is consistent
+with Sela’s theorem that one-ended hyperbolic groups are co-Hopfian [Sel97,
+Theorem 4.4], while item (ii) is a stronger version of a subgroup rigidity theorem
+of Gromov [Gro87, 5.3.C’], Rips–Sela [RS94, Theorem 7.1] and Delzant [Del95].
+Note, however, that items (ii) and (iii) are not implied simply by the fact that
+G is hyperbolic.
+    Recently, Linton has proved the authors’ conjecture [Lin22, Theorem 8.2],
+making use of Theorem B in his proof. Linton’s theorem is especially remark-
+able in light of the recent discovery by Italiano–Martelli–Migliorini of higher-
+dimensional non-hyperbolic groups of finite type that do not contain Baumslag–
+Solitar subgroups [IMM23, Corollary 3].
+    The main new technical ingredient in the proof of Theorem A is a uniform
+version of negative immersions, which provides a negative upper bound for a
+normalised version of the Euler characteristic. Roughly, a 2-complex X has
+uniform negative immersions if there is ϵ > 0 such that for any finite, connected
+2-complex Y immersing into X, either
+
+ (i)
+                                    χ(Y )
+                                                 ≤ −ϵ ,
+                                #{2−cells of Y }
+       or
+ (ii) Y can be simplified by a homotopy. (In the language developed below, Y
+      is reducible.)
+The reader is referred to Definition 3.24 for a precise definition.
+Remark 1.4. In Wise’s work on the coherence of one-relator groups with tor-
+sion [Wis20] (and also implicitly in the authors’ [LW20]), a key role is played
+
+
+                                         3
+by a property that Wise also calls ‘negative immersions’, but that is closer in
+spirit to (indeed, stronger than) the notion of uniform negative immersions used
+here. See Section 3.4 for a comparison between the notion of (uniform) negative
+immersions used in this paper and Wise’s notion.
+    The main new technical ingredient towards the proof of Theorem A is the fol-
+lowing result, which establishes uniform negative immersions for the 2-complexes
+of interest to us.
+Theorem C. Let X be the presentation complex of a one-relator group. If X
+has negative immersions then it has uniform negative immersions.
+    The deduction of Theorem A from Theorem C is similar to [LW20] and
+[Wis20], with an additional lemma (Lemma 3.10) to account for the subtle
+nature of item (ii) in the definition.
+    In the terminology of [Wil22], Theorem C asserts that one-relator presenta-
+tion complexes with negative immersions have negative irreducible curvature.
+    Theorem C follows from a rationality theorem, Theorem 4.12, similar to
+those that appear in Calegari’s proof of the rationality of stable commutator
+length in free groups [Cal09b] and in the second author’s work on surface sub-
+groups of graphs of free groups [Wil18].
+    The first idea is to expand the category of maps considered from immersions
+Y ↬ X to the more general class of face-essential maps f : Y → X. This class
+of maps allows branching in the centre of the 2-cells, and thus each 2-cell C of
+Y comes with a well-defined degree degC (f ). The degree of the map f is then
+the sum of the degrees of the 2-cells of Y , and we adjust the relevant quantities
+to take it into account. The role of Euler characteristic is taken by the total
+curvature
+                             τ (Y ) := deg(f ) + χ(Y (1) )
+where χ(Y (1) ) is the Euler characteristic of the 1-skeleton of Y , and the role
+of the number of 2-cells is taken by the degree deg(f ). Note that, when f is
+an immersion, these reduce to the usual quantities: τ (Y ) = χ(Y ), while deg(f )
+is the number of 2-cells of Y . With these adjustments, the supremum of the
+quantity
+                                      τ (Y )
+                                     deg(f )
+over all face-essential maps f : Y → X with Y irreducible can be computed
+as a solution to a rational linear programming problem; this is the content of
+Theorem 4.12.
+    In particular, this supremum is in fact a maximum. The results of [LW22]
+then imply that this maximum is strictly negative, so provides the uniform
+bound −ϵ needed to prove Theorem C.
+    This proof provides no information about the value of ϵ, but we make the
+following conjecture. A face-essential map of 2-complexes f : Y → X is called
+essential if, for each component of Y , the induced map on 1-skeleta induces an
+injective homomorphism on fundamental groups.
+
+
+                                        4
+Conjecture 1.5. Let G = F/⟨⟨w⟩⟩ be a one-relator group and let X be the
+associated presentation complex. The supremum of the quantity
+                                         τ (Y )
+                                        deg(f )
+across all essential maps f from irreducible 2-complexes Y to X is equal to
+2 − π(w).
+    In an earlier version of this paper, we stated a stronger version of Conjecture
+1.5 for the supremum across all face-essential maps. The next example shows
+that this stronger conjecture is false.
+Example 1.6. Let X be the presentation complex of
+                          ⟨a, b, c, d | a4 b2 c2 d2 a3 b2 c2 d2 ⟩
+and let Y be the presentation complex of
+                                ⟨x, y, z | x2 yzyxz⟩ .
+Write w for the relator of X and u for the relator of Y . The homomorphism of
+free groups defined by
+                            x, y 7→ a , z 7→ ab2 c2 d2
+sends u to w and so, after subdividing the 1-skeleton of Y appropriately, defines
+a combinatorial map of 2-complexes f : Y → X. Since this morphism sends the
+single 2-cell of Y homeomorphically to the single 2-cell of X, f is face essential
+(see Definition 2.18) and deg(f ) = 1. Furthermore, the Whitehead graph of Y
+consists of two squares glued along an edge, so Y is (visibly) irreducible (see
+Definition 3.1).
+    However,
+                         τ (Y )   deg(f ) + χ(Y(1) )
+                                =                    = −1
+                        deg(f )        deg(f )
+while a calculation using Puder’s algorithm shows that π(w) = 4 [Cas23]. Thus,
+f provides an example of a face-essential map from an irreducible 2-complex Y
+such that
+                               τ (Y )
+                                      > 2 − π(w) .
+                              deg(f )
+In particular, the ‘essential’ hypothesis in Conjecture 1.5 cannot be relaxed to
+‘face-essential’.
+   Conjecture 1.5 has precursors in the literature. The following conjecture of
+Heuer posits a surprising relationship between stable commutator length and
+Puder’s primitivity rank [Heu19, Conjecture 6.3.2]. (The same conjecture was
+made independently by Hanany and Puder [HP20, Conjecture 1.14].)
+Conjecture 1.7 (Heuer’s conjecture). If w is a non-trivial element of the com-
+mutator subgroup of a free group F then
+                               2 scl(w) ≥ π(w) − 1 .
+
+
+                                            5
+   Conjecture 1.5 implies Heuer’s conjecture, and indeed Theorem 1.2, together
+with Calegari’s rationality theorem for stable commutator length [Cal09b], un-
+conditionally implies a consequence of Heuer’s conjecture.
+Corollary D. If w is an element of the commutator subgroup of a free group
+F and π(w) > 2 then
+                              2 scl(w) > 1 .
+    For context, Duncan–Howie proved that scl(w) ≥ 1/2 for any non-trivial
+element of [F, F ] [DH91]. The statement of Corollary D was noted by Heuer
+and Löh [HL22, Question 1.3(4)], but we will give a complete proof in §3.5 below.
+The proof of Corollary D and the deduction of Corollary 1.7 from Conjecture 1.5
+both use Proposition 3.28, which summarises an argument of Calegari [Cal08,
+Lemma 2.7].
+    The paper is structured as follows. Section 2 is devoted to setting up the
+framework in which we describe 2-complexes and maps between them. It is
+convenient to work with pre-complexes, which describe pieces that can be glued
+together to form complexes. Section 3 describes the notion of irreducible com-
+plexes that plays a crucial role in our definitions, and enables us to define (uni-
+form) negative immersions. In Section 4, we set up the linear system needed to
+prove the rationality theorem, from which Theorem C follows. The brief Sec-
+tion 5 explains why one-relator groups with torsion also have uniform negative
+immersions. Finally, theorems about the the subgroup structure of the funda-
+mental groups of 2-complexes with uniform negative immersions are proved in
+Section 6, and Theorems A and B follow immediately.
+
+Acknowledgements
+The authors would like to thank Chris Cashen for computing the primitivity
+rank of Example 1.6 and the anonymous referee for numerous suggested improve-
+ments to the exposition. Louder also thanks Mladen Bestvina for explaining the
+tower, Wise’s ideas, and the Scott lemma to him back in Winter 2004.
+
+
+2     Preliminaries
+In this section, we give some foundational definitions in order to fix notation.
+
+2.1    Graphs and pre-graphs
+Graphs are our fundamental objects of study. A subgraph is always a closed
+subspace in any of the standard combinatorial frameworks, but it is also conve-
+nient to discuss open sub-objects of graphs. We therefore work with the slightly
+more general notion of pre-graphs.
+Definition 2.1 (Pre-graph). A pre-graph is a tuple
+
+                       G = (VG , EG , ιG , τG ) = (V, E, ι, τ )
+
+
+                                          6
+where:
+ (i) V and E are sets (the vertices and edges of G, respectively);
+       ι
+ (ii) EG = E ι and EG
+                    τ
+                      = E τ are subsets of E; and
+(iii) ι : E ι → V and τ : E τ → V are maps.
+
+The subscripts will be suppressed only when there is no danger of confusion. A
+morphism f from a pre-graph G to a pre-graph H consists of maps f : VG → VH
+                                   ι      ι           τ      τ
+and f : EG → EH such that f (EG      ) ⊆ EH and f (EG   ) ⊆ EH , and such that
+ιH ◦ f = f ◦ ιG and τH ◦ f = f ◦ τG .
+
+   The boundary of a pre-graph G is defined to be
+
+                                ∂G = E \ E ι ∩ E τ .
+
+Definition 2.2 (Graph). An (oriented) graph is a pre-graph with empty bound-
+ary.
+
+    The reader is referred to the classic paper of Stallings [Sta83] for the standard
+theory of the topology of graphs. Stallings phrases his arguments in terms of
+Serre graphs, which differ slightly from the model of graphs we adopt here, but
+his arguments are easily adapted to our context and we leave the details to the
+reader. Stallings does not use pre-graphs, but again the theory is easy to adapt.
+
+Definition 2.3 (Immersion). A morphism f : G → H of pre-graphs is an im-
+mersion if, for all edges e and e′ of G, if α(e) = α(e′ ) for some α ∈ {ιG , τG }
+and f (e) = f (e′ ), then e = e′ . An immersion f : G → H of pre-graphs is closed
+if f (∂G) ⊆ ∂H.
+  The standard fiber product construction for graphs (see [Sta83, 1.3]) also
+makes sense for pre-graphs.
+Definition 2.4. Consider a pair of morphisms of pre-graphs
+
+                                    fi : Gi → H
+
+where i = 1, 2. The fiber product G1 ×H G2 has vertex (respectively edge) set
+defined to be the subset of VG1 × VG2 (respectively, EG1 × EG2 ) on which f1
+and f2 agree. The attaching maps are then defined in the natural way wherever
+they make sense.
+   This definition coincides with the standard definition whenever G1 , G2 and
+H are graphs. It enjoys various well-known properties, which are left as easy
+exercises: it is a pullback in the category of pre-graphs, the pullback of an
+immersion is an immersion, etc.
+
+
+
+
+                                         7
+2.2     Complexes and pre-complexes
+Our graphs will often be the 1-skeleta of 2-dimensional complexes, which can
+be formalised as immersions from disjoint unions of circles to graphs, where the
+circles correspond to the boundaries of the 2-cells (which we will always call
+faces). As in the case of graphs, we will sometimes want to discuss open sub-
+objects, and we therefore introduce pre-complexes. In this case, slightly more
+general pre-graphs can arise as the boundaries of faces.
+Definition 2.5. A connected finite pre-graph is a pre-cycle if every vertex has
+exactly two incident edges. A pre-cycle is a cycle if it has empty boundary, and
+is an open arc otherwise.
+
+   We can now define a pre-complex using immersions of pre-cycles.
+Definition 2.6. A (2-dimensional) pre-complex X is a tuple
+
+                                  (GX , SX , wX )
+
+where
+                             GX = (VX , EX , ιX , τX )
+is a pre-graph, SX is a union of pre-cycles, and wX : SX ↬ GX is a closed
+immersion. The pre-graph GX is the 1-skeleton of X, SX is the collection of
+(pre-)faces of X and wX is the attaching map. For brevity, we will suppress the
+subscript when there is no danger of confusion.
+    A pre-complex X is a (2-dimensional) complex if the 1-skeleton GX is a
+graph. Note that, in this case, every component of SX is a cycle.
+
+
+
+
+Figure 1: A pre-complex (G, S, w): G is a theta graph with two half-edges
+sticking off, and S is the union of two open arcs and one cycle. The map w is
+a closed immersion, since it maps ∂S to ∂G.
+
+   Graphs and complexes have natural topological realisations, which we denote
+here with bold letters: the realisation of a graph G is a topological space denoted
+by G and the realisation of a complex X is a topological space denoted by X. In
+both cases, a morphism f functorially induces a continuous map of realisations
+f.
+
+
+                                        8
+2.3    Asterisks and regular neighbourhoods
+It is often fruitful to study graphs and 2-complexes via the local structure of
+vertices. Pre-complexes provide a convenient framework for this.
+Definition 2.7. An asterisk is a pre-graph with one vertex, such that E =
+E ι ⊔ E τ . If the 1-skeleton of a pre-complex X is an asterisk then X is called an
+asterisk pre-complex.
+   Every vertex of a pre-graph or pre-complex now has a regular neighbourhood,
+based on an asterisk.
+
+Definition 2.8. Let G be a pre-graph and v be a vertex of G. The regular
+neighbourhood of v is an asterisk NG (v), with vertex set {v} and edge set ι−1 (v)⊔
+τ −1 (v). (Note that the disjoint union here is important: an edge e with ι(e) =
+τ (e) = v defines two edges in NG (v).) The attaching maps are the unique maps
+ι−1 (v) → {v} and τ −1 (v) → {v}
+     Now let X = (G, S, w) be a pre-complex and v be a vertex of X. The regular
+neighbourhood N = NX (v) of v is a pre-complex with 1-skeleton GN = NG (v),
+i.e. the regular neighbourhood of v in the 1-skeleton G. The faces of NX (v)
+are pulled back from X, so SN = S ×G GN , and the attaching map wN is the
+pullback of w, i.e. the natural projection SN → GN .
+    The regular neighbourhood of a vertex v carries the same information as the
+link or Whitehead graph of the vertex. Indeed, any asterisk pre-complex defines
+a Whitehead graph.
+Definition 2.9. Let X = (G, S, w) be an asterisk pre-complex with unique
+vertex v. The corresponding Whitehead graph has vertex-set equal to the edges
+of X and edge-set equal to w−1 (v). Each u ∈ w−1 (v) is incident at exactly two
+edges ϵ+ (v) and ϵ− (v) of S, and the attaching maps of the Whitehead graph
+adjoin u to w(ϵ+ (v)) and w(ϵ− (v)).
+    For v a vertex of a complex X, the Whitehead graph of the regular neigh-
+bourhood N (v) coincides with the Whitehead graph Wh(v) of [Wil18]. This in
+turn generalises the graph used by Whitehead in his solution to the orbit prob-
+lem for automorphism groups of free groups [Whi36]. See also [Man10, CM11]
+for related recent uses of Whitehead graphs.
+    Edges of pre-complexes also have regular neighbourhoods.
+Definition 2.10. Let X = (G, S, w) be a pre-complex and e be an edge of X.
+The regular neighbourhood of e is a pre-complex N = NX (e) with 1-skeleton
+GN equal to the pre-graph that has no vertices and a single edge {e}. The faces
+SN of NX (e) consists of the pre-image w−1 (e), and the attaching map w is the
+restriction of w to SN .
+Remark 2.11. A morphism of pre-complexes or pre-graphs induces morphisms
+on regular neighbourhoods: f∗ : N (x) → N (f (x)), for x a vertex or edge of the
+domain.
+
+
+                                        9
+2.4    Various kinds of maps
+Using regular neighbourhoods, we can define the various kinds of maps that will
+play a role in the argument.
+Definition 2.12. A morphism of pre-complexes f : X → Y is a branched map
+if the induced map
+                        f∗ : NX (e) → NX (f (e))
+is injective for every edge e of X. If the induced map
+
+                           f∗ : NX (v) → NX (f (v))
+
+is injective for every vertex v of X then f is a branched immersion.
+    Note that the realisation of a branched map of complexes f : X → Y
+is locally injective everywhere except possibly at the centres of the faces and
+the vertices, and a branched immersion is locally injective everywhere except
+possibly at the centres of the faces.
+    The number of times that a morphism f winds a face around its image is an
+important quantity, called the degree.
+Definition 2.13. Let f : X → Y be a morphism of 2-complexes. Since f :
+SX → SY is a local immersion it is a covering map; in particular, for every
+path-component C ⊆ SX , the restriction f : C → SY has a well-defined degree
+degC (f ) ∈ N. The sum
+                                     X
+                       deg(f ) :=           degC (f )
+                                    C∈π0 (SX )
+
+is the degree of f . If f is a branched immersion and degC (f ) = 1 for every
+component C then f is called an immersion.
+Remark 2.14. In [LW20], immersions were defined in the more general context
+of orbi complexes, which allow cone points in the centres of 2-cells. In this
+paper, we only consider genuine 2-complexes, and the notion of immersions
+from [LW20] specialises exactly to the definition given in Definition 2.13.
+   Note that a morphism f is an immersion if and only if its realisation f is
+locally injective. Sometimes we need to be able to modify the 1-skeleton of
+a 2-complex without changing the faces. The next kind of map makes this
+possible.
+Definition 2.15. A morphism of finite pre-complexes f : Y → X is called
+a face-embedding if the map of pre-graphs f : SY → SX is injective, and a
+face-equivalence if it is a bijection.
+Remark 2.16. If f : X → Y is a face-embedding of complexes then the restriction
+of f to the interiors of the two-cells of X is a homeomorphism onto its image,
+whence the term. Furthermore, if f : X → Y and g : Y → Z are essential face
+embeddings, then the composition g ◦ f : X → Z is an essential face embedding.
+
+
+                                      10
+   Stallings famously popularised the folding operation for graphs [Sta83]. In
+[LW22, LW20], we made use of a folding operation on morphisms of 2-complexes
+that produces immersions. Here we will make use of a very natural folding
+operation on morphisms of 2-complexes that produces branched immersions.
+Definition 2.17. Let f : Y → X be a morphism of pre-complexes. As in
+[Sta83, §3.3], the induced map of 1-skeleta f : GY → GX factors as
+                                     f0          f1
+                                GY → GȲ → GX
+where f0 is a π1 -surjective finite composition of folds and f1 is an immersion.
+The map of faces f : SY → SX factors through the fiber product GȲ ×GX SX
+by the universal property; set SȲ equal to its image, and let wȲ : SȲ → GȲ be
+the natural projection. The data (GȲ , SȲ , wȲ ) define a pre-complex Ȳ and f
+factors as
+                                      f0  f1
+                                   Y → Ȳ → X
+where f0 is a π1 -surjection and f1 is a branched immersion. The pre-complex
+Ȳ is called the folded representative of Y , and the map f1 is called the folded
+representative of f . The folded representative is characterised by its universal
+property: if f factors through a branched immersion Z → X then the folded
+representative f1 also factors uniquely through Z → X.
+   This enables us to define the last kind of map that we will need.
+Definition 2.18. A morphism of finite pre-complexes f : Y → X is called
+face essential if the map to the folded representative f0 : Y → Ȳ is a face-
+equivalence. If X and Y are both complexes, this is equivalent to requiring
+that deg(f ) = deg(f1 ). If, in addition, the restriction of f to each connected
+component of Y induces a π1 -injective map on 1-skeleta, then f is said to be
+essential.
+   Intuitively, a face-essential map is a map such that folding doesn’t identify
+any faces.
+Remark 2.19. If Y → X is a face-essential morphism of finite complexes and Ȳ
+is the folded representative of Y then χ(Ȳ ) ≥ χ(Y ), with equality if and only
+GY → GȲ is a homotopy equivalence.
+    We will be interested in local ways of certifying that a morphism f is face-
+essential. This turns out to be easier to do in a two-step process, encapsulated
+by the notion of a face immersion.
+Definition 2.20. A face immersion for a map f : Y → X is a factorisation
+                                      f0        f1
+                                   Y →Z→X
+where f0 is a face-equivalence and f1 is a branched immersion.
+   For brevity of notation, we will often abuse notation and use the map f to
+denote a face immersion for f . A face immersion certifies that f is face-essential,
+because of the following lemma.
+
+
+                                           11
+Lemma 2.21. Let f : Y → X be a morphism of finite 2-complexes. There is a
+face immersion for f if and only if f is face-essential.
+Proof. If f is face essential then the factorisation through the folded represen-
+tative Ȳ defines a face immersion. Conversely, the existence of a face immersion
+implies that f factors as
+                                Y → Ȳ → Z → X
+by the universal property of the folded representative. Since SY → SȲ is sur-
+jective and the bijection SY → SZ factors through it, it is also bijective, so
+Y → Ȳ is a face equivalence and hence according to Definition 2.18 f is face
+essential.
+
+2.5     Gluing pre-complexes
+One advantage of working with pre-complexes is that they can be conveniently
+glued to create complexes.
+Definition 2.22. Let f : X → Y be a branched map of pre-complexes. Suppose
+that e1 , e2 are edges of GX such that f (e1 ) = f (e2 ). Since f is a branched map,
+it induces injective maps
+                                    −1
+                              f∗ : wX  (e1 ) → wY−1 (f (e1 ))
+
+and
+                                   −1
+                             f∗ : wX  (e2 ) → wY−1 (f (e2 )) .
+The edges e1 and e2 of X are said to be gluable (along f ) if
+            ι           τ
+  (i) e1 ∈
+         / EX and e2 ∈
+                     / EX , and
+           −1               −1
+ (ii) f∗ (wX  (e1 )) = f∗ (wX  (e2 )).
+                                                       −1             −1
+In this case, f induces a well-defined bijection wX        (e1 ) → wX     (e2 ).
+    We can now define a new pre-complex X ′ from X by identifying e1 and e2
+to a common edge e. Set ι(e) = ι(e2 ) (if it exists) and τ (e) = τ (e1 ) (if it exists).
+              −1                                                 −1
+Each edge wX     (e1 ) corresponds to a unique edge ϵ2 ∈ wX         (e2 ) under the above
+                                                                                    −1
+bijection, and in X ′ these two edges are identified to a common edge ϵ ∈ wX         ′ (e),
+
+with ι(ϵ) = ι(ϵ2 ) (if it exists) and τ (ϵ) = τ (ϵ1 ) (if it exists). Finally, note that
+f descends to a well-defined branched map f : X ′ → Y .
+    The resulting pre-complex X ′ is said to be constructed from X by gluing e1
+and e2 (along f ).
+    Gluing can be used to reassemble a complex from the regular neighbourhoods
+of its vertices.
+Remark 2.23. Let X be a finite complex, and let N be the disjoint union of
+the regular neighbourhoods of the vertices of X. Then N is naturally equipped
+with a branched immersion N → X, and X can be reconstructed from N by
+gluing the edges in pairs.
+
+
+                                            12
+3      Irreducible complexes
+The properties of non-positive immersions, negative immersions and uniform
+negative immersions have a common theme. Given an immersion of finite 2-
+complexes Y → X, if the Euler characteristic χ(Y ) is not negative enough,
+then Y can be simplified. The exact sense in which Y can be simplified is of
+crucial importance to the definition of uniform negative immersions. In the
+next subsection we define irreducible complexes, and with these definitions in
+hand we can give the correct definitions of non-positive, negative and uniformly
+negative immersions.
+
+3.1      Unfolding
+We are interested in ways that a finite 2-dimensional complex X might be
+homotopic to a point. The next definition summarises various ways in which X
+either is a point or can be simplified.
+Definition 3.1 (Visibly reducible and irreducible pre-complexes). A finite pre-
+complex X is visibly reducible if any one of the following four conditions hold:
+
+  (i) some component of X is a point;
+ (ii) the 1-skeleton G has a vertex of valence 1;
+(iii) X has a free face — that is, an edge e of the 1-skeleton G with #w−1 (e) =
+      1;
+
+(iv) a vertex v of X separates its regular neighbourhood NX (v), so NX (v)\{v}
+     is disconnected.
+A fifth kind of reduction also plays an important role:
+ (v) a vertex v of X has an incident edge e such that the union v ∪ e separates
+     the regular neighbourhood NX (v).
+If none of conditions (i)-(v) hold then X is called visibly irreducible. If condition
+(v) holds but none of conditions (i)-(iv) hold, then X is called unfold-able 1 . See
+Figure 2 for a concrete example of an unfold-able 2-complex.
+
+     If neither of conditions (i) or (ii) hold then the 1-skeleton of X is a core graph.
+Recall that a graph is called core if every vertex is in the image of an immersed
+cycle. Henceforth, we will always implicitly assume that the 1-skeleton of any
+2-complex we consider is a core graph.
+     The conditions of Definition 3.1 can also be phrased naturally in terms of
+Whitehead graphs: see for instance [Wil18, Lemma 2.10] for a similar list of
+conditions. Recall from [Sta83] that a morphism of graphs f : G → H is a fold
+if it identifies just a single pair of edges e1 , e2 , incident at a common vertex.
+    1 The hyphen is to resolve an ambiguity: we mean that such a pre-complex can be unfolded,
+
+not that it cannot be folded.
+
+
+                                             13
+Definition 3.2. A fold of graphs is called essential if it is injective on fundamen-
+tal groups. A morphism of graphs f : G → H is called an essential equivalence
+if it is a composition of essential folds, or equivalently, it is an isomorphism
+on fundamental groups. A face-essential morphism of complexes f : Y → X
+is called an essential equivalence if the map of 1-skeleta f : GY → GX is an
+essential equivalence of graphs. In this case, we also say that Y is an essential
+unfolding of X.
+    Note that, if f : Y → X is an essential equivalence of complexes, then the
+realisation f is a homotopy equivalence.
+    The next lemma, which is a restatement of [Wil18, Lemma 2.8] in the ter-
+minology of this paper, explains the relationship between Definition 3.1(v) and
+(un)folding.
+Lemma 3.3. If a finite complex X is unfold-able then there is a finite complex
+X ′ and an essential fold f : X ′ → X.
+    Unfolding preserves the number of edges of the faces while increasing the
+number of vertices and edges of the 1-skeleton, so it is not hard to see that
+Lemma 3.3 can only be applied finitely many times before producing a complex
+which is either visibly reducible or visibly irreducible. The next lemma is a
+restatement of [Wil18, Lemma 2.11] in the terminology of this paper.
+Lemma 3.4. For any finite complex X, there is a finite complex X ′ and an
+essential equivalence f : X ′ → X such that X ′ is either visibly reducible or
+visibly irreducible.
+    We say that X unfolds to X ′ . To summarise, unfold-able complexes may be
+either reducible or irreducible, but their status can be determined by unfolding.
+Definition 3.5 (Reducibility and irreducibility). If a finite 2-complex X unfolds
+to a visibly reducible complex X ′ (with the 1-skeleton still a core graph) then
+X is said to be reducible. Likewise, if X unfolds to a visibly irreducible complex
+X ′ then X is said to be irreducible.
+   Note that an irreducible 2-complex is not required to be connected.
+Remark 3.6. The terminology ‘irreducible’ has been used in several papers re-
+lated to this one, such as [LW17, LW22, LW20, Wil18]. Although the usage
+was always similar to its definition given here, it was not always identical, so
+the reader is advised to check the definition in the cited paper when a result is
+quoted.
+    It is not immediately obvious that a complex X cannot be both reducible and
+irreducible, since X may admit many different unfoldings. Indeed, a 2-complex
+may have several unfoldings, as the next example illustrates.
+Example 3.7. Let X be a 2-complex defined as follows. The 1-skeleton of X is a
+‘spectacles’ or ‘bar-bell’ graph, with two vertices u1 and u2 , and edges a1 , a2 , b,
+where each ai is a loop starting and ending at ui , and b joins u1 to u2 . The
+
+
+                                         14
+Figure 2: The central diagram illustrates the complex X from Example 3.7: the
+1-skeleton is coloured red, and the single face is attached along the black curve.
+It admits two different unfoldings, each a realisation of a torus.
+
+
+single face C of X is attached along the loop labelled by the commutator of
+a1 and ba2 b−1 . Now X admits two different unfoldings, each with realisation
+homeomorphic to the torus: one is obtained by dividing u1 into two vertices,
+the other is obtained by dividing u2 into two vertices.
+    Many further examples of this type can be constructed by taking any cellular
+decomposition X ′ of a surface and performing an essential fold to obtain a
+complex X; such an X can always be unfolded in two ways.
+    Nevertheless, a famous lemma of Whitehead [Whi36] implies that (ir)reducibility
+is equivalent to various group-theoretic properties of the conjugacy classes in the
+free group F = π1 (G) represented by the components of S. Combined with the
+material of this section, Whitehead’s lemma (see, for instance, [Wil18, Lemma
+2.10] for a suitable statement), gives the following proposition.
+
+Proposition 3.8. Let X be a finite connected complex. Let F be the fun-
+damental group of the 1-skeleton GX , and let {w1 , . . . , wn } be a finite set of
+representatives for the conjugacy classes of F determined by the components of
+S. The complex X is reducible if and only if one of the following three conditions
+hold:
+
+ (i) F is trivial and n = 0;
+ (ii) F is infinite cyclic, n ≤ 1 and, if n = 1, F = ⟨w1 ⟩;
+(iii) there is a non-trivial free splitting F = A ∗ B such that, for each i, wi is
+      conjugate into either A or B.
+
+    Since the conditions of Proposition 3.8 are group-theoretic and are not al-
+tered by homotopy-equivalences of the 1-skeleta (once we have ensured that
+they are core graphs), it follows that every finite complex is either reducible or
+irreducible.
+
+3.2    Irreducible cores
+Since this notion of irreducibility is slightly stronger than those used in [LW17,
+LW22], we will need some lemmas that enable us to improve unfold-able com-
+plexes to irreducible ones, under suitable hypotheses on the fundamental group.
+
+
+                                        15
+Definition 3.9. A group Γ is freely decomposable if Γ splits as a non-trivial
+free product Γ = A ∗ B. Otherwise Γ is said to be freely indecomposable.
+   A 2-complex X can be replaced by a visibly irreducible one, as long as the
+fundamental group is complicated enough.
+
+Lemma 3.10. Let X be a finite, connected 2-complex, and suppose that π1 (X)
+is neither freely decomposable nor free. Then there is a visibly irreducible 2-
+complex X ′ and an essential face-embedding X ′ → X, which is also an isomor-
+phism on fundamental groups.
+Proof. The proof proceeds by induction on the number of faces of X. By Lemma
+3.4, there is an essential equivalence X ′ → X such that X ′ is either visibly re-
+ducible or visibly irreducible. If X ′ is visibly irreducible the result is immediate;
+otherwise, X ′ is visibly reducible. Since π1 (X) ∼    = π1 (X ′ ) is non-trivial, X ′ is
+not a point, and we may assume that the 1-skeleton of X ′ is a core graph.
+    If X ′ has a free face, collapsing it exhibits a sub-complex X ′′ ⊆ X ′ which
+is a deformation retract of X ′ with fewer faces. Note also that the inclusion of
+X ′′ into X ′ is an essential face-embedding. Therefore, the result holds for X ′′ ,
+and hence for X ′ , by the inductive hypothesis.
+    Finally, suppose that X ′ has a locally separating vertex v. Since π1 (X ′ ) is
+freely indecomposable and not infinite cyclic, v must be separating, and cutting
+X ′ along v realises X ′ as a wedge
+
+                                   X ′ = X1 ∨ X2 .
+
+Note that the inclusion maps Xi ,→ X ′ are essential. Since every free splitting
+of π1 (X ′ ) is trivial, X2 is simply connected, without loss of generality. Since the
+1-skeleton of X ′ is a core graph, X2 is not a tree, and must therefore include at
+least one face. Hence X1 has fewer faces than X, and so the lemma holds for X1
+by the inductive hypothesis. Since X1 → X ′ is an isomorphism on fundamental
+groups, the result also holds for X, which completes the proof.
+   As in Example 3.7, the complex X ′ furnished by Lemma 3.10 may not be
+unique. However, we can make it unique by folding.
+Definition 3.11. Let X be finite, connected 2-complex with π1 (X) neither
+freely decomposable nor free. Let f : X ′ → X be provided by Lemma 3.10,
+and let Xb → X be the immersion provided by folding f . Then X
+                                                             b is called an
+irreducible core for X.
+Remark 3.12. Since X ′ → X is essential, X ′ is an essential unfolding of X. b
+                      ′
+In particular, since X is visibly irreducible, it follows that X is irreducible.
+                                                               b
+Also, since X ′ → X is a π1 -isomorphism and factors through the π1 -surjection
+X ′ → X,
+       b the immersion X b → X is a π1 -isomorphism.
+   We can also characterise irreducible cores group-theoretically. Let X =
+(GX , SX , wX ) be a compact, connected 2-complex. The fundamental group of
+the 1-skeleton GX is a finitely generated free group F . The images of the circles
+
+
+                                           16
+SX under the attaching map wX define a collection of conjugacy classes of cyclic
+subgroups {⟨w1 ⟩, . . . , ⟨wn ⟩} of F . Grushko’s theorem implies the existence of a
+maximal splitting
+                                    F = F1 ∗ . . . ∗ Fk ,
+such that each wi is conjugate into some Fj . (If we combine the Fj that do not
+contain any of the wi into a common free factor H, then this gives the relative
+Grushko decomposition of the pair (F, {⟨wi ⟩}).) If Γj is the quotient of Fj by
+the conjugates of the wi contained in Fj , then this gives a natural free-product
+decomposition
+                                Γ = Γ1 ∗ . . . ∗ Γk
+of Γ = π1 (X). If Γ is neither freely decomposable nor free, then exactly one of
+these factors – without loss of generality, Γ1 – must be non-trivial. Now, X
+                                                                           b can
+be defined as follows: the 1-skeleton is the Stallings core of the subgroup F1 of
+F = π1 (GX ), and the faces correspond to those wi that are conjugate into F1 .
+    We shall see that irreducible cores enjoy a universal property. Before we
+prove that, we need to notice that unfolds can be pulled back along branched
+immersions.
+Lemma 3.13. Let Y → X be a branched immersion, and suppose that X ′ → X
+is an essential fold. Then there is an essential unfolding Y ′ → Y such that the
+composition Y ′ → X factors through X ′ → X.
+Proof. Such an unfolding of X means that there is an edge e with endpoints u
+and v such that e and v together separate the regular neighbourhood NX (v),
+so it can be written as a union
+
+                              NX (v) = N1 ∪e∪v N2 .
+
+Let v1 , . . . , vn be the pre-images of v in Y and let ei be the pre-images of e
+incident at vi , if it exists. For each i, NY (vi ) embeds in NX (v), and so either
+NY (vi ) maps into one of N1 or N2 , or NY (vi ) is separated by ei ∪ vi . The
+unfolding Y ′ is now constructed by unfolding each of these separating ei in
+turn.
+
+   Using this, we can now prove the claimed universal property for irreducible
+cores.
+Lemma 3.14. Let Y → X be a branched immersion of finite, connected 2-
+complexes that is non-trivial on fundamental groups. Suppose that Y is irre-
+                                                                         b →X
+ducible and that π1 (X) is neither freely decomposable nor free, and let X
+be an irreducible core of X. Then the morphism Y → X factors through the
+map X b → X.
+
+Proof. Recall that the irreducible core X
+                                        b is constructed by folding an inductively
+                           ′
+constructed morphism X → X. The lemma is proved by arguing that there is
+an essential unfolding Y ′ → Y that lifts to X ′ .
+
+
+
+                                        17
+    Consider the inductive construction of X ′ from Lemma 3.10, which is a finite
+sequence of unfoldings and inclusions of sub-complexes. Lemma 3.13 handles
+the case of unfoldings. It remains to deal with the two cases of the argument
+that pass to subcomplexes of an unfolding X ′ of X.
+    In the first case, X ′ has a face C that is a free face, and X ′′ ⊆ X ′ is the
+subcomplex obtained by collapsing that free face. Since Y ′ → X ′ is a branched
+immersion, if any face D of Y ′ maps to C then D is also a free face, so Y ′ is
+visibly reducible, contradicting the hypothesis that Y is irreducible. Therefore
+C is not in the image of Y ′ , and so the map Y ′ → X ′ restricts to X ′′ .
+    In the second case, X ′ has a locally separating vertex and splits as a wedge
+X1 ∨X2 with X2 simply connected. Since Y ′ → X ′ is a branched immersion and
+no vertex of Y ′ is locally separating, it follows that the image of Y is contained
+entirely inside either X1 or X2 , and since Y ′ → X ′ is non-trivial on fundamental
+groups, it must be X1 , as required. This completes the proof that Y unfolds to
+some Y ′ such that Y ′ → X lifts to X ′ .
+    To complete the proof, we fold Y ′ to construct a 2-complex Yb . Since X b →X
+and Y → X are branched immersions, there is a well-defined fibre-product 2-
+complex Y ×X X,  b with 1-skeleton equal to the fibre product of graphs GY ×G
+                                                                                   X
+
+GXb and faces given by pulling back the faces of Y and X. b The universal property
+of the fibre product now provides a canonical map Y ′ → Y ×X X,      b and Yb is the
+result of folding this map. By construction, the natural map Y → X factors
+                                                                     b
+through X.b
+    Finally, since the identity map on Y is the folded representative of the map
+Y ′ → Y , the universal property of folded representatives provides a canonical
+morphism Y → Yb , and since Yb → X factors through X,      b the result follows.
+
+Remark 3.15. The universal property of Lemma 3.14 implies in the usual way
+that irreducible cores are unique up to canonical isomorphism. We may therefore
+speak of the irreducible core of a finite, connected 2-complex X, as long as π1 (X)
+is neither freely decomposable nor free.
+Remark 3.16. The irreducible core of a connected 2-complex X can also be
+characterised group-theoretically. Let F be the fundamental group of the 1-
+skeleton, and let ⟨w1 ⟩, . . . , ⟨wn ⟩ be the cyclic subgroups of F defined (up to
+conjugacy) by the faces of X. The pair (F, {⟨w1 ⟩, . . . , ⟨wm ⟩}) has a relative
+Grushko decomposition F = F1 ∗ . . . ∗ Fn . Each wi is conjugate into a unique
+Fj(i) and so, after conjugating the wi , the pair (F, {⟨wi ⟩}) decomposes as a free
+product of pairs (Fk , {⟨wi ⟩ | j(i) = k}). If π1 (X) is neither freely decomposable
+nor free, then there is a unique index k such that Fk /⟨⟨wi | j(i) = k⟩⟩ is neither
+freely decomposable nor free. The 1-skeleton of the irreducible core X      b is given
+by the core graph associated to the subgroup Fk of F , and the 2-cells are given
+by the set {wi | j(i) = k}.
+    The results of this section guarantee that X has an irreducible core if it is
+neither freely decomposable nor free. However, the converse is not true: X may
+be irreducible, and yet π1 (X) may be trivial, free, freely indecomposable etc.
+
+
+
+                                         18
+For instance, the complex associated to the presentation
+
+                              ⟨a, b | baba−2 , abab−2 ⟩
+
+of the trivial group is irreducible.
+
+3.3    Curvature conditions
+With the definitions of irreducibility in hand, we can now define non-positive
+and negative immersions. These definitions are inspired by Wise [Wis03, Wis20],
+and similar definitions have played a role in several recent papers about one-
+relator groups, such as [HW16, LW17, LW22]. They are also naturally related to
+the work of Martı́nez-Pedroza and Wise on sectional curvature for 2-complexes
+[Wis04, Wis08, MPW13].
+    It turns out that Wise’s original definitions are too strong to prove Theo-
+rem A. Here we will give slightly less restrictive definitions, using the notion of
+irreducible complexes from the last section. See Section 3.4 below for a com-
+parison between our definitions and Wise’s. As usual, χ(X) denotes the Euler
+characteristic of a complex X.
+Definition 3.17. A finite 2-complex X has non-positive immersions if, for
+every immersion of finite complexes Y ↬ X, either
+
+ (i) χ(Y ) ≤ 0, or
+ (ii) Y is reducible.
+    The non-positive immersions property for presentation complexes of one-
+relator groups was proved in [HW16] and [LW17].
+    The next definition is motivated by the observation that, if f : Y → X is an
+immersion, then deg(f ) is equal to the number of faces of Y , and can be thought
+of as a useful adaptation of Euler characteristic to the setting of branched maps.
+Definition 3.18. Let f : Y → X be a branched map of 2-complexes, and let
+G be the 1-skeleton of Y . The quantity
+
+                              τ (f ) := deg(f ) + χ(G)
+
+is called the total curvature of f . We will usually abuse notation and write τ (Y )
+for τ (f ), since τ (f ) = χ(Y ) when f is an immersion.
+    Indeed, the techniques of both papers [HW16, LW17] prove something slightly
+stronger than non-positive immersions: the map can be taken to be a branched
+immersion, and the complex Y is only required to not be visibly reducible. For
+instance, [LW17, Theorem 1.2] can be stated as follows, after accounting for
+small differences in terminology.
+Theorem 3.19. Let X be the presentation complex of a torsion-free one-relator
+group. If Y is a finite complex and Y → X is a branched immersion then either
+
+
+                                         19
+ (i) τ (Y ) ≤ 0, or
+ (ii) Y has a free face, and in particular is visibly reducible.
+   The definition of negative immersions is a natural adaptation of Definition
+3.17. Again, this definition assumes a slightly stronger notion of irreducibility
+than was used in [LW22].
+Definition 3.20. A finite 2-complex X has negative immersions if, for every
+immersion of finite complexes Y → X, either
+ (i) χ(Y ) < 0, or
+
+ (ii) Y is reducible.
+    The property of negative immersions for one-relator groups was characterised
+in [LW22], in which Theorem 1.2 was proved.
+Remark 3.21. In [LW22, Definition 1.1], a 2-complex X is defined to have neg-
+ative immersions if, for every immersion of finite complexes Y → X, either
+χ(Y ) < 0 or Y Nielsen reduces to a graph. To say that Y Nielsen reduces to
+a graph means that there is a homotopy equivalence of 1-skeleta Y(1) ≃ Z(1)
+so that the 2-complex Z obtained by attaching the 2-cells of Y to Z(1) in the
+natural way is the result of wedging discs to a graph.
+     Let us briefly explain why Definition 3.20 agrees with [LW22, Definition 1.1].
+To this end, let Y → X be an immersion of finite 2-complexes, and assume that
+χ(Y ) ≥ 0. If X satisfies [LW22, Definition 1.1] then Y Nielsen reduces to a
+graph, and then Y is reducible by Proposition 3.8.
+     To prove the converse, assume that X satisfies Definition 3.20, and proceed
+by induction on the number of 2-cells of Y . Since χ(Y ) ≥ 0, Y is reducible by
+assumption, and Proposition 3.8 applies. Items (i) and (ii) of the proposition
+correspond to the base cases of the induction where Y is a point, a circle or a disc.
+If item (iii) of Proposition 3.8 applies, then Y unfolds to a 2-complex Y ′ with a
+locally separating vertex v. Cutting along v yields a (possibly disconnected) new
+2-complex Y1′ , which folds to a 2-complex Y1 immersing into Y with χ(Y1 ) =
+χ(Y ) + 1. Repeating this process n times leads to a sequence of immersed
+2-complexes
+                            Yn → Yn−1 → . . . → Y1 → Y
+with χ(Yn ) = χ(Y ) + n ≥ n, each with the same number of 2-cells as Y . Note
+that, for each n, Y is Nielsen equivalent to the result of wedging Yn to a graph.
+    For large enough n, Yn must have a free face. Indeed, let m be the number of
+2-cells of Y and let l be their total edge length. Then, unless Yn has a free face,
+it has at most l/2 edges and hence, since every vertex has valence at least 2, it
+has at most l/2 vertices, so χ(Yn ) ≤ l/2 + m. Therefore, Yn must have a free
+face for n > l/2 + m, as claimed. Collapsing a free face in such a Yn produces
+a new 2-complex Y ′ with χ(Y ′ ) ≥ 0 and with fewer 2-cells than Y . Now Y ′
+Nielsen reduces to a graph by induction, and hence so does Y , as required.
+
+
+
+                                         20
+   Theorem 1.2 gives a useful statement, but the following more precise state-
+ment is an immediate consequence of [LW22, Lemma 6.11], after noticing that
+the proof of that result works equally well if immersions are replaced by branched
+immersions and χ is replaced by τ .
+Theorem 3.22. Let X be the presentation complex of a torsion-free one-relator
+group G = F/⟨⟨w⟩⟩ with negative immersions. If Y is a finite complex and
+f : Y → X is a branched immersion then either
+ (i) τ (Y ) < 0, or
+ (ii) Y is reducible.
+   Below, we will need the following improvement of this statement to the
+context of face-essential maps,
+Corollary 3.23. Let X be the presentation complex of a torsion-free one-relator
+group G = F/⟨⟨w⟩⟩ with negative immersions. If Y is a finite complex and
+f : Y → X is a face-essential map then either
+ (i) τ (Y ) < 0, or
+ (ii) Y is reducible.
+Proof. Consider the folded representative
+                                   Y → Ȳ → X
+so Ȳ → X is a branched immersion. Since Y → X is face essential,
+                                  τ (Y ) ≤ τ (Ȳ ) ,
+because deg f is equal to the degree of its folded representative, with equality if
+and only if Y → Ȳ is an essential equivalence. Suppose now that τ (Y ) = 0, so
+τ (Ȳ ) ≥ 0. There are two cases to consider: either τ (Ȳ ) = 0 or τ (Ȳ ) > 0.
+     In the first case, τ (Ȳ ) = 0 so Y → Ȳ is an essential equivalence. Theorem
+3.22 then implies that Ȳ is reducible. Since reducibility is equivalent to the
+group-theoretic criteria of Proposition 3.8, it follows that Y is also reducible,
+because Y → Ȳ is an essential equivalence.
+     In the second case, τ (Ȳ ) > 0 so, by Theorem 3.19, Ȳ has a free face, whence
+Y also has a free face, and so is visibly reducible.
+   Finally, we are ready to give a definition of uniform negative immersions.
+Definition 3.24. A finite 2-complex X has uniform negative immersions if
+there is ϵ > 0 so that, for every immersion of finite complexes Y ↬ X, either
+ (i)
+                                    χ(Y )
+                                                 ≤ −ϵ ,
+                                #{2−cells of Y }
+       or
+ (ii) Y is reducible.
+   Theorem C asserts that presentation complexes of one-relator groups with
+negative immersions also have uniform negative immersions.
+
+
+                                         21
+3.4      Wise’s notion of negative immersions
+We finish this section by contrasting Definition 3.24 with the following definition
+of Wise.
+Definition 3.25. A finite 2-complex X has negative immersions in the sense of
+Wise if there is ϵ > 0 so that, for every immersion of finite complexes Y ↬ X,
+either
+  (i)
+                                          χ(Y )
+                                                       ≤ −ϵ ,
+                                      #{2−cells of Y }
+        or
+ (ii) Y has a free face.
+   In [Wis20], Wise proves that every one-relator group with torsion G is coher-
+ent by showing that a presentation complex for (some finite-index subgroup of)
+G satisfies Definition 3.25, and then proving that this in turn implies coherence.
+The independent proof given in [LW20] can also be viewed this way.
+   Clearly, negative immersions in the sense of Wise implies our notions of
+negative immersions and uniform negative immersions. The following example
+shows that this implication is not reversible [Wis20].
+Example 3.26. Let X be the 2-complex associated to the presentation G =
+F/⟨⟨w⟩⟩, where F is the free group ⟨a, b, c⟩ and
+
+                                    w := ab2 c2 ab2 c2 b2 c2 .
+
+By setting a′ = ab2 c2 , this presentation can be seen to be Nielsen equivalent2
+to
+                                ⟨a′ , b, c | (a′ )2 b2 c2 ⟩ ,
+the standard presentation of the fundamental group of the surface of Euler
+characteristic −1. In particular, G is 2-free and so X has negative immersions
+by Theorem 1.2, and indeed uniform negative immersions by Theorem C.
+    We now define a compact 2-complex Y and an immersion to X. The 1-
+skeleton of Y is a rose with two petals labelled α and β, and immerses into X
+via the assignment
+                             f : α 7→ a , β 7→ b2 c2 ,
+while a single face is attached along the word u(α, β) = αβαβ 2 . Since f (u(α, β)) =
+w(a, b, c), the immersion of 1-skeleta extends to an immersion Y ↬ X. Clearly
+χ(Y ) = 0, but since both α and β appear at least twice in u, Y has no free face.
+Therefore, Y does not have negative immersions in the sense of Wise.
+   2 Recall that two presentations are Nielsen equivalent if one is taken to the other by applying
+
+a free-group automorphism to the generators.
+
+
+
+
+                                               22
+    The immersion Y ↬ X does not contradict our definitions of (uniform)
+negative immersions (Definitions 3.20 and 3.24), since u is a primitive element
+of the free group ⟨α, β⟩, and so the complex Y is reducible by Proposition 3.8.
+    Example 3.26 shows that one cannot prove Theorem A by showing that all
+such complexes satisfy Definition 3.25. It also illustrates another important
+difference between the definitions: since the standard presentation complex for
+the surface of Euler characteristic −1 does have negative immersions in the
+sense of Definition 3.25, that notion is not invariant under Nielsen equivalence,
+whereas Definitions 3.20 and 3.24 are, by Remark 3.16.
+
+3.5    Stable commutator length
+Commutator length and its stabilisation provide natural quantifications of the
+complexity of an element of a commutator subgroup. See Calegari’s monograph
+for a comprehensive treatment of stable commutator length [Cal09a].
+Definition 3.27. The commutator length of an element g of the commutator
+subgroup of a group G is
+                                            n
+                                            Y
+                cl(g) = min{n ∈ N | g =         [xi , yi ] , xi , yi ∈ G} ,
+                                            i=1
+
+the minimal n such that g is a product of n commutators. The stable commutator
+length is defined to be
+                                            cl(g n )
+                               scl(g) = inf          .
+                                        n∈N    n
+   The purpose of this section is to prove Corollary D, and also to explain why
+Conjecture 1.5 implies Conjecture 1.7. Both follow from the next proposition,
+which is due to Calegari [Cal08, Lemma 2.7]. Nevertheless, in order to clarify
+how the argument works in the setting of this paper, we give the proof here.
+   A 2-complex is called a surface if its realisation is homeomorphic to a closed,
+2-dimensional surface.
+Proposition 3.28 (Calegari). Let X be the presentation complex of a one-
+relator group F/⟨⟨w⟩⟩ and suppose that w ∈ [F, F ]. There is an essential branched
+map from an orientable surface f : Σb → X such that
+
+                              τ (Σ)
+                                 b
+                                     = 1 − 2 scl(w) .
+                             deg(f )
+Proof. As above, the data of X consists of a map w : S ↬ G, where G is the
+1-skeleton and w is the attaching map of the unique face. An admissible surface
+is a commutative diagram of continuous maps of topological spaces
+                                  ∂Σ              Σ
+
+                                        w
+                                   S              G
+
+                                       23
+such that Σ is a compact surface without spherical components, ∂Σ → Σ is
+the natural inclusion of the boundary and ∂Σ → S is an orientation-preserving
+covering map. Calegari showed that
+
+                                             χ(Σ)
+                             scl(w) ≤ −             ,                        (1)
+                                          2 deg(∂Σ)
+
+where deg(∂Σ) denotes the degree of the covering map ∂Σ → S, for any admis-
+sible surface [Cal09a, Proposition 2.10]. If equality is realised, so
+
+                                             χ(Σ)
+                             scl(w) = −             ,                        (2)
+                                          2 deg(∂Σ)
+
+then Σ is said to be extremal. Calegari’s rationality theorem [Cal09b] (see also
+the account in [Cal09a, Theorem 4.24]) asserts that an extremal surface Σ exists
+whenever w ∈ [F, F ].
+    A lemma of Culler [Cul81] (which is also implicit in the proof of Calegari’s
+theorem) implies that Σ has a spine Σ0 such that the map Σ → G factors as the
+composition of a deformation retraction Σ → Σ0 with a morphism of graphs
+Σ0 → G. Let Σ  b be the closed surface obtained by gluing discs to the boundary
+components of Σ. Then Σ   b naturally has the structure of a 2-complex Σ  b with
+1-skeleton Σ0 , and the map Σ → G extends to a morphism of 2-complexes
+f :Σb → X.
+    The extremality equation (2) can be rearranged to give the required relation-
+ship between total curvature and stable commutator length. Indeed, because
+the 1-skeleton of Σ
+                  b is a deformation retract of Σ,
+
+                 τ (f ) = deg(f ) + χ(Σ) = deg(f )(1 − 2 scl(w))
+
+which gives the required equation.
+    It now remains to show that f is essential. This follows from a lemma of
+Calegari [Cal08, Lemma 2.7], which in turn relies on the subgroup separability
+of free groups, proved by Marshall Hall Jr [Jr49]. For completeness, we outline
+the proof.
+    Suppose that f is not π1 -injective on some connected component of the 1-
+skeleton. Then there is a homotopically essential closed curve γ on Σ such that
+f ◦ γ is homotopically trivial in G. Since π1 (Σ) is subgroup separable there
+is, for some finite d, a d-sheeted covering space Σ1 → Σ such that, after a
+homotopy, γ lifts to a simple closed curve γ1 on Σ1 . Let Σ2 be the result of
+surgery on Σ1 along γ1 ; that is, Σ2 is constructed by cutting Σ1 along γ1 and
+gluing in two discs along the resulting boundary components. Since γ1 maps to
+a null-homotopic curve in G, f extends to a map Σ2 → G that makes Σ2 into
+
+
+
+
+                                       24
+an admissible surface. We now calculate:
+                              χ(Σ2 )          χ(Σ1 ) + 2
+                       −                 = −
+                           2 deg(∂Σ2 )       2 deg(∂Σ1 )
+                                                χ(Σ1 )
+                                         < −
+                                             2 deg(∂Σ1 )
+                                                dχ(Σ)
+                                         = −
+                                             2d deg(∂Σ)
+                                         = scl(w)
+
+contradicting (1). Hence, f is π1 -injective on each connected component.
+    Now suppose that f is not face-essential. Then the map from Σ  b to its folded
+representative is not injective on faces, so there are distinct points x, y ∈ ∂Σ
+with the same image in Σ0 , the folded representative of the spine. Fix any path
+α in Σ from x to y. The image of α in Σ0 is a loop and so, since the map
+Σ → Σ0 is surjective on fundamental groups, we may concatenate α with a
+loop in Σ so that its image in Σ0 , and hence in G, is null-homotopic. That is
+to say, we may choose α so that f ◦ α is a null-homotopic loop. Next, as above,
+modify α by a homotopy and pass to a d-sheeted cover Σ1 → Σ so that α lifts
+to an embedded arc α1 .
+    Let Σ2 be constructed by attaching an interval β1 to ∂Σ1 at the endpoints of
+α1 and thickening it to a 1-handle. The map f extends over this 1-handle and,
+after a homotopy to ensure that ∂Σ2 → S is a covering map, this makes Σ2 into
+an admissible surface. Note that χ(Σ2 ) = χ(Σ1 ) − 1 and deg(∂Σ2 ) = deg(∂Σ1 ).
+The concatenation of α1 and β1 defines an embedded loop γ2 in Σ2 such that
+f ◦ γ2 is null-homotopic so, as in the proof of π1 -injectivity, we may perform
+surgery on γ2 to obtain a new admissible surface Σ3 . As before, we calculate:
+
+                              χ(Σ3 )          χ(Σ2 ) + 2
+                       −                 = −
+                           2 deg(∂Σ3 )       2 deg(∂Σ2 )
+                                              χ(Σ1 ) + 1
+                                         = −
+                                             2 deg(∂Σ1 )
+                                                χ(Σ1 )
+                                         < −
+                                             2 deg(∂Σ1 )
+                                                dχ(Σ)
+                                         = −
+                                             2d deg(∂Σ)
+                                         = scl(w)
+
+which, again, contradicts (1). Hence, f is face-essential as claimed.
+   Corollary D now follows quickly from Corollary 3.23 and Proposition 3.28.
+Proof of Corollary D. By Theorem 1.2, the hypothesis that π(w) > 2 is equiv-
+alent to the statement that X has negative immersions. Consider the face-
+              b → X provided by Proposition 3.28. Since Σ
+essential map Σ                                         b is a closed surface
+
+
+                                         25
+each condition of Definition 3.1 can be easily checked, and we see that Σ  b is
+(visibly) irreducible. Combining Corollary 3.23 and Proposition 3.28 then gives
+
+                                               τ (Σ)
+                                                  b
+                            1 − 2 scl(w) =            <0
+                                              deg(f )
+as required.
+   The proposition also immediately implies that Heuer’s conjecture follows
+from our Conjecture 1.5.
+Corollary 3.29. Conjecture 1.5 implies Conjecture 1.7.
+Proof. Let w ∈ [F, F ] be non-trivial and let X be the presentation complex
+of the associated one-relator group F/⟨⟨w⟩⟩. Applying Conjecture 1.5 to the
+                  b → X provided by Proposition 3.28 gives
+essential map f : Σ
+
+                                          τ (Σ)
+                                             b
+                        1 − 2 scl(w) =           ≤ 2 − π(w)
+                                         deg(f )
+which rearranges to give 2 scl(w) ≥ π(w) − 1, as required.
+
+
+4     A linear system
+The principal extra ingredient in the proof of Theorem C is Theorem 4.12, a
+rationality theorem in the spirit of the main results of [Cal09b] and [Wil18].
+Fix a finite 2-complex X. The idea is to encode face immersions from visibly
+irreducible complexes to X as the integral points of a system of linear equations
+and inequations.
+
+4.1    Vertex and edge pieces
+Consider a face-essential morphism f : Y → X with Y visibly irreducible, and
+a face immersion
+                                   f0   f1
+                                 Y →Z→X
+for f . The variables of the linear system count the combinatorial types of the
+vertices of Z and their preimages in Y . These are encoded as maps between
+(disjoint unions of) asterisk pre-complexes.
+Definition 4.1. A vertex piece P over a 2-complex X is a face immersion
+
+                               Y (P ) → Z(P ) → X
+
+where Y (P ) is visibly irreducible and and Z(P ) is an asterisk pre-complex. (In
+particular, Y (P ) is a disjoint union of asterisk pre-complexes.) Vertex pieces are
+considered up to the natural notion of isomorphism: if there are isomorphisms
+of pre-complexes Y (P ) → Y (Q) and Z(P ) → Z(Q) commuting with the maps
+Y (•) → Z(•) → X then P and Q are isomorphic.
+
+
+                                         26
+                     Figure 3: An example of a vertex piece.
+
+
+   For a 2-complex X, the set P = P(X) of isomorphism types of vertex pieces
+over vertices of X indexes the variables of our linear system. It is of crucial
+importance that there are only finitely many variables.
+Lemma 4.2. If X is a finite complex then P is finite.
+Proof. Every regular neighbourhood N (v) is finite. Since Z(P ) → NX (v) is
+a branched immersion from an asterisk pre-complex it is injective, so there
+are only finitely many possible combinatorial types for Z(P ) and the map to
+NX (v). Since Y (P ) → Z(P ) is a face-equivalence, the cardinality of SY (P ) is also
+bounded. Finally, since Y (P ) is visibly irreducible, each edge and vertex of Y (P )
+has at least two pre-images in SY (P ) , so the cardinality of GZ(P ) is also bounded.
+So there are at most boundedly many different possible isomorphism types for
+Y (P ), and hence also only boundedly many possible maps Y (P ) → Z(P ).
+
+    The vertex pieces will define the variables of our linear system. Edge pieces
+will give the defining equations. An edge pre-complex is a pre-complex whose
+underlying pre-graph consists of a single edge and no vertices.
+Definition 4.3. An edge piece R over an edge e of a 2-complex X consists of
+a face immersion
+                           Y (R) → Z(R) → X
+where Z(R) is an edge pre-complex. Again, edge pieces are considered up to
+the natural notion of isomorphism.
+
+   Let E = E(X) denote the set of isomorphism types of edge pieces over edges
+of X.
+
+4.2    Weight vectors
+Fix a finite 2-complex X. Again, consider a face immersion
+                                       f0        f1
+                                    Y →Z→X
+
+
+                                            27
+for a face-essential morphism f : Y → X with Y visibly irreducible. Although
+this face immersion is our actual object of study, we will often abuse notation
+and just denote it by f , or even Y .
+Definition 4.4. Each vertex v of Z defines an induced vertex-piece P ≡ PY (v)
+over f1 (v) as follows:
+
+  (i) Z(P ) := NZ (v);
+               `
+ (ii) Y (P ) := f0 (u)=v NY (u).
+
+The morphisms Y (P ) → Z(P ) → X are the natural induced morphisms. Each
+edge e of Z defines an induced edge-piece RY (e) in a similar manner.
+   We translate face immersions into linear algebra by counting the number of
+times that each vertex-piece appears. This count naturally lives in the following
+vector space.
+
+Definition 4.5. The space of weight vectors R[P] is the real vector space of
+formal linear sums                X
+                              v=       vP P
+                                       P ∈P
+
+of vertex-pieces P ∈ P; the elements of this vector space are called weight
+vectors. We will also talk about the additive subgroups Q[P] and Z[P] consisting
+of rational and integral points respectively.
+   There is a map that associates to the face immersion
+                                     f0        f1
+                                   Y →Z→X
+
+from a visibly irreducible complex Y a weight vector:
+                                       X
+                              v(Y ) :=    PY (y) ,
+                                          y∈VZ
+
+recalling that VZ is the set of vertices of the 1-skeleton of Z. Clearly, v(Y ) has
+non-negative integral coordinates, and, in fact, the possible weight vectors are
+exactly the points with non-negative integral coordinates that satisfy a certain
+system of linear equations, called the gluing equations. These gluing equations
+make use of boundary maps, which associate to each vertex piece the induced
+edge-pieces of the incident vertices. Let R[E] be the real vector space of formal
+linear sums of edge pieces.
+Definition 4.6. Recall from Definition 4.4 that, for any vertex piece
+
+                               Y (P ) → Z(P ) → X
+
+and any edge e of Z(P ), there is an induced edge piece RY (P ) (e).
+
+
+
+                                          28
+   The boundary map ∂ ι : R[P] → R[E] is defined by extending
+                                    X
+                         ∂ ι(P ) :=      RY (P ) (e)
+                                           ι
+                                        e∈EZ(P )
+
+
+linearly. Similarly, the assignment
+                                          X
+                           ∂ τ(P ) :=              RY (P ) (e)
+                                           τ
+                                        e∈EZ(P )
+
+
+
+extends linearly to define the boundary map ∂ τ : R[P] → R[E]. We then set
+
+                                  ∂ := ∂ ι − ∂ τ .
+
+A vector v ∈ R[P] is said to satisfy the gluing equations if ∂(v) = 0.
+   The domain of the optimisation problem of interest to us is the cone of
+non-negative vectors that satisfy the gluing equations. To this end, set
+                              (                          )
+                                X
+                  R≥0 [P] :=        vP P vP ≥ 0 for all P .
+                                P ∈P
+
+We are interested in the cone
+
+                            C(R) := ker ∂ ∩ R≥0 [P] ,
+
+and also in the sets of integer points C(Z) := C(R) ∩ Z[P] and of rational points
+C(Q) := C(R) ∩ Q[P]. The key fact here is that the map to weight vectors
+surjects the integer points of C(R). It is also finite-to-one, although we will not
+make use of that here.
+Proposition 4.7. Let X be a finite 2-complex. If Y is a finite, visibly irreducible
+complex, Z is also a complex and
+
+                                  Y →Z→X
+
+is a face immersion then v(Y ) ∈ C(Z). Conversely, if v ∈ C(Z) then there is a
+face immersion from a finite visibly irreducible complex
+
+                                  Y →Z→X
+
+such that v = v(Y ).
+Proof. Consider an edge piece R ∈ E over X. The R-coefficient of ∂ ι(v(Y ))
+counts the number of vertices z of Z for which there is an edge e with ι(e) = z
+such the induced edge piece RY (e) is isomorphic to R. Since Z is a complex,
+such vertices z are in bijection with such edges e, and so this coordinate is equal
+to the number of edges e of Z such that RY (e) is isomorphic to R: notice that
+the latter quantity does not mention ι. Similarly, the R-coefficient of ∂ τ(v(Y ))
+
+
+                                          29
+also counts the number of such edges e, and so ∂ ι(v(Y )) = ∂ τ(v(Y )). Therefore,
+v(Y ) ∈ C(Z) as claimed.
+    To prove surjectivity, consider an integral weight vector v ∈ C(Z), and define
+the pre-complexes
+                                      a a  vP
+                               Z ′ :=          Z(P )
+                                       P ∈P iP =1
+
+and
+                                         vP
+                                       a a
+                              Y ′ :=                Y (P ) ,
+                                       P ∈P iP =1
+
+noting that these come naturally equipped with maps to define a face immersion
+
+                                  Y ′ → Z′ → X
+
+Furthermore, Y ′ is visibly irreducible by construction.
+    The gluing equations imply that for each edge piece R there is a bijection
+between the set of edges e ∈ EZι ′ such that RY ′ (e) = R and the set of e ∈ EZτ ′
+such that RY ′ (e) = R. Therefore, we may choose a bijection F : EZι ′ → EZτ ′ such
+that RY ′ (F (e)) = RY ′ (e). Inductively applying the gluing construction from
+Definition 2.22, Z ′ can be glued up to a complex Z equipped with a branched
+immersion Z → X and a branched map Y ′ → Z.
+    It remains to explain how to glue up Y ′ to create complex Y . For an edge
+e of Z, let P (ι(e)) denote the piece used to construct the vertex ι(e) of Z, and
+let P (τ (e)) the piece used to construct the vertex τ (e) of Z. The pre-complexes
+                                                                     −1
+Y (P (ι(ϵ))) and Y (P (τ (ϵ))) each naturally induce partitions of wZ   (e), and by
+construction, these two partitions are equal. Therefore, there is a bijection
+G : EYι ′ → EYτ ′ that respects the map Y ′ → Z. Again, inductively applying
+the gluing construction from Definition 2.22, Y ′ can be glued up to a com-
+plex Y equipped with face-equivalence Y → Z. By construction, Y is visibly
+irreducible.
+
+4.3    Degree and curvature
+The final ingredient is to notice that, given a face-essential map f : Y → X, the
+total curvature and the degree are both realised by linear functions on C(R).
+Definition 4.8. Let lX (C) denote the number of vertices in each component
+C of SX . Recall that a vertex-piece P ∈ P consists of a face immersion
+
+                              Y (P ) → Z(P ) → X .
+
+In particular, each vertex x of SY (P ) is sent to some component Cx of SX . The
+degree map deg : R[P] → R is now given by linearly extending the assignment
+                                           X             1
+                          deg(P ) :=                          .
+                                                     lX (Cx )
+                                        x∈VSY (P )
+
+
+
+                                           30
+    The point of this definition is to extend the definition of the degree of a
+face-essential map.
+Lemma 4.9. If
+                                    Y →Z→X
+is a face immersion for a face-essential map f : Y → X, then
+                              deg(v(Y )) = deg(f ) .
+Proof. For any component C of SY , lY (C) = degC (f )lX (f (C)). Therefore,
+                                   X
+                   deg(f ) =              degC (f )
+                                    [C]∈π0 (SY )
+                                       X             lY (C)
+                               =
+                                                   lX (f (C))
+                                    [C]∈π0 (SY )
+                                       X           X         1
+                               =
+                                                        lX (f (C))
+                                    [C]∈π0 (SY ) x∈VC
+                                     X     1
+                               =
+                                       lX (Cx )
+                                 x∈VSY
+                                 X X
+                               =              deg(P )
+                                    P ∈P PY (y)=P
+
+                               =    deg(v(Y ))
+as required.
+   A similar observation applies to the total curvature.
+Definition 4.10. For a vertex-piece P ∈ P, set
+                     τ (P ) := deg(P ) + #VY (P ) − #EY (P ) /2
+and extend this to a linear function τ : R[P] → R.
+   Again, this extends the total curvature to a linear function on C(R).
+Lemma 4.11. If
+                                    Y →Z→X
+is a face immersion for a face-essential map f : Y → X, then τ (v(Y )) = τ (Y ).
+Proof. By definition, τ (Y ) = deg(f ) + χ(GY ), so it suffices to prove that
+                              X
+                  χ(GY ) =        (#VY (P (v)) − #EY (P (v)) /2) .
+                             v∈VZ
+
+Since VY (P (v)) bijects with the set of vertices of Y that map to v ∈ Z,
+                               X
+                                   #VY (P (v)) = #VY .
+                             v∈VZ
+
+
+                                         31
+Likewise, EY (P (v)) bijects with the set of edges of Y incident at a vertex mapping
+to v, so                      X
+                                   #EY (P (v)) = 2#EY .
+                              v∈VZ
+
+Therefore,
+             X
+                    (#VY (P (v)) − #EY (P (v)) /2) = #VY − #EY = χ(GY )
+             v∈VZ
+
+as required.
+   The following rationality theorem now follows by standard optimisation tech-
+niques.
+Theorem 4.12. Let X be a finite 2-complex. There is a finite, visibly irreducible
+complex Ymax and a face-essential map fmax : Ymax → X such that
+                                  τ (Ymax )    τ (Y )
+                                            ≥
+                                 deg(fmax )   deg(f )
+for all face-essential maps f : Y → X with Y finite and visibly irreducible.
+Proof. Consider the rational polyhedron
+
+                              ∆ := C(R) ∩ {deg(v) = 1} .
+
+Every coordinate vector in R[P] has positive degree, and so
+
+                                R≥0 [P] ∩ {deg(v) = 1}
+
+is a simplex. Hence, ∆ is compact.
+    By the simplex algorithm, the linear map τ is maximised at some vertex
+vmax of ∆. Since ∆ is rationally defined, vmax ∈ C(Q), and so has some multiple
+umax ∈ C(Z). By Proposition 4.7, umax = v(Ymax ) for some face immersion
+
+                                 Ymax → Zmax → X ,
+
+with Ymax finite and visibly irreducible. In particular, by Lemma 2.21, the
+morphism fmax : Ymax → X is face-essential.
+   For any face-essential map f : Y → X, the factorisation through the folded
+representative defines a face immersion
+
+                                     Y → Ȳ → X
+
+by Lemma 2.21, so v(Y )/ deg(f ) ∈ ∆ and
+
+                             τ (Ymax )                τ (Y )
+                                       = τ (vmax ) ≥
+                            deg(fmax )               deg(f )
+as required.
+
+
+                                          32
+    Combined with Corollary 3.23, we can complete the proof of Theorem C.
+Proof of Theorem C. Let fmax : Ymax → X be the face-essential map provided
+by Theorem 4.12, and set
+                                    τ (Ymax )
+                            ϵ := −            .
+                                   deg(fmax )
+Since X has negative immersions and Ymax is visibly irreducible, Corollary 3.23
+applies to show that τ (Ymax ) < 0, whence ϵ > 0 as required.
+    Suppose now that Y0 is a finite, irreducible complex and that f0 : Y0 → X is
+an immersion; in particular, τ (Y0 ) = χ(Y0 ) and deg(f ) is the number of faces of
+Y0 . By Lemma 3.4, Y0 unfolds to a finite, visibly irreducible 2-complex Y → Y0 ,
+and the composition
+                                              f0
+                                f : Y → Y0 → X
+is face-essential. Therefore,
+
+                                           τ (Y )
+                               −ϵ ≥
+                                          deg(f )
+                                           τ (Y0 )
+                                     =
+                                          deg(f0 )
+                                                χ(Y0 )
+                                     =
+                                          #{2−cells of Y }
+
+as required.
+
+
+5     The case with torsion
+We shall see that Theorem C leads to strong constraints on the subgroup struc-
+ture of one-relator groups with negative immersions. As stated, it only applies
+to one-relator groups without torsion. Baumslag’s coherence conjecture was
+proved in the case with torsion independently by the authors [LW20] and Wise
+[Wis20]. The purpose of this section is to note that one-relator groups with
+torsion also fit into the framework of this paper.
+    The presentation complex of a one-relator group with torsion also has uni-
+form negative immersions, after passing to a finite-sheeted covering space3 .
+Theorem 5.1. Consider a one-relator group with torsion G = F/⟨⟨un ⟩⟩, where
+n > 1. There is a torsion-free subgroup G0 of finite index in G that is the
+fundamental group of a finite 2-complex X0 with uniform negative immersions.
+Proof. By [LW20, Theorem 2.2], there is a torsion-free subgroup G0 of G that
+is the fundamental group of a complex X0 . As in the proof of [LW20, Theorem
+2.2], X0 can be obtained from the presentation complex X of G by passing to
+   3 Alternatively, one might work with a presentation orbi-complex, which itself has uniform
+
+negative immersions for maps from complexes.
+
+
+
+
+                                             33
+a finite-sheeted cover and collapsing duplicate faces. By [LW20, Corollary 3.1],
+any immersion Y ↬ X0 satisfies
+
+                      χ(Y ) + (n − 1)#{2−cells of Y } ≤ 0
+
+as long as Y is finite and irreducible. Rearranging, we obtain that
+                             χ(Y )
+                                          ≤ 1 − n < 0,
+                         #{2−cells of Y }
+so X0 has uniform negative immersions as claimed.
+
+
+6     Uniform negative immersions and subgroups
+In this section we complete the proof of Theorems A and B, by proving these
+properties for the fundamental group of any complex X with uniform negative
+immersions. Our strategy is similar to the proof of coherence for one-relator
+groups with torsion [LW20, Wis20]. There is, however, a small extra technicality,
+because we need to deal with irreducible 2-complexes, rather than non-visibly-
+reducible 2-complexes; this extra technicality is resolved by Lemmas 3.10 and
+3.14.
+    Let G be a one-relator group with negative immersions, let X be its standard
+presentation complex, and let H be a finitely generated subgroup of G. The
+next lemma is the key consequence of uniform negative immersions that we
+will make use of. Two immersions of 2-complexes Y1 → X and Y2 → X are
+isomorphic if there is an isomorphism of 2-complexes Y1 → Y2 such that the
+obvious diagram commutes.
+Lemma 6.1. Let X be a finite 2-complex with uniform negative immersions.
+For any integer r, there are only finitely many isomorphism classes of immer-
+sions Y → X such that Y is finite, connected, irreducible, and b1 (Y ) ≤ r (where
+b1 (Y ) denotes the first Betti number of Y ).
+Proof. Consider such an immersion Y ↬ X. Rearranging the defining inequality
+of uniform negative immersions, we have that
+                                               −χ(Y )
+                          #{2−cells of Y } ≤          .
+                                                 ϵ
+But
+                           χ(Y ) ≥ 1 − b1 (Y ) ≥ 1 − r
+since Y is a 2-complex, so #{2−cells of Y } ≤ (r − 1)/ϵ. Thus, there is a uniform
+bound on the number of faces of Y . Because Y is irreducible, every vertex or
+edge of Y is incident at a face. Since Y ↬ X is an immersion, there is a bound
+on the number of faces at which each vertex and edge of Y are incident, so the
+bound on the number of faces implies bounds on the numbers of vertices and
+edges. Therefore, there are only finitely many possible combinatorial types for
+Y , and also for immersions Y ↬ X.
+
+
+                                       34
+    Note that Lemma 6.1 fails for 2-complexes with non-positive immersions. For
+instance, the torus has infinitely many non-isomorphic finite-sheeted covering
+spaces, all with fundamental groups generated by 2 elements.
+    Now consider a finitely generated subgroup H of G = π1 (X). By Grushko’s
+theorem, we may assume that H is freely indecomposable. The next lemma is
+very similar to [LW20, Lemma 4.2]; however, the reader should beware that the
+definition of irreducible complex used here is more restrictive than the definition
+in [LW20].
+Lemma 6.2. Let X be a 2-complex, G = π1 (X), and H ≤ G a finitely gener-
+ated, non-cyclic, freely indecomposable subgroup. After replacing H by a con-
+jugate, there is a sequence of π1 -surjective immersions of compact, connected
+2-complexes
+                       Y0 ↬ Y1 ↬ Y2 ↬ · · · ↬ Yi ↬ · · · X
+with the following properties:
+ (i) each Yi is irreducible;
+ (ii) H = −
+          lim
+           → π1 Yi .
+    Because of the stronger notion of irreducibility used in this paper, the proof
+of Lemma 6.2 requires one extra ingredient: the irreducible core of Lemma 3.10.
+With this in hand, the proof of Lemma 6.2 is very similar to the proof of [LW20,
+Lemma 4.3].
+Proof of Lemma 6.2. [LW20, Lemma 4.3] (see also Remark 2.14) provides a
+sequence of π1 -surjective immersions of 2–complexes
+                                              fi+1
+                                 Zi → Zi+1 → X
+
+such that H = lim−→ π1 Zi . It remains to improve this to make the terms irre-
+ducible.
+   Since H is non-cyclic, no Zi has cyclic fundamental group. By Scott’s lemma
+(proved with extra hypotheses as [Sco73, Lemma 2.2], proved as [Swa04, Theo-
+rem 2.1]), since H is freely indecomposable, after throwing away finitely many
+terms from the sequence we may assume that each π1 (Zi ) is freely indecompos-
+able.
+   Applying Lemmas 3.10 and 3.14 inductively constructs a second sequence
+        Y0         Y1          Y2       ···          Yi      ···
+
+
+        Z0         Z1          Z2       ···          Zi      ···        X
+
+where each Yi is the irreducible core Zbi of Zi . Now choose a basepoint in Y0 , if
+necessary moving the basepoints of the Zi — this may involve conjugating H.
+The result now follows.
+
+
+
+                                        35
+    The next theorem, which is an easy consequence of Lemmas 6.1 and 6.2,
+will imply Theorem A. Its proof is an elaboration of the arguments of [LW20]
+or [Wis20].
+Theorem 6.3. Let X be a finite 2-complex with uniform negative immersions,
+and let G = π1 (X). For any finitely generated, non-cyclic, freely indecomposable
+subgroup H of G, there is an immersion from a finite, irreducible 2-complex Y
+to X such that π1 (Y ) ∼
+                       = H and Y ↬ X induces the inclusion of H into G up
+to conjugacy.
+Proof. After possibly conjugating H, Lemma 6.2 provides a sequence of π1 -
+surjective immersions of compact, connected, irreducible complexes
+
+                      Y0 ↬ Y1 ↬ Y2 ↬ · · · ↬ Yi ↬ · · · X
+
+such that H = −  → π1 Yi . Since the maps Yi → Yi+1 are surjective on fundamen-
+                lim
+tal groups, there is a uniform bound
+
+                                b1 (Y0 ) ≥ b1 (Yi )
+
+on the first Betti numbers. Therefore, by Lemma 6.1, infinitely many of the
+immersions Yi ↬ X are isomorphic, so passing to a subsequence we may assume
+that they are all equal to a fixed immersion Y ↬ X. By [Wis04, Lemma
+6.3], each immersion Yi ↬ Yi+1 is an isomorphism. In particular, since H =
+−→ π1 (Yi ), every Y → X represents H, as required.
+lim
+
+   Coherence is an immediate consequence.
+Corollary 6.4. If X is a finite 2-complex with uniformly negative immersions
+then π1 (X) is coherent.
+Proof. Let H be a finitely generated subgroup of G. By Grushko’s theorem, H
+can be written as a free product
+
+                              H = F ∗ H1 . . . ∗ Hn
+
+where F is free and each Hi is freely indecomposable. Each factor Hi is finitely
+presented by Theorem 6.3, so the result follows.
+
+   Theorem A now follows quickly.
+Proof of Theorem A. The theorem follows by combining Theorems 1.2 and C
+with Corollary 6.4.
+   Likewise, the conclusions of Theorem B also hold for all complexes with
+uniform negative immersions.
+Theorem 6.5. Let X be a finite 2-complex with uniform negative immersions,
+and let G = π1 (X).
+
+
+
+                                        36
+ (i) Every finitely generated one-ended subgroup H of G is co-Hopfian, i.e. H
+     is not isomorphic to a proper subgroup of itself. In particular, G itself is
+     co-Hopfian.
+ (ii) For any integer r, there are only finitely many conjugacy classes of finitely
+      generated one-ended subgroups H of G such that the abelianisation of H
+      has rational rank at most r.
+(iii) Every finitely generated non-cyclic subgroup H of G is large in the sense
+      of Pride, i.e. there is a subgroup H0 of finite index in H that surjects a
+      non-abelian free group.
+Proof. Let H be a non-cyclic, finitely generated subgroup of G.
+    To prove item (i), assume that H is freely indecomposable, so is realised
+up to conjugacy by an immersion Y = Y0 ↬ X, by Theorem 6.3. Given any
+injective homomorphism H → H, applying Theorem 6.3 inductively gives rise
+to a sequence of immersions of finite, connected, irreducible complexes
+                        . . . ↬ Yi ↬ . . . ↬ Y1 ↬ Y0 ↬ X ,
+where π1 (Yi ) ∼
+               = H for all i. By Lemma 6.1, there are finitely many isomorphism
+classes of complexes Yi so, passing to a subsequence, we may assume that Yi = Y
+for some fixed Y and all n. Since Y is compact, every immersion Y ↬ Y is
+an isomorphism [Wis04, Lemma 6.3], so the homomorphism H → H is also
+surjective, as required.
+    Item (ii) is an immediate consequence of Theorem 6.3 and Lemma 6.1.
+    Finally, to prove item (iii), start by assuming that H is freely indecompos-
+able. By Theorem 6.3, up to conjugacy, the inclusion of H into G is induced by
+an immersion Y ↬ X, where Y is a finite, connected, irreducible 2-complex. By
+negative immersions, χ(Y ) ≤ −1. A choice of maximal tree in the 1-skeleton
+of Y leads to a presentation for H with m generators and n relators, where
+χ(Y ) = 1 − m + n, so the deficiency of this presentation is
+                             m − n = 1 − χ(Y ) ≥ 2 .
+Therefore, by the Baumslag–Pride theorem [BP78], H is large, as required. For
+general H, consider the Grushko decomposition
+                             H = F ∗ H1 ∗ . . . ∗ Hk
+where F is free and each Hi is non-cyclic and freely indecomposable. Since the
+factors Hi are all large, it follows that H is large unless H is cyclic.
+   Theorem B follows immediately from Theorems C and 6.5.
+   We close by noting that Lemma 6.1 above can be made somewhat effective.
+Proposition 6.6. Let X be the presentation complex of a one-relator group
+G = F/⟨⟨w⟩⟩ with negative immersions. There is an algorithm that takes w as
+input and outputs a constant C = C(w) such that every one-ended subgroup
+generated H of G with abelianisation of rational rank at most r is represented
+by an immersion Y ↬ X with at most C(r − 1) 2-cells.
+
+
+                                        37
+Proof. Theorem C asserts that X has uniform negative immersions, meaning
+that there is an ϵ > 0 such that
+                                 χ(Y )
+                                              ≤ −ϵ ,
+                             #{2−cells of Y }
+
+for every irreducible Y immersing into X. The constant ϵ is an extremal value
+of the linear-programming problem used in the proof of Theorem 4.12. This
+linear-programming problem is explicitly defined in terms of X, so ϵ can be
+computed from the data of X. The proof of Lemma 6.1 now shows that the
+number of 2-cells of Y is at most (r − 1)/ϵ, so we may take C = 1/ϵ.
+    Note that Proposition 6.6 does not immediately imply that there is an algo-
+rithm to compute presentations for finitely generated subgroups of one-relator
+groups. In [GW09], a coherent group in which there is an algorithm to compute
+a finite presentation for a given finitely generated subgroup is called effectively
+coherent. The following question remains open.
+Question 6.7. Are one-relator groups with negative immersions effectively co-
+herent?
+
+
+References
+[AO96]     G. N. Arzhantseva and A. Yu. Ol’shanskiı̆, Generality of the class
+           of groups in which subgroups with a lesser number of generators are
+           free, Mat. Zametki 59 (1996), no. 4, 489–496, 638. MR 1445193
+[Bau69]    Gilbert Baumslag, A non-cyclic one-relator group all of whose finite
+           quotients are cyclic, J. Austral. Math. Soc. 10 (1969), 497–498.
+[Bau74]    Gilbert Baumslag, Some problems on one-relator groups, Proceed-
+           ings of the Second International Conference on the Theory of Groups
+           (Australian Nat. Univ., Canberra, 1973) (Berlin), Lecture Notes in
+           Math., vol. 372, Springer, 1974, pp. 75—-81.
+
+[BP78]     Benjamin Baumslag and Stephen J. Pride, Groups with two more
+           generators than relators, Journal of the London Mathematical Soci-
+           ety. Second Series 17 (1978), no. 3, 425–426.
+[Cal08]    Danny Calegari, Surface subgroups from homology, Geometry &
+           Topology 12 (2008), no. 4, 1995–2007.
+[Cal09a]          , scl, MSJ Memoirs, no. 20, Mathematical Society of Japan,
+           Tokyo, 2009.
+[Cal09b]         , Stable commutator length is rational in free groups, Jour.
+           Amer. Math. Soc. 22 (2009), no. 4, 941–961.
+
+[Cas23]    Christopher H. Cashen, Personal communication, 2023.
+
+
+                                        38
+[CHar]    Christopher H. Cashen and Charlotte Hoffmann, Short, highly im-
+          primitive words yield hyperbolic one-relator groups, Experimental
+          Mathematics, to appear.
+[CM11]    Christopher H. Cashen and Nataša Macura, Line patterns in free
+          groups, Geom. Topol. 15 (2011), no. 3, 1419–1475. MR 2825316
+
+[Cul81]   Marc Culler, Using surfaces to solve equations in free groups, Topol-
+          ogy 20 (1981), no. 2, 133–145.
+[Del95]   T. Delzant, L’image d’un groupe dans un groupe hyperbolique, Com-
+          ment. Math. Helv. 70 (1995), no. 2, 267–284. MR 1324630
+
+[DH91]    Andrew J. Duncan and James Howie, The genus problem for one-
+          relator products of locally indicable groups, Math. Z. 208 (1991),
+          no. 2, 225–237.
+[Gro87]   M. Gromov, Hyperbolic groups, Essays in group theory, Math. Sci.
+          Res. Inst. Publ., vol. 8, Springer, New York, 1987, pp. 75–263.
+
+[GW09]    Daniel Groves and Henry Wilton, Enumerating limit groups, Groups,
+          Geometry and Dynamics 3 (2009), no. 3, 389—399.
+[GW19]    Giles Gardam and Daniel J. Woodhouse, The geometry of one-relator
+          groups satisfying a polynomial isoperimetric inequality, Proc. Amer.
+          Math. Soc. 147 (2019), no. 1, 125–129. MR 3876736
+[Heu19]   Nicolaus Heuer, Constructions in stable commutator length and
+          bounded cohomology, Ph.D. thesis, University of Oxford, 2019.
+[HL22]    Nicolaus Heuer and Clara Löh, Simplicial volume of one-relator
+          groups and stable commutator length, Algebr. Geom. Topol. 22
+          (2022), no. 4, 1615–1661. MR 4495666
+[HP20]    Liam Hanany and Doron Puder, Word measures on symmetric
+          groups, Sém. Lothar. Combin. 84B (2020), Art. 79, 12. MR 4138706
+[HW16]    Joseph Helfer and Daniel T. Wise, Counting cycles in labeled graphs:
+          the nonpositive immersion property for one-relator groups, Int. Math.
+          Res. Not. IMRN (2016), no. 9, 2813–2827.
+[IMM23] Giovanni Italiano, Bruno Martelli, and Matteo Migliorini, Hyperbolic
+        5-manifolds that fiber over S 1 , Invent. Math. 231 (2023), no. 1, 1–38.
+        MR 4526820
+
+[Jr49]    Marshall Hall Jr, Subgroups of finite index in free groups, Canadian
+          Journal of Mathematics 1 (1949), 187–190.
+[Kap22]   Ilya Kapovich, Primitivity rank for random elements in free groups,
+          J. Group Theory 25 (2022), no. 5, 823–835. MR 4472898
+
+
+                                      39
+[Lin22]   Marco Linton, One-relator hierarchies, arXiv:2202.11324, 2022.
+[LW17]    Larsen Louder and Henry Wilton, Stackings and the W -cycles Con-
+          jecture, Canad. Math. Bull. 60 (2017), no. 3, 604–612.
+[LW20]           , One-relator groups with torsion are coherent, Math. Res.
+          Lett. 27 (2020), no. 5, 1499–1512. MR 4216595
+[LW22]          , Negative immersions for one-relator groups, Duke Math. J.
+          171 (2022), no. 3, 547–594. MR 4382976
+[Man10]   Jason Fox Manning, Virtually geometric words and Whitehead’s al-
+          gorithm, Math. Res. Lett. 17 (2010), no. 5, 917–925.
+
+[MPW13] Eduardo Martı́nez-Pedroza and Daniel T. Wise, Coherence and neg-
+        ative sectional curvature in complexes of groups, Michigan Math. J.
+        62 (2013), no. 3, 507–536. MR 3102528
+[Pud14]   Doron Puder, Primitive words, free factors and measure preservation,
+          Israel J. Math. 201 (2014), no. 1, 25–73.
+[Pud15]          , Expansion of random graphs: new proofs, new results, In-
+          vent. Math. 201 (2015), no. 3, 845–908. MR 3385636
+[RS94]    E. Rips and Z. Sela, Structure and rigidity in hyperbolic groups. I,
+          Geometric and Functional Analysis 4 (1994), no. 3, 337–371.
+
+[Sco73]   G. P. Scott, Finitely generated 3-manifold groups are finitely pre-
+          sented, Journal of the London Mathematical Society. Second Series
+          6 (1973), 437–440.
+[Sel97]   Z. Sela, Structure and rigidity in (Gromov) hyperbolic groups and
+          discrete groups in rank 1 Lie groups. II, Geom. Funct. Anal. 7 (1997),
+          no. 3, 561–593. MR 1466338
+[Sta83]   John R. Stallings, Topology of finite graphs, Invent. Math. 71 (1983),
+          no. 3, 551–565.
+[Sv11]    Mark Sapir and Iva Špakulová, Almost all one-relator groups with at
+          least three generators are residually finite, J. Eur. Math. Soc. (JEMS)
+          13 (2011), no. 2, 331–343. MR 2746769
+[Swa04]   Gadde A. Swarup, Delzant’s variation on Scott complexity,
+          arXiv:math/0401308, 2004.
+[Whi36]   J. H. C. Whitehead, On equivalent sets of elements in a free group,
+          Ann. of Math. (2) 37 (1936), no. 4, 782–800. MR 1503309
+[Wil18]   Henry Wilton, Essential surfaces in graph pairs, J. Amer. Math. Soc.
+          31 (2018), no. 4, 893–919. MR 3836561
+
+
+
+                                      40
+[Wil22]   Henry Wilton, Rational curvature invariants for 2-complexes,
+          arXiv:2210.09853, 2022.
+[Wis03]   Daniel T. Wise, Coherence, local-indicability and non-positive im-
+          mersions, Preprint, http://www.gidon.com/dani/tl.cgi?athe=
+          pspapers/NonPositiveCoherence.ps, 2003.
+
+[Wis04]   Daniel T. Wise, Sectional curvature, compact cores, and local quasi-
+          convexity, Geom. Funct. Anal. 14 (2004), no. 2, 433–468. MR 2062762
+[Wis08]         , Nonpositive sectional curvature for (p, q, r)-complexes, Proc.
+          Amer. Math. Soc. 136 (2008), no. 1, 41–48. MR 2350386
+
+[Wis20]   Daniel T. Wise, Coherence, local-indicability and nonpositive immer-
+          sions, J. Inst. Math. Jussieu First view (2020), 1–16.
+
+
+   L. Louder, Department of Mathematics, University College London, Gower Street,
+London WC1E 6BT, UK
+   E-mail address: l.louder@ucl.ac.uk
+    H. Wilton, DPMMS, Centre for Mathematical Sciences, Wilberforce Road, Cam-
+bridge CB3 0WB, UK
+    E-mail address: h.wilton@maths.cam.ac.uk
+
+
+
+
+                                      41
+
