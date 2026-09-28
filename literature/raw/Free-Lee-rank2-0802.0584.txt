@@ -1,0 +1,1068 @@
+                                          ON SEVERAL PROBLEMS ABOUT AUTOMORPHISMS OF
+arXiv:0802.0584v1 [math.GR] 5 Feb 2008
+
+
+
+
+                                                  THE FREE GROUP OF RANK TWO
+
+                                                                              DONGHI LEE
+
+                                                Abstract. Let Fn be a free group of rank n. In this paper we discuss
+                                                three algorithmic problems related to automorphisms of F2 .
+                                                    A word u of Fn is called positive if u does not have negative exponents.
+                                                A word u in Fn is called potentially positive if φ(u) is positive for some
+                                                automorphism φ of Fn . We prove that there is an algorithm to decide
+                                                whether or not a given word in F2 is potentially positive, which gives an
+                                                affirmative solution to problem F34a in [1] for the case of F2 .
+                                                    Two elements u and v in Fn are said to be boundedly translation equiv-
+                                                alent if the ratio of the cyclic lengths of φ(u) and φ(v) is bounded away
+                                                from 0 and from ∞ for every automorphism φ of Fn . We provide an algo-
+                                                rithm to determine whether or not two given elements of F2 are boundedly
+                                                translation equivalent, thus answering question F38c in the online version
+                                                of [1] for the case of F2 .
+                                                    We further prove that there exists an algorithm to decide whether or not
+                                                a given finitely generated subgroup of F2 is the fixed point group of some
+                                                automorphism of F2 , which settles problem F1b in [1] in the affirmative for
+                                                the case of F2 .
+
+
+
+
+                                                                          1. Introduction
+                                            Let Fn be the free group of rank n ≥ 2 with basis Σ. In particular, if n = 2,
+                                         we let Σ = {a, b}, namely, F2 is the free group with basis {a, b}. A word v
+                                         in Fn is called cyclically reduced if all its cyclic permutations are reduced. A
+                                         cyclic word is defined to be the set of all cyclic permutations of a cyclically
+                                         reduced word. By [v] we denote the cyclic word associated with a word v. Also
+                                         by kvk we mean the length of the cyclic word [v] associated with v, that is, the
+                                         number of cyclic permutations of a cyclically reduced word which is conjugate
+                                         to v. The length kvk is called the cyclic length of v. For two automorphisms φ
+                                         and ψ of Fn , by writing φ ≡ ψ we mean the equality of φ and ψ over all cyclic
+                                         words in Fn , that is, φ(w) = ψ(w) for every cyclic word w in Fn .
+
+                                           2000 Mathematics Subject Classification. Primary 20E36, 20F05, 20F10, 20F28.
+                                                                                     1
+   Recall that a Whitehead automorphism α of Fn is defined to be an automor-
+phism of one of the following two types (cf. [7]):
+ (W1) α permutes elements in Σ±1 .
+ (W2) α is defined by a letter x ∈ Σ±1 and a set S ⊂ Σ±1 \ {x, x−1 } in such
+        a way that if c ∈ Σ±1 then (a) α(c) = cx provided c ∈ S and c−1 ∈  / S;
+        (b) α(c) = x−1 cx provided both c, c−1 ∈ S; (c) α(c) = c provided both
+        c, c−1 ∈
+               / S.
+If α is of type (W2), we write α = (S, x). Note that in the expression of
+α = (S, x) it is conventional to include the defining letter x in the defining
+set S, but for the sake of brevity of notation we will omit a from S as defined
+above.
+   Throughout the present paper, we let
+                            σ = ({a}, b),        τ = ({b}, a)
+be Whitehead automorphisms of type (W2) of F2 . Recently the author [7]
+proved that every automorphism of F2 can represented in one of two particular
+types over all cyclic words of F2 as follows:
+Lemma 1.1. ([Lemma 2.3, 6]) For every automorphism φ of F2 , φ can be
+represented as φ ≡ βφ′ , where β is a Whitehead automorphism of F2 of type
+(W1) and φ′ is a chain of one of the forms
+                         (C1) φ′ ≡ τ mk σ lk · · · τ m1 σ l1
+                         (C2) φ′ ≡ τ −mk σ −lk · · · τ −m1 σ −l1
+with k ∈ N and both li , mi ≥ 0 for every i = 1, . . . , k.
+   With thePnotation of Lemma 1.1, we define the length of an automorphism
+φ of F2 as ki=1 (mi + li ), which is denoted by |φ|. Then obviously |φ| = |φ′|.
+   In the present paper, with the help of Lemma 1.1, we resolve three algo-
+rithmic problems related to automorphisms of F2 . Indeed, the description of
+automorphisms φ of F2 in the statement of Lemma 1.1 provides us with a very
+useful computational tool that facilitates inductive arguments on |φ| in the
+proofs of the problems.
+   The first problem we deal with is about potential positivity of elements in
+a free group the notion of which was first introduced by Khan [5].
+Definition 1.2. A word u of Fn is called positive if u does not have negative
+exponents. A word u in Fn is called potentially positive if φ(u) is positive for
+some automorphism φ of Fn .
+                                             2
+   It was shown by Khan [5] and independently by Meakin-Weil [8] that the
+Hanna Neumann conjecture is satisfied if one of the subgroups is generated by
+positive elements.
+   In Section 2, we shall describe an algorithm to decide whether or not a
+given word in F2 is potentially positive, which gives an affirmative solution to
+problem F34a in [1] for the case of F2 .
+   The second problem we discuss here is related to the notion of bounded
+translation equivalence which is one of generalizations of the notion of trans-
+lation equivalence, due to Kapovich-Levitt-Schupp-Shpilrain [4].
+Definition 1.3. Two elements u and v in Fn are called translation equivalent
+in Fn if kφ(u)k = kφ(v)k for every automorphism φ of Fn .
+  Several different sources of translation equivalence in free groups were pro-
+vided by Kapovich-Levitt-Schupp-Shpilrain [4] and the author [6]. In another
+paper of the author [7], it is proved that there exists an algorithm to decide
+whether or not two given elements u and v of F2 are translation equivalent.
+In contrast with the notion of translation equivalence, bounded translation
+equivalence is defined as follows:
+Definition 1.4. Two elements u and v in Fn are said to be boundedly trans-
+lation equivalent in Fn if there is C > 0 such that
+                                1    kφ(u)k
+                                   ≤        ≤C
+                                C    kφ(v)k
+for every automorphism φ of F2 .
+   Clearly every pair of translation equivalent elements in Fn are boundedly
+translation equivalent in Fn , but not vice versa. As one of specific examples of
+volume equivalence, we mention that two elements a and a[a, b] are boundedly
+translation equivalent in F2 . Indeed, if u = a and v = a[a, b], then we have, in
+view of Lemma 1.1, that
+                                 1   kφ(u)k
+                                   ≤          ≤1
+                                 5   kφ(v)k
+for every automorphism φ of F2 .
+   In Section 3, developing further the technique used in [7], we shall demon-
+strate that there exists an algorithm to determine whether or not two given
+elements of F2 are boundedly translation equivalent, thus affirmatively answer-
+ing question F38c in the online version of [1] for the case of F2 .
+   Our last problem is concerned with the notion of fixed point groups of
+automorphisms of free groups.
+                                        3
+Definition 1.5. A subgroup H of Fn is called the fixed point group of an
+automorphism φ of Fn if H is precisely the set of the elements of Fn which are
+fixed by φ.
+   Due to Bestvina-Handel [2], a subgroup of rank bigger than n cannot pos-
+sibly be the fixed point group of an automorphism of Fn . Recently Martino-
+Ventura [9] provided an explicit description for the fixed point groups of au-
+tomorphisms of Fn , generalizing the maximal rank case studied by Collins-
+Turner [3]. However, this description is not a complete characterization of all
+fixed point groups of automorphisms of Fn . On the other hand, Maslakova [10]
+proved that, given an automorphism φ of Fn , it is possible to effectively find
+a finite set of generators of the fixed point group of φ.
+   In Section 4, we shall present an algorithm to decide whether or not a given
+finitely generated subgroup of F2 is the fixed point group of some automor-
+phism of F2 , which settles problem F1b in [1] in the affirmative for the case of
+F2 .
+                       2. Potential positivity in F2
+  Recall that F2 denotes the free group with basis Σ = {a, b}, and that σ and
+τ denote Whitehead automorphisms
+                           σ = ({a}, b),       τ = ({b}, a)
+of F2 of type (W2). We also recall from [7] the definition of trivial or nontrivial
+cancellation. For a cyclic word w in F2 and a Whitehead automorphism, say
+σ, of F2 , a subword of the form abr a−1 (r 6= 0), if any, in w is invariant in
+passing from w to σ(w), although there occurs cancellation in σ(abr a−1 ) (note
+that σ(abr a−1 ) = ab · br · b−1 a−1 = abr a−1 ). Such cancellation is called trivial
+cancellation. And cancellation which is not trivial cancellation is called proper
+cancellation. For example, a subword ab−r a (r ≥ 1), if any, in w is transformed
+to ab−r+1 ab by applying σ, and thus the cancellation occurring in σ(ab−r a) is
+proper cancellation.
+   The following lemma from [7] will play a fundamental role throughout the
+present paper.
+Lemma 2.1. (Lemma 2.4 in [7]) Let u be a cyclic word in F2 , and let ψ be a
+chain of type (C1) (or (C2)). If ψ contains at least kuk factors of σ (or σ −1 ),
+then there cannot occur proper cancellation in passing from ψ(u) to σψ(u) (or
+ψ(u) to σ −1 ψ(u)). Also if ψ contains at least kuk factors of τ (or τ −1 ), then
+there cannot occur proper cancellation in passing from ψ(u) to τ ψ(u) (or ψ(u)
+to τ −1 ψ(u)).
+                                           4
+  The main result of this section is
+Theorem 2.2. Let u be an element in F2 , and let Ω be the set of all chains
+of type (C1) or (C2) of length less than or equal to 2kuk + 3. Suppose that
+the cyclic word [φ(u)] is positive for some automorphism φ of F2 . Then there
+exists ψ ∈ Ω and a Whitehead automorphism β of F2 of type (W1) such that
+the cyclic word [βψ(u)] is positive (which is obviously equivalent to saying
+that there exists c ∈ F2 such that πc βψ(u) is positive, where πc is the inner
+automorphism of F2 induced by c).
+  Once this theorem is proved, an algorithm to decide whether or not a given
+word in F2 is potentially positive is naturally derived as follows.
+Algorithm 2.3. Let u be an element in F2 , and let Ω be defined as in the
+statement of Theorem 2.2. Clearly Ω is a finite set. Check if there is ψ ∈ Ω
+and a Whitehead automorphism β of F2 of type (W1) for which the cyclic word
+[βψ(u)] is positive. If so, conclude that u is potentially positive; otherwise
+conclude that u is not potentially positive.
+
+Proof of Theorem 2.2. By Lemma 1.1, φ can be expressed as
+                                          φ ≡ βφ′ ,
+where β is a Whitehead automorphism of F2 of type (W1) and φ′ is a chain of
+type (C1) or (C2). By the hypothesis of the theorem,
+
+(1)                           [φ(u)] = [βφ′ (u)] is positive.
+  If |φ′| ≤ 2kuk + 3, then there is nothing to prove. So suppose that |φ′ | >
+2kuk + 3. We proceed with the proof by induction on |φ′ |. Assume that φ′ is
+a chain of type (C1) which ends in τ (the other cases are analogous). Write
+                                          φ′ = τ φ1 ,
+where φ1 is a chain of type (C1). Since |φ1 | ≥ 2kuk + 3, φ1 must contain at
+least kuk + 2 factors of σ or τ . We consider two cases separately.
+Case 1. σ occurs at least kuk + 2 times in φ1 .
+  Write
+                              φ1 = τ mt σ ℓt · · · τ m1 σ ℓ1 ,
+where all mi , ℓi > 0 but ℓ1 and mt may be zero.
+Case 1.1. mt ≥ 1.
+                                               5
+  In this case, put
+                                        φ1 = τ mt φ2 ,
+where φ2 is a chain of type (C1). By Lemma 2.1, no proper cancellation can
+occur in passing from [σ ℓt −1 · · · τ m1 σ ℓ1 (u)] to [φ2 (u)], and hence the cyclic word
+[φ2 (u)] does not contain a subword of the form a2 or a−2 . From this fact and
+the assumption mt ≥ 1, we can observe that no proper cancellation occurs
+in passing from [φ1 (u)] to [τ φ1 (u)] = [φ′ (u)]. This implies from (1) that the
+cyclic word [βφ1 (u)] is positive, and thus induction completes the case.
+Case 1.2. mt = 0.
+  In this case, we may put
+                                       φ1 = σφ3 ,
+where φ3 is a chain of type (C1). Again by Lemma 2.1, no proper cancellation
+can occur in passing from [φ3 (u)] to [σφ3 (u)] = [φ1 (u)]. Additionally, the proof
+of Theorem 1.2 of [7] shows that proper cancellation occurs in passing from
+[φ3 (u)] to [τ φ3 (u)] exactly in the same place where proper cancellation occurs
+in passing from [φ1 (u)] to [τ φ1 (u)] = [φ′ (u)]. Therefore, by (1), the cyclic word
+[βτ φ3 (u)] is positive. Since |τ φ3 | = |φ′| − 1, we are done by induction.
+Case 2. τ occurs at least kuk + 2 times in φ1 .
+   In this case, also by Lemma 2.1, no proper cancellation can occur in passing
+from [φ1 (u)] to [τ φ1 (u)] = [φ′ (u)]. It then follows from (1) that the cyclic word
+[βφ1 (u)] is positive; hence the required result follows by induction.             
+
+                3. Bounded translation equivalence in F2
+   We begin this section by fixing notation. Following [4], if w is a cyclic word
+in F2 and x, y ∈ {a, b}±1 , we use n(w; x, y) to denote the total number of
+occurrences of the subwords xy and y −1 x−1 in w. Then clearly n(w; x, y) =
+n(w; y −1, x−1 ). Similarly we denote by n(w; x) the total number of occurrences
+of x and x−1 in w. Again clearly n(w; x) = n(w; x−1 ).
+   In this section, we shall prove that there exists an algorithm to determine
+bounded translation equivalence in F2 . Let u ∈ F2 . We first establish four
+preliminary lemmas which demonstrate the difference between kσψ(u)k or
+kτ ψ(u)k and kψ(u)k, and which describe the situation when this difference
+becomes zero, in the case where ψ is a chain of type (C1) that contains a
+number of factors of σ. We remark that similar statements to the lemmas also
+hold if σ and τ are interchanged with each other, or (C1) is replaced by (C2)
+and σ and τ are replaced by σ −1 and τ −1 , respectively.
+                                            6
+Lemma 3.1. Let u ∈ F2 . Suppose that ψ is a chain of type (C1) which
+contains at least kuk + 2 factors of σ. We may write ψ = τ m σψ1 , where
+m ≥ 0 and ψ1 is a chain of type (C1). Then
+(i) kσψ(u)k − kψ(u)k = kστ m ψ1 (u)k − kτ m ψ1 (u)k + m(kσψ1 (u)k − kψ1 (u)k);
+(ii)kτ ψ(u)k − kψ(u)k = kτ τ m ψ1 (u)k − kτ m ψ1 (u)k + kσψ1 (u)k − kψ1 (u)k.
+Proof. By the proof of Case 1 of Theorem 1.2 in [7], we see that
+
+(2)                    n([τ i σψ1 (u)]; b, a−1) = n([τ i ψ1 (u)]; b, a−1 )
+for every i ≥ 0, because ψ1 contains at least kuk + 1 factors of σ. In particular,
+(3)                     n([ψ(u)]; b, a−1 ) = n([τ m ψ1 (u)]; b, a−1 ),
+for ψ = τ m σψ1 . Since only a or a−1 can possibly cancel or newly occur in
+the process of applying τ , the number of b and b−1 remains unchanged if τ is
+applied. Thus
+                            n([τ i σψ1 (u)]; b) = n([σψ1 (u)]; b);
+(4)
+                              n([τ i ψ1 (u)]; b) = n([ψ1 (u)]; b)
+for every i ≥ 0. Also since only b or b−1 can possibly cancel or newly occur in
+the process of applying σ, we get
+                n([σψ1 (u)]; b) = n([ψ1 (u)]; b) + kσψ1 (u)k − kψ1 (u)k.
+By (4), this equality can be rewritten as
+(5)           n([τ i σψ1 (u)]; b) = n([τ i ψ1 (u)]; b) + kσψ1 (u)k − kψ1 (u)k
+for every i ≥ 0. In particular,
+(6)             n([ψ(u)]; b) = n([τ m ψ1 (u)]; b) + kσψ1 (u)k − kψ1 (u)k,
+for ψ = τ m σψ1 .
+   Equality (5) together with (2) yields that
+
+(7) n([τ i σψ1 (u)]; b) − n([τ i σψ1 (u)]; b, a−1 )
+                   = n([τ i ψ1 (u)]; b) − n([τ i ψ1 (u)]; b, a−1 ) + kσψ1 (u)k − kψ1 (u)k
+for every i ≥ 0. Here, since
+      kτ i+1 σψ1 (u)k − kτ i σψ1 (u)k = n([τ i σψ1 (u)]; b) − 2n([τ i σψ1 (u)]; b, a−1 );
+         kτ i+1 ψ1 (u)k − kτ i ψ1 (u)k = n([τ i ψ1 (u)]; b) − 2n([τ i ψ1 (u)]; b, a−1 ),
+                                               7
+equality (7) can be rephrased as
+kτ i+1 σψ1 (u)k − kτ i σψ1 (u)k = kτ i+1 ψ1 (u)k − kτ i ψ1 (u)k + kσψ1 (u)k − kψ1 (u)k
+for every i ≥ 0. By summing up both sides of these equalities changing i from
+0 to m − 1, we have
+ kτ m σψ1 (u)k − kσψ1 (u)k = kτ m ψ1 (u)k − kψ1 (u)k + m(kσψ1 (u)k − kψ1 (u)k),
+so that
+(8)         kτ m σψ1 (u)k − kτ m ψ1 (u)k = (m + 1)(kσψ1 (u)k − kψ1 (u)k).
+Since ψ = τ m σψ1 , equality (8) can be rephrased as
+(9)            kψ(u)k − kτ m ψ1 (u)k = (m + 1)(kσψ1 (u)k − kψ1 (u)k).
+  Clearly
+                       n([ψ(u)]; a) = kψ(u)k − n([ψ(u)]; b);
+               n([τ m ψ1 (u)]; a) = kτ m ψ1 (u)k − n([τ m ψ1 (u)]; b).
+These equalities together with (6) and (9) yield that
+(10)         n([ψ(u)]; a) = n([τ m ψ1 (u)]; a) + m(kσψ1 (u)k − kψ1 (u)k).
+It then follows from
+              kσψ(u)k − kψ(u)k = n([ψ(u)]; a) − 2n([ψ(u)]; a, b−1);
+       kστ m ψ1 (u)k − kτ m ψ1 (u)k = n([τ m ψ1 (u)]; a) − 2n([τ m ψ1 (u)]; a, b−1 )
+together with (3) and (10) that
+ kσψ(u)k − kψ(u)k = kστ m ψ1 (u)k − kτ m ψ1 (u)k + m(kσψ1 (u)k − kψ1 (u)k),
+thus proving the first assertion of the lemma.
+  On the other hand, we deduce from
+                kτ ψ(u)k − kψ(u)k = n([ψ(u)]; b) − 2n([ψ(u)]; b, a−1 );
+        kτ τ m ψ1 (u)k − kτ m ψ1 (u)k = n([τ m ψ1 (u)]; b) − 2n([τ m ψ1 (u)]; b, a−1 )
+together with (3) and (6) that
+      kτ ψ(u)k − kψ(u)k = kτ τ m ψ1 (u)k − kτ m ψ1 (u)k + kσψ1 (u)k − kψ1 (u)k,
+which proves the second assertion of the lemma.                                          
+Lemma 3.2. Let u ∈ F2 . Suppose that ψ is a chain of type (C1) which
+contains at least kuk factors of σ. Then
+                          (i) kσψ(u)k − kψ(u)k ≥ 0;
+                               (ii) kτ ψ(u)k − kψ(u)k ≥ 0.
+                                              8
+Proof. Clearly
+       kσψ(u)k − kψ(u)k = n([ψ(u)]; a) − 2n([ψ(u); a, b−1 )
+(11)
+                           = n([ψ(u)]; a, a) + n([ψ(u)]; a, b) − n([ψ(u)]; a, b−1 ).
+Since ψ contains at least kuk factors of σ, by Lemma 2.1, there cannot occur
+proper cancellation in passing from [ψ(u)] to [σψ(u)]. Hence every subword
+of [ψ(u)] of the form ab−1 or ba−1 is necessarily part of a subword of the form
+ab−r a−1 or abr a−1 (r > 0), respectively. This implies that
+                         n([ψ(u)]; a, b) ≥ n([ψ(u)]; a, b−1 ),
+so that, from (11),
+                      kσψ(u)k − kψ(u)k ≥ n([ψ(u)]; a, a) ≥ 0,
+thus proving (i).
+  On the other hand, clearly
+       kτ ψ(u)k − kψ(u)k = n([ψ(u)]; b) − 2n([ψ(u); b, a−1 )
+(12)
+                           = n([ψ(u)]; b, b) + n([ψ(u)]; b, a) − n([ψ(u)]; b, a−1 ).
+As above, every subword of [ψ(u)] of the form ab−1 or ba−1 is necessarily part
+of a subword of the form ab−r a−1 or abr a−1 (r > 0), respectively. Observe that
+a subword of [ψ(u)] of the form ab±r a−1 is actually part of either a subword of
+the form bas b±r a−1 or a subword of the form a−1 b−t as b±r a−1 (s, t > 0). This
+implies that
+(13)                     n([ψ(u)]; b, a) ≥ n([ψ(u)]; b, a−1 ),
+so that, from (12),
+(14)                  kτ ψ(u)k − kψ(u)k ≥ n([ψ(u)]; b, b) ≥ 0,
+thus proving (ii).                                                                     
+Lemma 3.3. Let u ∈ F2 . Suppose that ψ is a chain of type (C1) which
+contains at least kuk + 1 factors of σ. Then
+  (i) if kσψ(u)k = kψ(u)k, then kσ i+1 ψ(u)k = kσ i ψ(u)k for every i ≥ 0;
+  (ii) if kσ j+1 ψ(u)k = kσ j ψ(u)k for some j ≥ 0, then kσψ(u)k = kψ(u)k.
+Proof. For (i), assume that kσψ(u)k = kψ(u)k. We shall prove kσ i+1 ψ(u)k =
+kσ i ψ(u)k by induction on i ≥ 0. The case where i = 0 is clear. So let i ≥ 1.
+By Lemma 3.1 (i) with m = 0, we have
+               kσ i+1 ψ(u)k − kσ i ψ(u)k = kσ i ψ(u)k − kσ i−1 ψ(u)k.
+                                          9
+It follows from the induction hypothesis that
+                              kσ i+1 ψ(u)k = kσ i ψ(u)k,
+so proving (i).
+   For (ii), assume that kσ j+1 ψ(u)k = kσ j ψ(u)k for some j ≥ 0. We use
+induction on j ≥ 0. If j = 0, then there is nothing to prove. So let j ≥ 1. It
+follows from Lemma 3.1 (i) with m = 0 that
+            0 = kσ j+1 ψ(u)k − kσ j ψ(u)k = kσ j ψ(u)k − kσ j−1ψ(u)k,
+so that
+                         kσ j ψ(u)k = kσ j−1 ψ(u)k.
+Then by the induction hypothesis, we get the required result.                           
+Lemma 3.4. Let u ∈ F2 , and let ψ = σψ1 , where ψ1 is a chain of type (C1)
+which contains at least kuk + 1 factors of σ. Suppose that kτ ψ(u)k = kψ(u)k.
+Then kσ i+1 ψ1 (u)k = kσ i ψ1 (u)k for every i ≥ 0.
+Proof. By Lemma 3.1 (ii) with m = 0, we have
+    0 = kτ ψ(u)k − kψ(u)k = kτ ψ1 (u)k − kψ1 (u)k + kσψ1 (u)k − kψ1 (u)k.
+Here, by Lemma 3.2 (ii), kτ ψ1 (u)k − kψ1 (u)k ≥ 0. Also by Lemma 3.2 (i),
+kσψ1 (u)k − kψ1 (u)k ≥ 0. Hence we must have
+                 kτ ψ1 (u)k = kψ1 (u)k and kσψ1 (u)k = kψ1 (u)k.
+The second equality kσψ1 (u)k = kψ1 (u)k yields from Lemma 3.3 (i) that
+                              kσ i+1 ψ1 (u)k = kσ i ψ1 (u)k
+for every i ≥ 0, thus proving the assertion.                                            
+  For the proof of the main result of the present section, we need the fol-
+lowing two technical corollaries of Lemmas 3.1–3.4. We remark that similar
+statements to the corollaries also hold if σ and τ are interchanged with each
+other, or (C1) is replaced by (C2) and σ and τ are replaced by σ −1 and τ −1 ,
+respectively.
+Corollary 3.5. Let u, v ∈ F2 with kuk ≥ kvk, and let ψ be a chain of type
+(C1) with |ψ| ≥ 2kuk + 3. Put k = kuk + 1. Suppose that u and v have the
+property that
+      kσ k+1 ψ ′ (u)k = kσ k ψ ′ (u)k if and only if kσ k+1ψ ′ (v)k = kσ k ψ ′ (v)k;
+      kτ k+1 ψ ′ (u)k = kτ k ψ ′ (u)k if and only if kτ k+1 ψ ′ (v)k = kτ k ψ ′ (v)k,
+                                            10
+for every chain ψ ′ of type (C1) with |ψ ′ | < |ψ|. Then we have
+      (i) kσ k+1 ψ(u)k = kσ k ψ(u)k if and only if kσ k+1 ψ(v)k = kσ k ψ(v)k;
+      (ii) kτ k+1 ψ(u)k = kτ k ψ(u)k if and only if kτ k+1 ψ(v)k = kτ k ψ(v)k.
+Proof. Suppose that ψ ends in τ (the case where ψ ends in σ is analogous).
+Since |ψ| ≥ 2kuk + 3, either σ or τ occurs at least kuk + 2 times in ψ. We
+consider two cases separately.
+  Case 1. σ occurs at least kuk + 2 times in ψ.
+  First we shall prove (i). Suppose that kσ k+1 ψ(u)k = kσ k ψ(u)k. By Lemma 3.3 (ii),
+we have
+                               kσψ(u)k = kψ(u)k.
+Write
+                                  ψ = τ ℓ σψ1 ,
+where ℓ ≥ 1 and ψ1 is a chain of type (C1). Clearly ψ1 contains at least kuk+1
+factors of σ. By Lemma 3.1 (i), we have
+0 = kσψ(u)k − kψ(u)k = kστ ℓ ψ1 (u)k − kτ ℓ ψ1 (u)k + ℓ(kσψ1 (u)k − kψ1 (u)k).
+Here, since kστ ℓ ψ1 (u)k − kτ ℓ ψ1 (u)k ≥ 0 and kσψ1 (u)k − kψ1 (u)k ≥ 0 by
+Lemma 3.2 (i), the only possibility is that
+              kστ ℓ ψ1 (u)k = kτ ℓ ψ1 (u)k and kσψ1 (u)k = kψ1 (u)k.
+These equalities together with Lemma 3.3 (i) yield that
+        kσ k+1 τ ℓ ψ1 (u)k = kσ k τ ℓ ψ1 (u)k and kσ k+1ψ1 (u)k = kσ k ψ1 (u)k.
+Since |τ ℓ ψ1 | < |ψ| and |ψ1 | < |ψ|, by the hypothesis of the corollary, we get
+        kσ k+1 τ ℓ ψ1 (v)k = kσ k τ ℓ ψ1 (v)k and kσ k+1ψ1 (v)k = kσ k ψ1 (v)k.
+Again by Lemma 3.3 (ii), we have
+              kστ ℓ ψ1 (v)k = kτ ℓ ψ1 (v)k and kσψ1 (v)k = kψ1 (v)k.
+Therefore, by Lemma 3.1 (i),
+    kσψ(v)k − kψ(v)k = kστ ℓ ψ1 (v)k − kτ ℓ ψ1 (v)k + ℓ(kσψ1 (v)k − kψ1 (v)k)
+                     = 0,
+namely, kσψ(v)k = kψ(v)k. Then the desired equality kσ k+1 ψ(v)k = kσ k ψ(v)k
+follows from Lemma 3.3 (i).
+   Conversely, if kσ k+1ψ(v)k = kσ k ψ(v)k, we can deduce, in the same way as
+above, that kσ k+1 ψ(u)k = kσ k ψ(u)k.
+                                          11
+  Next we shall prove (ii). Assume that kτ k+1 ψ(u)k = kτ k ψ(u)k. Apply
+Lemma 3.1 (ii) to get
+(15)
+0 = kτ k+1 ψ(u)k−kτ k ψ(u)k = kτ k+1 τ ℓ ψ1 (u)k−kτ k τ ℓ ψ1 (u)k+kσψ1 (u)k−kψ1 (u)k.
+Here, since kτ k+1 τ ℓ ψ1 (u)k − kτ k τ ℓ ψ1 (u)k ≥ 0 by Lemma 3.2 (ii), and since
+kσψ1 (u)k − kψ1 (u)k ≥ 0 by Lemma 3.2 (i), we must have
+(16)        kτ k+1 τ ℓ ψ1 (u)k = kτ k τ ℓ ψ1 (u)k and kσψ1 (u)k = kψ1 (u)k.
+Since |τ ℓ ψ1 | < |ψ|, by the hypothesis of the corollary, the first equality of (16)
+implies that
+                            kτ k+1 τ ℓ ψ1 (v)k = kτ k τ ℓ ψ1 (v)k.
+Also, from the second equality of (16), arguing as above, we deduce that
+                               kσψ1 (v)k = kψ1 (v)k.
+Therefore, by Lemma 3.1 (ii),
+kτ k+1 ψ(v)k − kτ k ψ(v)k = kτ k+1 τ ℓ ψ1 (v)k − kτ k τ ℓ ψ1 (v)k + kσψ1 (v)k − kψ1 (v)k
+                          = 0,
+that is, kτ k+1 ψ(v)k = kτ k ψ(v)k, as required.
+  It is clear that the converse is also true.
+  Case 2. τ occurs at least kuk + 2 times in ψ.
+  Since ψ is assumed to end in τ , we may write
+                                      ψ = τ ψ2 ,
+where ψ2 is a chain of type (C1) that contains at least kuk + 1 factors of τ .
+  First we shall prove (i). Suppose that kσ k+1 ψ(u)k = kσ k ψ(u)k. By Lemma 3.1 (ii)
+with σ, τ interchanged, we have
+0 = kσ k+1 ψ(u)k −kσ k ψ(u)k = kσ k+1 ψ2 (u)k −kσ k ψ2 (u)k + kτ ψ2 (u)k −kψ2 (u)k.
+This is a similar situation to (15) with σ, τ interchanged. So arguing as in
+Case 1, we get the desired equality kσ k+1ψ(v)k = kσ k ψ(v)k. Clearly the
+converse also holds.
+  Next we shall prove (ii). Suppose that kτ k+1 ψ(u)k = kτ k ψ(u)k. By Lemma 3.1 (i)
+with σ, τ interchanged and m = 0, we have
+            0 = kτ k+1 ψ(u)k − kτ k ψ(u)k = kτ k ψ(u)k − kτ k−1 ψ(u)k.
+So
+                             kτ k ψ(u)k = kτ k−1 ψ(u)k.
+                                          12
+This equality can be rephrased as
+                              kτ k+1 ψ2 (u)k = kτ k ψ2 (u)k,
+because ψ = τ ψ2 . Since |ψ2 | < |ψ|, by the hypothesis of the corollary,
+                              kτ k+1 ψ2 (v)k = kτ k ψ2 (v)k,
+that is,
+                               kτ k ψ(v)k = kτ k−1 ψ(v)k.
+Thus, by Lemma 3.1 (i) with σ, τ interchanged and m = 0, we obtain
+             kτ k+1 ψ(v)k − kτ k ψ(v)k = kτ k ψ(v)k − kτ k−1 ψ(v)k = 0,
+namely, kτ k+1 ψ(v)k = kτ k ψ(v)k, as required. Obviously the converse is also
+true.                                                                       
+Corollary 3.6. Let u, v ∈ F2 with kuk ≥ kvk, and let ψ be a chain of type
+(C1). Put k = kuk + 1. Suppose that u and v have the property that
+       kσ k+1 ψ ′ (u)k = kσ k ψ ′ (u)k if and only if kσ k+1ψ ′ (v)k = kσ k ψ ′ (v)k;
+       kτ k+1 ψ ′ (u)k = kτ k ψ ′ (u)k if and only if kτ k+1 ψ ′ (v)k = kτ k ψ ′ (v)k,
+for every chain ψ ′ of type (C1) with |ψ ′ | ≤ |ψ|. Then we have
+  (i) if ψ contains at least kuk + 1 factors of σ, then
+              kσψ(u)k = kψ(u)k if and only if kσψ(v)k = kψ(v)k;
+  (ii) if kτ ψ(u)k = kψ(u)k or kτ ψ(v)k = kψ(v)k, and ψ = σψ1 , where ψ1 is
+a chain of type (C1) which contains at least kuk + 1 factors of σ, then
+                  kσψ1 (u)k = kψ1 (u)k and kσψ1 (v)k = kψ1 (v)k;
+  (iii) if ψ contains at least kuk + 2 factors of σ and ends in τ , then
+              kτ ψ(u)k = kψ(u)k if and only if kτ ψ(v)k = kψ(v)k.
+Proof. For (i), let ψ contain at least kuk + 1 factors of σ, and suppose that
+kσψ(u)k = kψ(u)k. By Lemma 3.3 (i), we have kσ k+1 ψ(u)k = kσ k ψ(u)k.
+Then by the hypothesis of the corollary, kσ k+1 ψ(v)k = kσ k ψ(v)k. Finally by
+Lemma 3.3 (ii), we get kσψ(v)k = kψ(v)k. The converse also holds.
+  For (ii), let ψ = σψ1 , where ψ1 is a chain of type (C1) containing at least
+kuk + 1 factors of σ, and suppose that kτ ψ(u)k = kψ(u)k. By Lemma 3.4, we
+have kσψ1 (u)k = kψ1 (u)k. Then, by (i) of the corollary, kσψ1 (v)k = kψ1 (v)k.
+The converse is proved similarly.
+                                            13
+  For (iii), let ψ contain at least kuk + 2 factors of σ, and let ψ end in τ .
+Assume that kτ ψ(u)k = kψ(u)k. Write
+                                     ψ = τ ℓ σψ2 ,
+where ℓ ≥ 1 and ψ2 is a chain of type (C1). By Lemma 3.1 (ii), we have
+  0 = kτ ψ(u)k − kψ(u)k = kτ τ ℓ ψ2 (u)k − kτ ℓ ψ2 (u)k + kσψ2 (u)k − kψ2 (u)k.
+Here, since kτ τ ℓ ψ2 (u)k − kτ ℓ ψ2 (u)k ≥ 0 by Lemma 3.2 (ii) and kσψ2 (u)k −
+kψ2 (u)k ≥ 0 by Lemma 3.2 (i), we must have
+              kτ τ ℓ ψ2 (u)k = kτ ℓ ψ2 (u)k and kσψ2 (u)k = kψ2 (u)k.
+Since kσψ2 (u)k = kψ2 (u)k, by (i) of the corollary,
+                                kσψ2 (v)k = kψ2 (v)k.
+Also, the following claim shows that kτ τ ℓ ψ2 (v)k = kτ ℓ ψ2 (v)k.        Then by
+Lemma 3.1 (ii), we have kτ ψ(v)k = kψ(v)k, as required.
+  Claim. kτ τ ℓ ψ2 (v)k = kτ ℓ ψ2 (v)k.
+   Proof of the Claim. Since kτ ψ(u)k = kψ(u)k, in view of (12), (13) and (14)
+in the proof of Lemma 3.2, we must have
+(17)       n([ψ(u)]; b, a) = n([ψ(u)]; b, a−1 ) and n([ψ(u)]; b, b) = 0.
+Since the chain ψ2 contains at least kuk + 1 factors of σ, by Lemma 2.1, no
+proper cancellation occurs in passing from [ψ2 (u)] to [σψ2 (u)]. This yields that
+(18)           a2 or a−2 cannot occur in [σψ2 (u)] as a subword.
+From this, we see that, since ℓ ≥ 1,
+(19)   no proper cancellation can occur in passing from [ψ(u)] to [τ ψ(u)].
+In view of (17), (18) and (19), the cyclic word [ψ(u)] must have the form
+                        [ψ(u)] = [aǫ ba−ǫ b−1 · · · aǫ ba−ǫ b−1 ],
+where either ǫ = 1 or ǫ = −1. Then, by applying σ −1 τ −ℓ to [ψ(u)], we deduce
+that
+                  [ψ2 (u)] = [ψ(u)] = [aǫ ba−ǫ b−1 · · · aǫ ba−ǫ b−1 ].
+It then follows that
+                               [τ i ψ2 (u)] = [ψ2 (u)]
+for every i ≥ 0, so that
+(20)                         kτ i+1 ψ2 (u)k = kτ i ψ2 (u)k
+                                           14
+for every i ≥ 0. In particular,
+                               kτ k+1 ψ2 (u)k = kτ k ψ2 (u)k.
+  So by the hypothesis of the corollary,
+(21)                           kτ k+1 ψ2 (v)k = kτ k ψ2 (v)k.
+Then in the same way as obtaining (17), we get
+(22)      n([τ k ψ2 (v)]; b, a) = n([τ k ψ2 (v)]; b, a−1 ) and n([τ k ψ2 (v)]; b, b) = 0.
+Since the chain τ k ψ2 contains at least kvk + 1 factors of τ , by Lemma 2.1, no
+proper cancellation may occur in passing from [τ k ψ2 (v)] to [τ k+1 ψ2 (v)]. This
+together with (22) yields that
+                        [τ k ψ2 (v)] = [as1 bat1 b−1 · · · asr batr b−1 ],
+where every sj , tj is a nonzero integer. Then, by applying τ −k to [τ k ψ2 (v)], we
+deduce that
+                        [ψ2 (v)] = [as1 bat1 b−1 · · · asr batr b−1 ].
+Thus it follows that
+                                 [τ i ψ2 (v)] = [ψ2 (v)]
+for every i ≥ 0, so that
+                                kτ i+1 ψ2 (v)k = kτ i ψ2 (v)k
+for every i ≥ 0. In particular, kτ τ ℓ ψ2 (v)k = kτ ℓ ψ2 (v)k, as required.                 
+   The proof of the corollary is now completed.                                             
+   For a Whitehead automorphism β of F2 , a chain ψ of Whitehead automor-
+phisms of F2 and an element w in F2 , we let kβ : ψ : wk denote the maximum
+of 1 and kβψ(w)k − kψ(w)k, that is,
+                    kβ : ψ : wk := max{1, kβψ(w)k − kψ(w)k}.
+   Now we are ready to establish the main result of the present section as
+follows.
+Theorem 3.7. Let u, v ∈ F2 with kuk ≥ kvk, and let Ω be the set of all chains
+of type (C1) or (C2) of length less than or equal to 2kuk + 5. Let Ω1 be the
+subset of Ω consisting of all chains of type (C1), and let Ω2 be the subset of Ω
+consisting of all chains of type (C2). Put k = kuk + 1. Suppose that u and v
+have the property that
+       kσ k+1 ψ1 (u)k = kσ k ψ1 (u)k if and only if kσ k+1ψ1 (v)k = kσ k ψ1 (v)k;
+       kτ k+1 ψ1 (u)k = kτ k ψ1 (u)k if and only if kτ k+1 ψ1 (v)k = kτ k ψ1 (v)k,
+                                               15
+for every ψ1 ∈ Ω1 , and that
+   kσ −k−1 ψ2 (u)k = kσ −k ψ2 (u)k if and only if kσ −k−1ψ2 (v)k = kσ −k ψ2 (v)k;
+   kτ −k−1 ψ2 (u)k = kτ −k ψ2 (u)k if and only if kτ −k−1 ψ2 (v)k = kτ −k ψ2 (v)k,
+for every ψ2 ∈ Ω2 . Then u and v are boundedly translation equivalent in F2 .
+  More specifically,
+                                     kφ(u)k
+                           min ∆ ≤           ≤ max ∆
+                                     kφ(v)k
+for every automorphism φ of F2 , where
+          kψ(u)k kα : ψ1 : uk kα−1 : ψ2 : uk
+   ∆ := {        ,             ,               | ψ ∈ Ω, ψi ∈ Ωi , α = σ or τ }.
+          kψ(v)k kα : ψ1 : vk kα−1 : ψ2 : vk
+(Obviously, ∆ is a finite set consisting of positive real numbers.)
+Proof. Let φ be an automorphism of F2 . By Lemma 1.1, φ can be represented
+as
+                                     φ ≡ βφ′ ,
+where β is a Whitehead automorphism of F2 of type (W1) and φ′ is of type
+either (C1) or (C2). We proceed with the proof of the theorem by induction
+on |φ′ |. Letting φ′ be a chain of type (C1) with |φ′| > 2kuk + 5 (the case for
+(C2) is similar), assume that
+       kσ k+1ψ(u)k = kσ k ψ(u)k if and only if kσ k+1ψ(v)k = kσ k ψ(v)k;
+       kτ k+1 ψ(u)k = kτ k ψ(u)k if and only if kτ k+1 ψ(v)k = kτ k ψ(v)k,
+and that
+                        kψ(u)k kσ : ψ : uk kτ : ψ : uk
+              min ∆ ≤           ,         ,            ≤ max ∆,
+                        kψ(v)k kσ : ψ : vk kτ : ψ : vk
+for every chain ψ of type (C1) with |ψ| < |φ′ |.
+   By Corollary 3.5, it is easy to get
+       kσ k+1φ′ (u)k = kσ k φ′ (u)k if and only if kσ k+1φ′ (v)k = kσ k φ′ (v)k;
+       kτ k+1 φ′ (u)k = kτ k φ′ (u)k if and only if kτ k+1 φ′ (v)k = kτ k φ′ (v)k.
+In the following Claims A, B and C, we shall prove that
+                       kφ′ (u)k kσ : φ′ : uk kτ : φ′ : uk
+             min ∆ ≤ ′         ,            ,             ≤ max ∆,
+                       kφ (v)k kσ : φ′ : vk kτ : φ′ : vk
+which is clearly equivalent to showing that
+                        kφ(u)k kσ : φ : uk kτ : φ : uk
+              min ∆ ≤          ,            ,             ≤ max ∆.
+                        kφ(v)k kσ : φ : vk kτ : φ : vk
+                                           16
+  Suppose that φ′ ends in τ (the case where φ′ ends in σ is analogous).
+Claim A.
+                                    kφ′ (u)k
+                          min ∆ ≤            ≤ max ∆
+                                    kφ′ (v)k
+
+Proof of Claim A. Since φ′ ends in τ , we may write
+                                    φ′ = τ φ1 ,
+where φ1 is a chain of type (C1). Then obviously
+                   kφ′(u)k = kτ φ1 (u)k − kφ1 (u)k + kφ1 (u)k;
+(23)
+                   kφ′ (v)k = kτ φ1 (v)k − kφ1 (v)k + kφ1 (v)k.
+If both kτ φ1 (u)k =
+                   6 kφ1(u)k and kτ φ1 (v)k =
+                                            6 kφ1 (v)k, then equalities (23) can
+be rephrased as
+                       kφ′ (u)k = kτ : φ1 : uk + kφ1 (u)k;
+(24)
+                       kφ′ (v)k = kτ : φ1 : vk + kφ1 (v)k.
+Since
+                            kφ1 (u)k kτ : φ1 : uk
+                   min ∆ ≤          ,             ≤ max ∆
+                            kφ1 (v)k kτ : φ1 : vk
+by the induction hypothesis, we obtain
+                                    kφ′ (u)k
+                          min ∆ ≤            ≤ max ∆,
+                                    kφ′ (v)k
+as required.
+  So assume that
+(25)             kτ φ1 (u)k = kφ1 (u)k or kτ φ1 (v)k = kφ1 (v)k.
+Clearly the chain φ1 has length |φ1 | = |φ′ | − 1 ≥ 2kuk + 5. Hence either σ or
+τ occurs at least kuk + 3 times in φ1 . We consider two cases accordingly.
+Case A.1. σ occurs at least kuk + 3 times in φ1 .
+  Since φ1 is a chain of type (C1), φ1 ends in either σ or τ .
+Case A.1.1. φ1 ends in σ.
+  Write
+                                    φ1 = σφ2 ,
+                                        17
+where φ2 is a chain of type (C1). In view of Corollary 3.6 (ii), our assumption
+(25) yields that
+(26)             kσφ2 (u)k = kφ2 (u)k and kσφ2 (v)k = kφ2 (v)k.
+This together with Lemma 3.1 (ii) implies that
+                  kτ φ1 (u)k − kφ1 (u)k = kτ φ2 (u)k − kφ2 (u)k;
+(27)
+                   kτ φ1 (v)k − kφ1 (v)k = kτ φ2 (v)k − kφ2 (v)k.
+Since φ1 = σφ2 , we obtain from (26) that kφ1 (u)k = kφ2 (u)k and kφ1 (v)k =
+kφ2 (v)k, so that, from (27),
+                              kτ φ1 (u)k = kτ φ2 (u)k;
+(28)
+                              kτ φ1 (v)k = kτ φ2 (v)k.
+Since φ′ = τ φ1 , (28) implies that
+                            kφ′(u)k     kτ φ2 (u)k
+                              ′
+                                    =              ,
+                            kφ (v)k     kτ φ2 (v)k
+and thus, by the induction hypothesis,
+                                  kφ′ (u)k
+                         min ∆ ≤ ′          ≤ max ∆,
+                                  kφ (v)k
+as desired.
+Case A.1.2. φ1 ends in τ .
+  In view of Corollary 3.6 (iii), our assumption (25) yields that both kτ φ1 (u)k =
+kφ1 (u)k and kτ φ1 (v)k = kφ1 (v)k. We then have from (23) that
+                             kφ′ (u)k    kφ1 (u)k
+                               ′
+                                      =           ,
+                             kφ (v)k     kφ1 (v)k
+so that, by the induction hypothesis,
+                                   kφ′ (u)k
+                         min ∆ ≤ ′          ≤ max ∆,
+                                   kφ (v)k
+as required.
+Case A.2. τ occurs at least kuk + 3 times in φ1 .
+   In view of Corollary 3.6 (i) with τ in place of σ, we have from (25) both
+kτ φ1 (u)k = kφ1 (u)k and kτ φ1 (v)k = kφ1 (v)k. It then follows from (23) that
+                               kφ′ (u)k   kφ1 (u)k
+                                        =          ,
+                               kφ′ (v)k   kφ1 (v)k
+                                        18
+so that, by the induction hypothesis,
+                                  kφ′ (u)k
+                         min ∆ ≤ ′         ≤ max ∆,
+                                  kφ (v)k
+as desired.                                                                        
+Claim B.
+                                   kσ : φ′ : uk
+                         min ∆ ≤                ≤ max ∆
+                                   kσ : φ′ : vk
+
+Proof of Claim B. As in the proof of Claim A, writing
+                                    φ′ = τ φ1 ,
+where φ1 is a chain of type (C1), we consider two cases separately.
+Case B.1. σ occurs at least kuk + 3 times in φ1 .
+  In this case, write
+                              φ1 = τ m−1 σφ2 ,
+where m ≥ 1 and φ2 is a chain of type (C1). Since φ′ = τ φ1 ,
+                                   φ′ = τ m σφ2 .
+Then by Lemma 3.1 (i), we have
+(29)
+  kσφ′ (u)k − kφ′ (u)k = kστ m φ2 (u)k − kτ m φ2 (u)k + m(kσφ2 (u)k − kφ2 (u)k);
+  kσφ′ (v)k − kφ′ (v)k = kστ m φ2 (v)k − kτ m φ2 (v)k + m(kσφ2 (v)k − kφ2 (v)k).
+Here, since φ2 is a chain of type (C1) which contains at least kuk + 2 factors
+of σ, Corollary 3.6 (i) yields that kστ m φ2 (u)k = kτ m φ2 (u)k if and only if
+kστ m φ2 (v)k = kτ m φ2 (v)k. So if kστ m φ2 (u)k = kτ m φ2 (u)k or kστ m φ2 (v)k =
+kτ m φ2 (v)k, then we get from (29) that
+                 kσφ′ (u)k − kφ′ (u)k = m(kσφ2 (u)k − kφ2 (u)k);
+                 kσφ′(v)k − kφ′(v)k = m(kσφ2 (v)k − kφ2 (v)k).
+This gives us
+                         kσ : φ′ : uk     kσ : φ2 : uk
+                                ′
+                                       =               ,
+                         kσ : φ : vk      kσ : φ2 : vk
+and hence the desired inequalities
+                                  kσ : φ′ : uk
+                        min ∆ ≤                ≤ max ∆
+                                  kσ : φ′ : vk
+follow by the induction hypothesis.
+                                        19
+  Now let us assume that
+           kστ m φ2 (u)k =
+                         6 kτ m φ2 (u)k and kστ m φ2 (v)k =
+                                                          6 kτ m φ2 (v)k.
+Again by Corollary 3.6 (i), we have kσφ2 (u)k = kφ2 (u)k if and only if kσφ2 (v)k =
+kφ2 (v)k. Hence if kσφ2 (u)k = kφ2 (u)k or kσφ2 (v)k = kφ2 (v)k, then, from (29),
+                 kσφ′(u)k − kφ′ (u)k = kστ m φ2 (u)k − kτ m φ2 (u)k;
+                 kσφ′ (v)k − kφ′ (v)k = kστ m φ2 (v)k − kτ m φ2 (v)k.
+This yields
+                           kσ : φ′ : uk   kσ : τ m φ2 : uk
+                                        =                  ,
+                           kσ : φ′ : vk   kσ : τ m φ2 : vk
+which gives us
+                                     kσ : φ′ : uk
+                          min ∆ ≤                 ≤ max ∆
+                                     kσ : φ′ : vk
+by the induction hypothesis.
+  So let us further assume that
+                  kσφ2 (u)k =
+                            6 kφ2 (u)k and kσφ2 (v)k =
+                                                     6 kφ2 (v)k.
+It then follows from (29) that
+               kσφ′ (u)k − kφ′ (u)k = kσ : τ m φ2 : uk + mkσ : φ2 : uk;
+(30)
+               kσφ′ (v)k − kφ′ (v)k = kσ : τ m φ2 : vk + mkσ : φ2 : vk.
+Since
+                            kσ : τ m φ2 : uk kσ : φ2 : uk
+                  min ∆ ≤                   ,             ≤ max ∆
+                            kσ : τ m φ2 : vk kσ : φ2 : vk
+by the induction hypothesis, we have from (30) that
+                                    kσ : φ′ : uk
+                          min ∆ ≤                ≤ max ∆,
+                                    kσ : φ′ : vk
+as required.
+Case B.2. τ occurs at least kuk + 3 times in φ1 .
+  In this case, it follows from Lemma 3.1 (ii) with σ, τ interchanged and m = 0
+that
+         kσφ′ (u)k − kφ′ (u)k = kσφ1 (u)k − kφ1(u)k + kτ φ1 (u)k − kφ1 (u)k;
+(31)
+         kσφ′ (v)k − kφ′ (v)k = kσφ1 (v)k − kφ1 (v)k + kτ φ1 (v)k − kφ1 (v)k.
+                                          20
+Here, by Corollary 3.6 (i) with τ in place of σ, we have kτ φ1 (u)k = kφ1 (u)k if
+and only if kτ φ1 (v)k = kφ1 (v)k. Hence if kτ φ1 (u)k = kφ1 (u)k or kτ φ1 (v)k =
+kφ1 (v)k, then, by (31),
+                  kσφ′(u)k − kφ′ (u)k = kσφ1 (u)k − kφ1 (u)k;
+                  kσφ′ (v)k − kφ′ (v)k = kσφ1 (v)k − kφ1 (v)k,
+and thus
+                           kσ : φ′ : uk = kσ : φ1 : uk;
+                        kσ : φ′ : vk = kσ : φ1 : vk.
+Then by the induction hypothesis,
+                                  kσ : φ′ : uk
+                        min ∆ ≤                ≤ max ∆,
+                                  kσ : φ′ : vk
+as desired.
+  Now assume that
+                kτ φ1 (u)k =
+                           6 kφ1 (u)k and kτ φ1 (v)k =
+                                                     6 kφ1 (v)k.
+We shall show that kσφ1 (u)k = kφ1 (u)k if and only if kσφ1 (v)k = kφ1 (v)k.
+Let kσφ1 (u)k = kφ1 (u)k. If φ1 ends in σ, then, by Corollary 3.6 (iii) with
+σ, τ interchanged, we have kσφ1 (v)k = kφ1 (v)k. On the other hand, if φ1 ends
+in τ , then, by Corollary 3.6 (ii) with σ, τ interchanged, we get kτ φ2 (u)k =
+kφ2 (u)k, where φ1 = τ φ2 . But then from Lemma 3.3 (i) with σ, τ interchanged,
+it follows that kτ 2 φ2 (u)k = kτ φ2 (u)k, namely, kτ φ1 (u)k = kφ1 (u)k, which
+contradicts our assumption kτ φ1 (u)k =  6 kφ1 (u)k. Therefore, we must have
+kσφ1 (v)k = kφ1 (v)k. Conversely, if kσφ1 (v)k = kφ1 (v)k, then, for a similar
+reason, it must follow that kσφ1 (u)k = kφ1 (u)k.
+   Thus if kσφ1 (u)k = kφ1 (u)k or kσφ1 (v)k = kφ1 (v)k, then, from (31),
+                  kσφ′ (u)k − kφ′ (u)k = kτ φ1 (u)k − kφ1 (u)k;
+                  kσφ′ (v)k − kφ′ (v)k = kτ φ1 (v)k − kφ1 (v)k,
+and so
+                           kσ : φ′ : uk = kτ : φ1 : uk;
+                        kσ : φ′ : vk = kτ : φ1 : vk.
+Then by the induction hypothesis,
+                                kσ : φ′ : uk
+                        min ∆ ≤              ≤ max ∆,
+                                kσ : φ′ : vk
+as required.
+                                       21
+  So assume further that
+                   kσφ1 (u)k =
+                             6 kφ1 (u)k and kσφ1 (v)k =
+                                                      6 kφ1 (v)k.
+It follows from (31) that
+                  kσφ′ (u)k − kφ′ (u)k = kσ : φ1 : uk + kτ : φ1 : uk;
+(32)
+                  kσφ′ (v)k − kφ′ (v)k = kσ : φ1 : vk + kτ : φ1 : vk.
+Since
+                              kτ : φ1 : uk kσ : φ1 : uk
+                    min ∆ ≤               ,             ≤ max ∆
+                              kτ : φ1 : vk kσ : φ1 : vk
+by the induction hypothesis, we obtain from (32) that
+                                     kσ : φ′ : uk
+                           min ∆ ≤                ≤ max ∆,
+                                     kσ : φ′ : vk
+as desired.                                                                             
+Claim C.
+                                     kτ : φ′ : uk
+                           min ∆ ≤                ≤ max ∆
+                                     kτ : φ′ : vk
+
+Proof of Claim C. As in the proof of Claims A and B, writing
+                                       φ′ = τ φ1 ,
+where φ1 is a chain of type (C1), we consider two cases separately.
+Case C.1. σ occurs at least kuk + 3 times in φ1 .
+  As in Case B.1, write
+                                    φ1 = τ m−1 σφ2 ,
+where m ≥ 1 and φ2 is a chain of type (C1). Since φ′ = τ φ1 ,
+                                     φ′ = τ m σφ2 .
+It then follows from Lemma 3.1 (ii) that
+        kτ φ′ (u)k − kφ′ (u)k = kτ τ m φ2 (u)k − kτ m φ2 (u)k + kσφ2 (u)k − kφ2 (u)k;
+(33)
+        kτ φ′ (v)k − kφ′ (v)k = kτ τ m φ2 (v)k − kτ m φ2 (v)k + kσφ2 (v)k − kφ2 (v)k.
+By Corollary 3.6 (i), we have kσφ2 (u)k = kφ2 (u)k if and only if kσφ2 (v)k =
+kφ2 (v)k. Also by Corollary 3.6 (iii), we get kτ τ m φ2 (u)k = kτ m φ2 (u)k if and
+                                           22
+only if kτ τ m φ2 (v)k = kτ m φ2 (v)k. Hence we can apply a similar argument as
+in Cases B.1 and B.2 to obtain the desired inequalities
+                                     kτ : φ′ : uk
+                           min ∆ ≤                ≤ max ∆.
+                                     kτ : φ′ : vk
+
+Case C.2. τ occurs at least kuk + 3 times in φ1 .
+  By Lemma 3.1 (i) with σ, τ interchanged and m = 0, we have
+                    kτ φ′ (u)k − kφ′ (u)k = kτ φ1 (u)k − kφ1 (u)k;
+                     kτ φ′ (v)k − kφ′ (v)k = kτ φ1 (v)k − kφ1 (v)k.
+It then follows that
+                              kτ : φ′ : uk = kτ : φ1 : uk;
+                              kτ : φ′ : vk = kτ : φ1 : vk,
+so that
+                                kτ : φ′ : uk
+                           min ∆ ≤           ≤ max ∆
+                                kτ : φ′ : vk
+by the induction hypothesis. This completes the proof of Claim C.                    
+  Now the theorem is completely proved.                                              
+  The following theorem is the converse of Theorem 3.7.
+Theorem 3.8. Let u, v ∈ F2 with kuk ≥ kvk, and Ω, Ω1 and Ω2 be defined as
+in the statement of Theorem 3.7. Put k = kuk + 1. Suppose that u and v are
+boundedly translation equivalent in F2 . Then
+       kσ k+1 ψ1 (u)k = kσ k ψ1 (u)k if and only if kσ k+1ψ1 (v)k = kσ k ψ1 (v)k;
+       kτ k+1 ψ1 (u)k = kτ k ψ1 (u)k if and only if kτ k+1 ψ1 (v)k = kτ k ψ1 (v)k,
+for every ψ1 ∈ Ω1 , and
+   kσ −k−1 ψ2 (u)k = kσ −k ψ2 (u)k if and only if kσ −k−1ψ2 (v)k = kσ −k ψ2 (v)k;
+   kτ −k−1 ψ2 (u)k = kτ −k ψ2 (u)k if and only if kτ −k−1 ψ2 (v)k = kτ −k ψ2 (v)k,
+for every ψ2 ∈ Ω2 .
+Proof. Suppose on the contrary that
+(34)        kσ k+1 ψ1 (u)k = kσ k ψ1 (u)k but kσ k+1 ψ1 (v)k =
+                                                             6 kσ k ψ1 (v)k
+for some ψ1 ∈ Ω1 . (The treatment of the other cases is similar.) Put
+                          K = kσ k+1 ψ1 (v)k − kσ k ψ1 (v)k.
+                                           23
+By Lemma 3.2 (i) and the second inequality of (34), we have K ≥ 1. By
+repeatedly applying Lemma 3.1 (i), we deduce that
+            kσ i+1 ψ1 (u)k = kσ k ψ1 (u)k for every i ≥ k;
+            kσ i+1 ψ1 (v)k = kσ k ψ1 (v)k + K(i + 1 − k) for every i ≥ k.
+Hence
+                   kσ i+1 ψ1 (u)k             kσ k ψ1 (u)k
+                                  =
+                   kσ i+1 ψ1 (v)k   kσ k ψ1 (v)k + K(i + 1 − k)
+for every i ≥ k, and thus
+                                  kσ i+1 ψ1 (u)k
+                              lim                = 0.
+                             i→∞ kσ i+1 ψ1 (v)k
+
+This contradiction to the the hypothesis that u and v are boundedly translation
+equivalent in F2 completes the proof.                                         
+  Consequently, in view of Theorems 3.7 and 3.8, we obtain the following
+algorithm to determine bounded translation equivalence in F2 .
+Algorithm 3.9. Let u, v ∈ F2 with kuk ≥ kvk, and let Ω, Ω1 and Ω2 be defined
+as in the statement of Theorem 3.7. Put k = kuk + 1. Check if it is true that
+      kσ k+1 ψ1 (u)k = kσ k ψ1 (u)k if and only if kσ k+1ψ1 (v)k = kσ k ψ1 (v)k;
+      kτ k+1 ψ1 (u)k = kτ k ψ1 (u)k if and only if kτ k+1 ψ1 (v)k = kτ k ψ1 (v)k,
+for each ψ1 ∈ Ω1 , and if it is true that
+   kσ −k−1 ψ2 (u)k = kσ −k ψ2 (u)k if and only if kσ −k−1ψ2 (v)k = kσ −k ψ2 (v)k;
+    kτ −k−1 ψ2 (u)k = kτ −k ψ2 (u)k if and only if kτ −k−1 ψ2 (v)k = kτ −k ψ2 (v)k,
+for each ψ2 ∈ Ω2 . If so, conclude that u and v are boundedly translation
+equivalent in F2 ; otherwise conclude that u and v are not boundedly translation
+equivalent in F2 .
+
+             4. Fixed point groups of automorphisms of F2
+  In this section, we shall demonstrate that there exists an algorithm to decide
+whether or not a given finitely generated subgroup of F2 is the fixed point
+group of some automorphism of F2 . If H = hu1 , . . . , uk i is a finitely generated
+subgroup of F2 , then we define
+                                   |H| := max |ui |.
+                                           1≤i≤k
+
+Clearly kui k ≤ |ui | ≤ |H| for every i = 1, . . . , k.
+                                           24
+Theorem 4.1. Let H = hu1 , . . . , uk i be a finitely generated subgroup of F2 .
+Suppose that φ is a chain of type (C1) with |φ| ≥ 4|H| + 5 such that kφ(ui )k =
+kui k for every i = 1, . . . , k. Then there exists a chain ψ of type (C1) with
+|ψ| < |φ| such that [ψ(ui )] = [φ(ui )] for every i = 1, . . . , k.
+
+Proof. Since φ is a chain of type (C1) with |φ| ≥ 4|H| + 5, φ contains at least
+2|H| + 3 factors of σ or τ . Suppose that φ contains at least 2|H| + 3 factors
+of σ (the other case is similar). We may write
+
+(35)                        φ = τ mt σ ℓt · · · τ m1 σ ℓ1 φ′ ,
+
+where all ℓi , mi > 0 but ℓ1 and mt may be zero, and φ′ is a chain of type (C1)
+which contains exactly |H| + 2 factors of σ.
+  Suppose that there exists uj (1 ≤ j ≤ k) such that kσφ′ (uj )k =  6 kφ′ (uj )k.
+Put
+                          K = kσφ′ (uj )k − kφ′ (uj )k.
+
+Since φ′ contains at least kuj k + 2 factors of σ, by Lemma 3.2 (i), K ≥ 1.
+Furthermore, since φ contains at least 2|H| + 3 factors of σ and φ′ contains
+exactly |H| + 2 factors of σ,
+
+                          X
+                          t
+(36)                            ℓi ≥ |H| + 1 ≥ kuj k + 1.
+                          i=1
+
+
+  From the following claim, we shall obtain a contradiction.
+
+Claim. kφ(uj )k − kφ′ (uj )k ≥ kuj k + 1.
+
+Proof of the Claim. First assume that m1 = 0 in (35). Then φ = σ ℓ1 φ′ , and
+so, from (36), ℓ1 ≥ kuj k + 1. By repeatedly applying Lemma 3.1 (i), we have
+
+                          kφ(uj )k − kφ′ (uj )k = ℓ1 K.
+
+Since K ≥ 1, it follows that
+
+                     kφ(uj )k − kφ′ (uj )k ≥ ℓ1 ≥ kuj k + 1,
+
+as desired.
+                                           25
+  Next assume that m1 > 0 in (35). In view of Lemmas 3.1 and 3.2, we can
+observe that
+                                                kσ ℓ1 φ′ (uj )k − kφ′ (uj )k = ℓ1 K;
+                                       kτ m1 σ ℓ1 φ′ (uj )k − kσ ℓ1 φ′ (uj )k ≥ m1 K;
+                                                                              ···
+             kσ ℓt · · · τ m1 σ ℓ1 φ′ (uj )k − kτ mt−1 · · · τ m1 σ ℓ1 φ′ (uj )k ≥ ℓt K;
+            kτ mt σ ℓt · · · τ m1 σ ℓ1 φ′ (uj )k − kσ ℓt · · · τ m1 σ ℓ1 φ′ (uj )k ≥ mt K.
+Summing up all of these inequalities together with (36) yields
+                                                          X
+                                                          t
+                                            ′
+                          kφ(uj )k − kφ (uj )k ≥                (ℓi + mi )K
+                                                          i=1
+                                                           Xt
+                                                      ≥(         ℓi )K
+                                                          i=1
+                                                          X
+                                                          t
+                                                      ≥         ℓi
+                                                          i=1
+                                                      ≥ kuj k + 1,
+as required. This completes the proof of the claim.                                             
+  It then follows from the claim that
+                     kφ(uj )k ≥ kφ′(uj )k + kuj k + 1 ≥ kuj k + 1.
+But this yields a contradiction to the hypothesis that kφ(uj )k = kuj k. There-
+fore, we must have kσφ′ (ui )k = kφ′ (ui )k for every i = 1, . . . , k. Then for each
+i = 1, . . . , k,
+(37)
+0 = kσφ′ (ui )k − kφ′ (ui )k = n([φ′ (ui )]; a) − 2n([φ′ (ui ); a, b−1 )
+                                = n([φ′ (ui )]; a, a) + n([φ′ (ui )]; a, b) − n([φ′ (ui )]; a, b−1 ).
+Here, since φ′ contains at least kui k + 2 factors of σ, by Lemma 2.1, there
+cannot occur proper cancellation in passing from [φ′ (ui )] to [σφ′ (ui )], and so
+every subword of [φ′ (ui )] of the form ab−1 or ba−1 is necessarily part of a
+subword of the form ab−r a−1 or abr a−1 (r > 0), respectively. This implies that
+                           n([φ′ (ui )]; a, b) ≥ n([φ′ (ui )]; a, b−1 ),
+                                                 26
+so that, from (37),
+(38)        n([φ′ (ui )]; a, b) = n([φ′ (ui )]; a, b−1 ) and n([φ′ (ui )]; a, a) = 0.
+From the fact that no proper cancellation can occur in passing from [φ′ (ui )]
+to [σφ′ (ui )] together with (38), each cyclic word [φ′ (ui )] must have the form
+                         [φ′ (ui )] = [bsi1 abti1 a−1 · · · bsir abtir a−1 ],
+where every sij , tij is a nonzero integer, and hence
+                                      [σφ′ (ui )] = [φ′ (ui )]
+for every i = 1, . . . , t.
+   Thus letting
+                                ψ = τ mt σ ℓt · · · τ m1 σ ℓ1 −1 φ′ ,
+we finally have
+                                       [ψ(ui )] = [φ(ui )]
+for every i = 1, . . . , t. Obviously |ψ| < |φ|, and so the proof of the theorem is
+completed.                                                                       
+
+  We remark that Theorem 4.1 also holds if (C1) is replaced by (C2). From
+now on, let
+   δ1 = ({a±1 }, b),     δ2 = ({a±1 }, b−1 ),         δ3 = ({b±1 }, a),         δ4 = ({b±1 }, a−1 )
+be Whitehead automorphisms of F2 of type (W2).
+Lemma 4.2. Let α be a Whitehead automorphism of F2 of type (W2). Then
+α can be expressed as a composition of σ ±1 , τ ±1 and δi ’s.
+Proof. If α is not one of σ ±1 , τ ±1 and δi ’s, then α must be one of ({a−1 }, b),
+({a−1 }, b−1 ), ({b−1 }, a) and ({b−1 }, a−1 ). Then the following easy identities
+                       ({a−1 }, b) = δ1 σ −1 ;        ({a−1 }, b−1 ) = δ2 σ;
+                       ({b−1 }, a) = δ3 τ −1 ;        ({b−1 }, a−1 ) = δ4 τ
+imply the required result.                                                                            
+
+   The following two technical lemmas can be easily proved by direct calcula-
+tions.
+                                                 27
+Lemma 4.3. The following identities hold.
+    σδ1 = δ1 σ;      σδ2 = δ2 σ;       σδ3 = δ1 δ3 σ;                               σδ4 = δ4 δ2 σ;
+    τ δ1 = δ3 δ1 τ ; τ δ2 = δ2 δ4 τ ;  τ δ3 = δ3 τ ;                                τ δ4 = δ4 τ ;
+       σ −1 δ1 = δ1 σ −1 ;     σ −1 δ2 = δ2 σ −1 ;       σ −1 δ3 = δ2 δ3 σ −1 ; σ −1 δ4 = δ4 δ1 σ −1 ;
+       τ −1 δ1 = δ4 δ1 τ −1 ; τ −1 δ2 = δ2 δ3 τ −1 ; τ −1 δ3 = δ3 τ −1 ;          τ −1 δ4 = δ4 τ −1 .
+Lemma 4.4. The following identities hold.
+   στ −1 = πδ1 σ −1 ; σ −1 τ = π −1 δ3 σ;               τ σ −1 = π −1 δ3 τ −1 ;     τ −1 σ = πδ1 τ ;
+        σπ = πδ3 τ −1 ; σπ −1 = π −1 τ −1 ;            σ −1 π = πδ4 τ ;           σ −1 π −1 = π −1 τ ;
+        τ π = πσ −1 ;        τ π −1 = π −1 δ1 σ −1 ; τ −1 π = πσ;                 τ −1 π −1 = π −1 δ2 σ,
+where π is a Whitehead automorphism of F2 of type (W1) that sends a to b
+and b to a−1 .
+   The following corollary gives a nice description of automorphisms of F2 .
+Corollary 4.5. Every automorphism φ of F2 can be represented as
+                                                φ = βδφ′ ,
+where β is a Whitehead automorphism of F2 of type (W1), δ is a composition
+of δi ’s, and φ′ is a chain of type (C1) or (C2).
+Proof. By Whitehead’s Theorem (cf. [11]) together with Lemmas 4.2 and 4.3,
+an automorphism φ of F2 can be expressed as
+(39)                                 φ = β ′ δ ′ τ qt σ pt · · · τ q1 σ p1 ,
+where β ′ is a Whitehead automorphism of F2 of type (W1), δ ′ is a composition
+of δi ’s, and both pj , qj are (not necessarily positive) integers for every j =
+1, . . . , t. If not every pj and qj has the same sign (including 0), apply repeatedly
+Lemma 4.4 to the chain on the right-hand side of (39) to obtain that either
+φ = β ′ π r δτ mk σ lk · · · τ m1 σ l1 or φ = β ′ π r δτ −mk σ −lk · · · τ −m1 σ −l1 , where π is as
+in Lemma 4.4, r ∈ Z, δ is a composition of δi ’s, and both lj , mj ≥ 0 for every
+j = 1, . . . , k. Putting β = β ′ π r , we obtain the required result.
+                                                                                                  
+   The following is the main result of this section.
+Theorem 4.6. Let H = hu1 , . . . , uk i be a finitely generated subgroup of F2 .
+Suppose that H is the fixed point group of an automorphism φ of F2 . Let Ω1
+be the set of all chains of type (C1) or (C2) of length less than or equal to
+                                                       28
+4|H| + 4, and let Ω2 be the set of all compositions of δi ’s of length less than or
+equal to (24|H|+4 + 1)|H|. Put
+Ω = {βδ ′ψ ′ | ψ ′ ∈ Ω1 , δ ′ ∈ Ω2 , and β is a Whitehead auto of F2 of type (W1)}.
+Then there exists ψ ∈ Ω of which H is the fixed point group.
+Proof. By Corollary 4.5, φ can be written as
+                                        φ = βδφ′ ,
+where β, δ and φ′ are indicated as in the statement of Corollary 4.5.
+  Since φ(ui ) = ui for every i = 1, . . . , k, it is easy to see that
+                                   kφ′ (ui )k = kui k
+for every i = 1, . . . , k. Then apply Theorem 4.1 continuously to obtain ψ ′ ∈ Ω1
+such that
+                                   [ψ ′ (ui )] = [φ′ (ui )]
+for every i = 1, . . . , k. Since |δφ′ (ui )| = |φ(ui )| = |ui | ≤ |H| and |ψ ′ (ui )| ≤
+24|H|+4 |ui | ≤ 24|H|+4 |H| for every i = 1, . . . , k, we must have δ ′ ∈ Ω2 such that
+                                  δ ′ ψ ′ (ui ) = δφ′ (ui )
+for every i = 1, . . . , k, and hence
+                             βδ ′ ψ ′ (ui ) = βδφ′(ui ) = ui
+for every i = 1, . . . , k. Therefore, letting
+                                        ψ = βδ ′ ψ ′ ,
+we finally have ψ ∈ Ω and that H is the fixed point subgroup of ψ. This
+completes the proof of the theorem.                                  
+  In conclusion, we naturally derive from Theorem 4.6 the following algorithm
+to decide whether or not a given finitely generated subgroup of F2 is the fixed
+point group of some automorphism of F2 .
+Algorithm 4.7. Let H = hu1 , . . . , uk i be a finitely generated subgroup of F2 .
+Let Ω1 , Ω2 and Ω be defined as in the statement of Theorem 4.6. Clearly
+Ω is a finite set. Check if there is ψ ∈ Ω for which ψ(ui ) = ui holds for
+every i = 1, . . . , k. If so, conclude that H is the fixed point group of some
+automorphism of F2 ; otherwise conclude that H is not the fixed point group of
+any automorphism of F2 .
+
+                                             29
+                                      References
+[1] G. Baumslag, A. G. Myasnikov and V. Shpilrain, Open problems in combinatorial group
+    theory, Second edition, Contemp. Math. 296 (2002), 1–38.
+[2] M.Bestvina and M.Handel, Train tracks and automorphisms of free groups, Ann. of
+    Math. 135 (1992), 1–53.
+[3] D. Collins and E. C. Turner, All automorphisms of free groups with maximal rank fixed
+    subgroups, Math. Proc. Cambridge Phil. Soc. 119 (1996), 615–630.
+[4] I. Kapovich, G. Levitt, P. E. Schupp and V. Shpilrain, Translation equivalence in free
+    groups, Trans. Amer. Math. Soc. 359 (2007), no. 4, 1527–1546.
+[5] B. Khan, Positively generated subgroups of free groups and the Hanna Neumann conjec-
+    ture, Contemp. Math., Amer. Math. Soc. 296 (2002), 155–170.
+[6] D. Lee, Translation equivalent elements in free groups, J. Group Theory (2006), vol. 9,
+    809–814.
+[7] D. Lee, An algorithm that decides translation equivalence in a free group of rank two, J.
+    Group Theory (2007), vol. 10, 561–569.
+[8] J. Meakin and P. Weil, Subgroups of free groups: a contribution to the Hanna Neumann
+    conjecture, Geom. Dedicata 94 (2002), 33-43.
+[9] A. Martino and E. Ventura, A description of auto-fixed subgroups of a free group, Topol-
+    ogy 43 (2004), 1133–1164.
+[10] O. Maslakova, The fixed point group of an automorphism of a free group, Algebra i
+    Logika 42 (2003), 422–472.
+[11] J. H. C. Whitehead, Equivalent sets of elements in a free group, Ann. of Math. 37
+    (1936), 782–800.
+
+  Department of Mathematics, Pusan National University, San-30 Jangjeon-
+Dong, Geumjung-Gu, Pusan, 609-735, Korea
+  E-mail address: donghi@pusan.ac.kr
+
+
+
+
+                                             30
+

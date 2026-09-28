@@ -1,0 +1,1053 @@
+                                                Infinite simple characteristic quotients
+arXiv:2312.11684v4 [math.GR] 13 Sep 2026
+
+
+
+
+                                                     Rémi Coulon and Francesco Fournier-Facio
+                                                                    September 15, 2026
+
+
+                                                                            Abstract
+                                                    We construct continuum many infinite, simple, characteristic
+                                                quotients of non-abelian free groups, answering a 1978 question of
+                                                James Wiegold. The method is very flexible, allowing to impose
+                                                certain properties on the quotients, to generalize the construction
+                                                to large classes of groups with hyperbolic features, and to produce
+                                                quasi-isometrically diverse examples.
+
+
+                                           1    Introduction
+                                           A subgroup of a group Γ is called characteristic if it is invariant under
+                                           all automorphisms of Γ, and by extension the corresponding quotients
+                                           are called characteristic. Wiegold asked if non-abelian free groups admit
+                                           infinite simple characteristic quotients [KM, Question 6.45]. The main
+                                           goal of this paper is to prove the following theorem, answering positively
+                                           Wiegold’s question.
+
+                                           Theorem 1.1 (Corollary 4.2). For all n ⩾ 2, the free group of rank n
+                                           admits continuum many, pairwise non-isomorphic, 2-generated, infinite,
+                                           simple, characteristic quotients.
+
+                                               We will state stronger versions later in the introduction (see Theorems
+                                           1.5 and 1.6).
+                                               Wiegold’s question on the (non-)existence of such a group falls in the
+                                           context of growth sequences of simple groups. For a finitely generated
+                                           group Γ, we denote by d(Γ) its rank, that is the smallest n such that Γ
+                                           is a quotient of the free group of rank n, denoted by Fn . The growth
+                                           sequence of Γ is the sequence {d(Γp )}p⩾1 . Growth sequences of finite
+                                           groups were studied by Wiegold and co-authors, who gave very precise
+                                           asymptotic formulas: see [Wie74, EW95] and the references therein.
+
+                                                                                1
+    The case of infinite groups is more mysterious, and was also studied
+by Wiegold and several other authors: see [Obr93, Erf95] and the ref-
+erences therein, as well as [Wis02, Bri22] for approaches of a different
+flavor. In particular, Wiegold and Wilson proved that if Γ is a finitely
+generated infinite simple group, then d(Γp ) ⩽ d(Γ) + 1 for all p ⩾ 1
+[WW78]. However, there seems to be no example of a finitely generated
+infinite simple group whose growth sequence is not constant. The ques-
+tion on the existence of such a group, and more precisely of a finitely
+generated infinite simple group such that d(Γ2 ) = d(Γ) + 1, has been
+called “irreducibly difficult” [WW78, Obr93].
+   This last question admits a reformulation purely at the level of free
+groups. For a group Γ of rank at most n, let Nn (Γ) := {N ◁ Fn : Fn /N ∼
+                                                                       =
+Γ} be the set of normal subgroups of Fn whose quotient is isomorphic
+to Γ. An observation of Wiegold [Wie88] shows that if Γ is a finitely
+generated infinite simple group of rank n, then d(Γ2 ) = n + 1 if and
+only if #Nn (Γ) = 1. This naturally led Wiegold to ask for two weaker
+examples:
+       • [KM, Question 16.100] If n ⩾ 2, does there exist an infinite simple
+         group Γ of rank at most n such that the action of Aut(Fn ) on Nn (Γ)
+         is transitive?1
+
+       • [KM, Question 6.45] If n ⩾ 2, does there exist an infinite simple
+         group Γ of rank at most n such that the action of Aut(Fn ) on Nn (Γ)
+         has a fixed point?
+Theorem 1.1 answers the latter question in the affirmative for all n ⩾ 2.
+    These questions also fall into the broader context of the study of the
+dynamics of Aut(Fn ) on the space of marked groups Gn . This is a compact
+space that parametrizes all groups of rank at most n, and is a central tool
+to study geometric and model-theoretic properties of finitely generated
+groups [Gri84, Cha00, CG05, MOW21, Osi21]. The dynamics of Aut(Fn )
+on Gn is very rich, and can shed light on generic properties of finitely
+generated groups [Osi25]. The above questions arise very naturally in
+this context, and are instances of the following general problem: To which
+extent do certain algebraic properties of the underlying isomorphism type
+influence the orbit of Aut(Fn ) on a marked group?
+Remark 1.2. Analogous conjectures on finite groups have also received
+much attention:
+   1
+    In [KM, Question 16.100], Wiegold asks this question for n = 2 only. For n ⩾ 4,
+it was answered affirmatively in [GG13, Theorem 4].
+
+
+                                        2
+   • [Pak01, Conjecture 2.5.4] If n ⩾ 3, and Γ is a finite simple group,
+     then the action of Aut(Fn ) on Nn (Γ) is transitive.
+
+   • [Lub11, p.25] If n ⩾ 3, and Γ is a finite simple group, then the
+     action of Aut(Fn ) on Nn (Γ) has no fixed points.
+The first conjecture is commonly attributed to Wiegold, and the case
+of n = 2 is known to fail [NN51, GS09]. The second conjecture is by
+Lubotzky, and was recently shown to fail for n = 2 [CLT26, Han].
+    Besides the ranks of products of infinite simple groups, the ranks of
+infinite simple groups themselves are also not well understood. There is
+only one known construction of a sequence of finitely generated simple
+groups with unbounded rank, due to Osin and Thom [OT13]. Our con-
+struction does not directly provide simple quotients with arbitrarily large
+rank. On the contrary, as we have stated, one can easily ensure that they
+are 2-generated. In particular, this provides a negative answer to [KM,
+Question 17.62], which asks whether every characteristic quotient of Fn
+has rank n.
+    Our construction of the quotients in Theorem 1.1 boils down to the
+following general result:
+Theorem 1.3 (Corollary 3.6). Let G be an acylindrically hyperbolic
+group, and let H < G be finitely generated, infinite and normal. Then
+there exists a subgroup N < H, normal in G, such that H/N is 2-
+generated, infinite, and simple.
+   As a corollary we obtain:
+Corollary 1.4 (Corollary 3.7). Let Γ be a finitely generated group such
+that [Γ : Z(Γ)] = ∞ and Aut(Γ) is acylindrically hyperbolic. Then Γ
+admits an infinite, 2-generated, simple, characteristic quotient.
+   The existence of infinite simple characteristic quotients of Fn (i.e.,
+Wiegold’s question [KM, Question 6.45]) then follows, by the acylindrical
+hyperbolicity of Aut(Fn ), due to Genevois and Horbez [GH21]. In fact,
+acylindrical hyperbolicity is known in much greater generality, due to
+several authors [Gen24, GM19, Gen19, GH21, EH, JMS], which allows
+us to obtain infinite simple characteristic quotients in large classes of
+negatively curved groups; see Example 3.8 for a comprehensive list.
+   Theorem 1.3 is proven via a small cancellation construction over acyl-
+indrically hyperbolic groups. This construction is quite flexible, and we
+obtain additional control over the infinite simple characteristic quotients.
+
+                                     3
+In particular, we can map finite sets injectively, preserve the torsion, and
+embed outer automorphism groups. Moreover, we can embed any count-
+able subgroup in an infinite simple characteristic quotient. This leads to
+the following stronger and more general version of Theorem 1.1:
+Theorem 1.5 (Theorem 4.1). Let Γ be a torsion-free, non-elementary
+hyperbolic group. Then, for every countable group L, there exists a char-
+acteristic subgroup N < Γ such that Γ/N is simple, 2-generated, contains
+L as a subgroup, and contains an element of order n ∈ N if and only if
+L does.
+    It is well-known that a group Γ as in the statement is SQ-universal,
+that is, every countable group embeds in a quotient of Γ [Ol’95, Del96].
+Theorem 1.5 shows that SQ-universality can be achieved just using sim-
+ple characteristic quotients. By choosing L in a family of pairwise non-
+isomorphic finitely generated groups, we deduce in particular that Γ
+admits continuum many pairwise non-isomorphic simple characteristic
+quotients, and moreover the torsion can be prescribed (Corollary 4.2).
+    We also strengthen Theorem 1.1 in another direction, by producing
+different examples up to quasi-isometry:
+Theorem 1.6 (Theorem 5.1). There exist continuum many, pair-
+wise non-quasi-isometric, infinite, 2-generated, simple, characteristic
+quotients of Fn .
+    Theorem 5.1 will be proven via a criterion for quasi-isometric diver-
+sity in the space of marked groups [MOW21]. In order to apply it, we
+will need to slightly modify our construction to produce infinite sim-
+ple characteristic quotients of Fn as marked limits of finitely presented
+acylindrically hyperbolic characteristic quotients of Fn .
+    We end the paper with two questions on possible extensions and vari-
+ations of our results.
+Acknowledgements. The first author acknowledges support from the
+Agence Nationale de la Recherche under the grant GOFR (ANR-22-
+CE40-0004). The second author is supported by the Herchel Smith Post-
+doctoral Fellowship Fund. The authors are indebted to Yash Lodha for
+referring them to Wiegold’s question; and to Anthony Genevois, Camille
+Horbez, Ashot Minasyan and Markus Steenbock for comments on a pre-
+vious version. The authors would also like to thank the organizers of
+the conference Groups and Rigidity Around the Zimmer Program held
+in Ventotene in September 2023, where this work started. Finally, the
+authors thank anonymous referees for their comments and suggestions.
+
+                                     4
+2     Small cancellation theory
+A method to construct simple quotients of groups goes as follows. Start
+with a finitely generated “negatively curved” group Γ, and for an element
+1 ̸= g ∈ Γ add relations that ensure that each generator of Γ belongs to
+the normal closure of g. If this is done in a way that the quotient is
+still “negatively curved”, then the process can be iterated, and the direct
+limit will be normally generated by each of its non-identity elements,
+thus simple. Versions of this construction can be found e.g. in [Ol’79].
+     What makes this process rigorous is the theory of small cancellation.
+In our setting, in order to obtain characteristic quotients of Fn , we will
+perform a similar construction at the level of the automorphism group
+Aut(Fn ). Therefore the right notion of “negative curvature” for us is
+acylindrical hyperbolicity.
+
+2.1    Acylindrically hyperbolic groups
+Acylindricity appears in the work of Bowditch [Bow08] as a way to ex-
+tend the techniques of hyperbolic geometry beyond the scope of proper
+and co-compact actions. The class of all groups with a non-elementary,
+acylindrical action on a hyperbolic space was later named acylindrically
+hyperbolic groups by Osin [Osi16]. It encompasses several groups of in-
+terest in geometric group theory, such as non-elementary hyperbolic and
+relatively hyperbolic groups, mapping class groups and outer automor-
+phism groups of free groups.
+    As in [BH99, III.H, Definition 1.1], we say that a metric space is δ-
+hyperbolic (in the sense of Gromov) if its geodesic triangles are δ-slim. A
+metric space is hyperbolic, if it is δ-hyperbolic for some δ ∈ R+ . In this
+article we always assume for simplicity that δ > 1.
+Definition 2.1. Let G be a group acting by isometries on a metric
+space X. We say that the action is acylindrical if for all ε > 0 there exist
+R > 0 and n ∈ N such that the following holds. For all x, y ∈ X such
+that d(x, y) ⩾ R, the set {g ∈ G : d(x, gx) ⩽ ε, d(y, gy) ⩽ ε} contains at
+most n elements.
+    Recall that an action of a group G on a hyperbolic space X is non-
+elementary if G has more than two accumulation points in the boundary
+∂X. A group G is acylindrically hyperbolic if it admits a non-elementary,
+acylindrical action on a hyperbolic space X. Note that the action of a
+subgroup of G on X is acylindrical, and therefore every subgroup of G
+acting non-elementarily is also acylindrically hyperbolic.
+
+                                     5
+Lemma 2.2 ([Osi16, Lemma 7.2]). Let G be a group with a non-
+elementary acylindrical action on a hyperbolic space X. If H < G
+is an infinite normal subgroup, then the action of H on X is also
+non-elementary. Therefore, H is acylindrically hyperbolic.
+
+    Given a (possibly infinite) generating set A ⊂ G, we denote by
+Γ(G, A) the Cayley graph of G with respect to A. For every R ∈ R+ , we
+write BA (R) for the set of all the elements of G corresponding to vertices
+of Γ(G, A) in the ball of radius R centered at the identity. The space X
+appearing in the definition of acylindrically hyperbolic group can always
+be chosen to be a Cayley graph.
+
+Theorem 2.3 ([Osi16, Theorem 1.2]). Let G be an acylindrically hyper-
+bolic group. There exists a (typically infinite) generating set A ⊂ G such
+that the Cayley graph Γ(G, A) is hyperbolic and the action of G on it is
+non-elementary and acylindrical.
+
+   Another important property of acylindrically hyperbolic groups is
+that they have maximal finite normal subgroups.
+
+Theorem 2.4 ([DGO17, Theorem 2.23], [Hul16, Lemma 5.10]). If G
+is an acylindrically hyperbolic group, then G contains a unique maximal
+finite normal subgroup K. Moreover, G/K is acylindrically hyperbolic,
+and has no non-trivial finite normal subgroup.
+
+    In the remainder of the article we denote by K(G) the unique maximal
+finite normal subgroup of an acylindrically hyperbolic group G.
+
+Definition 2.5. Let G be a group with a non-elementary acylindrical
+action on a hyperbolic space X. Let H be a subgroup of G.
+
+   • H is elliptic (with respect to this action) if some, hence any, orbit
+     of H is bounded.
+
+   • H is suitable (with respect to this action) if the action of H on X
+     is non-elementary (i.e., neither elliptic nor virtually cyclic) and H
+     does not normalize a non-trivial finite subgroup of G.
+
+      Note that a suitable subgroup can only exist if K(G) = {1}. A good
+source of suitable subgroups is normal subgroups [CIOS25, Lemma 3.23].
+Here we will need something slightly stronger: recall that a subgroup
+H < G is subnormal if there exists a chain of subgroups H = H0 < H1 <
+· · · < Hk = G such that Hi is normal in Hi+1 for 0 ⩽ i < k.
+
+
+                                    6
+Lemma 2.6. Let G be a group with a non-elementary acylindrical action
+on a hyperbolic space X. Assume that K(G) = {1}. Then every non-
+trivial subnormal subgroup of G is suitable with respect to this action.
+
+Proof. Let H be a non-trivial subnormal subgroup of G, and let H =
+H0 < · · · < Hk = G be a chain witnessing this. The proof is by induction
+on the length k of this chain. The case k = 0 is trivial. Assume now that
+k ⩾ 1 and the statement holds for k − 1. In particular, H1 is suitable,
+hence non-elementary. It follows from Lemma 2.2 that the action of H0
+on X is acylindrical and non-elementary. By [Hul16, Lemma 5.5], there
+exists a unique maximal finite subgroup K ⊂ G that is normalized by
+H0 . Let g ∈ H1 and h ∈ H0 . Since H0 is normal in H1 , the element
+g −1 hg ∈ H0 normalizes K, or equivalently h normalizes gKg −1 . By
+uniqueness we obtain gKg −1 = K. Consequently H1 normalizes K.
+Since H1 is suitable, this forces K = {1}.
+
+Lemma 2.7. Let G be a group with a hyperbolic Cayley graph X, such
+that the action of G on X is non-elementary and acylindrical. Let H < G
+be suitable with respect to this action. Then there exists a 2-generated
+subgroup L < H that is also suitable with respect to this action.
+
+Proof. Let g ∈ G be a loxodromic element. Then there exists a unique
+maximal elementary subgroup containing g [DGO17, Lemma 6.5, Corol-
+lary 6.6], which we denote by E(g). By [Hul16, Corollary 5.7], the suit-
+able subgroup H contains two non-commensurable elements h1 , h2 such
+that E(hi ) = ⟨hi ⟩ for i = 1, 2. In particular, h1 ∈
+                                                    / E(h2 ), and h1 does
+not normalize a non-trivial finite subgroup. Letting L := ⟨h1 , h2 ⟩ we
+conclude.
+   We need one more lemma that shows that elliptic subgroups are, in
+a way, uniformly bounded.
+
+Lemma 2.8. Let G be a group. Let A be a generating set of G such that
+Γ(G, A) is δ-hyperbolic. For every elliptic subgroup E, there is g ∈ G
+such that gEg −1 is contained in BA (10δ).
+
+Proof. There is a vertex v ∈ Γ(G, A) such that the orbit Ev has diameter
+at most 10δ. (Such statement appears in many places in the literature
+with different values in place of 10δ. These differences depend mostly on
+the definition of hyperbolic space used by the authors, see e.g. [BH99,
+III.Γ, Lemma 3.3]. We chose on purpose a very generous formulation.
+Recall that we assume that δ > 1, so that we always have a vertex is
+our set of “almost fixed points”.) However the action of G on the vertex
+
+                                   7
+set of Γ(G, A) is transitive, hence there is an element g ∈ G such that
+gv = v0 where v0 is the vertex representing the identity of G. Then the
+orbit (gEg −1 )v0 is contained in BA (10δ).
+
+2.2    Small Cancellation Theorem
+Small cancellation theory is a powerful and versatile tool to produce and
+study groups with prescribed properties. It appears in many flavors in the
+literature [LS01, Ol’91, Gro01, Osi10, Cou14, DGO17]. The general phi-
+losophy is roughly the following: If a group G admits a “non-degenerate”
+action on a negatively curved space X, then so does any quotient of G ob-
+tained by adjoining relations which are “sufficiently independent”, hence
+paving the way to iterated constructions. For this paper, we rely on the
+work of Hull [Hul16].
+
+Theorem 2.9 (Small Cancellation Theorem [Hul16, Theorem 7.1]). Let
+G be a group and A ⊂ G a generating set of G. Assume that Γ(G, A)
+is hyperbolic and the action of G on this space is acylindrical and non-
+elementary. Let H < G be a finitely generated subgroup that is suitable
+with respect to the action on Γ(G, A). Let B ⊂ G be a finite subset and
+R ∈ R+ . Then there exists a quotient π : G → Ḡ with the following
+properties.
+
+  1. There is a subset Ā ⊂ Ḡ containing π(A) such that Γ(Ḡ, Ā) is
+     hyperbolic and the action of Ḡ on this space is non-elementary and
+     acylindrical.
+
+  2. π is injective on BA (R).
+
+  3. π(B) ⊂ π(H).
+
+  4. π(H) is a 2-generated suitable subgroup of Ḡ for its action on
+     Γ(Ḡ, Ā).
+
+  5. Every element of Ḡ of order n ∈ N is the image of an element of
+     G of order n.
+
+  6. ker π is the normal closure of finitely many elements in B · H.
+
+Proof. Without loss of generality we can assume that B contains a finite
+generating set of H. Consider a 2-generated suitable subgroup L of
+H as given by Lemma 2.7 and [Hul16, Theorem 7.1] with L (rather
+than H). In particular, (1), (2), and (5) directly follows from [Hul16,
+Theorem 7.1]. Hull’s statement also tells us that π(B) ⊂ π(L), hence
+
+                                    8
+π(B) ⊂ π(H), which proves (3). On the one hand L ⊂ H. On the other
+hand we assumed that B contains a generating set of H, so that our
+previous discussion yields π(H) ⊂ π(L). It follows that π(H) = π(L)
+is 2-generated. According to [Hul16, Theorem 7.1] it is also a suitable
+subgroup of Ḡ for its action on Γ(Ḡ, Ā), which completes the proof of
+(4). The last item is a consequence of the construction; see the proof of
+[Hul16, Theorem 7.1].
+
+Remark 2.10. Theorem 2.9 was later refined in various directions, see
+e.g. [MO19, Proposition 3.3] or [CIOS25, Theorem 3.27]. Using these
+stronger small cancellation theorems would allow to improve Theorem
+1.3 to encompass countable groups H that are not necessarily finitely
+generated. However, we do not know of any interesting application of this
+more general statement. In addition, the assumption of finite generation
+allows for an easier small cancellation setup (which for instance does
+not require to introduce hyperbolically embedded subgroups). The next
+corollary is the only statement in the article, where assuming that H is
+finitely generated cannot be avoided. Having finitely presented quotients
+as below will play a crucial role in Section 5.
+
+Corollary 2.11. There exists a finitely presented, 2-generated, acyl-
+indrically hyperbolic quotient G0 of Aut(Fn ) such that the composition
+Fn → Aut(Fn ) → G0 is surjective, and K(G0 ) = {1}.
+
+Proof. The group Aut(Fn ) is acylindrically hyperbolic, with no finite
+normal subgroups, see [GH21]. The subgroup Fn ∼     = Inn(Fn ) < Aut(Fn ) is
+infinite and normal, thus suitable (Lemma 2.6). We fix a finite generating
+set B of Aut(Fn ). Theorem 2.9 produces an acylindrically hyperbolic
+quotient π : Aut(Fn ) → G0 such that π(Fn ) is 2-generated and contains
+π(B) while K(G0 ) = {1}. This shows in particular that Fn surjects onto
+G0 which is therefore 2-generated. Moreover, by Theorem 2.9 again, π
+may be chosen to be the quotient of Aut(Fn ) by finitely many relations.
+Since Aut(Fn ) is finitely presented [Nie24], so is G0 .
+
+
+3    Simple characteristic quotients
+The construction of characteristic quotients relies on the following simple
+but key observation.
+
+Lemma 3.1. Let Γ be a group. Let π : Aut(Γ) → Q be a homomor-
+phism. Then the kernel of the composition π ◦ ad : Γ → Inn(Γ) → Q is
+characteristic in Γ.
+
+                                     9
+Proof. Let g ∈ ker(π ◦ ad) and α ∈ Aut(Γ). Then adg ∈ ker(π) so
+adα(g) = α adg α−1 ∈ ker(π) too. This shows that α(g) ∈ ker(π ◦ ad) and
+concludes the proof.
+    As a warm-up with provide first a short proof of the existence of infi-
+nite simple characteristic quotients of free groups. We thank an anony-
+mous referee for suggesting this argument.
+
+Theorem 3.2. Let n ⩾ 2. There exists an infinite simple characteristic
+quotient of Fn .
+
+Proof. There exists an acylindrically hyperbolic quotient π : Aut(Fn ) →
+G0 such that π is surjective when restricted to Fn (Corollary 2.11). Every
+quotient of G0 is a characteristic quotient of Fn (Lemma 3.1). Therefore,
+it suffices to show that G0 admits an infinite simple quotient.
+    Let H be Higman’s group [Hig51]: this is a finitely generated group
+with no non-trivial finite quotients, which is moreover acylindrically hy-
+perbolic [MO15, Corollary 4.26]. By [Hul16, Corollary 1.6] there exists
+an acylindrically hyperbolic group G1 that is a common quotient of G0
+and H. Since G1 is finitely generated, it follows from Zorn’s lemma that
+it contains a maximal proper normal subgroup N . Recall that G1 is a
+quotient of the Higman group. Hence the index of N in G1 must be
+infinite. Thus G2 = G1 /N is an infinite simple quotient of G0 .
+
+Remark 3.3. The above proof goes through Zorn’s Lemma, so the group
+it produces is not explicit, and it is harder to control its finer properties.
+We now give an alternative argument relying on the small cancellation
+theory techniques introduced in the previous section. It naturally pro-
+vides us with additional control, which we will exploit here and in the
+next sections.
+
+Definition 3.4. For a group Γ we denote by τ (Γ) the set {n ∈ N :
+Γ contains an element of order n}.
+
+Theorem 3.5. Consider a short exact sequence
+
+                          1 → H → G → Q → 1,
+
+where H is infinite and finitely generated. Let A ⊂ G be a generating
+set of G. Assume that Γ(G, A) is hyperbolic and the action of G on
+this space is acylindrical and non-elementary. Suppose in addition that
+K(G) = {1}. For every R ∈ R+ , there is a subgroup N < H, normal in
+G, with the following properties.
+
+
+                                     10
+   • H/N is simple.
+
+   • H/N is 2-generated but not finitely presentable.
+
+   • The projection G → G/N is injective on BA (R).
+
+   • τ (H/N ) = τ (H).
+
+   • Q embeds in Out(H/N ).
+
+Proof. By assumption Γ(G, A) is δ-hyperbolic, for some δ ∈ R+ . Without
+loss of generality we can assume that R ⩾ 10δ. We fix a finite generating
+set B of H and an enumeration {h1 , h2 , . . .} of H \ {1}. We are going to
+build by induction a nested sequence of subgroups Nk ⊂ H, normal in
+G, with the following properties. Let Hk := H/Nk and Gk := G/Nk .
+
+  1. There is a generating set Ak of Gk containing the image of A such
+     that Γ(Gk , Ak ) is hyperbolic and the action of Gk on this space is
+     non-elementary, acylindrical. Moreover K(Gk ) = {1}.
+
+  2. Hk is infinite. Moreover, for each i ∈ {1, . . . , k}, either hi ∈ Nk , or
+     Hk is the normal closure in Hk of (the image of) hi . In addition,
+     Hk is 2-generated, provided k ⩾ 1.
+
+  3. The projection G → Gk is injective on BA (R).
+
+  4. The following diagram commutes
+
+                   1         H            G         Q         1
+                                                     ∼
+                                                     =
+
+                   1         Hk           Gk        Q         1.
+
+From now on, we make an abuse of notation and denote in the same way
+an element g ∈ G and its images in the quotients of G.
+    We start our induction with N0 = {1} for which the above assertions
+hold. Assume that we have already built the first k + 1 subgroups N0 <
+N1 < · · · < Nk , where k ⩾ 0. If hk+1 ∈ Nk , we set Nk+1 = Nk and move
+on to the next step. Let us assume that this is not the case. We denote
+by Ak the generating set of Gk given by the induction hypothesis (1).
+Recall that Ak contains the image of A. Consequently the projection
+G → Gk induces a 1-Lipschitz map Γ(G, A) → Γ(Gk , Ak ). In particular,
+the image of BA (R) is contained in BAk (R). Denote by Lk the normal
+closure of hk+1 in Hk . As Gk has no non-trivial finite normal subgroup, Lk
+
+                                     11
+is a suitable of Gk with respect to its action on Γ(Gk , Ak ) (Lemma 2.6).
+Denote by Bk the image of B in Hk . Note that Bk is a finite generating
+set of Hk . According to the Small Cancellation Theorem (Theorem 2.9)
+there is a quotient Gk+1 of Gk such that the projection π : Gk → Gk+1
+has the following properties.
+
+   • There is a subset Ak+1 ⊂ Gk+1 containing the image of Ak (hence
+     the image of A) such that Γ(Gk+1 , Ak+1 ) is hyperbolic and the
+     action of Gk+1 on this space is non-elementary and acylindrical.
+
+   • π is injective on BAk (R).
+
+   • π(Bk ) ⊂ π(Lk ), so that the image Hk+1 of Hk in Gk+1 is normally
+     generated (as a subgroup of Hk+1 ) by hk+1 .
+
+   • π(Lk ) = π(Hk ) is a 2-generated, suitable subgroup of Gk+1 .
+
+   • Every element in Gk+1 of order n is the image of an element in Gk
+     with order n.
+
+   • ker π is contained in Hk .
+
+We now write Nk+1 for the kernel of the quotient G → Gk+1 , and remark
+that Nk < Nk+1 < H; in fact Nk+1 is also the kernel of the restriction
+H → Hk+1 .
+    Since π(Lk ) is a suitable subgroup of Gk+1 , it follows that Gk+1 has no
+non-trivial finite normal subgroup, hence (1) holds. Moreover the normal
+subgroup Hk+1 is non-trivial, therefore infinite. By construction Hk+1 is
+normally generated by hk+1 . However Hk was normally generated by
+each element in {h1 , . . . , hk } \ Nk , hence (2) holds. Points (3) and (4)
+directly follow from the construction and the previous discussion. This
+completes the induction step.
+    We now define N to be the increasing union of all the subgroups Nk
+and let H∞ := H/N and G∞ := G/N . By construction, every non-trivial
+element h ∈ H is either in N or normally generates H∞ . Hence H∞ is
+simple. As a quotient of every Hk , it is 2-generated. Suppose by contra-
+diction that H∞ is finitely presentable. Then N is the normal closure of
+a finite subset of H. Since N is the directed union of the Nk , we deduce
+that N = Nk , for k large enough. Therefore H∞ = Hk . But this is a
+contradiction, because H∞ is simple, while Hk is acylindrically hyper-
+bolic, being an infinite normal subgroup of the acylindrically hyperbolic
+group Gk (Lemma 2.2). It directly follows from the construction that
+the projection G → G∞ is injective on BA (R).
+
+
+                                     12
+    An induction argument shows that every element of order n in H∞
+has a pre-image g of order n in G. However the kernel of the projec-
+tion G → G∞ is contained in H, hence g belongs to H. Consequently
+τ (H∞ ) ⊂ τ (H). Let us prove the converse inclusion. Let h ∈ H be a
+finite order element. In particular, ⟨h⟩ is elliptic, thus it is conjugate to
+a finite subgroup contained in BA (R), on which the projection G → G∞
+is injective (Lemma 2.8). Hence ⟨h⟩ embeds in G∞ , and a posteriori in
+H∞ . This shows that τ (H) ⊂ τ (H∞ ).
+    Finally, note that the following diagram commutes
+                1         H           G          Q         1
+                                                  ∼
+                                                  =
+
+                1        H∞          G∞          Q         1
+and its rows are short exact sequences. The action by conjugation of G∞
+on H∞ defines a morphism G∞ → Aut(H∞ ), so that the image of any
+element of H∞ is inner. Hence it induces a morphism χ : Q → Out(H∞ ).
+Let us prove that χ is injective. Consider an element q ∈ Q and g ∈ G
+a pre-image of q. Assume that χ(q) = 1. In particular, there is u ∈ H
+such that gu centralizes H∞ . Since H is finitely generated, this property
+is ensured by finitely many relations in N , therefore there exists k ∈ N
+such that gu centralizes Hk . Since Hk is non-elementary (Lemma 2.2),
+⟨gu⟩ must be finite [BF02, Proposition 6]. But Hk is a suitable subgroup
+of Gk (Lemma 2.6) so it cannot normalize a non-trivial finite subgroups.
+It follows that gu = 1 in Gk ; in particular g ∈ Hk and so q = 1.
+   As a corollary we obtain Theorem 1.3:
+
+Corollary 3.6. Let G be an acylindrically hyperbolic group. Let H < G
+be finitely generated, infinite and normal. Then there exists a subgroup
+N < H, normal in G, such that H/N is 2-generated, infinite, and simple.
+
+Proof. Let G0 := G/K(G), which is an acylindrically hyperbolic group
+with no non-trivial finite normal subgroup (Theorem 2.4). Let H0 be the
+image of H in G0 . Theorem 3.5 gives a subgroup N0 < H0 , normal in
+G0 , such that H0 /N0 is 2-generated, infinite and simple. Let N ′ be the
+pre-image of N0 in G, and let N := H ∩ N ′ . Then N is a subgroup of H,
+normal in G, and H/N ∼   = H0 /N0 is infinite and simple.
+   Combining with Lemma 3.1, we obtain Corollary 1.4:
+
+
+
+
+                                     13
+Corollary 3.7. Let Γ be a finitely generated group such that [Γ : Z(Γ)] =
+∞ and Aut(Γ) is acylindrically hyperbolic. Then Γ admits a character-
+istic subgroup N containing Z(Γ) such that Γ/N is 2-generated, infinite,
+and simple.
+
+Proof. The hypothesis implies that Inn(Γ) is an infinite normal subgroup
+of the acylindrically hyperbolic group Aut(Γ). Thus the result is a com-
+bination of Corollary 3.6 and Lemma 3.1.
+
+Example 3.8. Corollary 3.7 applies when Γ is a finitely generated group
+such that one of the following holds.
+
+        • Γ is non-elementary hyperbolic [Gen19, GH21].
+
+        • Γ is non-elementary hyperbolic relative to a collection of finitely
+          generated subgroups, none of which is relatively hyperbolic [GH21,
+          Theorem 1.3].
+
+        • Γ has infinitely many ends [GH21, Theorem 1.1].
+
+        • Γ is a graph product of finitely generated groups over a finite graph
+          that is not a join and not reduced to a single vertex [EH, Theorem
+          A.27] (see also [GM19, Theorem E] and [Gen24, Theorem 1.5]).
+
+        • Γ is a torsion-free Artin group, whose underlying graph is connected
+          and has a separating vertex that is not in the center of Γ [JMS,
+          Theorem E].
+
+This is not the first time that acylindrical hyperbolicity of automorphism
+groups is used to produce Aut-invariant versions of previously known con-
+structions [Osi25, FFW23]. It would be interesting to see more instances
+of this.2
+
+
+4         SQ-universality
+Corollary 3.7 proves the existence of a simple characteristic quotient of
+Fn . In this section, we prove that there is a wealth of such quotients,
+by embedding arbitrary countable groups. We get the following more
+precise and more general version of Theorem 1.5.
+    2
+   More instances did appear since the first version of this paper, see [FF25,
+FFIM+ 26].
+
+
+
+
+                                        14
+Theorem 4.1. Let Γ be a torsion-free non-elementary hyperbolic group,
+and let C be a finite subset of Γ. Let L be a countable group. Then Γ
+admits a characteristic subgroup N with the following properties.
+   • Γ/N is simple.
+   • Γ/N is 2-generated but not finitely presentable.
+   • The quotient Γ → Γ/N is injective on C.
+   • The group L embeds in Γ/N , and τ (Γ/N ) = τ (L).
+   • Out(Γ) embeds in Out(Γ/N ).
+   As a corollary, we obtain the following generalization of Theorem 1.1.
+Corollary 4.2. Let Γ be a torsion-free non-elementary hyperbolic group.
+For every set of primes P, there exist continuum many, pairwise non-
+isomorphic, infinite, 2-generated, simple characteristic quotients Γ/N of
+Γ such that τ (Γ/N ) = P. In particular, Γ admits continuum many
+torsion-free, characteristic, simple quotients.
+Proof. Let E be a countable group such that τ (E) = P, for example
+E := ∗p∈P Z/pZ. Let {Li }i∈I be a family of continuum many pairwise
+non-isomorphic finitely generated torsion-free groups, such as Camm’s
+simple amalgamated products [Cam53]. Then by Theorem 4.1, for each
+i ∈ I there exists a characteristic subgroup Ni of Γ such that Γ/Ni is
+2-generated, infinite and simple; moreover E ∗ Li embeds in Γ/Ni and
+τ (Γ/N ) = τ (E ∗ Li ) = τ (E) = P.
+    Now Γ/Ni is a countable group containing the finitely generated sub-
+group Li . Since every countable group contains only countably many
+finitely generated subgroups, it follows that the family Γ/Ni achieves
+continuum many isomorphism types.
+Remark 4.3. We could also more directly obtain continuum many
+pairwise non-isomorphic groups by varying P among all infinite sets of
+primes.
+   Before proving Theorem 4.1, we start with the following auxiliary
+result.
+Proposition 4.4. Let G be a group and A ⊂ G a generating set of
+G. Assume that Γ(G, A) is hyperbolic and the action of G on this space
+is acylindrical and non-elementary. Let H < G be a subgroup that is
+suitable with respect to its action on Γ(G, A). Let L be a countable group
+and R ∈ R+ . There is a quotient π : G → Ḡ such that if we denote
+H̄ := π(H), and N := ker(π), then the following hold.
+
+                                   15
+   • There is a subset Ā ⊂ Ḡ containing π(A) such that Γ(Ḡ, Ā) is
+     hyperbolic and the action of Ḡ on this space is non-elementary and
+     acylindrical. Moreover K(Ḡ) = 1.
+
+   • π : G → Ḡ is injective on BA (R).
+
+   • L embeds as a subgroup of H̄, and its image is elliptic for the action
+     on Γ(Ḡ, Ā).
+
+   • If in addition, H is normal in G, then N < H and τ (H̄) = τ (L) ∪
+     τ (H).
+
+Proof. We start by noticing that, since every countable group embeds in
+a finitely generated group preserving the values of torsion [LS01, Theo-
+rem IV.3.1], we may reduce to the case in which L is finitely generated.
+Let P denote the free product G ∗ L. The set A′ := A ∪ L generates
+P . Since P is hyperbolic relative to {G, L}, it is known that Γ(P, A′ ) is
+δ-hyperbolic (for some δ ∈ R+ ) and the action of P on this space is non-
+elementary and acylindrical [ABO19, Theorem 2.7]. On the one hand,
+H does not normalize any non-trivial finite subgroup of P . On the other
+hand, the graph Γ(G, A) admits a G-equivariant isometric embedding in
+Γ(P, A′ ). Hence, the action of H on Γ(P, A′ ) is also non-elementary, and
+therefore the subgroup H is suitable for the action of P on Γ(P, A′ ).
+    Without loss of generality we can assume that R ⩾ max{1, 10δ}. Fix
+a finite generating set B of L. Note that by construction L is contained
+in the ball of radius 1 of Γ(P, A′ ). Now we apply Theorem 2.9 to P , and
+obtain a quotient π : P → P̄ with the following properties. Denote by
+B̄, L̄, H̄, and Ḡ the respective images of B, L, H and G under π.
+
+   • There is a subset Ā of P̄ containing the image of A′ such Γ(P̄ , Ā)
+     is hyperbolic. The action of P̄ on this space is non-elementary and
+     acylindrical. Moreover K(P̄ ) = {1}.
+
+   • B̄ is contained in H̄, hence L̄ < H̄ < Ḡ.
+
+   • π is injective on BA′ (R) ⊂ P , hence π|G is injective on BA (R) ⊂ G.
+
+   • Every element of order n in P̄ is the image of an element of order
+     n in P .
+
+   • ker(π) is contained in the normal closure of L∪H, which we denote
+     by ⟨⟨L ∪ H⟩⟩.
+
+
+
+
+                                    16
+Let N := G ∩ ker(π). Since L̄ < Ḡ, the restriction π : G → P̄ is
+surjective, hence P̄ = Ḡ = G/N is a quotient of G. Note that the
+diameter of L in Γ(P, A′ ) is 1. Hence L embeds in P̄ . By construction
+the map Γ(P, A′ ) → Γ(P̄ , Ā) is 1-Lispchitz, hence L̄ is elliptic for its
+action Γ(P̄ , Ā).
+    Assume now that H is normal in G. Hence the quotient P/ ⟨⟨L ∪ H⟩⟩
+is exactly G/H. This means that G ∩ ⟨⟨L ∪ H⟩⟩ = H. However ker(π) is
+contained in ⟨⟨L ∪ H⟩⟩, thus N is subgroup of H. Since L embeds in H̄,
+we have τ (L) ⊂ τ (H̄). It is proven as in Theorem 3.5 that every finite
+subgroup of P embeds in P̄ , hence τ (H) ⊂ τ (H̄). Let us prove now the
+converse inclusion. Consider an element n ∈ τ (H̄). Let h̄ be an element
+of H̄ with order n. We know that h̄ admits a pre-image h ∈ P with the
+same order. Since P is a free product, either h is conjugate into L, in
+which case n ∈ τ (L), or h is conjugate into G. Recall that H is normal in
+G, hence so is H̄ in Ḡ. Up to replacing h̄ by a conjugate, we can assume
+that h actually belongs to G, thus to HN . However the kernel N of the
+map G → Ḡ is contained in H, hence h belongs to H. This shows that
+n ∈ τ (H).
+Proof of Theorem 4.1. Since Γ is a non-elementary hyperbolic group,
+Aut(Γ) is acylindrically hyperbolic (Example 3.8), and since Γ is torsion-
+free, Z(Γ) = {1}, and in particular Inn(Γ) ∼    = Γ is infinite. We claim
+that Aut(Γ) has no non-trivial finite normal subgroup. Indeed, let K <
+Aut(Γ) be a finite normal subgroup. Then Γ acts on K by conjugacy,
+and thus there exists a finite index subgroup Γ′ < Γ such that the action
+of Γ′ on K fixes every point. Therefore every automorphism in K fixes
+Γ′ pointwise. But since Γ is torsion-free and hyperbolic, this implies that
+K is trivial [BB10, Lemmas 2.2 and 2.3].
+    For simplicity of reference, we now let H := Γ, which we identify with
+Inn(Γ), G := Aut(Γ), and Q := Out(Γ). Let L be a countable group. Let
+A be generating set of G such that Γ(G, A) is hyperbolic and the action
+of G on this space is acylindrical and non-elementary (Theorem 2.3).
+Since H is an infinite normal subgroup of G, it is non-elementary as well
+(Lemma 2.2). According to Proposition 4.4, there is a normal subgroup
+N0 of G contained in H such that Ḡ := G/N0 is acylindrically hyperbolic.
+More precisely there is a subset Ā generating Ḡ and containing the image
+of A such that Γ(Ḡ, Ā) hyperbolic and the action of Ḡ on this space is
+non-elementary and acylindrical. In addition, K(Ḡ) = 1, C embeds in
+H̄, L embeds in H̄ as an elliptic subgroup, and τ (H/N0 ) = τ (L). Let
+H̄ := H/N0 . Since K(Ḡ) = 1, the quotient H̄ is an infinite normal
+
+
+
+                                    17
+subgroup of Ḡ, so that the short exact sequence
+
+                           1 → H̄ → Ḡ → Q → 1
+
+satisfies the assumption of Theorem 3.5. Consequently there is a normal
+subgroup N1 ⊂ Ḡ contained in H̄ such that H̄/N1 is simple, 2-generated
+but not finitely presented, with τ (H̄/N1 ) = τ (H/N0 ). Moreover C and
+L embed in H̄/N1 and Q embeds in Out(H̄/N1 ). We write N for the
+pre-image of N1 in G, which is a normal subgroup of G contained in H.
+We conclude by Lemma 3.1.
+
+Remark 4.5. Using classical arguments in small cancellation theory,
+we could prescribe other properties on Γ/N . For instance, in the above
+proof, if we first replace H by a common quotient of H and an acylin-
+drically hyperbolic group with Property (T) [Hul16, Corollary 1.6] we
+would obtain that H/N has Property (T). Similarly, one may try to con-
+struct characteristic quotients of hyperbolic groups that are complete,
+finitely presented and Hopfian [LS01, Theorem 10.4], with a prescribed
+outer automorphism group [BW05], and so on. However, it is unclear
+whether any of these would have interesting connections to independent
+problems, the same way that Wiegold’s question [KM, Question 6.45] is
+connected to the problem of growth sequences of simple groups.
+
+
+5     Quasi-isometric diversity
+Our goal in this section is to strengthen the uncountability result (Corol-
+lary 4.2) to moreover distinguish groups up to quasi-isometry.
+
+Theorem 5.1. There exist continuum many, pairwise non-quasi-
+isometric, 2-generated, infinite, simple, characteristic quotients of Fn .
+
+    We will prove Theorem 5.1 by applying a criterion of Minasyan–Osin–
+Witzel [MOW21]. This requires a small amount on background on the
+space of marked groups Gn (n ⩾ 2) [Gri84]. This is the set of normal
+subgroups of Fn , seen as a subspace of 2Fn with the product topology;
+in particular it is a compact metrizable space. We will often identify
+a normal subgroup N < Fn with the corresponding marked quotient
+Fn → Fn /N . We will use some standard terminology from descriptive
+set theory [Kec95, I.8]: A space is perfect if it is closed and has no isolated
+points; a countable intersection of open sets is called a Gδ -set. In our
+settings, a set is comeager if contains a dense Gδ -set (this relies on the
+Baire Category Theorem).
+
+                                      18
+    Following [MOW21], we say that a subspace of Gn is quasi-
+isometrically diverse if every comeager subset of it has continuum
+many quasi-isometry classes. The proof of Theorem 5.1 will use the
+following criterion for quasi-isometric diversity:
+
+Theorem 5.2 ([MOW21, Corollary 1.2]). Every non-empty perfect sub-
+set of Gn containing a dense subset of finitely presented groups is quasi-
+isometrically diverse.
+
+Remark 5.3. The statement of [MOW21, Corollary 1.2] is about non-
+empty perfect subsets of G, which is a directed union of the spaces Gn for
+n ⩾ 2. Since Gn is compact, a perfect subset of Gn is also a perfect subset
+of G, thus Theorem 5.2 is a direct consequence of [MOW21, Corollary
+1.2].
+
+    We will apply Theorem 5.2 as in the proof of [MOW21, Corollary
+4.10]. Namely, we will exhibit a set H of finitely presented marked
+groups, and a set S of simple characteristic marked groups, such that
+S is comeager in the closure cl(H). Note that the groups that appear in
+intermediate steps of our construction (Theorem 3.5) are not necessarily
+finitely presented, unless G = H.
+    To bypass this difficulty we use Corollary 2.11: There exists a 2-
+generated, finitely presented, acylindrically hyperbolic quotient G0 of
+Aut(Fn ) such that the composition Fn → Aut(Fn ) → G0 is surjective.
+We fix the marked group G0 for the rest of this section. Let H ⊂ Gn
+denote the set of marked groups that are finitely presented, acylindri-
+cally hyperbolic, and factor through Fn → G0 . We further let S denote
+the subset of cl(H) consisting of simple groups whose marking factors
+through Fn → G0 . Since G0 is 2-generated, so is every element in S. We
+make the following key observation:
+
+Lemma 5.4. Every quotient of G0 is a characteristic quotient of Fn . In
+particular, every marked group in S is a simple characteristic quotient of
+Fn .
+
+Proof. By the choice of G0 (Corollary 2.11), a quotient Fn → G0 → H
+factors as Fn → Aut(Fn ) → G0 → H. The kernel of this composition is
+characteristic, by Lemma 3.1.
+   Finally, we need to establish a topological property of S.
+
+Lemma 5.5. The subset S ⊂ cl(H) is comeager.
+
+
+
+                                    19
+Proof. The set of marked groups that factor through Fn → G0 is open,
+because G0 is finitely presented. Moreover, simple groups form a Gδ -set
+in Gn [MOW21, Corollary 4.5]. Therefore the set of simple quotients of
+G0 is a Gδ -set, which implies that S is a Gδ -subset of cl(H).
+    To show that S is dense in cl(H), it suffices to show that each H ∈ H
+is an accumulation point of S. A neighbourhood basis of H := Fn /NH
+consists of the sets
+
+                 UW := {N ∈ Gn : N ∩ W = NH ∩ W };
+
+where W ⊂ Fn is finite. By Theorem 3.5 applied with H = G (and Q =
+1), there exists an infinite simple quotient S of H such that the finite set
+W NH ⊂ Fn /NH = H maps injectively into S. Thus S ∈ UW . Moreover,
+the construction of Theorem 3.5 produces a sequence of quotients of H,
+each of which is acylindrically hyperbolic, and obtained from the previous
+one by an application of Theorem 2.9. Since H is finitely presented, this
+shows that each of the groups in this sequence belong to H, and therefore
+S ∈ cl(H), and so S ∈ S.
+    We are ready to prove Theorem 5.1.
+Proof of Theorem 5.1. Let G0 , H, S be as above. Recall that S con-
+sists of simple characteristic quotients of Fn by Lemma 5.4, and that
+S ⊂ cl(H) is comeager, in particular it is dense. By definition H is also
+dense in cl(H), and moreover H ∩ S = ∅, because acylindrically hyper-
+bolic groups cannot be simple. Since an isolated point must belong to
+every dense subset, it follows that cl(H) has no isolated points, and there-
+fore is perfect. Theorem 5.2 now applies to give quasi-isometric diversity
+of cl(H). Since S is comeager in cl(H), it follows from the definition
+that S has continuum many quasi-isometry classes. Finite groups form
+a single quasi-isometry class, so we conclude that there are continuum
+many quasi-isometry classes of 2-generated, infinite, simple, characteris-
+tic quotients of Fn .
+
+
+6     Outlook
+We end with two questions on possible generalizations and applications
+of our results. The first is about how far the list from Example 3.8 can
+be extended:
+
+Question 6.1. Let Γ be a finitely generated acylindrically hyperbolic
+group. Does Γ admit an infinite simple characteristic quotient?
+
+                                    20
+   In [Gen19, Question 1.1], Genevois asked whether the automorphism
+group of a finitely generated acylindrically hyperbolic group is always
+acylindrically hyperbolic. In light of Corollary 1.4, an affirmative answer
+to Genevois’s Question implies an affirmative answer to Question 6.1.
+    The second question asks for a middle ground between Lubotzky’s
+Conjecture (Remark 1.2), which is about finite simple characteristic quo-
+tients, and our construction, which produces non-finitely presentable sim-
+ple characteristic quotients.
+
+Question 6.2. Let n ⩾ 2. Does there exist a characteristic subgroup
+N < Fn such that Fn /N is infinite, simple and finitely presentable?
+
+
+References
+[ABO19]    C. Abbott, S. H. Balasubramanya, and D. Osin, Hyperbolic structures on
+           groups, Algebr. Geom. Topol. 19 (2019), no. 4, 1747–1835. MR 3995018
+[BB10]     L. Bartholdi and O. Bogopolski, On abstract commensurators of groups,
+           J. Group Theory 13 (2010), no. 6, 903–922. MR 2736164
+[BF02]     M. Bestvina and K. Fujiwara, Bounded cohomology of subgroups of map-
+           ping class groups, Geom. Topol. 6 (2002), 69–89. MR 1914565
+[BH99]     M. R. Bridson and A. Haefliger, Metric spaces of non-positive curvature,
+           Grundlehren der mathematischen Wissenschaften [Fundamental Princi-
+           ples of Mathematical Sciences], vol. 319, Springer-Verlag, Berlin, 1999.
+           MR 1744486
+[Bow08]    B. H. Bowditch, Tight geodesics in the curve complex, Invent. Math. 171
+           (2008), no. 2, 281–300. MR 2367021
+[Bri22]    M. R. Bridson, Concise presentations of direct products, Proc. Amer.
+           Math. Soc. 150 (2022), no. 4, 1361–1368. MR 4375728
+[BW05]     I. Bumagin and D. T. Wise, Every group is an outer automorphism group
+           of a finitely generated group, J. Pure Appl. Algebra 200 (2005), no. 1-2,
+           137–147. MR 2142354
+[Cam53]    R. Camm, Simple free products, J. London Math. Soc. 28 (1953), 66–76.
+           MR 52420
+[CG05]     C. Champetier and V. Guirardel, Limit groups as limits of free groups,
+           Israel J. Math. 146 (2005), 1–75. MR 2151593
+[Cha00]    C. Champetier, L’espace des groupes de type fini, Topology 39 (2000),
+           no. 4, 657–680. MR 1760424
+[CIOS25]   I. Chifan, A. Ioana, D. Osin, and B. Sun, Small cancellation and outer
+           automorphisms of Kazhdan groups acting on hyperbolic spaces, Algebr.
+           Geom. Topol. 25 (2025), no. 9, 5463–5501. MR 5005652
+
+
+
+
+                                       21
+[CLT26]    W. Y. Chen, A. Lubotzky, and P. H. Tiep, Finite simple characteristic
+           quotients of the free group of rank 2, Comment. Math. Helv. 101 (2026),
+           no. 2, 305–344. MR 5042351
+[Cou14]    R. Coulon, On the geometry of Burnside quotients of torsion free hyper-
+           bolic groups, Internat. J. Algebra Comput. 24 (2014), no. 3, 251–345. MR
+           3211906
+[Del96]    T. Delzant, Sous-groupes distingués et quotients des groupes hyper-
+           boliques, Duke Math. J. 83 (1996), no. 3, 661–682. MR 1390660
+[DGO17]    F. Dahmani, V. Guirardel, and D. Osin, Hyperbolically embedded sub-
+           groups and rotating families in groups acting on hyperbolic spaces, Mem.
+           Amer. Math. Soc. 245 (2017), no. 1156, v+152. MR 3589159
+[EH]       A. Escalier and C. Horbez, Graph products and measure equiva-
+           lence: classification, rigidity, and quantitative aspects, arXiv preprint
+           arXiv:2401.04635. To appear in Mem. Amer. Math. Soc.
+[Erf95]    A. Erfanian, A problem on growth sequences of groups, J. Austral. Math.
+           Soc. Ser. A 59 (1995), no. 2, 283–286. MR 1346636
+[EW95]     A. Erfanian and J. Wiegold, A note on growth sequences of finite simple
+           groups, Bull. Austral. Math. Soc. 51 (1995), no. 3, 495–499. MR 1331443
+[FF25]     F. Fournier-Facio, A note on separability in outer automorphism groups,
+           Proc. Edinb. Math. Soc. (2) 68 (2025), no. 3, 705–711. MR 4943964
+[FFIM+ 26] F. Fournier-Facio, H. Iveson, A. Martino, W. Sgobbi, and P. Wong,
+           Property R∞ for groups with infinitely many ends, Geom. Dedicata 220
+           (2026), no. 3, Paper No. 25, 30. MR 5047846
+[FFW23]    F. Fournier-Facio and R. D. Wade, Aut-invariant quasimorphisms on
+           groups, Trans. Amer. Math. Soc. 376 (2023), no. 10, 7307–7327. MR
+           4636691
+[Gen19]    A. Genevois, Negative curvature in automorphism groups of one-ended
+           hyperbolic groups, J. Comb. Algebra 3 (2019), no. 3, 305–329. MR
+           4011668
+[Gen24]          , Automorphisms of Graph Products of Groups and Acylindrical
+           Hyperbolicity, Mem. Amer. Math. Soc. 301 (2024), no. 1509. MR 4808711
+[GG13]     S. Garion and Y. Glasner, Highly transitive actions of Out(Fn ), Groups
+           Geom. Dyn. 7 (2013), no. 2, 357–376. MR 3054573
+[GH21]     A. Genevois and C. Horbez, Acylindrical hyperbolicity of automorphism
+           groups of infinitely ended groups, J. Topol. 14 (2021), no. 3, 963–991.
+           MR 4503954
+[GM19]     A. Genevois and A. Martin, Automorphisms of graph products of groups
+           from a geometric perspective, Proc. Lond. Math. Soc. (3) 119 (2019),
+           no. 6, 1745–1779. MR 4295519
+[Gri84]    R. I. Grigorchuk, Degrees of growth of finitely generated groups and the
+           theory of invariant means, Izv. Akad. Nauk SSSR Ser. Mat. 48 (1984),
+           no. 5, 939–985. MR 764305
+
+
+                                       22
+[Gro01]   M. Gromov, CAT(κ)-spaces: construction and concentration, Zap.
+          Nauchn. Sem. S.-Peterburg. Otdel. Mat. Inst. Steklov. (POMI) 280
+          (2001), no. Geom. i Topol. 7, 100–140, 299–300. MR 1879258
+[GS09]    S. Garion and A. Shalev, Commutator maps, measure preservation, and
+          T -systems, Trans. Amer. Math. Soc. 361 (2009), no. 9, 4631–4651. MR
+          2506422
+[Han]     L. Hanany, The yang-baxter equation and characteristic finite simple quo-
+          tients of the free group of rank 2, arXiv preprint arXiv:2510.03210.
+[Hig51]   G. Higman, A finitely generated infinite simple group, J. London Math.
+          Soc. 26 (1951), 61–64. MR 38348
+[Hul16]   M. Hull, Small cancellation in acylindrically hyperbolic groups, Groups
+          Geom. Dyn. 10 (2016), no. 4, 1077–1119. MR 3605028
+[JMS]     O. Jones, G. Mangioni, and G. Sartori, JSJ splittings for all Artin groups,
+          arXiv preprint arXiv:2506.17157.
+[Kec95]   A. S. Kechris, Classical descriptive set theory, Graduate Texts in Math-
+          ematics, vol. 156, Springer-Verlag, New York, 1995. MR 1321597
+[KM]      E. I. Khukhro and V. D. Mazurov, Unsolved problems in group theory.
+          The Kourovka notebook, arXiv preprint arXiv:1401.0300.
+[LS01]    R. C. Lyndon and P. E. Schupp, Combinatorial group theory, Classics in
+          Mathematics, Springer-Verlag, Berlin, 2001, Reprint of the 1977 edition.
+          MR 1812024
+[Lub11]   A. Lubotzky, Dynamics of Aut(FN ) actions on group presentations and
+          representations, Geometry, rigidity, and group actions, Chicago Lectures
+          in Math., Univ. Chicago Press, Chicago, IL, 2011, pp. 609–643. MR
+          2807845
+[MO15]    A. Minasyan and D. Osin, Acylindrical hyperbolicity of groups acting on
+          trees, Math. Ann. 362 (2015), no. 3-4, 1055–1105. MR 3368093
+[MO19]          , Acylindrically hyperbolic groups with exotic properties, J. Algebra
+          522 (2019), 218–235. MR 3896954
+[MOW21]   A. Minasyan, D. Osin, and S. Witzel, Quasi-isometric diversity of marked
+          groups, J. Topol. 14 (2021), no. 2, 488–503. MR 4286046
+[Nie24]   J. Nielsen, Die Isomorphismengruppe der freien Gruppen, Math. Ann. 91
+          (1924), no. 3-4, 169–209. MR 1512188
+[NN51]    B. H. Neumann and H. Neumann, Zwei Klassen charakteristischer Un-
+          tergruppen und ihre Faktorgruppen, Math. Nachr. 4 (1951), 106–125. MR
+          40297
+[Obr93]   V. N. Obraztsov, Growth sequences of 2-generator simple groups, Proc.
+          Roy. Soc. Edinburgh Sect. A 123 (1993), no. 5, 839–855. MR 1249690
+[Ol’79]   A. Yu. Ol’shanskiı̆, An infinite simple torsion-free Noetherian group, Izv.
+          Akad. Nauk SSSR Ser. Mat. 43 (1979), no. 6, 1328–1393. MR 567039
+
+
+
+
+                                       23
+[Ol’91]          , Geometry of defining relations in groups, Mathematics and its
+          Applications (Soviet Series), vol. 70, Kluwer Academic Publishers Group,
+          Dordrecht, 1991, Translated from the 1989 Russian original by Yu. A.
+          Bakhturin. MR 1191619
+[Ol’95]         , SQ-universality of hyperbolic groups, Mat. Sb. 186 (1995), no. 8,
+          119–132. MR 1357360
+[Osi10]   D. Osin, Small cancellations over relatively hyperbolic groups and embed-
+          ding theorems, Ann. of Math. (2) 172 (2010), no. 1, 1–39. MR 2680416
+[Osi16]          , Acylindrically hyperbolic groups, Trans. Amer. Math. Soc. 368
+          (2016), no. 2, 851–888. MR 3430352
+[Osi21]          , A topological zero-one law and elementary equivalence of finitely
+          generated groups, Ann. Pure Appl. Logic 172 (2021), no. 3, Paper No.
+          102915, 36. MR 4172771
+[Osi25]          , Out(Fn )-invariant probability measures on the space of n-
+          generated marked groups, Groups Geom. Dyn. 19 (2025), no. 2, 431–444.
+          MR 4940646
+[OT13]    D. Osin and A. Thom, Normal generation and ℓ2 -Betti numbers of groups,
+          Math. Ann. 355 (2013), no. 4, 1331–1347. MR 3037017
+[Pak01]   I. Pak, What do we know about the product replacement algorithm?,
+          Groups and computation, III (Columbus, OH, 1999), Ohio State Univ.
+          Math. Res. Inst. Publ., vol. 8, de Gruyter, Berlin, 2001, pp. 301–347. MR
+          1829489
+[Wie74]   J. Wiegold, Growth sequences of finite groups, J. Austral. Math. Soc. 17
+          (1974), 133–141. MR 349841
+[Wie88]          , Is the direct square of every 2-generator simple group 2-
+          generator?, Publ. Math. Debrecen 35 (1988), no. 3-4, 207–209. MR
+          1005283
+[Wis02]   D. T. Wise, The rank of a direct power of a small-cancellation group,
+          Proceedings of the Conference on Geometric and Combinatorial Group
+          Theory, Part I (Haifa, 2000), vol. 94, 2002, pp. 215–223. MR 1950879
+[WW78]    J. Wiegold and J. S. Wilson, Growth sequences of finitely generated
+          groups, Arch. Math. (Basel) 30 (1978), no. 4, 337–343. MR 503347
+
+
+Université Bourgogne Europe, CNRS, IMB UMR 5584, 21000
+Dijon, France
+E-mail address: remi.coulon@cnrs.fr
+
+Department of Pure Mathematics and Mathematical Statis-
+tics, University of Cambridge, UK
+E-mail address: ff373@cam.ac.uk
+
+
+
+                                       24
+

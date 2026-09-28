@@ -43,3 +43,13 @@ Update, approximately 11:18 UTC: full outer-slot injectivity fails in degree fiv
 - A3: Rauzy, *Computability of finite quotients of finitely generated groups*, Theorem 29, explicitly states a finitely presented group whose maximal residually finite quotient has unsolvable word problem, citing Bridson–Wilton/Slobodskoi. Prior solution, not a new target.
 - A5: Jayadevan, arXiv:2609.10281 (9 September 2026), announces effective enumeration of finite presentations of metabelian groups. Primary preprint located; its proof/formalization has not been audited here.
 - MA7: the related Kourovka 16.23 includes n>2 and a nonscalar-modulo-every-proper-ideal condition omitted from the short GroupWorld text. An n=2 finite-field example would exploit this omission rather than address the intended open problem. Keep the distinction explicit.
+
+Update, 11:36 UTC: class five is now checked and included in the same N8 partial candidate. The old lead above is retained as chronological history; current proof is `problems/N8/class5-proof.md`.
+
+## New N8 direction: independent abelianized factors in arbitrary class
+
+At approximately 11:44 UTC a different route emerged. For fixed independent abelianization vectors u,v, the IA automorphism group has finitely many orbits on pairs of lifts in a finite-class free nilpotent group. At each degree its correction map is Hom(Z^r,L_j) -> L_j^2, D -> (Du,Dv), which has finite cokernel. Finite representatives can be constructed layer by layer. The target is then a commutator exactly when it belongs to the IA orbit of one of finitely many representative commutators.
+
+The IA group is finitely generated nilpotent and acts trivially on all graded Lie layers. Its orbit problem can be decided by successive central-layer homomorphisms and integer linear algebra. A fully effective kernel construction can use Smith kernels plus bounded iterated conjugates, avoiding any appeal to a general Diophantine decision oracle. See the new proof draft `problems/N8/independent-abelianization-proof.md`.
+
+This promises all nilpotency classes for targets outside gamma_3, while the completed class-three/four/five procedures cover every target in those classes. **Not yet added to the claim ledger:** proof audit, implementation/sanity checks and targeted novelty comparison remain to be completed.
