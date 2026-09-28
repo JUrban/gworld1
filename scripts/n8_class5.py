@@ -8,6 +8,7 @@ from functools import lru_cache, reduce
 from itertools import combinations, product
 from math import gcd, lcm
 from sympy import Matrix, Poly, divisors, factor_list, symbols
+from sympy.polys.matrices import DomainMatrix
 from n8_class3 import ONE, add, winv, wcomm, wpow, lift_vector, lift_exterior, smith
 from n8_class4 import factor_wedge
 
@@ -86,7 +87,15 @@ def affine_solve(columns,rhs):
         if any(row):rows.append(row);target.append(b)
         elif b:return None
     if not rows:return [0]*n,[[int(i==j) for i in range(n)] for j in range(n)]
-    a=Matrix(rows);d,s,t=smith(a);sb=s*Matrix(target);z=[0]*n
+    a=Matrix(rows);rhs=Matrix(target)
+    # Keep a rational row-space basis of the AUGMENTED equations. Every
+    # discarded equality is a rational combination of retained equalities,
+    # hence this preserves precisely the same solutions over Z as well as Q.
+    # Augmentation is essential: inconsistent right sides must not disappear.
+    if a.rows>n:
+        _,pivots=DomainMatrix.from_Matrix(a.row_join(rhs)).transpose().rref()
+        a=a[list(pivots),:];rhs=rhs[list(pivots),:]
+    d,s,t=smith(a);sb=s*rhs;z=[0]*n
     nonzero=[]
     for i in range(a.rows):
         diagonal=d[i,i] if i<n else 0
@@ -96,7 +105,7 @@ def affine_solve(columns,rhs):
         elif sb[i]:return None
     answer=[int(v) for v in t*Matrix(z)]
     kernel=[[int(v) for v in t[:,j]] for j in range(n) if j not in nonzero]
-    assert a*Matrix(answer)==Matrix(target)
+    assert a*Matrix(answer)==rhs
     assert all(a*Matrix(v)==Matrix.zeros(a.rows,1) for v in kernel)
     return answer,kernel
 
@@ -186,8 +195,9 @@ def factor_candidates(gpq,rank,p,q):
         result=tensor_solve([bracket(c,y) for y in lie_bases(rank,q)],gpq)
         if result is None:continue
         dd,kernel=result
-        # ad_C is injective in the unequal-degree cases used here; not needed to decide.
-        assert not kernel
+        # Uniqueness is used only for p=1, when later scaling is enumerated.
+        # In the top-degree (2,3) branch any integral particular solution suffices.
+        if p==1:assert not kernel
         out.append((cc,dd))
     return out
 

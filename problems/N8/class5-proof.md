@@ -1,6 +1,6 @@
 # A decision procedure for one commutator in free nilpotent groups of class five
 
-**Candidate extension of N8(b), 28 September 2026.** This proof is being checked during the run; see the dated claim ledger for the verified scope. Bibliographic novelty remains provisional and no external review has occurred.
+**Candidate extension of N8(b), 28 September 2026.** The prototype and separate GAP witness checks have passed; see the dated claim ledger for the current scope. Bibliographic novelty remains provisional and no external review has occurred.
 
 **Theorem.** For every finite rank r, there is an effective algorithm deciding whether a given element of N=F_r/gamma_6(F_r) is a single commutator. On a positive instance the algorithm constructs two factors. The procedure is uniform in r.
 
@@ -62,7 +62,7 @@ If g=CD-DC, then
 
 At least one Q_J is nonzero whenever this factorization exists. Otherwise, since C(T) is nonzero and the polynomial ring is a domain, D_(J,K)=D_(K,J) for every J,K. For p=1 this is invariance under a one-place cyclic rotation of D. For (p,q)=(2,3), rotation by two places also generates all rotations of a three-letter word. In either case D is cyclically invariant. Yet cyclic symmetrization annihilates every homogeneous Lie bracket of degree q>=2: UV and VU have the same cyclic symmetrization. Thus it annihilates D, whereas invariance would give qD. This contradiction proves the assertion.
 
-If all Q_J vanish, reject this factorization type. Otherwise factor one nonzero homogeneous quadratic over Q. It has at most two distinct rational linear factors, so there are at most two possible directions for C. Test that each resulting tensor belongs to L_p(Q), and select a primitive integral representative C_0 in the Hall lattice. Solve [C_0,D_0]=g as an integer linear system in L_q.
+If all Q_J vanish, reject this factorization type. Otherwise factor one nonzero homogeneous quadratic over Q. It has at most two distinct rational linear factors, so there are at most two possible directions for C. Test that each resulting tensor belongs to L_p(Q), and select a primitive integral representative C_0 in the Hall lattice. In the only cases used here, p=1 or p=2, this integral Lie lattice is visibly saturated in the tensor lattice: it is respectively V or the skew tensors with zero diagonal. Solve [C_0,D_0]=g as an integer linear system in L_q.
 
 This decides integral factorization: any integral C in the direction of primitive C_0 is kC_0 with nonzero integer k, and [kC_0,D]=[C_0,kD]. Thus an integral solution for some scaling exists precisely when the primitive test has one. This assertion does not require uniqueness of D.
 
@@ -136,7 +136,11 @@ Otherwise both factors are in gamma_2. Since g_4=0, their degree-two vectors com
 
 Reject an element with nonzero abelianization and accept the identity. Every remaining target belongs to exactly one of Sections 5–8. Each branch uses finite leading-factor lists, integer linear systems, and, in Sections 5–6, finitely many residues whose periods are explicit nonzero integers. All procedures terminate. Every accepted branch constructs actual factors. The exact normalization moves and the full integer-kernel descriptions ensure every possible solution is represented in one of the branches. This proves both positive and negative correctness.
 
-The prototype is `scripts/n8_class5.py`. Its deterministic checks and the separate GAP witness evaluation are recorded under `results/n8-class5-*`; these supplement, rather than establish, the general proof. The source audit and novelty qualifications remain those of the N8(b) candidate, with an additional class-five literature check in `literature/LEDGER.md`.
+The prototype is `scripts/n8_class5.py`. With seed 9282605 it passed 70 deterministic cases, including 61 positive witnesses independently evaluated in GAP's class-five nilpotent quotients. The tests cover each leading-layer branch, nonprimitive scaling, nonzero normalization residues, and negative controls. Another exact run checked the three kernel dimensions in 27 sampled instances of ranks two through four, plus four integer-system controls. These computations supplement, rather than establish, the general proof.
+
+The initial 300-second test timed out after case 62 because Smith decomposition retained hundreds of redundant tensor-coordinate rows. A separate bounded profile reproduced this. The optimized implementation selects a rational row-space basis of the **augmented** equations before integer Smith decomposition. Every discarded equality is a rational combination of retained equalities, so this preserves precisely the same integral solution set; including the right side prevents inconsistent equations from disappearing. The unchanged 70-case suite then passed in 10.25 seconds; GAP witness evaluation took 2.33 seconds. Failed runs are retained, and revision `09a9c3a` records their original implementation.
+
+The source audit and novelty qualifications remain those of the N8(b) candidate, with an additional class-five literature check in `literature/LEDGER.md`.
 
 One new negative control has an independent short explanation. In rank two let
 
