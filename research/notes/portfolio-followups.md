@@ -36,6 +36,8 @@ The outer-slot map is injective in the bounded rank-two checks for degrees 3 thr
 
 In class five, the nonzero degree-two case has free correction parameters at the next stage; some correspond to simultaneous conjugation by the commutator, which preserves the target. A finite normalization would need an integral argument, not merely a rational dimension count. Other leading-weight cases introduce further bilinear terms. Preserve the completed class-three/four candidates while investigating these gaps.
 
+Update, approximately 11:18 UTC: full outer-slot injectivity fails in degree five (an exact rational kernel is now recorded). A weaker factorization lemma still works in every degree. The new `N8-class5-lead.md` gives a proposed complete class-five procedure using two metabelian Lie kernel lemmas and finite integral gauge periods. This extension is not yet checked or counted.
+
 ## Status corrections to finish recording
 
 - A3: Rauzy, *Computability of finite quotients of finitely generated groups*, Theorem 29, explicitly states a finitely presented group whose maximal residually finite quotient has unsolvable word problem, citing Bridson–Wilton/Slobodskoi. Prior solution, not a new target.

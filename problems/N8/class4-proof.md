@@ -50,11 +50,13 @@ If g=[z,Y], then
     q_jk(t) = (sum_i z_i t_i)
               (sum_l Y_jkl t_l − sum_i Y_ijk t_i).
 
-Thus the linear form with coefficient vector z divides every nonzero q_jk. At least one q_jk is nonzero for every nonzero degree-four Lie element, by the injectivity certificate below. Factor one such quadratic over Q; there are at most two rational linear-factor directions to test.
+Thus the linear form with coefficient vector z divides every nonzero q_jk. If all q_jk vanished for a nonzero element [z,Y], the polynomial ring being a domain would force Y_jkl=Y_ljk for every j,k,l. Then Y would be cyclically invariant. But cyclic symmetrization annihilates every Lie bracket: the tensors UV and VU have the same cyclic symmetrization. It therefore annihilates Y, whereas cyclic invariance would make that symmetrization equal to 3Y. This is a contradiction. Hence if all quadratics vanish we may reject this factorization type; otherwise factor one of them over Q. There are at most two rational linear-factor directions to test. This reasoning works in every degree for a degree-one first factor; see `research/notes/N8-degree-one-factor-lemma.md`.
 
 For each direction choose primitive integer z0. Decide the integer linear system [z0,Y0]=g in the degree-three Hall basis by Smith normal form. If solvable, lift z0,Y0 to a solution. Conversely any integral first vector on this line is k z0 for some nonzero integer k. A solution [k z0,Y]=g would give the integral solution [z0,kY]=g, so testing the primitive vector loses nothing. This finite list of integer systems decides type (1,3).
 
-## Injectivity certificate for the symmetrized outer slots
+## Additional degree-four injectivity certificate
+
+The preceding factorization argument is sufficient for the algorithm. The following stronger statement holds specifically in degree four and independently supports the implementation's nonzero-quadratic assertion. It must not be extrapolated to higher degrees: a degree-five rational kernel is recorded in `research/certificates/N8-degree5-outer-kernel.json`.
 
 The natural linear map sends a degree-four tensor g to the coefficients
 
