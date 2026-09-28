@@ -724,3 +724,20 @@ The overall tally remains three whole-entry and two partial candidates,
 zero established novel results. Neither the failed broad benchmark nor
 any incomplete replay is treated as completed. The original deadline,
 resource budget and outstanding specialist/novelty review are unchanged.
+
+## 2026-09-28T21:04:36.661492+00:00 — second N8 family audited; wider portfolio resumed
+
+Collected terminal records for all three new Python group suites and
+the independent GAP replays. Class11/rank2 and class9/rank3 passed;
+class13/rank2 timed out after600.02 seconds without a completed witness.
+Wrote the all-rank proof and audit, explicitly retaining this limitation,
+and extended the same partial N8 scope. Tally remains3 whole-entry,
+2 partial,0 established novel results. Original deadline unchanged.
+
+The preceding preparation-only detour updated only the separate
+`gworld-prep` checkout. It did not reset this run or its deadline.
+This goal continuation explicitly resumes the original research.
+
+Read primary introductions for N4 and MA6, including the July2026
+Jang–Yi revision. A new H4 output-size argument was worked out around
+20:59–21:01 UTC and preserved as an uncounted lead pending full audit.

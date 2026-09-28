@@ -67,3 +67,13 @@ negative decisions. See problems/N8/iterated-adjoint-proof.md and its audit.
 This extends the same partial candidate. The all-target class-nine extension has also completed its bounded
 computational audit. Novelty and independent specialist review remain
 outstanding for both extensions.
+
+N8(b) second uniform family: for every odd c=2n+7>=9, the candidate
+now also recognizes and decides targets with nonzero degree-(c-2) term
+ad_C^(n+1)(T), C in L2 and T in L3. The proof excludes every other
+leading type, then uses a parity kernel and quadratic obstruction.
+Independent GAP checks cover ten supported targets in class9/rank3
+and class11/rank2: six witnesses,21 linear decisions, seven polynomial
+certificates and35 samples. A class13 replay timed out before any witness
+and is retained as incomplete. See `problems/N8/degree2-iterated-proof.md`
+and its audit. This extends the same partial candidate and changes no tally.
