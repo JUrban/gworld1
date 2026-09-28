@@ -1,0 +1,2253 @@
+                                             Contemporary Mathematics
+arXiv:math/0002217v1 [math.RA] 25 Feb 2000
+
+
+
+
+                                                   Bass’s Work in Ring Theory and Projective Modules
+
+                                                                                      T. Y. Lam
+
+                                                              This paper is dedicated to Hyman Bass on his 65th birthday.
+
+
+                                                      Abstract. The early papers of Hyman Bass in the late 50s and the early 60s
+                                                      leading up to his pioneering work in algebraic K-theory have played an im-
+                                                      portant and very special role in ring theory and the theory of projective (and
+                                                      injective) modules. In this article, we give a general survey of Bass’s funda-
+                                                      mental contributions in this early period of his work, and explain how much
+                                                      this work has influenced and shaped the thinking of subsequent researchers in
+                                                      the area.
+
+
+
+
+                                             Contents
+
+                                             §0. Introduction
+
+                                             Part I: Projective (and Torsionfree) Modules
+
+                                             §1.   Big Projectives
+                                             §2.   Stable Structure of Projective Modules
+                                             §3.   Work Related to Serre’s Conjecture
+                                             §4.   Rings with Binary Generated Ideals: Bass Rings
+
+                                             Part II: Ring Theory
+
+                                             §5.   Semiperfect Rings as Generalizations of Semiprimary Rings
+                                             §6.   Perfect Rings and Restricted DCC
+                                             §7.   Perfect Rings and Representation Theory
+                                             §8.   Stable Range of Rings
+                                             §9.   Rings of Stable Range One
+
+                                             References
+
+
+                                                 1991 Mathematics Subject Classification. Primary 16D40, 16E20, 16L30; Secondary 16D70,
+                                             16E10, 16G30.
+                                                 The work on this paper was supported in part by a grant from NSA.
+
+                                                                                                                       c 0000 (copyright holder)
+
+                                                                                            1
+2                                         T. Y. LAM
+
+
+                                    §0. Introduction
+     It gives me great pleasure to have this opportunity to write about Professor
+Hyman Bass’s work in ring theory and projective modules. This was work done by
+a young Hyman in the early 60s when he was a junior faculty member at Columbia.
+The now-classical paper on the homological generalization of semiprimary rings
+[B1 ], an outgrowth of his 1959 Chicago thesis written under the direction of Irving
+Kaplansky, was followed in quick succession by a brilliant series of papers [B2 –B7 ] on
+various aspects of the structure of projective modules (decomposition, extendibil-
+ity, and freeness) and injective modules (injective dimensions, Gorenstein rings,
+and Bass rings). The 1962 announcement of a homotopy theory of projective mod-
+ules with Schanuel [BS] and the subsequent 1964 announcement [B8 ] on the stable
+structure of the general linear group over an arbitrary ring culminated in his famous
+IHES paper [B9 ] which, perhaps more than any other work in that era, marked the
+monumental creation of the new mathematical subject of algebraic K-theory. The
+usual way to put it would be to say, I guess, that all of this work “showed the future
+master”; but in fact, by this time, Hyman Bass had already proved himself to be
+a true master of the great art of algebra — and a mathematician of extraordinary
+creativity and insight.
+
+    Since Chuck Weibel [We] will be touching upon Bass’s work in algebraic K-
+theory and Craig Huneke [Hu] will be reporting on his work on injective modules
+and Gorenstein rings, I shall focus the discussion in this article mainly on Bass’s
+contributions to ring theory and the structure of projective modules. Starting with
+the latter, we first survey, in §1 and §2 below, Bass’s work on big projectives and
+on his generalizations and extensions of Serre’s results on the stable structure of
+projective modules. In §3, we move on to Bass’s work surrounding the theme of
+Serre’s Conjecture on f.g.1 projective modules over polynomial rings. The last
+section of Part I concludes with a survey on Bass’s work on the decomposition of
+torsionfree modules and on commutative rings with binary generated ideals, which
+resulted in the important notion of Bass rings and Bass orders. In this section (§4),
+Gorenstein rings play a substantial role, but our exposition is designed to overlap
+only peripherally with that of Huneke’s article.
+
+     In Part II of this article, we return to Bass’s maiden work on the homological
+generalizations of semiprimary rings, and explain the historic context of this work
+as well as the role it played in the subsequent development of noncommutative ring
+theory. Guided by the ideas of stability in the homotopy theory of vector bundles,
+Bass also single-handedly invented the notion of stable range of a ring R, which
+he successfully applied to the study of the stable structure of the infinite general
+linear group over R. (This work may be thought of as the “K1 -analogue” of the
+stable theory of projective modules reported in §2.) Our survey concludes with a
+discussion (§§8-9) of Bass’s work on the stable range, with a special emphasis on
+the case of stable range one which in turn has deep significance on the arithmetic
+of rings, and on questions concerning the cancellation and substitution of modules
+with respect to direct sum decompositions.
+
+    Throughout this exposition, our aim is not only to survey Bass’s work in ring
+theory and projective modules, but also to point out how much this work has
+    1 Throughout this paper, “f.g.” will be used as an abbreviation for “finitely generated”.
+              BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                               3
+
+
+influenced and shaped the thinking of subsequent researchers in the area. It will
+be seen that, in a number of new lines of investigation in algebra in the last few
+decades, it was the decisive pioneering steps of Bass that broke open the new path.
+Although Bass’s work in modules and rings spanned only the decade of the 60s,
+its impact has been enormous indeed, and will certainly continue to be felt as ring
+theory moves into the next century.
+
+     Writing this article is for me a very pleasant task, though undertaking such a
+task inevitably involves somewhat of a nostalgic trip down the memory lane. Since
+it is perhaps not out of place in these Proceedings to talk about one’s connections
+to Hyman, I will indulge myself in a few personal reminiscences below.
+
+     As a beginning graduate student at Columbia in the mid-60s, I was more than
+a little awed by the power and fame of the senior faculty: Professors Lipman Bers,
+Samuel Eilenberg, Ellis Kolchin, Masatake Kuranishi, Serge Lang, Edgar Lorch,
+and Paul A. Smith, among others, from whom I took my first and second year
+graduate courses.2 After a few skirmishes with functional analysis (taught to me
+by Professor Lorch and Visiting Professor B. Sz. Nagy), I fell under the spell of
+Sammy Eilenberg, and positioned myself to become a student of his, hoping to
+study with him category theory and homological algebra. Under Sammy’s guidance,
+I wrote my first paper [La1 ], which he kindly communicated to the Proceedings of
+the National Academy of Sciences (of which he was a member). But then for the
+year 1966-67, Professor Eilenberg had his Sabbatical coming, and he was to go off
+to Paris to spend the entire academic year. To go with him to Paris would have
+been the “cool” thing to do for a mid-career graduate student except, alas, I found
+myself both financially and linguistically poorly equipped to make the trip. So
+Professor Eilenberg said to me: “Why don’t you stay here, and study with Bass
+while I am gone?” This was how I became a student of Bass! Hyman was then a
+young Assistant Professor, who, just a few years ago, was brought from Chicago to
+Columbia by Sammy himself.
+
+     Hyman became an Associate Professor around that time, and in another year he
+was moved up to Full Professor. Even I could see he must be working on something
+hot! So I xeroxed all of his papers,3 and started poring over them assiduously.
+Hyman’s K-theory paper [B9 ] had just come out in the “Blue Journal”; this and his
+earlier papers in ring theory and projective modules eventually became a staple of
+my graduate education. The most challenging open problem in homological algebra
+in those days was Serre’s Conjecture (ibid.); many a graduate student in algebra
+from that era had no doubt tried his/her hand at it — and I was no exception.
+Hyman, who had generalized Seshadri’s solution of the Conjecture in two variables,
+was the natural leader for this small circle of aspiring graduate students. I still
+    2 The students were nothing short of stellar either! My graduate peers included Mike Engber,
+
+Audun Holme, Fred Gardiner, and Irwin Kra; Winfried Scharlau was a visiting student from
+Germany, and Alexander Mikhalev was an exchange scholar from U.S.S.R.; Bill Haboush, Tony
+Bak, Mike Stein, Allen Altman, Bruce Bennett, Spencer Bloch, Bob and Jane Gilman were a couple
+of years behind; Julius Shaneson, Sylvain Cappell and Ethan Akin were “hot-shot” Columbia
+undergraduates taking graduate courses with us. Each person in this list is now a Professor of
+Mathematics. Many of them have been chairs, provosts, and deans.
+     3 Yes, there were already xerox machines in the mid-60s, though stencils and mimeographed
+
+copies were still not entirely out of fashion.
+4                                    T. Y. LAM
+
+
+recall that, one time, one of us thought he had a brilliant idea to solve Serre’s
+Conjecture. A few of us excitedly met with Hyman in an impromptu seminar to go
+over the “idea”; but of course Hyman quickly found the hole. Although we never
+got anywhere with our fledgling efforts, my fascination with Serre’s Conjecture
+continued, and culminated in the writing of my 1978 Springer Lecture Notes [La2 ],
+two years after the Conjecture was fully solved independently by Suslin and Quillen.
+Hyman’s great influence was evident from cover to cover of my modest book.
+
+     I spent my last graduate year at Columbia in 1966-67. In that year, Hyman
+taught what was most probably the first graduate course ever given in algebraic
+K-theory in the US. Pavaman Murthy had come from the Tata Institute to do post-
+doctoral work with Hyman, and was in the audience. (In his modest Morningside
+Heights apartment, Pavaman served what he claimed to be the best coffee in Man-
+hattan. It was free, so I had no reason to disagree; we became good friends.) Some
+of the lecture notes taken by Murthy, Charles Small and me eventually evolved into
+Hyman’s famed tome [Ba10 ]. At that time, Hyman was busy at work with Milnor
+and Serre on the Congruence Subgroup Problem for the special linear groups and
+the symplectic groups. I got lucky and proved several little things about Mennicke
+symbols and SK1 of abelian group rings, which earned me a few attributions in
+[BMS]. Needless to say, I was proud to be mentioned in a paper by such distin-
+guished authors. I got lucky in some other fronts too, and in May, 1967 completed
+a thesis in algebraic K-theory under Hyman dealing with Artin’s Induction The-
+orem and induction techniques for Grothendieck groups and Whitehead groups of
+finite groups. In those days, algebraic K-theory meant only K0 and K1 ; even
+Milnor’s K2 had not been defined yet.
+
+    As it happened, I was Hyman’s first Ph.D. student. I have always viewed
+this as a special honor, and I am sure that this fact has helped me a great deal
+professionally. Now the list of Ph.D. students of Hyman is 25(?) strong. The
+longevity of Hyman as a thesis advisor is rather strikingly illustrated by the fact
+that at least several of my mathematical brothers and sisters in this list were not
+even born yet when I completed my Ph.D. degree at Columbia.
+
+    In supervising my work, Hyman never tried to tell me what I should work on.
+Rather, he let me find my own path, and instilled in me the needed confidence
+to grow into a research mathematician. What I learned from Hyman was not
+just mathematics, but how to do mathematics, and, what is perhaps even more
+important, how to conduct myself as a mathematician. All of this he taught me in
+the best way — by his own example. For this, and for the many other favors he
+has rendered over the years, I shall always be grateful.
+
+               Part I: Projective (and Torsionfree) Modules
+
+                              §1. Big Projectives
+     While the projective modules occurring in number theory, representation theory
+and algebraic geometry are mostly f.g. ones, non-f.g. projective modules do arise
+naturally over various kinds of rings, for instance, rings of continuous functions.
+Thus, the quest for information about non-f.g. projective modules is not a frivolous
+one.
+             BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                         5
+
+
+     The first significant result in the study of general (that is, not necessarily f.g.)
+projective modules was found by Kaplansky in 1958. In his seminal paper [K2 ],
+Kaplansky proved that, for any ring R, any projective R-module is always a direct
+sum of countably generated (projective) modules. This result has two interesting
+consequences. First, any indecomposable projective module over any ring is count-
+ably generated; and second, if any countably generated projective module over some
+ring R is free, then any projective R-module is also free. The case of a local ring R
+provides a particularly striking illustration for the power of the second statement:
+in this case, Kaplansky used an ingenious argument (reminiscent of the proof of
+Nakayama’s Lemma) to show that any countably generated projective R-module is
+free, from which it then follows that any projective R-module is free.
+
+    Inspired by Kaplansky’s result, Bass took up the study of “big” projective mod-
+ules in [B5 ]. The overall theme of [B5 ] is that, under certain fairly mild conditions
+on a ring R, “big” projective R-modules are necessarily free. To formulate this
+precisely, Bass introduced the notion of a uniformly ℵ-big module: for an infinite
+cardinal ℵ, an R-module P is uniformly ℵ-big if P can be generated by ℵ ele-
+ments, and for any ideal I ( R, the R/I-module P/I P cannot be generated by
+fewer than ℵ elements. For instance, the free module of rank ℵ over a nonzero ring
+R is uniformly ℵ-big. Bass’s first result on big projectives is the following converse
+of this statement:
+
+(1.1) Theorem. If R/rad(R) is left noetherian, then, for any infinite cardinal ℵ,
+any uniformly ℵ-big projective left R-module is free.
+
+     Bass’s proof of this result is modeled upon Kaplansky’s proof of his main the-
+orem in [K2 ]: one makes a reduction to the crucial case when ℵ is the countable
+infinite cardinal ℵ0 , and in this case one achieves the desired goal by a clever
+juggling with infinite matrices.
+
+     For concrete applications of (1.1), one needs to find situations where we can
+say, for instance, that all non-f.g. projective modules are uniformly big for some
+infinite cardinal. Bass showed that this is the case when, say, R is a commutative
+noetherian ring with only trivial idempotents. Thus, one has the following
+
+(1.2) Corollary. If R is a commutative noetherian ring with only trivial idempo-
+tents, then any non-f.g. projective R-module is free.
+
+    For instance, if R = k[x1 , . . . , xn ] where k is a field, Serre asked in 1955 (see
+§2) if every f.g. projective R-module P is free. The result above would give the
+freeness of P if P was not f.g.
+
+    The general results of Bass (such as (1.1) and (1.2)) describing the behavior
+of big projectives have remained essentially unsurpassed to this date. In [B5 ],
+Bass remarked that these results seemed to indicate that big projective modules
+“invite little interest.” We can say, today, that this is perhaps not quite true. In a
+recent paper [LR], Levy and Robson have determined the structure of all infinitely
+generated projective modules over (noncommutative) hereditary noetherian prime
+rings. Their results showed that, over such rings, there may exist non-f.g. projective
+modules which are not free and which have rather interesting structures.
+6                                      T. Y. LAM
+
+
+     Two other results of Bass on projective modules over any ring have become
+folklore in the subject, so it is fitting to end this section by recalling them. The
+first of these says that:
+
+(1.3) Theorem. Any nonzero projective module P over any ring R has a maximal
+submodule. More precisely, rad(R) P = rad(P ) 6= P , where rad(P ) denotes the
+intersection of all maximal submodules of P .
+
+     This result first appeared in [B1 : p. 474], and has been used by many authors
+since. The second result, also involving the Jacobson radical of a ring R, states the
+following:
+
+(1.4) Theorem. Let I be any ideal of a ring R such that I ⊆ rad(R), and P, Q
+be f.g. projective left R-modules. Then
+(1.5)         ∼ Q as R-modules ⇐⇒ P/IP =
+            P =                           ∼ Q/IQ as R/I-modules.
+In particular, P is free as an R-module iff P/IP is free as an R/I-module.
+
+     This result, which made its first appearance in the literature as Lemma 2.4
+in [B2 ], is now in virtually every textbook which treats the subject of projective
+modules, and is well-known to any student knowledgeable about the subject of
+homological algebra. We should point out that, with Bass’s notion of left T -
+nilpotency on (1-sided) ideals (introduced later in §6), (1.4) can also be given the
+following “transfinite” formulation, for any pair of projective modules P, Q:
+
+(1.6) Theorem. If I is any left T -nilpotent left ideal in a ring R, then (1.5) holds
+for any (not necessarily f.g.) projective left R-modules P, Q.
+
+    For a proof of this, see [La3 : (23.17)].
+
+                §2. Stable Structure of Projective Modules
+     In his epoch-making papers [S1 , S2 ], Serre established an analogy between pro-
+jective modules (in algebra) and vector bundles (in topology). This important
+analogy, which was further promulgated by the work of Swan [Sw1 ], enables one
+to establish the rudiments of a dictionary to translate the language of projective
+modules into that of vector bundles. Now by the late 1950s, the topology of vec-
+tor bundles was already rather well-developed; the Serre-Swan analogy mentioned
+above made it possible, therefore, for algebraists to “predict” (if not prove) theo-
+rems in the theory of projective modules based on their knowledge of topological
+results in the theory of vector bundles.
+
+    One of the best known elementary facts about vector bundles is the following.
+If [X, Y ] denotes the set of homotopy classes of maps from X to Y , and BO(r)
+denotes the classifying space of the orthogonal group O(r), then
+
+(2.1) Theorem. For any connected finite CW complex X of dimension d, the
+natural map
+                   ir : [X, BO(r)] −→ [X, BO(r + 1)]
+is surjective for r ≥ d, and injective (and hence bijective) for r ≥ d + 1.
+              BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                                7
+
+
+     Now by the classification theorem of vector bundles, [X, BO(r)] represents the
+set of equivalence classes of real r-plane bundles over X, and, with this interpre-
+tation, the map ir in (2.1) above is given by adding a trivial line bundle. To
+make the transfer into algebra, we replace X by a commutative noetherian ring
+R with only trivial idempotents (so that the Zariski prime spectrum Spec(R) is a
+connected space), and replace [X, BO(r)] by the set Pr (R) of isomorphism classes
+of f.g. projective R-modules of rank r. The ir in (2.1) is then to be replaced by the
+map given by “adding a copy of R”. With such a transfer in place, Serre broke new
+ground by coming up with commutative algebra techniques to prove the following
+remarkable analogue of the surjectivity part of (2.1).
+
+(2.2) Theorem. ([S2 : Théorème 1]) In the above setting, assume that the maximal
+ideal spectrum max(R) (with the Zariski topology) is a space of dimension4 d. Then
+the map
+(2.3)                              ir : Pr (R) → Pr+1 (R)
+is surjective if r ≥ d. In other words, any f.g. projective R-module of rank p > d
+is of the form Rp−d ⊕ P0 for some (projective) module P0 .
+
+    In this setting (and under the same hypotheses), the question whether the map
+ir in (2.3) is injective for r ≥ d + 1 (in analogy to the second part of (2.1)) begs
+to be asked. This amounts to the following cancellation question for f.g. projective
+R-modules P, Q and M : if M ⊕ P ∼     = M ⊕ Q and P has rank > d, does it follow
+that P ∼= Q? It would be difficult to imagine that Serre was not aware of this very
+natural question in 1957-58, but anyhow, Serre did not pursue it in [Se1 ].
+
+     In his two papers [B2 ] and [B9 ] (see also the research announcement [BS] written
+jointly with S. Schanuel), Bass not only answered this question in the affirmative,
+but also relaxed some of the assumptions in (2.2), and extended all results to a
+noncommutative setting. Working now with a commutative ring A and a module-
+finite A-algebra R, Bass considered R-modules P which need not be projective
+or f.g. He defined such a module to be of f -rank ≥ r if, at every maximal ideal
+m ∈ max(A), the Rm -module Pm contains an Rm -free direct summand of rank r.
+
+(2.4) Theorem. In the above (noncommutative) setting, assume that max(A) is
+a noetherian space of dimension d.
+(1) (Splitting) If an R-module P is a direct summand of a direct sum of finitely
+presented R-modules and has f-rank > d, then P has a direct summand isomorphic
+to R.
+(2) (Cancellation) Let P, Q be R-modules such that P has a projective direct sum-
+mand of f-rank > d. Then, for any f.g. projective R-module M ,
+(2.5)                     M ⊕P ∼ = M ⊕ Q =⇒ P ∼    = Q.
+
+   If we now define Pr (R) to be the set of isomorphism classes of f.g. projective
+R-modules of f -rank r, clearly (1) and (2) above imply that:
+      4 The dimension of a topological space X is defined to be the supremum of the codimensions
+
+of its nonempty closed sets. Here, the codimension of an irreducible closed set F is the supremum
+of the lengths of finite chains of irreducible closed sets “above” F , and the codimension of an
+arbitrary closed set C is the infimum of the codimensions of all irreducible closed sets F ⊆ C.
+8                                     T. Y. LAM
+
+
+(2.6) Corollary. The map ir : Pr (R) → Pr+1 (R) (defined by adding R) is
+surjective for r ≥ d, and injective (and hence bijective) for r ≥ d + 1.
+
+    Just as (2.1) is quantitatively the best result for bundles in topology, both (2.2)
+and (2.5), (2.6) are quantitatively the best for f.g. projective modules in algebra.
+We’ll mention the usual examples to substantiate this statement in the commutative
+and noncommutative cases below.
+
+    In the commutative case, let R be the real coordinate ring of the sphere S 2 ,
+so R = R[x, y, z], with the relation x2 + y 2 + z 2 = 1. This is a noetherian domain
+of (Krull) dimension 2. Let P = ker(ϕ) where ϕ is the R-epimorphism R3 −→ R
+given by ϕ(e1 ) = x, ϕ(e2 ) = y, and ϕ(e3 ) = z. We have R3 ∼           = R ⊕ P , so
+P is a f.g. projective R-module of rank 2. Here, P corresponds to the tangent
+bundle of S 2 . Since the tangent bundle is known to be indecomposable, P is also
+indecomposable (and in particular P ≇ R2 ), so the class of P in P2 (R) is not
+in the image of the map i1 in (2.3). This shows that the condition r ≥ d for
+the surjective part in (2.6) is the best possible. On the other hand, the fact that
+R⊕P ∼  = R ⊕ R2 and P ≇ R2 shows that the condition r ≥ d + 1 for the injective
+part in (2.6) is also the best possible.
+
+    In the noncommutative setting, a very simple case for application is that of a
+group ring R = Z π, where π is a finite group. Here we take A to be Z in (2.4),
+and set d = 1. It follows from (2.4)(1) that any f.g. projective R-module is a direct
+sum of rank 1 projective modules. But, according to a famous example of Swan
+[Sw2 ], if π is the generalized quaternion group of order 32, there exists a nonfree
+rank 1 f.g. projective R-module P such that R ⊕ P ∼     = R ⊕ R. Since P ≇ R, we
+see again that, in the conclusion in (2.4)(2), the condition rank (P ) > d cannot be
+further weakened. In Swan’s construction, the module P was, in fact, chosen such
+that, for a suitable maximal order S containing R = Z π, S ⊗R P ≇ S. Therefore,
+by tensoring up to S, we obtain a similar example (of non-cancellation) over a left
+and right hereditary module-finite algebra over the one-dimensional ring Z.
+
+    Of course, the bounds r ≥ d and r ≥ d + 1 are just general bounds for
+surjectivity and injectivity to hold, respectively, in (2.6). For specific rings, there
+can be stronger results. For instance, in contrast with Swan’s example mentioned
+above, if π0 is the (ordinary) quaternion group of order 8, then full cancellation
+holds for f.g. projective modules over the group ring Z π0 , according to a result of
+J. Martinet [Ma].
+
+     Bass’s fundamental results (2.4) and (2.6) in the early 60s provided the general
+framework for much of the subsequent investigations on the Splitting and Cancel-
+lation Problems for projective (and more general) modules over various classes of
+rings. Without giving any details, let us just mention, in this direction, the work of
+Chase, Mohan Kumar, Murthy, Nori, Sridharan, Suslin, Swan, Towber, Wiegand,
+and others on the splitting and cancellation of f.g. projective modules over affine
+algebras. A survey of some aspects of this appears in Murthy’s article [Mu] in
+this volume. On the noncommutative side, there are the important cancellation
+results of Jacobinski, Guralnick, Levy, Roĭter, Swan and many others for lattices
+over group rings and orders in separable algebras.
+                BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                                        9
+
+
+    Now it may be said that a cancellation result such as (2.4)(2) is not quite truly in
+the noncommutative spirit. In this theorem, the ring R in question is a module-finite
+algebra over a commutative ring A; orders in finite-dimensional separable algebras
+are also of the same nature. Such rings are simply not sufficiently representative of a
+general noncommutative ring. Later developments show that there are indeed some
+“truly noncommutative” cancellation theorems, where the cancellation of a module
+M in (2.5) depends on the “stable range” of the endomorphism ring of M and on
+the structure of the module P . Such results, which in essence generalize (2.4)(2),
+were first found by Warfield [Wa2 ] in 1980 (and in part by Evans in 1973). We shall
+return to formulate these more general cancellation results after we introduce the
+notion of stable range of (noncommutative) rings in §8.
+
+                       §3. Work Related to Serre’s Conjecture
+    In the Serre-Swan analogy between vector bundles and projective modules, the
+counterpart of the affine n-space k n over a field k is the polynomial ring in n
+variables R = k[x1 , . . . , xn ], so vector bundles over k n correspond to f.g. projec-
+tive modules over R. From the viewpoint of topology, the (real) affine n-space is
+contractible, so the vector bundles over it are all trivial. This led Serre to ask the
+question, in his famous FAC paper [S1 ], whether every f.g. projective module over
+the polynomial ring R = k[x1 , . . . , xn ] is free (for any field k). An affirmative
+answer to this question seemed so plausible and convincing to the mathematical
+public that, almost from the very beginning, it became known under the misnomer
+of “Serre’s Conjecture”. This “conjecture” is clearly true when n = 1, since in this
+case R = k[x1 ] is a PID, and f.g. projective modules over a PID are well known
+to be free. In the general case, it is known (essentially from Hilbert’s Syzygy The-
+orem) that any f.g. projective module P over R = k[x1 , . . . , xn ] is stably free, so
+Serre’s Conjecture boils down to a cancellation statement: that P ⊕ R free should
+imply P free.5 By Bass’s Theorem (2.6)(2), this would follow, for instance, if the
+rank of P is at least n + 1.
+
+     In the 1960s, Serre’s Conjecture became one of the premier open problems in
+algebra. The fact that the Conjecture was prompted by a natural analogy with
+vector bundle theory gave it a certain sense of inevitability; on the other hand, the
+fact that the conjecture can be stated so directly and in such completely elementary
+terms made it enticing to all. Many algebraists in the 1960s, junior and senior alike,
+must have tried their hands at solving this famous conjecture. Bass’s interest in the
+structure of projective modules, evident from his first two papers [B1 , B2 ], naturally
+steered him in this direction.
+
+     In 1958, Seshadri [Se1 ] confirmed Serre’s Conjecture in the case of two variables,
+proving, as he put it, the “triviality of vector bundles over the affine space K 2 ”. As
+a matter of fact, Seshadri showed more generally that any f.g. projective module P
+over A[t] “comes from” A if A is a PID [Se1 ], or the coordinate ring of a nonsingular
+affine curve over an algebraically closed field [Se2 ]. These results led Bass to consider
+the same problem over R = A[t] when A is a Dedekind domain. The desired goal
+     5 In this form, the Conjecture is capable of a completely elementary statement meaningful
+
+to any student with a high school background in algebra: whenever f1 g1 + · · · + fr gr = 1 ∈ R,
+there is an r × r matrix of determinant 1 over R with first row (f1 , . . . , fr ). See [La2 : (I.4.5)] for
+details.
+10                                    T. Y. LAM
+
+
+in this case would be the same as Seshadri’s — to prove that any f.g. projective P
+over R “comes from” A, that is, P ∼= R ⊗A P0 for some (necessarily f.g. projective)
+module P0 over A.
+
+    In the early 60s, Bass succeeded in extending Seshadri’s argument, and proved
+the following result in [B4 : (2.4)].
+
+(3.1) Theorem. Let A be a Dedekind ring, R = A[t], and P be a f.g. R-module
+such that, for any prime ideal p ⊂ A, P/pP is a torsionfree (A/p)[t]-module.
+Then P is extended from a f.g. projective A-module; in particular, P is projective.
+
+     This implies, in particular, that any f.g. projective R-module is extended from
+A. As it turned out, the same result was obtained independently by Serre at about
+the same time; see [S3 ]. In retrospect, this result is perhaps most appropriately
+called the Seshadri-Bass-Serre Theorem.
+
+     In 1964, Bass took up what may be considered a noncommutative version of
+Serre’s Problem. Perhaps not too surprisingly, the noncommutative case turned
+out to be more tractable. Generalizing the work of P. M. Cohn, Bass succeeded in
+proving that, if π is a free group (resp. a free monoid), then for any principal ideal
+domain A, any f.g. projective module over the group ring (resp. monoid ring) A π
+is free. This result appeared in Bass’s paper [B7 ], in the first volume of the Journal
+of Algebra. In the case when π is a free monoid on one generator, it retrieves, of
+course, Seshadri’s theorem in [Se1 ].
+
+     Although Bass did not publish further results on Serre’s Conjecture after the
+1960s, his keen interest in it continued well into the 70s. When Suslin and Vaserstein
+began to make significant progress on the conjecture in the early 70s, the former
+Soviet Union was still quite isolated mathematically from Europe and from the U.S.
+In order to make their latest findings known to the West, Suslin and Vaserstein could
+only communicate them by letter to Bass. I still remember vividly the AMS Annual
+Meeting in San Francisco in 1974, in which Bass gave an “impromptu” lecture on
+the most recent Suslin-Vaserstein results on Serre’s Conjecture — to a room-full
+of people eager to find out how close Serre’s Conjecture had come to being solved.
+One of these “From Russia, with Love” results proclaimed the freeness of projective
+k[x1 , . . . , xn ]-modules “of rank ≥ 1 + n/2”. This surely looked wonderful, but a
+high-school algebra question unwittingly came up: when Suslin wrote “1 + n/2 ” in
+his letter to Bass, did he mean 1 + n2 , or could he have meant the more ambitious
+(1 + n)/2 ? It was anybody’s guess . . . . (As it turned out, Suslin did mean 1 + n2 ,
+as he, perhaps, should.) Later in June that year, in Paris, Bass was to give a
+similar lecture on the status of Serre’s Conjecture in the “Séminaire Bourbaki”.
+The write-up of these survey lectures subsequently appeared in Bass’s article [B12 ],
+with the charming title “Libération des modules projectifs . . . ”.
+
+     Serre’s Conjecture stood open for over twenty years, and was finally proved in
+1976, completely independently and almost simultaneously, by D. Quillen [Qu] and
+A. Suslin [Su]. (For a detailed exposition on this, see [La2 ].) As is often the case
+in mathematics, however, the solution of one important conjecture was only to be
+followed by the formulation of a new, more powerful, conjecture. After 1976, Serre’s
+              BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                              11
+
+
+Conjecture was generalized into the so-called Bass-Quillen Conjecture, which states
+the following:
+
+(3.2)d If A is a commutative regular ring 6 of Krull dimension ≤ d < ∞ , then any
+f.g. projective A[x1 , . . . , xn ]-module is extended from A.
+
+     When A is a field, of course, this gives back the original Serre Conjecture (now
+the Quillen-Suslin Theorem). When A is a Dedekind ring and n = 1, (3.2)1 is the
+Theorem of Seshadri, Bass, and Serre. By a powerful general technique known as
+“Quillen Induction”, which is gleaned from Quillen’s solution of Serre’s Conjecture
+(see [La2 : p. 139]), one can reduce the proof of (3.2)d to a demonstration of the
+following special case of it:
+
+(3.3)d If A is a regular local ring of Krull dimension ≤ d, then any f.g. projective
+A[x1 ]-module is free.
+
+     The best result on (3.2)d and (3.3)d known to me is that they are both true
+when d ≤ 2, or when A is a formal power series ring over a field; see [La2 : p. 138].
+On several occasions, I have heard research announcements claiming the general
+truth of (3.2)d (for all n and all d), but so far I have not seen any published
+proofs. Thus, it appears that “Serre’s Conjecture” first raised in the 1950s is still
+very much alive today: it has simply undergone a mathematical metamorphosis
+and has now become the even more challenging “Bass-Quillen Conjecture”. Given
+this, we can say with a reasonable amount of certainly that the work of Bass on
+Serre’s Conjecture and its generalizations will continue to have its impact on the
+mathematics of the next century.
+
+            §4. Rings with Binary Generated Ideals: Bass Rings
+     One way to try to prove Serre’s Conjecture over R = k[x1 , . . . , xn ] (k a field)
+would be to show that any f.g. projective R-module is isomorphic to a direct sum
+of ideals in R (and then use the fact that Pic(R) = {1} for the unique factorization
+domain R). The conclusion of Bass’s Theorem (3.1) has a rather similar flavor: for
+any Dedekind ring A, this result says that any f.g. module P over R = A[t] satis-
+fying the torsionfree hypothesis in that theorem is extended from a f.g. projective
+A-module P0 . Over the Dedekind ring A, P0 is isomorphic to a direct sum of
+ideals, so P is likewise isomorphic to a direct sum of ideals in R. Considerations
+such as this led Bass to the following general question on the decomposition of
+torsionfree modules:
+
+(4.1) When is it true that any f.g. torsionfree module over a (commutative) noe-
+therian domain R is isomorphic to a direct sum of ideals?
+
+Equivalently, when is it true that any f.g. indecomposable torsionfree R-module
+has rank 1 (that is, isomorphic to an ideal of R) ?
+
+    As it turned out, this interesting question led Bass to a fruitful program of
+research. In his paper [B4 ], Bass not only proved the result (3.1), but also obtained
+a criterion for the decomposability of all f.g. torsionfree modules into rank one
+    6 A commutative noetherian ring A is said to be regular if A is a regular local ring for any
+                                                                p
+prime ideal p ⊂ A.
+12                                         T. Y. LAM
+
+
+modules over a noetherian domain R, under a mild assumption on the integral
+closure R̃ of R. The main theorem (1.7) in [B4 ] gives the following definitive
+result.
+
+(4.2) Theorem. For any commutative noetherian domain R such that R̃ is f.g. as
+an R-module, the following two conditions are equivalent:
+(1) Any f.g. torsionfree R-module is isomorphic to a direct sum of ideals ;
+(2) Any ideal in R can be generated by two elements.
+
+     In Bass’s proof of this theorem, the hypothesis on R̃ is needed only for the
+implication (2) ⇒ (1).7 This hypothesis is, of course, a very natural one from the
+viewpoint of algebraic geometry. As a matter of fact, Bass’s proof (in [B4 ]) for
+(2) ⇒ (1) in the above theorem is based on a rather subtle induction on the length
+of the R-module R̃/R. The fact that this module has finite length is a consequence
+of the first conclusion in the following result describing some of the key properties
+of commutative domains with binary generated ideals.
+
+(4.3) Theorem. If a commutative domain R has the property that any ideal in R
+can be generated by two elements, then:
+(1) R has Krull dimension ≤ 1 ;
+(2) every ideal in R is reflexive 8 as an R-module .
+
+     Here, the first conclusion, (1), goes back to I. S. Cohen. In fact, Cohen has
+proved already in 1949 that the conclusion K-dim R ≤ 1 will follow if every ideal
+of the domain R can be generated by k elements for a fixed integer k [C: p. 37,
+Cor. 1]. Once we have K-dim R ≤ 1, the conclusion (2) follows from Lemma (1.6)
+of [B4 ].
+
+    Of course, the driving force behind all of these conditions in (4.2) and (4.3) is
+the basic example of a Dedekind ring R. For such a ring, the properties (1), (2)
+in (4.2) and (4.3) are well-known to every student of abstract algebra. The case
+of Dedekind rings R is precisely the integrally closed case of these results, that is,
+when R̃ = R. This is, in fact, the beginning case for Bass’s proof for (2) =⇒ (1) in
+(4.2) by induction on lengthR (R̃/R). How about the case of non-Dedekind rings?
+It behooves us to recall the two basic examples mentioned by Bass in [B4 : p. 324]:
+     • Let R be the ring {a + 2b i : a, b ∈ Z}, as a subring of the Dedekind ring of
+       Gaussian integers S. Here, R̃ = S, and lengthR (R̃/R) = 1. There are only
+       two isomorphism types of nonzero ideals in R, namely, R and 2R + 2i R, so
+       indeed every R-ideal is binary generated.
+     • For another typical example, let I be the additive submonoid of the non-
+       negative integers generated by 2 and an odd integerPn ≥ 3, and let R be
+                                                                    i
+       the subring of S = R[[t]] consisting of power series i≥0 ai t with ai = 0
+       for i ∈
+             / I. Then R̃ = S, lengthR (R̃/R) = n − 2, and again it is easy to
+       check that every ideal of R is binary generated.
+
+     7 In other words, (1) ⇒ (2) holds for any commutative noetherian domain R.
+     8 An R -module P is said to be reflexive if the natural map from P to its double dual P ∗∗ is
+
+an isomorphism.
+              BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                                 13
+
+
+     So far we have quoted two main results ((4.2) and (4.3)) from [B4 ], which
+arose from the consideration of torsionfree modules over commutative noetherian
+domains, and have the common theme of binary generated ideals in such domains.
+For Bass, there was another important motivation for these results ! In fact, (4.3)
+is very much a part of Bass’s research program studying (not necessarily commuta-
+tive) noetherian rings of finite injective dimensions over themselves. This is a very
+important program he started in [B3 ], and continued in [B6 ]. Let us now explain
+the connections.
+
+     Classically, among the noetherian rings, those that are (say, left) self-injective
+are the so-called quasi-Frobenius (QF) rings. These rings of self-injective dimension
+zero have been extensively studied in the ring theory literature. In generalization of
+this, Bass sought characterizations of noetherian rings R with id(R R) < ∞, where
+“id” stands for the injective dimension (of a module). The case of id(R R) ≤ 1 was
+successfully characterized by Jans [Ja] and Bass [B3 : (3.3)], as follows.
+
+(4.4) Theorem. For any (left and right) noetherian ring R, the following are
+equivalent:
+(1) id(R R) ≤ 1;
+(2) every f.g. torsionless right R-module 9 is reflexive ;
+(3) If R P is f.g. projective and R N is f.g. torsionless, then any short exact sequence
+0 → P → M → N → 0 splits.
+
+     Here, since R is not a domain any more, we do not have a natural notion of
+torsionfree modules. In their place, Bass introduced the notion of a torsionless
+module: an R-module P is said to be torsionless if the natural map θP from P to
+its double-dual P ∗∗ is a monomorphism (that is, for any nonzero p ∈ P , f (p) 6= 0
+for some f ∈ P ∗ ). If R happens to be a commutative domain, a torsionless R-
+module P is easily seen to be torsionfree; the converse does not hold in general, but
+does hold if P is f.g.
+
+    (We should note in passing that, in stating the above theorem (4.4) in [B3 ], Bass
+had another “equivalent” condition: “Every right ideal in R is reflexive.” However,
+while this condition is implied by those in (4.4), Bass’s argument for the converse
+contained a gap, as was later acknowledged in [B6 : p.12]. In (6.2) of [B6 ], this extra
+condition is restored in the commutative case, in the form “R is Cohen-Macaulay,
+and every ideal in R is reflexive.”)
+
+    Let us mention two well-known classes of rings that satisfy the conditions in
+(4.4). First, consider any noetherian left hereditary ring R. For E = E(R R) (the
+injective hull of R R), we have an exact sequence
+                              0 −→ R −→ E −→ E/R −→ 0.
+Here, the quotient module E/R must be injective, by [La5 : (3.22)]. Therefore,
+we have id(R R) ≤ 1. Another interesting (and important) class of noetherian
+rings R satisfying id(R R) ≤ 1 is given by the group rings kG, where k is any
+Dedekind ring, and G is any finite group. These rings are “one-step away” from
+    9 Yes, there is a change of side in this statement ! Torsionless modules will be defined in the
+
+paragraph following the statement of the Theorem.
+14                                    T. Y. LAM
+
+
+the quasi-Frobenius rings, in that, if a is any nonzero element in k, the quotient
+kG/(a) ∼
+       = (k/(a))[G] is a well-known example of a QF ring (see [La5 : Exer. (15.14)]).
+
+    For a commutative noetherian local ring R, the condition id(R R) < ∞ turns
+out to be one of several equivalent conditions defining a (local) Gorenstein ring,
+and for such a ring R, we have in fact id(R) = K-dim R. This homological char-
+acterization of a local Gorenstein ring is close in spirit to the usual homological
+characterization of regular local rings: recall that, by the theorem of Auslander-
+Buchsbaum and Serre, regular local rings are exactly those noetherian local rings
+R for which we have gl.dim(R) < ∞, or equivalently, gl.dim(R) = K-dim R.
+
+     In the case of K-dim R = 0, the local Gorenstein rings are precisely the
+local QF rings. In the case of K-dim R = 1, the earliest manifestation of local
+Gorenstein rings was in the form of localizations of plane curves, and more generally,
+complete intersection curves, as was noted by Apéry, Samuel, Gorenstein himself,
+and Rosenlicht. We refer the reader to Craig Huneke’s article in this volume for
+a thorough survey on the history of Gorenstein rings. In [Hu], Huneke traced
+the Gorenstein ring notion from the work of the above-named authors to that of
+Grothendieck and Serre, who defined local Gorenstein rings in the context of duality
+theory, via the use of dualizing sheaves. After Serre observed the connection to rings
+with finite self-injective dimensions, Bass wrote the famous “Ubiquity” paper [B6 ]
+in 1963 to put the whole theory of Gorenstein rings on a firm footing. One of
+the basic things he did in this splendid paper was to give a “global” definition for
+Gorenstein rings: he called a general commutative noetherian ring R Gorenstein
+if all localizations of R at prime ideals are local Gorenstein rings. If K-dim R
+happens to be finite, this was shown to be equivalent to id(R) < ∞, and again, in
+this case, id(R) = K-dim R. Various other characterizations for Gorenstein rings
+(e.g. in terms of primary decompositions of ideals, multiplicities, etc.) are given in
+the “Fundamental Theorem” in §1 of [B6 ].
+
+     To bring the notion of Gorenstein rings to bear on the question of decomposi-
+tions of modules considered in (4.2), Bass redid and generalized this result in §7 of
+[B6 ]. To develop a theory suitable for applications to, say, integral representation
+theory, Bass considered now a commutative reduced noetherian ring R of Krull
+dimension 1, with a total ring of quotients K. It is no longer assumed that R is
+a domain, but we retain the reasonable assumption that R̃, the integral closure
+of R in K, is a f.g. R-module. (Of course, R̃ is just a finite direct product of
+Dedekind rings.) The f.g. torsionless R-modules can be seen to be exactly those
+f.g. R-modules M for which the natural map M −→ K ⊗R M is an injection.
+These R-modules may be called R-lattices, in analogy with the terminology used
+in integral representation theory. With this setting in place, Bass considered the
+following three conditions on R:
+
+     (1) Every R-ideal is generated by two elements.
+
+     (2) Any ring between R and R̃ is a Gorenstein ring.
+
+     (3) Every indecomposable R-lattice is isomorphic to an R-ideal.
+               BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                                  15
+
+
+Bass’s main result in §7 of [B6 ] is that (1) ⇐⇒ (2) =⇒ (3) (and that (3) fails to
+imply (1) and (2) “only in a situation that can be analyzed completely”.10 This
+result constitutes an expansion and simplification of (4.2). The novel feature about
+this result is the emergence of the “hereditarily Gorenstein” condition (2). In the
+post-1963 literature, a ring R in the above setting satisfying this condition (2) (or
+equivalently (1)) has been, quite justifiably, called a Bass ring.
+
+    Later, various authors have obtained new characterizations for Bass rings. For
+instance, if R and R̃ are as above, then the Bass ring conditions (1), (2) are further
+shown to be equivalent to each of the following:
+
+     (4) (Greither [Gr]) R̃ is binary generated as an R-module.
+     (5) (Levy-Wiegand [LW]) R̃/R is a cyclic R-module.
+    (6) (Wiegand [Wi]) Every faithful R-lattice has a direct summand isomorphic
+to a faithful ideal.
+
+     Yet other characterizations are obtained by Handelman in [Ha2 ]. Not to be
+outdone by Bass’s “ubiquity” title, Handelman called his own paper “Propinquity
+of one-dimensional Gorenstein rings”.11 In the 80s, Bass was one of the communi-
+cating editors for the Journal of Pure and Applied Algebra; it was perhaps not a
+coincidence, therefore, that the papers of Handelman, Greither, and Levy-Wiegand
+all appeared in that same journal !
+
+     In classical commutative algebra, there is a well-known Steinitz-Chevalley the-
+ory for f.g. modules over Dedekind domains. In studying Bass rings, a natural
+topic to investigate is therefore the classification problem for R-lattices. This prob-
+lem has been successfully tackled by Levy and Wiegand. In [LW], they show, in
+generalization of the Steinitz-Chevalley theory, that any given R-lattice M over a
+Bass ring R is determined by its genus,12 together with the class of a faithful ideal
+cℓ (M ) ⊆ R associated with M . Levy and Wiegand have also obtained very inter-
+esting cancellation theorems for projective lattices over Bass rings, and later, Levy
+[Le] even extended these results from R-lattices to general f.g. R-modules over a
+specific class of Bass rings.
+
+    Of course, the most classical examples of Bass rings are the Dedekind rings (and
+their finite direct products). The next class of (non-integrally closed) examples are
+the quadratic orders, that is, Z-orders in a quadratic number field. Any nonzero
+ideal in such an order R is isomorphic to Z2 , and is therefore binary generated;
+therefore, R is a Bass order. For yet another class of examples, consider the integral
+group ring R = Z G for a finite abelian group G. As we have indicated before,
+     10 In analyzing the situations in which (3) fails to imply (1) and (2), however, Bass seemed
+
+to have overlooked certain cases. A more complete analysis when R is local was given later by
+Nazarova and Roĭter in [NR]; for the general case, see the paper of Haefner and Levy [HL]. The
+main difference between (3) and (1) lies in the fact that (1) is a local property (as Bass had shown
+in [Ba6 : (7.4)]), while (3) is not a local property (see [Gr: §2]).
+     11 Propinquity := the state of being near in space or in time. Handelman used this term to
+
+refer to the fact that the rings between a Bass ring R and its integral closure R̃ are rather “close”
+to one another.
+     12 Recall that two R-modules M and N are said to be in the same genus if M            ∼
+                                                                                        m = Nm for
+every maximal ideal m ⊂ R.
+16                                          T. Y. LAM
+
+
+R is always Gorenstein, but it need not be Bass. Bass’s result, in this case, shows
+that (1), (2), (3) above are in fact equivalent, and, by the results of Dade and
+Heller-Reiner, they amount to the fact that the order of G is square-free (see also
+[Gr: Th. 8.1]). In other words, |G| being square-free is the necessary and sufficient
+condition for the integral group ring Z G to be a Bass ring.
+
+    To any perceptive reader of the two papers [B3 ], [B6 ], there should be little
+doubt that one of the objectives Bass had in mind for his theory of Gorenstein rings
+and the decompositions of torsionfree modules was the potential applications to
+integral representation theory. Bass’s explicit mention (in [B6 : §7]) of the R = Z G
+example in the paragraph above was a clear indication of his vision in this direction.
+As it turned out, the task of carrying out the program of applying Gorenstein
+(and Bass) rings to integral representation theory was to fall on the shoulders of
+researchers on representation modules in the Russian School.
+
+    Of course, in integral representation theory, the rings to be considered are
+no longer commutative; but in a sense they are sufficiently close to commutative
+rings. To put ourselves into this new setting, we start with a Dedekind ring R
+with quotient field K, and consider an R-order Λ in a finite-dimensional separable
+K-algebra A. In this setting, we shall be exclusively concerned with (say, left)
+Λ-lattices; that is, f.g. left Λ-modules L which embed into the A-module K ⊗R L
+by the natural map). Following Curtis and Reiner [CR: §37], we say that Λ is a
+Gorenstein order if the left regular module Λ Λ has the following “weakly injective”
+property: for any Λ-lattices M and N , any Λ-exact sequence
+                                    0→Λ→M →N →0
+splits.13 We then define Bass orders by a hereditary property: Λ is said to be a
+Bass order if every R-order in A containing Λ is a Gorenstein order.
+
+    Comparing these definitions with the traditionally well known ones for heredi-
+tary orders and maximal orders, we can easily verify the following hierarchy:
+{Maximal Orders} ⊂ {Hereditary Orders} ⊂ {Bass Orders} ⊂ {Gorenstein Orders},
+where, as indicated, each inclusion is proper. In parallel to the properties (1),
+(2) and (3) in the commutative case, one can now consider the following three
+properties of a given R-order Λ:
+
+     (a) Every left ideal of Λ is generated by two elements.
+     (b) Λ is a Bass order.
+     (c) Every indecomposable Λ-lattice is isomorphic to a left ideal of Λ.
+
+    Shortly after the appearance of [B6 ], Russian workers in integral representation
+theory mounted an ambitious program to try to determine the exact relationships
+between the three properties above in the setting of noncommutative R-orders.
+The definitive results were obtained around 1966-67. In [Ro], Roĭter showed that
+(a) ⇒ (b), and in [DKR], Drozd, Kirichenko, and Roĭter showed that (b) ⇒ (c).
+These results are the best possible, since in general, (b) does not imply (a), nor
+    13 This is actually just an equivalent way to say that id( Λ) ≤ 1: one can see this, essentially,
+                                                              Λ
+by applying (1) ⇔ (3) in (4.4). It can also be seen that Λ being a Gorenstein order is a left/right
+symmetric property [CR: (37.8)]; hence the omission of any reference to side.
+            BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                       17
+
+
+does (c) imply (b). A detailed exposition on the proofs of the implications (a) ⇒
+(b) ⇒ (c) can be found in §37 of the book of Curtis and Reiner [CR], on which our
+present discussion is based.
+
+     The results of Roĭter, Drozd and Kirichenko are quite deep, involving rather
+subtle analysis of the decompositions of Λ-lattices. But it was clearly the paradigm
+of the results of Bass in the commutative case that had guided the Russians in their
+work in this phase of integral representation theory. Subsequently, Bass orders were
+used as a fundamental tool in the work of Drozd-Roĭter and Drozd-Kirichenko in
+their approaches to the characterization of orders of finite representation type (the
+corresponding work on group rings over rings of algebraic integers having been
+completed earlier by H. Jacobinski).
+
+    In another direction, we should mention that the idea of Gorenstein rings has
+also found recent applications in noncommutative algebraic geometry: a notion of
+(noncommutative) “Auslander-Gorenstein rings” has been introduced and studied
+by K. Ajitabh, S. P. Smith, and J. J. Zhang (see [ASZ]).
+
+     Today, in no small measure due to the influence of Bass’s paper, Gorenstein
+rings have lived up to their “ubiquity” billing, and are widely used in number theory,
+arithmetic and algebraic geometry, commutative (and noncommutative) algebra,
+theory of invariants, and combinatorics. Even the work of Andrew Wiles [W] on
+elliptic curves and modular forms leading to his spectacular proof of Fermat’s Last
+Theorem made use of Gorenstein rings at several crucial points: in the Appendix,
+in Ch. 2 (§1), and then in Ch. 3 on the estimates for the Selmer group. Recall
+that it was exactly Wiles’s earlier attempts to use Euler systems for obtaining
+the upper bounds on the Selmer group that had led to the “fatal flaw” in his
+first proof of FLT announced in Cambridge on June 23, 1993. In 1994, finally
+realizing that the Euler system approach was irreparable, Wiles returned to his
+original approach in estimating the Selmer group using ideas from Iwasawa Theory.
+Basically, in [W: Ch. 3], Wiles needed to show that certain minimal Hecke rings,
+which are known to be Gorenstein rings, are indeed complete intersections. This
+was eventually accomplished jointly with Richard Taylor in [TW]. The role played
+by commutative algebra (and Gorenstein rings in particular) in Wiles’s paper was
+described vividly in the following words of his [W: p. 451]:
+       “The turning point in this and indeed in the whole proof came in
+       the Spring of 1991. In searching for a clue from commutative al-
+       gebra I had been particularly struck some years earlier by a paper
+       of Kunz. I had already needed to verify that the Hecke rings were
+       Gorenstein in order to compute the congruences developed in Chap-
+       ter 2. . . . Kunz’s paper suggested the use of an invariant (the η-
+       invariant . . . ) which I saw could be used to test for isomorphisms
+       between Gorenstein rings. A different invariant (the p/p2-invariant
+       . . . ) I had already observed could be used to test for isomorphisms
+       between complete intersections. . . . Not long afterwards I realized
+       that, unlikely though it seemed at first, the equality of these invari-
+       ants was actually a criterion for a Gorenstein ring to be a complete
+       intersection.”
+18                                    T. Y. LAM
+
+
+    For related literature, see also Lenstra’s paper [Len] on complete intersections
+and Gorenstein rings. In this paper, Lenstra sharpened Wiles’s criterion (in the
+Appendix of [W]) for a finite O-free local Gorenstein algebra T over a complete
+discrete valuation ring O to be a complete intersection. (Lenstra was able to
+remove the Gorenstein assumption on T .)
+
+                               Part II: Ring Theory
+
+     §5. Semiperfect Rings as Generalizations of Semiprimary Rings
+     In Part II of this paper, we come to Bass’s work in noncommutative ring the-
+ory. As we have mentioned in the Introduction, Bass’s maiden work [B1 ], developed
+from his Chicago thesis in 1959, is a ring-theoretic paper dealing with the homo-
+logical generalization of semiprimary rings. This work turned out to be one of the
+most influential ring theory papers written in that period, as can be partly gauged
+from the following fact. In L. Small’s collected reviews [Sm] of ring theory papers
+published in Math. Reviews in 1940-79, an average paper got at most a few cross
+citations from other reviews, but Bass’s paper [B1 ] managed to pull as many as
+29! Usually, a reviewer would only cite a paper in order to indicate the source of
+a crucial topic or an important idea; the fact that, in its twenty years of existence,
+[B1 ] drew as many 29 cross citations from other reviews was almost without parallel
+in [Sm].
+
+      What makes [B1 ] a masterpiece was the fact that it wove together many of the
+themes in ring theory and homological algebra that were being developed at that
+time. On the ring theory side, these themes include: the Krull-Schmidt Theorem
+(Azumaya version), chain conditions (suitably restricted), maximal and minimal
+submodules (existence questions), the Jacobson radical (nilpotency questions and
+lifting of idempotents), and Nakayama’s Lemma (for general, not necessarily f.g.,
+modules). On the side of homological algebra (a pretty new subject in 1959), the
+themes include: projective, injective, and flat modules, projective covers, “Ext” and
+“Tor” functors, and all kinds of homological dimensions. Quoting from Bass’s com-
+ments on “Theorem P” in [B1 ], “this result provides one of those gratifying instances
+in which several ostensibly diverse notions were shown to be intimately related.”
+Indeed, it seems clear in retrospect that it was this remarkable bridge-building role
+played by the various results in [B1 ] which helped secure it a permanent place in
+the ring theory literature. Only a few years after the appearance of [B1 ], the key
+ingredients of the paper (the theory of perfect and semiperfect rings) were incor-
+porated into a standard textbook [L], Lambek’s “Lectures on Rings and Modules”,
+ca. 1966. Today, perfect and semiperfect rings continue to be used extensively in a
+wide variety of ring-theoretic settings.
+
+    In this and the next two sections, we’ll give a report on Bass’s paper [B1 ] and its
+impact on noncommutative ring theory. In order to keep the size of these sections
+within bounds, however, we shall only survey below the first part of [B1 ] on perfect
+and semiperfect rings, and will not try to cover its second part on the finitistic
+homological dimensions of rings.
+
+   For the reader’s convenience, we first recall a couple of basic definitions. In
+noncommutative ring theory, a ring R is said to be semiprimary if its Jacobson
+              BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                                 19
+
+
+radical rad(R) is nilpotent, and the quotient ring R/rad(R) is (artinian) semisim-
+ple. Rings of this type were well known in classical ring theory, and had been
+studied in part as a viable generalization of one-sided artinian rings by K. Asano,
+G. Azumaya and T. Nakayama, among others. With the advent of the new style of
+algebra in the 1950s, homological properties of such rings also attracted attention,
+and had been explored, for instance, in some of the papers in the “Nagoya series”
+(ca. 1955-56) on the homological dimensions of modules and rings. Bass had the
+genius to recognize that the artinian condition on R/rad(R) is important in its
+own right, and later (in [B9 : p. 504]) defined a ring R to be semilocal if it satisfies
+this condition. In the commutative case, this condition amounts to the finiteness
+of the number of maximal ideals in R, so Bass’s definition of semilocal rings agrees
+with the usual one in commutative algebra. For noncommutative rings, however,
+“semilocal” is no longer equivalent to the finiteness of the number of (one-sided or
+two-sided) maximal ideals. Ring theorists now know that Bass had chosen the right
+definition (as well as the right name!) for an important class of rings.
+
+     Like semiprimary rings, the semiperfect rings and left (right) perfect rings in-
+troduced in [B1 ] are special cases of semilocal rings. Bass was led to these rings
+partly by the classical idea of an injective hull due to Eckmann and Schöpf. In
+general, an injective hull of a module M is an injective module I containing M as
+a large (or essential ) submodule, in the sense that:
+                      ∀ submodule S ⊆ I, S ∩ M = 0 =⇒ S = 0.
+Eckmann and Schöpf showed that (over any ring) an injective hull for M always
+exists, and is unique up to an isomorphism over M . In [Ei], Eilenberg initiated a
+notion of a minimal epimorphism from a projective module to M , and used this
+notion to study minimal resolutions, homological dimensions and syzygies. Bass
+observed that, by slightly changing Eilenberg’s definition, one gets a precise dual
+of the notion of an injective hull: according to Bass, a projective cover of a module
+M is a projective module P with an epimorphism f : P → M such that ker(f ) is
+small (or superfluous) in P in the sense that:
+                   ∀ submodule S ⊆ P,          S + ker(f ) = P =⇒ S = P.
+Such a projective cover for M is easily seen to be unique; the only problem is that
+it may not exist. For instance, in the category of Z-modules, the only objects with
+projective covers (in the above sense) are the free abelian groups.
+
+    The task of studying the existence of projective covers in module categories
+was taken up by Bass [B1 ], who defined a ring R to be left perfect (resp. left
+semiperfect) if every left R-module (resp. cyclic left R-module) has a projective
+cover.14 The main work to be done was that of characterizing such rings in terms
+of other interesting conditions.
+
+     In this section, we shall focus on the semiperfect case. Here, Bass’s major result
+is the following.
+
+
+     14 The adjective “perfect” is due to Eilenberg, who used the term “perfect categories” in [Ei]
+
+for categories of modules possessing projective covers.
+20                                          T. Y. LAM
+
+
+(5.1) Theorem. For any ring R, the following are equivalent:
+(1) R is left semiperfect;
+(2) Every f.g. left R-module has a projective cover; 15
+(3) R is semilocal, and idempotents in R/rad(R) can be lifted to idempotents in R.
+In case R is a commutative ring, the above conditions are also equivalent to:
+(4) R is a finite direct product of commutative local rings.
+
+     Note that (1) ⇔ (3) shows, in particular, the somewhat surprising left/right
+symmetry of semiperfect rings.16 The second condition in (3) was already quite
+well known in ring theory at that time, and had been studied by Kaplansky, Ja-
+cobson, and Zelinsky, among others. For instance, if rad(R) is a nil ideal, this
+condition is always satisfied (see [L: p. 72, Prop. 1]). Thus, semiperfect rings in-
+clude all semiprimary rings (which in turn include all one-sided artinian rings). It
+is in this sense that semiperfect rings (and the 1-sided perfect rings to be discussed
+later) are homological generalizations of the classically well known semiprimary
+rings.
+
+    The equivalence (1) ⇔ (4) in Theorem 5.1 shows that, for commutative rings,
+the notion of semiperfect rings has essentially nothing new to add to the existing
+theory. But the interesting case is that of noncommutative semiperfect rings. Since
+a major source of noncommutative rings is the class of endomorphism rings of
+modules, it is significant to ask when such endomorphism rings are semiperfect. The
+answer to this question is contained in the following result, which is a remarkable
+extension of the well-known classical theorem that the endomorphism ring of a
+module of finite length is always semiprimary.
+
+(5.2) Theorem. Let M be a right module over a ring S. Then the endomorphism
+ring EndS (M ) is semiperfect iff M has a finite Azumaya decomposition, that is, a
+decomposition M = M1 ⊕ · · · ⊕ Mn such that each endomorphism ring EndS (Mi )
+is local.
+
+    Although this result was not explicitly stated in [Ba1 ], it can be proved easily
+using the techniques of that paper. (An explicit proof can be found in [La3 : (23.6)].)
+In some sense, (5.2) shows the “ubiquity” of semiperfect rings. For instance, for
+any injective module MS , if M has finite uniform dimension, then EndS (M ) is
+semiperfect (and conversely). As a special case of (5.2), we also see that a ring R is
+semiperfect iff the regular module RR has a finite Azumaya decomposition; or, in
+terms of idempotents, iff there is a decomposition 1 = e1 + · · · + en where the ei ’s
+are mutually orthogonal idempotents with each ei Rei a local ring. The existence of
+such a decomposition makes it possible to generalize a considerable amount of the
+elementary theory of artinian rings to a semiperfect ring R, including, for instance:
+the classification of f.g. projective R-modules, the construction of projective covers
+for f.g. R-modules, the definition of a Cartan matrix, block decomposition and
+      15 It is worth noting that, according to later work of F. Sandomierski ([Sa ], [Mue]; see also
+                                                                                  1
+[La4 : (24.3)]), this condition (2) is also equivalent to the following: (2)′ Every simple right R-
+module has a projective cover. In a same vein, Sandomierski proved that a ring R is right perfect
+iff every every semisimple right R-module has a projective cover.
+      16 In fact, the left-right symmetric characterization of semiperfect rings in (5.1)(3) is often
+
+used as their definition in the literature: see, for instance, [La3 : p. 346].
+               BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                                    21
+
+
+basic ring for R, etc. These are parts of the foundational material for the theory of
+artinian rings, first developed (by Brauer, Osima and others) in the context of group
+algebras of finite groups for applications to the theory of modular representations.
+It is gratifying to see that a large part of this well-known classical theory can be
+carried over verbatim to semiperfect rings.
+
+     The ultimate justification for the introduction of the class of semiperfect rings
+lies in the fact that, besides semiprimary rings, there are also many other natural
+classes of rings which turn out to be semiperfect. Let us make a list of some such
+classes below.
+     • If NS is any module of finite uniform dimension over a ring S and M is its
+       injective hull, then the endomorphism ring End(MR ) is semiperfect. (This
+       is essentially a rehash of the remark on injective modules we made in the
+       last paragraph.)
+     • If a semilocal ring R is 1-sided self-injective, then R is semiperfect; see
+       [La5 : (13.4)].
+     • Certain semigroup rings called Kupisch rings by H. Sato are semiperfect;
+       see [Sat: (5.1)].
+     • Any right serial ring (that is, a ring R such that RR is a direct sum of
+       uniserial modules) is a semiperfect ring; see, e.g., [F2 : p. 81].
+     • It is well-known to researchers in duality theory that if a ring R admits a
+       Morita duality into some other ring S, then R and S must be semiperfect
+       rings. Indeed, if U is an (S, R)-bimodule defining the duality, then there is a
+       duality between the Serre subcategories of U -reflexive right R-modules and
+       left S-modules. Since (left) S-modules have injective hulls, it is not difficult
+       to check from the above duality that f.g. (right) R-modules have projective
+       covers. Thus, R, and hence also S, must be semiperfect rings. This basic
+       observation is due to Barbara Osofsky. As a special case, it follows that any
+       cogenerator ring17 is a semiperfect ring.
+     • More generally, Sandomierski [Sa2 : p. 335] has shown that right linearly com-
+       pact rings are semiperfect, and Azumaya [Az1 ], Osofsky [Os] and others have
+       shown that right PF (pseudo-Frobenius) rings18 are also semiperfect.
+   The notion of semiperfect rings has also been generalized in several directions.
+The following are two of them.
+     • First, prompted by Bass’s characterization (5.1)(2) for a semiperfect ring,
+       ring-theorists have come up with a slightly more general notion: a ring R is
+       said to be F -semiperfect if every finitely presented left R-module has a pro-
+       jective cover. This terminology is due to Oberst and Schneider [OS]: “F ”
+       here stands for “finite”. Clearly, every semiperfect ring is F -semiperfect. In
+       parallel to (5.1)(3), there is the following characterization of an F -semiperfect
+       ring: R is F -semiperfect iff it is semiregular ; that is, idempotents of R/rad(R)
+
+     17 A ring R is called a cogenerator ring if R is a cogenerator both as a left and as a right
+
+R-module. A cogenerator ring is also known as a Morita ring in the literature.
+     18 A ring R is called a right PF ring if any faithful right R-module is a generator. For a list of
+
+many other characterizations of such rings, see [La5 : (19.26)]. The cogenerator rings in Footnote
+(17) are precisely the 2-sided PF-rings.
+22                                        T. Y. LAM
+
+
+       can be lifted to R, and the epimorphic image R/rad(R) of R is a von Neu-
+       mann regular ring (instead of a semisimple ring). (See, e.g. [OS: (1.2)],
+       and [Ni3 , Ni4 ].) There is a large supply of such rings. In fact, if M is any
+       quasi-injective module,19 then the endomorphism ring EndR (M ) is always
+       a semiregular ring. This fact, first proved by Faith and Utumi [FU], is one of
+       the underpinnings for the Findlay-Lambek-Utumi theory of maximal rings
+       of quotients; a self-contained proof of it can be found in [La5 : (13.1)].
+     • In the theory of direct sum decompositions of modules, there is an important
+       class of rings called “exchange rings” that are formally christened by Warfield
+       in [Wa1 ]. (A ring R is said to be an exchange ring if RR satisfies the exchange
+       property introduced in the work of Crawley and Jónsson [CJ]. For more
+       details on (and characterizations of) such rings, see [Ni4 ].) The following
+       hierarchy shows exactly how semiregular rings and exchange rings compare
+       with semiperfect rings:
+         {Semiperfect Rings} ⊂ {Semiregular Rings} ⊂ {Exchange Rings},
+        where the second inclusion was shown by Warfield ([Wa1 : Th. 3]; see also
+        [Ni4 : Cor. (2.3)]). Here, both inclusions are proper, as indicated. It turns
+        out that the main difference between semiperfect rings and exchange rings
+        lies in a finiteness condition. In fact, by combining Nicholson’s results [Ni1 :
+        (4.3)] and [Ni4 : (1.9)], one sees that semiperfect rings are just the exchange
+        rings which do not have infinite sets of nonzero orthogonal idempotents; this
+        is stated as (8.4C) in Faith’s recent book [Fa3 ]. Note that this statement is
+        much easier to prove if we replace the word “exchange rings” by “semiregular
+        rings”, since it is well-known that, whenever idempotents can be lifted from
+        R/rad(R) to R, any countable set of nonzero orthogonal idempotents in
+        R/rad(R) can be lifted to a similar set in R [La3 : (21.25], and that a von
+        Neumann regular ring is semisimple if it has no infinite sets of nonzero
+        orthogonal idempotents ([Go1 : (2.16)], [La5 : Exer. 6.29]).
+     Exchange rings are worthy of study in ring theory since they generalize semiper-
+fect rings, and they form a fairly broad class of rings. Some known facts about
+semiperfect rings turn out to be true for exchange rings; the proofs of them are
+sometimes clearer when they are expressed in the context of exchange rings. For
+instance, Müller’s well-known result [Mue] that any L  projective (right) module over
+                                                                                2
+a semiperfect ring R is isomorphic to a direct sum        i ei R (where ei = ei ∈ R )
+generalizes to, and is quite easy to prove over, any exchange ring R; see [Wa1 : Th. 1].
+Apply this to a local ring R and you’ll retrieve Kaplansky’s classical result (men-
+tioned in §1) that any projective R-module is free.
+
+    Finally, we should mention that the notion of semiperfect rings has also been
+successfully extended to a module-theoretic setting: a module M over a ring R is
+said to be semiperfect if every quotient of M has a projective cover. (Thus, R is
+semiperfect iff the module R R is.) The theory of semiperfect modules was initiated
+in the projective case in Mares [M] and Kasch-Mares [KM], and has been studied
+further by Nicholson [Ni2 , Ni3 ], and Azumaya [Az2 , Az4 , Az5 ], among others. For
+a detailed treatment of semiperfect modules in the general case, see the textbook
+     19 A module M is said to be quasi-injective if, for any submodule N ⊆ M , any homomorphism
+
+from N to M can be extended to an endomorphism of M . Needless to say, quasi-injective modules
+include all injective ones.
+              BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                                 23
+
+
+of Kasch [Ka]. Ever since [B1 ] appeared in 1960, semiperfect rings (and modules)
+have been further studied and extensively utilized in many papers in ring theory.
+To reflect this trend, I have devoted the last chapter of my ring theory graduate
+text [La3 ] to an introductory exposition on the theory of (perfect and) semiperfect
+rings.
+
+                      §6. Perfect Rings and Restricted DCC
+     In this section, we come to Bass’s remarkable characterizations of left perfect
+rings; recall that these are, by definition, rings all of whose left modules have
+projective covers. Since left perfect rings are obviously semiperfect, we expect that
+one of the characterizations should be a strengthening of the condition (3) in (5.1);
+this is given by the condition (2) below. The other conditions will be commented
+upon later.
+
+(6.1) Theorem. For any ring R with Jacobson radical J = rad(R), the following
+are equivalent:
+(1) R is left perfect;
+(2) R is semilocal, and J is left T -nilpotent, that is, for any a1 , a2 , . . . ∈ J,
+a1 a2 · · · an = 0 for some n;
+(3) R is semilocal, and every nonzero left R-module has a maximal submodule;
+(4) Every flat left R-module is projective;
+(5) R satisfies DCC on principal right ideals;
+(6) Any right R-module satisfies DCC on cyclic submodules;
+(7) R is semilocal, and every nonzero right R-module has a minimal submodule;
+(7)′ R has no infinite sets of nonzero orthogonal idempotents, and every nonzero
+right R-module has a minimal submodule.
+
+    It is worth pointing out that left perfect rings are interesting mostly when they
+are not semiprime. In fact, as soon as a left perfect ring R is semiprime, then R is
+semisimple; see, e.g. [La3 : (10.24)].
+
+     According to Bass, the “T ” in “T -nilpotency” in (2) stands for “transfinite”.
+Note that this condition in (2) comes somewhere between J being nilpotent and
+J being nil.20 Similar nil-ness conditions have appeared before in the work of
+Levitzki on the Levitzki radical, but Bass was the first one to realize the role of
+T -nilpotency in the study of modules and restricted chain conditions on 1-sided
+ideals. As it turned out, the successful use of the T -nilpotency condition played a
+pivotal role in the proof of (6.1). Results such as (1.6) showed further the efficacy
+of the T -nilpotency conditions.
+
+     We shall now comment on the other conditions in Theorem (6.1). Along with
+(1), the condition (4) is of a homological nature; it can be slightly rephrased as
+follows.
+
+(4)′ Every left R-module has the same flat as projective dimension.
+     20 In particular, the characterization (2) implies immediately that semiprimary rings are both
+
+right and left perfect. In general, however, right perfect and left perfect are not equivalent
+conditions, as was already pointed out by Bass.
+24                                       T. Y. LAM
+
+
+Since, in general, flat modules are precisely direct limits of projective modules (by
+the theorem of Lazard and Govorov), (4) can also be stated in the following form:
+
+(4)′′ Direct limits of projective left R-modules are projective.
+
+Bass’s proof for (4)′′ ⇒ (5) is based on a very ingenious analysis of the left R-
+module with generators x1 , x2 , . . . , and relations xn = an xn+1 for all n, where
+a1 , a2 , . . . are given elements in R.
+
+     Note that the first four conditions in (6.1) ((1)–(4)) are conditions on left R-
+modules, while the last four conditions ((5)–(7)′ ) are on right ones ! This switch
+from left modules to right modules, albeit not new for Bass (see Footnote (9)), is
+in fact one of the inherent peculiar features of his Theorem (6.1). Unfortunately,
+because of this unusual switch of sides, Theorem (6.1) is often misquoted in the
+literature, sometimes even in authoritative sources: see, for instance, [KS: Thm. 2,
+p. 57]. In a couple of standard textbooks, Bass’s left (resp. right) T -nilpotency
+condition was renamed the “right (resp. left) vanishing condition”; in another text-
+book, the author simply switched Bass’s definitions of left and right T -nilpotency
+— and did so without even alerting the reader to the difference! All of this ev-
+idently further compounded the confusion. We hereby urge all future authors to
+exercise restraint in changing existing definitions, and to check their statements
+very carefully when quoting Bass’s Theorem (6.1).
+
+    While clearly (2) and (5) in (6.1) are purely ring-theoretic conditions, Bass’s
+proof of (2) =⇒ (5) was routed through the homological condition (4) (or its equiv-
+alent versions (4)′ , (4)′′ ). This raised the challenging question whether it is possible
+to give a direct proof for (2) =⇒ (5) without using any homological algebra.21 Such
+a proof was eventually found by Rentschler in [Re].
+
+    Let us now discuss in detail the interesting condition (5), which is a natural
+weakening of the usual artinian condition on right ideals. Here, Kaplansky’s ideas
+played a key role. In his work with Arens on the topological representations of
+algebras in the late 40s, Kaplansky [K1 ] was motivated to consider the condition
+stipulating the stabilization of all chains of the form
+                                 aR ⊇ a2 R ⊇ a3 R ⊇ · · ·
+for all elements a in a ring R. This condition was shown to be left/right sym-
+metric many years later by Dischinger, and defines the class of strongly π-regular
+rings. We will not try to justify the somewhat clumsy terminology here, for this
+can be done only by making a digression into some other definitions not essential
+for our purposes. Suffice it to say that, in the case of commutative rings R, strong
+π-regularity amounts to R having Krull dimension 0. And, as examples of non-
+commutative strongly π-regular rings, Kaplansky mentioned the class of algebraic
+algebras over a field.
+
+     In an appendix to [K1 ], Kaplansky pointed out that it would also be natural
+to consider the DCC for all principal right ideals in a ring, that is, the condition
+(5) in Theorem 6.1. Kaplansky noted that the Russian mathematician Gertschikoff
+     21 The reverse implication (5) =⇒ (2) can indeed be done directly without invoking homo-
+
+logical tools; see, for instance, the exposition in [La3 : p. 369].
+              BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                               25
+
+
+had considered rings satisfying this condition as far back as 1940, and obtained
+characterizations of such rings that are without nonzero nilpotent elements.22 In
+retrospect, this result of Gertschikoff was certainly a harbinger for the equivalence of
+the conditions (2) and (5) in Bass’s Theorem 6.1. By a rather strange coincidence,
+1959-61 turned out to be the years in which the minimum condition (5) for principal
+right ideals was destined to blossom: during this period, along with the publication
+of [B1 ] came two papers of Faith [Fa1 ] and three papers of Szász [Sz] on the same
+topic. Bass invented the term “left perfect” for his rings (after Eilenberg), while
+Faith used the English acronym “MP-ring”, and Szász introduced the German
+acronym “MHR-ring.” Carl Faith told me that, in his first meeting with Bass in
+the early 60s, they compared notes on their respective works on rings with DCC
+on 1-sided ideals, but found surprisingly that what they did with these rings had
+almost nothing in common!
+
+     Going beyond Bass’s paper [B1 ], we should mention several significant results
+obtained later by other authors, which were directly inspired by Theorem 6.1.
+Prior to the publication of [B1 ], Chase had proved in his Chicago thesis that, over
+any semiprimary ring R, DCC holds for f.g. submodules of any (left or right) R-
+module.23 Prompted by this, Bass asked if, in any left perfect ring, f.g. right ideals
+satisfy the DCC. This was affirmed in 1969 by Björk ([Bj1 ], see also [La4 : (23.3)])
+who proved the amazing result that, whenever a module (over any ring) satisfies
+DCC on cyclic submodules, it also satisfies the DCC on f.g. submodules. In partic-
+ular, this extends Chase’s result to left perfect rings, showing that in the condition
+(6) in Theorem 6.1, the word “cyclic” can be replaced by “f.g.”. One year later,
+Jonah [Jo] added “infinitely many” more equivalent conditions to the list in (6.1):
+
+(0)n Any left R-module satisfies ACC on its n-generated submodules.
+
+(Here, n is any natural number.) Remarkably, these new characterization of left
+perfect rings are in terms of ascending chain conditions; also, we are now back full
+circle to left R-modules! Note that, in particular, Jonah’s result implies “Rings
+with the minimum condition for principal right ideals have the maximum condition
+for principal left ideals.” This was, in fact, the title of Jonah’s paper [Jo].
+
+     To continue our discussion on left perfect rings, we take another look at the
+list of equivalent conditions in (6.1). Since the condition (7) is equivalent to the
+ostensibly weaker condition (7)′ , an obvious question one can ask is whether (3)
+can likewise be weakened to:
+
+(3)′ R has no infinite sets of nonzero orthogonal idempotents, and every nonzero
+left R-module has a maximal submodule.
+
+Note that this condition is in a way “dual” to the condition (7)′ (just as (3) is dual
+to (7)), so it seems tempting to add (3)′ to the list of equivalent conditions in (6.1).
+An open problem proposed in [B1 ] is, indeed, whether (3)′ is a characterization for
+left-perfectness of a ring R. Some authors have referred to an affirmative answer to
+this as “Bass’s Conjecture”, although in fact Bass merely raised the question (see
+     22 In fact, Gertschikoff’s characterization worked more generally for rings possibly without
+
+an identity element.
+     23 For a self-contained proof of this, see Faith’s paper [Fa : p. 189].
+                                                                 2
+26                                    T. Y. LAM
+
+
+[B1 : p. 471]). The answer to this question is possibly a bit surprising: it is “yes”
+in the commutative case, and “no” in the general case, as is shown by Koifman
+[Ko], and partly by Cozzens, Hamsher, and Renault. To give an idea of how these
+conclusions were obtained, we proceed as follows.
+
+     In view of (3) and (3)′ , it is of interest to isolate the condition: “any nonzero
+left R-module has a maximal submodule”. Let us say that R is a left-max ring
+if this condition is satisfied. It is not hard to see that any left-max ring has a
+left T -nilpotent Jacobson radical [La4 : (24.6)]. In the commutative case, one has
+the following characterization of a (left)-max ring, due to Hamsher, Renault and
+Koifman; see [La4 : (24.9)].
+
+(6.2) Theorem. A commutative ring R is (left)-max iff rad(R) is T -nilpotent
+and R/rad(R) is a von Neumann regular ring.
+
+    It follows, in particular, from this result that a commutative max-ring R is
+semiregular. If, in addition, R has no infinite sets of nonzero orthogonal idempo-
+tents, then R/rad(R) must be semisimple by an argument we gave in §5. Since
+rad(R) is T -nilpotent, R is perfect, which answers Bass’s question affirmatively for
+commutative rings.
+
+     To treat Bass’s question in the general case, we use the notion of a left V -ring
+— a ring whose simple left modules are injective. A well-known characterization
+for such a ring R is that every left R-module has a zero radical ([La5 : (3.75)]);
+in particular, R must be a left-max ring. Using differential algebra, Cozzens [Co]
+constructed remarkable examples of left V -domains that are not division rings; such
+domains clearly satisfy (3)′ above, but are not left perfect rings, thus answering
+Bass’s question in the negative. Moreover, Cozzens’s rings are simple, principal
+left/right ideal domains. The emergence of rings of this type served as an important
+turning point for the theory of simple noetherian rings; see, e.g. the book of Cozzens
+and Faith [CF].
+
+    Many other characterizations of left perfect rings are known. Without any
+attempt at completeness, let us mention a few below.
+     • P. A. Griffith, B. Zimmermann-Huisgen and others have characterized left
+       perfect rings in terms of conditions similar to (6.1)(4). In the homological
+       theory of modules, an R-module P is said to be locally projective if every
+       R-epimorphism f : Q −→ P is locally split (in the sense that, for every
+       p ∈ P , there exists g ∈ HomR (P, Q) such that f g(p) = p). It is easy to see
+       that such a module P must be flat, so the locally projective modules form
+       a class between the class of projective modules and that of flat modules.
+       In [Zi2 ], Zimmermann-Huisgen showed that a ring R is left perfect iff every
+       locally projective left R-module is projective. This is, therefore, a variant of
+       the criterion (4) for left perfect rings.
+     • In Theorem 10 loc. cit., Zimmermann-Huisgen has also characterized left
+       perfect rings in terms of ℵ1 -separable modules; these are modules P with
+       the property that any countable subset of P is contained in a countably
+       generated direct summand of P .
+             BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                       27
+
+
+     • In the work of Harada-Ishii [HI], Yamagata [Ya], Zimmermann-Huisgen and
+       Zimmermann [ZZ1 ], some characterizations of left perfect rings are given in
+       terms of the exchange property of projective left R-modules.
+     • It seems to be a folklore result that a ring R is left perfect (resp. semiper-
+       fect) iff every left R-module P (resp. f.g. left R-module P ) is “supple-
+       mented”, that is, every submodule of P has an addition complement. (See,
+       e.g. [Wis: (42.6), (43.9)].) Recently, Keskin [Ke] has further extended these
+       characterizations by using the more general notion of ⊕-supplemented mod-
+       ules.
+     • Optimally, characterizations for left perfect rings should be generalizable to
+       characterizations for the endomorphism ring of a given module to be left per-
+       fect. Some results in this direction can be found in [AF2 : §29], [Wis: (43.10)],
+       and [Az3 ].
+     In closing, we should mention the fact that much of Bass’s work on left perfect
+rings can be extended to functor categories. In general, if A is a small additive
+category, we may view A as a generalization of a ring (it is a “ring with several
+objects”), and even more significantly, we may view Add(A, Ab) (the category of
+additive functors from A into the category of abelian groups) as a generalization
+of the category of modules over a ring. In view of this, it is not surprising that
+various module-theoretic notions can be generalized to notions concerning functors
+in Add(A, Ab). As it turns out, after defining flat functors, projective covers of
+functors, and DCC for f.g. subfunctors, etc., one can completely “transfer” Bass’s
+Theorem (6.1) into a theorem on the functor category Add(A, Ab). This leads then
+to the notion of a left (resp. right) perfect additive category A. For a full account of
+all this (as well as various other relations between perfect rings and model-theoretic
+algebra), see the book of Jensen and Lenzing [JL].
+
+    Now all of this is not just generalization for generalization’s sake! For instance,
+one can apply it back to the case when A is a certain additive subcategory of a
+module category over some ring R. By doing so, one is sometimes able to make
+interesting connections, and even prove nontrivial results. For instance, if A is
+the category of all finitely presented modules over a ring R, it turns out that the
+study of the perfectness of A leads to various insights about (and characteriza-
+tions of) the so-called pure semisimple rings. For a detailed formulation of this,
+see [JL: Thm. B.14]. As a matter of fact, we shall return to the theme of pure
+semisimple rings in the next section in the context of Auslander’s representation
+theory of artinian rings.
+
+    Needless to say, none of the work discussed above would have been possible
+without the pioneering effort of Bass in [B1 ].
+
+               §7. Perfect Rings and Representation Theory
+     In mathematics, a good notion or a good theorem often has a way of finding
+surprising connections to things to which it might have seemed unrelated at first. As
+it turned out, Bass’s notion of perfect rings and his various results on them provide
+such an example. The unexpected connections are to the representation theory of
+artinian rings, and the study of the general decomposition theory of modules into
+direct sums. In this section, we’ll give a short account on some of these connections;
+28                                     T. Y. LAM
+
+
+our discussion will culminate in an open question in noncommutative ring theory
+which has remained unanswered to this date. I thank N. V. Dung for suggesting
+that I include such a discussion here, and for explaining to me the main results and
+references in this area of research.
+
+      To set the stage for our discussion, we first recall the following basic notion in
+representation theory. A ring R is said to be of finite representation type (FRT) if it
+is left artinian and there are only finitely many (isomorphism types of) f.g. indecom-
+posable left R-modules. According to a result of Eisenbud and Griffith [EG], this
+notion is left/right symmetric, so we are justified in suppressing the word “left” or
+“right” in referring to rings of FRT. The study of these rings, in the form of finite-
+dimensional algebras over fields, goes back a long way to Brauer, Thrall, Kasch,
+Kneser, Kupisch, and others. It turns out that rings of FRT have a rather subtle
+relationship to Bass’s perfect rings, which we’ll now try to explain.
+
+    We start with a notion introduced by Anderson and Fuller [AF1 ] in the  Ldecom-
+position theory of modules. A decomposition of an R-module M into              i∈I Mi
+(Mi 6= 0) is said to “complement direct summands” if, for eachLdirect summand
+N of M , there exists a subset J ⊆ I such that M = N ⊕ j∈J Mj . (Note
+that if such a decomposition for M exists, the summands Mi are necessarily inde-
+composable.) Using this terminology and going beyond [B1 ], Anderson and Fuller
+obtained in [AF1 ] (ca. 1972) the following new characterization of left perfect (and
+semiperfect) rings:
+
+(7.1) Theorem. A ring R is left perfect (resp. semiperfect) iff every projective
+left R-module (resp. f.g. projective left R-module) has a direct sum decomposition
+that complements direct summands, iff the free left R-module R ⊕ R ⊕ · · · (resp.
+R ⊕ R ) has a direct sum decomposition that complements direct summands.
+
+     In view of this theorem, it is natural to ask when does every left R-module
+admit a decomposition that complements direct summands. It turns out that the
+answer to this question also involvesL  left perfect rings, albeit in different way. Given
+a ring R, let R U be the direct sum       i Ui , where the Ui ’s consist of one isomorphic
+copy of each finitely presented left R-module. Now let E be the subring (without
+identity) of EndR (U ) consisting of endomorphisms f such that Ui f = 0 for almost
+all i; E is called the “left functor ring” of R (for reasons that we shall not elaborate
+on here). In 1976, building upon the results of Auslander and Harada, Fuller [Ful]
+proved the following remarkable result (see also Simson’s paper [Si1 ]).
+
+(7.2) Theorem. For any ring R, the following are equivalent:
+(1) Every left R-module has a decomposition that complements direct summands;
+(2) Every left R-module is a direct sum of f.g. submodules;
+(3) The left functor ring E associated to R (defined above) is left perfect.
+According to a theorem of Chase, these conditions (specifically (2)) imply that R is
+a left artinian ring.
+
+    In (3) above, of course, we’ll need to use the notion of a left perfect ring
+without an identity. This is not a big problem; in fact, with essentially the same
+definition of left perfectness, Harada [H] has shown that much of Theorem 6.1 can
+be proved for rings without 1 but “with enough idempotents” (see also [Wis: §49]).
+             BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                           29
+
+
+The condition (2) in (7.2) expresses a very desirable module-theoretic property
+(arbitrary left modules can be “constructed” from f.g. ones) that has also been
+studied by Auslander [Au2 ], Gruson and Jensen [GJ] (and many others in the
+commutative case). In [GJ], it was shown that (2) is equivalent to R having “pure
+left global dimension zero”, that is, if every pure short exact sequence of left R-
+modules splits.24 In 1977, Simson [Si2 ] introduced the shorter term “left pure
+semisimple” for rings R with this property, and later, expanding on the work of
+Chase and Warfield, Zimmermann-Huisgen [Zi2 ] showed that the property (2) is
+also equivalent to:
+
+(4) Every left R-module is a direct sum of indecomposable submodules.
+
+Therefore, any of (1), (2), (3), (4) is a characterization for the left pure semisim-
+plicity of a ring R.
+
+    Now finally, we come to the connection between pure semisimplicity and rings
+of FRT. This is given by the following theorem of Fuller and Reiten [FR] (ca. 1975),
+which completed the earlier work of Auslander, Ringel and Tachikawa:
+
+(7.3) Theorem. A ring R is of FRT iff it is both left and right pure semisimple;
+that is, iff every left and every right R-module is a direct sum of f.g. submodules.
+
+     The major question that remains in this area of study is whether left pure
+semisimplicity is equivalent to right pure semisimplicity. An affirmative answer
+to this question is known as the “Pure Semisimplicity Conjecture” (PSC) in ring
+theory. If this Conjecture holds up, then the sufficiency part of the theorem above
+would say that left pure semisimple rings are of FRT. As a positive evidence for
+this, we mention the “sparsity” result of Prest [Pr], Zimmermann-Huisgen and
+Zimmermann [ZZ2 ], which states that, over a left pure semisimple ring R, there
+exist only finitely many (isomorphism types of) indecomposable left R-modules of
+any given composition length. This means R comes indeed “reasonably close” to
+being of finite representation type. Also, it is worth noting that, according to results
+of Simson [Si3 ] and Herzog [Her], the general form of PSC would follow as soon as
+one could prove that a left pure semisimple ring is necessarily right artinian. For
+more perspectives and recent results on PSC, see [Si4 ] and the literature referenced
+therein.
+
+    For connections with the work of Bass, we note that, with the help of left
+functor rings, PSC can actually be formulated entirely in terms of the notion of
+perfect rings. We need the following additional fact, which can be gleaned from the
+work of Auslander [Au1 ] and Fuller [Ful] (see also Wisbauer’s book [Wis: (54.3)]).
+
+(7.4) Proposition. A ring R is left and right pure semisimple iff its left functor
+ring E (defined in the paragraph preceding (7.2)) is both left and right perfect.
+
+    Granted this and (7.2), the issue of whether a left pure semisimple ring R needs
+to be right pure semisimple boils down to testing whether the perfectness of E on
+the left would imply its perfectness on the right. In an earlier footnote (Footnote
+(20)), we have mentioned Bass’s observation that, in general, a left perfect ring need
+     24 A short exact sequence of left R-modules is said to be pure if it remains exact upon
+
+tensoring by any right R-module.
+30                                    T. Y. LAM
+
+
+not be right perfect. The above considerations show, however, that PSC reduces to
+a “left perfect implies right perfect” statement, for the special class of left functor
+rings.
+
+     As we have mentioned at the end of §6, Bass’s ideas of using projective covers
+and the condition “flat ⇒ projective” for module categories have been successfully
+carried over to categories of functors. Such a generalization has proved to be quite
+fruitful for the representation theory of artinian rings; see, inter alia, the work of
+Auslander [Au1 ] and Simson [Si1 ]. Bass’s left and right T -nilpotency conditions
+for ideals perhaps also inspired Auslander’s definition in [Au1 ] of noetherian and
+conoetherian conditions for families of homomorphisms between modules. In fact,
+for a left artinian ring R, the left and right T -nilpotency conditions on the Jacobson
+radical of the left functor ring E are precisely equivalent to the noetherian and co-
+noetherian conditions for families of homomorphisms between f.g. indecomposable
+left R-modules. From these and the preceding discussions, we see that Bass’s early
+work in [B1 ] has certainly played a substantial and rather interesting role in the
+later development of the representation theory of artinian rings.
+
+                           §8. Stable Range of Rings
+     The notion of stable range for rings is another great invention of Bass that has
+proved to be of lasting importance in algebra and ring theory. This notion was
+originally introduced by Bass (in [B9 : p. 14]) for the study of stabilization questions
+in algebraic K-theory, or at least for working with the functor K1 . The definition
+of stable range goes as follows.
+
+(8.1) Definition. We say that a positive integer n is in the stable range of a ring R
+(or, more informally, that R “has stable range n ”) if, whenever a1 R+· · ·+am+1 R =
+R for m ≥ n (where all ai ∈ R), there exist elements x1 , . . . , xm ∈ R such that
+                  (a1 + am+1 x1 )R + · · · + (am + am+1 xm )R = R.
+     It is straightforward to see that, to verify the condition for stable range n given
+above, it is sufficient to do so in the critical case m = n. (It follows that if n is in
+the stable range for R, then so is any larger integer.) Also, although it appears that
+we should have referred to the above condition as R having “right” stable range
+n (since the definition was based on the use of right ideals), it has been shown
+later by Vaserstein [V1 : Th. 2] (and also by Warfield [Wa2 : Th. (1.6)]) that “right
+stable range n” and “left stable range n” are actually equivalent conditions. For
+this reason, we shall suppress any reference to side in referring to the stable range
+conditions defined in (8.1).
+
+     For readers familiar with Bass’s big book [B10 ], we should point out that there
+is a small discrepancy between the stable range notation used here and that used
+in [B10 ]. What we called “stable range n” above corresponds to what Bass called
+SRn+1 in his book. We believe the usage in (8.1) is now the standard one.
+
+    Bass’s study of the stable range of rings was again motivated by the basic ideas
+of stability in the homotopy theory of vector bundles. His main results may be
+summarized in the fundamental theorem (8.2) below, which is to be thought of as
+the “K1 -analogue” of Corollary (2.6). Here, GLn (R) denotes the n×n general linear
+             BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                       31
+
+
+group over the ring R, and En (R) denotes its subgroup generated by the n × n
+elementary matrices In + aeij (i 6= j, a ∈ R); K1 (R) denotes the Whitehead group
+GL(R)/E(R) in algebraic K-theory, where GL(R) and E(R) are, respectively, the
+direct limits of the groups GLr (R) ’s and Er (R), taken over all positive integers r.
+
+(8.2) Theorem. (See [B9 : (4.2), (11.1)] and [B10 : pp. 239-240].)
+(1) If a ring R has stable range n, then GLn (R) → K1 (R) is a surjective ho-
+momorphism. Moreover, for any r ≥ n + 1, Er (R) is normal in GLr (R), and
+GLr (R)/Er (R) → K1 (R) is an isomorphism.
+(2) Let A be a commutative ring whose maximal ideal spectrum max(A) is a noe-
+therian space of dimension d. Then, any module-finite A-algebra R has stable
+range d + 1. In particular, the conclusions of (1) apply to such an algebra R for
+n = d + 1.
+
+    The second part of this theorem has been generalized to noncommutative noe-
+therian rings R by Stafford; see [St]. In the case of commutative rings R, there
+has also been work done toward the removal of the noetherian hypothesis on the
+maximal ideal spectrum. For instance, Heitmann [Hei] has shown that, if R is a
+commutative ring of Krull dimension d, then R has stable range d + 2 (and d + 1
+if R is a domain).
+
+     As one would perhaps expect, the case of stable range 1 has a special signifi-
+cance, not shared by the general case of stable range n. It is true, for instance, that
+having stable range 1 is a Morita invariant property of a ring, while, for n > 1,
+having stable range n is not a Morita invariant property [V1 , V2 , Wa2 ]. The study
+of stable range has led to many new and unexpected results in the arithmetic of
+rings and the structure theory of modules. In the rest of this section (and the next),
+we shall give a survey of some of the interesting mathematics which resulted from
+this study, and which certainly would not have been possible without the pioneering
+work of Bass. We begin with the following useful observation that apparently first
+appeared in an unpublished note of Kaplansky [K3 ].
+
+(8.3) Proposition. If a ring R has stable range 1, then R is Dedekind-finite; that
+is, uv = 1 ∈ R implies that vu = 1 ∈ R.
+
+Proof (following [K3 ]). Say uv = 1 ∈ R. Since vR + (1 − vu)R = R, there exists
+t ∈ R such that w := v + (1 − vu)t has a right inverse. Left-multiplying this
+equation by u, we get uw = 1. Therefore, w has also a left inverse. It follows that
+w, u ∈ U(R) (the group of units of R), and hence vu = 1.         QED
+
+    For an alternative approach to this Proposition, see the beginning of §8 below.
+An immediate consequence of the Proposition is the following somewhat sharper
+formulation for the condition of stable range 1.
+
+(8.4) Corollary. A ring R has stable range 1 iff, whenever aR + bR = R, there
+exists x ∈ R such that a + bx ∈ U(R) (the group of units of R).
+
+    We recorded this corollary explicitly since the characterization for stable range
+1 contained herein is often used as its definition in papers in the literature dealing
+with the stable range of rings.
+32                                     T. Y. LAM
+
+
+     In [B9 : (6.5)], Bass proved the following basic result:
+
+(8.5) Theorem. Any semilocal ring R has stable range 1.
+
+    For a modern reader, this is a very natural result. One can first check (without
+too much difficulty) that a semisimple ring has stable range 1, and then deduce
+(8.5) from the observation that, in general, R has n in its stable range if R/rad(R)
+does. (For more details, see [La3 : pp. 313-314].) Conceptually, one can think of
+(8.5) as the “0-dimensional case” of part (2) of Theorem 8.2; in fact, in the case
+of commutative rings, R semilocal means that max(R) is finite, and therefore a
+0-dimensional space.
+
+     Bass’s study of stable range was quickly picked up by Estes and Ohm, who
+obtained various results in 1967 on stable range in the commutative case. The case
+of local rings shows already that a (commutative) ring R may have arbitrary Krull
+dimension, but still have 1 in its stable range. In [EO], Estes and Ohm constructed
+commutative Bézout domains of arbitrary dimension with 1 in their stable range.
+For other interesting examples of rings of stable range 1 and 2, see, for instance,
+the work of Heinzer [He], Jensen [Je], Menal-Moncasi [MM], and Warfield [Wa2 ].
+
+    Warfield’s paper [Wa2 ] is a very important contribution to the study of the
+stable range of noncommutative rings. In this paper, he studied the endomorphism
+ring E := EndR (M ) of a right module M over an arbitrary ring R, and sought
+characterizations for such a ring E to have stable range n (for a given integer n)
+. Since Warfield’s results lead to very interesting noncommutative cancellation
+theorems harkening back to Bass’s results in §2, we shall give a quick exposition on
+the gist of [Wa2 ] below. The first result of Warfield characterizes the stable range
+of E := EndR (M ) in terms of a certain “substitution property” of M , as follows.
+
+(8.6) Theorem. [Wa2 : (1.6)] Let M be any right R-module with endomorphism
+ring E := EndR (M ) (operating on the left on M ). Then E has (right) stable range
+n iff M has the following “ n-Substitution Property”:
+(S)n For any split epimorphism π from T = M n ⊕ X to M , there exists a splitting
+ϕ such that T = ϕ(M ) ⊕ Y ⊕ X, where Y ⊆ M n .
+
+     The proof of (8.6) consists of a fairly straightforward manipulation of the defi-
+nition of stable range n.
+
+(8.7) Remarks. (1) Note that if (S)n holds, then in the notation there we have
+(8.8)                     = Y ⊕ X, and M n ∼
+                   ker(π) ∼                     = Y ⊕ M.
+The first follows since both sides of the equation are direct complements of ϕ(M ) in
+T ; the second follows similarly since both M n and Y ⊕ϕ(M ) are direct complements
+of X in T (and ϕ(M ) ∼   = M ).
+(2) Since the n-Substitution Property (S)n on M depends only on E by (8.6),
+it follows that if N is any module over any other ring with endomorphism ring
+isomorphic to E, then M satisfies (S)n iff N does.
+
+     To see the effect of (8.6) (and (8.7)) on module cancellations, we formulate the
+following slight improvement on Warfield’s result in [Wa2 : (1.3)].
+              BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                                 33
+
+
+(8.9) Theorem. Let M be any right R-module with endomorphism ring E :=
+EndR (M ) having stable range n ≥ 1. For any right R-modules P and Q, the
+following are equivalent:
+(1) For some module X, we have P = M n−1 ⊕ X and M ⊕ P =∼ M ⊕Q;
+(2) For some modules X and Y , we have
+(8.10)          P ∼
+                  = M n−1 ⊕ X, Q ∼
+                                 = Y ⊕ X, and M ⊕ Y ∼ = M n.
+
+Proof. If (2) holds, then from (8.10):
+         M ⊕P ∼  = M ⊕ M n−1 ⊕ X ∼  = Mn ⊕ X ∼
+                                             =M ⊕Y ⊕X ∼
+                                                      = M ⊕ Q.
+Conversely, if (1) holds, let T := M ⊕ P = M ⊕ M n−1 ⊕ X. Since T ∼  = M ⊕ Q has
+a split epimorphism π into M with ker(π) ∼  = Q, the property (S)n for M implies
+the existence of a splitting ϕ such that T = ϕ(M ) ⊕ Y ⊕ X, where Y ⊆ M n . By
+(8.8), we have M ⊕ Y ∼  = M n , and Q ∼
+                                      = ker(π) ∼
+                                               = Y ⊕ X, as required in (2). (Note
+that the condition Y ⊆ M n from (S)n is never used in all of the arguments above.)
+QED
+
+    Note that, if we could have the implication
+(8.11)                    M ⊕Y ∼  = M n =⇒ Y ∼  = M n−1 ,
+then in (2) above, we would have been able to conclude that P ∼= Q. While (8.11)
+does hold sometimes,25 it cannot be counted on in the most general situation. To
+get a good cancellation theorem out of (8.9), we can, instead, impose a slightly
+stronger assumption on the module P , as in the following result.
+
+(8.12) Warfield’s Cancellation Theorem. [Wa2 : (1.2)] Let M be any right R-
+module with endomorphism ring E := EndR (M ) having stable range n ≥ 1. If P
+contains a direct summand M n , then for any R-module Q,
+                         M ⊕P ∼  = M ⊕ Q =⇒ P ∼ = Q.
+
+Proof. Write P = M n ⊕W = M n−1 ⊕X, where X := M ⊕W . If M ⊕P ∼
+                                                              = M ⊕Q,
+we’ll have the ismorphisms in (8.10) for some Y , and hence
+                   Q∼=Y ⊕X ∼   =Y ⊕M ⊕W ∼     = M n ⊕ W = P,
+as desired.          QED
+
+    In the special case when E = EndR (M ) has stable range 1, the theorem above
+holds even without any assumption on P (or on Q); we shall come back to this
+point in §9.
+
+    In comparison with Bass’s Cancellation Theorem (2.4)(2), the advantage of
+Warfield’s (8.12) lies in the fact that there is neither a dimension assumption nor a
+noetherian assumption in its statement. Thus, (8.12) may be regarded as a “truly
+noncommutative” cancellation result. To see that (8.12) essentially retrieves the
+cancellability of a f.g. projective module M in the setting of (2.4)(2), we may first
+replace M there by Rm for some m, and then reduce to the case when M = R.
+     25 By a principle of A. Dress [La : (18.59)], (8.11) holds iff E ⊕W ∼ E n (as right E-modules)
+                                      5                                  =
+implies W ∼ = E n−1 . Thus, (8.11) will hold if, say, stably free right modules over E are free and
+E has invariant basis number.
+34                                    T. Y. LAM
+
+
+In this case, E = EndR (M ) ∼  = R. If R is module-finite over a commutative ring
+whose maximum spectrum is a noetherian space of dimension d, then by (8.2)(2),
+R has stable range d + 1. So, as long as P has a free direct summand of rank d + 1,
+(8.12) enables us to cancel off M = R in (2.5).
+
+     In order to apply (8.12), one needs to know about the stable range of the
+endomorphism rings of modules. In this direction, Warfield has further generalized
+Bass’s result (2.4)(2) by taking the module-finite A-algebra R there and considering
+finitely presented right modules M over R. In [Wa2 : (3.4)], Warfield showed that,
+if max(A) is noetherian of dimension d, then EndR (M ) has d + 1 in its stable
+range. Thus, one can apply (8.12) with n = d + 1. Since MR need no longer
+be a projective module, this leads to cancellation results well beyond the reach of
+(2.4)(2). Warfield’s proof involved some new techniques, since Bass’s methods did
+not apply to endomorphism rings.
+
+                        §9. Rings of Stable Range One
+    To conclude our exposition, we shall consider in this section the case of rings of
+stable range 1. The crucial result here is that of Bass (Theorem 8.5), which states
+that semilocal rings have stable range 1. Again, as it turned out, this single result
+served as the fountain-head of many beautiful ideas to come; the survey in this
+section will show how much this result has stimulated subsequent research on the
+stable range of rings.
+
+    For the balance of this section, we shall only consider the stable range 1 case.
+First let us make the following useful observation.
+
+(9.1) Remark. Any module MR satisfying the 1-Substitution Property (S)1 in
+(8.6) is necessarily Dedekind-finite; that is, M is not isomorphic to a proper direct
+summand of itself.
+
+    To see this, suppose there is an isomorphism π : M ⊕ W → M . Applying
+(S)1 to π, we have a splitting ϕ for π (necessarily π −1 !) such that M ⊕ W =
+ϕ(M ) ⊕ Y ⊕ W for some Y . But ϕ(M ) = T , so W (as well as Y ) must be zero,
+proving (9.1).
+
+     Note that (9.1) gives us another view of the fact (8.3) that a ring R of stable
+range 1 is Dedekind-finite. In fact, if R has (right) stable range 1, then, viewing R
+as End(RR ), (8.6) shows that RR satisfies (S)1 , and hence (9.1) shows that RR
+is Dedekind-finite. But this is the same as saying that its endomorphism ring R is
+Dedekind-finite (as a ring). This is a more conceptual, if somewhat longer, proof
+of (8.3).
+
+    Equipped now with the information in (9.1), let us take another look at the
+condition (S)1 on M :
+
+(S)1 For any split epimorphism π from T = M ⊕ X to M , there exists a splitting
+ϕ such that T = ϕ(M ) ⊕ Y ⊕ X, where Y ⊆ M .
+
+Here, we have M ∼= Y ⊕ M (as observed in (8.8)), so if (S)1 holds for M , (9.1)
+implies that Y = 0, and hence the conclusion of (S)1 simplifies to T = ϕ(M ) ⊕
+            BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                      35
+
+
+X. Thus, (S)1 simply says that, if X and ker(π) both have direct complements
+isomorphic to M in a module T , then they have a common direct complement in
+T . We can therefore restate (8.6) in the case n = 1 as follows.
+
+(9.2) Theorem. The endomorphism ring E := EndR (M ) of an R-module MR
+has stable range 1 iff M has the following “Substitution Property”: Whenever
+a right R-module T has direct decompositions T = Mi ⊕ Pi for i = 1, 2 where
+M1 ∼= M2 ∼  = M , there exists a submodule C ⊆ T such that T = C ⊕ Pi for
+i = 1, 2.
+
+    Note that, in the above notation, if the submodule C exists, we have, in par-
+ticular, P1 ∼
+            = T /C ∼
+                   = P2 . Therefore, we have the following consequences of (9.2).
+
+(9.3) Corollary. (1) If an R-module MR has an endomorphism ring with 1 in its
+stable range, then M is “cancellable”; that is, for any right R-modules P, Q,
+                          M ⊕P ∼
+                               = M ⊕ Q =⇒ P ∼
+                                            = Q.
+(2) If a ring R has stable range 1, then RR is cancellable, and hence so is any
+f.g. projective right (respectively, left) R-module.
+
+     The result (9.3) was a cancellation theorem obtained earlier (ca. 1973) by
+E. G. Evans in [Ev]. We are reporting the results in the reverse chronological
+order here only because Warfield’s result (9.2) is more general than Evans’s, so it
+is logically more convenient to state (9.2) first and deduce (9.3) as its corollary.
+
+    To put things in the right historical perspective, we should also point out that
+what we called the “Substitution Property” in (9.2) had been considered as early as
+1971 by L. Fuchs. In [Fu], apparently unaware of Bass’s work on stable range, Fuchs
+obtained a different characterization of the Substitution Property, and proved the
+result (9.2) in the case MR = R (and some other cases), falling just short of proving
+(9.2) for any R-module MR . Fuchs also considered the case of von Neumann regular
+rings R and sought conditions for R to have the Substitution Property (that is, to
+have stable range 1). He obtained the following result ([Fu: Cor. 1 and Th. 4]),
+which was also proved independently by Kaplansky [K3 : Th. 3].
+
+(9.4) Theorem. A von Neumann regular ring R has stable range 1 iff, for x, y ∈
+R, xR ∼= yR =⇒ R/xR ∼
+                    = R/yR.
+
+    Since any principal right ideal xR in a von Neumann regular ring R is a
+direct summand of the right module RR (and R/xR is isomorphic to any direct
+complement of xR), the latter condition in Theorem 9.4 amounts to an “Internal
+Cancellation Property” of the module RR ; that is, isomorphic direct summands in
+RR have isomorphic direct complements. Now by subsequent results of Ehrlich and
+Handelman on regular rings R ([Eh], [Ha1 ]; see also [La4 : p. 242]), the module RR
+has this property iff the ring R is unit-regular, in the sense that, for any a ∈ R,
+there exists a unit u ∈ R such that a = aua. Therefore, (9.4) amounts to the
+fact that a von Neumann regular ring R has stable range 1 iff R is unit-regular .
+This statement seemed to have appeared explicitly for the first time in Henriksen’s
+paper [Hen: Prop. 8].
+36                                       T. Y. LAM
+
+
+    While the above results on unit-regular rings are concerned mainly with the
+cancellation of f.g. projective modules, we should mention at least one case where
+(9.3)(1) applies more generally to all f.g. modules. This is a result due to Menal
+[Me], which deals with a certain subclass of unit-regular rings.
+
+(9.5) Theorem. Let R be a von Neumann regular ring all of whose primitive factor
+rings are artinian. Then for any f.g. projective right R-module M , EndR (M ) has
+stable range 1. In particular, for any R-modules P and Q, M ⊕ P ∼= M ⊕ Q implies
+P ∼= Q.
+
+    Now let us come back to Bass’s theorem (8.5). Combining this theorem with
+Evans’s Cancellation Theorem (9.3), we see that any module with a semilocal endo-
+morphism ring is cancellable. Another recent result of Facchini, Herbera, Levy and
+Vámos [FH: (2.1)] showed that, if P , Q are modules with semilocal endomorphism
+rings, then they have the “n-cancellation property” (for any integer n ≥ 1); that is,
+                               Pn ∼= Qn =⇒ P ∼ = Q.
+(For a detailed survey on n-cancellation, see [La6 ].) These remarkable results give
+us strong motivation for finding classes of modules which have semilocal endomor-
+phism rings. Now the problem of describing the endomorphism rings of specific
+kinds of modules has had a time-honored history, starting with the very famous
+Schur’s Lemma:
+
+(9.6) If M is a simple R-module, EndR (M ) is a division (and hence semilocal)
+ring.
+(9.7) Also well-known is the following classical generalization of Schur’s Lemma:
+if MR is a module of finite length, then EndR (M ) is a semiprimary (and hence
+semilocal) ring; see, for instance, [La4 : Ex. (21.24)].
+(9.8) Any strongly indecomposable module has, by definition, a local (and hence
+semilocal) endomorphism ring. Examples include, for instance, all indecomposable
+modules of finite length, and all injective (in fact all quasi-injective or pure-injective)
+indecomposable modules; see, e.g. [La5 : (3.52), Exer. (6.32)] and [F2 : (2.27)].
+(9.9) Camps and Dicks [CD] showed in 1993 that any artinian module has a semilo-
+cal endomorphism ring.
+(9.10) In 1995, Herbera and Shamsuddin [HS] generalized the Camps-Dicks re-
+sult above by showing that, if a module M has finite uniform dimension and
+co-uniform dimension,26 then it has a semilocal endomorphism ring. This class in-
+cludes all linearly compact modules27 , and therefore all artinian modules. Thus, the
+Herbera-Shamsuddin result implies that linearly compact modules have semilocal
+endomorphism rings; this affirms an earlier conjecture of Faith. In the commutative
+case, a stronger conclusion is possible. In this case, any linearly compact module
+     26 A module M is said to have finite uniform dimension if there is a bound on the numbers
+
+n for which M contains a direct sum of n nonzero modules; dually, M is said to have finite
+co-uniform dimension if there is a bound on the numbers n for which M has a quotient that is a
+direct sum of n nonzero modules.
+     27 An R-module M is said to be linearly compact if, for any submodules N ⊆ M and any
+                                                                              i
+elements mi ∈ M , any system of congruences {x ≡ mi (mod Ni )} that is finitely solvable is
+solvable.
+            BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                     37
+
+
+MR is algebraically compact (i.e. purely injective) according to Jensen and Lenz-
+ing [JL: p. 289]. Therefore, combining the Herbera-Shamsuddin result above with
+[JL: (7.5)], we see that M has a semiperfect endomorphism ring. This provides a
+nice connection back to the material of §5.
+(9.11) A nonzero module is said to be uniserial if its submodules form a chain under
+inclusion. Such a module has clearly uniform dimension and co-uniform dimension
+both equal to 1. Thus, if M := U1 ⊕ · · · ⊕ Un where the Ui ’s are uniserial, then
+the “serial module” M has uniform and co-uniform dimension n, and hence it has
+a semilocal endomorphism ring by (9.10). For more information on the structure
+of End(Ui ), End(M ), and its applications to a (weak) Krull-Schmidt Theorem for
+serial modules, see Facchini’s paper [F1 ] and his recent book [F2 ].
+
+     In view of the remarks made before (9.6), any modules of the type listed in
+(9.6)–(9.11) above have both the cancellation property and the n-cancellation prop-
+erty.
+
+    New results on stable range 1 are still being discovered today. Let us just
+mention a couple of more recent works. In [Ca], Canfell studied the stable range
+1 condition from the viewpoint of completing diagrams of modules using automor-
+phisms, and made connections to the notions of epi-projective and mono-injective
+modules. In [Ar], inspired by earlier results of Menal and Goodearl-Menal [GM],
+Ara proved the remarkable result that
+
+(9.12) Theorem. Any strongly π-regular ring (see §6) has stable range 1.
+
+    In the commutative case, this amounts to the fact that any ring of Krull di-
+mension 0 has stable range 1, which is close in spirit to part (2) of Bass’s Theorem
+(8.2). In the general case, Ara’s result is rather deep, and depends heavily on the
+use of noncommutative techniques. Combined with the earlier result of Armen-
+dariz, Fisher and Snider [AFS], (9.12) implies that any module with the “Fitting
+decomposition property” is cancellable: see (5.4) in [La6 ].
+
+    In closing, we should also mention some interesting variations of the stable
+range one condition, due to Goodearl and Menal. In [GM], Goodearl and Menal
+considered the following two conditions for a ring E:
+
+(A) ∀ a, b ∈ E, aE + bE = E =⇒ ∃ u ∈ U(E) such that a + bu ∈ U(E); and
+(B) ∀ a, b ∈ E, ∃ u ∈ U(E) such that a − u and b − u−1 ∈ U(E).
+
+They showed that (B) ⇒ (A), and obviously (A) ⇒ stable range 1. They called
+condition (A) (right) “unit 1-stable range”; the unitary analogue of it has been
+exploited for C ∗ -algebras. Another variation, also due to Goodearl, is a weakening
+of stable range 1 condition. Extending Bass’s definition, Goodearl defined a ring
+E to have the power-substitution property if, whenever aE + bE = E, there exists
+a positive integer n and a matrix X ∈ Mn (E) such that a In + b X is a unit in
+Mn (E). (This property is also known to be left-right symmetric.) Clearly, if E
+has stable range 1, then it has the power-substitution property. The converse of
+this is, however, not true. For instance, it can be shown that the ring Z has the
+power-substitution property, but it certainly does not have stable range 1. The
+38                                       T. Y. LAM
+
+
+raison d’être for the power-substitution property lies in the following important
+result of Goodearl on “power-cancellation” [Go2 : Cor. 4]:
+
+(9.13) Theorem. Let M, P, Q be right modules over an arbitrary ring R such
+that M ⊕ P ∼= M ⊕ Q. If E := EndR (M ) has the power-substitution property,
+then P n ∼
+         = Qn for some n ≥ 1.
+
+    This result of Goodearl is, of course, an extension of (9.3)(1). In fact, in the
+case when the endomorphism ring E has stable range 1, the proof of Goodearl’s
+result boils down to that of Evans, and gives the conclusion P ∼    = Q. The power
+of (9.13) stems from the fact that many different types of rings happen to have
+the power-substitution property; a good list of such rings is given in my survey
+[La6 : p. 34]. In §5 of this survey, there is also a summary of the many interesting
+results, due to Goodearl, Guralnick, and Levy-Wiegand, on the power-cancellation
+exponent n occurring in the statement of (9.13).
+
+Acknowledgment. The author heartily thanks Larry Levy for a critical reading of
+a penultimate version of this paper. His many thoughtful comments and suggestions
+have led to various improvements in my exposition.
+
+                                       References
+
+[AF1 ] F. W. Anderson and K. R. Fuller: Modules with decompositions that complement direct
+       summands, J. Algebra 22(1972), 241-253.
+[AF2 ] F. W. Anderson and K. R. Fuller: Rings and Categories of Modules, Second Edition,
+       Graduate Texts in Math., Vol. 13, Springer-Verlag, Berlin-Heidelberg-New York, 1992.
+[ASZ] K. Ajitabh, S. P. Smith and J. J. Zhang: Auslander-Gorenstein rings, preprint, 1998.
+[Ar]   P. Ara: Strongly π-regular rings have stable range 1, Proc. Amer. Math. Soc. 124(1996),
+       3293-3298.
+[AFS] E. P. Armendariz, J. W. Fisher and R. L. Snider: On injective and surjective endomor-
+       phisms of finitely generated modules, Comm. Algebra 6(1978), 659-672.
+[Au1 ] M. Auslander: Representation theory of artin algebras II , Comm. Algebra 1(1974), 269-
+       310.
+[Au2 ] M. Auslander: Large modules over artin algebras, in ”Algebra, Topology and Categories”,
+       Academic Press, 1976, pp. 1-17.
+[Az1 ] G. Azumaya: Completely faithful modules and self-injective rings, Nagoya Math. J.
+       27(1966), 697-708.
+[Az2 ] G. Azumaya: Characterization of semiperfect and perfect modules, Math. Zeit. 140(1974),
+       95-103.
+[Az3 ] G. Azumaya: Locally split submodules and modules with perfect endomorphism rings,
+       in “Noncommutative Ring Theory” (Athens, Ohio), Lecture Notes in Mathematics,
+       Vol. 1448, Springer-Verlag, Berlin-Heidelberg-New York, 1990.
+[Az4 ] G. Azumaya: F -semiperfect modules, J. Algebra 136(1991), 73-85.
+[Az5 ] G. Azumaya: A characterization of semiperfect rings and modules, in Ring Theory,
+       Proc. Ohio State-Denison Conf. (1992) (S.K. Jain and S. T. Rizvi, eds.), World Scien-
+       tific Publishers, River Edge, N.J., 1993.
+[B1 ]  H. Bass: Finitistic dimension and a homological generalization of semiprimary rings,
+       Trans. Amer. Math. Soc. 95(1960), 466-488.
+[B2 ]  H. Bass: Projective modules over algebras, Annals of Math. 73(1961), 532-542.
+[B3 ]  H. Bass: Injective dimension in Noetherian rings, Trans. Amer. Math. Soc. 102(1962),
+       18-29.
+[B4 ]  H. Bass: Torsion free and projective modules, Trans. Amer. Math. Soc. 102(1962), 319-
+       327.
+[B5 ]  H. Bass: Big projective modules are free, Illinois J. Math. 7(1963), 24-31.
+[B6 ]  H. Bass: On the ubiquity of Gorenstein rings, Math. Zeit. 82(1963), 8-28.
+              BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                                 39
+
+
+[B7 ]  H. Bass: Projective modules over free groups are free, J. Algebra 1(1964), 367-373.
+[B8 ]  H. Bass: The stable structure of quite general linear groups, Bull. Amer. Math. Soc.
+       70(1964), 429-433.
+[B9 ]  H. Bass: K-theory and stable algebra, Publ. IHES 22(1964), 5-60.
+[B10 ] H. Bass: Algebraic K-Theory, Mathematics Lecture Note Series, W. A. Benjamin,
+       Inc./Addison-Wesley, Reading, MA., 1968.
+[B11 ] H. Bass: Libération des modules projectifs sur certains anneaux des polynômes, Sém. Bour-
+       baki, 26e année (1973/74), Exp. No. 448, pp. 228-254, Lecture Notes in Math., Vol. 431,
+       Springer-Verlag, Berlin-Heidelberg-New York.
+[BMS] H. Bass, J. Milnor and J.-P. Serre: Solution of the congruence subgroup problem for
+       SLn (n ≥ 3) and Sp2n (n ≥ 2), Publ. IHES 33(1967), 59-137.
+[BS] H. Bass and S. Schanuel: The homotopy theory of projective modules, Bull. Amer. Math.
+       Soc. 68(1962), 425-428.
+[Bj1 ] J.-E. Björk: Rings satisfying a minimum condition on principal ideals, J. reine angew.
+       Math. 236(1969), 112-119.
+[Bj2 ] J.-E. Björk: On rings satisfying certain chain conditions, J. reine angew. Math. 237(1970),
+       63-73.
+[CD] R. Camps and W. Dicks: On semilocal rings, Israel J. Math. 81(1993), 203-211.
+[Ca]   M. J. Canfell: Completions of diagrams by automorphisms and Bass’ first stable range
+       condition, J. Algebra 176(1995). 480-503.
+[C]    I. S. Cohen: Commutative rings with restricted minimum condition, Duke Math. J.
+       17(1950), 27-42.
+[Co]   J. H. Cozzens: Homological properties of the ring of differential polynomials, Bull. Amer.
+       Math. Soc. 76(1970), 75-79.
+[CF] J. H. Cozzens and C. Faith: Simple Noetherian Rings, Cambridge Tracts in Math., Vol. 69,
+       Cambridge Univ. Press, Cambridge, 1975.
+[CJ]   P. Crawley anf B. Jónsson: Refinements for infinite direct decompositions of algebraic
+       systems, Pacific J. Math. 14(1964), 797-855.
+[CR] C. W. Curtis and I. Reiner: Methods of Representation Theory, Vol. 1, J. Wiley and Sons,
+       Inc., New York, 1981.
+[DKR] Yu. A. Drozd, V. V. Kirichenko and A. V. Roĭter: On hereditary and Bass orders,
+       Izv. Akad. Nauk SSSR, Ser. Mat. 31(1967), 1415-1436. (English Transl.: Math. USSR
+       Izv. 1(1967), 1357-1376.)
+[Eh]   G. Ehrlich: Units and 1-sided units in regular rings, Trans. Amer. Math. Soc. 216(1976),
+       81-90.
+[Ei]   S. Eilenberg: Homological dimension and syzygies, Annals of Math. 64(1956), 328-336.
+[EG] D. Eisenbud and P. A. Griffith: The structure of serial rings, Pacific J. Math. 36(1971),
+       109-121.
+[EO] D. Estes and J. Ohm: Stable range in commutative rings, J. Algebra 7(1967), 343-362.
+[Ev]   E. G. Evans, Jr.: Krull-Schmidt and cancellation over local rings, Pacific J. Math.
+       46(1973), 115-121.
+[F1 ]  A. Facchini: Krull-Schmidt fails for serial modules, Trans. Amer. Math. Soc. 348(1996),
+       4561-4575.
+[F2 ]  A. Facchini: Module Theory: Endomorphism Rings and Direct Sum Decompositions in
+       Some Classes of Modules, Progress in Math., Vol. 167, Birkäuser Boston, 1998.
+[FH] A. Facchini, D. Herbera, L. Levy and P. Vámos: Krull-Schmidt fails for artinian modules,
+       Proc. Amer. Math. Soc. 123(1995), 3587-3592.
+[Fa1 ] C. Faith: Rings with minimum condition on principal ideals, Arch. Math. 10(1959), 327-
+       330; Part II, ibid. 12(1961), 179-181.
+[Fa2 ] C. Faith: Rings with ascending condition on annihilators, Nagoya Math. Journal 27(1966),
+       179-191.
+[Fa3 ] C. Faith: Rings and Things and a Fine Array of Twentieth Century Associative Algebra,
+       Math. Surveys and Monographs, Vol. 65, 1999, Amer. Math. Soc., Providence, R.I.
+[FU] C. Faith and Y. Utumi: Quasi-injective modules and their endomorphism rings, Arch.
+       Math. 15(1964), 166-174.
+[Fu]   L. Fuchs: On a substitution property of modules, Monatsh. Math. 75(1971), 198-204.
+[Ful] K. R. Fuller: On rings whose left modules are direct sums of finitely generated modules,
+       Proc. Amer. Math. Soc. 54(1976), 39-44.
+40                                           T. Y. LAM
+
+
+[FR]     K. R. Fuller and I. Reiten: Note on rings of finite representation type and decompositions
+         of modules, Proc. Amer. Math. Soc. 50(1975), 92-94.
+[Go1 ]   K. R. Goodearl: von Neumann Regular Rings, Second Edition, Krieger Publ. Co., Malabar,
+         Florida, 1991.
+[Go2 ]   K. R. Goodearl: Power-cancellation of modules, Ring Theory II, Proc. Second Conf. Univ.
+         Oklahoma (B. R. McDonald and R. A. Morris, eds.), pp. 131-147, Lecture Notes in Pure
+         and Applied Math. 26, M. Dekker, New York, 1977.
+[GM]     K. R. Goodearl and P. Menal: Stable range one for rings with many units, J. Pure Appl. Al-
+         gebra 54(1988), 261-287.
+[Gr]     C. Greither: On the two generator problem for the ideals of a one-dimensional ring, J. Pure
+         Appl. Algebra 24(1982), 265-276.
+[GJ]     L. Gruson and C. U. Jensen: Deux applications de la notion de L-dimension, C. R. Acad.
+         Sci. Paris, Sér. A 282(1976), 23-24.
+[HL]     J. Haefner and L. Levy: Commutative orders whose lattices are direct sums of ideals,
+         J. Pure Appl. Algebra 50(1988), 1-20.
+[Ha1 ]   D. Handelman: Perspectivity and cancellation in regular rings, J. Algebra 48(1977), 1-16.
+[Ha2 ]   D. Handelman: Propinquity of one-dimensional Gorenstein rings, J. Pure Appl. Algebra
+         24(1982), 145-150.
+[H]      M. Harada: Perfect categories I, II, III, Osaka J. Math. 10(1973), 329-341, 343-355, 357-
+         367.
+[HI]     M. Harada and T. Ishii: On perfect rings and the exchange property, Osaka J. Math.
+         121(1975), 483-491.
+[He]     W. J. Heinzer: J-Noetherian integral domains with 1 in the stable range, Proc. A.M.S.
+         19(1968), 1369-1372.
+[Hei]    R. Heitmann: Generating ideals in Prüfer domains, Pacific J. Math. 62(1976), 117-126.
+[Hen]    M. Henriksen: On a class of regular rings that are elementary divisor rings, Arch. Math.
+         24(1973), 133-141.
+[HS]     D. Herbera and A. Shamsuddin: Modules with semilocal endomorphism rings, Proc. Amer.
+         Math. Soc. 123(1995), 3593-3600.
+[Her]    I. Herzog: A test for finite representation type, J. Pure Appl. Algebra 95(1994), 151-185.
+[Hu]     C. Huneke: Hyman Bass and ubiquity: Gorenstein rings, this volume, pp.
+[Ja]     J. P. Jans: Duality of Noetherian rings, Proc. Amer. Math. Soc. 12(1961), 829-835.
+[Je]     C. U. Jensen: Some curiosities of rings of analytic functions, J. Pure Appl. Algebra
+         38(1985), 277-283.
+[JL]     C. U. Jensen and H. Lenzing: Model Theoretic Algebra: with particular emphasis on fields,
+         rings, and modules, Gordon and Breach, N.Y., 1989.
+[Jo]     D. Jonah: Rings with the minimum condition for principal right ideals have the maximum
+         condition for principal left ideals, Math. Zeit. 113(1970), 106-112.
+[K1 ]    I. Kaplansky: Topological representations of algebras II, Trans. Amer. Math. Soc.
+         68(1950),62-75.
+[K2 ]    I. Kaplansky: Projective modules, Ann. Math. 68(1958), 372-377.
+[K3 ]    I. Kaplansky: Bass’s first stable range condition, mimeographed notes, 1971.
+[Ka]     F. Kasch: Modules and Rings, Academic Press, London-New York, 1982.
+[KM]     F. Kasch and E. Mares: Eine Kennzeichnung semi-perfekter Moduln, Nagoya Math. J.
+         27(1966), 525-529,                                       L
+[Ke]     D. Keskin: Characterization of right perfect rings by      -supplemented modules, Lecture
+         at International Conference on Algebra and Its Applications, Athens, Ohio, March, 1999.
+[Ko]     L. A. Koifman: Rings over which each module has a maximal submodule, Mat. Zametki
+         7(1970), 359-367. (English Transl.: Math. Notes 7(1970), 215-219.)
+[KS]     A. I. Kostrikin and I. R. Shafarevich: Algebra II, Encyclopedia of Math. Sciences, Springer-
+         Verlag, Berlin-Heidelberg-New York, 1991.
+[La1 ]   T. Y. Lam: The category of noetherian modules, Proc. Nat. Acad. Sci. 55(1966), 1038-
+         1040.
+[La2 ]   T. Y. Lam: Serre’s Conjecture, Lecture Notes in Math., Vol. 635, Springer-Verlag, Berlin-
+         Heidelberg-New York, 1978.
+[La3 ]   T. Y. Lam: A First Course in Noncommutative Rings, Graduate Texts in Math., Vol. 131,
+         Springer-Verlag, Berlin-Heidelberg-New York, 1991.
+               BASS’S WORK IN RING THEORY AND PROJECTIVE MODULES                                  41
+
+
+[La4 ] T. Y. Lam: Exercises in Classical Ring Theory, Problem Books in Mathematics, Springer-
+       Verlag, Berlin-Heidelberg-New York, 1995.
+[La5 ] T. Y. Lam: Lectures on Modules and Rings, Graduate Texts in Math., Vol. 189, Springer-
+       Verlag, Berlin-Heidelberg-New York, 1999.
+[La6 ] T. Y. Lam: Modules with isomorphic multiples and rings with isomorphic matrix rings —
+       a survey, Monographie No. 35, L’Enseig. Math., Geneva, Switzerland, 1999.
+[L]    J. Lambek: Lectures on Rings and Modules, Blaisdell, Waltham, Mass., 1966.
+[Len] H. W. Lenstra: Complete intersections and Gorenstein rings, Proc. Conf., Elliptic Curves
+       and Modular Forms (Hong Kong, 1993, J. Coates and S. T. Yau, eds.), 99-109, Interna-
+       tional Press, 1995.
+[Le]   L. S. Levy: Modules over Dedekind-like rings, J. Algebra 93(1985), 1-116.
+[LR] L. S. Levy and J. C. Robson: Hereditary noetherian prime rings III: infinitely generated
+       projective modules, to appear in J. Algebra.
+[LW] L. S. Levy and R. Wiegand: Dedekind-like behavior of rings with 2-generated ideals, J. Pure
+       Appl. Algebra 37(1985), 41-58.
+[M]    E. Mares: Semiperfect modules, Math. Zeit. 82(1963), 347-360.
+[Ma] J. Martinet: Modules sur l’algèbre du groupe quaternionien, Ann. Sci. École Norm. Sup.
+       4(1971), 399-408.
+[Me] P. Menal: On π-regular rings whose primitive factor rings are artinian, J. Pure
+       Appl. Algebra 20(1981), 71-81.
+[MM] P. Menal and J. Moncasi: On regular rings with stable range 2, J. Pure Appl. Algebra
+       24(1982), 25-40.
+[Mu] M. P. Murthy: A survey of obstruction theory for projective modules of top rank, this
+       volume, pp.
+[Mue] B. J. Müller: On semiperfect rings, Ill. J. Math. 14(1974), 464-467.
+[NR] L. A. Nazarova and A. V. Roĭter: Refinement of a theorem of Bass, Dokl. Akad. Nauk
+       SSSR 176(1967), 266-268. (English Transl.: Soviet Math. 8(1967), 1089-1092.)
+[Ni1 ] W. K. Nicholson: I-rings, Trans. Amer. Math. Soc. 207(1975), 361-373.
+[Ni2 ] W. K. Nicholson: On semiperfect modules, Canad. Math. Bull. 18(1975), 77-80.
+[Ni3 ] W. K. Nicholson: Semiregular modules and rings, Canad. J. Math. 28(1976), 1105-1120.
+[Ni4 ] W. K. Nicholson: Lifting idempotents and exchange rings, Trans. Amer. Math. Soc.
+       229(1977), 269-278.
+[OS] U. Oberst and H.-J. Schneider: Die Struktur von projektiven Moduln, Invent. Math
+       13(1971), 295-304.
+[Os]   B. Osofsky: A generalization of quasi-Frobenius rings, J. Algebra 4(1966), 373-387.
+[Pr]   M. Y. Prest: Duality and pure-semisimple rings, J. London Math. Soc. 38(1988), 403-409.
+[Qu] D. Quillen: Projective modules over polynomial rings, Invent. Math. 36(1976), 167-171.
+[Re]   R. Rentschler: Eine Bemerkung zu Ringen mit Minimalbedingung für Hauptideale,
+       Arch. Math. 17(1966), 298-301.
+[Ro]   A. V. Roĭter: An analog of Bass’ Theorem for representation modules of noncommu-
+       tative orders, Dokl. Akad. Nauk SSSR 168(1966), 1261-1264. (English Transl.: Soviet
+       Math. Dokl. 7(1966), 830-833.)
+[Sa1 ] F. L. Sandomierski: On semiperfect and perfect rings, Proc. Amer. Math. Soc. 21(1969),
+       205-207.
+[Sa2 ] F. L. Sandomierski: Linearly compact modules and local Morita duality, in Ring Theory
+       (Proc. Conf., Park City, Utah, R. Gordon, ed.), pp. 333-346, Academic Press, New York,
+       1972.
+[Sat] H. Sato: Gorenstein rings with semigroup bases, J. Algebra 88(1984), 460-488.
+[S1 ]  J.-P. Serre: Faisceaux algébriques cohérents, Ann. Math. 61(1955), 191-278.
+[S2 ]  J.-P. Serre: Modules projectifs et espaces fibrés à fibre vectorielle, Sém. Dubreil-Pisot,
+       no. 23, Secretariat Math., Paris, 1957/58.
+[S3 ]  J.-P. Serre: Sur les modules projectifs, Sém. Dubreil-Pisot, no. 2, Secretariat Math., Paris,
+       1960/61.
+[Se1 ] C. S. Seshadri: Triviality of vector bundles over the affine space K 2 , Proc. Nat. Acad.
+       Sci. U.S.A. 44(1958), 456-458.
+[Se2 ] C. S. Seshadri: Algebraic vector bundles over the product of an affine curve and the affine
+       line, Proc. Amer. Math. Soc. 10(1959), 670-673.
+42                                            T. Y. LAM
+
+
+[Si1 ]     D. Simson: Functor categories in which every flat object is projective, Bull. Acad. Polon.
+           Sci. 22(1974), 375-380.
+[Si2 ]     D. Simson: Pure semisimple categories and rings of finite representation type, J. Algebra
+           48(1977), 290-296. (Corrigendum: J. Algebra 67(1980), 254-256.)
+[Si3 ]     D. Simson: Partial Coxeter functors and right pure semisimple rings, J. Algebra 71(1981),
+           195-218.
+[Si4 ]     D. Simson: An Artin problem for division ring extensions and the pure semisimplicity
+           conjecture, Arch. Math. 66(1996), 114-122.
+[Sm]       L. Small: Reviews in Ring Theory (as printed in Math. Reviews, 1940-79), Amer.
+           Math. Soc., Providence, R.I., 1981.
+[St]       J. T. Stafford: Stable structure of noncommutative Noetherian rings, J. Algebra 47(1977),
+           244-267.
+[Su]       A. Suslin: Projective modules over a polynomial ring are free, Dokl. Akad. Nauk SSSR
+           229(1976). (English Transl.: Soviet Math. Dokl. 17(1976), 160-164.)
+[Sw1 ]     R. Swan: Vector bundles and projective modules, Trans. Amer. Math. Soc. 105(1962),
+           264-277.
+[Sw2 ]     R. Swan: Projective modules over group rings and maximal orders, Annals of Math.
+           76(1962), 55-61.
+[SE]       R. Swan and E. G. Evans, Jr.: K-Theory of Finite Groups and Orders, Lecture Notes in
+           Math., Vol. 149, Springer-Verlag, Berlin-Heidelberg-New York, 1970.
+[Sz]       F. Szász: Über Ringe mit Minimalbedingung für Hauptrechtsideale, I, Publ. Math. De-
+           brecen 7(1960), 54-64; II, Acta Math. Acad. Sci. Hungar. 12(1961), 417-439; III, ibid.
+           14(1963), 447-461.
+[TW]       R. Taylor and A. Wiles: Ring-theoretic properties of certain Hecke algebras, Annals of
+           Math. 141(1995), 553-572.
+[V1 ]      L. N. Vaserstein: Stable rank of rings and dimensionality of topological spaces, Funct.
+           Anal. Appl. 5(1971), 102-110.
+[V2 ]      L. N. Vaserstein: Bass’ first stable range condition, J. Pure Appl. Algebra 34(1984), 319-
+           330.
+[Wa1 ]     R. Warfield: Exchange rings and decompositions of modules, Math. Annalen 199(1972),
+           31-36.
+[Wa2 ]     R. Warfield: Cancellation of modules and groups and stable range of endomorphism rings,
+           Pac. J. Math 91(1980), 457-485.
+[We]       C. Weibel: The development of algebraic K-theory before 1980, this volume, pp.
+[Wi]       R. Wiegand: Cancellation over commutative rings of dimension one and two, J. Algebra
+           88(1984), 438-459.
+[W]        A. Wiles: Modular elliptic curves and Fermat’s Last Theorem, Annals of Math. 142(1995),
+           443-551.
+[Wis]      R. Wisbauer: Foundations of Module and Ring Theory, Gordon and Breach, Philadelphia,
+           PA, 1991.
+[Ya]       K. Yamagata: On projective modules with the exchange property, Sci. Rep. Tokyo Kyoiku
+           Daigaku, Sect. A 12(1974), 39-48.
+[Zi1 ]     B. Zimmermann-Huisgen: Rings whose right modules are direct sums of indecomposable
+           modules, Proc. Amer. Math. Soc. 77(1979), 191-197.
+[Zi2 ]     B. Zimmermann-Huisgen: On the abundance of ℵ1 -separable modules, in “Abelian Groups
+           and Noncommutative Rings”, Contemp. Math. 130(1992), 167-180, AMS.
+[ZZ1 ]     B. Zimmermann-Huisgen and W. Zimmermann: Classes of modules with the exchange
+           property, J. Algebra 88(1984), 416-434.
+[ZZ2 ]     B. Zimmermann-Huisgen and W. Zimmermann: On the sparsity of representations of rings
+           of pure global dimension zero, Trans. Amer. Math. Soc. 320(1990), 695-711.
+
+         Department of Mathematics, University of California, Berkeley, CA 94720
+         E-mail address: lam@math.berkeley.edu
+

@@ -211,3 +211,7 @@ abstract was read; no full proof audit or new prior scope beyond the
 known class-two setting is inferred. An attempted archive of the full
 issue was refused by `fetch_literature.py` because it exceeds its
 20-MiB download limit. No local full-issue archive is claimed.
+
+## M4 full-proof follow-up, 28 September 2026 approximately 17:29–17:38 UTC
+
+Obtained and read Artamonov's full 1978 proof, [MathNet im1711, English PDF](https://www.mathnet.ru/php/getFT.phtml?jrnid=im&paperid=1711&what=fullteng), including visual inspection of printed pages 221–222. Theorem 4 is explicitly finite-rank. The module freeness step and the basis compatible with the augmentation map both require an extension for M4. Bass's [original 1963 paper](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/bassbig.pdf), Theorem 3.1/Corollary 3.2, requires R/J(R) to be Noetherian; this fails for the countable Laurent ring. No full answer follows. Source files, exact hypotheses and the remaining gap: `research/notes/M4-countable-module-obstruction.md`. This supersedes the earlier inability to obtain the 1978 full proof.
