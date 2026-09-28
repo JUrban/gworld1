@@ -1,9 +1,10 @@
 # A decidable third-from-last-layer family in arbitrary class
 
 Candidate extension, 28 September 2026. The first argument is retained in
-`research/notes/N8-iterated-adjoint-stratum-lead.md`. **Under audit; not yet
-added to the counted scope.** No full answer to N8(b), external specialist
-review or established novelty is claimed.
+`research/notes/N8-iterated-adjoint-stratum-lead.md`. This extends the same
+partial N8(b) candidate; see `iterated-adjoint-audit.md` for the completed
+bounded checks and independent GAP replay. No full answer to N8(b),
+external specialist review or established novelty is claimed.
 
 **Theorem.** Let N=F_r/gamma_(c+1)(F_r), with finite r>=2 and c>=6. There
 is an algorithm recognizing the following class of inputs and deciding
@@ -198,8 +199,8 @@ the explicitly cited earlier structural dependencies.
 `scripts/n8_iterated_adjoint.py` implements scope recognition separately
 from integral leading-pair enumeration and the two correction layers.
 The homogeneous jet checker verifies parity and obstruction identities
-for n=1,...,16; group checks and independent GAP replay are being
-recorded in the accompanying audit. These finite checks support the
+for n=1,...,16; group checks and independent GAP replay in classes seven,
+ten and eleven are recorded in the accompanying audit. These checks support the
 implementation and cannot establish the all-rank theorem by themselves.
 
 The theorem covers only leading terms of form (1). It does not solve

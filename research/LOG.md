@@ -676,3 +676,51 @@ The special-family proof is still an uncounted extension under audit.
 All computations use one core and8GB each; current concurrent reservations
 are within the shared budget. No subagents, specialist review, remote
 push, contact or parent-repository edit.
+
+## 2026-09-28 approximately 20:22 UTC — uniform N8 family added to the partial scope
+
+All three selected group suites have now been independently replayed in
+GAP, including both negative cases in each suite. Two additional same-degree
+outside-scope inputs are themselves commutators and correctly return
+unsupported;16 signed leading scales agree with the earlier factor routine.
+Closed the uniform-family audit and extended the existing N8 partial scope.
+Tally remains three whole-entry and two partial candidates, zero established
+novel results. The separate all-target class-nine replays remain live.
+
+## 2026-09-28 approximately 20:23--20:34 UTC — second uniform-family lead and remaining replay
+
+The class-nine ordinary integer-coordinate replay timed out after all five
+witnesses and12 linear decisions, at its first polynomial certificate.
+Two intermediate versions timed out after five witnesses and three linear
+decisions. Exact commutator identities, verified Hall commutator-tree caches
+and sparse zero-exponent skipping each reproduced the rank-two suite before
+being used in later rank-three replays. Two such replays remain live. Their
+finite prefixes are not complete validation and no class-nine scope update
+has been made on their strength.
+
+A second arbitrary-class lead uses leading type(2,2n+3) in class2n+7.
+A free-alphabet derivative argument excludes degree-one factors, while a
+projection onto the free Lie algebra on C in L2 and T in L3 excludes every
+other leading type. The same parity and quadratic functional appear in
+the remaining correction. Rank-two exact probes passed in class11 (first
+rank31/32; obstruction ranks59,60) and class13 (first rank101/101), also
+checking that only the two signed type(2,q) leading pairs survive. The
+class13 run has a scheduled stack snapshot and normal completion. This
+lead is uncounted pending implementation, independent replay and proof
+audit. Current scope/counts and original deadline remain as recorded.
+
+## 2026-09-28 20:35:40 UTC — class-nine rank-three audit completed
+
+The final sparse GAP replay passed in126.40 seconds, with empty stderr:
+five witnesses,12 linear decisions, six polynomial certificates (four
+empty parameter lists),30 group samples. The final rank-two counterpart
+passed the existing full suite in4.64 seconds. The previous Hall-cache
+replay was deliberately interrupted after497.65 seconds, after the identical
+dataset had passed; its completed prefix is retained, not called a pass.
+
+Extended the same N8 partial candidate through all targets in class nine
+and all finite ranks. Updated proof/audit, scope ledger, triage and progress.
+The overall tally remains three whole-entry and two partial candidates,
+zero established novel results. Neither the failed broad benchmark nor
+any incomplete replay is treated as completed. The original deadline,
+resource budget and outstanding specialist/novelty review are unchanged.

@@ -2,15 +2,15 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately 18:45 UTC: F41 adds a partial candidate
-for primitivity rank two in ambient ranks three and four. The more
-general stated range includes credited prior cases. The graph transfer
-estimate, source distinctions and finite verification are in
-`problems/F41/`. Current tally: three whole-entry candidates, two partial
-candidates, zero established novel results. Earlier checkpoint counts
-below are historical. Continue alternating unresolved entries with
-adversarial review; do not infer a solution for primitivity rank >=3
-or spend time merely enlarging the F41 finite sample.
+Latest checkpoint, approximately 20:36 UTC: the same N8 partial candidate
+now includes the iterated-adjoint degree-(c-2) family in every class c>=6.
+Its proof, scope controls and independent group replays are complete at
+the bounded computational level; specialist review and novelty remain
+outstanding. Tally is still three whole-entry and two partial candidates,
+zero established novel results. The separate class-nine all-target extension has now completed its
+rank-three replay and extends the same partial candidate through class nine. Earlier
+checkpoint counts below are historical.
+
 
 ## First pass: source and literature triage
 
@@ -236,3 +236,18 @@ preserved. Further similar examples would not answer the fixed-group
 question. Resume the unresolved portfolio or a specific adversarial
 proof concern in the existing candidates; retain the original deadline
 and three-whole/one-partial tally.
+
+## Working focus after the uniform-family checkpoint
+
+The class-nine rank-three replay is now complete; its successful sparse
+variant and every failed/interrupted comparison are retained. No broad
+benchmark that timed out is described as completed. The uniform-family
+extension has its own completed bounded independent audit.
+
+A second, uncounted family with degree-two leading factors is written in
+research/notes/N8-degree-two-iterated-adjoint-lead.md. Rank-two structural
+probes passed in classes11 and13, but no full group procedure or independent
+replay has been implemented for that lead. Give its next decisive check a
+bounded attempt, then return to the wider unresolved portfolio and specific
+adversarial concerns in F28,N5,M0,F41. Do not turn verification performance
+tuning or enlargement of finite samples into the research objective.

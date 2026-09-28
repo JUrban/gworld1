@@ -1,8 +1,9 @@
 # Single commutators in class nine, all finite ranks
 
 Proposed extension, first written 28 September 2026, approximately
-19:14 UTC. **Under audit: this file alone does not extend the counted
-scope.** Independent specialist review and novelty assessment remain
+19:14 UTC. The bounded computational audit and independent GAP replay
+were completed approximately20:36 UTC; see `class9-audit.md`. This extends
+the same partial N8(b) candidate. Independent specialist review and novelty assessment remain
 outstanding. The original problem and all earlier qualifications are
 unchanged: arbitrary nilpotency class is not settled here.
 
@@ -314,7 +315,8 @@ dependencies, this proves the proposed class-nine theorem.
 This is a partial N8(b) result, not an answer in arbitrary class.
 The all-rank claims rest on the proofs, not bounded matrix ranks.
 Computational support, failures, independent replays and literature
-checks will be recorded in `class9-audit.md` before updating scope.
+checks are recorded in `class9-audit.md`. The proof supplies the all-rank
+argument; the bounded checks are supporting evidence.
 The two credited structural ingredients are ordinary homogeneous
 Shirshov freeness and the torsion-free free-metabelian derived module.
 No mathematical result or code from the Kourovka run is newly imported.

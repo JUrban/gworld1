@@ -3,11 +3,13 @@
 28 September 2026, during the original 48-hour run. This accompanies
 `class9-proof.md`, first drafted approximately 19:14 UTC. Independent
 specialist review and a comprehensive novelty assessment remain outstanding.
-The extension is **under audit** while the final rank-three replay runs.
+The final rank-three replay passed at20:35:40 UTC. The candidate now
+covers every target in class nine and every finite rank, subject to the
+explicit proof dependencies and outstanding specialist/novelty review.
 
 The original N8(b) concerns arbitrary finitely generated free nilpotent
-groups. An all-rank class-nine algorithm would extend the existing partial
-candidate, not solve the whole entry or add another candidate. Part (a)'s
+groups. The all-rank class-nine algorithm extends the existing partial candidate;
+it does not solve the whole entry or add another candidate. Part (a)'s
 prior negative result is not changed. The exact original page, background
 paragraph and rendered statement were inspected; retained evidence is in
 `research/statement-audits/N8/`.
@@ -78,8 +80,8 @@ warnings and was rerun with local declarations as version two.
 ## Group decisions and independent replay
 
 The final rank-two suite `n8-class9-targets-rank2-v2` passed 27 target
-records in 17.73 seconds. These include repeated controls, so 27 is not
-a count of distinct targets. There are 21 positive word witnesses,
+records in 17.73 seconds. They comprise25 distinct rank-two targets and two
+repeated controls, so27 is not a count of distinct targets. There are 21 positive word witnesses,
 68 linear branch decisions and 17 polynomial branches. The earlier
 version-one suite passed the same count in 28.97 seconds.
 
@@ -119,9 +121,45 @@ components and checks certificate unimodularity on the corresponding
 square blocks. Sparse row combinations verify every entry of H=U*B.
 Independent echelon reduction replaces inversion of a large U; it verifies
 the same particular polynomials and every congruence. This version also
-reproduced the complete rank-two suite, in 5.59 seconds. The rank-three
-replays are pending at the time this paragraph is written. Their eventual
-terminal outcomes must be reported before describing them as successful.
+reproduced the complete rank-two suite, in 5.59 seconds. The ordinary integer-coordinate rank-three replay reached its 1200.13-second
+limit after all five witnesses and all 12 linear decisions, while starting
+its first polynomial certificate. The component version reached its
+600.09-second limit after five witnesses and three linear decisions,
+while constructing columns for the fourth. Both are incomplete and retained.
+
+The exact identities, for b=[x,y],
+
+    b^-1*[xh,y]=[b,h]*[h,y],
+    b^-1*[x,yh]=[x,h]^b*[b,h],
+
+give the same correction columns while avoiding some intermediate products.
+That checker reproduced the rank-two suite in 5.39 seconds. A further
+version rebuilds Hall commutator trees independently in GAP, compares every
+resulting free-group word with the supplied Hall word, and caches its
+actual nilpotent-quotient value. This reproduced the rank-two suite in
+4.68 seconds. The identity-based rank-three replay also timed out at600.08 seconds
+after five witnesses and three linear decisions, during construction of
+the fourth system's columns. The Hall-cache replay was deliberately interrupted at497.65 seconds after
+five witnesses,12 linear decisions and the first polynomial certificate,
+while processing its second polynomial. The identical dataset had already
+passed with the final sparse variant.
+A final variant also skips zero exponents when reconstructing sparse
+central elements and parameter lifts; it reproduced every rank-two
+certificate in4.64 seconds. The final rank-three replay
+`n8-class9-target-gap-sparse-rank3-v1` passed in126.40 seconds, with
+empty stderr: five witnesses,12 linear decisions, six polynomial
+certificates (four empty parameter sets) and30 actual group samples.
+It independently verified all seven completed target decisions in the
+saved prefix. It does not make the original broader Python benchmark
+complete.
+
+Together the final rank-two and rank-three datasets have34 completed
+target records (32 distinct rank/word inputs),26 independently checked
+witnesses,80 linear decisions (15 negative),23 polynomial certificates
+(12 empty parameter sets), and115 group parameter samples. Independently
+checked kernel evidence covers44 finite kernel records and four
+obstructions in ranks two and three. These are supporting checks of the
+written all-rank candidate, not exhaustive verification or specialist review.
 
 ## Preserved unsuccessful runs
 

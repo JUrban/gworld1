@@ -1,0 +1,1 @@
+Deliberately interrupted after the sparse zero-exponent variant completed the identical dataset successfully. This version completed five witnesses, twelve linear decisions and the first polynomial record; it had begun the second polynomial. The unfinished replay is not a passing suite.
