@@ -184,3 +184,11 @@ A further S5 search again found restricted direct-product results and the 2026 D
 - [Gardam–Kielak–Logan, arXiv:2101.02193v3](https://arxiv.org/abs/2101.02193v3), introduction p.6: known hyperbolic preprocessing lacks recursive complexity bounds. This is not silently promoted to a lower bound for every promise algorithm in H4. Archived; no full H4 answer claimed.
 
 Further searches over N4, solvable-group entries and group actions supplied no completed argument. All primary scope claims and limitations are in `research/notes/H13-FP6-N1-prior-scope.md`. No Kourovka mathematical/code transfer occurred.
+
+## F27 follow-up, 28 September 2026 approximately 15:53–16:05 UTC
+
+- [Barmak, *The winding invariant*](https://mate.dm.uba.ar/~jbarmak/windinginv4.pdf), section11.2, printed pp.52–53: archived and read the normal-root discussion, Question101 and the tiling examples. The examples are in the commutator subgroup; the actual F27 question excludes it. No full-paper audit claimed.
+- [Linton–Nyberg-Brodda, arXiv:2501.18306](https://arxiv.org/abs/2501.18306), section1.3.2, printed pp.24–25, and the normal-root discussion in section2.8.2: archived and read these passages. The specific noncommutator-subgroup/infinite-root question is still stated as open. Its history and broader normal-root questions were kept separate; no audit of all cited original proofs claimed.
+- [Cornell Topology Festival 2019 panel report](https://e.math.cornell.edu/sites/topology/2019/Panel-Discussion.pdf), Barmak segment, printed pp.6–7: read via web as an additional historical lead, not used in place of Barmak's paper. Not archived locally.
+
+Full original F27 HTML, linked background and actual containing-paragraph screenshot were inspected. The finite abelianization constraint and free-factor reduction in `research/notes/F27-normal-root-lead.md` are elementary observations, not new solution claims. This limited search is not a certification that no later answer exists.

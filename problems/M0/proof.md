@@ -191,3 +191,12 @@ construction and conventions; the unbounded theorem rests on the proof.
 Artifacts: `research/certificates/M0/checks.json`, `checks.g`; full run metadata
 in `results/m0-finite-fields-v1/` and `results/m0-gap-v2/`. Further audit and
 concrete examples are in `audit.md`.
+
+A subsequent end-to-end constructor starts from generator-image words,
+computes all normalizations and selects the finite field itself. On 44
+inputs it produced 29 primitive-word witnesses, 13 exact unit determinants,
+and two deliberate bound-exhaustion controls. GAP independently verified all
+29 witnesses and all 13 unit determinants. The constructor's finite search
+bound is explicit and exhaustion is inconclusive. See `constructor-audit.md`
+for the algorithm, evidence and three preserved failed checker runs. This
+does not change the theorem's scope or candidate count.

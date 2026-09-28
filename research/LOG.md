@@ -282,3 +282,56 @@ Tally unchanged: three whole-entry candidates (F28,N5,M0), one partial
 candidate (N8), zero established novel results. No Kourovka mathematics
 or code imported; no subagents, pushes or external contacts. Original
 deadline unchanged.
+
+## 28 September 2026, approximately 15:48–16:08 UTC — F27 lead and M0 constructor
+
+Read the F28, N5 and M0 candidate proofs again; this internal pass found
+no new gap. This is not external validation. Investigated a possible
+F27 construction using an automorphism stabilizer and normal roots.
+Abelianization leaves finitely many possible root vectors, while the
+Freiheitssatz reduces roots of a word in a free factor to that factor.
+Neither observation gives finiteness of conjugacy classes. No root
+with the required infinite stabilizer orbit was found. Barmak's tiling
+examples lie in the commutator subgroup and do not meet F27's hypothesis;
+the 2025 one-relator survey still lists the actual question as open.
+Archived and read the relevant primary passages, the original full
+page/background and the F27 screenshot. No new candidate.
+
+Revisited N9(a)'s fixed-group obstacle without resolving it. The known
+varying central-product construction and the earlier failed central
+tilt remain insufficient. A proposed N3 route using nested nilpotent
+covers also lacks a torsion-freeness proof and an arbitrary-cardinality
+construction. A Notebook search lead credits a countable-case result
+to Romanovskii (1969), but that original preprint was not located or
+audited here; no new status or solution claim is based on it. Broader
+searches of one-relator solvable centers yielded no completed S3 result.
+
+Implemented an end-to-end M0 witness constructor. It takes arbitrary
+generator-image words, handles nonunimodular abelianization, constructs
+IA and character normalizations by explicit Nielsen moves, finds a
+singular finite-field Fox matrix, and returns an actual primitive free
+basis with zero image column. Unit determinants are decided exactly;
+bounded search exhaustion is explicitly inconclusive. The final
+certificate refers to the original input map, including non-IA maps.
+
+The seeded Python run produced 29 witnesses and 13 exact unit
+determinants among 44 inputs, with two intentional bound controls,
+in 0.72 seconds on one core/4GB. GAP independently verified the 29
+free-basis/image certificates and all 13 symbolic unit determinants in
+1.87 seconds, one core/4GB, with empty stderr. An F4 character was
+selected by the search rather than supplied. The longest witness-basis
+word had length 76.
+
+Preserved three failed GAP checks with exact checker snapshots. The
+first two exposed equality between integer and polynomial constants;
+the diagnostic showed actual=1 and expected=1. After subtracting and
+testing zero, the third reached an unavailable generic symbolic-matrix
+inverse. Explicit affine inverses fixed that implementation issue.
+The candidate proof and Python certificates were unchanged. The runner
+rejected all three despite zero GAP exit codes, because the marker was
+missing. Raw output hashes, including carriage returns, are preserved.
+
+Tally remains three whole-entry candidates (F28,N5,M0), one partial
+candidate (N8), and zero established novel results. No imported
+Kourovka mathematics/code, subagents, push or external contact. The
+48-hour deadline remains 30 September 2026 at 10:04:49 UTC.

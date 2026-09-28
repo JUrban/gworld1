@@ -136,3 +136,20 @@ repeating the broad searches or increasing the size of earlier finite
 enumerations. For FP21, any further representation argument must prove
 faithfulness or separate every nontrivial element, not just produce
 an infinite residually finite quotient.
+
+## Working focus after the 16:06 UTC verification checkpoint
+
+F27's tiling lead does not apply outside the commutator subgroup. The
+normal-root stabilizer route remains missing an actual infinite orbit;
+the elementary abelianization and free-factor reductions are recorded
+without a new-result claim. N9(a)'s fixed-ambient quantifier remains an
+obstruction to the familiar varying central-product construction.
+
+The F28, N5 and M0 proofs have been reread without a new gap found in
+this pass. M0 now has an end-to-end witness constructor with independent
+GAP certificates, including symbolic checks of its positive cases.
+Do not spend further time enlarging that sample without a new concern.
+Return to a concrete unresolved mathematical route in the wider
+portfolio, alternating discovery with the outstanding novelty and
+specialist-review needs of the four candidates. The clock and tally
+remain unchanged.

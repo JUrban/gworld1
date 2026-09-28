@@ -102,3 +102,9 @@ element question in higher rank from earlier results on primitive systems.
 An apparent positive abstract about “systems” must not retire M0 without
 checking its tuple-length hypothesis. Further searches beyond the sources
 currently recorded may still reveal a prior complete answer.
+
+The later [constructor audit](constructor-audit.md) checks the complete
+normalization and witness-construction pipeline on new input maps, including
+non-IA maps, nonunimodular abelianization and automatically selected F_4.
+It retains failed GAP checker runs and distinguishes bounded inconclusive
+output from an exact unit-determinant conclusion.
