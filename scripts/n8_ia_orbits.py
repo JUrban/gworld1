@@ -131,13 +131,24 @@ class IA:
     def key(self):return tuple(tuple(sorted(g.items())) for g in self.images)
     def is_identity(self):return all(g==h for g,h in zip(self.images,self.m.gens))
 
+    @cached_property
+    def level(self):
+        return min((len(w) for g,h in zip(self.images,self.m.gens)
+                    for w in add(g,h,-1)),default=self.m.degree+1)
+
     def apply(self,polynomial):
+        # Replacing a letter by the first correction raises the degree by
+        # level-1. Longer monomials are therefore unchanged after truncation.
+        cutoff=self.m.degree-self.level+1
+        if cutoff<1:return dict(polynomial)
         aug=[add(x,ONE,-1) for x in self.images];cache={():ONE}
         def monomial(w):
             if w not in cache:cache[w]=self.m.mul(monomial(w[:-1]),aug[w[-1]])
             return cache[w]
-        result={}
-        for w,n in polynomial.items():result=add(result,monomial(w),n)
+        result=dict(polynomial)
+        for w,n in polynomial.items():
+            if 0<len(w)<=cutoff:
+                result=add(result,add(monomial(w),{w:1},-1),n)
         return result
 
     def compose(self,other):
@@ -182,7 +193,8 @@ class IA:
 
 class IABasis:
     """A complete triangular subgroup basis in the central IA filtration."""
-    def __init__(self,algebra):self.m=algebra;self.rows={};self.version=0
+    def __init__(self,algebra):
+        self.m=algebra;self.rows={};self.version=0;self._completed_pairs=set()
     def generators(self):return [self.rows[i] for i in sorted(self.rows)]
 
     def insert(self,g):
@@ -211,6 +223,10 @@ class IABasis:
         while True:
             old=self.version;gens=self.generators()
             for a,b in combinations(gens,2):
+                # Previously inserted commutators stay in this growing
+                # subgroup even when Euclidean pivot replacement occurs.
+                if (a,b) in self._completed_pairs:continue
+                self._completed_pairs.add((a,b))
                 if a.lead[0]+b.lead[0]-1>self.m.degree:continue
                 for aa,bb in product((a,a.inverse()),(b,b.inverse())):
                     self.insert(aa.comm(bb))
@@ -233,9 +249,12 @@ class IABasis:
         # Normal closure under the original K. Each new pivot either fills a
         # vacant depth or decreases its positive integer pivot; termination is
         # therefore finite. Completion handles internal collection relations.
+        normal_pairs=set()
         while True:
             old=out.version
             for a,b in product(out.generators(),gens):
+                if (a,b) in normal_pairs:continue
+                normal_pairs.add((a,b))
                 if a.lead[0]+b.lead[0]-1>self.m.degree:continue
                 out.insert(a.comm(b));out.insert(a.comm(b.inverse()))
             out.complete()

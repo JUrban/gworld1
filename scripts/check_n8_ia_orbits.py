@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """Deterministic tests of IA orbit lifting, integer kernels and full stratum cases."""
-import json,time
+import argparse,json,time
 from pathlib import Path
 from n8_ia_orbits import Magnus,IA,IABasis,orbit,decide_nonzero_degree_two,wcomm,wpow
 
-out=Path(__file__).resolve().parents[1]/'research/certificates/N8-IA'
+parser=argparse.ArgumentParser()
+parser.add_argument('--out-dir',default='research/certificates/N8-IA')
+args=parser.parse_args()
+out=Path(__file__).resolve().parents[1]/args.out_dir
 out.mkdir(parents=True,exist_ok=True)
 assert not (out/'checks.json').exists()
 checks=[];fixtures=[]

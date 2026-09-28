@@ -27,3 +27,7 @@ Use the recorded runner for research computations. Allocate at most 20 CPU slots
 Update `research/LOG.md`, `research/triage.csv`, and `research/claims.jsonl` as evidence changes. Record any reused Kourovka mathematics/code in the transfer ledger. Keep a rolling `reports/PROGRESS.md`, commit substantial progress frequently, and do not push. Freeze the deadline ledger and write `reports/FINAL_REPORT.md`; do not label interim checkpoints as completion of the experiment.
 
 Reserve the last eight hours for overlapping discovery and verification, with the final hours focused on statement fidelity, complete arguments, reproducibility, novelty qualifications and counting. No subagents are authorized; parallelism is computational only.
+
+## Working focus after the 12:15 UTC checkpoint
+
+N8 now has candidate algorithms for the two extreme target strata in arbitrary class, in addition to all targets in classes three through five. The remaining challenge is intermediate target layers. A possible next route uses weighted free presentations of lower-central subgroups, but finite integral orbit representatives for arbitrary higher-weight factors have not been proved; do not infer them from the degree-one IA argument. Alternate this bounded investigation with the unresolved portfolio in `research/notes/portfolio-followups.md`, and continue the novelty audit of F28.

@@ -1,5 +1,7 @@
 if LoadPackage("nq") <> true then FORCE_QUIT_GAP(1); fi;
-Read("research/certificates/N8-IA/fixtures.g");
+if not IsBound(N8IAFixtureOverride) then
+    Read("research/certificates/N8-IA/fixtures.g");
+fi;
 N8IAGroups := rec();;
 N8IAEval := function(group,word)
     local ans,gens,s;
