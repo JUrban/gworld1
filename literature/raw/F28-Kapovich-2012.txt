@@ -1,0 +1,818 @@
+Groups Geom. Dyn. 6 (2012), 737–754                         Groups, Geometry, and Dynamics
+DOI 10.4171/GGD/172                                          © European Mathematical Society
+
+
+
+
+                   Arithmetic aspects of self-similar groups
+
+                                       Michael Kapovich
+
+
+Abstract. We prove that an irreducible lattice in a semisimple algebraic group is virtually
+isomorphic to an arithmetic lattice if and only if it admits a faithful self-similar action on a
+rooted tree of finite valency.
+
+Mathematics Subject Classification (2010). 20F65, 20E08, 22E40.
+
+Keywords. Arithmetic groups, self-similar actions.
+
+
+
+                                        1. Introduction
+
+Let  be a group. A virtual endomorphism of  is a homomorphism ' W ƒ ! ,
+where ƒ is a finite index subgroup in . An invariant normal subgroup of ' is a normal
+subgroup N C  contained in ƒ such that '.N / < N . A virtual endomorphism ' is
+essential (or the group  is '-simple) if  contains no nontrivial normal '-invariant
+subgroups. We will be interested in the question
+
+Question 1. Which virtual endomorphisms are essential and when does  admit
+essential virtual endomorphisms?
+
+   We will only consider the case of lattices  in semisimple algebraic linear Lie
+groups G. (Note that the case of nilpotent groups was analyzed in [2].) Therefore,
+without loss of generality, the subgroups ƒ can be taken torsion-free and G can be
+assumed to have no compact factors. In particular, existence of a nontrivial invari-
+ant normal subgroup is equivalent to the existence of an infinite invariant normal
+subgroup. Our main result is
+
+Theorem 2. Let  be an irreducible lattice in a linear semisimple algebraic Lie
+group G. Then the following are equivalent:
+   (a)  is virtually isomorphic to an arithmetic lattice in G, i.e., contains a finite
+index subgroup isomorphic to such arithmetic lattice.
+   (b)  admits an essential virtual endomorphism ' W ƒ ! .
+  
+      This research was partially supported by the NSF grants DMS-05-54349, DMS-09-05802.
+738                                     M. Kapovich
+
+    Moreover, except for the case when the symmetric space of G is the hyperbolic
+plane H2 , we will classify all essential virtual endomorphisms; see Corollary 13.
+    We note that conjugacy classes of irreducible faithful self-similar actions of a
+group  on a rooted tree (of finite valency) are in 1-1 correspondence with conjugacy
+classes of essential virtual endomorphisms of , [20], [22], [21]. Therefore,
+
+Corollary 3. Let  be an irreducible lattice in a linear semisimple algebraic Lie
+group G. Then the following are equivalent:
+    (a)  is virtually isomorphic to an arithmetic lattice in G.
+    (b)  admits an irreducible faithful self-similar action on a regular rooted tree
+(of finite valency).
+
+   An explicit example of a self-similar action on a rooted tree using the construction
+from the proof of Theorem 2 was worked out by Zoran Šunić and is presented in
+Section 4.
+
+
+                                   2. Preliminaries
+
+Rooted trees and group actions (see e.g. [20]). A rooted tree is a simplicial tree
+T with a choice of a vertex r 2 T , called the root. We will consider only rooted
+trees of finite valence which is the same (equal to n C 1) for all vertices different
+from the root, while the root has valence n. Such rooted trees are called regular. A
+descending edge of a vertex u 2 T is an edge e emanating from u which is separated
+from the root r by u. The descending tree Tu of a vertex u 2 T is the subtree of
+T where all edges are separated from r by u. A group action on a rooted tree is
+a simplicial action of a group G on a tree T which fixes the root. Such action is
+called irreducible if it is transitive on the set of edges emanating from the root of the
+tree. Let X D fx1 ; : : : ; xn g be an alphabet. Thus, for every vertex u of T we can
+(bijectively) label all edges descending from u by the elements of X. We can then
+identify vertices of T with words w 2 X  in the alphabet X. An action G Õ T on
+a rooted tree is called self-similar if the following property holds:
+    For every g 2 G, x 2 X and a word w 2 X  there exist h 2 G; y 2 X such that
+g.xw/ D yh.w/.
+    More geometrically, one can define self-similarity as follows. For every vertex
+u of T connected to r by an edge, we fix an isomorphism u W Tu ! T sending u
+to r. Then, we require that for every vertex u as above, for every g 2 G, there exists
+h 2 G such that
+                                     v B gjTu D h B u
+where v D g.u/. Note that the isomorphisms u define isomorphisms w W Tw ! T
+for every vertex w 2 T . Self-similarity of G Õ T then means that for every g 2 G
+and vertex w of T there exists h 2 G such that
+                               g.w/ B gjTw D h B w :
+                      Arithmetic aspects of self-similar groups                      739
+
+Informally speaking, the restriction of g to Tw is a copy of the action of h on T ,
+which explains the name self-similar.
+
+Lie groups and symmetric spaces (see e.g. [14]). Let G be a reductive Lie group
+with finitely many connected components. (Reductivity of G means that the Cartan–
+Killing form of G is nondegenerate.) We endow G with a left-invariant Riemannian
+metric which is invariant under the action of the maximal compact subgroup K < G
+on the right. Then the quotient X D G=K with the (G-invariant) metric projected
+from G is a symmetric space. The action of G on X may have kernel, but this
+kernel is necessarily compact (and contained in K). The above metric always has
+nonpositive (sectional) curvature. The symmetric space X is said to have rank r if
+r is maximal dimension of a Euclidean space that can be isometrically embedded in
+X. (The number r is also the real rank of the Lie group G.) The space X has rank 1
+iff its sectional curvature KX is strictly negative. Then (after rescaling the metric on
+X), we can assume that 1  KX  a2 < 0.
+     The symmetric space X is said to be irreducible if it does not split nontrivially as
+a Riemannian direct product. Equivalently, the isometry group of X is simple as Lie
+group (i.e., has simple Lie algebra).
+     A Lie group G is semisimple if every irreducible component of the Lie algebra of
+G is simple (and has dimension at least 3). Every such group is reductive. Moreover,
+a reductive group (without compact factors) is semisimple iff the symmetric space
+X D G=K does not split off a Euclidean factor.
+
+Lattices in G (see e.g. [17], [23] or [28]). Let G be a semisimple group above. A
+lattice in G is a discrete subgroup  < G such that nG has finite volume. Equiva-
+lently, X= has finite volume. Let X D X1   Xn be the de Rham decomposition
+of X in irreducible factors. Then a lattice  < G (and G itself) contains a finite-
+index subgroup  0 which preserves each factor Xi in this decomposition. For a proper
+subset I  f1; : : : ; ng let XI denote the product
+                                          Q
+                                             Xi :
+                                        i2I
+
+Let I0 denote the image of  0 in the isometry group Isom.XI / of XI . The lattice 
+is said to be irreducible if every projection I0 is a dense subgroup of Isom.XI /. For
+instance, if n D 1 then  is irreducible.
+    Every lattice  < G is finitely generated. If G is a linear algebraic group (more
+precisely, is the set of real or complex points of an algebraic group), then by a theorem
+of Selberg [24],  contains a torsion-free subgroup of finite index, i.e., is virtually
+torsion-free. (Discreteness of  is irrelevant here, what is important is that  is
+finitely generated.)
+
+Thick-thin decomposition. Let M be a manifold of negative sectional curvature
+1  KM  a2 < 0 and " be a positive number. The thick-thin decomposition
+740                                     M. Kapovich
+
+of M (with respect to ") is the partition of M in two subsets Mthick D MŒ";1/ and
+Mthin D M.0;"/ where M.0;"/ consists of points x 2 M such that there exists a
+homotopically nontrivial loop  in M based at x, whose length is < ". The key result
+is that there exists a number " D .n; a/ (which depends only on the dimension of
+M and the number a, and is called a Margulis constant) such that every component
+of the thin part of M has virtually nilpotent fundamental group. Moreover, if M
+has finite volume, then Mthin has only finitely many components. Furthermore, one
+can choose  < .n; a/ such that Mthin is diffeomorphic to N  RC , where N is
+the boundary of Mthin , while Mthick is diffeomorphic to M . In particular, one cannot
+embed 1 .M / in 1 .C / for any component C of Mthin . (See [1] or [26].) We will
+apply these results in the case when M is locally symmetric, i.e., is the quotient of
+a rank 1 symmetric space X by a discrete torsion-free group  of isometries. The
+group  then acts faithfully on X. Finiteness of the volume of M is equivalent to
+saying that  is a lattice in G.
+
+Discrete groups of isometries of rank 1 symmetric spaces. We refer to [15] or
+[5] for this material. Let X be a rank 1 symmetric space as above; it has the ideal
+boundary @X . Let  < Isom.X/ be a discrete group of isometries of X. Then
+we have the following dichotomy: Either  is non-elementary, or elementary. Ele-
+mentary groups can be characterized by the property that they are virtually nilpotent,
+equivalently, every such group fixes a point in X [ @X or has an invariant geodesic in
+X . Moreover, unless  is finite, the fixed-point set of  in @X contains at most two
+points; accordingly,  can have at most one invariant geodesic. In contrast, every
+nonelementary  contains a free nonabelian subgroup. If two elements of a discrete
+group  < Isom.X/ have a common fixed point in @X, then they belong to an el-
+ementary subgroup of . If two elements of  commute then they have a common
+fixed point in X [ @X. Thus, if ˛; ˇ;  2  and
+                               Œ˛; ˇ D 1;    Œˇ;  D 1;
+then ˛, ˇ,  generate an elementary subgroup of . In particular, a discrete group
+ cannot contain a subgroup isomorphic to F2  F2 , where F2 is the rank 2 free
+group. If  is a lattice in Isom.X/, then  never acts on X as an elementary group
+(unless X is 1-dimensional). One way to see this is to note that  is Zariski dense in
+G (see [3]); thus, if  is virtually nilpotent, then G is virtually nilpotent as well. On
+the other hand, the isometry group of X is always a simple Lie group. Alternatively,
+one observes that elementary groups have finite limit sets, which, in turn, implies that
+X= always has infinite volume (unless X is 1-dimensional).
+    Let N be a normal subgroup in a discrete group  < Isom.X/, where X is a
+rank 1 symmetric space. If N is infinite and elementary, then its fixed point set (or
+the invariant geodesic) is invariant under . Thus, in this case,  is elementary itself.
+We, therefore, conclude that every normal subgroup N in a lattice  < G D Isom.X/
+is either elementary (in which case it is finite and, hence, trivial) or is nonelementary,
+in which case it contains a free nonabelian subgroup.
+                      Arithmetic aspects of self-similar groups                      741
+
+Commensurators. Let G be an Lie group and  < G be a subgroup. The commen-
+surator of  in G, denoted CommG ./ is the subset of G consisting of elements g
+such that the groups  and gg 1 are commensurable, i.e.,  \gg 1 has finite index
+in both  and gg 1 . Most of the time we will abbreviate CommG ./ to Comm./
+when the group G is clear. It is immediate that Comm./ is a subgroup of G contain-
+ing . Moreover, Comm./ is the same for all commensurable subgroups  < G.
+For an abstract group  one also defines the abstract commensurator Comma ./,
+which is the group of (equivalence classes of) isomorphisms between finite-index
+subgroups of . If  is an irreducible lattice in G such that X D G=K ¤ H2 , then
+by the Mostow Rigidity Theorem, Comm./ Š Comma ./.
+
+Valuations, symmetric spaces and buildings. Let F be an (algebraic) number
+field, i.e., a finite extension of Q. Each embedding W F ,! C determines an
+archimedean norm j  j on F (the restriction of the absolute value on C); we let
+F denote the completion of F with respect to this norm. Let O be the ring of
+integers of F . Given a prime ideal p in O we let Fp denote the completion of F
+with respect to the nonarchimedean valuation p on F determined by p. Typical
+examples of nonarchimedean valuations are the p-adic valuations on F D Q, where
+the valuation is given by the norm
+                                    ˇ      ˇ
+                                    ˇ a ˇ
+                                    ˇ      ˇ    n
+                                    ˇ bp n ˇ D p ;
+                                           p
+
+where p is prime and a; b are integers coprime with p. The completion Qp is then
+the field of p-adic numbers. In general, F is a finite extension of Q and p restricts
+to some q-adic valuation on Q for some prime q 2 Z. The reader unfamiliar with
+valuations can think of this example as the model since the general case is very similar.
+    Let G be a semisimple algebraic group defined over O. We let G1 denote the
+finite product                         Q
+                                             G.F /
+                                     W F ,!C
+where the product is taken over all embeddings W F ,! C (there are only finitely
+many of these). The image of G.F / under the diagonal embedding is dense in G1
+(this is a special case of the weak approximation theorem). The group G1 is a real
+or complex semisimple Lie group. Let K1 < G1 be a maximal compact subgroup.
+We will be interested in the symmetric space X D G1 =K1 . Note that G1 need not
+act faithfully on X, the kernel C of the action is compact and comes from compact
+factors of the group G1 as well as from finite normal subgroups in the noncompact
+factors of G1 . We let G ´ G1 =C . We will regard G as the isometry group of
+the symmetric space X. Then G has no compact factors and nontrivial finite normal
+subgroups. Similarly, for each prime ideal p, the group Gp ´ G.Fp / acts as a group
+of isometries of a Euclidean building Xp , which is a certain regular cell complex
+where each facet is isometric to a polytope in Rn . The group of integer points G.Op /
+is the stabilizer in Gp of a special vertex op 2 Xp . See e.g. [6].
+742                                    M. Kapovich
+
+Arithmetic groups (see e.g. [17], [27], [28]). An arithmetic subgroup of the group
+G1 as above is a group  commensurable to the group G.O/, embedded diagonally.
+(Note that the group G.O/ need not be discrete in the group G.F /.) Projections of
+arithmetic groups to the group G are also called arithmetic. The difference between
+these two notions of arithmeticity comes from finite normal subgroups which  <
+G.F / may contain and can be safely ignored for the purpose of this paper. Whenever
+convenient, we will consider arithmetic subgroups of G or their lifts to G1 .
+    The basic examples of arithmetic groups the reader should think about are:
+  1. G D SL.n/, F D Q, G D SL.n; R/, G.O/ D SL.n; Z/.
+             p         p
+  2. F D Q. 2/, O D ZŒ 2, G < GL.n/ is the automorphism group O.q/ of the
+     quadratic form
+                                                 p 2
+                       q.x/ D x12 C    C xn2  2xnC1 :
+      Then G.O/ is O.q; O/, the group of matrices with coefficients in O that preserve
+      q. The field F is totally real and has two embeddings to C. Accordingly,
+      G1 Š O.n; 1/  O.n C 1/, since q has the p     signaturep.n; 1/, while its image
+      q  under the embedding W F ! R sending 2 to  2, is positive-definite.
+      Then G D PO.n; 1/ is the group of isometries of the hyperbolic n-space (which
+      can be realized as the projectivization of the hyperboloid fx W q.x/ D 1g).
+      The group G.O/ acts as a lattice on Hn . This lattice is irreducible even though
+      G1 splits as a nontrivial direct product.
+    The following deep results of Margulis (see [17] as well as [28]) will be the key
+for this paper:
+
+Theorem 4 (Margulis Arithmeticity Theorem). If G has rank  2 then every irre-
+ducible lattice in G is arithmetic.
+
+Theorem 5 (Margulis Commensurator Theorem). Let  < G be an irreducible
+lattice (where G may have rank 1). Then  is arithmetic iff Comm./ is dense in G.
+
+Theorem 6 (Margulis Finiteness Theorem). Let  < G be an irreducible lattice of
+rank  2. Then for every normal subgroup ƒ C  either ƒ is finite or =ƒ is finite.
+
+   In the arithmetic case, the commensurator of  D G.O/ in G1 is described by
+A. Borel (see [3]):
+                                Comm./ D G.F /;
+embedded diagonally in G1 .
+    In view of the Margulis Arithmeticity Theorem, the study of non-arithmetic lat-
+tices is reduced to the case of rank 1 symmetric spaces (and Lie groups). There are
+four classes of such symmetric spaces: Hn (the real-hyperbolic n-space), CHn (the
+complex-hyperbolic n-space, n  2), HHn (the quaternionic-hyperbolic n-space,
+                       Arithmetic aspects of self-similar groups                      743
+
+n  2) and OH2 (the octonionic hyperbolic plane). In the last two cases the Mar-
+gulis Arithmeticity Theorem is supplemented by the following theorem which is a
+combination of work by Corlette [7] and by Gromov and Schoen [12]:
+
+Theorem 7 (Corlette, Gromov and Schoen). Every lattice in the isometry group of
+HHn (n  2) and OH2 is arithmetic.
+
+    On the other hand, for n  2, the isometry of Hn contains non-arithmetic lat-
+tices (Gromov and Piatetsky-Shapiro [11]) while the isometry groups of CH2 and
+CH3 also contain non-arithmetic lattices (Deligne and Mostow [8]). Arithmeticity
+of lattices in the isometry groups PU.n; 1/ of CHn (n  4) is an open problem.
+
+Rigidity and non-rigidity. Let  < G be an irreducible lattice in a semisimple Lie
+group G as above. Then, by the Mostow Rigidity Theorem [19], unless X D G=K is
+the hyperbolic plane, every discrete embedding  W  ! G is given by conjugating
+the identity embedding  ,! G by an isometry of X. In particular, for every discrete
+embedding  W  ! G, there exists a finite-index subgroup  0 <  such that j 0
+is induced by an automorphism of G. The group of automorphisms of G is a finite
+extension of the group of inner automorphisms of G.
+    Therefore, arithmeticity of  is the intrinsic group-theoretic property of , in-
+dependent of the embedding  ,! G. In contrast, if  is a lattice in PSL.2; R/,
+the group of orientation-preserving isometries of the hyperbolic plane,  could be
+isomorphic to an arithmetic group without being an arithmetic group itself. For in-
+stance, all torsion-free lattices satisfy this property. Moreover, it is possible that  is
+not isomorphic to an arithmetic group but is commensurable to a group  0 which is
+torsion-free and, hence, is isomorphic to an arithmetic group. For instance, consider
+groups T D T .p; q; r/ with presentations
+                                                            1  1 1
+           hx; y; z j xyz D 1; x p D y q D z r D 1i;          C C < 1:
+                                                            p  q r
+
+Then every T embeds as a lattice (unique up to conjugation) in PSL.2; R/, but this
+lattice is arithmetic only for 85 different unordered triples .p; q; r/; see [25].
+   By combining the Mostow Rigidity Theorem and the Margulis Finiteness Theo-
+rem, we get:
+
+                 y / denote the finite extension of G.F / by its outer automor-
+Corollary 8. Let G.F
+phisms. Let  < G.F / be an irreducible lattice of rank  2. Then for every virtual
+endomorphism of , ' W ƒ ! , either ' has finite image or it is induced by some
+     y /.
+˛ 2 G.F
+
+Proof. Suppose that ' has finite kernel and, thus, infinite image. Thus, ' is induced
+by conjugation via some isometry ˛ of X. The orbifold M 0 ´ X='./ has finite
+744                                    M. Kapovich
+
+volume, therefore, the orbifold-covering M 0 ! M D X=  (induced by ') has
+to have finite degree. This means that './ has finite index in . The isometry ˛
+belongs to the finite extension of G by its outer automorphisms. We keep the notation
+˛ for its lift to an automorphism of G1 . Since ˛ conjugates a lattice ƒ < G.F / to
+                                                       y /.
+another lattice in G.F /, it follows that ˛ belongs to G.F
+    We see, therefore, that every virtual automorphism of  with infinite image is
+induced by an element of the commensurator of , which is an element of a fi-
+nite extension of G1 . In order to avoid heavy notation, we will keep the notation
+                                         y / of G.F /. We note that G.F
+Comm./ for the above finite extension G.F                          y / still acts
+by isometries of the Euclidean buildings Xp defined above, extending the actions of
+G.F /.
+
+
+                               3. Proof of Theorem 2
+
+In what follows,  is a lattice (arithmetic or not) in a real or complex Lie group G1 .
+Given an element ˛ 2 Comm./ we let ' D '˛ denote the automorphism of G1
+induced by conjugation
+                                     '.g/ D ˛g˛ 1 :
+Then ˛ induces virtual endomorphisms of : './ \  is a finite-index subgroup
+1 < . Thus, 2 ´ ' 1 .1 / is also a finite-index subgroup in  and, hence
+' W 2 ! 1 is a virtual endomorphism of .
+
+3.1. Arithmetic case. Assume now that  is arithmetic. We will use the notation
+introduced in the previous section. We say that ˛ 2 Comm./ virtually normalizes
+the lattice  if there exists a finite-index subgroup  0 <  which is normalized by ˛.
+
+Lemma 9. One of the following mutually exclusive possibilities holds: Either ˛
+virtually normalizes  or there exists a prime ideal p in O such that ˛ acts on Xp
+with unbounded orbits (i.e., is a hyperbolic isometry).
+
+Proof. Suppose that ˛ acts on every Xp with bounded orbits. Then, as in the proof
+of the Margulis Arithmeticity Theorem (see [17] or [28], pp. 120–121), matrix en-
+tries of powers of ˛ have uniformly bounded denominators which, in turn, implies
+that the groups ˛ N G.O/˛ N intersect G.O/ along subgroups of finite index which
+are bounded by a constant independent of N . Taking the intersection of all these
+subgroups, we obtain a finite-index subgroup ƒ < G.O/ which is normalized by ˛.
+Therefore, ' preserves a finite-index subgroup of ƒ \ .
+    Suppose that ˛ acts hyperbolically on some Xp and virtually normalizes , i.e.,
+˛ 0 ˛ 1 D  0 for some finite-index subgroup  0 < . Since  0 is commensurable
+to G.O/, it also fixes a point in Xp (although, not necessarily op ). Since ˛ acts
+hyperbolically on Xp and normalizes  0 , the fixed-point set of  0 in Xp is unbounded.
+                      Arithmetic aspects of self-similar groups                  745
+
+Therefore, this fixed-point set contains an ideal boundary point of the building Xp .
+Algebraically, this means that  0 normalizes a parabolic subgroup P < Gp . Since  0
+is commensurable to G.O/, it is also Zariski dense in Gp . Therefore, Gp also would
+have to normalize P (and, thus, fix ). However (since G is semisimple), Gp cannot
+have proper normal parabolic subgroups.
+    One can give a more geometric argument as follows. The ideal boundary @Xp of
+Xp is a spherical building and, by the Cartan decomposition for Gp , the group G.O/
+acts transitively on the chambers of @Xp . Since  0 is commensurable to G.O/, the
+orbit of under G.O/ is finite. This contradicts the fact that @Xp is infinite.
+
+   We note that the property that ˛ 2 Comm./ acts hyperbolically on some Xp
+amounts to saying that the matrix coefficients of powers of ˛ have arbitrarily high
+denominators. For instance, if G D SL.n/ then any diagonal matrix where some
+diagonal entries belong to F n O, satisfies this property.
+
+Theorem 10. Let  < G.F / be an arithmetic group, ˛ 2 Comm./ be an element
+which acts as a hyperbolic isometry of some Xp , and ƒ <  be a finite-index subgroup
+such that '˛ .ƒ/  . If N < ƒ is a normal subgroup of  such that '˛ .N /  N ,
+then N is finite.
+
+Proof. As before, let X be the symmetric space of G and let M ´ X=N . The
+manifold M isometrically covers X=. We also obtain an isometric covering
+
+                                  q D ˛N W M ! M
+
+induced by the endomorphism ' D '˛ of the fundamental group of M .
+     1. First, consider the case when G has rank  2. Then, by Margulis Finiteness
+Theorem, every normal subgroup of  is either finite or has finite index in . Assum-
+ing N has finite index in , the manifold M has finite volume and, since q preserves
+the volume form, it has to be a diffeomorphism. Thus, '.N / D N , which (by the
+previous lemma) contradicts our choice of ˛.
+     2. We now consider the more interesting case when G has rank 1. We assume that
+N is an infinite group. Therefore, it is Zariski dense in G. In what follows, we will
+lift thick-thin decompositions from X= to M and, by abuse of terminology, will
+refer to them as lifted thick-thin decompositions of M D Mthick [ Mthin . By choosing
+" in the definition of the thick-thin decomposition sufficiently small, we can assume
+that each component of Mthin is non-compact; in particular, Mthick is connected. (The
+thick part of M can be disconnected only if X Š H2 .)
+     Note that the group  acts on M isometrically, we use the notation N for the
+isometry of M induced by  2 . For any lifted thick-thin decomposition of M , the
+action  Õ Mthick is cocompact since .X=/thick is compact.
+     Consider the iterations q k of the isometric endomorphism q W M ! M . Pick
+a connected compact subset C  Mthick whose fundamental group maps onto a
+746                                       M. Kapovich
+
+Zariski dense subgroup H of N and which contains a fundamental domain for the
+(cocompact) action  Õ Mthick .
+    Since each component of Mthin has virtually nilpotent fundamental group, while H
+is not virtually nilpotent, it follows that q k .C / is never contained in Mthin . Therefore,
+for each k there exists xk 2 C such that q k .xk / 2 Mthick .
+    Since the action  Õ Mthick is cocompact, for every k there exists k 2  such
+that
+                                     Nk B q k .xk / 2 C:
+Set ˇNk ´ Nk Bq k and let D be the diameter of C . Since q is isometric, q k .C / also has
+diameter  D, which implies that ˇNk .C / is contained in the D-neighborhood of C .
+Therefore, by Arzela–Ascoli theorem, the sequence of isometries ˇNk is precompact.
+
+Lemma 11. The set IN ´ fˇNk W k 2 Ng is finite.
+
+Proof. If not, then there will be arbitrarily large k, m such that ˇNk ¤ ˇNm and the
+restrictions ˇNk jC; ˇNm jC are arbitrarily close in the sup-metric. In particular, for large
+k, m, they are homotopic and, hence, induce the same (up to conjugation in N ) map
+H ! N given by
+                             h 7! ˇk hˇk1 ; h 7! ˇm hˇm     1
+                                                                :
+   Since H is Zariski dense in G, its centralizer in G is trivial and, thus, we have the
+equality of the cosets
+                                  ˇk  N D ˇm  N:
+Hence, ˇNk D ˇNm . Contradiction.
+    We continue with the proof of Theorem 10. Let I  G.F     y / denote the finite set
+of representatives of lifts of the isometries ˇNk 2 IN. For each k 2 N,
+
+                                   k  ˛ k  N  I  N;
+and, thus,
+                                    ˛ k 2 k1  I  N;
+
+where k 2 .
+    We now consider the action of the isometries in the above equation on the building
+Xp , where p is such that ˛ W Xp ! Xp is hyperbolic. The group  fixes a point
+xp 2 Xp , the images I  xp form a finite set. Therefore, the set
+
+                             k1  I  N  xp D k1  I  xp
+
+is bounded in Xp . However, by our assumption, orbits of h˛i on Xp are unbounded.
+Contradiction.
+
+Corollary 12. Suppose that  has no finite normal subgroups. Then every ˛ as in
+Theorem 10 induces an essential virtual endomorphism '˛ of .
+                       Arithmetic aspects of self-similar groups                     747
+
+   The following corollary then classifies all virtual endomorphisms of arithmetic
+groups induced by conjugation (which is the case unless X Š H2 ):
+
+Corollary 13. Let  < G.F / be arithmetic with no finite normal subgroups, ƒ < 
+be a finite-index subgroup and ' W ƒ !  be an essential virtual endomorphism of
+ such that ' D '˛ , where ˛ 2 Comm./. Then ˛ does not normalize finite-index
+subgroups of , equivalently, ˛ acts hyperbolically on some Xp . Conversely, for
+every ˛ 2 Comm./ that acts hyperbolically on some Xp , the virtual endomorphism
+'˛ of  is essential.
+
+3.2. Non-arithmetic case. We now consider virtual endomorphisms of non-arith-
+metic lattices. Then  is a lattice in a rank 1 Lie group G. Without loss of generality,
+we may assume that G acts faithfully on the associated symmetric space X D G=K.
+In this section we will also assume that the Lie algebra of G is not isomorphic to
+sl.2; R/, i.e., the symmetric space X D G=K of G is not isometric to the hyperbolic
+plane. We assume that  < G is non-arithmetic. Our assumptions imply that 
+contains no nontrivial normal finite subgroups. The same, of course, applies to finite-
+index subgroups ƒ < .
+
+Proposition 14. Under the above assumptions, every virtual endomorphism ' of 
+is not essential.
+
+Proof. 1. Suppose that ' W ƒ !  is not injective. Let K denote the kernel of '.
+Note that this subgroup is not necessarily normal in . Since ƒ contains no nontrivial
+normal subgroups, it follows that the group K is infinite.
+   We first consider the case when ƒ is normal in . Let 1 ; : : : ; n be the generators
+of . Consider the conjugates
+
+                          Ki ´ i1 Ki  ;          K0 ´ K:
+
+Define homomorphisms
+
+           'i W ƒ ! ;     'i .g/ D '.i gi1 /; i D 1; : : : ; nI   '0 ´ ':
+
+For every nonempty subset I  f0; : : : ; ng consider the normal subgroup KI C G
+given by the intersection                  T
+                                KI ´           Ki
+                                              i2I
+
+This subgroup is the kernel of the homomorphism
+                                           Q
+                                  ˆI W ƒ !    ;
+                                                i2I
+
+where the i -th Q
+                component of ˆI is 'i , i 2 I . We let i denote the i-th factor of the
+product group i2I .
+748                                     M. Kapovich
+
+    Suppose that for J D f0; : : : ; ng, KJ is infinite. Let I be a smallest (with respect
+to the inclusion) subset of J such that KI is finite (i.e., trivial, since it is a normal
+subgroup in ƒ). Since each 'i has infinite kernel, I contains at least two elements.
+By the choice of I , for every i 2 I ,
+
+                                  Hi ´ ˆI .ƒ/ \ i
+
+is infinite. Since Hi is normal in ˆI .ƒ/, the subgroup Hi contains a free nonabelian
+subgroup Fi . Hence, the group ƒ contains a direct product of free nonabelian sub-
+groups. This is impossible since ƒ is isomorphic to a discrete subgroup of isometries
+of the negatively curved symmetric space X defined above. Contradiction. Thus, KJ
+is infinite and we obtain an infinite normal subgroup N D KJ C ƒ of the group 
+such that '.N / D 1  N .
+    We now consider the case when ƒ is not necessarily normal in . If ' W ƒ !  is
+a virtual endomorphism with infinite kernel, we find a finite index subgroup ƒ0  ƒ
+which is normal in . Then the restriction ' 0 D 'jƒ0 still has infinite kernel and we
+obtain a contradiction as above.
+     2. Suppose now that ' is injective. Then, by the Mostow Rigidity Theorem, the
+homomorphism ' is induced by conjugation via some ˛ 2 Comm./. Recall that,
+by the Margulis Commensurator Theorem, Comm./ is not dense in G. Since 
+is Zariski dense in G, it follows that Comm./ is discrete. Therefore, since  is a
+lattice, Comm./ is a finite extension of . Thus, ƒ has finite index in Comm./
+and, hence, contains a finite index subgroup N < ƒ which is normal in Comm./.
+In particular,
+                                     ˛N˛ 1 D N
+and N C  is a normal subgroup. Clearly, N is an infinite '-invariant subgroup of
+ and, thus, ' is not essential.
+
+3.3. Subgroups of SL.2 ; R/. Suppose now that  is a subgroup in a Lie group
+G which is locally isomorphic to SL.2; R/, i.e., the symmetric space of G is the
+hyperbolic plane H2 . Then the abstract commensurator of a lattice  < G is not
+isomorphic to the commensurator of  in G.
+
+Lemma 15. Every lattice  < G contains a finite index torsion-free subgroup ƒ
+which is isomorphic to an arithmetic subgroup of G. (This isomorphism, of course,
+need not be induced by conjugation, thus ƒ itself need not be arithmetic.)
+
+Proof. It suffices to consider the case of G D SL.2; R/. Then G contains both
+cocompact and non-cocompact arithmetic lattices  0 ,  00 . (This is a special case of
+Borel’s theorem on existence of cocompact and non-cocompact arithmetic lattices in
+the given algebraic group, [3].) Specifically, one can take  0 such that the quotient
+orbifold H2 =  0 is S 2 .2; 4; 8/, the sphere with three cone points of the orders 2, 4,
+8 (see [25]), while for  00 one can take the modular group SL.2; Z/, whose quotient
+                        Arithmetic aspects of self-similar groups                         749
+
+is the orbifold S 2 .2; 3; 1/, the sphere with two cone points of orders 2, 3 and one
+puncture.
+     We leave it to the reader to construct an 8-fold orbifold cover S2 ! S 2 .2; 4; 8/
+where S2 is the surface of genus 2, and a 6-fold orbifold cover S 2 .1; 1; 1/ !
+S 2 .2; 3; 1/, where S 2 .1; 1; 1/ is the sphere with 3 punctures. Thus,  0 contains
+an index 8 subgroup isomorphic to 1 .S2 /, while  00 contains an index 6 subgroup
+isomorphic to the free group of rank 2, F2 . Let  < G be a lattice. Then  contains
+a torsion-free subgroup of finite index ƒ; the quotient H2 =ƒ is a surface which is
+compact if and only if H2 = is. Suppose that H2 = is compact. Then H2 =ƒ is
+a surface Sg of genus g  2. Every such surface is a .g  2/-fold cover over S2 .
+Hence, ƒ is isomorphic to an index 8.g  2/ subgroup ƒ0 <  0 , which is, of course,
+arithmetic. If H2 = is not compact, then ƒ is isomorphic to a free group Fr of rank
+r  2. Then F2 contains an index r  2 subgroup isomorphic to Fr . Hence, ƒ is
+isomorphic to an index 6.r  2/ subgroup ƒ00 <  00 , which is again arithmetic.
+     The reader uncomfortable with orbifold covers may instead use the following
+observation: Every two compact surfaces Sg , Sh of genus  2 are finite covers
+over S2 , while every two finite rank nonabelian free groups Fr , Fs are finite index
+subgroups in F2 . Therefore, Sg , Sh admit a common finite cover, while Fr , Fs admit
+isomorphic finite index subgroups. Therefore, for every cocompact lattice  < G
+there exists a finite index subgroup isomorphic to a finite index subgroup of  0 ,
+while for every non-cocompact lattice  < G there exists a finite index subgroup
+isomorphic to a finite index subgroup of  00 .
+   Now, in view of the above lemma, by Theorem 10, ƒ, and, hence, , admits
+essential virtual endomorphisms '.
+   By combining this lemma with Theorem 10 and Proposition 14, we obtain Theo-
+rem 2.
+
+
+   4. An example of a faithful, self-similar action of PSL2 .Z/ on the ternary
+                                     rooted tree
+
+The following explicit example of a faithful self-similar action on a tree associated
+with an element of Comm./ was computed by Zoran Šunić.
+   Let X D f0; : : : ; k  1g. Every automorphism g of the tree X  decomposes as
+
+                              g D g .gj0 ; gj1 ; : : : ; gjk1 /;
+
+where g is a permutation of the alphabet X , called root permutation of g, describing
+the action of g on the first level of the tree, and gj0 ; : : : ; gjk1 are tree automorphisms,
+called sections of g, describing the action of g on the subtrees below the first level.
+For every letter x in X and word w over X,
+
+                                 g.xw/ D g .x/gjx .w/:
+750                                     M. Kapovich
+
+    We provide a brief description of the self-similar action on a rooted k-ary tree by
+automorphisms associated to a virtual endomorphism  W ƒ !  (for the original
+definition see [20], Proposition 4.9, or [21], Proposition 2.5.10).
+    Choose a left transversal T D ft0 ; t1 ; : : : ; tk1 g for ƒ in , with t0 D 1, i.e.,
+representatives of the quotient =ƒ. For g 2 , let gN denote the representative of
+the left coset gƒ.
+    A self-similar action of  on the rooted k-ary tree induced by  is defined as
+follows. For g 2 , define the root permutation g of X D f0; 1; : : : ; k  1g by
+
+                        g .x/ D y     if and only if     gtx D ty
+
+and the section of g at x 2 X by
+                                                1
+                                 gjx D .gtx         gtx /:
+
+   The action induced by the virtual endomorphism  may be not faithful. It is faithful
+precisely when the virtual endomorphism is essential. In the following example we
+will abuse the notation and use matrix notation for the elements of PSL.2; Z/.
+
+Example 16 ( D PSL2 .Z/ D Z2  Z3 ). It is well known that the two free factors
+of  may be generated by the elements represented by the matrices
+                                                       
+                             0 1                    0 1
+                     aD                and b D
+                            1 0                   1 1
+of orders 2 and 3, respectively.
+    Let ƒ be the subgroup
+                      ˚                                 
+                ƒ D xz 2y w j x; y; z; w 2 Z; xw  2yz D 1  :
+
+It is easy to establish that, for any two matrices
+                                                         
+                               x y1                  x y2
+                      M1 D 1               and M2 D 2
+                                z1 w 1               z2 w 2
+
+in , M21 M1 2 H if and only if
+
+                  y1     y2   .mod 2/     and   w2        w2   .mod 2/:
+
+Therefore j W ƒj D 3 and left coset representatives of ƒ in  are given by
+                                                             
+                     1 0                0 1          2     1 1
+               1D           ; bD                ; b D               :
+                     0 1               1 1                1 0
+   Define  W ƒ !  by
+                                                 
+                                x 2y           x y
+                                            D        :
+                                z w            2z w
+                        Arithmetic aspects of self-similar groups                        751
+
+Since  is just conjugation by the diagonal matrix D D Diag.2; 1/ with entries 2 and
+1 along the main diagonal, it is indeed a homomorphism.
+    Any -invariant subset of ƒ must be a subset of the subgroup of lower triangular
+matrices. Indeed, if
+                                            
+                                        x y
+                                         z w
+belongs to a  invariant subset of ƒ, then iterations of the endomorphism  can be
+applied to it arbitrarily many times. Thus y is divisible by arbitrarily high powers
+of 2, implying that y D 0. However, since the conjugation by a turns lower triangular
+matrices into upper triangular matrices, every normal, -invariant subgroup of  is
+a subgroup of the group of diagonal matrices in , which is trivial. Thus  is an
+essential endomorphism.
+    We calculate the root permutation of a and b,
+
+                           a  1 D b 2 ; a  b D b;          a  b 2 D 1;
+                           b  1 D b;       b  b D b 2 ; b  b 2 D 1;
+
+as well as the sections,
+                                  1
+                  aj0 D .a  1          a  1/ D .ba/ D baba;
+                                  1
+                  aj1 D .a  b          a  b/ D .b 1 ab/ D bab 1 ;
+                                    1
+                  aj2 D .a  b 2         a  b 2 / D .ab 2 / D ab 1 ab 1 ;
+
+and, for i D 0; 1; 2,
+                                                 1
+                               bji D .b  b i         b  b i / D 1:
+
+    Therefore, a faithful, self-similar action of  D PSL2 .Z/ D Z2  Z3 on the
+ternary rooted tree is given by
+
+             a D .02/ .baba; bab 1 ; ab 1 ab 1 /;            b D .012/ .1; 1; 1/:
+
+   Note that
+                           ba D .12/.baba; bab 1 ; ab 1 ab 1 /:
+
+It is easy to see that c D ba has infinitely many distinct sections. Indeed, since
+
+                                        c 2n D .c 4n ; ; /;
+
+we see that some of the sections of c are c, c 2 , c 4 , c 8 , c 16 ; : : : . Since c D ba has
+infinite order, all these sections are distinct.
+752                                    M. Kapovich
+
+                              5. Concluding remarks
+
+Lattices  in groups virtually isomorphic to SL.2; R/ are the only case where we
+do not get a complete classification of essential virtual endomorphisms ' of . By
+appealing to the results of the previous section, one sees that an essential virtual
+endomorphism ' of  has to be injective and cannot preserve a finite-index subgroup
+of . We conjecture that, provided  is not virtually free, for every essential virtual
+endomorphism ' of such , there exists a finite-index subgroup  0 <  and a discrete
+embedding W  0 ,! G such that 'j 0 is induced by some ˛ 2 Comm. . 0 //. If
+this were the case, then the classification of essential virtual endomorphisms of 
+would reduce to the arithmetic case as in Corollary 13. On the other hand, if  is
+virtually free, its finite-index subgroups can be mapped isomorphically to infinite-
+index subgroups of  and we do not have even conjectural classification of essential
+virtual endomorphisms.
+    We observe that our results should, in principle, generalize to Gromov-hyperbolic
+groups which are not lattices. The problem, however, is that:
+    1. Among hyperbolic groups , very few are known to be weakly cohopfian, in
+the sense that if ƒ <  is a finite index subgroup and ' W ƒ !  is an injective
+homomorphism, then the image of ' is a finite index subgroup of . Examples of
+weakly cohopfian hyperbolic groups are Poincaré duality groups (e.g., fundamental
+groups of closed aspherical manifolds). Hyperbolic groups which act geometrically
+on rank 2 hyperbolic buildings provide good candidates for weakly cohopfian groups
+in view of [4]. (One can show that such groups are weakly cohopfian provided that
+they are locally quasiconvex, such examples are given by [18].) On the other hand,
+there are no known examples of 1-ended hyperbolic groups which are not weakly
+cohopfian.
+    2. Among hyperbolic groups  which are Poincaré duality groups, the only
+known examples where the abstract commensurator Comm./ is a finite extension
+of , are the non-arithmetic lattices. There are few more classes of hyperbolic groups
+with small abstract commensurators: Fundamental groups of compact hyperbolic n-
+manifolds with totally-geodesic boundary, n  3, surface-by-free groups [9], as well
+as some rigid examples constructed in [16]. (In all these examples, the entire quasi-
+isometry group of  is a finite extension of .) Conjecturally, the fundamental groups
+of Gromov–Thurston manifolds [13] should also have small abstract commensurators.
+
+Question 17. Does the faithful action of an arithmetic group  on a rooted tree
+constructed in Theorem 2 ever correspond to a finite-state automaton? In the example
+computed by Zoran Šunić in Section 4, the number of states is infinite. See however
+the examples of self-similar S-arithmetic groups constructed by Glasner and Mozes
+in [10].
+
+Acknowledgements. This paper is the result of conversations the author had with
+Lucas Sabalka and Zoran Šunić. The author is indebted to Zoran Sunic for explaining
+                         Arithmetic aspects of self-similar groups                          753
+
+him the basic definitions of self-similar group actions, providing him with references
+and computing a specific example. I am grateful to Benson Farb, David Fisher and
+Mahan Mj for remarks and corrections. I am also thankful to the referee for useful
+remarks and suggestions.
+
+
+                                         References
+
+ [1] W. Ballmann, M. Gromov, and V. Schroeder, Manifolds of nonpositive curvature. Progr.
+     Math. 61, Birkhäuser, Boston 1985. Zbl 0591.53001 MR 823981
+ [2] A. Berlatto and S. Sidki, Virtual endomorphisms of nilpotent groups. Groups Geom. Dyn.
+     1 (2007), 21–46. Zbl 1128.20016 MR 2294246
+ [3] A. Borel, Density and maximality of arithmetic subgroups. J. Reine Angew. Math. 224
+     (1966), 78–89. Zbl 0158.03105 MR 0205999
+ [4] M. Bourdon and H. Pajot, Quasi-conformal geometry and hyperbolic geometry. In Rigid-
+     ity in dynamics and geometry (Cambridge, 2000), Springer-Verlag, Berlin 2002, 1–17.
+     Zbl 1002.30012 MR 1919393
+ [5] B. H. Bowditch, Geometrical finiteness with variable negative curvature. Duke Math. J.
+     77 (1995), 229–274. Zbl 0877.57018 MR 1317633
+ [6] K. S. Brown, Buildings. Springer-Verlag, New York 1989. Zbl 0715.20017 MR 969123
+ [7] K. Corlette, Archimedean superrigidity and hyperbolic geometry. Ann. of Math. (2) 135
+     (1992), 165–182. Zbl 0768.53025 MR 1147961
+ [8] P. Deligne and G. D. Mostow, Commensurabilities among lattices in PU.1; n/.Ann. Math.
+     Stud. 132, Princeton University Press, Princeton, NJ, 1993. Zbl 0826.22011 MR 1241644
+ [9] B. Farb and L. Mosher, The geometry of surface-by-free groups. Geom. Funct. Anal. 12
+     (2002), 915–963. Zbl 1048.20026 MR 1937831
+[10] Y. Glasner and S. Mozes, Automata and square complexes. Geom. Dedicata 111 (2005),
+     43–64. Zbl 1088.20037 MR 2155175
+[11] M. Gromov and I. Piatetski-Shapiro, Non-arithmetic groups in Lobachevsky spaces. Inst.
+     Hautes Études Sci. Publ. Math. 66 (1987), 93–103. Zbl 0649.22007 MR 932135
+[12] M. Gromov and R. Schoen, Harmonic maps into singular spaces and p-adic superrigidity
+     for lattices in groups of rank one. Inst. Hautes Études Sci. Publ. Math. 76 (1992), 165–246.
+     Zbl 0896.58024 MR 1215595
+[13] M. Gromov and W. Thurston, Pinching constants for hyperbolic manifolds. Invent. Math.
+     89 (1987), 1–12. Zbl 0646.53037 MR 892185
+[14] S. Helgason, Differential geometry, Lie groups, and symmetric spaces. Pure Appl. Math.
+     80, Academic Press, New York 1978. Zbl 0451.53038 MR 514561
+[15] M. Kapovich, Hyperbolic manifolds and discrete groups. Progr. Math. 183, Birkhäuser,
+     Boston 2001. Zbl 0958.57001 MR 1792613
+[16] M. Kapovich and B. Kleiner, Hyperbolic groups with low-dimensional boundary. Ann.
+     Sci. École Norm. Sup. (4) 33 (2000), 647–669. Zbl 0989.20031 MR 1834498
+754                                       M. Kapovich
+
+[17] G. A. Margulis, Discrete subgroups of semisimple Lie groups. Ergebn. Math. Grenzgeb.
+     (3) 17, Springer-Verlag, Berlin 1991. Zbl 0732.22008 MR 1090825
+[18] J. P. McCammond and D. T. Wise, Coherence, local quasiconvexity, and the perimeter of
+     2-complexes. Geom. Funct. Anal. 15 (2005), 859–927. Zbl 1087.20024 MR 2221153
+[19] G. D. Mostow, Strong rigidity of locally symmetric spaces. Anna. of Math. Stud. 78,
+     Princeton University Press, Princeton, NJ, 1973. Zbl 0265.53039 MR 0385004
+[20] V. Nekrashevych, Virtual endomorphisms of groups. Algebra Discrete Math. 2002 (2002),
+     no. 1, 88–128. Zbl 1037.20026 MR 2048651
+[21] V. Nekrashevych, Self-similar groups. Math. Surveys Monogr. 117, Amer. Math. Soc.,
+     Providence, RI, 2005. Zbl 1087.20032 MR 2162164
+[22] V. Nekrashevych and S. Sidki, Automorphisms of the binary tree: state-closed subgroups
+     and dynamics of 1=2-endomorphisms. In Groups, topological, combinatorial and arith-
+     metic aspects, London Math. Lecture Note Ser. 311, Cambridge University Press, Cam-
+     bridge 2004, 375–404. Zbl 02152960 MR 2073355
+[23] M. S. Raghunathan, Discrete subgroups of Lie groups. Ergeb. Math. Grenzgeb. 68,
+     Springer-Verlag, New York 1972. Zbl 0254.22005 MR 0507234
+[24] A. Selberg, On discontinuous groups in higher-dimensional symmetric spaces. In Contri-
+     butions to function theory (Internat. Colloq. Function Theory, Bombay, 1960), Tata Insti-
+     tute of Fundamental Research, Bombay 1960, 147–164. Zbl 0201.36603 MR 0130324
+[25] K. Takeuchi, Arithmetic triangle groups. J. Math. Soc. Japan 29 (1977), 91–106.
+     Zbl 0344.20035 MR 0429744
+[26] W. P. Thurston, Three-dimensional geometry and topology. Vol. 1, Princeton Math. Ser.
+     35, Princeton University Press, Princeton, NJ, 1997. Zbl 0873.57001 MR 1435975
+[27] È. B. Vinberg (ed.), Geometry II: Spaces of constant curvature. Encyclopaedia Math. Sci.
+     29, Springer-Verlag, Berlin 1993. Zbl 0786.00008 MR 1254931
+[28] R. J. Zimmer, Ergodic theory and semisimple groups. Monogr. Math. 81, Birkhäuser,
+     Basel 1984. Zbl 0571.58015 MR 776417
+
+
+Received December 3, 2010; revised March 30, 2011
+
+M. Kapovich, Department of Mathematics, University of California, Davis, CA 95616,
+U.S.A.
+E-mail: kapovich@math.ucdavis.edu
+

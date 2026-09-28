@@ -1,0 +1,20 @@
+LoadPackage("fga");;
+F:=FreeGroup("a","b");;a:=F.1;;b:=F.2;;
+S:=Subgroup(F,[a,b*a*b^-1,b^2]);;
+R:=Subgroup(F,[b^-2,b^-1*a^2*b,b^-1*a]);;
+Assert(0,Index(F,S)=2);
+Assert(0,Index(F,R)=2);
+Assert(0,RankOfFreeGroup(S)=3);
+Assert(0,RankOfFreeGroup(R)=3);
+phi:=GroupHomomorphismByImages(S,F,[a,b*a*b^-1,b^2],[b^-2,b^-1*a^2*b,b^-1*a]);;
+Assert(0,phi<>fail);
+Assert(0,Image(phi)=R);
+Print("domain index=",Index(F,S),", image index=",Index(F,R),"\n");
+Print("domain rank=",RankOfFreeGroup(S),", image rank=",RankOfFreeGroup(R),"\n");
+# Independent rational matrix arithmetic, including the projective sign.
+A:=[[1,2],[0,1]];;B:=[[1,0],[2,1]];;Q:=[[0,-1],[2,1]];;
+Assert(0,Q*A*Q^-1=B^-2);
+Assert(0,Q*(B*A*B^-1)*Q^-1=B^-1*A^2*B);
+Assert(0,Q*B^2*Q^-1=-(B^-1*A));
+Print("PASS F28 GAP subgroup and matrix checks\n");
+QUIT;
