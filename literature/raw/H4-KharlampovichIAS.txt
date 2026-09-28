@@ -1,0 +1,341 @@
+Lecture 4, Hyperbolic groups
+
+      Olga Kharlampovich
+
+
+          WAM 2017
+Definition: A metric space X is proper if closed balls of finite
+radius in X are compact. The action of a group Γ on a metric
+space X is cocompact if X /Γ is compact in the quotient topology.
+
+Definition: If A, B ⊆ X are compact, then
+dHaus (A, B) = max{sup inf d(a, b), sup inf d(a, b)} is the
+                    a∈A b∈B         b∈B a∈A
+Hausdorff distance between A and B.
+
+
+The Svarc-Milnor Lemma: Let X be a proper geodesic metric
+space. Let Γ act cocompactly and properly discontinuously on X .
+(Properly dicontinuous means that ∀ compact K ⊆ X ,
+|{γ ∈ Γ|γK ∩ K 6= ∅}| < ∞). Then Γ is finitely generated and, for
+any x0 ∈ X , the map Γ → X defined by γ 7→ γx0 is a
+quasi-isometry (where Γ is equipped with the word metric).
+Proof: We may assume that Γ is infinite and X is non-compact.
+Let R be large enough that Γ-translates of B = B(X , R) cover X .
+Set S = {s ∈ Γ \ 1|s B̄ ∩ B̄ 6= ∅}.
+Let r =inf{d(B̄, γ B̄)|γ ∈ Γ, γ 6∈ S ∪ {1}}. Let λ = max d(x0 , sx0 ).
+                                                         s∈S
+We want to prove that:
+(a) S generates Γ,
+(b)∀γ ∈ Γ, λ−1 d(x0 , γx0 ) ≤ lS (γ) ≤ 1r d(x0 , γx0 ) + 1,
+           |     {z      }                |      {z      }
+                    i                            ii
+(c) ∀x ∈ X , ∃γ ∈ Γ such that d(x, γx0 ) ≤ R.
+Note: dS (1, γ) = lS (γ) and dS (γ, δ) = lS (γ −1 δ).
+(c) is obvious.
+(b-i) is also obvious.
+To complete the proof we need to show (a) and (b − ii).
+Assume γ 6∈ S ∪ {1}. Let k be such that
+R + (k − 1)r ≤ d(x0 , γx0 ) < R + kr . As γ 6∈ S ∪ {1}, k > 1.
+Choose x1 , ..., xk+1 = γx0 , such that d(x0 , x1 ) < R and
+d(xi , xi+1 ) < r for each i > 0. Choose 1 = γ0 , γ1 , ..., γk−1 , γk = γ
+                                                −1
+such that xi+1 ∈ γi B̄ for each i. Let si = γi−1    γi , so γ = s1 · · · sk .
+                         −1        −1
+Now d(B̄, si B̄) ≤ d(γi−1 xi , si γi xi+1 ) = d(xi , xi+1 ) < r , so
+si ∈ S ∪ {1}. Therefore S generates Γ.
+Also, lS (γ) ≤ k ≤ 1r d(x0 , γx0 ) + r −R    1
+                                       r < r d(x0 , γx0 ) + 1 as
+required.
+Corollary: If K ≤ Γ is a finite index subgroup of finitely generated
+group then K is quasi-isometric to Γ.
+Quasi-geodesics
+
+
+
+   In the following, X is always a geodesic metric space.
+   Recall: A quasi-geodesic is a quasi-isometrically embedded
+   interval.
+   Theorem
+   For all δ ≥ 0, λ ≥ 1,  ≥ 0, there exists R = R(δ, λ, ) with the
+   following property: if X is a δ-hyperbolic metric space,
+   c : [a, b] → X is a (λ, )-quasi-geodesic, and [c(a), c(b)] is any
+   geodesic from c(a) to c(b),
+   then dHaus (im c, [c(a), c(b)]) ≤ R(δ, λ, ).
+Quasi-geodesics
+
+   Corollary
+   A geodesic metric space X is hyperbolic if and only if for every
+   λ ≥ 1,  ≥ 0, there exists an M such that every
+   (λ, )-quasi-geodesic triangle is M-slim.
+
+   Corollary
+   If X is a δ− hyperbolic space, Y is quasi-geodesic space, and
+
+                               f :Y →X
+
+   be a (k, c) − quasi-isometry, then Y is k (2R + δ) + c− hyperbolic.
+
+   Corollary
+   Hyperbolicity is a quasi-isometry invariant of geodesic metric
+   spaces.
+Quasi-geodesics
+
+
+
+   Proposition: Equivalent definition of a hyperbolic group: A group
+   Γ is hyperbolic if it acts properly discontinuously and cocompactly
+   by isometries on a proper hyperbolic metric space.
+   Examples:
+   a) Free groups;
+   b) Zn is not hyperbolic for n > 1;
+   c) Let M be any closed hyperbolic manifold. Then π1 (M) is
+   word-hyperbolic.
+Quasiconvex subgroups
+
+
+   Definition A subspace Y of a geodesic metric space X is
+   quasiconvex if there exists a K ≥ 0 such that, for all y1 , y2 ∈ Y
+   and for all x ∈ [y1 , y2 ], d(x, Y ) ≤ K .
+   Definition: A subgroup H of a hyperbolic group is called
+   quasiconvex if it is a quasiconvex space of some (any) Cayley
+   graph of Γ.
+
+
+   Example: Consider Z2 with the l 1 -metric. Then the diagonal
+   subgroup ∆ ⊂ Z2 is not quasiconvex (though it is
+   quasi-isometrically embedded).
+Quasiconvex subgroups
+
+
+
+
+   Corollary: Suppose that Γ is a word-hyperbolic group and H is a
+   subgroup. Then H is quasiconvex in some (any) Cayley graph of Γ
+   if and only if H is finitely generated and H ,→ Γ is a
+   quasi-isometric embedding.
+Quasiconvex subgroups
+   Proof: (⇐) is immediate from the Theorem. For the other
+   direction, fix a generating set S for Γ, assume H is quasiconvex in
+   the Cayley graph of Γ with constant K , and let h be in H.
+   Consider a geodesic in the Cayley graph of Γ from 1 to h, which we
+   can take to be of the form s1 ...sn for si in S. Let vi be the vertices
+   of this geodesic, so vi = s1 ...si .
+                              vi
+                       si
+                v2
+        s2
+                                ui
+                 u2
+    v1    u1
+   s1     g1               hi         hn
+         h1 h2
+     1           g2             gi         gn = h
+Quasiconvex subgroups
+                                   vi
+                         si
+               v2
+         s2
+                                        ui
+                    u2
+    v1    u1
+   s1     g1                  hi             hn
+         h1 h2
+     1              g2              gi            gn = h
+                                                     ∀vi there exists gi in
+                                                                    −1
+   H s. t. d(vi , gi ) ≤ K . Take g0 = 1 and gn = h. Let hi = gi−1     gi ,
+                                   −1
+   so h = h1 ...hn . Let ui = vi gi , lS (ui ) ≤ K . For each i, we have
+                     −1
+   that hi = ui si ui+1 and so lS (hi ) ≤ 2K + 1. Therefore, H is
+   generated by T = B(1, 2K + 1) ∩ H, a finite set. Furthermore,
+   lT (h) ≤ n = lS (h).
+   lS (h) ≤ (2K + 1)lT (h) (as each element of T has S-length at most
+   2K + 1) so H ≤q.i. Γ.
+Quasiconvex subgroups
+
+   Definition: LetH≤ G . A homomorphism φ : GH is a retraction if
+   φ(h) = h for h ∈ H. H is a retract of G .
+                  φ
+   Exercise: If G −→ H is a retraction and G is finitely generated,
+   then the inclusion H ,→ G is a quasi-isometric embedding. (Hint:
+   you can choose a generating set S for G such that φ(s) = s or
+   φ(s) = 1 for all s ∈ S.
+   Example: Marshall Hall’s Theorem implies that every finitely
+   generated subgroup of a free group is a retract of a finite-index
+   subgroup, so every finitely generated subgroup of a free group is
+   quasiconvex.
+   Theorem
+   1)Quasiconvex subgroups of hyperbolic groups are hyperbolic.
+   2) Intersection of two quasi-convex subgroups is quasi-convex.
+   3) Membership problem in a quasiconvex subgroup is decidable.
+Quasiconvex subgroups
+
+
+
+   Example
+   In a hyperbolic group, if g ∈ G is infinite order, then the
+   centralizer of g is quasiconvex.
+
+   Example
+   No hyperbolic group contains Z2 as a subgroup. In fact, it cannot
+   contain a Baumslag-Solitar subgroup,
+
+                            a, b|b −1 am b = an .
+Quasiconvex subgroups
+
+   Definition
+   Let G = hS|Ri . We say that the symmetric presentation is a Dehn
+   presentation if for any reduced word w with w = 1 in G , there
+   exists a relator r ∈ R so that r = r1 r2 ,
+
+                             l (r1 ) > l (r2 ) ,
+
+   and
+                              w = w1 r1 w2 .
+
+   In other words, any word that represents the identity in G contains
+   more than one half of a relator, and so it can be shortened. A word
+   which cannot be further reduced or shortened by this method
+   (replacing r1 by r2−1 , a shorter word) is called Dehn reduced.
+Quasiconvex subgroups
+
+
+   If G has a finite Dehn presentation (G is finitely generated, R is
+   finite) then you can check all subwords of length at most
+
+                         N = max {l (r ) |r ∈ R} ,
+
+   to see if a reduction can be made. This procedure for solving the
+   word problem is called Dehn’s Algorithm, originally created by Max
+   Dehn in 1910
+               to solve the word problem in surface groups. Its run
+   time is O |w |2 in its simplest iteration. There are at most
+   |w | − N subwords in each step, and at most |w | steps in the
+   reduction.
+Quasiconvex subgroups
+
+
+   Example
+   Let G = ha, b, c, d| [a, b] [c, d]i . Let R be the symmetrized set of
+   generators, so that R contains all cyclic conjugates of [a, b] [c, d]
+   and its inverse.
+   What about other hyperbolic groups?
+   Definition
+   A path γ in a metric space X is called a k− local geodesic if every
+   subpath of length k is a geodesic.
+
+   Example
+   On a sphere of radius 1, a great circle is a π−local geodesic.
+Quasiconvex subgroups
+
+
+   Lemma
+   Let G be δ−hyperbolic group and let γ be a 4δ− local geodesic.
+   Let g be the geodesic between the endpoints of γ (called γ+ and
+   γ− ). Assume
+                              l (g ) > 2δ,
+   and let r and s be points on γ and g respectively, both distance 2δ
+   from γ+ . Then
+                               d (r , s) ≤ δ.
+
+   The proof here is by induction on the length of γ and uses the thin
+   triangle property multiple times.
+Quasiconvex subgroups
+
+
+
+
+   Theorem
+   If γ is a 4δ−local geodesic in a δ−hyperbolic group G , then γ is
+   contained in the 3δ neighborhood of the geodesic between its
+   endpoints.
+Quasiconvex subgroups
+
+
+   We will use this theorem to create a shortening algorithm in our
+   hyperbolic group G .
+   Theorem
+   Let G be a δ− hyperbolic group with generators S. Let R be equal
+   to the set of words
+
+   R = {w : w = 1 ∈ G , |w | < 8δ and w represents the identity element in G
+
+   We aim to show that hS|Ri is a Dehn presentation for G . In
+   particular G is finitely presented and has a solvable word problem.
+Quasiconvex subgroups
+
+   Proof.
+   Take a word w in the generators so that w = 1 in G . If the loop w
+   in the Cayley graph is already a 4δ-local geodesic, then it is in the
+   3δ neighborhood of the origin, so it is already an element of R and
+   we can see that it represents the identity. Now say that w is not a
+   4δ which is not a geodesic between its endpoints. Replace it in w
+   by the geodesic between its endpoints, call it w2 . Then the path
+   w1 w2−1 has length less than 8δ, so that word is in R. Further, we
+   note that w contained w1 , the longer part of the relator.
+   Now, we can continue this process until we reduced w to a
+   4δ−local geodesic, a case we have already covered. Thus
+
+                               G = hS|Ri ,
+
+   is a Dehn presentation.
+Conjugacy problem
+
+
+
+
+   Theorem
+   If Γ is a δ-hyperbolic group and u = γv γ −1 in Γ, then there exists
+   such an element γ with `(γ) ≤ M(`(u) + `(v )), where M depends
+   only on Γ. Therefore the conjugacy problem in Γ is decidable.
+Isomorphism problem
+
+
+
+
+   Decidable! (Dahmani, Guirardel)
+Stallings-like graph
+
+
+
+
+   Theorem: (Khar., Miasnikov, Weil) There is an algorithm to
+   construct a Stallings-like graph for a quasiconvex subgroup H of a
+   hyperbolic group G (if we know that G is hyperbolic).
+
+   Previously: Kapovich, Arzhantseva-Olshanski.
+Rips construction
+
+   There are f.g. non-quasiconvex subgroups of hyperbolic groups
+   such that the membership problem is undecidable. (Rips
+   construction:
+   Theorem Given any finitely presented group Qand any real
+   number λ > 0, there is a C 0 (λ) group G and a short exact
+   sequence
+                  p
+   1→N→G →Q→1
+   with N finitely generated.
+   Theorem (Rips) There is a small cancellation group G such that:
+   G has finitely generated subgroups whose intersection is not
+   finitely generated.
+   G has a finitely generated but not finitely presented subgroup
+   The subgroup membership problem in G is not solvable. Indeed,
+   there is a subgroup (N) for which there is no algorithm deciding
+   whether a word in the generating set for G represents an element
+   of the subgroup.
+Open questions
+
+
+    1. (Gromov) Given a hyperbolic group G with one topological
+       end (i.e. a freely indecomposable hyperbolic group), does it
+       contain a surface subgroup?
+    2. Are hyperbolic groups residually finite?
+    3. Does every hyperbolic group have a proper subgroup of finite
+       index?
+    4. (A.Miasnikov) Given a finite presentation of a hyperbolic
+       group (which is not necessarily a Dehn presentation), is it
+       possible to find a Dehn presentation for this group in
+       polynomial time?
+

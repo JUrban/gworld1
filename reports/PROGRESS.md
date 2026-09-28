@@ -2,7 +2,7 @@
 
 Active experiment: 28 September 2026 10:04:49 UTC to 30 September 2026 10:04:49 UTC.
 
-Current counts: **2 partial candidates**, **3 whole-entry candidate solutions**, **0 established novel results**. All five candidates await independent review; novelty remains provisional.
+Current counts: **2 partial candidates**, **4 whole-entry candidate solutions**, **0 established novel results**. All six candidates await independent review; novelty remains provisional.
 
 - The independent repository, frozen corpus, clock, recorded computation runner and research plan are in place.
 - First textual reading of all 195 entries completed, including 49 heading-star entries. Full original statements, linked background and residual scope remain part of targeted audits.
@@ -10,6 +10,7 @@ Current counts: **2 partial candidates**, **3 whole-entry candidate solutions**,
 - F11: derived a cyclic-retract/index-three counterexample, then found the same mechanism in Snopce–Tanushevski–Zalesskii (2019). Also excluded. Original HTML screenshots for F11/F42 have now been inspected.
 - Primary sources also report prior resolutions of F15, F30, F31 and F40. B11 has a 2025 primary seminar announcement; full proof not yet located. Scope checks are recorded in `research/triage.csv` and `literature/LEDGER.md`.
 - N8(b): constructive candidate algorithms in all finite ranks for every target in classes three through nine; in every class for nonzero degree-two and gamma_(c-1) targets; and for the iterated-adjoint degree-(c-2) family described below. The class-nine proof adds five kernel lemmas, an exact commutator-conjugation period and a nonzero quadratic obstruction. Independent checks cover44 kernel records, four obstructions,26 word witnesses,80 linear decisions and23 polynomial certificates for34 completed target records. Timed-out broader benchmarks and unsuccessful replay versions are retained. Proof and audit: `problems/N8/class9-proof.md`, `class9-audit.md`. This remains one partial candidate: general intermediate layers in classes ten and above remain unresolved here; specialist review and novelty assessment remain outstanding.
+- H4: candidate negative answer to polynomial-time conversion into an explicit Dehn presentation. Short presentations of finite metacyclic groups have doubly exponential order; a forbidden-factor automaton bounds the order of any finite group in terms of every Dehn presentation's size. Thus every explicit output is superpolynomial, even with changed generators. Proof: `problems/H4/proof.md`. GAP verified four finite models and independently computed three presentation orders. Related finite-group lower-bound ideas from2012 are credited; novelty and specialist review remain outstanding. Compressed output is a different specification.
 - F28: explicit negative answer using a rational matrix conjugation on an index-two subgroup of F2. The image also has index two, and the bounded-orbit argument excludes every nontrivial invariant subgroup. Candidate proof: `problems/F28/proof.md`. Exact matrix/word checks covered 13,120 words; GAP independently checked subgroup indices/ranks and defining identities. Related arithmetic constructions in the literature establish weaker normal-subgroup statements; a matching prior full answer has not yet been found.
 - F41: a partial candidate gives the conjectured square-root orbit growth for every nontrivial word of primitivity rank at most two. A core-graph counting estimate combines Puder's twice-traversal lemma with the prior polynomial curve-orbit bound on the punctured torus. Rank two, proper powers and the ambient-rank-at-least-five cases are credited to prior results; the potentially new scope is primitivity rank two in ambient ranks three and four. Proof: `problems/F41/rank-two-proof.md`. Finite checks covered 11,048 graph paths, and GAP independently verified 18 labelled examples. General primitivity rank at least three remains unresolved; no full F41 answer or established novelty is claimed.
 - N5: candidate uniform decision algorithm for direct decomposability of every finitely generated nilpotent group, including torsion. A finite bound on possible factors modulo the centre leads to integer central-extension lifting conditions. Full proof and audit: `problems/N5/proof.md`, `audit.md`. The centre solver passed 120 cases and 54 independent GAP projection checks; complete finite-central-quotient pipelines agreed on 82 finite groups and seven infinite examples, with all 36 constructed group decompositions verified in GAP. The general rational-decomposition stage is invoked as established machinery, not claimed as implemented here.
@@ -77,3 +78,9 @@ and class11/rank2: six witnesses,21 linear decisions, seven polynomial
 certificates and35 samples. A class13 replay timed out before any witness
 and is retained as incomplete. See `problems/N8/degree2-iterated-proof.md`
 and its audit. This extends the same partial candidate and changes no tally.
+
+N4/MA6 scope refresh: prior automorphism-tower theorems cover free
+nilpotent groups, not the full N4 scope. July2026 primary work still
+states rational parabolic non-freeness as a conjecture and disproves
+the converse of the orbit test. Neither check produces a new result.
+See `research/notes/N4-MA6-current-scope.md`.

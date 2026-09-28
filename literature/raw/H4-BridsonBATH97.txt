@@ -1,0 +1,2573 @@
+NON-POSITIVE CURVATURE IN GROUP THEORY
+
+MARTIN R. BRIDSON1
+
+Mathematical Institute, 24–29 St Giles’, Oxford, OX1 3LB England
+ABSTRACT: This article is an edited account of the four lectures that I gave at the Groups St Andrews meeting in Bath
+
+during the summer of 1997. The aim of these lectures was to introduce an audience of group theorists, with varying
+
+backgrounds, to the role that non-positive curvature plays in the theory of discrete groups. A few new results are included,
+
+but basically this is an expository article aimed as non-experts. These notes do not constitute a comprehensive survey of
+
+curvature in group theory. Nevertheless, I hope that they give the reader a substantial and enticing taste of this active
+
+area of research.
+
+
+
+
+Introduction
+In the last fifteen years the close connection between geometry and combinatorial
+group theory, which was at the heart of the pioneering work of Dehn [52], has
+re-emerged as a central theme in the study of infinite groups. Thus combinatorial
+group theory has been joined by (and to a large extent has merged with) what
+has become known as geometric group theory — this is the broad context of these
+lectures. My basic goal will be to illustrate how various notions of non-positive
+curvature can be used to illuminate and solve a range of group theoretic problems.
+I shall also attempt to illustrate how group theory can serve as a potent tool for
+exploring the geometry of non-positively curved spaces. I wish to promote the idea
+that manifestations of non-positive curvature are deeply inherent in combinatorial
+group theory, often in contexts where there is little reason, prima facie, to suppose
+that the problems concerned have any geometric content whatsoever.
+   This last point is particularly emphasized in the first lecture, which begins with
+Dehn’s formulation of the basic decision problems at the heart of combinatorial
+group theory: the word problem, the conjugacy problem and the isomorphism
+problem. Following a general discussion of the foundations of geometric group
+theory, I shall explain how Dehn’s approach to the word problem leads us naturally
+to the theory of hyperbolic groups à la Gromov [68]. I shall briefly outline some
+elements of this theory. Through hyperbolicity we enter the world of non-positive
+curvature and Lecture 1 concludes with some illustrations of the way in which a
+qualitative understanding of the geometry of non-positively curved manifolds can
+lead us to striking group theoretic results.
+   Gromov’s notion of hyperbolicity, which emerges in Lecture 1 from core consid-
+erations in combinatorial group theory, encapsulates many of the features of the
+global geometry of simply-connected spaces of negative curvature, whereas classi-
+cally one thinks of curvature as a local or infinitesimal concept. In Lecture 2 we will
+examine the geometry of spaces which are non-positively curved in a strict, local,
+sense first identified by A. D. Alexandrov (see [2]). Much of the importance of this
+    1
+    The author is supported by an EPSRC Advanced Fellowship. His work on this subject has
+also been supported by grants from the NSF (USA) and the FNRS (Switzerland).
+more local approach to curvature rests on the existence of a local-to-global theorem
+(the Generalized Cartan-Hadamard Theorem): if a complete geodesic space X is
+non-positively curved (in a local sense), then its universal cover X  e is (a strong
+non-positive curvature condition that implies much about the large-scale geometry
+and topology of the space).
+   A central theme in Lecture 2 is the closeness of the relationship between the
+global geometry of CAT(0) spaces and the structure of the groups which act prop-
+erly by isometries on them. Moreover, as the Generalized Cartan-Hadamard The-
+orem indicates, the existence of a metric of non-positive curvature on a space tells
+one a great deal about the topology of the space. Thus we are presented with
+an environment in which group theory, geometry and topology are deeply inter-
+connected. Such an environment is obviously an exciting one, but before one can
+get too excited one needs to know that there is a substantial range of examples.
+Thus in Lecture 3 we turn our attention to the construction and identification of
+non-positively curved spaces, with particular emphasis on examples that are of
+group-theoretic interest.
+   Our point of departure in Lecture 1 will be Dehn’s original formulation of the
+basic decision problems of combinatorial group theory. (This was also the point of
+departure for much of twentieth century combinatorial group theory.) In Lecture 4
+I shall return to the study of these basic problems in the context of non-positively
+curved spaces and groups, and I shall describe the state of the art in this active
+area.
+   The origins of combinatorial group theory are deeply intertwined with those of
+low-dimensional topology. In both subjects geometry, in particular non-positive
+curvature, plays a central role that is not immediately evident2 . For most of this
+century, though, curvature has played little role in the study of either subject.
+Indeed, in the case of combinatorial group theory, the whole geometric vein in the
+subject has lacked prominence. Its return to prominence in recent years is due
+largely to the deep insights of Mikhael Gromov [67, 68, 69], and I should make it
+clear that although his name and that of Max Dehn do not appear on every page
+of these notes, their influence runs throughout.
+
+Acknowledgements
+A more comprehensive account of much of the material in these lectures can be
+found in my book with André Haefliger [33]. Exploring the geometry of CAT(0)
+spaces is an adventure that Haefliger and I have shared over the last five years and
+I am deeply grateful to him for sharing his many insights. I am equally grateful
+to both him and his wife, Minouche, for welcoming me so warmly into their home
+during this time.
+   Some of the material in Lecture 4 is based on joint work with Gilbert Baumslag,
+Chuck Miller and Hamish Short; I would like to take this opportunity to thank them
+for many hours of good-humoured conversation. Finally, I would like to thank the
+organizers of Groups St Andrews in Bath. I particularly wish to thank Geoff Smith
+  2
+      In the case of 3-manifolds this insight is largely due to Thurston [111, 112].
+
+
+
+                                                 125
+for accommodating my disorganization both in Bath and in the process of getting
+this article finished within a (strenuous) stone’s throw of the deadline.
+
+The tone of the lectures
+The level and tone of the lectures reflect both the background of the audience and
+my own tastes and prejudices. First the audience: each of them might acquiesce
+in the title “group theorist”, but within that category one would find many whose
+daily thoughts revolve entirely around finite groups, while others might consider
+themselves to be topologists. From the point of view of these lectures, the impor-
+tance of this diversity is that it would be unreasonable to assume that a majority
+of the audience were well-acquainted with ideas from topology and geometry (be-
+yond such basic concepts as the fundamental group of a space). I shall assume
+no knowledge of differential geometry. Various comments in the text will only be
+transparent to readers who are familiar with the rudiments of hyperbolic geometry,
+but for the most part such a familiarity is not required. At some points in lectures
+3 and 4 I shall need some low dimensional topology and the reader who finds this
+to be a problem may wish to omit the sections concerned.
+   With regard to my own tastes and prejudices: I came to group theory, more
+precisely combinatorial group theory, through problems in geometry and topology.
+Moreover, I am by nature inclined to seek geometry underlying any given piece
+of mathematics. I hope that admitting this subjectivity will not weaken my con-
+tention that geometry is inherent (though not always immediately apparent) in
+many aspects of group theory and that to ignore it can be debilitating.
+
+
+Lecture 1: In the beginning there was Max Dehn
+I shall begin be explaining what I mean by combinatorial and geometric group
+theory, and by framing some of the central issues in each subject. I particularly wish
+to emphasize the common origins of these subjects and the natural interdependence
+of them.
+   First, combinatorial group theory: roughly speaking, combinatorial group theory
+is the study of groups given by generators and defining relations. Thus a group Γ is
+described to us by means of a set A and a subset R of the free group F on A; to say
+that hA | Ri is a presentation of Γ means that Γ is isomorphic to the quotient of F
+by the smallest normal subgroup containing R. This method of describing groups
+emerged from work on discrete groups of isometries of hyperbolic space, and was
+first articulated by von Dyck in [56], which is generally regarded as the first paper
+in combinatorial group theory. For a comprehensive history of the subject up to
+1980, see [46].
+
+1.1   Decision problems
+It was some years after von Dyck’s original paper that Max Dehn framed the
+central issues of combinatorial group theory that have occupied researchers in the
+field for most of this century. Building on work of Poincaré [97, 98], Dehn was
+
+                                         126
+working on the basic problems of recognition and classification for low-dimensional
+manifolds (see [52]). In that setting, one finds that for many purposes the key
+invariant is the fundamental group of the space at hand. Moreover, when one is
+presented with the space in a concrete way, the fundamental group often emerges
+in the form of a presentation. In the course of his attempts to recover knowledge
+about fundamental groups (and hence manifolds) from such presentations, Dehn
+came to realize that the problems that he was wrestling with were manifestations
+of fundamental problems in the theory of groups. Let us recall the manner in which
+Dehn originally formulated the three basic problems of this kind.
+
+1.2      “Über unendliche diskontinuierliche Gruppen”, (Dehn, 1912)
+“The general discontinuous group is given by n generators and m relations between
+them, as defined by Dyck (Math. Ann., 20 and 22). The results of those works,
+however, relate essentially to finite groups. The general theory of groups defined in
+this way at present appears very undeveloped in the infinite case. Here there are
+above all three fundamental problems whose solution is very difficult and which will
+not be possible without a penetrating study of the subject.
+
+1. The identity [word] problem: An element of the group is given as a product
+of generators. One is required to give a method whereby it may be decided in a
+finite number of steps whether this element is the identity or not.
+
+2. The transformation [conjugacy] problem: Any two elements S and T of
+the group are given. A method is sought for deciding the question whether S and T
+can be transformed into each other, i.e. whether there is an element U of the group
+satisfying the relation S = U T U −1 .
+
+3. The isomorphism problem: Given two groups, one is to decide whether they
+are isomorphic or not (and further, whether a given correspondence between the
+generators of one group and elements of the other is an isomorphism or not).
+
+   These three problems have very different degrees of difficulty. [. . .] One is already
+led to them by necessity with work in topology. Each knotted space curve, in order
+to be completely understood, demands the solution of the three above problems in a
+special case.”
+   I particularly wish to emphasize Dehn’s last two remarks: the degree of dif-
+ficulty of these three problems varies considerably, and each arises naturally in
+low-dimensional topology. I would also like to add something to the second re-
+mark: Dehn was studying surface groups and knot groups, and surfaces of positive
+genus and knot-complements3 all support metrics of non-positive curvature. Thus
+the context in which Dehn was working was deeply imbued with non-positive cur-
+vature.
+  3
+      viewed as compact manifolds with boundary
+
+
+
+
+                                             127
+ 1.3    Dehn’s algorithm for solving the word problem
+ This is perhaps the most direct approach that one can hope for whereby the in-
+ formation in a finite presentation is used directly to solve the word problem in the
+ group presented. We shall see in subsequent sections that this direct algebraic ap-
+ proach to the word problem provides a remarkable bridge into the world of negative
+ curvature (1.21).
+     Given a finite set of generators A for a group Γ, one would have a particularly
+ efficient algorithm for solving the word problem if one could construct a finite
+ list of words u1 , v1 , u2 , v2 , . . . , un , vn , with ui = vi as elements of Γ, with lengths
+ |vi | < |ui |, and with the property that if a word w represents the identity in Γ then
+ at least one of the ui is a subword of w.
+     If such a list of words exists, then given an arbitrary word w one looks for a
+ subword of the form ui ; if there is no such subword, one stops and declares that w
+ does not represent the identity; if ui occurs as a subword of w, then one replaces
+ it with vi and repeats the search for subwords of the new (shorter) word — this
+ new word represents the same element of the group as w. After at most |w| steps
+ one will either have reduced w to the empty word or else verified that w does not
+ represent the identity.
+     This is the algorithm that Dehn used to solve the word problem for surface
+ groups [53].
+
+ Definition 1.4 A finite presentation hA | Ri of a group Γ is called a Dehn pre-
+ sentation if R = {u1 v1−1 , . . . , un vn−1 }, where the words u1 , v1 , . . . , un , vn satisfy the
+ conditions of Dehn’s algorithm.
+
+   Readers should ask themselves how one might decide whether or not Z2 has a
+ (possibly obscure) Dehn presentation. (In fact it does not.) As further food for
+ thought, let me mention some consequences of having a Dehn presentation.
+
+ Theorem 1.5 If a group Γ has a Dehn presentation, then: numdepth ¿3 oodeep
+1. Γ does not contain Z2 ;
+2. Γ has a solvable conjugacy problem;
+3. Γ has only finitely many conjugacy classes of finite subgroups;
+4. H ∗ (Γ, Q) is finitely generated and finite dimensional.
+
+   I have chosen to mention these properties because in each case the hypothesis
+ and conclusion are purely algebraic, whereas the proof of each assertion goes via
+ the global geometry of the group, as we shall see later.
+   In order to tease out the geometry inherent in Dehn’s algorithm, we need the
+ basic vocabulary of geometric group theory.
+
+
+
+
+                                                128
+Geometric group theory
+This is a subject close to combinatorial group theory whose distinct identity has
+been forged in the last ten years. It is based to a large extent on two strands of
+thought.
+   The first is that by getting a group to act on a space (preferably by isometries)
+one can often use knowledge of the space to elucidate the nature of the group, or
+else use knowledge of the group to elucidate the nature of the space.
+   The second idea begins with the observation (due to Cayley (1878) and Dehn
+(1910)) that one can regard any finitely generated group as a metric space. As the
+result of efforts inspired largely by the writings of Gromov, we now know that one
+can glean a remarkable amount of algebraic information by studying the asymptotic
+geometry of groups regarded as metric spaces. Gromov outlined this idea in his
+article “Infinite groups as geometric objects” for the proceedings of the ICM in
+Warsaw [67], and he explored it in much greater detail in his two subsequent essays
+“Hyperbolic groups” [68] and “Asymptotic invariants of infinite groups” [69].
+
+1.6    The word metric
+Given a group Γ with finite generating set A, one realizes the group as a geometric
+object by endowing it with the left-invariant metric:
+
+                      d(g, h) = inf{|w| | w ∈ F (A), w = g −1 h in Γ},
+
+where |w| is the length of the word w.
+   In many contexts it is easier to work with geodesic metric spaces4 rather than
+simple metric spaces. With this in mind, one often replaces the metric space (Γ, d)
+with its Cayley graph.
+
+Cayley graphs (Gruppenbilder)
+Arthur Cayley introduced these graphs in 1878 “to study the quasi-geometry” of
+(finite) groups. Dehn, who was aware of Cayley’s work, made extensive use of them
+in his work on Fuchsian groups twenty years later.
+
+Definition 1.7 The Cayley graph CA (Γ) of a group Γ with respect to a generating
+set A is the metric graph whose vertices are in 1-1 correspondence with Γ and which
+has an edge (labelled a) of length one joining γ to γa for each γ ∈ Γ and a ∈ A.
+
+Example 1.8 The Cayley graph of Z2 with respect to the standard generators is
+(isometric to) the 1-skeleton of the tiling of the plane by unit squares, endowed with
+the `1 -metric.
+
+Remark The word metric dA on Γ is the restriction to Γ (the vertex set) of the
+metric on the Cayley graph CA (Γ).
+   4
+     A metric space X is called a geodesic space if every pair of points x, y ∈ X can be joined by
+a geodesic, i.e. a map c : [0, D] → X such that c(0) = x, c(D) = y and d(c(t), c(t0 )) = |t − t0 | for
+all t, t0 ∈ [0, D].
+
+
+                                                129
+   Note that the action of Γ on itself by left multiplication gives an embedding
+Γ → Isom(Γ, dA ), and this action extends to an action of Γ by isometries on the
+Cayley graph. (The action of γ0 ∈ Γ by right multiplication γ 7→ γγ0 is an isometry
+only if γ0 lies in the centre of Γ.)
+   The point of introducing word metrics and Cayley graphs is to realize finitely
+generated groups as geometric objects. Since we are interested in groups Γ rather
+than pairs (Γ, A), where A is a choice of generators, the geometry that we introduce
+ought to be, as far as possible, independent of the choice of generators. The key
+observation in this regard is that the word metrics associated to different choices
+of finite generating sets are Lipschitz equivalent, and the corresponding Cayley
+graphs are quasi-isometric in the following sense.
+
+Definition 1.9 (quasi-isometry) Let (X1 , d1 ) and (X2 , d2 ) be metric spaces. A
+(not necessarily continuous) map f : X1 → X2 is called a (λ, ε)-quasi-isometric
+embedding if there exist constants λ ≥ 1 and ε ≥ 0 such that for all x, y ∈ X1
+                    1
+                      d1 (x, y) − ε ≤ d2 (f (x), f (y)) ≤ λd1 (x, y) + ε.
+                    λ
+If, in addition, there exists a constant C ≥ 0 such that every point of X2 lies in
+the C–neighbourhood of the image of f , then f is called a (λ, ε)-quasi-isometry.
+When such a map exists, X1 and X2 are said to be quasi-isometric.
+
+    The following remarks show in particular that quasi-isometry is an equivalence
+relation on any set of metric spaces.
+    (1) If there exists a (λ, ε)–quasi-isometry f : X1 → X2 then there exists a (λ0 , ε0 )–
+quasi-isometry f 0 : X2 → X1 (for some λ0 and ε0 ) and a constant k ≥ 0 such that
+d(f f 0 (x0 ), x0 ) ≤ k and d(f 0 f (x), x) ≤ k for all x ∈ X1 and all x0 ∈ X2 . Such a map
+f 0 is called a quasi-inverse for f .
+    (2) The composition of a (λ, ε) quasi-isometric embedding and a (λ0 , ε0 ) quasi-
+isometric embedding is a (μ, ν) quasi-isometric embedding with μ = λλ0 and ν =
+λ0 ε + ε0 . The composition of two quasi-isometries is a quasi-isometry.
+    (3) Let X be a metric space. Say that two maps f, g : X → X are equivalent,
+f ∼ g, if supx d(f (x), g(x)) is finite. Let [f ] denote the ∼ equivalence class of f .
+The quasi-isometry group of X, denoted QI(X), is the set of ∼ equivalence classes
+of quasi-isometries X → X. Composition of maps induces a group structure on
+X, and any quasi-isometry φ : X → X 0 induces an isomorphism φ∗ : QI(X) →
+QI(X 0 ).
+
+Example 1.10 The inclusion of a subspace Y into a metric space X is a quasi-
+isometry if and only if Y is quasi-dense, i.e. there exists a constant C > 0 such
+that every point of X lies in the C−neighbourhood of Y . For example, the natural
+inclusion Z ,→ R is a quasi-isometry (for the metric d(x, y) = |x − y|). In fact, the
+natural inclusion (Γ, dA ) ,→ CA (Γ) of any finitely generated group as the vertex set
+its Cayley graph is a (1, 12 ) quasi-isometry.
+
+Proposition 1.11 A homomorphism ϕ : Γ1 → Γ2 of finitely generated groups is a
+quasi-isometry if and only if ker(φ) and Γ2 /im(ϕ) are both finite.
+
+                                            130
+   This proposition can be proved directly without difficulty, but it can also be
+viewed in terms of the natural action of Γ2 by isometries on its Cayley graph
+CA (Γ2 ): via φ there is an induced action of Γ1 on CA (Γ2 ); this induced action
+is proper and cocompact (in the sense defined below) if and only if ker(φ) and
+Γ2 /im(ϕ) are both finite. Thus (1.11) provides us with our first illustration of the
+fact that quasi-isometries arise naturally from proper cocompact group actions.
+
+A bridge between the two aspects of geometric group theory
+Definition 1.12 A metric space is called proper if all of its closed bounded subsets
+are compact. When a group Γ acts on a space X by isometries, one endows the
+quotient (set of orbits) Γ\X with the (pseudo)metric:
+
+                     d(Γ.x, Γ.x0 ) = inf{d(y, y 0 ) | y ∈ Γ.x, y 0 ∈ Γ.x0 }.
+
+The action of Γ is called proper if for each bounded set B ⊂ X, the set {γ ∈ Γ |
+γ.B ∩ B 6= ∅} is finite. If Γ\X is a compact metric space then the action is said to
+be cocompact.
+
+   The following result was discovered by the Russian school in the nineteen fifties
+(see [58],[110]). It was rediscovered by John Milnor [87] some years later in the
+course of his investigations into the geometry of nilpotent groups.
+
+Proposition 1.13 (Švarc-Milnor Lemma) Let (X, d) be a geodesic space. If Γ
+acts properly and cocompactly by isometries on X, then Γ is finitely generated and
+for any choice of basepoint x0 ∈ X the map γ 7→ γ.x0 is a quasi-isometry.
+
+Proof The idea of the proof is as follows. First we fix a point x0 ∈ X and a ball B
+of radius D centred at x0 , where D is large enough to ensure that X is the union
+of the translates by Γ of the ball of radius D/3 about x0 . (B exists because the
+action is cocompact.) The set A := {a ∈ Γ | B ∩ a.B 6= ∅} is finite because the
+action of Γ is proper, and in a moment we’ll show that A generates Γ. If two balls
+γ.B and γ 0 .B intersect then γ 0 = γa for some a ∈ A, and by drawing a line labelled
+a from γ.x0 to γ 0 .x0 for each such γ and γ 0 we obtain a copy of the Cayley graph
+CA (Γ) immersed in X. We then have to check that this version of CA (Γ) is not too
+distorted. In one direction we have:
+
+Lemma 1.14 Let (X, d) be a metric space. Let Γ be a group with finite generating
+set A and associated word metric dA . If Γ acts by isometries on X, then for every
+choice of basepoint x0 ∈ X there exists a constant μ > 0 such that d(γ.x0 , γ 0 .x0 ) ≤
+μ dA (γ, γ 0 ) for all γ, γ 0 ∈ Γ.
+
+Proof Let μ = max{d(x0 , a.x0 ) | a ∈ A ∪ A−1 }. If dA (γ, γ 0 ) = n then γ −1 γ 0 =
+a1 a2 . . . an for some aj ∈ A ∪ A−1 . Let gi = a1 a2 . . . ai . By the triangle in-
+equality, d(γ.x0 , γ 0 .x0 ) = d(x0 , γ −1 γ 0 .x0 ) ≤ d(x0 , g1 .x0 ) + d(g1 .x0 , g2 .x0 ) + ∙ ∙ ∙ +
+                                                                                        −1
+d(gn−1 .x0 , γ −1 γ 0 .x0 ). And for each i we have d(gi−1 .x0 , gi .x0 ) = d(x0 , gi−1     gi .x0 ) =
+d(x0 , ai .x0 ) ≤ μ. Thus the lemma is proved.                                                       2
+
+                                                131
+   To complete the proof of the proposition we must show that A generates Γ
+and we must bound dA (γ, γ 0 ) in terms of d(γ.x0 , γ 0 .x0 ). Because both metrics are
+Γ-invariant, it is enough to compare dA (1, γ) and d(x0 , γ.x0 ).
+   Given γ ∈ Γ, let c : [0, l] → X be a geodesic joining x0 to γ.x0 . We choose a
+partition 0 = t0 < t1 < . . . < tn = l of [0, l] such that d(c(ti ), c(ti+1 )) ≤ D/3 for all
+i. For each ti we choose an element γi ∈ Γ such that d(c(ti ), γi .x0 ) ≤ D/3; choose
+γ0 = 1 and γn = γ. Then, for i = 1, . . . , n we have d(γi .x0 , γi−1 .x0 ) ≤ D and hence
+       −1
+ai := γi−1 γi ∈ A. Thus A generates Γ:
+
+                γ = γ0 (γ0−1 γ1 ) . . . (γn−2
+                                          −1          −1
+                                              γn−1 )(γn−1 γn ) = a1 . . . an−1 an .
+
+   If we take as coarse a partition 0 = t0 < t1 < . . . < tn = l as possible with
+d(c(ti ), c(ti+1 )) ≤ D/3, then n ≤ (3/D)d(x0 , γ.x0 ) + 1. Since γ can be expressed
+as a word of length n, we get dA (1, γ) ≤ (d(x0 , γ.x0 ) + 1) (3/D) + 1.           2
+
+1.15     Some consequences of the Švarc-Milnor Lemma
+numdepth ¿3 oodeep
+Zn is quasi-isometric to Euclidean n-space En .
+If G is a Lie group that any cocompact lattice Γ ⊂ G is quasi-isometric to G.
+Let Tn denote the connected metric tree in which every vertex has valence n and
+every edge has length 1. If n, m ≥ 3 then Tn is quasi-isometric to Tm .
+   To prove (3), note that the Cayley graph of the free group Fr of rank r is T2r , so
+the case where n and m are even follows from the fact that every finitely generated
+free group of rank ≥ 2 is a subgroup of finite index in F2 . Hence all such groups
+(and their Cayley graphs) are quasi-isometric.
+   In the case where n is odd, Tn is quasi-isometric to the Cayley graph of G2,n =
+Z2 ∗ Zn , which has a finitely generated free subgroup of finite index, namely the
+kernel of the abelianization map G2,n → Z2 × Zn .
+   A surprising number of group-theoretical properties that one might think had
+nothing to do with geometry turn out to be invariants of quasi-isometry, for example
+finite presentability, the existence of a nilpotent subgroup of finite index [70], the
+solvability of the word problem [3], the existence of an abelian subgroup of finite
+index ([93], [32]) and the existence of representations as lattices in various semi-
+simple Lie groups (see [60] for references). I quote these results to exemplify the
+theme that geometry is lying just under the surface of much of group theory.
+
+Classical curvature
+Let us now turn our attention to the main subject of these lectures non-positive
+curvature5 .
+   Figure 1.4 portrays the fact that classical (sectional) curvature can be quantified
+in terms of the geometry of triangles. With this in mind, in seeking generalized
+   5
+     Terminology: In English one normally uses the term “negative curvature” to mean curvature
+strictly less than zero and one says “non-positive curvature” when one wishes to include zero. The
+French term “courbure negative” should normally be translated as “non-positive curvature”
+
+
+                                               132
+                 Classical Curvature
+                 Classical Curvature
+                             c1
+c1      c2       Classical Curvature
+                             cc12                                   c1
+                              c2                                 c2 c
+c1      c2
+                                                                 c2
+                                                                      1
+
+                                      c1
+        c2                            c2                              c1
+c1
+                Fig. 1.1: Sectional curvature
+                 Figure 1.1: Sectional curvature κ               c2
+                Fig. 1.1: Sectional curvature
+
+             c1                      c1                                c1
+                Fig. 1.1: Sectional curvature
+             c1                      c1                    r           c
+                                                                 ~e   r 1
+
+                                                           r
+                                                                 ~er
+          c12                         cc1                r       cc1
+          c                                              r
+                                        2
+
+   Fig. 1.2:2 The divergence of geodesics      in each case
+                                                                   2
+
+                                       c2
+                                                             ~er c2
+   Fig. 1.2: The divergence of geodesics in each case    r
+      Figure 1.2: The divergence of geodesics in each case
+
+          c2                           c2                         c2
+concave
+   Fig. 1.2: The divergence linear
+                               of geodesics in each caseconvex
+concave                     linear                      convex
+
+concave t                   linear       t                   convex        t
+   Fig. 1.3:t The function t d(c1(t),tc2(t)) in each case                  t
+   Fig. 1.3: The function t d(c1(t),c2(t)) in each case
+           t                             t                                 t
+    Figure 1.3: The function t 7→ d(c1 (t), c2 (t)) in each case
+
+     Fig. 1.3: The function t d(c1(t),c2(t)) in each case
+
+
+
+
+                Fig. 1.4: Triangles in each case
+                Fig. 1.4: Triangles in each case
+
+                Fig. 1.4: Triangles in each case
+                 Figure 1.4: Triangles in each case
+
+
+
+
+                                133
+                   Figure 1.5: A triangle in a hyperbolic space
+
+
+
+notions of non-positive curvature we concentrate our attention on the geometry
+of triangles. By definition, a (geodesic) triangle Δ = Δ(p, q, r) in a metric space
+X consists of three points p, q, r ∈ X, its vertices, and a choice of three geodesic
+segments joining them, its sides.
+
+Generalized notions of non-positive curvature
+We shall be primarily concerned with two generalizations of non-positive curvature.
+The first generalization we consider is Gromov’s notion of hyperbolicity, a global
+manifestation of strictly negative curvature. Gromov’s approach is essentially to
+ignore the local structure of the space and to try instead to encapsulate the essence
+of negative curvature by requiring that triangles in the spaces under consideration
+behave on the large scale like geodesic triangles in real hyperbolic space Hn .
+
+1.16    Definition of hyperbolicity
+Given δ > 0, a geodesic metric space X is said to be δ−hyperbolic if for every
+geodesic triangle Δ ⊆ X, each edge of Δ is contained in the δ−neighbourhood of
+the union of the other two sides (see Figure 1.5). X is said to be hyperbolic (in the
+sense of Gromov) if it is δ−hyperbolic for some δ.
+   A finitely generated group is said to be hyperbolic (or “word hyperbolic”) if
+its Cayley graph is hyperbolic in the above sense. (We shall see in (1.27) that
+hyperbolicity is an invariant of quasi-isometry among geodesic spaces and therefore
+this definition of a hyperbolic group does not depend on a choice of generators.)
+   I should mention that there are a number of useful variations on the definition
+given above. (Gromov credits Rips with the definition that we have given, “the
+
+
+                                        134
+slim triangles condition”.) For an account of these variations, and a proof of their
+equivalence, we refer to [22], [33, III.H], [49], [64] and [106]. In these lectures I
+shall give only a very brief introduction to the theory of hyperbolic spaces and
+groups. For more details see the references listed above. Gromov’s original article
+[68] is not easy to read, but contains an abundance of fascinating ideas beyond
+those examined in the above references.
+
+Exercise 1.17 Find δ0 such that the hyperbolic plane H2 is δ0 -hyperbolic. (Hint:
+Because the area of a hyperbolic triangle is less than π, there is a bound on the size
+of semi-circles that one can inscribe in a triangle.)
+
+   The second notion of curvature that we shall consider in these notes is local
+in nature. This approach is due to A.D. Alexandrov [2] (and to a lesser extent
+Busemann [40]); it is the subject of my book with Haefliger [33] (see also [6]). The
+idea is to compare triangles in the given space to triangles in the Euclidean plane
+E2 . If all small triangles in the given space are no fatter than their comparison
+triangles in E2 , then the space is said to be non-positively curved. More precisely:
+   Let X be a metric space. A comparison triangle in E2 for a geodesic triangle Δ =
+Δ(p, q, r) in X is a triangle Δ = Δ(p, q, r) in E2 such that d(p, q) = d(p, q), d(q, r) =
+d(q, r) and d(p, r) = d(p, r). Note that Δ is unique up to isometry. A point x ∈ [q, r]
+is called a comparison point for x ∈ [q, r] if d(q, x) = d(q, x). Comparison points
+on [p, q] and [p, r] are defined in the same way.
+
+Definition 1.18 (CAT(0) space) Let X be a metric space. Let Δ ⊂ E2 be a
+geodesic triangle in X. Let Δ ⊂ Mκ2 be a comparison triangle for Δ. Then Δ
+is said to satisfy the CAT(0) inequality if for all x, y ∈ Δ and comparison points
+x, y ∈ Δ,
+                                 d(x, y) ≤ d(x, y).
+   If X is a geodesic space and all geodesic triangles in X satisfy the CAT(0)
+inequality, then X is said to be a CAT(0) space.6
+   A metric space X is said to be non-positively curved (in the sense of Alexandrov)
+if it is locally a CAT(0) space, i.e. for every x ∈ X there exists rx > 0 such that
+the ball B(x, rx ), endowed with the induced metric, is a CAT(0) space. Henceforth,
+whenever I say that a space is non-positively curved, I shall mean this in the sense
+of Alexandrov.
+
+
+Remarks (1) Standard comparison theorems in Riemannian geometry show that
+a complete Riemannian manifold is non-positively curved in the above sense if and
+only if all of its sectional curvatures are non-positive (see [48] or [33, II.1A]).
+   (2) By taking comparison triangles in the hyperbolic plane instead of the Eu-
+clidean plane, one obtains the notion of a CAT(−1) space and curvature ≤ −1.
+More generally, by taking comparison triangles in the plane of constant sectional
+curvature κ one gets the notion of a CAT(κ) space and curvature ≤ κ.
+  6
+   This terminology is due to Gromov. The initials are in honour of Cartan, Alexandrov and
+Toponogov.
+
+
+                                           135
+                                           d    d
+                                                            x             y
+                   x          y                                    d
+                        d
+
+
+
+
+                        X
+                                                                  E
+                                                                      2
+
+
+
+
+                            Figure 1.6: The CAT(0) inequality
+
+
+
+    By reversing the direction of the inequality in (1.18) one gets the notion of
+ curvature ≥ 0. The study of spaces with lower curvature bounds is also interesting
+ (see [38]), but has less to do with group theory.
+
+ Lemma 1.19 CAT(−1) spaces are δ0 -hyperbolic, where δ0 is as in (1.17).
+
+    In the remainder of this lecture I shall concentrate on δ-hyperbolic spaces. First
+ though, to whet the reader’s appetite for CAT(0) spaces, let me state a group-
+ theoretic result that I will explain later in the context of CAT(0) spaces.
+    Let P = hA | Ri be a presentation for Γ, with R 6= ∅. Regard the elements of
+ R as cyclic words and consider the following graph W (P): the vertex set of W (P)
+ is {a, a | a ∈ A}; the edges of W (P) are in 1–1 correspondence with the subwords
+ of length two in the cyclic words r ∈ R — for each occurrence of (ab−1 )±1 there
+ is an edge connecting a to b, and for each occurrence of (ab)±1 there is an edge
+ connecting a to b.
+
+ Theorem 1.20 If each r ∈ R has length at least 4 and W (P) contains no circuits
+ of length less than 4, then numdepth ¿3 oodeep
+1. Γ is torsion-free;
+2. Γ and all of its f.p. subgroups have solvable word and conjugacy problems;
+3. H n (Γ, Z) = 0 for n ≥ 3; and
+4. if Γ contains a solvable subgroup of finite index, then |A| = 2, |R| = 1 and Γ ∼
+                                                                                  = Z2
+ or Z o Z.
+
+ Dehn’s algorithm: the word problem and negative curvature
+ We now have a sufficient vocabulary to explain how negative curvature is hidden in
+ the obvious solution to the word problem that one gets from a Dehn presentation.
+
+ Theorem 1.21 (Gromov, Cannon, Dehn) A group is hyperbolic if and only if
+ it admits a (finite) Dehn presentation.
+
+
+
+                                          136
+   Max Dehn proved that Fuchsian groups admit Dehn presentations [53]. Jim
+Cannon extended Dehn’s theorem to include the fundamental groups of all compact
+negatively curved manifolds [42, 43]. In the generality stated above, the theorem
+is due to Gromov [68]. (Cannon gave a proof in [43] and alternative proofs can be
+found elsewhere, e.g. [106].)
+
+Proof [an outline] A detailed proof requires more elements of the geometry of
+hyperbolic spaces than we shall establish here, but we indicate the main points.
+   First suppose that the Cayley graph of Γ with respect to some finite generating
+set A is δ-hyperbolic. By studying the geometry of quasi-geodesics in hyperbolic
+spaces one sees (Corollary 1.30) that every closed loop in the Cayley graph CA (Γ)
+contains a subpath of length at most 8δ that is not a geodesic (and whose endpoints
+are at vertices). It follows that we obtain a Dehn presentation hA | Ri for Γ by
+defining R to be the set of words ui vi−1 , where ui varies over all words of length at
+most 8δ in the generators and their inverses and vi is a word that is equal to ui in
+Γ and whose length |vi | is less than |ui |.
+   The proof of the converse is less direct; it goes via the linear isoperimetric in-
+equality.                                                                            2
+
+Definition 1.22 (Isoperimetric inequalities) A finitely presented group Γ =
+hA | Ri is said to satisfy a linear isoperimetric inequality if there exists a constant
+K such that every word w in the kernel of the natural map F (A) → Γ can be
+expressed in the free group F (A) as a product of at most K|w| conjugates of relators
+r ∈ R±1 .
+
+   Quadratic, polynomial and (sub)exponential isoperimetric inequalities are all
+defined similarly. In the quadratic case, for example, the requirement is that w can
+be expressed as a product of at most K|w|2 conjugates of relators.
+   One can show that this definition (but not the value of the constant K) is
+independent of the given finite presentation of Γ. Indeed the optimal type of
+isoperimetric inequality satisfied by a finitely presented group is an invariant of
+quasi-isometry [3].
+   It is obvious that if a finitely presented group has a Dehn presentation then
+the group satisfies a linear isoperimetric inequality. Thus the following result of
+Gromov completes the proof of (1.21).
+
+Theorem 1.23 If a group satisfies a linear isoperimetric inequality then it is hy-
+perbolic.
+
+  An elementary proof of this result, due to Hamish Short, can be found in an
+appendix to [63]. (See also Lysenok [82].)
+
+Remark Gromov [67] found a useful companion for Theorem 1.23: if a group sat-
+isfies a sub-quadratic isoperimetric inequality then it satisfies a linear isoperimetric
+inequality. For a proof see [23], [90] or [95].
+
+  In Lecture 4 we shall discuss the conjugacy problem and the isomorphism prob-
+lem in the class of hyperbolic groups.
+
+                                          137
+Quasi-geodesics in δ-hyperbolic spaces
+The essence of a geodesic space is encoded in the geometry of its geodesics. What
+do we wish to know about geodesics in hyperbolic spaces? Well, we are primar-
+ily interested in groups, and a finitely generated group is only well-defined as a
+geometric object up to quasi-isometry. Moreover, our main tool for relating the
+geometry of groups to the geometry of the spaces on which they act (1.13) also
+concerns only the quasi-isometry type of the group. Thus we are led to ask which
+properties of geodesics are preserved by quasi-isometries.
+
+Definition 1.24 (quasi-geodesic) A (λ, ε) quasi-geodesic in a metric space X is
+a (λ, ε) quasi-isometric embedding c : I → X, where I is an interval of the real line
+(bounded or unbounded) or Z. More explicitly,
+                      1
+                        |t − t0 | − ε ≤ d(c(t), c(t0 )) ≤ λ |t − t0 | + ε
+                      λ
+for all t, t0 ∈ I. If I = [a, b] then c(a) and c(b) are called the endpoints of c.
+
+  In general quasi-geodesics need not resemble geodesics.
+
+Exercise 1.25 Consider the spiral [0, ∞) → E2 given in polar coordinates by t 7→
+(t, log(1 + t)). Prove that this is a quasi-geodesic.
+
+  In hyperbolic spaces quasi-geodesics approximate geodesics closely — this is a
+key difference between Euclidean and hyperbolic geometry.
+
+Theorem 1.26 (Stability of quasi-geodesics) For all δ > 0, λ ≥ 1, ε ≥ 0 there
+exists a constant R = R(δ, λ, ε) such that the following statement holds. If X is a
+δ-hyperbolic geodesic space, c is a (λ, ε) quasi-geodesic in X and [p, q] is a geodesic
+segment joining the endpoints of c, then [p, q] lies in the R-neighbourhood of the
+image of c and vice versa.
+
+   It follows from this theorem that a group is hyperbolic if and only if for every
+λ, ε > 0, the (λ, ε) quasi-geodesic triangles in its Cayley graph are uniformly slim.
+This property is obviously preserved under quasi-isometry, therefore:
+
+Corollary 1.27 Hyperbolicity is an invariant of quasi-isometry amongst geodesic
+spaces (in particular Cayley graphs, hence finitely generated groups). More gen-
+erally, if X and Y are geodesic spaces, X is hyperbolic and Y ,→ X is a quasi-
+isometric embedding, then Y is hyperbolic.
+
+  The following result gives a local criterion for recognising quasi-geodesics.
+
+Definition 1.28 Let X be a metric space and fix k > 0. A path c : [a, b] → X
+is said to be a k-local geodesic if d(c(t), c(t0 )) = |t − t0 | for all t, t0 ∈ [a, b] with
+|t − t0 | ≤ k.
+
+
+                                             138
+Theorem 1.29 (8δ-local geodesics are q.g.) Let X be a δ-hyperbolic geodesic
+space and let c : [a, b] → X be a 8δ-local geodesic. Then c is a (λ, ε)-quasi-geodesic,
+where λ depends only on δ and ε < 8δ.
+
+  For a proof see [49], [64], [106] or [33, III.H].
+
+Corollary 1.30 If X is a δ-hyperbolic geodesic space, then no path c : [a, b] → X
+with a 6= b and c(a) = c(b) is an 8δ-local geodesic.
+
+  In Lecture 4 we shall discuss the conjugacy problem and the isomorphism prob-
+lem in the class of hyperbolic groups.
+
+Quasification and finite subgroups of hyperbolic groups
+I wish to illustrate how profitable it can be to transport classical arguments from the
+theory of non-positively curved manifolds into the world of hyperbolic and related
+groups. The key to all such adaptations is that one must find an appropriate way
+to “quasify” the key role that non-positive (or negative) curvature is playing in
+the classical setting; one then attempts to encapsulate a robust form of the salient
+feature of curvature in the more relaxed world of hyperbolic spaces. The first
+example of this is the very definition of δ-hyperbolic space: instead of insisting
+that geodesic triangles satisfy the CAT(−1) inequality, which imposes tight control
+on the local structure of the space, one observes that many important aspects of
+the global geometry of CAT(−1) spaces rely only on the fact that the triangles
+are uniformly slim – thus one arrives at a notion of negative curvature (namely
+δ-hyperbolicity) that is much more robust, indeed quasi-isometry invariant.
+   To illustrate how this general philosophy of quasification can be useful, we prove
+the following:
+
+Theorem 1.31 If a finitely generated group Γ is hyperbolic, then it contains only
+finitely many conjugacy classes of finite subgroups.
+
+   The proof is adapted from the following classical argument of Elie Cartan [44].
+Suppose that we have a finite (more generally, compact) group of isometries G of
+a complete Riemannian manifold X of non-positive curvature. Fix x ∈ X and
+consider G.x ⊂ X. This is a bounded set, and in a complete Riemannian manifold
+of non-positive curvature there are various intrinsic notions of “centre” that one can
+associate to bounded sets. We focus on the circumcentre (this is not the notion of
+centre used by Cartan, but it was used by Bruhat and Tits [37] in a later adaptation
+of Cartan’s argument) — the circumcentre of a bounded set is the centre of the
+unique smallest ball that contains that set. (See [33, II.2] for a proof that there is
+indeed a unique such ball.)
+   Since G.x is G-invariant, so is its centre c, and hence G fixes a point of X. If G
+is a subgroup of a group Γ that is acting cocompactly on X, say X = Γ.K where
+K is compact, then γ.c ∈ K for some γ ∈ Γ and hence G is conjugate in Γ to a
+subgroup of the stabilizer of some point of K. If the action of Γ is proper, then the
+
+
+                                          139
+union of such stabilizers is finite and therefore Γ has only finitely many conjugacy
+classes of finite subgroups.
+   The existence of a circumcentre for bounded sets was the key feature of the
+above argument. By quasifying the usual proof of the existence of such centres in
+non-positively curved spaces we get:
+
+Lemma 1.32 (quasi-centres) Let X be a δ-hyperbolic geodesic space. Let Y ⊂ X
+be a non-empty bounded subspace. Let rY = inf{ρ ≥ 0 | Y ⊂ B(x, ρ), some x ∈
+X}. For all ε > 0, the set Cε (Y ) = {x ∈ X | Y ⊆ B(x, rY + ε)} has diameter less
+than (4δ + 2ε).
+
+Proof Given x, x0 ∈ Cε (Y ), let m be the midpoint of a geodesic segment [x, x0 ].
+For each y ∈ Y we consider a geodesic triangle with vertices x, x0 , y and with
+[x, x0 ] as one of the sides. As X is δ-hyperbolic, m is within a distance δ of some
+p ∈ [x, y] ∪ [x0 , y]; suppose that p ∈ [x, y]. Then, since d(x, m) = d(x, x0 )/2 and
+d(p, x) ≥ d(x, m) − δ, we have d(y, p) = d(y, x) − d(p, x) ≤ d(y, x) + δ − d(x, x0 )/2,
+and hence
+                                                    1
+                           d(y, m) ≤ rY + ε + 2δ − d(x, x0 ).
+                                                    2
+But d(y, m) ≥ rY for some y ∈ Y , hence ε + 2δ − 12 d(x, x0 ) ≥ 0.                   2
+
+Proof [of Theorem 1.31] Let Γ be a hyperbolic group and consider the natural
+action of Γ on its Cayley graph. Let H ⊂ Γ be a finite subgroup, and let C1 (H)
+be as in the lemma. C1 (H) contains at least one vertex and the action of H leaves
+C1 (H), and hence its vertex set, set-wise invariant. If x is one of the vertices of
+C1 (H), then x−1 Hx leaves x−1 C1 (H) invariant. But x−1 C1 (H) is a set of diameter
+less than (4δ + 2) containing the identity 1, and it contains x−1 Hx = (x−1 Hx).1.
+Thus every finite subgroup of Γ is conjugate to a subset of the ball of radius (4δ +2)
+about the identity.                                                                 2
+
+   The proof given above does not appear in the literature but I believe that it is
+known to a number of researchers in the field, in particular Brian Bowditch and
+Ilya Kapovich. Alternative proofs were given by Ol’shanskii and Bogopolskii and
+Gerasimov [21].
+
+Quasiconvexity and abelian subgroups of hyperbolic groups
+A subspace C of a geodesic space X is said to be convex if for all x, y ∈ C, each
+geodesic joining x to y is contained in C. Following Gromov [68], one can quasify
+this notion: a subspace C of a geodesic metric space X is said to be quasiconvex if
+there exists a constant k > 0 such that for all x, y ∈ C, some geodesic joining x to
+y is contained in the k-neighbourhood of C.
+
+Exercise 1.33 Let G be a group with finite generating set A. Let H ⊂ G be a
+subgroup. Prove that if H is a quasiconvex subset of the Cayley graph CA (G) then
+H is finitely generated, and H ,→ G is a quasi-isometric embedding (with respect
+to any choice of word metrics).
+
+                                         140
+   In the circumstances of the above exercise one says that H is a quasiconvex
+ subgroup of G. In the light of (1.27) we have:
+
+ Proposition 1.34 The quasiconvex subgroups of hyperbolic groups are hyperbolic.
+
+   The following results are due to Gromov [68]. The ideas underlying them have
+ been used by other authors, particularly Hamish Short, to obtain similar results in
+ wider contexts (see [59], [63], [4], [107]).
+
+ Proposition 1.35 Let Γ be a hyperbolic group. numdepth ¿3 oodeep
+1. The centralizer C(γ) of every γ ∈ Γ is a quasiconvex subgroup.
+2. If the subgroups H1 , H2 ⊂ Γ are quasiconvex then so is H1 ∩ H2 .
+
+ Corollary 1.36 Suppose that Γ is hyperbolic and that γ ∈ Γ has infinite order.
+ Then: numdepth ¿3 oodeep
+1. The map Z → Γ given by n 7→ γ n is a quasi-geodesic.
+2. hγi has finite index in C(γ). In particular Γ does not contain Z2 .
+
+ Proof C(γ) is quasiconvex, hence finitely generated and hyperbolic. By intersect-
+ ing the centralizers of a generating set for C(γ), we see that the centre Z(C(γ))
+ is also finitely generated and hyperbolic. It is easy to see that a finitely gener-
+ ated abelian group is hyperbolic if and only if it contains a cyclic subgroup of
+ finite index. Hence Z(C(γ)) contains hγi as a subgroup of finite index, and since
+ Z(C(γ)) ,→ C(γ) and C(γ) ,→ Γ are quasi-isometric embeddings (1.33), so is
+ hγi ,→ Γ. This proves (1).
+    Fix a finite generating set with respect to which Γ is δ-hyperbolic. Let d be the as-
+ sociated word metric. Define the translation number τ (γ) to be limn→∞ d(1, γ n )/n.
+ (This limit exists because the function n 7→ d(1, γ n ) is sub-additive.) It follows from
+ (1) that τ (γ) > 0.
+    τ (γ r ) = r τ (γ) and τ (x−1 γx) = τ (γ) for all x ∈ Γ. Thus, replacing γ by a
+ suitable power if necessary, we may assume that γ is not conjugate to any element
+ a distance 4δ or less from the identity. I claim that it follows from this that if
+ [γ, g] = 1 then g lies within a distance K := d(1, γ) + 4δ of hγi. For suppose not,
+ choose g so that d(g, hγi) = d(g, 1) > K, and consider a geodesic quadrilateral Q
+ in the Cayley graph of Γ with vertices {1, γ, g, gγ = γg}. The side of Q joining γ
+ to γg is chosen to be the translate by γ of the side joining 1 to g; we write gt to
+ denote the point a distance t from 1 on this side.
+    δ-hyperbolicity (1.16) implies that gt lies within a distance 2δ of a point on one
+ of the other three sides of Q. If d(1, g) − d(1, γ) − 2δ > t > 2δ, then this other
+ point must be on the side joining γ to γg; say it is γgt0 . Since t0 = d(γgt0 , hγi), we
+ have t0 ≤ t + 2δ. Similarly t ≤ t0 + 2δ, and hence d(gt , γgt ) ≤ 4δ. But this implies
+ that d(1, gt−1 γgt ) ≤ 4δ, contrary to our assumption on γ. This proves (2).            2
+
+
+
+
+                                           141
+ 1.37        Translation numbers are rational
+ A remarkable result of Gromov [68], an elegant proof of which has been given by
+ Delzant [55], states that associated to each word metric on a hyperbolic group Γ
+ there is an integer M such that each translation number τ (γ), γ ∈ Γ (as defined in
+ the preceding proof) is a rational number whose denominator divides M .
+
+ 1.38        Semihyperbolic groups
+ One obvious omission from these lectures is the theory of semihyperbolic groups
+ as laid out by myself and Alonso in [4] (following the influence of [68], [59] and
+ [63]). In this theory one seeks to encapsulate the global essence of non-positive
+ curvature (as opposed to strictly negative curvature) by a suitable analogue of the
+ δ-hyperbolic condition. In the theory of semihyperbolic groups quasi-convexity
+ again plays a key role.
+
+
+ Lecture 2: The geometry of spaces
+ In this lecture I shall present those elements of the basic theory of CAT(0) spaces
+ that are most useful from the point of view of combinatorial and geometric group
+ theory. All of this material is taken from my book with André Haefliger [33]. My
+ main aim is to illustrate the close connection between the geometry of CAT(0)
+ spaces and the structure of the groups which act on them.
+    A key feature in this theory is the existence of a local-to-global theorem for non-
+ positively curved7 spaces (Theorem 2.2). This is important from the point of view
+ of group theory because in many cases it provides a remedy to the problems caused
+ by the fact that the rather dull local structure of Cayley graphs precludes any local-
+ to-global analysis of their geometry: if one can realise a group Γ as the fundamental
+ group of a compact non-positively curved space X, then one can analyze Γ via its
+ action by deck-transformations on the universal covering X,  e and we have the option
+ of studying Γ laid out as the set of translates of a basepoint in X   e rather than as
+ the set of vertices of the Cayley graph. Theorem 2.2 tells us that X    e is a CAT(0)
+ space. The action of Γ on X   e is proper, cocompact and by isometries. Thus if by
+ a study of CAT(0) spaces we can deduce facts about groups which act on them in
+ this manner, then we will have an approach to understanding a (hopefully wide)
+ class of groups.
+    In order to motivate such a study let me list some of the benefits of getting
+ groups to act on CAT(0) spaces.
+
+ Theorem 2.1 (A summary of results) Let Γ be a group that acts properly and
+ cocompactly by isometries on a CAT(0) space X. Then: numdepth ¿3 oodeep
+1. Γ is finitely presented.
+2. Γ satisfies a quadratic isoperimetric inequality (and hence has a solvable word
+ problem).
+    7
+        In all that follows “non-positive curvature” will be meant in the sense of (1.18).
+
+
+                                                   142
+3. Γ has a solvable conjugacy problem.
+4. Γ has only finitely many conjugacy classes of finite subgroups.
+5. Every solvable subgroup of Γ is virtually abelian.
+6. Every abelian subgroup of Γ is finitely generated.
+7. If Γ is torsion-free, then it is the fundamental group of a compact cell complex
+ whose universal cover is contractible.
+8. Γ does not contain subgroups of the form hx, y | x−1 y p x = y q i with |p| 6= |q|.
+9. If A ∼
+        = Zn is central in Γ then there exists a subgroup of finite index in Γ that
+ contains A as a direct factor.
+
+ The class of groups which act properly and cocompactly by isometries on CAT(0)
+ spaces is closed under the following operations: numdepth ¿3 oodeep
+(a) direct products,
+(b) free products with amalgamation along virtually cyclic subgroups.
+
+ All of these results are proved in [33]. I will give a sketch of the proof of parts (1)
+ to (9) in the course this lecture and lecture 4. Part (a) is an easy exercise and (b)
+ is proved in (3.11).
+
+
+ Local-to-global
+ The following theorem is a variation on a result of M. Gromov [68], following an
+ idea of A. D. Alexandrov. A detailed proof was given by W. Ballmann in the
+ locally compact case ([64], Chap.10). S. Alexander and R. L. Bishop [1] proved the
+ stronger result stated below under the additional hypothesis that Xe is a geodesic
+ space. The form of the result stated here is proved in [33, II.4].
+    The metric d on a geodesic space X is said to be convex if given any pair of
+ geodesic paths c, c0 : [0, 1] → X parametrized proportional to the arc length, the
+ following inequality holds for all t ∈ [0, 1]:
+
+                 d(c(t), c0 (t)) ≤ (1 − t) d(c(0), c0 (0)) + t d(c(1), c0 (1)).
+
+ The metric is said to be locally convex if every point has a neighbourhood on which
+ the induced metric is convex.
+
+ Theorem 2.2 (Generalized Cartan-Hadamard Theorem) Let X be a com-
+ plete connected metric space. numdepth ¿3 oodeep
+1. If the metric on X is locally convex, then the induced length metric on the uni-
+ versal covering Xe is (globally) convex. (In particular there is a unique geodesic
+ segment joining each pair of points in Xe and geodesic segments in Xe vary contin-
+ uously with their endpoints.)
+2. If X is of curvature ≤ κ, where κ ≤ 0, then X e (with the induced length metric)
+ is a CAT(κ) space.
+
+                                             143
+                                                                x1
+
+
+
+
+                                                                ...
+                                                                     xi
+                                                                       xi+1
+
+     O
+
+
+
+
+                                                                        ...
+                                                                               xn
+                        Figure 2.1: Alexandrov’s Patchwork
+
+
+
+    The second part of Theorem 2.2 is deduced from the first by a ‘patchwork’
+ process indicated in the following picture. Following Alexandrov [2], one proves a
+ gluing lemma: given a geodesic triangle Δ(p, q, r) and a point m on the side [p, r],
+ if the triangles Δ(p, m, r) and Δ(q, m, r) both satisfy the CAT(κ) inequality, then
+ so does Δ(p, q, r). One applies the gluing lemma repeatedly, first to fill out the
+ narrow subtriangles in Figure 2.1, such as Δi = Δ(0, xi , xi+1 ), then to assemble
+ the Δi into the given (large) triangle.
+    We note three consequences of Theorem 2.2 that are important from the point
+ of view of group theory.
+
+ Corollary 2.3 If X is a compact non-positively curved space, then: numdepth ¿3
+ oodeep
+1. The universal cover of X is contractible.
+2. Γ = π1 X has a finite K(Γ, 1).
+3. If Y is a compact length space and f : Y → X is a local isometry, then f∗ :
+ π1 Y → π1 X is an injection.
+
+    (1) is proved in (2.5). In order to deduce (2) from (1) one has to show that X
+ has the homotopy type of a finite simplicial complex — see [33, II.5]. (3) is proved
+ in [33, II.4].
+
+ Convexity and its consequences
+ One of the most basic properties determining the nature of CAT(0) spaces is the
+ convexity of the metric.
+
+ Proposition 2.4 If X is a CAT(0) space, then the metric on X is convex (in the
+ sense defined above).
+
+                                         144
+ Proof First assume that we are given geodesics c, c0 : [0, 1] → X with c(0) =
+ c0 (0). Consider a comparison triangle Δ ⊂ E2 for Δ(c(0), c(1), c0 (1)). Given t ∈
+ [0, 1], elementary Euclidean geometry tells us that d(c(t), c0 (t)) = t d(c(1), c0 (1)) =
+ t d(c(1), c0 (1)). And by the CAT(0) inequality, d(c(t), c0 (t)) ≤ d(c(t), c0 (t)). Hence
+ we obtain d(c(t), c0 (t)) ≤ t d(c(1), c0 (1)).
+     In the general case, we introduce the linearly reparametrized geodesic c00 :
+ [0, 1] → X with c00 (0) = c(0) and c00 (1) = c0 (1). By applying the preceding special
+ case, first to c and c00 and then to c0 and c00 with reversed orientation, we obtain:
+ d(c(t), c00 (t)) ≤ t d(c(1), c00 (1)) and d(c00 (t), c0 (t)) ≤ (1 − t) d(c00 (0), c0 (0)). Hence,
+
+ d(c(t), c0 (t)) ≤ d(c(t), c00 (t)) + d(c00 (t), c0 (t)) ≤ t d(c(1), c0 (1)) + (1 − t) d(c(0), c0 (0)),
+
+ as required.                                                                                       2
+
+ Remark 2.5 Let X be a CAT(0) space, fix x0 ∈ X and define a homotopy H :
+ X × [0, 1] → X by H(x, t) = cx (t), where cx : [0, 1] → X is a constant-speed
+ parametrization of the geodesic connecting x0 to x. It follows from the above propo-
+ sition that H is a continuous map. Thus X is contractible.
+
+    I shall not include many proofs in this lecture (all relevant proofs can be found
+ in Part II of [33]). The above proof is given so as to illustrate the nature of ele-
+ mentary arguments using comparison triangles. One of the hallmarks of the theory
+ of CAT(0) spaces is that by concatenating many such elementary arguments one
+ arrives at non-trivial results remarkably quickly. This remark applies in particular
+ to the following results.
+    Recall that a subset C of a CAT(0) spaces X is said to be convex if the geodesic
+ in X joining each pair of points x, y ∈ C lies entirely in C.
+
+ Proposition 2.6 Let X be a complete space. numdepth ¿3 oodeep
+1. If C ⊆ X is closed and convex, then for every x ∈ X there exists a unique point
+ π(x) ∈ C such that d(x, π(x)) = d(x, C) := inf y∈C d(x, y). Moreover the map π
+ does not increase distances.
+2. Every bounded subset of X has a unique circumcentre.
+
+    Following the discussion in (1.31), from 2.6(2) we deduce:
+
+ Corollary 2.7 numdepth ¿3 oodeep
+1. If a group Γ acts by isometries on a complete CAT(0) space X, then every finite
+ subgroup of Γ fixes a point of X.
+2. If the action of Γ is proper and cocompact, then Γ contains only finitely many
+ conjugacy classes of finite subgroups.
+3. If Y is a compact non-positively curved space, then π1 Y is torsion-free.
+
+ The action of the fundamental group of any space on the universal cover is free, so
+ part (3) of the above corollary follows from part (2) and Theorem 2.2.
+
+                                                 145
+                     r                                                     r'
+
+               x                      d(x,y)                         x'
+
+
+
+                      y
+
+                                          q           p'                              q'
+    p                                                                       y'
+                             "If d(x,y)   d(x',y'), everything expands."
+
+
+                Figure 2.2: The idea behind the Flat triangle lemma
+
+
+
+Flat subspaces of CAT(0) spaces
+The two most classical examples of CAT(0) spaces are Euclidean space En and
+hyperbolic space Hn . As every undergraduate knows, the flavours of the geom-
+etry enjoyed by these two spaces are quite distinct. Given an arbitrary CAT(0)
+space, then, one might wonder whether it is essentially hyperbolic in nature, or
+more Euclidean. More precisely, one might ask whether it contains significant flat
+(Euclidean) subspaces, and if it does not then can one make precise the idea that it
+is morally speaking negatively curved? We shall see that in the case of cocompact
+CAT(0) spaces such a dichotomy does indeed exist (2.10).
+   Our search begins with a remarkable observation of Alexandrov: given a geodesic
+triangle Δ in a CAT(0) space X, compare Δ with its comparison triangle Δ ⊂ E2
+as in (1.18); if there is any non-trivial equality d(x, y) = d(x, y), then one can fill
+Δ to get an isometrically embedded triangular Euclidean disc in X.
+   To state this more precisely, we define the convex hull of a subset A of a geodesic
+space X to be the intersection of all of the convex subspaces of X containing A.
+(Despite what our Euclidean intuition may suggest, the convex hull of a geodesic
+triangle in a CAT(0) space may not be 2-dimensional. For example, in the complex
+hyperbolic plane CH2 the convex hull of three points in general position is 4-
+dimensional — see [33, II.10].)
+
+Proposition 2.8 (Flat triangle lemma) Let Δ(p, q, r) be a geodesic triangle in
+a CAT(0) space, and let Δ(p, q, r) ⊂ E2 be its comparison triangle. If there exist
+points x in the interior of [p, r] and y ∈ [p, q] with y =
+                                                         6 p such that d(x, y) = d(x, y),
+then the triangle Δ(p, q, r) is flat; more precisely, the convex hull of Δ in X is
+isometric to the convex hull of Δ in E2 .
+
+  A geodesic line in a metric space X is, by definition, a map c : R → X such that
+d(c(t), c(t0 )) = |t − t0 | for all t, t0 ∈ R. Two geodesic lines c, c0 in X are said to be
+asymptotic if there exists a constant K such that d(c(t), c0 (t)) ≤ K for all t ∈ R.
+We remind the reader that if a function R → R is convex and bounded, then it is
+constant.
+
+Theorem 2.9 (The flat strip theorem) Let X be a CAT(0) space, and let c :
+
+                                               146
+ R → X and c0 : R → X be geodesic lines in X. If c and c0 are asymptotic, then the
+ convex hull of c(R) ∪ c0 (R) is isometric to a flat strip R × [0, D] ⊂ E2 .
+
+ Proof [33] Let π be the projection of X to the closed convex subspace c(R). By
+ reparametrizing if necessary, we may assume that c(0) = π(c0 (0)).
+    The function t 7→ d(c(t), c0 (t)) is convex, non-negative and bounded, hence con-
+ stant, equal to D say. Similarly, for all a ∈ R, the function t 7→ d(c(t + a), c0 (t)) is
+ constant. In particular d(c(a + t), c0 (t)) = d(c(a), c0 (0)) ≥ d(c(0), c0 (0)), and hence
+ π(c0 (t)) = c(t) for all t.
+    Given t < t0 , we consider the quadrilateral in X which is the union of the geodesic
+ segments [c(t), c(t0 )], [c(t0 ), c0 (t0 )], [c0 (t0 ), c0 (t)] and [c0 (t), c(t)]. We divide this into
+ two geodesic triangles by introducing the diagonal [c(t), c0 (t0 )]. Let tm = (t + t0 )/2.
+ By the triangle inequality, d(c(tm ), c0 (tm )) ≤ d(c(tm ), m) + d(m, c0 (tm )), where m
+ is the midpoint of [c(t), c0 (t0 )]. And by hypothesis, d(c(tm ), c0 (tm )) = D.
+    Consider the parallelogram in the Euclidean plane obtained by joining compari-
+ son triangles Δ(c(t), c0 (t0 ), c0 (t)) and Δ(c(t), c0 (t0 ), c(t0 )) along the side [c(t), c0 (t0 )].
+ We have d(c(tm ), c0 (t0m )) = d(c(tm ), m) + d(m, c0 (t0m )) = D. But by the CAT(0)
+ inequality, d(c(tm ), m) ≥ d(c(tm ), m) and d(m, c0 (t0m )) ≥ d(m, c0 (t0m )). Thus we
+ must have equality throughout, and by the flat triangle lemma, the convex hull of
+ {c(t), c0 (t), c(t0 ), c0 (t0 )} is isometric to a Euclidean rectangle.
+    Sending t → −∞ and t0 → ∞, it follows that the map R × [0, D] → X which
+ sends (t, s) to the point a distance s from c(t) on the geodesic segment [c(t), c0 (t)]
+ is an isometry onto the convex hull of c(R) ∪ c0 (R).                                                2
+
+    By means of a (somewhat subtle) limiting and compactness argument based on
+ the Flat triangle lemma, one can prove the following result. This result was proved
+ in the setting of smooth manifolds by Eberlein [57]. Gromov pointed out that
+ it should work in arbitrary CAT(0) spaces and I provided a proof of Gromov’s
+ suggestion [27]. Bowditch [24] provided an alternative proof that works in even
+ greater generality.
+
+ Theorem 2.10 (Flat plane theorem) Let X be a proper CAT(0) space that ad-
+ mits a cocompact action by a group of isometries. Then X is δ-hyperbolic for some
+ δ > 0 if and only if it does not contain a subspace isometric to the Euclidean plane.
+
+ Product decompositions and isometries
+ In view of the Flat strip theorem, the terms parallel and asymptotic are synonymous
+ when applied to geodesic lines in a CAT(0) space. From the Flat strip theorem we
+ deduce:
+
+ Theorem 2.11 (A product decomposition theorem) Let X be a CAT(0)
+ space and let c : R → X be a geodesic line. numdepth ¿3 oodeep
+1. The union of the images of all geodesic lines c0 : R → X parallel to c is a convex
+ subspace Xc of X.
+
+
+
+                                                  147
+2. Let p be the restriction to Xc of the projection on the complete convex subspace
+ c(R). Let Xc0 = p−1 (c(0)). Then, Xc0 is convex (in particular it is a CAT(0) space)
+ and Xc is canonically isometric to the product Xc0 × R.
+
+ Proof [33] Given two points x1 , x2 ∈ Xc we fix geodesic lines c1 and c2 parallel to
+ c, such that x1 lies in the image of c1 and x2 lies in the image of c2 . Because c1 is
+ parallel to c2 , we can apply the Flat strip theorem and deduce that the convex hull
+ of c1 (R) ∪ c2 (R) is isometric to a flat strip; in particular it is the union of images
+ of geodesic lines parallel to c. This proves that Xc is convex.
+    Given x ∈ Xc , let cx be the unique geodesic line in Xc with p(cx (0)) = c(0).
+    Let j : Xc0 × R → Xc be the bijection defined by j(x, t) = cx (t). Using the
+ Flat strip theorem, it is clear that this map is an isometry provided d(x, x0 ) =
+ d(cx (R), cx0 (R)) for all x, x0 ∈ Xc0 . To complete the proof one has to check that,
+ given three geodesic lines ci : R → X, i = 1, 2, 3, if the union of each pair of
+ these lines is isometric to the union of two parallel lines in E2 , and if pi,j is the
+ map that assigns to each point of cj (R) the unique closest point on ci (R), then
+ p1,3 ◦ p3,2 ◦ p2,1 = p1,1 , the identity of c1 (R). (See [33, II.2.15].)              2
+
+   The above splitting forms the basis of a number of important results concerning
+ the structure of groups which act by isometries on CAT(0) spaces.
+
+ Definition 2.12 Given an isometry γ of a metric space X, the translation length
+ of γ is defined to be |γ| := inf{d(x, γ.x) | x ∈ X}. We also define M in(γ) := {x ∈
+ X | d(x, γ.x) = |γ|}. If M in(γ) 6= ∅, then γ is called semisimple. If |γ| > 0 and
+ M in(γ) 6= ∅, then γ is called a hyperbolic isometry.
+
+ Proposition 2.13 If a group Γ acts properly and cocompactly by isometries on a
+ CAT(0) space X, then every element γ ∈ Γ of infinite order acts as a hyperbolic
+ isometry. If γ is a hyperbolic isometry of X then: numdepth ¿3 oodeep
+1. M in(γ) is closed and convex.
+2. M in(γ) is a union of parallel geodesic lines each of which is γ-invariant. (These
+ lines are called axes for γ.)
+3. M in(γ) is isometric to a product Y × R, and the restriction of γ to M in(γ) is of
+ the form (y, t) 7→ (y, t + |γ|), where y ∈ Y, t ∈ R.
+4. Every isometry α which commutes with γ leaves M in(γ) = Y × R invariant, and
+ its restriction to Y × R is of the form (α0 , α00 ), where α0 is an isometry of Y and
+ α00 is a translation of R.
+
+ Exercise 2.14 Prove Theorem 2.1(8).
+
+    The following result places severe restrictions on the way in which central exten-
+ sions can act by isometries on CAT(0) spaces. Notice that the conditions on the
+ action are very weak here — in particular no discreteness is assumed.
+
+
+
+
+                                           148
+Theorem 2.15 Let X be a CAT(0) space and let Γ be a finitely generated group
+acting by isometries on X. If Γ contains a central subgroup A ∼   = Zn that acts
+faithfully by hyperbolic isometries (apart from the identity element), then there
+exists a subgroup of finite index H ⊂ Γ which contains A as a direct factor.
+
+Proof [33] Fix α ∈ A. According to 2.13(4), the action of Γ leaves M in(α) = Y ×R
+invariant, and the restriction of each γ ∈ Γ to Y × R is of the form (γ 0 , γ 00 ), where
+γ 0 is an isometry of Y and γ 00 is a translation of R. The map γ 7→ γ 00 defines a
+homomorphism from Γ to a finitely generated group of translations of R. Such
+a group of translations is isomorphic to Zm , for some m, so we have a surjective
+homomorphism ψ : Γ → Zm . The image under ψ of A is non-trivial, because it
+contains α.
+    We compose ψ with the projection of Zm onto a suitable direct summand so
+as to obtain a homomorphism φ : Γ → Z such that φ(A) is non-trivial. We then
+choose a ∈ A so that φ(a) generates φ(A). Let H0 = φ−1 (φ(A)) and note that H0
+has finite index in Γ. The map φ(a) 7→ a splits φ|H0 , giving H0 = ker φ × hai (since
+a is central) and A = A0 × hai, where A0 = A ∩ ker φ. By induction on m (the
+rank of A) we may assume that A0 is a direct factor of a subgroup of finite index
+H 0 ⊂ ker φ. Let H = H 0 × hai.                                                        2
+
+   To give a taste of how one might use a result such as this, let me mention
+two applications. The first shows that (2.15) obstructs a suggested approach to
+the construction of faithful linear representations of mapping class groups. An
+unpublished result of Geoff Mess (see [33, II.7]) shows that centralizers in the
+mapping class group M of closed surfaces of genus at least three are not virtually
+direct products. Thus (2.15) restricts the ways in which M can act on CAT(0)
+spaces (cf. [78]).
+   Recall that a Coxeter group (“generalized reflection group”) is a group of the
+form hs1 , . . . , sn | s2i = (si sj )mij = 1, i, j = 1, . . . , ni. Gabor Moussong [89] shows
+that every Coxeter group acts properly and cocompactly by isometries on a CAT(0)
+space, thus:
+
+Corollary 2.16 The mapping class groups of closed surfaces of genus at least three
+do not admit faithful representations into Coxeter groups.
+
+  Combining Corollary 2.16 with some standard (but non-trivial) results in 3-
+manifold topology, in [33, II.7] we prove:
+
+Theorem 2.17 If a closed 3-manifold M admits a metric that has non-positive
+curvature (in the sense of Alexandrov), and if the centre of π1 M is non-trivial,
+                                     c = Σ × S 1 , where Σ is a closed surface.
+then M has a finite-sheeted covering M
+
+Flat torus theorem
+We have seen (Flat plane theorem) that the existence of flat planes is the only ob-
+struction that can prevent a cocompact CAT(0) space from being hyperbolic. But
+
+
+                                             149
+ how might such planes arise? Here we find another beautiful connection between
+ geometry and group theory, first discovered in the setting of smooth manifolds by
+ Gromoll-Wolf [66] and Lawson-Yau [79].
+
+ Theorem 2.18 (Flat torus theorem) Let A be a free abelian group of rank n
+ acting properly by semi-simple isometries on a CAT(0) space X. Then: numdepth
+ ¿3 oodeep
+              T
+1. M in(A) = α∈A M in(α) is non-empty and splits as a product Y × En .
+2. Every element α ∈ A leaves M in(A) invariant and respects the product decom-
+ position; α acts as the identity on the first factor Y and as a translation on the
+ second factor En .
+3. The quotient of each n-flat {y} × En by the action of A is an n-torus.
+4. If an isometry of X normalizes A, then it leaves M in(A) invariant and preserves
+ the product decomposition.
+5. If a subgroup Γ ⊂ Isom(X) normalizes A, then a subgroup of finite index in Γ
+ centralizes A. Moreover, if Γ is finitely generated, then Γ has a subgroup of finite
+ index that contains A as a direct factor.
+
+    The proof proceeds by induction on the rank of A; the base step is contain in
+ (2.13). In the inductive step one looks at the action of A on M in(a1 ) where a1 is
+ a primitive element of A. See [33, II.7] for a complete proof, generalizations, and
+ proofs of the following consequences.
+
+ Corollary 2.19 If Γ is the fundamental group of a compact geodesic space of non-
+ positive curvature, then numdepth ¿3 oodeep
+1. every abelian subgroup of Γ is finitely generated,
+2. virtually abelian subgroups of Γ satisfy the ascending chain condition,
+3. every solvable subgroup of Γ is virtually abelian.
+
+    The ideas used to prove the Product Decomposition Theorem and the Flat torus
+ theorem can also be used to prove the following theorem, which was first proved
+ for smooth manifolds in [66] and [79]. In the setting of CAT(0) spaces this result
+ is due to Claire Baribaud [11]. A more general result is proved in [33, II.6.22].
+
+ Theorem 2.20 (Splitting theorem) Let Y be a compact geodesic space of non-
+ positive curvature in which every local geodesic can be extended to a locally isomet-
+ ric embedding of the real line. If the fundamental group of Y splits as a product
+ Γ = Γ1 × Γ2 and Γ has trivial centre, then Y splits as a product Y = Y1 × Y2 ,
+ isometrically, where π1 Yi = Γi for i = 1, 2.
+
+
+
+
+                                          150
+A fundamental dichotomy in group theory?
+Let me end this lecture by returning, in the light of the Flat torus theorem, to the
+dichotomy exposed by the Flat plane theorem.
+
+Question 2.21 Suppose that Γ is the fundamental group of a compact non-posit-
+ively curved space. If Γ is not hyperbolic, must it contain a free abelian subgroup
+of rank two ?
+
+   I suspect that the answer to this question is no, but in restricted settings the
+answer is yes: Bangert and Schroeder [10] proved that the answer is yes for real-
+analytic manifolds; Lee Mosher and I [34] proved the same for closed topological
+3-manifolds (following earlier work of Mosher [88], Schroeder [101] and Buyalo
+[41]); and the answer is also yes in the case where Γ is a cocompact lattice in a
+semi-simple Lie group [83].
+   An intriguing possibility is that the dichotomy suggested in (2.21) may have
+little to do with non-positive curvature, per se, but instead it might be a special
+case of a much more general phenomenon.
+
+Question 2.22 Let Γ be a finitely presented group. Suppose that Γ admits an
+Eilenberg-Maclane space K(Γ, 1) that has only finitely many cells in each dimen-
+sion (equivalently, suppose that the cohomology of Γ is finitely generated in each
+dimension). If Γ is not hyperbolic, must it contain a subgroup of the form hx, y |
+y −1 xp y = y q i ?
+
+   Question 2.21 is a special case of Question 2.22. Another interesting special case
+of Question 2.22 is where Γ is a subgroup of a hyperbolic group.
+   The dichotomy suggested in Theorem 2.2 does not hold for finitely presented
+groups in general. Thus far two types of counterexamples are known: Noel Brady
+[25] showed that there exist hyperbolic groups G and finitely presented subgroups
+H ⊂ G that are not hyperbolic (cf. (1.36)), and Slava Grigorchuk [65] has con-
+structed finitely presented HNN extensions of the form H = B∗φ where B is an
+infinite, finitely generated, torsion group and φ : B → B is an epimorphism.
+   In each of these examples, the third homology group of H is not finitely generated
+and therefore H does not have an Eilenberg-Maclane complex K(H, 1) with finitely
+many 3-cells.
+
+
+Lecture 3: Building CAT(0) spaces of interest in group
+theory
+In Lecture 1 we saw how the basic decision problems of combinatorial group theory
+lead to the study of non-positive curvature. Lecture 2 was about the basic struc-
+ture of CAT(0) spaces with emphasis on the close connections between geometry,
+topology and group theory in the presence of non-positive curvature. The purpose
+of Lecture 3 is to put some meat on the attractive theoretical skeleton that has
+emerged: I shall explain various examples and general methods for constructing
+
+                                        151
+CAT(0) spaces, and I shall try to illustrate how such constructions can give rise to
+interesting new groups and new insights into well-known groups. Let me begin by
+mentioning one result of the latter kind.
+
+Theorem 3.1 Every Coxeter group has a solvable conjugacy problem.
+
+   Surprisingly, no algebraic proof of this result is known. The only known proof
+relies on the theorem of Moussong that I mentioned earlier: every finitely generated
+Coxeter group W acts properly and cocompactly by isometries on a p̧iecewise-
+Euclidean complex. In (4.5) I shall explain why groups which act in this way have
+a solvable conjugacy problem.
+
+Example 3.2 (1) A simply-connected, complete, Riemannian manifold is a
+CAT(0) space if and only if all of its sectional curvatures are non-positive (see [48],
+[33, II.1A]). Examples include En , Hn , and any symmetric space of non-compact
+type.
+   (2) Metric graphs. A metric graph (1-complex) X consists of a set of vertices
+and a set of edges joining them; each edge is given a metric that makes it locally
+isometric to a closed interval of the real line; a (pseudo)metric is defined on X
+by setting the distance between two points equal to the length of the shortest path
+between them, where length is measured in the given (local) metrics on the edges.
+   I encourage you to consider the many pathologies that can arise if one does not
+impose any restrictions on the lengths of the edges (particularly if there are vertices
+of infinite valence) cf. [33, I.1.9]. I also encourage you to check that if there are
+only finitely many different edge lengths then the metric defined above makes X a
+complete geodesic space of non-positive curvature.
+   Truncated hyperbolic space. Given a geodesic space X with metric d and an arc-
+connected subspace Y ⊂ X, there are two metrics with which one might endow Y :
+one might simply define the distance between y, y 0 ∈ Y to be d(y, y 0 ), or one might
+define the distance to be the infimum of the lengths of paths that join y to y 0 in Y
+(where length is measured using d). The second construction is called the induced
+path metric on Y . In order to see the difference between these metrics, consider
+the case where Y is the unit circle in the Euclidean plane.
+   If one removes a disjoint collection of open horoballs from real hyperbolic space
+H then the induced path metric is a CAT(0) space. This is proved in [33, II.11].
+  n
+
+It follows that non-uniform lattices in SO(n, 1) act properly and cocompactly by
+isometries on CAT(0) spaces (namely these truncated hyperbolic spaces). The pres-
+ence of nilpotent subgroups that are not virtually abelian show that non-uniform
+lattices in other rank 1 Lie groups do not admit such actions (by 2.1(5)) and hence
+the corresponding truncated symmetric spaces are not non-positively curved.
+
+Polyhedral complexes
+The simplest examples of geodesic metric spaces that are not manifolds are provided
+by metric graphs. A wider and much more interesting class of spaces is provided by
+the higher dimensional analogues of graphs, metric polyhedral complexes. Roughly
+
+
+                                         152
+ speaking, to construct a piecewise-Euclidean complex K one takes the disjoint
+ union of a family of convex polyhedra from Euclidean space En and one identifies
+ them along isometric faces. As with graphs, a (pseudo)metric on K is defined
+ by setting the distance between each pair of points equal to the length of paths
+ joining them, where length is measured in the given metrics on the individual cells.
+ In my thesis [26] I proved that if the set of isometry types of the cells, denoted
+ Shapes(K), is finite, then every pair of points in K can be joined by a shortest
+ path, in other words K is a geodesic space.
+    An entirely analogous construction gives piecewise hyperbolic complexes (ob-
+ tained by identifying faces among a disjoint union of convex polyhedra from hy-
+ perbolic space Hn ), or piecewise spherical complexes (obtained by identifying faces
+ among a disjoint union of convex polyhedra from the n-sphere Sn ). More generally,
+ one can take convex polyhedra from any simply-connected manifold of constant sec-
+ tional curvature, and this gives the general notion of a metric polyhedral complex
+ (see [33, I.7]).
+    There are various ways of characterizing complexes whose curvature is bounded
+ above (see [33, II.5]); we mention two of them.
+
+ Theorem 3.3 Let K be a piecewise Euclidean or piecewise hyperbolic complex with
+ Shapes(K) finite. The following conditions are equivalent. numdepth ¿3 oodeep
+1. K is non-positively curved.
+2. Every x ∈ K has a neighbourhood in which there is a unique geodesic joining each
+ pair of points.
+3. K satisfies the link condition.
+
+    The link condition can be described as follows. First think of a vertex v of a
+ convex polyhedron P (e.g. a solid cube) in Euclidean space of some dimension and
+ imagine how a small (radius ε) sphere centred at v intersects P . The intersection is
+ a small spherical polyhedron (a spherical triangle if P is a cube). Now rescale your
+ mental picture so that this spherical polyhedron is based on a sphere of radius one
+ rather than radius ε. It is then called the link of v in P .
+    If K is as in Theorem 3.3, then the link of a vertex v ∈ K, denoted Lk(v), is
+ obtained by taking the link of v in each of the individual cells incident at v and
+ assembling them according to the way in which the cells intersect. Thus Lk(v) is
+ a piecewise spherical complex. It is the analogue in metric complexes of the unit
+ tangent space in differential geometry: the points of Lk(v) are the directions of
+ geodesics issuing from v, and the distance between each pairs of points should be
+ thought of as the angle at v between the geodesics issuing in these directions. One
+ says that K satisfies the link condition if for all vertices v ∈ K and all x, y ∈ Lk(v),
+ if d(x, y) < π then there is a unique geodesic joining x to y in Lk(v).
+
+
+ 2-dimensional complexes
+ I shall describe a number of constructions of non-positively curved 2-dimensional
+ complexes; further constructions are given in [33, II.5]. It is more difficult to con-
+
+                                           153
+               BAD                                                       GOOD
+
+
+                                                   v2                                     v3
+
+
+
+                     v1
+                                                     /2             /2                    /2        /2
+      Lk(v1)                              Lk(v2)                                Lk(v3)
+                          /2
+                                                          /2   /2
+                                                                                         /2          /2
+                                                     /2             /2
+                                                                                               /2
+
+
+
+                                      Figure 3.1: Lk(v)
+
+
+
+struct examples in higher dimensions, but examples do exist, for instance Bruhat-
+Tits buildings of affine type (see [37] and [36]). One of the advantages of working
+with 2-dimensional complexes8 is that it is easy to check the link condition.
+
+Example 3.4 (The link condition for 2-complexes) Let K be a piecewise
+Euclidean or piecewise hyperbolic 2-complex and let v ∈ K be a vertex. Then
+Lk(v), as defined above, is a metric graph and K is non-positively curved if and
+only if there does not exist a vertex such that Lk(v) contains an embedded circuit
+of length strictly less than 2π.
+
+  Figure 3.1 should be compared with Figure 1.1.
+
+Squared 2-complexes
+Squared 2-complexes are, by definition, piecewise Euclidean 2-complexes in which
+all of the 2-cells are squares of side length 1. In this simple setting the link condition
+reduces to the statement that the link of each vertex contains no embedded circuits
+of combinatorial length less than four.
+
+Exercise Check that you thoroughly understand the following assertion: the prod-
+uct of any two metric graphs with edge lengths 1 is a squared 2-complex of non-
+positive curvature. (The links of vertices in this case are complete bipartite graphs.)
+
+  In what follows we shall use the term tree to mean a simply connected metric
+graph all of whose edges have length 1.
+
+Theorem 3.5 Let K be a compact, connected, non-positively curved squared com-
+plex. If the link of each vertex in K is isomorphic to a complete bi-partite graph,
+then the universal cover of K is the product of two trees.
+
+   This result seems to have been discovered independently by a number of authors
+[115], [7], [39]. A detailed proof can be found in [35].
+  8
+      hereafter abbreviated to “2-complexes”
+
+
+                                               154
+   This theorem relates the study of squared 2-complexes to the study of the auto-
+morphism groups of products of trees. This brings us into a very rich world, because
+trees are combinatorial analogues of symmetric spaces of non-compact type, and in
+keeping with this analogy one finds that many of the groups which act on products
+of trees enjoy remarkable geometric and arithmetic properties. The most striking
+result in this direction is the following construction due to Marc Burger and Shahar
+Mozes [39].
+
+Theorem 3.6 (Burger-Mozes) There exist finitely presented simple groups that
+act freely and cocompactly by isometries on a product of two trees. Moreover, one
+can construct such groups by amalgamating two finitely generated free groups along
+subgroups of finite index.
+
+   But the number of generators and relations is rather large. Prior to the work
+of Burger and Mozes, my student Dani Wise had (by hand) produced many inter-
+esting examples of non-positively curved squared complexes including some whose
+fundamental groups have no non-trivial finite quotients [115].
+   Notice that by (1.13) any group Γ which acts properly and cocompactly on a
+product of trees in quasi-isometric to a product of finitely generated free groups,
+but (3.6) shows that Γ may have utterly different residual properties to products
+of free groups.
+   Ian Acheson and Dani Wise [115] (independently) noticed that work of Wein-
+baum [114], originally phrased in the language of small cancellation theory, essen-
+tially proves the following result.
+
+Theorem 3.7 The fundamental group of the complement of every tame, prime,
+alternating link in S3 is the fundamental group of a compact non-positively curved
+squared complex.
+
+Remark It follows from (3.12) that one can remove the hypothesis that the link
+is prime at the expense of replacing the conclusion “squared” by “polyhedral”.
+The complex in (3.7) has two vertices, one edge for each region in the plane of
+projection and one square for each crossing. The idea of the construction is this:
+one regards the alternating projection as lying on a plane in R3 and one places one
+vertex a above the plane and one b below it. For each complementary region xi of
+the projection one introduces an edge labelled xi oriented from a to b. Then for
+each crossing in the projection of the link one attaches a square (2-cell) by gluing
+the boundary circuit to the path that traces out the edges xi1 , x∗i2 , xi3 , x∗i4 in order,
+where the asterisk denotes reversed orientation and the regions xi1 , xi2 , xi3 , xi4 are
+those that provide the corners at the crossing; they are read from above the plane
+in clockwise order and the strand of the link that is between xi1 and xi2 passes
+over the other strand. The natural presentation of the fundamental group of this
+complex is essentially Dehn’s presentation of the link group [81]. (See [115] or [33,
+II.7] for details.)
+
+
+
+
+                                            155
+Exercise The Hopf link consists of two circles that cannot be separated in 3-
+dimensional space and are such that the link has a projection with only two cross-
+ings. Show that the complex that the above construction ascribes to this link is a
+torus, but that this torus is not a metric product.
+
+   In [35] the geometry of non-positively curved squared complexes is used to in-
+vestigate subgroups of the direct product of two free groups. In particular we give
+a geometric explanation of the following theorem of Baumslag and Roseblade [15].
+
+Theorem 3.8 ([15]) If F1 and F2 are free groups and H is a finitely presented
+subgroup of F1 × F2 , then either H is free or else it contains a subgroup of finite
+index H1 × H2 , where H1 ⊂ F1 and H2 ⊂ F2 .
+
+The modified Rips construction
+The following algorithmic construction gives rise to a host of interesting examples
+of non-positively curved complexes and allows one to translate the pathologies of
+arbitrary group presentations into pairs of groups N ⊂ Γ, where Γ is hyperbolic
+and N is finitely generated. In Lecture 4 I shall explain how one can exploit
+this transfer of pathology to expose the diverse nature of decision problems for
+subgroups of groups which act properly and cocompactly on CAT(0) spaces.
+
+Theorem 3.9 There is an algorithm that associates to every finite presentation a
+short exact sequence
+                          1 → N → Γ → G → 1,
+where G is the group given by the presentation, N is a finitely generated group and
+Γ is the fundamental group of a compact, negatively curved, piecewise hyperbolic
+2-complex K. Moreover one can remetrize K as a piecewise Euclidean squared
+complex of non-positive curvature.
+
+   This construction is based closely on an idea of E. Rips. In [99] he proved a
+version of this theorem in which instead of forcing Γ to be a fundamental group of
+the above type, he arranged for it to satisfy an arbitrarily strict small cancellation
+condition. The details of the adaptation given above were worked out by Wise in
+[116] and a slightly different account is given in [33, II.5].
+   In outline, Rips’s idea is that given G = hX | Ri, one should introduce new
+generators a = {a1 , . . . , an }, “unwrap” the old relations, and add a new set of
+relations U to make the subgroup generated by a normal. To “unwrap” r ∈ R we
+replace r = 1 by a relation of the form r = wr (a); let R̃ denote the set of these new
+relations. To construct U , for each x ∈ X and ai ∈ a we choose words ui,x and u0i,x
+and define x−1 ai x = ui,x (a) and xai x−1 = u0i,x (a). The key to the construction is
+that the words wr , ui,x and u0i,x must be long enough and sufficiently independent
+to ensure that
+                                     Γ := hX , a | R̃, U i
+satisfies a small cancellation condition. (See [81] for background on small cancel-
+lation theory.)
+
+                                         156
+   In Rips’s original construction one only needs two new generators, but in (3.9)
+one needs more in order to promote the small cancellation condition to the (more
+restrictive) link condition for an associated polyhedral complex.
+Example 3.10 (Non-hopfian groups) Following earlier work of Baumslag and
+Solitar [16] and Meier [85], in [116] Dani Wise considered the following groups:
+                                                             n −1
+           T (n) = ha, b, ta , tb | [a, b] = 1, t−1                          n
+                                                 a ata = (ab) , tb btb = (ab) i.
+
+If n ≥ 2, certain non-trivial commutators, for example g0 = [ta (ab)t−1a , b], lie in the
+kernel of the epimorphism T (n)  T (n) given by a 7→ an , b 7→ bn , ta 7→ ta , tb 7→ tb .
+Groups which admit such self-surjections with kernel are called non-Hopfian.
+   T (n) is the fundamental group of the non-positively curved 2-complex X(n) that
+one constructs as follows: take the (skew) torus formed by identifying opposite sides
+of a rhombus with sides of length n and small diagonal of length 1; the loops formed
+by the images of the sides of the rhombus are labelled a and b respectively; to this
+torus attach two tubes S × [0, 1], where S is a circle of length n; one end of the first
+tube is attached to the loop labelled a and one end of the second tube is attached to
+the loop labelled b; in each case the other end of the tube wraps n times around the
+image of the small diagonal of the rhombus. One checks easily that this complex
+satisfies the link condition.
+
+
+New spaces from old
+A natural way to construct interesting new metric spaces is to take a disjoint col-
+lection of known metric spaces and glue them together along subspaces. Intuitively
+speaking, this means that we glue the spaces by means of an equivalence rela-
+tion and then define the distance between points in the resulting space by taking
+the infimum of the lengths (measured in the original metrics) of paths joining the
+points, as we did in the construction of polyhedral spaces. In order to make this
+description precise we need two technical devices. First, given two metric spaces
+                                                                             `
+X1 , X2 , we extend the given metrics to a metric on their disjoint union X1 X2
+by defining d(x, y) = ∞ if x ∈ X1 and y ∈ X2 . Secondly, given a metric space
+X and an equivalence relation ∼ on X, the quotient pseudometric d on the set of
+equivalence classes X/∼ is given by the formula:
+                                               n
+                                               X
+                               d(x, y) = inf         d(xi , yi ),
+                                               i=1
+
+where the infimum is taken over all sequences C = (x1 , y1 , x2 , y2 , . . . , xn , yn ) of
+points of X such that x1 ∈ x, yn ∈ y, and yi ∼ xi+1 for i = 1, . . . , n − 1. (d may
+fail to be a metric because the distance between distinct classes x and y is zero.)
+Theorem 3.11 ([33, II.11]) Let X and A be metric spaces of non-positive curva-
+ture and`suppose that A is compact. Let φ1 , φ2 : A → X be local isometries and let
+X = X (A × [0, 1])/∼, where ∼ is generated by (a, 0) ∼ φ1 (a) and (a, 1) ∼ φ2 (a).
+Then the quotient pseudometric on X is actually a metric and X is non-positively
+curved.
+
+                                           157
+                                    c1                c2
+
+
+
+
+                       X1
+                       1     G1                              1   X2   G2
+
+
+
+                           Figure 3.2: Proof of Corollary 3.12
+
+
+
+  We give one application to indicate how this result can be used to mimic group
+theoretic constructions in the world of non-positive curvature.
+
+Corollary 3.12 If G1 and G2 act properly and cocompactly by isometries on some
+CAT(0) space, then so too does any amalgamated free product of the form G1 ∗C G2 ,
+where C contains a cyclic subgroup of finite index.
+
+Proof We sketch the proof in the torsion-free case with C = Z; see [33, II.11] for
+the general case. For i = 1, 2 let Xi be a compact non-positively curved space with
+π1 Xi = Gi . The idea of the proof is shown in Figure 3.2.
+   The generators of the cyclic subgroups identified by the amalgamated free prod-
+uct can be represented by closed geodesics (i.e. locally isometric embeddings of
+circles), c1 : S1 → X1 and c2 : S2 → X2 . By scaling the metric on X1 , we may
+assume that these
+                ` geodesics have the same length. Then we can apply the theorem
+with X = X1 X2 and A = S1 = S2 and φi = ci for i = 1, 2. The Seifert - van
+Kampen theorem implies that π1 X is the given amalgamated free product G1 ∗Z G2 .
+                                                                                  2
+
+   Corollary 3.12 does not extend (without further hypotheses) to amalgamated
+free products along finitely generated free groups (or free abelian) groups of higher
+rank. The question of when these more general amalgamations do act nicely on
+CAT(0) spaces is discussed at some length in [33, III]. Note too that in the light of
+2.1(8), we know that Z∗Z = hx, t | t−1 xt = x2 i provides a counterexample to the
+most naive HNN analogue of (3.12).
+
+An embedding theorem
+The following is one a number of embedding theorems of a similar ilk proved in
+[31].
+
+Theorem 3.13 Every compact, connected, non-positively curved space X admits
+an isometric embedding into a compact, connected, non-positively curved space X
+such that X has no non-trivial finite-sheeted coverings (equivalently π1 X has no
+non-trivial finite quotients). If X is a polyhedral complex of dimension n ≥ 2, then
+one can arrange for X to be a complex of the same dimension.
+
+
+
+                                          158
+                                              A
+
+
+
+                                    K                   M
+                                              E
+
+
+                          B                   L                   C
+                            Figure 3.3: A triangle of groups
+
+
+
+   Given an arbitrary group Γ0 with finite generating set {a1 , . . . , an }, in order
+to embed Γ0 in a group with no non-trivial finite quotients one can proceed as
+follows. First, to reduce to the case where the ai have infinite order, replace Γ0 by
+Γ = Γ0 ∗ hti and {a1 , . . . , an } by {t, ta1 , . . . , tan }. Let G be a torsion-free group
+(such as that in (3.6)) that has no finite quotients. Form Γ ∗Z G by identifying
+a1 with an element of infinite order in G, then identify the resulting group with
+another copy of G, this time identifying a2 with an element of infinite order in
+this second copy of G. Repeat a total of n times. In the group that one obtains,
+Γ amalgamated with n copies of G, each along a copy of Z, all of the obvious
+generators have been identified with something that must have trivial image in
+every finite quotient.
+   In the light of (3.6) and (3.12), the above operations can be carried out within the
+class of fundamental groups of compact non-positively curved spaces. Moreover, by
+making the gluing tubes sufficiently long one can ensure that the natural embedding
+of X into the final space is isometric. This proves (3.13). An alternative proof,
+which uses the elementary construction from (3.10) instead of (3.6), is given in [31].
+
+3.14    Complexes of groups
+I want to mention one other general technique for constructing group actions on
+CAT(0) spaces: complexes of groups in the sense of Haefliger. The foundations of
+the subject are rather technical, so I am afraid that I can only give a rather vague
+outline of the theory — see [71, 72] and [33] (II.12) and (III) for details.
+   To illustrate the construction, let’s consider triangles of groups. A triangle of
+groups is a diagram of groups and monomorphisms as shown is Figure 3.3.
+   One way in which such diagrams are obtained is by recording the stabilizers
+of vertices, edges and the 2-cell in a strict fundamental domain for the simplicial
+action of a group Γ on a simply connected simplicial 2-complex X; these stabilizers
+are called the local groups of the complex. If the triangle of groups arises in this way,
+then by taking the pushout of the diagram in the category of groups one recovers
+
+                                            159
+Γ, and hence it is reasonable to call Γ the fundamental group of the triangle of
+groups. Moreover, by taking the geometric realization of the poset of the cosets of
+the local groups in Γ, one can recover the complex X and the action of Γ on it (see
+[71], [108], [26]).
+   A similar process of recovery works for more general group actions on complexes
+where there is a strict fundamental domain, and is explained in [72] and [33, II.12].
+In this more general setting, the stabilizers are arranged not into a triangle of groups
+but into a complex of groups in the sense of Haefliger. A more sophisticated notion
+is needed in order to handle actions which do not have a strict fundamental domain
+(see [72] or [33, III.C]).
+   The theory of complexes of group generalizes the Bass-Serre theory of graphs of
+groups [105]. In contrast to the 1-dimensional case (graphs), complexes of groups
+do not in general arise as the pattern of stabilizers of a group action on a simply
+connected space, i.e. they may not be “developable”. However, if the complex of
+groups is non-positively curved in a suitable sense (see [71, 72], [33, III.C], [108]),
+then it is indeed developable, and its fundamental group will act on a CAT(0) space
+in a manner dictated by the complex of groups.
+
+3-manifolds of non-positive curvature
+Let me finish this lecture by turning from complexes to manifolds. In this section I
+shall assume more knowledge of topology than is required elsewhere in this series.
+
+Theorem 3.15 Let M be a compact 3-manifold with non-empty boundary. If every
+2-sphere in M bounds a ball, then M supports a metric of non-positive curvature.
+
+Remarks (1) Throughout this article, we use the term non-positive curvature in
+the sense of A.D. Alexandrov. In the setting of the above theorem one can always
+arrange for the metrics considered to be smooth Riemannian metrics on the interior
+of the manifold, but the boundary will not in general be locally convex — indeed
+if it were then it would perforce be π1 -injective (2.3) which cannot happen if π1 M
+is free.
+    (2) The case where the boundary of M has zero Euler characteristic was dealt
+with by Leeb in his thesis [80]. The argument sketched below is worked out in
+detail in [29].
+
+   The first step in the proof involves cutting the given manifold up according to
+the JSJ decomposition [75], [76], [112]. This means that one cuts along a maxi-
+mal non-parallel family of π1 -embedded discs, tori and Klein bottles. Thurston’s
+Geometrization Theorem for Haken manifolds states that the pieces each have a
+geometric structure. It is easy to show that each piece supports a metric of non-
+positive curvature such that the boundary tori and Klein bottles are convex. In
+order to reassemble the original manifold we must perturb the metrics on the pieces
+so that the pairs of tori and Klein bottles to be glued are isometric.
+   On the geometrically finite hyperbolic pieces, the tori and Klein bottles corre-
+spond to cusps truncated by horoballs (cf. 3.2(3)), and by truncating further down
+
+
+                                          160
+the cusp one can shrink the area of each such boundary component without chang-
+ing the metric away from the cusp. One can also adjust the conformal type of each
+such boundary component using a standard warping technique, which is explained
+nicely by Viktor Schroeder in [102]. (Schroeder also tells me that there is a more
+detailed account by Buyalo in an appendix to the Russian edition of [118].)
+   Having organized the tori and Klein bottle boundary components on the ge-
+ometric pieces appropriately so that they can be glued (the Seifert fibred pieces
+do not cause any serious problems and are dealt with in [80]), the only problem
+that we face in trying to reassemble the original manifold is that we must be able
+to perform the boundary sums (the inverse operation of cutting along discs) in a
+manner that preserves non-positive curvature. For this one uses gluing tubes of
+different types:
+
+3.16    Gluing tubes
+Suppose that we have two 3-manifolds with flat boundary components and we wish
+to glue them along isometric discs in these components. To achieve this we take a
+tube of Euclidean type (the product of an appropriately metrized topological disc
+D with [0, 1]) and we attach the ends D × {0} and D × {1} to the discs on the
+boundaries of the manifolds. The resulting manifold is the boundary sum of the
+pieces, and if the pieces were non-positively curved, so is the result, by (3.11).
+   If the boundary of the pieces were not flat but instead contained an isometri-
+cally embedded hyperbolic disc (of small radius)9 , then instead of using a product
+cylinder one would use a tube of hyperbolic type (the intersection of a tubular
+neighbourhood of a geodesic c in H3 with the complement of two disjoint open
+half-spaces whose bounding hyperplanes are orthogonal to c).
+   The use of suitable tubes also allows one to combine pieces with hyperbolic
+patches on their boundary with pieces that have Euclidean boundary. For this
+one uses a tube of mixed type: such a tube is a compact subset of H3 obtained
+by intersecting a tubular neighbourhood of a geodesic c, with the complement of
+an open horoball about one endpoint of c, and a closed half-space (containing the
+open horoball) that is bounded by a hyperplane orthogonal to c. In the induced
+path metric, this tube is non-positively curved; both ends of the tube are convex in
+this metric; the end lying on the bounding hyperplane is isometric to a disc in the
+hyperbolic plane, and the end on the horosphere is isometric to a Euclidean disc.
+   The full process of reassembling the 3-manifold also requires that one combine
+certain scaled copies of the tubes of mixed type. See [29] for details.
+
+
+Lecture 4: Decision problems
+In the first half of this lecture we return to our point of departure in Lecture 1:
+the basic decision problems of combinatorial group theory as framed as Dehn. I
+shall describe how one solves the word and conjugacy problems for groups which
+  9
+     This is what happens on boundary components of higher genus associated to geometrically
+finite hyperbolic pieces.
+
+
+                                            161
+ act properly and cocompactly by isometries on CAT(0) spaces and I shall describe
+ a solution to the conjugacy problem for hyperbolic groups. I shall also discuss the
+ isomorphism problem briefly (without proofs) and explain how it is connected to
+ classification problems in geometry and topology, following [33, III].
+    In the second half of this lecture I shall present a number of recent results that
+ relate to the following question: Let X be a compact non-positively curved space
+ and let Γ ≤ π1 X be a subgroup. Under what circumstances can one deduce that Γ
+ is the fundamental group of a compact non-positively curved space?
+
+ Non-positive curvature and the word and conjugacy problems
+ We discussed the word problem for hyperbolic groups in Lecture 1, indeed it was
+ the bridge that led us to into our discussion of negative curvature. Recall:
+
+ Theorem 4.1 The following statements are equivalent for f.p. groups: numdepth
+ ¿3 oodeep
+1. Γ is a hyperbolic group.
+2. Γ has a finite Dehn presentation.
+3. Γ satisfies a linear isoperimetric inequality.
+4. Γ satisfies a sub-quadratic isoperimetric inequality.
+
+    There exist non-hyperbolic groups that act properly and cocompactly by isome-
+ tries on CAT(0) spaces, e.g. Z2 , so point (3) of the above theorem shows the
+ quadratic bound in the following result is sharp.
+
+ Theorem 4.2 If Γ acts properly and cocompactly by isometries on a CAT(0) space
+ X, then it is finitely presented and satisfies a quadratic isoperimetric inequality.
+
+ Proof I’ll sketch the proof, following [33, III]. Fix x0 ∈ X and D > 0 such that
+ X is the union of the balls γ.B(x0 , D/3). General considerations of group actions
+ (cf. 1.13) yield:
+
+ A = {a ∈ Γ | d(a.x0 , x0 ) ≤ 2D+1} generates Γ. Given γ ∈ Γ, if d(x0 , γ.x0 ) ≤ 4D+1
+ then γ = a1 . . . al for some ai ∈ A and l ≤ 4. Let R be the set of words in the
+ free group F (A) that have length at most 10 and represent the identity in Γ. Then
+ hA | Ri is a finite presentation for Γ.
+
+    We shall see that if a word w = b1 . . . bm , with bj ∈ A±1 , represents 1 ∈ Γ then
+ w can be expressed in the free group F (A) as a product of at most (D + 1)m2
+ conjugates of relators r ∈ R. The proof will also show that the length of the
+ conjugating elements is bounded by a linear function of m.
+    To each γ ∈ Γ we associate a word σγ in the generators A as follows. Let cγ be
+ the unique geodesic joining x0 to γ.x0 in X. For each integer i < d(x0 , γ.x0 ) + 1 let
+ σγ (i) ∈ Γ be such that d(cγ (i), σγ (i).x0 ) ≤ D, with σγ (0) = 1 and σγ (i) = γ when
+ i is large enough. Note that ai = σγ (i)−1 σγ (i + 1) ∈ A. Define σγ to be a0 . . . an ,
+
+
+                                           162
+where n is the least integer greater than d(x0 , γ.x0 ). Note that γ = σγ in Γ. We
+choose σ1 to be the empty word.
+   We fix γ ∈ Γ and b ∈ A and compare σγ with σγ 0 where γ 0 = γb. By appending
+letters ai that represent the identity if necessary, we may write σγ = a0 . . . an
+and σγ 0 = a00 . . . a0n , where n = n(γ, γ 0 ) = max{|σγ |, |σγ 0 |}. Now d(γ.x0 , γ 0 .x0 ) ≤
+2D + 1 (because b ∈ A), so from the convexity of the metric on X (2.4) we have
+d(cγ (i), cγ 0 (i)) < 2D + 1 for all i and hence d(σγ (i).x0 , σγ 0 (i).x0 ) < 4D + 1. If for
+each i we choose a word α(i) of length at most 4 that is equal to σγ (i)−1 σγ 0 (i), then
+α(i)−1 ai+1 α(i + 1)a0i+1 −1 ∈ R. We choose α(n) to be b (the difference between γ
+and γ 0 ), and α0 to be the empty word.
+   If we write pγ (i) for the word a0 . . . ai (the i-th prefix of σγ ), and define pγ 0 (i)
+similarly, then we have the following equality in the free group on A:
+                        n(γ,γ 0 )               h                         i
+                          Y                                            −1
+           σγ bσγ−1
+                  0 =               pγ 0 (i − 1) α(i − 1)−1 ai α(i)a0i      pγ 0 (i − 1)−1 .
+                          i=1
+
+Each of the words in square brackets belongs to R.
+  Finally, we consider the given word w = b1 . . . bm that represents the identity in
+Γ. Let γ0 = 1 and let γj ∈ Γ be the element represented by b1 . . . bj . Note γm = 1
+and σγm = σγ0 is the empty word. By definition, in F (A) we have the equality
+                                               m
+                                               Y
+                                         w=          σγj−1 bj σγ−1
+                                                                 j
+                                                                   .
+                                               j=1
+
+By replacing each factor on the right hand side of this equality with the right hand
+side of the previous equation (with γ = γj−1 , b = bj , and γ 0 = γj ), we obtain the
+desired quadratic inequality. (To check the bounds on the number of factors note
+that d(γj .x0 , x0 ) ≤ (2D + 1)|w|/2.)                                            2
+
+Remarks (1) In the course of the preceding proof we proved that every relation
+w = 1 is a consequence of the given relations R.
+   (2) The idea behind the preceding proof becomes more transparent if one trans-
+lates it into the language of van Kampen diagrams (cf. [28]).
+
+The conjugacy problem
+The discussion in this section follows [33, III]. Many of the basic ideas can be found
+in [68, 69].
+   The way in which we shall solve the conjugacy problem for groups that act
+properly and cocompactly by isometries on CAT(0) spaces is motivated by the
+following geometric observation: given l > 0, if two loops of length ≤ l are freely
+homotopic in a complete non-positively curved space, then one can continuously
+deform one to the other through intermediate loops of length ≤ l. Free homotopy
+classes of loops in a space X correspond to conjugacy classes in π1 X, and quasifying
+the above observation we are led to the following definition in which the elements
+wi−1 uwi ∈ Γ are the analogues of the intermediate loops in the free homotopy.
+
+                                                     163
+Definition 4.3 (q.m.c.) A group Γ with finite generating set A is said to have
+the quasi-monotone conjugacy property (q.m.c) if there is a constant K > 0 such
+that if two words u, v ∈ F (A) are conjugate in Γ, then there is a word w = a1 . . . an
+with ai ∈ A±1 , such that w−1 uw = v and d(1, wi−1 uwi ) ≤ K max{|u|, |v|} for
+i = 1, . . . , n, where wi = a1 . . . ai .
+
+  The existence of K does not depend on the choice of generating set A but its
+value does.
+
+Proposition 4.4 If a group Γ acts properly and cocompactly by isometries on a
+CAT(0) space, then it has q.m.c.
+
+Proof [Sketch] Suppose that Γ acts on X. Fix x0 ∈ X and let A and σγ be as in
+the proof of (4.2). Given words u and v such that γ −1 uγ = v in Γ, one verifies that
+w := σγ satisfies the requirements of (4.3) (with respect to a constant that depends
+only on the parameters of the quasi-isometry γ 7→ γ.x0 described in (1.13)). To
+perform this verification, one uses the convexity of the metric on X (2.4) to compare
+the geodesic quadrilateral in X with vertices {x0 , γ.x0 , u.x0 , γu.x0 = vγ.x0 } to a
+quadrilateral Q in the Cayley graph CA (Γ). The vertices of Q are {1, γ, u, γu = vγ},
+two of its sides are labelled σγ , and the other two sides are labelled u and v.    2
+
+4.5   An algorithm to determine conjugacy
+Let Γ be a group with finite generating set A. Suppose that Γ has a solvable word
+problem and also has the q.m.c. property. Let the constant K be as in (4.3).
+    For each positive integer n, we consider the set B(n) of words in F (A) that have
+length at most n. Because Γ has a solvable word problem, given a pair of words
+v1 , v2 ∈ B(n) one can decide if there exists a ∈ A±1 such that a−1 v1 a = v2 in Γ; if
+such an a exists we write v1 ∼ v2 .
+    Consider the (algorithmically constructed) finite graph G(n) with vertex set B(n)
+that has an edge joining v1 to v2 if and only if v1 ∼ v2 . The q.m.c. property says
+precisely that two words u and v are conjugate in Γ if and only if u and v lie in
+the same path connected component of G(n), where n = K max{|u|, |v|}. Thus we
+may decide if u and v represent conjugate elements of Γ.
+
+The conjugacy problem for hyperbolic groups
+Hyperbolic groups also satisfy that q.m.c. condition and hence have a solvable con-
+jugacy problem. I shall describe a more efficient way to solve the conjugacy problem
+in this case. (David Epstein has recently discovered an even quicker algorithm.)
+    In a free group it is easy to solve the conjugacy problem. By definition, a word
+w = a0 . . . an in the free group on A is cyclically reduced if a−1i  6= ai+1 for 1 =
+0, . . . , n − 1, and a−1
+                       0  6
+                          = a n . Given two  words u and v, in order to  check if they
+define conjugate elements of F (A) one cyclically reduces both words and then looks
+to see if one of the resulting words is a cyclic permutation of the other.
+    We wish to quasify this simple solution to the conjugacy problem in order to
+solve the conjugacy problem for hyperbolic groups. With this is mind, note that a
+
+                                         164
+ word in F (A) is cyclically reduced if and only if it and all of its cyclic permutations
+ are geodesic words. And recall (1.26) that geodesics in hyperbolic groups are well-
+ approximated by local-geodesics. These facts motivate:
+ Proposition 4.6 Let Γ be a group that is δ-hyperbolic with respect to the finite
+ generating set A. There exist constants L and K, depending only on δ, such that
+ if u, v ∈ F (A) represent conjugate elements of Γ, and if u, v and all of their cyclic
+ permutations are L-local geodesics, then numdepth ¿3 oodeep
+1. max{|u|, |v|} ≤ K, or else
+2. there exists a word w ∈ F (A) of length at most K such that w−1 u0 w = v 0 in Γ,
+ where u0 and v 0 are cyclic permutations of u and v.
+   See [33, III] for a proof.
+
+ 4.7   An algorithm to decide conjugacy in hyperbolic groups
+ Let Γ be a group that is δ-hyperbolic with respect to the finite generating set A.
+ Given two words u and v over the alphabet A±1 , one looks for subwords of length
+ ≤ L in u, v and their cyclic permutations that are not geodesic, where L is the
+ constant of (4.6). If such a subword is found, one replaces it by a geodesic word
+ representing the same group element. One continues this process until u and v have
+ been replaced by (conjugate) words u0 and v 0 all of whose cyclic permutations are
+ L-local geodesics. Let u0 and v 0 be the resulting words. The preceding proposition
+ provides a finite set of words Σ such that u is conjugate to v in Γ if and only if
+ w−1 u0 w = v 0 in Γ for some w ∈ Σ. And using Dehn’s algorithm one can decide
+ whether any of the putative relations w−1 u0 w = v 0 is actually valid in Γ.
+
+ The conjugacy problem for subgroups
+ Suppose that Γ acts properly and cocompactly by isometries on a CAT(0) space.
+ We shall see a little later that Γ may contain finitely presented subgroups with an
+ unsolvable conjugacy problem. On the other hand:
+ Theorem 4.8 ([29]) If Γ acts properly and cocompactly by isometries on a CAT(0)
+ space and if Q is a group in which the generalized word problem is solvable, then
+ the kernel of any homomorphism Γ → Q has a solvable conjugacy problem.
+   A key point in the proof of this result is that there is an algorithm which given
+ γ ∈ Γ will compute a finite set of generators for Cγ (Γ); this uses ideas of Hamish
+ Short [107].
+
+ Isomorphism problems
+ The ideas used in the proof of the following beautiful theorem of Zlil Sela [104]
+ have not been discussed in these notes.
+ Theorem 4.9 The isomorphism problem is solvable among torsion-free hyperbolic
+ groups.
+
+                                           165
+Distinguishing among non-positively curved manifolds
+Closed 2-manifolds were classified in the nineteenth century — they are determined
+up to homeomorphism by orientability and Euler characteristic. If Thurston’s Ge-
+ometrization Conjecture [112] is true then the homeomorphism problem for com-
+pact 3-manifolds is also solvable. In other words, there is an algorithm which takes
+as input pairs of compact 3-manifolds and answers YES or NO, after a finite amount
+of time, according to whether or not the manifolds are homeomorphic. (We are
+implicitly assuming that the manifolds under consideration are described as finite
+objects. For the sake of argument, let us suppose that they are specified as finite
+simplicial complexes.)
+   For each n ≥ 4, there is an algorithm that associates to any finite presentation
+P a closed n-manifold with fundamental group |P|. Using this fact, Markov [84]
+proved that there does not exist an algorithm to decide homeomorphism among
+(smooth, PL or topological) manifolds in general.
+   On the other hand, if one restricts one’s attention to manifolds of negative cur-
+vature then the homeomorphism problem is solvable. To see this one needs the
+following deep topological rigidity theorem of Farrell and Jones [61].
+
+Theorem 4.10 Let n ≥ 5 and let M and N be closed non-positively curved n-
+manifolds. If π1 M ∼
+                   = π1 N , then M and N are homeomorphic.
+
+  As Sela pointed out in [104], combining (4.9) and (4.10) one gets:
+
+Theorem 4.11 Let n ≥ 5 be an integer. There exists an algorithm which takes
+as input two compact n-manifolds that support metrics of negative curvature, and
+which (after a finite amount of time) will stop and answer YES or NO according
+to whether or not the manifolds are homeomorphic.
+
+  Cautious readers should interpret (4.12) as a statement regarding the homeo-
+morphism problem for recursive classes of negatively curved manifolds.
+
+Question 4.12 Is there an algorithm to decide homeomorphism among closed non-
+positively curved manifolds in each dimension n ≥ 4?
+
+   I strongly suspect that the answer to this question is no. In the light of (4.11), in
+order to provide a negative answer one should show that the isomorphism problem
+for the fundamental class of such manifolds is unsolvable. For the moment I cannot
+even prove this with manifolds replaced by complexes. The only result in this
+direction is:
+
+Theorem 4.13 ([13]) There is a closed polyhedral manifold M of non-positive
+curvature and a recursive sequence of covering spaces M  ci → M, i ∈ N, with each
+   c
+π1 Mi finitely presented, such that there does not exist an algorithm to determine
+whether or not Mi is homotopy equivalent to M0 .
+
+
+
+
+                                          166
+The subgroup question
+Let me now turn to the basic question that I articulated at the beginning of this
+lecture:
+
+Question 4.14 (The subgroup question10 ) Let X be a compact non-positively
+curved space and let Γ ≤ π1 X be a subgroup. Under what circumstances can one
+deduce that Γ is the fundamental group of a compact non-positively curved space?
+
+   One might regard this question as a special case of the broader question: might
+there exist an algebraic characterization of the groups Γ that act properly and
+cocompactly by isometries on CAT(0) spaces? However (4.14) has other facets.
+For example, since any compact non-positively space X has the homotopy type
+of K(π1 X, 1), Question (4.14) can be rephrased as: under what circumstances
+does a finitely presented covering space of a non-positively curved space have the
+homotopy type of a compact non-positively curved space? In turn, this question is
+related to the existence of compact cores, in the sense of [103].
+
+Subgroups of hyperbolic groups
+Recall the modified Rips construction (3.9). In the following discussion we shall
+maintain the notation established in (3.9).
+  We first apply (3.9) in tandem with a theorem of Robert Bieri [19]:
+
+Theorem 4.15 If a normal subgroup of a group of cohomological dimension 2 is
+finitely presented, then that subgroup is either free or of finite index.
+
+   It is not hard to show that the group N in the Rips construction (3.9) is not free
+if G is infinite and therefore:
+
+Corollary 4.16 In the notation of (3.9), the subgroup N is finitely presentable if
+and only if G is finite.
+
+Remarks (1) Baumslag, Miller and Short [14] observed that since there is no
+algorithm to decide if a group given by an arbitrary finite presentation is finite,
+(4.16) can be used to show that there is no algorithm to decide if a finitely generated
+subgroup of a hyperbolic group is finitely presented. See [14] for further results in
+this vein.
+   (2) We have just seen that one can produce finitely generated subgroups of
+hyperbolic groups that are not finitely presented and hence not hyperbolic. It is
+much more difficult to construct finitely presented subgroups of hyperbolic groups
+which are not themselves hyperbolic. At present the only construction of such
+subgroups is that given by Noel Brady [25]. In [62] Steve Gersten shows that if G
+is a hyperbolic group of cohomological dimension two, then every finitely presented
+subgroup of G is also hyperbolic.
+  10
+    In order to allow torsion, one ought to restate this question in terms of proper cocompact
+actions by groups of isometries. I have chosen the simpler form for expository reasons.
+
+
+                                             167
+Positive answers to the subgroup question in low dimensions
+In low dimensions there are clear positive answers to the subgroup closure question
+(4.14). If X is 1-dimensional then in order to get the desired action it is sufficient
+to assume that Γ ⊂ π1 X is finitely generated — subgroups of free groups are
+free! In (4.16) we saw that in dimension 2 it is not sufficient to assume that Γ
+is finitely generated — if Γ is to be the fundamental group of a compact non-
+positively curved space then it must be finitely presented. However the absence
+of finite presentability turns out to be the only obstruction in dimension 2. This
+follows from a very general result that I learnt from Peter Shalen:
+
+Theorem 4.17 (Subgroup closure theorem) Let K be a class of combinatorial
+CW complexes that is closed under passage to connected subcomplexes and covering
+spaces. If K ∈ K and H is a finitely presented subgroup of π1 K, then there is a
+compact X ∈ K of dimension at most 2 such that π1 X ∼ = H.
+
+   By definition, a combinatorial map between CW complexes is one that takes
+open cells homeomorphically onto cells. A complex is called combinatorial if all of
+its attaching maps are combinatorial.
+   When endowed with the unique path metric that makes the covering map a local
+isometry, a covering of any non-positively curve space is obviously non-positively
+curved. Thus one can apply the above theorem to any class of non-positively curved
+complexes that is closed under passage to subcomplexes. It is clear from the link
+condition (3.4) that 2-dimensional complexes satisfy this condition, thus:
+
+Corollary 4.18 If X is a compact non-positively curved 2-complex, then every
+finitely presented subgroup of π1 X is also the fundamental group of such a complex.
+
+  One proves the Subgroup closure theorem by means of a tower argument. Towers
+were developed in the context of 3-manifolds by C.D. Papakyriakopoulos [94] and
+adapted to the setting of combinatorial complexes by Jim Howie [74].
+
+Definition 4.19 (of a tower) A tower map (of height h) is a map g : Kh → L0
+between connected CW complexes that admits a decomposition
+
+                              g = i0 ◦ p1 ◦ ∙ ∙ ∙ ◦ ph ◦ ih ,
+
+where each ir : Kr → Lr is the inclusion of a connected subcomplex, and each
+pr : Lr → Kr−1 is a connected covering. A tower lifting of a continuous map
+                                                                f0   g
+f : Y → L of CW -complexes is a factorization f : Y →K → L where g is a tower
+map.
+
+  Howie [74, 3.1] gives an integer valued measure of complexity for combinatorial
+maps that is reduced by passage to proper coverings. Thus he proves:
+
+Lemma 4.20 If Y and L are connected CW complexes and Y is compact, then
+                                                                         f0   g
+every combinatorial map f : Y → L has a (maximal) tower lift f : Y →K → L with
+f∗0 : π1 Y → π1 K surjective.
+
+                                           168
+  One uses (4.20) in tandem with the following enhanced version of van Kampen’s
+Lemma [77], a detailed proof of which can be found in [33]; see also [62].
+
+Lemma 4.21 If X is a combinatorial complex, G is a finitely presented group and
+ψ : G → π1 (X, xo ) is a homomorphism, then there exists a compact 2-complex Y
+with π1 (Y, yo ) ∼
+                 = G and a combinatorial map f : Y → X such that f (yo ) = xo and
+the following diagram commutes:
+                                    ψ
+                        G                   π1 (X, x0 )
+
+                           ∼
+                           =
+                                      f∗
+                     π1 (Y, y0 )                 π1 (X, x0 ).
+
+
+
+  When taken together, these lemmas prove the Subgroup closure theorem.
+
+3-manifolds
+The examples described in (4.23) show that (4.18) cannot be extended to complexes
+of any dimension greater than 2. But in the setting of manifolds there is a subgroup
+closure result in dimension 3.
+
+Theorem 4.22 If M is a compact non-positively curved 3-manifold, then every
+finitely generated subgroup of π1 M is the fundamental group of a compact non-
+positively curved 3-manifold.
+
+  This theorem is proved in [29]; it is a consequence of Scott’s Compact Core
+Theorem [103] and (3.15). The manifolds considered may have boundary.
+
+Cohomological obstructions
+Example 4.23 Let F be a free group of rank two, let Pn be the direct product of
+n copies of F and let hn : Pn → Z be a map whose restriction to each factor is a
+surjection. Let SBn = ker hn .
+   Following earlier work of Stallings [109] on the case n = 3, in [20] Bieri showed
+that if n ≥ 3 then SBn is finitely presented and that there is an Eilenberg-Maclane
+space K(SBn , 1) with a finite (n − 1)-skeleton, but H n (SBn , Z) is not finitely gen-
+erated and hence there is no K(SBn , 1) with a finite n-skeleton. It follows from
+2.1(7) that SBn is not the fundamental group of any compact non-positively curved
+space. (It does however satisfy the other properties listed in (2.1) — see [30].)
+
+Bad subgroups via fibre products
+In this section I shall explain how Baumslag, Miller, Short and I exploited the
+modified Rips construction (3.9) in [13].
+
+
+                                           169
+   The Rips construction encodes the pathologies of arbitrary finite group presen-
+tations into pairs of groups N ⊂ Γ, where Γ is the fundamental group of a compact
+negatively curved complex and N is a finitely generated subgroup. Here is an
+example of how this pathology gets transmitted:
+
+Proposition 4.24 In the notation of (3.9): if G = Γ/N has an unsolvable word
+problem, then N ⊂ Γ (which is finitely generated) has an unsolvable conjugacy
+problem.
+
+Proof We continue with the notation of (3.9). Fix a ∈ a. Since Γ is torsion-free
+and hyperbolic, the centralizer of a is cyclic (1.36). Moreover, one can arrange for
+a to be the generator of its centralizer (see [33, II.5] or [13]).
+   Given a word w in the generators X one can use the relations U to rewrite
+  −1
+w aw as a word ŵ in the generators a. If w ∈ N then obviously ŵ is conjugate
+to a in N . Conversely, if n−1 an = ŵ, then n−1 w centralizes a and hence w = nar
+for some r. It follows that w ∈ N if and only if ŵ is conjugate to a in N . But w
+is in N if and only if w = 1 in G = Γ/N , and we are assuming that there is no
+algorithm to decide if w = 1 in G.                                                2
+
+   Constructing finitely presented subgroups which display the sort of pathologies
+described in (4.24) is much harder. The key to doing so is the following technical
+theorem. A group G is said to be of type F3 if there is a K(G, 1) with a finite
+3-skeleton.
+                                                                       p
+Theorem 4.25 (The 1-2-3 theorem) Suppose that 1 → N → Γ→G → 1 is
+exact, and consider the fibre product:
+
+                     P := {(γ1 , γ2 ) | p(γ1 ) = p(γ2 )} ⊆ Γ × Γ.
+
+If N is finitely generated, Γ is finitely presented and G is of type F3 , then P is
+finitely presented.
+
+   The name of this theorem comes from the fact that the groups N, Γ and G are
+assumed to be of type F1 , F2 and F3 respectively. (Results similar to this, cast in
+the language of pictures, can be found in [5].)
+   The product of non-positively curved complexes is non-positively curved, so
+we may use the 1-2-3 theorem in tandem with the modified Rips construction in
+order to construct non-positively curved 4-dimensional complexes whose finitely
+presented subgroups display various pathologies.
+
+Theorem 4.26 There exist hyperbolic groups Γ and finitely presented subgroups
+P ⊂ Γ × Γ such that there is no algorithm to decide membership of P , and the
+conjugacy problem for P is unsolvable. (And Γ is the fundamental group of a
+compact negatively curved 2-complex.)
+
+  A subtle argument involving (4.26), a judicious choice of HNN extension and a
+careful analysis of centralizers, yields:
+
+                                         170
+ Theorem 4.27 There exists a compact non-positively curved 4-complex X and a
+ recursive class of finitely presented subgroups Hn ⊂ π1 X (n ∈ N) such that there is
+ no algorithm to determine if Hn is (abstractly) isomorphic to H0 .
+
+   By a process of relative hyperbolization one can isometrically embed X in a
+ polyhedral manifold, hence (4.13).
+   Let me finish be stating a result intended to illustrate how subtle the Subgroup
+ question (4.14) can be:
+
+ Theorem 4.28 ([29]) There exists a closed non-positively curved manifold of di-
+ mension nine whose fundamental group has a subgroup H ⊂ Γ such that: numdepth
+ ¿3 oodeep
+1. H has a finite K(H, 1),
+2. H satisfies a quadratic isoperimetric inequality,
+3. H has a solvable conjugacy problem,
+4. the centralizer CH (h) of every h ∈ H is finitely presented, but
+5. there exist h ∈ H such that CH (h) does not satisfy a quadratic isoperimetric
+ inequality, and therefore H does not act properly and cocompactly by isometries on
+ any CAT(0) space.
+
+
+ References
+   [1] S. B. Alexander and R. L. Bishop, “The Hadamard–Cartan theorem in locally convex
+       spaces”, Enseign. Math. 36 (1990) 309–320.
+   [2] A. D. Alexandrov, “A theorem on triangles in a metric space and some of its appli-
+       cations”, Trudy Mat. Inst. Steklov 38 (1951) 5-23.
+   [3] J. M. Alonso, “Inégalités isopérimétriques et quasi-isométries”, C.R. Acad. Sci.
+       Paris Sér. 1 Math. 311 (1990) 761–764.
+   [4] J. M. Alonso and M. R. Bridson, “Semihyperbolic groups”, Proc. London Math.
+       Soc. (3) 70 (1995) 56–114.
+   [5] Y.G. Baik, J. Harlander and S.J. Pride, The Geometry of Group Extensions, Preprint,
+       University of Glasgow, 1997.
+   [6] W. Ballmann, Lectures on Spaces of Nonpositive Curvature, DMV Seminar, Band
+       25, Birkäuser, Basel, Boston, Berlin 1995.
+   [7] W. Ballmann and M. Brin, “Polygonal complexes and combinatorial group theory”,
+       Geom. Dedicata 50 (1994) 164-191.
+   [8] W. Ballmann and S. Buyalo, “Non-positively curved metrics on 2-polyhedra”, Math.
+       Z. 222 (1996) 97–134.
+   [9] W. Ballmann, M. Gromov, V. Schroeder, “Manifolds of nonpositive curvature”, Prog.
+       Math. 61 Birkäuser, Boston, 1985
+  [10] V. Bangert and V. Schroeder “Existence of flat tori in analytic manifolds of nonpos-
+       itive curvature Ann. Sci. Ecole Num. Sup. 24 (1991) 605–634.
+  [11] C. Baribaud, Travail de diplôme, Univ. de Genève, 1993.
+  [12] G. Baumslag, M. R. Bridson, C. F. Miller III and H. B. Short, “Subgroups of au-
+       tomatic groups and their isoperimetric inequalities”, J. London Math. Soc.(2) 56
+       (1997) 292–304.
+
+
+                                            171
+[13] G. Baumslag, M. R. Bridson, C. F. Miller III and H. B. Short, Fibre products, non-
+     positive curvature and decision problems, Preprint, Oxford 1998.
+[14] G. Baumslag, C. F. Miller III and H. Short, “Unsolvable problems about small can-
+     cellation groups and word hyperbolic groups”, Bull. London Math. Soc. 23 (1993)
+     97–101.
+[15] G. Baumslag and J.E. Roseblade, “Subgroups of Direct Products of Two Free
+     Groups” J. London Math. Soc. (2) 30 (1984) 44–52.
+[16] G. Baumslag and D. Solitar “Some two-generator one-relator non-Hopfian groups”,
+     Bull. Amer. Math. Soc. 68 (1962) 199–201.
+[17] Nadia Benakli, “Polyèdres à géométrie locale donnée”, C. R. Acad. Sci. Paris 313
+     (1991) 561–564.
+[18] M. Bestvina and N. Brady, “Morse theory and finitenesss properties of groups”,
+     Invent. Math 129 (1997) 445–470.
+[19] R. Bieri, “Normal subgroups in duality groups and in groups of cohomological di-
+     mension 2”, J. Pure Appl. Algebra 7 (1976) 32–52.
+[20] R. Bieri, “Homological dimension of discrete groups”, Queen Mary Lecture Notes.
+[21] O. V. Bogopolskii and V. N. Gerasimov, “Finite subgroups of hyperbolic groups”,
+     Algebra and Logic 34 (1995) 343–345.
+[22] B. Bowditch, “Notes on Gromov’s hyperbolicity criterion for path-metric spaces in
+     Group theory from a geometrical viewpoint”, eds. E. Ghys, A. Haefliger, A. Ver-
+     jovsky, Proc. ICTP Trieste, World Scientific, Singapore (1991) 373–464.
+[23] B. Bowditch “A short proof that a subquadratic isoperimetric inequality implies a
+     linear one”, Michigan J. Math. 42 (1995) 103–107.
+[24] B. Bowditch “Minkowskian subspaces of non-positively curved metric spaces”, Bull.
+     London Math. Soc. 27(1995) 575–584.
+[25] N. Brady, “A non-hyperbolic finitely presented subgroup of a hyperbolic group”,
+     J. London Math. Soc., to appear.
+[26] M. R. Bridson, “Geodesics and curvature in metric simplicial complexes”, in Group
+     theory from a geometrical viewpoint, eds. E. Ghys, A. Haefliger, A. Verjovsky Proc.
+     ICTP Trieste, World Scientific, Singapore (1991) 373–464.
+[27] M. R. Bridson, “On the existence of flat planes in spaces of nonpositive curvature”,
+     Proc. Amer. Math. Soc. 123 (1995) 223–235.
+[28] M. R. Bridson, “On the geometry of normal forms in discrete groups”, Proc. London
+     Math. Soc.(3) 67 (1993) 596–616.
+[29] M. R. Bridson, “On the subgroups of semihyperbolic groups”, Preprint, Oxford 1998.
+[30] M. R. Bridson “Doubles, finiteness properties of groups and the quadratic isoperi-
+     metric inequality J. Algebra, to appear.
+[31] M. R. Bridson, “Controlled embeddings into groups that have no non-trivial finite
+     quotients”, J. Geom. Topol., to appear.
+[32] M.R. Bridson and S.M. Gersten “The optimal isoperimetric inequality for torus bun-
+     dles over the circle”, Quart. J. Math. 47 (1996), 1–23.
+[33] M.R. Bridson and A. Haefliger, Metric spaces of non-positive curvature, Springer-
+     Verlag, to appear.
+[34] M. R. Bridson and L. Mosher, “Metrics of non-positive curvature on 3-manifolds”,
+     in preparation.
+[35] M. R. Bridson and D. Wise, “VH-complexes, towers, and subgroups of F ×F ”, Math.
+     Proc. Cambridge Philos. Soc., to appear.
+[36] K. S. Brown Buildings, Springer Verlag, Berlin, Heidelberg, New York. 1988.
+[37] F. Bruhat et J. Tits, “Groupes réductifs sur un corps local. I. Données radiciells
+     valuées”, I.H.E.S Publ. Math. 41 (1972) 5–251.
+[38] Y. Burago, M. Gromov and G. Perel’man, “A. D. Alexandrov spaces with curvature
+
+
+                                          172
+     bounded below”, Russian Math. Surveys 47:2 (1992) 3–51.
+[39] M. Burger and S. Mozes, “Finitely presented simple groups and products of trees”,
+     C.R. Acad. Sci. Paris Sér 1 Math 324.I (1997) 747–752.
+[40] H. Busemann, “Spaces with non-positive curvature”, Acta Math. 48 (1947) 234–267.
+[41] S. Buyalo, “Euclidean planes in open 3-dimensional manifolds of non-positive curva-
+     ture”, St. Petersburg Math J. 3 (1992) 83–96.
+[42] J. W. Cannon, “ The combinatorial structure of cocompact discrete hyperbolic
+     groups” Geom. Dedicata 16 (1984) 123–148.
+[43] J. W. Cannon, “The theory of negatively curved spaces and groups” in Ergodic theory,
+     symbolic dynamics and hyperbolic spaces, eds. T. Bedford, M. Keane, C. Series.
+     Oxford Univ. Press, New York (1991) 315–369.
+[44] E. Cartan, Leçons sur la géométrie des espaces de Riemann, Gauthier-Villars, Paris
+     1928.
+[45] A. Cayley “On the theory of groups”, Proc. London Math. Soc., 9 (1878) 126–133.
+[46] B. Chandler and W. Magnus, “The history of combinatorial group theory”, Springer
+     Verlag, New York 1982.
+[47] R. Charney and M. Davis, “Strict hyperbolization”, Topology 34 (1995) 329–350.
+[48] J. Cheeger and B. Ebin, Comparison Theorems in Riemannian Geometry, North
+     Holland, Amsterdam 1975.
+[49] M. Coonaert, T. Delzant and A. Papadopoloulos, Notes sur les groupes hyperboliques
+     de Gromov, Springer Verlag, LN 1441 Berlin, Heidelberg, New York.
+[50] M.W. Davis, “Groups generated by reflections and aspherical manifolds not covered
+     Euclidean space”, Ann. Math. (2) 117 (1983) 293–324.
+[51] M. Davis and T. Januszkiewicz, “Hyperbolization of polyhedra”, J. Differential
+     Geom. 34 (1991) 347–388.
+[52] M. Dehn, Papers on group theory and topology, translated and introduced by John
+     Stillwell, Springer Verlag Berlin, Heidelberg, New York 1987.
+[53] M. Dehn, “Transformationen der Kurven auf zweiseitigen Flächen”, Math. Ann. 72
+     (1912) 413–421.
+[54] M. Dehn, “Uber unendliche diskontinuierliche Gruppen”, Math. Ann. 71 (1912)
+     116–144.
+[55] T. Delzant, “Sous-groupes distingués et quotients des groupes hyperboliques”, Duke
+     Math. J. 83 (1996) 661–682.
+[56] W. von Dyck, “Gruppentheoretische Studien”, Math. Ann. 20 (1882) 1–45.
+[57] P. B. Eberlein, “Geodesic flow in certain manifolds without conjugate points”, Trans.
+     Amer. Math. Soc. 167 (1972) 151–170.
+[58] V.A. Efromovich “The proximity geometry of Riemannian manifolds”, Uspekhi Math.
+     Nauk 8 (1953) 189–195,
+[59] D.B.A. Epstein, J.W. Cannon, D.F. Holt, S.V.F. Levy, M.S. Paterson, and W.P.
+     Thurston, Word Processing in Groups, Jones and Bartlett, Boston MA, 1992.
+[60] B. Farb “The quasi-isometry classification of lattices in semisimple Lie groups”, Math.
+     Res. Letters 4 (1997) 705–718.
+[61] T. Farrell and L. Jones, “Topological rigidity for compact non-positively curved man-
+     ifolds”, in “Differential geometry, Los Angeles 1990”, Proc. Sympos. Pure Math. 54,
+     1993, 224–274
+[62] S.M. Gersten “Subgroups of word hyperbolic groups in dimension 2”, J. London
+     Math. Soc. 54 (1996) 261–283.
+[63] S.M. Gersten and H. Short “Rational subgroups of biautomatic groups”, Ann. Math.
+     134 (1991) 125–158.
+[64] E. Ghys and P. de la Harpe (editors) “Sur les groupes hyperboliques d’après Mikhael
+     Gromov”, Prog. in Math. 83 Birkäuser, Boston 1990.
+
+
+                                           173
+[65] R. Grigorchuik “On the system of defining relations and the Schur multiplier of
+     periodic groups generated by finite automata”, in Proceedings of Groups St Andrews
+     1997 in Bath, eds. C.M. Campbell, E.F. Robertson, N. Ruskuc & G.C. Smith,
+     Cambridge University Press, Cambridge 1998.
+[66] D. Gromoll and J. Wolf, “Some relations between the metric structure and the al-
+     gebraic structure of the fundamental group in manifolds of non-positive curvature”,
+     Bull. Amer. Math. Soc. 77 (1971) 545–552.
+[67] M. Gromov, “Infinite groups as geometric objects”, Proc. ICM, Warsaw 1983 PWN,
+     Warsaw 1984, 385–392
+[68] M. Gromov, “Hyperbolic groups”, in Essays in group theory, ed. S. M. Gersten,
+     Springer Verlag, MSRI 8 (1987) 75–263.
+[69] M. Gromov, “Asymptotic invariants of infinite groups”, in Geometric Group Theory
+     LMS Lecture Notes, 182 eds. G. A. Niblo and M. A. Roller, Cambridge Univ. Press
+     1993.
+[70] M. Gromov, “Groups of polynomial growth and expanding maps”, Publ. Math.
+     I.H.E.S. 53 (1981) 53-78.
+[71] A. Haefliger “Complexes of groups and orbihedra” in “Group theory from a geometric
+     viewpoint” eds. E. Ghys, A. Haefliger, A. Verjovsy Proc. ICTP Trieste, World
+     Scientific, Singapore (1991) 504–540.
+[72] A. Haefliger, “Extension of complexes of groups”, Ann. Inst. Fourier 42 (1992) 275–
+     311.
+[73] F. Haglund “Les polyèdres de Gromov”, C. R. Acad. Sci. Paris Sér. 1 Math 313
+     (1991) 603–606.
+[74] J. Howie, “On pairs of 2-complexes and systems of equations over groups”, J. Reine
+     Angew. Math. 324 (1981) 165–174.
+[75] W. Jaco and P. Shalen, “Seifert fibered spaces in 3-manifolds”, Memoirs Amer.
+     Math. Soc. 220 (1979).
+[76] K. Johannson, Homotopy equivalence of 3-manifolds with boundaries, Springer Ver-
+     lag, LN 761, Berlin-Heidelberg- New York.
+[77] E. R. van Kampen, “On some lemmas in the theory of groups”, Amer. J. Math. 55
+     (1933) 268–273.
+[78] M. Kapovich and B. Leeb, “Actions of discrete groups on non-positively curved
+     spaces”, Math. Ann. 306 (1996) 341–352.
+[79] H. B. Lawson and S. T. Yau, “Compact manifolds of nonpositive curvature”, J.
+     Differential Geom. 7 (1972) 211–228.
+[80] B. Leeb “3-manifolds with(out) metrics of non-positive curvature”, Ph.D. thesis,
+     University of Maryland, 1993.
+[81] R. C. Lyndon and P. E. Schupp, “Combinatorial group theory”, Springer Verlag,
+     Berlin, Heidelberg, New York 1977.
+[82] I. G. Lysenok, “On some algorithmic properties of hyperbolic groups”, Math. USSR
+     Izv. 35 (1990) 145–163.
+[83] G. A. Margulis, Discrete subgroups of semisimple Lie groups, Ergeb. Math. 17
+     Springer Verlag, Berlin, Heidelberg, New York 1991.
+[84] A. A. Markov, “Insolubility of the problem of homeomorphy”, in Proc. ICM Cam-
+     bridge (1958) 300-306. Cambridge University Press, 1960.
+[85] D. Meier, “Non-Hopfian groups” J. London Math. Soc.(2) 26 (1982) 265–270.
+[86] C.F. Miller III, “Decision problems for groups: survey and reflections” in Algorithms
+     and Classification in Combinatorial Group Theory, eds. G Baumslag and C. F. Miller
+     III, MSRI Publ. 23, Springer-Verlag, Berlin, New York, Heidelberg 1992, 1–59.
+[87] J. Milnor “A note on curvature and the fundamental group”, J. Differential Geom.
+     2 (1968) 1–7.
+
+
+                                          174
+ [88] L. Mosher “Geometry of cubulated 3-manifolds”, Topology 34 (1995) 789–814.
+ [89] G. Moussong “ Hyperbolic Coxeter groups”, Ph.D Thesis, The Ohio State University,
+      1988.
+ [90] A. Yu. Ol’shanskii “Hyperbolicity of groups with subquadratic isoperimetric inequal-
+      ities”, Internat. J. Algebra Comput. 1 (1991) 281–289.
+ [91] A. Yu. Ol’shanskii “Almost every group is hyperbolic”, Intl. J. Alg. Comp. 2 (1992)
+      1–17.
+ [92] A. Yu. Ol’shanskii “SQ-universality of hyperbolic groups”, Mat. Sb. 186 (1995)
+      119-132.
+ [93] P. Pansu “Croissance des boules et des géodesiques fermées dans les nilvariétés”,
+      Ergodic Theory Dynamical Systems 3 (1983) 415-445.
+ [94] C. D. Papakiakopolous, “On Dehn’s lemma and the asphericity of knots” Ann. of
+      Math. 66 (1957) 1–26.
+ [95] P. Papasoglou “On the sub-quadratic isoperimetric inequality” in Geometric group
+      theory, Walter de Gruyter, Berlin-New York, 1995, 149–158.
+ [96] F. Paulin, “Construction of hyperbolic groups via hyperbolization of polyhedra” in
+      Group theory from a geometric viewpoint, eds. E. Ghys, A. Haefliger, A. Verjovsy
+      Proc. ICTP Trieste, World Scientific, Singapore 1991, 313–373.
+ [97] H. Poincaré, “Analysis Situs”, J. d’Ecole poly. Norm. 1 (1895) 1–121.
+ [98] H. Poincaré, “Cinquième complement à l’analysis situs”, Rend. Circ. Mat. Palermo
+      18 (1904) 45–110.
+ [99] E. Rips, “Subgroups of small cancellation groups Bull. London Math. Soc. 14
+      (1982) 45–47.
+[100] M. Sageev, “Ends of group pairs and non-positively curved cube complexes”, Proc.
+      London Math. Soc. 71 (1995) 585-617.
+[101] V. Schroeder, “Codimension one tori in manifolds of non-positive curvature”, Geom.
+      Dedicata 33 (1990) 251–263.
+[102] V. Schroeder, “A cusp closing theorem”, Proc. Amer. Math. Soc. 106 (1989)
+      797–802.
+[103] G. P. Scott, “Compact submanifolds of 3-manifolds”, J. London Math. Soc. 7 (1973)
+      246–250.
+[104] Z. Sela “The isomorphism problem for hyperbolic groups I”, Ann. of Math.(2) 141
+      (1995) 217–283.
+[105] J-P. Serre, Trees, Springer Verlag, Berlin, Heidelberg, New York 1980. Translation
+      by J. Stillwell of “Arbres, Amalgames, SL2 ”, Astérisque 46 (1977).
+[106] H. B. Short (editor) “Notes on negatively curved groups Group theory from a geo-
+      metrical viewpoint” Eds. E. Ghys, A. Haefliger, A. Verjovsky, Proc. ICTP Trieste,
+      World Scientific, Singapore (1991) 3–64.
+[107] H. B. Short, “Groups and combings”, Preprint, ENS Lyon, 1990.
+[108] J.R. Stallings, “Triangles of groups” in Group theory from a geometrical viewpoint,
+      eds E. Ghys, A. Haefliger, A. Verjovsky Proc. ICTP Trieste, World Scientific, Sin-
+      gapore (1991) 491–503.
+[109] J.R. Stallings, “A finitely presented group whose 3-dimensional integral homology is
+      not finitely generated”, Amer. J. Math. 85 (1963) 541–543.
+[110] A.S. Švarc, “Volume invariants of coverings”, Dokl. Ak. Nauk. 105 (1955) 32-34.
+[111] W. P. Thurston, “The geometry and topology of 3-manifolds”, Lecture notes, Prince-
+      ton University, 1980.
+[112] W. P. Thurston, “Three dimensional manifolds, Kleinian groups and hyperbolic ge-
+      ometry”, Bull. Amer. Math. Soc. 6 (1982) 357-381.
+[113] J. Tits, “On buildings and their Applications”, in Proc. ICM, Vancouver 1974 1
+      Canad. Math. Congress, Montreal 1975 209–220.
+
+
+                                           175
+[114] C.M. Weinbaum “The word and conjugacy problem for the knot group of any tame
+      prime alternating knot”, Proc. Amer. Math. Soc. 22 (1971) 22–26.
+[115] D.T. Wise Nonpositively curved squared complexes, aperiodic tilings, and non-resid-
+      ually finite groups, Ph.D Thesis, Princeton Univ., 1996.
+[116] D.T. Wise, “Incoherent negatively curved groups”, Proc. Amer. Math. Soc. 126
+      (1998) 957–964.
+[117] D.T. Wise, “An automatic group that is not Hopfian”, J. Algebra 180 (1996) 845–
+      847.
+[118] J.A. Wolf, Spaces of constant curvature, McGraw-Hill, New York, 1967.
+
+
+
+
+                                          176
+

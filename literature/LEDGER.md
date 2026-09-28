@@ -292,3 +292,26 @@ proof and finite evidence: `problems/F41/audit.md`.
   algorithms and class-nine commutator equations located no matching new
   primary theorem. The earlier Roman'kov and Duchin--Liang--Shapiro scope
   distinctions still apply. This bounded search does not certify novelty.
+
+## N4 and MA6 scope refresh, 28 September2026 approximately20:56–21:11 UTC
+
+Archived Kassabov math/0311488, Tolstykh0807.4341v2, Choi–Jo–Kim–Lee
+2406.11378v1 and Jang–Yi2512.20524v3. Read their relevant introductions
+and stated theorems, not the complete deep proofs. Original N4/MA6 pages,
+background and actual renders inspected. Free-nilpotent tower theorems
+do not cover all N4. The July2026 parabolic paper retains the rational
+non-freeness conjecture and rules out using failure of the orbit test as
+a freeness certificate. Precise references, reading limits and scope:
+`research/notes/N4-MA6-current-scope.md`. No new mathematical count.
+
+## H4 output-size candidate, 28 September2026 approximately21:00–21:15 UTC
+
+Read the standard Dehn convention in Bridson Definition1.4 and
+Ciobanu–Elder ICALP2019 Lemma13; viewed the latter page and the IAS
+question slide. Archived sources and the 2012 MathOverflow discussion,
+which supplies prior firsthand finite-group lower-bound suggestions.
+The argument here uses a prefix-automaton order bound and short
+metacyclic presentations. It is a candidate under explicit uniform
+input/output, with novelty unresolved. Search queries and exact credit:
+`problems/H4/audit.md`. No reliance on a claim that a historical problem
+list establishes current openness.

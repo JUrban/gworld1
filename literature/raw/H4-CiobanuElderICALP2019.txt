@@ -1,0 +1,817 @@
+Solutions Sets to Systems of Equations in
+Hyperbolic Groups Are EDT0L in PSPACE
+Laura Ciobanu
+Heriot-Watt University, Edinburgh EH14 4AS, Scotland
+l.ciobanu@hw.ac.uk
+
+Murray Elder
+University of Technology Sydney, Ultimo NSW 2007, Australia
+murray.elder@uts.edu.au
+
+      Abstract
+We show that the full set of solutions to systems of equations and inequations in a hyperbolic group,
+with or without torsion, as shortlex geodesic words, is an EDT0L language whose specification can be
+computed in NSPACE(n2 log n) for the torsion-free case and NSPACE(n4 log n) for the torsion case.
+Our work combines deep geometric results by Rips, Sela, Dahmani and Guirardel on decidability
+of existential theories of hyperbolic groups, work of computer scientists including Plandowski, Jeż,
+Diekert and others on PSPACE algorithms to solve equations in free monoids and groups using
+compression, and an intricate language-theoretic analysis.
+    The present work gives an essentially optimal formal language description for all solutions in all
+hyperbolic groups, and an explicit and surprising low space complexity to compute them.
+
+2012 ACM Subject Classification Theory of computation → Formal languages and automata
+theory; Theory of computation → Grammars and context-free languages; Theory of computation →
+Complexity classes; Mathematics of computing → Combinatorics on words
+
+Keywords and phrases Hyperbolic group, Existential theory, EDT0L language, PSPACE
+
+Digital Object Identifier 10.4230/LIPIcs.ICALP.2019.110
+
+Category Track B: Automata, Logic, Semantics, and Theory of Programming
+
+Related Version https://arxiv.org/abs/1902.07349
+
+Funding Research supported by Australian Research Council (ARC) Project DP160100486, and a
+Follow-On Grant from the International Centre of Mathematical Sciences (ICMS), Edinburgh.
+Laura Ciobanu: Supported by EPSRC grant EP/R035814/1.
+
+Acknowledgements The authors wish to thank Yago Antolín, Alex Bishop, François Dahmani,
+Volker Diekert, Michal Ferov and Jim Howie for helpful conversations, and the anonymous reviewers
+for their feedback and corrections.
+
+
+ 1      Introduction
+Hyperbolic groups were introduced by Gromov in 1987 [25], and play a significant role in
+group theory and geometry [12, 33, 40]. Virtually free groups, small cancellation groups, and
+the fundamental groups of extensive classes of negative curvature manifolds are important
+examples (see [1] for background). In a certain probabilistic sense made precise in [26, 37, 41],
+almost all finitely generated groups are hyperbolic. They admit very efficient solutions to the
+word and conjugacy problems [21, 27, 28], and extremely nice language-theoretic properties,
+for example the set of all geodesics over any generating set is regular (see Lemma 16), and
+forms a biautomatic structure [22]. They are exactly the groups which admit context-free
+multiplication tables [23], and have a particularly simple characterisation in terms of rewriting
+systems [6, 35] (see Lemma 13).
+             © Laura Ciobanu and Murray Elder;
+                                                                                                      EA
+
+
+
+
+             licensed under Creative Commons License CC-BY
+                                                                                                      TC S
+
+
+
+
+46th International Colloquium on Automata, Languages, and Programming (ICALP 2019).
+Editors: Christel Baier, Ioannis Chatzigiannakis, Paola Flocchini, and Stefano Leonardi;
+Article No. 110; pp. 110:1–110:15
+                    Leibniz International Proceedings in Informatics
+                    Schloss Dagstuhl – Leibniz-Zentrum für Informatik, Dagstuhl Publishing, Germany
+110:2   Solutions to Equations in Hyperbolic Groups
+
+
+            In this paper we consider systems of equations and inequations in hyperbolic groups,
+        building on and generalising work done in the area of solving equations over various groups
+        and monoids in PSPACE. Starting with work of Plandowski [38], many prominent researchers
+        have given PSPACE algorithms [7, 14, 16, 17, 18, 30, 31] to find (all) solutions to systems of
+        equations over free monoids, free groups, partially commutative monoids and groups, and
+        virtually free groups (that is, groups which have a free subgroup of finite index).
+            The satisfiability of equations over torsion-free hyperbolic groups is decidable by the work
+        of Rips and Sela [39], who reduced the problem in hyperbolic groups to solving equations in
+        free groups, and then calling on Makanin’s algorithm [36]. Kufleitner proved PSPACE for
+        decidability in the torsion-free case [34], without an explicit complexity bound, by following
+        Rips-Sela and then using Plandowski’s result [38]. Dahmani and Guirardel radically extended
+        Rips and Sela’s work to all hyperbolic groups (with torsion), by reducing systems of equations
+        to systems over virtually free groups, which they then reduced to systems of twisted equations
+        over free groups [11]. In terms of describing solution sets, Grigorchuck and Lysionok gave
+        efficient algorithms for the special case of quadratic equations [24].
+            Here we combine Rips, Sela, Dahmani and Guirardel’s approach with recent work of the
+        authors with Diekert [7, 14, 15] to obtain the following results.
+
+        I Theorem 1 (Torsion-free). Let G be a torsion-free hyperbolic group with finite symmetric
+        generating set S. Let Φ be a system of equations and inequations of size n (see Section 2 for
+        a precise definition of input size). Then the set of all solutions, as tuples of shortlex geodesic
+        words over S, is EDT0L. Moreover there is an NSPACE(n2 log n) algorithm which on input
+        Φ prints a description for the EDT0L grammar.
+
+        I Theorem 2 (Torsion). Let G be a hyperbolic group with torsion with finite symmetric
+        generating set S. Let Φ be a system of equations and inequations of size n (see Section 2 for
+        a precise definition of input size). Then the set of all solutions, as tuples of shortlex geodesic
+        words over S, is EDT0L. Moreover there is an NSPACE(n4 log n) algorithm which on input
+        Φ prints a description for the EDT0L grammar.
+
+        A corollary of Theorems 1 and 2 is that the existential theory for hyperbolic groups can be
+        decided in NSPACE(n2 log n) for torsion-free and NSPACE(n4 log n) for groups with torsion.
+        Another consequence of our work is that we can decide in the same space complexity as
+        above whether or not the solution set is empty, finite or infinite (see [8]).
+            EDT0L is a surprisingly low language complexity for this problem. EDT0L languages are
+        playing an increasingly useful role in group theory, not only in describing solution sets to
+        equations in groups [7, 14, 17], but more generally [4, 5, 9].
+            The paper is organised as follows. We briefly set up some notation for solution sets and
+        input size in Section 2. We then give an informal description of the entire argument for the
+        torsion-free case in Section 3. This overview uses various concepts which are defined more
+        carefully afterwards, but we hope that having the entire argument in one place is useful
+        for the reader to understand the “big picture” before descending into the details. Section 4
+        develops necessary material on EDT0L and space complexity. Section 5 covers the necessary
+        background on hyperbolic groups, including the key step to obtain a full solution set (as tuples
+        of shortlex geodesics) from a covering solution set (see Definition 3(iii)). In Section 6 we use
+        Rips and Sela’s canonical representatives (see [8, Appendix A]) in torsion-free hyperbolic
+        groups, to reduce the problem of finding solutions in a torsion-free hyperbolic group to
+        finding solutions in the free group on the same generators as the hyperbolic one. We show
+        that if the input system has size n then the resulting system in the free group has size O(n2 ).
+        Applying [7] produces a covering solution set in O(n2 log n) nondeterministic space, from
+L. Ciobanu and M. Elder                                                                                         110:3
+
+
+which we obtain the full set of solutions as shortlex geodesics in the original group, as an
+EDT0L language, in the same space complexity. In Section 7 we prove the general case for
+hyperbolic groups with torsion, following Dahmani and Guirardel who construct canonical
+representatives in a graph containing the Cayley graph of the hyperbolic group, and working
+in an associated virtually-free group.
+
+ 2       Notations for equations and solution sets
+Let G be a fixed group with finite symmetric generating set S. Let π : S ∗ → G be the
+natural projection map. Let {X1 , . . . , Xm }, m ⩾ 1, be a set of variables to which we
+adjoin their formal inverses Xi−1 and denote by X the union {Xi , Xi−1 | 1 ⩽ i ⩽ m}. Let
+C = {a1 , . . . , ak } ⊆ G be a set of constants and
+
+     Φ = {ϕj (X , C) = 1}hj=1 ∪ {ϕj (X , C) 6= 1}sj=h+1                                                  (1)
+
+be a set of s equations and inequations in G, where the length of each (in)equation is li .
+                                                 Ps
+Then the total length of the equations is n = i=1 li , and we take |Φ| = n as the input size
+in the remainder of the paper.
+    A tuple (g1 , . . . , gm ) ∈ Gm solves an equation [resp. inequation] ϕj in Φ if replacing
+each variable Xi by gi (and Xi−1 by gi−1 ) produces an identity [resp. inequality] in the
+group as follows:
+
+     ϕj (g1 , . . . , gm , a1 , . . . , ak ) = 1 [resp. ϕj (g1 , . . . , gm , a1 , . . . , ak ) 6= 1].
+
+A tuple (g1 , . . . , gm ) ∈ Gm solves Φ if it simultaneously solves ϕj for all 1 ⩽ j ⩽ s.
+
+I Definition 3.
+ (i) The group element solution set to Φ is the set
+
+            SolG (Φ) = {(g1 , . . . , gm ) ∈ Gm | (g1 , . . . , gm ) solves Φ}.
+
+ (ii) Let T ⊆ S ∗ and # a symbol not in S. The full set of T -solutions is the set
+
+            SolT,G (Φ) = {w1 # . . . #wm | wi ∈ T, (π(w1 ), . . . , π(wm )) solves Φ}.
+
+(iii) A set L ⊆ {w1 # . . . #wm | wi ∈ S ∗ , 1 ⩽ i ⩽ m} is a covering solution set to Φ if
+
+            {(π(w1 ), . . . , π(wk )) | w1 # . . . #wm ∈ L} = SolG (Φ).
+
+ 3       Overview of the proof
+In a free group, the equation xy = z has a solution in reduced words (that is, words which
+do not contain factors aa−1 for any a ∈ S) if and only if there exist words P, Q, R with
+x = P Q, y = Q−1 R, z = P R in the free monoid with involution over S ([7, Lemma 4.1]). In
+a hyperbolic group this direct reduction to cancellation-free equations is no longer true: a
+triangle xy = z where x, y, z are replaced by geodesics looks as in Figure 1a.
+    Rips and Sela [39] proved that in a torsion-free hyperbolic group one can define certain
+special words called canonical representatives so that a system of equations of the form
+Xj Yj = Zj , 1 ⩽ j ⩽ O(n) has solutions which are canonical representatives with the
+properties that their prefixes and suffixes coincide, as shown in Figure 1b, and the inner
+circle is the concatenation of three words with lengths in O(n). Moreover, these canonical
+representatives are (λ, µ)-quasigeodesics (Definition 15) where the constants λ, µ depend only
+on the group.
+
+
+                                                                                                               ICALP 2019
+110:4   Solutions to Equations in Hyperbolic Groups
+
+
+
+
+                                                                                            y2
+
+
+
+
+                                                                                  c1         c2
+
+
+                                                                             y1        c3         y3
+
+
+
+            (a) Using geodesics.                             (b) Using canonical representatives.
+
+           Figure 1 Solutions to xy = z in the Cayley graph of a hyperbolic group.
+
+
+            We use these facts to devise the following algorithm, presented here for the torsion-free
+        case. We treat the hyperbolic group G with finite generating set S as a constant. On input
+        a system of equations and inequations as in (1) of size n:
+        1. Replace inequations by equations (by using a new variable and requiring that this variable
+            is not trivial in the group, as explained in Section 6.3).
+        2. Triangulate the system, so that all equations have the form Xj Yj = Zj . The size of the
+            resulting system is still in O(n). Suppose there are q ∈ O(n) such equations.
+        3. Enumerate, one at a time, all possible tuples c = (c11 , c12 , c13 , . . . , cq1 , cq2 , cq3 ) of words
+           (say, in lex order) so that the length `(cji ) with respect to S is bounded by a constant in
+            O(n). Note that the size of each tuple (the sum of the lengths of the cij ) is in O(n2 ).
+        4. For each tuple c, run Dehn’s algorithm to check cj1 cj2 cj3 =G 1 for 1 ⩽ j ⩽ q. If this
+            holds for all j, write down a system of 3q equations
+
+               Xj = Pj cj1 Qj , Yj = Q−1
+                                      j cj2 Rj , Zj = Pj cj3 Rj .
+
+           Note that the resulting system, Φc , has size in O(n2 ).
+        5. We now call the algorithm of the authors and Diekert [7] to find all solutions to Φc
+           in the free group generated by S. This algorithm, on input of size O(n2 ), runs in
+           NSPACE(n2 log n), and prints a description of the EDT0L grammar which generates all
+           tuples of solutions as reduced words in S ∗ . Specifically it prints nodes and edges of a
+           trim NFA which is the rational control for the EDT0L grammar (see Definition 4 below).
+           Modify the algorithm so that the nodes printed include the label c which has length
+           O(n2 ) (so does not affect the complexity).
+        6. Delete the current system stored, and move to the next tuple c.
+        7. At the end, print out a new start node and  edges to the start node of the NFA for the
+           system Φc for all c already printed.
+            The NFA that is printed gives an EDT0L grammar that generates a language of tuples
+        which is a covering solution to the original system in the hyperbolic group. To obtain the
+        full set of solutions as shortlex geodesic words we need to perform further steps. Using the
+                                                                            4
+        facts that canonical representatives are (λ, µ)-quasigeodesics, and
+            the full set of (λ, µ)-quasigeodesics, QS,λ,µ
+            the set of all pairs {(u, v) ∈ QS,λ,µ | u =G v}
+            the set of all shortlex geodesics in G
+        are all regular, we can obtain from the covering solution an ET0L language, in the same space
+        complexity (by Proposition 9 below), which represents the full set of solutions in shortlex
+        geodesic words. Then finally, because of the special form of our solutions, we can apply a
+        version of the Copying Lemma of Ehrenfeucht and Rozenberg [19] to show that in fact the
+        resulting language of shortlex representatives is EDT0L in NSPACE(n2 log n).
+L. Ciobanu and M. Elder                                                                                  110:5
+
+
+    Details for handling the case of hyperbolic groups with torsion also follows this general
+scheme, however finding the analogue of canonical representatives is harder in this case, so
+further work is required, and we describe this in Section 7.
+
+ 4      E(D)T0L in PSPACE
+4.1     ET0L and EDT0L languages
+Let C be an alphabet. A table for C is a finite subset of C × C ∗ . If (c, v) is in some table t,
+we say that (c, v) is a rule for c. A table t is deterministic if for each c ∈ C there is exactly
+one v ∈ C ∗ with (c, v) ∈ t.
+      If t is a table and u ∈ C ∗ then we write u −→t v to mean that v is obtained by applying
+rules from t to each letter of u. That is, u = a1 . . . an , ai ∈ C, v = v1 . . . vn , vi ∈ C ∗ , and
+(ai , vi ) ∈ t for 1 ⩽ i ⩽ n. If H is a set of tables and r ∈ H ∗ then we write u −→r v to mean
+that there is a sequence of words u = v0 , v1 , . . . , vn = v ∈ C ∗ such that vi−1 −→ti vi for
+1 ⩽ i ⩽ n where r = t1 . . . tn . If R ⊆ H ∗ we write u −→R v if u −→r v for some r ∈ R.
+I Definition 4 ([2]). Let Σ be an alphabet. We say that L ⊆ Σ∗ is an ET0L language if
+there is an alphabet C with Σ ⊆ C, a finite set H ⊂ P(C × C ∗ ) of tables, a regular language
+R ⊆ H ∗ and a letter c0 ∈ C such that
+
+     L = {w ∈ Σ∗ | c0 −→R w}.
+
+In the case when every table h ∈ R is deterministic, i.e. each h ∈ R is in fact a homomorphism,
+we write L = {r(c0 ) ∈ Σ∗ | r ∈ R} and say that L is EDT0L. The set R is called the rational
+control, the symbol c0 the start symbol and C the extended alphabet.
+
+4.2     Space complexity for E(D)T0L
+Let f : N → N be a function. Recall an algorithm is said to run in NSPACE(f (n)) if it can be
+performed by a non-deterministic Turing machine with a read-only input tape, a write-only
+output tape, and a read-write work tape, with the work tape restricted to using O(f (n))
+squares on input of size n. The following definition formalises the idea of producing some
+E(D)T0L language (such as the solution set of some system of equations) in NSPACE(f (n)),
+where the language is the output of a computation with input (such as a system of equations)
+of size n. We use the notation L(A) to denote the language accepted by an automaton A.
+I Definition 5. Let Σ be a (fixed) alphabet and f : N → N a function. If there is an
+NSPACE(f (n)) algorithm that on input Ω of size n outputs the specification of an ET0L
+language LΩ ⊆ Σ∗ , then we say that LΩ is ET0L in NSPACE(f (n)).
+    Here the specification of LΩ consists of:
+    an extended alphabet C ⊇ Σ,
+    a start symbol c0 ∈ C,
+    a finite list of nodes of a (trim) NFA A, labeled by some data, some possibly marked as
+   initial and/or final,
+    a finite list {(u, v, h)} of edges of A where u, v are nodes and h ∈ P(C × C ∗ ) is a table
+such that LΩ = {w ∈ Σ∗ | c0 →L(A) w}.
+    A language LΩ is EDT0L in NSPACE(f (n)) if, in addition, every table h labelling an
+edge of A is deterministic.
+   Note that the entire print-out is not required to be in O(f (n)) space. Previous results of
+the authors with Diekert can now be restated as follows.
+
+
+
+                                                                                                        ICALP 2019
+110:6   Solutions to Equations in Hyperbolic Groups
+
+
+        I Theorem 6 ([7, Theorem 2.1]). The set of all solutions to a system of size n of equations
+        (with rational constraints), as reduced words, in a free group is EDT0L in NSPACE(n log n).
+
+        I Theorem 7 ([15, Theorem 45]). The set of all solutions to a system of size n of equations
+        (with rational constraints), as words in a particular quasigeodesic normal form over a certain
+        finite generating set, in a virtually free group is EDT0L in NSPACE(n2 log n).
+
+        I Remark 8. In our applications below we have Ω representing some system of equations
+        and inequations, with |Ω| = n, and we construct algorithms where the extended alphabet
+        C has size |C| ∈ O(n) in the torsion-free case and |C| ∈ O(n2 ) in the torsion case. This
+        means we can write down the entire alphabet C as binary strings within our space bounds.
+        Moreover, each element (c, v) of any table we construct has v of (fixed) bounded length, so
+        we can write down entire tables within our space bounds.
+
+
+        4.3    Closure properties
+        It is well known [32, Theorem 2.8] that ET0L is a full AFL (closed under homomorphism,
+        inverse homomorphism, finite union, intersection with regular languages). Here we show the
+        space complexity of an ET0L language is not affected by these operations.
+
+        I Proposition 9. Let Σ, Γ be finite alphabets of fixed size, M an NFA of constant size with
+        L(M ) ⊆ Σ∗ , and ϕ : Γ∗ → Σ∗ , ψ : Σ∗ → Γ∗ homomorphisms. If LΩ1 , LΩ2 ⊆ Σ∗ are E(D)T0L
+        in NSPACE(f (n)) (on inputs Ω1 , Ω2 , respectively, with |Ω1 |, |Ω2 | ∈ O(n)) then
+           (homomorphism) ψ(LΩ1 ) is E(D)T0L in NSPACE(f (n)),
+           (intersection with regular) LΩ1 ∩ L(M ) is E(D)T0L in NSPACE(f (n)),
+           (union) LΩ1 ∪ LΩ2 is E(D)T0L in NSPACE(f (n)),
+           (inverse homomorphism) ϕ−1 (LΩ1 ) is ET0L in NSPACE(f (n)).
+
+           The proof is straightforward keeping track of complexity in the standard proofs [3, 10].
+        Note EDT0L is not closed under inverse homomorphism [20].
+
+        I Proposition 10 (Projection onto a factor). If LΩ ⊆ Σ∗ is E(D)T0L in NSPACE(f (n)) on
+        an input Ω of size n, and for some fixed integer s all words in LΩ have the form u1 # . . . #us
+                            ∗
+        with ui ∈ (Σ \ {#}) , and 1 ⩽ i ⩽ j ⩽ s, then
+
+           L = {ui # . . . #uj | u1 # . . . #ui # . . . #uj # . . . #us ∈ LΩ }
+
+        is E(D)T0L in NSPACE(f (n)).
+
+
+        4.4    From ET0L to EDT0L
+        In computing the full solution set to equations as shortlex geodesic words, we will need to take
+        inverse homomorphism. Even though in general the image under an inverse homomorphism
+        of an EDT0L language is just ET0L, because of the special structure of solution sets we can
+        apply the Copying Lemma of Ehrenfeucht and Rozenberg [19] to show the following.
+
+        I Proposition 11. Let S be an alphabet and h : S → S 0 be a homomorphism of from S to a
+        disjoint alphabet S 0 = {s0 | s ∈ S} defined by h(s) = s0 . Let o be a symbol not in S ∪ S 0 and
+        define h(o) = o. Let L1 be a set of words of the form w o h(w) where w ∈ S ∗ . If L1 is ET0L
+        in NSPACE(f (n)), then L2 = {w | w o h(w) ∈ L1 } is EDT0L in NSPACE(f (n)).
+L. Ciobanu and M. Elder                                                                                  110:7
+
+
+Proof. By [19], any nondeterministic table in the grammar for L1 can be replaced by a finite
+number of deterministic tables (essentially, if nondeterminism allowed some letter c ∈ C to
+produce two different results, then some word in L1 would not have the form w o h(w)). So
+without loss of generality we can replace a table f containing (c, v1 ), . . . , (c, vk ) by k tables
+fi containing (c, vi ) only). This modification is clearly in the same space bound. Project
+onto the prefix using Proposition 10.                                                              J
+
+ 5     Hyperbolic groups
+5.1    Definitions
+Recall the Cayley graph for a group G with respect to a finite symmetric generating set S is
+a directed graph Γ(G, S) with vertices labeled by g ∈ G and a directed edge (g, h) labeled by
+s ∈ S whenever h =G gs. Let `(p), i(p) and f (p) resp. be the length, initial and terminal
+vertices of a path p in the Cayley graph. A path p is geodesic if `(p) is minimal among the
+lengths of all paths q with the same endpoints. If x, y are two points in Γ(G, S), we define
+d(x, y) to be the length of a shortest path from x to y in Γ(G, S).
+I Definition 12 (δ-hyperbolic group (Gromov)). Let G be a group with finite symmetric
+generating set S, and let δ ⩾ 0 be a fixed real number. If p, q, r are geodesic paths in Γ(G, S)
+with f (p) = i(q), f (q) = i(r), f (r) = i(p), we call [p, q, r] a geodesic triangle. A geodesic
+triangle is δ-slim if p is contained in a δ-neighbourhood of q ∪ r, that is, every point on one
+side of the triangle is within δ of some point on one of the other sides. (See for example
+Figure 1a.) We say (G, S) is δ-hyperbolic if every geodesic triangle in Γ(G, S) is δ-slim. We
+say (G, S) is hyperbolic if it is δ-hyperbolic for some δ ⩾ 0.
+   It is a straightforward to show that being hyperbolic is independent of choice of finite
+generating set. Thus we say G is hyperbolic if (G, S) is for some finite generating set S.
+I Lemma 13 (Dehn presentation). G is hyperbolic if and only if there is a finite list of pairs
+of words (ui , vi ) ∈ S ∗ × S ∗ with |ui | > |vi | and ui =G vi such that the following holds: if
+w ∈ S ∗ is equal to the identity of G then it contains some ui as a factor.
+This gives an algorithm to decide whether or not a word w ∈ S ∗ is equal to the identity:
+while `(w) > 0, look for some ui factor. If there is none, then w 6=G 1. Else replace ui by vi
+(which is shorter). This procedure is called Dehn’s algorithm.
+I Lemma 14. Dehn’s algorithm runs in (linear time and) linear space.
+I Definition 15 (Quasigeodesic). For λ ⩾ 1, µ ⩾ 0 real numbers, a path p in Γ(G, S) is a
+(λ, µ)-quasigeodesic if for any subpath q of p we have `(q) ⩽ λd(i(q), f (q)) + µ.
+    Throughout this article, we assume G is a fixed hyperbolic group which we treat as a
+constant for complexity purposes. We assume we are given (G, S), the constant δ, the finite
+list of pairs for Dehn’s algorithm, and any other constants depending only on the group.
+
+5.2    Languages in hyperbolic groups
+I Proposition 16. Let G be a fixed hyperbolic group with finite generating set S, λ ⩾ 1, µ ⩾ 0
+constants with λ ∈ Q and µ sufficiently large. Then the following sets are regular languages.
+ 1. The set of all geodesics over S.
+ 2. The set of all shortlex geodesics over S.
+ 3. The set of all (λ, µ)-quasigeodesics, QS,λ,µ ⊆ S ∗ .
+Furthermore, the set of all pairs of words (u, v) ∈ Q2S,λ,µ such that u =G v is accepted by an
+asynchronous 2-tape automaton.
+See [22, 29].
+
+                                                                                                        ICALP 2019
+110:8   Solutions to Equations in Hyperbolic Groups
+
+
+        5.3      Main reduction result
+        Here is our key technical result.
+
+        I Proposition 17 (Covering to full solution sets). Let G be a hyperbolic group with finite
+        symmetric generating set S. Let h : S → S 0 and QS,λ,µ be as defined above, #, o symbols
+        not in S ∪ S 0 , h(#) = #, h(o) = o, and T ⊆ QS,λ,µ a regular set of quasigeodesic words in
+        bijection with G. Suppose L1 ⊆ (S ∪ S 0 ∪ {#, o})∗ consists of words of the form
+
+             u1 # . . . #ur o h(v1 )# . . . #h(vr ), ui , vi ∈ QS,λ,µ , ui =G vi , 1 ⩽ i ⩽ r.
+
+        If L1 is ET0L in NSPACE(f (n)), then
+         1. LQ = {w1 # . . . #wr o h(z1 )# . . . #h(zr ) | ∃u1 # . . . #ur o h(v1 )# . . . #h(vr ) ∈ L1 , wi =G
+            zi =G ui , wi , zi ∈ QS,λ,µ } is ET0L in NSPACE(f (n)).
+         2. LT = {w1 # . . . #wr | ∃u1 # . . . #ur o h(v1 )# . . . #h(vr ) ∈ L1 , wi =G ui , wi ∈ T } is
+            EDT0L in NSPACE(f (n)).
+        The proof involves a series of operations as in Proposition 9–11, see [8] for further details.
+        Note that the set of all shortlex geodesics is a suitable choice for T in the proposition.
+
+
+
+         6       Reduction from torsion-free hyperbolic to free groups
+        Section 3 contains an overview of the general algorithm for solving equations in torsion-free
+        hyperbolic groups. Here we provide further details, and give a proof of the soundness and
+        completeness of our algorithm. The algorithm relies on the existence and special properties
+        of canonical representatives, whose construction is very technical (details are provided in [8]).
+        Their existence guarantees that the solutions of a system in a torsion-free hyperbolic group
+        generated by S can be found by solving an associated system in the free group on S, while
+        the fact that they are quasigeodesics (see [8, Prop. 30]) allows us to apply the results of the
+        previous sections to obtain the EDT0L characterisation of solutions in shortlex normal form.
+
+        I Proposition 18. Let G be a torsion-free hyperbolic group, with finite symmetric generating
+        set S. Let Φ be a system of equations and inequations of input size n as in Section 2. Let
+        h : S → S 0 , #, o be as in Proposition 17. Then there exist λ ⩾ 1, µ ⩾ 0 and
+
+             L = {w1 # . . . #wm o h(w1 )# . . . #h(wm ) | wi ∈ QS,λ,µ , 1 ⩽ i ⩽ m}
+
+        such that {w | woh(w) ∈ L} is a covering solution for Φ, and L is EDT0L in NSPACE(n2 log n).
+
+        Applying Proposition 17 immediately gives Theorem 1.
+
+        Proof. We produce a language L of quasigeodesic words over S such that the projection
+        of any tuple in L is in the group element solution set SolG (Φ) (soundness). We then prove
+        (using [39, Corollary 4.4]) that any solution in SolG (Φ) is the projection of some tuple in L
+        (completeness). Our proof follows the outline presented in Section 3.
+
+        1. Preprocessing.
+              (Remove inequations) We first transform Φ into a system consisting entirely of equations
+              by adding a variable xD to X and replacing any inequation ϕj (X , A) 6= 1 by ϕj (X , A) =
+              xD , with the constraint xD 6=G 1.
+L. Ciobanu and M. Elder                                                                                      110:9
+
+
+      (Triangulation) We transform each equation into several equations of length 3, by
+      introducing new variables. This can always be done (see the discussion in [7, Section
+                                            Ps
+      4]), and it produces approximately i=1 li ∈ O(n) triangular equations with set of
+      variables Z where m ⩽ |Z| ∈ O(n) and X ⊂ Z. From now on assume that the system
+      Φ consists of q ∈ O(n) equations of the form Xj Yj = Zj where 1 ⩽ j ⩽ q.
+2. Lifting Φ to the free group on S. In [39, Theorem 4.2] Rips and Sela define a constant,
+   which they call “bp”, that roughly bounds the circumference of the “centres” of the
+   triangles whose edges are canonical representatives. We denote here bp by ρ, and note
+   that ρ ∈ O(q) = O(n) depends on δ and linearly on q. As described in Section 3 we
+   run in lex order through all possible tuples of words c = (c11 , c12 , c13 , . . . , cq1 , cq2 , cq3 )
+   with cji ∈ S ∗ , `(cji ) ⩽ ρ ∈ O(n). For each tuple c we use Dehn’s algorithm to check
+   cj1 cj2 cj3 =G 1, and if this holds for all 1 ⩽ j ⩽ q we then construct a system Φc of
+   equations of the form
+
+       Xj = Pj cj1 Qj , Yj = Q−1
+                              j cj2 Rj , Zj = Pj cj3 Rj , 1 ⩽ j ⩽ q,                                 (2)
+
+   which has size O(n2 ). In order to avoid an exponential size complexity we write down each
+   system Φc one at a time, so the space required for this step is O(n2 ). Let Y ⊃ Z ⊃ X be
+   the new set of variables.
+3. Some observations. We pause to make the following observations. Any solution to Φc in
+   the free group F (S) is guaranteed to be a solution to Φ in the original hyperbolic group
+   G. Thus if S1 ⊆ F (S)m is a group element solution to Φc then π(S1 ) is a group element
+   solution to Φ in G. This will show soundness below.
+   Secondly, if (g1 , . . . , gm ) ∈ Gm is a solution to Φ in the original hyperbolic group, [39,
+   Theorem 4.2 and Corollary 4.4] (see Theorem 31 in [8]) guarantees that there exist
+   canonical representatives wi ∈ QS,λ,µ with wi =G gi for 1 ⩽ i ⩽ m, which have reduced
+   forms ui =G wi for 1 ⩽ i ⩽ m, and our construction is guaranteed to capture any such
+   collection of words. This will show completeness below.
+   Thirdly, note that the constraint that a word w ∈ S ∗ must be a (λ, µ)-quasigeodesic
+   and satisfy w =G 1 implies that `(w) ⩽ µ. Therefore we can construct a DFA D which
+   accepts all words in S ∗ equal to 1 in the hyperbolic group G of length at most µ in
+   constant space (using for example Dehn’s algorithm). In our next step, we will use this
+   rational constraint to handle the variable xD added in the first step above (to remove
+   inequalities).
+   Now let us complete the construction by finding the covering solution required.
+4. Covering solution set. We now run the algorithm from [7] (which we will refer to as
+   the CDE algorithm) which takes input Φc , which has size in O(n2 ), plus the rational
+   constraint xD 6∈ L(D), plus for each y ∈ Y the rational constraint that the solution for y
+   is a word in QS,λ,µ . Since these constraints have constant size (depending only on the
+   group G, not the system Φ), they do not contribute to the O(n2 ) size of the input to the
+   CDE algorithm.
+   We make two modifications to the details of the CDE algorithm. First, every node printed
+   by the algorithm should include the additional label c. (This ensures the NFA we print
+   for each system Φc is distinct.) This does not affect the complexity since c has size in
+   O(n2 ).
+   Second, so that we can apply Proposition 11 later, we modify the form of “extended
+   equations” in [7] by inserting the factor oh(W ) in the appropriate position(s). This simply
+   increases the size of the nodes by a factor (of two).
+
+
+
+
+                                                                                                            ICALP 2019
+110:10 Solutions to Equations in Hyperbolic Groups
+
+
+             We run the CDE algorithm to print an NFA (possibly empty) for each Φc , which is the
+             rational control for an EDT0L grammar that produces all solutions as freely reduced
+             words for elements of F (S) which correspond to solutions as (λ, µ)-quasigeodesics to
+             the same system Φc in the hyperbolic group. If (w1 , . . . , wm ) is a solution in canonical
+             representatives to Φ then (u1 , . . . , um , . . . u|Y| ) will be included in the solution to Φc
+             output by the CDE algorithm, with ui the reduced forms of wi for 1 ⩽ i ⩽ m. This
+             shows completeness once we union the grammars from all systems Φc together.
+             Adding a new start node with edges to each of the start nodes of the NFA’s with label
+             c, we obtain a rational control for the EDT0L grammar generating L as required. The
+             space required is exactly that required by the CDE algorithm on input O(n2 ), which is
+             NSPACE(n2 log n).                                                                              J
+
+
+         7      Reduction from hyperbolic with torsion to virtually free groups
+       In the case of a hyperbolic group G with torsion, the general approach of Rips and Sela
+       can still be applied, but the existence of canonical representatives is not always guaranteed
+       (see Delzant [13, Rem.III.1]). To get around this, Dahmani and Guirardel “fatten” the
+       Cayley graph Γ(G, S) of G to a larger graph K which contains Γ(G, S) (in fact Γ(G, S) with
+       midpoints of edges included), and solve equations in G by considering equalities of paths in
+       K. More precisely, K is the 1-skeleton of the barycentric subdivision of a Rips complex of G
+       (see [8] for definitions).
+
+        I Definition 19. Let γ, γ 0 be paths in K.
+          (i) We denote by i(γ) the initial vertex of γ, by f (γ) the final vertex of γ, and by γ the
+              reverse of γ starting at f (γ) and ending at i(γ).
+         (ii) We say that γ is reduced if it contains no backtracking, that is, no subpath of length 2
+              of the form ee.
+        (iii) We write γγ 0 for the concatenation of γ, γ 0 if i(γ 0 ) = f (γ).
+        (iv) Two paths in K are homotopic if one can obtain a path from the other by adding or
+              deleting backtracking subpaths. Each homotopy class has a unique reduced representative.
+
+           Let V be the set of all homotopy classes [γ] of paths γ in K with i(γ) = 1G , and f (γ) ∈ G.
+       For [γ], [γ 0 ] ∈ V define their product [γ][γ 0 ] = [γ v γ 0 ], where γ v γ 0 denotes the concatenation
+                                                                                                           −1
+       of γ and the translate v γ 0 of γ 0 by v = f (γ), and let [γ]−1 be the homotopy class of v γ.
+       Then V is a group that projects onto G by the final vertex map f , that is, f : V  G is a
+       surjective homomorphism. Moreover, since G has an action on K induced by the natural
+       action on its Rips complex, V will act on K as well. This gives rise to an action of V onto
+       the universal cover T (which is a tree) of K, and [11, Lemma 9.9] shows that the quotient
+       T /V is a finite graph (isomorphic to K/G) of finite groups, and so V is virtually free.
+           We assume that the algorithmic construction (see [11, Lemma 9.9]) of a presentation for
+       V is part of the preprocessing of the algorithm, will be treated as a constant, and will not be
+       included in the complexity discussion.
+           The first step in solving a system Φ of equations in G is to translate Φ into identities
+       between quasigeodesic paths (with start and end point in G) in K, defined as QGλ1 ,µ1 (V ) in
+       (5) in [8], paths which can be seen as the analogues of the canonical representatives from the
+       torsion-free case. This can be done by Proposition 9.8 [11]. The second step in solving Φ is
+       to express the equalities of quasigeodesic paths in K in terms of equations in the virtually
+       free group V based on K. Finally, Proposition 9.10 [11] shows it is sufficient to solve the
+       systems of equations in V in order to obtain the solutions of the system Φ in G.
+L. Ciobanu and M. Elder                                                                                 110:11
+
+
+    In the virtually free group V we will use the results from [15]. Let Y be the generating
+set of V and T ⊆ Y ∗ the set of normal forms for V over Y as in [15, Remark 44, page 50],
+and let
+
+   SolT,V (Ψ) = {w1 # . . . #wm ) ∈ T n | (π(w1 ), . . . , π(wm )) solves Ψ in V }
+
+be the language of T -solutions in V of a system Ψ of size |Ψ| = O(k); by [15] the language
+SolT,V (Ψ) consists of (λY , µY )-quasigeodesics and is EDT0L in NSPACE(k 2 log k) over Y .
+
+I Proposition 20. Let G be a hyperbolic group with torsion, with finite symmetric generating
+set S. Let Φ be a system of equations and inequations with |Φ| = n as in Section 2. Let
+h : S → S 0 , #, o be as in Proposition 17. Then there exist λ ⩾ 1, µ ⩾ 0 and
+
+   L = {w1 # . . . #wm o h(v1 )# . . . #h(vm ) | wi , vi ∈ QS,λ,µ , wi =G vi , 1 ⩽ i ⩽ m}
+
+such that {w | w o h(v) ∈ L} is a covering solution for Φ, and L is ET0L in NSPACE(n4 log n).
+
+Again applying Proposition 17 immediately gives Theorem 2.
+   Before proving Proposition 20 we need to show how one can translate between elements
+and words in V over the generating set Y , and elements and words in G over S via the graph
+K, so that the EDT0L characterisation of languages is preserved.
+
+I Notation. Let Z be some generating set of V and let π : Z ∗ → V be the standard projection
+map from words to group elements in V .
+ (i) For each zi ∈ Z there exists a unique reduced path pi in K with i(pi ) = 1G and
+     f (pi ) ∈ G; by concatenation for each word w = zi1 . . . zik over Z there is then a unique
+     path denoted
+
+         pw = pi1 . . . pik                                                                      (3)
+
+      with i(pw ) = 1K = 1G and f (pw ) ∈ G.
+ (ii) For each zi ∈ Z, assign a geodesic path γi in the Cayley graph Γ(G, S) such that
+      i(γi ) = 1G and f (γi ) = f (pi ) ∈ G, where pi as in (i). Let σ : Z ∗ → S ∗ be the
+      map/substitution given by σ(zi ) = γi ; by concatenation one can associate to each word
+      w = zi1 . . . zik over Z a path in Γ(G, S) denoted
+
+         γw = γi1 . . . γik = σ(w)                                                               (4)
+
+      with i(pw ) = 1G and f (γw ) = f (w) ∈ G.
+(iii) There exists a unique reduced path, denoted pπ(w) , which is homotopic to pw .
+
+Proof of Proposition 20. The algorithm to produce the language of solutions for Φ is similar
+to that outlined in Section 3 and detailed in the proof of Proposition 18, but it applies
+to different groups. The triangulation of Φ and introduction of a variable with rational
+constraint to deal with the inequations proceeds in the same manner. Again, we suppose
+after preprocessing we have q ∈ O(n) triangular equations.
+    Then for κ ∈ O(n) as in [8, Prop 36] define V⩽κ = {[γ] ∈ V | γ reduced and `K (γ) ⩽ κ}.
+One lifts the system Φ in G to a finite set of systems Ψc in the virtually free group V , one
+system for each q-tuple c of triples (c1 , c2 , c3 ) with ci ∈ V⩽κ and such that f (c1 c2 c3 ) = 1G ,
+as in [8, Prop 36]. We enumerate these tuples by enumerating triples of words (v1 , v2 , v3 )
+over the generating set Y of V with `Y (vi ) ⩽ κY , where κY ∈ O(q) is a constant depending
+on κ, as in Lemma 21(ii). By Lemma 21(ii) the tuples of path triples (pv1 , pv2 , pv3 ) (see (3))
+
+
+
+                                                                                                        ICALP 2019
+110:12 Solutions to Equations in Hyperbolic Groups
+
+
+        in K contain all q-tuples of triples (c1 , c2 , c3 ) with ci ∈ V⩽κY , up to homotopy. Then for each
+        triple (v1 , v2 , v3 ) we check whether f (v1 v2 v3 ) = 1G , and this is done by checking whether
+        σ(v1 )σ(v2 )σ(v3 ) =G 1 using the Dehn algorithm in G.
+            Then each system Ψc is obtained as in (2) in the proof of Proposition 18 and has input size
+        O(q 2 ) ∈ O(n2 ) since it has O(q) equations, each of length in O(q), and the factors ci inserted
+        also have length in O(q). For each system Ψc over V we apply the algorithm in [15] and obtain
+        the set of solutions SolT,V (Ψc ) as an EDT0L in NSPACE((q 2 )2 log(q 2 )) = NSPACE(n4 log n)
+        of (λY , µY )-quasigeodesics over Y .
+            Now let QSolT,V (Ψc ) be the set of all (λ01 , µ01 )-quasigeodesics which represent solutions
+        of Ψc in V over Y . By Proposition 17 this language is ET0L and by Corollary 22 it contains
+        at least one word over Y for each solution in QGλ1 ,µ1 (V ).
+            Then σ(QSolT,V (Ψc )) is ET0L since ET0L languages are preserved by substitutions, and
+        by [8, Prop 36] S = ∪c σ(QSolT,V (Ψc )) contains SolG (Φ), so it is a covering solution set of
+        Φ. By Lemma 23 the set S consists of at least one (λG , µG )-quasigeodesic over S for each
+        solution, and then by intersection with the regular set QS,λG ,µG of quasigeodesics in G over
+        S we obtain a set of solutions for Φ consisting of (λG , µG )-quasigeodesics.
+            Finally, we run the modified DE algorithm (inserting the additional oh(W ) and label c
+        for each node printed) to print an NFA for each Φc for the EDT0L grammar for SolT,V (Ψc ),
+        which we union using an extra start node as before. From the above work this grammar
+        generates the language L as required.                                                            J
+
+        I Lemma 21.
+          (i) If c ∈ V and the reduced path representing c in K is an (a, b)-quasigeodesic, then there
+              exists a word w on Y representing c such that w is an (a0 , b0 )-quasigeodesic, where a0 , b0
+              depend on a, b and Y .
+         (ii) If c ∈ V and the length of the reduced path representing c in K is ⩽ L, then there exists
+              a word w on Y representing c such that `Y (w) ⩽ LY , where LY depends on L and Y .
+
+        I Corollary 22. For any element v ∈ QGλ1 ,µ1 (V ) there is a (λ01 , µ01 )-quasigeodesic word over
+        Y representing v, where λ01 , µ01 depend on λ1 , µ1 and Y .
+
+       I Lemma 23. Let w be a (λ01 , µ01 )-quasigeodesic word over Y . Then if the reduced path pπ(w)
+       is (a, b)-quasigeodesic in K the (unreduced) path pw is (aK , bK )-quasigeodesic in K, where
+       (aK , bK ) depend on a, b, λ01 , µ01 and Y .
+           Moreover, σ(w) is a (λG , λG )-quasigeodesic over S in the hyperbolic group G, where
+       λG , λG depend on λ1 , µ1 and Y .
+
+        Proof. Consider the generating set Z = Y ∪V⩽3 for V and let λZ , µZ be such that any (λ01 , µ01 )-
+        quasigeodesic over Y is (λZ , µZ )-quasigeodesic over Z. Let M = max{lK (py ) | y ∈ Y }. That
+        is, M is the maximal length of a generator in Y with respect to the associated reduced path
+        length in K. We will show the statement in the lemma holds for (aK , bK ) = (a, b + M µZ ).
+            We say that a subpath sw of pw is a maximal backtrack if pw = psw p0 , sw is homotopic
+        to an empty path (via the elimination of backtrackings), and sw is not contained in a longer
+        subpath of pw with the same property. This implies there is a point A on pw such that
+        sw starts and ends at A, and such a maximal backtrack traces a tree in K. We can then
+        write pw = a1 s1 a2 . . . sn−1 an , where ai are (possibly empty) subpaths of pw and si are
+        maximal backtracks; thus pπ(w) = a1 a2 . . . an . If lK (si ) ⩽ M µZ for all i, then the result
+        follows immediately. Otherwise there exists an si with lK (si ) > M µZ , and we claim that we
+        can write si in terms of a word over Z that is not a quasigeodesic, which contradicts the
+        assumption that w is quasigeodesic.
+L. Ciobanu and M. Elder                                                                              110:13
+
+
+    To prove the claim, suppose i(si ) = f (si ) = A. We have two cases: in the first case A ∈ G
+then π(si ) =V 1 and si corresponds to a subword v of w for which lK (pv ) ⩾ M µZ . But v
+represents a word over Z, so lK (pv ) ⩽ lZ (v)M , and altogether M µZ ⩽ lK (pv ) ⩽ lZ (v)M.
+Since |v|Z = 0 and v is a (λZ , µZ )-quasigeodesic word over Z ∗ , lZ (v) ⩽ µZ , which contradicts
+lZ (v) ⩾ µZ from above.
+    In the second case A ∈  / G, so take a point B ∈ G at distance 1 from A in K (this can
+always be done), and modify the word w to get w0 over Z so that pw0 in K includes the
+backtrack [AB, BA] off the path pw . Also modify si to obtain a new backtrack s0i . Clearly
+π(pw ) = π(pw0 ) and π(si ) = π(s0i ), and s0i becomes a maximal backtrack of pw0 which can be
+written as a word over the generators Z that represents the trivial element in V . We can the
+apply the argument from the first case.
+    The fact that σ(w) is a (λG , µG )-quasigeodesic over S in the hyperbolic group G follows
+from the fact that K and Γ(G, S) are quasi-isometric.                                           J
+
+      References
+ 1   J. M. Alonso, T. Brady, D. Cooper, V. Ferlini, M. Lustig, M. Mihalik, M. Shapiro, and
+     H. Short. Notes on word hyperbolic groups. In Group theory from a geometrical viewpoint
+     (Trieste, 1990), pages 3–63. World Sci. Publ., River Edge, NJ, 1991.
+ 2   Peter R. J. Asveld. Controlled iteration grammars and full hyper-AFL’s. Information and
+     Control, 34(3):248–269, 1977.
+ 3   Peter R.J. Asveld. A Characterization of ET0L and EDT0L Languages. Number 129 in
+     Memorandum / Department of Applied Mathematics. Department of Applied Mathematics,
+     University of Twente, 1976.
+ 4   Alex Bishop and Murray Elder. Bounded Automata Groups are co-ET0L. In Carlos Martín-
+     Vide, Alexander Okhotin, and Dana Shapira, editors, Language and Automata Theory and
+     Applications, pages 82–94, Cham, 2019. Springer International Publishing.
+ 5   Tara Brough, Laura Ciobanu, Murray Elder, and Georg Zetzsche. Permutations of context-free,
+     ET0L and indexed languages. Discrete Math. Theor. Comput. Sci., 17(3):167–178, 2016.
+ 6   James W. Cannon. The theory of negatively curved spaces and groups. In Ergodic theory,
+     symbolic dynamics, and hyperbolic spaces (Trieste, 1989), Oxford Sci. Publ., pages 315–369.
+     Oxford Univ. Press, New York, 1991.
+ 7   Laura Ciobanu, Volker Diekert, and Murray Elder. Solution sets for equations over free
+     groups are EDT0L languages. Internat. J. Algebra Comput., 26(5):843–886, 2016. doi:
+     10.1142/S0218196716500363.
+ 8   Laura Ciobanu and Murray Elder. Solutions sets to systems of equations in hyperbolic groups
+     are EDT0L in PSPACE. arXiv e-prints, abs/1902.07349, February 2019. arXiv:1902.07349.
+ 9   Laura Ciobanu, Murray Elder, and Michal Ferov. Applications of L systems to group theory.
+     Internat. J. Algebra Comput., 28(2):309–329, 2018. doi:10.1142/S0218196718500145.
+10   Karel Culik, II. On some families of languages related to developmental systems. Internat. J.
+     Comput. Math., 4:31–42, 1974. doi:10.1080/00207167408803079.
+11   François Dahmani and Vincent Guirardel. Foliations for solving equations in groups: free,
+     virtually free, and hyperbolic groups. J. Topol., 3(2):343–404, 2010. doi:10.1112/jtopol/
+     jtq010.
+12   François Dahmani and Vincent Guirardel. The isomorphism problem for all hyperbolic groups.
+     Geom. Funct. Anal., 21(2):223–300, 2011. doi:10.1007/s00039-011-0120-0.
+13   T. Delzant. L’image d’un groupe dans un groupe hyperbolique. Comment. Math. Helv.,
+     70(2):267–284, 1995. doi:10.1007/BF02566008.
+14   Volker Diekert and Murray Elder. Solutions of twisted word equations, EDT0L languages,
+     and context-free groups. In 44th International Colloquium on Automata, Languages, and
+     Programming, volume 80 of LIPIcs. Leibniz Int. Proc. Inform., pages Art. No. 96, 14. Schloss
+     Dagstuhl. Leibniz-Zent. Inform., Wadern, 2017.
+
+
+
+
+                                                                                                     ICALP 2019
+110:14 Solutions to Equations in Hyperbolic Groups
+
+
+        15   Volker Diekert and Murray Elder. Solutions to twisted word equations and equations in
+             virtually free groups. arXiv e-prints, January 2017. arXiv:1701.03297.
+        16   Volker Diekert, Claudio Gutiérrez, and Christian Hagenah. The existential theory of equations
+             with rational constraints in free groups is PSPACE-complete. In A. Ferreira and H. Reichel,
+             editors, Proc. 18th Annual Symposium on Theoretical Aspects of Computer Science (STACS’01),
+             Dresden (Germany), 2001, volume 2010 of Lecture Notes in Computer Science, pages 170–182.
+             Springer-Verlag, 2001. doi:10.1007/3-540-44693-1_15.
+        17   Volker Diekert, Artur Jeż, and Manfred Kufleitner. Solutions of word equations over partially
+             commutative structures. In 43rd International Colloquium on Automata, Languages, and
+             Programming, volume 55 of LIPIcs. Leibniz Int. Proc. Inform., pages Art. No. 127, 14. Schloss
+             Dagstuhl. Leibniz-Zent. Inform., Wadern, 2016.
+        18   Volker Diekert, Artur Jeż, and Wojciech Plandowski. Finding all solutions of equations in
+             free groups and monoids with involution. Inform. and Comput., 251:263–286, 2016. doi:
+             10.1016/j.ic.2016.09.009.
+        19   A. Ehrenfeucht and G. Rozenberg. On Decomposing Some ET0L Languages Into Deterministic
+             ET0L Languages, 1974. CU-CS-045-74. Computer Science Technical Reports (44). URL:
+             https://scholar.colorado.edu/csci_techreports/44.
+        20   A. Ehrenfeucht and G. Rozenberg. On inverse homomorphic images of deterministic ET0L
+             languages. In Automata, languages, development, pages 179–189. North-Holland, Amsterdam,
+             1976.
+        21   David Epstein and Derek Holt. The linearity of the conjugacy problem in word-hyperbolic
+             groups. Internat. J. Algebra Comput., 16(2):287–305, 2006. doi:10.1142/S0218196706002986.
+        22   David B. A. Epstein, James W. Cannon, Derek F. Holt, Silvio V. F. Levy, Michael S. Paterson,
+             and William P. Thurston. Word processing in groups. Jones and Bartlett Publishers, Boston,
+             MA, 1992.
+        23   Robert H. Gilman. On the definition of word hyperbolic groups. Math. Z., 242(3):529–541,
+             2002.
+        24   R. I. Grigorchuk and I. G. Lysionok. A description of solutions of quadratic equations
+             in hyperbolic groups. Internat. J. Algebra Comput., 2(3):237–274, 1992. doi:10.1142/
+             S0218196792000153.
+        25   M. Gromov. Hyperbolic groups. In Essays in group theory, volume 8 of Math. Sci. Res. Inst.
+             Publ., pages 75–263. Springer, New York, 1987. doi:10.1007/978-1-4613-9586-7_3.
+        26   M. Gromov. Random walk in random groups. Geom. Funct. Anal., 13(1):73–146, 2003.
+             doi:10.1007/s000390300002.
+        27   Derek F. Holt. Word-hyperbolic groups have real-time word problem. Internat. J. Algebra
+             Comput., 10(2):221–227, 2000. doi:10.1142/S0218196700000078.
+        28   Derek F. Holt, Markus Lohrey, and Saul Schleimer. Compressed decision problems in hyperbolic
+             groups. In 36th International Symposium on Theoretical Aspects of Computer Science (STACS
+             2019), volume 34 of LIPIcs. Leibniz Int. Proc. Inform. Schloss Dagstuhl. Leibniz-Zent. Inform.,
+             Wadern, 2019. doi:10.4230/LIPIcs.STACS.2019.34.
+        29   Derek F. Holt and Sarah Rees. Regularity of quasigeodesics in a hyperbolic group. Internat.
+             J. Algebra Comput., 13(5):585–596, 2003. doi:10.1142/S0218196703001560.
+        30   Artur Jeż. Recompression: a simple and powerful technique for word equations. J. ACM,
+             63(1):Art. 4, 51, 2016. doi:10.1145/2743014.
+        31   Artur Jeż. Word equations in nondeterministic linear space. In 44th International Colloquium
+             on Automata, Languages, and Programming, volume 80 of LIPIcs. Leibniz Int. Proc. Inform.,
+             pages Art. No. 95, 13. Schloss Dagstuhl. Leibniz-Zent. Inform., Wadern, 2017.
+        32   Lila Kari, Grzegorz Rozenberg, and Arto Salomaa. L systems. In Handbook of formal languages,
+             Vol. 1, pages 253–328. Springer, Berlin, 1997.
+        33   Olga Kharlampovich and Alexei Myasnikov. Definable sets in a hyperbolic group. Internat. J.
+             Algebra Comput., 23(1):91–110, 2013. doi:10.1142/S021819671350001X.
+L. Ciobanu and M. Elder                                                                                 110:15
+
+
+34   Manfred Kufleitner. Wortgleichungen in hyperbolischen Gruppen. Diplomarbeit, Uni-
+     versität Stuttgart, Fakultät Informatik, Germany, July 2001. URL: http://www2.informatik.
+     uni-stuttgart.de/cgi-bin/NCSTRL/NCSTRL_view.pl?id=DIP-1922&engl=0.
+35   I. G. Lysionok. Some algorithmic properties of hyperbolic groups. Izv. Akad. Nauk SSSR Ser.
+     Mat., 53(4):814–832, 912, 1989. doi:10.1070/IM1990v035n01ABEH000693.
+36   Gennadií Semyonovich Makanin. Equations in a free group. Izv. Akad. Nauk SSR, Ser. Math.
+     46:1199–1273, 1983. English transl. in Math. USSR Izv. 21 (1983).
+37   A. Yu. Ol0 shanskiı̆. Almost every group is hyperbolic. Internat. J. Algebra Comput., 2(1):1–17,
+     1992. doi:10.1142/S0218196792000025.
+38   Wojciech Plandowski. Satisfiability of word equations with constants is in PSPACE. J. ACM,
+     51(3):483–496, 2004. doi:10.1145/990308.990312.
+39   E. Rips and Z. Sela. Canonical representatives and equations in hyperbolic groups. Invent.
+     Math., 120(3):489–512, 1995. doi:10.1007/BF01241140.
+40   Z. Sela. Diophantine geometry over groups and the elementary theory of free and hyperbolic
+     groups. In Proceedings of the International Congress of Mathematicians, Vol. II (Beijing,
+     2002), pages 87–92. Higher Ed. Press, Beijing, 2002.
+41   L. Silberman. Addendum to: “Random walk in random groups” [Geom. Funct. Anal. 13
+     (2003), no. 1, 73–146; MR1978492] by M. Gromov. Geom. Funct. Anal., 13(1):147–177, 2003.
+     doi:10.1007/s000390300003.
+
+
+
+
+                                                                                                        ICALP 2019
+

@@ -1,0 +1,1262 @@
+                                              INFINITELY GENERATED FREE NILPOTENT GROUPS:
+                                               COMPLETENESS OF THE AUTOMORPHISM GROUPS
+arXiv:0807.4341v2 [math.GR] 3 Apr 2009
+
+
+
+
+                                                                          VLADIMIR TOLSTYKH
+
+
+
+
+                                                 Abstract. We transfer the results of Dyer, Formanek and Kassabov on the
+                                                 automorphism towers of finitely generated free nilpotent groups to infinitely
+                                                 generated free nilpotent groups. We prove that the automorphism groups of
+                                                 infinitely generated free nilpotent groups are complete. By combining the
+                                                 results of Dyer, Formanek, Kassabov with the results in the present paper,
+                                                 one gets that the automorphism tower of any free nilpotent group terminates
+                                                 after finitely many steps.
+
+
+                                                                              Introduction
+                                             Baumslag conjectured in the 1970s that the automorphism tower of a finitely
+                                         generated free group (free nilpotent group) must be very short. Dyer and Formanek
+                                         [8] justified the conjecture concerning finitely generated free groups in the “sharpest
+                                         sense” by proving that the automorphism group Aut(Fn ) of a non-abelian free group
+                                         Fn of finite rank n is complete. Recall that a group G is said to be complete if G is
+                                         centreless and all automorphisms of G are inner; it then follows that Aut(G) ∼    = G.
+                                         Thus Aut(Aut(Fn )) ∼   = Aut(Fn ), or, in other words, the height of the automorphism
+                                         tower over Fn is two. The proof of completeness of Aut(Fn ) given by Dyer and
+                                         Formanek in [8] has later been followed by the proofs given by Formanek [11], by
+                                         Khramtsov [14], by Bridson and Vogtmann [3], and by the author [17]. The proof
+                                         given in [17] works for arbitrary non-abelian free groups; thus the automorphism
+                                         groups of infinitely generated free groups are also complete.
+                                             Let Fn,c denote a free nilpotent group of finite rank n ⩾ 2 and of nilpotency
+                                         class c ⩾ 2. In [9] Dyer and Formanek studied the automorphism towers of free
+                                         nilpotent groups Fn,2 of class two. They showed that the group Aut(Fn,2 ) is com-
+                                         plete provided that n 6= 3. In the case when n = 3 the height of the automorphism
+                                         tower of Fn,2 is three. The main result of [18] states that the automorphism group
+                                         of any infinitely generated free nilpotent group of class two is complete.
+                                             In [10] Dyer and Formanek proved completeness of the automorphism groups
+                                         of groups of the form Fn /R′ where R is a characteristic subgroup of Fn which is
+                                         contained in the commutator subgroup Fn′ of Fn and Fn /R is residually torsion-free
+                                         nilpotent.
+                                             In his Ph. D. thesis [13] Kassabov found an upper bound u(n, c) ∈ N for the
+                                         height of the automorphism tower of Fn,c in terms of n and c, thereby finally proving
+                                         Baumslag’s conjecture on finitely generated free nilpotent groups. By analyzing the
+                                         function u(n, c) one can conclude that if c is small compared to n, then the height
+                                         of the automorphism tower of Fn,c is at most three.
+
+                                           2000 Mathematics Subject Classification. 20F28 (20F18, 03C60).
+                                                                                      1
+                  COMPLETENESS OF THE AUTOMORPHISM GROUPS                            2
+
+
+    The main result of the present paper generalizing the main result of [18] states
+that the automorphism group of any infinitely generated free nilpotent group of
+nilpotency class ⩾ 2 is complete.
+    We would like, before discussing the structure of the paper, to discuss model-
+theoretic terminology that will be used throughout the paper. Generally speaking,
+it is often required, when studying the automorphisms of a given structure M, to
+show that a certain subset (relation) S of M is invariant under all automorphisms
+of M. Similarly, it might be required to show that S is fixed setwise by all auto-
+morphisms of M that fix a given subset R of M pointwise. Natural examples of
+subsets of M that are invariant under all automorphisms are given by subsets that
+are definable in M by formulae of some logic L. Let L be a logic and M a structure
+in the language of L. A subset S of M is said to be definable in M by means of
+L, if there is a formula χ(v) of L such that S = χ(M), that is, S is the set of all
+realizations (“solutions”) of χ in M; S is said to be definable with parameters a
+where a is a tuple of elements of M if S = ϑ(M, a) for some formula ϑ(v, u) of L.
+Proposition 0.1. [12, Lemma 2.1.1] Suppose that a subset S is definable in M
+(resp. definable in M with parameters a) by means of some logic L. Then S is
+fixed setwise by all automorphisms of M (resp. by all automorphisms of M that
+fix parameters a elementwise).
+   For instance, the family i(G) of all involutions is definable in any group G by
+means of both first-order and second-order logics (for the definition of the full
+second-order logic see Section 2.8 of [12]); on the other hand, the subgroup gener-
+ated by i(G) may not be first-order definable in G, but it is second-order definable
+in G etc. In most of cases below, we prefer to speak simply of definable subsets,
+skipping references to logics whose formulae could be used to define them, although
+it is safe to think that everywhere below “definable” means “second-order defin-
+able” (we must warn the reader that in model-theoretic texts “definable” often
+means “first-order definable”).
+   We would like to stress that despite the presence of model-theoretic terminology
+in the paper, no prior knowledge of model theory is actually assumed, since the
+reader who is not familiar with model theory can always substitute his or her own
+arguments to see that a particular definable set behaves as in the conclusion of the
+Proposition above.
+   The paper is organized as follows. Let N be an infinitely generated free nilpotent
+group of nilpotency class at least two and let ∆ ∈ Aut(Aut(N )). In the first section
+we show that the subgroup Inn(N ) of all inner automorphisms of N is definable in
+the group Aut(N ). This implies that ∆ can be followed by an inner automorphism
+Tρ of the group Aut(N ) so that the resulting automorphism ∆1 = Tρ ◦ ∆ fixes the
+subgroup Inn(N ) pointwise. The main result of the second section states that the
+subgroup IA2 (N ), the kernel of the homomorphism Aut(N ) → Aut(N/[N, N, N ]),
+determined by the natural homomorphism N → N/[N, N, N ], is also fixed pointwise
+by ∆1 ; this constitutes the major step towards the proof that ∆1 fixes all elements of
+the subgroup IA(N ) of Aut(N ). Sections 3 and 4 are devoted to the reconstruction
+of primitive elements of N in the group Γ = Aut(N ), the key result here says that
+the stabilizer
+                           Γ(x) = {σ ∈ Aut(N ) : σ(x) = x}
+where x is a primitive element of N is definable in Aut(N ) with a certain parameter
+π ∈ Aut(N ). In the final Section 5 we show that it is possible to reconstruct in
+                    COMPLETENESS OF THE AUTOMORPHISM GROUPS                                    3
+
+
+Aut(N ) the multiplication of “independent” primitive elements. This enables us to
+show that the automorphism ∆1 above can be followed by an inner automorphism
+of Aut(N ) so that the resulting automorphism ∆2 fixes pointwise some generating
+set of the group Aut(N ).
+
+                             1. Stabilizing conjugations
+   Throughout the paper, N will denote an infinitely generated free nilpotent group
+and c will always denote nilpotency class of N. We shall assume, if not otherwise
+stated, that c ⩾ 2.
+   The aim of this section is to establish definability of the subgroup Inn(N ) of all
+inner automorphisms of N in the group Aut(N ). For convenience’s sake, we shall
+simply call inner automorphisms of N conjugations. By the agreement, if a ∈ N
+then conjugation τa determined by a is the automorphism
+                                 τa (z) = aza−1      (z ∈ N ).
+   We use standard commutator notation: if a1 , . . . , as are elements of any group,
+then [a1 , a2 ] = a1 a2 a−1
+                         1 a2
+                             −1
+                                and [a1 , . . . , as ] = [[a1 , . . . , as−1 ], as ] where s ⩾ 3.
+Given a group G, we denote by γk (G) the k-th term of the lower central series of
+G: γ1 (G) = G and γk+1 (G) = [γk (G), G] (k ∈ N). We denote the group γk (N ) by
+Nk . Since N ∼  = F/γc+1 (F ) where F is a free group having the same rank as N, the
+quotient group N/Nk+1 where 1 ⩽ k ⩽ c − 1 is a free nilpotent group of nilpotency
+class k; if ϕk is the homomorphism Aut(N ) → Aut(N/Nk+1 ), determined by the
+natural homomorphism N → N/Nk+1 , then the kernel of ϕk will be denoted by
+IAk (N ). Recall that the elements of the group IA1 (N ) are called IA-automorphisms
+of N and the standard notation for the group IA1 (N ) is IA(N ).
+   In the following proposition we collect some well-known facts about N (its au-
+tomorphism group Aut(N )) that we shall frequently use below.
+Proposition 1.1. (i) Given any basis X of N and any family {tx : x ∈ X } of
+elements of Nk where k ⩾ 2, there is an automorphism α ∈ IAk−1 (N ) that takes x
+to xtx for every x ∈ X ;
+   (ii) the c-th term Nc of the lower central series of N, a free abelian group, is the
+centre of the group N ;
+   (iii) any IA-automorphism of N fixes each element of Nc and any element of
+IAc−1 (N ) fixes each element of N ′ , the commutator subgroup of N ;
+   (iv) the group IAc−1 (N ) is the centre of the group IA(N ), and then IAc−1 (N ) is
+a (torsion-free) abelian group;
+   (v) the homomorphism Aut(N ) → Aut(N/Nk+1 ) where 1 ⩽ k ⩽ c−1, determined
+by the natural homomorphism N → N/Nk+1 , is surjective.
+Proof. (i) See Theorem 31.25 in [16].
+  (ii) See Theorems 31.61, 31.63 of [16].
+  (iii) Both statements immediately follow from Theorem 5.3 of [15].
+  (iv) Let α be an arbitrary IA-automorphism and η an arbitrary element of
+IAc−1 (N ). Take a basis X of N. Then αx = xtx where tx ∈ N ′ and ηx = xsx
+where sx ∈ Nc (x ∈ X ). By (iii), for all x ∈ X we have that η −1 x = xs−1
+                                                                        x . Again
+by (iii),
+                  ηαη −1 x = ηα(xs−1             −1
+                                    x ) = η(xtx sx ) = xtx = αx
+for every x ∈ X .
+                 COMPLETENESS OF THE AUTOMORPHISM GROUPS                             4
+
+
+  Conversely, suppose that σ is an element of the centre of IA(N ). Then for every
+conjugation τa ∈ Inn(N ) ⊆ IA(N ) we have that
+                                τa = στa σ −1 = τσ(a)
+whence, by (ii), σa ≡ a (mod Nc ), or, in other words, σ is an element of IAc−1 (N ).
+   (v) By (i), any basis of the free nilpotent group N/Nk+1 can be lifted to a basis
+of N, whence the result.                                                          
+Proposition 1.2. The group Aut(N ) is centreless.
+Proof. We shall use the following claim in due course below; it can be applied in
+the proof of the Proposition as well.
+Claim 1.3. Let X be any basis of N and π be an automorphism of N such that π
+preserves X , fixes x and all π-orbits on Y = X \ {x} are infinite. Suppose α is an
+IA-automorphism that commutes with π. Then αx = x.
+Proof. Write αx as xw(x, y) where w is a reduced word over X , w(x, y) ∈ N ′ , and
+y a finite tuple of elements of Y.
+   Then the condition παπ −1 x = αx implies that
+                         w(x, y) = π k w(x, y) = w(x, π k y).
+for all k ∈ Z. Since evidently there is a power π k of π with y ∩ π k y = ∅, then the
+word w must be trivial.                                                            
+   Now take any basis X of N and choose for every x ∈ X an automorphism πx of
+N such that πx (X ) = X and all πx -orbits on X but the orbit of x which is equal
+to {x} are infinite.
+   Suppose σ is a central element of Aut(N ). By Proposition 1.1 (iv), σ ∈ IAc−1 (N ).
+As σ commutes with every πx , we have by Claim 1.3 that σx = x for all x ∈ X . 
+Theorem 1.4. The subgroup Inn(N ) of all inner automorphisms of N is a definable
+subgroup of the group Aut(N ).
+Proof. We use induction on nilpotency class c of N. When c = 2, the subgroup
+Inn(N ) is first-order definable in the group Aut(N ) by Corollary 3.2 of [18].
+  The key tool for the induction step is provided by the following result from [19].
+    b denote the free nilpotent group N/Nc of nilpotency class c − 1.
+Let N
+Theorem 1.5. [19, Prop. 2.6] The group IAc−1 (N ), the kernel of the homomor-
+phism b : Aut(N ) → Aut(N     b ), determined by the natural homomorphism N → N
+                                                                              b,
+is first-order definable in the group Aut(N ).
+                                           b ) is a definable subgroup of Aut(N
+Corollary 1.6. Let c ⩾ 3. Suppose that Inn(N                                  b ).
+Then any term γk (Inn(N )) where k ⩾ 2 of the lower central series of Inn(N ) is
+definable in the group Aut(N ).
+Proof. By Theorem 1.5 the preimage, say L of the group Inn(N b ) under b is definable
+in the group Aut(N ). Now L = Inn(N ) · IAc−1 (N ). Since the elements of IAc−1 (N )
+commute with all IA-automorphisms (Proposition 1.1), the commutator subgroup
+[L, L] of L coincides with that one of Inn(N ):
+                             [L, L] = [Inn(N ), Inn(N )].
+We then apply induction on k.                                                       
+                  COMPLETENESS OF THE AUTOMORPHISM GROUPS                                5
+
+
+   Recall that a primitive element of a relatively free group G is one that can be
+included in some basis of G. We write NC(σ) for the normal closure of a σ ∈ Aut(N )
+in the group Aut(N ).
+
+Lemma 1.7. Let c ⩾ 3. An automorphism σ of N is conjugation by a primitive
+element of N if and only if
+                                                  b;
+       b is conjugation by a primitive element of N
+   (a) σ
+   (b) the subgroup NC(σ) contains no elements of the set IAc−1 (N )\γc−1 (Inn(N )).
+
+Proof. The necessity part is trivial. Let us prove the converse. An argument similar
+to one used in the proof of Corollary 1.6 shows that γc−1 (Inn(N )) is contained in
+NC(σ). Take an automorphism σ that satisfies the conditions (a) and (b). Then
+σ has the form σ = τx γ for some primitive x ∈ N and some automorphism γ
+in IAc−1 (N ). Suppose, towards a contradiction, that σ is not conjugation. Hence
+γ∈/ γc−1 (Inn(N )).
+   Observe that if a is a primitive element of N and τa γ1 and τa γ2 where γk ∈
+IAc−1 (N ) (k = 1, 2) are both in NC(σ), then γ1 ≡ γ2 (mod γc−1 (Inn(N ))); indeed,
+otherwise the element (τa γ1 )(τa γ2 )−1 is a member of IAc−1 (N ) \ γc−1 (Inn(N )),
+contradicting (b).
+   Let X be a basis of N which contains x. Write Y for X \ {x}. Suppose that
+γx = xw(x, y) where w is a reduced word over X and y a finite tuple of elements
+of Y. Consider an automorphism π of N which preserves X , fixes x and such that
+tuples πy and y have no common elements. As πx = x we have by the observation
+above that γ π = γτs where s ∈ Nc−1 . It follows that
+
+                              xw(x, πy) = sxs−1 w(x, y).                               (1)
+
+Consider an endomorphism ε of N which takes all elements of πy to 1 and fixes all
+other elements of X . By applying ε to the both parts of (1), we get that w(x, y) =
+tx−1 t−1 x where t = ε(s). As tx−1 t−1 x = [t, x−1 ] = [t−1 , x] is in the centre of N, we
+have that
+               γx = xw(x, y) = x(t−1 xtx−1 ) = (t−1 xtx−1 )x = t−1 xt.
+Hence the automorphism τt γ fixes x. Now σ = τx γ = τxt−1 τt γ, and conjugating σ
+by any IA-automorphism that sends xt−1 to x, we obtain that τx (τt γ) is in NC(σ).
+Thus, without loss of generality, we may assume that γx = x.
+    It is easy to see that x (any primitive element of N ) commutes with an element
+s ∈ Nc−1 if and only if s ∈ Nc , the centre of N. Let ρ be any automorphism of N
+which takes x to itself. Again, γ ρ = γτs for a suitable s ∈ Nc−1 , whence x = sxs−1 ,
+and then s ∈ Nc . Therefore τs = id, or, in other words, γ commutes with ρ.
+    Consider an arbitrary element y ∈ Y. Assume that γy = ywy (y, x, z) where
+wy is a reduced word over X and z is a finite tuple of elements of X \ {x, y}.
+As it is easy to find an automorphism π of N, preserving X , fixing both x and y
+(and hence commuting with γ), and such that πz ∩ z = ∅, the tuple z must be
+empty. Further, by considering an automorphism interchanging distinct elements
+y1 , y2 ∈ Y and fixing all elements in X \ {y1 , y2 }, we see that there is a group word
+w(∗1 , , ∗2 ) over an alphabet having empty intersection with N such that w(y, x) =
+[w(∗1 , ∗2 )]∗y,1 , ∗x2 = wy (y, x) for every y ∈ Y (or, somewhat more formally, there is a
+term w(∗1 , ∗2 ) in two variables of the language of group theory such that its value
+w(y, x) at (y, x) is wy for every y ∈ Y).
+                   COMPLETENESS OF THE AUTOMORPHISM GROUPS                                             6
+
+
+   Also, taking distinct y, z ∈ Y and considering the automorphism ρ of N with
+ρy = yz, fixing X \ {y} pointwise, we obtain that
+                                w(yz, x) = w(y, x)w(z, x).                                           (2)
+   Fix a y ∈ Y. Consider the automorphism π of N interchanging x and y and
+fixing pointwise X \ {x, y}, the automorphism ρ which takes x to xy and fixes Y
+pointwise and any IA-automorphism α taking xyx−1 to y. We then have that the
+automorphism
+                    [(τx γ)ρ (τx γ)−1 ]α = [τxyx−1 γ ρ γ −1 ]α = τy γ ρ γ −1
+belongs to NC(σ), and so does the automorphism τy γ ρ = (τx γ)π . Therefore for
+some s ∈ Nc−1
+                                   γ ρ γ −1 = τs γ π .                      (3)
+One readily verifies that (3) implies that
+                            zw(z, xy) = szs−1 w(z, x)w(z, y)                                         (4)
+for every z ∈ Y. In particular,
+                                yw(y, xy) = sys−1 w(y, x).
+Let ε be the endomorphism of N which sends x to y and fixes Y pointwise. Then
+y = ε(s)yε(s)−1 , and hence ε(s) ∈ Nc . Fix a z ∈ Y \ {y} and apply ε to the both
+parts of (4), thereby getting that
+                     zw(z, y 2 ) = zw(z, y)2 , or w(z, y 2 ) = w(z, y)2 .
+By (4), we also have that w(z 2 , y) = w(z, y)2 . We then claim that w(z, y) = 1. We
+define a function νz on the set of all basic commutators over {z, y} taking values
+in N: νz (z) = 1, νz (y) = 0 and νz ([c1 , c2 ]) = νz (c1 ) + νz (c2 ) where c1 , c2 are basic
+commutators over {z, y}. The function νy is defined similarly. Let b = b(z, y) be a
+basic commutator of weight c over {z, y}. Observe that νz (b) + νy (b) = c and
+                                                   νz (b)              νz (b)                c
+                 b(z k , y)b(z, y k ) = b(z, y)k            b(z, y)k            = b(z, y)k
+where k is a natural number. Therefore
+                                                               c
+                        v(z k , y)v(z, y k ) = v(z, y)k                 (k ∈ N)                      (5)
+for every element/word v ∈ hz, yi ∩ Nc . It then follows that
+                                                                                                 c
+              w(z, y)4 = w(z, y)2 w(z, y)2 = w(z 2 , y)w(z, y 2 ) = w(z, y)2
+As 4 < 2c , w(z, y) = 1. Then γ = id, which completes the proof of the lemma.                         
+   As it was said above, the group Inn(N ) is definable in Aut(N ) when c = 2;
+then so is the family of all conjugations by primitive elements, for Inn(N ) = NC(τ )
+where τ ∈ Inn(N ) if and only if τ is conjugation by a primitive element. Then by
+Lemma 1.7 conjugations by primitive elements are definable in the group Aut(N )
+for any c ⩾ 2, and hence the subgroup Inn(N ) is definable in the group Aut(N ) for
+any c ⩾ 2.                                                                        
+   Now we obtain some corollaries of Theorem 1.4.
+Corollary 1.8. All subgroups IAk (N ) where 1 ⩽ k ⩽ c − 1 are definable in the
+group Aut(N ).
+Proof. By Theorem 1.5 and by Theorem 1.4.                                                             
+                 COMPLETENESS OF THE AUTOMORPHISM GROUPS                            7
+
+
+Proposition 1.9. (i) Let ∆ ∈ Aut(Aut(N )). Then there is an inner automorphism
+Tπ ∈ Aut(Aut(N )) such that the composition Tπ ◦ ∆ fixes the subgroup Inn(N )
+pointwise;
+   (ii) suppose that ∆ ∈ Aut(Aut(N )) fixes every element of Inn(N ). Then
+                             ∆σ ≡ σ (mod IAc−1 (N ))
+for all σ ∈ Aut(N ).
+Proof. (i) We saw above that conjugations by primitive elements of N are definable;
+a generating set X of Inn(N ) consisting of conjugations by primitive elements is a
+basis of Inn(N ) if and only if
+                              τ 6∈ hX \ {τ }i ∀τ ∈ X
+where hX \{τ }i is the subgroup of Aut(N ) generated by the set X \{τ }. Thus every
+automorphism of the group Aut(N ) takes an arbitrary basis of Inn(N ) to another
+basis of Inn(N ).
+   Fix a basis X of Inn(N ) and a ∆ ∈ Aut(Aut(N )). As ∆(X) is a basis of Inn(N ),
+there is a ρ ∈ Aut(N ) such that
+                             ∆(τ ) = ρτ ρ−1   (τ ∈ X).
+Now if Tρ−1 is the inner automorphism of the group Aut(N ) determined by ρ−1 ,
+that is, if
+                        Tρ−1 (σ) = ρ−1 σρ (σ ∈ Aut(N )),
+then Tρ−1 ◦ ∆ fixes X pointwise.
+   (ii). Let z be any element of N and σ ∈ Aut(N ). We have that
+              τσz = ∆(τσz ) = ∆(στz σ −1 ) = ∆(σ)τz ∆(σ)−1 = τ∆(σ)z .
+Then σz ≡ ∆(σ)z (mod Nc ) for every z ∈ N, and hence σ −1 ∆(σ) ∈ IAc−1 (N ).       
+
+                       2. Stabilizing IA-automorphisms
+   Let X be any basis of N. Then by Sym(X ) (as it is, for instance, done in [5])
+we denote the group of all automorphisms of N that preserve X setwise. For
+simplicity’s sake, we call elements of Sym(X ) permutational automorphisms relative
+to X . Similarly, if X is a basis of the group Inn(N ) (a basis set of conjugations),
+the symbol Sym(X) denotes the group of all automorphisms of N acting on X as
+permutations.
+Remark 2.1. Suppose that the elements of a basis X of N determine the elements
+of a given basis set of conjugations X: X = {τx : x ∈ X } (in similar situations
+below we shall also say that a basis of N determines a given basis of Inn(N )).
+Then for any ρ ∈ Sym(X) there is a uniquely determined σ ∈ Sym(X ) such that
+the actions of ρ and σ on IA(N ) are the same:
+                                 ραρ−1 = σασ −1                                  (6)
+for every α ∈ IA(N ). Indeed, it follows from the assumptions made that there is
+an η ∈ IAc−1 (N ) with ρ = ση. Then (6) is a corollary of the fact that elements of
+IAc−1 (N ) commute with all elements of IA(N ) (Proposition 1.1).
+   In particular, every time when we need an element of Sym(X) that acts on
+IA(N ), we can use a suitable element of Sym(X ) and vice versa.
+                  COMPLETENESS OF THE AUTOMORPHISM GROUPS                               8
+
+
+   We use below the notation from the theory of permutation groups. Recall that
+given a group G acting on a set A we denote by G(B) and G{B} the pointwise and
+the setwise stabilizers of a subset B of A, respectively. Any symbol of the form
+G∗1 ,∗2 is the intersection of subgroups G∗1 and G∗2 . It is convenient, when working
+with subgroups G of Aut(N ) and when using some basis B of N, to denote simply
+by GhCi where C ⊆ B the subgroup G(B\C),{hCi} (consisting of elements of G that
+fix the set B \ C pointwise and preserve the subgroup of N generated by C).
+Proposition 2.2. Let x be a primitive element of N and let k with 1 ⩽ k ⩽ c − 1
+be a natural number. Then the group IAk (N )(x) , consisting of the elements of the
+group IAk (N ) stabilizing x, is definable with the parameter τx in the group Aut(N )
+Proof. Let X be any basis set of conjugation of which τx forms a part. Write Y for
+X \ {τx }. Choose also a basis X of N such that the elements of X determine the
+elements of X; we assume that x ∈ X .
+   Consider an element π ∗ of Sym(X) which, under the conjugation action, fixes
+τx and moves elements of Y as a permutation having no fixed points and having
+infinitely many infinite orbits. According to Remark 2.1, we may assume without
+loss of generality (for we are going to consider conjugation actions of elements of
+Aut(N ) on IA(N )) that π ∗ x = x and that infinitely many orbits of the action of
+π ∗ on Y = X \ {x} are all infinite.
+   By Claim 1.3, if an η ∈ IAc−1 (N ) commutes with π ∗ (with any element of the
+coset π ∗ IAc−1 (N )), then ηx = x.
+   When using symbols like G(∗) with G = Sym(X ) or G = Sym(X), we shall
+replace Sym(X ) and Sym(X) by Π and P, respectively. By Z + (π ∗ ) we will denote
+the subgroup of the centralizer Z(π ∗ ) of π ∗ in the group Aut(N ) consisting of
+automorphisms sending x to itself.                            S
+   Let L be a free nilpotent group, B a basis of L and B = i∈I Bi be a partition of
+B. If ρi is an automorphism of the subgroup hBi i (i ∈ I) we shall denote by ⊛i∈I ρi
+the only automorphism of L which extends all automorphisms ρi .
+   The following result will be used in Section 4 as well. Recall that a moiety of a
+given infinite set I is any subset J of I with |J| = |I \ J|.
+Lemma 2.3. Let Y0 ⊆ Y be a subset of Y maximal with the property “there are
+no elements lying in the same orbit of π ∗ ” and let Z0 be a moiety of Y0 . Take an
+arbitrary automorphism γ of the group hx, Z0 i that fix x. Then there is a σ ∈ Z + (π ∗ )
+and a ρ ∈ Π(x) = Sym(X )(x) such that the automorphism σσ ρ fixes all elements of
+X \ Z0 and coincides with γ on Z0 . In the case when γ ∈ IAk (hx, Z0 i), σ can be
+taken from IAk (N ).
+Proof. Write Yk for (π ∗ )k Y0 where k ∈ Z. Hence
+                                          [
+                                     Y=      Yk
+                                           k∈Z
+
+is a partition of Y into moieties.
+   We then partition Y0 \ Z0 into countably many moieties indexed by elements of
+N \ {0}, getting that
+                                        [
+                                   Y0 =     Zn .
+                                           n∈N
+Assume that Zk = {zi,k : i ∈ I} where k runs over N.
+                  COMPLETENESS OF THE AUTOMORPHISM GROUPS                             9
+
+
+   First, to illustrate the idea we consider the case when γ preserves the group
+hZ0 i; let ν denote the restriction of γ on hZ0 i. Our goal is then to construct an
+automorphism σ0 of hY0 i that can be written as a ⊛-product of automorphisms of
+the groups hZk i of the form
+               ν ⊛ ν −1 ⊛ id ⊛ ν ⊛ ν −1 ⊛ id ⊛ . . . ⊛ ν ∗ ν −1 ⊛ id ⊛ . . .
+               |    {z     } |      {z     }           |     {z    }
+where the symbols ν, ν −1 represent the action (up to an isomorphism of actions) of
+σ0 on subgroups hZk i (k ∈ N). Formally, for every k ∈ Z we denote the bijection
+                                    zi,0 7→ zi,k    (i ∈ I)
+from Z0 to Zk by λk and then extend λk to the isomorphism λ∗k of groups hZ0 i and
+hZk i. Then σ0 is defined as follows:
+                   σ0 (zi,k ) = λ∗k γ(zi,0 ),         if k ≡ 0 (mod 3),
+                   σ0 (zi,k ) = λ∗k γ −1 (zi,0 ),     if k ≡ 1 (mod 3),            (7)
+                   σ0 (zi,k ) = zi,k                  if k ≡ 2 (mod 3)
+for every i ∈ I.
+   Using bijections λk , one can construct permutational automorphisms ρ0 and ρ1
+of the group hY0 i such that the conjugates σ0ρ0 and σ0ρ1 are automorphisms of the
+form
+               ν −1 ⊛ ν ⊛ id ⊛ ν −1 ⊛ ν ⊛ id ⊛ . . . ⊛ ν −1 ⊛ ν ⊛ id ⊛ . . .
+               |     {z    } |       {z    }           |     {z    }
+and of the form
+                id ⊛ ν ⊛ id ⊛ ν −1 ⊛ ν ⊛ id ⊛ . . . ⊛ ν −1 ⊛ ν ⊛ id ⊛ . . .
+                              |     {z    }           |     {z    }
+respectively, and the products σ0ρ0 σ0 and σ0ρ1 σ0 are the identity automorphism and
+the automorphism
+                          ν ⊛ id ⊛ id ⊛ . . . ⊛ id ⊛ id ⊛ id ⊛ . . .                (8)
+of hY0 i, respectively.
+   It is then easy to extend σ0 to the sets Yk with k 6= 0 aiming at obtaining an
+element σ of Z + (π ∗ ) that fixes x and commutes with π ∗ .
+   There is a permutational automorphism ρ ∈ Π(x) such that
+      • ρ fixes x;
+      • the action of ρ on any set Yk where k 6= 0 is isomorphic to that one of ρ0
+          on Y0 ;
+      • the restriction of ρ on Y0 is ρ1 ;
+      • the product σσ ρ acts trivially on any Yk where k 6= 0 and the restriction
+          of ρ on hY0 i equals the automorphism (8).
+In particular, σσ ρ ∈ Γ(X \Z0 ),{hZ0 i} = ΓhZ0 i where Γ = Aut(N ).
+   Now it is easy to check that permutational automorphisms ρ0 , ρ1 relative to Y0
+and a permutational automorphism ρ ∈ Π(x) can also be found in the general case
+when the images γ(zi,0 ) ∈ hx, Z0 i of elements of Z0 are not necessarily in hZ0 i. 
+    Assume some basis U of Nc consisting of basic commutators of weight c over X
+is fixed.
+    Write K for the group IAc−1 (N ). Lemma 2.3 implies that there is a moiety Z0 of
+Y such that the subgroup KhZ0 i (the notation here and up to the end of the proof
+is relative to the basis X , if not otherwise stated) and the set, say Bx of elements
+of K(X \Z0 ) which take zi,0 ∈ Z0 either to itself, or to an element zi,0 ti where all
+                  COMPLETENESS OF THE AUTOMORPHISM GROUPS                            10
+
+
+elements of U participating in the decomposition of ti have occurrences of x (i ∈ I),
+are both contained in the set
+                    {ηη ρ : η ∈ IAc−1 (N ), ρ ∈ Π(x) , [η, π ∗ ] = id}
+which is equal to the set
+                    {ηη ρ : η ∈ IAc−1 (N ), ρ ∈ P(τx ) , [η, π ∗ ] = id}
+and hence definable with the parameters τx , X and π ∗ .
+  The following statement is essentially a part of the proof of Theorem 2.5 in [20].
+Claim 2.4. Given a moiety C of a basis B of N, every element of K can be written
+as a product of at most 2(c + 1) conjugates of elements of KhCi by permutational
+automorphisms relative to B.
+   For the reader’s convenience, we reproduce the proof, for we shall need below
+both the statement and the method of its proof to be applied in somewhat different
+situations.
+Proof. We can write K as K = K(B\C) · K(C) (Proposition 1.1 (i) and (iii)). It
+suffices to prove that every element of K(C) is a product of at most c + 1 conjugates
+of KhCi by permutational automorphisms, because the groups K(B\C) and K(C)
+are conjugate by some permutational automorphism. Write D for B \ C and let
+D = {di : i ∈ I}. Take an α ∈ K(C) . Then α acts trivially on C and
+                                 αdi = di si       (i ∈ I)
+where si ∈ Nc . We make use of the fact that any basic commutator of weight c
+over B is formed from at most c elements of B. Thus we write C as a union of c + 1
+disjoint moieties:
+                                C = C1 ∪ . . . ∪ Cc+1 .
+We write si as a product of elements of some basis of Nc , basic commutators over
+B. We then rewrite si (i ∈ I) in the form
+                                   si = si,1 . . . si,c+1
+collecting into si,k all those basis elements in the decomposition of si that do not
+contain, as basic commutators, occurrences of letters from Ck (k = 1, . . . , c + 1).
+Then we define c + 1 elements of IAc−1 (N ) such that their product α1 . . . αc+1 is
+equal to α:
+                              αk di = di si,k ,   (i ∈ I),
+                              αk d = d,           (d ∈ C).
+As αk ∈ KhD∪(C\Ck )i = KhB\Ck i (k = 1, . . . , c + 1), we have the desired, for the
+subgroups KhB\Ck i and KhCi are conjugate by a permutational automorphism. 
+   It follows from the Claim that the group KhYi is contained in the group generated
+by conjugates of elements of KhZ0 i by elements of P(τx ) . Similarly, the proof of the
+Claim can be applied to show that the subgroup generated by conjugates of elements
+of Bx ∪ KhZ0 i by elements of P(τx ) contains the family Cx of all elements {α} of
+IAc−1 (N ) such that αx = x and the image any element y ∈ Y is of the form
+yty where ty ∈ Nc is either 1, or again every basis element of U appearing in the
+decomposition of ty has occurrences of x. We complete the proof for the group K(x)
+by observing that
+                                  K(x) = KhYi · Cx .
+                  COMPLETENESS OF THE AUTOMORPHISM GROUPS                              11
+
+
+   Before going on, let us summarize the proof of definability of K(x) = IAc−1 (N )(x)
+over τx : we have proved that there is a basis set X of conjugations with τx ∈ X, an
+element π ∗ of P = Sym(X) acting on X in the manner described above such that
+the group IAc−1 (N )(x) equals the subgroup generated by conjugates of elements of
+IAc−1 (N ) commuting with π ∗ by elements of P(τx ) :
+           IAc−1 (N )(x) = hρηρ−1 : ρ ∈ P(τx ) , η ∈ IAc−1 (N ), [η, π ∗ ] = idi.
+Lemma 2.5. For every k with 1 ⩽ k ⩽ c − 1
+             IAk (N )(x) = hρηρ−1 : ρ ∈ P(τx ) , η ∈ IAk (N ), [η, π ∗ ] = idi.       (9)
+Proof. We prove the statement by induction on k. Suppose that (9) is true for the
+group IAk (N ) and k ⩾ 2. Write J for the group
+                   hρηρ−1 : ρ ∈ P(τx ) , η ∈ IAk−1 (N ), [η, π ∗ ] = idi.
+Then J ⊆ IAk−1 (N )(x) . It is also clear that IAk (N )(x) is contained in J by the
+induction hypothesis.
+    We consider the natural homomorphism e from the group N onto the free nilpo-
+tent group N e = N/Nk+1 of nilpotency class k. The homomorphism e determines
+the homomorphism Aut(N ) → Aut(N      e ) which we will denote by the same symbol
+ e . By the above considerations on the group IAc−1 (N ) we have that
+                  e )(ex) = hρηρ−1 : ρ ∈ P(eτ ) , η ∈ IAk−1 (N
+           IAk−1 (N                                          e ), [η, π
+                                                                      f∗ ] = idi.    (10)
+                                             x
+
+
+Note that since the homomorphism Aut(N ) → Aut(N        e ) is surjective (Proposition
+1.1 (iv)), then
+                                 Je = IAk−1 (N
+                                             e )(ex) .
+   Let α ∈ IAk−1 (N )(x) . As αx = x, then α e(ex) = x e, and by (10) α      e Hence
+                                                                         e ∈ J.
+there exist an η ∈ J and a β ∈ IAk (N ) such that α = βη. Suppose that βx = xt
+where t ∈ Nk+1 . We have that αx = βη(x) = β(x) = xt, whence t = 1. Therefore
+β ∈ IAk (N )(x) ⊆ J, and we are done.                                                
+  The proof of Proposition 2.2 is now completed.                                        
+  We are going to make use of the following result from paper [4] by Bryant and
+Gupta.
+Theorem 2.6. Let Fn,c be a free nilpotent group of rank n ⩾ 3 and of class
+c ⩾ 3 where n ⩾ c − 1, (c + 1)/2. Let x1 , . . . , xn be a basis of Fn,c . Consider the
+automorphism δc ∈ Aut(Fc ) defined via
+                         δc : x1     7→ x1 [x1 , x2 , . . . , xc−1 , x1 ],
+                              xi      7→ xi , i > 1.
+Then the group Ic−1 = IAc−1 (Fn,c ) is generated by conjugates of elements of the
+set (I ′ ∩ Ic−1 ) ∪ {δc }, where I = IA(Fn,c ) and I ′ is the commutator subgroup of
+I, by tame automorphisms of Fn,c .
+(See [4, p. 313, p. 317] for the details; for applications below, it will be enough to
+know that IAc−1 (Fn,c ) is contained in the normal closure of the set (I ′ ∩Ic−1 )∪{δc }).
+   In the first part of the proof of our next result, we shall check that any automor-
+phism ∆ of the group Aut(N ) stabilizing all conjugations, stabilizes an analogue of
+δc in the group Aut(N ).
+                      COMPLETENESS OF THE AUTOMORPHISM GROUPS                                             12
+
+
+Proposition 2.7. Let ∆ be an automorphism of the group Aut(N ) stabilizing all
+elements of the group Inn(N ). Then ∆ fixes the group IA2 (N ) elementwise.
+
+Proof. First, we observe that any automorphism ∆ satisfying the conditions of the
+Proposition takes any commutator of elements of IA(N ), and hence any element
+of the commutator subgroup of IA(N ), to itself. Indeed, let α1 , α2 ∈ IA(N ). By
+Proposition 1.9 (ii), ∆(αk ) = αk ηk where ηk ∈ IAc−1 (N ), k = 1, 2. Therefore
+
+             ∆(α1 α2 α−1 −1                     −1 −1   −1 −1         −1 −1
+                      1 α2 ) = α1 η1 · α2 η2 · η1 α1 · η2 α2 = α1 α2 α1 α2 ,
+
+since η1 , η2 are central elements of the group IA(N ). In a similar vein, one proves
+that if α ∈ IA(N ) is stabilized by ∆, then so is any conjugate of α by an element
+of Aut(N ).
+   Consider a basis B of N and write it in the form
+
+                                    B = {xk : k ∈ N, k ⩾ 1} ∪ T
+
+where T is infinite.
+  Take a finite ordered tuple y of pairwise distinct elements of T of length c − 2.
+We claim that the following elements γ1 , γ2 of IAc−1 (N ) where
+
+ γ1 :        x1       7→ x1 [x1 , y, x1 ]                   γ2 :    x1           7→ x1 ,
+             x2          7→ x2 [x2 , x1 , y]−1                      x2         7→ x2 [x2 , x1 , y],
+             x3         7→ x3                                       x3          7→ x3 [x3 , y, x1 ]−1 ,
+                       ..                                                     ..
+                        .                                                      .
+             x3k+1    7→ x3k+1 [x3k+1 , y, x1 ]                     x3k+1     7→ x3k+1 ,
+             x3k+2     7→ x3k+2 [x3k+2 , x1 , y]−1                  x3k+2      7→ x3k+2 [x3k+2 , x1 , y],
+             x3k+3       7→ x3k+3                                   x3k+3        7→ x3k+3 [x3k+3 , y, x1 ]−1 ,
+                        ..                                                      ..
+                         .                                                       .
+             t        7→ t                                          t         7→ t    (t ∈ T ).
+
+are commutators in the group IA(N ). We base our argument on the proof of Lemma
+6 of [4]. Let α, β ∈ IA(N ) be defined as follows:
+
+        α:        x3k+1   7→ x3k+1 [x3k+2 , x1 ],          β:      x3k+1     7→ x3k+1
+                  x3k+2     7→ x3k+2 ,                             x3k+2      7→ x3k+2 [x3k+1 , y],
+                  x3k+3    7→ x3k+3 ,                              x3k+3    7→ x3k+3 ,
+                  t          7→ t,                                 t           7→ t,    (t ∈ T )
+
+where k is an arbitrary natural number. Using the elegant idea of [4], we first
+calculate the images of the basis elements under αβ and then under βα. Then we
+introduce elements ξ1 , ξ2 of IAc−1 (N ) such that ξ1 takes x3k+1 to γ1 (x3k+1 ) (k ∈ N)
+and fixes all other elements of B and ξ2 which takes x3k+2 to γ1 −1 (x3k+2 ) (k ∈ N)
+and again fixes all other elements of B. Next, one sees that the products αβ and
+βα can be “balanced” by placing ξ1 , ξ2 into corresponding “pans”:
+
+                                                 ξ1 αβ = ξ2 βα.
+
+As γ1 = ξ1 ξ2 −1 , we have the desired. A similar argument proves that γ2 is also a
+commutator in the group IA(N ).
+                  COMPLETENESS OF THE AUTOMORPHISM GROUPS                            13
+
+
+  The product ε = γ1 γ2 is
+                       ε:          x1            7→ x1 [x1 , y, x1 ],
+                                   x2             7→ x2 ,
+                                   x3          7→ x3 [x3 , y, x1 ]−1 ,
+                                                ..
+                                                 .
+                                   x3k+1          7→ x3k+1 [x3k+1 , y, x1 ],
+                                   x3k+2         7 x3k+2 ,
+                                                  →
+                                   x3k+3        7→ x3k+3 [x3k+3 , y, x1 ]−1
+                                               ..
+                                                .
+                                   t           7→ t   (t ∈ T ).
+Now the set consisting of xi with i 6= 1 going to xi [xi , y, x1 ] under ε (say, the
+set of “pluses”), the set consisting of xi going to xi [xi , y, x1 ]−1 under ε (the set
+of “minuses”) and the set consisting of xi going themselves are all moieties of
+{xk : k ∈ N, k ⩾ 1}. Then there is a permutational automorphism π fixing x1 and
+all elements of T such that
+                        εεπ :            x1    7→ x1 [x1 , y, x1 ]2 ,
+                                         b      7→ b     (b ∈ B \ {x1 })
+(π must just interchange the set of “pluses” and the set of “minuses”). Let δc
+denote the automorphism
+                            δc :          x1   7→ x1 [x1 , y, x1 ],
+                                          b     7→ b (b ∈ B \ {x1 })
+   Fix till the end of the proof an automorphism ∆ of the group Aut(N ) stabilizing
+all conjugations. Due to the remark we have made in the beginning of the proof, ∆
+stabilizes the automorphism εεπ = δc2 , an element of the commutator subgroup of
+the group IA(N ). On the other hand, ∆(δc ) = δc η for some η ∈ IAc−1 (N ). Hence
+                                        δc2 = ∆(δc2 ) = δc2 η 2 ,
+whence η = idN . Thus δc is fixed by ∆.
+   Recall that given a relatively free group F of infinite rank and a basis X of F,
+an automorphism σ ∈ Aut(F ) is called finitary relative to X if σ fixes pointwise a
+cofinite subset of X .
+   It then follows from Theorem 2.6 that all finitary automorphisms in the group
+K = IAc−1 (N ) (with respect to the basis B) are fixed by ∆.
+   Take an η ∈ IAc−1 (N ). We apply Proposition 2.2. Observe that η is fully
+determined by the family of finitary automorphisms {ηb : b ∈ B} such that ηb d = d
+for all d ∈ B \ {b} satisfying the conditions
+                                       η ∈ ηb K(b)       (b ∈ B).                 (11)
+Now by Proposition 2.2, ∆(K(b) ) = K(b) , since ∆ fixes conjugation τb , and ∆(ηb ) =
+ηb (b ∈ B). Then η is stabilized by ∆.
+   Write I for IA(N ) and Ik for IAk (N ). We use downward induction on k. Suppose
+that all elements of the subgroup Ik are fixed by ∆ where k ⩾ 3. We consider an
+element
+                         δk :     x1 7→ x1 [x1 , y, x1 ],
+                                  b    7→ b (b ∈ B \ {x1 })
+                  COMPLETENESS OF THE AUTOMORPHISM GROUPS                            14
+
+
+of Ik−1 where y is a tuple of pairwise distinct elements of T of length k − 2.
+                                  e = N/Nk+1 ; let denote e the homomorphism
+Consider the free nilpotent group N
+                 e
+Aut(N ) → Aut(N ), determined by the natural homomorphism N → N      e . As the
+          2                                                        e
+image of δk under e is in the commutator subgroup of the group IA(N ),
+                                        δk2 = εβ
+where ε is in I ′ and β ∈ Ik . By the induction hypothesis, the automorphism in the
+right-hand side is fixed by ∆, and then δk is also fixed by ∆.
+   By applying Theorem 2.6 once again, we see that all finitary automorphisms of
+N lying in the group Ik−1 are contained in the group
+                                NC(I ′ ∩ Ik−1 , δk ) · Ik ,
+and hence all are stabilized by ∆. We then complete the proof as in the case of the
+subgroup Ic−1 .                                                                  
+
+    3. Automorphisms of N that fix a very few primitive elements
+   In this section we shall obtain a group-theoretic characterization of the conju-
+gacy class of the permutational automorphism π ∗ we have used extensively in the
+previous section. Recall that π ∗ ∈ Aut(N ) was defined as a permutational auto-
+morphism with respect to some basis X such that there was exactly one element
+x ∈ X that was fixed by π ∗ , whereas there were infinitely many infinite orbits
+(cycles) of π ∗ on Y = X \ {x}. It is easy to see that x, x−1 are the only primi-
+tive elements fixed by π ∗ and conjugations τx , τx−1 are the only conjugations by
+primitive elements fixed by π ∗ under the conjugation action (Claim 3.3). Hence
+having conjugation by a primitive element fixed by π ∗ we can choose in a unique
+way one of the primitive elements it is determined by. In the next section we shall
+use this fact to “build” over π ∗ the “edifice” of the stabilizer Γ(x) of x in the group
+Γ = Aut(N ).
+Lemma 3.1. An automorphism π ∈ Aut(N ) is a conjugate of π ∗ if and only if
+   (a) there is a basis set X of conjugations such that some τ ′ ∈ X is fixed by π and
+π acts on X \ {τ ′ } as a permutation with empty fixed-point set and with infinitely
+many infinite orbits;
+   (b) there is a linear order < on X invariant under π such that for every n ⩾ 2
+there is a ρn ∈ Sym(X) which also preserves < and π = ρnn .
+Proof. (⇐). We prove the sufficiency part first, partly in order to clarify the role of
+the condition (b)—for there is no difficulty in the constructing automorphisms ρn
+for any conjugate of π ∗ .
+   Let us fix some basis B of N. We start with the following observation: suppose
+there is a linear order ⊳ on B which is invariant under some σ ∈ Sym(B). We
+then claim that there is a basis Uσ of the group Nc , also invariant under σ. Such a
+basis, as we shall see right away, can be constructed with the use of the well-known
+collecting process.
+   Let F (A) be a free group with a basis A which is assumed to be linearly ordered.
+Recall that the collecting process produces the sets Kn (A) of basic commutators
+of weight n where n ⩾ 1. The sets Kn (A) are constructed by induction as follows:
+K1 (A) = A, and to construct
+                      S         the set Kn (A) of basic commutators of weight n, we
+assume that the set m<n Km (A) is linearly ordered in a way that the restriction
+of the order on A is the given one, u < v for every u ∈ Km (A) and every v ∈ Kl (A)
+                  COMPLETENESS OF THE AUTOMORPHISM GROUPS                               15
+
+
+with m < l, and the restriction of the order on the set Km (A) where m < n could
+be any. The set Kn (A) is then formed from all commutators [u, v] of weight n such
+that
+      u ∈ Km (A), v ∈ Kl (A) with m + l = n and u > v, and, moreover,
+                                                                              (12)
+      if u = [u1 , u2 ], then u2 ⩽ v.
+It can be proven that the image of the set Km (A) under the natural homomorphism
+F (A) → L = F (A)/γm+1 (F (A)), from F (A) onto the free nilpotent group L of class
+m, is a basis of the free abelian group γm (L) (see [2, Section 4.3], [16, Section 3.1]).
+It is then rather clear that the collecting process could be applied to any basis of a
+free nilpotent group L of class c, and the c-th step will produce a basis of the c-th
+term Lc of the lower central series of L.
+   Let us apply the collecting process to B to construct a required basis of Nc
+invariant under σ. The set K2 (B) consists of the commutators [bi , bj ] where bi , bj ∈ B
+such that bi ⊲ bj . As the order ⊳ is invariant under σ, σK2 (B) = K2 (B), and,
+moreover, the lexicographic-like order on K2 (B) (after identifying commutators [a, b]
+with 2-letter words ab) is also invariant under σ.
+   We then proceed by induction on m, constructing the sets Km (B), where m ⩽ c,
+all equipped with linear orders, namely, with the lexicographical-like orders deter-
+mined by the orders on the sets Kl (B) with l < m. As above, we introduce the
+lexicographical-like order on Km (B) where m ⩾ 3 by identifying the basic commu-
+tators [u, v] = [[u1 , u2 ], v] with 3-letter words u1 u2 v. The invariance of these orders
+under σ will guarantee the invariance of the sets Km (B) under σ (for every com-
+mutator [u, v] ∈ Km (B), the elements σu, σv satisfy the conditions (12), and hence
+[σu, σv] is in Km (B)).
+   Next, we deal with a relevant problem on automorphisms of free abelian groups.
+   Consider a free abelian group G with a basis
+                                   {f } ∪ {ek : k ∈ Z}.
+Let H denote the subgroup generated by the elements ek . Consider an automor-
+phism ρ of G with ρ(ek ) = ek+1 for all k ∈ Z such that ρ fixes f modulo H.
+  Let H0 denote the subgroup of H with the basis
+                     {ek − ρ(ek ) : k ∈ Z} = {ek − ek+1 : k ∈ Z}.                     (13)
+Clearly, H = he0 i ⊕ H0 . Suppose that ρ(f ) 6≡ f (mod H0 ). As, however, ρ(f ) ≡
+f (mod H), then
+                                 ρ(f ) − f = αe0 + h0
+where α is a nonzero integer number and h0 ∈ H0 . We may assume, without loss
+of generality, that the index of the first nonzero coefficient in the representation of
+h0 as a linear combination of vectors in (13) is ⩾ 0. Indeed, let
+                        ρ(f ) − f = αe0 + γm (em − em+1 ) + . . .
+where γm is the first nonzero coefficient. We have the desired if m ⩾ 0. If, for
+instance, m = −1, then
+αe0 +γ−1 (e−1 −e0 )+. . . = α(e−1 +e0 −e−1 )+γ−1 (e−1 −e0 )+. . . = αe−1 +(γ−1 −α)(e−1 −e0 )+. . . .
+If m < −1, a trick like that has to be repeated several times.
+   So let
+                ρ(f ) = f + αe0 + β0 (e0 − e1 ) + . . . + βr (er − er+1 )             (14)
+where βk are integers and, as we assumed before, α 6= 0.
+                   COMPLETENESS OF THE AUTOMORPHISM GROUPS                                16
+
+
+Claim 3.2. Let n ⩾ 1 and
+                                      ρn (f ) = f + gn
+where gn ∈ H. Then gn has at least n nonzero coordinates with regard to the basis
+{ek : k ∈ Z} of H.
+Proof. Rewriting (14) as
+                ρ(f + β0 e0 + . . . + βr er ) = f + β0 e0 + . . . + βr er + αe0
+one easily deduces that
+         ρn (f ) = f + αe0 + . . . + αen−1 + β0 (e0 − en ) + . . . + βr (er − er+n ),
+whence
+             gn = αe0 + . . . + αen−1 + β0 (e0 − en ) + . . . + βr (er − er+n ).
+Let first r ⩽ n − 1. Then
+gn = (α + β0 )e0 + . . . + (α + βr )er +αer+1 + . . . + αen−1 − (β0 en + . . . + βr er+n ) .
+     |             {z                }                          |           {z          }
+                      a                                                           b
+
+Suppose that exactly k (out of r + 1) coordinates of the vector a are zero. This
+means that the vector b has at least k nonzero coordinates. Thus the number of
+nonzero coordinates of gn is at least
+                            (r + 1 − k) + (n − 1 − r) + k = n.
+   Now let r ⩾ n. We have that
+                                            r
+                                            X
+gn = (α+β0 )e0 +. . .+(α+βn−1 )en−1 +           (βk −βk−n )ek −βr−n+1 er+1 −. . .−βr er+n .
+                                           k=n
+
+Observe that the numbers
+                                      r − n + 1, . . . , r
+form a complete set of representatives modulo n. Let m be an element of this set.
+Suppose that m = qn + s where 0 ⩽ s < n and that
+     βm = 0, βm − βm−n = 0, βm−n − βm−2n = 0, . . . , βm−(q−1)n − βs = 0.               (15)
+It follows that βs = 0, and hence the s-th coordinate, that is, (α + βs ) is nonzero,
+or, to put it more generally, there is an l with l ≡ m (mod n) such that the l-th
+coordinate is nonzero. Clearly, the latter also holds, if the condition (15) is not
+true. Thus gn has at least n nonzero coordinates, as claimed.                      
+  Let π ∈ Aut(N ) satisfy the conditions (a) and (b). Let X be a basis of N
+determining X; we assume that x is an element of X with τ ′ = τx .
+   The order < mentioned in (b) determines the linear order, say ⊳ of X :
+                             y ⊳ z ⇐⇒ τy < τz         (y, z ∈ X ).
+Now the order ⊳ on X is invariant under π modulo Nc . According to our consider-
+ations above, there is a basis Uπ of the group Nc , consisting of basic commutators
+over X , which is also invariant under π (strictly speaking, the arguments above
+guarantee a basis in question for some π   e congruent to π modulo the subgroup
+                                          e on Nc are identical). Clearly, π acts on
+IAc−1 (N ); but then the actions of π and π
+Uπ as a permutation with empty fixed-point set and infinitely many infinite orbits.
+                 COMPLETENESS OF THE AUTOMORPHISM GROUPS                            17
+
+
+   As πτx π −1 = τx , we have that πx = xt where t ∈ Nc . We are going to show that
+there is a v ∈ Nc with t = vπ(v −1 ). It will follow that π(xv) = xv, that is, that π
+fixes a primitive element as π ∗ does, completing the proof.
+   Let n ⩾ 2 be a natural number. As ρn , a root of π of degree n, preserves the
+order on X that π does, the basis Uπ must also be invariant under ρn , and the
+action of ρn on this basis must also be similar to that one of π: with infinitely
+many infinite orbits and with empty fixed-point set.
+   Let                                     [
+                                     Uπ =      Oi
+                                                  i∈I
+be the partition of Uπ into ρn -orbits. We are in a position to apply Claim 3.2—to
+the free abelian group hx, Nc i with a basis {x} ∪ Uπ and to the restrictions on this
+group of automorphisms under consideration. Assume that
+                                       Y
+                                                      −1
+                              ρn x = x    uαi vi ρn (vi )
+                                             i
+                                                                                 (16)
+                                            i∈I
+
+where, of course, only finitely many terms in the latter product are 6= 1 and for all
+i, ui ∈ Oi , αi ∈ Z, and vi is in the subgroup generated by Oi .
+   By Claim 3.2, if at least one of the exponents αi is nonzero, then the length of
+t with regard to the basis Uπ is at least n. It then follows that there is an n for
+which αi in (16) are all zero, and hence ρn (x) = xvρn (v −1 ) for a suitable v ∈ Nc .
+But this means that π(xv) = ρnn (xv) = xv.
+   (⇒). Consider the automorphism
+                                 f (q) = q + 1          (q ∈ Q)
+of (Q; <), the set Q of rational numbers equipped with the natural order <. Clearly,
+f admits extraction of roots of any natural degree n ⩾ 1 in the group Aut(Q; <):
+an automorphism gn ∈ Aut(Q; <) where
+                                                  1
+                                gn (q) = q +            (q ∈ Q)
+                                                  n
+is such that gnn = f.
+   Note that f acts on Q without fixed points and has infinitely many infinite
+orbits.                     S
+   Take a basis X = {x} ∪ i∈I Yi of N where I is a linearly ordered set of power
+|N | and the elements of any set Yi having countably infinite cardinality are indexed
+by rational numbers:
+                                 Yi = {yi,q : q ∈ Q}.
+We then introduce a linear order ⊳ on X by setting that
+                                 yi,q ⊳ x    (i ∈ I, q ∈ Q)
+and that
+                           yi,q ⊳ yi′ ,q′ ⇐⇒ (i, q) <lex (i′ , q ′ )
+           ′           ′
+for all i, i ∈ I and q, q ∈ Q, where <lex is the lexicographic order on I × Q.
+   We define π ∈ Sym(X ) via
+                            πx = x,
+                            πyi,q = yi,f (q) ,     (i ∈ I, q ∈ Q).
+As f ∈ Aut(Q; <), π the preserves ⊳. Clearly, π is a conjugate of π ∗ .
+                       COMPLETENESS OF THE AUTOMORPHISM GROUPS                         18
+
+
+   Let n ⩾ 1 be a natural number. Now the automorphism ρn of N such that
+                             ρn x = x,
+                             ρn yi,q = yi,gn (q) ,   (i ∈ I, q ∈ Q),
+is a root of π of degree n preserving ⊳. Finally, both π and ρn preserve the order <
+on X = {τz : z ∈ X } where
+                                     τz < τz′ ⇐⇒ z ⊳ z ′
+for all z, z ′ ∈ X .                                                                    
+   We record the following simple observation about π ∗ for future reference.
+Claim 3.3. Let X be a basis of N such that π ∗ ∈ Sym(X ) and there is exactly one
+element x ∈ X fixed by π ∗ , while the action of π ∗ on X \ {x} is one with infinitely
+many infinite orbits. Then x and x−1 are the only primitive elements fixed by π ∗
+(fixed by π ∗ up to congruence modulo any subgroup Nk where 2 ⩽ k ⩽ c).
+Proof. It is convenient to prove the statement by induction on c. When c = 1, N
+is a free abelian group and the result is obvious. Suppose that π ∗ (a) = a where a
+is a primitive element of N. Consider the natural homomorphism b : N → N/Nc .
+This homomorphism determines the homomorphism Aut(N ) → Aut(N/Nc ) which
+we denote by the same symbol b. Then π        c∗ (b
+                                                  a) = ba, whence b   b±1 . Therefore
+                                                                  a = x
+       ±1
+a = x t, where t = t(x, y) ∈ Nc and y is a tuple of element of X \ {x}. It follows
+that
+                               t(x, (π ∗ )k y) = t(x, y),
+for every k ∈ Z and then t(x, y) = 1.                                                   
+
+                       4. Reconstruction of primitive elements
+   The aim of this section is to show definability of stabilizers Γ(x) of primitive
+elements of N where Γ = Aut(N ).
+Theorem 4.1. (i) Let z be a primitive element of N which is fixed by π ∗ . Then the
+group Γ(z) of all automorphisms of N stabilizing z is definable with the parameter
+π∗ ;
+   (ii) the family of stabilizers of primitive elements of N is invariant under the
+action of the group Aut(Aut(N )).
+Proof. (i). We first note that by Claim 3.3 π ∗ fixes exactly two primitive elements
+that are inverses of one another. So the element z in the condition of (i) can
+equivalently be replaced with z −1 , because Γ(z) = Γ(z−1 ) .
+    Let τ ∗ be conjugation by a primitive elements stabilized by π ∗ under the con-
+jugation action. Again, it follows from Claim 3.3 (for the case when k = c) that
+there are exactly two such conjugations, inverses of one another. Let x be the
+(only) primitive element of N such that π ∗ (x) = x and τ ∗ = τx . Recall that we
+write Z + (π ∗ ) for the subgroup of the centralizer Z(π ∗ ) of π ∗ consisting of automor-
+phisms of N that fix x. Then the subgroup Z + (π ∗ ) is definable with the parameter
+π ∗ , for σ ∈ Z + (π ∗ ) if and only if σ preserves τ ∗ under the conjugation action and
+commutes with π ∗ .
+    Let us fix a basis X of Inn(N ) containing conjugation τ ∗ and a basis X of N,
+containing x, which determines X. Write Y for the set X \ {x}.
+                 COMPLETENESS OF THE AUTOMORPHISM GROUPS                           19
+
+
+   We are going to prove that the stabilizer Π(x) of x in the group Π = Sym(X )
+is contained in a definable with the parameter π ∗ subgroup of Aut(N ). We shall
+then demonstrate that the subgroup Π(x) and the subgroup Z + (π ∗ ) generate the
+required subgroup Γ(x) :
+                              Γ(x) = hΠ(x) , Z + (π ∗ )i.
+  All actions mentioned in the following lemma are actions on X by conjugation.
+Lemma 4.2. (a) Let ψ ∈ Sym(X) be an involution which fix τ ∗ = τx and which
+acts on X as a transposition interchanging distinct conjugations τy = τy (ψ) and
+τz = τz (ψ) of X where y, z ∈ Y. Suppose that σ is a power of π ∗ such that τy and
+τz do not lie in the same orbit of σ and for every natural number n ⩾ 1 there is a
+ρn ∈ Sym(X) having the following properties:
+     • ρn commutes with the n-th power σ n of σ;
+     • the orbits On , On′ ⊆ X of σ n containing τy and τz , respectively, are both
+       fixed pointwise by ρn ;
+     • the actions of σ n and ρn on X \ (On ∪ On′ ) are the same;
+     • ψ commutes with ρn .
+Then ψx = xt where t is an element of Nc ∩ hx, y, zi.
+   (b) Suppose that for an involution ψ satisfying the conditions of (a) there is an
+involution ρ ∈ Sym(X), commuting with a power of π ∗ , which takes τy (ψ) to τz (ψ)
+and commutes with ψ. Then ψx = x.
+   (c) Let Ψ ⊆ Sym(X) be a family of involutions satisfying the conditions of (b)
+such that for every distinct y, z ∈ Y there is exactly one element of Ψ taking τy
+to τz . Suppose that an involution ϕ ∈ Sym(X) preserves τ ∗ and normalizes Ψ:
+ϕΨϕ = Ψ. Then ϕx = x.
+Proof. (a) Assume that ψx = xt where t ∈ Nc and that t is written as a reduced
+word in letters of X .
+   We work with the case when n = 1. Note that being an element of Sym(X), ρ1
+cannot invert τ ∗ . Then as ρ1 commutes with σ, we have that ρ1 x = x. Further,
+ρ1 ψρ1 −1 = ψ implies that xρ1 (t) = xt, or ρ1 (t) = t. Now ρ1 acts a permutation
+having no fixed points and having infinitely many infinite orbits on X \ ({τx } ∪
+O1 ∪ O1′ ). Let subsets O1 and O1′ of X induce the sets O1 and O1′ . It then follows
+that the reduced word t has no occurrences of letters in X \ ({x} ∪ O1 ∪ O1′ ), or
+t ∈ Nc ∩ h{x} ∪ O1 ∪ O1′ i.
+   Let On , On′ be the subsets of X determining the sets On , On′ , respectively. Ar-
+guing as above, we see that t ∈ Nc ∩ h{x} ∪ On ∪ On′ i for all n ⩾ 1. Observe
+that                           \
+                                  (On ∪ On′ ) = {y, z}.
+                              n⩾1
+
+Hence t = t(x, y, z).
+  (b). As ψ is an involution, then ψ 2 x = x implies that xt(x, y, z)t(x, z, y) = x,
+whence t(x, z, y) = t(x, y, z)−1 . Let ρ satisfy the conditions of (b). Then
+    ρψρ(x) = ψx ⇐⇒ ρ[xt(x, y, z)] = xt(x, y, z) ⇐⇒ xt(x, z, y) = xt(x, y, z).
+Then t(x, y, z)2 = 1, and t = 1, as claimed.
+  (c) Suppose that ϕx = xs where s ∈ Nc . Clearly, ϕ sends s to the inverse.
+Choose an arbitrary ψ ∈ Ψ. We then have that ϕψϕ = ψ ′ for a suitable ψ ′ ∈ Ψ.
+                 COMPLETENESS OF THE AUTOMORPHISM GROUPS                           20
+
+
+Then ϕψϕx = ψ ′ x = x. Therefore
+                 x = ϕψϕ(x) = ϕψ(xs) = ϕ(xψs) = x · s · ϕψ(s),
+or
+                ϕψ(s) = s−1 ⇐⇒ ψ(s) = ϕ(s−1 ) ⇐⇒ ψ(s) = s.
+Thus ψ(s) = s for all ψ ∈ Ψ. This easily implies that s = 1, for the subgroup of
+Sym(X) generated by Ψ acts on X \ {x} modulo Nc k-transitively for every natural
+number k ⩾ 1.                                                                 
+
+   Now we are constructing a promised definable with the parameter π ∗ subgroup
+S containing the group Π(x) . Statements of Lemma 4.2 suggest the construction of
+S as the subgroup of Aut(N ) generated by all involutions in Sym(X) that are in
+the normalizers of families involutions satisfying the conditions of (c):
+     S = hϕ ∈ Sym(X) : ϕ2 = id, ϕτ ∗ ϕ = τ ∗ , ∃Ψ with (c) s.t. ϕΨϕ = Ψi.       (17)
+By Lemma 4.2, σx = x for all σ ∈ S. Let us show that
+                       S ⊇ Π(x) = {σ ∈ Sym(X ) : σx = x}.
+   Indeed, consider the family Ψ∗ of transpositions ψy,z ∈ Sym(X ) where distinct
+y, z run over Y such that ψy,z interchanges y with z and fixes all other elements of
+X.
+   Let us check that Ψ∗ satisfies (c). Take any ψy,z ∈ Ψ∗ . The check of (a) for ψy,z
+is simple: one easily finds a power σ of π ∗ such y, z lie in the different orbits of
+σ. Then the construction of a needed ρn for every n ⩾ 1 is trivial. Let us check
+(b). Consider as a ρ an element of Sym(X ) which fixes x, and sends y to z while
+interchanging the orbits of σ on X containing y and z; all other orbits may, say
+stay fixed pointwise under the action of ρ. Hence the conditions of (b) are also true
+for ψy,z .
+   Recall that any infinite symmetric group is generated by involutions (as a bit too
+powerful tool one can apply, for instance, Baer’s theorem on the structure of normal
+subgroups of the infinite symmetric group Sym(Ω) [7, p. 256]; it is an immediate
+corollary of the said theorem that the normal closure of any element of Sym(Ω)—in
+particular, any involution—whose support is of power |Ω| is the whole of Sym(Ω)).
+   Now as any involution ϕ of the group Π(x) normalizes Ψ∗ , the group Π(x) is
+contained in S.
+   Let us again consider a relevant problem on free abelian groups. Let G be a free
+abelian group with a basis {a} ∪ {bi : i ∈ I}. Let H denote the subgroup generated
+by {bi : i ∈ I}. Then an arbitrary automorphism β of G fixing a looks like
+                              βa = a
+                              βbi = ci + ki a,   (i ∈ I)
+where ci is in H and ki ∈ Z (i ∈ I). Clearly, if α ∈ Aut(G) is defined via
+                             αa = a
+                             αbi = bi − ki a,    (i ∈ I),
+then βα ∈ Aut(G)(a),{H} .
+   This observation implies that
+                         Γ(x) = Γ(x),{hYi} · Ax · IA(N )(x) .
+                  COMPLETENESS OF THE AUTOMORPHISM GROUPS                              21
+
+
+where Ax is the group of all automorphisms of N of the form
+                                  αx = x,
+                                                                                     (18)
+                                  αy = yxky ,      (y ∈ Y)
+where ky ∈ Z for all y ∈ Y.
+  We then claim that
+                                 Γ(x) = hΠ(x) , Z + (π ∗ )i.
+This will complete the proof of (i).
+   Indeed, the group IA(N )(x) = IA1 (N )(x) is contained in the group hΠ(x) , Z + (π ∗ )i
+by Lemma 2.5. Let Z be any moiety of Y. It is easy to see that Ax equals the product
+the subgroup (Ax )(X \Z) and the conjugate subgroup of (Ax )(X \Z) by a suitable
+element of Π(x) . But then, by Lemma 2.3, the group hΠ(x) , Z + (π ∗ )i contains the
+group (Ax )(X \Z0 ) for a suitable moiety Z0 of Y.
+   The same lemma implies that the group hΠ(x) , Z + (π ∗ )i contains the subgroup
+ΓhZ0 i where Z0 is a moiety of Y. As the author showed in [20], given any partition
+X = X1 ∪ X2 ∪ T of X into pairwise disjoint moieties, we have that the group
+Γ = Aut(N ) is generated by the stabilizers
+                           Γ(X1 ),{hX2 ,T i} and Γ(X2 ),{hX1 ,T i} .                 (19)
+(Theorem 2.5 in [20]). Clearly, the stabilizers in (19) are conjugate by a suitable
+permutational automorphism of N with respect to the basis X . Thus Aut(N ) is
+generated by some ρ ∈ Sym(X ) and the stabilizer ΓhX2 ,T i = Γ(X1 ),{hX2 ,T i} .
+   By applying these considerations to the situation at hands, we see that the
+subgroup Γ(x),{hYi} ∼   = Aut(hYi) is generated by an element of Π(x) and the group
+ΓhZ0 i ⊆ hΠ(x) , Z + (π ∗ )i.
+   (ii) Let ∆ ∈ Aut(Aut(N )) and Σ ⊆ Aut(N ) be the stabilizer of a primitive
+element of N. Then ∆(Σ) is also a stabilizer of a primitive element of N by Lemma
+3.1 and (i).                                                                      
+
+                            5. Stabilizing everything
+  The family of all pairs (τ, Σ) where τ and Σ satisfy the condition
+          “τ is conjugation determined by a primitive element of N and
+          Σ ⊆ Aut(N ) is the stabilizer of a primitive element such that             (20)
+          every element of Σ commutes with τ ”
+is a definable object over Aut(N ) by Theorem 1.4, Lemma 3.1 and Theorem 4.1.
+We shall call pairs with (20) primitive pairs.
+   Clearly, every primitive pair (τ, Σ) uniquely determines some primitive element
+p(τ, Σ) of N. Indeed, a conjugation τ determines the coset xNc where τ = τx ,
+consisting of primitive elements and we then choose the only element xs where
+s ∈ Nc which is stabilized by every member of Σ.
+   Now the conjugation action
+                             σ ∗ (τ, Σ) = (στ σ −1 , σΣσ −1 )
+of the group Aut(N ) on the set of all primitive pairs is equivalent to the action of
+the group Aut(N ) on the set of all primitive elements of N.
+   We are going to show that the multiplication of “independent” primitive ele-
+ments is definable. So let us take two pairs (τ1 , Σ1 ) and (τ2 , Σ2 ) with (20) which
+determine primitive elements x and y of N, respectively. To explain that x and y
+                  COMPLETENESS OF THE AUTOMORPHISM GROUPS                                22
+
+
+are independent, we require that there be a basis set of conjugations into which
+both conjugations τ1 , τ2 can be included.
+Lemma 5.1. The primitive pair (τ1 τ2 , Σ1,2 ) associated with the product xy of
+the elements x = p(τ1 , Σ1 ) and y = p(τ2 , Σ2 ) is definable with the parameters
+(τ1 , Σ1 ), (τ2 , Σ2 ).
+Proof. Let X be any basis set of conjugations that contains both τ1 and τ2 . For
+every τ ∈ X \ {τ1 , τ2 } we choose a pair (τ, Στ ) with (20) determining an element
+zτ , thereby defining a basis
+                          X = {x, y} ∪ {zτ : τ ∈ X \ {τ1 , τ2 }}
+of N.
+   Consider a pair (τ1 τ2 , Σ) satisfying (20). It is clear that this pair determines a
+primitive element p of the form p = xyt where t ∈ Nc . Let w(∗1 , ∗2 ) be a group
+word in two letters over an alphabet having no common elements with N (or a term
+of the language of group theory having two variables) such that t = w(x, y) where
+w(x, y) is the result of replacing letters/variables of w to x and y: ∗1 → x, ∗2 → y.
+   Observe that given two distinct elements z1 , z2 of X , the element r = z1 z2 w(z1 , z2 )
+is definable over X and p, for r is the result of action on p = xyw(x, y) by a per-
+mutational automorphism with respect to X which takes x to z1 and y to z2 . For
+instance, the element r = yxw(y, x) must be described as follows: first, we are
+describing the uniquely determined π ∈ Aut(N ) such that
+                      π ∗ (τ1 , Σ1 ) = (τ2 , Σ2 ),
+                      π ∗ (τ2 , Σ2 ) = (τ1 , Σ1 ),
+                      π ∗ (τ, Στ ) = (τ, Στ ), (τ ∈ X \ {τ1 , τ2 }),
+and then set the pair R corresponding to r as R = π∗(τ1 τ2 , Σ). On similar occasions
+below, we will just describe actions on primitive elements themselves, skipping
+translations into the language of action on primitive pairs.
+   Our first condition, we are going to impose on the pair (τ1 τ2 , Σ), will imply that
+w(x, y) = w(y, x). To achieve that we require the following automorphism α defined
+via
+                 α:      x 7→ x
+                         yxw(y, x) 7→ xyw(x, y),
+                         zxw(z, x) 7→ xzw(x, z),      z ∈ X \ {x, y}
+be equal to τ1 = τx . It then follows that
+                 α(x) = x
+                 α(y) = xyx−1 w(x, y)w(y, x)−1 ,
+                 α(z) = xzx−1 w(x, z)w(z, x)−1 ,         z ∈ X \ {x, y}.
+whence
+                                   w(x, y) = w(y, x),                                 (21)
+as claimed. Clearly, as x, y are members of some basis of N, then w(a, b) = w(b, a)
+for every a, b ∈ N (apply to the both parts of (21) an endomorphism of N taking
+x to a and y to b.)
+   Fix a z from X \ {x, y} and write q for xzw(x, z). Consider the automorphisms
+                            U1 : y 7→ yzw(y, z),
+                                 a 7→ a,    (a ∈ X \ {y})
+                   COMPLETENESS OF THE AUTOMORPHISM GROUPS                             23
+
+
+and
+                            U2 : x 7→ xyw(x, y),
+                                 a 7→ a,    (a ∈ X \ {x});
+We then require U1 (p) and U2 (q) be equal:
+             U1 (p) = xyzw(y, z)w(x, yz) = U2 (q) = xyzw(x, y)w(xy, z).
+Therefore
+                           w(x, y)w(xy, z) = w(y, z)w(x, yz).
+Fix a natural number k and apply the endomorphism of N taking y to xk and fixing
+all other elements of X to the both parts of the last equation. It then follows that
+                            w(xk+1 , z) = w(xk , z)w(x, xk z).                       (22)
+We apply a permutational automorphism with respect to X interchanging x and z
+to the both parts of (22):
+                            w(z k+1 , x) = w(z k , x)w(z, z k x).
+Due to “symmetricity” of w we then have that
+                            w(x, z k+1 ) = w(x, z k )w(z k x, z).
+Multiplying the latter equation with (22) part by part, we arrive at
+            w(xk+1 , z)w(x, z k+1 ) = w(xk , z)w(x, z k ) · w(xk z, x)w(z k x, z).
+Then by (5),
+                                   c            c
+                     w(x, z)(k+1) = w(x, z)k w(xz k , z)w(zxk , x),
+or
+                                       c   c
+                        w(x, z)(k+1) −k = w(xz k , z)w(zxk , x).
+Let Lk = {sk : s ∈ Nc } be the subgroup of all k-th powers of elements of the (free
+abelian) group Nc . As (k + 1)c − k c ≡ 1 (mod k) and as, for instance, w(xz k , z) ≡
+w(x, z) (mod Lk ), we get that
+                                  w(x, z) ≡ 1 (mod Lk )
+for every natural number k. Therefore w(x, z) = 1, which means that the element
+xyt determined by the pair (τ1 τ2 , Σ) is xy, as desired.
+   Remark. The definability of xy over {x, y} is much more simple when the
+nilpotency class c of N is even. Indeed, extend {x, y} to a basis X of N and
+consider the automorphism θ ∈ Aut(N ) that inverts all elements of X . Then the
+element xyt where t ∈ Nc is inverted by the automorphism τx θ if and only if t = 1.
+This condition can be easily translated into the language of the action of Aut(N )
+on the primitive pairs.
+                                                                                 
+Theorem 5.2. The group Aut(N ) is complete.
+Proof. According to Proposition 1.2, the group Aut(N ) is centreless.
+  Let ∆ ∈ Aut(Aut(N )). By Proposition 1.9 there is a σ0 ∈ Aut(N ) such that
+∆1 = Tσ0 ◦ ∆ stabilizes all elements of the group Inn(N ) and, according to the
+same Proposition,
+                     ∆1 (σ) ≡ σ (mod IAc−1 (N ))        (σ ∈ Aut(N )).               (23)
+                 COMPLETENESS OF THE AUTOMORPHISM GROUPS                            24
+
+
+    Take a basis set X of conjugations, and then for each τ ∈ X choose the stabilizer
+Στ of a primitive element, forming a primitive pair (τ, Στ ). Let P (X) denote the
+set
+                                    {(τ, Στ ) : τ ∈ X}
+and let X be a basis of N determined by the pairs in P (X). Suppose that a pair
+(τ, Στ ) determines the primitive element xτ .
+    Take a τ ∈ X. The image of the pair (τ, Στ ) under ∆1 is a pair (τ, Σ∗τ ) which
+determines a primitive element xτ tτ where tτ ∈ Nc . Indeed, let π, a conjugate of
+π ∗ , belong to Στ ; then πτ π −1 = τ by the definition of a primitive pair. By (23),
+                                ∆1 (π)τ ∆1 (π)−1 = τ.
+On the other hand, ∆1 (π) must be a conjugate of π ∗ (Lemma 3.1) and hence ∆(π)
+fixes a uniquely determined element in the coset xτ Nc , the above mentioned element
+xτ tτ .
+   Consider the automorphism α ∈ IAc−1 (N ) which takes xτ to xτ tτ (τ ∈ X).
+Then ∆2 = Tα−1 ◦ ∆1 stabilizes all pairs (τ, Στ ) where τ runs over X.
+Lemma 5.3. ∆2 (and hence already ∆1 ) stabilizes all elements of the group IA(N ).
+Proof. Let x, y be two distinct elements of X . Consider the IA-automorphism K12
+(the standard notation) defined via
+                       K12 (xy) = yx ⇐⇒ K12 (x) = yxy −1 ,
+                       K12 z = z, (z ∈ X \ {x}).
+Then as the pairs associated with the elements xy and yx are definable over P (X)
+and P (X) is stabilized by ∆2 , K12 is stabilized by ∆2 .
+   According to the classical results of Nielsen and Magnus, the normal closure of
+an analogue of K12 in the automorphism group Aut(Fn ), where Fn (n ⩾ 2) is a
+finitely generated free group, is the group IA(Fn ) [15, Section 3.5]. Also, the homo-
+morphism Aut(Fn ) → Aut(Fn /γ3 (Fn )), determined by the natural homomorphism
+Fn → Fn /γ3 (Fn ), is surjective [1] (equivalently, one says that the automorphism
+groups of finitely generated free nilpotent groups of class two are tame). It follows
+that in the automorphism group of any infinitely generated free nilpotent group of
+class two all finitary IA-automorphisms are contained in the normal closure of any
+analogue of K12 . Therefore finitary IA-automorphisms of N are all contained in the
+group NC(K12 ) · IA2 (N ).
+   By Proposition 1.9, all elements of NC(K12 ) are stabilized by ∆2 and the group
+IA2 (N ) is stabilized by ∆2 by Proposition 2.7. Thus all finitary IA-automorphisms
+of N are stabilized by ∆2 , and by using the fact that subgroups IA(N )(p) where
+p is any primitive element of N are invariant under ∆2 (Proposition 2.2), we can
+complete the proof as in the proof of Proposition 2.7.                              
+   Swan (see [6, Section 2]) found rather simply-constructed generating sets of the
+automorphism groups of infinitely generated free abelian groups. Let A be an
+infinitely generated free abelian group and let B be a basis of A. An automorphism
+θ of A is called B-block-unitriangular if there is a moiety C of B such that θ fixes C
+pointwise and
+                                  θd ≡ d (modhCi).
+for all d ∈ B \ C. Then the group Aut(A) is generated by all B-block-unitriangular
+automorphisms.
+                   COMPLETENESS OF THE AUTOMORPHISM GROUPS                                   25
+
+
+   Let Y be a moiety of X . Consider then an automorphism β of N which induces
+a block-unitriangular automorphism in the abelianization of N :
+                               Q
+                        βz = z y∈Y y m(y,z)      (z ∈ X \ Y),
+                                                                                  (24)
+                        βy = y                   (y ∈ Y)
+                                 Q
+where in any (formal) product y∈Y y m(y,z) only finitely many integer exponents
+m(y, z) are non-zero.
+   By Swan’s theorem, the group Aut(N ) is generated by the automorphisms of the
+form (24) and by the elements of the group IA(N ). It therefore remains to prove
+that ∆2 stabilizes all automorphisms of the form (24).Q
+   We use Lemma 5.1. Any element of the form z y∈Y y m(y,z) can be obtained
+from elements of X as a result of a number of successive applications of the operation
+“multiplication of independent primitives” like in the following example:
+          z → z · y1−1 → zy1−1 · y1−1 → zy1−2 · y2 → . . . → zy1−2 y22 · y2 → . . .
+Therefore the image under β ∈ Aut(N ) with (24) of any basis pair (τ, Στ ) that
+determines an element of X \ Y is a primitive pair definable with the parameters
+from the set of basis pairs P (X). As ∆2 fixes all members of P (X), it fixes β and
+the result follows: ∆2 is then the trivial, and ∆ is an inner automorphism of the
+group Aut(N ).                                                                    
+   Acknowledgements. The author would like to thank Oleg Belegradek for
+helpful discussions and to thank the referee for the constructive comments on the
+manuscript.
+
+                                        References
+ [1] S. Andreadakis. On the automorphisms of free groups and free nilpotent groups. Proc. London
+     Math. Soc 15 (1965), 239–268.
+ [2] Yu. Bahturin. Basic structures of modern algebra. Mathematics and its Applications, 265.
+     (Kluwer Academic Publishers Group, Dordrecht, 1993).
+ [3] M. Bridson and K. Vogtmann. Automorphisms of automorphism groups of free groups. J.
+     Algebra. 229 (2000), 785–792.
+ [4] R. M. Bryant and C. K. Gupta. Automorphism groups of free nilpotent groups. Arch. Math.
+     (Basel) 52 (1989), 313–320.
+ [5] R. M. Bryant and V. A. Roman’kov. The automorphism groups of relatively free algebras. J.
+     Algebra 209 (1998), 713–723.
+ [6] R. G. Burns and L. Pi. Generators for the bounded automorphisms of infinite-rank free
+     nilpotent groups. Bull. Austral. Math. Soc. 40 (1989), 175–187.
+ [7] J. Dixon and B. Mortimer. Permutation groups. Graduate Texts in Mathematics, 163.
+     (Springer-Verlag, New York, 1996).
+ [8] J. Dyer and E. Formanek. The automorphism group of a free group is complete. J. London
+     Math. Soc. 11 (1975), 181–190.
+ [9] J. Dyer and E. Formanek. Automorphism sequences of free nilpotent group of class two.
+     Math. Proc. Camb. Phil. Soc. 79 (1976), 271–279.
+[10] J. Dyer and E. Formanek. Characteristic subgroups and complete automorphism groups.
+     Amer. J. Math. 99 (1977), 713–753.
+[11] E. Formanek. Characterizing a free group in its automorphism group. J. Algebra. 133 (1990),
+     424–432.
+[12] W. Hodges. Model Theory. (University Press, Cambridge, 1993).
+[13] M. Kassabov. On the automorphism tower of free nilpotent groups. PhD. thesis. Yale Uni-
+     versity (2003).
+[14] D. G. Khramtsov. Completeness of groups of outer automorphisms of free groups. Group-
+     theoretic investigations (Akad. Nauk SSSR Ural. Otdel., Sverdlovsk, 1990), pp. 128–143.
+[15] W. Magnus, A. Karrass and D. Solitar. Combinatorial Group Theory. (Wiley, 1966).
+                   COMPLETENESS OF THE AUTOMORPHISM GROUPS                                   26
+
+
+[16] H. Neumann. Varieties of Groups. (Springer-Verlag, 1967).
+[17] V. Tolstykh. The automorphism tower of a free group. J. London Math. Soc. (2) 61 (2000),
+     423–440.
+[18] V. Tolstykh. Free two-step nilpotent groups whose automorphism group is complete. Math.
+     Proc. Cambridge Philos. Soc. 131 (2001), 73–90.
+[19] V. Tolstykh. On the logical strength of the automorphism groups of free nilpotent groups.
+     Contemp. Math. vol. 302 (AMS, Providence, 2002) pp. 113–120.
+[20] V. Tolstykh. On the Bergman property for the automorphism groups of relatively free groups.
+     J. London Math. Soc. (2) 73 (2006), 669–680.
+
+   Vladimir Tolstykh, Department of Mathematics, Yeditepe University, 34755 Kayışdağı,
+Istanbul, Turkey
+   E-mail address: vtolstykh@yeditepe.edu.tr, tvlaa@rambler.ru
+

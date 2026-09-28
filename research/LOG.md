@@ -741,3 +741,25 @@ This goal continuation explicitly resumes the original research.
 Read primary introductions for N4 and MA6, including the July2026
 Jang–Yi revision. A new H4 output-size argument was worked out around
 20:59–21:01 UTC and preserved as an uncounted lead pending full audit.
+
+## 2026-09-28T21:14:46.624527+00:00 — H4 candidate completed at the local audit level
+
+Wrote a negative uniform complexity argument: every Dehn presentation of
+a finite group has an acyclic forbidden-factor automaton, bounding group
+order by (2m)^((m+1)^2). Explicit presentations of size4n+8 define
+C_(2^(2^n)-1) semidirect C_(2^n); every Dehn output is exponentially large
+in n up to polynomial factors. Source and rendering audit completed,
+including the absence of a finite-group exclusion. Changed output
+generators are allowed; compressed output is expressly distinguished.
+
+Python passed43 cases and10759 direct substring comparisons. GAP
+verified4 finite models and3 independent presentation orders. First
+GAP run passed with global-variable warnings; preserved its exact
+source, then declared local variables and reran successfully with
+empty stderr. The prior2012 finite-group suggestion is credited.
+No established novelty is claimed. Added H4 as the fourth whole-entry
+candidate; two partial candidates remain, zero established novel results.
+
+N4 and MA6 primary-source checks produced scope qualifications only;
+recorded them without adding candidates. No agents, contacts or push.
+Original clock and all frozen source inputs unchanged.
