@@ -2,18 +2,18 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately21:43 UTC: four whole-entry candidates
-(F28,N5,M0,H4), two partial candidates (N8,F41), zero established novel
-results. The N8 scope now also includes a nonlinear degree-eight leading
-family in class ten, with a written all-rank argument and independent GAP
-checks of five supported rank-two targets. Rank-three checks cover
-recognition only. F24(b) was retired as an explicit prior answer in
-Diao-Feighn2005. Earlier checkpoint counts below are historical.
+Latest checkpoint, approximately22:08 UTC: four whole-entry candidates
+(F28,N5,M0,H4), three partial candidates (N8,F41,F38(a)), zero established
+novel results. F38(a) now has a written all-rank decision argument using
+a determinant product and an effective EDT0L relation. The polynomial
+stage and free-word controls passed independent GAP replay; the imported
+recompression construction is not implemented. Rank two is prior.
 
-Next: return to the wider unresolved portfolio and adversarial candidate
-review. Do not conflate further N8 family extensions with additional
-problem resolutions or full class-ten decidability. Keep H4's explicit
-output convention and all novelty qualifications visible.
+Next: continue the broader unresolved portfolio and adversarial candidate
+review. F38(c) does not follow from polynomial identity testing. Review
+potential applications only with their exact quantifiers; do not relabel
+new N8 families or restatements as additional problem resolutions. Keep
+all novelty qualifications and the original deadline visible.
 
 ## First pass: source and literature triage
 

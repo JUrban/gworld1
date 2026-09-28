@@ -1,0 +1,556 @@
+                                                              AN ALGORITHM THAT DECIDES TRANSLATION
+                                                            EQUIVALENCE IN A FREE GROUP OF RANK TWO
+arXiv:math/0610833v1 [math.GR] 27 Oct 2006
+
+
+
+
+                                                                                             Donghi Lee
+
+                                                  Abstract. Let F2 be a free group of rank 2. We prove that there is an algorithm that decides whether
+                                                  or not, for given two elements u, v of F2 , u and v are translation equivalent in F2 , that is, whether
+                                                  or not u and v have the property that the cyclic length of φ(u) equals the cyclic length of φ(v) for
+                                                  every automorphism φ of F2 . This gives an affirmative solution to problem F38a in the online version
+                                                  (http://www.grouptheory.info) of [1] for the case of F2 .
+
+
+
+                                                                                          1. Introduction
+
+                                               Let Fn be the free group of rank n ≥ 2 on the set Σ. As usual, for a word v in Fn , |v| denotes
+
+                                             the length of the reduced word over Σ representing v. A word v is called cyclically reduced if all its
+
+                                             cyclic permutations are reduced. A cyclic word is defined to be the set of all cyclic permutations
+
+                                             of a cyclically reduced word. By [v] we denote the cyclic word associated with a word v. Also
+
+                                             by kvk we mean the length of the cyclic word [v] associated with v, that is, the number of cyclic
+
+                                             permutations of a cyclically reduced word which is conjugate to v. The length kvk is called the
+
+                                             cyclic length of v.
+
+                                               In [2], Kapovich-Levitt-Schupp-Shpilrain introduced and studied in detail the notion of transla-
+
+                                             tion equivalence in free groups. The following definition is a combinatorial version of translation
+
+                                             equivalence:
+
+                                             Definition 1.1 [2, Corollary 1.4]. Two words u, v ∈ Fn are called translation equivalent in Fn if
+
+                                             the cyclic length of φ(u) equals the cyclic length of φ(v) for every automorphism φ of Fn .
+
+                                               Several different sources of translation equivalence in free groups were provided by Kapovich-
+
+                                             Levitt-Schupp-Shpilrain [2] and Lee [3]. Pointing out in [2] that hyperbolic equivalence in surface
+                                               1991 Mathematics Subject Classification. Primary 20E05, 20E36, 20F10.
+
+                                                                                                                                         Typeset by AMS-TEX
+                                                                                                    1
+2                                                 DONGHI LEE
+
+
+groups (cf. [5]) and character equivalence in free groups are algorithmically decidable, Kapovich-
+
+Levitt-Schupp-Shpilrain raised the question about the existence of an algorithm which decides
+
+translation equivalence in free groups.
+
+     The purpose of the present paper is to prove that translation equivalence is algorithmically
+
+decidable in F2 .
+
+
+Theorem 1.2. There exists an algorithm that decides whether or not, for given two elements u, v
+
+of F2 , u and v are translation equivalent in F2 .
+
+
+     In conclusion as will be shown in Section 3, the algorithm in the statement of Theorem 1.2 is as
+
+follows.
+
+
+Algorithm. Let F2 = hx, yi, and let Ω be the set of all chains of Whitehead automorphisms of F2
+
+of the form either
+
+                                ({y}, x)mk ({x}, y)lk · · · ({y}, x)m1 ({x}, y)l1
+
+
+or
+
+                          ({y}, x−1 )mk ({x}, y −1 )lk · · · ({y}, x−1 )m1 ({x}, y −1 )l1 ,
+
+                                       Pk
+where k ∈ N, each li , mi ≥ 0 and         i=1 (li + mi ) ≤ 2kuk + 3. Then Ω is clearly a finite set. Check
+
+
+if kψ(u)k = kψ(v)k for every ψ ∈ Ω. If so, conclude that u and v are translation equivalent in F2 ;
+
+otherwise conclude that u and v are not translation equivalent in F2 .
+
+
+     Here, as in [4], a Whitehead automorphism σ of Fn is defined to be an automorphism of one of
+
+the following two types (cf. [6]):
+
+    (W1) σ permutes elements in Σ±1 .
+
+    (W2) σ is defined by a set S ⊂ Σ±1 and a letter a ∈ Σ±1 with both a, a−1 ∈
+                                                                             / S in such a way
+
+           that if c ∈ Σ±1 then (a) σ(c) = ca provided c ∈ S and c−1 ∈
+                                                                     / S; (b) σ(c) = a−1 ca provided
+
+           both c, c−1 ∈ S; (c) σ(c) = c provided both c, c−1 ∈
+                                                              / S.
+                       ALGORITHM THAT DECIDES TRANSLATION EQUIVALENCE                                           3
+
+
+If σ is of type (W2), we write σ = (S, a). By (S̄, a−1 ), we mean the Whitehead automorphism
+
+(Σ±1 − S − a±1 , a−1 ). It is then easy to check that
+
+
+(1.1)                                      (S, a)(w) = (S̄, a−1 )(w)
+
+
+for every cyclic word w in Fn .
+
+
+
+                                         2. Preliminary Lemmas
+
+
+   We begin this section by setting some notation. As in [2], if w is a cyclic word in Fn and
+
+a, b ∈ Σ±1 , we use n(w; a, b) to denote the total number of occurrences of the subwords ab and
+
+b−1 a−1 in w. Then clearly n(w; a, b) = n(w; b−1 , a−1 ). Similarly we denote by n(w; a) the total
+
+number of occurrences of a and a−1 in w. Then again clearly n(w; a) = n(w; a−1 ). As in [4], for
+
+two automorphisms φ and ψ of Fn , by writing φ ≡ ψ we mean the equality of φ and ψ over all
+
+cyclic words in Fn , that is, φ(w) = ψ(w) for every cyclic word w in Fn .
+
+   From now on, let F2 be the free group of rank 2 on the set {x, y}.
+
+
+Lemma 2.1. Let α be a Whitehead automorphism of F2 of type (W2). Then exactly one of α ≡ 1,
+
+α ≡ ({x}, y), α ≡ ({x}, y −1 ), α ≡ ({y}, x) and α ≡ ({y}, x−1 ) is necessarily satisfied.
+
+
+Proof. Let α be a Whitehead automorphism of F2 of type (W2). By the definition of (W2), α is
+
+one of ({x}, y), ({x−1 }, y), ({x±1 }, y), ({x}, y −1 ), ({x−1 }, y −1 ), ({x±1 }, y −1 ), ({y}, x), ({y −1 }, x),
+
+({y ±1 }, x), ({y}, x−1 ), ({y −1 }, x−1 ) and ({y ±1 }, x−1 ). Among these, ({x±1 }, y), ({x±1 }, y −1 ),
+
+({y ±1 }, x) and ({y ±1 }, x−1 ) play the same role as the identity over every cyclic word in F2 .
+
+Moreover, by (1.1), ({x−1 }, y) ≡ ({x}, y −1 ), ({x−1 }, y −1 ) ≡ ({x}, y), ({y −1 }, x) ≡ ({y}, x−1 ) and
+
+({y −1 }, x−1 ) ≡ ({y}, x) in F2 , thus proving the lemma.                                                     
+
+
+   Now for the rest of the paper, let σ = ({x}, y) and τ = ({y}, x) be Whitehead automorphisms
+
+of F2 . Then obviously σ −1 = ({x}, y −1 ) and τ −1 = ({y}, x−1 ).
+4                                                   DONGHI LEE
+
+
+Lemma 2.2. In F2 , we have
+
+
+                          τ −1 σ ≡ πτ,           τ −1 π ≡ πσ,                 σ −1 π ≡ πτ,
+
+                          στ −1 ≡ πσ −1 ,        τ π ≡ πσ −1 ,                σπ ≡ πτ −1 ,
+
+                          τ σ −1 ≡ π −1 τ −1 ,   τ π −1 ≡ π −1 σ −1 ,         σπ −1 ≡ π −1 τ −1 ,
+
+                          σ −1 τ ≡ π −1 σ,       τ −1 π −1 ≡ π −1 σ,          σ −1 π −1 ≡ π −1 τ,
+
+where π is a Whitehead automorphism of F2 of type (W1) that sends x to y and y to x−1 .
+
+Proof. For the first equality, check that (πτ )−1 τ −1 σ = ({y ±1 }, x−1 )({x±1 }, y) ≡ 1 in F2 . In a
+
+similar way, the rest of the equalities can be checked.                                                             
+
+Lemma 2.3. For every automorphism φ of F2 , φ can be represented as φ ≡ βφ′ , where β is a
+
+Whitehead automorphism of F2 of type (W1) and φ′ is a chain of one of the forms
+                                       (C1) φ′ ≡ τ mk σ lk · · · τ m1 σ l1
+
+                                       (C2) φ′ ≡ τ −mk σ −lk · · · τ −m1 σ −l1
+with k ∈ N and both li , mi ≥ 0 for every i = 1, . . . , k.
+
+Proof. By Whitehead’s Theorem (cf. [6]) together with Lemma 2.1, an automorphism φ of F2 can
+
+be expressed as
+
+(2.1)                                        φ ≡ β ′ τ qt σ pt · · · τ q1 σ p1 ,
+
+where β ′ is a Whitehead automorphism of F2 of type (W1), t ∈ N and both pi , qi are (not necessarily
+
+positive) integers for every i = 1, . . . , t. If not every pi and qi has the same sign (including 0),
+
+apply repeatedly Lemma 2.2 to the chain on the right-hand side of (2.1) to obtain that either
+
+φ ≡ β ′ π r τ mk σ lk · · · τ m1 σ l1 or φ ≡ β ′ π r τ −mk σ −lk · · · τ −m1 σ −l1 , where π is as in Lemma 2.2, r ∈ Z,
+
+k ∈ N, and both li , mi ≥ 0 for every i = 1, . . . , k. Putting β = β ′ π r , we get the required result.
+
+                                                                                                                    
+
+    Under the same notation as in the statement of Lemma 2.3, we define the length of an automor-
+                     Pk                                                                 ′
+phism φ of F2 as        i=1 (mi + li ), which is denoted by |φ|. Then obviously |φ| = |φ |.
+                      ALGORITHM THAT DECIDES TRANSLATION EQUIVALENCE                                       5
+
+
+Lemma 2.4. Let u, v be elements in F2 . Also let m be an arbitrary positive integer, and let Λ
+
+be the set of all chains of the form (C1) or (C2) of length less than or equal to m. Suppose that
+
+kψ(u)k = kψ(v)k for every ψ ∈ Λ. Then we have both n([ψ(u)]; x) = n([ψ(v)]; x) and n([ψ(u)]; y) =
+
+n([ψ(v)]; y) for every ψ ∈ Λ.
+
+
+Proof. Under the given hypothesis of the lemma, [2, Lemma 2.2] yields that n([u]; x) = n([v]; x) and
+
+n([u]; y) = n([v]; y), thus proving the lemma when ψ = 1. Now assuming that the assertion of the
+
+lemma is true for every ψ1 ∈ Λ with |ψ1 | = m′ < m, we shall prove that n([ψ2 (u)]; x) = n([ψ2 (v)]; x)
+
+and n([ψ2 (u)]; y) = n([ψ2 (v)]; y) for every ψ2 ∈ Λ with |ψ2 | = m′ + 1. Such ψ2 can be expressed as
+
+σ ±1 ψ1 or τ ±1 ψ1 for some ψ1 ∈ Λ with |ψ1 | = m′ .
+
+   First let ψ2 = σ ±1 ψ1 . Then clearly n([ψ2 (u)]; x) = n([ψ1 (u)]; x) and n([ψ2 (v)]; x) = n([ψ1 (v)]; x).
+
+Since n([ψ1 (u)]; x) = n([ψ1 (v)]; x) by the induction hypothesis, we have n([ψ2 (u)]; x) = n([ψ2 (v)]; x).
+
+Moreover it is clear that n([ψ2 (u)]; y) = kψ2 (u)k − n([ψ2 (u)]; x) and n([ψ2 (v)]; y) = kψ2 (v)k −
+
+n([ψ2 (v)]; x). Since kψ2 (u)k = kψ2 (v)k by the hypothesis of the lemma, we finally have n([ψ2 (u)]; y) =
+
+n([ψ2 (v)]; y).
+
+   The other case where ψ2 = τ ±1 ψ1 is similar.                                                           
+
+
+   For a cyclic word w in F2 and a Whitehead automorphism, say σ, of F2 , a subword of the
+
+form xy r x−1 (r 6= 0), if any, in w is invariant in passing from w to σ(w), although there occurs
+
+cancellation in σ(xy r x−1 ) (note that σ(xy r x−1 ) = xy · y r · y −1 x−1 = xy r x−1 ). Such cancellation
+
+is called trivial cancellation. And cancellation which is not trivial cancellation is called proper
+
+cancellation. For example, a subword xy −r x (r ≥ 1), if any, in w is transformed to xy −r+1 xy by
+
+applying σ, and the cancellation occurring in σ(xy −r x) is proper cancellation.
+
+
+Lemma 2.5. Let w be a cyclic word in F2 , and let ψ be a chain of the form (C1) (or (C2)). If ψ
+
+contains at least kwk factors of σ (or σ −1 ), then there cannot occur proper cancellation in passing
+
+from ψ(w) to σψ(w) (or ψ(w) to σ −1 ψ(w)); if ψ contains at least kwk factors of τ (or τ −1 ), then
+6                                            DONGHI LEE
+
+
+there cannot occur proper cancellation in passing from ψ(w) to τ ψ(w) (or ψ(w) to τ −1 ψ(w)).
+
+
+Proof. We shall show that if ψ is a chain of the form (C1) such that ψ contains at least kwk
+
+factors of σ, then no proper cancellation occurs in passing from ψ(w) to σψ(w) (the other cases are
+
+similar). Supposing that there is a chain ψ ′ of type (C1) such that no proper cancellation occurs
+
+in passing from ψ ′ (w) to σψ ′ (w), we see that proper cancellation cannot occur in passing from
+
+σψ ′ (w) to σ 2 ψ ′ (w) or in passing from τ t σψ ′ (w) to στ t σψ ′ (w) for any t ≥ 1. Hence if there was
+
+proper cancellation in passing from ψ(w) to σψ(w), then proper cancellation would also occur at
+
+every step of applying σ in ψ. However since cancelled y ±1 in proper cancellation at every step of
+
+applying σ in the chain σψ must originally exist in w and since the chain σψ contains more than
+
+kwk factors of σ, we reach a contradiction.                                                             
+
+
+
+                                     3. Proof of Theorem 1.2
+
+
+    We shall prove the following.
+
+    (∗) Let Ω be the set of all chains of the form (C1) or (C2) of length less than or equal to
+
+           2kuk + 3. Suppose that kψ(u)k = kψ(v)k for every ψ ∈ Ω. Then u and v are translation
+
+           equivalent in F2 .
+
+    Once (∗) is proved, the translation equivalence of u, v in F2 is algorithmically decidable as
+
+follows.
+
+
+Algorithm. Let Ω be the set of all chains of the form (C1) or (C2) of length less than or equal to
+
+2kuk + 3 (note that Ω is a finite set). Check if kψ(u)k = kψ(v)k for every ψ ∈ Ω. If so, conclude
+
+that u and v are translation equivalent in F2 ; otherwise conclude that u and v are not translation
+
+equivalent in F2 .
+
+
+    Let φ be an automorphism of F2 . By Lemma 2.3, φ can be represented as φ ≡ βφ′ , where β
+
+is a Whitehead automorphism of F2 of type (W1) and φ′ is of the form either (C1) or (C2). We
+                        ALGORITHM THAT DECIDES TRANSLATION EQUIVALENCE                                   7
+
+
+proceed with the proof of (∗) by induction on |φ′ |. Suppose that φ′ is a chain of the form (C1) with
+
+|φ′ | > 2kuk + 3 (the case for (C2) is similar). Assuming that kψ(u)k = kψ(v)k for every chain ψ
+
+of the form (C1) or (C2) with |ψ| < |φ′ |, we shall show that kφ′ (u)k = kφ′ (v)k, which is equivalent
+
+to showing that kφ(u)k = kφ(v)k. Suppose that φ′ ends with τ (the case where φ′ ends with σ is
+
+similar), that is,
+
+                                               φ′ = τ mk σ lk · · · τ m1 σ l1 ,
+
+where both li , mi ≥ 0 for every i = 1, . . . , k and mk > 0. Put
+
+
+                                             φ1 = τ mk −1 σ lk · · · τ m1 σ l1 .
+
+
+Also put
+
+                                          u1 = φ1 (u) and           v1 = φ1 (v).
+
+It then follows from τ (u1 ) = φ′ (u) and τ (v1 ) = φ′ (v) that
+
+                                 kφ′ (u)k = ku1 k + n([u1 ]; y) − 2n([u1 ]; y, x−1 )
+(3.1)
+                                 kφ′ (v)k = kv1 k + n([v1 ]; y) − 2n([v1 ]; y, x−1 ).
+
+By the induction hypothesis, we have ku1 k = kv1 k. Moreover, by Lemma 2.4, we have n([u1 ]; y) =
+
+n([v1 ]; y). So it suffices to show n([u1 ]; y, x−1 ) = n([v1 ]; y, x−1 ) to get the equality kφ′ (u)k =
+
+kφ′ (v)k.
+
+   Clearly the chain φ1 has length |φ1 | = |φ′ | − 1 ≥ 2kuk + 3. Hence either σ or τ occurs at least
+
+kuk + 2 times in φ1 . We consider two cases accordingly.
+
+Case 1. σ occurs at least kuk + 2 times in φ1 .
+
+   In this case, clearly lk > 0. Put
+
+
+                     u2 = τ mk −1 σ lk −1 · · · τ m1 σ l1 (u)   and u′2 = σ lk −1 · · · τ m1 σ l1 (u).
+
+
+Then u2 = τ mk −1 (u′2 ). In the following claims, we shall make some observations about the cyclic
+
+word [u′2 ].
+8                                                   DONGHI LEE
+
+
+Claim 1. (i) If lk − 1 > 0, then [u′2 ] does not have x2 or x−2 as a subword.
+
+    (ii) Let lk − 1 = 0. Then the cyclic word [σ l(k−1) · · · τ m1 σ l1 (u)] does not have x2 or x−2 as a
+
+subword. If there is a subword x2 or x−2 in [u′2 ], then it is actually part of the subword yx2 or
+
+x−2 y −1 , respectively.
+
+
+Proof of Claim 1. (i) Let lk − 1 > 0. Since the chain σ lk −2 · · · τ m1 σ l1 contains at least kuk fac-
+
+tors of σ, by Lemma 2.5 no proper cancellation occurs in passing from [σ lk −2 · · · τ m1 σ l1 (u)] to
+
+[σ lk −1 · · · τ m1 σ l1 (u)] = [u′2 ]. This yields that x2 or x−2 cannot occur in [u′2 ] as a subword.
+
+    (ii) Let lk −1 = 0. Then l(k−1) > 0 and the chain σ l(k−1) −1 · · · τ m1 σ l1 contains at least kuk factors
+
+of σ. Again by Lemma 2.5, no proper cancellation occurs in passing from [σ l(k−1) −1 · · · τ m1 σ l1 (u)]
+
+to [σ l(k−1) · · · τ m1 σ l1 (u)]. This yields that x2 or x−2 cannot occur in [σ l(k−1) · · · τ m1 σ l1 (u)] as a
+
+subword.
+
+    Thus if there exists x2 or x−2 in [u′2 ] as a subword, it must have newly occurred in passing from
+
+[σ l(k−1) · · · τ m1 σ l1 (u)] to [τ m(k−1) σ l(k−1) · · · τ m1 σ l1 (u)] = [u′2 ]. This implies that if there is a subword
+
+x2 or x−2 in [u′2 ], it is actually part of the subword yx2 or x−2 y −1 , respectively.                                 
+
+
+Claim 2. The cyclic word [u′2 ] can be written as [w1 z1 · · · wt zt ], where zi is either xy t x−1 or
+
+xy −t x−1 (t ≥ 1), and wi contains no yx−1 or xy −1 as a subword and neither begins with nor ends
+
+with x±1 .
+
+
+Proof of Claim 2. Since the chain σ lk −1 · · · τ m1 σ l1 contains at least kuk + 1 factors of σ, by
+
+Lemma 2.5 no proper cancellation occurs in passing from [u′2 ] to [σ(u′2 )]. This implies that any
+
+subword yx−1 or xy −1 , if any, in [u′2 ] must be part of a subword of the form xy t x−1 or xy −t x−1
+
+(t ≥ 1), respectively, in [u′2 ].
+
+    Suppose that xy t x−2 or x2 y −t x−1 (t ≥ 1) occurs in [u′2 ] as a subword. By Claim 1 (i), this
+
+happens only when lk − 1 = 0. Also by the second part of Claim 1 (ii), any subword of the form
+
+xy t x−2 or x2 y −t x−1 (t ≥ 1) in [u′2 ] is part of a subword of the form xy t x−s y −1 or yxs y −t x−1
+                       ALGORITHM THAT DECIDES TRANSLATION EQUIVALENCE                                            9
+
+
+(s ≥ 2), respectively, in [u′2 ]. But then a subword of the form yx−s y −1 or yxs y −1 (s ≥ 2) must
+
+exist in [σ l(k−1) · · · τ m1 σ l1 (u)], a contradiction to the first part of Claim 1 (ii).                     
+
+   Now put
+
+                                                    u′1 = σ(u′2 ).
+
+
+By Claim 2, we have [u′1 ] = [σ(w1 z1 · · · wt zt )] = [w1′ z1 · · · wt′ zt ], where wi′ = ({x}, y)(wi ). Then wi′
+
+contains no yx−1 or xy −1 as a subword and has the same initial and terminal letters as wi does for
+
+each i. Since u1 and u2 are obtained by applying τ mk −1 to u′1 and u′2 , respectively, we see that
+
+
+                                       n([u1 ]; y, x−1 ) = n([u2 ]; y, x−1 ).
+
+
+Arguing similarly, we have
+
+                                        n([v1 ]; y, x−1 ) = n([v2 ]; y, x−1 ),
+
+
+where v2 = τ mk −1 σ lk −1 · · · τ m1 σ l1 (v). Furthermore, since
+
+                    −2n([u2 ]; y, x−1 ) = kτ mk σ lk −1 · · · τ m1 σ l1 (u)k − ku2 k − n([u2 ]; y)
+
+                    −2n([v2 ]; y, x−1 ) = kτ mk σ lk −1 · · · τ m1 σ l1 (v)k − kv2 k − n([v2 ]; y),
+
+by the induction hypothesis applied to both kτ mk σ lk −1 · · · τ m1 σ l1 (u)k = kτ mk σ lk −1 · · · τ m1 σ l1 (v)k
+
+and ku2 k = kv2 k together with Lemma 2.4 applied to n([u2 ]; y) = n([v2 ]; y), we finally have
+
+
+                   n([u1 ]; y, x−1 ) = n([u2 ]; y, x−1 ) = n([v2 ]; y, x−1 ) = n([v1 ]; y, x−1 ),
+
+
+that is, n([u1 ]; y, x−1 ) = n([v1 ]; y, x−1 ), as required.
+
+Case 2. τ occurs at least kuk + 2 times in φ1 .
+
+   We divide this case into two subcases.
+
+Case 2.1. mk ≥ 2.
+
+   Put
+
+                   u3 = τ mk −2 σ lk · · · τ m1 σ l1 (u) and    v3 = τ mk −2 σ lk · · · τ m1 σ l1 (v).
+10                                                DONGHI LEE
+
+
+Here since the chain τ mk −2 σ lk · · · τ m1 σ l1 contains at least kuk + 1 factors of τ , by Lemma 2.5 no
+
+proper cancellation occurs in passing from [u3 ] to [τ (u3 )] = [u1 ]. Hence we have n([u1 ]; y, x−1 ) =
+
+n([u3 ]; y, x−1 ). Similarly n([v1 ]; y, x−1 ) = n([v3 ]; y, x−1 ). Since
+
+                    −2n([u3 ]; y, x−1 ) = kτ mk −1 σ lk · · · τ m1 σ l1 (u)k − ku3 k − n([u3 ]; y)
+
+                    −2n([v3 ]; y, x−1 ) = kτ mk −1 σ lk · · · τ m1 σ l1 (u)k − kv3 k − n([v3 ]; y),
+
+the desired equality n([u1 ]; y, x−1 ) = n([v1 ]; y, x−1 ) follows from the induction hypothesis and
+
+Lemma 2.4.
+
+Case 2.2. mk = 1.
+
+     In this case clearly m(k−1) > 0. Put
+
+
+               u4 = σ lk τ m(k−1) −1 · · · τ m1 σ l1 (u) and    v4 = σ lk τ m(k−1) −1 · · · τ m1 σ l1 (v).
+
+
+As in Case 1, we can see that
+
+                                        n([u1 ]; y, x−1 ) = n([u4 ]; y, x−1 )
+
+                                        n([v1 ]; y, x−1 ) = n([v4 ]; y, x−1 ).
+
+Then since
+
+                 −2n([u4 ]; y, x−1 ) = kτ σ lk τ m(k−1) −1 · · · τ m1 σ l1 (u)k − ku4 k − n([u4 ]; y)
+
+                 −2n([v4 ]; y, x−1 ) = kτ σ lk τ m(k−1) −1 · · · τ m1 σ l1 (u)k − kv4 k − n([v4 ]; y),
+
+the required equality n([u1 ]; y, x−1 ) = n([v1 ]; y, x−1 ) follows from the induction hypothesis and
+
+Lemma 2.4.
+
+     The proof of (∗), and hence the proof of Theorem 1.2, is now completed.                                 
+
+
+                                             Acknowledgements
+
+     The author is grateful to Ilya Kapovich and Vladimir Shpilrain for suggesting this research topic.
+
+The author is also thankful to the referee for a careful report. This work was supported by the
+
+Korea Research Foundation Grant funded by the Korean Government (KRF-2006-531-C00011).
+                   ALGORITHM THAT DECIDES TRANSLATION EQUIVALENCE                             11
+
+
+                                         References
+
+
+    1. G. Baumslag, A. G. Myasnikov and V. Shpilrain, Open problems in combinatorial group
+
+      theory, Second edition, Contemp. Math. 296 (2002), 1–38.
+
+    2. I. Kapovich, G. Levitt, P. E. Schupp and V. Shpilrain, Translation equivalence in free
+
+      groups, Trans. Amer. Math. Soc., to appear.
+
+    3. D. Lee, Translation equivalent elements in free groups, J. Group Theory, to appear.
+
+    4. D. Lee, Counting words of minimum length in an automorphic orbit, J. Algebra 301 (2006),
+
+      35–58.
+
+    5. C. J. Leininger, Equivalent curves in surfaces, Geom. Dedicata 102 (2003), 151–177.
+
+    6. J. H. C. Whitehead, Equivalent sets of elements in a free group, Ann. of Math. 37 (1936),
+
+      782–800.
+
+   Department of Mathematics, Pusan National University, Jangjeon-Dong, Geumjung-Gu, Pusan
+609-735, Korea
+   E-mail address: donghi@pusan.ac.kr
+

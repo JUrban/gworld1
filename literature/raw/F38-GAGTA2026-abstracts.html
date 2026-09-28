@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAGTA 2026: Group Actions and Dynamics</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+SC:wght@400;500;600&display=swap');
+
+  :root {
+    --ink: #1a1512;
+    --accent: #7a3b1e;
+    --rule: #b5956a;
+    --bg: #faf7f2;
+    --card-bg: #ffffff;
+    --zoom-bg: #f5f0ea;
+    --muted: #5c4a35;
+    --border-light: #e0d4c0;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--ink);
+    background-color: var(--bg);
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  header {
+    text-align: center;
+    padding-bottom: 2.5rem;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid var(--rule);
+  }
+
+  header h1 {
+    font-family: 'Cormorant SC', 'EB Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  header p.subtitle {
+    font-size: 1.05rem;
+    color: var(--muted);
+    font-style: italic;
+    letter-spacing: 0.02em;
+  }
+
+  .section-label {
+    font-family: 'Cormorant SC', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-align: center;
+    margin: 3.5rem 0 2rem;
+    padding: 0.6rem 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .talks-grid {
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .talk {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 2px;
+    padding: 2rem 2.4rem;
+    box-shadow: 0 1px 4px rgba(90,60,20,0.07);
+  }
+
+  .zoom-section .talk {
+    background: var(--zoom-bg);
+    border-color: #c9b89a;
+  }
+
+  .speaker {
+    font-family: 'Cormorant SC', 'EB Garamond', serif;
+    font-size: 1.22rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.03em;
+    margin-bottom: 0.1rem;
+  }
+
+  .affiliation {
+    font-size: 0.95rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 0.55rem;
+  }
+
+  .title {
+    font-size: 1.08rem;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .abstract {
+    font-size: 1rem;
+    color: #2a211a;
+    line-height: 1.8;
+    text-align: justify;
+  }
+
+  /* MathML styling */
+  math {
+    font-size: 1em;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    body { padding: 2rem 1rem 3rem; }
+    header h1 { font-size: 1.8rem; }
+    .talk { padding: 1.4rem 1.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>GAGTA 2026</h1>
+  <p class="subtitle">Group Actions and Dynamics</p>
+  <p class="subtitle" style="margin-top:0.3rem; font-size:1.25rem; font-style:normal; font-family:'Cormorant SC', serif; letter-spacing:0.06em;">Titles and Abstracts</p>
+</header>
+
+<div class="talks-grid">
+
+<!-- ==================== ALPHABETICAL SPEAKERS ==================== -->
+
+<!-- Ali -->
+<div class="talk" id="ali">
+  <div class="speaker">Abid Ali</div>
+  <div class="affiliation">University of Saskatchewan</div>
+  <div class="title">Automorphic Forms on Buildings of Kac–Moody Groups</div>
+  <div class="abstract">
+    Let <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi></math> be a rank 2 Kac–Moody group over a finite field <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>k</mi></math>, and let <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>X</mi></math> denote its associated Tits building. The geometric and combinatorial structure of <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>X</mi></math> plays a central role in understanding analytic properties of arithmetic subgroups of <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi></math>. In earlier work, Ali and Carbone used the action of subgroups associated with the negative BN-pair, namely <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msup><mi>U</mi><mo>−</mo></msup></math>, <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msup><mi>B</mi><mo>−</mo></msup></math>, and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msubsup><mi>P</mi><mn>1</mn><mo>−</mo></msubsup></math>, to show that these groups arise as lattice subgroups of <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi></math>.
+
+    In this talk, we focus on the standard parabolic subgroup <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>Γ</mi><mo>=</mo><msubsup><mi>P</mi><mn>1</mn><mo>−</mo></msubsup></math> and introduce Eisenstein series on the quotient space <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>Γ</mi><mo>\</mo><mi>X</mi></math>. Using the geometry of the building together with the Iwasawa decomposition of the Haar measure on <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi></math>, we establish convergence of these Eisenstein series in a suitable half-space and prove their meromorphic continuation. The talk will also discuss how these methods relate to earlier lattice constructions of Ali and Carbone, as well as possible extensions to higher-rank Kac–Moody groups and related geometric settings. This is joint work with Lisa Carbone and Paul Garrett.
+  </div>
+</div>
+
+<!-- Balasubramanya -->
+<div class="talk" id="balasubramanya">
+  <div class="speaker">Sahana Hassan Balasubramanya</div>
+  <div class="affiliation">Lafayette College</div>
+  <div class="title">Extending acylindricity to higher rank</div>
+  <div class="abstract">
+    I will present a new notion of non-positively curved groups: the collection of discrete countable groups acting (AU-) acylindrically on finite products of hyperbolic spaces. This work (joint with T. Fernos) is inspired by the classical theory of S-arithmetic lattices and that of acylindrically hyperbolic groups. I will start with the motivation for studying these groups in this talk, and cover some results we have proved that highlight this duality.
+  </div>
+</div>
+
+<!-- Behrstock -->
+<div class="talk" id="behrstock">
+  <div class="speaker">Jason Behrstock</div>
+  <div class="affiliation">CUNY Lehman College &amp; Graduate Center</div>
+  <div class="title">Random graphs and Coxeter groups</div>
+  <div class="abstract">
+    Erdős and Rényi introduced a model for studying random graphs of a given density and proved that there is a sharp threshold at which lower density random graphs are disconnected and higher density ones are connected. This framework is extremely well-suited for studying right-angled Coxeter groups (RACGs) and we will describe some theorems analogous to the Erdős–Rényi result in this context. Moreover, in trying to understand random groups, we have discovered some surprising new results, including for instance a simple constraint on a presentation graph which forces the associated RACG to be relatively hyperbolic.
+  </div>
+</div>
+
+<!-- Boyer -->
+<div class="talk" id="boyer">
+  <div class="speaker">Adrien Boyer</div>
+  <div class="affiliation">Université Paris Cité</div>
+  <div class="title">Property RD and Boundary Representations for affine buildings of type
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+      <mover><mi>A</mi><mo>~</mo></mover><mn>2</mn>
+    </math>
+  </div>
+  <div class="abstract">
+    I will discuss an approach based on boundary representations to establish an optimal form of property RD for discrete groups acting properly and cocompactly on affine buildings of type <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mover><mi>A</mi><mo>~</mo></mover><mn>2</mn></math>. This improves a celebrated result of Robertson, Ramagge, and Steger from the late 1990s establishing property RD, and is related to the conjecture of Kazhdan and Yom Din concerning the decay of matrix coefficients of unitary representations.
+
+    After a brief introduction to property RD, I will emphasize geometric arguments involving the Furstenberg boundary, in particular the notion of foldings (or "confluences," following V. Kaimanovich), together with tools from harmonic analysis on the boundary of buildings.
+  </div>
+</div>
+
+<!-- Cantrell -->
+<div class="talk" id="cantrell">
+  <div class="speaker">Stephen Cantrell</div>
+  <div class="affiliation">University of St Andrews</div>
+  <div class="title">A coarse geometric description for reparameterizations of geodesic flows</div>
+  <div class="abstract">
+    The dynamical properties of the geodesic flow on a negatively curved manifold tell us about the underlying geometric structure of the manifold. Using (Hölder) reparameterizations (i.e., time changes) of the flow it is possible to encode information about multiple geometries within a single dynamical framework. This allows one to compare different geometries and to obtain results of various flavours: counting results, limit laws, rigidity results, etc. In this talk we will explore the space of continuous reparameterizations of geodesic flows. We present a coarse geometric description of these reparameterizations that sheds light on their structure and rigidity. Joint work with D. Martinez-Granado and E. Reyes.
+  </div>
+</div>
+
+<!-- Carbone -->
+<div class="talk" id="carbone">
+  <div class="speaker">Lisa Carbone</div>
+  <div class="affiliation">Rutgers University</div>
+  <div class="title">Steinberg groups in infinite dimensions</div>
+  <div class="abstract">
+    We discuss how Steinberg groups appear in the construction of groups for infinite dimensional Lie algebras, namely a Lie group analog for the Monster Lie algebra.
+  </div>
+</div>
+
+<!-- Ceccherini-Silberstein -->
+<div class="talk" id="ceccherini">
+  <div class="speaker">Tullio Ceccherini-Silberstein</div>
+  <div class="affiliation">Università del Sannio (Benevento)</div>
+  <div class="title">A Garden of Eden Theorem for Smale Spaces</div>
+  <div class="abstract">
+    Smale spaces were introduced in the late 1970s by David Ruelle in his influential monograph on thermodynamic formalism. These dynamical systems include: Anosov diffeomorphisms, non-wandering sets of Smale's Axiom A diffeomorphisms, various types of solenoids and attractors, as well as (in a symbolic dynamical setting) subshifts of finite type.
+
+    In a recent joint work with Michel Coornaert, we proved, among other things, a Garden of Eden type theorem (GOET) for irreducible Smale spaces. This generalizes previous results by Fiorenzi (GOET for irreducible subshifts of finite type) and ours (GOET for Anosov diffeomorphisms on tori).
+  </div>
+</div>
+
+<!-- Chaudhary -->
+<div class="talk" id="chaudhary">
+  <div class="speaker">Maksym Chaudhary</div>
+  <div class="affiliation">University of South Florida</div>
+  <div class="title">The CLT for random walks on a class of wreath products</div>
+  <div class="abstract">
+    The quantitative behavior of random walks on groups is rather well-understood for hyperbolic groups and their generalizations. However, even the most basic questions become challenging if the geometry of the underlying group is sufficiently different from the geometry of negative curvature. In particular, multiple questions remain open for the wreath products of finitely generated groups. In this talk, we will discuss a Central Limit Theorem for the drift of a non-elementary random walk on a wreath product with an acylindrically hyperbolic base group. Moreover, we will also provide tight upper bounds on the central moments of the drift in this setting. The talk is based on joint work with Christian Gorski and Eduardo Silva.
+  </div>
+</div>
+
+<!-- Corson -->
+<div class="talk" id="corson">
+  <div class="speaker">Sam Corson</div>
+  <div class="affiliation">Universidad Politécnica de Madrid</div>
+  <div class="title">Large Artinian groups</div>
+  <div class="abstract">
+    I will review some classical examples of groups whose strictly descending chains of subgroups are finite. Some recent constructions of such groups (having large cardinality) will also be explained. Set-theoretic consistency will play a role in some of the stated results. This is joint work with Saharon Shelah.
+  </div>
+</div>
+
+<!-- Daskalopoulos -->
+<div class="talk" id="daskalopoulos">
+  <div class="speaker">Georgios Daskalopoulos</div>
+  <div class="affiliation">Brown University</div>
+  <div class="title">Best Lipschitz maps</div>
+  <div class="abstract">
+    I will explain an attempt to give an analytic formulation of Thurston's minimal stretch maps and geodesic laminations. This is joint work with Karen Uhlenbeck.
+  </div>
+</div>
+
+<!-- Du -->
+<div class="talk" id="du">
+  <div class="speaker">Yukun Du</div>
+  <div class="affiliation">University of Georgia</div>
+  <div class="title">Schottky pairs on Trees via Continued Fractions and Axial Geometry</div>
+  <div class="abstract">
+    We give a complete criterion for when two hyperbolic automorphisms of a tree generate a free, discrete subgroup. The decision depends only on three geometric invariants: the translation lengths of the generators and the length of overlap of their axes. This data is organized using the continued-fraction expansion of the translation-length ratio.
+  </div>
+</div>
+
+<!-- Gaglione -->
+<div class="talk" id="gaglione">
+  <div class="speaker">Anthony Gaglione</div>
+  <div class="affiliation">United States Naval Academy (Emeritus)</div>
+  <div class="title">Groups Defined by Their Types</div>
+  <div class="abstract">
+    A group is said to be "defined by its types" provided it is determined up to isomorphism by the set of types realized by the tuples of its elements. For finitely generated groups <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi></math>, a sufficient condition to be defined by its types is that every elementary embedding <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi><mo>→</mo><mi>G</mi></math> be an automorphism. Finitely generated <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi></math> satisfying the above condition are said to be "strongly defined by types." In Myasnikov and Romanovskii (2018), "Characterization of finitely generated groups by types," it was proven that, with the possible exception of the non-orientable surface groups of genus 2 and 3, every surface group (orientable or non-orientable) is strongly defined by its types.
+
+    In this talk, I report on joint work with G. Rosenberger and D. Spellman which closes that gap. In particular, the non-orientable surface groups of genus 2 and 3 are strongly defined by types. Indeed, the non-orientable surface group of genus 3 (but not the non-orientable surface group of genus 2) satisfies the stronger property of being cohopfian.
+  </div>
+</div>
+
+<!-- Gray -->
+<div class="talk" id="gray">
+  <div class="speaker">Robert D. Gray</div>
+  <div class="affiliation">University of East Anglia</div>
+  <div class="title">Magnus submonoids and membership problems in one-relator, surface and hyperbolic groups</div>
+  <div class="abstract">
+    It is a longstanding open problem whether all one-relation monoids have decidable word problem. Important results of Ivanov, Margolis, and Meakin (2001) show that this problem can be reduced to solving the word problem in certain families of one-relator inverse monoids. Their results also show that the word problem for one-relator inverse monoids can often be reduced to solving the membership problem in certain submonoids of one-relator groups. This motivates the study of the membership problem in submonoids of one-relator groups. In this talk I will speak about recent joint work with Islam Foniqi in which we prove several decidability and undecidability results about the submonoid membership problem in one-relator, surface and hyperbolic groups. The membership problem in free-by-cyclic one-relator groups is undecidable in general. I will present a general result that gives sufficient conditions under which membership in submonoids of certain free-by-cyclic one-relator groups is decidable, and I will explain how we can apply this result to show that membership in various families of submonoids of surface groups is decidable. I will discuss graded submonoids of one-relator groups, presenting a result that gives conditions under which such a submonoid has decidable membership with linear distortion. These results are then applied to improve on a result of Margolis, Meakin and Sunik by showing the prefix monoid of a surface group has linear distortion. I will explain how these results can be used to prove the Magnus submonoid membership problem is decidable in several families of one-relator groups. Here a Magnus submonoid of a one-relator group is one generated by a strict subset of the generators and their inverses. I will also present some results about the related positivity problem (also called the quasi-Magnus problem) which asks whether membership in the positive submonoid generated by the generators is decidable. In particular I will give a solution to a problem posed by McCammond and Meakin in 2006 which asked whether this problem is decidable in hyperbolic groups. This is joint work with Islam Foniqi.
+  </div>
+</div>
+
+<!-- Greenfeld -->
+<div class="talk" id="greenfeld">
+  <div class="speaker">Be'eri Greenfeld</div>
+  <div class="affiliation">Hunter College &amp; CUNY Graduate Center</div>
+  <div class="title">On the Complexity Functions of Infinite Words and Subshifts</div>
+  <div class="abstract">
+    Consider an infinite word over a finite alphabet (or, more generally, a subshift). A quantitative measure of its combinatorial complexity is given by the complexity function, which counts, for each natural number <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>n</mi></math>, the number of distinct subwords of length <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>n</mi></math> that occur in it. This notion plays a fundamental role in dynamical systems, combinatorics on words, computer science, Diophantine analysis, and beyond.
+
+    We solve the inverse problem of determining which functions can arise — up to bi-Lipschitz equivalence — as complexity functions of infinite words and subshifts. Further illustrating the richness of the variety of complexity functions, we construct infinite words whose complexity functions are arbitrarily close to linear, but whose discrete derivatives exhibit exponential-type behavior, thereby resolving in a strong sense a problem posed by Cassaigne in 1995. As another application of our constructions, we exhibit infinite words of polynomial complexity whose Rauzy graphs do not admit Benjamini–Schramm limits.
+
+    The talk is based on joint works with Leeman, Moreira, and Zelmanov.
+  </div>
+</div>
+
+<!-- Grigorchuk -->
+<div class="talk" id="grigorchuk">
+  <div class="speaker">Rostislav Grigorchuk</div>
+  <div class="affiliation">Texas A&amp;M University</div>
+  <div class="title">Maximal subgroups of ample (topological full) groups</div>
+  <div class="abstract">
+    In my talk, based on two joint works with Yaroslav Vorobets, I will give a quick introduction to ample (or topological full) groups associated with group actions on a Cantor set and then present a result about embedding of one of the groups of intermediate growth into a topological full group associated with the Thue–Morse substitution.
+
+    I will then switch to the matter of classification of maximal subgroups in ample groups and present several results in this direction.
+  </div>
+</div>
+
+<!-- Herron -->
+<div class="talk" id="herron">
+  <div class="speaker">Amy Herron</div>
+  <div class="affiliation">University of Bristol</div>
+  <div class="title">Triangle Presentations in
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+      <mover><mrow><mi>A</mi></mrow><mo>~</mo></mover><mn>2</mn>
+    </math>
+    Bruhat–Tits Buildings
+  </div>
+  <div class="abstract">
+    The 1-skeleton of an <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mover><mi>A</mi><mo>~</mo></mover><mn>2</mn></math> Bruhat–Tits building is isomorphic to the Cayley graph of an abstract group with relations coming from "triangle presentations." This abstract group either embeds into <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>PGL</mi><mo>(</mo><mn>3</mn><mo>,</mo><msub><mi>𝔽</mi><mi>q</mi></msub><mo>(</mo><mo>(</mo><mi>x</mi><mo>)</mo><mo>)</mo><mo>)</mo></math> or <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>PGL</mi><mo>(</mo><mn>3</mn><mo>,</mo><msub><mi>ℚ</mi><mi>q</mi></msub><mo>)</mo></math>, or else is exotic. Currently, the complete list of triangle presentations is only known for projective planes of orders <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>q</mi><mo>=</mo><mn>2</mn></math> or <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mn>3</mn></math>. However, one abstract group that embeds into <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>PGL</mi><mo>(</mo><mn>3</mn><mo>,</mo><msub><mi>𝔽</mi><mi>q</mi></msub><mo>(</mo><mo>(</mo><mi>x</mi><mo>)</mo><mo>)</mo><mo>)</mo></math> for any prime power <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>q</mi></math> is known via the trace function corresponding to the finite field of order <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msup><mi>q</mi><mn>3</mn></msup></math>. I found a new method to derive this group via perfect difference sets. This method demonstrates a previously unknown connection between difference sets and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mover><mi>A</mi><mo>~</mo></mover><mn>2</mn></math> buildings. Moreover, this method makes the final computation of triangle presentations easier, which is computationally valuable for large <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>q</mi></math>.
+  </div>
+</div>
+
+<!-- Jiang -->
+<div class="talk" id="jiang">
+  <div class="speaker">Yunping Jiang</div>
+  <div class="affiliation">CUNY Graduate Center &amp; Queens College</div>
+  <div class="title">Geometry in the
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mn>2</mn><mo>×</mo></math>
+    and
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mn>3</mn><mo>×</mo></math>
+    actions on the circle
+  </div>
+  <div class="abstract">
+    The actions <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>x</mi><mo>↦</mo><mn>2</mn><mi>x</mi><mspace width="0.2em"/><mo>(</mo><mrow><mi>mod</mi><mspace width="0.2em"/><mn>1</mn></mrow><mo>)</mo></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>x</mi><mo>↦</mo><mn>3</mn><mi>x</mi><mspace width="0.2em"/><mo>(</mo><mrow><mi>mod</mi><mspace width="0.2em"/><mn>1</mn></mrow><mo>)</mo></math> on the circle are very different, although both preserve Lebesgue measure. Each also preserves many other non-atomic probability measures on the circle. In this talk, I will present several examples of invariant measures with different geometric types.
+
+    Beginning with Furstenberg's pioneering work, progress was made in the study of the <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mn>2</mn><mo>×</mo></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mn>3</mn><mo>×</mo></math> actions, but many problems remain open. A central question is whether Lebesgue measure is the only common non-atomic probability measure invariant under both actions. Furstenberg conjectured that Lebesgue measure is the only common non-atomic ergodic probability measure invariant under both actions. Rudolph proved this conjecture under the additional assumption of positive measure-theoretic entropy.
+
+    In the 1980s, Sullivan introduced several ideas from the boundary actions of Kleinian groups into the study of one-dimensional dynamical systems, including bounded geometry, quasisymmetry, and quasiconformality. I will explain how these ideas can be applied to the study of the <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mn>2</mn><mo>×</mo></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mn>3</mn><mo>×</mo></math> actions on the circle. In particular, I will introduce a balanced geometry condition and prove that Lebesgue measure is the only common probability measure with balanced geometry invariant under both actions. This result holds more generally for the actions <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>x</mi><mo>↦</mo><mi>p</mi><mi>x</mi><mspace width="0.2em"/><mo>(</mo><mrow><mi>mod</mi><mspace width="0.2em"/><mn>1</mn></mrow><mo>)</mo></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>x</mi><mo>↦</mo><mi>q</mi><mi>x</mi><mspace width="0.2em"/><mo>(</mo><mrow><mi>mod</mi><mspace width="0.2em"/><mn>1</mn></mrow><mo>)</mo></math> whenever <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mo>(</mo><mi>p</mi><mo>,</mo><mi>q</mi><mo>)</mo><mo>=</mo><mn>1</mn></math>.
+  </div>
+</div>
+
+<!-- Kapovich -->
+<div class="talk" id="kapovich">
+  <div class="speaker">Ilya Kapovich</div>
+  <div class="affiliation">Hunter College, CUNY</div>
+  <div class="title">Dehn Functions of Infinite Presentations</div>
+  <div class="abstract">
+    For finitely presentable groups, we consider Dehn functions of their presentations with finitely many generators and infinitely many defining relators. In contrast with the finite presentation case, such presentations exhibit new growth behavior even for classical groups such as <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msup><mi>𝐙</mi><mn>2</mn></msup></math> and closed surface groups. For presentations of <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msup><mi>𝐙</mi><mn>2</mn></msup></math>, we obtain examples of Dehn functions with growth <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>n</mi><mo>log</mo><mi>n</mi></math>, <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mo>log</mo><mi>n</mi></math>, and polynomial-envelope behavior <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msup><mi>n</mi><mi>α</mi></msup></math> below the quadratic scale, for arbitrary <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mn>0</mn><mo>&lt;</mo><mi>α</mi><mo>&lt;</mo><mn>2</mn></math>. In particular, these results produce continuum many distinct growth types for Dehn functions of presentations of <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msup><mi>𝐙</mi><mn>2</mn></msup></math> on the standard generators <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>a</mi><mo>,</mo><mi>b</mi></math>.
+  </div>
+</div>
+
+<!-- Kharlampovich -->
+<div class="talk" id="kharlampovich">
+  <div class="speaker">Olga Kharlampovich</div>
+  <div class="affiliation">Hunter College &amp; CUNY Graduate Center</div>
+  <div class="title">Equations in Products of Free Groups and 3-Manifold Groups</div>
+  <div class="abstract">
+    Perelman's proof of the Poincaré conjecture shows that every simply connected closed 3-manifold is homeomorphic to the 3-sphere. The fundamental groups of 3-manifolds attract lots of interest from mathematicians of different fields. As it was stated in a famous survey of Allen Hatcher, "The classification of 3-manifolds," one would want to know exactly which groups occur as fundamental groups of these manifolds.
+
+    The Stallings–Jaco–Hempel reformulation of the Poincaré conjecture inspired several connections between low-dimensional topology, equations over free groups, and combinatorial group theory. The reformulation reduces the problem to study epimorphisms from the fundamental group of a closed orientable surface onto the direct product of two free groups (they correspond to Heegaard splittings of 3-manifolds and were named splitting homomorphisms). Olshanskii (1989) constructed (in non-explicit form) first non-trivial examples of such splitting epimorphisms and verified the standardness of some of them.
+
+    We construct up to equivalence all the splitting coordinate-surjective homomorphisms (among them, the genuine splitting epimorphisms are exactly those for which our constructed associated group balanced presentation is trivial). We give generators and relations of the corresponding balanced presentation (so all closed orientable 3-manifold groups) that can be studied by algebraic methods. We also analyse a large class of such homomorphisms/presentations (including all Olshanskii's epimorphisms) and show that splitting epimorphisms are very rare and in this case they are standard.
+
+    There are two main motivations of this work. One is the real possibility of obtaining a purely group-theoretic proof of the Poincaré conjecture. Another is to study fundamental groups of closed orientable 3-manifolds in Hatcher's spirit that become clear from their presentations that we construct. This is joint work with Alina Vdovina.
+  </div>
+</div>
+
+<!-- Koch-Hyde -->
+<div class="talk" id="kochhyde">
+  <div class="speaker">Lucy Koch-Hyde</div>
+  <div class="affiliation">CUNY Graduate Center</div>
+  <div class="title">Subgroups generated by elements of spheres and balls in free groups</div>
+  <div class="abstract">
+    For a free group <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>F</mi><mi>r</mi></msub></math>, let <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>S</mi><mi>n</mi></msub></math> be the set of all freely reduced words of length <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>n</mi></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>B</mi><mi>n</mi></msub></math> be the set of all words of length at most <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>n</mi></math>. <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>S</mi><mi>n</mi></msub></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>B</mi><mi>n</mi></msub></math> are the sphere and the ball, respectively, of radius <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>n</mi></math> in the Cayley graph of <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>F</mi><mi>r</mi></msub></math>. We will use Stallings foldings to uncover with simple graph theory some surprising properties about the ranks of subgroups generated by elements of <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>S</mi><mi>n</mi></msub></math> or <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>B</mi><mi>n</mi></msub></math>. In particular, we will find the maximum possible rank of such subgroups, thereby answering a question posed by V. Dotsenko, published as Problem F42 in <em>Open Problems on Infinite Groups</em> by Kapovich, Myasnikov, and Shpilrain.
+  </div>
+</div>
+
+<!-- Linton -->
+<div class="talk" id="linton">
+  <div class="speaker">Marco Linton</div>
+  <div class="affiliation">Instituto de Ciencias Matemáticas (ICMAT), Madrid</div>
+  <div class="abstract">
+    The theory of one-relator groups was initiated almost a century ago when Magnus proved the Freiheitssatz. Until very recently, the theory remained in the realm of combinatorial group theory. In this talk I will survey the recent advances which instead have come from homological and geometric group theory and discuss some future directions.
+  </div>
+</div>
+
+<!-- McKemmie -->
+<div class="talk" id="mckemmie">
+  <div class="speaker">Eilidh McKemmie</div>
+  <div class="affiliation">Kean University</div>
+  <div class="title">Monodromy groups of genus 1 covers of the Riemann sphere</div>
+  <div class="abstract">
+    Consider a cover of the Riemann sphere by a compact connected Riemann surface. The monodromy group of the cover is an important invariant describing how badly the cover degenerates. It is natural to ask which groups can appear in such a context. We will survey some applications of this question and discuss how the genus of the surface influences the answer. In joint work with Danny Neftin and Spencer Gerhardt, we give an answer for groups of Aschbacher–Scott type B in genus at most 1.
+  </div>
+</div>
+
+<!-- Mendel -->
+<div class="talk" id="mendel">
+  <div class="speaker">Jonah Mendel</div>
+  <div class="affiliation">Rice University</div>
+  <div class="title">Arithmetic Groups Acting on Products of Trees</div>
+  <div class="abstract">
+    Stix and Vdovina used quaternion algebras over function fields to construct explicit families of torsion-free arithmetic lattices acting simply transitively on products of Bruhat–Tits trees of equal regularity. In particular, they obtained a lattice of Euler characteristic one over <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>𝔽</mi><mn>3</mn></msub><mo>(</mo><mi>t</mi><mo>)</mo></math> acting on a product of two trees.
+
+    In this talk, I will discuss analogous constructions over number fields. I will describe classification results for lattices of small Euler characteristic and present new infinite families of torsion-free lattices acting simply transitively on products of trees of equal regularity. This presentation contains joint work with Jakob Stix, Alina Vdovina, and Jiahui Yu.
+  </div>
+</div>
+
+<!-- Mese -->
+<div class="talk" id="mese">
+  <div class="speaker">Chikako Mese</div>
+  <div class="affiliation">Johns Hopkins University</div>
+  <div class="title">Harmonic maps into Euclidean buildings</div>
+  <div class="abstract">
+    We discuss the regularity theory of harmonic maps into Euclidean buildings, without assuming local finiteness. The main result shows that such maps have singular sets of Hausdorff codimension at least 2, extending the regularity theorem of Gromov and Schoen for locally finite buildings. As an application, we establish a rank-one superrigidity theorem for algebraic groups over fields with non-Archimedean valuations. This generalizes the rank-one superrigidity theorem of Gromov and Schoen for <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>p</mi></math>-adic groups and places the higher-rank superrigidity theorem of Bader and Furman in a geometric framework.
+  </div>
+</div>
+
+<!-- Miasnikov -->
+<div class="talk" id="miasnikov">
+  <div class="speaker">Alexei Miasnikov</div>
+  <div class="affiliation">Stevens Institute of Technology</div>
+  <div class="title">Musings on GAGTA: problems old and new, directions active and not</div>
+  <div class="abstract">
+    GAGTA is 20 years old. In this talk I will discuss some ideas and research areas that captivated our imagination from 20 years ago and up till now. What looked promising and how it aged, what problems were solved and which ones stay open still. All of these are through the prism of GAGTA conferences, books, and participants.
+  </div>
+</div>
+
+<!-- Nowak -->
+<div class="talk" id="nowak">
+  <div class="speaker">Piotr Nowak</div>
+  <div class="affiliation">Institute of Mathematics, Polish Academy of Sciences (IMPAN)</div>
+  <div class="title">Cocycles and positive functionals in higher cohomology</div>
+  <div class="abstract">
+    I will discuss higher-dimensional versions of property (T) in the form of vanishing of higher cohomology with coefficients in unitary representations. I will prove a new, algebraic characterization of vanishing of such cohomology in terms of sums of squares. This requires a new correspondence between higher cocycles and positive functionals. In particular, I will discuss a higher-dimensional generalization of the classical Gelfand–Naimark–Segal construction. This is joint work with Antonio Lopez Neumann.
+  </div>
+</div>
+
+<!-- Nucinkis -->
+<div class="talk" id="nucinkis">
+  <div class="speaker">Brita Nucinkis</div>
+  <div class="affiliation">Royal Holloway, University of London</div>
+  <div class="title">On generalised presentations over topological groups</div>
+  <div class="abstract">
+    I will present a procedure that turns certain abstract presentations, such as those for surface groups, Thompson groups, and Artin groups, into topological groups with a prescribed open subgroup. These all share some topological properties depending on the chosen open subgroup. For studying cohomological finiteness conditions, we concentrate on totally disconnected locally compact RAAGs and present a generalisation of the Salvetti complex for these groups. This is joint work with Ilaria Castellano, Bianca Marchionna, and Yuri Santos Rego. This talk will be via ZOOM.
+  </div>
+</div>
+
+<!-- O'Connor -->
+<div class="talk" id="oconnor">
+  <div class="speaker">Siobhán O'Connor</div>
+  <div class="affiliation">City College of New York (CUNY)</div>
+  <div class="title">Translation equivalence in the free group of rank 2</div>
+  <div class="abstract">
+    Let <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>u</mi></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>v</mi></math> be cyclic words in a free group and suppose they have the same length. We want to know when <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>u</mi></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>v</mi></math> continue to have the same length under every free group automorphism. We call words with this property translation equivalent. I'll give some necessary conditions and some sufficient conditions for a pair of words to be translation equivalent based on simple combinatorial observations about the words. Then I'll describe a new, fast algorithm for deciding translation equivalence based on those criteria. Translation equivalence in free groups was introduced by Kapovich, Levitt, Schupp, and Shpilrain in analogy to hyperbolic equivalence of curves on surfaces. I'll briefly explain this analogy and give an application of translation equivalence for curves on surfaces. Finally, I'll discuss a generalization of this property called bounded translation equivalence, which was introduced by the same authors.
+  </div>
+</div>
+
+<!-- Opazo -->
+<div class="talk" id="opazo">
+  <div class="speaker">Leonardo Dinamarca Opazo</div>
+  <div class="affiliation">Korean Institute for Advanced Study (KIAS)</div>
+  <div class="title">Quadratic growth for the derivatives of iterates of interval diffeomorphisms with only parabolic fixed points</div>
+  <div class="abstract">
+    20 years ago, the seminal work of Polterovich and Sodin showed a short but surprising result: if the iterates of derivatives of a diffeomorphism of the interval of class <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msup><mi>C</mi><mn>2</mn></msup></math> grow subexponentially, then they grow at most quadratically. In this talk we will discuss a stronger result asserting that
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+      <munder>
+        <mo movablelimits="true">lim</mo>
+        <mrow><mi>n</mi><mo>→</mo><mn>∞</mn></mrow>
+      </munder>
+      <msub><mo>max</mo><mi>x</mi></msub>
+      <mfrac><mrow><mi>D</mi><msup><mi>f</mi><mi>n</mi></msup><mo>(</mo><mi>x</mi><mo>)</mo></mrow><msup><mi>n</mi><mn>2</mn></msup></mfrac>
+    </math>
+    exists. We briefly discuss the modern tools that allow us to obtain these results. Joint work with Andrés Navas.
+  </div>
+</div>
+
+<!-- Puder -->
+<div class="talk" id="puder">
+  <div class="speaker">Doron Puder</div>
+  <div class="affiliation">Tel Aviv University</div>
+  <div class="title">Random covers of hyperbolic surfaces</div>
+  <div class="abstract">
+    The spectral gap of the Laplacian on a hyperbolic surface measures how well the surface is connected. It was shown long ago by Huber that the spectral gap of such a surface cannot exceed that of the hyperbolic plane, asymptotically as the genus goes to infinity. Whether there exists a sequence of closed hyperbolic surfaces that achieves this bound — an old conjecture of Buser — was settled a few years ago by Hide and Magee. This was done by exhibiting a sequence of finite covering spaces of a fixed base surface that have good spectral properties. In this talk, I will discuss joint work with Magee and van Handel where we show that this phenomenon is in fact much more prevalent: given any closed hyperbolic surface, not only do there exist finite covers that have good spectral properties, but this is in fact the case for all but a vanishing fraction of its finite covers. The proof hinges on new developments on the notion of strong convergence in random matrix theory. I plan to give a gentle introduction to this line of works.
+  </div>
+</div>
+
+<!-- Sabitova -->
+<div class="talk" id="sabitova">
+  <div class="speaker">Maria Sabitova</div>
+  <div class="affiliation">Queens College, CUNY</div>
+  <div class="title">Arithmetic and Rigidity Phenomena in Toroidal Solenoids and Odometer Actions</div>
+  <div class="abstract">
+    Toroidal solenoids and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msup><mi>ℤ</mi><mi>d</mi></msup></math>-odometers provide a rich class of dynamical systems arising from actions of abelian groups on compact spaces with strong arithmetic structure. In this talk, I will discuss recent results connecting the classification and rigidity of such systems with arithmetic properties of integer matrices and associated number-theoretic invariants.
+  </div>
+</div>
+
+<!-- Savchuk -->
+<div class="talk" id="savchuk">
+  <div class="speaker">Dmytro Savchuk</div>
+  <div class="affiliation">University of South Florida</div>
+  <div class="title">Letter-to-letter transducers and theory of Latin squares</div>
+  <div class="abstract">
+    We explore parallels between the theory of letter-to-letter transducers and Mealy automata on one end and the theory of Latin squares on the other. We characterize various classes of automata (Mealy, reversible, invertible, bireversible) in terms of combinatorial structures analogous to those associated with Latin squares. In particular, we represent the inversion and dualization of transducers as analogues of parastrophies of Latin squares, and show that the isotopies of the quasigroups associated to Latin squares generalize the notion of isomorphism of transducers, preserving the class of bireversible automata.
+  </div>
+</div>
+
+<!-- Sharp -->
+<div class="talk" id="sharp">
+  <div class="speaker">Richard Sharp</div>
+  <div class="affiliation">University of Warwick</div>
+  <div class="title">Equidistribution in amenable group extensions</div>
+  <div class="abstract">
+    It is well-known that, for mixing subshifts of finite type, weighted averages of periodic orbital measures become equidistributed with respect to the Gibbs measure associated to the weighting. The same holds for countable state shifts under more restrictive assumptions (both on the shift and on the weighting potential). One can ask the same question for periodic orbits in group extensions of these systems by finitely generated amenable groups. It turns out that one still has equidistribution but, in general, to a different Gibbs measure. This measure has a thermodynamic characterization. A key point is equality of Gurevich pressure for the skew product and its abelianization, which generalizes results about the spectral radii of random walks. Some of this is joint work with Rhiannon Dougall.
+  </div>
+</div>
+
+<!-- Shinoda -->
+<div class="talk" id="shinoda">
+  <div class="speaker">Mao Shinoda</div>
+  <div class="affiliation">Ochanomizu University &amp; RIKEN AIP, Tokyo</div>
+  <div class="title">Rate distortion dimension of Gibbs measures on the full shift of Ahlfors regular spaces</div>
+  <div class="abstract">
+    We study the rate distortion dimension of Gibbs measures for the full one-sided shift over a compact metric space. This is a natural extension of the classical shift on finite alphabets. However, when the alphabet is infinite, like the unit interval, the Kolmogorov–Sinai entropy diverges in general. To overcome this, we use rate distortion dimension, which is known to be related to mean dimension via the double variational principle.
+
+    We assume that the compact metric space is Ahlfors regular and consider a Lipschitz potential depending only on the first two coordinates. We show that the rate distortion dimension of the corresponding Gibbs measure coincides with the Hausdorff dimension of the alphabet.
+  </div>
+</div>
+
+<!-- Shneerson -->
+<div class="talk" id="shneerson">
+  <div class="speaker">Lev Shneerson</div>
+  <div class="affiliation">Hunter College, CUNY</div>
+  <div class="title">On semigroups of polynomial growth</div>
+  <div class="abstract">
+    We will discuss connections between the asymptotic behavior and abstract algebraic properties in some classes of finitely generated and finitely presented semigroups including inverse semigroups, with a focus on the polynomial growth case. Part of the talk is joint work with Stuart Margolis.
+  </div>
+</div>
+
+<!-- Shpilrain -->
+<div class="talk" id="shpilrain">
+  <div class="speaker">Vladimir Shpilrain</div>
+  <div class="affiliation">City College of New York &amp; CUNY Graduate Center</div>
+  <div class="title">Random products of matrices, estimates of Lyapunov exponents, and complexity of matrix multiplication</div>
+  <div class="abstract">
+    The problems that we consider in this talk are mostly concerned with random products of given matrices over the reals. This includes the following questions: What is the expected absolute value of the largest (in absolute value) entry in such a random product? What is the (maximal) Lyapunov exponent for a random matrix product like that? We give an answer to the first question under some mild restrictions on the entries of the given matrices. For the second question, we offer a very simple and efficient method to produce an upper bound on the Lyapunov exponent. This part of the talk is based on joint work with N. Nabahi.
+
+    In conclusion, we will discuss a related problem of complexity of multiplying matrices over rationals. This part of the talk is based on joint work with A. Olshanskii.
+  </div>
+</div>
+
+<!-- Slutsky -->
+<div class="talk" id="slutzky">
+  <div class="speaker">Raz Slutsky</div>
+  <div class="affiliation">University of Oxford</div>
+  <div class="title">Scaffolded Poisson processes, rank gradient, and torsion in first homology</div>
+  <div class="abstract">
+    We construct random covers of higher-rank locally symmetric spaces, which we call scaffolded Poisson processes. Using these covers, we prove quantitative bounds, in terms of the injectivity radius, on the minimal number of generators of higher-rank lattices and on the size of the torsion in first homology. We then show that for Benjamini–Schramm convergent sequences of higher-rank lattices, the normalized growth of these invariants vanishes. This confirms the degree-one vanishing predicted by a conjecture of Bergeron and Venkatesh, and answers questions of Abért, Gelander, and Nikolov.
+  </div>
+</div>
+
+<!-- Sullivan -->
+<div class="talk" id="sullivan">
+  <div class="speaker">Dennis Sullivan</div>
+  <div class="affiliation">CUNY Graduate Center &amp; Stony Brook University</div>
+  <div class="title">What structure underlies 3D fluid mechanics?</div>
+  <div class="abstract">
+    This concerns volume preserving fluid motion with non-zero viscosity on the three torus with its standard parallel translation structure <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>T</mi></math> and a standard volume form <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>d</mi><mi>V</mi></math> invariant by the translations in <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>T</mi></math>. This is enough to define uniform motion and the acceleration vector field of non-uniform motion. Then Newton's laws yield the equations of fluid mechanics on the 3D torus. The familiar PDE algorithm requires additional data which is a Riemann metric consistent with the above data. There is a moduli space of such choices which is five dimensional and has a natural complete metric of finite volume. This moduli space of versions of the Navier–Stokes PDE is the double coset space of <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>SL</mi><mo>(</mo><mn>3</mn><mo>,</mo><mi>ℝ</mi><mo>)</mo></math> modulo the two subgroups <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>SL</mi><mo>(</mo><mn>3</mn><mo>,</mo><mi>ℤ</mi><mo>)</mo></math> and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>SO</mi><mo>(</mo><mn>3</mn><mo>,</mo><mi>ℝ</mi><mo>)</mo></math>. This flexibility will be discussed.
+  </div>
+</div>
+
+<!-- Taback -->
+<div class="talk" id="taback">
+  <div class="speaker">Jennifer Taback</div>
+  <div class="affiliation">Bowdoin College</div>
+  <div class="title">Generalized Small Cancellation Presentations for Systolic Groups</div>
+  <div class="abstract">
+    Systolic complexes were introduced by Januszkiewicz and Świątkowski to provide a simplicial analogue of non-positive curvature. A systolic group is one that acts geometrically on such a complex, inheriting robust geometric and algebraic properties including biautomaticity and the resulting solvability of the word and conjugacy problems. In joint work with Bob Gilman and Alden Walker, we provide a general framework for determining whether a finitely presented group <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi><mo>=</mo><mo>⟨</mo><mi>S</mi><mo>∣</mo><mi>R</mi><mo>⟩</mo></math> is Cayley systolic, meaning that the flag completion of its Cayley graph <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>Γ</mi><mo>(</mo><mi>G</mi><mo>,</mo><mi>S</mi><mo>)</mo></math> is systolic. This approach builds on results of M. Soergel as well as prior work of Gilman. Our methods offer a streamlined proof of the known result that triangle- and square-free Artin groups, as well as many Garside groups, are systolic.
+  </div>
+</div>
+
+<!-- Ushakov -->
+<div class="talk" id="ushakov">
+  <div class="speaker">Alexander Ushakov</div>
+  <div class="affiliation">Stevens Institute of Technology</div>
+  <div class="title">One-variable equations over the lamplighter group</div>
+  <div class="abstract">
+    We study one-variable equations over the lamplighter group
+    <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>L</mi><mn>2</mn></msub><mo>=</mo><msub><mi>ℤ</mi><mn>2</mn></msub><mo>≀</mo><mi>ℤ</mi></math>.
+    While the decidability of arbitrary equations over <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>L</mi><mn>2</mn></msub></math> remains open, we prove that the Diophantine problem for single equations in one variable is decidable.
+
+    Our approach reduces the problem to a divisibility question for families of parametric Laurent polynomials over <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>ℤ</mi><mn>2</mn></msub></math>, whose exponents depend linearly on an integer parameter. To analyze this divisibility problem, we introduce a symbolic division procedure for associated bivariate polynomials and derive explicit bounds on the parameter from the structure of the resulting quotient and remainder. This yields an explicit decision procedure with exponential worst-case complexity. On the other hand, we show that for a generic class of equations, solvability can be decided in nearly quadratic time. Joint work with Yankun Wang.
+  </div>
+</div>
+
+<!-- Wagner -->
+<div class="talk" id="wagner">
+  <div class="speaker">Francis Wagner</div>
+  <div class="affiliation">The Ohio State University</div>
+  <div class="title">Conjugator length in finitely presented groups</div>
+  <div class="abstract">
+    The conjugator length function of a finitely generated group is the function <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>f</mi></math> so that <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>f</mi><mo>(</mo><mi>n</mi><mo>)</mo></math> is the minimal upper bound on the length of a word realizing the conjugacy of two words of length at most <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>n</mi></math>. This function provides a measure for the complexity of a direct approach to the Conjugacy Problem for the finitely generated group. I will discuss what functions can be realized as the conjugator length function of a finitely presented group and the connection of this function with other important invariants of finitely presented groups.
+  </div>
+</div>
+
+<!-- Wolf -->
+<div class="talk" id="wolf">
+  <div class="speaker">Christian Wolf</div>
+  <div class="affiliation">Mississippi State University</div>
+  <div class="title">Computable Markov Partitions</div>
+  <div class="abstract">
+    Computability in dynamical systems is a relatively young field that has attracted significant attention in recent years. One of its central questions is whether dynamically relevant objects can be algorithmically represented by a Turing machine. While this question has been extensively studied in symbolic dynamics, where computability results are known for various thermodynamical quantities such as entropy, pressure, equilibrium states and zero-temperature measures, a corresponding general theory for broader classes of topological and smooth dynamical systems is lacking.
+
+    In this talk, we present an approach to bridging this gap by introducing the concept of computable Markov partitions. This framework allows us to establish far-reaching computability results for several classes of topological and smooth dynamical systems. The results presented in this talk are joint work with Michael Burr and Tamara Kucherenko.
+  </div>
+</div>
+
+<!-- Wu -->
+<div class="talk" id="wu">
+  <div class="speaker">Chenxi Wu</div>
+  <div class="affiliation">University of Wisconsin–Madison</div>
+  <div class="abstract">
+    Mapping classes on graphs and surfaces give rise to flows or semiflows on their mapping tori, and taking limits for a sequence of such flows or semiflows might result in end periodic mapping classes, which are proper mapping classes on infinite type graphs and surfaces that have many similarities with the mapping classes on finite surfaces and graphs. I will discuss my prior work with Yan Mary He, Marissa Loving, and Paige Hillen on the normal form, symbolic coding, and entropy calculation of these mapping classes (arXiv:2408.13401, 2501.17389, and 2603.20491), and the ongoing work on relating them with the Veering polynomials of 3-manifolds.
+  </div>
+</div>
+
+<!-- Xie -->
+<div class="talk" id="xie">
+  <div class="speaker">Xiangdong Xie</div>
+  <div class="affiliation">Bowling Green State University</div>
+  <div class="title">Pattern rigidity in nilpotent Lie groups</div>
+  <div class="abstract">
+    A pattern in a group consists of the left cosets of a collection of subgroups. A quasi-isometry between two groups with patterns is pattern-preserving if it coarsely permutes the left cosets in the patterns. There are two natural questions concerning PPQIs (pattern-preserving quasi-isometries). The first is to determine when there is a PPQI between two groups with patterns. The second is whether PPQIs exhibit rigidity properties. We will discuss the second question in the setting of nilpotent Lie groups. We show that every self PPQI is at finite distance from an automorphism if the subgroups intersect the center trivially and generate the whole group and one of the following holds: (1) <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi></math> is a 2-step simply connected nilpotent Lie group; (2) <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi></math> is a free nilpotent Lie group. This is ongoing joint work with Mitra Alizadeh, Hao Liang and Qingshan Zhou.
+  </div>
+</div>
+
+</div><!-- end .talks-grid -->
+
+<!-- ==================== ZOOM DAY ==================== -->
+
+<div class="zoom-section">
+  <div class="section-label">Zoom Day</div>
+  <div class="talks-grid">
+
+    <!-- Chouraqui -->
+    <div class="talk" id="chouraqui">
+      <div class="speaker">Fabienne Chouraqui</div>
+      <div class="affiliation">University of Haifa, Campus Oranim</div>
+      <div class="title">An approach to the Herzog–Schönheim conjecture by covering graphs</div>
+      <div class="abstract">
+        Let <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi></math> be a group and <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>H</mi><mn>1</mn></msub><mo>,</mo><mo>…</mo><mo>,</mo><msub><mi>H</mi><mi>s</mi></msub></math> be subgroups of <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi></math>. If there exist <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>α</mi><mi>i</mi></msub><mo>∈</mo><mi>G</mi></math> such that <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi><mo>=</mo><munderover><mo>⋃</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>s</mi></munderover><msub><mi>H</mi><mi>i</mi></msub><msub><mi>α</mi><mi>i</mi></msub></math> and the sets <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>H</mi><mi>i</mi></msub><msub><mi>α</mi><mi>i</mi></msub></math>, <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mn>1</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>s</mi></math>, are pairwise disjoint, then <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mo>{</mo><msub><mi>H</mi><mi>i</mi></msub><msub><mi>α</mi><mi>i</mi></msub><mo>}</mo></math> is a coset partition of <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi></math>. We denote by <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>d</mi><mn>1</mn></msub><mo>,</mo><mo>…</mo><mo>,</mo><msub><mi>d</mi><mi>s</mi></msub></math> the indices of <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>H</mi><mn>1</mn></msub><mo>,</mo><mo>…</mo><mo>,</mo><msub><mi>H</mi><mi>s</mi></msub></math> respectively. The coset partition has multiplicity if <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>d</mi><mi>i</mi></msub><mo>=</mo><msub><mi>d</mi><mi>j</mi></msub></math> for some <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>i</mi><mo>≠</mo><mi>j</mi></math>. The Herzog–Schönheim conjecture is true for <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi></math> if any coset partition of <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi></math> has multiplicity.
+
+        In 1974, M. Herzog and J. Schönheim conjectured that if <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mo>{</mo><msub><mi>H</mi><mi>i</mi></msub><msub><mi>α</mi><mi>i</mi></msub><mo>}</mo></math>, <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>α</mi><mi>i</mi></msub><mo>∈</mo><mi>G</mi></math>, is a coset partition of <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>G</mi></math>, then <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>d</mi><mn>1</mn></msub><mo>,</mo><mo>…</mo><mo>,</mo><msub><mi>d</mi><mi>s</mi></msub></math> cannot be distinct. In the 1980s, in a series of papers, M.A. Berger, A. Felzenbaum, and A.S. Fraenkel studied the Herzog–Schönheim conjecture and proved it for the pyramidal groups, a subclass of the finite solvable groups.
+
+        We consider the Herzog–Schönheim conjecture for free groups of finite rank and develop a new combinatorial approach using covering spaces. We give some sufficient conditions on the coset partition that ensure there is multiplicity. Since every finitely generated group is a quotient of a free group of finite rank, we show these results extend to finitely generated groups.
+      </div>
+    </div>
+
+    <!-- Dor-On -->
+    <div class="talk" id="doron">
+      <div class="speaker">Adam Dor-On</div>
+      <div class="affiliation">University of Haifa</div>
+      <div class="title">Distance to commuting unitary matrices</div>
+      <div class="abstract">
+        A question going back to von Neumann asks when two approximately commuting matrices of a certain kind are close to genuinely commuting matrices of the same kind. When the "kind" of matrices is assumed to be unitary, the question becomes equivalent to (matricial) stability of the group <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msup><mi>ℤ</mi><mn>2</mn></msup></math>. It was quickly realized that size-independent results were far more difficult to obtain, and in work of Lin the question was settled for self-adjoint matrices. Estimates for the distance of a pair of self-adjoint matrices to a commuting pair of self-adjoint matrices were sought out by many authors until optimal bounds were established by Kachkovskiy and Safarov. On the other hand, it is known from work of Voiculescu that there is an obstruction for dimension-independent approximately commuting unitary matrices to be close to commuting unitary matrices. However, in work of Gong and Lin, and of Eilers, Loring and Pedersen, it was shown that when a winding number obstruction vanishes, the question for unitary matrices has a positive solution. Despite this, quantitative bounds for the distance to commuting unitary matrices in terms of the commutator of the original unitary matrices were still unknown.
+
+        In this talk I will report on joint work with Hall and Kachkovskiy where we show that under the vanishing of the winding number obstruction, we can find bounds for the distance to commuting unitary matrices in terms of the commutator of the original pair of unitary matrices.
+      </div>
+    </div>
+
+    <!-- Kangaslampi -->
+    <div class="talk" id="kangaslampi">
+      <div class="speaker">Riikka Kangaslampi</div>
+      <div class="affiliation">Tampere University, Finland</div>
+      <div class="title">Polygonal presentations, special presentations and symmetries</div>
+      <div class="abstract">
+        Polygonal presentations, introduced by Vdovina, are combinatorial objects used to construct Euclidean and hyperbolic buildings together with groups acting on them. They are closely related to special presentations of groups, introduced by Howie, which encode the same structures in a group-theoretic language. Earlier joint work of Kangaslampi and Vdovina classified polygonal presentations arising from generalized quadrangles using combinatorial and computational methods. More recent work of Williams and collaborators studied presentations with cyclic symmetry via cyclic group presentations, yielding infinite families. This talk aims to unify and extend these approaches, with the further goal of identifying new techniques for detecting symmetries by analyzing the same objects through both combinatorial and group-theoretic frameworks.
+
+        Ongoing joint work with Gerald Williams (University of Essex).
+      </div>
+    </div>
+
+    <!-- Mikaelian -->
+    <div class="talk" id="mikaelian">
+      <div class="speaker">Vahagn Mikaelian</div>
+      <div class="affiliation">Yerevan State University &amp; American University of Armenia</div>
+      <div class="title">An explicit analogue of the Higman Embedding Theorem for recursive groups</div>
+      <div class="abstract">
+        Our objective is to present recent research in which we propose an explicit analogue of the well-known Higman Embedding Theorem. Specifically, we provide an algorithm that, for a given recursively presented group, explicitly constructs its embedding into a finitely presented overgroup defined by generators and relations. This overgroup can even be constructed to be 2-generator. In particular, the proposed algorithm was used to build explicit embeddings of the additive group of rational numbers <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>ℚ</mi></math> into a finitely presented 2-generator group.
+
+        <p style="margin-top:0.8em; font-size:0.95em; color: var(--muted);"><strong>References:</strong><br>
+        [1] J. Belk, J. Hyde, F. Matucci, Embedding <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>ℚ</mi></math> into a finitely presented group, <em>Bull. Amer. Math. Soc.</em> 59 (2022), 561–567.<br>
+        [2] G. Higman, Subgroups of finitely presented groups, <em>Proc. R. Soc. Ser. A</em> 262 (1961), 455–475.<br>
+        [3] E.I. Khukhro, V.D. Mazurov (eds.), <em>The Kourovka Notebook. Unsolved Problems in Group Theory</em>, 20th ed. (1999).<br>
+        [4] V.H. Mikaelian, The Higman operations and embeddings of recursive groups, <em>J. Group Theory</em> 26 (2023), 6, 1067–1093.<br>
+        [5] V.H. Mikaelian, On explicit embeddings of <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>ℚ</mi></math> into finitely presented groups, <em>J. Group Theory</em> 29 (2026), 2, 371–417.<br>
+        [6] V.H. Mikaelian, An explicit algorithm for the Higman Embedding Theorem, preprint on arXiv.</p>
+      </div>
+    </div>
+
+    <!-- Papasoglu -->
+    <div class="talk" id="papasoglu">
+      <div class="speaker">Panagiotis Papasoglu</div>
+      <div class="affiliation">University of Oxford</div>
+      <div class="title">Coarse Geometry in Earnest</div>
+      <div class="abstract">
+        Since Gromov's work, coarse geometry has played a central role in group theory, where it is often used as a tool for studying groups via their large-scale geometry. Recent applications to graph theory suggest, however, that the subject deserves to be studied on its own. I will discuss some of these applications and explain how they feed back into group-theoretic problems. I will formulate a number of questions/conjectures aimed at developing coarse geometry further as a subject in its own right.
+      </div>
+    </div>
+
+    <!-- Pavlov -->
+    <div class="talk" id="pavlov">
+      <div class="speaker">Ronnie Pavlov</div>
+      <div class="affiliation">University of Denver</div>
+      <div class="title">On word complexity of subshifts</div>
+      <div class="abstract">
+        The word complexity function <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>p</mi><mo>(</mo><mi>n</mi><mo>)</mo></math> of a subshift measures the number of <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>n</mi></math>-letter words appearing in sequences in the subshift. A useful heuristic is that subshifts with low word complexity have highly constrained dynamical behavior when associated with the shift action; for instance, minimal subshifts with the lowest possible word complexity, <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>p</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>=</mo><mi>n</mi><mo>+</mo><mn>1</mn></math>, must come from coding an irrational circle rotation. I'll give some background leading up to describing work with Darren Creutz, where we showed that in fact any subshift with <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>p</mi><mo>(</mo><mi>n</mi><mo>)</mo><mo>/</mo><mi>n</mi></math> below <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mn>3</mn><mo>/</mo><mn>2</mn></math> must be isomorphic to a rotation of a (more complicated) group.
+      </div>
+    </div>
+
+    <!-- Skipper -->
+    <div class="talk" id="skipper">
+      <div class="speaker">Rachel Skipper</div>
+      <div class="affiliation">University of Utah</div>
+      <div class="title">Rigidity of embeddings between groups acting on spaces of dimension <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mo>≤</mo><mn>1</mn></math></div>
+      <div class="abstract">
+        Using semi-conjugacies, I will talk about some embedding and non-embedding results for subgroups of <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><msub><mi>Homeo</mi><mo>+</mo></msub><mo>(</mo><mi>I</mi><mo>)</mo></math> into Thompson's group <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline"><mi>V</mi></math> via induced actions on the circle. This is joint work with James Hyde and Matt Zaremsky.
+      </div>
+    </div>
+
+  </div><!-- end .talks-grid zoom -->
+</div><!-- end .zoom-section -->
+
+</body>
+</html>

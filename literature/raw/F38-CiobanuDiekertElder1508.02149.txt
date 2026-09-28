@@ -1,0 +1,1958 @@
+                                           SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE
+                                                            EDT0L LANGUAGES
+arXiv:1508.02149v2 [math.GR] 23 May 2016
+
+
+
+
+                                                        LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+                                                    Abstract. We show that, given an equation over a finitely generated free
+                                                    group, the set of all solutions in reduced words forms an effectively con-
+                                                    structible EDT0L language. In particular, the set of all solutions in reduced
+                                                    words is an indexed language in the sense of Aho. The language characteri-
+                                                    zation we give, as well as further questions about the existence or finiteness
+                                                    of solutions, follow from our explicit construction of a finite directed graph
+                                                    which encodes all the solutions. Our result incorporates the recently invented
+                                                    recompression technique of Jeż, and a new way to integrate solutions of linear
+                                                    Diophantine equations into the process.
+                                                       As a byproduct of our techniques, we improve the complexity from qua-
+                                                    dratic nondeterministic space in previous works to NSPACE(n log n) here.
+
+
+
+
+                                           Introduction. In this paper we prove that the set of all solutions, as reduced
+                                           words, to an equation in a finitely generated free group or free monoid with in-
+                                           volution, has a description as an EDT0L language. Furthermore, we show that
+                                           this description can be computed in NSPACE(n log n), where n is the length of the
+                                           equation plus the number of generators of the group or monoid.
+                                              We construct a finite graph, of singly exponential size 2O(n log n) , with nodes
+                                           labeled by equations of bounded size plus some additional data, and directed edges
+                                           corresponding to transformations applied to the equations. More precisely, the
+                                           edges are labeled by endomorphisms of a free monoid C ∗ , where C is a finite
+                                           alphabet which includes the group or monoid generators. The graph, viewed as a
+                                           nondeterministic finite automaton, produces a rational language of endomorphisms
+                                           of C ∗ . We show that the set of all such endomorphisms applied to a particular
+                                           ‘seed’ word gives the full set of solutions to the input equation as reduced words.
+                                           Thus, by the definition of Asveld [2], we obtain that the solution set is an EDT0L
+                                           language, and therefore an indexed language. Moreover, one can decide if there
+                                           are zero, infinitely or finitely many solutions simply by checking if the graph is
+                                           empty, has directed cycles or not. Our complexity results concerning these decision
+                                           problems are the best known so far; and with respect to space complexity they
+                                           might be optimal.
+                                              The first algorithmic description of all solutions to a given equation over a free
+                                           group is due to Razborov [20, 21]. His description became known as a Makanin-
+                                           Razborov diagram, and this concept plays a major role in the positive solution
+
+                                              2010 Mathematics Subject Classification. 03D05, 20F65, 20F70, 68Q25, 68Q45.
+                                              Key words and phrases. equation in a free group; EDT0L language; indexed language; com-
+                                           pression; free monoid with involution.
+                                               Research supported by the Australian Research Council (Future Fellowship FT110100178),
+                                           the Swiss National Science Foundation (Professorship FN PP00P2-144681/1), and a Université
+                                           de Neuchâtel Overhead Grant.
+                                                                                          1
+2             LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+of Tarski’s conjectures about the elementary theory in free groups [14, 24]. While
+Makanin-Razborov diagrams are also graphs whose edges are labeled by morphisms,
+these morphisms are group homomorphisms, and it is unfeasible to use this ap-
+proach to directly obtain solutions in freely reduced words, as the cancellation
+within group elements after applying a homomorphism cannot be controlled. Also,
+it is extremely complicated to explicitly produce a Makanin-Razborov diagram for
+a given equation, and this has been done only in very few cases ([25]).
+    A description of solution sets as EDT0L languages was known before only for
+quadratic word equations over a free monoid by [10]; the recent paper [6] did not
+aim at giving such a structural result. The present paper builds on the techniques
+in [6], in particular we make use of Jeż’s recompression method [12]. There is also
+a description of all solutions for a word equation over free monoids by Plandowski
+in [19]. His description is given by some graph which can be computed in singly
+exponential time, but without the aim to give any formal language characterization.
+    In this paper we restrict ourselves to equations in free groups or free monoids with
+involution, and their solution sets in reduced words. It is possible to generalize our
+construction in several directions. First, we can replace the free group by any finitely
+generated free product P = ⋆1≤i≤s Fi where each Fi is either a free or finite group,
+or a free monoid with arbitrary involutions. Second, we can allow arbitrary rational
+constraints for free products. We consider Boolean formulae Φ, where each atomic
+formula is either an equation or a rational constraint, written as X ∈ L, where L ⊆ P
+is a rational subset. More concretely, let P be a free product as above, Φ a Boolean
+formula over equations and rational constraints, and {X1 , · · · , Xk } any subset of
+variables. Then the techniques developed in this paper allow us to prove that
+Sol(Φ) = {σ(X1 )# · · · #σ(Xk ) | σ solves Φ in reduced words} is EDT0L. More-
+over, there is an algorithm which takes Φ as input and produces an NFA A such
+that Sol(Φ) = {ϕ(#) | ϕ ∈ L(A)}. The algorithm is nondeterministic and uses
+quasi-linear space in the input size of Φ. However, these more technical results
+are not the scope of the present paper. They follow from standard results in the
+literature and they have been announced in the conference version of this paper
+which was presented at ICALP 2015, Kyoto (Japan), July 4 – 10, 2015 [3]. Full
+proofs are in the corresponding paper on arXiv [4].
+
+Article organisation. In Section 1 we give preliminary definitions and notations.
+In Section 2 we state the main result, Theorem 4, that solutions in reduced words to
+equations in either a free group or a free monoid with involution are described by a
+finite graph or nondeterministic finite automaton (NFA) which can be constructed
+in nondeterministic quasi-linear space. The main work of the paper is in Section 3
+which treats the monoid case. We define the NFA in subsection 3.6, and present the
+proofs that the NFA encodes only correct solutions (soundness), and all solutions
+(completeness), in subsections 3.9 and 3.10, respectively. The most complicated
+part is the completeness proof, which involves producing a path for a given solution
+from initial to final node by alternatively expanding and compressing the equation,
+ensuring that at all times the size of the equation is bounded so that we stay within
+the graph.
+   Once the monoid case is proved, in Section 4 we follow relatively standard meth-
+ods to reduce the problem of finding solutions in reduced words in a free group to
+the monoid case. In the final section we give an explicit example of the alternating
+expansion-compression procedure.
+   SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                    3
+
+
+  We stress that the complicated part of the paper is to prove that the NFA we
+construct encodes exactly all solutions; the specification and construction of the
+NFA, and hence the EDT0L language description, is extremely simple by contrast.
+
+                                  1. Preliminaries
+1.1. Monoids with involution. An alphabet is a finite set whose elements are
+called letters. By Γ∗ we denote the free monoid over the finite set Γ. The elements
+of a free monoid are called words, and the empty word is denoted by 1. The length
+of a word w is denoted by |w|, and |w|x counts how often a symbol x appears in w.
+Let M be any monoid and u, v ∈ M . We write u ≤ v if u is a factor of v, which
+means we can write v = xuy for some x, y ∈ M . We denote the neutral element
+in M by 1, and use the notation idC ∗ for the neutral element in the monoid of
+endomorphisms over a free monoid C ∗ .
+   An involution on a set Γ is a mapping x 7→ x such that x = x for all x ∈ Γ. For
+example, the identity map is an involution. An involution on a monoid must also
+satisfy xy = y x. Any involution on a set Γ extends to Γ∗ : for a word w = a1 · · · am
+we let w = am · · · a1 ; then Γ∗ endowed with the involution is called a free monoid
+with involution. If a = a for all a ∈ Γ then w is simply the word w read from
+right-to-left.
+   A morphism between sets with involution is a mapping respecting the involution,
+and a morphism between monoids with involution is a homomorphism ϕ : M → N
+such that ϕ(x) = ϕ(x). A morphism is a ∆-morphism if ϕ(x) = x for all x ∈ ∆
+where ∆ ⊆ M . In this paper, whenever the term “morphism” is used, it refers to
+a mapping which respects the underlying structure, including the involution. All
+groups are monoids with involution given by x = x−1 ; and all group homomor-
+phisms are morphisms.
+1.2. Free partially commutative monoids. Let ∆ be a finite set with invo-
+lution. An independence relation is an irreflexive relation θ ⊆ ∆ × ∆ such that
+(x, y) ∈ θ ⇐⇒ (x, y) ∈ θ. Every independence relation defines a free partially
+commutative monoid with involution M (∆, θ) by
+                       M (∆, θ) = ∆∗ / {xy = yx | (x, y) ∈ θ} .
+These monoids are well-studied in computer science as they form the basic algebraic
+model for concurrency, see [7, 13, 15]. In mathematics free partially commutative
+groups are commonly referred to as right-angled Artin groups (RAAGs). Their
+study has a long history with strong connections to topology and geometric group
+theory, see for example [26].
+   In this paper we will need algorithms for equality and factor testing in free
+partially commutative monoids. This can be done very efficiently: for example,
+there is a linear time algorithm ([16]) to decide on input u, w ∈ ∆∗ whether u ≤ w
+in M (∆, θ). Here we need the uniform version, as follows: the input is a tuple
+(∆, θ, u, w) with u, w ∈ ∆∗ , and the question is whether u is a factor of w in M (∆, θ).
+This problem can easily be solved in nondeterministic linear space (which suffices
+for our purposes) by the following argument: first find words p, q ∈ ∆∗ by scanning
+w from left to right and for each position guessing (nondeterministically) whether
+each corresponding letter belongs to p, u or q, requiring that |puq| = |w| (we do this
+by marking each letter of the input, which requires linear space). Second, check
+that the choice of positions assigned to u produces a word that is indeed equal to
+4             LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+u. Third, check whether puq is equal to w in M (∆, θ). For both the second and
+third steps we use the “projection lemma” of [13, 5]: for example, in the third step
+we check that |puq|a = |w|a for all a ∈ ∆, then we check that the projections of puq
+and w to {a, b}∗ yield identical words for all a, b ∈ ∆ such that ab 6= ba in M (∆, θ).
+The projections are obtained by ignoring all letters in puq and w which are not in
+{a, b}.
+   Another fact about partially commutative monoids that we use later is that for
+u ∈ M (∆, θ) the values |u| and |u|a are well-defined since |xy|a = |yx|a for all
+x, y ∈ ∆∗ , a ∈ ∆.
+   We will define free partially commutative monoids through “types” in Subsec-
+tion 3.3, which for simplicity of notation are also denoted by θ.
+
+1.3. Languages. Languages refer traditionally to subsets of finitely generated free
+monoids; the class of regular languages can be defined via rational expressions,
+nondeterministic finite automata, or recognizability via homomorphisms to finite
+monoids, to mention just a few of the possible definitions [18]. These notions
+generalize to arbitrary monoids, but lead to different classes, in general.
+    We define a rational subset in any monoid M by means of nondeterministic
+finite automaton, NFA for short. An NFA is a directed finite graph A with
+initial and final states, where the transitions between states are labeled by ele-
+ments of the monoid M . We say that m ∈ M is accepted by the automaton A
+if there exists a path from some initial to some final state such that multiply-
+ing the edge labels together in M yields m. This defines the accepted language
+L(A) = {m ∈ M | m is accepted by A}. Then L ⊆ M is rational if and only if L
+is accepted by some NFA over M (see [9]). An NFA is called trim if every state is
+on some path from an initial to a final state. For a trim NFA A we have L(A) 6= ∅
+if and only if A 6= ∅.
+    We say that L ⊆ M is recognizable if there is a homomorphism ν : M → N to
+a finite monoid N such that L = ν −1 (ν(L)). The family of recognizable subsets
+is closed under finite union and complementation (and therefore also under finite
+intersection), and therefore forms a Boolean algebra. For finitely generated free
+monoids Kleene’s Theorem asserts that a subset is recognizable if and only if it is
+rational; and in this context a rational subset is also called regular.
+    In this paper we are mainly interested in rational subsets of free groups F (A+ ),
+free monoids A∗ , and monoids End(C ∗ ) of endomorphisms over a free monoid C ∗ .
+If |C| ≥ 2, then End(C ∗ ) is neither free nor finitely generated and it contains
+non-trivial finite subgroups.
+    Suppose we have an NFA where each transition label is an endomorphism in
+End(C ∗ ) which is applied in the opposite direction of the transition. If a path
+is labelled by the sequence h1 , . . . , ht , then we can apply the endomorphism h =
+h1 · · · ht to an element u ∈ C ∗ and the result is a word h(u) = h1 · · · ht (u) ∈ C ∗ .
+Thus, {h(u) | h ∈ L(A)} defines a language in C ∗ . This leads to the notion of
+EDT0L, defined next.
+
+1.3.1. EDT0L Languages. The acronym EDT0L refers to Extended, Deterministic,
+Table, 0 interaction, and Lindenmayer. There is a vast literature on Lindenmayer
+systems, see [22], with various acronyms such as D0L, DT0L, ET0L, HDT0L and
+so forth. For more background on Lindenmayer systems we refer to [23]. The
+subclass EDT0L is equal to HDT0L (see for example [23, Thm. 2.6]), and has
+   SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                    5
+
+
+
+received particular attention. It is a subclass of indexed languages in the sense
+of Aho [1], see for example [8]. Indexed languages are context-sensitive, and they
+strictly contain all context-free languages. The classes of EDT0L and context-free
+languages are incomparable [8] and therefore the inclusion of EDT0L into indexed
+languages is proper.
+
+  regular         EDT0L            ET0L           indexed          context-sensitive
+
+
+
+                context-free
+
+        Figure 1. Containments of formal language classes. Each edge
+        from left to right represents strict containment.
+
+   We define EDT0L languages in A∗ through a characterization (using rational
+control) due to Asveld [2], which is the analogue of Ginsburg and Rozenberg’s
+result for ET0L languages ([11, Lem. 4.1]). We start with some alphabet C such
+that A ⊆ C, and a rational set of endomorphisms R ⊆ End(C ∗ ). Note that if
+R ⊆ End(C ∗ ) is any subset of endomorphisms, then we can apply R to any word
+u ∈ C ∗ and we obtain a subset {h(u) | h ∈ R} ⊆ C ∗ .
+Definition 1. Let A be an alphabet and L ⊆ A∗ . We say that L is an EDT0L
+language if there is an alphabet C with A ⊆ C, a rational set of endomorphisms
+R ⊆ End(C ∗ ), and a letter c ∈ C such that L = {h(c) | h ∈ R} .
+   The set R is called the rational control, and C the extended alphabet.
+   Note that for an arbitrary set R of endomorphisms of C ∗ we have {h(c) | h ∈ R} ⊆
+C ∗ , but the definition implies that R must guarantee h(c) ∈ A∗ for all h ∈ R.
+Example 2. Let A = {a, b} and C = {a, b, #}. Consider four endomorphisms
+f, ga , gb , h defined as f (#) = ##, ga (#) = a#, gb (#) = b#, and h(#) = 1,
+and on all other letters f, ga , gb , h behave like the identity. Consider the rational
+language R = h {ga , gb }∗ f (where endomorphisms are applied right-to-left). A
+simple inspection shows that {ϕ(#) | ϕ ∈ R} = {vv | v ∈ A∗ }, which is not context-
+free.
+1.4. Complexity. We use the standard O-notation for functions from N to R≥0 .
+A function f is called quasi-linear if f (n) ∈ O(n log n). We say that f is singly
+exponential if f (n) ∈ 2O(p(n)) where p(n) is a polynomial. We also use the standard
+meaning of complexity classes like NP, NSPACE(f ), DSPACE(f ) and DTIME(f ) as
+in [17].
+                                                                            ∗
+   Let C and D two domains and for each x ∈ C ∪ D we let hxi ∈ {0, 1} denote
+some binary encoding. We assume that for every x ∈ C its input size is defined
+as a natural number which might be different from the binary length of hxi. For
+example, in our case we define the input size of an equation over a free group or
+monoid to be the length of the equation plus the number of generators of the group
+or monoid. As usual, we omit details on the specific encoding and how to check
+that a binary string y is of the form y = hxi for some x ∈ C. In our case, we content
+ourselves that the encoding of a word of length n over some alphabet Γ uses at
+6             LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+most O(n log |Γ|) bits and that the check y = hxi can be done deterministically in
+linear space with respect to the binary length of y.
+    A function t : C → D is computable in NSPACE(f ) if there is a nondeterministic
+Turing machine M with a two-way read-only input tape, a work tape, and a write-
+only output tape. The input x ∈ C is given as the binary string hxi. During the
+computation the machine writes some binary string on the output tape from left
+to right such that for the entire computation the size of M ’s work tape is bounded
+by O(f (n)) where n is the input size of x. There must be at least one run of the
+machine where M stops and if M stops, then output must be the correct value
+hf (x)i. We rely on a result by Immerman and Szelepcsényi which implies that
+NSPACE(f ) is (effectively) closed under complementation for functions f satisfying
+log n ∈ O(f (n)) [17, Theorem 7.6]). As a consequence, “trimming” an automa-
+ton will become possible in NSPACE(n log n) in Subsection 3.8. Recall that every
+NSPACE(n log n)-computable function can also be simulated by some deterministic
+algorithm in time 2O(n log n) (see [17, Theorem 3.3]).
+1.5. Word equations over monoids with rational constraints. Let A be an
+alphabet of constants with involution and let π : A∗ → M be a surjective morphism
+onto a monoid with involution M . Furthermore, let X be a set of variables. We
+may assume that X is endowed with an involution without fixed points. Thus,
+X 6= X for all X ∈ X .
+Definition 3. A word equation with rational constraint over M is a pair (U, V ) of
+words U, V ∈ (A ∪ X )∗ which has the following attributes.
+     • The input size of the equation is defined as |A| + |U V |.
+     • The rational constraint is given by a homomorphism ν : (A ∪ X )∗ → N ,
+       where N is a finite monoid.
+     • A solution of the equation (U, V ) with constraint ν is given by a map
+                                     σ : X → A∗
+        which extends to a homomorphism σ : (A ∪ X )∗ → A∗ that fixes the
+        constants, such that for all X ∈ X :
+         (1) σ(X) = σ(X),                             i.e. σ : X → A∗ is a morphism,
+         (2) ν(X) = νσ(X),            i.e. the solution respects the constraint on X,
+         (3) πσ(U ) = πσ(V ),       i.e. σ(U ) and σ(V ) are equal in the monoid M .
+   Note that we constrain the solutions to be in a recognizable set (see the definitions
+in Subsection 1.3), but in this case the notions of recognisable and rational sets are
+the same, since we are in the free monoid (A ∪ X)∗ .
+
+    2. Solution sets for equations over free monoids with involution
+                     and free groups: the main results
+   Let A± = A+ ∪ {a | a ∈ A+ } be a finite alphabet with involution and assume
+that the involution is without fixed points: a 6= a for all a ∈ A± . We let F(A+ )
+be the free group over A+ and we realize the involution inside F(A+ ) by a = a−1 .
+Thus                           
+                   A± = A+ ∪ a−1 a ∈ A+ ⊆ F(A+ ) ⊆ A∗± .
+Following standard terminology, a word w ∈ A∗± is reduced if it does not contain
+any factor aa where a ∈ A± . The set of reduced words is a regular subset F ⊆ A∗±
+which is closed under involution. We fix F as a set of normal forms for F(A+ );
+      SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                  7
+
+
+thus, as a set, we identify F(A+ ) with F. The inclusion A± ⊆ F(A+ ) induces
+the canonical projection π : A∗± → F(A+ ). Given a word w we obtain π(w) by a
+repeated cancellation of all factors aa; and w is reduced if and only if π(w) = w.
+   We shall also use a special symbol # which is not in A± and serves as “marker”.
+For example, we will encode a system of equations {(Ui , Vi ) | 1 ≤ i ≤ s} as a single
+equation
+(1)                          (U1 # · · · #Us , V1 # · · · #Vs ).
+If we require that no σ(X) is allowed to use #, where X is a variable, then
+(2)       ∀i : πσ(Ui ) = πσ(Vi ) ⇐⇒ πσ(U1 # · · · #Us ) = πσ(V1 # · · · #Vs )
+since positions of the # letters must be the same on both sides. In our context,
+rational constraints are the most convenient way to ensure that no # appears in
+σ(X), see Subsection 3.2. We let
+                                      A = A± ∪ {#}
+with # = #. Thus, {1, #} forms a group which is isomorphic to Z/2Z if we let
+#−1 = #.
+   In order to have a uniform statement we let M(A) be either the free monoid with
+involution A∗ or the free product of the free group F(A+ ) with the cyclic group
+{1, #} of order 2. Thus, henceforth:
+                 M(A) = A∗       or    M(A) = A∗ / {aa = 1 | a ∈ A} ,
+and π : A∗ → M(A) is the canonical projection induced by the inclusion A ⊆ M(A).
+In both cases π is injective on F ⊆ A∗ , and if M(A) = A∗ , then π is just the identity.
+   Given a word equation (U, V ) with U V ∈ (A± ∪ X )∗ over M(A), we say that a
+solution σ is a solution in reduced words if σ(X) ∈ F for all X ∈ X . We will realize
+this condition as a rational constraint µ into a finite monoid N with a zero element
+0 ∈ N such that µ(w) 6= 0 if and only if w ∈ F.
+Theorem 4. Let (U, V ) be an equation over M(A) of input size n = |A| + |U V |
+(according to Definition 3) and in variables X1 , X1 , . . . , Xm , Xm . Then there is an
+NSPACE(n log n) algorithm which computes c1 , . . . , cm ∈ C, where C ⊇ A is an
+extended alphabet of size |C| ∈ O(n), and a trim NFA A which produces the set of
+solutions in reduced words. That is,
+               {(σ(X1 ), . . . , σ(Xm )) ∈ F × · · · × F | πσ(U ) = πσ(V )}
+(3)
+               = {(h(c1 ), . . . , h(cm )) ∈ C ∗ × · · · × C ∗ | h ∈ L(A)}.
+The NFA has the following properties.
+   (1) It is nonempty if and only if the equation (U, V ) has some solution.
+   (2) It has a directed cycle if and only if (U, V ) has infinitely many solutions.
+These properties can also be decided in NSPACE(n log n).
+   Recall that the input size n used in the statement of the theorem might be
+smaller than the length of some binary encoding for the input. If the number of
+distinct symbols used in the equation is constant, then our algorithm is quasilinear
+in the input size; if, on the other hand, the number of distinct symbols used in the
+equation is linear, then we need linear space, only.
+   Theorem 4 yields the characterization of solutions sets as EDT0L languages.
+To do so, we identify a tuple of words (w1 , . . . , wk ) ∈ F with the single word
+w1 # · · · #wk ∈ A∗ .
+8              LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+   Let (U, V ) be an equation as in Theorem 4. For any subset {Z1 , . . . , Zk } of
+variables appearing in U V we define the solution set as
+
+(4)    SolZ (U, V ) = {σ(Z1 )# · · · #σ(Zk ) | σ solves (U, V ) in reduced words} .
+
+Note that for k = 0 we have Sol∅ (U, V ) = ∅ if the equation (U, V ) has no solution
+and Sol∅ (U, V ) = {1} otherwise. Considering subsets of variables allows for some
+flexibility. In particular, we can introduce auxiliary variables which do not impact
+the solution set. If, however, every variable occurring in U V is either of the form
+Zi or Zi for some 1 ≤ i ≤ k, then we say that SolZ (U, V ) is a full solution set.
+
+Corollary 5. Let (U, V ) be an equation as in Theorem 4 and let {Z1 , . . . , Zk } be
+any subset of variables appearing in U V . Then SolZ (U, V ) is an EDT0L language.
+More precisely, if A is the trim NFA constructed in Theorem 4, then we can find
+c′1 , . . . , c′k ∈ C such that
+
+                     SolZ (U, V ) = {h(c′1 # · · · #c′k ) | h ∈ L(A)} .
+
+In particular, the full solution set is EDT0L.
+
+Proof. The language characterization follows from the Definition 1 of an EDT0L
+language, given that each Zj corresponds to some Xi in Theorem 4.            
+
+   Note that Theorem 4 shifts the traditional perspective from solving an equation
+to an effective construction of some NFA producing an EDT0L set. Once the NFA
+is constructed, the existence of a solution, or whether the number of solutions
+in reduced words is zero, finite or infinite, become graph properties of the NFA.
+Thus, the algorithmic difficulty of solving equations and describing their solution
+set reduces to the complexity of building a nondeterministic finite automaton for a
+given input.
+
+
+          3. Proof of Theorem 4 in the monoid case: M(A) = A∗
+   In this section we prove Theorem 4 in the monoid case. Before delving into
+the proof, we introduce in Subsections 3.1–3.7 further necessary terminology and
+notation.
+   Let M(A) = A∗ . In this case π = idA∗ and so π is not needed in the rest of this
+                restriction, we may assume |A+ | ≥ 1.
+section. Without
+   Let Xinit = X1 , X1 , . . . , Xm , Xm be the initial set of variables, that is, for each
+1 ≤ i ≤ m either Xi or Xi occur in U V .
+   Let κ ∈ O(1) be some “large enough” constant, whose exact value will be dis-
+cussed in Subsection 3.10.4, and choose an alphabet C of constants and an alphabet
+Ω of variables such that
+
+                     C ⊇ A, |C| = κ · n and Ω ⊇ Xinit , |Ω| = 6n.
+
+Fix Γ = C ∪ Ω. We assume that C and Ω are sets with involution and that, inside
+Γ = C ∪ Ω, the marker # is the only self-involuting symbol. Thus, # = # and
+x 6= x for all x ∈ Γ \ {#}.
+   By Σ we denote the set of C-morphisms σ : Γ∗ → C ∗ . Every solution will be
+drawn from Σ.
+      SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                  9
+
+
+3.1. The initial word equation Winit . For technical reasons we need that for
+every variable Xi which appears in U V there is some factor #Xi # appearing in
+the initial equation. Instead of viewing equations as equalities between two words
+U and V , we will treat equations as a statement about a single word W ∈ Γ∗ , as
+follows. This will require us to redefine the notion of solution as well.
+   We define the initial equation Winit ∈ (A ∪ Xinit )∗ as:
+(5)           Winit = #X1 # · · · #Xm #U #V #U #V #Xm # · · · #X1 #.
+  Then for every σ ∈ Σ we have
+                        σ(U ) = σ(V ) ⇐⇒ σ(Winit ) = σ(Winit )
+and
+          {(σ(X1 ), . . . , σ(Xm )) ∈ F × · · · × F | σ ∈ Σ ∧ σ(U ) = σ(V )}
+        = {(σ(X1 ), . . . , σ(Xm )) ∈ F × · · · × F | σ ∈ Σ ∧ σ(Winit ) = σ(Winit )}.
+We have the following symmetry: if w ≤ Winit is a factor and no # appears in
+w, then w ≤ Winit , too. The number of # letters in Winit is odd, and there is a
+distinguished # exactly in the middle of Winit .
+   Observe that Winit is longer than U V , but clearly linear in n. More concretely,
+since m ≤ |U V | and n = |U V | + |A| > |U V | + 1, we get the bound:
+(6)       |Winit | ≤ 4m + 5 + 2 · |U V | ≤ 6 · |U V | + 5 < 6(|U V | + 1) < 6n.
+                    P
+Also observe that X∈Xinit |Winit |X ≤ 2m + 2 |U V | ≤ 4n.
+
+3.2. The finite monoid NF . In order to ensure that solutions are in reduced
+words which do not contain the symbol #, we introduce a morphism to a fixed
+finite monoid NF which plays the role of (a specific) rational constraint. We define
+NF as follows: NF = {1, 0}∪(A± ×A± ) with multiplication given by 1·x = x·1 = x,
+0 · x = x · 0 = 0, and
+                                         
+                                           (a, d) if b 6= c
+                       (a, b) · (c, d) =
+                                            0     otherwise.
+
+The monoid NF has a natural involution given by 1 = 1, 0 = 0, and (a, b) = (b, a).
+  The morphisms to NF are defined on subsets of Γ, and although they change
+during the algorithm, they always extend the following fixed morphism
+                                      µ0 : A∗ → NF
+which is defined by
+                               µ0 (#) = 0, µ0 (a) = (a, a)
+for a ∈ A± . It is clear that µ0 respects the involution and µ0 (w) = 0 if and only
+if either w contains # or w is not reduced. If, on the other hand, 1 6= w ∈ A∗± is
+reduced, then µ0 (w) = (a, b), where a is the first and b the last letter of w. An
+additional feature is that µ(w) = 1 if and only if w is the empty word.
+    Defining µ(X) for a variable X has the following meaning for a solution σ with
+σ(X) ∈ A∗± : the value µ(X) = 0 is not possible in any solution, µ(X) = 1 implies
+σ(X) = 1, and µ(X) = (a, b) ⇐⇒ σ(X) ∈ F ∩ aF ∩ Fb.
+10            LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+
+3.3. Types. Later in the proof we will need to perform compression of large blocks
+of letters in an efficient manner. This will be achieved by putting a partially
+commutative structure on the monoid we work with. The partial commutativity
+will be induced by types, which we introduce below. The basic idea is that we assign
+a variable X the “type” θ(X) = c when we predict that in some solution σ(X) ∈ c∗
+(so X and c commute), and we assign a constant b the “type” θ(b) = c when we
+rename some letters b as c.
+   Besides the initial alphabet A and the global alphabet C, we also need a current
+alphabet of constants B, where A ⊆ B = B ⊆ C, and a current set of variables
+X = X ⊆ Ω. Let ∆ = B ∪ X . A type is a partially defined function θ : (∆ \
+A) → (B \ A) which respects the involution. We identify θ with the relation
+{(θ(x), x) ∈ ∆ × ∆ | θ(x) is defined}. We obtain an independence relation
+                   θ = {(θ(x), x) ∈ ∆ × ∆ | θ(x) is defined for x}
+and hence a free partially commutative monoid
+              M (∆, θ) = ∆∗ / {xθ(x) = θ(x)x | θ(x) is defined for x} .
+If the domain where θ is defined is empty, then M (∆, θ) = M (∆, ∅) is the free
+monoid ∆∗ .
+Remark 6. By definition, the size |θ| is bounded by |∆|. Hence, it is linear in n
+and the specification of θ needs O(n log n) bits.
+
+Definition 7. Let B satisfy A ⊆ B = B ⊆ C, X = X ⊆ Ω, and θ be a type. The
+notation
+                                    M (B, X , θ, µ)
+denotes the free partially commutative monoid with involution M (B∪X , θ), equipped
+with a morphism µ : M (B ∪X , θ) → NF such that µ(a) = µ0 (a) for all a ∈ A, where
+µ0 : A∗ → NF is the morphism specified in Subsection 3.2. We call M (B, X , θ, µ) a
+structured monoid.
+   A morphism ϕ from M (B, X , θ, µ) to M (B ′ , X ′ , θ′ , µ′ ) is a morphism of monoids
+with involution ϕ : M (B, X , θ, µ) → M (B ′ , X ′ , θ′ , µ′ ) such that µ′ ϕ = µ.
+   Definition 7 implies that whenever θ(x) is defined, then µ(xθ(x)) = µ(θ(x)x)
+(because µ is a homomorphism). Henceforth we use the following conventions.
+If B ′ ⊆ B and X ′ ⊆ X with A ⊆ B ′ = B ′ and X ′ = X ′ , then M (B ′ , X ′ , θ, µ)
+denotes the structured monoid M (B ′ , X ′ , θ′ , µ′ ) where θ′ and µ′ are induced by
+the restrictions of θ and µ to B ′ ∪ X ′ . Moreover, if M (B, X , θ, µ) is known from
+the context, then we abbreviate M (B, ∅, θ, µ) as M (B). Since no letter from A is
+involved in a type, M (A) is the free monoid with involution A∗ together with the
+morphism µ0 : A∗ → NF , and
+                                                                   µ
+             M (A) = M (A, ∅, ∅, µ0 ) ⊆ M (B) ⊆ M (B, X , θ, µ) −→ NF .
+
+3.4. Reference list of symbols. In Table 1 we summarise notations introduced
+so far for easy reference. These conventions hold unless stated otherwise. They
+also apply to “primed” symbols such as B ′ , where B ′ denotes a set with A ⊆ B ′ =
+B ′ ⊆ C.
+   SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                11
+
+
+     A+ ⊆ A± , the initial alphabets without self-involuting letters.
+     A± ∪ {#} = A ⊆ B = B ⊆ C.
+     Γ = C ∪ Ω and x = x ∈ Γ implies x = #.
+     X = X ⊆ Ω, the current set of variables.
+     n = |A| + |U V |, |C| = κn and |Ω| = 6n.
+     ∆ = B ∪ X.
+     µ : ∆ → NF , a morphism with µ(a) = µ0 (a) for a ∈ A.
+     θ : (∆ \ A) → (B \ A), the type defining an independence relation.
+     M (∆, θ), free partially commutative monoid defined by ∆ and θ.
+     M (B, X , θ, µ) = M (∆, θ) together with µ which extends µ0 : A∗ → NF .
+     M (B), submonoid of M (B, X , θ, µ) together with the restriction of θ, µ.
+     a, b, c, . . . refer to letters in C.
+     u, v, w, . . . refer to words in C ∗ .
+     X, Y, Z, . . . refer to variables in Ω.
+     x, y, z, . . . refer to words in Γ∗ .
+                              Table 1. Reference list of symbols.
+
+
+
+
+3.5. Extended equations and their solutions. The states of the NFA we are
+going to construct correspond to equations derived from our initial equation. Each
+state contains such an equation, together with the specification of which set of
+constants, variables and types are used. Moreover, we keep track of the morphism µ
+which represents the constraint. Formally, we use the notion of extended equation.
+The notions we introduce now are quite technical, but the reader should keep
+in mind that the most important fact is that an extended equation contains an
+equation which is a modification of the initial equation, and this equation has
+bounded length. When types are present, this equation is an element in a free
+partially commutative monoid rather than simply a word in a free monoid.
+
+Definition 8. An extended equation is a tuple (W, B, X , θ, µ), where W is a word
+in (B ∪ X )∗ such that:
+    (1) |W | ≤ 204n. P                               P
+    (2) If θ = ∅, then X∈X |W |X ≤ 4n. Otherwise X∈X |W |X ≤ 12n.
+    (3) |W |# = |Winit |# and W ∈ #(B ∪ X )∗ #.
+    (4) Every x with # 6= x ∈ B ∪ X satisfies µ(x) 6= 0.
+    (5) Every X ∈ X appears in W .
+    (6) If x ≤ W is a factor with |x|# = 0, then x ≤ W , too.
+
+Remark 9. As noted above, the word W (including the notion of factor) is
+to be seen as representing an element in the free partially commutative monoid
+M (B, X , θ, µ) = M (B∪X , θ). Note that by definition |θ| ≤ |B ∪ X | (see Remark 6).
+The bounds on the length of W , and on the number of variables appearing in W ,
+will be explained in later sections (Subsection 3.10.3), where we will show that we
+can find all solutions to an input equation by considering modified equations that
+satisfy these restrictions. What is important for now is that |W | ∈ O(n) which
+means the number of extended equations is finite.
+12            LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+Definition 10. Let V = (W, B, X , θ, µ) be an extended equation. The weight kV k
+of V is a 4-tuple of natural numbers, kV k = (ω1 , ω2 , ω3 , ω4 ), where
+
+                         ω1 = |W | ,
+                         ω2 = |W | − |{a ∈ B | |W |a ≥ 1}| ,
+                         ω3 = |W | − |θ| ,
+                         ω4 = |B| .
+
+Remark 11. We order tuples in Nℓ lexicographically. The lexicographic ordering
+is chosen to function as follows. If we start at an equation of high weight, then the
+weight of the equation reduces by “compression”. The first component gives more
+weight to longer equations. If two equations have the same length, then we declare
+the equation in which more distinct constants appear to be smaller because the
+term |{a ∈ B | |W |a ≥ 1}| appears with a negative sign. If two equations have the
+same length and use the same number of distinct constants, we declare the equation
+in which more symbols are typed to be smaller. Finally, if both equations have the
+same length, the same number of distinct letters in use, and the same number of
+typed symbols, then we declare the equation defined over the smaller set B to be
+smaller.
+
+   Since for every extended equation we have a current alphabet B, we need the
+notion of a B-solution, which can then be extended to a solution over the desired
+alphabet A. The next few pages are somewhat technical, but will be used to justify
+that when we modify extended equations in certain ways, solutions are preserved.
+
+Definition 12. Let V = (W, B, X , θ, µ) be an extended equation.
+      • A B-solution at V is a B-morphism σ : M (B, X , θ, µ) → M (B, ∅, θ, µ) such
+        that σ(W ) = σ(W ) and σ(X) ∈ y ∗ whenever (X, y) ∈ θ.
+      • A solution at V is a pair (α, σ) where σ is a B-solution and α : M (B, ∅, θ, µ) →
+        A∗ is an A-morphism (which implies µ = µ0 α). Moreover, if the set X in
+        V is nonempty, then we require that α is nonerasing, that is, α(a) 6= 1 for
+        all a ∈ B.
+The weights kα, σk and kα, σ, V k of a solution (α, σ) at V are defined as
+
+                                        X
+(7)                          kα, σk =         |ασ(X)| ∈ N
+                                        X∈X
+
+(8)                       kα, σ, V k = (kα, σk , kV k) ∈ N5 .
+
+Remark 13. Let V = (W, B, X , θ, µ) be an extended equation with a solution
+(α, σ). Then σ(X) cannot have any factor of the form # or aa with a ∈ B because
+0 6= µ(X) = µ0 ασ(X). In particular, ασ(X) is a reduced word in A∗± . Hence,
+ασ satisfies the constraint ασ(X) ∈ F. Note that a priori we don’t exclude the
+possibility that factors aa appear in W , since for example it could be that Winit
+contains a factor aX and some solution σ(X) begins with a.
+
+   The next two lemmas show how morphisms between structured monoids trans-
+form solutions of extended equations. These two lemmas will play an important
+role in the proof of the algorithm “soundness”.
+      SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                        13
+
+
+   In the first lemma we consider the morphisms which leave all constants invariant,
+and conclude that such a morphism decreases the weight of a solution. In addition,
+this lemma specifies a situation, in part (iv), when the weight strictly decreases.
+Lemma 14. Let V = (W, B, X , θ, µ) and V ′ = (W ′ , B, X ′ , θ′ , µ′ ) be extended equa-
+tions such that θ(a) = θ′ (a) and µ(a) = µ′ (a) for all a ∈ B. In other words,
+M (B) = M (B, ∅, θ, µ) = M (B, ∅, θ′ , µ′ ).
+   Let τ : M (B, X , θ, µ) → M (B, X ′ , θ′ , µ′ ) be a B-morphism such that W ′ = τ (W )
+and α : M (B) → M (A, ∅, ∅, µ0 ) be an A-morphism such that α(a) 6= 1 for all a ∈ B.
+   Given a B-solution σ ′ at V ′ , define a B-morphism σ : M (B, X , θ, µ) → M (B)
+by σ(X) = σ ′ τ (X).
+   Then the following assertions hold.
+     (i) (α, σ) is a solution at V and (α, σ ′ ) is a solution at V ′ .
+    (ii) ασ(W ) = ασ ′ (W ′ ).
+   (iii) kα, σk ≥ kα, σ ′ k.
+   (iv) If there is some X with τ (X) ∈ X ′∗ aX ′∗ where a ∈ B and α(a) 6= 1, then
+         kα, σk > kα, σ ′ k.
+Proof.         (i) Since σ ′ is a B-solution at V ′ we have
+                σ(W ) = σ ′ τ (W ) = σ ′ (τ (W )) = σ ′ τ (W ) = σ(W ) = σ(W ).
+            By hypothesis, α(a) 6= 1 for all a ∈ B. Hence, (α, σ) is a solution at V .
+            Since M (B) = M (B, ∅, θ, µ) = M (B, ∅, θ′ , µ′ ), we have (α, σ ′ ) is a solution
+            at V ′ .
+       (ii) The assertion ασ(W ) = ασ ′ (W ′ ) is trivial since W ′ = τ (W ), σ = σ ′ τ .
+      (iii) For each X write τ (X) as a word
+                                           τ (X) = xX,1 · · · xX,ℓX
+           with xX,i ∈ B ∪ X ′ . Since every X ′       ′
+                                             S ∈ X appears somewhere in τ (W ) (by
+                                          ′
+           Definition 8(5)) we obtain: X ⊆ {xX,i | X ∈ X ∧ 1 ≤ i ≤ ℓX } . Hence
+                        X                X
+(9)           kα, σk =       |ασ(X)| =       |ασ ′ τ (X)|
+                          X∈X                      X∈X
+                          X                                           X
+                                       ′
+(10)                  =         |ασ (xX,1 · · · xX,ℓX )| =                   |ασ ′ (xX,i )|
+                          X∈X                                  X∈X ,1≤i≤ℓX
+                           X
+                                           ′   ′          ′
+(11)                  ≥              |ασ (X )| = kα, σ k .
+                          X ′ ∈X ′
+
+      (iv) If there is some X with τ (X) ∈ X ′∗ aX ′∗ where a ∈ B and α(a) 6= 1, then
+           some xX,i = a ∈ / X ′ with ασ ′ (a) = α(a) 6= 1. Hence, |ασ ′ (xX,i )| ≥ 1; and
+           the ≥ in (11) becomes the inequality >.
+                                                                                         
+  In the second lemma we consider the morphisms which leave all variables invari-
+ant, and conclude that such a morphism does not change the weight of a solution.
+Lemma 15. Let V = (W, B, X , θ, µ) and V ′ = (W ′ , B ′ , X , θ′ , µ′ ) be extended
+equations, h : M (B ′ , X , θ′ , µ′ ) → M (B, X , θ, µ) be an (A ∪ X )-morphism, and
+α : M (B) → M (A, ∅, ∅, µ0 ) be an A-morphism where M (B) = M (B, ∅, θ, µ) such
+that the following conditions are satisfied.
+      • W = h(W ′ ).
+14               LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+         • α(a) 6= 1 for all a ∈ B.
+         • If X 6= ∅, then h(a′ ) 6= 1 for all a′ ∈ B ′ .
+         • If θ(X) = c ∈ B for some X ∈ X , then c ∈ B ′ , θ′ (X) = c, and h(c) ∈ c∗ .
+   Given a B ′ -solution σ ′ at V ′ , define a B-morphism σ : M (B, X , θ, µ) → M (B)
+by σ(X) = hσ ′ (X). Then (α, σ) is a solution at V and (αh, σ ′ ) is a solution at V ′ .
+Moreover, ασ(W ) = αhσ ′ (W ′ ) and
+                                     kα, σk = kαh, σ ′ k .
+Proof. By definition, µh = µ′ and µ0 α = µ. Hence (αh, σ ′ ) is a solution at V ′ .
+Now, h(X) = X for all X ∈ X . Hence, σ(h(X)) = σ(X) = hσ ′ (X). For b′ ∈ B ′
+we obtain σh(b′ ) = h(b′ ) = hσ ′ (b′ ) since σ ′ and σ are the identity on B ′ and B
+respectively. It follows that σh = hσ ′ and hence, ασ(W ) = αhσ ′ (W ′ ). Next,
+
+     σ(W ) = σ(h(W ′ )) = h(σ ′ (W ′ )) = h(σ ′ (W ′ )) = σ(h(W ′ )) = σ(h(W ′ )) = σ(W ).
+Moreover, if X ∈ X and θ(X) is defined, then θ(X) = θ′ (X) = c ∈ B ∩ B ′ , and
+h(c) ∈ c∗ by hypothesis. Hence, σ ′ (X) ∈ c∗ and therefore σ(X) = hσ ′ (X) ∈ c∗ ,
+too. Thus, σ is a B-solution at V and, consequently, (α, σ) a solution at V . Finally,
+since σ(X) = hσ ′ (X) we obtain
+                          X              X
+                kα, σk =      |ασ(X)| =      |αhσ ′ (X)| = kαh, σ ′ k .
+                             X∈X              X∈X
+
+                                                                                             
+
+   During the process of finding a solution, the parameters W, B, X , θ, µ change. We
+describe the possible changes in terms of a directed graph, which will be converted
+into an NFA.
+
+3.6. The NFA F and the trimmed NFA A. We are ready to define the NFA
+A mentioned in Theorem 4 in the case where M(A) = A∗ is a free monoid with
+involution.
+
+3.6.1. States. We start by building an NFA F whose states are all the extended
+equations (W, B, X , θ, µ) according to Definition 8. We will later obtain A by
+trimming, that is, by removing all states which are not on accepting paths. Thus,
+the only difference between F and A is that A doesn’t have superfluous states.
+
+Lemma 16. An extended equation V = (W, B, X , θ, µ) can be specified using at
+most O(n log n) bits, so F has not more than singly exponentially many states.
+Proof. We claim that each component of V can be specified using O(|Γ|) = O(n)
+letters from Γ plus a finite alphabet. Since |Γ| ∈ O(n), we can encode each letter
+in Γ plus the finite alphabet as a binary number of length at most O(log n) bits.
+Thus V can be encoded by a binary string of length in O(n log n). It follows that
+the total number of extended equations is at most 2O(n log n) .
+   To establish the claim, notice that W ∈ Γ∗ with |W | ≤ 204n, B ∪ X ⊆ Γ,
+θ ⊂ Γ × Γ and |θ| ≤ |B ∪ X |. Since µ : B ∪ X −→ NF and NF is finite, µ can
+be encoded as a list {(c, µ(c)) | c ∈ B ∪ X }, using letters from Γ plus the finite
+alphabet NF .                                                                    
+   SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                         15
+
+
+Initial states. An initial state is any state of the form (Winit , A, Xinit , ∅, µinit ), where
+                                  µinit : (A ∪ Xinit ) → NF
+is a morphism extending µ0 such that µinit (X) 6= 0 for all X ∈ Xinit .
+    If (α, σ) is a solution of (Winit , A, Xinit , ∅, µinit ), then necessarily α = idA∗ since
+α leaves the letters from A invariant. Moreover, we know that µinit (X) = µ0 σ(X).
+This means that the initial value of µinit (X) tells us whether σ(X) = 1; and if
+σ(X) 6= 1, then µinit (X) = (a, b) and σ(X) ∈ aA∗ ∩ A∗ b. Hence, µinit (X) specifies
+the first and last letters of the reduced word σ(X) whenever σ(X) 6= 1. Moreover,
+µinit (X) 6= 0 implies ασ(X) ∈ F. Hence, ασ(X) is a reduced word in A∗± .
+Final states. We choose and fix “distinguished” letters c1 , . . . , cm ∈ C \ A such that
+ci 6= cj 6= ci for all i 6= j. We say that a state (W, B, ∅, ∅, µ) is final if
+   (1) W = W ,
+   (2) The word W has a prefix of the form #c1 # · · · #cm #.
+  Every final state has the unique B-solution σ = idB because final states don’t
+have any variables.
+Remark 17. The names initial and final refer to the phase in the construction of
+the graph at which a state is produced, rather than being start or accept states for
+the NFA. That is, when we obtain the EDT0L language characterization, the start
+states of the NFA recognising the rational language of endomorphisms correspond
+to the final states defined here, and the accept states correspond to the initial states.
+3.7. Transitions. We define two different forms of transitions, based on substi-
+tutions and compressions. Both forms are labeled by an endomorphism of C ∗
+which induces a morphism between partially commutative monoids M (B, ∅, θ, µ)
+and M (B ′ , ∅, θ′ , µ′ ).
+   The direction of each transition is opposite to that of the morphism labelling
+the transition. Suppose we have a path p from an initial to a final state. A very
+important (and, perhaps, initially counterintuitive) fact is that in order to produce
+solutions, our algorithm follows the path p backwards, that is, from the final to
+the initial state; we compose the morphisms labeling the transformations in such a
+directed path p from the last edge to the first one, in order to produce the solutions.
+This is in agreement with our initial and final states being accept and start states
+in the NFA, respectively.
+
+3.7.1. Substitutions. A substitution transition transforms the variables and does
+not affect the constants. Let V = (W, B, X , θ, µ) and V ′ = (W ′ , B, X ′ , θ′ , µ′ ) be
+states in F sharing the same set of constants B; and assume that V is not final and
+that V ′ is not an initial state. Moreover, let θ(b) = θ′ (b), and µ(b) = µ′ (b) for all
+b ∈ B. Therefore M (B) = M (B, ∅, θ, µ) = M (B, ∅, θ′ , µ′ ).
+   Let τ : M (B, X , θ, µ) → M (B, X ′ , θ′ , µ′ ) be any B-morphism such that τ(W ) =
+   ′
+W , τ modifies only X and X for some variable X, leaves all x ∈ (B ∪ X ) \ X, X
+invariant, and
+                          τ (X) ∈ (B ∪ X ′ )∗ with |τ (X)| ≤ 3.
+Furthermore, we only allow the following choices for τ (X), X and X ′ :
+                                
+     (i) τ (X) = 1 and X ′ = X \ X, X .
+    (ii) τ (X) = uX and X ′ = X with u ∈ B ∗ and 1 ≤ |u| ≤ 2.
+   (iii) τ (X) = cX ′ X and X = X ′ \ X ′ , X ′ with c ∈ B and θ′ (X ′ ) = c.
+16              LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+
+     In each of these three cases we define the substitution transition:
+                                             ε
+                   V = (W, B, X , θ, µ) −→ (τ (W ), B, X ′ , θ′ , µ′ ) = V ′ .
+Here, the label ε denotes the identity morphism idC ∗ , it restricts to the identity
+morphism from M (B, ∅, θ′ , µ′ ) to M (B, ∅, θ, µ), and it will be applied in the opposite
+direction from τ and the transition. Note that after having performed a substitution
+transition we have kV ′ k < kV k if and only if τ is defined by τ (X) = 1 for some X.
+
+3.7.2. Compressions. A compression transition affects the constants, but does not
+change the variables. Let V = (W, B, X , θ, µ) and V ′ = (W ′ , B ′ , X , θ′ , µ′ ) be states
+in F sharing the same set of variables X and assume V is not a final state, θ(X) =
+θ′ (X) and µ(X) = µ′ (X) for all X ∈ X .
+    Let h : M (B ′ , X , θ′ , µ′ ) → M (B, X , θ, µ) be any (A ∪ X )-morphism such that
+W = h(W ′ ) and
+      (1) if V ′ is non-final, then                           ′
+                                P 1 ≤ |h(c)| ≤ 2 for all c ∈ B ,
+               ′
+      (2) if V is final, then c∈B ′ |h(c)| ≤ |W |.
+   In case that either kV k > kV ′ k or V ′ is final and h 6= idB ∗ , we define a compres-
+sion transition in F by
+                                                 h
+                  V = (h(W ′ ), B, X , θ, µ) −→ (W ′ , B ′ , X , θ′ , µ′ ) = V ′ ,
+where the transition label h is given by an endomorphism h ∈ End(C ∗ ) which
+induces the morphism h : M (B ′ , X , θ′ , µ′ ) → M (B, X , θ, µ) and which leaves all
+letters not in B ′ invariant. The direction of the morphism h is again opposite to
+that of the transition.
+Remark 18. The reason that we have to treat transitions to final states differ-
+ently is twofold. First, the coexistence of “singular” and “nonsingular” solutions is
+possible. In the singular case we have σ(X) = 1 for some X and in the nonsingu-
+lar case we have σ(X) 6= 1 for all X. Say there are solutions σ and σ ′ such that
+σ(X1 ) = 1 and σ ′ (X1 ) = a ∈ A± . Then for some h, h′ ∈ L(A) and some c1 we
+must have h(c1 ) = 1 and h′ (c1 ) = a. Thus in transformations to a final state we
+must allow that h maps some letters to the empty word. In all other situations this
+                           h
+is forbidden. Thus, if V −→ V ′ is a compression transition and V ′ is final, then we
+allow kV k < kV ′ k.
+    Second, if a state V = (W, B, ∅, θ, µ) has no variables, then W has prefix
+#u1 # · · · #um # with ui ∈ C ∗ . In this case we wish to allow a P
+                                                                  compression transi-
+tion h to a final state in one step. By imposing the condition c∈B ′ |h(c)| ≤ |W |
+we make sure the specification of h fits into our linear space bound, which is crucial
+in our complexity analysis below.
+Example 19. Let U = aX and V = aaab be an equation, for the purposes of
+demonstrating how the graph or NFA works. We have
+                         Winit = #X#aX#aab#Xa#baa#X#.
+A path from initial to final states in the graph F for this equation is shown in
+Figure 2, where for simplicity we label states by a prefix of W in each extended
+equation.
+   SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                    17
+
+
+                                 #X#aX#aaab# · · ·
+
+                                         h1   τ1 (X) = aX
+
+
+                               #aX#aaX#aaab# · · ·
+
+                                         h2   τ2 (X) = aX
+
+
+                              #aaX#aaaX#aaab# · · ·
+
+                                         h3   τ3 (X) = bX
+
+
+                             #aabX#aaabX#aaab# · · ·
+
+                                         h4   τ4 (X) = 1
+
+
+                               #aab#aaab#aaab# · · ·
+
+                                         h5   h5 (c1 ) = aab
+
+
+                                 #c1 #ac1 #ac1 # · · ·
+
+        Figure 2. A path in F from initial to final state for the equation
+        aX = aaab. The solution σ(X) is obtained by applying the maps
+        h1 , h2 , h3 , h4 , h5 to c1 in reverse order, that is, σ(X) =
+        h1 h2 h3 h4 h5 (c1 ).
+
+
+   The first four transitions are substitutions τ1 (X) = τ2 (X) = aX, τ3 (X) =
+bX, τ4 (X) = 1 so h1 , h2 , h3 , h4 are just idC ∗ , and the map h5 (c1 ) = aab is a com-
+pression to a final state. A solution for X can be obtained by applying the maps
+to c1 in reverse order to the path labelling, so we get σ(X) = h1 h2 h3 h4 h5 (c1 ) =
+h1 h2 h3 h4 (aab) = aab.
+3.8. Proof that the NFA is constructed in quasi-linear space. We can now
+give the algorithm to construct the trim NFA A in NSPACE(n log n). We first give
+an algorithm to construct F , then use this to construct A.
+Lemma 20. Given a tuple V = (W, B, X , θ, µ), where W ∈ Γ∗ , B ⊆ C, X ⊆ Ω, θ
+is a type, and µ : (B ∪ X ) → N is a mapping, we can check within NSPACE(n log n)
+whether V is an extended equation (that is, V is a state in F ) and furthermore
+decide whether the state V is initial or final.
+Proof. As noted in Lemma 16, writing down any extended equation requires at
+most O(n log n) bits, so if V requires more space we reject it as a valid input. If V
+fits into the allowed space, then go through the conditions listed in Definition 8. It
+18             LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+is obvious how to check the first five conditions. For example, if |W | > 204n, then
+we reject immediately.
+    The most involved test is to see that for every factor u of every ui with the
+interpretation ui ∈ M (Γ, θ) the element u also appears in W ∈ M (Γ, θ). For
+this test we invoke the algorithm that solves the uniform factor problem in free
+partially commutative monoids as explained in Subsection 1.2. Recall that the
+uniform factor problem refers to an input of the form (Γ, θ, u, w). In our case the
+input has the specific form (Γ, θ, u, W ). We presented a nondeterministic algorithm
+using linear space in the input size, where the input size of a tuple (Γ, θ, u, w)
+is (|Γ| + |θ| + |uw|) log |Γ|, as we need O(log |Γ|) bits to encode letters. Since
+(|Γ| + |θ| + |uw|) log |Γ| ∈ O(n log n), the call of such a subroutine fits into our space
+bound.
+    Having completed the check that V is a state of F , it is easy to check whether it
+is initial (W = Winit , B = A, θ = ∅) or final (W = W , θ = ∅, X = ∅); since θ = ∅
+in both cases we are just checking W = Winit , W = W in a free monoid.                  
+   In the following, when we say that V = (W, B, X , θ, µ) is a state in F , this means
+V is given as a tuple for which the syntax check according to Lemma 20 that V is
+indeed a state was performed.
+Lemma 21. Given states V = (W, B, X , θ, µ), V ′ = (W ′ , B ′ , X ′ , θ′ , µ′ ) in F , and
+a mapping h : B ′ → B ∗ , we can check within NSPACE(n log n) whether the triple
+                                       h
+(V, V ′ , h) encodes an transition V −→ V ′ in the graph F .
+Proof. We assume h is specified as a tuple requiring at most O(n log n) bits. In order
+                      h
+to check whether V −→ V ′ is a compression transition we must have h 6= idB ∗ and
+then we go through the conditions of Subsection 3.8, most of which are immediate
+to verify. Among these, we have to compute h(W ′ ) as a word in (B ∪ X )∗ and
+then see if W = h(W ′ ) ∈ M (B ∪ X , θ). The test W = h(W ′ ) ∈ M (B ∪ X , θ) is a
+special case of the uniform factor problem in free partially commutative monoids,
+as already discussed in the proof of Lemma 20.
+    For a substitution transition, a necessary condition is B = B ′ and h = idB ,
+which is trivial to check. Next we guess some mapping τ : X → (B ∪ X ′ )∗ with
+|τ (X)| ≤ 3 for all X ∈ X . Just as above we check τ (W ) = W ′ ∈ M (B ′ ∪ X ′ , θ′ )
+and the other requirements for substitutions listed in Subsection 3.7.1.            
+   As usual in automata theory we modify the NFA F by removing all states which
+are not on a path from some initial to some final state. If there is no such path,
+then L(F ) is the empty set. The resulting NFA will be denoted as A. We have
+L(A) = L(F ). Moreover, L(A) = ∅ if and only if the automaton A is empty.
+   The key tool used to build the trim NFA A is Ispath(V, V ′ ), which we define to
+be a Boolean predicate that yields true if and only if there is a path from state V
+to V ′ in the graph A.
+Lemma 22. Let V, V ′ represent two states in the graph F . Then the predicate
+Ispath(V, V ′ ) can be evaluated in NSPACE(n log n).
+Proof. Define the language LF = {(V, V ′ ) | Ispath(V, V ′ ) = true}. On input
+(V, V ′ ) we can guess a path V = V0 , V1 , h1 , V2 , h2 , · · · , V ′ = Vk , hk in F from V
+to V ′ and check for each i whether (Vi−1 , Vi , hi ) encodes a transition by using
+Lemmas 20 and 21. Thus, LF ∈ NSPACE(n log n).
+   SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                      19
+
+
+   Since NSPACE(n log n) is closed under complementation by Immerman and Szelepcsényi
+(see [17, Theorem 7.6]), we also have
+         LF = {(V, V ′ ) | 6 ∃ a path from V to V ′ in F} ∈ NSPACE(n log n).
+Thus, the predicate Ispath(V, V ′ ) can be evaluated in NSPACE(n log n) by running
+two procedures simultaneously to determine if (V, V ′ ) ∈ LF or (V, V ′ ) ∈ LF . 
+
+Proposition 23. We can construct the trim NFA A in NSPACE(n log n). Within
+the same space complexity we can decide whether A is empty, or whether A contains
+a directed cycle.
+Proof. For each V that is a state of F output V as an initial node of A if both (1)
+V is initial in F , and (2) there exists some path to a final state in F . We check (1)
+using Lemma 20. For (2) we run through all final states V ′ of F and evaluate the
+predicate Ispath(V, V ′ ). If at some point Ispath(V, V ′ ) becomes true, we output
+V as an initial node in A. If no initial node in A is found, then we stop; the output
+is A = ∅. Hence, we continue only if there is at least one initial node.
+   Next, we construct all transitions of A as follows. We list all triples (V, V ′ , h)
+           h
+where V −→ V ′ is a transition in F . For each such triple we consider all states V0
+of A which are initial, and for each V0 we evaluate Ispath(V0 , V ). If no such V0 is
+found where Ispath(V0 , V ) is true, then we move to the next triple (V, V ′ , h). If at
+least one such V0 exists, we list all states Vf of F which are final. For each Vf we
+evaluate Ispath(V ′ , Vf ). If no such Vf is found where Ispath(V ′ , Vf ) is true, then
+we move to the next triple (V, V ′ , h). Otherwise we output (V, V ′ , h) as a transition
+of A. If, moreover, V ′ is final in F , then we mark that transition in order to indicate
+that V ′ is final in A, too. We then move to the next triple (V, V ′ , h).
+   Having these two lists at hand we have constructed the trim NFA A.
+   Finally, to check for a directed cycle we enumerate all pairs (V, V ′ ) ∈ A × A with
+V 6= V ′ and for each pair evaluate Ispath(V, V ′ ) and Ispath(V ′ , V ).               
+
+  With the assertion in Proposition 23 the algorithmic part of the proof of the
+monoid version of Theorem 4 is finished. It remains to show the soundness and
+completeness of the construction. This requires purely existential statements, where
+no reference to effectiveness is necessary.
+
+3.9. Soundness. In this section we prove soundness, that is, any output we obtain
+by following the transitions in the NFA A from an initial to a final state, and then
+applying the corresponding maps in reverse order to the distinguished letters, gives
+a correct solution to the equation Winit .
+   Recall that we have chosen distinguished letters c1 , . . . , cm ∈ C, and that if
+(W, B, ∅, ∅, µ) is a final state, then W = W and W ∈ #c1 # · · · #cm #B ∗ .
+                               h    1   h     t
+Proposition 24. Let V0 −→              · · · −→ Vt be a path in A of length t, where V0 =
+(Winit , A, Xinit , ∅, µinit ) is an initial and Vt = (W, B, ∅, ∅, µ) is a final state. Then
+V0 has a solution (idA∗ , σ) with σ(Winit ) = h1 · · · ht (W ). Moreover, for 1 ≤ i ≤ m
+we have
+                                       σ(Xi ) = h1 · · · ht (ci ).
+                           h
+                           1        h
+                                    s
+Proof. Let s ≥ 0 and V0 −→   · · · −→ Vs be any path to some state Vs = (Ws , B, X , θ, µ)
+such that σs is a B-solution at Vs . We claim that V0 and Vs have solutions (idA∗ , σ)
+20              LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+and (idA∗ h1 · · · hs , σs ), respectively, with
+(12)                            σ(Winit ) = h1 · · · hs σs (Ws ).
+Claim (12) is trivial for s = 0 and for s > 0 it follows by induction using Lemma 15
+or Lemma 14, depending on whether hs is a substitution transition or a compression
+transition. Now for s = t we have W = W by the definition of a final state.
+Since no variables occur in W , σt = idB ∗ is the (unique) B-solution of W , so
+σ(Winit ) = h1 · · · ht (W ).
+   By definition #X1 # · · · #Xm # is a prefix of Winit and #c1 # · · · #cm # is a prefix
+of W for the final state Vt , but h = idA∗ h1 · · · ht is an A-morphism from B ∗ to A∗
+with |h(c)|# = 0 for all c ∈ B. This implies
+                      σ(#X1 # · · · #Xm #) = h(#c1 # · · · #cm #).
+In particular, σ(Xi ) = h1 · · · ht (ci ) for 1 ≤ i ≤ m.                               
+  Using the notation of Theorem 4 we have shown soundness, that is, every output
+we obtain is a solution in reduced words.
+Corollary 25. The following inclusion holds:
+                {(h(c1 ), . . . , h(cm )) ∈ C ∗ × · · · × C ∗ | h ∈ L(A)} ⊆
+       [
+             {(σ(X1 ), . . . , σ(Xm )) ∈ Fm | σ ∈ Σ ∧ σ(Winit ) = σ(Winit ) ∧ µ = µ0 σ},
+ {µ| µ(X)6=0}
+
+where Σ denotes the set of C-morphisms σ : Γ∗ → C ∗ .
+Proof. Follows from Proposition 24.                                                    
+Corollary 26. If the NFA A is nonempty, then there is some solution σ which maps
+all variables Xi to reduced words in A∗± and which satisfies σ(Winit ) = σ(Winit ).
+   If the NFA A contains a directed cycle, then there are infinitely many such σ.
+Proof. The first part follows from Proposition 24.
+   Now assume that A contains a directed cycle. Then for every t0 ∈ N we can
+                   h1        ht
+choose a path V0 −→   · · · −→  Vt from an initial state V0 to some final state Vt with
+t > t0 . For each 0 ≤ s ≤ t define αs = idA∗ h1 · · · hs . Thus, α0 = idA∗ . We view
+αs ∈ End(C ∗ ), and let (αs , σs ) be the corresponding solution at Vs , which exists
+due to (12).
+                                  ih
+   For every transition Vi−1 −→     Vi which is defined either by a compression, or
+by a substitution of type (i), we have kVi−1 k > kVi k. Since kV k ∈ O(n4 ) for all
+states, there is a constant κ′ such that every path of length κ′ n4 must include a
+substitution of type (ii) or (iii). Thus, we may assume that for a large enough t
+                                                  i         h
+there are more than t0 transitions where Vi−1 −→     Vi is defined by a substitution
+                                          ∗  ∗
+of type (ii) or (iii), i.e. with τ (X) ∈ Γ CΓ .
+   By the definition of A we have αs (c) 6= 1 for all c ∈ C whenever s < t. (The
+final transition is an exception.) By Lemma 14 and Lemma 15 we have
+                                        kα0 , σ0 k ≥ t0 .
+since for each compression transition the weight is unchanged, and for each substi-
+tution the weight decreases, and in particular, it decreases strictly at least t0 times.
+The result follows since α0 = idA∗ . Hence, there infinitely many solutions σ0 . 
+   SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                       21
+
+
+3.10. Completeness. Now we show that every solution of the equation Winit can
+be obtained from A.
+   Let us fix some state V = (W, B, X , ∅, µ) and assume that V has a solution (α, σ).
+                                                                          1   h         t h
+We will show that if V is “small enough”, then A contains a path V −→         V1 · · · −→
+                                ′  ′        ′                                    ′
+Vt to some final state Vt = (W , B , ∅, ∅, µ ) such that σ(W ) = h1 · · · ht (W ). Let
+us make precise what “small” means.
+Definition 27. A state V = (W, B, X , ∅, µ) is called small if
+                                  |W | ≤ 96n + 6 |Winit | .
+   Clearly every initial state is small. Final states need not be small.
+                                                                        1 h          th
+3.10.1. Forward property of transitions. The existence of a path V −→      V1 · · · −→ Vt
+                             ′   ′       ′                                   ′
+to some final state Vt = (W , B , ∅, ∅, µ ) such that σ(W ) = h1 · · · ht (W ) relies on
+the following technical concept.
+                                                h
+Definition 28. Let V = (W, B, X , θ, µ) −→ (W ′ , B ′ , X ′ , θ′ , µ′ ) = V ′ be a transition
+                                                                      h
+in A and (α, σ) be a solution at V . We say that the triple (V −→ V ′ , α, σ) satisfies
+the forward property if there exists a solution (αh, σ ′ ) at V ′ such that
+                                  ασ(W ) = αhσ ′ (W ′ ).
+                                            h
+   By a slight abuse of language: if V −→ V ′ is a transition in A and the solution
+(α, σ) at the source V is clear from the context, then we say also that the transition
+    h
+V −→ V ′ satisfies the forward property. In particular, if we follow a path from
+V having a solution (α, σ) to some state V ′ = (W ′ , B ′ , ∅, θ′ , µ′ ) by transitions
+satisfying the forward property, then V ′ has some solution. But as V ′ uses no
+variables, we obtain W ′ = W ′ .
+                                            ε
+Lemma 29. Let V = (W, B, X , θ, µ) −→ (τ (W ), B, X ′ , θ′ , µ′ ) = V ′ be a substitu-
+tion transition (according to Subsection 3.7.1) and θ(Y ) = θ′ (Y ) for all Y ∈ X ∩X ′ .
+                                    ε
+In each of the following cases (V −→ V ′ , α, σ) satisfies the forward property:
+                                                ε
+    (1) σ(X) = 1 and the transition V −→ V ′ removes X by τ (X) = 1;
+                                                                  ε
+    (2) θ = ∅, σ(X) = av, µ′ (X) = µ(v), and the transition V −→ V ′ is defined by
+        τ (X) = aX;
+    (3) θ(X) = ∅, σ(X) = cuv, u ∈ c∗ , µ′ (X ′ ) = µ(u), µ′ (X) = µ(v), and the
+                      ε
+        transition V −→ V ′ is defined by τ (X) = cX ′ X with θ′ (X ′ ) = c;
+                                                                         ε
+    (4) θ(X) = c, σ(X) = cu, µ′ (X) = µ(u), and the transition V −→ V ′ substi-
+        tutes X by τ (X) = cX.
+                 ε
+Proof. Let V −→ V ′ be defined by τ : M (B, X , θ, µ) → M (B, X ′ , θ′ , µ′ ). It is
+enough to show that V ′ has a B-solution with σ = σ ′ τ .
+                                                      
+   (1) Let σ ′ be the restriction of σ to X ′ = X \ X, X . Then we have σ = σ ′ τ .
+   (2) Recall that by definition of a substitution transitions, we have θ′ = ∅,
+        too. Define σ ′ by σ ′ (X) = v and σ ′ (Y ) = σ(Y ) for Y 6= X, X. Since
+        µ′ (X) = µ(v), we obtain σ ′ as a morphism; and we have σ = σ ′ τ .
+   (3) Define σ ′ (X ′ ) = u, σ ′ (X) = v and σ ′ (Y ) = σ(Y ) for Y 6= X ′ , X ′ , X, X.
+        Then we have σ = σ ′ τ .
+   (4) Define σ ′ (X) = u and σ ′ (Y ) = σ(Y ) for Y 6= X, X. Since θ(X) = c and σ
+        is a solution, we have u ∈ c∗ and as τ is a morphism we have θ′ (X) = c,
+        too. Then we have σ = σ ′ τ .
+22             LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+In all cases it is clear that σ ′ is a B-solution.                                        
+                                                               h
+Lemma 30. Let B ′ ⊆ B and V = (h(W ′ ), B, X , θ, µ) −→ (W ′ , B ′ , X , θ′ , µ′ ) = V ′
+be a compression transition (according to Subsection 3.8). If σ : X → M (B, ∅, θ, µ)
+factors through morphisms as
+                             σ′                      h
+                      σ : X −→ M (B ′ , ∅, θ′ , µ′ ) −→ M (B, ∅, θ, µ)
+such that σ ′ (X) ∈ c∗ whenever θ′ (X) = c, then (αh, σ ′ ) is a solution at V ′ and
+    h
+(V −→ V ′ , α, σ) satisfies the forward property.
+Proof. We have σh = hσ ′ and hence, ασ(W ) = αhσ ′ (W ′ ).                                
+   Frequently, we cannot apply Lemma 30 because σ cannot be written as hσ ′ .
+The typical example is that B ′ B, but some σ(X) uses a letter from B \ B ′ , and
+h(a) = a for all a ∈ B ′ . This type of “alphabet reduction”, switching from a larger
+alphabet B to some proper subset B ′ , is needed only if the type relations θ, θ′ are
+empty. Therefore the following lemma applies in this situation.
+                                                          ε
+Lemma 31. Let B ′ B and V = (W, B, X , ∅, µ) −→ (W ′ , B ′ , X , ∅, µ′ ) = V ′ be a
+compression transition which is induced by the identity idC ∗ . Thus, ε becomes the
+canonical inclusion of M (B ′ , ∅, ∅, µ′ ) into M (B, ∅, ∅, µ). In particular, W = W ′
+and µ′ is the restriction of µ.
+     Let (α, σ) be a solution at V . Define a B ′ -morphism β : M (B, ∅, ∅, µ) →
+M (B ′ , ∅, ∅, µ′ ) by β(b) = α(b) for b ∈ B \ B ′ and β(b) = b for b ∈ B ′ . Let
+σ ′ (X) = βσ(X). Then (αε, σ ′ ) is a solution at V ′ with ασ(W ) = αεσ ′ (W ′ ). In
+                     ε
+particular, (V −→ V ′ , α, σ) satisfies the forward property.
+Proof. Since α : M (B, ∅, ∅, µ) → M (A, ∅, ∅, µ0 ) is an A-morphism with µ(a) =
+µ0 (a) for all a ∈ A, we have µβ(b) = µα(b) = µ0 α(b) = µ(b) for all b ∈ B \ B ′ and
+β is indeed a B ′ -morphism from M (B, ∅, ∅, µ) to M (B ′ , ∅, ∅, µ′ ).
+   Note that M (B ′ , X , ∅, µ′ ) is a submonoid of M (B, X , ∅, µ) and ε realizes the
+inclusion of these free monoids. Hence W = ε(W ′ ) = W ′ as words. In particular,
+                                          ′
+σ(W ) = σ(W ) implies σ ′ (W ′ ) = σ ′ (W ). Thus, (αε, σ ′ ) solves V ′ .
+   Finally, by definition of β we have α = αβ because α is an A-morphism. Hence
+α = αεβ and we obtain
+                    αεσ ′ (W ′ ) = αεσ ′ (W ) = αεβσ(W ) = ασ(W ).
+                                                                                          
+Definition 32. Let σ : Γ → C ∗ be any C-morphism and W ∈ Γ∗ . The word W
+is realized as a sequence of positions, say 1, 2, . . . , |W |, and each position is labeled
+by a letter from Γ. If W = u0 x1 u1 · · · xm um , with ui ∈ C ∗ and xi ∈ Ω, then we
+have σ(W ) = u0 σ(x1 )u1 · · · σ(xm )um . The positions in σ(W ) corresponding to the
+positions of the ui ’s are henceforth called visible.
+   Given w = σ(W ), each visible position in w can be uniquely identified with a
+position in W , both positions having the same label in C. Following a path satisfy-
+ing the forward property makes the length of the equation oscillate. In particular,
+thoughout the compression method below the algorithm progresses from small state
+to small state, but in between the states are not necessarily small.
+   Proposition 33 shows that every solution can be found by tracing a path in A.
+    SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                          23
+
+
+Proposition 33. Let V = (W, B, X , ∅, µ) be small and let (α, σ) be a solution at
+                                    h
+                                    1           ht
+V . Then A contains a path V −→        V1 · · · −→ Vt to some final state Vt of transitions
+satisfying the forward property.
+   In particular, if V is an initial state, then we have σ(Xi ) = h1 · · · ht (ci ) for all
+1 ≤ i ≤ m, where c1 , . . . , cm are the distinguished letters.
+
+3.10.2. Reduction of Proposition 33 to Lemma 34. As a base case we let X = ∅:
+thus, V = (W, B, ∅, ∅, µ). If V is final, then there is nothing to do. Otherwise,
+by definition of an extended equation, we have W ∈ #B ∗ # and |W |# = |Winit |# .
+Since X = ∅, we have (α, σ) = (α, idB ∗ ) and we can write
+
+         W = #u1 # · · · #um #um+1 #um+2 #um+2 #um+1 #um # · · · #u1 #.
+
+   Define B1 = A ∪ {c1 , c1 , . . . , cm+2 , cm+2 } as a disjoint union where c1 , . . . , cm are
+the distinguished letters. Define V1 = (W1 , B1 , ∅, ∅, µ1 ) with
+
+          W1 = #c1 # · · · #cm #cm+1 #cm+2 #cm+2 #cm+1 #cm # · · · #c1 #.
+
+Defining µ1 (ci ) = µ(ui ) and h1 (ci ) = ui yields the desired result. Clearly, (αh1 , idB1∗ )
+                                                                                h
+is a solution at the final state V1 and the compression transition V −→ V1 satisfies
+the forward property. (Note that we could have some ui = 1, so this is where the
+case distinction discussed in Remark 18 is needed.)
+   The proof of Proposition 33 is by induction on the weight kα, σ, V k. It covers
+the rest of this section. Throughout the proof, all transitions satisfy the forward
+property by Lemma 29, Lemma 30, and Lemma 31; therefore, if we know that
+Vi = (Wi , Bi , Xi , θi , µi ) has a Bi -solution σi for all 1 ≤ i ≤ s, where s is some
+positive integer, then we obtain σ(W ) = h1 · · · hs σs (Ws ) by Definition 28.
+
+Preprocessing. By the base case we may henceforth assume that X 6= ∅. If we
+have σ(X) = 1 for some variable, then we follow a substitution transition removing
+the variable; and we are done by induction on the weight.
+   Thus, without restriction, we can assume σ(X) 6= 1 for all variables. For each
+X ∈ X , if σ(X) ∈ aB ∗ we follow a substitution transition defined by τ (X) = aX.
+This has the effect of popping out constants at the start and end of each variable,
+since each X comes with its involution X. Since W has at most 4n variables
+present, the length of W increases by at most 8n and the weight kασk decreases.
+In case that this substitution leads to a situation where a solution maps X to the
+empty word, we remove X and X. After that we are done by induction on the
+weight (since kασk is the dominant term in the lexicographic ordering), unless we
+end with |τ (W )| > 96n + 6 |Winit |, that is, the new state is not small. In that case
+we will have 96n + 6 |Winit | < |τ (W )| ≤ 104n + 6 |Winit |. Thus, in proving a more
+general statement, we will not assume that V is small, but that
+
+                        96n + 6 |Winit | < |W | ≤ 104n + 6 |Winit | .
+
+   So far, we did not discuss the size of B. Assume that we are in the situation of
+Lemma 31: there is B ′ with A ⊆ B ′ B such that W ∈ (B ′ ∪ X )∗ , then we can use
+Lemma 31; and we are done by induction on the weight. Thus, after preprocessing
+we may assume that all letters in B \ A appear in W , that is, |W |b ≥ 1 for all
+b ∈ B \ A.
+24             LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+   During the preprocessing we decreased the weight, but at the end of this phase V
+may no longer be small. Therefore, the proof of Proposition 33 reduces to showing
+the following lemma.
+Lemma 34. Let V = (W, B, X , ∅, µ) be a state with a solution (α, σ) such that
+X 6= ∅ and |W | ≤ 104n + 6 |Winit |. Then A contains a path of transitions satisfying
+the forward property to some small state V ′ = (W ′ , B ′ , X ′ , ∅, µ′ ) with a solution
+(α′ , σ ′ ) such that kα, σ, V k ≥ kα′ , σ ′ , V ′ k.
+3.10.3. Proof of Lemma 34. The assertion of the lemma is trivial, if V is small.
+That is: |W | ≤ 96n + 6 |Winit |. Hence, we may assume 96n + 6 |Winit | < |W | ≤
+104n + 6 |Winit |. Let V = (W, B, X , ∅, µ) be a state with a fixed solution (α, σ)
+satisfying the hypothesis of Lemma 34. We describe a way to find a path through
+A in terms of a procedure which “knows” the solution (α, σ).
+Block compression. We employ block compression only if W contains a factor b2 ,
+where b ∈ B and b 6= #. Otherwise we move straight to the next procedure, called
+pair compression. During the procedure we will increase the length of W by O(n),
+but at the end we will arrive at an equation where |W ′ | ≤ |W |; and importantly, W ′
+will not contain any proper factor b2 with b ∈ B and b 6= #. We give an example
+of this procedure in Section 5.
+Remark 35. While this procedure is technical, the idea is quite simple. The goal
+is to eliminate long blocks bℓ that are visible in the equation. To do so we use
+transitions which replace bb by b, just two letters at a time. Before we can apply
+such a compression, we must ensure the length of any maximal block bℓ with at
+least part of the block visible must be even. So first we follow various substitution
+and compression transitions to arrange this.
+     (1) Recording the constants with large exponents. Due to the previous
+         substitutions X 7→ bX in the preprocessing step, we have that for each X
+         if bX ≤ W and b′ X ≤ W are factors with b, b′ ∈ B, then # 6= b = b′ . For
+         each b ∈ B \ {#} define two sets:
+             
+      Λb = λ ≥ 2 ∃dbλ e ≤ σ(W ) : d 6= b 6= e and some b in dbλ e is visible ,
+       Xb = {X ∈ X | bX ≤ W ∧ σ(X) ∈ bB ∗ } .
+            Note that
+                                 X
+(13)                                  |Λb | + |Xb | ≤ |W | .
+                                  b
+
+         By Definition 8 we have Λb = Λb . Another fact is crucial: it might be
+         that there are X ∈ X \ Xb with σ(X) ∈ bB ∗ , but then    to the left of every
+         occurrence of X there is (the same) letter b′ ∈ B \ #, b, b . In this case
+         the block compression procedure does not touch the variable X (although it
+         may change σ(X)). If, on the other hand, X ∈ Xb , then a factor bb crosses
+         the left border for every occurrence of X. The first b in such a factor is
+         visible in W , the second one is not.
+     (2) Introducing the type and renaming of some constants. For each
+         b ∈ B with Λb 6= ∅ we introduce a fresh letter cb ∈ C \ B with µ(cb ) = µ(b).
+         In addition, for each λ ∈ Λb introduce a fresh letter cλ,b with µ(cλ,b ) = µ(b).
+         The fresh letters are chosen such that cb = c b and cλ,b = cλ,b . Note that
+SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                     25
+
+
+    cλ,b and cb are just names for formal symbols realized by fresh letters in
+    the fixed extended alphabet
+                         S          C.
+       We let B ′ = B ∪ {cb , cb , cλ,b , cλ,b | λ ∈ Λb ∧ b ∈ B} and we introduce a
+    type by θ(cλ,b ) = cb for all λ ∈ Λb . This yields a free partially commutative
+    monoid M (B ′ , X , θ, µ). We define an X -morphism
+                      h : M (B ′ , X , θ, µ) → M (B, X , ∅, µ)
+    by h(cλ,b ) = h(cb ) = b. Next, we modify W : in every factor dbλ e of σ(W )
+    with d 6= b 6= e and λ ∈ Λb we replace that factor by dcλb e. This defines a
+    new word W ′ such that h(W ′ ) = W . Note that so far, no cλ,b does appear
+    in W ′ . Let V ′ = (W ′ , B ′ , X , θ, µ). Then V ′ is a state and we can follow
+                         h
+    the transition V −→ V ′ . We have kV ′ k < kV k since θ 6= ∅ and this term
+    appears before the number of constants in the weight of a state. (It might
+    be that all b are gone, so we cannot make sure that the second component
+    in the weight decreased.) Note that for each λ ∈ Λ at least one position
+    labeled by cb is visible in W .
+        We rename V ′ = (W ′ , B ′ , X , θ, µ) as V = (W, B, X , θ, µ) and rename the
+    solution as (α, σ).
+(3) Splitting the variables starting with special constants. We skip this
+    step if Xb = ∅ for all b. Otherwise, for each b ∈ B and X ∈ Xb we write
+    σ(X) = cℓb w for some ℓ ≥ 1 with w ∈        / {b, cb } B ∗ . We split the variable X
+    by defining τ (X) = cb X X where X ′ = Xb,X
+                               ′                       ′
+                                                            ∈ Ω \ X is a fresh variable,
+    which is assigned a type θ (X ) = cb . Moreover, we let µ′ (X ′ ) = µ(cb )ℓ−1 ,
+                                   ′    ′
+
+    µ′ (X) = µ(w), σ ′ (X ′ ) = cℓ−1
+                                   b   , and σ ′ (X) = w. The new set of variables is
+    a disjoint union
+                             n                                    o
+                X ′ = X ∪ Xb,X   ′        ′
+                                     , Xb,X    b ∈ B ∧ X ∈ Xb .
+    We obtain a new state V ′ = (τ (W ), B, X ′ , θ′ , µ′ ) and a morphism
+                     τ : M (B, X , θ, µ) → M (B, X ′ , θ′ , µ′ ).
+                                                                    ε
+    The morphism τ defines a substitution transition V −→ V ′ which pops a
+    letter. The new solution at V ′ is (α, σ ′ ).
+        We rename V ′ = (τ (W ), B, X ′ , θ′ , µ′ ) as V = (W, B, X , θ, µ) and rename
+    the solution as (α, σ). The next step introduces the letters cλ,b into W and
+    σ(W ).
+(4) Identifying a position in each block dcλb e. We represent W ∈ M (B, X , θ, µ)
+    by any word in (B ∪ X )∗ . For each letter cb , we scan the word σ(W ) from
+    left to right and stop at each occurrence of a factor dcλb e where λ ∈ Λb and
+    d 6= cb 6= e. At the stop we do the following.
+       • If at least one of the cb ’s in this block is visible in W , then choose the
+          left-most corresponding visible position in W , and replace the label cb
+          at this visible position by cλ,b . In σ(W ), replace dcλb e by dcλ,b cλ−1
+                                                                                  b  e.
+          If no position of the cb ’s in this block is visible in W , then we make
+          no change.
+    Thus, from left to right, we transform the word W into an element W ′ ∈
+    M (B, X ′ , θ, µ) and simultaneously σ(W ) into an element σ ′ (W ′ ) ∈ M (B).
+    We obtain a new state V ′ = (W ′ , B, X , θ, µ) and we can follow the arc
+        h
+    V −→ V ′ where h is the X -morphism defined by a renaming h(cλ,b ) = cb .
+26              LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+         Note that kV k > kV ′ k since for each cλ,b a factor cλ,b cb appears in W ′ ,
+         so there are more letters visible in W ′ than in W , which decreases the
+         second component in the weight of an extended equation. At V ′ we obtain
+         a new solution (α, σ ′ ); and as usual, we rename V ′ = (τ (W ), B, X ′ , θ′ , µ′ )
+         as V = (W, B, X , θ, µ) and rename the solution as (α, σ).
+             Due to partial commutation we have the following: if a factor f ∈
+                        ℓ
+         d {cb , cλ,b } e occurs in σ(W ) with d, e ∈ / {cb , cλ,b }, then we have ℓ = λ ∈ Λb ,
+         and f = dcλ,b cλ−1  b   e ∈ M  (B, ∅, θ, µ). Moreover,    if θ(X) = cb , then X com-
+         mutes with the letter cb , but X does not commute with any cλ,b .
+     (5) The block compression. As long as there exists a letter cb which occurs
+         in σ(W ), perform the following loop, which also finishes the block compres-
+         sion. During the following loop we maintain the invariant: if dcλ,b cℓb e and
+                    ′
+         d′ cλ,b cℓb e′ are factors of σ(W ) with d 6= cb 6= e and d′ 6= cb 6= e′ , then ℓ = ℓ′
+         and σ(W ) contains a factor d cλ,b cb ℓ e as well. During the loop we perform
+         various times a renaming in order to keep the notation V and (α, σ) at the
+         current states. Initially we define a list
+                                 ΛB = {b ∈ B | Λb 6= ∅} .
+
+         while ΛB 6= ∅ do
+         (a) For some b ∈ ΛB remove b and b from ΛB ;
+         (b) Let c = cb and for all λ ∈ Λb abbreviate cλ,b as cλ .
+         (c) while |σ(W )|c ≥ 1 do
+                (i) For all X with θ(X) = c where |σ(X)| is odd, follow a substi-
+                    tution transition of type X 7→ cX. Hence, we may assume that
+                    |σ(X)| is even for all X with θ(X) = c.
+               (ii) Remove all X from X where σ(X) = 1. Observe, if there remains
+                    a variable X with θ(X) = c, then σ(W ) contains a factor c2 .
+              (iii) For all cλ where σ(W ) contains a factor dcλ cℓ e where d 6= c 6= e
+                    and ℓ is odd, follow a compression transition with h(cλ ) = ccλ .
+                    In order to see that this is possible observe that for every oc-
+                    currence of such a factor dcλ cℓ e there are only two possibilities.
+                    Either none of the positions of cλ cℓ are visible in W , or the po-
+                    sition of cλ is visible in W . Moreover, c commutes with cλ and
+                    with all X where θ(X) = c; and |σ(X)| is even for those X.
+                    Thus, wherever cλ is visible in W , the factor ccλ is visible in
+                    W ∈ M (B, X , θ, µ).
+                    Still, we need to be more precise in order to guarantee a weight
+                    reduction. The X -morphism defined by h(cλ ) = ccλ leads to
+                    new element W ′ ∈ M (B, X , θ, µ) and a new solution (αh, σ ′ ).
+                    In case that no letter c occurs in σ ′ (W ′ ) anymore, the letter c
+                    and the type becomes useless. Thus, if |σ ′ (W ′ )|c = 0, then we
+                    actually follow a compression transition
+                                      h
+                                  V −→ (W ′ , B ′ , X , θ′ , µ)
+                     where B ′ = B \ {c, c} and hence |θ′ | < |θ|. Nevertheless kV k >
+                     kV ′ k since |W ′ | < |W | due to compression.
+                (iv) If there exists a variable X with θ(X) = c, then we know σ(X) =
+                     c2 cℓ where ℓ is even. We follow a substitution arc defined by
+   SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                        27
+
+
+                   X 7→ c2 X in order to guarantee that a factor c2 becomes visible
+                   in W .
+               (v) Due to the previous steps: either we have c ∈  / B or W contains
+                   a visible factor c2 . In the first case, we skip this step. Thus,
+                   we assume that W contains a visible factor c2 . Now, if σ(W )
+                   contains a factor dcλ cℓ e where d 6= c 6= e, then ℓ is even; and
+                   if θ(X) = c, then σ(X) = cj and j is even, too. Thus we can
+                   follow a compression transition defined by h(c) = c2 . This leads
+                   to a new equation W ′ with h(W ′ ) = W and new solution σ ′ (W ′ )
+                   and the number of occurrences of c and c is halved. Note that
+                   kV k > kV ′ k since W contains a factor c2 . Hence, |W | > |W ′ |.
+                   Rename the parameters to V, W, B, X , θ, µ, α, σ.
+              endwhile
+          (d) Rename all cλ by cλ,b .
+         endwhile
+
+
+
+
+Space requirements for the block compression. Let us show that the block compres-
+sion can be realized inside A.
+
+
+Lemma 36. Let V = (W, B, X , ∅, µ) be the state after preprocessing, when we enter
+“block compression”, and let V ′ = (W ′ , B ′ , X ′ , ∅, µ′ ) be the state at the end of block
+compression. Then V ′ , as well as all intermediate states between V and V ′ , are in
+A. Moreover, |W ′ | ≤ 104n + 6 |Winit |.
+
+
+Proof. At the end of block compression we have X ′ ⊆ X , and each visible position
+of the new letter cλ,b occupies a position where some letter b was visible in W .
+Thus, |W ′ | ≤ |W | ≤ 104n + 6 |Winit |.
+   To show that the procedure stays inside A we calculate the maximum length
+of an intermediate equation during the process. We start block compression with
+|W | ≤ 104n + 6 |Winit |, and |X | ≤ 4n. In step (3) we add at most 8n new variables
+X ′ and at most 8n constants (we may substitute a variable X by aX ′ XX ′′ b in the
+                          ′
+case that σ(X) = aℓ wbℓ ). So the length of the intermediate equation at this step
+is at most 104n + 6 |Winit | + 16n = 120n + |Winit |. The only other step of block
+compression that adds length to the equation during the inner while-loop in step
+(5).
+   We start this loop with|W | ≤ 120n + |Winit | and with at most 8n typed variables
+(the variables that were added in step (3)). We perform the loop at step (5c) with
+one letter c ∈ ΛB fixed.
+   In step (i) we pop at most one c letter for each typed variable, and in step (ii)
+we pop c2 for each typed variable, so we add at most 3 · 8n = 24n c’s, and then in
+step (v) we halve the number of c’s, so overall we add at most 12n c′ s. We repeat
+this loop until all c’s are eliminated. In each iteration we add at most 24n new c
+letters, but then divide the total number of c letters by 2. If we just consider the
+number of new c letters added from the start of the while loop, we see that after
+28             LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+each iteration the number of new c letters remaining is at most:
+     iteration number before        number added number before number after
+                  step (i)                         step (v)      step (v)
+         1           0                  24n          24n           12n
+         2          12n                 24n          36n           18n
+         3          18n                 24n          42n           21n
+         4          21n                 24n          45n           23n
+         5          23n                 24n          48n           24n
+Thus the total length of W is never more than
+(14)                   120n + 6 |Winit | + 48n = 168n + 6 |Winit |
+   Since this call of the inner while-loop eliminates all occurrences of the letter
+c, at the end of each call the length of W returns to being bounded above by
+120n + 6 |Winit |, when we repeat the while-loop at step (5c) for another constant in
+ΛB , until ΛB = ∅. Thus all states are in A.                                       
+   For the final state V ′ = (W ′ , B ′ , X ′ , ∅, µ′ ) the type relation is empty. If V ′ is
+small, that is, |W ′ | ≤ 96n + 6 |Winit |, then Lemma 34 is shown. Thus, without
+restriction we again have
+                       96n + 6 |Winit | < |W ′ | ≤ 104n + 6 |Winit | .
+Pair compression. After block compression we run pair compression, following es-
+sentially the formulation of Jeż’s original procedure [12]. We start a pair compres-
+sion at a state Vp = (W, B, X , ∅, µ) where we have:
+       • |W |b ≥ 1 for all b ∈ B \ A.
+       • 96n + 6 |Winit | < |W | ≤ 104n + 6 |Winit |.
+       • W doesn’t contain any proper factor b2 with b ∈ B \ #.
+       • The current solution is denoted by (α, σ).
+The goal of the process is to end at a state Vq = (W ′′ , B ′ , X ′′ , ∅, µ′′ ) with |W ′′ | ≤
+96n + 6 |Winit | by some path satisfying the forward property and without increasing
+the weight. Moreover, there will be no types in this phase. Note that the constraints
+make sure that σ(X) does not contain any factor aa, but we cannot rule out that
+W contains such factors. However, the number of aa factors remains bounded by
+|Winit |, since they can only occur after preprocessing Winit .
+   Consider all partitions B \ {#} = L ∪ R such that b ∈ L ⇐⇒ b ∈ R. Note that
+there is no overlap between factors ab, cd ∈ LR unless ab = cd. Moreover
+                                 ab ∈ LR ⇐⇒ ba ∈ LR.
+For each choice of (L, R) we count the number positions in W where some factor
+ab ∈ LR with a 6= b begins. We intend to compress all these factors into single
+letters.
+Remark 37. We choose and fix one of the partitions (L, R) such that the number
+of factors ab ∈ LR in σ(W ) such that a 6= b and at least one of a or b visible is
+maximal.
+   We say that ab ∈ LR is crossing if W contains either a factor aX with σ(X) ∈
+bB ∗ or a factor bX with σ(X) ∈ aB ∗ (or both). In the first phase we run the
+following procedure.
+   SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                    29
+
+
+Uncrossing. Create a list L = {X ∈ X | ∃b ∈ R : σ(X) ∈ bB ∗ }.
+For each X ∈ L:
+      • choose b ∈ R such that σ(X) ∈ bB ∗ and follow a substitution transition
+        X 7→ bX.
+This concludes the “uncrossing”; and, as done previously we rename the parameters
+to V, W, B, X , µ, α, σ.
+   Above, when we follow X 7→ bX with b ∈ R, then automatically X is replaced
+with X b, and b ∈ L. We also have X, X ⊆ L if and only if σ(X) ∈ bB ∗ a for
+some ab ∈ LR. In that case we actually substituted X by bXa and X by aX b.
+Recall that we have at most 4n variables in W . Thus, at this stage we have:
+(15)                |W | ≤ 104n + 6 |Winit | + 8n = 112n + |Winit |
+  The second phase begins with creating a list P = {ab ∈ LR | a 6= b}. After that
+we run the following while-loop.
+while P =
+        6 ∅ do
+   (1) Define
+               B ′ = A ∪ {a ∈ B | |W |a ≥ 1 ∨ ∃X ∈ X : σ(X) ∈ aB ∗ } .
+                                                                  ε
+        If B ′ 6= B, then follow a substitution transition V −→ (W, B ′ , X , ∅, µ) where
+        the label ε = idC ∗ yields the inclusion of M (B ′ , ∅, ∅, µ) into M (B, ∅, ∅, µ).
+        Rename the parameters to V, W, B, X , µ, α, σ.
+    (2) Select and remove some pair ab in P. If ab does not occur as a factor in
+        W , then do nothing, else perform the next steps.
+    (3) Choose a fresh letter c = cab ∈ C \ B with µ(c) = µ(ab) and let B ′′ =
+        B ∪ {c, c}. Define an X -morphism
+                         h : M (B ′′ , X , ∅, µ′ ) → M (B, X , ∅, µ)
+        by h(c) = ab.
+    (4) Replace in W all factors ab by c and all factors ba by c. Let W ′ ∈ (B ′ ∪ X )∗
+        be the new word and V ′ = (W ′ , B ′′ , X , ∅, µ′ ) be the new state. We have
+        W = h(W ′ ); and hence there is a compression transition
+                                             h
+                                        V −→ V ′ .
+                                                     h
+   (5) Follow the compression transition V −→ V ′ ; and rename the parameters
+       to V, W, B, X , µ, α, σ.
+endwhile
+
+
+Lemma 38. During the while-loop for pair compression the following properties
+hold.
+    (1) After the first step, where the new alphabet B ′ is created (and then renamed
+        as B) we have |B| ≤ |W | + 2.
+    (2) No factor ab ∈ LR ever becomes crossing.
+    (3) At each step where we move from state V to V ′ we have kV k > kV ′ k.
+    (4) Each transition satisfies the forward property.
+Proof.      (1) In the first step inside the loop, when the new alphabet B ′ is created,
+         we have |B ′ | ≤ |W |. Therefore, after the first renaming, we have |B| ≤
+         |W |. When we define B ′′ , we add two new letters. Hence, we obtain
+30              LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+         |B ′′ | ≤ |W | + 2, which yields, after renaming, |B| ≤ |W | + 2. This property
+         persists during subsequent loops.
+     (2) We have to show that no factor ab ∈ LR ever becomes crossing. To see
+                                                                                      ε
+         this, consider the alphabet reduction by following the transition V −→
+         (W, B , X , ∅, µ) with B 6= B. It involves replacing every letter a ∈ B \ B ′
+                  ′                ′
+
+         by α(a) according to Lemma 31. The potential problem is that we might
+         have a ∈ L, but α(a) starts with a letter in R, so we might create new LR
+         factors. However as B ′ contains all letters a where σ(X) ∈ aB ∗ for some
+         X, we never introduce any new crossing pairs.
+     (3) The assertion kV k > kV ′ k is trivial.
+                                ε
+     (4) The transition V −→ (W, B ′ , X , ∅, µ) with B ′ 6= B satisfies the forward
+                                                                      h
+         property by Lemma 31. In order to see that V −→ V ′ satisfies the forward
+         property when we have h(c) = ab we proceed as follows. As done for W ,
+         also replace in σ(W ) all factors ab by c and all factors ba by c. Since ab is
+         not crossing, we find a B ′ -morphism
+                          σ ′ : M (B ′ , X , ∅, µ′ )∗ → M (B ′ , ∅, ∅, µ′ )
+         such that σ(X) = hσ ′ (X) for all variables X. Thus, we obtain (αh, σ ′ ) as
+         a solution at V ′
+                                                                                   
+Lemma 39. Let Vp = (W, B, X , ∅, µ) be a state in A with a solution (α, σ) where
+96n + 6 |Winit | < |W | ≤ 104n + 6 |Winit | such that W doesn’t contain any factor
+d2 for # 6= d ∈ B. Let (L, R) be the partition with B \ {#} = L ∪ R according
+to the choice made in Remark 37. Then pair compression on Vp leads to a state
+Vq = (W ′′ , B ′ , X , ∅, µ′′ ) with |W ′′ | ≤ 96n + 6 |Winit |, that is, the state Vq is small.
+Moreover, the intermediate steps of the pair compression algorithm are performed
+within A.
+Proof. Recall that the NFA A is trim. Hence, there is a path
+                                       1h                hp
+                                   V0 −→ · · · Vp−1 −→ Vp
+from an initial state with the appropriate µ to Vp . Let Vi = (Wi , Bi , Xi , θi , µi ).
+We perform the following marking process. The idea is that we wish to mark all
+constants in the Wi which could possibly give rise to a factor aa in W . These
+factors can arise in exactly two ways: the initial equation may be unreduced to
+start with, or from a substitution (for example, we may have aX or Y Z factors of
+the initial equation and we pop X −→ aX or Y −→ Y a, Z −→ aZ).
+    (1) In W0 = Winit we mark all letters (both constants and variables).
+                   ε
+    (2) If Vi−1 −→ Vi is a substitution transition, Wi = τ (Wi−1 ) and the positions
+         with constants in Wi−1 are mapped to positions with constants in Wi . We
+         mark constants in Wi that come from marked constants in Wi−1 , and if
+         τ (X) ∈ aΓ∗ and X is marked in Wi−1 , we mark the newly added a on the
+         left of the variable X in Wi , and leave X unmarked. If τ (Y ) = Y and Y
+         is marked in Wi−1 , we leave Y marked in Wi . Note that in this way each
+         marked variable gives rise to exactly one marked letter.
+                   h
+    (3) If Vi−1 −→ Vi is a compression transition, then we have h(Wi ) = Wi−1 .
+         Mark a constant c in Wi if it is mapped by h to an occurrence of a factor
+         containing a marked position in Wi−1 .
+   SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                    31
+
+
+Note that since the pair compression procedure is always preceded by the prepro-
+cessing step above, we can assume that every variable X in Winit has been replaced
+by aX where a is marked, so in Vp the word W contains at most |Winit | marked
+constants and no marked variables.
+   When we run the pair compression procedure on W we cannot compress pairs
+aa, or pairs containing variables. If we now mark all variables present in W , then
+we are allowed to compress any pairs of letters in W that are unmarked. After
+marking the variables we have at most 2 |Winit | marked letters in W .
+   Let us factor the word W ∈ (B ∪ X )∗ as W = x0 u1 x1 · · · uℓ xℓ , where ℓ is chosen
+to be maximal that for all 1 ≤ i ≤ ℓ we have:
+    (1) xi ∈ (B ∪ X )∗ .
+    (2) ui ∈ (B \ {#})∗ and ui doesn’t contain any marked position.
+    (3) The length of each ui is exactly 3.
+The factorization enjoys the following properties.
+       • Since all #’s are marked, we have x0 6= 1 6= xℓ . Some other xi can be
+         empty.
+       • Since we require |ui | = 3 it may be that xi contains for each marked position
+         also two unmarked position. The exception is the first position in x0 .
+         Hence, we obtain
+                        X
+                               |xi | ≤ 3(2 |Winit |) − 2 ≤ 6 |Winit | .
+                        0≤i≤ℓ
+
+       • Since |W | − 6 |Winit | > 96n, the previous line yields
+                                            ℓ > 32n.
+   Consider the word W ′ which was obtained via the substitution transitions, but
+before the compression of factors ab ∈ LR into single letters. The increase in length,
+which is |W ′ | − |W |, comes from the substitution transitions X 7→ bX, X 7→ X b
+with X ∈ L, so the length goes up by at most 8n. Note that the ui factors do not
+change, only the xi factors do. Hence W ′ has the factorization W ′ = y0 u1 y1 · · · uℓ yℓ
+with yi ∈ (B ∪ X )∗ and
+(16)                            |y0 · · · yℓ | ≤ |x0 · · · xℓ | + 8n.
+Finally, let W ′′ be the word obtained after pair compression has been performed.
+The word W ′′ is the compression of some word y0 v1 y1 · · · vm ym where each vi is
+the result of the compression restricted to ui .
+   Each ui can be written as ui = abc with a, b, c ∈ B. Since W did not contain
+any proper factor d2 with d ∈ B by hypotheses (and as we have performed block
+compression first), we know a 6= b 6= c. Moreover, we cannot have a = b or c = b
+because in every occurrence of bb in W at least one position is marked.
+   Assume for a moment that membership to L or R was defined uniformly at
+random. That is for each # 6= a ∈ B the probability for aa ∈ LR is 12 and
+independent of the other events “bb ∈ LR” for a 6= b.
+   There are two possibilities: either b ∈ L or b ∈ R. In the first case, either
+c ∈ R or c ∈ L, and in the second case either a ∈ L or a ∈ R. Each event
+bc ∈ LR, bc ∈ LL, ab ∈ LR, ab ∈ RR has probability 14 , so with probability 21
+one pair in the factor ui is compressed: thus the expected length of a factor vi is
+32                  LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+E [ |vi | ] = 23 + 22 = 25 . By linearity of expectation, we obtain
+(17)                                     E [ |v1 · · · vℓ | ] = 52 ℓ.
+Thus if the partition (L, R) were chosen at random, we expect the length of the
+word u1 · · · uℓ to decrease from 3ℓ to 52 ℓ or less, that is, we expect at least 16 ℓ factors
+ui are compressed (each vi has length either 2 or 3). But in Remark 37 we made
+the best choice of compressing a maximal number of pairs in W ′ . This means at
+least 61 ℓ factors of W ′ are compressed. Hence, for the actual pair compression, we
+may estimate the length of W ′′ as follows.
+
+            |W ′′ | ≤ |x0 · · · xℓ | + 8n + 25 ℓ        since 61 ℓ factors are compressed
+                    = |W | + 8n − 2ℓ                           since |W | = |x0 · · · xℓ | + 3ℓ
+                    ≤ |W | − 8n                                               since ℓ > 32n
+                    ≤ 96n + 6 |Winit |                      since |W | ≤ 104n + 6 |Winit |.
+     Since |W | ≤ 96n + 6 |Winit |, the last state Vq = (W ′′ , B ′ , X , ∅, µ′′ ) is small.
+               ′′
+                                                                                                  
+  A linear bound on the size of C is evident from the proofs above and an explicit
+bound is given next. Thus, we have shown Lemma 34.
+3.10.4. The size of the extended alphabet C: the choice of κ. The longest equation
+W we needed to establish completeness occurs during block compression, where we
+found that |W | ≤ 168n + 6 |Winit | (14). Combining this with |Winit | ≤ 6n (6) we
+obtain
+(18)                                |W | ≤ 168n + 36n = 204n.
+The largest alphabet we ever needed during block and pair compression was less
+than
+               3 · (|A+ | + |W |) ≤ 3 · (n + 204n) = 3 · 205n = 615n.
+Thus, we can choose κ such that
+(19)                                     |C| = κ · n = 615n.
+3.10.5. Finishing the proof of Theorem 4 in the monoid case. Lemma 34 implies
+Proposition 33 by the reduction in Subsection 3.10.2. This in turn proves (3)
+in Theorem 4 in the monoid case M(A) = A∗ . Clearly, {(h(c1 ), . . . , h(cm )) ∈
+C ∗ × · · · × C ∗ | h ∈ L(A)} is empty if and only if L(A) = ∅. It remains to show
+that A contains a directed cycle if and only if (U, V ) has infinitely many solutions.
+If there is no cycle, then L(A) is finite and (U, V ) can have only finitely many
+solutions. The converse has been shown in Corollary 26.
+
+           4. Proof of Theorem 4 in the group case: M(A) = F(A+ )
+   The proof is a reduction to the monoid case. Recall that A = A± ∪ {#}, F is the
+subset of reduced words in A∗± , and π : A∗ → F(A+ ) is the canonical projection.
+   Westart with an equation (U, V ) in the free group F(A+ ), where U, V ∈ (A∪X )∗ ,
+X = X1 , X1 , . . . , Xm , Xm , and solutions are A-morphisms σ : (A ∪ X )∗ → F
+such that πσ(U ) = πσ(V ). In a first phase we transform the equation (U, V ) into
+a system of triangular equations, where triangular means 1 ≤ |U V | ≤ 3. We may
+assume U V 6= 1. If |U V | ≤ 3, then the equation is already triangular. Hence, let
+us assume |U V | ≥ 4. Since we are in the group case we may also assume |V | = 1.
+   SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                     33
+
+
+
+Write U = x1 · · · xp with xi ∈ A ∪ X and p ≥ 3. Next, we introduce a new variable
+X and replace x1 · · · xp = V by the system
+                                x1 · · · xp−1 = X ∧ Xxp = V.
+We iterate until the system is triangular. The procedure introduces more variables,
+but it does not change the set of solutions. More formally, if {(Ui , Vi ) | 1 ≤ i ≤ t}
+is the system of triangular equations we obtained above, then
+         {(σ(X1 ), . . . , σ(Xm )) ∈ F × · · · × F | πσ(U ) = πσ(V )}
+       = {(σ(X1 ), . . . , σ(Xm )) ∈ F × · · · × F | ∀1 ≤ i ≤ t : πσ(Ui ) = πσ(Vi ).}
+The crucial step in our reduction is to switch from solutions over free groups to
+solutions over free monoids with involution. We do this using the following lemma,
+whose geometric interpretation is simply that the Cayley graph of a free group (over
+standard generators) is a tree.
+Lemma 40. Let x, y, z be reduced words in A∗± . Then xy = z holds in the group
+F(A+ ) (i.e. π(xy) = π(z)) if and only if there are reduced words P, Q, R in A∗±
+such that x = P R, y = RQ, and z = P Q holds in the free monoid A∗± .
+
+
+                                           1
+
+                                                   P
+
+
+                                      R                Q
+                                               y
+                            x                                   z
+
+         Figure 3. Paths corresponding to geodesic words for x, y, z with
+         xy = z in the Cayley graph of F(A+ ) with standard generators,
+         as in Lemma 40. The geodesics to vertices x and z split after an
+         initial path labeled by P .
+
+
+Proof. The direction from right to left is trivial, whether or not P, Q, R are reduced.
+For the other direction there are two cases. First, xy is a reduced word. Then we
+can choose P = x, R = 1, Q = y, and we are done. Second, we have x = x′ a
+and y = ay ′ for some letter a ∈ A± , so x′ y ′ = z ′ holds in the group F(A+ ). By
+induction, there are reduced words P, Q, R′ with x′ = P R′ , y ′ = R′ Q, z = P Q in
+A∗± . We can define R = R′ a, which is reduced due to the equation x = x′ a = P R′ a
+and the fact that x is reduced. The result is now immediate.                         
+
+   The consequence of Lemma 40 is that with the help of fresh variables P, Q, R we
+can substitute every equation xy = z with x, y, z ∈ {1} ∪ A± ∪ Ω in F(A+ ) by the
+following three word equations to be solved over a free monoid with involution:
+(20)                      x = P R,        y = RQ,          z = P Q.
+34             LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+More precisely, in the third phase of the transformation we replace each Ui = Vi ,
+where Ui = xi yi and Vi = zi , by the three equations
+(21)                    xi = Pi Ri ,        yi = Ri Qi ,           zi = Pi Qi .
+Thus, for s = 3t ≤ 3 |U V | we obtain a new system of triangular word equations
+{(Ui′ , Vi′ ) | 1 ≤ i ≤ s} such that
+(22)        {(σ(X1 ), . . . , σ(Xm )) ∈ F × · · · × F | πσ(U ) = πσ(V )}
+(23)      = {(σ(X1 ), . . . , σ(Xm )) ∈ F × · · · × F | ∀1 ≤ i ≤ s : σ(Ui′ ) = σ(Vi′ ).}
+Note that the morphism π is not present in (23), since (23) refers to a system of
+equations over a free monoid with involution.
+  The final step is to encode the system {(Ui′ , Vi′ ) | 1 ≤ i ≤ s} into a single word
+equation (U ′′ , V ′′ ) over the free monoid A∗ , by defining
+                                       U ′′ = U1′ # · · · #Us′
+                                       V ′′ = V1′ # · · · #Vs′ .
+Thus we have deterministically reduced the equation (U, V ) to the equation (U ′′ , V ′′ ),
+where
+                                       |U ′′ V ′′ | ≤ 15 |U V |
+since each Ui′ Vi′ has length at most 3 and we have inserted 2s − 2 copies of the
+letter #. This finishes the proof of Theorem 4 for the group case.
+Remark 41. Since the length of the word equation obtained from a free group
+equation of length n is at most 15n, an upper bound for the size of the alphabet C
+in the statement of Theorem 4 in the free group case is 615 · 15n = 9225n.
+
+5. Example of preprocessing, block and pair compression procedures
+  We conclude with a demonstration of the procedures described in Subsection 3.10
+with a simple example. Suppose we have a single equation (U, V ) in a free monoid
+with involution with
+                             U = XaY baXP and V = bY b3 ZQ.
+For simplicity we have chosen an equation with no involuted letters. Suppose also
+that we know a solution
+         σ(X) = b5 , σ(Y ) = b4 a, σ(Z) = bab, σ(P ) = ab3 a, σ(Q) = ab5 ab3 a.
+We depict the situation as follows:
+                     X                  Y                    X               P
+                z }| { z }| {             z }| { z     }|   {
+                b b b b b a b b b b a b a b b b b b a b b b a.
+                 |    {z   }      | {z }|        {z         }
+                         Y                    Z                      Q
+
+   For simplicity, we will ignore the rest of the word Winit , and focus just on the
+factor U #V .
+   We first follow the preprocessing step on page 23. In this case we pop the first
+and last letter of each variable, to obtain:
+                    X                  Y                       X              P
+                 z }| {     z }| {         z }| {    z }| {
+               b b b b b a b b b b a b a b b b b b a b b b a.
+                   | {z }          |{z}  |        {z      }
+                         Y                    Z                       Q
+   SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                     35
+
+
+   Next we enter block compression. In step (1) we compute Λa = ∅, Λb = {4, 5}.
+Note that 3 6∈ Λb since the factor b3 is completely inside P and Q so is not visible.
+The block compression process will not touch this factor. We also compute Xa = ∅
+and Xb = {X, Y }. Note that P 6∈ Xb since it is preceded by a in W .
+   Step (2) introduces the fresh letters cb , c4,b , c5,b , and renames the letters b that
+are part of a visible block of length at least 2 as cb :
+                   X                    Y                     X                 P
+             z }| {                z }| {               z }| {           z}|{
+         c b c b c b c b c b a c b c b c b c b a b a cb c b c b c b c b a b 3 a .
+                 | {z }                       |{z}  |           {z           }
+                         Y                        Z                 Q
+
+   In step (3) we split the variables X −→ X ′ X, Y −→ Y ′ Y , then remove X, Y
+since σ(X) = 1 = σ(Y ):
+                   X′                   Y′                    X′                P
+             z }| {                z }| {               z }| {           z}|{
+         c b c b c b c b c b a c b c b c b c b a b a cb c b c b c b c b a b 3 a .
+                 | {z }                       |{z}  |           {z           }
+                         Y′                       Z                 Q
+
+Note that Q does not belong to Xb , so it does not split even though σ(Q) starts
+with cb .
+  Step (4) renames one of the cb in each block in both W and σ(W ):
+                  X′                    Y′                         X′               P
+            z }| {             z }| {              z }| {       z}|{
+       c5,b cb cb cb cb a c4,b cb cb cb a b a c5,b cb cb cb cb a b3 a.
+               | {z }                  |{z}   |          {z        }
+                        Y′                        Z                     Q
+
+  We now enter the loop in step (5). We write c = cb , cλ = cλ,b :
+                         X′             Y′               X′                 P
+                     z }| {       z }| {         z }| {   z}|{
+                  c5 c c c c a c4 c c c a b a c5 c c c c a b3 a.
+                       | {z }            |{z} |       {z     }
+                              Y′              Z               Q
+
+              ′               ′
+  Since θ(X ) = θ(Y ) = c we pop each to make the number of c letters in each
+σ(X) even:
+                        X′               Y′             X′                  P
+                     z}|{           z}|{         z }|{    z}|{
+                  c5 c c c c a c4 c c c a b a c5 c c c c a b3 a.
+                          | {z}          |{z} |        {z    }
+                               Y′             Z               Q
+
+Note that we have used the fact that X ′ , Y ′ commute with c in the partially com-
+mutative monoid.
+   We are now at part (d) of step (6). Since c4 c3 is a factor where the number of c
+letters is odd, we follow the compression transition h(c4 ) = c4 c to obtain:
+                         X′             Y′             X′                   P
+                     z}|{         z}|{         z }|{    z}|{
+                  c5 c c c c a c4 c c a b a c5 c c c c a b3 a.
+                          | {z}        |{z} |        {z    }
+                                   Y′         Z               Q
+
+   We now have all blocks of c inside variables and in W of even length, so we can
+finally follow the block compression transition h(c) = cc to reduce the number of c
+36             LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+letters by half:
+                      X′                Y′                     X′       P
+                     z}|{           z}|{        z}|{   z}|{
+                   c5 c       c a c4 c a b a c5 c c a b3 a.
+                            |{z}         |{z} |     {z    }
+                            Y′                 Z                    Q
+
+  Since there are still c letters remaining in σ(W ) we repeat the loop, and after
+two more iterations of the loop we obtain:
+                                                               P
+                                                 z}|{
+                             c 5 a c 4 a b a c5 a b 3 a .
+                                      |{z}   | {z }
+                                           Z           Q
+
+   At this point we have removed all letters cb so the loop terminates. We reduce
+the alphabet by removing cb , and remove the types. Note that we keep each cλ,b
+since each letter represents a different length block of b’s, and therefore they are all
+different. Let us rename c5,b = d and c4,b = e. So the equation is now:
+                                                           P
+                                            z }| {
+                             d a e a b a d a b b b a.
+                                  |{z}  |   {z    }
+                                       Z               Q
+
+As promised, W contains no proper factors b2 for any b ∈ B, so we can start pair
+compression.
+    Suppose we choose a partition of B\{#} as B+ = {a, b, d, e} and B− = {a, b, d, e}
+(we suppose this choice is maximal according to Remark 37). In step (1) of pair
+compression we introduce fresh letters cba , cda , cea , then in step (2) we create the
+list L = {Z, P , Q}. (We will continue to ignore involutions, and focus just on a
+factor of W containing no involuted letters or variables). We perform uncrossing
+by popping a from Z and removing Z, and since we follow P −→ bP then we also
+follow P −→ P b, and similarly for Q, leading to:
+                                                       P
+                                                z }|{
+                                 d a e a b a d a b b b a.
+                                            | {z }
+                                                   Q
+
+   In step (3) we follow compression transitions h(cba ) = ba, h(cda ) = da, h(cea ) =
+ea to obtain:
+                                               P
+                                             z }|{
+                            cda cea cba cda b b cba .
+                                        | {z }
+                                                   Q
+
+   This completes one round of the process. We then return to the preprocessing
+step, which gives:
+
+                                 cda cea cba cda b b cba ,
+                                                |{z}
+                                                   Q
+
+and then block compression would produce:
+
+                                  cda cea cba cda c2,b cba .
+    SOLUTION SETS FOR EQUATIONS OVER FREE GROUPS ARE EDT0L LANGUAGES                           37
+
+
+                                    Acknowledgments
+   We wish to thank Monserrat Casals-Ruiz, Artur Jeż, Ilya Kazachkov, Markus
+Lohrey, Alexei Miasnikov, Nicholas Touikan for helpful discussions. We are partic-
+ularly indebted to the referee for numerous suggestions which greatly improved the
+presentation.
+
+
+                                         References
+ [1] A. V. Aho. Indexed grammars—an extension of context-free grammars. J. ACM, 15:647–671,
+     1968.
+ [2] P. R. Asveld. Controlled iteration grammars and full hyper-AFL’s. Information and Control,
+     34(3):248 – 269, 1977.
+ [3] L. Ciobanu, V. Diekert, and M. Elder. Solution sets for equations over free groups are
+     EDT0L languages. In M. Halldórsson, K. Iwama, N. Kobayashi, and B. Speckmann, edi-
+     tors, Proc. 42nd International Colloquium Automata, Languages and Programming (ICALP
+     2015), Part II, Kyoto, Japan, July 6-10, 2015, volume 9135 of Lecture Notes in Computer
+     Science, pages 134–145. Springer, 2015. Journal version to appear 2016 in IJAC.
+ [4] L. Ciobanu, V. Diekert, and M. Elder. Solution sets for equations over free groups are EDT0L
+     languages. ArXiv e-prints, abs/1502.03426, 2015.
+ [5] M. Clerbout and M. Latteux. Partial commutations and faithful rational transductions. The-
+     oretical Computer Science, 34:241–254, 1984.
+ [6] V. Diekert, A. Jeż, and W. Plandowski. Finding all solutions of equations in free groups and
+     monoids with involution. In E. A. Hirsch, S. O. Kuznetsov, J. Pin, and N. K. Vereshchagin,
+     editors, Computer Science Symposium in Russia 2014, CSR 2014, Moscow, Russia, June
+     7-11, 2014. Proceedings, volume 8476 of Lecture Notes in Computer Science, pages 1–15.
+     Springer, 2014.
+ [7] V. Diekert and G. Rozenberg, editors. The Book of Traces. World Scientific, Singapore, 1995.
+ [8] A. Ehrenfeucht and G. Rozenberg. On some context free languages that are not deterministic
+     ET0L languages. RAIRO Theor. Inform. Appl., 11:273–291, 1977.
+ [9] S. Eilenberg. Automata, Languages, and Machines, volume A. Academic Press, New York
+     and London, 1974.
+[10] J. Ferté, N. Marin, and G. Sénizergues. Word-mappings of level 2. Theory Comput. Syst.,
+     54:111–148, 2014.
+[11] S. Ginsburg and G. Rozenberg. T0L schemes and control sets. Information and Control,
+     27:109–125, 1975.
+[12] A. Jeż. Recompression: a simple and powerful technique for word equations. J. ACM,
+     63(1):4:1–4:51, 2016. Conference version in STACS 2013.
+[13] R. M. Keller. Parallel program schemata and maximal parallelism I. Fundamental results. J.
+     ACM, 20(3):514–537, 1973.
+[14] O. Kharlampovich and A. Myasnikov. Elementary theory of free non-abelian groups. J. of
+     Algebra, 302:451–552, 2006.
+[15] A. Mazurkiewicz. Concurrent program schemes and their interpretations. DAIMI Rep. PB 78,
+     Aarhus University, Aarhus, 1977.
+[16] J. Messner. Pattern matching in trace monoids. In R. Reischuk, editor, Proc. 14th Annual
+     Symposium on Theoretical Aspects of Computer Science (STACS’97), Lübeck (Germany),
+     1997, volume 1200 of Lecture Notes in Computer Science, pages 571–582, Heidelberg, 1997.
+     Springer-Verlag.
+[17] Ch. H. Papadimitriou. Computational Complexity. Addison Wesley, 1994.
+[18] J.-É. Pin. Varieties of Formal Languages. North Oxford Academic, London, 1986.
+[19] W. Plandowski. An efficient algorithm for solving word equations. In J. M. Kleinberg, editor,
+     STOC, pages 467–476. ACM, 2006.
+[20] A. A. Razborov. On Systems of Equations in Free Groups. PhD thesis, Steklov Institute of
+     Mathematics, 1987. In Russian.
+[21] A. A. Razborov. On systems of equations in free groups. In Combinatorial and Geometric
+     Group Theory, pages 269–283. Cambridge University Press, 1994.
+[22] G. Rozenberg and A. Salomaa. The Book of L. Springer, 1986.
+38              LAURA CIOBANU, VOLKER DIEKERT, AND MURRAY ELDER
+
+
+[23] G. Rozenberg and A. Salomaa, editors. Handbook of Formal Languages, volume 1. Springer,
+     1997.
+[24] Z. Sela. Diophantine geometry over groups VIII: Stability. Ann. of Math., 177:787–868, 2013.
+[25] N. W. M. Touikan. The equation w(x, y) = u over free groups: an algebraic approach. J.
+     Group Theory, 12(4):611–634, 2009.
+[26] D. Wise. From Riches to Raags: 3-Manifolds, Right-Angled Artin Groups, and Cubical Ge-
+     ometry. American Mathematical Society, 2012.
+
+  Institut de mathématiques, Université de Neuchâtel, Rue Emile-Argand 11, CH-2000
+Neuchâtel, Switzerland
+  E-mail address: laura.ciobanu@unine.ch
+
+   Institut für Formale Methoden der Informatik, Universität Stuttgart, Univer-
+sitätsstr. 38, D-70569 Stuttgart, Germany
+   E-mail address: diekert@fmi.uni-stuttgart.de
+
+  School of Mathematical and Physical Sciences, The University of Newcastle, Callaghan
+NSW 2308, Australia
+  E-mail address: Murray.Elder@newcastle.edu.au
+

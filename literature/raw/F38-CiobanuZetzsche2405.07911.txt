@@ -1,0 +1,862 @@
+                                                                   Slice closures of indexed languages and
+                                                                  word equations with counting constraints
+                                                                    Laura Ciobanu                                                      Georg Zetzsche
+                                                                 Hariot-Watt University                           Max Planck Institute for Software Systems (MPI-SWS)
+                                                                    Edinburgh, UK                                                       Germany
+                                                                 L.Ciobanu@hw.ac.uk                                               georg@mpi-sws.org
+
+                                         ABSTRACT                                                                 HORS generates a (potentially infinite) tree, but may also have a
+                                         Indexed languages are a classical notion in formal language the-         semantics as a finite-word language. The translation into HORS
+arXiv:2405.07911v1 [cs.FL] 13 May 2024
+
+
+
+
+                                         ory. As the language equivalent of second-order pushdown au-             enables the application of a wealth of algorithmic tools available
+                                         tomata, they have received considerable attention in higher-order        for HORS. Here, a landmark result is the decidability of monadic
+                                         model checking. Unfortunately, counting properties are notoriously       second-order logic for HORS by Ong [65] (with alternative proofs
+                                         difficult to decide for indexed languages: So far, all results about     by Kobayashi & Ong [48], Hague, Murawski, Ong, and Serre [37],
+                                         non-regular counting properties show undecidability.                     and Salvati and Walukiewicz [69]). More recently, this toolbox was
+                                             In this paper, we initiate the study of slice closures of (Parikh    extended to computation of downward closures for word languages
+                                         images of) indexed languages. A slice is a set of vectors of natural     of HORS [20, 36, 75], tree languages of safe HORS [5], and logics
+                                         numbers such that membership of 𝒖, 𝒖 +𝒗, 𝒖 +𝒘 implies membership         expressing boundedness properties [5].
+                                         of 𝒖 + 𝒗 + 𝒘. Our main result is that given an indexed language 𝐿,       Counting properties. Despite this rich set of algorithmic results,
+                                         one can compute a semilinear representation of the smallest slice        HORS are notoriously difficult to analyze with respect to counting
+                                         containing 𝐿’s Parikh image.                                             properties, i.e. properties that require precise counting (without an
+                                             We present two applications. First, one can compute the set of all   apriori bound) of letters. So far, all results about counting proper-
+                                         affine relations satisfied by the Parikh image of an indexed language.   ties show undecidability. Moreover, all these undecidability proper-
+                                         In particular, this answers affirmatively a question by Kobayashi: Is    ties already hold for languages of second-order recursion schemes,
+                                         it decidable whether in a given indexed language, every word has         which are exactly the indexed languages [2].
+                                         the same number of 𝑎’s as 𝑏’s.                                              To mention a particularly basic property: it is undecidable whether
+                                             As a second application, we show decidability of (systems of)        an indexed language 𝐿 ⊆ {𝑎, 𝑏}∗ contains a word with the same
+                                         word equations with rational constraints and a class of counting         number of 𝑎’s and 𝑏’s [76, Prop. 7]. In fact, even inclusion in the
+                                         constraints: These allow us to look for solutions where a counting       Dyck language (the set of all well-bracketed expressions over pairs
+                                         function (defined by an automaton) is not zero. For example, one         of parentheses), which is decidable for most other kinds of infinite-
+                                         can decide whether a word equation with rational constraints has         state systems [6, 7, 10, 55, 58, 73], is undecidable for indexed lan-
+                                         a solution where the number of occurrences of 𝑎 differs between          guages, as shown in [74, Thm. 18] and [45, Thm. 3].
+                                         variables 𝑋 and 𝑌 .                                                         These properties are important for verification: The former un-
+                                                                                                                  decidability implies that liveness verification is undecidable for
+                                         KEYWORDS                                                                 second-order asynchronous programs [56] and Dyck inclusion is
+                                         indexed language, higher-order, slice, semilinear, effective, word       used to verify reference counting implementations [7].
+                                         equation, counting constraints, length equations, decidability, com-        Given this state of affairs, Kobayashi writes about future direc-
+                                         putability                                                               tions in his 2013 article on higher-order model checking [46]:
+                                                                                                                          On the theoretical side, it would be a challenge
+                                         1   INTRODUCTION                                                                 to identify nonregular properties (such as count-
+                                         Indexed languages, introduced in the late 1960s by Aho [3], are                  ing properties) for which recursion scheme model
+                                         a classical notion in formal language theory. They significantly                 checking is decidable.
+                                         extend context-free languages, but retain decidability of basic prop-    and points out the negative results published in [45]. As a concrete
+                                         erties such as emptiness. Until the beginning of the 1990s, they         question, Kobayashi leaves open in [45, Remark 1] whether given
+                                         have been studied with respect to equivalence with second-order          an indexed language 𝐿 ⊆ {𝑎, 𝑏}∗ , it is decidable whether
+                                         pushdown automata and safe second-order recursion schemes [21,
+                                                                                                                                    𝐿 ⊆ {𝑤 ∈ {𝑎, 𝑏}∗ | |𝑤 |𝑎 = |𝑤 |𝑏 }.              (1)
+                                         22, 59], pumping properties [39] and basic algorithmic properties,
+                                         such as decidable emptiness [60], complexity of emptiness [28], and      This is a natural property to verify: If we view 𝑎’s a “request” opera-
+                                         decidability of infinity [39, 68].                                       tions and 𝑏’s as “response” operations, then it says that in each run
+                                                                                                                  of the system, the number of responses matches that of requests.
+                                         Higher-order model checking. Over the last two decades, indexed
+                                         languages have seen renewed interest because of their role in higher-    Slices. In this paper, we identify slices as a surprisingly useful con-
+                                         order model checking: In this approach to verification, one models       cept for analyzing indexed languages. Introduced by Eilenberg and
+                                         the behavior of a functional program using a higher-order recursion      Schützenberger in 1969 [27], a slice is a subset 𝑆 of N𝑘 such that if
+                                         scheme (HORS), for example using Kobayashi’s translation [47]. A         the vectors 𝒖, 𝒖 +𝒗, and 𝒖 +𝒘 belong to 𝑆, so does 𝒖 +𝒗 +𝒘. Eilenberg
+                                                                                                                         Laura Ciobanu and Georg Zetzsche
+
+
+and Schützenberger proved that every slice is a semilinear set [27,        we can compute the “strongest affine invariant” of Ψ(𝐿). An affine
+Prop. 7.3] (an alternative proof, partly inspired by Hirshfeld’s proof     relation is a vector 𝒖 ∈ Z𝑘 and a number 𝑐 ∈ Z, and it is satisfied by
+of the case of congruences [40], can be found in [32]). Eilenberg          𝐾 ⊆ N𝑘 if 𝒖 ⊤ 𝒙 = 𝑐 for every 𝒙 ∈ 𝐾. The (rational) affine hull of a
+and Schützenberger deduce from this their much more well-known             set 𝑈 ⊆ Q𝑘 is the set
+result that every congruence on N𝑘 is semilinear. Recall that an
+equivalence relation ≡ on N𝑘 is a congruence if 𝒖 ≡ 𝒗 and 𝒖 ′ ≡ 𝒗 ′ ,         aff(𝑈 ) = {𝜆1 𝒖 1 + · · · + 𝜆𝑛 𝒖𝑛 | 𝑛 ≥ 0, 𝒖 1, . . . , 𝒖𝑛 ∈ 𝑈 ,
+then 𝒖 + 𝒖 ′ ≡ 𝒗 + 𝒗 ′ . When viewed as a subset of N𝑘 × N𝑘 , it is easy                                      𝜆1, . . . , 𝜆𝑛 ∈ Q, 𝜆1 + · · · + 𝜆𝑛 = 1}.
+to see that every congruence is a slice in N𝑘 × N𝑘 .
+   The semilinearity of congruences (for which alternative proofs          A non-empty set 𝐴 ⊆ Q𝑘 is an affine space if aff(𝐴) = 𝐴. It is a basic
+are by Redei [67], Freyd [31], and Hirshfeld [40]) has been used in        fact in linear algebra that affine spaces are exactly those subsets
+general decidability results for bisimulation in Petri nets [43], im-      of the form 𝒗 + 𝑉 , where 𝒗 ∈ Q𝑘 and 𝑉 ⊆ Q𝑘 is a linear subspace.
+plies semilinearity of mutual reachability relations in Petri nets [52,    Equivalently, affine spaces are exactly the non-empty solution sets
+53], and has a well-studied connection to polynomial ideals [49, 50,       in Q𝑘 to equation systems 𝐵𝒙 = 𝒄 with 𝐵 ∈ Q𝑚×𝑘 and 𝒄 ∈ Q𝑚 . By
+51, 61]. Although slices are apparently more general than congru-          computing aff(𝑈 ) for some given set 𝑈 ⊆ Q𝑘 we mean computing
+ences and share the properties of semilinearity and the ascending
+                                                                           some 𝐵 ∈ Q𝑚×𝑘 and 𝒄 ∈ Q𝑚 such that aff(𝑈 ) = {𝒙 ∈ Q𝑘 | 𝐵𝒙 = 𝒄}.
+chain condition [27], slices have received surprisingly little atten-
+                                                                           Some authors call this equation system the strongest affine invariant
+tion: We are only aware of Eilenberg and Schützenberger [27],
+                                                                           of 𝑈 , meaning a finite set of affine relations satisfied by Ψ(𝐿) that
+results by Grabowski on effectively semilinear slices [35], and an
+                                                                           implies every affine relation satisfied by Ψ(𝐿).
+algorithm for reachability in bidirected pushdown VASS [32].
+                                                                             Corollary 3. Given an indexed language 𝐿, we can effectively
+Contribution                                                               compute aff(Ψ(𝐿)).
+Our main result is Theorem 1, which shows that given an indexed
+language 𝐿 ⊆ Σ∗ , one can effectively compute a semilinear repre-             We derive Corollary 3 from Theorem 1 in Section 2.
+sentation of the smallest slice containing Ψ(𝐿) ⊆ N𝑘 (with 𝑘 = |Σ|),
+the Parikh image of 𝐿. Note that since the intersection of any col-        Word equations with counting constraints
+lection of slices is again a slice, every set 𝐾 ⊆ N𝑘 has a smallest        We also present an application of Theorem 1 to word equations. Let
+slice containing 𝐾. We call this the slice closure of 𝐾 and denote         𝐴 and Ω be finite alphabets, where we consider Ω = {𝑋 1, . . . , 𝑋𝑛 }
+it S𝜔 (𝐾). Hence, we show (in Section 3) that for every indexed            as a collection of variables and 𝐴 as letters. A word equation over
+language 𝐿, its slice closure S𝜔 (Ψ(𝐿)) is effectively semilinear.         (𝐴, Ω) is a pair (𝑈 , 𝑉 ) with 𝑈 , 𝑉 ∈ (𝐴 ∪ Ω) ∗ , where 𝑈 and 𝑉 should
+                                                                           be seen as the two sides of an equation. The core question is then
+   Theorem 1. The slice closure of each indexed language is effec-         whether the equation has any solutions, that is, whether we can
+tively semilinear.                                                         substitute the variable occurrences in 𝑈 and 𝑉 by words over 𝐴
+   We thus obtain an effectively semilinear overapproximation of           so that the two sides become equal. More formally, a solution to
+Ψ(𝐿) that is amenable to algorithmic analysis (recall that semilinear      (𝑈 , 𝑉 ) is a morphism 𝜎 : (𝐴 ∪ Ω) ∗ → 𝐴∗ that fixes each 𝑎 ∈ 𝐴 such
+sets are precisely those expressible in Presburger arithmetic).            that 𝜎 (𝑈 ) = 𝜎 (𝑉 ).
+   Moreover, this overapproximation preserves pertinent counting
+                                                                              Example 4. Let 𝐴 = {𝑎, 𝑏} and Ω = {𝑋, 𝑌, 𝑍 }. The pair of words
+properties of 𝐿, meaning that Theorem 1 yields (to our knowledge)
+                                                                           (𝑋 2𝑎𝑌, 𝑌𝑍 2𝑎) represents the word equation 𝑋 2𝑎𝑌 = 𝑌 𝑍 2𝑎. One
+the first (non-regular) decidable counting properties of indexed
+                                                                           possible solution is 𝜎 (𝑋 ) = 𝑎𝑏, 𝜎 (𝑌 ) = 𝑎, 𝜎 (𝑍 ) = 𝑏𝑎.
+languages:
+   Corollary 2. If 𝐿 is an indexed language on {𝑎, 𝑏} given by an             The study of word equations has a long history. Decidability (of
+indexed grammar, it is decidable whether every word has the same           solvability) was shown by Makanin [57] in 1977, and a PSPACE up-
+number of 𝑎’s as 𝑏’s.                                                      per bound by Plandowski [66]. This was extended to word equations
+                                                                           with rational constraints by Diekert, Gutiérrez, and Hagenah [24].
+   To prove this, the key fact is that the vectors in Ψ(𝐿) all satisfy        However, imposing counting constraints, e.g. that the number of
+a system of linear equations over the integers if and only if the          𝑎’s in 𝑋 1 is the same as in 𝑋 2 , makes word equations much more dif-
+vectors in S𝜔 (Ψ(𝐿)) do. One implication is clear. For the other           ficult. In a parallel to indexed languages, allowing such conditions
+direction, suppose that all vectors in Ψ(𝐿) satisfy the system of          without restrictions (we make this more precise in Section 4) leads to
+linear equations 𝐴𝒙 = 𝒃 with 𝐴 ∈ Z𝑛×𝑘 , 𝒃 ∈ Z𝑛 . Since the set             undecidability, as shown by Büchi and Senger [16]. Whether word
+𝑆 of solutions to this system in N𝑘 is a slice (see Example 6) and         equations with rational constraints and length equations, which asks
+Ψ(𝐿) ⊆ 𝑆, we must have S𝜔 (Ψ(𝐿)) ⊆ 𝑆 by the minimality of                  e.g. that 𝑋 1 have the same length as 𝑋 2 , are decidable remains a ma-
+S𝜔 (Ψ(𝐿)); thus the vectors in S𝜔 (Ψ(𝐿)) satisfy the system 𝐴𝒙 = 𝒃.        jor open problem [33], even in the case of quadratic equations [54].
+Therefore, in particular, we give a positive answer to Kobayashi’s         More generally, despite a lot of recent interest in extensions of
+question and prove Corollary 2: One can decide the inclusion (1)           word equations, most results show undecidability. Moreover, there
+by checking whether S𝜔 (Ψ(𝐿)) ⊆ {(𝑚, 𝑚) | 𝑚 ∈ N}.                          is no decidability result that extends general word equations with
+   Combined with a result by Karr [44] (see [63, Theorem 1] for            rational constraints and any kind of counting constraints. See [4,
+a simpler and more explicit proof), Theorem 1 also implies that            23, 54] for recent surveys.
+Slice closures of indexed languages and word equations with counting constraints
+
+
+  Our application of Theorem 1 introduces a class of counting                                   This fixpoint characterization—via an operator called D (for
+constraints—we call them counting inequations—for which word                                 derivation)—allows us to exploit slices: Our algorithm iteratively
+equations (with rational constraints) remain decidable:                                      applies D to obtain a larger set of vectors, and then immediately
+                                                                                             computes the slice closure each time. This is possible because each
+   Theorem 5. The problem of word equations with rational con-
+                                                                                             intermediate set is semilinear and it is known that slice closures
+straints and counting inequations is decidable.
+                                                                                             of semilinear sets are computable (see Theorem 16). Since slices
+    Here, we rely on a recent result by Ciobanu, Diekert, and El-                            satisfy an ascending chain condition, this will result in the slice
+der [19] saying that solution sets of word equations (with rational                          closure of the Parikh images of sentential forms (without indexes).
+constraints) are EDT0L, and thus indexed languages. For example,                                However, a key property of slices is required in the end: We
+it is decidable whether there is a solution 𝜎 to a word equation                             need to extract the slice closure of the generated language, i.e. those
+(𝑈 , 𝑉 ) such that |𝜎 (𝑋 1 )|𝑎 ≠ |𝜎 (𝑋 2 )|𝑎 . To our knowledge, this is the                 sentential forms that only contain terminals, from the slice closure
+first strict extension of word equations with rational constraints by                        of all sentential forms. We show that this is possible for slices, but
+any kind of counting constraints. We prove Theorem 5 in Section 4.                           that such an extraction is not possible when using the methods (i)
+                                                                                             and (ii) above: For example, even to just compute the affine hull of
+Key ingredients                                                                              Ψ(𝐿), it would not suffice to compute the affine hull (or even the
+Our algorithm for Theorem 1 is a saturation procedure where for                              Zariski closure!) of the Parikh images of sentential forms. We prove
+some monotone operator 𝐹 , we compute a fixpoint of 𝐹 by applying                            this in the discussion after Lemma 14.
+𝐹 repeatedly. By relying on an ascending chain condition, such
+algorithms terminate with a fixpoint after finitely many steps.                              Organization
+   Saturation is a ubiquitous idea, but closest to our approach are                          The paper is organized as follows. In Section 2, we fix notations and
+algorithms where the ascending chain condition comes from (i) di-                            introduce slices, indexed grammars, and other notions. In Section 3,
+mension of vector spaces or affine spaces, (ii) Hilbert’s Basis Theo-                        we prove our main result Theorem 1. In Section 4, we present and
+rem, which implies that chains of polynomial ideals become station-                          prove Theorem 5.
+ary, (iii) well-quasi-orderings, where chains of upward closed sets
+become stationary. Examples of (i) are Eilenberg’s algorithm for                             2    BASIC NOTIONS: SLICES AND INDEXED
+equivalence of weighted automata over fields [26, p.143–145] and                                  GRAMMARS
+Karr’s computation of strongest affine invariants [44] (see also [63]
+                                                                                             Notation. For a finite alphabet Σ, we write NΣ for the set of maps
+and the stronger result [42]) and applications [38]. Examples for (ii)
+                                                                                             Σ → N. We will consider NΣ as a commutative monoid with point-
+are the algorithm for polynomial invariants of affine programs [64],
+                                                                                             wise addition. If |Σ| = 𝑘, then NΣ is clearly isomorphic to N𝑘 and
+several algorithms for equivalence of transducers or register ma-
+                                                                                             so we will often transfer notation and terminology from one to the
+chines [8, 12, 29, 71] (see [13] for a unifying result). An example
+                                                                                             other (in case the chosen isomorphism doesn’t matter). Moreover,
+of (iii) is the classical backward search algorithm to decide cov-
+erability in well-structured transition systems [1, 30]. Saturation                          we identify each element 𝑎 ∈ Σ with the element 𝒖𝑎 ∈ NΣ with
+over finite domains—also an example of (iii)—is used prominently                             𝒖𝑎 (𝑎) = 1 and 𝒖𝑎 (𝑏) = 0 for all 𝑏 ∈ Σ \ {𝑎}. For each finite alphabet
+in the analysis of pushdown systems [15]. (Some algorithms do                                Σ, the Parikh map Ψ : Σ∗ → NΣ is the map with Ψ(𝑤) (𝑎) = |𝑤 |𝑎
+not compute an ascending chain, but rather guess a fixpoint of 𝐹 ,                           for 𝑤 ∈ Σ∗ and 𝑎 ∈ Σ, where |𝑤 |𝑎 is the number of occurrences of
+e.g. [11, 13, 18, 32]).                                                                      𝑎 in the word 𝑤. For a set 𝑆, we denote its powerset by P(𝑆).
+
+Slices. The key insight of this work is that the slice closure of a                          Semilinear sets. A subset 𝐾 ⊆ N𝑘 is linear if there is a vector 𝒃 ∈ N𝑘
+set preserves enough information to permit a saturation proce-                               and a finite subset 𝑃 = {𝒑 1, . . . , 𝒑𝑟 } ⊆ N𝑘 such that 𝐾 = 𝒃 + ⟨𝑃⟩,
+dure for indexed languages that preserves counting properties: Our                           where we use the notation
+procedure crucially relies on properties of slices that the concepts                                  𝒃 + ⟨𝑃⟩ = {𝒃 + 𝜆1 𝒑 1 + · · · + 𝜆𝑟 𝒑𝑟 | 𝜆1, . . . , 𝜆𝑟 ∈ N}.
+(i–iii) do not have. For (iii), this is obvious, because the upward clo-
+sure of indexed languages does not preserve any precise counting                             A subset 𝐾 ⊆ N𝑘 is semilinear if it is a finite union of linear sets.
+properties1 . For (i) and (ii), we explain this now.                                         In particular, a semilinear set has a semilinear representation 𝑅 =
+                                                                                             (𝒃1, 𝑃1 ; . . . , 𝒃𝑛 , 𝑃𝑛 ) consisting of vectors 𝒃1, . . . , 𝒃𝑛 ∈ N𝑘 and finite
+A fixpoint characterization. On the technical level, one ingredient
+is a fixpoint characterization (Proposition 11) of Parikh images of                          subsets 𝑃 1, . . . , 𝑃𝑛 ⊆ N𝑘 . The set represented by 𝑅, denoted ⟨𝑅⟩, is
+sentential forms—that consist just of non-terminals and terminals                            then 𝒃1 + ⟨𝑃1 ⟩ ∪ · · · ∪ 𝒃𝑛 + ⟨𝑃𝑛 ⟩.
+(and no indexes)—of indexed grammars2 . This appears to be new:                                 In this work, we distinguish between (i) sets for which we can
+There are fixpoint characterizations of indexed languages, but they                          prove semilinearity (potentially non-constructively) and (ii) sets
+concern sentential forms including indexes [17]. Here, the absence                           for which we can even compute a semilinear representation algo-
+of indexes is key to having a fixpoint operator just on vectors of                           rithmically, from the available data. In the latter case, we speak of
+natural numbers.                                                                             effectively semilinear sets. When we use this terminology, it will
+                                                                                             always be clear from the context what the available data is (e.g. an
+1 Upward closures for indexed languages are known to be computable using this
+                                                                                             indexed grammar, a semilinear representation of a related set, etc.).
+approach (see e.g. [77, p.124]).
+2 In fact, the proof could easily be modified to yield a fixpoint characterization of word      Presburger arithmetic is the first-order theory of (N, +), the natu-
+languages just in terms of sentential forms without indexes.                                 ral numbers with addition. It is well-known that a subset of N𝑘 is
+                                                                                                                        Laura Ciobanu and Georg Zetzsche
+
+
+definable in Presburger arithmetic if and only if it is semilinear [34,         Now we claim that for every set 𝑈 ⊆ N𝑘 , we have aff(𝑈 ) =
+Theorem 1.3]. This equivalence is effective, meaning we can algo-            aff(S𝜔 (𝑈 )). The inclusion aff(𝑈 ) ⊆ aff(S𝜔 (𝑈 )) is trivial. For
+rithmically translate between Presburger formulas and semilinear             the other inclusion, we use that aff(𝑈 ) is the intersection of all
+representations.                                                             affine spaces in Q𝑘 that include 𝑈 , together with the following
+                                                                             observation: For every affine space 𝐴 ⊆ Q𝑘 with 𝑈 ⊆ 𝐴, we
+Slices and slice closures. A subset 𝐾 ⊆ N𝑘 is a slice if for any 𝒖, 𝒖 +
+                                                                             also have S𝜔 (𝑈 ) ⊆ 𝐴, because 𝐴 ∩ N𝑘 is a slice, and 𝐴 ∩ N𝑘
+𝒗, 𝒖 + 𝒘 ∈ 𝐾 with 𝒖, 𝒗, 𝒘 ∈ N𝑘 , we also have 𝒖 + 𝒗 + 𝒘 ∈ 𝐾. We
+                                                                             must contain S𝜔 (𝑈 ) by the minimality of S𝜔 (𝑈 ) as slice. Hence,
+also say that 𝒖 + 𝒗 + 𝒘 is obtained from 𝒖, 𝒖 + 𝒗, 𝒖 + 𝒘 using the slice
+                                                                             aff(𝑈 ) = aff(S𝜔 (𝑈 )).
+operation. Clearly, the intersection of any collection of slices is also
+                                                                                By Theorem 1, we can compute a semilinear representation
+a slice. Thus, for every subset 𝐾 ⊆ N𝑘 , there is a smallest slice that
+                                                                             for S𝜔 (Ψ(𝐿)). Since the affine hull can be computed for affine
+includes 𝐾. We call it the slice closure of 𝐾 and denote it by S𝜔 (𝐾).
+                                                                             programs (this was implicitly shown by Karr [44] and explicitly
+   Example 6. The following are three kinds of examples of slices.           and simplified by Müller-Olm and Seidl [63, Theorem 1]), it follows
+     (i) The first is solution sets to linear diophantine equations: For     that one can compute the affine hull of a given semilinear set. □
+         a matrix 𝐴 ∈ Z𝑛×𝑘 and a vector 𝒃 ∈ N𝑛 , the solution set            Indexed languages. Let us define indexed grammars. The following
+         {𝒙 ∈ N𝑘 | 𝐴𝒙 = 𝒃} is a slice: If 𝒖, 𝒖 + 𝒗, 𝒖 + 𝒘 are solutions,     definition is a slight variation of the one from [41]. An indexed
+         then clearly 𝐴𝒗 = 0 and 𝐴𝒘 = 0 and thus 𝐴(𝒖 + 𝒗 + 𝒘) = 𝒃.           grammar is a tuple 𝐺 = (𝑁 ,𝑇 , 𝐼, 𝑃, 𝑆), where 𝑁 ,𝑇 , and 𝐼 are pairwise
+    (ii) Another example is upward closed sets: We say that 𝐾 ⊆ N𝑘           disjoint alphabets, called the nonterminals, terminals, and index
+         is upward closed if 𝒖 ∈ 𝐾 and 𝒖 ≤ 𝒗 imply 𝒗 ∈ 𝐾, where ≤            symbols, respectively. 𝑆 is the starting non-terminal symbol of the
+         is component-wise inequality. Clearly, every upward closed          grammar and 𝑃 is the finite set of productions of the forms
+         set is a slice.
+   (iii) Third, subtractive monoids are slices: we say that 𝐾 ⊆ N𝑘                   (i) 𝐴 → 𝐵𝑓 ,          (ii) 𝐴𝑓 → 𝐵,           (iii) 𝐴 → 𝑤,        (2)
+         is a subtractive submonoid if 𝒖, 𝒖 + 𝒗 ∈ 𝐾 imply that 𝒗 ∈ 𝐾.        where 𝐴, 𝐵 ∈ 𝑁 , 𝑓 ∈ 𝐼 , and 𝑤 ∈ 𝑁 ∗ ∪ 𝑇 ∗ . We regard a word
+  We will rely on two facts about slices by Eilenberg and Schützen-          𝐴𝑓1 · · · 𝑓𝑛 with 𝑓1, . . . , 𝑓𝑛 ∈ 𝐼 as a nonterminal to which a stack is
+berger. The first is that every slice is semilinear:                         attached. Here, 𝑓1 is the topmost symbol and 𝑓𝑛 is on the bottom. For
+                                                                             𝑤 ∈ (𝑁 ∪𝑇 ) ∗ and 𝑥 ∈ 𝐼 ∗ , we denote by [𝑤, 𝑥] the word obtained by
+   Theorem 7 (Eilenberg & Schützenberger). Every slice is semi-              replacing each 𝐴 ∈ 𝑁 in 𝑤 by 𝐴𝑥. A word in (𝑁 𝐼 ∗ ∪ 𝑇 ) ∗ is called a
+linear.                                                                      sentential form. For 𝑞, 𝑟 ∈ (𝑁 𝐼 ∗ ∪ 𝑇 ) ∗ , we write 𝑞 ⇒𝐺 𝑟 if there are
+   This is shown in [27, Proposition 7.3] (see also [32] for an alterna-     words 𝑞 1, 𝑞 2 ∈ (𝑁 𝐼 ∗ ∪ 𝑇 ) ∗ , 𝐴 ∈ 𝑁 , 𝑝 ∈ (𝑁 ∪ 𝑇 ) ∗ and 𝑥, 𝑦 ∈ 𝐼 ∗ such
+tive proof). Note that whether a given slice is effectively semilinear       that 𝑞 = 𝑞 1𝐴𝑥𝑞 2 , 𝑟 = 𝑞 1 [𝑝, 𝑦]𝑞 2 , and one of the following holds:
+depends on how it is represented. In fact, there are many situations              (i) 𝐴 → 𝐵𝑓 is in 𝑃, 𝑝 = 𝐵 and 𝑦 = 𝑓 𝑥, or
+in which one cannot compute a semilinear representation for a                    (ii) 𝐴𝑓 → 𝐵 is in 𝑃, 𝑝 = 𝐵 and 𝑥 = 𝑓 𝑦, or
+given slice. For example, the set of reachable configurations in a              (iii) 𝐴 → 𝑝 is in 𝑃, 𝑝 ∈ 𝑁 ∗ ∪ 𝑇 ∗ , and 𝑦 = 𝑥.
+lossy counter system is always a slice (since it is downward closed),        When the grammar is clear from the context, we also write ⇒
+but it cannot be computed for a given lossy counter system [62,              instead of ⇒𝐺 . The language generated by 𝐺 is
+Remark 14]. We will also rely on the ascending chain condition:
+                                                                                                    L(𝐺) = {𝑤 ∈ 𝑇 ∗ | 𝑆 ⇒
+                                                                                                                        ∗
+                                                                                                                          𝑤 },
+     Proposition 8 (Eilenberg Schützenberger). If 𝑆 1 ⊆ 𝑆 2 ⊆                        ∗
+                                                         Ð                   where ⇒ denotes the reflexive transitive closure of ⇒. Derivation
+· · · ⊆ N𝑘 are slices, then there is an index 𝑚 with 𝑆𝑚 = 𝑖 ≥0 𝑆𝑖 .
+                                                                             trees are always unranked trees with labels in 𝑁 𝐼 ∗ ∪ 𝑇 ∪ {𝜀} and
+   This was also shown by Eilenberg and Schützenberger [27, Corol-           a very straightforward analog to those of context-free grammars
+lary 12.3] and since it follows easily from Theorem 7, we include            (see, for example, [72]). If 𝑡 is a labeled tree, then its yield, denoted
+the short proof.                                                             yield(𝑡), is the word spelled by the labels of its leaves. Since the
+                         Ð                                                   definition of derivation trees is somewhat cumbersome but a very
+   Proof. Since 𝑆 := 𝑖 ≥0 𝑆𝑖 is a slice and thus semilinear, we              straightforward analog to those of context-free grammars, we refer
+can write 𝑆 = 𝒃1 + ⟨𝑃 1 ⟩ ∪ · · · ∪ 𝒃𝑛 + ⟨𝑃𝑛 ⟩ for some semi-                the reader to [41] for details.
+linear representation (𝒃1, 𝑃1 ; · · · ; 𝒃𝑛 , 𝑃𝑛 ). Consider the finite set      The productions of the forms (i), (ii), and (iii) from Eq. (2) will be
+𝐹 = {𝒃1 } ∪ 𝒃1 + 𝑃1 ∪ · · · ∪ {𝒃𝑛 } ∪ 𝒃𝑛 + 𝑃𝑛 . Since the entire set         called push, pop, and context-free productions, respectively. More-
+𝒃𝑖 + ⟨𝑃𝑖 ⟩ can be built from {𝒃𝑖 } ∪ (𝒃𝑖 + 𝑃𝑖 ) using slice operations,      over, a context-free production 𝐴 → 𝑤 with 𝑤 ∈ 𝑇 ∗ is also called a
+we know that in particular, all of 𝑆 can be obtained from 𝐹 using            terminal production.
+slice operations, thus 𝑆 ⊆ S𝜔 (𝐹 ). Moreover, as a finite set, 𝐹 must
+be included in 𝑆𝑚 for some 𝑚. Thus, we have 𝑆 ⊆ S𝜔 (𝐹 ) ⊆ 𝑆𝑚                    Example 9. Consider the indexed grammar 𝐺 = (𝑁 ,𝑇 , 𝐼, 𝑃, 𝑆)
+since 𝑆𝑚 is a slice.                                                    □    with 𝑁 = {𝑆, 𝑅, 𝑈 , 𝑉 ,𝑊 , 𝐴, 𝐵}, 𝐼 = {𝑓 , 𝑔, ⊥}, and 𝑇 = {𝑎, 𝑏}, where
+                                                                             𝑃 consists of the productions
+   With these basic facts in hand, we are ready to derive Corollary 3
+from Theorem 1.                                                                    𝑆 → 𝑅⊥,          𝑅 → 𝑅𝑓 ,         𝑅 → 𝑅𝑔,           𝑅 → 𝑈𝑈,
+                                                                                   𝑈 𝑓 → 𝑉,         𝑉 → 𝑈 𝐴,         𝑈𝑔 → 𝑊 ,         𝑊 → 𝑈 𝐵,
+   Proof of Corollary 3. We begin by observing, as in Exam-
+ple 6(i), that 𝐴 ∩ N𝑘 is a slice for every affine space 𝐴 ⊆ Q𝑘 .                   𝐴 → 𝑎,           𝐵 → 𝑏,           𝑈 ⊥ → 𝐸,          𝐸 → 𝜀.
+Slice closures of indexed languages and word equations with counting constraints
+
+
+
+                                         𝑆                                         be derived from a given non-terminal. Thus, for each 𝐴 ∈ 𝑁 :
+                                                                                                Δ(𝐺)𝐴 = {Ψ(𝑤) | 𝑤 ∈ (𝑁 ∪ 𝑇 ) ∗, 𝐴 ⇒
+                                                                                                                                  ∗
+                                                                                                                                    𝑤 }.
+                                         𝑅⊥
+                                                                                   3.1    Indexed languages as fixpoints
+                                        𝑅𝑓 ⊥                                       An operator is a map that turns set tuples into set tuples, in other
+                                                                                   words a map 𝐹 : P(N𝑁 ∪𝑇 ) 𝑁 → P(N𝑁 ∪𝑇 ) 𝑁 with 𝐾 ⊆ 𝐹 (𝐾) for
+                                        𝑅𝑔𝑓 ⊥                                      each set tuple 𝐾. For such an operator 𝐹 and a set tuple 𝐾, we define
+                                                                                                                                        Ø
+                                                                                      𝐹 0 (𝐾) = 𝐾 𝐹 𝑖+1 (𝐾) = 𝐹 (𝐹 𝑖 (𝐾)), 𝐹 𝜔 (𝐾) =        𝐹 𝑗 (𝐾), (3)
+                           𝑈 𝑔𝑓 ⊥                 𝑈 𝑔𝑓 ⊥
+                                                                                                                                            𝑗 ≥0
+
+                           𝑊𝑓⊥                    𝑊𝑓⊥                              for 𝑖 ≥ 0. Since 𝐹 𝜔 (𝐾) is a fixpoint of 𝐹 , we will refer to descriptions
+                                                                                   via 𝐹 𝜔 (𝐾) for some 𝐹 and 𝐾 as fixpoint characterizations.
+                      𝑈𝑓⊥         𝐵𝑓 ⊥        𝑈𝑓⊥         𝐵𝑓 ⊥                     Decomposing derivations in indexed grammars. We now define an
+                                                                                   operator D that will permit such a fixpoint characterization of
+                         𝑉⊥         𝑏            𝑉⊥        𝑏                       Δ(𝐺) (see Proposition 11).
+                                                                                      The idea is the following. Consider derivation trees in indexed
+                                                                                   grammars that produce a sentential form in (𝑁 ∪𝑇 ) ∗ . These can be
+                   𝑈 ⊥ 𝐴⊥                 𝑈 ⊥ 𝐴⊥
+                                                                                   transformed into new derivation trees in two ways. First, we can
+                                                                                   “plug in” one tree with root non-terminal 𝐴 into another tree where
+                     𝐸        𝑎              𝐸        𝑎                            𝐴 occurs at a leaf. We call this rule “D-1”. Second, we can take a
+                                                                                   derivation tree 𝑡 rooted in 𝐵 and extend it both at the top and the
+                     𝜀                       𝜀                                     leaves: At the top, we add a production 𝐴 → 𝐵𝑓 that pushes 𝑓 , and
+                                                                                   insert 𝑓 at the stack bottom of every node in 𝑡. Then, at every leaf
+Figure 1: Derivation tree for the grammar in Example 9 with                        labeled with a non-terminal 𝐶, we apply a pop production 𝐶 𝑓 → 𝐷
+yield 𝑎𝑏𝑎𝑏.                                                                        to get rid of all the new 𝑓 ’s. As long as all the non-terminal leaves
+                                                                                   of 𝑡 allow such pop productions, this yields a valid new derivation
+                                                                                   tree. We call this rule “D-2”.
+The productions in the first row allow us to derive 𝑆 ⇒    ∗
+                                                             𝑈 𝑥⊥𝑈 𝑥⊥                 By induction on the stack height, one can see that any derivation
+for every index word 𝑥 ∈ {𝑓 , 𝑔}. Those in the second row can then                 tree with leaves in 𝑁 ∪𝑇 ∪ {𝜀} can be built in this way from atomic
+derive 𝑈 𝑓 𝑥⊥ ⇒ ∗
+                   𝑈 𝑥⊥𝐴𝑥⊥ and 𝑈 𝑔𝑥⊥ ⇒      ∗
+                                              𝑈 𝑥⊥𝐵𝑥⊥. Using the third             trees that consist of a single production or a single node.
+row production, we can then produce terminal words: 𝐴’s and 𝐵’s                        Example 10. Figure 2 shows some steps for building the deriva-
+become 𝑎’s and 𝑏’s, whereas 𝑈 ⊥ can be turned into 𝜀. Note that                    tion tree from Fig. 1 (for the grammar 𝐺 in Example 9) using “D-1”
+the role of ⊥ is to prevent 𝑈 𝑥⊥ from being rewritten to 𝜀 before                  and “D-2”. The tree 𝑡 1 is a single production, and 𝑡 2 is obtained
+consuming all of 𝑥.                                                                from 𝑡 1 using “D-2” with the stack symbol 𝑔. Then, 𝑡 3 is obtained
+   In particular, for every 𝑥 ∈ {𝑓 , 𝑔}∗ , we can derive 𝑈 𝑥⊥ ⇒∗
+                                                                 𝑈 ⊥𝑤,             from 𝑡 2 by plugging in a derivation tree for 𝑊 ⇒ 𝑈 𝐵 ⇒ 𝑈 𝑏 (which
+where 𝑤 is the word obtained from 𝑥 by replacing 𝑓 with 𝑎 and 𝑔                    itself is built using “D-1”) into the two 𝑊 -leaves of 𝑡 2 . Furthermore,
+                                   ∗               ∗
+with 𝑏. Thus, we can derive 𝑆 ⇒       𝑈 𝑥⊥𝑈 𝑥⊥ ⇒      𝑤𝑤 for any such              𝑡 4 is then constructed from 𝑡 3 using “D-2” with the stack symbol 𝑓 .
+           ∗                 ∗
+𝑥 ∈ {𝑓 , 𝑔} and 𝑤 ∈ {𝑎, 𝑏} . The generated language is                                 The tree in Fig. 1 can then be obtained from 𝑡 4 by first plugging
+                                                                                                     ∗
+                         L(𝐺) = {𝑤𝑤 | 𝑤 ∈ {𝑎, 𝑏}∗ }.                               in trees for 𝑉 ⇒    𝑈 𝑎 (i.e. “D-1”) and then using “D-2” with stack
+                                                                                   symbol ⊥, and plugging in 𝐸 ⇒ 𝜀 .
+An example derivation tree for 𝑤 = 𝑎𝑏𝑎𝑏 is shown in Fig. 1.
+                                                                                   The operator D. In order to describe the popping of all leaf non-
+3    SLICE CLOSURES OF INDEXED LANGUAGES                                           terminals in parallel, we define the relation ⇒pop(𝑓 ) for each index
+In this section, we prove Theorem 1. To this end, fix an indexed                   𝑓 ∈ 𝐼 . For 𝒖, 𝒗 ∈ N𝑁 ∪𝑇 , we write 𝒖 ⇒pop(𝑓 ) 𝒗 if, informally, 𝒗 is
+grammar 𝐺 = (𝑁 ,𝑇 , 𝐼, 𝑃, 𝑆).                                                      obtained from 𝒖 by taking each non-terminal (occurrence) 𝐴 in 𝒖,
+   A key ingredient in our proof is a fixpoint characterization of                 picking a pop production 𝐴𝑓 → 𝐵, and replacing this occurrence
+the Parikh image of indexed languages. We describe it in terms of                  of 𝐴 by 𝐵. More formally, we have 𝒖 ⇒pop(𝑓 ) 𝒗 if there are 𝒘 ∈ N𝑇
+tuples of vector sets: One set for each non-terminal of the indexed                and productions 𝐴1 𝑓 → 𝐵 1, . . . , 𝐴𝑛 𝑓 → 𝐵𝑛 in 𝑃 such that
+grammar. Formally, a set tuple consists of a subset of N𝑁 ∪𝑇 for each
+                                                                                              𝒖 = 𝒘 + 𝐴1 + · · · + 𝐴𝑛 ,   𝒗 = 𝒘 + 𝐵 1 + · · · + 𝐵𝑛 .
+𝐴 ∈ 𝑁 . In other words, a set tuple is an element of P(N𝑁 ∪𝑇 ) 𝑁 . For
+a set tuple 𝐾 ∈ P(N𝑁 ∪𝑇 ) 𝑁 , we also write 𝐾 = (𝐾𝐴 )𝐴∈𝑁 , where                   Recall that we identify each 𝑎 ∈ 𝑁 ∪ 𝑇 with the vector 𝒖𝑎 ∈
+each 𝐾𝐴 ⊆ N𝑁 ∪𝑇 .                                                                  N𝑁 ∪𝑇 , where 𝒖𝑎 (𝑎) = 1 and 𝒖𝑎 (𝑏) = 0 for every 𝑏 ≠ 𝑎. Thus,
+   To the grammar 𝐺, we associate the set tuple Δ(𝐺) ∈ P(N𝑁 ∪𝑇 ) 𝑁 ,               𝒘 + 𝐴1 + · · · + 𝐴𝑛 is the vector 𝒘, plus one occurrence of 𝐴𝑖 for each
+which contains the Parikh images of all words over 𝑁 ∪ 𝑇 that can                  𝑖 (and similar for 𝒘 + 𝐵 1 + · · · + 𝐵𝑛 ).
+                                                                                                                                              Laura Ciobanu and Georg Zetzsche
+
+
+
+                        𝑅                                                                                (2) If 𝒗 ∈ N𝑁 ∪𝑇 is obtained using (D-2), then there is a word 𝑢
+                                                                           𝑅
+                                                                                                             with 𝐵 ⇒∗
+                                                                                                                        𝑢 and 𝒖 = Ψ(𝑢) and 𝒖 ⇒pop(𝑓 ) 𝒗. Then because
+                     𝑅𝑔𝑈
+                    𝑈𝑅𝑓                                                                                      of 𝒖 ⇒pop(𝑓 ) 𝒗, there is a word 𝑣 ∈ (𝑁 ∪ 𝑇 ) ∗ with 𝑢 𝑓 ⇒
+                                                                                                                                                                      ∗
+                                                                                                                                                                        𝑣
+                     𝑅                      𝑅                             𝑅𝑓                                 and 𝒗 = Ψ(𝑣). This means, we have a derivation
+                                                                                                                                    ∗    ∗
+                  𝑈𝑈𝑔𝑔𝑅𝑔𝑓𝑈𝑈𝑔𝑔
+                       𝑅𝑔                   𝑅𝑔                            𝑅𝑔𝑓                                                𝐴 ⇒ 𝐵𝑓 ⇒ 𝑢𝑓 ⇒ 𝑣,
+        𝑅
+                                                                                                                        ∗
+                                                                                                             where 𝐵𝑓 ⇒   𝑢 𝑓 holds because of our observation above.
+           𝑊𝑊 𝑊𝑊
+         𝑈 𝑔𝑓   𝑈 𝑔𝑓
+     𝑈 𝑈    𝑈𝑔 𝑈𝑔    𝑈𝑔                          𝑈𝑔            𝑈 𝑔𝑓             𝑈 𝑔𝑓                         Thus, 𝒗 ∈ Δ(𝐺)𝐴 .                                     □
+
+                 𝑈 𝑓 𝐵 𝑈 𝑊𝐵𝑓
+                 𝑊                                                                                     The second step is to show that every derivation can be decom-
+                    𝑊 𝑊      𝑊                   𝑊             𝑊𝑓                   𝑊𝑓
+                                                                                                     posed into transformations “D-1” and “D-2”:
+             𝑈𝑓    𝐵𝑓𝑏 𝑈 𝑓 𝑏 𝐵𝑓
+                             𝑈 𝐵 𝑈                   𝐵    𝑈𝑓      𝐵𝑓           𝑈𝑓    𝐵𝑓                 Lemma 13. D 𝜔 (I) ⊇ Δ(𝐺).
+
+             𝑉      𝑏        𝑉      𝑏                                                                   Proof. For the converse, we proceed by induction on the max-
+                                        𝑏            𝑏     𝑉          𝑏         𝑉        𝑏           imal stack height at the nonterminals of a derivation. More pre-
+                                                                                                                                                     ∗
+                                                                                                     cisely, we show by induction on ℎ that if 𝐴 ⇒      𝑢 for some word
+                                                                                                                 ∗
+                                                                                                     𝑢 ∈ (𝑁 ∪ 𝑇 ) via a derivation that uses only stacks of height ≤ ℎ,
+              D-2                D-1                     D-2
+        𝑡1              𝑡2                  𝑡3                            𝑡4
+                                                                                                     then Ψ(𝑢) belongs to D 𝜔 (I)𝐴 . If the derivation involves only zero-
+                                                                                                     height stacks, then 𝑢 can be derived from 𝐴 using only context-free
+Figure 2: Example of building a derivation tree using trans-                                         productions and it is easy to see that Ψ(𝑢) can be built using (D-1).
+                                                                                                                                    ∗
+formations “D-1” and “D-2”. See Example 10 for details.                                                 Consider a derivation 𝐴 ⇒     𝑢 with maximal stack height ℎ >
+                                                                                                     0. Roughly speaking, we show that a derivation tree 𝑡 for this
+                                                                                                     derivation can be transformed into a tree 𝑡 ′ such that
+   With ⇒pop(𝑓 ) in hand, we can define the operator D:
+                                                                                                         (1) 𝑡 ′ and 𝑡 have the same yield 𝑢 ∈ (𝑁 ∪ 𝑇 ) ∗ ,
+  D (𝐾)𝐴 = 𝐾𝐴                                                                                            (2) the nodes of 𝑡 ′ have labels in 𝑁 ∪ 𝑇 ∪ {𝜀},
+              ∪ {𝒖 − 𝐵 + 𝒗 | 𝒖 ∈ 𝐾𝐴 , 𝒖 (𝐵) ≥ 1, 𝒗 ∈ 𝐾𝐵 }                                    (D-1)       (3) each inner node is labeled by some 𝐵 ∈ 𝑁 and its children
+                             𝑁 ∪𝑇                                                                            form a word 𝑤 ∈ (𝑁 ∪ 𝑇 ) ∗ such that Ψ(𝑤) ∈ D 𝜔 (I)𝐵 .
+              ∪ {𝒗 ∈ N              | 𝐴 → 𝐵𝑓 ∈ 𝑃, 𝒖 ∈ 𝐾𝐵 , 𝒖 ⇒pop(𝑓 ) 𝒗}
+                                                                    (D-2)                            If this is established, then clearly one can use the rule (D-1) to place
+                                                                                                     Ψ(𝑢) in D 𝜔 (I)𝐴 . The tree 𝑡 ′ will be obtained using contractions,
+Note that here, the two rules (D-1) and (D-2) correspond exactly                                     which we describe first. A subtree of 𝑡 consists of a node 𝑥 and a set
+to the two transformations described above.                                                          𝑈 of nodes such that
+   The final ingredient in our fixpoint characterization of Δ(𝐺) is
+                                                                                                         (1) every node in 𝑈 lies on a path from 𝑥 to a leaf, and
+the starting value. The initial set tuple is the set tuple I with
+                                                                                                         (2) every path from 𝑥 to a leaf visits 𝑈 exactly once.
+ I𝐴 = {𝐴} ∪ {𝑤 ∈ (𝑁 ∪ 𝑇 ) ∗ | there is a production 𝐴 → 𝑤 in 𝐺 }
+                                                                                                     The subtree is complete if all nodes in 𝑈 are leaves. By contracting
+for each 𝐴 ∈ 𝑁 . We can now state our fixpoint characterization:                                     a subtree consisting of 𝑥 and 𝑈 , we mean taking all the complete
+                                                                                                     subtrees whose root is in 𝑈 and making attaching them directly
+   Proposition 11. D 𝜔 (I) = Δ(𝐺).
+                                                                                                     under 𝑥. In other words, we remove all the nodes between 𝑥 and 𝑈 .
+  We prove Proposition 11 separately in two lemmas. First, we                                           Let us now describe how to obtain 𝑡 ′ . Since in 𝑡, there are nodes
+show that every vector built in the described way is derivable.                                      with stack height ℎ > 0, 𝑡 must apply push productions to nodes
+                                                                                                     with stack height zero. For each of those nodes 𝑥, we will describe
+   Lemma 12. D 𝜔 (I) ⊆ Δ(𝐺).
+                                                                                                     a subtree rooted at 𝑥. Contracting all these subtrees then yields the
+   Proof. We have to argue that each vector produced using one                                       desired 𝑡 ′ .
+of the rules (D-1) and (D-2) corresponds to a derived sentential                                        Consider a stack-height-zero node 𝑥 to which a push production
+form in 𝐺. Hence, we show that if 𝐾 ⊆ Δ(𝐺), then D (𝐾) ⊆ Δ(𝐺).                                       is applied, say 𝐵 → 𝐶 𝑓 with 𝐵, 𝐶 ∈ 𝑁 , Since 𝑡 derives a word in
+   We will use the following notation. For a word 𝑢 ∈ (𝑁 𝐼 ∗ ∪ 𝑇 ) ∗ ,                               (𝑁 ∪ 𝑇 ) ∗ , the 𝐶 𝑓 node cannot be a leaf (it has a non-empty stack).
+let 𝑢 𝑓 denote the word obtained from 𝑢 by adding 𝑓 at the bottom                                    Since every leaf in 𝑡 belongs to 𝑁 ∪ 𝑇 ∪ {𝜀}, every path 𝜋 from 𝐶 𝑓
+of each stack in 𝑢. In other words, if 𝑢 = 𝑢 0𝐴1𝑥 1𝑢 1 · · · 𝐴𝑛 𝑥𝑛𝑢𝑛 ,                               to a leaf, contains a last node ℓ𝜋 that still contains this occurrence
+with 𝑢 0, . . . , 𝑢𝑛 ∈ 𝑇 ∗ , 𝐴1, . . . , 𝐴𝑛 ∈ 𝑁 , and 𝑥 1, . . . , 𝑥𝑛 ∈ 𝐼 ∗ , then                   of 𝑓 . We define a set 𝑈 of nodes: For each node ℓ𝜋 :
+𝑢 𝑓 := 𝑢 0𝐴1𝑥 1 𝑓 𝑢 1 · · · 𝐴𝑛 𝑥𝑛 𝑓 𝑢𝑛 . Observe that with this notation,                                (1) If the production applied to ℓ𝜋 is a pop production, then we
+    ∗                   ∗
+𝑢⇒     𝑣 implies 𝑢 𝑓 ⇒     𝑣 𝑓 for any 𝑓 ∈ 𝐼 .                                                               include ℓ𝜋 itself in 𝑈 .
+      (1) If 𝒖 − 𝐵 + 𝒗 ∈ N𝑁 ∪𝑇 ∈ D (𝐾)𝐴 is obtained using (D-1),                                         (2) If the production applied to ℓ𝜋 is a terminal production,
+          then we know that there are words 𝑢, 𝑣 ∈ (𝑁 ∪ 𝑇 ) ∗ with                                           then we include all children of ℓ𝜋 in 𝑈 .
+               ∗             ∗
+          𝐴⇒       𝑢 and 𝐵 ⇒   𝑣 and 𝑢 contains an occurrence of 𝐵. Thus,                            Note that these are the only possible productions, because (i) ℓ𝜋 is
+          𝒖 −𝐵+𝒗 is the Parikh image of a word derivable by replacing                                the last node on 𝜋 to contain 𝑓 and (ii) any context-free production
+          𝐵 with 𝑣 in 𝑢.                                                                             that is not a terminal production has a right-hand side in 𝑁 + and
+Slice closures of indexed languages and word equations with counting constraints
+
+
+thus passes on the entire stack to all child nodes (recall that context-           convention that for any set 𝑈 ⊆ N𝑁 ∪𝑇 , the intersection 𝑈 ∩ N𝑇
+free productions have right-hand sides in 𝑁 ∗ ∪ 𝑇 ∗ ).                             refers to the tuples where all the coordinates indexed by 𝑁 are zero.
+   Let 𝑤 be the word consisting of all node labels of nodes in 𝑈 .
+Then 𝑤 is of the form                                                                 Lemma 14. For every set 𝑈 ⊆ N𝑁 ∪𝑇 , we have S𝜔 (𝑈 ∩ N𝑇 ) =
+                                                                                   S𝜔 (𝑈 ) ∩ N𝑇 .
+                         𝑤 = 𝑤 0 𝐷 1 𝑓 𝑤 1 · · · 𝐷𝑛 𝑓 𝑤 𝑛
+                                                                                      Proof. The inclusion “⊆” holds because S𝜔 (𝑈 ∩ N𝑇 ) is clearly
+for some 𝑤 0, . . . , 𝑤𝑛 ∈ (𝑁 ∪ 𝑇 ) ∗ , and 𝐷 1, . . . , 𝐷𝑛 ∈ 𝑁 . Moreover, it
+                         ∗                                                         included in S𝜔 (𝑈 ) and in N𝑇 .
+clearly satisfies 𝐶 𝑓 ⇒    𝑤. By the choice of 𝑈 , the 𝑓 occurrence in
+                                                                                      For “⊇”, we first claim that S(𝑈 ) ∩ N𝑇 ⊆ S(𝑈 ∩ N𝑇 ). Indeed,
+𝐶 𝑓 is either never removed during this derivation or it is removed
+                                                                                   for each element 𝒖 + 𝒗 + 𝒘 added by S with 𝒖 + 𝒗 + 𝒘 ∈ N𝑇 , the
+by a terminal production. Therefore, we also have a derivation
+                                                                                   vectors 𝒖, 𝒖 + 𝒗, and 𝒖 +𝒘 must clearly already belong to N𝑇 , hence
+                      ∗
+                     𝐶⇒ 𝑤 0 𝐷 1𝑤 1 · · · 𝐷𝑛 𝑤𝑛 =: 𝑤 −𝑓                             𝒖 + 𝒗 + 𝒘 ∈ S(𝑈 ∩ N𝑇 ). This implies S𝑖 (𝑈 ) ∩ N𝑇 ⊆ S𝑖 (𝑈 ∩ N𝑇 )
+                                                                                   by induction on 𝑖, and thus S𝜔 (𝑈 ) ∩ N𝑇 ⊆ S𝜔 (𝑈 ∩ N𝑇 ).           □
+with maximal stack height strictly smaller than ℎ. By induction,
+this implies Ψ(𝑤 −𝑓 ) ∈ D 𝜔 (I)𝐶 .                                                 Slice closure vs. other closure operators. This is a good moment
+   By the choice of 𝑈 , we know that for each 𝐷𝑖 𝑓 in 𝑤, the pro-                  to highlight why the notion of the slice closure is so important
+duction applied to 𝐷𝑖 𝑓 is a pop production. Therefore, we de-                     in our proofs—even if one just wants to show Corollary 3: One
+note by 𝑤 ′ the word obtained from 𝑤 by replacing each 𝐷𝑖 𝑓 by                     might wonder whether Corollary 3 could be obtained by somehow
+the resulting nonterminal 𝐸𝑖 , hence 𝑤 ′ = 𝑤 0 𝐸 1𝑤 1 · · · 𝐸𝑛 𝑤𝑛 . Then           computing the affine hull of Δ(𝐺)𝑆 = D 𝜔 (I)𝑆 and then use that
+we have Ψ(𝑤 −𝑓 ) ⇒pop( 𝑓 ) Ψ(𝑤 ′ ) and thus, by (D-2), we obtain                   to compute the affine hull of Ψ(𝐿). However, we will now illustrate
+𝑤 ′ ∈ D 𝜔 (I)𝐵 .                                                                   that the affine hull of Δ(𝐺)𝑆 is not enough, even for just computing
+   Let 𝑈 ′ be the set of nodes spelling 𝑤 ′ . Then clearly, 𝑥 and 𝑈 ′              the affine hull of Ψ(𝐿) = Δ(𝐺)𝑆 ∩ N𝑇 .
+form a subtree. Moreover, since 𝑤 ′ ∈ D 𝜔 (I)𝐵 , contracting (𝑥, 𝑈 ′ )                We even show something slightly stronger: Even if we could
+will yield a node compatible with the requirements for 𝑡 ′ . Hence,                compute the Zariski closure (which encodes more information than
+we perform this contraction for every stack-height-zero node 𝑥                     the affine hull) of Δ(𝐺)𝑆 , this would not contain enough information
+to which a push production is applied, and arrive at the tree 𝑡 ′ as               to reconstruct the affine hull of Ψ(𝐿). Let us first define the Zariski
+desired.                                                               □           closure. A subset 𝑉 ⊆ Q𝑘 is an affine variety if it is of the form
+
+3.2     Slices as fixpoints                                                                         {𝒗 ∈ Q𝑘 | 𝑝 1 (𝒗) = · · · = 𝑝𝑛 (𝒗) = 0},
+It will be helpful to view slice closures as fixpoints, by way of the              where 𝑝 1, . . . , 𝑝𝑛 ∈ Q[𝑋 1, . . . , 𝑋𝑘 ] are finitely many polynomials.
+operator S : P(N𝑘 ) → P(N𝑘 ) that intuitively performs one slice                   It is a simple consequence of Hilbert’s Basis Theorem that the
+operation. For 𝐾 ⊆ N𝑘 , we define                                                  intersection of any collection of affine varieties is again an affine
+                                                                                   variety. Therefore, we can assign to every subset 𝑈 ⊆ Q𝑘 the
+ S(𝐾) = {𝒖 + 𝒗 + 𝒘 | 𝒖, 𝒗, 𝒘 ∈ N𝑘 , 𝒖 ∈ 𝐾, 𝒖 + 𝒗 ∈ 𝐾, 𝒖 + 𝒘 ∈ 𝐾 }                  smallest affine variety including 𝑈 , denoted 𝑈 . The closure 𝑈 is
+Note that by picking 𝒗 = 𝒘 = 0, we have 𝐾 ⊆ S(𝐾). Moreover,                        also called the Zariski closure of 𝑈 .
+raising this operator to the power of 𝜔 as in Eq. (3), indeed yields                  Suppose we have 𝑁 = {𝐴} and 𝑇 = {𝑎, 𝑏}. Then we identify
+that S𝜔 (𝐾) is the slice closure of 𝐾 ⊆ N𝑘 .                                       N𝑁 ∪𝑇 with N3 , where the left-most entry corresponds to 𝐴, the
+    To simplify notation, we apply much of the terminology about                   second to 𝑎, and the third to 𝑏. Consider the set
+subsets of N𝑘 to set tuples, usually component-wise. For set tuples                                    𝑈 = {(𝑥, 𝑦, 𝑧) ∈ N3 | 𝑥 ≥ 1}.
+𝐾, 𝐿 ∈ P(N𝑁 ∪𝑇 ) 𝑁 , we write 𝐾 ⊆ 𝐿 if 𝐾𝐴 ⊆ 𝐿𝐴 for each 𝐴 ∈ 𝑁 . A
+set tuple 𝐾 ∈ P(N𝑁 ∪𝑇 ) 𝑁 is called slice if 𝐾𝐴 ⊆ N𝑁 ∪𝑇 is a slice for             We claim that then for every subset 𝑊 ⊆ {0} × N2 , we have
+each 𝐴 ∈ 𝑁 . Moreover, if 𝐾 is a set tuple, we set S(𝐾)𝐴 = S(𝐾𝐴 )                  𝑈 ∪ 𝑊 = 𝑈 . This is because every polynomial 𝑝 ∈ Q[𝑋 1, 𝑋 2, 𝑋 3 ]
+(i.e. we apply S component-wise). Accordingly, for a set tuple 𝐾 ∈                 that vanishes on 𝑈 must also vanish on 𝑊 : for any 𝑦, 𝑧 ∈ N, we
+P(N𝑁 ∪𝑇 ) 𝑁 , we call S𝜔 (𝐾) the slice closure of 𝐾. A set tuple 𝐾 is              know that 𝑝 (𝑋 1, 𝑦, 𝑧) ∈ Q[𝑋 1 ] must have every positive natural
+semilinear if each set 𝐾𝐴 ⊆ N𝑁 ∪𝑇 is semilinear. It is effectively                 number as a root and thus be identically zero; meaning 𝑝 also van-
+semilinear if we can compute a semilinear representation (it will                  ishes on 𝑊 . However, this means 𝑈 ∪ 𝑊 does not encode enough
+always be clear from the context how 𝐾 is given).                                  information to recover anything about 𝑊 . Lemma 14, on the other
+                                                                                   hand, tells us that S𝜔 (𝑈 ∪ 𝑊 ) ∩ ({0} × N2 ) = S𝜔 (𝑊 ), meaning
+3.3     Computing slice closures                                                   S𝜔 (𝑊 ) can be reconstructed.
+In our algorithm to compute the slice closure of indexed languages,                  Lemma 15. Given a semilinear set 𝐾 ∈ P(N𝑁 ∪𝑇 ) 𝑁 , the set tuple
+we will proceed in two steps. We will first compute the slice closure              D (𝐾) is effectively semilinear.
+of the tuple Δ(𝐺), which contains all Parikh images of sentential
+forms of 𝐺. In the second step, we then compute the slice closure                     Proof. Suppose we are given a Presburger formula 𝜑𝐴 for each
+of Ψ(𝐿) from the slice closure of Δ(𝐺). Here, it is key that the slice             set 𝐾𝐴 ⊆ N𝑁 ∪𝑇 . We provide a Presburger formula for each of
+closure of Ψ(𝐿) = Δ(𝐺)𝑆 ∩ N𝑇 can be reconstructed from the slice                   the rules (D-1) and (D-2). For (D-1), this is easy, because the set
+closure of Δ(𝐺)𝑆 . More specifically, we can compute it by way of                  of all 𝒖 − 𝐵 + 𝒗 with 𝜑𝐴 (𝒖) and 𝜑 𝐵 (𝒗) and 𝒖 (𝐵) ≥ 1 is clearly
+S𝜔 (Ψ(𝐿)) = S𝜔 (Δ(𝐺)𝑆 ) ∩ N𝑇 , because of Lemma 14. We use the                     Presburger-definable.
+                                                                                                                                            Laura Ciobanu and Georg Zetzsche
+
+
+   For the rule (D-2), it suffices to show that the relation ⇒pop(𝑓 )                       Proof of Theorem 1. Our algorithm computes a sequence
+is Presburger-definable for each 𝑓 ∈ 𝐼 . To this end, we introduce for
+                                                                                                               𝐾 (0) ⊆ 𝐾 (1) ⊆ 𝐾 (2) ⊆ · · ·                               (4)
+each production 𝐶 𝑓 → 𝐷 with 𝐶, 𝐷 ∈ 𝑁 a variable that counts to
+how many occurrences of 𝐶 in 𝒖 the production 𝐶 𝑓 → 𝐷 is applied.                        of semilinear set tuples with 𝐾 (0) = I and 𝐾 (𝑖+1) = S𝜔 (D (𝐾 (𝑖 ) ))
+Let 𝐶𝑖 𝑓 → 𝐷𝑖 for 𝑖 = 1, . . . , 𝑛 be all the productions that pop 𝑓                     for 𝑖 ≥ 0. Note that due to Lemma 15 and Theorem 16, we can com-
+and introduce the variables 𝑥 1, . . . , 𝑥𝑛 . Moreover, we introduce a                   pute a Presburger formula for 𝐾 (𝑖+1) from a Presburger formula for
+variable 𝒚 ranging over N𝑇 that holds all the terminal occurrences                       𝐾 (𝑖 ) . The algorithm continues while 𝐾 (𝑖 ) ⊊ 𝐾 (𝑖+1) and terminates
+in 𝒖, which are unchanged between 𝒖 and 𝒗. Observe that then                             once we have 𝐾 (𝑖+1) = 𝐾 (𝑖 ) .
+𝒖 ⇒pop(𝑓 ) 𝒗 if and only if                                                                 Notice that upon termination at 𝐾 (𝑖 ) , we have 𝐾 (𝑖 ) = (S𝜔 ◦
+                                  Û                 ∑︁                                   D)𝜔 (I), which equals S𝜔 (D 𝜔 (I)) by Proposition 17. Therefore,
+   ∃𝑥 1, . . . , 𝑥𝑛 ∈ N, 𝒚 ∈ N𝑇 :    𝒖 (𝐸) =                 𝑥𝑖 ∧                                                                                       (𝑖 )
+                                                                                         by Lemma 14, the slice closure of the indexed language is 𝐾𝑆 ∩ N𝑇 ,
+                                    𝐸 ∈𝑁               𝑖 ∈ {1,...,𝑛}, 𝐶𝑖 =𝐸              for which we can clearly compute a Presburger formula. Thus, it
+                Û                      ∑︁                     Û
+                      𝒗 (𝐸) =                          𝑥𝑖 ∧         𝒗 (𝑎) = 𝒖 (𝑎),       remains to show that the algorithm terminates.
+               𝐸 ∈𝑁             𝑖 ∈ {1,...,𝑛}, 𝐷𝑖 =𝐸          𝑎∈𝑇                           Since ascending chains of slices become stationary, we know that
+                                                                                                                                       (0)     (1)     (2)
+which is clearly expressible in Presburger arithmetic.                               □   for each non-terminal 𝐴, the sequence 𝐾𝐴 ⊆ 𝐾𝐴 ⊆ 𝐾𝐴 ⊆ · · ·
+                                                                                         becomes stationary at some index 𝑚𝐴 . Beyond all these finitely
+   The following theorem says that the slice closure of semilinear                       many indices, the sequence 𝐾 (0) ⊆ 𝐾 (1) ⊆ 𝐾 (2) ⊆ · · · of set tuples
+sets is effectively semilinear. This follows using ideas of Grabowski [35,               must be stationary in all components.                               □
+corollary to Theorem 1]. To make the paper more self-contained,
+                                                                                            The remainder of this section is now devoted to proving Proposi-
+we include a short proof.
+                                                                                         tion 17. The inclusion “⊆” is obvious, because we clearly have
+                                                                                                           Ð
+   Theorem 16. Given a semilinear 𝐾 ⊆ N𝑘 , the set S𝜔 (𝐾) is effec-                      S𝜔 (D 𝜔 (𝐾)) = 𝑖 ≥0 S𝑖 (D𝑖 (𝐾)) and moreover S𝑖 (D𝑖 (𝐾)) ⊆
+tively semilinear.                                                                       (S ◦ D) (𝐾) ⊆ (S𝜔 ◦ D) 2𝑖 (𝐾). The converse inclusion “⊇” will
+                                                                                                  2𝑖
+                                                                                         easily follow from:
+   Proof. Roughly speaking, we enumerate semilinear represen-
+tations and check whether they satisfy a particular property. Once                          Lemma 18. For every set tuple 𝐾, we have D (S(𝐾)) ⊆ S 2 (D (𝐾)).
+a semilinear representation satisfies the property, we know that it
+                                                                                            Proof. For any element of D (S(𝐾))𝐴 , we distinguish between
+represents S𝜔 (𝐾). More precisely, the algorithm enumerates pairs
+                                                                                         the rule applied for inclusion in D (S(𝐾)), i.e. (D-1) or (D-2). First,
+(𝑅, 𝑚), where 𝑅 = (𝒃1, 𝑃1 ; . . . ; 𝒃𝑛 , 𝑃𝑛 ) is a semilinear representation
+                                                                                         suppose (D-1) was applied. Then our element of D (S(𝐾))𝐴 is of
+and 𝑚 ∈ N. We call the pair (𝑅, 𝑚) good for 𝐾 if
+                                                                                         the form 𝒖−𝐵+𝒗 with 𝒖 ∈ S(𝐾)𝐴 , 𝐵 ∈ 𝑁 , 𝒖 (𝐵) ≥ 1, and 𝒗 ∈ S(𝐾)𝐵 .
+    (1) 𝐾 ⊆ ⟨𝑅⟩,                                                                         This means, we can write
+    (2) ⟨𝑅⟩ is a slice, and
+    (3) each vector 𝒃𝑖 and each finite set 𝒃𝑖 + 𝑃𝑖 is included in                                𝒖 = 𝒔 + 𝒙 +𝒚                       for 𝒔, 𝒔 + 𝒙, 𝒔 + 𝒚 ∈ 𝐾𝐴 ,
+        S𝑚 (𝐾).                                                                                  𝒗 = 𝒔 ′ + 𝒙 ′ + 𝒚′                 for 𝒔 ′, 𝒔 ′ + 𝒙 ′, 𝒔 ′ + 𝒚 ′ ∈ 𝐾𝐵 ,
+If our algorithm encounters a pair (𝑅, 𝑚) that is good for 𝐾, it                         for some 𝒔, 𝒙, 𝒚, 𝒔 ′, 𝒙 ′, 𝒚 ′ ∈ N𝑁 ∪𝑇 . Note that this is even true if
+returns 𝑅. Note that it is decidable whether a given pair is good                        𝒖 ∈ 𝐾𝐴 , 𝒗 ∈ 𝐾𝐵 , because we allow 𝒙, 𝒚, 𝒙 ′, 𝒚 ′ to be zero.
+for 𝐾, because given a Presburger formula for 𝐾 and a pair (𝑅, 𝑚),                          Since 𝒖 (𝐵) ≥ 1, we know that 𝒔 (𝐵) ≥ 1 or 𝒙 (𝐵) ≥ 1, or 𝒚(𝐵) ≥ 1.
+the fact that (𝑅, 𝑚) is good for 𝐾 can be expressed in Presburger                        Here, the case 𝒚(𝐵) ≥ 1 is symmetric to 𝒙 (𝐵) ≥ 1, so suppose
+arithmetic. Here, we use the fact that for a given 𝑚, we can construct                   𝒔 (𝐵) ≥ 1 or 𝒙 (𝐵) ≥ 1. In either case, we have (𝒔 + 𝒙) (𝐵) ≥ 1 and
+a Presburger formula for the set S𝑚 (𝐾).                                                 therefore
+   The algorithm is sound, i.e. if (𝑅, 𝑚) is good for 𝐾, then ⟨𝑅⟩ =
+S𝜔 (𝐾): Items 1 and 2 imply that ⟨𝑅⟩ is a slice that includes 𝐾.                                      𝒔 + 𝒙 − 𝐵 + 𝒔′                                ∈ D (𝐾)𝐴               (5)
+Moreover, Item 3 implies ⟨𝑅⟩ ⊆ S𝜔 (𝐾), because the entire set                                                         ′         ′
+                                                                                                      𝒔 +𝒙 −𝐵+𝒔 +𝒙                                  ∈ D (𝐾)𝐴               (6)
+𝒃𝑖 + ⟨𝑃𝑖 ⟩ can be obtained from 𝒃𝑖 and 𝒃𝑖 + 𝑃𝑖 by repeatedly applying                                                 ′         ′
+                                                                                                      𝒔 + 𝒙 − 𝐵 + 𝒔 +𝒚                              ∈ D (𝐾)𝐴               (7)
+the slice operation.
+   It remains to show that the algorithm terminates. This follows                        by (D-1). Now Eqs. (5) to (7) together yield
+from the fact that S𝜔 (𝐾) is semilinear: Take a semilinear repre-                                       𝒔 + 𝒙 − 𝐵 + 𝒔 ′ + 𝒙 ′ + 𝒚 ′ ∈ S(D (𝐾))𝐴 .                          (8)
+sentation 𝑅 = (𝒃1, 𝑃1 ; . . . ; 𝒃𝑛 , 𝑃𝑛 ) for S𝜔 (𝐾). Then clearly 𝐾 ⊆ ⟨𝑅⟩                                  |       {z           }
+and ⟨𝑅⟩ is a slice. Moreover, since {𝒃𝑖 } ∪ (𝒃𝑖 + 𝑃𝑖 ) is a finite subset                                                 =:𝒛
+                Ð
+of S𝜔 (𝐾) = 𝑖 ≥0 S𝑖 (𝐾), there must be an 𝑚 such that S𝑚 (𝐾)                             Now we distinguish between the cases 𝒔 (𝐵) ≥ 1 and 𝒙 (𝐵) ≥ 1.
+contains this finite set. Hence, the pair (𝑅, 𝑚) is good for 𝐾.          □
+                                                                                             (1) Suppose 𝒙 (𝐵) ≥ 1. In this case, the vector 𝒛 in Eq. (8)
+  Proposition 17. For every set tuple 𝐾, we have S𝜔 (D 𝜔 (𝐾)) =                                  belongs to N𝑁 ∪𝑇 (because 𝒙 −𝐵 does). Therefore, combined
+(S𝜔 ◦ D)𝜔 (𝐾).                                                                                   with 𝒔, 𝒔 + 𝒚 ∈ 𝐾𝐴 ⊆ S(D (𝐾))𝐴 , we obtain
+                                                                                               𝒖 − 𝐵 + 𝒗 = 𝒔 + 𝒙 + 𝒚 − 𝐵 + 𝒔 ′ + 𝒙 ′ + 𝒚 ′ ∈ S 2 (D (𝐾))𝐴 ,
+  Before we prove Proposition 17, let us see how it is used in the
+proof of Theorem 1.                                                                              as desired.
+Slice closures of indexed languages and word equations with counting constraints
+
+
+    (2) Suppose 𝒔 (𝐵) ≥ 1. Then we can apply the reasoning for                     by the counting transducer, denoted 𝑅(T ) is the set of all pairs
+        Eq. (8), but (a) with 𝒔 instead of 𝒔 + 𝒙 and again (b) with                (𝑤 1 · · · 𝑤𝑚 , 𝒙 1 +· · ·+𝒙𝑚 ) ∈ Σ∗ ×Z𝑛 for runs as above. The counting
+        𝒔 + 𝒚 instead of 𝒔 + 𝒙 to obtain                                           transducer is called functional if for every word 𝑤 ∈ Σ∗ , there is
+            𝒔 − 𝐵 + 𝒔 ′ + 𝒙 ′ + 𝒚′                   ∈ S(D (𝐾))𝐴 ,                 at most one vector 𝒙 ∈ Z𝑛 such that (𝑤, 𝒙) ∈ 𝑅(T ). A function
+                           ′     ′     ′
+                                                                                   𝑓 : Σ∗ → Z𝑛 is called a counting function if its graph {(𝑤, 𝑓 (𝑤)) |
+            𝒔 +𝒚 − 𝐵 + 𝒔 + 𝒙 +𝒚                      ∈ S(D (𝐾))𝐴 ,                 𝑤 ∈ Σ∗ } ⊆ Σ∗ × Z𝑛 is defined by a functional counting transducer.
+           which together with Eq. (8) yields                                      In particular, the graph of 𝑓 is a rational subset of Σ∗ × Z𝑛
+                                                                                       We will apply counting functions to encodings of solutions. Let
+       𝒖 − 𝐵 + 𝒗 = 𝒔 + 𝒙 + 𝒚 − 𝐵 + 𝒔 ′ + 𝒙 ′ + 𝒚 ′ ∈ S 2 (D (𝐾))𝐴 ,
+                                                                                   us see some examples.
+       as desired.
+                                                                                       (1) Letter counting: The function 𝑓𝑋 ,𝑎 with 𝑓𝑋 ,𝑎 (enc(𝜎)) =
+  It remains to consider the rule (D-2). Consider a production                             |𝜎 (𝑋 )|𝑎 for some letter 𝑎 ∈ 𝐴 and variable 𝑋 ∈ Ω. Here,
+𝐴 → 𝐵𝑓 and vectors 𝒖 ∈ S(𝐾)𝐵 and 𝒗 ∈ N𝑁 ∪𝑇 with 𝒖 ⇒pop(𝑓 ) 𝒗.                              the transducer increments the counter for each 𝑎 between
+Then we can write 𝒖 = 𝒔 + 𝒙 + 𝒚 such that 𝒔, 𝒔 + 𝒙, 𝒔 + 𝒚 ∈ 𝐾𝐵 .                           the 𝑖-th and (𝑖 + 1)-st occurrence of #, where 𝑋 = 𝑋𝑖 .
+Observe that we can then decompose 𝒗 = 𝒔 ′ + 𝒙 ′ + 𝒚 ′ such that                       (2) Counting positions with MSO properties. Consider monadic
+𝒔 ⇒pop(𝑓 ) 𝒔 ′ , 𝒙 ⇒pop(𝑓 ) 𝒙 ′ , and 𝒚 ⇒pop(𝑓 ) 𝒚 ′ . This implies:                       second-order logic (MSO) formulas evaluated in the usual
+      𝒔′              ∈ D (𝐾)𝐴             since 𝒔 ⇒pop(𝑓 ) 𝒔 ′                            way over finite words. Suppose we have an MSO formula
+                                                                                           𝜑 (𝑥) with one free first-order variable 𝑥. Then we can de-
+      𝒔′ + 𝒙′         ∈ D (𝐾)𝐴             since 𝒔 + 𝒙 ⇒pop(𝑓 ) 𝒔 ′ + 𝒙 ′
+                                                                                           fine the function 𝑓𝜑 such that 𝑓𝜑 (enc(𝜎)) is the number of
+      𝒔 ′ + 𝒚′        ∈ D (𝐾)𝐴             since 𝒔 + 𝒚 ⇒pop(𝑓 ) 𝒔 ′ + 𝒚 ′                  positions 𝑥 in enc(𝜎) where 𝜑 (𝑥) is satisfied. Then 𝑓𝜑 is a
+and therefore 𝒗 = 𝒔 ′ + 𝒙 ′ + 𝒚 ′ ∈ S(D (𝐾))𝐴 ⊆ S 2 (D (𝐾))𝐴 .                 □           counting function, which follows from the fact that MSO
+                                                                                           formulas define regular languages. For example, we could
+   Now the inclusion “⊇” in Proposition 17 follows easily: With 𝑖                          count the number of 𝑎’s such that there is no 𝑐 between the
+applications of Lemma 18, we see that D (S𝑖 (𝐾)) ⊆ S 2𝑖 (D (𝐾))                            𝑎 and the closest even-distance 𝑏.
+for every 𝑖 ≥ 0 and thus D (S𝜔 (𝐾)) ⊆ S𝜔 (D (𝐾))). By induction                        (3) Linear combinations: If 𝑓1, . . . , 𝑓𝑚 : Σ∗ → Z𝑛 are counting
+on 𝑗, this implies (S𝜔 ◦ D) 𝑗 (𝐾) ⊆ S𝜔 (D 𝑗 (𝐾)) for every 𝑗 ≥ 0.                          functions, then so is 𝑓 with 𝑓 (𝑤) = 𝜆1 𝑓1 (𝑤)+· · ·+𝜆𝑚 𝑓𝑚 (𝑤)
+Thus, we obtain (S𝜔 ◦ D)𝜔 (𝐾) ⊆ S𝜔 (D 𝜔 (𝐾)).                                              for some 𝜆1, . . . , 𝜆𝑚 ∈ Z. This can be shown with a simple
+                                                                                           product construction.
+4    WORD EQUATIONS WITH COUNTING                                                      (4) Length function: The function 𝐿𝑋 with 𝐿𝑋 (enc(𝜎)) = |𝜎 (𝑋 )|
+     CONSTRAINTS                                                                           for some 𝑋 ∈ Ω. For this, we can take a linear combination
+Let Ω be a finite collection of variables and 𝐴 a finite set of letters,                   of letter counting functions.
+and consider the word equation (𝑈 , 𝑉 ) over (𝐴, Ω). Recall that a                    The following is the problem of word equations with rational and
+solution to (𝑈 , 𝑉 ) is a morphism 𝜎 : (Ω ∪ 𝐴) ∗ → 𝐴∗ that fixes 𝐴                 counting constraints:
+point-wise and such that 𝜎 (𝑈 ) = 𝜎 (𝑉 ).                                          Given A word equation (𝑈 , 𝑉 ) with rational constraints and a
+   A word equation with rational constraints is a word equation                          counting function 𝑓 : (𝐴 ∪ {#}) ∗ → Z𝑛
+(𝑈 , 𝑉 ) together with a regular language 𝑅𝑋 ⊆ 𝐴∗ for each variable                Question Is there a solution 𝜎 that satisfies 𝑓 (enc(𝜎)) = 0?
+𝑋 ∈ Ω. In this situation, we say that 𝜎 : Ω → 𝐴∗ is a solution if it is
+a solution to the word equation (𝑈 , 𝑉 ) and also satisfies 𝜎 (𝑋 ) ∈ 𝑅𝑋            As Büchi and Senger showed [16, Corollary 4], this problem in full
+for each 𝑋 ∈ Ω.                                                                    generality is undecidable. However, it remains a well-known open
+                                                                                   problem whether this problems is decidable when we restrict to
+Representing solutions. We will rely on a result that provides a                   length constraints. We say that 𝑓 : (𝐴 ∪ {#}) ∗ → Z𝑛 is a length
+language-theoretic description of the set of solutions of an equation,             constraint if each projection to a component of Z𝑛 is a linear com-
+which requires a representation as words. Given a map 𝜎 : Ω → 𝐴∗                   bination of length functions as in Item 4 above. Thus, a length
+with Ω = {𝑋 1, . . . , 𝑋𝑘 }, we define                                             constraint can express that 𝜎 (𝑋 ) has the same length as 𝜎 (𝑌 ) for
+                      enc(𝜎) = 𝜎 (𝑋 1 )# · · · #𝜎 (𝑋𝑘 ),                           𝑋, 𝑌 ∈ Ω. The problem of word equations with rational and length
+                                                                                   constraints is the following:
+where # is a fresh letter not in 𝐴. Hence, enc(𝜎) ∈ (𝐴 ∪ {#}) ∗ .
+                                                                                   Given A word equation (𝑈 , 𝑉 ) with rational constraints and a
+Counting functions. Counting constraints will be expressed using                         length constraint 𝑓 : (𝐴 ∪ {#}) ∗ → Z𝑛
+counting functions, which are functions 𝑓 : (𝐴 ∪ {#}) ∗ → Z𝑛 that                  Question Is there a solution 𝜎 that satisfies 𝑓 (enc(𝜎)) = 0?
+are rational when viewed as a relation ⊆ (𝐴∪{#}) ∗ ×Z𝑛 . A counting
+                                                                                      We will show here that a restriction of word equations with
+transducer is a finite automaton T = (𝑄, Σ, 𝐸, 𝑞 0, 𝐹 ), where 𝑄 is a
+                                                                                   rational constraints and counting constraints is decidable. In this
+finite set of states, Σ is its input alphabet, 𝐸 ⊆ 𝑄 × Σ∗ × Z𝑛 × 𝑄 is its
+                                                                                   restriction, we require 𝑓 (enc(𝜎)) ≠ 0 rather than 𝑓 (enc(𝜎)) = 0.
+edge relation, 𝑞 0 ∈ 𝑄 is its initial state, and 𝐹 ⊆ 𝑄 is its set of final
+                                                                                   The problem of word equations with rational constraints and counting
+states. A run is a sequence
+                                                                                   inequations is the following:
+                      𝑞 0 (𝑤 1, 𝒙 1 )𝑞 1 · · · (𝑤𝑚 , 𝒙𝑚 )𝑞𝑚                        Given A word equation (𝑈 , 𝑉 ) with rational constraints and a
+with 𝑞 0, . . . , 𝑞𝑚 ∈ 𝑄, 𝑤 1, . . . , 𝑤𝑚 ∈ Σ∗ , and 𝒙 1, . . . , 𝒙𝑚 ∈ Z𝑛 such           counting function 𝑓 : (𝐴 ∪ {#}) ∗ → Z𝑛
+that each (𝑞𝑖 , 𝑤𝑖+1, 𝒙𝑖+1, 𝑞𝑖+1 ) ∈ 𝐸, and 𝑞𝑚 ∈ 𝐹 . The relation defined          Question Is there a solution 𝜎 that satisfies 𝑓 (enc(𝜎)) ≠ 0?
+                                                                                                                                 Laura Ciobanu and Georg Zetzsche
+
+
+Here, we show that word equations with rational constraints and                Transductions. First, we need a standard notion from language
+counting inequations are decidable (Theorem 5).                                theory. A finite-state transducer is defined like a counting trans-
+   Before we come to the proof, let us mention that Theorem 5 yields           ducer, except that instead of the Z𝑛 component on the edges, we
+a decidable fragment of word equations with length constraints.                have words over some output alphabet Γ ∗ . It recognizes a relation
+This is because in the special case that 𝑓 is a length constraint,             𝑅 ⊆ Σ∗ × Γ ∗ which is defined in the same way as for counting
+the inequation 𝑓 (enc(𝜎)) ≠ 0 can be expressed using length equa-              transducers (except that instead of adding output vectors, we con-
+tions by standard tricks: Suppose 𝑓 = 𝜆1 𝑓1 + · · · + 𝜆𝑚 𝑓𝑚 is a linear        catenate output words). A relation 𝑅 ⊆ Σ∗ × Γ ∗ is rational if it is
+combination of length functions 𝑓1, . . . , 𝑓𝑚 , with 𝜆1, . . . , 𝜆𝑘 > 0 and   recognized by some finite-state transducer. For a language 𝐿 ⊆ Σ∗ ,
+𝜆𝑘+1, . . . , 𝜆𝑚 < 0, where 𝑓𝑖 (enc(𝜎)) = |𝜎 (𝑋𝑖 )| for variable 𝑋𝑖 ∈ Ω.       we define 𝑅𝐿 := {𝑣 ∈ Γ ∗ | ∃(𝑢, 𝑣) ∈ 𝑅 : 𝑢 ∈ 𝐿}. It is well-known that
+Then 𝜎 is a solution with 𝑓 (enc(𝜎)) ≠ 0 if and only if there is a             indexed languages are (effectively) closed under applying rational
+letter 𝑎 ∈ 𝐴 and a system with                                                 transductions. In other words, for every indexed language 𝐿, we
+                                                                               can compute an indexed grammar for the language 𝑅𝐿.
+                                      |𝜆   |     |𝜆 |
+      𝑋 = 𝑋 1𝜆1 · · · 𝑋𝑘𝜆𝑘 ,   𝑌 = 𝑋𝑘+1
+                                      𝑘+1
+                                          · · · 𝑋𝑚 𝑚 ,   |𝑋 | = |𝑌𝑎𝑍 |
+                                                                               Solution sets of word equations. Our proof crucially relies on a struc-
+or                                                                             tural description of solution sets of word equations with rational
+                                                                               constraints from [19, Theorem 1]:
+                                     |𝜆    |     |𝜆 |
+      𝑋 = 𝑋 1𝜆1 · · · 𝑋𝑘𝜆𝑘 ,   𝑌 = 𝑋𝑘+1
+                                      𝑘+1
+                                          · · · 𝑋𝑚 𝑚 ,   |𝑌 | = |𝑋𝑎𝑍 |,
+                                                                                 Theorem 20 (Ciobanu, Elder, Diekert 2015). For every word
+depending on whether 𝑓 (enc(𝜎)) > 0 or 𝑓 (enc(𝜎)) < 0. where                   equation (𝑈 , 𝑉 ) with rational constraints, the language
+𝑋, 𝑌 , 𝑍 are fresh variables. This can easily be expressed by word                               {enc(𝜎) | 𝜎 : Ω → 𝐴∗ is a solution}                          (9)
+equations with length constraints (relying on the standard fact that
+                                                                               is an EDT0L language.
+several equations for words can be translated into a single equation).
+Thus, Theorem 5 yields in particular a decidable non-trivial frag-                 Here, we do not need the exact definition of an EDT0L language,
+ment of word equations with length constraints. Similarly, counting            it suffices to know that the EDT0L languages are (effectively) a sub-
+inequations can always be encoded in word equations with count-                class of the indexed languages. This allows us to prove Theorem 5.
+ing constraints.
+   One can view Theorem 5 as showing that it is decidable whether                  Proof of Theorem 5. Given a word equation (𝑈 , 𝑉 ) with ra-
+all solutions 𝜎 to a word equation (𝑈 , 𝑉 ) with rational constraints          tional constraints and a counting function 𝑓 : (𝐴 ∪ {#}) ∗ → Z𝑛 , we
+satisfy 𝑓 (enc(𝜎)) = 0 for some given counting function 𝑓 . One                first construct an indexed grammar for the language Eq. (9), which
+might wonder whether in all these cases, satisfaction of 𝑓 (enc(𝜎)) =          we denote 𝐿. Next, from 𝑓 , we construct a finite-state transducer
+0 for all solutions 𝜎 is already implied by the equality Ψ(𝜎 (𝑈 )) =           for a relation 𝑅 𝑓 ⊆ (𝐴 ∪ {#}) ∗ × Γ ∗ with Γ = {𝑎 1, 𝑎¯1, . . . , 𝑎𝑛 , 𝑎¯𝑛 }
+Ψ(𝜎 (𝑉 )) and the rational constraints. The following example shows            such that for every 𝑢 ∈ (𝐴 ∪ {#}) ∗ , there is a word 𝑣 ∈ Γ ∗ such that
+that this is not the case.                                                                     𝑓 (𝑢) = (|𝑣 |𝑎1 − |𝑣 |𝑎¯1 , . . . , |𝑣 |𝑎𝑛 − |𝑣 |𝑎¯𝑛 )
+   Example 19. Suppose Ω = {𝑋 1, 𝑋 2, 𝑋 3 }, 𝐴 = {𝑎, 𝑏, 𝑐}, and con-           and (𝑢, 𝑣) ∈ 𝑅 𝑓 . This is easy: Given the counting transducer for 𝑓 ,
+sider the word equation                                                        we just turn each edge labeled (𝑤, (𝑥 1, . . . , 𝑥𝑛 )) into one labeled
+                                                                                     (𝑥 )       (𝑥 )           (𝑥 )
+                                                                               (𝑤, 𝑎 1 1 · · · 𝑎𝑛 𝑛 ), where 𝑎𝑖 𝑖 is defined as 𝑎𝑖𝑥𝑖 if 𝑥𝑖 ≥ 0 and as
+                           𝑎𝑏𝑋 1𝑐𝑋 1𝑏𝑎 = 𝑋 1𝑎𝑏𝑐𝑋 2𝑋 3                           |𝑥 |
+                                                                               𝑎¯𝑖 𝑖 if 𝑥𝑖 < 0. Now clearly, our instance of word equations with
+with rational constraints 𝑋 1, 𝑋 3 ∈ {𝑎, 𝑏}∗ , and 𝑋 2 ∈ {𝑎𝑏}∗𝑏𝑎. Un-          rational constraints and counting inequations is negative if and
+der these constraints, the equation is equivalent to the pair of               only if Ψ(𝑅 𝑓 𝐿) ⊆ 𝑆, where
+equations 𝑎𝑏𝑋 1 = 𝑋 1𝑎𝑏 and 𝑋 1𝑏𝑎 = 𝑋 2𝑋 3 . It is a basic fact from                    𝑆 = {𝒛 ∈ NΓ | 𝒛(𝑎 1 ) = 𝒛(𝑎¯1 ), . . . , 𝒛(𝑎𝑛 ) = 𝒛 (𝑎¯𝑛 )}.
+word combinatorics (see e.g. [9, Exercise 2.5]) that the equation
+𝑎𝑏𝑋 1 = 𝑋 1𝑎𝑏 is equivalent to 𝑋 1 ∈ {𝑎𝑏}∗ . This means, 𝑋 1𝑏𝑎 = 𝑋 2𝑋 3        Notice that 𝑆 is a slice, since it is the solution set of a homogeneous
+and 𝑋 2 ∈ {𝑎𝑏}∗𝑏𝑎 imply |𝑋 3 | = 0. Thus, the length constraint                linear equation. Therefore, our instance is negative if and only if
+𝑓 : (𝐴 ∪ {#}) ∗ → Z with 𝑓 (𝑢#𝑣#𝑤) = |𝑤 | satisfies 𝑓 (enc(𝜎)) = 0             S𝜔 (Ψ(𝑅 𝑓 𝐿)) ⊆ 𝑆, which we can decide because we can construct
+for every solution 𝜎. However, if we take the equation                         an indexed grammar for 𝑅 𝑓 𝐿 and Theorem 1 allows us to compute
+                                                                               a Presburger formula for S𝜔 (Ψ(𝑅 𝑓 𝐿)).                               □
+                           𝑎𝑏𝑋 1𝑐𝑋 1𝑏𝑎 = 𝑎𝑏𝑋 1𝑐𝑋 2𝑋 3
+                                                                               Remark on the proof of Theorem 5. It should be noted that if 𝐿 ⊆
+instead (with the same rational constraints), then 𝑎𝑏𝑋 1 = 𝑎𝑏𝑋 1 is            {𝑎 1, 𝑎¯1, ..., 𝑎𝑛 , 𝑎¯𝑛 } is an EDT0L language, one can use affine pro-
+satisfied for any 𝑋 1 . In particular, for every 𝑘 ≥ 1, we have a solution     grams (i.e. the results by Karr [44] and Müller-Olm and Seidl [63])
+𝜎 with 𝜎 (𝑋 1 ) = 𝑎𝑏 (𝑏𝑎)𝑘 , 𝜎 (𝑋 2 ) = 𝑎𝑏𝑏𝑎, 𝜎 (𝑋 3 ) = (𝑏𝑎)𝑘 , where         or weighted automata over a field [26, p.143–145] (see also [14,
+𝑓 (enc(𝜎)) = 2𝑘. This shows that the satisfaction the satisfaction             Chapter 8]) to decide whether for every word in 𝐿, the number
+of counting constraints for all solutions of (U,V) doesn’t depend              of 𝑎𝑖 is the same as the number of 𝑎¯𝑖 . (As far as we can tell, this
+only on (Ψ(𝑈 ), Ψ(𝑉 )) and the rational constraints imposed on the             has not been observed in the literature, but it is not difficult to
+variables.                                                                     show.) However, it is crucial in our proof that we can do this for the
+                                                                               language 𝑅 𝑓 𝐿, which is obtained using the rational transduction
+     The remainder of this section is devoted to proving Theorem 5.            𝑅 𝑓 from an EDT0L language, and EDT0L languages are not closed
+Slice closures of indexed languages and word equations with counting constraints
+
+
+under rational transductions (see, e.g. [25, Lemma 3.7]), whereas                          [9]   J. Berstel. 1979. Transductions and Context-Free Languages. B. G. Teubner,
+indexed languages are. It seems possible that for some (but most                                 Stuttgart. doi: 10.1007/978-3-663-09367-1_2.
+                                                                                          [10]   Jean Berstel and Luc Boasson. 2002. Formal properties of XML grammars and
+likely not all) counting functions 𝑓 , one can modify the proof of                               languages. Acta Informatica, 38, 9, 649–671. doi: 10.1007/S00236-002-0085-4.
+[19, Thm. 1] to directly yield an EDT0L language for 𝑅 𝑓 𝐿, and then                      [11]   Michael Blondin, Alain Finkel, and Pierre McKenzie. 2018. Handling infinitely
+                                                                                                 branching well-structured transition systems. Inf. Comput., 258, 28–49. doi:
+apply the aforementioned methods. This remains to be explored.                                   10.1016/J.IC.2017.11.001.
+                                                                                          [12]   Adrien Boiret, Radoslaw Piórkowski, and Janusz Schmude. 2018. Reducing
+5      CONCLUSION                                                                                transducer equivalence to register automata problems solved by "Hilbert
+                                                                                                 method". In Proc. of FSTTCS 2018. Schloss Dagstuhl - Leibniz-Zentrum für
+This work initiates the study of slices closures of indexed languages,                           Informatik, 48:1–48:16. doi: 10.4230/LIPICS.FSTTCS.2018.48.
+and thus models of higher-order recursion. There are many ques-                           [13]   Mikołaj Bojańczyk. 2019. The Hilbert method for transducer equivalence. ACM
+                                                                                                 SIGLOG News, 6, 1, 5–17. doi: 10.1145/3313909.3313911.
+tions that arise. The most immediate question is whether slice                            [14]   Mikołaj Bojańczyk and Wojciech Czerwiński. 2018. An automata toolbox. (2018).
+closure computation (or decidability of (1)) is also possible for safe                           https://www.mimuw.edu.pl/~bojan/paper/automata-toolbox-book.
+or unsafe HORS of orders ≥ 3.                                                             [15]   Ahmed Bouajjani, Javier Esparza, and Oded Maler. 1997. Reachability analysis
+                                                                                                 of pushdown automata: application to model-checking. In Proc. of CONCUR
+   Second: What is the complexity of computing slice closures of                                 1997 (Lecture Notes in Computer Science). Vol. 1243. Springer, 135–150. doi:
+indexed languages? The algorithm presented here is a saturation                                  10.1007/3-540-63141-0\_10.
+                                                                                          [16]   J Richard Büchi and Steven Senger. 1990. Definability in the existential theory of
+algorithm where each step involves an enumeration-based proce-                                   concatenation and undecidable extensions of this theory. In The Collected Works
+dure for computing the slice closure of a semilinear set. The first                              of J. Richard Büchi. Springer, 671–683. doi: 10.1007/978-1-4613-8928-6_37.
+challenge is the lack of complexity bounds for computing the slice                        [17]   Marco Campion, Mila Dalla Preda, and Roberto Giacobazzi. 2019. Abstract
+                                                                                                 interpretation of indexed grammars. In Proc. of SAS 2019. Springer, 121–139.
+closure of a semilinear set. However, even with such a bound, it                                 doi: 10.1007/978-3-030-32304-2_7.
+would not be clear how to bound the saturation. Since the ascending                       [18]   Dmitry Chistikov, Rupak Majumdar, and Philipp Schepper. 2022. Subcubic
+chain condition for slices (and thus termination of our algorithm)                               certificates for CFL reachability. In Proc. of POPL 2022. ACM, 1–29. doi: 10.114
+                                                                                                 5/3498702.
+ultimately results from Dickson’s lemma, it seems tempting to use                         [19]   Laura Ciobanu, Volker Diekert, and Murray Elder. 2015. Solution sets for equa-
+length function theorems for vector orderings (e.g. [70, Thm. 3.15])                             tions over free groups are EDT0L languages. In Proc. of ICALP 2015. Springer,
+                                                                                                 134–145. doi: 10.1007/978-3-662-47666-6_11.
+to at least obtain an Ackermannian upper bound. In [32, Prop. 4.8],                       [20]   Lorenzo Clemente, Pawel Parys, Sylvain Salvati, and Igor Walukiewicz. 2016.
+such an approach has been developed for ascending chains of con-                                 The diagonal problem for higher-order recursion schemes is decidable. In Proc.
+gruences, but it is not clear how to extend this to slices.                                      of POPL 2016. ACM, 96–105. doi: 10.1145/2933575.2934527.
+                                                                                          [21]   Werner Damm. 1982. The IO- and OI-hierarchies. Theor. Comput. Sci., 20, 95–
+   Finally: Can we decide whether every vector in Ψ(𝐿) satisfies                                 207. doi: 10.1016/0304-3975(82)90009-3.
+a given polynomial equation? For affine programs, this is decid-                          [22]   Werner Damm and Andreas Goerdt. 1986. An automata-theoretical characteri-
+able [64], and one can even compute the Zariski closure [42].                                    zation of the OI-hierarchy. Inf. Control., 71, 1/2, 1–32. doi: 10.1016/S0019-9958
+                                                                                                 (86)80016-X.
+                                                                                          [23]   Joel D. Day, Vijay Ganesh, Paul He, Florin Manea, and Dirk Nowotka. 2018.
+ACKNOWLEDGMENTS                                                                                  The satisfiability of word equations: decidable and undecidable theories. In
+                                                                                                 Proc. of RP 2018. Springer, 15–29. doi: 10.1007/978-3-030-00250-3_2.
+         Funded by the European Union (ERC, FINABIS, 101077902).                          [24]   Volker Diekert, Claudio Gutiérrez, and Christian Hagenah. 2005. The existen-
+Views and opinions expressed are however those of the authors                                    tial theory of equations with rational constraints in free groups is PSPACE-
+                                                                                                 complete. Information and Computation, 202, 105–140. doi: 10.1016/j.ic.2005.04
+only and do not necessarily reflect those of the European Union                                  .002.
+or the European Research Council Executive Agency. Neither the                            [25]   Andrzej Ehrenfeucht, Grzegorz Rozenberg, and Sven Skyum. 1976. A relation-
+European Union nor the granting authority can be held responsible                                ship between ET0L and EDT0L languages. Theoretical Computer Science, 1, 4,
+                                                                                                 325–330. doi: 10.1016/0304-3975(76)90076-1.
+for them.                                                                                 [26]   Samuel Eilenberg. 1974. Automata, Languages, and Machines (Vol. A). Academic
+                                                                                                 Press, New York.
+REFERENCES                                                                                [27]   Samuel Eilenberg and Marcel-Paul Schützenberger. 1969. Rational sets in com-
+                                                                                                 mutative monoids. J. Algebra, 13, 2, 173–191. doi: 10.1016/0021-8693(69)90070-
+ [1]   Parosh Aziz Abdulla, Kārlis Čerāns, Bengt Jonsson, and Yih-Kuen Tsay. 1996.             2.
+       General decidability theorems for infinite-state systems. In Proc. of LICS 1996.   [28]   Joost Engelfriet. 1991. Iterated stack automata and complexity classes. Inf.
+       IEEE Computer Society, 313–321. doi: 10.1109/LICS.1996.561359.                            Comput., 95, 1, 21–75. doi: 10.1016/0890-5401(91)90015-T.
+ [2]   Klaus Aehlig, Jolie G. de Miranda, and C.-H. Luke Ong. 2005. Safety is not a       [29]   Emmanuel Filiot and Pierre-Alain Reynier. 2017. Copyful streaming string
+       restriction at level 2 for string languages. In Proc. of FOSSACS 2005 (Lecture            transducers. In Proc. of RP 2017. Springer, 75–86. doi: 10.1007/978-3-319-67089
+       Notes in Computer Science). Vol. 3441. Springer, 490–504. doi: 10.1007/978-3-             -8_6.
+       540-31982-5_31.                                                                    [30]   Alain Finkel and Philippe Schnoebelen. 2001. Well-structured transition sys-
+ [3]   Alfred V. Aho. 1968. Indexed grammars - an extension of context-free grammars.            tems everywhere! Theor. Comput. Sci., 256, 1-2, 63–92. doi: 10.1016/S0304-3975
+       J. ACM, 15, 4, 647–671. doi: 10.1145/321479.321488.                                       (00)00102-X.
+ [4]   Roberto Amadini. 2021. A survey on string constraint solving. ACM Comput.          [31]   Peter Freyd. 1968. Rédei’s finiteness theorem for commutative semigroups.
+       Surv., 55, 1. doi: 10.1145/3484198.                                                       Proc. of the AMS, 19, 1003. doi: 10.1090/S0002-9939-1968-0227290-4.
+ [5]   David Barozzini, Lorenzo Clemente, Thomas Colcombet, and Pawel Parys. 2022.        [32]   Moses Ganardi, Rupak Majumdar, Andreas Pavlogiannis, Lia Schütze, and
+       Cost automata, safe schemes, and downward closures. Fundam. Informaticae,                 Georg Zetzsche. 2022. Reachability in bidirected pushdown VASS. In Proc. of
+       188, 3, 127–178. doi: 10.3233/FI-222145.                                                  ICALP 2022, 124:1–124:20. doi: 10.4230/LIPICS.ICALP.2022.124.
+ [6]   Pascal Baumann, Moses Ganardi, Rupak Majumdar, Ramanathan S. Thinniyam,            [33]   Vijay Ganesh, Mia Minnes, Armando Solar-Lezama, and Martin Rinard. 2012.
+       and Georg Zetzsche. 2023. Checking refinement of asynchronous programs                    Word equations with length constraints: what’s decidable? In Proc. of HVC 2012.
+       against context-free specifications. In Proc. of ICALP 2023 (LIPIcs). Schloss             Vol. 7857. (Nov. 2012), 209–226. doi: 10.1007/978-3-642-39611-3_21.
+       Dagstuhl - Leibniz-Zentrum für Informatik, 110:1–110:20. doi: 10.4230/LIPICS.      [34]   Seymour Ginsburg and Edwin Spanier. 1966. Semigroups, Presburger formulas,
+       ICALP.2023.110.                                                                           and languages. Pacific journal of Mathematics, 16, 2, 285–296. doi: 10.2140/pjm
+ [7]   Pascal Baumann, Moses Ganardi, Rupak Majumdar, Ramanathan S. Thinniyam,                   .1966.16.285.
+       and Georg Zetzsche. 2023. Context-bounded verification of context-free speci-      [35]   Jan Grabowski. 1981. An algorithm to identify slices, with applications to
+       fications. In Proc. on POPL 2023. ACM. doi: 10.1145/3571266.                              vector replacement systems. In Proc. of FCT 1981. Ferenc Gécseg, (Ed.) Vol. 117.
+ [8]   Michael Benedikt, Timothy Duff, Aditya Sharad, and James Worrell. 2017.                   Springer, 425–432. doi: 10.1007/3-540-10854-8_46.
+       Polynomial automata: zeroness and applications. In Proc. of LICS 2017. IEEE
+       Computer Society, 1–12. doi: 10.1109/LICS.2017.8005101.
+                                                                                                                                                Laura Ciobanu and Georg Zetzsche
+
+
+[36]   Matthew Hague, Jonathan Kochems, and C.-H. Luke Ong. 2016. Unboundedness               [65]   C.-H. Luke Ong. 2006. On model-checking trees generated by higher-order
+       and downward closures of higher-order pushdown automata. In Proc. of POPL                     recursion schemes. In Proc. of LICS 2006. IEEE Computer Society, 81–90. doi:
+       2016. ACM, 151–163. doi: 10.1145/2837614.2837627.                                             10.1109/LICS.2006.38.
+[37]   Matthew Hague, Andrzej S. Murawski, C.-H. Luke Ong, and Olivier Serre. 2008.           [66]   Wojciech Plandowski. 2004. Satisfiability of word equations with constants is
+       Collapsible pushdown automata and recursion schemes. In Proc. of LICS 2008.                   in PSPACE. J. ACM, 51, 3, 483–496. doi: 10.1145/990308.990312.
+       IEEE Computer Society, 452–461. doi: 10.1109/LICS.2008.34.                             [67]   Ĺaszló Rédei. 1965. The theory of finitely generated commutative semigroups.
+[38]   Tero Harju and Juhani Karhumäki. 1991. The equivalence problem of multitape                   Oxford University Press, NY.
+       finite automata. Theor. Comput. Sci., 78, 2, 347–355. doi: 10.1016/0304-3975(91        [68]   William C. Rounds. 1970. Tree-oriented proofs of some theorems on context-
+       )90356-7.                                                                                     free and indexed languages. In Proc. of STOC 1970. Patrick C. Fischer, Robert
+[39]   Takeshi Hayashi. 1973. On derivation trees of indexed grammars—an extension                   Fabian, Jeffrey D. Ullman, and Richard M. Karp, (Eds.) ACM, 109–116. doi:
+       of the uvwxy-theorem—. Publications of the Research Institute for Mathematical                10.1145/800161.805156.
+       Sciences, 9, 1, 61–92.                                                                 [69]   Sylvain Salvati and Igor Walukiewicz. 2011. Krivine machines and higher-order
+[40]   Yoram Hirshfeld. 1994. Congruences in commutative semigroups. LFCS, Depart-                   schemes. In Proc. of ICALP 2011 (Lecture Notes in Computer Science). Vol. 6756.
+       ment of Computer Science, University of Edinburgh Edinburgh.                                  Springer, 162–173. doi: 10.1007/978-3-642-22012-8_12.
+[41]   John E. Hopcroft and Jeffrey D. Ullman. 1979. Introduction to Automata Theory,         [70]   Sylvain Schmitz. 2017. Algorithmic Complexity of Well-Quasi-Orders. (Complex-
+       Languages and Computation. Addison-Wesley, Reading, Massachusetts.                            ité algorithmique des beaux pré-ordres). https://tel.archives-ouvertes.fr/tel-016
+[42]   Ehud Hrushovski, Joël Ouaknine, Amaury Pouly, and James Worrell. 2023.                        63266.
+       On strongest algebraic program invariants. J. ACM, 70, 5, 29:1–29:22. doi:             [71]   Helmut Seidl, Sebastian Maneth, and Gregor Kemper. 2015. Equivalence of
+       10.1145/3614319.                                                                              deterministic top-down tree-to-string transducers is decidable. In Proc. of FOCS
+[43]   Petr Jančar. 1994. Decidability questions for bismilarity of Petri nets and some              2015. IEEE Computer Society, 943–962. doi: 10.1109/FOCS.2015.62.
+       related problems. In Proc. of STACS 1994 (Lecture Notes in Computer Science).          [72]   Tim Smith. 2014. On infinite words determined by indexed languages. In Proc.
+       Springer, 581–592. doi: 10.1007/3-540-57785-8_173.                                            of MFCS 2014, 511–522. doi: 10.1007/978-3-662-44522-8_43.
+[44]   Michael Karr. 1976. Affine relationships among variables of a program. Acta            [73]   Akihiko Tozawa and Yasuhiko Minamide. 2007. Complexity results on balanced
+       Informatica, 6, 133–151. doi: 10.1007/BF00268497.                                             context-free languages. In Proc. of FOSSACS 2007 (Lecture Notes in Computer
+[45]   Naoki Kobayashi. 2019. Inclusion between the frontier language of a non-                      Science). Springer, 346–360. doi: 10.1007/978-3-540-71389-0_25.
+       deterministic recursive program scheme and the Dyck language is undecidable.           [74]   Yuya Uezato and Yasuhiko Minamide. 2016. Monoid-based approach to the
+       Theor. Comput. Sci., 777, 409–416. doi: 10.1016/J.TCS.2018.09.035.                            inclusion problem on superdeterministic pushdown automata. In Proc. of DLT
+[46]   Naoki Kobayashi. 2013. Model checking higher-order programs. J. ACM, 60, 3,                   2016 (Lecture Notes in Computer Science). Vol. 9840. Springer, 393–405. doi:
+       20:1–20:62. doi: 10.1145/2487241.2487246.                                                     10.1007/978-3-662-53132-7_32.
+[47]   Naoki Kobayashi. 2009. Types and higher-order recursion schemes for verifi-            [75]   Georg Zetzsche. 2015. An approach to computing downward closures. In Proc.
+       cation of higher-order programs. In Proc. of POPL 2009. ACM, 416–428. doi:                    of ICALP 2015 (Lecture Notes in Computer Science). Vol. 9135. Springer, 440–
+       10.1145/1480881.1480933.                                                                      451. doi: 10.1007/978-3-662-47666-6_35.
+[48]   Naoki Kobayashi and C.-H. Luke Ong. 2009. A type system equivalent to the              [76]   Georg Zetzsche. 2015. An approach to computing downward closures. CoRR,
+       modal mu-calculus model checking of higher-order recursion schemes. In Proc.                  abs/1503.01068. arXiv: 1503.01068.
+       of LICS 2009. IEEE Computer Society, 179–188. doi: 10.1109/LICS.2009.29.               [77]   Georg Zetzsche. 2016. Monoids as Storage Mechanisms. Ph.D. Dissertation.
+[49]   Ulla Koppenhagen and Ernst W. Mayr. 1999. An optimal algorithm for con-                       Kaiserslautern University of Technology, Germany. https://kluedo.ub.rptu.de/f
+       structing the reduced Gröbner basis of binomial ideals. J. Symb. Comput., 28, 3,              rontdoor/index/index/docId/4400.
+       317–338. doi: 10.1006/JSCO.1999.0285.
+[50]   Ulla Koppenhagen and Ernst W. Mayr. 2001. An optimal algorithm for con-
+       structing the reduced Gröbner basis of binomial ideals, and applications to
+       commutative semigroups. J. Symb. Comput., 31, 1/2, 259–276. doi: 10.1006
+       /JSCO.1999.1015.
+[51]   Ulla Koppenhagen and Ernst W. Mayr. 2000. Optimal algorithms for the cov-
+       erability, the subword, the containment, and the equivalence problems for
+       commutative semigroups. Inf. Comput., 158, 2, 98–124. doi: 10.1006/INCO.1999
+       .2812.
+[52]   Jérôme Leroux. 2022. Compiling Petri net mutual reachability in Presburger.
+       CoRR, abs/2210.09931. arXiv: 2210.09931. doi: 10.48550/ARXIV.2210.09931.
+[53]   Jérôme Leroux. 2011. Vector addition system reversible reachability problem. In
+       Proc. of CONCUR 2011. Springer, 327–341. doi: 10.1007/978-3-642-23217-6_22.
+[54]   Anthony W. Lin and Rupak Majumdar. 2021. Quadratic word equations with
+       length constraints, counter systems, and Presburger arithmetic with divisibility.
+       Log. Methods Comput. Sci., 17, 4. doi: 10.46298/LMCS-17(4:4)2021.
+[55]   Raphaela Löbel, Michael Luttenberger, and Helmut Seidl. 2021. On the balanced-
+       ness of tree-to-word transducers. Int. J. Found. Comput. Sci., 32, 6, 761–783. doi:
+       10.1142/S0129054121420077.
+[56]   Rupak Majumdar, Ramanathan S. Thinniyam, and Georg Zetzsche. 2022. Gen-
+       eral decidability results for asynchronous shared-memory programs: higher-
+       order and beyond. Log. Methods Comput. Sci., 18, 4. doi: 10.46298/LMCS-18(4:2
+       )2022.
+[57]   G.S. Makanin. 1977. The problem of solvability of equations in a free semigroup.
+       Sb.: Math., 32, 129–198, 2. doi: 10.1070/SM1977v032n02ABEH002376.
+[58]   Sebastian Maneth and Helmut Seidl. 2018. Balancedness of MSO transductions
+       in polynomial time. Inf. Process. Lett., 133, 26–32. doi: 10.1016/J.IPL.2018.01.002.
+[59]   A. N. Maslov. 1976. Multilevel stack automata. Problems of Information Trans-
+       mission, 12, 38–43. https://www.mathnet.ru/eng/ppi1676.
+[60]   A. N. Maslov. 1974. The hierarchy of indexed languages of an arbitrary level.
+       Soviet Math. Dokl., 15, 1170–1174. https://www.mathnet.ru/eng/dan38470.
+[61]   Ernst W Mayr and Albert R Meyer. 1982. The complexity of the word problems
+       for commutative semigroups and polynomial ideals. Advances in mathematics,
+       46, 3, 305–329. doi: 10.1016/0001-8708(82)90048-2.
+[62]   Richard Mayr. 2003. Undecidable problems in unreliable computations. Theor.
+       Comput. Sci., 297, 1-3, 337–354. doi: 10.1016/S0304-3975(02)00646-1.
+[63]   Markus Müller-Olm and Helmut Seidl. 2004. A note on Karr’s algorithm. In
+       Proc. of ICALP 2004. Springer, 1016–1028. doi: 10.1007/978-3-540-27836-8_85.
+[64]   Markus Müller-Olm and Helmut Seidl. 2004. Computing polynomial program
+       invariants. Inf. Process. Lett., 91, 5, 233–244. doi: 10.1016/J.IPL.2004.05.004.
+
