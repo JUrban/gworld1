@@ -507,3 +507,31 @@ candidate or solvable-quotient computational search follows.
 
 H16's automatic/biautomatic distinction and S4–S8's existing scope gaps
 remain. No imported Kourovka mathematics, author contact or push.
+
+## 2026-09-28 approximately 17:59–18:08 UTC — terminating M0 construction
+
+Developed an explicit finite-field selection for the existing M0 proof.
+A base-B Kronecker substitution separates the Laurent determinant's
+monomials. After shifting to a polynomial of degree D, choose a prime
+not dividing either endpoint coefficient, then an irreducible factor.
+Its residue root is nonzero and different from one. This gives a proved
+field-order bound and a direct Nielsen basis for the character, avoiding
+discrete logarithms. Polynomial-basis digits give the transvection
+coefficients without enumerating all field elements.
+
+Implemented the separate scripts/m0_kronecker_witness.py. Twelve inputs
+in ranks1–4 produced nine witnesses and three unit determinants; fields
+of orders2,4,5,8,11 occur, longest basis word28. Four extra polynomial
+cases exercise substitution arithmetic. Python passed in0.42 seconds;
+independent GAP arithmetic verified all12 decisions in1.88 seconds.
+The first Python run used the default factorizer with no random seed;
+retained its exact source/output, switched explicitly to deterministic
+Berlekamp factorization, and reran. Final certificate JSON and GAP input
+are byte-identical, so the independent GAP check applies unchanged.
+
+All three runs used one core/8GB, passed with empty stderr, and their
+raw log hashes were checked. Wrote the complete finite-bound proof,
+limits, regeneration instructions and an artifact manifest. The old
+bounded constructor remains unchanged. This adds no result count;
+M0's specialist review and novelty audit are still outstanding. No
+external contact, push, subagents or parent-repo modification.

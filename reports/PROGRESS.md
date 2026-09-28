@@ -38,3 +38,9 @@ already recorded in the final paragraph of the website background. For
 S3, the 1998 primary paper also covers last-derived relators; the broader
 module-invariant route retains a group-ring annihilator obstruction.
 See `research/notes/S3-S9-scope-followup.md`. Neither adds a candidate.
+
+M0 now also has a terminating constructor with an explicit finite-field
+bound, using Kronecker substitution and deterministic factorization.
+GAP verified nine new witness certificates and three unit determinants.
+See `problems/M0/kronecker-construction.md`. This strengthens the same
+candidate and makes no claim of practical complexity or specialist review.

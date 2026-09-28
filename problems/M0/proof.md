@@ -200,3 +200,10 @@ and two deliberate bound-exhaustion controls. GAP independently verified all
 bound is explicit and exhaustion is inconclusive. See `constructor-audit.md`
 for the algorithm, evidence and three preserved failed checker runs. This
 does not change the theorem's scope or candidate count.
+
+A further construction replaces the field search cutoff by an explicit
+Kronecker substitution, a bound on the required field order, and
+deterministic polynomial factorization. It supplies an algorithm that
+terminates on every finite input, without a practical complexity bound.
+Twelve end-to-end cases have independent GAP certificates. The proof and
+implementation limits are in `kronecker-construction.md`.

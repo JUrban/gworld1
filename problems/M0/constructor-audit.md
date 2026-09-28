@@ -116,3 +116,9 @@ recorded runner around:
 The checks substantiate these finite constructions and conventions.
 They do not replace the universal proof or a novelty audit. The M0
 scope and the total experiment candidate count are unchanged.
+
+Follow-up, approximately 18:03 UTC: a separate terminating constructor now
+uses an explicit Kronecker substitution and deterministic factorization,
+with a proved finite-field bound. See `kronecker-construction.md`.
+The earlier bounded implementation and its original evidence above are
+retained unchanged.

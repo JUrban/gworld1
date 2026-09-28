@@ -196,3 +196,17 @@ audits; any attempt to repair the N3 construction must impose and prove
 new sufficient hypotheses on the profile while preserving arbitrary
 cardinality. No external specialist review or novelty certification has
 occurred. The original clock and three-whole/one-partial tally remain.
+
+## Working focus after the 18:08 UTC checkpoint
+
+S9 is retired as a prior full positive answer. S3's last-derived-relator
+cases are also prior; its broader Fox-module route still needs control
+of annihilators when torsion survives in the lower quotient. The exact
+obstruction is recorded, without a new claim.
+
+M0 now has a terminating constructive implementation with a proved
+finite-field bound; the earlier bounded implementation is retained.
+Do not enlarge its sample merely for volume. Return to a concrete
+unresolved mathematical lead, alternating with adversarial review.
+The count remains three whole-entry candidates and one partial, with
+zero established novel results. The original deadline remains fixed.
