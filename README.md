@@ -2,7 +2,7 @@
 
 **Active run: 28 September 2026, 10:04:49 UTC → 30 September 2026, 10:04:49 UTC.**
 
-[Current progress](reports/PROGRESS.md) · [Research plan](research/PLAN.md) · [Research log](research/LOG.md). The initial preparation snapshot is preserved in Git.
+[Current progress](reports/PROGRESS.md) · [Research plan](research/PLAN.md) · [Research log](research/LOG.md). The initial preparation snapshot is preserved in Git. The generated catalogue and problem READMEs retain their preparation status; current assessments are in [the working triage](research/triage.csv) and [dated claim ledger](research/claims.jsonl).
 
 This is a fresh repository for the collection of [open problems in combinatorial group theory](https://shpilrain.ccny.cuny.edu/gworld/problems/oproblems.html) selected by G. Baumslag, A. G. Myasnikov and V. Shpilrain, together with its [Hall of Fame](https://shpilrain.ccny.cuny.edu/gworld/problems/Halloffame.html). The snapshot was downloaded on 28 September 2026.
 

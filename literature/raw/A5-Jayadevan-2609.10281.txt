@@ -1,0 +1,448 @@
+                                                      Finite presentations of metabelian groups:
+                                                     effective enumeration via Laurent relations
+
+                                                                                      Achyuth Jayadevan
+                                                                             Manipal Institute of Technology, MAHE
+                                                                                 achyuth@jayadevan.in
+arXiv:2609.10281v1 [math.GR] 9 Sep 2026
+
+
+
+
+                                                                                            Abstract
+
+                                                  For an ordinary finite presentation 𝑃 = ⟨𝑥1 , . . . , 𝑥 𝑛 | 𝑅⟩, put 𝐺 (𝑃) = 𝐹𝑛 /⟨⟨𝑅⟩⟩. We
+                                                  construct a primitive-recursive predicate 𝑉 with
+                                                                         𝐺 (𝑃) ′′ = 1     ⇐⇒      ∃𝑐 ∈ N : 𝑉 (𝑃, 𝑐) = 1.
+                                                  Thus finite presentations of metabelian groups are recursively enumerable, answering
+                                                  Kourovka Problem 17.124. An effective form of the Bieri–Strebel covering construc-
+                                                  tion, using signed Laurent relations and rational separation, gives a family of finitely
+                                                  presented metabelian groups cofinal under epimorphisms. Products of conjugates of
+                                                  defining relators witness these epimorphisms. The construction and enumeration
+                                                  theorem are formalized in Lean 4.
+
+                                          1   The enumeration theorem
+
+                                          Let 𝐹𝑛 = 𝐹 (𝑥1 , . . . , 𝑥 𝑛 ) and let 𝑅 be a finite list of words in 𝐹𝑛 . We consider ordinary presentations
+                                                       𝑃 = ⟨𝑥1 , . . . , 𝑥 𝑛 | 𝑅⟩,      𝐺 (𝑃) = 𝐹𝑛 /⟨⟨𝑅⟩⟩,     M = {𝑃 : 𝐺 (𝑃) ′′ = 1}.
+                                          The empty generating set is allowed. Encodings with a letter outside {𝑥1 , . . . , 𝑥 𝑛 } are rejected.
+                                          Theorem 1.1. There is a primitive-recursive predicate 𝑉 on natural-number encodings of presenta-
+                                          tions and finite witnesses such that
+                                                                           𝑃∈M          ⇐⇒      ∃𝑐 ∈ N : 𝑉 (𝑃, 𝑐) = 1.                           (1.1)
+                                          In particular, M is recursively enumerable.
+                                          This answers the enumeration question in Kourovka Problem 17.124 [5] and the enumeration and
+                                          witness questions of Shpilrain [7, Problems 4 and 5]. The ordinary-presentation recognition question
+                                          also occurs in [2, Problem 42, arXiv version], with attribution to Miller [6].
+                                          The covering presentations come from Bieri and Strebel [3, §3.5, equations (3.1)–(3.4), Lemma 3.5
+                                          and §3.6]. We make their finite data effectively recognizable and obtain ordinary finite presentations
+                                          𝑃 𝑅 satisfying
+                                                               𝑃′′𝑅 = 1,        𝐺 ′′ = 1, 𝐺 finitely presented =⇒ ∃𝑃 𝑅 ↠ 𝐺.                      (1.2)
+Finite presentations of metabelian groups                                                                    Page 2 / 9
+
+
+
+A finite witness for the epimorphism consists of identities in a free group, each a product of
+conjugates of defining relators. These two ingredients give (1.1).
+The algorithms of Baumslag, Cannonito and Robinson [1, p. 630 and Theorems 2.1, 3.1] take finite
+presentations in the metabelian variety. Here the input is 𝐹𝑛 /⟨⟨𝑅⟩⟩ in the variety of all groups. The
+geometric and module-theoretic ingredients remain classical; the construction makes their finite
+data sufficient for ordinary-presentation enumeration.
+For abelian-by-cyclic groups, recursive enumerability of ordinary finite presentations is already
+recorded in the proof of [4, Lemma 11.4]. Theorem 1.1 treats arbitrary metabelian groups. Its
+certificate gives explicit finite Laurent data and normal-closure derivations witnessing metabelianity.
+
+2   Conventions and classical inputs
+
+We use right conjugation and right commutators:
+
+                                           𝑎 𝑤 = 𝑤 −1 𝑎𝑤,             [𝑎, 𝑏] = 𝑎 −1 𝑏 −1 𝑎𝑏.
+
+A group 𝐺 is metabelian when its derived subgroup 𝐺 ′ is abelian, equivalently when [[𝑎, 𝑏], [𝑐, 𝑑]] =
+1 for all 𝑎, 𝑏, 𝑐, 𝑑 ∈ 𝐺. Given letters 𝑡1 , . . . , 𝑡 𝑘 , put
+
+                                              𝑞(𝑣) = 𝑡1𝑣 1 · · · 𝑡 𝑘𝑣 𝑘           (𝑣 ∈ Z𝑘 ).
+
+We retain the literal inverse
+                                                      𝑞(𝑣) −1 = 𝑡 −𝑣       −𝑣 1
+                                                                  𝑘 · · · 𝑡1 .
+                                                                     𝑘
+
+
+Unsubscripted norms are Euclidean.
+Lemma 2.1 (Bieri–Strebel collection). Let 𝑘 ≥ 1 and let A be a finite alphabet, with a designated
+letter 𝑎𝑖 𝑗 for each 1 ≤ 𝑖 < 𝑗 ≤ 𝑘. For 𝜌 > 0, let 𝐻 𝜌 have generators 𝑡 1 , . . . , 𝑡 𝑘 and A, and relators
+
+                    [𝑡𝑖 , 𝑡 𝑗 ] = 𝑎𝑖 𝑗 ,           [𝑎, 𝑏 𝑞(𝑣) ] = 1        (𝑎, 𝑏 ∈ A, 𝑣 ∈ Z𝑘 , ∥𝑣∥ < 𝜌).
+
+Suppose 𝜌 > 2𝑘 and 𝑢, 𝑣 ∈ Z𝑘 satisfy
+                                             𝜌                              1
+                                ∥𝑢∥ ≤          ,         ∥𝑣∥ < 𝜌 +            ,           ∥𝑢 + 𝑣∥ < 𝜌.           (2.1)
+                                            2𝑘                             2𝑘
+Then, for all 𝑎, 𝑏 ∈ A, the following hold in 𝐻 𝜌 :
+                                                                                       −1 𝑞(𝑣) −1
+                                   [𝑎, 𝑏 𝑞(𝑢)𝑞(𝑣) ] = 1,                  [𝑎, 𝑏 𝑞(𝑢)                ] = 1.
+
+If all ordered commutation relators are imposed, with no radius restriction, the normal closure of A
+is abelian.
+
+These are the ordered and inverse-ordered cases of [3, Lemma 3.4b]; the normal-closure assertion is
+[3, Corollary 3.3]. The collection argument [3, Lemma 3.2] is valid in every quotient of 𝐻 𝜌 .
+For the second input, let 𝐴 be an abelian normal subgroup of a group 𝐸 with 𝐸/𝐴  Z𝑘 . Conjugation
+gives 𝐴 a right module structure over Z[𝑡1±1 , . . . , 𝑡 ±1
+                                                         𝑘 ], independent of the chosen lifts of the quotient
+generators. Let 𝐴 denote the inverse-action module, in which 𝑡𝑖 acts as 𝑡𝑖−1 acts on 𝐴.
+                  ∗
+Finite presentations of metabelian groups                                                               Page 3 / 9
+
+
+
+Lemma 2.2 (Finite signed tameness data). Let 𝑘 ≥ 1. Suppose 𝐸 is finitely presented and metabelian,
+𝐸/𝐴  Z 𝑘 , and 𝐴 is finitely generated as a Z[𝑡1±1 , . . . , 𝑡 ±1
+                                                                𝑘 ]-module. There is a finite family of
+nonzero Laurent polynomials
+                                    ∑︁
+                                𝜆=      𝑐𝜆,𝑢 𝑡 𝑢 (𝑐𝜆,𝑢 ∈ Z \ {0}),
+                                            𝑢∈𝑆𝜆
+
+indexed by a signed family Λ = Λ+ ⊔ Λ− , such that
+
+                        𝐴(𝜆 − 1) = 0        (𝜆 ∈ Λ+ ),       𝐴∗ (𝜆 − 1) = 0     (𝜆 ∈ Λ− ),
+                                   ∀𝑣 ∈ R𝑘 \ {0} ∃𝜆 ∈ Λ : min 𝑣 · 𝑢 > 0.
+                                                                𝑢∈𝑆𝜆
+
+
+Apply the necessity direction of [3, Theorem A] and the centralizer criterion [3, Lemma 2.6] to 𝐴
+and 𝐴∗ . For 𝐴 = 0, use the monomials 𝑡𝑖±1 ; for 𝐴 ≠ 0, an identity-acting polynomial is nonzero.
+The minus sign changes the module action; the displayed support remains 𝑆𝜆 .
+
+3   Rational separation and the commutation radius
+
+Fix 𝑘 ≥ 1 and a finite family (𝑆𝜆 )𝜆∈Λ of nonempty subsets of Z𝑘 . Consider
+
+                                        ∀𝑣 ≠ 0 ∃𝜆 ∀𝑢 ∈ 𝑆𝜆 : 𝑣 · 𝑢 > 0.                                      (3.1)
+
+Only rational arithmetic is needed to test this condition.
+Lemma 3.1 (Rational separation). Condition (3.1) is decidable. If it holds, there is an integer 𝑟 ≥ 0
+such that, for 𝜀 = 2−𝑟 ,
+
+                            ∀𝑣 ∈ R𝑘 , ∥𝑣∥ ∞ = 1 =⇒ ∃𝜆 ∀𝑢 ∈ 𝑆𝜆 : 𝑣 · 𝑢 > 𝜀.                                  (3.2)
+
+Whether a proposed 𝑟 satisfies (3.2) is decidable by a primitive-recursive computation on the finite
+integer data.
+
+Proof. Put Σ = {𝑣 ∈ R𝑘 : ∥𝑣∥ ∞ = 1}. Its faces are
+                                                                       𝑘
+                                                                       Ø       Ø
+                                                 𝑘
+                        𝐹 𝑗,𝑠 = {𝑣 ∈ [−1, 1] : 𝑣 𝑗 = 𝑠},          Σ=                  𝐹 𝑗,𝑠 .
+                                                                       𝑗=1 𝑠∈{−1,1}
+                                                                           Î
+Failure of (3.2) on 𝐹 𝑗,𝑠 is equivalent to the existence of (𝑢𝜆 )𝜆 ∈          𝜆 𝑆𝜆 and 𝑣 satisfying
+
+                           𝑣 · 𝑢𝜆 ≤ 𝜀       (𝜆 ∈ Λ),       −1 ≤ 𝑣 𝑖 ≤ 1,       𝑣 𝑗 = 𝑠.                     (3.3)
+
+Fourier–Motzkin elimination is the following rational equivalence. For 𝛼𝑖 𝑥 + 𝛽𝑖 · 𝑦 ≤ 𝛾𝑖 , put
+𝐼± = {𝑖 : ±𝛼𝑖 > 0} and 𝐼0 = {𝑖 : 𝛼𝑖 = 0}. Then
+
+                                                      𝛽𝑖 · 𝑦 ≤ 𝛾𝑖                    (𝑖 ∈ 𝐼0 ),
+                                                     
+                                                     
+                                                     
+                                                     
+        ∃𝑥 ∀𝑖 : 𝛼𝑖 𝑥 + 𝛽𝑖 · 𝑦 ≤ 𝛾𝑖          ⇐⇒         𝛾𝑛 − 𝛽𝑛 · 𝑦 𝛾 𝑝 − 𝛽 𝑝 · 𝑦
+                                                     
+                                                                  ≤                  (𝑛 ∈ 𝐼− , 𝑝 ∈ 𝐼+ ).
+                                                     
+                                                           𝛼𝑛          𝛼𝑝
+Finite presentations of metabelian groups                                                          Page 4 / 9
+
+
+
+After 𝑘 eliminations, only rational inequalities remain. At each stage, rational values of the remaining
+coordinates admit a rational choice of the eliminated coordinate. Thus rational and real feasibility
+agree. Applying the same test with 𝜀 = 0 decides (3.1).
+Under (3.1), Λ ≠ ∅ and compactness gives
+
+                             0 < 𝜇 := min max min 𝑣 · 𝑢,           2−𝑟 < 𝜇 =⇒ (3.2).
+                                      𝑣∈Σ     𝜆   𝑢∈𝑆𝜆
+
+Hence some 𝑟 ∈ N succeeds. For a supplied 𝑟, the 𝑘 elimination steps, finite choices of supports
+and exact rational comparisons are primitive recursive.                                       □
+
+For data passing this margin test put
+                     2−𝑟                    ∑︁ ∑︁
+                                                                   𝑅 = 1 + 2𝑘 1 + 𝐷 + 𝐷 2 𝑘 2𝑟 .
+                                                                                              
+               𝐶=        ,        𝐷 =1+                ∥𝑢∥ 1 ,                                         (3.4)
+                      𝑘                       𝜆 𝑢∈𝑆𝜆
+
+Thus 𝐷 is an integer, 0 < 𝐶 ≤ 1, and 𝑅 = 1 + 2𝑘 (1 + 𝐷 + 𝐷 2 /𝐶). In particular,
+                                                    𝑅
+                               𝑅 > 2𝑘,        𝐷<       ,         𝑅 > max{𝐶, 𝐷 2 /𝐶}.                   (3.5)
+                                                    2𝑘
+By homogeneity and ∥𝑣∥ ∞ ≥ 1/𝑘 for ∥𝑣∥ = 1, (3.2) implies that for each Euclidean unit vector 𝑣
+some support satisfies 𝑣 · 𝑢 > 𝐶 throughout.
+Lemma 3.2 (Radial propagation). Put 𝛿 = min{𝐶/4, 1/(4𝑘)}. If 𝜌 ≥ 𝑅 and 𝜌 ≤ ∥𝑣∥ < 𝜌 + 𝛿, there
+is a support 𝑆𝜆 such that
+                                            ∥𝑣 + 𝑢∥ < 𝜌          (𝑢 ∈ 𝑆𝜆 ).
+
+Proof. Put 𝑠 = ∥𝑣∥. The margin in direction −𝑣/∥𝑣∥ gives 𝜆 with 𝑣 · 𝑢 ≤ −𝐶𝑠 for all 𝑢 ∈ 𝑆𝜆 . For
+each such 𝑢, ∥𝑢∥ < 𝐷, and
+
+                                ∥𝑣 + 𝑢∥ 2 = 𝑠2 + 2𝑣 · 𝑢 + ∥𝑢∥ 2
+                                            < 𝑠2 − 2𝐶𝑠 + 𝐷 2
+                                            < (𝜌 + 𝛿) 2 − 2𝐶 (𝜌 + 𝛿) + 𝐷 2
+                                            = 𝜌 2 − 2(𝐶 − 𝛿) 𝜌 + 𝛿2 − 2𝐶𝛿 + 𝐷 2
+                                            ≤ 𝜌 2 − 23 𝐶 𝜌 + 𝐷 2 < 𝜌 2 .
+
+Indeed 𝑠 ≥ 𝜌 ≥ 𝑅 > 𝐶, 𝛿 ≤ 𝐶/4 and 𝜌 > 𝐷 2 /𝐶. The same 𝜆 works for every 𝑢 ∈ 𝑆𝜆 .                          □
+
+4   Metabelian presentations from Laurent relations
+
+A cover datum consists of 𝑘 ≥ 1, a finite nonempty alphabet A with designated letters 𝑎𝑖 𝑗 , a finite
+family of signed nonzero Laurent polynomials, and an integer 𝑟 passing the margin test. Write Λ+
+and Λ− for the two signed families, and fix an order on every support. Using the radius (3.4), define
+Finite presentations of metabelian groups                                                            Page 5 / 9
+
+
+
+𝑃 𝑅 on the alphabet {𝑡1 , . . . , 𝑡 𝑘 } ∪ A by
+
+                              [𝑡𝑖 , 𝑡 𝑗 ] = 𝑎𝑖 𝑗                       (1 ≤ 𝑖 < 𝑗 ≤ 𝑘),                  (4.1)
+                              [𝑎, 𝑏 𝑞(𝑣) ] = 1                         (𝑎, 𝑏 ∈ A, ∥𝑣∥ < 𝑅),              (4.2)
+                                   Ö
+                              𝑎=         (𝑎 𝑐𝜆,𝑢 ) 𝑞(𝑢)                (𝑎 ∈ A, 𝜆 ∈ Λ+ ),                 (4.3)
+                                    𝑢∈𝑆𝜆
+                                    Ö                        −1
+                              𝑎=           (𝑎 𝑐𝜆,𝑢 ) 𝑞(𝑢)              (𝑎 ∈ A, 𝜆 ∈ Λ− ).                 (4.4)
+                                    𝑢∈𝑆𝜆
+
+Products follow the chosen support order; the minus case uses the literal inverse 𝑞(𝑢) −1 . The relator
+set is finite since
+                                              (                                     )
+                                                                     ∑︁
+                   𝐵 𝑅 = {𝑣 ∈ Z 𝑘 : ∥𝑣∥ < 𝑅} = 𝑣 ∈ [−𝑅, 𝑅] 𝑘 ∩ Z 𝑘 :      𝑣 𝑖2 < 𝑅 2 .
+                                                                                                 𝑖
+
+Proposition 4.1 (Metabelianity). Every group 𝑃 𝑅 constructed from an accepted cover datum is
+metabelian.
+
+Proof. In a group satisfying (4.1), (4.3) and (4.4), write
+
+                        C(𝜌) :        [𝑎, 𝑏 𝑞(𝑣) ] = 1            (𝑎, 𝑏 ∈ A, 𝑣 ∈ Z𝑘 , ∥𝑣∥ < 𝜌).
+
+We prove C(𝜌) ⇒ C(𝜌 + 𝛿) for 𝜌 ≥ 𝑅.
+Only vectors 𝑣 with 𝜌 ≤ ∥𝑣∥ < 𝜌 + 𝛿 need consideration. Choose 𝜆 by Lemma 3.2. Then, for every
+𝑢 ∈ 𝑆𝜆 ,
+                  ∥𝑢∥ < 𝐷 < 𝜌/(2𝑘),       ∥𝑣∥ < 𝜌 + 1/(2𝑘),      ∥𝑢 + 𝑣∥ < 𝜌.             (4.5)
+
+If 𝜆 has sign +, Lemma 2.1 and (4.5) give
+
+                                           [𝑎, 𝑏 𝑞(𝑢)𝑞(𝑣) ] = 1                 (𝑢 ∈ 𝑆𝜆 ).
+
+Writing 𝐶𝐻 (𝑎) for the centralizer of 𝑎 in the ambient group, relation (4.3) therefore yields
+                                         Ö
+                                𝑏 𝑞(𝑣) =     (𝑏 𝑐𝜆,𝑢 ) 𝑞(𝑢)𝑞(𝑣) ∈ 𝐶𝐻 (𝑎).
+                                                    𝑢∈𝑆𝜆
+
+If 𝜆 has sign −, the inverse-word assertion of Lemma 2.1, with the alphabet letters interchanged,
+gives
+                                                     −1 𝑞(𝑣) −1
+                                       [𝑏, 𝑎 𝑞(𝑢)                 ]=1              (𝑢 ∈ 𝑆𝜆 ).
+Now (4.4) yields
+                                           −1
+                                                    Ö                       −1 𝑞(𝑣) −1
+                                  𝑎 𝑞(𝑣)        =          (𝑎 𝑐𝜆,𝑢 ) 𝑞(𝑢)                ∈ 𝐶𝐻 (𝑏).
+                                                    𝑢∈𝑆𝜆
+
+Conjugating this commutation identity by 𝑞(𝑣) gives [𝑎, 𝑏 𝑞(𝑣) ] = 1. Thus both signs prove the
+propagation step.
+Finite presentations of metabelian groups                                                                     Page 6 / 9
+
+
+
+In 𝑃 𝑅 , relation (4.2) supplies C(𝑅), so
+                                                             Ø
+                      C(𝑅 + 𝑛𝛿)         (𝑛 ∈ N),                   {𝑣 ∈ Z𝑘 : ∥𝑣∥ < 𝑅 + 𝑛𝛿} = Z𝑘 .
+                                                             𝑛≥0
+
+All ordered commutators vanish. Lemma 2.1 and (4.1) imply, for 𝐴 𝑅 = ⟨⟨A⟩⟩,
+
+                         𝐴′𝑅 = 1,           (𝑃 𝑅 /𝐴 𝑅 ) ′ = 1,          𝑃′𝑅 ≤ 𝐴 𝑅 ,           𝑃′′𝑅 = 1.                 □
+
+5   Cofinality of the covers
+
+Lemma 5.1 (Central extensions). If 1 → 𝐾 → 𝐸 → 𝐺 → 1 is a central extension, 𝐺 is finitely
+presented, and 𝐾 is free abelian of finite rank, then 𝐸 is finitely presented.
+
+Proof. Let 𝐺 = ⟨𝑥 1 , . . . , 𝑥 𝑚 | 𝑟 1 , . . . , 𝑟 ℓ ⟩. Choose lifts 𝑦𝑖 ∈ 𝐸 and a basis 𝑧1 , . . . , 𝑧 𝑠 of 𝐾; write
+                                                       𝑠
+                                                       Ö  𝑏
+                                           𝑟 𝑗 (𝑦) =     𝑧ℎ 𝑗ℎ ,         𝑏 𝑗 ℎ ∈ Z.
+                                                       ℎ=1
+
+For alphabets 𝑌 = {𝑦 1 , . . . , 𝑦 𝑚 } and 𝑍 = {𝑧1 , . . . , 𝑧 𝑠 }, set
+
+                 R 0 = {[𝑧 ℎ , 𝑧 ℎ′ ] : 1 ≤ ℎ < ℎ′ ≤ 𝑠} ∪ {[𝑧 ℎ , 𝑦𝑖 ] : 1 ≤ ℎ ≤ 𝑠, 1 ≤ 𝑖 ≤ 𝑚},
+                                     𝑠
+                                               ! −1         
+                       
+                       
+                                   Ö                       
+                                                            
+                                                            
+                                          𝑏 𝑗ℎ
+                 R 1 = 𝑟 𝑗 (𝑦)           𝑧ℎ         :1≤ 𝑗 ≤ℓ .
+                                                           
+                       
+                                    ℎ=1                    
+                                                            
+The lifts induce an epimorphism
+                                          e := ⟨𝑌 ⊔ 𝑍 | R 0 ∪ R 1 ⟩ ↠ 𝐸.
+                                        𝜑:𝐸
+
+If 𝑤 ∈ ker 𝜑, its image in 𝐺 is trivial. Express its 𝑌 -word as a product of conjugates of 𝑟 ±1
+                                                                                             𝑗 . The
+relations R 1 and centrality relations R 0 give
+                                  𝑠
+                                  Ö                                           𝑠
+                                                                              Ö
+                            𝑤=          𝑧 𝑛ℎℎ   in 𝐸,
+                                                   e           1 = 𝜑(𝑤) =             𝑧 𝑛ℎℎ   in 𝐾.
+                                  ℎ=1                                          ℎ=1
+
+Independence of the basis implies 𝑛1 = · · · = 𝑛 𝑠 = 0. Hence ker 𝜑 = 1 and 𝐸
+                                                                            e  𝐸.                                      □
+Proposition 5.2 (Quotient cofinality). Every finitely presented metabelian group 𝐺 is an epimorphic
+image of some certified cover 𝑃 𝑅 .
+
+Proof. Put 𝐴 = 𝐺 ′ and 𝑄 = 𝐺/𝐴. Choose a surjection 𝜋 : Z 𝑘 ↠ 𝑄 with 𝑘 ≥ 1 and form the
+pullback
+                           𝐸 = {(𝑔, 𝑧) ∈ 𝐺 × Z𝑘 : 𝑔 𝐴 = 𝜋(𝑧)}.
+Both projections are surjective. Their kernels give exact sequences
+
+                  1 −→ 𝐴 −→ 𝐸 −→ Z𝑘 −→ 1,                           1 −→ ker 𝜋 −→ 𝐸 −→ 𝐺 −→ 1.                     (5.1)
+Finite presentations of metabelian groups                                                                    Page 7 / 9
+
+
+                                                                   pr1
+                                  𝑃𝑅                    𝐸                          𝐺
+                                                  pr2
+
+                                                        Z𝑘                 𝑄 = 𝐺/𝐺 ′
+                                                                 𝜋
+
+    Figure 1: The pullback 𝐸 = 𝐺 ×𝑄 Z 𝑘 and the epimorphism from 𝑃 𝑅 . All arrows are surjective.
+
+The second kernel consists of (1, 𝑧) with 𝑧 ∈ ker 𝜋, and is central and free abelian of finite rank.
+Lemma 5.1 makes 𝐸 finitely presented. As a subgroup of the metabelian group 𝐺 × Z 𝑘 , it is
+metabelian.
+For a finite generating set 𝑔1 , . . . , 𝑔𝑚 of 𝐺,
+                                                                          ∑︁
+                            𝐺 ′ = ⟨⟨[𝑔𝑖 , 𝑔 𝑗 ] : 𝑖 < 𝑗⟩⟩,           𝐴=           [𝑔𝑖 , 𝑔 𝑗 ] Z𝑄.
+                                                                           𝑖< 𝑗
+
+The second equality uses additive module notation for the abelian group 𝐴. Pullback along 𝜋
+preserves these module generators.
+Choose lifts 𝑡𝑖 ∈ 𝐸 of the standard basis of Z 𝑘 . Take a finite module-generating alphabet A for
+𝐴, including letters representing every [𝑡𝑖 , 𝑡 𝑗 ]. A letter representing the identity may be added to
+ensure that the alphabet is nonempty. Lemma 2.2 supplies signed Laurent identities on this module.
+Lemma 3.1 supplies a finite margin certificate.
+The selected elements satisfy (4.1) by construction, (4.2) because 𝐴′ = 1, and (4.3)–(4.4) by the
+module identities. They induce 𝜓 : 𝑃 𝑅 → 𝐸. If 𝐵 is the image of A, then
+
+                 𝐴 = ⟨𝑏 𝑞(𝑣) : 𝑏 ∈ 𝐵, 𝑣 ∈ Z 𝑘 ⟩ ≤ im 𝜓,                  𝐸 = 𝐴⟨𝑡 1 , . . . , 𝑡 𝑘 ⟩ = im 𝜓.
+
+Thus 𝜓 is surjective, and 𝑃 𝑅 ↠ 𝐸 ↠ 𝐺.                                                                               □
+
+
+6     Epimorphisms and normal closures
+
+For 𝑃 = ⟨𝑋 | 𝑅⟩ and 𝑤 ∈ 𝐹 (𝑋),
+                                                 𝑚
+                                                 Ö
+                  𝑤 ∈ ⟨⟨𝑅⟩⟩      ⇐⇒         𝑤=          ℎ−1  𝜖𝜈
+                                                         𝜈 𝑟 𝑗 𝜈 ℎ 𝜈 in 𝐹 (𝑋),             𝜖 𝜈 ∈ {−1, 1}.        (6.1)
+                                                 𝜈=1
+
+Here the right side means existence of 𝑚 ≥ 0, ℎ 𝜈 ∈ 𝐹 (𝑋), 𝑟 𝑗 𝜈 ∈ 𝑅 and the indicated signs. A
+specified identity is checked by free reduction.
+Lemma 6.1. Let 𝐻 = ⟨𝑦 1 , . . . , 𝑦 ℓ | 𝑆⟩ and 𝐺 = ⟨𝑥 1 , . . . , 𝑥 𝑛 | 𝑅⟩. Then
+
+                                                ∃𝑢 1 , . . . , 𝑢 ℓ ∈ 𝐹 (𝑋), 𝑣 1 , . . . , 𝑣 𝑛 ∈ 𝐹 (𝑌 ) :
+                   ∃𝑓 :𝐻↠𝐺             ⇐⇒               𝑠(𝑢 1 , . . . , 𝑢 ℓ ) ∈ ⟨⟨𝑅⟩⟩      (𝑠 ∈ 𝑆),
+                                                 𝑣 𝑗 (𝑢 1 , . . . , 𝑢 ℓ )𝑥 −1
+                                                                           𝑗 ∈ ⟨⟨𝑅⟩⟩       (1 ≤ 𝑗 ≤ 𝑛).
+Finite presentations of metabelian groups                                                       Page 8 / 9
+
+
+
+Together with products (6.1) for these finitely many normal-closure memberships, the words 𝑢𝑖 , 𝑣 𝑗
+have a primitive-recursive checking predicate.
+
+Proof. The first family of identities induces
+
+                                      𝑓 : 𝐻 −→ 𝐺,     𝑦𝑖 ↦−→ 𝑢𝑖 ⟨⟨𝑅⟩⟩.
+
+The second gives 𝑓 (𝑣 𝑗 ) = 𝑥 𝑗 ⟨⟨𝑅⟩⟩, hence im 𝑓 = 𝐺. Conversely, choose words representing the
+images and preimages of the generators under an epimorphism. Its defining identities lie in ⟨⟨𝑅⟩⟩
+and therefore admit (6.1). Substitution and free reduction of finite words, and the finite integer and
+index checks in (6.1), are primitive recursive.                                                      □
+
+Proof of Theorem 1.1. Write A(𝑑, 𝑟) for the margin condition (3.2) on finite Laurent data 𝑑, and
+𝑃𝑑,𝑟 for the presentation (4.1)–(4.4) at the radius (3.4). Let E(𝐻, 𝑃; 𝜂) check the words and products
+in Lemma 6.1. For a decoded witness 𝑐 = (𝑑, 𝑟, 𝜂), set
+
+                    𝑉 (𝑃, 𝑐) = 1      ⇐⇒    WF(𝑃) ∧
+                                                                                                   (6.2)
+                                            𝑛(𝑃) = 0 ∨ [A(𝑑, 𝑟) ∧ E(𝑃𝑑,𝑟 , 𝑃; 𝜂)] ,
+
+where WF checks the generating alphabet and 𝑛(𝑃) is its size. All finite syntax checks are included
+in A and E. The radius is an integer expression in the data, and
+                                          (                                    )
+                                                                 ∑︁
+                  {𝑣 ∈ Z𝑘 : ∥𝑣∥ < 𝑅} = 𝑣 ∈ [−𝑅, 𝑅] 𝑘 ∩ Z 𝑘 :         𝑣 𝑖2 < 𝑅 2 .
+                                                                      𝑖
+
+Consequently, constructing 𝑃𝑑,𝑟 uses a bounded finite list. Lemma 3.1 and Lemma 6.1 show that 𝑉
+is primitive recursive.
+For 𝑛(𝑃) > 0, soundness is the implication
+
+                     𝑉 (𝑃, 𝑐) = 1 =⇒ 𝑃′′𝑑,𝑟 = 1,    𝑃𝑑,𝑟 ↠ 𝐺 (𝑃) =⇒ 𝐺 (𝑃) ′′ = 1,
+
+by Proposition 4.1. For completeness, Proposition 5.2 and Lemma 3.1 give
+
+                            𝐺 (𝑃) ′′ = 1 =⇒ ∃𝑑, 𝑟 : A(𝑑, 𝑟),    𝑃𝑑,𝑟 ↠ 𝐺 (𝑃).
+
+Lemma 6.1 supplies 𝜂. If 𝑛(𝑃) = 0 and 𝑃 is well formed, 𝐺 (𝑃) = 1, as required by the first branch of
+(6.2). This proves (1.1). Finally, projection of the primitive-recursive relation {(𝑃, 𝑐) : 𝑉 (𝑃, 𝑐) = 1}
+gives the asserted recursive enumeration.                                                               □
+
+Foundation model assistance for Formalisation
+
+Theorem 1.1 and its algebraic ingredients are formalised in Lean 4 with assistance from GPT-Astra
+through a custom LangGraph harness.
+Finite presentations of metabelian groups                                                   Page 9 / 9
+
+
+
+References
+
+ [1] G. Baumslag, F. B. Cannonito and D. J. S. Robinson, The algorithmic theory of finitely generated
+     metabelian groups, Trans. Amer. Math. Soc. 344 (1994), no. 2, 629–648. doi:10.2307/2154499.
+ [2] L. Bartholdi, L. Pernak and E. Rauzy, Groups with presentations in EDT0L, Groups
+     Geom. Dyn., published online first, 25 August 2025. doi:10.4171/GGD/911. Author ver-
+     sion arXiv:2402.01601v2 (2024).
+ [3] R. Bieri and R. Strebel, Valuations and finitely presented metabelian groups, Proc. London
+     Math. Soc. (3) 41 (1980), no. 3, 439–464. doi:10.1112/plms/s3-41.3.439.
+ [4] D. P. Groves, J. F. Manning and H. Wilton, Recognizing geometric 3-manifold groups using
+     the word problem (2012). arXiv:1210.2101.
+ [5] E. I. Khukhro and V. D. Mazurov (eds.), The Kourovka Notebook: Unsolved Problems in
+     Group Theory, 21st ed., version of 1 September 2026. arXiv:1401.0300v46.
+ [6] C. F. Miller III, Decision problems for groups—survey and reflections, in Algorithms and
+     Classification in Combinatorial Group Theory, G. Baumslag and C. F. Miller III (eds.), Math.
+     Sci. Res. Inst. Publ. 23, Springer, New York, 1992, pp. 1–59. doi:10.1007/978-1-4613-9730-
+     4_1.
+ [7] V. Shpilrain, Search and witness problems in group theory, Groups Complex. Cryptol. 2
+     (2010), no. 2, 231–246. doi:10.1515/GCC.2010.015. arXiv:1010.0382.
+

@@ -1,0 +1,1168 @@
+                                              COMPUTABILITY OF FINITE QUOTIENTS OF FINITELY
+                                                           GENERATED GROUPS
+arXiv:2002.02541v2 [math.GR] 2 Nov 2020
+
+
+
+
+                                                                              EMMANUEL RAUZY
+
+
+                                                  Abstract. We study systematically groups whose marked finite quotients
+                                                  form a recursive set. We give several definitions, and prove basic properties of
+                                                  this class of groups, and in particular emphasize the link between the growth
+                                                  of the depth function and solvability of the word problem. We give examples
+                                                  of infinitely presented groups whose finite quotients can be effectively enumer-
+                                                  ated. Finally, our main result is that a residually finite group can be even
+                                                  not recursively presented and still have computable finite quotients, and that,
+                                                  on the other hand, it can have solvable word problem while still not having
+                                                  computable finite quotients.
+
+
+
+
+                                                                                Introduction
+                                             The fact that several well known conjectures which have been solved for countable
+                                          groups remain open for finitely presented groups, such as the Burnside problem,
+                                          or the existence of groups of intermediate growth, shows that little is known about
+                                          the specificities of finitely presented groups.
+                                             One of the most striking results that affects specifically finitely presented groups
+                                          is McKinsey’s theorem : finitely presented residually finite groups must have solv-
+                                          able word problem. (McKinsey’s theorem, which appeared in [19], is in fact set
+                                          in a more general setting than that of finitely presented residually finite groups,
+                                          we are only interested in its group theoretical version, which was first made ex-
+                                          plicit by Mal’cev in [18], followed by Dyson in [7] and by Mostoswski in [21].) The
+                                          proof of this theorem hinges on the fact that the finite quotients of a finitely pre-
+                                          sented group can be enumerated. However, it is known that recursively presented
+                                          residually finite groups can have unsolvable word problem, and thus quotients that
+                                          cannot be enumerated: two examples of these exist in the literature, one by Meskin
+                                          ([20]), which is in addition center-by-metabelian, and one by Dyson in [8]. This
+                                          proves in particular that there can be no Higman theorem for general residually
+                                          finite groups: not all recursively presented residually finite groups embed in finitely
+                                          presented residually finite groups.
+                                             Before stating a precise definition of “having computable finite quotients”, let us
+                                          recall the proof of McKinsey’s theorem.
+                                             Consider a finitely presented residually finite group G, with a generating family
+                                          S of cardinal n, and w, a word whose letters are elements of S ∪ S −1 . We try to
+                                          determine whether w = e in G.
+                                             First, as in any recursively presented group, we can apply to w an algorithm that
+                                          will stop if it is the identity element of the group, and that never stops otherwise.
+                                          This is done by enumerating relations, and their conjugates, and the products of
+                                          their conjugates, and checking every time whether the word w has appeared.
+                                                                                         1
+2                                EMMANUEL RAUZY
+
+
+   Secondly, notice that if F is a finite group, one can determine in a finite number
+of steps whether F is a quotient of G: this is done by checking, for every generating
+family of F of cardinal n, whether the (finitely many) defining relations of G hold
+between those generators. Thus, from an enumeration of all finite groups by their
+Cayley table, one can obtain an enumeration of all finite quotients of G. In each of
+those quotients, we can check whether or not the image of w is trivial. If a quotient
+is found, in which the image of w is different from the identity, we can conclude
+that in G as well w must be different from the identity, and stop that procedure.
+By definition of a residually finite group, any non-trivial element of G will have a
+non-trivial image in a finite quotient, thus that second part of the algorithm will
+always stop if w is not the identity element in G.
+   This proof is the sum of three facts:
+    (1) In a recursively presented group, there is an algorithm that determines
+        when a word corresponds to the identity (and never stops otherwise).
+    (2) In a finitely presented group, there is an algorithm that determines when a
+        finite group is a quotient of it, and produces a morphism.
+    (3) In a residually finite group whose finite quotients can be enumerated, there
+        is an algorithm that determines when a word corresponds to a non-identity
+        element (and never stops otherwise).
+The first point is an equivalence and is well known. The last point is very natural,
+and the definition of “residually finite group” could have been introduced to answer
+the question: “what is a sufficient condition for a group whose finite quotients can
+be enumerated to have solvable word problem?”.
+   The second point is the one at the origin of this article, which consists in a
+systematic study of groups whose finite quotients can be detected. Although several
+articles ([4, 9, 13]) have already mentioned the fact that it is sometimes possible to
+enumerate the finite quotients of non-finitely presented groups, the following was
+never stated as a definition:
+Definition 1. A finitely generated group G, together with a generating set S, is
+said to have Computable Finite Quotients (CFQ) if there is an algorithm that,
+given a pair (F, f ), where F is a finite group (given by a finite presentation) and f
+is a function from S to F , determines whether the function f extends to a group
+morphism, that is whether there exists a group homomorphism fˆ : G → F such
+that for any s in S, f (s) = fˆ(s).
+   If there exists an algorithm that terminates when the function f extends to a
+group morphism, but does not terminate otherwise, we say that G has Recursively-
+enumerable Finite Quotients (ReFQ).
+   If there exists an algorithm that terminates when the function f does not extend
+to a group morphism, but does not terminate otherwise, we say that G has co-
+Recursively-enumerable Finite Quotients (co-ReFQ).
+   Of course having CFQ is equivalent to having both ReFQ and co-ReFQ.
+   It follows from the proof given earlier of McKinsey’s algorithm that all finitely
+presented groups have CFQ. This fact should be compared to a result of Bridson
+and Wilton from [5]: there is no algorithm that, given a finite presentation, decides
+whether or not the group it defines admits a non-trivial finite quotient.
+   This article builds upon Dyson’s groups from [8] to obtain the following two
+theorems:
+                        COMPUTABILITY OF FINITE QUOTIENTS                                 3
+
+
+Theorem 2. There exists a finitely generated residually finite group with solvable
+word problem, but that has uncomputable finite quotients.
+Theorem 3. There exists a finitely generated residually finite group with com-
+putable finite quotients, that still has unsolvable word problem.
+   We proceed as follows.
+   In the first section, we give several equivalent definitions of CFQ groups, and we
+explain how the profinite topology on a group can be used to describe the various
+decisions problems that can be solved using McKinsey-type algorithms. The second
+section quickly enumerates some easy properties: free or direct products of groups
+with computable finite quotients also have this property, etc. In the third section
+interactions with the depth function for residually finite groups are explained. The
+fourth section provides examples of infinitely presented groups with CFQ: wreath
+products of groups with CFQ and L-presented groups (including some well known
+torsion groups). In the final section, we prove Theorem 2, thanks to Dyson’s method
+which uses doubles of the lamplighter group, and give two proofs of Theorem 3, one
+using the same technique, and another one that relies on Slobodskoi’s work in [23].
+   Following [8], throughout this article, recursively presented groups will be called
+re groups (for recursively enumerable), and groups in which there is an algorithm
+that recognizes non-trivial elements will be called co-re groups. A group has solvable
+word problem if and only if it is re and co-re.
+
+                                    1. CFQ Groups
+1.1. Equivalent definitions. Just as a group with solvable word problem is a
+group in which words in the generators corresponding to the identity can be enu-
+merated by an algorithm which respects a computable ordering on the set of words
+in the generators, or a re group is a group in which these words can be enumerated,
+but without any guarantee on the order of the enumeration, groups with CFQ,
+ReFQ or co-ReFQ can be equivalently characterized by enumeration of their finite
+quotients. Let us precise this.
+    G is still a group generated by S, of cardinal n. S can be seen as {1, ..., n}.
+    Call a n-marked finite group a pair (F, f ), where F is a finite group given by its
+Cayley table, and f is a function from {1, ..., n} to F whose image generates all of
+F . Consider an effective enumeration (F1 , f1 ), (F2 , f2 ), (F3 , f3 ),... of all n-marked
+finite groups, which satisfies card(Fn ) ≤ card(Fn+1 ). (This can be obtained by
+listing in order all possible Cayley tables, then listing all n-tuples from those tables
+and determining when a tuple defines a generating set). Define AG ⊆ N to be the
+set of indices k for which fk defines a morphism from G to Fk . Then G has CFQ,
+ReFQ or co-ReFQ if and only if AG is, respectively, a recursive set, a recursively
+enumerable set or a co-recursively enumerable set.
+    Of course, those definitions are independent of a choice of a generating family.
+Proposition 4. Having one of CFQ, ReFQ or co-ReFQ is independent of a choice
+of a generating family.
+Proof. Let S and T be two finite generating sets of a group G (not necessarily of the
+same cardinal). Fix for each s in S an expression s = tα               αk
+                                                                 1 ...tk , with αi ∈ {−1, 1}
+                                                                   1
+
+
+and ti ∈ T , that gives s as a product of elements of T or their inverses, and for each
+t in T an expression t = sβ1 1 sβ2 2 ...sβk k that describes t in terms of the generators of
+4                                 EMMANUEL RAUZY
+
+
+S and their inverses. For a finite group F and a function f from S to F , define
+the function f ′ from T to F by f ′ (t) = f (s1 )β1 ...f (sk )βk . The function f defines
+a homomorphism if, and only if, f ′ also defines a homomorphism ϕ′ , that satisfies
+ϕ′ (s) = f (s) for s in S. That last condition is an equality in F that can be tested
+                                     αk
+using the expressions s = tα   1 ...tk , even before it is known whether or not f
+                                1                                                       ′
+
+extends. Using this, all three properties, CFQ, ReFQ, co-ReFQ can be seen to be
+independent of the chosen generating family of G.                                      
+
+1.2. Variations on McKinsey’s algorithm and the profinite topology. It
+was already explained, when discussing McKinsey’s original algorithm, that the
+notion of residually finite group becomes a very natural one to introduce when one
+asks for a sufficient condition for a group with CFQ to be co-re. We can more
+generally search for conditions on a finitely generated group G with CFQ, that
+might allow to solve various algorithmic problems. We will see that such conditions
+can be expressed through the use of the profinite topology on G. In what follows,
+we will say that we use McKinsey’s algorithm to mean that we enumerate all finite
+quotients of a group, checking some condition in each quotient, and stopping when
+a finite quotient is found that satisfies the required condition.
+   Fix a finitely generated group G with CFQ (or simply ReFQ).
+   We will search for conditions that allow, given two disjoint subsets A and B of
+G, to distinguish A from B using McKinsey’s algorithm, that is to say to decide,
+given an element of G that belongs to A ∪ B, whether it belongs to A or to B.
+   The first condition we need is that, given a morphism from G onto a finite group
+F , it be possible to completely determine the images of A and of B in F . We will
+thus need the following definition:
+
+Definition 5. A subset A of G is said to be determinable in finite quotients of G
+if there exists an algorithm that, given a morphism φ from G onto a finite group
+F , can determine the image φ(A) (i.e. solve the membership problem for φ(A) in
+F ).
+    A family (Ai )i∈N of subsets of G is uniformly determinable in finite quotients
+of G if each Ai is determinable in finite quotients of G, and if the algorithm that
+determines Ai in finite quotients of G depends recursively of i.
+
+   Note, as an example, that a finitely generated subgroup H of a group G is
+determinable in the finite quotients of G, because the image of H in a quotient of
+G is the group generated by the images of the generators of H.
+   The property of being determinable in finite quotients is interesting in itself,
+however we will not give it much attention in this paper. We still remark the
+following.
+   It is easy to build a family (Ai )i∈N of subsets of Z, such that: it is uniformly
+recursively enumerable, but not uniformly determinable in finite quotients of Z.
+But a stronger result will naturally appear in this paper as a byproduct of the
+proof of Theorem 2:
+
+Proposition 6. There exists a recursive subset of Z that is not determinable in
+finite quotients of Z.
+
+Proof. See Lemma 33, disregarding the statement about the subset of Z being
+closed.                                                                   
+                      COMPUTABILITY OF FINITE QUOTIENTS                             5
+
+
+   On the other hand, it is easy to build a subset of Z that is determinable in its
+finite quotients, but not recursive.
+Proposition 7. There exists a subset of Z that is not re, but still is determinable
+in finite quotients of Z.
+Proof. For a function h that grows faster than any recursive function, consider the
+enumeration 2h(1), 2h(2) + 1, 3h(3), 3h(4) + 1, 3h(5) + 2, 4h(6),... This defines a
+set that is not re, but whose image in any quotient Z/nZ of Z is all of Z/nZ. 
+   Given two disjoint subsets A and B of G that are indeed determinable in fi-
+nite quotients of G, the profinite topology of G can be used to decide whether
+McKinsey’s algorithm can tell them apart.
+   The profinite topology on a group G was introduced in [11], it is the topology
+whose open basis consists of cosets of finite index normal subgroups of G. We
+denote PT (G) the profinite topology on G. A closed subset of G in PT (G) is
+called a separable set. We note Ā the closure of a set A in PT (G). The following
+easy facts render explicit the link between the profinite topology and McKinsey-type
+algorithms:
+Fact 8. A subset A of a group G is open in PT (G) if and only if for any element a
+of A, there is a morphism φ from G onto a finite group F such that φ−1 (φ(a)) ⊆ A,
+i.e. such that if an element of G has the same image as a in F , it also belongs to
+A.
+Fact 9. The closure B̄ of a subset B of G is the biggest set of elements that satisfy
+the following condition:
+        For any morphism φ from G onto a finite group F , φ(B̄) ⊆ φ(B).
+   This shows that the closure of a set B in PT (G) is precisely the set of elements
+that cannot be distinguished from B using McKinsey’s algorithm.
+   We can now give conditions that allow two disjoint subsets A and B of G to be
+distinguishable by McKinsey’s algorithm.
+Proposition 10. Let A and B be disjoint subsets of G that are determinable in
+finite quotients of G. Then McKinsey’s algorithm can be used to distinguish A from
+B if and only if the following two conditions hold:
+                                    A ∩ B̄ = ∅
+
+
+                                    Ā ∩ B = ∅
+Proof. This is a simple consequence of Fact 9.                                     
+   McKinsey’s original result on residually finite groups can thus be interpreted
+as an application of this proposition to singletons, and a residually finite group is
+precisely a group in which all the singletons are closed in the profinite topology.
+   Two other well studied families of groups fall in the range of Proposition 10:
+conjugacy separable groups, and LERF groups.
+   A conjugacy separable group is a group G in which all the conjugacy classes
+are separable. It is easy to see that the conjugacy classes of a finitely generated
+group G are always uniformly determinable in finite quotients of G (when a class
+6                                 EMMANUEL RAUZY
+
+
+C is given by any of its elements), thus Proposition 10 can be used to distinguish
+conjugacy classes.
+   A LERF group (for locally extended residually finite), or subgroup separable
+group, is a group G whose finitely generated subgroups are separable.
+   We then have the following proposition:
+Proposition 11. Let G be a finitely generated group with ReFQ.
+    – If G is residually finite, then it is co-re. If it is re and residually finite, it
+      has solvable word problem.
+    – If G is conjugacy separable, then there exits an algorithm that decides when
+      two of its elements are not conjugate. If it is re and conjugacy separable,
+      then it has solvable conjugacy problem.
+    – If G is LERF, there is an algorithm that, given a tuple (x1 , ..., xn , g) of
+      elements of G, stops exactly when g does not belong to the subgroup of G
+      generated by (x1 , ..., xn ). If it is re and LERF, it has solvable generalized
+      word problem.
+Proof. All three points follow from Proposition 10, noticing that it provides a uni-
+form algorithm, and using it respectively with:
+      – A and B being singletons,
+      – A and B being conjugacy classes,
+      – A being a finitely generated subgroup of G and B a singleton.
+In each case, one needs to use the fact that those sets are uniformly determinable
+in finite quotients, which is straightforward.                                    
+   Because re groups naturally have co-ReFQ (Proposition 16), the statements that
+concern re group in the previous proposition could be formulated with CFQ instead
+of ReFQ, without loss of generality.
+   Proposition 11 follows in a very straightforward way from the definitions of
+residually finite, of conjugacy separable and of LERF groups, and it is surprising
+that the study of these properties was not followed by a systematic study of the
+properties CFQ and ReFQ. The author could point the lector to papers where it is
+implied that re conjugacy separable groups always have solvable conjugacy problem,
+which led him to believe it has to be ascertained that not all recursively presented
+groups, or residually finite groups, or even residually finite groups with solvable
+word problem, have ReFQ.
+1.3. Membership problem for finite index normal subgroups. In the article
+[4], Bou-Rabee and Seward use, in the course of a proof ([4], Proof of Theorem 2),
+the fact that, if a group G has solvable “membership problem for finite index nor-
+mal subgroups”, (or “generalized word problem for finite index normal subgroups”)
+and solvable word problem, then it admits an algorithm that recognizes its finite
+quotients.
+    We will now show that for re groups, having solvable membership problem for
+finite index normal subgroups is actually equivalent to having CFQ. This will allow
+us to give another point of view on groups with CFQ, and at the same time making
+explicit the link to the isomorphism problem for finite groups given by recursive
+presentations, which we will sum up in the next sub-section.
+    When formulating the membership problem for finite index normal subgroups,
+it is implicit that the normal subgroup is given by a finite generating family.
+                        COMPUTABILITY OF FINITE QUOTIENTS                               7
+
+
+   Indeed, the membership problem for finite index normal subgroups in a group G
+asks for an algorithm that, given a tuple (x1 , ..., xk , g) of elements of G, the first k
+elements of which generate a finite index normal subgroup of G, will decide whether
+g belongs to that subgroup. As opposed to that, when working with property CFQ,
+we describe non-ambiguously a finite index normal subgroup N of G by a pair (F, f ),
+where F is a finite group and f a function from the generators of G to F , which
+extends to a group homomorphism, the kernel of which is precisely N .
+   Of course, given that second description, the problem “does g belong to N ” is
+solved by computing the image of g in F to see whether it is the identity of F .
+Thus a group in which one can go from the description of a normal subgroup by
+generators to a description of this subgroup by a morphism necessarily has solvable
+membership problem for finite index normal subgroups. We will see that for re
+groups this is also sufficient.
+   On the other hand, given a description by morphism of the subgroup N , that is
+a morphism ϕ : G → F with ker ϕ = N , one can always obtain a description of it
+by generators, as one can effectively carry out the well known proof of Schreier’s
+lemma, which is often used to prove that a finite index subgroup of a finitely
+generated group is itself finitely generated. Indeed, if S is a generating family of
+G, for any x in F and s in S, a preimage x̂ of x can be found in G, by exhaustive
+search, and a preimage of xϕ(s) can be found as well, call it ŷ. Schreier’s lemma
+asserts that the elements of the form x̂sŷ −1 generate N .
+   This allows us to prove the following (the backward implication is directly
+adapted from [4]):
+Proposition 12. Property ReFQ is equivalent to having co-re membership problem
+for finite index normal subgroups, that is to having an algorithm that decides when
+an element is not in a given finite index normal subgroup, and does not terminate
+otherwise.
+Proof. Suppose first that G has ReFQ, and let N be a finite index normal subgroup
+of G generated by a family x1 , ..., xk . Let finally g be an element of G, we want to
+decide whether g belongs to N . Enumerate the quotients (F, f ) of G, and look for
+a finite quotient in which the image of g is non-trivial, while the images of x1 , ..., xn
+are all trivial. If g does not belong to N , such a quotient exists (the projection
+G → G/N ), and this algorithm will terminate.
+    Now suppose G has co-re membership problem for finite index normal subgroups.
+Write hS|Ri a presentation of G. Let (F, f ) be a finite group together with a
+function from S to F . As f does not necessarily define a morphism, we cannot
+yet apply Schreier’s method. But if Fn is a free group with basis the n generators
+of G, f does define a morphism ϕ from Fn to F , and thus we can find a family
+x1 , ..., xk of elements of Fn that generate ker(ϕ). F is given by the presentation:
+hS|x1 , ..., xk i. (But x1 , ..., xk generate ker ϕ as a group, and not only as a normal
+subgroup as would be guaranteed by any presentation of F on the generators S).
+    Now f extends to a morphism if and only if F satisfies all the relations of G,
+that is to say if and only if the relations x1 , ..., xk imply the relations that appear
+in R, that is to say if and only if hS|R, x1 , ..., xk i is just another presentation of
+F . But this is a presentation of G/N , where N is the subgroup of G generated by
+x1 , ..., xk . If f does not extend to a morphism, G/N is a strict quotient of F .
+    Thus we can do the following: enumerate the elements of G, g1 , g2 , ... Then use
+the membership algorithm for N , (which, as we suppose, can only show something
+8                                  EMMANUEL RAUZY
+
+
+does not belong to N ), to find elements that define different classes in G/N , that
+is: find gi0 that does not belong to N , then gi1 which is such that neither itself nor
+gi0 gi−1
+      1
+         belong to N , and gi2 such that gi2 , gi0 gi−1
+                                                     2
+                                                        and gi1 gi−1
+                                                                  2
+                                                                     don’t belong to N ...
+If F is a quotient of G, this method will yield card(F ) elements, at which point the
+algorithm has proven that F is a quotient of G. Of course, if F is not a quotient of
+G, it will never stop.                                                                 
+
+    In a re group, determining whether g belongs to the subgroup generated by
+x1 , ..., xk can always be done when g belongs to that group, thus having co-re mem-
+bership problem for finite index normal subgroups is equivalent to having solvable
+membership problem for finite index normal subgroups. Similarly, re groups al-
+ways have co-ReFQ (Proposition 16), thus for such a group ReFQ and CFQ are
+equivalent. This yields:
+Corollary 13. For recursively presented groups, having CFQ and having solvable
+membership problem for finite index normal subgroups are equivalent properties.
+   We can use this to show that in a re group with CFQ, from the description of a
+finite index normal subgroup N by a generating family x1 , ..., xk , one can deduce
+a pair (F, f ), where F is a finite group and f extends to a morphism ϕ of G to F
+with kernel N .
+   Launch two procedures, one is the same as that described in the proof above:
+enumerate elements of G that define different cosets of G/N . We get successively
+better lower bounds on card(G/N ): card(G/N ) ≥ 1, 2, 3, ...
+   The other procedure gives upper bounds on the size of G/N . Start from the
+enumeration of all marked finite groups (F1 , f1 ), (F2 , f2 ),... For each pair (Fi , fi ),
+test whether G/N is a quotient of the group Fi according to one of the finitely many
+left inverses of fi . This can be done because G/N is given by a recursive presentation
+(as we add finitely many relations to a presentation of G which we suppose re), thus
+there is an algorithm that tests whether the finitely many relations of a finite group
+F are satisfied in G/N , and terminates when indeed they are. This procedure yields
+upper bounds on the cardinal of G/N .
+   At some point, the lower and upper bounds will agree, and we will know that
+the pair (F, f ) that has card(F ) = card(G/N ) defines an isomorphism F ≃ G/N ,
+and thus the normal subgroup N is described by the pair (F, f ).
+
+1.4. Isomorphism problem for finite groups. Note that another condition for
+CFQ appears clearly in the course of the proof of Proposition 12: at some point,
+it is known that the presentation hS|R, x1 = e, ..., xk = ei is the presentation of a
+finite group (even, that it is a quotient of the given group F ), and the question “is
+F a quotient of G” is equivalent to “is this finite group a strict quotient of F ”. It
+follows from this remark:
+Proposition 14. A group G, which admits a presentation hS|Ri, has CFQ if the
+isomorphism problem is solvable for the following family of presentations: all finite
+presentations of finite groups, and all presentations of the form hS|R, R1 i, where
+R1 is a finite set of relations such that hS|R1 i is finite.
+   The isomorphism problem for finite groups is solvable, this is well known, but
+it only means that we can determine when two finite groups given by finite pre-
+sentations are isomorphic, and the question here is to determine whether these two
+                        COMPUTABILITY OF FINITE QUOTIENTS                                9
+
+
+groups, one given by a finite presentation, and the other one by an infinite presen-
+tation, are isomorphic. It can be seen that the finite presentations of finite groups
+can actually be omitted in Proposition 14. If G is a re group which does not have
+CFQ (and such groups exist, see Theorem 2), this shows in particular:
+Corollary 15. There exists a recursive family of recursive presentations of finite
+groups, for which the isomorphism problem is unsolvable. Moreover any two of
+those presentations differ only by a finite number of relations.
+   Since it was remarked that it suffices to be able to obtain lower bounds of the car-
+dinal of the groups given by these presentations to solve their isomorphism problem,
+the world problem is not uniformly solvable for this family of presentation.
+
+                                 2. Basic properties
+  We will now quickly establish some basic results about the three properties CFQ,
+ReFQ and co-ReFQ.
+2.1. Recursively presented groups. It is easy to see that re groups have co-
+ReFQ.
+Proposition 16. Any recursively presented group has co-ReFQ.
+Proof. Let G be a re group generated by S of cardinal n. Let (F, f ) be a n-marked
+finite group. For any relation r of G, write r = sα         αk
+                                                      1 ...sk with αi ∈ {−1; 1} and
+                                                       1
+
+                                               α1         αk
+si ∈ S, we again test the equality e = f (s1 ) ...f (sk ) . Since we suppose G re,
+this can be carried out successively on all relations of G. If f does not extend to a
+morphism, a relation true in G but not in F will eventually be found.              
+   This is remarkable because it is more often the case that algorithmic problems
+for groups be naturally re for re groups, than co-re (conjugacy problem, generalized
+word problem, isomorphism problem for finitely presented groups, etc).
+2.2. Hereditarity.
+Proposition 17. If G and H both have one of CFQ, ReFQ, co-ReFQ, then so does
+their free product G ∗ H.
+Proof. Note that we have shown that those properties are independent of the gener-
+ating family, thus we can show this using as a generating family of G ∗ H the union
+of a generating family of G and of one of H. The proof is then straightforward, as
+a function from that generating family to a finite group extends to a morphism of
+G ∗ H, if and only if both restrictions to G and to H extend as morphisms.        
+Proposition 18. ReFQ is inherited by finite index subgroups.
+Proof. Let G be a group, and N a finite index subgroup of G. An enumeration of the
+finite quotients of G gives an enumeration of finite quotients of N , by restricting
+the homomorphisms to N . Not all quotients of N need arise this way, but add
+the following: whenever a pair (F, f ) is found that defines a quotient of N , list
+                                                                       π
+all quotients of the finite group F , and when a quotient F → F0 is found, add
+(F0 , π ◦ f ) to the list of quotients of N . We claim that all finite quotients of N arise
+this way.
+   Let M be a finite index normal subgroup of N . Then M is of finite index in G, it
+may not be normal in G, but it contains a normal subgroup M0 which is both finite
+10                                 EMMANUEL RAUZY
+
+
+index and normal in G. Then G → G/M0 restricts to a morphism N → N/M0 ,
+and M/M0 is a normal subgroup in N/M0 , and the quotient of N/M0 by M/M0 is,
+of course, N/M .                                                          
+   Note that any countable group embeds in a two generated simple group, and that
+simple groups always have CFQ. This of course shows that CFQ is not inherited
+by subgroups. Note that the author doesn’t know of a residually finite group with
+CFQ, with a subgroup without CFQ.
+Problem 19. Find a finitely presented residually finite group with a finitely gen-
+erated subgroup that does not have CFQ.
+   This problem is relevant in the search of a corrected Higman Embedding Theorem
+for residually finite groups, i.e. in the search of necessary and sufficient conditions
+for a finitely generated residually finite group to be a subgroup of a finitely presented
+residually finite group.
+   The following proposition provides insight into what happens when computing
+the quotient of a group with CFQ.
+Proposition 20. Let G be a finitely generated group. Let H be a group obtained by
+adding finitely many relations and identities to G. If G has any of ReFQ, co-ReFQ
+or CFQ, then so does H.
+Proof. Let G and H be two finitely generated groups, with a morphism π from G
+onto H. Let (F, f ) be a marked finite group. It is obvious that if f extends to
+a homomorphism ϕ from H onto F , then f ◦ π extends as well to a morphism ψ,
+which, in addition, satisfies ker(π) ⊆ ker(ψ). On the other hand, if f ◦ π extends
+to a morphism ψ, and if ker(π) is contained in ker(ψ), then ψ factors through π
+and f will extend to a morphism. The diagram is the following:
+                                            π
+                                      G    →    H
+                                            ψ
+                                           ց    ↓ϕ
+                                                F
+Thus if G has CFQ or ReFQ, we can reduce the finite quotient question of H to a
+question about subgroups inclusion.
+   If ker(π) is finitely generated as a normal subgroup, then the question “is ker(π)
+contained in ker(ψ)?” can be solved in finite time, as it is solved by computing ψ(r)
+for each r in a generating family of ker(π). If ker(π) is generated by an identity
+-that is a set of relations of the form v(x1 , ..., xk ), where v is a element of the free
+group on k generators, and x1 , ..., xk take all possible values of Gk - this question
+can also be answered, because to check whether an identity holds in a finite group,
+one only needs to check finitely many relations.
+   If G is a co-ReFQ group, we can determine whether ker(π) is contained in ker(ψ)
+even without knowing if ψ defines a morphism from G, and thus if (F, f ) does not
+define a quotient of H, we will either prove that f ◦ π does not extend to a quotient
+of G, or that, even if it were to define a quotient, the inclusion of kernels would not
+hold. With this, all cases of Proposition 20 are covered.                               
+   Since free groups obviously have CFQ, this proves again that finitely presented
+groups have CFQ, and the improvement due to Mostowski [21] which asserts that
+groups defined by finitely many relations and identities have CFQ. This implies for
+                       COMPUTABILITY OF FINITE QUOTIENTS                              11
+
+
+instance that all finitely generated metabelian groups, while not being necessar-
+ily finitely presented, have CFQ, because a result of Hall ([12]) implies that any
+finitely generated metabelian group can be presented with the metabelian identity
+(∀x∀y∀z∀t [[x, y] [z, t]] = e) together with finitely many relations.
+   The following is a direct consequence of Proposition 20:
+Corollary 21. The fundamental group of a graph of groups with vertex groups
+that have CFQ (or ReFQ or co-ReFQ) and finitely generated edge groups also has
+CFQ (respectively ReFQ or co-ReFQ). This includes free products amalgamated
+over finitely generated subgroups and HNN extensions over finitely generated sub-
+groups.
+   A direct product of groups that have one of CFQ, ReFQ or co-ReFQ, again has
+that property.
+2.3. Groups with the same finite quotients. Although having CFQ is defined
+for any finitely generated group, this property is very much attached to residually
+finite groups, and not only because of the interaction between having CFQ and
+having solvable word problem. For a group G, define its finitary image (the name
+comes from [8]) to be the quotient of G by its finite residual, i.e. by the intersection
+of all its finite index subgroups, or again, the image of G in its profinite completion
+Ĝ. Note this group Gf . It is the biggest residually finite quotient of G. Note π the
+morphism G → Gf . Fix a finite marked group (F, f ). This is the same situation
+as described when investigating quotients of CFQ groups, except that we have the
+property, which follows from the universal property of Gf : any morphism ψ of G
+to a finite group F factors through π, that is for any morphism ψ to a finite group,
+ker(π) ⊆ ker(ψ). The situation is summed up in the diagram:
+                                          π
+                                     G    →    Gf
+                                           ψ
+                                          ց    ↓ϕ
+                                               F
+  It follows that G has any of CFQ, ReFQ, co-ReFQ if and only if Gf shares the
+same property. From this, the following proposition is obvious.
+Proposition 22. If two finitely generated groups G and H admit the same finitary
+image, then G has any of CFQ, ReFQ, co-ReFQ if and only if H shares the same
+property.
+   We say that a group has trivially computable finite quotients if its finitary image
+is a finite group. For instance, simple groups, or finite exponent groups (because
+of the solution to the restricted Burnside problem), all have trivially CFQ. Note
+again that since a finitely generated simple group can be neither re nor co-re, CFQ
+groups can have as bad algorithmic properties as desired. Obtaining groups with
+CFQ that still have bad algorithmic properties becomes challenging only amongst
+residually finite groups. This is what was obtained in Theorem 3.
+   In [8] are constructed two groups with solvable word problem, the finitary image
+of one is co-re but not re, while the finitary image of the second is re but not co-re.
+This last group cannot have CFQ, otherwise its finitary image would have CFQ
+while being residually finite, thus it would be co-re. Thus this is a first example
+of a group with solvable word problem but without CFQ. Note however that this
+construction relies on the fact that the constructed group is not residually finite in
+12                                EMMANUEL RAUZY
+
+
+order to prove that it does not have CFQ; while Theorem 2 provides a group with
+solvable word problem and without CFQ that is itself residually finite.
+
+     3. Relation with the Depth Function for residually finite groups
+    In [3], Bou-Rabee introduced the residual finiteness growth function, or depth
+function, ρG , of a residually finite group G. We briefly recall its definition.
+    Fix a generating family S of G. Consider the function ρS , that to a natural
+number n associates the smallest number k such that, for any non-trivial element
+of length at most n in G, there exists a finite quotient of G of order at most k, such
+that the image of this element in that quotient is non-trivial. This is the depth
+function of G with respect to the generating family S.
+    For two functions f and g defined on natural numbers, note f  g to mean that
+there exists a constant C such that for any number n, f (n) ≥ Cg(Cn). It is easy
+to see that one defines an equivalence relation ≃ by putting f ≃ g if and only if
+f  g and g  f .
+    If S and S ′ are two different generating families of a group G, the functions ρS
+and ρS ′ will satisfy ρS ≃ ρS ′ ([3]). Thus one can define uniquely the depth function
+ρG of the group G by considering the equivalence class for ≃ of a function ρS , for
+some generating family S.
+    The interaction between the depth function of a group and it having CFQ makes
+it worth mentioning here, and in fact, an ancestor of the depth function can be
+found in McKinsey’s original article, [19], where an upper bound for what would be
+a “depth function” for lattices (partially ordered sets) is computed. This interaction
+also appears in [4].
+    Consider a residually finite group G, that has CFQ, generated by a family S. We
+know that G is then co-re, because McKinsey’s algorithm applies: list all quotients
+of G in order, and check wether an element has non-trivial image in one of those
+quotients. How long this will take is bounded by the depth function. In particular,
+if for an element w of length n of G, the algorithm has already tested all quotients
+of size at most ρS (n), and not found a quotient in which w is non-trivial, then
+w = e.
+Proposition 23. Let G be a finitely generated residually finite group with CFQ.
+   If there exists a generating family S of G and a recursive function h that satisfies
+ρS ≤ h, then G has solvable word problem.
+   If G has solvable word problem, then for any generating family S of G, the depth
+function of G with respect to S is recursive.
+Proof. The first claim follows from the sentence that immediately precedes this
+proposition. The second claim is straightforward.                            
+Remark 24. The depth function ρG of G is defined up to the equivalence relation
+≃. In the statement of this last proposition appears the condition “there exists a
+recursive function h that satisfies ρS ≤ h”. If two functions f and g satisfy f ≃ g,
+and if there exists a recursive function h that satisfies f ≤ h, then of course there
+exists a recursive function h′ that satisfies g ≤ h′ , and thus it makes sense to say
+that there exists a recursive function that bounds the depth function ρG . Note
+however that it is possible for a recursive function f to be equivalent, for ≃, to
+a non-recursive function g, (and even worse: the equivalence class for ≃ of any
+recursive function contains a non-recursive function), and because of this, the term
+                       COMPUTABILITY OF FINITE QUOTIENTS                             13
+
+
+“recursive depth function”, must be manipulated carefully. In what follows, we will
+say that a group G has recursive depth function if for any generating family S of
+the group G, the function ρS is recursive. Proposition 23 implies that for a group
+with CFQ, either all its relative depth functions ρS are recursive, or none of them
+are. From this it is natural to ask the following problem:
+Problem 25. Let G be a finitely generated residually finite group, and S and S ′ two
+generating families of G. Is it possible that exactly one of ρS and ρS ′ be recursive?
+  The following follows immediately from Proposition 23:
+Corollary 26. For residually finite groups with CFQ, having solvable word problem
+is equivalent to having recursive depth function.
+    Theorem 3 thus asserts the existence of a group with CFQ but non-recursive
+depth function. Note that result similar to this corollary exists, that relates the
+Dehn function of a finitely presented group and solvability of the word problem in
+it.
+    In [14], it was shown that for any recursive function f , there is a finitely pre-
+sented residually finite group with depth function greater than f , and yet with word
+problem solvable in polynomial time. For such a group, McKinsey’s algorithm is
+far from being optimal. The group constructed in order to prove Theorem 2 shows
+that, for non-finitely presented groups, the situation can be even more extreme: in
+it, the word problem is solvable, but not by McKinsey’s algorithm.
+    It was explained in the first section of this paper that conjugacy separability and
+subgroup separability, when confronted to the property of having computable finite
+quotients, play a role similar to residual finiteness, but with respect to the conjugacy
+problem and the generalized word problem. It is then natural to introduce functions
+similar to the depth function of residually finite groups, but that quantify conjugacy
+separability and subgroup separability. This was first done in [15] for conjugacy
+separability, and in [6] for subgroup separability. What was said in this section
+about recursiveness of the depth function translates easily to those two functions.
+
+                       4. Examples of groups with CFQ
+  In this section, we give examples of infinitely presented groups that have CFQ.
+Those examples contain some commonly used infinitely presented groups.
+
+4.1. Wreath products. The (restricted) L  wreath product of twoL
+                                                               groups G and H,
+noted H ≀G, is the semi direct product H ⋉ G, where H acts on G by permuting
+                                             H                      H
+the indices. The wreath product H ≀ G of two finitely generated groups is always
+finitely generated, however, by a theorem of Baumslag ([2]), it is finitely presented
+only if G is finitely presented and H is finite (excluding the case where G is the
+trivial group). If hSG |RG i and hSH |RH i are presentations respectively of G and H,
+with SG ∩ SH = ∅, then a presentation of H ≀ G is given by the following:
+          hSG , SH |RG , RH , hg1 h−1 , g2 , (g1 , g2 , h) ∈ SG × SG × (H \ {1})i
+                                         
+
+(where by h ∈ H \ {1} we actually mean “for each h ∈ H \ {1}, choosing a way of
+expressing h in terms of a product of the generators of SH ”).
+  The following proposition gives necessary and sufficient conditions for a wreath
+product to have CFQ.
+14                                 EMMANUEL RAUZY
+
+
+Proposition 27. The wreath product H ≀ G of two finitely generated groups G and
+H has CFQ if and only if either H has CFQ and is infinite, or if H is finite and
+G has CFQ.
+Proof. Suppose that H ≀ G has CFQ. From the presentation of H ≀ G given above, it
+is easy to see that H can be obtained as a quotient of H ≀ G by adding only finitely
+many relations to it. Thus by Proposition 20, H has CFQ.
+    Suppose additionally that H is finite. A finite group F , marked by a function
+f , is a quotient of G if and only if the function g, defined as the identity on the
+generators of H and as f on those of G, which thus sends a generating family of
+H ≀ G to one of H ≀ F , can be extended to a morphism. But because H is finite,
+H ≀ F is also finite, and thus it can be determined whether or not it is a quotient
+of H ≀ G. This proves that G has CFQ.
+    For the converse, suppose first that H is finite and that G has CFQ. Because H
+is finite, a presentation for H ≀ G can be obtained by adding finitely many relations
+to a presentation of G ∗ H, which has CFQ because both G and H have. Thus
+Proposition 20 applies again.
+    Suppose now that H is infinite and has CFQ. In a finite quotient of H ≀ G, some
+non-trivial element of H must necessarily have a trivial image. But it is easy to
+see, from the presentation of H ≀ G given above, that, for any element h 6= 1 of
+H, the relation h = 1 together with the relations of H ≀ G will always also imply
+that [g1 , g2 ] = 1, for any pair (g1 , g2 ) of elements of G. This implies that any finite
+quotient of H ≀ G is in fact a finite quotient of H ≀ Gab , where Gab denotes the
+abelianization G/ [G, G] of G. It thus suffices to prove that if H has CFQ and G is
+abelian, then the wreath product H ≀ G also has CFQ.
+    Consider a finite group F together with a function f that goes from a generating
+family of H ≀ G to F . To decide whether f can be extended to a morphism, one
+can first check whether the restriction fH of f to a generating family of H extends
+as a morphism from H onto a subgroup FH of F , using the fact that H has CFQ.
+If it does not, then f cannot be extended to a group morphism. If it does, one can
+compute a presentation of FH . F is then a quotient of H ≀ G if and only if it is
+a quotient of FH ≀ G. But G is finitely presented, being abelian, and FH is finite,
+thus this wreath product is finitely presented, and a finite presentation of it can
+be obtained from the presentation of FH . This presentation can in turn be used to
+decide whether F is a quotient of FH ≀ G, and thus of H ≀ G.                             
+
+4.2. L-presented groups. L-presented groups were introduced in [1]. An L-
+presentation, or finite endomorphic presentation, is a quadruple hS|R1 |Φ|R2 i, where
+S is a finite set of generating symbols, R1 and R2 are finite sets of relations, i.e. of
+elements of the free group FS defined over S, and Φ is a finite set of endomorphisms
+of FS . Such a presentation defines a presentation, in the usual sense of the term,
+by adding to R1 ∪ R2 , as further relations, all elements of FS that can be obtained
+from R2 by iterating the endomorphisms of Φ. (This process can be carried out
+effectively, an L-presentation is thus always a recursively enumerable presentation.)
+   It was proven in [13] that a coset enumeration process can be carried out in
+L-presented groups, and that the membership problem for finite index subgroups
+is solvable in L-presented groups. This, we have seen, directly implies that those
+groups have CFQ.
+Proposition 28. L-presented groups have CFQ.
+                       COMPUTABILITY OF FINITE QUOTIENTS                            15
+
+
+   Many groups of interest that are not finitely presented were proven to admit L-
+presentations, including groups of intermediate growth, and various groups acting
+on rooted trees, like the Gupta–Sidki group (see [1]).
+   Note that many of those groups were proven to be conjugacy separable ([24]) or
+subgroup separable ([10, 9]). The fact that they have CFQ thus completes for those
+groups the proof of solvability of the conjugacy problem, or of the generalized word
+problem. (Although in some cases, solutions to these problems are known, that do
+not rely on McKinsey’s algorithm).
+
+                         5. Main unsolvability results
+   In this section, we prove the two main theorems of this paper.
+   Theorem 3 follows from the construction that Slobodskoi used in [23] to prove
+undecidability of the universal theory of finite groups. However, the exact result
+we use was implicit in [23], and it was first pointed out to hold by Bridson and
+Wilton in [5]. We first show how, thanks to this result, the proof of Theorem 3 is
+immediate.
+   We then detail Dyson’s construction from [8], which, with [20], contained the first
+examples of re residually finite groups without solvable word problem. We show
+that this construction provides us with another proof of Theorem 3, which has the
+advantage of relying on groups whose structure is very explicit. We finally use
+Dyson’s construction to build a residually finite group with solvable word problem,
+and yet without CFQ, thus proving Theorem 2.
+5.1. Slobodskoi’s example for Theorem 3. Recall that the finitary image Gf
+of a group G is its biggest residually finite quotient.
+   To each finite presentation, one can associate a residually finite group, by taking
+the finitary image of the group defined by this presentation. If π is a finite presen-
+tation for a group G, and if Gf is the finitary image of G, say that π is a finite
+presentation of Gf as a residually finite group, and that Gf is finitely presentable
+as a residually finite group.
+   In 1981, in [23], Slobodskoi proved that the universal theory of finite groups is
+undecidable. As a consequence of his paper, groups that are finitely presented as
+residually finite groups do not have uniformly solvable word problem. But in fact,
+more can be deduced from the proof that appears in [23], as was made explicit by
+Bridson and Wilton in [5]:
+Theorem 29 ([5], Theorem 2.1). There exists a finitely presented group G in
+which there is no algorithm to decide which elements have trivial image in every
+finite quotient.
+  Two other equivalent formulations of this theorem are the following ones:
+Theorem. There exists a finitely presented group G whose finitary image is not
+recursively presented.
+Theorem. There exists a group H which is finitely presentable as a residually finite
+group, but which has unsolvable word problem.
+  This theorem then directly implies Theorem 3.
+Proof of Theorem 3. A group which is finitely presented as a residually finite group
+must have CFQ, by Proposition 22. Thus if such a group has unsolvable word
+16                                      EMMANUEL RAUZY
+
+
+problem, it satisfies the criteria required by Theorem 3. A group, finitely presented
+as a residually finite group, with unsolvable word problem exists by Theorem 29. 
+
+5.2. Dyson’s Groups. These groups are amalgamated products of two lamp-
+lighter groups.
+   The lamplighter group L is the wreath product Z ≀ Z/2Z of Z and of the order
+two group. It admits the following presentation:
+                            ha, ε| ε2 , ε, ai εa−i , i ∈ Zi
+                                                 
+
+The element ai εa−i of L corresponds to the element of Z/2Z with only one non-
+                                                            L
+                                                                       Z
+zero coordinate in position i ∈ Z. We call it ui . Consider another copy L̂ of the
+lamplighter group, together with an isomorphism from L to L̂ we note g 7→ ĝ.
+For each subset A of Z, define L(A) to be the amalgamated product of L and L̂,
+with ui = ai εa−i identified with ûi = âi ε̂â−i for each i in A. It has the following
+presentation:
+      ha, â, ε, ε̂| ε2 , ε̂2 , ε, ai εa−i , ε̂, âi ε̂â−i , i ∈ Z, aj εa−j = âj ε̂â−j , j ∈ Ai
+                                                        
+
+   Recall that the double of a group G over a subgroup H is the free product of two
+copies of G amalgamated along the identity over H, denote it G∗H G. Dyson’s group
+associated to A is thus the double of the Lamplighter group L over the subgroup
+generated by elements of the form ai εa−i , for i in A. Call HA this subgroup.
+   For n a non-zero natural number, denote L(A)n the group hL(A) | an , ân i.
+   Call A mod n the set {r ∈ {0, ..., n − 1} , ∃a ∈ A, a ≡ r mod n}.
+Lemma 30. L(A)n is finitely presented and residually finite. It is the amalgamated
+product of two copies of the finite wreath product Z/nZ ≀ Z/2Z, and it admits the
+following presentation:
+
+
+         ha, â, ε, ε̂| an , ân , ε2 , ε̂2 , ε, ai εa−i , ε̂, âi ε̂â−i , 0 ≤ i ≤ n − 1,
+                                                                      
+
+                                                      aj εa−j = âj ε̂â−j , j ∈ A mod ni
+
+Proof. The given presentation is obtained from the presentation of L(A), adding
+relations an and ân , and simplifying the relations as can be done. It then follows
+from that presentation that L(A)n is an amalgamated product of two copies of the
+finite wreath product Z/nZ ≀ Z/2Z. Finally it is well known that an amalgamated
+product of finite groups is residually finite (see [17]).                         
+
+   The properties of the group L(A) are stated using the profinite topology on Z.
+A basis of open sets for PT (Z) consists in sets of the form n + pZ, for n and p
+integers. Thus a subset A of Z is open in PT (Z) if and only if for every n in A
+there exists an integer p such that n + pZ ⊆ A.
+   We can now state the properties of the group L(A) that are relevant to this
+work.
+Proposition 31. Let A be a subset of Z.
+   (1) L(A) is re, co-re or has solvable word problem if and only if A is respectively
+       re, co-re or recursive.
+   (2) L(A) is residually finite if and only if A is closed in PT (Z).
+                        COMPUTABILITY OF FINITE QUOTIENTS                            17
+
+
+    (3) L(A) has CFQ if and only if the function which to n associates A mod n is
+        recursive.
+   The first two points of this proposition were proven in [8]. We still include proofs
+for those two statements. The proof given for (1) is exactly that of Dyson. We then
+give two proofs of (2), one shorter and more conceptual than that of [8], which was
+suggested to us by the anonymous referee, and another one which, although not
+as clear as the previous one, can readily be rendered effective, and in the proof of
+Proposition 34, we refer ourselves to this second proof.
+   Notice finally that the condition which appears in (3) could be stated as: A is
+determinable in finite quotients of Z (see Definition 5).
+Proof. We prove all three points in order.
+  If L(A) is re or co-re, then clearly so is A, as n belongs to A if and only if
+un = ûn in L(A), which proves one direction of (1).
+  It is clear that if A is re, the presentation of L(A) given above is re as well.
+  Suppose now that A is co-re. We can enumerate the complement of A, and thus
+enumerate elements of the form:
+                         (∗) w = aα1 x1 âβ1 y1 ...aαk xk âβk yk z
+where αi , βi ∈ Z, x1 , ..., xk and y1 , ..., yk are elements of the base groups of
+L and L̂ that have null components corresponding to indices in A, and z is any
+element in L or in L̂. The elements written this way are exactly the elements in
+normal form for the amalgamated product L(A). Recall that the normal form in
+an amalgamated product ([16]) necessitates two choices of transversals, here one
+       L                         L
+for L/( Z/2Z) and one for L̂/( Z/2Z), and that an element in normal form is a
+        A                          A
+consecutive product of an element of one transversal, followed by one of the other,
+etc, terminated by any element of one of these groups. But elements aα x, with α in
+Z and x in the base L
+                    group with null components on A, indeed form the most natural
+transversal for L/( Z/2Z). Thus any non-trivial element g of L(A) is equal to
+                    A
+exactly one element in this enumeration. Ideally, we would then enumerate words
+that give the identity in L(A), and listing words that can be obtained concatenating
+a word in normal form to a word that defines the identity would give the desired
+enumeration. Since L(A) is not supposed re, we cannot directly enumerate this
+set of trivial words, but we will over-approximate it by a re set. For w as in (∗),
+note Bw the set of all indices that appear in elements xi or yi of the base groups
+(Bw can be empty). The over approximation consists of the words corresponding
+to the identity in L(Z \ Bw ). Note that w is also in normal form in L(Z \ Bw ),
+thus non-trivial there. Of course, Bw is finite, thus Z \ Bw is re, thus as we already
+remarked, we can enumerate words (in a, â, ε, ε̂) that correspond to the identity
+in L(Z \ Bw ). Then for any such word w1 , the product ww1 corresponds to a
+non-identity element of L(Z \ Bw ), thus to a non-identity element in L(A), since,
+as A ⊆(Z \ Bw ), L(Z \ Bw ) satisfies more relations than L(A). Thus enumerating
+products ww1 with w1 = e in L(Z \ Bw ) will only yield non-identity elements in
+L(A). What’s more, every element of the form ww2 , where w2 is a word that is
+the identity in L(A), will arise this way, again because L(Z \ Bw ) satisfies more
+relations than L(A).
+   Because the algorithm that enumerates relations in L(Z\Bw ) depends recursively
+on w, this process can be applied simultaneously to all words w in normal form,
+18                                   EMMANUEL RAUZY
+
+
+giving an enumeration of all words that correspond to non-identity elements of
+L(A), thus proving that L(A) is co-re.
+   Finally A is recursive if and only if it is both re and co-re, if and only if L(A)
+has solvable word problem.
+   This ends the proof of (1).
+   We first sketch a conceptually simple proof of (2).
+   Recall that the group L(A) is the double of the lamplighter group L over the
+subgroup HA generated by elements of the form ai εa−i , for i in A. The statement
+(2) is implied by the two following arguments:
+       – the double of a residually finite group G over a subgroup H is itself resid-
+         ually finite if and only if H is separable in G;
+       – the subgroup HA is separable in L if and only if A is separable in Z.
+Those arguments are easy to check, and because a second proof for (2) follows, we
+do not detail them.
+   We now give another proof of (2), which can be easily rendered effective. We in
+fact prove slightly more than (2): for a subset A of Z, the finitary image L(A)f of
+L(A) is L(A), where A denotes the closure of A in PT (Z). First we show that if
+n belongs to A, then in any finite quotient (F, f ) of L(A), the images of un and
+ûn are the same in F . Let (F, f ) be some finite quotient of L(A). Call p and p′
+the orders of f (a) and f (â) in F . Then, because n belongs to A, n + pp′ Z must
+meet with A, as it is a neighborhood of n. Thus we have k such that n + pp′ k ∈ A,
+that is, such that un+pp′ k = ûn+pp′ k in L(A). Then, in F (we omit to write the
+homomorphism onto F ):
+                                     ′          ′           ′    ′
+                       un = (ap )p k un (ap )−p k = app k un a−pp k
+                          = un+pp′ k
+                           = ûn+pp′ k
+                                 ′          ′
+                           = (âp )pk ûn (âp )−pk = ûn
+
+This shows that L(A)f is a quotient of L(A). It is then sufficient to see that L(A)
+is residually finite to see that L(A)f = L(A).
+   We suppose that A is closed to omit the closure notation. Let w be a non-identity
+element of L(A), and write it in normal form w = aα1 x1 âβ1 y1 ...aαk xk âβk yk z, as in
+the proof of (1).
+   Suppose first that the normal form is the trivial one: w = z with z in L or in
+L̂. Then w is non-trivial in the quotient of L(A) obtained by identifying the two
+copies L and L̂ of the lamplighter group (i.e. hL(A) | a = â, ε = ε̂i ), which is just
+the lamplighter group itself, which is residually finite.
+   We
+    L can now suppose the normal form   Q has several terms. Each xi is an element
+of     Z/2Z, that is to say a product uki,j with ki,j ∈   / A. Because A is closed,
+     Z\A
+for each such ki,j there is pi,j that satisfies (ki,j + pi,j Z) ∩ A =Q∅. Similarly,    for
+each x̂i , introduce integers p′i,j , j = 1, 2, .... Call N the product pi,j p′i,j . (It is
+                                                                            Q
+1 if, for all i, xi = x̂i = e.) We claim that w is non-trivial in L(A)N . Indeed, N
+was chosen so that for any (i, j), ki,j (or its remainder modulo N ) does not belong
+to A mod N . This implies that w is also in normal form in L(A)N (by Lemma 30),
+and thus non-trivial there.
+                         COMPUTABILITY OF FINITE QUOTIENTS                                  19
+
+
+   Again by Lemma 30, L(A)N is residually finite, so we’ve proven that L(A) is
+residually residually finite, which of course is the same as residually finite.
+   Finally we prove (3).
+   Suppose A mod n depends recursively of n. Let (F, f ) be a finite group to-
+gether with a function f from {a, â, ε, ε̂} to F . To determine whether f defines a
+homomorphism, compute the orders of f (a) and of f (â), and let n be their prod-
+uct. If f extends to a morphism, this morphism factors through the projection
+π : L(A) → L(A)n . By Lemma 30, a finite presentation for L(A)n can be found
+from the computation of A mod n. It can then be determined in finite time from
+this presentation whether f defines a homomorphism from L(A)n to F .
+   Suppose now that L(A) has CFQ. Let n be a natural number. To compute
+A mod n, consider all possible  Q            presentations for L(A)n : for B ⊂ {0, ..., n − 1},
+define the presentation B :
+         ha, â, ε, ε̂| an , ân , ε2 , ε̂2 , ε, ai εa−i , ε̂, âi ε̂â−i , 0 ≤ i ≤ n − 1,
+                                                                      
+
+                                                        aj εa−j = âj ε̂â−j , j ∈ Bi
+All these presentations define residually finite groups, and because they are finitely
+presented, they have CFQ. L(A)n also has CFQ, because it is obtained from L(A) by
+adding two relations, thus we can start to enumerate the quotients of Q      L(A)n . Also
+start enumerating the quotients of all groups given by the presentations B ,Q    for B ⊂
+{0, ..., n − 1}. Those 2n lists are all different (because, as the presentations B give
+residually finite groups, a list contains a finite group in which the images of aj εa−j
+and âj ε̂â−j differ if and only if j does not belong to B), and only one corresponds
+to the list of quotients of L(A)n . It can be determined, in a finite numberQof steps,
+which of those lists corresponds to L(A)n , and thus which presentation B gives
+a presentation of L(A)n , and then one can conclude that B = A mod n.                  
+   From Proposition 31, to prove Theorem 2, it suffices to build A with the following
+properties: A is closed in PT (Z), A is recursive, there is no algorithm that takes n
+as input and computes A mod n. Similarly, to prove Theorem 3, it suffices to build
+A such that: A is closed in PT (Z), A is not recursive, but there is an algorithm
+that, given n as input, computes A mod n.
+5.3. Building subsets of Z with prescribed properties. We first give an al-
+ternative proof of Theorem 3, before completing the proof of Theorem 2.
+Lemma 32. There exists a non-recursive subset A of Z, closed in PT (Z), for
+which A mod n depends recursively of n.
+   Note that without the closeness assumption, this result would be a lot easier: it
+is precisely the result of Proposition 7, whose proof is very short, and yields a set
+that can be neither re nor co-re. However, for a closed set A, the computation of
+A mod n will yield an enumeration of the complement of A: indeed, if a is not in A,
+some open set a + bZ must not meet A, and thus a is not in A mod b. This proves
+that if A is closed, and if A mod n is computable, then A is co-re. This is just the
+translation for Dyson’s groups of: if G is residually finite, and has CFQ, then G is
+co-re.
+Proof. We construct a set B, which will be the complement of the announced A.
+Thus it has to be open, re but not co-re, and for any a and b, the question “is a + bZ
+a subset of B” has to be solvable in a finite number of steps. Indeed, a belongs to
+20                                 EMMANUEL RAUZY
+
+
+A mod b if and only if a + bZ meets A, if and only if a + bZ is not a subset of the
+complement of A.
+   Call pn the n-th prime number. Define two sequences (xn )n≥0 and (yn )n≥1 by
+the following:
+                                      x0 = 1
+                                     xn = pn x2n−1
+                                      yn = xn−1
+   These sequences have the following properties:
+      – for any n, xn |xn+1 and yn |yn+1 .
+      – for any integer b, there is some (computable) n such that b|xn and b|yn .
+      – pk divides xn if and only if k ≥ n, and pk divides yn if and only if k > n.
+      – for integers k, k ′ , n, n′ , with k ≤ n and k ′ ≤ n′ , yk + xn Z and yk′ + xn′ Z
+        are disjoint if and only if k 6= k ′ , and otherwise one is a subset of the other.
+All these are clear, the fourth point follows from the third, by remarking that
+elements of yk + xn Z are all multiples of p0 , p1 ,... pk−1 , but none of them is a
+multiple of pk .
+   Consider a recursive function f whose image is re but not co-re. Assume that
+for any n, 1 ≤ f (n) ≤ n (it is easy to see that such a function exists). Then we
+define B as the union:                    [
+                                   B=         yf (n) + xn Z
+                                      n∈N∗
+Since f is a recursive function, B is re. It is not co-re, however, because ym belongs
+to B if and only if m belongs to the image of f (this follows directly from the
+properties of the sequences (xn )n≥0 and (yn )n≥1 ).
+   B is an open set, because it is defined as an union of open sets.
+   All that is left to see is that we can decide, for a and b integers, whether a + bZ
+is a subset of B. Suppose that a < b. If a = 0, then 0 ∈ a + bZ, but 0 ∈      / B, thus
+a + bZ is not a subset of B. If a is non-zero, no element of a + bZ is divisible by b.
+Thus, because of the second property of the sequences (xn )n≥0 and (yn )n≥1 quoted
+above, there exists N such that if N ≤ k ≤ n, then a + bZ ∩ yk + xn Z = ∅. Thus
+a + bZ is a subset of B if and only if it is a subset of the set BN , defined by:
+                                        [
+                              BN =               yf (n) + xn Z
+                                   n∈N∗ , f (n)≤N
+
+Define a pseudo-inverse g of f by g(m) = inf {n, f (n) = m}. Because we chose f
+such that for any n, f (n) ≤ n, for any m, g(m) ≥ m. If m is not in the image of f ,
+put g(m) = ∞. The set BN can be expressed as the disjoint union:
+                                       [
+                           BN =              yk + xg(k) Z
+                                   k∈Im(f ), k≤N
+
+Because xk |xg(k) , BN is contained in the set CN , defined by:
+                                        [
+                                 CN =      yk + xk Z
+                                         k≤N
+
+It can be determined whether a + bZ is contained in CN , because the sequences
+(xn )n≥1 and (yn )n≥1 can be computed. If a + bZ is not contained in CN , then it is
+not contained in BN either.
+                        COMPUTABILITY OF FINITE QUOTIENTS                               21
+
+
+   If it is contained in CN , a + bZ is contained in BN if and only if, for each k,
+a + bZ ∩ yk + xk Z is contained in BN . But, because BN and CN are disjoint unions,
+a + bZ ∩ yk + xk Z is contained in BN if and only if it is contained in yk + xg(k) Z. (If
+k is not in Im(f ), g(k) = ∞, by convention yk + xg(k) Z = {yk }.) Now this question
+can be effectively answered. If a + bZ ∩ yk + xk Z is empty, there is nothing to do.
+Otherwise, it is of the form t + lcm(b, xk )Z. Enumerate f (1), f (2),..., f (lcm(b, xk )).
+Either k is in that list, in which case g(k) can be computed and the question “is
+a + bZ ∩ yk + xk Z contained in yk + xg(k) Z” can be settled, or k does not appear
+in the enumeration, which shows that g(k) is greater than lcm(b, xk ). It this last
+case, as xg(k) is greater than g(k), yk + xg(k) Z cannot contain any set of the form
+t + lcm(b, xk )Z.                                                                        
+   This Lemma allows us to give another proof of Theorem 3:
+Proof of Theorem 3, alternate. It follows from Proposition 31 that the group L(A),
+where A is the set constructed in Lemma 32, satisfies the requirements of Theorem
+3.                                                                              
+   This group has a depth function which cannot be smaller than a recursive func-
+tion. We now prove the last lemma which ends the proof of Theorem 2:
+Lemma 33. There exists a recursive subset A of Z, closed in PT (Z), for which
+A mod n does not depend recursively of n.
+Proof. Call pn the n-th prime number. Fix some effective enumeration M1 , M2 ,... of
+all Turing machines. Consider the following process: start running simultaneously
+all those machines, as is done to show that the halting problem is re. While running
+calculations on the n-th machine, at each new step in the computation, produce a
+new power of p2n : p2n , p22n , p32n ... If the computation on this machine stops after
+k steps, end the list p2n , p22n , ..., pk2n already produced with pk+1
+                                                                    2n+1 .
+    Call A the set of all powers of prime numbers obtained this way. A is obviously
+re, as it was defined by an effective enumeration process. It is even recursive.
+Indeed, for a number x, if x is not the power of a prime, then x is not in A. If it is
+the power of a prime of even index, say x = pk2n , then x belongs to A if and only
+if the n-th Turing machine does not stop in less than k calculations steps. This
+question can be effectively settled. Similarly, if x is the power of a prime of odd
+index, x = pk2n+1 , then x belongs to A if and only if the n-th Turing machine stops
+in exactly k calculations steps, this also can be determined.
+    Of course, A mod m does not depend recursively of m. Indeed, the question:
+“does 0 belong to A mod p2n+1 ?” is, by construction, equivalent to “does the n-th
+Turing machine halt?”.
+    Finally, we show that A is a closed set, which is equivalent to finding, for any x
+not in A, a number y such that x + yZ does not meet A. If x has several prime
+divisors, then x + xZ works, because any element of it has several prime divisors.
+If x is the power of a prime of even index, x = pk2n , and x is not in A, it must
+be that the n-th Turing machine stops in strictly less than k steps. Thus the only
+elements in A that are multiples of p2n will have a valuation in p2n lower than k.
+Thus x + xZ will also work. The last case is if x is the power of a prime of odd
+index, x = pk2n+1 . In this case, we claim that x+ p2n+1 xZ does not meet A. Indeed,
+x is the only power of p2n+1 contained in x + p2n+1 xZ, all other elements of it have
+at least two different prime divisors.                                               
+22                                   EMMANUEL RAUZY
+
+
+     With this we end the proof of Theorem 2:
+Proof of Theorem 2. By Proposition 31, for a subset A of Z, Dyson’s group L(A)
+satisfies the requirements of Theorem 2 provided that A is closed, recursive, and
+that the function A mod n is not computable. Lemma 33 provides such a set. 
+   We finally remark that an upper bound to the depth function of the obtained
+group L(A) can be effectively computed, and that the group obtained in Theorem
+2 can be supposed to have recursive depth function.
+Corollary 34. There exists a group with solvable word problem and recursive depth
+function, that does not have CFQ.
+Proof. It appears clearly in the proof of Lemma 33 that the constructed A is effec-
+tively closed : if x does not belong to it, then some y such that x + yZ does not meet
+A can effectively be found. Going back to the proof of the first point of Proposition
+31, it appears that, given a non-identity element w of L(A), the recursiveness of A
+permits to compute its normal form. Then, in the proof of the second point of that
+same proposition, it appears that, from this normal form and the effective closeness
+of A, some integer N can be effectively found, such that w is non trivial in L(A)N .
+A presentation of L(A)N cannot necessarily be found, but there are 2N possible
+finite presentations for it, all of them with recursive depth function. Taking the
+supremum of those depth functions allows to compute a recursive upper bound to
+the depth function of L(A).
+   Although it is not clear whether that depth function is recursive or not, by taking
+the direct product of the group L(A) with a finitely presented group with recursive
+depth function greater that that of L(A), which exists by [14], one obtains a group
+which still has solvable word problem and uncomputable finite quotients, and whose
+depth function is recursive.                                                        
+   In [22], we construct, also using Dyson’s groups, a residually finite group G
+with solvable word problem, that not only does not have CFQ, but that also is
+not effectively residually finite: there can be no algorithm that, given a non-trivial
+element w, gives a finite quotient (F, f ) in which the image of w is non-trivial. This
+is done by constructing a closed subset A of Z that is not effectively closed.
+
+                                        References
+ [1] L. Bartholdi. Endomorphic presentations of branch groups. Journal of Algebra, 268(2):419–
+     443, oct 2003.
+ [2] G. Baumslag. Wreath products and finitely presented groups. Mathematische Zeitschrift,
+     75(1):22–28, dec 1961.
+ [3] K. Bou-Rabee. Quantifying residual finiteness. Journal of Algebra, 323(3):729–737, feb 2010.
+ [4] K. Bou-Rabee and B. Seward. Arbitrarily large residual finiteness growth. Journal fÃŒr die
+     reine und angewandte Mathematik (Crelles Journal), 2016(710), jan 2016.
+ [5] M. R. Bridson and H. Wilton. The triviality problem for profinite completions. Inventiones
+     mathematicae, 202(2):839–874, feb 2015.
+ [6] J. Deré and M. Pengitore. Effective subgroup separability of finitely generated nilpotent
+     groups. Journal of Algebra, 506:489–508, jul 2018.
+ [7] V. H. Dyson. The word problem and residually finite groups. American Mathematical Society
+     Notices, 1964.
+ [8] V. H. Dyson. A family of groups with nice word problems. Journal of the Australian Mathe-
+     matical Society, 17(4):414–425, jun 1974.
+ [9] A. Garrido. Abstract commensurability and the gupta–sidki group. Groups, Geometry, and
+     Dynamics, 10(2):523–543, 2016.
+                          COMPUTABILITY OF FINITE QUOTIENTS                                     23
+
+
+[10] R. I. Grigorchuk and J. S. Wilson. A structural property concerning abstract commensura-
+     bility of subgroups. Journal of the London Mathematical Society, 68(03):671–682, nov 2003.
+[11] M. Hall. A topology for free groups and related groups. The Annals of Mathematics, 52(1):127,
+     jul 1950.
+[12] P. Hall. Finiteness conditions for soluble groups. Proceedings of the London Mathematical
+     Society, s3-4(1):419–436, 1954.
+[13] R. Hartung. Coset enumeration for certain infinitely presented groups. International Journal
+     of Algebra and Computation, 21(08):1369–1380, dec 2011.
+[14] O. Kharlampovich, A. Myasnikov, and M. Sapir. Algorithmically complex residually finite
+     groups. Bull Math Sci, 7(2):309–352, mar 2017.
+[15] S. Lawton, L. Louder, and D. McReynolds. Decision problems, complexity, traces, and rep-
+     resentations. Groups, Geometry, and Dynamics, 11(1):165–188, 2017.
+[16] R. C. Lyndon and P. E. Schupp. Combinatorial Group Theory. Springer Berlin Heidelberg,
+     2001.
+[17] W. Magnus. Residually finite groups. Bulletin of the American Mathematical Society,
+     75(2):305–317, mar 1969.
+[18] A. I. Mal’cev. On homomorphisms onto finite groups. Uchen. Zap. Ivanovskogo Gos.
+     Ped.Inst., 1958.
+[19] J. C. C. McKinsey. The decision problem for some classes of sentences without quantifiers.
+     Journal of Symbolic Logic, 8(3):61–76, sep 1943.
+[20] S. Meskin. A finitely generated residually finite group with an unsolvable word problem.
+     Proceedings of the American Mathematical Society, 43(1):8–8, jan 1974.
+[21] A. Mostowski. On the decidability of some problems in special classes of groups. Fundamenta
+     Mathematicae, 59(2):123–135, 1966.
+[22] E. Rauzy. Obstruction to a Higman embedding theorem for residually finite groups with
+     solvable word problem. Preprint.
+[23] A. M. Slobodskoi. Unsolvability of the universal theory of finite groups. Algebra and Logic,
+     20(2):139–156, mar 1981.
+[24] J. Wilson and P. Zalesskii. Conjugacy separability of certain torsion groups. Archiv der Math-
+     ematik, 68(6):441–449, jun 1997.
+   Current address: Université de Paris. UFR de Mathématiques. Bâtiment Sophie Germain. 8
+place Aurélie Nemours, 75013 Paris, France
+   Email address: emmanuel.rauzy.14@normalesup.org
+
