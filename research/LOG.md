@@ -790,3 +790,8 @@ Developed a second application of the finite polynomial method: injective images
 The preceding preparation-only response made no progress on this active research goal. Revalidated the original launch/deadline and resumed gworld1 with no live recorded jobs. Wrote a shared F34/F38 audit with an explicit finite control-path bound for the polynomial stage and a counterexample to transferring the determinant reduction to F39(a). No gap found in this bounded internal reread; no outside review or new candidate count.
 
 A GA1 surface-obstruction lead fails by Martino–ORourke's prior Z^2 actions, including the genus-three nonorientable surface. Read the relevant primary proofs and archived both author-hosted papers. General root adjunction does not satisfy the cited maximal-abelian amalgamation hypotheses. Recorded the exact remaining gap. Tally remains4 whole,4 partial,0 established novel. No agents, push or contacts; original clock unchanged.
+
+
+## 2026-09-28T22:55:03.075849+00:00 — class-ten third-layer extension
+
+Completed the class-ten gamma_8 extension: a fresh-letter quotient lemma, complete type(1,7) classification and three injectivity arguments give finite integral lifting for all leading degree-eight targets. Rank-two Python/GAP structural and group suites passed. Nine rank-three structural cases completed before a180-second timeout; the full suite is incomplete. Both initial GAP attempts lacked required exported fixtures and failed despite exit0; corrected exports preceded the successful v2 replays. Exact sources, failures and docstring-only changes are retained. Extended the same N8 partial scope; tally stays4 whole,4 partial,0 established novel. Original clock unchanged, all jobs terminal, no push/contact/agents.

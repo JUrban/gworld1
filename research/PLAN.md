@@ -2,20 +2,19 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately22:22 UTC: four whole-entry candidates
+Latest checkpoint, approximately22:53 UTC: four whole-entry candidates
 (F28,N5,M0,H4), four partial candidates (N8,F41,F38(a),F34(a)), zero
-established novel results. The two new free-group decision candidates
-share the effective EDT0L relation and polynomial-span method. F38(a)
-uses KLSS injective translation equivalence; F34(a) uses an elementary
-positivity-reflection lemma. The polynomial stage and270 explicit F34
-automorphism witnesses passed independent GAP replay. Full recompression
-is an imported theorem, not implemented. Rank-two results are prior.
+established novel results. F34/F38 now have a shared audit and a finite
+control-path bound. The generic determinant substitution fails for F39.
+GA1's proposed surface obstruction is excluded by prior Z^2-free actions.
 
-Next: return to the broader unresolved portfolio and adversarial candidate
-review. F38(c) does not follow from polynomial identity testing. Avoid
-counting the shared method, simultaneous-positivity observation, or new
-N8 families as additional problem resolutions. Keep novelty qualifications
-and the original deadline visible.
+N8(b) now also covers every gamma_8 target in class ten, subsuming its
+earlier nonlinear family. All-rank proof and rank-two independent GAP
+evidence are recorded; the rank-three structural timeout is incomplete.
+Next return to the broader unresolved portfolio and specific adversarial
+proof/novelty concerns. Do not spend the run merely enlarging validation
+samples or optimizing the timed-out rank-three benchmark. The original
+48-hour deadline and resource budget remain unchanged.
 
 ## First pass: source and literature triage
 

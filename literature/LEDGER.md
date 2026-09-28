@@ -340,3 +340,8 @@ Archived Dinowitz-Koch-Hyde-OConnor-Olive2512.13967v1 (Introduction/Question1.3,
 ## 2026-09-28T22:34:32.776894+00:00 — GA1 root-adjunction scope
 
 Archived author-hosted Martino–ORourke *Some free actions on non-archimedean trees* and *Free actions on Z^n-trees: a survey*. The genus-three nonorientable surface is explicitly Z^2-free, so failure of R-freeness/full residual freeness supplies no GA1 obstruction. General root adjunction does not meet the maximal-abelian hypotheses on both amalgam factors. Exact sources, hashes and reading limits: `research/notes/GA1-root-adjunction-boundary.md`. No new solution.
+
+
+## 2026-09-28T22:55:03.075849+00:00 — class-ten third-layer extension
+
+Repeated bounded searches for free-nilpotent single-commutator algorithms and decidability by class; found the previously credited class-two/general-nilpotent results, no matching gamma_8-in-class-ten theorem. No exhaustive novelty claim. Re-read the N8 fragment and viewed its existing screenshot. Existing structural source dependencies are unchanged; exact limits are in problems/N8/class10-third-audit.md.
