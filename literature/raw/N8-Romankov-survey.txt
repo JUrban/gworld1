@@ -1,0 +1,2431 @@
+                          ПРИКЛАДНАЯ ДИСКРЕТНАЯ МАТЕМАТИКА
+2021               Теоретические основы прикладной дискретной математики                           № 52
+
+UDC 512.54                                                               DOI 10.17223/20710410/52/2
+               ALGORITHMIC THEORY OF SOLVABLE GROUPS1
+                                         V. A. Roman’kov
+                         Dostoevsky Omsk State University, Omsk, Russia
+
+                                  E-mail: romankov48@mail.ru
+
+       The purpose of this survey is to give some picture of what is known about algorithmic
+       and decision problems in the theory of solvable groups. We will provide a number
+       of references to various results, which are presented without proof. Naturally, the
+       choice of the material reported on reflects the author’s interests and many worthy
+       contributions to the field will unfortunately go without mentioning. In addition to
+       achievements in solving classical algorithmic problems, the survey presents results on
+       other issues. Attention is paid to various aspects of modern theory related to the
+       complexity of algorithms, their practical implementation, random choice, asymptotic
+       properties. Results are given on various issues related to mathematical logic and
+       model theory. In particular, a special section of the survey is devoted to elementary
+       and universal theories of solvable groups. Special attention is paid to algorithmic ques-
+       tions regarding rational subsets of groups. Results on algorithmic problems related
+       to homomorphisms, automorphisms, and endomorphisms of groups are presented in
+       sufficient detail.
+
+       Keywords: solvable groups, algorithmic and decision problems, algorithms.
+
+                                      1. Introduction
+    Awareness of the algebraic nature of many important concepts of topology and function
+theory in the 1880s led to the formation of a combinatorial group theory. Groups, already
+represented in the works of F. Klein, H. Poincare and other mathematicians, gained the
+right to independence after W. Dick discovered a universal way to define them using
+generators and defining relations [50]. H. Poincare [198, 199] established the first contacts
+between combinatorial topology and group theory. He introduced the fundamental groups
+of manifolds into consideration, while at the same time finitely defined groups of finite
+simplicial complexes were distinguished as effective objects. E. S. Fedorov [58] discovered
+a remarkable application of groups to the geometry of crystals. F. Klein proposed in his
+inaugural lecture in 1872 at the University of Erlangen (Germany) the famous Erlangen
+program, classifying geometries by their basic symmetry groups [106]. This program is an
+influential synthesis of much of the mathematics of the time.
+    It turned out that many important topology problems are algorithmic in nature. At the
+very beginning of the twentieth century, the basic algorithmic problems were formulated for
+a class of finitely defined groups. The word problem was posed by M. Dehn [42]: Is there an
+algorithm that, from two arbitrary group words from the generating elements of the group,
+determines whether they define the same element of the group? H. Tietze [250] developed
+the Tietze transformations for group presentations, and was the first to pose the group
+isomorphism problem: Is there an algorithm that finds out, from two arbitrary finite group
+  1
+    Исследование выполнено при финансовой поддержке РФФИ в рамках научного проекта № 20-
+11-50063.
+                             Algorithmic theory of solvable groups                         17
+
+assignments by generating elements and defining relations, whether these assignments define
+isomorphic groups?
+    From the very beginning, combinatorial group theory was closely intertwined with
+computability theory. We are currently seeing many new successful interactions between
+group theory and computer science. Complexity theory and automata theory began to play
+more important role in the group theory, especially in the algorithmic directions. Questions
+of random choice and asymptotic properties of groups have acquired significant importance.
+On the other hand, various mathematical fields such as algebraic cryptography and data
+compression have led to new questions in group theory.
+    More than thirty-five years ago, the author, together with V. N. Remeslennikov,
+published the survey [210], devoted to the algorithmic and model-theoretic questions
+in group theory. The survey is widespread, its objective was to give a fairly complete
+description of group-theoretic results of an algorithmic nature in their historical
+development, as well as to present the methods of model-theoretical research in group
+theory. These two lines of research are closely interrelated and have a common focus, as
+they seek to answer one general question: what properties and characteristics of groups can
+be effectively identified? Some aspects of this research are reflected in [152, 186].
+    The content of the papers [186, 210] and the monograph [152]
+is largely due to the significantly increased interest in research in
+combinatorial group theory at that time. This area was formed in
+the 60–70s of the twentieth century. Two monographs with the same
+title “Combinatorial group theory” written by W. Magnus, A. Karrass
+and D. Solitar [132], and by R. Lyndon and P. Shupp [125] played
+a significant role in its formation. The title of [132] has a subtitle
+                                                                           V. N. Remeslennikov
+“Representation of groups in terms of generators and relations”. These
+monographs laid the foundations for combinatorial group theory as one of the most actively
+developing areas of group theory and mathematics in general in the following decades
+to our time. Both monographs were translated into Russian and subsequently reprinted
+several times. W. Magnus et al.’s book focuses on representing groups in terms of generators
+and defining relations. The authors consider free constructions: free groups and products,
+free amalgamated products, Higman — Neumann — Neumann (HNN) extensions. The term
+“combinatorial” itself arose from the frequent and significant use of combinatorial methods.
+The book touched on algorithmic problems, from the classic Dehn problems to problems
+that only arose at that time. The value of the book [132] for the further development of the
+combinatorial group theory is very great. It is a tutorial, a problem source, and a research
+sample.
+    The book [125] is clearly an important contribution to the mathematical literature.
+It contains proof of Whitehead’s theorems and related theorems by J. McCool, proof of the
+Karrass — Solitar theorem on subgroups of free products with one amalgamated subgroup
+by Nielsen methods and its obvious promise applications. It also contains discussion of
+cohomology, graph-theoretical connections, discussion of HNN extensions, elegant treatment
+of one-relator groups, proof of the Higman embedding theorem, connections with logic, the
+use of van Kampen diagrams and the consideration of small cancellation theory and its
+applications are very good advances.
+    The history of combinatorial group theory is described by W. Magnus and B. Chandler
+in [34]. Results on combinatorial algebra are presented in the monograph by L. A. Bokut
+and G. P. Kukin [32]. O. Kharlampovich and M. Sapir presented in [103] a survey of results
+on algorithmic problems in varieties of algebraic systems.
+18                                      V. A. Roman’kov
+
+    The origins of the theory of solvable (some authors use the term “soluble”) groups go back
+to the first half of the nineteenth century, when Évariste Galois determined a necessary and
+sufficient condition for a polynomial to be solvable by radicals, thereby solving a problem
+standing for 350 years. His work laid the foundations for Galois theory and group theory, two
+major branches of abstract algebra. He realized that the algebraic solution to a polynomial
+equation is related to the structure of a group of permutations associated with the roots of
+the polynomial, the Galois group of the polynomial. He found that an equation could be
+solved in radicals if one can find a series of subgroups of its Galois group, each one normal
+in its successor with abelian quotient, or its Galois group is solvable.
+                             This proved to be a fertile approach, which later mathematicians
+                         adapted to many other fields of mathematics besides the theory of
+                         equations to which Galois originally applied it. The achievements
+                         of Galois theory stimulated intensive study of permutation groups,
+                         and indeed in the early stages of its development, group theory was
+                         preoccupied almost exclusively with finite groups.
+                             However, under the influence of geometry, topology, and the
+   Évariste Galois
+                         theory of differential equations, there arose a pressing need to consider
+                         infinite groups of transformations. The theory of infinite groups began
+to develop in the 20s of the twentieth century. Free groups first arose in the study of
+hyperbolic geometry, as examples of Fuchsian groups (discrete groups acting by isometries
+on the hyperbolic plane). The algebraic study of free groups was initiated by Jakob Nielsen
+in 1920s, who gave them their name and established many of their basic properties [179, 180].
+Otto Schreier published an algebraic proof of the Nielsen — Schreier theorem in [243]. Max
+Dehn realized the connection of groups with topology, and obtained the first proof of the
+Nielsen — Schreier theorem [42]. Kurt Reidemeister included a comprehensive treatment of
+free groups in [204] and in his book [205], the first monograph on combinatorial group
+theory and topology. Parametric groups made their appearance in the works of S. Lie [114].
+    In the 1930s of the twentieth ccentury, Wilhelm Magnus invented the connection between
+the lower central series of free groups and free Lie algebras (see [133]).
+    From the Preface of [133]: “Magnus has had such a profound
+influence on combinatorial group theory because many of his ideas,
+startingly and strikingly simple, have provided not only deep insights
+into a very difficult subject but also powerful methods for dealing with
+these difficulties. His ideas have also found application in topology,
+K-theory, the theory of Lie and associative algebras, computational
+complexity, and also in logic. The expert in group theory, however, will
+be astonished to find that this reprinting of Magnus’ papers contains
+a very large amount of very important work on diffraction problems
+and related topics in analysis. Indeed Magnus is one of the very few            Wilhelm Magnus
+mathematicians who has done significant work in two completely different fields. There is a
+large number of mathematicians who know Magnus for his work in analysis but are totally
+unaware of his work in group theory. His books, his teaching, his many doctoral students,
+his effect on the thinking of his colleagues both in private conversation and in seminars
+have also helped to establish him as a mathematician of the first rank and enriched the
+mathematical community.” — G. Baumslag and B. Chandler.
+    Intensive research on solvable groups began in the 30s of the twentieth century. This
+research was initiated by P. Hall, who just completed his great sequence of papers on finite
+solvable groups [83]. His PhD-student K. A. Hirsch published a sequence of five papers [85 –
+                              Algorithmic theory of solvable groups                           19
+
+89], where he introduced and investigated polycyclic groups. From the very beginning it
+became clear that the theory of infinite solvable groups needs in some original methods
+of studying. It turned out later that the methods come from ring theory, matrix group
+theory and homological algebra. Thus, the theory of infinite solvable groups has a broader
+connection in algebra.
+    In 1950s A. I. Mal’cev established the basic theory of solvable
+matrix groups [141]. He also invented the notion of a rank and
+investigated solvable groups of finite rank [139]. He showed the
+undecidability of the elementary theory of finite groups, of free
+nilpotent groups, of free soluble groups and many others. This
+Mal’cev’s works determined the perspective direction of research for
+many years.
+                                                                          A. I. Mal’cev is a great
+    At the same time, P. Hall made a significant contribution to the
+                                                                          mathematician known
+development of the theory of soluble groups. Namely, he published a
+                                                                          for his fundamental achi-
+series of papers [78 – 82] on finitely generated solvable and nilpotent
+                                                                          evements in algebra and
+groups. In these papers, he proved a number of results that are
+                                                                          mathematical logic. He
+important in theory and determine further research in this area.
+                                                                          is one of the founders
+    Since that time the solvable group theory became one of the
+                                                                          of the general theory of
+central topics in group theory.
+                                                                          algebraic systems and
+    Solvable groups are interesting not only in and of themselves. They
+                                                                          model theory and the
+are an effective tool for investigating more general objects of group
+                                                                          founder of the Siberian
+theory. Suffice it to recall the Sylow subgroups, solvable radicals,
+                                                                          School of Algebra and
+Borel subgroups and so on. Below we give two examples of the results
+                                                                          Logic.
+obtained by passing to solvable factor groups.
+    The following result was proposed by M. Dehn and proved by his student, W. Magnus,
+in his doctoral thesis (see [129]). It is well-known as the freedom theorem of Magnus or
+    The Freiheitssatz: Let
+                                       G = hx1 , . . . , xn : ri
+be a group presentation given by n generators xi and a single cyclically reduced relator r.
+If x1 appears in r, then the subgroup of G generated by x2 , . . . , xn is a free group, freely
+generated by x2 , . . . , xn .
+    Magnus’ method of proof of the Freiheitssatz relies on free amalgamation products of
+groups. This method initiated the use of these products in the study of infinite discrete
+groups.
+    N. S. Romanovskii used a different approach in his proving the generalized freedom
+theorem for groups with several relations (solution of the Lyndon problem) [217]: Let the
+group
+                               G = hx1 , . . . , xn : r1 , . . . , rm i
+have deficiency d = n − m > 0. Then there exist a subset of d of the given generators which
+freely generates a subgroup of G isomorphic to Fd . A similar assertion was also proved for
+groups defined by generators and relations in varieties of solvable and nilpotent groups and
+pro-p groups. He essentially used solvable groups as a tool for these proofs.
+    In [228], the author proved that the automorphism group of the free pro-p group F̃r (p)
+of rank r ⩾ 2 is topologically infinitely generated. A similar assertion was also proved for
+free profinite groups F̃r and for free metabelian pro-p groups Mr (p). His methods of proofs
+are also related to solvable groups.
+20                                     V. A. Roman’kov
+
+    The modern theory of solvable groups is presented in the monograph [113] by
+J. C. Lennox and D. J. S. Robinson. See also the author’s monograph [239]. The theory of
+nilpotent groups is presented in the lectures [9] by G. Baumslag and [82] by P. Hall.
+    The main object of research in the monograph by E. I. Timoshenko [256] — free
+groups in varieties of solvable groups and their universal theories. In addition, groups
+of automorphisms and semigroups of endomorphisms of solvable groups are described. A
+significant part of the results belongs to the author of the monograph.
+    Algebraic geometry over groups arose in the mid-90s of the twentieth century in the
+works of B. I. Plotkin [194, 195] on the one hand and in the works of G. Baumslag,
+V. N. Remeslennikov, A. G. Myasnikov and O. G. Kharlampovich [17, 168, 101, 102] on the
+other. The current state of algebraic geometry over groups and more generally over algebraic
+systems is presented in [196, 197], and in [41].
+                                  2. Algorithmic problems
+    In the very beginning of the twentieth century M. Dehn and H. Titze proposed the
+following three algorithmic problems:
+— The word problem (Dehn [42]): Given a group presentation G = hX : Ri and words
+    w(X), u(X) in the alphabet X determine if w(X) =G u(X).
+— The conjugacy problem (Dehn [42]): Given a group presentation G = hX : Ri and
+    words w(X), u(X) in the alphabet X determine if there exists some g(X) such that
+    g(X)−1 w(X)g(X) =G u(X).
+— The isomorphism problem (Tietze [250]): Given two group presentations G = hX : Ri
+    and H = hY : Si determine if they define isomorphic groups.
+Subsequently, the following problem began to be added to this list of problems:
+— The subgroup membership problem: Given a group presentation G = hX : Ri and a
+    finite set of words g(X), w1 (X), . . . , wk (X) in the alphabet X find out whether or not
+    g(X) ∈ gp(w1 (X), . . . , wk (X)).
+The subgroup membership problem is often called the generalized word problem or simply
+the membership problem in the literature of combinatorial group theory.
+                            Until the 1950s of the twentieth century only positive results could
+                       be obtained since totally new methods were needed even to state
+                       the problem of finding a group with unsoluble word problem with
+                       the formal precision. In particular, W. Magnus published in [130] a
+                       complete proof of the solution of the word problem for the class of
+                       one-relator groups.
+                            The proof of the algorithmic undecidability of the word problem
+                       in the class of all finitely defined groups, obtained by Petr Sergeevich
+                       Novikov in 1952 is one of the best results in algorithmic group theory
+      Max Dehn         and mathematics in general.
+    Theorem 1 (P. S. Novikov [187, 188]). There exists a finitely presented group G such
+that the word problem for G is undecidable.
+    A wonderful example of P. S. Novikov was of fundamental importance for further
+research on algorithmic issues in group theory. Obviously conjugacy and membership
+problems are also unsolvable in the class of finitely presented groups.
+    W. W. Boone gave in [33] an independent proof of Novikov’s result. See [267] for some
+other results on the word problem in groups.
+                              Algorithmic theory of solvable groups                          21
+
+     Let us especially note the importance of the work of S. I. Adian [1], in which a number
+of algorithmic problems are solved. In particular, he showed the undecidability of the
+isomorphism problem in the class of finitely defined groups. S. I. Adian in some his proofs
+based on the idea of the following Markov property.
+     Markov Property: An abstract property P of finitely presented groups is a Markov
+property if there are two finitely presented groups G+ and G− such that
+— G+ has property P;
+— G− cannot be embedded as a subgroup in any finitely presentable group with property P.
+     Theorem 2 (S. I. Adian [1]). If P is a Markov property of finitely presented groups,
+then P is not recursively recognisable.
+     Therefore, the following properties of finitely defined groups are not recognized
+recursively, namely: to be trivial (finite, abelian, nilpotent, solvable, free, torsion-free, or
+residually finite) group, having a solvable word problem, and so on.
+     M. O. Rabin [201] proved similar results, which are now called the Adian — Rabin
+theorem.
+     S. I. Adian and V. G. Durnev [2] presented a detailed survey of results concerning the
+main decision problems of group theory and semigroup theory. They discuss results on the
+word problem, isomorphism problem, recognition problems, and other algorithmic questions
+related to them. The classical theorems of A. A. Markov and E. L. Post, P. S. Novikov,
+S. I. Adian and M. O. Rabin, G. Higman, W. Magnus, and R. C. Lyndon are given with
+complete proofs.
+     Further in the paper, we do not present here other results of algorithmic theory
+pertaining to classes of groups other than solvable.
+     For simplicity, we will simplify expressions, speaking not about group representations,
+but about groups, not about words in the generators of a given representation, but about
+group elements, etc.
+     After the obtained negative results on the solvability of algorithmic problems in the
+class of all finitely defined groups, the interest of researchers was turned to various classes
+of groups. The methods of assigning groups have expanded. The algorithmic problems
+themselves became more diverse. Algorithmic problems of the following two types began to
+be considered:
+— Decision problems: Given a property P and an object O, find out whether or not the
+     object O has the property P.
+— Search problems: Given the property P and the information “O satisfies P”, find out at
+     least one specific implementation of P to O.
+For example, if we know that elements w and u are conjugate in the group G, the search
+problem is to find a conjugating element g ∈ G such that g −1 wg = u.
+     The issues of solvability of search problems are especially important for applications and
+algorithms used in practice. For theory and practical applications, the complexity of the
+algorithms is essential. At present, the issues of the complexity of algorithms, in particular —
+computational complexity, have become of paramount importance. There is a huge amount
+of research in this area. Some results related to the complexity of algorithms for solvable
+groups will be touched upon in this review.
+     Friendly definitions:
+— Sol = solvable groups;
+22                                       V. A. Roman’kov
+
+— ThAlg(Sol) — Algorithmic theory of Sol = Information about Sol-groups, their elements,
+  subgroups, subsets, structure, etc., that can, in principle at least, be obtained by machine
+  computation, namely Turing machines, automata, computers, and so on.
+  Relative presentation in the variety L:
+
+                              G = hx1 , . . . , xn : {rλ : λ ∈ Λ}; Li.
+
+That is
+                                G = F (X, L)/ncl{rλ : λ ∈ Λ},
+where F (X, L) is a free group in the variety L with basis X = {x1 , . . . , xn }, and Λ is finite
+or, more generally, recursive enumerable set.
+    Presentation by generators:
+
+                                   G = gp(g1 , . . . , gn ) ⩽ Ḡ,
+
+where Ḡ is some bigger group, for example, Ḡ = GLn (K), the general linear (matrix) group
+over K, or Ḡ = π1 (S), the fundamental group of a topological space S.
+   Presentation by action:
+                                       G = Aut(H),
+where H is some other group (more generally, some structure), or
+
+                                           G = π1 (S),
+
+where S is some topological space.
+    Classical algorithmic problems:
+    For a group G:
+— The word problem (WP): w = 1?
+— The conjugacy problem (CP): ∃g : g −1 wg = u?
+— The membership problem (MP): w ∈ H ⩽ G?
+For a class of groups C:
+— The isomorphism problem (IP): G ≃ H?
+    We also highlight the following two problems concerning automorphisms and
+homomorphisms, which can also be considered classical because of their high importance.
+The first problem is formulated for an arbitrary group G:
+— The automorphic conjugacy problem (J. H. C. Whitehead [266]): Is there an algorithm
+    that finds out from two arbitrary group words from the generating elements of the group,
+    do they determine automorphically conjugate elements of the group? In other words, is
+    there an automorphism of a group that takes one of the given elements to another?
+The automorphism problem for a free group Fr of rank r was algorithmically solved by
+J. H. C. Whitehead himself in a classic 1936 paper [266] and his solution came to be known
+as Whitehead’s algorithm. This proof was topological.
+    Subsequently, E. S. Rapaport [202] and later, based on her work, P. J. Higgins and
+R. C. Lyndon in [84] gave a purely combinatorial and algebraic re-interpretation of
+Whitehead’s algorithm. The exposition of Whitehead’s algorithm in the book of R. Lyndon
+and P. Schupp [125] is based on this combinatorial approach.
+    In 1946, Emil Post [200] invented the following
+                                 Algorithmic theory of solvable groups                                 23
+
+    The Post correspondence problem (PCP). Given an alphabet Σ, an instance of PCP is
+a finite set of pairs of strings (gi , hi ), where 1 ⩽ i ⩽ s, over Σ. A solution to this instance
+is a sequence of selections i1 , i2 , . . . (repetition is possible) such that
+
+                                     gi1 gi2 . . . gin = hi1 hi2 . . . hin .
+
+    Is an effective procedure answering for any instance on the question: Does a solution
+exist for this instance?
+    It was also proved in [200] that PCP in the classical setting is unsolvable.
+    This gives rise to a more general definition often found in the literature, according to
+which any two homomorphisms α, β with a common domain F and a common codomain G
+form an instance of the Post correspondence problem, which now asks whether there exists
+a nonempty word w ∈ F such that α(w) = β(w).
+    Obviously, PCP can be posed for a free algebraic system F .
+    PCP(F ): For a pair of endomorphisms α, β ∈ End(F ), is there a (nontrivial) element
+(word) w ∈ F such that α(w) = β(w)?
+    Moreover, PCP can be formulated for any algebraic system A as follows. Let F (A) be
+a free algebraic system in the variety Var(A) generated by A, and α, β : F (A) → A be a
+pair of homomorphisms.
+    PCP(A): Is there a (nontrivial) element (word) w ∈ F (A) such that α(w) = β(w)?
+    Thus, we can formulate PCP for any group G.
+— Let F (G) be a free group in the variety Var(G) generated by G, and α, β : F (G) → G
+    be a pair of homomorphisms. Is there a nontrivial element w ∈ F (G) such that α(w) =
+    = β(w)?
+In this paper we give a special Section 7 devoted to the Post correspondence problem and
+its generalizations.
+    A word u(x) = u(x1 , . . . , xr ) in certain variables x = (x1 , . . . , xr ) is called an identity in
+a group G if under substitution of any sequence g = (g1 , . . . , gr ) of elements of G into u(x) in
+place of x we obtain the equality u(g) = 1. In other words, G satisfies the identity u(x) ≡ 1.
+A quasi-identity is an implication of the form u1 (x) = 1 ∧ . . . ∧ un (x) = 1 → u(x) = 1.
+    The I-theory (Q-theory) of a class C of groups is the totality of all identities (quasi-
+identities) that are true on all the groups in C.
+    A. I. Mal’cev posed in [108] (Question 2.40 (a)) the following identity (quasi-identity)
+problem: Does there exist a finitely axiomatizable variety of groups whose I-theory
+(Q-theory) is non-decidable?
+  Further decision problems:
+  For a group G:
+— The twisted conjugacy problem (TCP): For endomorphism ϕ ∈ End(G)) and elements
+  g, f ∈ G to decide whether there exists an element x ∈ G such that ϕ(x)g = f x.
+— The bi-twisted conjugacy problem (BTCP): For endomorphisms ϕ, ψ ∈ End(G)) and
+  elements g, f ∈ G to decide whether there exists an element x ∈ G such that ϕ(x)g =
+  = f ψ(x).
+— The generation and presentation problem (GPP):
+  Find generators or presentation of a subgroup, centralizer, an automorphism group, etc.
+— The equation problem (EqP):
+                                                                  
+                             ∃x1 . . . ∃xn w(x1 , . . . , xn ) = 1 ?
+24                                      V. A. Roman’kov
+
+— The endomorphism (automorphism) problem (EndoP or AutoP):
+                                                      
+                        ∃ϕ ∈ End(G) (Aut(G)) ϕ(g) = f ?
+
+    For a class C of groups:
+                                                                         
+— The epimorphism problem (EpiP): ∃ϕ ∈ Hom(G, H) ϕ(G) = H ?
+    Recall that a group G is called residually finite if for each nontrivial element g ∈ G there
+exists a finite group K and a homomorphism ϕ : G → K such that ϕ(g) 6= 1. A. I. Mal’cev
+proved that every finitely presented residually finite group G has the decidable WP [142].
+                 3. Finitely generated nilpotent and polycyclic groups
+    In his series of papers [78 – 72] P. Hall established a remarkable connection between the
+theory of polycyclic groups and commutative algebra.
+                            He noted that, since the class of finitely presented groups is closed
+                        under extensions, polycyclic groups are finitely presented. These
+                        groups satisfies max, the maximal condition for subgroups, and they
+                        admit many other nice properties.
+                            A. I. Mal’cev [142] showed that residual finiteness of some
+                        recursive enumerable property P of a group G implies decidability
+                        of P in G. Subsequently, many proofs of the solvability of algorithmic
+                        problems were based on the corresponding finite residuality.
+     Philip Hall            Classical decision problems. Positive solutions:
+— M. F. Newman [178]: the conjugacy problem is solvable for any finitely generated
+    nilpotent group.
+— S. Blackburn [31]: every finitely generated nilpotent group G is conjugacy separable, i.e.,
+    residually finite with respect to the conjugacy property. In other words, for every pair
+    g, f ∈ G of elements that are not conjugate in G there is a homomorphism µ : G → K
+    onto finite group K for which µ(g), µ(f ) are not conjugate in K.
+— V. N. Remeslennikov [206] and E. Formanek [59]: every polycyclic group is conjugacy
+    separable. Therefore, the conjugacy problem for any polycyclic group is decidable.
+    Let F in(G) denote the set of isomorphism classes of finite quotients of the group G. Two
+groups G and H are said to have the same finite quotients if F in(G) = F in(H). Obviously,
+for a finitely generated abelian group A we have F in(A) = {A}. G. A. Noskov proved that
+F in(M ) = {M } for any free metabelian group M [184].
+    P. F. Pickel constructed infinitely many nonisomorphic finitely presented metabelian
+groups with the same finite quotients, using modules over a suitably chosen ring [193].
+These groups also give an example of infinitely many nonisomorphic split extensions of a
+fixed finitely presented metabelian group by a fixed finite abelian group, all having the same
+finite quotients. G. Baumslag proved that there exists non-isomorphic meta-cyclic groups G
+and H for which F in(G) = F in(H) [10].
+    F. Grunewald and P. Zalesskii introduced in [72] a notion of a genus g(C, G) for a class
+of groups C and G ∈ C. It consists of isomorphism classes of groups from C having the
+same profinite completion as G. They showed finiteness results for g(C, G) for several
+important families of groups including finitely generated virtually free groups. They also
+developed formulas for the number of elements in g(C, G) in various cases. By these they
+found interesting examples where g(C, G) contains only one element.
+    Let G be a finitely generated group. By G̃ we denote the profinite completion of G,
+G and G̃ have the same finite quotients. The key result to formalize the precise connection
+                                 Algorithmic theory of solvable groups                                  25
+
+between the collection of finite quotients of G and those of G̃ is the following. Suppose that
+G and H are finitely generated abstract groups. Then G̃ and H̃ are isomorphic if and only
+if F in(G) = F in(H). This is basically proved in [47]. A. W. Reid [203] introduced the mild
+difference in the statement by emploing the great result by N. Nikolov and D. Segal [182]
+to replace topological isomorphism with isomorphism.
+    Now we list the known positive results on the Isomorphism problem for the classes N
+and P of finitely generated nilpotent and polycyclic groups, respectively:
+— P. F. Pickel [192] proved that the genus of every finitely generated nilpotent group N
+    is finite. Consequencly, the isomorphism problem to a fixed finitely generated nilpotent
+    group N is decidable.
+— F. Grunewald, P. F. Pickel, and D. Segal [69] established that every g(PF)-class of
+    polycyclic-by-finite groups is the union of finitely many isomorphism classes.
+— F. Grunewald and D. Segal [70, 71] constructed some rather general algorithms, which
+    can (in theory) be applied in diverse situations. In particular, they gave an algorithm
+    that solves the isomorphism problem for finitely generated nilpotent groups.
+— R. A. Sarkisjan [241, 242] independently solved the isomorphism problem for finitely
+    generated nilpotent groups under certain conditions, the validity of which was not known
+    at that time. Later it turned out that the condition is met.
+     Theorem 3 (D. Segal [244]). There is an algorithm which does the following: given a
+finitely presented virtually polycyclic group G, given elements a1 , . . . , an , b1 , . . . , bn of G, and
+given finitely generated subgroups A1 , . . . , Am , B1 , . . . , Bm of G, it decides whether there
+exists an automorphism α of G such that α(ai ) = bi (and α(Ai ) = Bi ) for i = 1, . . . , n, and
+j = 1, . . . , m.
+    As a consequence of this statement, we obtain that the isomorphism problem for the
+class of virtually polycyclic groups is decidable. Indeed, the solvability of the classical
+isomorphism problem for virtually polycyclic groups is an immediate consequence of
+Theorem 3: For any pair of groups A and B we can write down a presentation for G = A×B,
+and observe that A ≃ B if and only if there exists an automorphism α of G with α(A) = B.
+    The Further decision problems. Positive and negative solutions:
+— V. A. Roman’kov [231] proved that TCP is solvable for any polycyclic group. He also
+    proved in [225] that EqP and EndoP are not solvable for free nilpotent groups of class
+    ⩾ 9.
+— V. N. Remeslennikov [208] established that EpiP is not solvable for the variety N2 of
+    nilpotent groups of class ⩾ 2.
+    Theorem 4 (G. Baumslag, F. B. Cannonito, D. J. S. Robinson, and D. Segal [12]).
+    Let G = hx1 , . . . , xn |r1 , . . . , rm i be a presentation of a polycyclic group. Then there is a
+uniform algorithm which, when given a finite subset U of G, produces a finite presentation of
+gp(U ). Hence we can efficiently find a polycyclic presentation of G, the Hirsch number h(G),
+the Fitting (Fitt(G)) and Frattini (Fratt(G)) subgroups, the center C(G), decide if G is
+torsion-free, and so on.
+    For nilpotent groups, an algorithm to solve the conjugacy problems for subgroups is
+described in [115].
+    G. Baumslag, C. F. Miller III, and G. Ostheimer [16] described an algorithm for deciding
+whether or not a given finitely generated torsion-free nilpotent group is decomposable as
+the direct product of nontrivial subgroups.
+26                                      V. A. Roman’kov
+
+   Let O be a binomial ring, i.e., an integral domain containing the ring of integers Z and
+containing with every element λ all binomial coefficients
+                         
+                          λ      λ(λ − 1) · · · (λ − n + 1)
+                             =                              , n ∈ N.
+                          n                  n!
+
+    P. Hall [82] itroduced the class of nilpotent O-power groups.
+M. I. Kargapolov et al. [95] solved in a uniform way various
+algorithmic problems for O-power groups: word, conjugacy, and
+membership problems, determination of the O-periodic part, determination
+of intersection of two O-subgroups, and description of the O-
+subgroups in terms of generators and defining relations. Note, that in
+the case O = Z we have the usual nilpotent groups.
+    See other results the O-power groups and its generalizations in Gilbert Baumslag, an
+[4, 111, 134, 135], etc.                                               outstanding mathemati-
+                                                                            cian and great enthusi-
+                         4. Metabelian groups                               ast of solvable groups
+    P. Hall [78] proved that every finitely generated metabelian group Gand  satisfies maxn (the
+                                                                                algorithms.
+maximal property for normal subgroups). Therefore, G is finitely defined in the variety A2
+of all metabelian groups.
+    The basis of any finitely generated metabelian group G is its commutant G0 , which can
+be considered as a module over a finitely generated commutative group ring Z[G/G0 ]. Since
+this ring is Noetherian, G0 as a module is finitely generated. Therefore, there exists a finite
+description of the commutant G0 , despite the fact that it is not always finitely generated as
+a subgroup. The following theorem is of fundamental importance.
+    Theorem 5 (G. Baumslag, F. B. Cannonito, and D. J. S. Robinson [11]). There is an
+algorithm that, given a finitely generated metabelian group G by generating elements and
+defining relations, finds a finite representation of Z[G/G0 ]-module G0 .
+    Corollary 1. This statement has a number of consequences. There is an algorithm,
+that:
+    1) finds the center of C(G) and its finite representation, an algorithm that finds a
+        finite set of elements whose normal closure in the group coincides with the Fitting
+        subgroup Fitt(G);
+    2) determines the presence of nontrivial elements of finite order, which determines the
+        order for a given element, determines all possible finite orders of elements of a group;
+    3) ascertaining the conjugacy of two sets of group elements (using one of Noskov’s
+        lemmas);
+    4) finding the Frattini subgroup Fratt(G).
+    On the whole, this allows us to speak of a satisfactory basic algorithmic theory of finitely
+generated metabelian groups.
+    W. Magnus invented his famous Magnus embedding, which became a very efficient
+instrument in the theory of solvable groups.
+    The Classical decision problems. Positive solutions:
+— WP: P. Hall [81] proved that every finitely generated abelian-by-nilpotent group is
+    residually finite. In particular, finitely generated metabelian groups are always residually
+    finite. Since every finitely generated metabelian group G is finitely presented in A2 ,
+    therefore, the word problem is decidable in G.
+                                  Algorithmic theory of solvable groups                                  27
+
+
+
+
+                                            N. S. Romanovskii
+
+
+— E. I. Timoshenko presented in [253] a direct algorithm that solves the word problem in
+  an arbitrary finitely generated metabelian group.
+— CP: G. A. Noskov [183] proved that the conjugacy problem is decidable in an arbitrary
+  finitely generated metabelian group.
+— MP: N. S. Romanovskii [216] proved that the membership problem is decidable in an
+  arbitrary finitely generated metabelian group. In [218], he proved that the membership
+  problem is decidable in an arbitrary abelian-by-nilpotent group.
+— M. I. Kargapolov and E. I. Timoshenko [96] proved that in general case a finitely
+  generated metabelian group is not conjugate separable.
+
+                                5. Solvable groups of arbitrary length
+     The Classical decision problems. Positive solutions:
+— O. Kharlampovich [98]: The WP is decidable in any subvariety of N2 A. (Consequently
+     R. Bieri and R. Strebel [27] proved that every finitely presented group G ∈ N2 A is
+     residually finite.)
+— C. K. Gupta and N. S. Romanovskii [222]: Any polynilpotent group with a single
+     primitive defining relation has a decidable word problem.
+     The Classical decision problems. Negative solutions:
+     V. N. Remeslennikov [207] constructed an example of a group finitely defined in the
+variety A5 with an unsolvable word problem. In addition, a finitely defined in A4 group G
+and a finitely generated subgroup H ⩽ G were given, such that the membership problem
+with respect to H is unsolvable.
+     Theorem 6 (O. Kharlampovich [97]). There is a finitely presented solvable group G of
+class 3 in which WP is undecidable. More exactly, G can be chosen in the centrally-nilpotent
+of class 2-by-abelian variety ZN2 A defined by identity [[[x1 , x2 ], [x3 , x4 ]], [x5 , x6 ]], y] ≡ 1 [99].
+Thus, WP is unsolvable in the variety N3 A.
+     O. Kharlampovich demonstrated how results of M. Minsky from
+recursion theory works in constructing counter examples in the
+solvable group theory.
+     Subsequently, this was proved in a different way by G. Baumslag,
+D. Gildenhuys, and R. Strebel [13, 14]. They constructed a finitely
+presented solvable of class 3 group G and a recursive set of words
+w1 , . . . , wn , . . . in generators of G such that wip = 1 with p a prime
+and wi ∈ C(G) for which there is no algorithm to decide if a given wi
+                                                                                    Olga Kharlampovich
+equals the identity in G. This group can also be used to show that
+the IP is undecidable in the finitely presented solvable groups of class 3.
+     In [27], R. Bieri and R. Strebel constructed for every finitely generated ZQ-module A,
+where Q is a finitely generated abelian group of torsion-free rank n, a subset of the unit
+28                                        V. A. Roman’kov
+
+sphere Sn−1 ⊆ Rn . This subset is equivalent to the set of equivalence classes [ν] of valuations
+(homomorphisms) ν : Q → R+ . One can attach to every finitely generated Q-module A the
+set
+                        ΣA = {[ν] : A is finitely generated over Qν },
+where Qν = {g ∈ Q : ν(g) ⩾ 0}. In [27], the relations between geometric properties of ΣA
+and algebraic properties of A are investigated. In particular, this invariant determines which
+metabelian groups are finitely presented. For generalizations of concepts and results of the
+paper [27] see [28, 26].
+    In [15], an algorithm is presented which decides for a free metabeliab group (or, more
+generally, for the wreath product of two free abelian groups) whether the intersection of two
+finitely generated subgroups is finitely generated or trivial. The existence of an algorithm
+that solves this question for metabelian groups in general is unknown.
+    Free solvable groups of finite ranks
+    The Classical decision problems. Positive and negative solutions:
+— M. I. Kargapolov and V. N. Remeslennikov [94] proved that the conjugacy problem
+    is solvable for any free solvable group. V. N. Remeslennikov and V. G. Sokolov [211]
+    established that any free solvable group is conjugacy separable.
+— U. U. Umirbaev [261] constructed an example of a group G with undecidable word
+    problem which is finitely presented in a variety of solvable groups S3 of class ⩾ 3.
+    This group G is defined by the relations from the last commutator subgroup of the
+    corresponduing free solvable group. Early S. A. Agalakov [3] proved that there are a
+    finitely generated not finitely separated subgroups in each non-abelian free solvable
+    group of class d ⩾ 3.
+    The identity problem for the class of solvable groups was solved by Yu. G. Kleiman
+[104, 105].
+     Theorem 7 (Yu. G. Kleiman [104, 105]). There exists a finitely based variety of
+groups D ⊆ A7 in whose free noncyclic groups the equality problem (hence also the identity
+problem) is unsolvable. Furthermore, it is possible to find a word v(x) such that there exists
+no algorithm for determining whether or not an arbitrary identity u(x) ≡ 1 follows from
+v(x) ≡ 1.
+   Fox derivatives
+   For a given positive integer r and for the free group Fr with basis {f1 , . . . , fr } the Fox
+derivatives are defined as follows.
+   For j = 1, . . . , r, the (left) Fox derivative associated with fj is the linear map
+Dj : Z[Fr ] → Z[Fr ] satisfying the conditions
+
+                              Dj (fj ) = 1, Dj (fi ) = 0 for i 6= j,
+                         Dj (uv) = Dj (u) + uDj (v) for all u, v ∈ Fr .
+
+     Obviously, an element u ∈ Fr is trivial if and only if Di (u) = 0 for all i = 1, . . . , r. Also
+note that for an arbitrary element g of Fn and every j = 1, . . . , n, Dj (g −1 ) = −g −1 Dj (g).
+An introduction to the theory of the Fox derivatives and possible applications of them can
+be found in [239, 256].
+     The trivialization homomorphism ε : Z[Fr ] → Z is defined on the generators of Fn by
+fi ε = 1 for all i = 1, . . . , r and extended linearly to the group ring ZFn .
+     The Fox derivatives appear in another setting as well. Let ∆Fr denote the fundamental
+ideal of the group ring Z[Fr ]. It is a free left Z[Fr ]-module with a free basis consisting of
+                                Algorithmic theory of solvable groups                               29
+
+{f1 − 1, . . . , fr − 1}. This it leads us to the following formula which is called the main
+identity for the Fox derivatives:
+                                    Pr
+                                       Di (α)(fi − 1) = α − αε,
+                                    i=1
+
+where α ∈ ZFr . Conversely, if for any element f ∈ Fr and αi ∈ Z[Fr ] we have equality
+                                          r
+                                          P
+                                              αi (fi − 1) = f − 1,
+                                       i=1
+
+then Di (f ) = αi for i = 1, . . . , r.
+      Let Mr = Fr /Fr00 be a free metabelian group of rank r and Ar = Mr /Mr0 ≃ Fr /Fr0
+be a free abelian group of rank r. Further, denote by π : Mr → Ar , π 0 : Fr → Ar and
+π 00 : Fr → Mr the canonical epimorphisms. Let {a1 , . . . , ar } and {x1 , . . . , xr } be the bases
+for An and Mn obtained by π 0 and π 00 . The maps π, π 0 and π 00 can be extended linearly to
+π : ZMr → ZAr , π 0 : ZFr → ZAr and π 00 : ZFr → ZMr . The kernels of π 0 and π 00 are the
+ideals of ZFr generated by the elements u − 1 with u ∈ Fr0 and u ∈ Fr00 , respectively.
+      For every j = 1, . . . , r the free Fox derivative Dj induces a linear map dj : ZMr → ZAr .
+These maps also are called the free Fox derivatives.
+      Magnus embedding
+      One of the most powerful approaches to study free solvable groups is via the Magnus
+embedding. Originally W. Magnusestablished          in [131] an embedding of a group Ḡ of type
+                                            G Tr
+Fr /R0 into the group M (G, Tr ) =                     , where G = Fr /R is a finite group, and Tr is a
+                                            0 1
+free module over Z[Fr ] with basis {t1 , . . . , tr }. This map is called the Magnus embedding. The
+finiteness restriction on G can be easily eliminated (see [77]). Also the Magnus embedding
+can be naturally extended to Ḡ → M (G, T ) where Ḡ is a group of the type F/R0 , and
+G = F/R. Here F = F|Λ| has a basis {fλ |λ ∈ Λ} of arbitrary cardinality |Λ|, and the free
+module T = T|Λ| over ZG has a basis {tλ |λ ∈ Λ}. In the following usually Λ = {1, . . . , r},
+and F = Fr .
+      A. L. Shmel’kin [246] (see [109]) interpreted the Magnus theorem as an embedding β of
+the group Ḡ in the wreath product W = Ar wrG in the following way.
+      Let
+                                               β̄ : Fr → W
+be defined by the map
+                                β̄(fi ) = ai · µ(fi ) for i = 1, . . . , r,
+where µ : Fr → G is the canonical epimorphism, and {a1 , . . . , ar } is the basis of Ar
+corresponding to the basis {f1 , . . . , fr } for Fr .
+    Then by the Magnus theorem, ker(β) = R0 , hence β induces an embedding β : G → W.
+    Recall that W is isomorphic to M (G, Tr ). The embedding β above is defined in this
+setting by the map                                              
+                                         0             µ(fi ) ti
+                                  β(µ (fi )) =                     ,
+                                                         0    1
+where µ0 : Fr → G is the canonical epimorphism.
+   Easy to prove that every matrix A ∈ β(G) has the form
+                              r                            r
+                                                                      
+                                                        0          0
+                             P                            P
+                       µ(f )     µ(Di (f )) ti   µ̄(f )     di (f ) ti 
+               A=           i=1                =         i=1              ,
+                         0          1                 0         1
+30                                         V. A. Roman’kov
+
+where f 0 = µ0 (f ) is arbitrary element of G, µ : G → G is the canonical epimorphism, and
+di are the induced free Fox derivatives with values in ZG.
+    It turned out (see [8, 211] for metabelian case and [30]) that the group G is well embedded
+in M (G, Tr ). Namely, the image of G in M (G, Tr ) under the Magnus embedding can be
+described as follows.
+    A matrix
+                                            r
+                                                    
+                                           P
+                                        1      αi ti 
+                                A=        i=1         ∈ M (G, Tr )
+                                        0      1
+belongs to the image β(G) if and only if
+                                     r
+                                     P
+                                             αi (µ(fi ) − 1) = 0.
+                                     i=1
+
+Therefore, a matrix
+                                               r
+                                                        
+                                               P
+                                         g           αi ti 
+                               A=             i=1             ∈ M (G, Tr )
+                                         0           1
+belongs to the image β(G) if and only if
+                                   r
+                                   P
+                                         αi (µ(fi ) − 1) = g − 1.
+                                   i=1
+
+                                         6. Equations
+    Solvability problem for equations in various classes of groups has been actively
+researched for many years. First general results on equations in groups appeared in the 1960s
+in the works of R. Lyndon [122 – 124] and A. I. Mal’cev [144]. In the 1970s G. S. Makanin
+[137, 138] proved the solvability of the systems equations for free monoids and free groups.
+In recent years, significant progress has been made in the computational complexity and
+structure of solution sets.
+                            For a general survey of the current state of the theory of solvability
+                        of equations and systems of equations in groups, see the observing
+                        paper by the author [232] and his monograph [239].
+                            The Diophantine problem in a group G is the task to determine
+                        whether or not a given finite system of equations with constants in G
+                        has a solution in G. This problem is decidable if there is an algorithm
+                        that given a finite system E of equations with constants in G decides
+                        whether or not E has a solution in G.
+    R. C. Lyndon
+                            Equations in nilpotent groups
+    Denote by N the class of all nilpotent groups. As above Nc denotes the variety of all
+nilpotent groups of class ⩽ c. In particular N1 coincides with the class A of all abelian
+groups.
+    A. I. Mal’cev [140] proved that any equation of the form xm = g where g is an element
+of a torsion-free nilpotent group G ∈ Nc , m ∈ N, has a solution in some torsion-free
+nilpotent group H ∈ Nc , H ⩾ G. Moreover, there is a divisible torsion-free nilpotent group
+G̃ ∈ Nc , least by inclusion, containing the group G. Such a group G̃ is uniquely defined up
+to isomorphism and is called the Mal’cev completion of G.
+    Clearly every abelian group embeds into a divisible abelian group.
+                               Algorithmic theory of solvable groups                              31
+
+   Since every finitely generated nilpotent group G ∈ Nc embeds
+                                                              Q into a direct product of
+a torsion-free nilpotent group G0 and a finite direct product  Gp of finite p-groups Gp
+                                                                       p
+(p are primes) also of class c, every equation of the form xm = g, as above, has a solution
+in a some nilpotent overgroup H of G. Indeed, we can embed G0 in a torsion-free complete
+nilpotent group H0 keeping the class c by [140], and embed every p-group Gp into a finite
+p-group Hp containing a solution of the considering equation. Note that we need only to
+                                                   k
+extend Gp with roots of equations of the form xp = gp . Then we set H = H0 × Hp . But
+                                                                                Q
+                                                                                         p
+in general, H has class greater than c. Therefore, any finitely generated nilpotent group can
+be embedded into a divisible nilpotent group.
+    A system of m = k equations is called unimodular if the matrix consisting of the sums
+of exponentials of the unknowns with which they enter the equations, has determinant 1.
+    A. L. Shmel’kin [247] established that any unimodular system of equations over a
+nilpotent group G has an unique solution in G.
+    Theorem 8 (V. A. Roman’kov [225, 226]). The following statements hold:
+— Let Nr,c be a free nilpotent group of rank r ⩾ 2 and class c ⩾ 9 with basis {x1 , . . . , xr }.
+    Then there is an algorithm which for every Diophantine equation D(ζ1 , . . . , ζn ) = 0
+    gives a split equation g(z1 , . . . , zp ) = f over the group Nr,c that has a solution in Nr,c if
+    and only if D(ζ1 , . . . , ζn ) = 0 has a solution in integers. An element f can be chosen in
+    the subgroup gp(x1 , x2 ) of Nr,c .
+— Let Mr be the free metabelian group of rank r ⩾ 2 with basis {x1 , . . . , xr }. Then there
+    is an algorithm which for every Diophantine equation D(ζ1 , . . . , ζn ) = 0 gives a split
+    equation g(z1 , . . . , xq ) = f over group Mr that has a solution in Mr if and only if
+    D(ζ1 , . . . , ζn ) = 0 has a solution in integers. An element f can be chosen in subgroup
+    gp(x1 , x2 ) of Mr .
+    Therefore, the equation problem for any free nilpotent group Nr,c , r ⩾ 2, c ⩾ 9, or free
+metabelian group Mr , r ⩾ 2, is algorithmically undecidable.
+    The method of interpretation of Diophantine equations in free nilpotent and free
+metabelian groups has been used in a row forthcoming papers. N. N. Repin applied this
+method for studying the solvability of equations in nilpotent groups.
+    We record a number results by N. N. Repin on recognizing the solvability of equations
+in nilpotent groups, see [213, 214]:
+— For every finitely generated nilpotent group of class two the problem of recognizing the
+    solvability of one-variable equations is decidable.
+— There is a finitely generated nilpotent group of class 3 in which the problem of
+    recognizing the solvability of one-variable equations is undecidable.
+— For every free nilpotent group Nr,c of rank r ⩾ 600 and class c ⩾ 3 the problem of
+    recognizing the solvability of equations is udecidable.
+— For every free nilpotent group Nr,c of rank r ⩾ 2 and class c ⩾ 5 · 1010 the problem of
+    recognizing the solvability of one-variable equations is undecidable.
+    In another setting, the interpretation of Diophantine equations was used by
+Yu. G. Kleiman to prove that the identity problem is undecidable for some relatively free
+solvable groups (see Theorem 7 above).
+    Theorem 9 (V. A. Roman’kov [236]). For every Diophantine polynomial D(ζ1 , . . . , ζn )
+there exists a finitely generated nilpotent group G of class 2 with the following property.
+For every equation of the form D(ζ1 , . . . , ζn ) = c, c ∈ Z, there is an element u = u(c) ∈ G
+such that u is a commutator in G (in other words, the equation [x, y] = u is solvable in G),
+32                                      V. A. Roman’kov
+
+if and only if the equation D(ζ1 , . . . , ζn ) = c is decidable over Z. The group G and each
+element u(c) can be effectively constructed. By the famous Matijasevich’s theorem there is
+a Diophantine polynomial D for which the equation problem is undecidable for the class of
+equations of the form {D = c : c ∈ Z}. Therefore, the commutator problem is undecidable
+for G.
+    Moreover, G is the first example of a finitely generated nilpotent group with undecidable
+equation problem for the class of quadratic equations. In [236], a finitely generated nilpotent
+group H of class 2 is also presented for which the endomorphism problem is undecidable.
+It also has been proved that the retract problem (i.e., question whether the given finitely
+generated subgroup is a retract of the whole group) is undecidable for the class of finitely
+generated 2-step nilpotent groups. On the other hand, there is an algorithm which for a
+given element u ∈ Nr,2 determines whether or not u is a commutator.
+    A. G. Makanin proved in [136] that every split equation w(x1 , . . . , xk ) = g, g ∈ G, over
+a finitely generated torsion-free nilpotent group G, where w(x1 , . . . , xk ) does not belong
+to the derived subgroup F (X)0 , i.e., w(x1 , . . . , xk ) is a non-commutator word, is finitely
+approximable.
+    In [49], M. Duchin et al. show that there exists an algorithm to decide any single equation
+in the Heisenberg group. The method works for all nilpotent groups of class 2 with rank-one
+derived subgroup, which includes the higher Heisenberg groups.
+    Equations in metabelian case
+    The metabelian Baumslag — Solitar groups are defined by one-relator presentations
+BS(1, k) = ha, b|b−1 ab = ak i, where k ∈ N. If k = 1, then BS(1, 1) is free abelian of
+rank 2, so the Diophantine problem in this group is decidable (it reduces to solving finite
+systems of linear equations over the ring of integers Z).
+    O. Kharlampovich, L. Lopéz and A. Myasnikov proved in [100]) that the Diophantine
+problem is decidable in G = AwrZ, where A is a finitely generated abelian group. Equations
+in the Baumslag — Solitar group BS(1, k) are also decidable.
+    I. Lysenok and A. Ushakov [126] proved that the equation problem for spherical
+quadratic equations in free metabelian groups is solvable and, moreover, NP-complete.
+E. I. Timoshenko [258] proved the first (solvability) result by using the Magnus embedding.
+    By the spherical quadratic equation over group G with unknowns X = {x1 , . . . , xt , . . .}
+one means an equation of the form
+                                    n
+                                       x−1
+                                   Q
+                                         i c1 xi = 1,    ci ∈ G.
+                                  i=1
+
+    V. N. Remeslennikov and N. S. Romanovskii [209] study into algebraic geometry over a
+non-commutative u-group G, that is, a finitely generated metabelian group whose universal
+theory is the same as is one for a free metabelian group of rank at least two. They present
+the construction for a u-product G1,2 = G1 ◦ G2 of two u-groups G1 and G2 , and prove that
+G1,2 is also a u-group and that every u-group, which contains G1 and G2 and is generated
+by these, is a homomorphic image of G1,2 . They prove that the coordinate group of an affine
+space Gn is equal to G ◦ Mn . In [209] irreducible algebraic sets in G are treated for the case
+where G is a free metabelian group or wreath product of two free abelian groups of finite
+ranks.
+    Interpretation of Diophantine equations
+    The author [225, 226] derived the undecidability of EqP and EndoP in the classes of free
+nilpotent and free metabelian groups. He based on the famous results by Yu. V. Matijasevich
+on undecidability of the Diophantine problem [148, 149].
+                                 Algorithmic theory of solvable groups                                 33
+
+     He proved that if N = Nr,c is the free nilpotent group of sufficiently large rank r and class
+c ⩾ 9, then for any Diophantine polynomial D(z1 , . . . , zn ) ∈ Z[z1 , . . . , zn ], we can effectively
+construct two elements g, f ∈ N such, that there is an endomorphism ϕ ∈ End(N ) that
+ϕ(g) = f if and only if the equation D(z1 , . . . , zn ) = c, where c ∈ Z, has a solution
+in Z. Moreover, if such ϕ exists, we can effectively find it if and only if we can effectively
+solve the corresponding Diophantine equation. We can also fix the left side of equation
+D(z1 , . . . , zn ) = c to obtain non-decidable class of Diophantine equations. Hence, we can
+fix the element g above to obtain non-decidability of the EqP and EndoP in N. The second
+element f we choose in a specific cyclic subgroup.
+     By definition, the relation matrix M (G) of the presentation G = hx1 , . . . , xn : r1 , . . . , rm i
+is an integral m × n matrix whose ij-th entry is the sum of the exponents of the xj ’s that
+occur in ri . Recall, that a matrix is said to have full rank if its rank equals the largest
+possible for a matrix of the same dimensions, which is the lesser of the number of rows and
+columns.
+     The authors of [64] study metabelian groups G given by a full rank finite presentations
+hx1 , . . . , xn : r1 , . . . , rm ; A2 i in the variety A2 . They prove that G is a product of a free
+metabelian subgroup of rank max(0, n − m) and a virtually abelian normal subgroup, and
+that if m ⩽ n−2, then the Diophantine problem for G is undecidable, while it is decidable if
+m ⩾ n. They also prove that if m ⩽ n−1, then, in any direct decomposition of G, all factors,
+except one, are virtually abelian. Since finite presentations have full rank asymptotically
+almost surely, metabelian groups finitely presented in the variety of metabelian groups
+satisfy all the aforementioned properties asymptotically almost surely.
+                               7. Post correspondence problem
+   Different versions of PCP
+   There are the bounded versions of PCP. We consider two sorts of a bound: the bound
+on the solution length n (BPCPsl (n)) and the bound on the size s (BPCPs (s)).
+   The following statements are true:
+— BPCPsl is NP-complete [62];
+— BPCPs (2) is decidable [51] (but it remains unknown whether the PCP is solvable for
+   3–6 pairs of words);
+— BPCPs (l) for l ⩾ 7 is undecidable [150, 151].
+   Let A be an algebraic system and let F (A) be a free algebraic system in the variety
+Var(A) generated by A. For two arbitrary homomorphisms ϕ, ψ ∈ Hom(F (A), A) the subset
+
+                              EqA (ϕ, ψ) = {a ∈ F (A) : ϕ(a) = ψ(a)}
+
+of F (A) is said to be the equalizer of ϕ and ψ, that is obviously a subsystem of F (A).
+    The following problem arises: PCP(A): EqA (ϕ, ψ) 6= 0?
+    The Post correspondence and related problems for groups
+    Further we will talk only about groups.
+    Let Ḡ, G be a pair of groups, and let ϕ, ψ ∈ Hom(Ḡ, G) be a pair of homomorphisms.
+We denote by
+                             EqG (ϕ, ψ) = {g ∈ Ḡ : ϕ(g) = ψ(g)}
+the equalizer of ϕ and ψ, that is obviously a subgroup of Ḡ.
+   Equalization presentation problem (EPP): Let C be a class of finitely generated groups.
+We say that EPP is decidable in C if for any pair of groups Ḡ, G ∈ C and any pair of
+homomorphisms ϕ, ψ ∈Hom(Ḡ, G) we can find effectively a presentation of EqG (ϕ, ψ).
+34                                          V. A. Roman’kov
+
+    A form of presentation depends of C. It should be explicit for C. In particular case, when
+Ḡ = G, ϕ, ψ ∈ End(G), we get EPP for G.
+    Equalization problem (EP): We say that EP is decidable in the class C if for any pair of
+groups Ḡ, G ∈ C and any pair of homomorphisms ϕ, ψ ∈ Hom(Ḡ, G) there is an algorithm
+that determines non-triviality of EqG (ϕ, ψ).
+    In particular case, when Ḡ = G, ϕ, ψ ∈ End(G), we consider EP for G.
+    Let we formulate the Post correspondence problem PCP(G) for a group G in the
+corresponding variety. Namely, when Ḡ = F (Var(G)) be a relatively free group in the
+variety Var(G), generated by G, we get PCP for G.
+
+     PCP(G): EqG (ϕ, ψ) 6= 1?
+
+    Generalized equalization problem (GEP). Also, we say that GEP is decidable in the
+class C if for any pair of groups Ḡ, G ∈ C, any pair of homomorphisms ϕ, ψ ∈ Hom(Ḡ, G)
+and given a nontrivial element v ∈ G we can decide effectively whether there is g ∈ Ḡ such
+that
+                                       ϕ(g) = v · ψ(g).
+   We consider it as an equation with unknown element g ∈ Ḡ.
+   In particular case, when Ḡ = G, ϕ ∈ End(G), ψ = id, we get TCP for G. If ψ ∈ End(G),
+then we get BTCP for G.
+   The generalized Post correspondence problem (GPCP)
+   When Ḡ = F (Var(G)) is a relatively free group in the variety Var(G), generated by G,
+we get GPCP for G.
+
+   GPCP(G): Given a finite sequence of instances (g1 , h1 ), . . . , (gs , hs ) and element f in G,
+determine if there is a word w = w(x1 , . . . , xs ) such that
+                                w(g1 , . . . , gs ) = f · w(h1 , . . . , hs ).
+   This problem admits the following equivalent formulation. Let Fs (G) be a free group of
+rank s in Var(G).
+
+    GPCP(G): Given a pair ϕ, ψ ∈ Hom(Fs (G), G), decide if the solution w ∈ Fs (G) exists
+or not of the equation
+                                  ϕ(w) = f · ψ(w).
+    Now we formulate the hereditary word problem (HWP(G)) in a group G. The following
+problem is the strongest form of the word problem in G:
+    HWP(G): Given a finite set R ∪ {f } of words in generators of G, decide whether or not
+f is trivial in the quotient G/ncl(R).
+    GPCP can be decidable only in a group with decidable HWP.
+    The following results are proved in [162]. Let G be a finitely generated group. Then:
+— HWP(G)) P -time reduces to GPCP(G).
+— If G contains F2 then GPCP(G) is undecidable.
+In [163] the classical knapsack and subset sum problems to arbitrary groups are introduced.
+The computational complexity of these new problems were studied. It was shown that these
+problems, as well as the bounded submonoid membership problem, are P -time decidable in
+hyperbolic groups and give various examples of finitely presented groups where the subset
+sum problem is NP-complete.
+    These problems for a group G are formulated as follows:
+                              Algorithmic theory of solvable groups                      35
+
+— Knapsack problem (KP): Given g1 , . . . , gk , g ∈ G, decide if
+                                                k
+                                                    (gi )µi
+                                                Q
+                                           g=
+                                                i=1
+
+  for some non-negative integers µ1 , . . . , µk .
+— The subset sum problem (SSP): Given g1 , . . . , gk , g ∈ G, decide if
+                                                k
+                                                      (gi )i
+                                                Q
+                                           g=
+                                                i=1
+
+  for some 1 , . . . , k ∈ {±1}.
+— Bounded submonoid membership problem (BSMP): Given g1 , . . . , gk , g ∈ G and 1m ∈ N
+                                                                        s
+                                                                        Q
+  (in unary), decide if g is equal in G to a product of the form g =      gj , where ij ∈
+                                                                           j=1
+    ∈ {1, . . . , k} and s ⩽ m.
+    Let G be a finitely generated virtually nilpotent group. Then SSP(G) and BSMP(G),
+as well as their search and optimization (with respect to number of factors) variations,
+are in P [163]. Every polycyclic non-virtually-nilpotent group has NP-complete subset sum
+problem [181].
+    In [164], a number of algorithmic problems in groups were introduced and studied,
+modeled after the classical computational lattice problems. Polynomial time solutions for
+a nilpotent group have been given to problems such as finding a subgroup element closest
+to a given group element, or finding the shortest nontrivial subgroup element.
+    Twisted conjugacy problem
+    Originally the twisted conjugacy problem was posed as following:
+    Let G be a group, and u, w ∈ G. Given an endomorphism ξ ∈ End(G), one says that u
+and w are ξ-twisted conjugated, denoted by u ∼ξ w, if and only if there exists g ∈ G such
+that u = ξ(g)−1 · wg, or equivalently ξ(g) u = wg. So it is a question if following equation
+have a solution g in G:
+                                        ξ(g) u = wg.
+The question about ξ-twisted conjugacy of given elements u, w ∈ G can be reduced to
+case where one of the elements is trivial. To do it we change ξ to ϕ = ξ ◦ σu , where
+σu : g 7→ u−1 gu, g ∈ G, is an inner automorphism. We get
+
+                                           ϕ(g) = vg
+
+for v = u−1 w.
+    We consider finitely generated metabelian and polycyclic groups. We have the following
+two equations:
+
+                                         ϕ(g) = ψ(g)
+and
+                                        ϕ(g) = uψ(g).
+   Following [11], call a subgroup H of a finitely generated metabelian group M nearly
+normal if the intersection H ∩ M 0 is a normal subgroup of M.
+   Then
+                                                                           0
+                           H = gp(h1 , . . . , hk , {v1 , . . . , vl }Z[M/M ]
+36                                           V. A. Roman’kov
+
+is a finite description of H.
+    The following results were presented in the talk of the author [234] (see also [233]).
+    The first assertion shows that the question of the decidability of GEP (ϕ(g) = f ψ(g))
+under certain assumptions can be transformed into a similar question about the subgroup H
+of a finite index in G:
+— Let G be any group and let H ⩽ G be any subgroup of a finite index in G. Let Ḡ be a
+    group and ϕ, ψ ∈ Hom(Ḡ, G). Suppose that the membership problem in H is decidable
+    for G. Then, if GEP is decidable for H, it is also decidable for G.
+    Let us present the main technical results for obtaining solutions of the problems under
+consideration in the class of all finitely generated metabelian groups:
+— Let G be a group and A be its abelian normal subgroup. Let Ḡ = gp(f1 , . . . , fn ) be a
+    finitely generated group and let ϕ, ψ : Ḡ → G be a pair of homomorphisms such that
+    G = gp(ϕ(Ḡ), ψ(Ḡ)). For every g ∈ Ḡ denote a(g) = ϕ(g)(ψ(g))−1 . In particular, denote
+    ai = a(fi ), i = 1, . . . , n.
+    Suppose that the following assumptions are true:
+    1) for every g ∈ Ḡ one has a(g) ∈ A;
+    2) the derived subgroup G0 acts identically on A, i.e., [G0 , A] = 1;
+    3) Ḡ0 ⩽ EqG (ϕ, ψ), i.e., for every g ∈ Ḡ0 one has ϕ(g) = ψ(g).
+    Then
+                                   EqG (ϕ, ψ) ⩽ ψ −1 (CG (a1 , . . . , an )),
+     where CG (a1 , . . . , an ) is the centralizer of the elements a1 , . . . , an in G.
+     Moreover, for every g ∈ ψ −1 (CG (a1 , . . . , an )) one has a(g) ∈ ζ1 G;
+     4) hence, if the center ζ1 (G) of G is trivial, then
+
+                                    EqG (ϕ, ψ) = ψ −1 (CG (a1 , . . . , an )).
+
+     In general case there is a homomorphism
+
+                               ρ : ψ −1 (CG (a1 , . . . , an )) → ζ1 G, g 7→ a(g),
+
+     and
+                                            EqG (ϕ, ψ) = ker(ρ).
+     Let G be a group and A be its abelian normal subgroup. Let Ḡ be a group and let
+     ϕ, ψ : Ḡ → G be a pair of homomorphisms such that G = gp(ϕ(Ḡ), ψ(Ḡ)). Let a(g) =
+     = ϕ(g)(ψ(g))−1 . Suppose that the following assumptions are true:
+     1) for every g ∈ Ḡ one has a(g) ∈ A;
+     2) the derived subgroup G0 acts identically on A, i.e., [G0 , A] = 1.
+     Then
+                                      a(Ḡ0 ) = {a(g) : g ∈ Ḡ0 }
+    is a normal subgroup of G.
+    Moreover, if Ḡ0 is generated as a normal subgroup by a set of elements {ui : i ∈ I},
+    then a(Ḡ0 ) is generated as a normal subgroup by the set {a(ui ) : i ∈ I}.
+    Let all the previous notation and assumptions be satisfied. Let G1 = G/a(Ḡ), and
+G → G1 be the standard homomorphism. For simplicity, we do not change the notation for
+the compositions ϕ and ψ with this standard homomorphism. Also, we do not change the
+designation of the images of elements of G in G1 .
+                                  Algorithmic theory of solvable groups                                  37
+
+    Then
+                                EqG1 (ϕ, ψ) ⩽ ψ −1 (CG1 (a1 , . . . , an )).
+    Moreover, if ζ1 G1 = 1, then
+
+                                EqG1 (ϕ, ψ) = ψ −1 (CG1 (a1 , . . . , an )).
+
+    Main results for metabelian and polycyclic groups
+    Theorem 10. Let M be a finitely generated metabelian group, and let M̄ be a finitely
+generated metabelian group with generating set {f1 , . . . , fn }. Let N be an abelian normal
+subgroup of M, containing M 0 .
+    Then EPP and EP are solvable for any pair of homomorphisms ϕ, ψ ∈ Hom(M̄ , M )
+satisfying the assumption that, for any g ∈ M̄ , gϕ(gψ)−1 ∈ N. Equalizer EqM (ϕ, ψ) is
+described as a nearly normal subgroup of M, i.e.,
+                                                                              
+                      EqM (ϕ, ψ) = gp h1 , . . . , hk , {v1 , . . . , vl }ZM/N ,
+
+where h1 , . . . , hk , v1 , . . . , vl are given by the algorithm.
+   Corollary 2. Let M be a finitely generated metabelian group, and let M̄ =
+= F (Var(M )) be a relatively free metabelian group in the variety Var(M ) generated by M
+with basis {f1 , . . . , fn }, n ⩾ 2.
+   Then PCP is solvable for any pair of instances c̄ = (c1 , . . . , cn ) and d¯ = (d1 , . . . , dn ) such
+that for the corresponding homomorphisms ϕ : fi → ci and ψ : fi → di , respectively, one
+has ai = ϕ(fi )(ψ(fi ))−1 ∈ N, i = 1, . . . , n.
+   Theorem 11.
+    1. Let M be a metabelian polycyclic group, and let M̄ be a metabelian polycyclic group
+       with generating set {f1 , . . . , fn }, n ⩾ 2. Then EPP and EP are decidable for any
+       pair of homomorphisms ϕ, ψ of M̄ to M .
+    2. Let M be a metabelian polycyclic group, and let M̄ = F (Var(M )) be a relatively free
+       group in the variety Var(M ) generated by M with basis {f1 , . . . , fn }, n ⩾ 2. Then
+       PCPn is decidable for any pair of instances c̄ = (c1 , . . . , cn ), d¯ = (d1 , . . . , dn ) ∈ M̄ n .
+    3. Let M be a finitely generated metabelian group, and let M̄ be a finitely
+       generated metabelian group generated by f1 , . . . , fn , n ⩾ 2. Let N be an abelian
+       normal subgroup of M, that contains M 0 . Then GEP is solvable for any pair of
+       homomorphisms ϕ, ψ ∈ Hom(M̄ , M ) and any element a ∈ N such that for any
+       g ∈ M̄ one has ϕ(g)(ψ(g))−1 = a(g) ∈ N.
+   Corollary 3.
+    1. Let M be a finitely generated metabelian group and N a normal abelian subgroup
+       of M containing M 0 . Let ϕ, ψ be a pair of endomorphisms in End(M ) such that, for
+       each g ∈ M , ϕ(g)(ψ(g))−1 ∈ N. Then the bi-twisted conjugacy problem is solvable
+       for ϕ, ψ.
+       In particular, the bi-twisted conjugacy problem is solvable for any pair of
+       endomorphisms ϕ, ψ ∈ End(M ), each of which induces an identical map onto M/M 0 .
+       This generalizes the main result of paper [264], where ϕ induces an identical map
+       onto M/M 0 and ψ = id.
+    2. Let M be a finitely generated metabelian group, and let M̄ = F (Var(M )) be a
+       relatively free metabelian group in the variety Var(M ) with basis {f1 , . . . , fn }, n ⩾ 2.
+       Let N be an abelian normal subgroup of M, that contains M 0 .
+38                                       V. A. Roman’kov
+
+             Then GPCPn is decidable for every pair of instances c̄ = (c1 , . . . , cn ), d¯ = (d1 ,
+             . . . , dn ) ∈ M n such that for the corresponding to these instances homomorphisms
+             ϕ, ψ ∈ Hom(M̄ , M ) and every element g ∈ M̄ we have ϕ(g)(ψ(g))−1 = a(g) ∈ N.
+      Theorem 12. Let M be a metabelian polycyclic group. Let N be an abelian normal
+subgroup of M, that contains M 0 . Let M̄ be a metabelian polycyclic group generated by
+f1 , . . . , fn , n ⩾ 2. Then GEP is decidable for every pair of homomorphisms ϕ and ψ of M̄
+to M.
+      Corollary 4. Let M be a polycyclic metabelian group and N be a normal abelian
+subgroup of M containing M 0 . Then the bi-twisted conjugacy problem is solvable for any
+pair of endomorphisms ϕ, ψ of M. Thus, the bi-twisted conjugacy problem is solvable for M.
+This generalize the result [264] where ϕ is arbitrary endomorphism and ψ = id.
+      Theorem 13. Let M be a metabelian polycyclic group, and let M̄ = F (Var(M )) be a
+relatively free group in Var(M ), n ⩾ 2. Then GPCPn is decidable for any pair of instances
+c̄ = (c1 , . . . , cn ), d¯ = (d1 , . . . , dn ) ∈ M̄ n .
+      Theorem 14. All the problems just considered are solvable in the class of polycyclic
+groups.
+                          8. Elementary and universal theories
+    The elementary theory Th(G) of a group G (or a ring, or an arbitrary structure) in a
+language L is the set of all first-order sentences in L that are true in G.
+    We restrict ourselves to considering only the group-theoretical case. Usually L is the
+standard group-theoretic language h·,−1 , =, 1i. Sometimes L includes predicates or other
+than 1 constants. If the group A is elementarily equivalent to the group B, i.e., if Th(A) =
+= Th(B), then we write A ≡ B.
+    One of the main results of W. Szmielew [249] is the determination of group theoretic
+invariants I(A) which characterize abelian groups A up to elementary equivalence. The
+decidability of the theory of abelian groups follows relatively easily from this result:
+A ≡ B ↔ I(A) = I(B). More exactly, Th(A) is decidable if the sequence of Szmielew
+invariants of A is computable. Finitely generated abelian groups have decidable elementary
+theories. This assertion easily carries over to their finite extensions, i.e., almost abelian
+finitely generated groups. Two finitely generated abelian groups are elementary equivalent
+if and only if they are isomorphic, that is, A ≡ B ↔ A ≃ B.
+    A compretiensive survey of the first-order properties of abelian groups is given by
+P. C. Eklof and E. R. Fisher in [54]. Their principal method is the investigation of saturated
+abelian groups. They gave a new model-theoretic proof results of Szmielew and obtained
+new results on the existence of saturated models of complete theories of abelian groups.
+It turned out that elementarily equivalent saturated abelian groups of the same cardinality
+are isomorphic.
+    There are several main results on elementary theories of nilpotent groups. Examples of
+finitely generated nilpotent groups with undecidable elementary theories were first given
+by A. I. Mal’cev. In his pioneering paper [146], A. I. Mal’cev showed that the ring R with
+unity can be defined by first-order formulas in the group UT3 (R) of unitriangular matrices
+over R (considered as an abstract group). In particular, the ring of integers Z is definable
+in the group UT3 (Z), which is a free nilpotent of rank 2 and class 2. Yu. L. Ershov [57]
+proved that the group UT3 ((Z)) (hence the ring Z) is definable in any finitely generated
+nilpotent group G, which is not virtually abelian. Therefore, the elementary theory of G is
+undecidable (see more general statement of theorem 15 below).
+                                Algorithmic theory of solvable groups                              39
+
+    In [143], A. I. Mal’cev proved that the elementary theory of any free solvable group Sr,d
+of rank r ⩾ 2 and class d ⩾ 2 is undecidable. All members of the derived series are definable
+in Sr,d . In [145], he established fundamental results on linear groups. In particular, he proved
+the following theorem: Let G =GL (or PGL, SL, PSL), let n, m ⩾ 3, and let K and L be
+commutative rings of characteristic zero, then GLm (K) ≡ GLn (L) if and only if m = n and
+K ≡ L. In the case of GL and PGL the result holds for n, m ⩾ 2.
+    In [108], M. I. Kargapolov posed the following Question 1.26: Does elementary
+equivalence of two finitely generated nilpotent groups imply that they are isomorphic?
+    In [268], B. I. Zil’ber constructed an example of two finitely
+generated nilpotent of class 2 groups that are elementary equivalent
+but nonisomorphic.
+    A. G. Myasnikov in the series of papers [158, 160, 161] studied
+the elementary theories of bilinear mappings. In particular, he gave a
+description of abstract isomorphisms of bilinear mappings.
+    If G is torsion free finitely generated nilpotent group and R is
+binomial domain, then GR means the P. Hall R-completion of G.
+    In the papers [164–166] A. G. Myasnikov and V. N. Remeslennikov
+proved that the Kargapolov’s conjecture holds “essentially” true in M. I. Kargapolov was the
+the class of nilpotent Q-groups (i.e., divisible torsion-free nilpotent initiator of many stu-
+groups). Indeed, it turned out that two such groups G and H are dies on solvable groups
+elementarily equivalent if their cores G̃ and H̃ are isomorphic and G and algorithms
+and H either simultaneously coincide with their cores or they do not. Here the core of G
+is uniquely defined as a subgroup G̃ ⩽ G such that C(G̃) ⩽ G̃0 and G = G̃ × G0 , for some
+abelian Q-group G0 . Developing this approach, A. G. Myasnikov described in [157, 159] all
+groups elementarily equivalent to a given finitely generated nilpotent K-group G over an
+arbitrary field K of characteristic zero.
+    In a series of papers [22–24] O. V. Belegradek completely characterized groups which are
+elementarily equivalent to a unitriangular matrix group UTn (Z) for n ⩾ 3. In particular, he
+showed in [23, 24] that there are groups elementarily equivalent to UTn (Z) which are not
+isomorphic to any group of the type UTn (R) as above (he called them quasi-unitriangular
+groups).
+                                            The paper [174] gives a complete algebraic description
+                                       of the groups G that are elementarily equivalent to the
+                                       P. Hall completion N R of a given free nilpotent group
+                                       N of finite rank over an arbitrary binomial domain R.
+                                       In particular, all groups elementarily equivalent to a
+                                       free nilpotent group N of finite rank are characterized.
+           A. G. Myasnikov             F. Oger [189] studied special circumstances under which
+                                       elementary equivalence of two finitely generated finite-by-
+nilpotent groups implies isomorphism. Finally, F. Oger showed in [190] that two finitely
+generated nilpotent groups G and H are elementarily equivalent if and only if they are
+essentially isomorphic, i.e., G × Z ≃ H × Z. However, the full classification problem for
+finitely generated nilpotent groups is currently wide open.
+    A universal formula is a formula which can be written ∀x1 . . . ∀xn Φ(x1 , . . . , xn ) for some
+quantifier free formula Φ(x1 , . . . , xn ). If it has no free variables, a universal formula is called
+a universal sentence. The universal theory Th∀ (G) of a group G is the set of universal
+sentences satisfied by G. If the group G is universally equivalent to the group H, i.e., if
+Th∀ (G) = Th∀ (H), then we write G ≡∀ H.
+40                                     V. A. Roman’kov
+
+     Similarly, one can define existential formulae and sentences, and the existential theory
+Th∃ (G) of a group G. Note that two groups which have the same universal theory also have
+the same existential theory since the negation of a universal sentence is equivalent to an
+existential statement.
+     It is well known that two nontrivial free abelian groups are universally equivalent.
+E. I. Timoshenko [252] established that any two free solvable groups Sr,d and Sq,d of the
+same length d ⩾ 1 and r, q ⩾ 2 (in the case d = 1, r, q ⩾ 1) are universally equivalent
+(Sr,d ≡∀ Sqd ). This result has been independently proved in [61]. In [252], E. I. Timoshenko
+also proved that any two free nilpotent groups Nr,c and Nq,c where r 6= q, of the same
+class c ⩾ 2 are universally equivalent if and only if the following conditions are satisfied:
+r, q ⩾ c − 1 for c ⩾ 3; and r, q ⩾ 2 for c = 2.
+                              The first example of a finitely generated nilpotent group G,
+                          whose universal theory Th∀ (G) is undecidable, was constructed by
+                          the author in [227]. This group G is a torsion-free metabelian group
+                          of the nilpotency class 4 with 6 generators.
+                              In [251], E. I. Timoshenko considers the problem of preserving
+                          elementary and universal equivalence under wreath products. His
+                          result is as follows. If the group A is elementarily equivalent to the
+   E.I. Timoshenko
+                          group B, and K is a finite group, then the wreath product G = AwrK
+is elementarily equivalent to H = BwrK. Universal equivalence is preserved under wreath
+products, that is A1 ≡∀ A2 , B1 ≡∀ B2 → A1 wrB1 ≡∀ A2 wrB2 , but elementary equivalence
+(in the general case) is not, that is A1 ≡ A2 , B1 ≡ B2 6→ A1 wrB1 ≡ A2 wrB2 [251].
+     In [35], O. Chapuis proved his remarkable result: The elementary theory of any free
+metabelian group is decidable. An explicit description of this theory is given by him in [36].
+He also proved that a noncyclic free metabelian group is universally equivalent to the wreath
+product of any two nontrivial torsion-free abelian groups.
+     V. Remeslennikov and R. Stöhr [212] characterizated the finitely generated groups in
+the quasivariety generated by a noncyclic free metabelian group from three different points
+of view: In terms of wreath products, in terms of module theoretic properties of their Fitting
+subgroups, and in terms of quasi-identities.
+     In [37], O. Chapuis proved that the terms of the derived series of a free solvable group
+are definable by existential formulae. He used this result to prove that if Hilbert’s 10th
+problem has a negative answer for the field of the rationals, then the universal theory of
+a noncyclic free solvable group of class ⩾ 3 is undecidable. N. S. Romanovskii [221] proved
+that a free solvable group of derived length at least 4 has an algorithmically undecidable
+universal theory.
+     E. I. Timoshenko [257] proved that the universal theory of a free polynilpotent group
+Nc1 · · · Ncs , s ⩾ 2, ci ⩾ 1, for i = 1, . . . , s − 1, cs ⩾ 2, is undecidable.
+     The following result has been proved in [254]. Let F (V) be a free group of a variety V,
+approximable by finite p-groups for an infinite sequeuce of primes p. If the subgroup G
+of F (V) generates the same variety as F (V), then G ≡∀ F (V).
+     In [112], an algebraic characterization of elementary equivalence for polycyclic-by-
+finite groups was established. This characterization allowed to give the relations between
+their elementary equivalence and the elementary equivalence of the factors in their
+decompositions in direct products of indecomposable groups. In particular, it has been
+proved that the elementary equivalence of two such groups G ≡ H is equivalent to each of
+the following properties: (1) G×· · ·×G (k times G) for an integer k ⩾ 1; (2) A×G ≡ B ×H
+                              Algorithmic theory of solvable groups                           41
+
+for two polycyclic-by-finite groups A, B such that A ≡ B. It is not presently known if (1)
+implies G ≡ H for any groups G, H.
+    N. S. Romanovskii and E. I. Timoshenko found in [223] conditions for the universal
+equivalence of the metabelian group G with few relations to the free metabelian group Mr of
+rank r. They also proved that if an n-generated solvable group G is elementarily equivalent
+to a free solvable group Srd of rank r and derived length d, then for d = 2 or d > 2 and n = r,
+the groups G and Sr,d are isomorphic. In [260], E. I. Timoshenko studies elementary and
+universal theories of relatively free solvable groups in a group signature expanded by one
+predicate distinguishing primitive or annihilating systems of elements. In [259], he proved
+the following results. Let be the set of all primitive elements of M2 . Then there is a countable
+set of existential formulas that determines P, however, no finite subset of these formulas
+does. He also proved that two elements g, f ∈ M20 conjugate by some automorphism of M2
+if and only if they satisfy the same existential formulas.
+    The concept of a rigid (solvable) group was introduced by N. S. Romanovskii about 10
+years ago. The rigid group class turned out to be quite interesting and noteworthy. At
+present, a number of results have been obtained for it, both group-theoretical and model-
+theoretic. Most of these results were obtained by the discoverer of this class. For these
+reasons, rigid groups can be called Romanovskii’ groups. A group G is said to be m-rigid,
+where m is a natural number, if it has a normal series of the form G = G1 > . . . >
+> Gm > Gm+1 = 1, whose quotients Gi /Gi+1 are abelian and are torsion free when treated
+as Z[G/Gi ]-modules. Examples of rigid groups are free soluble groups. A. G. Myasnikov
+and N. S. Romanovskii [169] gave a recursive system of universal axioms distinguishing
+m-rigid groups in the class of solvable groups of length m. They proved that if G is an
+arbitrary m-rigid group, and W is an iterated wreath product of m infinite cyclic groups,
+then the universal theories for these groups satisfy the inclusions Th∀ (W ) ⊆ Th∀ (G) ⊆
+⊆ Th∀ (Sr,m ), where r ⩾ 2. An ∃-axiom is given that distinguish among m-rigid groups
+those that are universally equivalent to W . An arbitrary m-rigid group embeds in a divisible
+decomposed m-rigid group M , the semidirect product of m abelian groups. A recursive
+system of axioms distinguishing among M -groups those that are universally equivalent
+to M . As a consequence, it is stated that the universal theory of M with constants is
+decidable. By contrast, the universal theory of W with constants is undecidable.
+    Let Γ = (X, E) be a finite simple graph. The right-angled Artin group (in other
+terminology, a partially commutative group) G(Γ), corresponding to Γ, has the specification
+hX, xy = yx (x, y) ∈ Ei. If V is a variety of groups, then the partially commutative V-
+group, corresponding to Γ, has the specification hX, xy = yx (x, y) ∈ E; Vi.
+    The paper [74] proves that two partially commutative metabelian groups have equal
+elementary theories if and only if their defining graphs are isomorphic, and that every
+partially commutative metabelian group is embeddable in a finitely generated metabelian
+group with decidable universal theory. In [224], N. S. Romanovskii and E. I. Timoshenko
+proved the following statement: Let the variety V contain the variety N2 , and the finitely
+generated group H is elementarily equivalent to the partially free group G = F (Γ, V), then
+G ≃ H.
+    In [255], necessary and sufficient conditions are given for two partially commutative
+metabelian groups defined by trees to be universally equivalent. In [75], further properties
+of partially commutative metabelian groups and of their universal theories are described.
+In particular, it is shown that two partially commutative metabelian groups defined by
+cycles are universally equivalent if and only if the cycles are isomorphic. It is proved also
+42                                     V. A. Roman’kov
+
+that the metabelian product of two non-trivial free abelian groups is universally equivalent
+to any free noncyclic metabelian group.
+    In [155] some necessary and sufficient conditions of the universal equivalence of the
+nilpotent R-groups of class 2 defined by trees, with R a binomial Euclidean ring are
+determined. Partially commutative nilpotent metabelian groups are considered in [76].
+Universal theories for partially commutative nilpotent metabelian groups are compared:
+conditions on defining graphs of two partially commutative nilpotent metabelian groups
+are presented which are sufficient for the two groups to have equal universal theories;
+conditions on defining graphs of two partially commutative metabelian groups are specified
+which are sufficient for the two groups to be universally equivalent; a criterion is given that
+decides whether two partially commutative nilpotent metabelian groups defined by trees
+are universally equivalent.
+    A description of solvable groups with solvable elementary theory is known.
+    Theorem 15 (Yu. L. Ershov [57], N. S. Romanovskii [219], G. A. Noskov [185]).
+    The elementary theory of a finitely generated solvable group is decidable if and only if
+the group is virtually abelian.
+                           The corresponding problem has been posed in [95]. Yu. L. Ershov
+                       proved this statement [57] in the nilpotent case, N. S. Romanovskii
+                       [219] generalized it to the polycyclic case, and finally, G. A. Noskov
+                       [185] established the most general statement for the case of a finitely
+                       generated solvable group.
+
+
+
+     G. A. Noskov                             9. Rational subsets
+    The class Rat(G) of rational subsets of a group G is the smallest class that contains all
+finite subsets of G and that is closed with respect to the following rational operations:
+— union = A, B ∈ Rat(G) → A ∪ B ∈ Rat(G);
+— product = A, B ∈ Rat(G) → A · B ∈ Rat(G);
+— taking the monoid generated by a set (Kleeny operation) = A ∈ Rat(G) → A∗ =
+             ∞
+                Ai .
+             S
+    = {1} ∪
+             i=1
+This concept generalizes the classical notion of a regular subset of the free monoid Σ.
+    There is an analogue of Kleene’s theorem on the definition of regular subsets of a free
+monoid by finite automata: a subset R of a group G is rational if and only if R is the output
+set of a finite automaton over G.
+    Recall that a finite automaton A over an alphabet σ consists of:
+— a finite directed graph with edges labeled by elements of Σ;
+— a distinguished initial vertex v0 ;
+— a set of final vertices v1 , . . . , vt .
+The language L(A) of the automaton consists of all words labeling a path from the initial
+vertex to a final vertex. A language is called rational if it is accepted by some finite
+automaton.
+    For definitions and basic properties of rational subsets in groups, see [66, 67, 235].
+    By well-known theorem of A. Anissimov and A. W. Seifert [5], a subgroup H of G belongs
+to Rat(G) if and only if H is finitely generated.
+                              Algorithmic theory of solvable groups                         43
+
+    Rational submonoids need not be finitely generated. Rational subsets are not in general
+closed under complement and intersection.
+    Rational subset theory has many applications:
+— V. Diekert, C. Gutierrez, and C. Hagenah [45] showed solving equations with rational
+    constraints over free groups is PSPACE-complete.
+— V. Diekert and M. Lohrey [46] used this to solve equations and decide the positive theory
+    for right-angled Artin groups.
+— F. Dahmani and V. Guirardel [40] solved equations over hyperbolic groups with special
+    rational constraints. They gave an algorithm for solving equations and inequations
+    with rational constraints in virtually free groups. This algorithm is based on E. Rip’s
+    classification of measured band complexes. Using canonical representatives, they
+    deduced an algorithm for solving equations and inequations in hyperbolic groups (maybe
+    with torsion).
+— F. Dahmani and J. Groves [39] used rational subsets in their solution to the isomorphism
+    problem for toral relatively hyperbolic groups.
+— The order of g is finite if and only if g −1 ∈ {g}∗ , so decidability of submonoid membership
+    gives decidability of order.
+    The rational subset membership problem for a finitely generated group G is the decision
+problem, where for a given rational subset A of G and a group element g it is asked whether
+g ∈ A.
+    This section presents a survey on known decidability and undecidability results for
+the rational subset membership problem for groups. The membership problems for finitely
+generated submonoids and finitely generated subgroups will be discussed as well.
+    We list some of known results on the rational subset problem.
+  Positive results:
+— (M. Benois [25]). Rational subset membership is decidable for free groups. (The proof
+  uses an automata theoretic analogue of Stallings folding.)
+— (C. Eilenberg and M. P. Schutzenberger [53]). Rational subset membership is decidable
+  in abelian groups.
+— (Z. Grunschlag [73]). Decidability of rational subset membership is a virtual property.
+  (A property is called virtual if its execution for a subgroup of the finite index entails its
+  execution on the entire group.)
+— (M. Yu. Nedbai [177]). The decidability of rational subset membership passes through
+  free products.
+— (M. Cadilhac, D. Chistikov, and G. Zetzsche [38]). Rational subset membership is
+  decidable for the Baumslag — Solitar groups BS(1, q) for q ⩾ 2.
+— (M. Kambites, P. W. Silva, and B. Steinberg [91]). Decidability of rational subset
+  membership is preserved by free products with amalgamation and HNN-extensions with
+  finite edge groups. More generally, if G is a fundamental group of a graph of groups
+  with finite edge groups and for each vertex group the rational set membership problem
+  is solvable, then this problem is also solvable for G.
+  Let C be the smallest class of groups containing the trivial group and closed under:
+— taking finitely generated subgroups;
+— taking finite index overgroups;
+— free products with amalgamation and HNN-extensions with finite edge groups;
+— direct product with Z.
+44                                    V. A. Roman’kov
+
+     Theorem 16 (M. Lohrey and B. Steinberg [118]). Every group in the class C has
+decidable rational subset membership problem.
+    There is no need to talk about the solvability of the membership problem for finitely
+generated submonoids of the group G if the classical problem of the membership for finitely
+generated subgroups of the group G is unsolvable. Note that direct products do not preserve
+the solvability of the occurrence problem. It was shown by K. A. Mikhailova [154], that the
+direct product F2 × F2 of two copies of the free group of rank 2 contains a fixed finitely
+generated subgroup with an undecidable membership problem. In particular, F2 × F2 has
+an undecidable subgroup membership problem. Hence, also the submonoid membership
+problem and the rational subset membership problem for F2 × F2 are undecidable. This
+result is remarkable since F2 × F2 is a very natural group.
+    The above result of M. Benois cannot be generalized to hyperbolic groups. Indeed,
+E. Rips [215] proved the existence of hyperbolic torsion-free groups, in particular, groups
+                                                 0
+with small cancellation, on which condition C1/6    is satisfied, and in which the membership
+problem is unsolvable.
+    Let Γ = (X, E) be a finite simple graph. Recall, that the right-angled Artin group
+(in other terminology, a partially commutative group) G(Γ), corresponding to Γ, has the
+specification hX, xy = yx (x, y) ∈ Ei. It is said that the graph Γ1 = (X, E) contains a
+induced graph Γ2 if there is a subset of vertices U ⊆ V such that the graph Γ2 is isomorphic
+to the graph (U, E ∩ (U × U )).
+    The subgroup membership problem is solvable in any group G(Γ) when the graph
+Γ does not contain an induced cycle C4 of length 4 [93]. On the other hand, the group
+G(C4 ) contains the direct product F2 × F2 , therefore, by the above-mentioned theorem of
+K. A. Mikhailova, there is a finitely generated subgroup in it with unsolvable membership
+problem.
+    M. Lohrey and B. Steinberg [118] show that the membership problem in a finitely
+generated submonoid of a right-angled Artin group is decidable if and only if the
+independence graph (commutation graph) is a transitive forest, i.e., it does not contain
+induced subgraphs of type C4 or P4 , where P4 denotes a straight line segment consisting
+of four vertices and three edges. Moreover, in the unsolvable case, one can indicate a fixed
+finitely generated submonoid of the group G(Γ), the membrtship problem for which is
+unsolvable.
+    It is shown in [118] that membership in rational subsets of wreath products HwrV
+with H a finite group and V a virtually free group is decidable. On the other hand, it is
+shown that there exists a fixed finitely generated submonoid in the wreath product ZwrZ
+with an undecidable membership problem.
+    The author proved in [237] that any verbal subset w[G] of a finitely generated nilpotent
+group G with respect to a word w of positive exponent is rational. Examples of verbal
+subsets of finitely generated metabelian groups that are not rational are given. Recall that
+the verbal subset of a group G is the set of all values of the group word w in this group.
+  Negative results:
+— (V. A. Roman’kov [229]). There exists a number r such that the free nilpotent group Nr,2
+  of class 2 generated by r elements has an undecidable rational subset membership
+  problem.
+— M. Lohrey and B. Steinberg show in [119]that the free metabelian group M2 of rank 2
+  contains a fixed finitely generated submonoid with an undecidable membership problem.
+                               Algorithmic theory of solvable groups                            45
+
+    This result is shown via a reduction from the membership problem for finitely generated
+    subsemimodules of free (Z×Z)-modules of finite rank. This considered problem is shown
+    to be undecidable in by interpreting it as a particular tiling problem of the Euclidean
+    plane that in turn is shown to be undecidable via a direct encoding of a Turing machine.
+— M. Lohrey, B. Steinberg, and G. Zetzsche [120] prove that the submonoid membership
+    problem is undecidable for ZwrZ.
+— U. U. Umirbaev [261] show that the free solvable group S2,3 of derived length 3 and
+    rank 2 has an undecidable subgroup membership problem.
+— M. Lohrey [117] prove that there are numbers n, l ⩾ 3 and a sequence of cyclic
+    subgroups C1 , . . . , Cl of the unitriangular matrix group UTn (Z) over integers such that
+    the membership problem with respect to the product C1 · · · Cl is unsolvable.
+    The submonoid membership problem is the most important fragment of the rational
+subset problem. The well-known submonoid membership problem for nilpotent groups was
+recently solved by the author.
+    Theorem 17 (V. A. Roman’kov [240]). There is a finitely generated submonoid M of
+a free nilpotent group Nr,l of class l ⩾ 2 of sufficiently large rank r, the membership problem
+for which is algorithmically unsolvable.
+    A. G. Myasnikov and the author [170] established that a verbal subset w[Fr ] of a free
+group Fr of finite rank r ⩾ 2 is rational in Fr if and only if w[Fr ] = 1 or w[Fr ] = Fr . The last
+two cases are easily recognized by the form of the word w. This statement is generalized to
+a wide class of free products of groups.
+    Rational subsets in nilpotent groups were also studied by G. A. Bazhenova [19]. She
+proved that the rational subsets of a finitely generated nilpotent group G are a Boolean
+algebra if and only if G is virtually abelian. Other results on the characterization of finitely
+generated groups G in which the set of rational subsets Rat(G) is a Boolean algebra, that is,
+a family of subsets closed under union, intersection, and complement operations are given
+in [20, 235, 238].
+    See [147] for a connection between the submonoid membership problem for a group G
+and the geometric properties of this group.
+    It is worth noting that the submonoid membership problem of entering for a free abelian
+group Ar ≃ Zr of rank r is related to the following integer linear programming problem:
+For a given matrix A ∈Mm×r and vector b ∈ Zr determine whether there exists a solution
+x ∈ Nm of the equation xA = b.
+    In group-theoretic language, this is the submonoid membership problem for the
+group Ar generated by the rows of the matrix A. It is well known that this version of
+the integer linear programming problem belongs to the class of NP-complete problems.
+The submonoid membership problem for an arbitrary group is currently considered as a
+natural generalization of the problem of integer linear programming. An overview of the
+related results can be found in [18].
+                                 10. Geodesic problems
+    The computational complexity of the WP in free solvable groups Sr,d , where r ⩾ 2 is
+the rank and d ⩾ 2 is the solvability class of the group, was studied in [171]. Let n be a
+length of a word (input) w ∈ Sr,d .
+    It is known that the Magnus embedding of Sr,d into matrices provides a polynomial time
+decision algorithm for WP in a fixed group Sr,d . Unfortunately, the degree of the polynomial
+grows together with d, so the uniform algorithm is not polynomial in d.
+46                                     V. A. Roman’kov
+
+     Theorem 18 (A. Myasnikov, V. Roman’kov, A. Ushakov, and A. Vershik [171]).
+— The Fox derivatives of elements from Sr,d with values in the group ring ZSr,d−1 can be
+     computed in time O(n3 rd).
+— The WP has time complexity O(rn log2 n) in Sr,2 , and O(n3 rd) in Sr,d for d ⩾ 3.
+     In [171], the following algorithmic and decision problems were considered:
+— The Geodesic problem (GP): Given a word w ∈ F (X), find a word u ∈ F (X) which is
+     geodesic in G such that w =G u.
+— The Geodesic length problem (GLP): Given a word w ∈ F (X), find |w|G .
+— Bounded geodesic length problem (BGLP): Given a word w ∈ F (X) and an integer k,
+     decide if a geodesic representative has length ⩽ k.
+It has been shown that for free metabelian groups (with standard generating sets) BGLP
+is NP-complete.
+     Though GLP seems easier than GP, in practice, to solve GLP one usually solves GP
+first, and only then computes the geodesic length. It is an interesting question if there exists
+a group G and a finite set X of generators for G relative to which GP is strictly harder
+than GLP.
+     Turing reducibility of the geodesic problems
+     It has been shown in [171] that a polynomial time solution to any of these problems
+implies a polynomial time solution to the next, and each implies a polynomial time solution
+to the word problem for the group.
+     The algorithmic “hardness” of the problems WP, BGLP, GLP, and GP in a given group G
+is explained by the following implications: each one is Turing reducible in polynomial time
+to the next one in the list:
+
+                            W P T,p BGLP T,p GLP T,p GP,
+
+and GP is Turing reducible to WP in exponential time:
+
+                                       GP T,exp W P.
+
+    M. Elder and A. Rechnitzer [56] established that GP, GLP and BGLP are polynomial
+time and space reducible to each other.
+    Complexity of the geodesic problems
+    Recall the concept of time complexity. Let A be an algorithm with inputs from a set S,
+|w| is the size of w ∈ S, T A(w) is the number of steps required for A to stop on the input
+w ∈ S, A is in polynomial time if for some polynomial p(x) means T A(w) ⩽ p(|w|).
+    If G has polynomial growth, i.e., there is a polynomial p(n) such that for each n
+cardinality of the ball Bn of radius n in the Cayley graph Γ(G, X) is at most p(n), then
+one can easily construct this ball Bn in polynomial time with an oracle for the WP in G.
+It follows that if a group with polynomial growth has WP decidable in polynomial time,
+then all the problems above have polynomial time complexity. Observe now, that by famous
+Gromov’s theorem finitely generated groups of polynomial growth are virtually nilpotent.
+It is also known that the latter have WP decidable in polynomial time (nilpotent finitely
+generated groups are linear). These two facts together imply that the GP is polynomial
+time decidable in finitely generated virtually nilpotent groups.
+    On the other hand, there are many groups of exponential growth where GP is decidable
+in polynomial time:
+— hyperbolic groups — B. A. Epstein et al;
+                             Algorithmic theory of solvable groups                        47
+
+— the Baumslag — Solitar group (metabelian, non polycyclic of exponential growth)
+
+                                 BS(1, p) = ha, t | t−1 at = ap i
+
+    (M. Elder [55]). An algorithm is presented to convert a word of length n in the standard
+    generators of the solvable Baumslag — Solitar group BS(1, p) into a geodesic word, which
+    runs in linear time and O(nlogn) space on a random access machine.
+    In general, if WP in G is polynomially decidable, then BGLP is in the class NP, i.e., it
+is decidable in polynomial time by a non-deterministic Turing machine. In this case GLP is
+Turing reducible in polynomial time to an NP problem, but we cannot claim the same for
+GP. Observe, that BGLP is in NP for any finitely generated metabelian group, since they
+have WP decidable in polynomial time.
+    It might happen though, that WP in a group G is polynomial time decidable, but BGLP
+in G is NP-complete.
+    W. Parry [191] showed that BGLP is NP-complete in the metabelian group Z2 wr(Z×Z),
+the wreath product of Z2 and Z × Z.
+    It was claimed by C. Droms, J. Lewin, and H. Servatius [48] that in Sr,d GLP is decidable
+in polynomial time. Unfortunately, in this particular case their argument is fallacious.
+It turned out [171], that BGLP for Mr , r ⩾ 2, is NP-complete. Therefore, the search
+problems SGP and SGLP are NP-hard in non-abelian Mr . To see the NP-completeness, the
+authors of [171] constructed a polynomial reduction of the rectilinear Steiner tree problem
+to BGLP in Mr .
+    Free solvable groups of finite ranks
+    The conjugacy problem for Sr , d reduces via the Magnus embedding to a similar problem
+for Ar wrSr,d−1 in time O(n3 rd).
+    The power problem (PP) in a group G:
+
+                                     ∃?n ∈ Z : g n = f.
+
+    S. Vassileva [263] proved the following statements.
+— The power problem in Sr,d is decidable in time O(n6 rd).
+— The conjugacy problem has time complexity O(n8 rd) in Sr,d .
+    A. Ushakov [262] designed new deterministic and randomized algorithms for computa-
+tional problems in free solvable groups. He improved the results of [171, 263], namely, he
+proved that:
+— There exists a quasi-quadratic time Õ(n2 ) deterministic algorithm solving the word
+    problem in Sr,d .
+— There exists a quasi-quadratic time Õ(n2 ) deterministic algorithm solving the power
+    problem in Sr,d .
+— There exists a quasi-quintic time Õ(n5 ) deterministic algorithm solving the conjugacy
+    problem in Sr,d .
+    These results can be improved further if we grant our machine an access to a random
+number generator. But the result in this approach can be incorrect. Fortunately, the
+probability of an error is under control: for any fixed polynomial p we can adjust some
+internal parameter in the algorithm to guarantee that the probability of an error converges
+to 0 as fast as O(1/p(n). In other words, there exists a quasi-linear time Õ(n) false-
+biased randomized algorithm solving the word problem in Sr,d . There also exists a quasi-
+linear time Õ(n) unbiased randomized algorithm solving the power problem in Sr,d .
+48                                     V. A. Roman’kov
+
+Moreover, there exists a quasi-quartic time Õ(n4 ) unbiased randomized algorithm solving
+the conjugacy problem in Sr,d .
+    Thus, A. Ushakov [262] proved that the word problem and the power problem can be
+solved in quasi-linear time and the conjugacy problem can be solved in quasi-quartic time
+by Monte Carlo type algorithms.
+    The origins of computation group theory date back to the late nineteenth and early
+twentieth centuries. Since then, the field has flourished, particularly during the past 30
+to 40 years, and today it remains a lively and active branch of mathematics.
+    The Handbook of Computational Group Theory offers the first complete treatment of
+all the fundamental methods and algorithms in CGT presented at a level accessible even
+to advanced undergraduate students. It develops the theory of algorithms in full detail
+and highlights the connections between the different aspects of CGT and other areas of
+computer algebra. While acknowledging the importance of the complexity analysis of CGT
+algorithms, the authors’ primary focus is on algorithms that perform well in practice rather
+than on those with the best theoretical complexity.
+    Throughout the book, applications of all the key topics and algorithms to areas both
+within and outside of mathematics demonstrate how CGT fits into the wider world
+of mathematics and science. The authors include detailed pseudocode for all of the
+fundamental algorithms, and provide detailed worked examples that bring the theorems
+and algorithms to life.
+    We assume that practical algorithms work with random data. In numerous of cases
+“random” exclude “the worst” case. The Simplex Method is a very good sample of such
+algorithm.
+    Hence, the generic set of data when the algorithm works well became a very important
+notion.
+    It is known [65] that the Dehn function D(G) of a finitely presented group G is recursive
+if and only if G has decidable word problem. Moreover, for every finitely presented group G
+with Dehn function D(G) there exists a nondeterministic Turing machine M(G) which solves
+the word problem in G with time function equivalent to D(n). This machine solves the word
+problem in every finitely generated subgroup of G as well. Therefore if a finitely generated
+group G is a subgroup of a finitely presented group with polynomial isoperimetric function
+then the word problem in G is in NP (i.e., it can be solved by a non-deterministic Turing
+machine with polynomial time function
+    J. C. Birget, A. Y. Olshanskii, E. Rips, and M. V. Sapir [29] obtained a general result on
+the connection between the complexity of the Dehn function of a group and the complexity
+of the word problem. The word problem of a finitely generated group G is in NP if and only
+if this group is a subgroup of a finitely presented group H with polynomial isoperimetric
+function. The embedding can be chosen in such a way that G has bounded distortion in H.
+    There is a natural concept of the averaged Dehn function Dav (G), introduced by
+M. Gromov [68]. In [110], E. G. Kukina and the author, answering to the question, posed
+in [68], proved that D(Ar ) is sub-quadratic (remind that D(Ar ) is quadratic). In [230], the
+author answered to the another question posed in [68] on the average Dehn function of a
+free nilpotent group. He showed that this function is asymptotically negligible to the Dehn
+function in this case.
+    In [92], I. Kapovich, A. G. Myasnikov, V. Shpilrain, and P. Schupp proposed a generic
+approach to the theory of computability and computational complexity. Within the
+framework of this approach, the algorithmic problem is considered not on the entire set
+of inputs, but on a certain subset of almost all inputs. They showed that for a large class
+                              Algorithmic theory of solvable groups                           49
+
+of finitely generated groups the generic time complexity of some classical decision problems
+from combinatorial group theory, namely the word problem, conjugacy problem and
+membership problem, are linear. It turns also out that some classical undecidable problems
+are, in fact, strongly undecidable, i.e., they are undecidable on every strongly generic subset
+of inputs. A. G. Myasnikov and A. N. Rybalov [172] proved an analog of the Rice theorem for
+strongly undecidable problems, which provides plenty of examples of strongly undecidable
+problems. To construct strongly undecidable problems, they introduced a method of generic
+amplification (an analog of the amplification in complexity theory).
+     In recent years, interest in the analysis of algorithms from the point of view of complexity
+theory and practical feasibility has significantly increased. Substitution groups form the
+most developed part of the computational theory of groups. The basis for this was the
+corresponding technique for their study, developed by C. Simps back in the 60s of the
+twentieth century. M. L. Furst, D. Hopcroft, and E. M. Luks [60] showed that the method
+proposed by Simps works in polynomial time. The time-polynomial theory of linear groups
+began with a consideration of matrix groups over finite fields. The main problems were the
+problems of determining the order of a subgroup given by a finite set of generators, and
+the membership problem for a given group. Even in the case of abelian groups, it is not
+known how to solve such problems without solving difficult number-theoretic problems, for
+example, problems of the discrete logarithm and factorization of numbers. The approach
+to finding a solution using a number-theoretic oracle became natural.
+     Computing in permutation and in matrix groups
+     Permutation groups is the most developed subdomain in the Computational Group
+Theory. Fundamental is a technique first proposed by C. Sims in the 1960’s, see mono-
+graph [248]. C. Sims introduced many algorithms for working with permutation groups.
+These were among the first algorithms in CAYLEY and GAP. In 1990s nearly linear
+algorithms for permutation groups emerged. These are now in GAP and MAGMA. In 2003,
+Á. Seress published his monograph [245] described the theory behind permutation group
+algorithms, including developments based on the classification of finite simple groups.
+He gave rigorous complexity estimates, implementation hints, and advanced exercises.
+The book fills a significant gap in the symbolic computation literature.
+     Let G ⩽ Sym(Ω), where Ω = {ω1 , . . . , ωn }. The tower
+                                G = G(1) ⩾ . . . ⩾ G(n+1) = 1,
+where G(i) is a pointwise stabilizer of {ω1 , . . . , ωi−1 }, underlines almost all practical
+algorithms. It was proved in [60] that a variant of Sims’ method runs in polynomial time.
+Now there is the non-substancional polynomial-time library for permutation groups.
+    Polynomial-time theory of linear groups started with matrix groups over finite fields.
+Such group is specified by finite list of generators. The two most basic questions are:
+— membership in gp(U );
+— the order of the group gp(U ).
+    Even in the case of abelian groups it is not known how to answer these questions
+without solving hard number-theoretic problems (factoring and discrete logarithm). So the
+reasonable question is whether these problems are decidable in randomized polynomial time
+using number theory oracles.
+    The first algorithms for computing with finite solvable matrix groups were designed by
+E. M. Luks [121].
+    E. M. Luks, L. Babai, R. Beals, Á. Seress et al. study this area for last 25–30 years
+(see [7]). Let G ⩽ GL(n, Fq ) be a finitely generated matrix group over a finite field Fq .
+50                                     V. A. Roman’kov
+
+— One can test in polynomial time whether G is solvable and, if so, whether G is nilpotent.
+— If G is solvable, one can also find, for each prime p, the p-part of G. In the nilpotent
+     case it is its (unique) Sylow p-subgroup.
+— Also, given a solvable G ⩽ GL(n, Fq ) the following problems can be solved: find |G|,
+     decide the MP with respect to G, find a presentation of G via generators and defining
+     relators, find a composition series of G, et cetera.
+     For polycyclic groups pc-presentation approach was introduced by B. Eick, D. Kahrobaei,
+G. Ostheimer et al. See [52] for definition and basic properties of pc-presentations. Pc-pre-
+sentation of a polycyclic group exhibits its polycyclic structure. Pc-presentations allows
+efficient computations with the groups they define. In particular, the WP is efficiently
+decidable in a group given by a pc-presentation. GAP package polycyclic is designed for
+computations with polycyclic groups which are given by a pc-presentations.
+     Let G be a polycyclic group. Then
+
+                                         G ∈ N AF.
+
+Hence, nilpotent-by-abelian-by finite presentation approach can be applied in this case.
+    In particular, Bieri — Strebel’s invariant is defined for for this type of groups [28].
+    The solution of BTCP in a finitely generated metabelian group looks more practical
+than the Noskov’s solution in the classical case of the CP. Main feature is that we can
+reduce the problem changing the group itself. In the polycyclic case we can start with the
+                         00
+metabelian image G/G and then use induction relative the structure of a polycyclic group
+as above.
+    A. Garetta et al. [63] introduce a model of random finitely generated, torsion-free
+nilpotent groups G of class 2. They prove that for some values of parameters the following
+holds asymptotically almost surely:
+— The ring of integers Z is definable in G.
+— Systems of equations over Z are reducible to systems over G (and hence they are
+    undecidable).
+— The maximal ring of scalars of G is Z.
+— G is indecomposable as a direct product of non-abelian factors.
+The similar models of random polycyclic groups and random finitely generated nilpotent
+groups of any nilpotency step, possibly with torsion, were also introduced
+    For matrix groups over infinite fields, we state the following theorem as the first result.
+    Theorem 19 (V. M. Kopytov [107]). Let G ⩽ GL(n, K) be a finitely generated
+matrix group over an algebraic number field K. Then the following problems are decidable:
+— determine finiteness of G;
+— determine solvability of G;
+— M Psol = the membership problem with respect to solvable G.
+    Most computational problems are known to be decidable for polycyclic matrix groups
+over number fields.
+    The WP and MP can be solved [6], many further structural problems have a practical
+solution.
+    D. F. Holt, B. Eick, and O’Brien published the monograph “The Handbook of
+Computational Group Theory” [90] which offers the first complete treatment of all the
+fundamental methods and algorithms in computational group theory. It develops the theory
+of algorithms in full detail and highlights the connections between the different aspects of
+                              Algorithmic theory of solvable groups                       51
+
+computational group theory and other areas of computer algebra. The monograph focused
+on algorithms that perform well in practice rather than on those with the best theoretical
+complexity.
+    Some methods are developed for computing with matrix groups defined over a range of
+infinite domains.
+    A. Detinko, B. Eick, and D. L. Flannery [43] gave a practical nilpotent testing algorithm
+for finitely generated matrix groups over an infinite field F.
+    The main algorithms have been implemented in GAP, for groups over Q.
+    Let F = Q̄ be an algebraic number field. By the celebrated Tits’s theorem a finitely
+generated subgroup G ⩽ GL(n, Q̄) either contains a nonabelian free subgroup F or has a
+solvable subgroup H of finite index (Tits Alternative).
+    R. Beals [21] established the following results:
+— There is a polynomial time algorithm for deciding which of two conditions of the Tits’s
+    Alternative holds for a given G.
+— Let G has a solvable subgroup H of finite index. Then one is able in polynomial time
+    to compute a homomorphism ϕ such that ϕ(G) is a finite matrix group, and ker(ϕ) is
+    solvable.
+    If, in addition, H is nilpotent, then there is efficient method to compute an encoding of
+    elements of G.
+    Nowadays, it is recognized that there are decision and search variations of algorithmic
+problems:
+— Search word problem (SWP) in G : given w ∈ F (X), such that w =G 1, find a
+                          n
+                             gi−1 rij gi , where gi ∈ F (X), rij ∈ R±1 .
+                          Q
+    decomposition w =
+                        i=1
+— Search conjugacy problem (SCP) in G: given two words u, v ∈ F (X), which define
+    conjugated elements in G, find a conjugator.
+— Search membership problem (SMP) in G for a fixed subgroup H ⩽ G: given w ∈ F (X)
+    which belongs to H, find its decomposition as a product of the generators of H.
+— Search isomorphism problem (SIP) in a given class C of presentations: given two
+    presentations in C of isomorphic groups, find an isomorphism.
+    In [127], it is proved that the basic algorithmic problems (normal forms, conjugacy of
+elements, subgroup membership, centralizers, presentation of subgroups, etc.) can be solved
+by algorithms running in logarithmic space and quasilinear time. Further, if the problems are
+considered in “compressed” form with each input word provided as a straight-line program,
+we showed that the problems are solvable in polynomial time. See monograph [116] for
+the necessary background and detailed exposition of known results on the compressed
+word problem, emphasizing efficient algorithms for the compressed word problem in various
+groups.
+    Basic information about circuit complexity is contained in monograph [265]. This
+monograph presents a broad and up-to-date view of the computational complexity theory
+of Boolean circuits. The theory of circuit complexity classes is thoroughly developed.
+    In [176], the authors pushed the complexity of these problems lower, showing that they
+may be solved by TC0 circuits. In [175], it was shown that the conjugacy problem in a
+wreath product AwrB is uniform-TC0 -Turing-reducible to the conjugacy problem in the
+factors A and B and the power problem in B. Under certain natural conditions, there is
+a uniform TC0 Turing reduction from the power problem in AwrB to the power problems
+of A and B.
+52                                     V. A. Roman’kov
+
+    In [128], the authors expand the list of algorithmic problems for nilpotent groups which
+may be solved in these low complexity conditions to include several fundamental problems
+concerning subgroups. The following algorithmic problems are solved using TC0 circuits, or
+in logspace and quasilinear time, uniformly in the class of nilpotent groups with bounded
+nilpotency class and rank: subgroup conjugacy, computing the normalizer and isolator of a
+subgroup, coset intersection, and computing the torsion subgroup. Additionally, if any input
+words are provided in compressed form as straight-line programs or in Mal’cev coordinates,
+the algorithms run in quartic time.
+    A. V. Menshov, A. G. Myasnikov, and A. V. Ushakov [153] study the computational
+complexity of the fundamental algorithmic problems in finitely generated metabelian
+groups. They rewrite and streamline some classical algorithms to fit them into the
+framework of Groebner basis. In many cases this reduction can be done in polynomial
+time. The algorithmic problems in metabelian groups are classified in terms of logspace and
+circuit complexities.
+   Acknowledgments. The reported study was funded by RFBR, project number 20-11-
+50063.
+                                       REFERENCES
+  1. Adian S. I. Nerazreshimost’ nekotorykh algoritmicheskikh problem teorii grupp [Unsol-
+     vability of some algorithmic problems in the theory of groups]. Tr. Mosk. Mat. Obs., 1957,
+     vol. 6, pp. 231–298. (in Russian)
+  2. Adian S. I. and Durnev V. G. Decision problems for groups and semigroups. Russian Math.
+     Surveys, 2000, vol. 55, no. 2, pp. 207–296.
+  3. Agalakov S. A. Finite separability of groups and Lie algebras. Algebra and Logic, 1983,
+     vol. 22, no. 4, pp. 261–268.
+  4. Amaglobeli M. G. Varieties of exponential M R-groups. Doklady Math., 2020, vol. 101, no. 1,
+     pp. 1–4.
+  5. Anissimov A. and Seifert A. W. Zur algebraischen Charakteristik der durch kontext-
+     freie Sprachen definierten Gruppen. Elektron. Inform. Verarb. Kybern., 1975. vol. 11,
+     pp. 695–702. (in German)
+  6. Assman B. and Eick B. Computing polycyclic presentations for polycyclic rational matrix
+     groups. J. of Symb. Comp., 2005, vol. 40, no. 6, pp. 1269–1284.
+  7. Babai L, Beal R., and Seress A. Polynomial-time theory of matrix groups. Proc. STOC’09,
+     May 31–June 2, 2009, Bethesda, Maryland, pp. 55–64.
+  8. Bachmuth S. Automorphisms of free metabelian groups. Trans. Amer. Math. Soc., 1965,
+     vol. 118, pp. 93–104.
+  9. Baumslag G. Lecture Notes on Nilpotent Groups. C.B.M.S. Regional Conf. Series, 2,
+     Providence, 1971. 73 p.
+ 10. Baumslag G. Residually finite groups with the same finite images. Compositio Math., 1974,
+     vol. 29, pp. 249–252.
+ 11. Baumslag G., Cannonito F. B., and Robinson D. J. S. The algorithmic theory of finitely
+     generated metabelian groups. Trans. Amer. Math. Soc., 1994, vol. 344, no. 2, pp. 629–648.
+ 12. Baumslag G., Cannonito F. B., Robinson D. J. S., and Segal D. The algorithmic theory of
+     polycyclic-by-finite groups. J. Algebra, 1991, vol. 141, pp. 118–149.
+ 13. Baumslag G., Gildenhuys D., and Strebel R. Algorithmically insoluble problems about
+     finitely presented solvable groups, Lie and associative algebras. I. J. Pure Appl. Algebra,
+     1986, vol. 39, pp. 53–94.
+                              Algorithmic theory of solvable groups                              53
+
+14. Baumslag G., Gildenhuys D., and Strebel R. Algorithmically insoluble problems about
+    finitely presented solvable groups, Lie and associative algebras. II. J. Algebra, 1985, vol. 97,
+    pp. 278–285.
+15. Baumslag G., Miller C. F. III, and Ostheimer G. Subgroups of free metabelian groups.
+    Groups Geom. Dyn., 2010, vol. 4, pp. 657–679.
+16. Baumslag G., Miller C. F. III, and Ostheimer G. Decomposability of finitely generated
+    torsion-free nilpotent groups. Int. J. Algebra and Comput., 2016, vol. 26, no. 8,
+    pp. 1529–1546.
+17. Baumslag G., Myasnikov A. G., and Remeslennikov V. N. Algebraic geometry over groups. I.
+    J. Algebra, 1999, vol. 219, pp. 16–79.
+18. Bassino F., Kapovich I., Lohrey M., et al. Complexity and Randomness in Group Theory:
+    GAGTA BOOK 1, Walter de Gruyter GmbH, Berlin, Boston, 2020. 386 p.
+19. Bazhenova G. A. Rational sets in finitely generated nilpotent groups. Algebra and Logic,
+    2000, vol. 39, no. 4, pp. 215–223.
+20. Bazhenova G. A. Closure of one class of groups under free product. Siberian Math. J., 2000,
+    vol. 41, no. 4, pp. 611–613.
+21. Beals R. Algorithms for matrix groups and the Tits alternative. J. Comput. System Sci.,
+    1999, vol. 58, no. 2, pp. 260–279.
+22. Belegradek O. V. The Mal’cev correspondence revisited. Proc. Int. Conf. Algebra, Part 1
+    (Novosibirsk, 1989), pp. 37–59; Contemp. Math., vol. 131, Part 1, Amer. Math. Soc.,
+    Providence, RI, 1992.
+23. Belegradek O. V. The model theory of unitriangular groups. Ann. Pure Appl. Logic, 1994,
+    vol. 68, pp. 225–261.
+24. Belegradek O. V. Model theory of unitriangular groups. Model Theory and Applications,
+    Amer. Math. Soc. Transl. Ser. 2, 1999, vol. 195, pp. 1–116.
+25. Benois M. Parties rationnelles du groupe libre. C. R. Acad. Sci., Paris, Ser. A, 1969, vol. 269,
+    pp. 1188–1190. (in French)
+26. Bieri R., Neumann W. D., and Strebel R. A geometric invariant of discrete groups. Invent.
+    Math., 1987, vol. 90, no. 3, pp. 451–477.
+27. Bieri R. and Strebel R. Valuations and finitely presented metabelian groups. Proc. London.
+    Math. Soc., 1980, vol. 41, no. 1, pp. 439–464.
+28. Bieri R. and Strebel R. A geometric invariant for nilpotent-by-abelian-by-finite groups. J.
+    Pure Appl. Algebra, 1982, vol. 25, no. 1, pp. 1–20.
+29. Birget J. C., Olshanskii A. Y., Rips E., and Sapir M. V. Isoperimetric and isodiametric
+    functions of groups and computational complexity of the word problem. Ann. Math., 2002,
+    vol. 156, no. 2, pp. 467–518.
+30. Birman J. S. Braids, Links and Mapping Class Groups. Ann. Math. Stud., vol. 82, Princeton,
+    Princeton Univ. Press, 1974. 237 p.
+31. Blackburn S. Conjugacy in nilpotent groups. Proc. Amer. Math. Soc., 1965, vol. 16,
+    pp. 143–148.
+32. Bokut L. A. and Kukin G. P. Algorithmic and Combinatorial Algebra. (Math. and its Appli-
+    cations, vol. 255), Netherlands, Springer. 1994. XVI + 384 p.
+33. Boone W. W. The word problem. Ann. Math., 1959, vol. 70, no. 2, pp. 207–265.
+34. Chandler B. and Magnus W. The History of Combinatorial Group Theory. A Case Study in
+    the History of Ideas. Studies in the History of Math. and Physical Sciences, N.Y., Springer
+    Verlag, 1982, vol. 9, VIII + 234 p.
+35. Chapuis O. Universal theory of certain solvable groups and bounded Ore group-rings. J.
+    Algebra, 1995, vol. 176, no. 2, pp. 368–391.
+54                                      V. A. Roman’kov
+
+ 36. Chapuis O. ∀-free metabelian groups. J. Symb. Logic, 1997, vol. 62, no. 1, pp. 159–174.
+ 37. Chapuis O. On the theories of free solvable groups. J. Pure Appl. Algebra, 1998, vol. 131,
+     no. 1, pp. 13–24.
+ 38. Cadilhac M., Chistikov D., and Zetzsche G. Rational subsets of Baumslag — Solitar groups.
+     Proc. ICALP 2020, Leibniz, Dagstuhl Publ., 2020, pp. 116:1–116:16.
+ 39. Dahmani F. and Groves D. The isomorphism problem for toral relatively hyperbolic groups.
+     Publications mathématiques de l’IHES, 2008, vol. 107, no. 1, pp. 211–290
+ 40. Dahmani F. and Guirardel D. V. Foliations for solving equations in groups: free, virtually
+     free, and hyperbolic groups. J. Topology, 2010, vol. 3, no. 2, pp. 343–404.
+ 41. Danyarova E. Yu., Myasnikov A. G., and Remeslennikov V. N. Algebraicheskaya geometriya
+     nad algebraicheskimi sistemami [Algebraic Geometry over Algebraic Systems]. Novosibirsk,
+     Siberian Branch of Russian Academy of Sciences Publ., 2016. 243 p. (in Russian).
+ 42. Dehn M. Über unendliche diskontinuierliche Gruppen. Math. Ann., 1911, vol. 71, no. 1,
+     pp. 116–144. (in German)
+ 43. Detinko A. S., Eick B., and Flanneri D. L. Computing with matrix groups over infinite fields.
+     London Math. Soc. Lect. Note Ser., 2011, vol. 387, pp. 256–270.
+ 44. Detinko A. S., Eick B., and Flannery D. L. Nilmat — Computing with nilpotent matrix
+     groups, A refereed GAP, 2007.
+ 45. Diekert V., Gutierrez C., and Hagenah C. The existential theory of equations with rational
+     constraints in free groups is PSPACE-complete. Inform. and Computation, 2005, vol. 202,
+     no. 2, pp. 105–140.
+ 46. Diekert V. and Lohrey M. Word equations over graph products. Int. J. Algebra Comput.,
+     2008, vol. 18, no. 3, pp. 493–533.
+ 47. Dixon J. D., Formanek E. W., Poland J. C. and Ribes L. Profinite completions and
+     isomorphic finite quotients. J. Pure Appl. Algebra, 1982, vol. 23, no. 3, pp. 227–231.
+ 48. Droms C., Lewin J., and Servatius H. The length of elements in free solvable groups. Proc.
+     Amer. Math. Soc., 1993, vol. 119, pp. 27–33.
+ 49. Duchin M., Liang H., and Shapiro M. Equations in nilpotent groups. Proc. Amer. Math.
+     Soc., 2015, vol. 143, no. 11, pp. 4723–4731.
+ 50. Dyck W. von. Analysis Situs I. Math. Ann., 1888, vol. 32, pp. 457–512.
+ 51. Ehrenfeucht A., Karhumaki J., and Rozenberg G. The (generalized) Post correspondence
+     problem with lists consisting of two words is decidable. Theoret. Comput. Sci., 1982, vol. 21,
+     pp. 119–144.
+ 52. Eick B. Computing with infinite polycyclic groups. Groups and Computations, III.
+     G. R. Baker, W. D. Neumann, and K. Rubin (eds.), Proc. Int. Conf. at the Ohio State Univ.,
+     June 15–19, 1999, Berlin; New York, Walter de Gruyterm, pp. 139–154.
+ 53. Eilenberg S. and Schutzenberger M. P. Rational sets in commutative monoids. J. Algebra,
+     1969, vol. 13, pp. 173–191.
+ 54. Eklof P. C. and Fischer E. R. The elementary theory of abelian groups. Ann. Math. Logic,
+     1972, vol. 4, no. 2, pp. 115–171.
+ 55. Elder M. A linear-time algorithm to compute geodesics in solvable Baumslag — Solitar
+     groups. Illinois J. Math., 2010, vol. 54, no. 1, pp. 109–128.
+ 56. Elder M. and Rechnitzer A. Some geodesic problems in groups. Groups, Complexity,
+     Cryptology, 2010, vol. 2, pp. 223–229.
+ 57. Ershov Yu. L. Ob elementarnykh teoriyakh grupp [Elementary group theories]. Dokl. Akad.
+     Nauk SSSR, 1972, vol. 203, no. 6, pp. 1240–1243. (in Russian)
+                              Algorithmic theory of solvable groups                              55
+
+58. Fedorov E. S. Simmetrija pravil’nich system figur [Symmetry of regular systems of figures].
+    Zap. Imperatorsk. S-Peterburgsk. Mineral. Občestva Verhandl. d. Russisch-Kaiserl. Mineral.
+    Gesellschaft zu St. Petersburg, 1891, vol. 28, pp. 1–146. (in Russian)
+59. Formanek E. Conjugacy separability in polycyclic groups. J. Algebra, 1976, vol. 42, pp. 1–10.
+60. Furst M. L., Hopcroft J., and Lucks E. M. Polynomial-time algorithms for permutation
+    groups.. Proc. 21st FOCS, ICEE C.S., 1980, vol. 198, pp. 36–41.
+61. Gaglione J. R. and Spellman D. The persistence of universal formulae in free algebras. Bull.
+    Austr. Math. Soc., 1987, vol. 36, pp. 11–17.
+62. Garey M. R. and Johnson D. S. Computers and Intractability: A Guide to the Theory of
+    NP-Completeness. N.Y., W. H. Freeman, 1979. 338 p.
+63. Garreta A., Miasnikov A., and Ovchinnikov D. Random nilpotent groups, polycyclic
+    presentations, and Diophantine problems. Groups, Complexity, Cryptology, 2017, vol. 9,
+    no. 2, pp. 99–115.
+64. Garreta A., Legarreta L., Miasnikov A., and Ovchinnikov D. Metabelian groups: Full-rank
+    presentations, randomness and Diophantine problems. J. Group Theory, 2020, accepted for
+    publication.
+65. Gersten S. M. Dehn functions and l1 -norms for finite presentations. Algorithms and
+    Classification in Combinatorial Group Theory. G. Baumslag and C. F. Miller (eds.), MSRI
+    Publ., vol. 23, Berlin, Springer Verlag, 1992.
+66. Gilman R. H. Formal languages and infinite groups. Geometric and Computational
+    Perspectives on Infinite Groups, DIMACS, Ser. Discr. Math. Theor. Comput. Sci.,
+    Providence, 1996, vol. 25, pp. 27–51.
+67. Gilman R. H. Formal languages and their application to combinatorial group theory. Groups,
+    Languages, Algorithms, Contemporary Math. Series, Providence, 2005, vol. 378, pp. 1–36.
+68. Gromov M. Asymptotic invariants of infinite groups. Geometric Group Theory, Cambridge,
+    Cambridge Univ. Press, 1993, pp. 1–295.
+69. Grunewald F., Pickel P. F., and Segal D., Polycyclic groups with isomorphic finite quotients.
+    Ann. Math., 1980. vol. 111, pp. 155–195.
+70. Grunewald F. and Segal D. The solubility of certain decision problems in arithmetic and
+    algebra. Bull. Amer. Math. Soc., 1979, vol. 1, no. 6, pp. 915–918.
+71. Grunewald F. and Segal D. Some general algorithms. I. Arithmetic groups. II. Nilpotent
+    groups. Ann. Math., 1980, vol. 112, no. 3, pp. 531–583.
+72. Grunewald F. and Zalesskii P. Genus for groups. J. Algebra, 2011, vol. 326, no. 1, pp. 130–
+    168.
+73. Grunschlag Z. Algorithms in Geometric Group Theory. PhD. Thesis, University of California
+    at Berkley, 1999. 127 p.
+74. Gupta C. K. and Timoshenko E. I. Partially commutative metabelian groups: centralizers
+    and elementary equivalence. Algebra and Logic, 2009, vol. 48, no. 3, pp. 173–192.
+75. Gupta C. K. and Timoshenko E. I. Universal theories for partially commutative metabelian
+    groups. Algebra and Logic, 2011, vol. 50, no. 1, pp. 3–25.
+76. Gupta C. K. and Timoshenko E.,I. Properties and universal theories for partially commu-
+    tative nilpotent metabelian groups. Algebra and Logic, 2012, vol. 51, no. 4, pp. 285–305.
+77. Hall M. Jr. The Theory of Groups. N.Y., Macmillan, 1959. 434 p.
+78. Hall P. Finiteness conditions for soluble groups. Proc. London Math. Soc., 1954, vol. 4(3),
+    pp. 419–436.
+79. Hall P. Finite-by-nilpotent groups. Proc. Cambridge Philos. Soc., 1956., vol. 52, pp. 611–616.
+80. Hall P. Some sufficient conditions for a group to be nilpotent. Illinois J. Math., 1958, vol. 2,
+    pp. 787–801.
+56                                       V. A. Roman’kov
+
+ 81. Hall P. On the finiteness of certain soluble groups. Proc. London Math. Soc., 1959, vol. 9(3),
+     pp. 595–622.
+ 82. Hall P. The Edmonton Notes on Nilpotent Groups. Queen Mary College Math. Notes. Queen
+     Mary College, London, 1969. 76 p.
+ 83. Hall P. The collected Works of Philip Hall. Oxford Science Publications. N.Y., Oxford
+     University Press, 1988. 776 p.
+ 84. Higgins P. J. and Lyndon R. C. Equivalence of elements under automorphisms of a free
+     group. J. London Math. Soc., 1974, vol. 8, pp. 254–258.
+ 85. Hirsch K. A. On infinite soluble groups, I. Proc. London Math. Soc., 1938, vol. 44(2), pp. 53–
+     60.
+ 86. Hirsch K. A. On infinite soluble groups, II. Proc. London Math. Soc., 1938, vol. 44(2),
+     pp. 336–344.
+ 87. Hirsch K. A. On infinite soluble groups, III. Proc. London Math. Soc., 1946, vol. 49(2),
+     pp. 184–194.
+ 88. Hirsch K. A. On infinite soluble groups, IV. Proc. London Math. Soc., 1952, vol. 27(3),
+     pp. 81–85.
+ 89. Hirsch K. A. On infinite soluble groups, V. Proc. London Math. Soc., 1954, vol. 29(3),
+     pp. 250–261.
+ 90. Holt D. F., Eick B., and O’Brien E. A. Handbook of Computational Group Theory.
+     Chapman and Hall/CRC, 2020. 536 p.
+ 91. Kambites M., Silva P. V., and Steinberg B. On the rational subset problem for groups.
+     J. Algebra, 2007, vol. 309, no. 2, pp. 622–639.
+ 92. Kapovich I., Myasnikov A., Schupp P., and Shpilrain V. Generic-case complexity, decision
+     problems in group theory and random walks. J. Algebra, 2003, vol. 264, no. 2, pp. 665–694.
+ 93. Kapovich I., Weidmann R., and Myasnikov A. Foldings, graphs of groups and the
+     membership problem. Int. J. Algebra and Comput., 2005, vol. 15, no. 1, pp. 95–128.
+ 94. Kargapolov M. I. and Remeslennikov V. N. Problema sopryazhennosti dlya svobodnykh
+     razreshimykh grupp [Conjugacy in free solvable groups]. Algebra i Logika, 1966, vol. 5, no. 6,
+     pp. 15–25. (in Russian)
+ 95. Kargapolov M. I., Remeslennikov V. N., Romanovskii N. S., et al. Algorithmic problems for
+     o-powered groups. Algebra and Logic, 1969, vol. 8, no. 6, pp. 363–374.
+ 96. Kargapolov M. I. and Timoshenko E. I. Some questions in the theory of soluble groups. Lect.
+     Notes in Math., 1974, vol. 372, pp. 389–394.
+ 97. Kharlampovich O. G. A finitely presented solvable group with undecidable word problem.
+     Math. USSR-Izvestiya, 1982, vol. 19, no. 1, pp. 151–169.
+ 98. Kharlampovich O. G. Equality problem for subvarieties of the variety N2 A. Algebra and
+     Logic, 1987, vol. 26, no. 4, pp. 284–299.
+ 99. Kharlampovich O. G. Finitely presented solvable groups and Lie algebras with unsolvable
+     equality problem. Math. Notes, 1989, vol. 46, no. 3, pp. 731–739.
+100. Kharlampovich O., López L., and Myasnikov A. The Diophantine problem in some
+     metabelian groups. Math. Comp., 2020, vol. 89, pp. 2507–2519.
+101. Kharlampovich O. and Myasnikov A. Irreducible affine varieties over free groups, I:
+     Irreducibility of quadratic equations and Nullstellensatz. J. Algebra, 1998, vol. 200, no. 2,
+     pp. 472–516.
+102. Kharlampovich O. and Myasnikov A. Irreducible affine varieties over free groups, II: Systems
+     in triangular quasi-quadratic form and description of residually free groups. J. Algebra, 1998,
+     vol. 200, no. 2, pp. 517–570.
+                               Algorithmic theory of solvable groups                            57
+
+103. Kharlampovich O. and Sapir M. Algorithmic problems in varieties, a survey. Int. J. Algebra
+     and Comp., 1995, vol. 12, pp. 379–602.
+104. Kleiman Yu. G. Tozhdestva i nekotorye algoritmicheskie problemy v gruppakh [Identities
+     and some algorithmic problems in groups]. Dokl. Akad. Nauk SSSR, 1979, vol. 244, no. 4,
+     pp. 814–818. (in Russian)
+105. Kleiman Yu. G. O tozhdestvakh v gruppakh [On identities in groups]. Tr. Mosk. Mat. Obs.,
+     1982, vol. 44, pp. 62–108. (in Russian)
+106. Klein F. Vergleichende Betrachtungen über neuere geometrische Forschungen. Math. Ann.,
+     1893, vol. 43, pp. 63–100. (in German)
+107. Kopytov V. M. Solvability of the problem of occurrence in finitely generated soluble groups
+     of matrices over the field of algebraic numbers. Algebra and Logic, 1968, vol. 7, no. 6,
+     pp. 388–393.
+108. Kourovka Notebook. Unsolved problems in group theory. V. D. Mazurov and E. I. Khukhro
+     (eds.), no. 19, Novosibirsk, Sobolev Institute of Math., Russian Academy of Sciences, Siberian
+     Branch, 2018. 246 p.
+109. Krasilnikov A. N. and Shmel’kin A. L. Primeneniya vlozheniya Magnusa v teorii
+     mnogoobraziy grupp i algebr Li [Applications of the Magnus embedding in the theory
+     of varieties of groups and Lie algebras]. Fundam. Prikl. Mat., 1999, vol. 5, pp. 493–502.
+     (in Russian)
+110. Kukina E. G. and Roman’kov V. A. Subquadratic growth of the averaged Dehn function for
+     free Abelian groups. Siberian Math. J., 2003. vol. 44, no. 4, pp. 605–610.
+111. Lashkhi A. A. and Bokelavadze T. Z. Subgroup lattices and the geometry of Hall W -power
+     groups. Doklady Math., 2009. vol. 80, no. 3, pp. 731–734.
+112. Lasserre C. and Oger F. Direct products and elementary equivalence of polycyclic-by-finite
+     groups. J. Algebra, 2014, vol. 418, pp. 213–226.
+113. Lennox J. C. and Robinson D. J. S. The Theory of Infinite Soluble Groups. Oxford Math.
+     Monographs. Oxford, Oxford Science Publ., Clarendon Press, 2004. 342 p.
+114. Lie S. Theorie der Transformationsgruppen I. Leipzig, B. G. Teubner, 1888. 650 p. (in
+     German)
+115. Lo E. H. Finding intersection and normalizer in finitely generated nilpotent groups. J. Symb.
+     Comput., 1998, vol. 25, pp. 45–59.
+116. Lohrey M. The Compressed Word Problem for Groups. Berlin, Springer Science & Business
+     Media, 2014. 153 p. (Springer Briefs in Math.).
+117. Lohrey M. Rational subsets of unitriangular groups. Int. J. Algebra and Comput., 2015,
+     vol. 25, no. 01n02, pp. 113–121.
+118. Lohrey M. and Steinberg B. The submonoid and rational subset membership problems for
+     graph groups. J. Algebra, 2008, vol. 320, pp. 728–755.
+119. Lohrey M. and Steinberg B. Tilings and submonoids of metabelian groups. Theory of
+     Comput. Systems, 2011, vol. 48, no. 2, pp. 411–427.
+120. Lohrey M., Steinberg B., and Zetzsche G. Rational subsets and submonoids of wreath
+     products. Inform. and Comput., 2015, vol. 243, pp. 191–204.
+121. Luks E. M. Computing in solvable matrix groups. Proc. 33rd IEEE Symp. Foundations of
+     Comput. Sci., 1992, pp. 111–120.
+122. Lyndon R. C. The equation a2 b2 = c2 in free groups. Michigan Math. J., 1959, vol. 6,
+     pp. 89–95.
+123. Lyndon R. C. Equations in free groups. Trans. Amer. Math. Soc., 1960, vol. 96, pp. 445–457.
+124. Lyndon R. C. Equations in free metabelian groups. Proc. Amer. Math. Soc., 1966, vol. 17,
+     pp. 728–730.
+58                                        V. A. Roman’kov
+
+125. Lyndon R. C. and Shupp P. E. Combinatorial Group Theory. Berlin; Heidelberg; New York,
+     Springer Verlag, 1977. 339 p.
+126. Lysenok I. and Ushakov A. Spherical quadratic equations in free metabelian groups. Proc.
+     Amer. Math. Soc., 2016, vol. 144, pp. 1383–1390.
+127. Macdonald J., Myasnikov A., Nikolaev A., and Vassileva S. Logspace and compressed-word
+     computations in nilpotent groups. arXiv: 1503.03888v1 [math. GR] 12 Mar 2015, pp. 1–38.
+128. Macdonald J., Miasnikov A., and Ovchinnikov D. Low-complexity computations for
+     nilpotent subgroup problems. Int. J. Algebra and Comput., 2019, vol. 29, no. 4, pp. 639–661.
+129. Magnus W. Über diskontinuierliche Gruppen mit einer definierenden Relation. (Der
+     Freiheitssatz). J. Reine Angew. Math., 1930, vol. 163, pp. 141–165. (in German)
+130. Magnus W. Das Identitätsproblem für Gruppen mit einer definierenden Relation. Math.
+     Ann., 1932, vol. 106, no. 1, pp. 295–307. (in German)
+131. Magnus W. On a theorem of Marshall Hall. Ann. Math., 1939, vol. 40, pp. 764–768.
+132. Magnus W., Karrass A., and Solitar D. Combinatorial Group Theory: Presentations of
+     Groups in Terms of Generators and Relations. N.Y., Wiley, 1966. 444 p.
+133. Magnus W. Collected Papers. G. Baumslag and B. Chandler (eds.) N.Y., Springer Verlag,
+     1984. 726 p.
+134. Majewicz S. On classes of exponential A-groups. Comm. in Algebra, 2010, vol. 38, no. 4,
+     pp. 1363–1384.
+135. Majewicz S. and Zyman M. Power-commutative nilpotent R-powered groups. Groups,
+     Complexity, Cryptology, 2009. vol. 1, no. 2, pp. 297–310.
+136. Makanin A. G. O finitnoy approksimiruemosti uravneniy v konechno porozhdennykh
+     nil’potentnykh gruppakh [Residual finiteness of equations in finitely generated nilpotent
+     groups]. Vestnik Moskov. Univ. Ser. 1, Mat. Mekh., 1992, no. 1, pp. 48–51. (in Russian).
+137. Makanin G. S. Equations in a free group. Math. USSR-Izvestia, 1983, vol. 21, no. 3,
+     pp. 483–546.
+138. Makanin G. S. Decidability of universal and positive theories of a free group. Math. USSR-
+     Izvestia, 1985, vol. 25, no. 1, pp. 75–88.
+139. Mal’cev A. I. O gruppakh konechnogo ranga [On groups of finite rank]. Mat. Sb. (N.S.), 1948,
+     vol. (64), no. 2, pp. 351–352. (in Russian)
+140. Mal’cev A. I. Nil’potentnye gruppy bez krucheniya [Nilpotent torsion-free groups]. Izv. Akad.
+     Nauk SSSR, Ser. Mat., 1949, vol. 13, iss. 3, pp. 201–212. (in Russian)
+141. Mal’cev A. I. O nekotorykh klassakh beskonechnykh razreshimykh grupp [On some classes
+     of infinite soluble groups]. Mat. Sb. (N.S.), 1951, vol. 28(70), no. 3, pp 567–588. (in Russian)
+142. Mal’cev A. I. Gomomorfizmy na konechnykh gruppakh [Homomorphisms onto finite groups].
+     Ivanov. Gos. Ped. Inst. Uchen. Zap., 1958, no. 18, pp. 49–60. (in Russian)
+143. Mal’cev A. I. O svobodnykh razreshimykh gruppakh [On free solvable groups]. Dokl. Akad.
+     Nauk SSSR, 1960, vol. 130, no. 3, pp. 495–498. (in Russian)
+144. Mal’cev A. I. Ob uravnenii zxyx−1 y −1 = aba−1 b−1 v svobodnoy gruppe [On the equation
+     zxyx−1 y −1 = aba−1 b−1 in a free group]. Algebra i Logika. Sem., 1962, vol. 1, no. 5, pp. 45–50.
+     (in Russian)
+145. Mal’cev A. I. The elementary properties of linear groups. A. I. Mal’cev. The Metamath. of
+     Algebraic Systems. Collected papers: 1936–1967, Studies in Logic and Foundations of Math.,
+     vol. 66, Amsterdam, North-Holland Publ. Company, 1971.
+146. Mal’cev A. I. On a certain correspondencece between rings and groups. A. I. Mal’cev. The
+     Metamath. of Algebraic Systems, Collected papers: 1936–1967, Studies in Logic and
+     Foundations of Math., vol. 66, Amsterdam, North-Holland Publ. Company, 1971.
+                               Algorithmic theory of solvable groups                              59
+
+147. Margolis S. W., Meakin J. C., and Šuniḱ Z. Distortion functions and the membership
+     problem for submonoids of groups and monoids. Geometric Methods in Group Theory,
+     Contemporary Math., vol. 372, Amer. Math. Soc., 2005, pp. 109–129.
+148. Matijasevič Yu. V. Diophantine representation of enumerable predicates. Math. USSR-
+     Izvestiya, 1971, vol. 5, no. 1, pp. 1–28.
+149. Matiyasevich Yu. Some purely mathematical results inspired by mathematical logic. Proc.
+     Fifth Intern. Congr. Logic, Methodology and Philos. of Sci., London, Ont., 1995, pp. 121–127.
+150. Matiyasevich Yu. and Senizergues G. Decision problems for semi-Thue systems with a few
+     rules. LNCS, 1996, vol. 96, pp. 523–531.
+151. Matiyasevich Yu. and Senizergues G. Decision problems for semi-Thue systems with a few
+     rules. Theor. Comput. Sci., 2005, vol. 330, pp. 145–169.
+152. Mel’nikov O. V., Remeslennikov V. N., Roman’kov V. A., et al. Obshchaya algebra. V. 1
+     [General Algebra, vol. 1.] Moscow, Nauka Publ., 1990. 591 p. (in Russian)
+153. Menshov A. V., Myasnikov A. G. and Ushakov A. V. Algorithms for metabelian groups.
+     Vestnik Omskogo Universiteta, 2018, vol. 23, no. 2, pp. 27–34.
+154. Mikhailova K. A. Problema vkhozhdeniya dlya pryamykh proizvedeniy grupp [The
+     occurrence problem for direct products of groups]. Mat. Sb. (N.S.), 1966, vol. 70(112), no. 2,
+     pp. 241–251. (in Russian)
+155. Mishchenko A. A. and Timoshenko E. I. Universal equivalence of partially commutative
+     nilpotent groups. Siberian Math. J., 2011, vol. 52, no. 5, pp. 884–891.
+156. Mostowski A. Computational algorithms for deciding some problems for nilpotent groups.
+     Fund. Math., 1966, vol. 59, no. 2, pp. 137–152.
+157. Myasnikov A. G. Elementary theories and abstract isomorphisms of finite dimensional
+     algebras and unipotent groups. Dokl. Math., 1988, vol. 36, no. 3,pp. 464–467.
+158. Myasnikov A. G. Elementary theory of a module over a local ring. Siberian Math. J., 1989,
+     vol. 30, no. 3, pp. 403–412.
+159. Myasnikov A. G. The structure of models and a criterion for the decidability of
+     complete theories of finite-dimensional algebras. Math. USSR-Izvestia, 1990, vol. 34, no. 2,
+     pp. 389–407.
+160. Myasnikov A. G. The theory of models of bilinear mappings. Siberian Math. J., 1990, vol. 31,
+     no. 3, pp. 439–451.
+161. Myasnikov A. G. Definable invariants of bilinear mappings. Siberian Math. J., 1990. vol. 31,
+     no. 1, pp. 89–99.
+162. Myasnikov A., Nikolaev A., and Ushakov A. The Post correspondence problem in groups.
+     J. Group Theory, 2014, vol. 17, pp. 991–1008.
+163. Myasnikov A., Nikolaev A., and Ushakov A. Knapsack problems in groups. Math. of
+     Comput., 2015, vol. 84, no. 292, pp. 987–1016.
+164. Myasnikov A., Nikolaev A., and Ushakov A. Non-commutative lattice problems. J. Group
+     Theory, 2016, vol. 19, no. 3, pp. 455–475.
+165. Myasnikov A. G. and Remeslennikov V. N. Klassifikatsiya stepennykh nil’potentnykh grupp
+     po elementarnym svoystvam [Classification of nilpotent power groups by their elementary
+     properties]. Trudy Inst. Mat. Sib. Otd. AN SSSR, 1982, vol. 2, pp. 56–87. (in Russian)
+166. Myasnikov A. G. and Remeslennikov V. N. Definability of the set of Mal’cev bases and
+     elementary theories of finite-dimensional algebras. I. Siberian Math. J., 1982, vol. 23, no. 5,
+     pp. 711–724.
+167. Myasnikov A. G. and Remeslennikov V. N. Definability of the set of Mal’cev bases and
+     elementary theories of finite-dimensional algebras. II. Siberian Math. J., 1983, vol. 24, no. 2,
+     pp. 231–246.
+60                                     V. A. Roman’kov
+
+168. Myasnikov A. G. and Remeslennikov V. N. Algebraic geometry over groups, II: Logical
+     foundations. J. Algebra, 2000, vol. 234, pp. 225–276.
+169. Myasnikov A. G. and Romanovskii N. S. Universal theories for rigid soluble groups. Algebra
+     and Logic, 2012, vol. 50, no. 6, pp. 539–552.
+170. Myasnikov A. and Roman’kov V. On rationality of verbal subsets in a group. Theory Comput.
+     Syst., 2013, vol. 52, no. 4, pp. 587–598.
+171. Myasnikov A., Roman’kov V., Ushakov A., and Vershik A. The word and geodesic problems
+     in free solvable groups. Trans. Amer. Math. Soc., 2010, vol. 362, no. 9, pp. 4655–4682.
+172. Myasnikov A. and Rybalov A. Generic complexity of undecidable problems //J. Symb. Logic.
+     2008. vol. 73, no. 2, pp. 656–673.
+173. Myasnikov A., Shpilrain V., and Ushakov A. Non-commutative Cryptography and
+     Complexity of Group-theoretic Problems. Providence, Rhode Island, Amer. Math. Soc., 2011.
+     385 p. (Math. Surveys and Monographs, vol. 177).
+174. Myasnikov A. G. and Sohrabi M. Groups elementarily equivalent to a free nilpotent group of
+     finite rank. Ann. Pure Appl. Logic, 2011, vol. 162, no. 11, pp. 916–833.
+175. Myasnikov A., Vassileva S., and Weiss A. The conjugacy problem in free solvable groups
+     and wreath product of abelian groups is in TC0 . Theory Comput. Syst., 2019, vol. 63,
+     pp. 809–832.
+176. Myasnikov A. and Weiss A. TC0 circuits for algorithmic problems in nilpotent groups. 2017.
+     Preprint at arXiv:1702.06616 [math.GR].
+177. Nedbai M. Yu. Problema vkhozhdeniya v ratsional’noe podmnozhestvo svobodnogo
+     proizvedeniya grupp [The rational subset problem for free products of groups]. Vestnik
+     Omskogo Universiteta, 2000, no. 2, pp. 17–18. (in Russian)
+178. Newman M. F. On a class of nilpotent groups. Proc. London Math. Soc., 1960, vol. 10(3),
+     pp. 365–375.
+179. Nielsen J. Om regning med ikke-kommutative faktorer og dens anvendelse i gruppeteorien.
+     Math. Tidsskrift, 1921, vol. B, pp. 77–94. (in Danish)
+180. Nielsen J. Die isomorphismengruppe ger freien Gruppen. Math. Ann., 1924, vol. 91,
+     pp. 169–209. (in German)
+181. Nikolaev A. and Ushakov A. Subset sum problem in polycyclic groups. J. Symb. Comput.,
+     2018, vol. 84, pp. 84–94.
+182. Nikolov N. and Segal D. On finitely generated profinite groups. I. Strong completeness and
+     uniform bounds. Ann. Math., 2007, vol. 65, no. 1, pp. 171–238.
+183. Noskov G. A. Conjugacy problem in metabelian groups. Math. Notes, 1982, vol. 31, no. 4,
+     pp. 252–258.
+184. Noskov G. A. O rode svobodnoy metabelevoy gruppy [On the Genus of a Free Metabelian
+     Group]. Preprint no. 84-509, Academy of Sciences USSR, Siberian Branch, Novosibirsk,
+     Comput. Center, 1984, 18 p. (in Russian)
+185. Noskov G. A. On the elementary theory of a finitely generated almost solvable group. Izv.
+     Akad. Nauk SSSR Ser. Mat., 1984, vol. 47, no. 3, pp. 465–482.
+186. Noskov G. A., Remeslennikov V. N., and Roman’kov V. A. Infinite groups. J. Soviet Math.,
+     1982, vol. 18, no. 5, pp. 669–735.
+187. Novikov P. S. On the algorithmic unsolvability of the word problem in group theory //Trudy
+     Mat. Inst. Steklov. 1955. vol. 44, 143 p.
+188. Novikov P. S. Über einige algorithmische Probléme der Gruppentheorie. Jber. Deutsch.
+     Math. Verein, 1958, vol. 61, pp. 88–92. (in German)
+189. Oger F. Elementary equivalence and isomorphism of finitely generated nilpotent groups.
+     Comm. Algebra, 1984, vol. 12, pp. 1899–1915.
+                                Algorithmic theory of solvable groups                                61
+
+190. Oger F. Cancellation and elementary equivalence of finitely generated finite-by-nilpotent
+     groups. J. London Math. Soc., 1991, vol. 44(2), pp. 173–183.
+191. Parry W. Growth series of some wreath products. Trans. Amer. Math. Soc., 1992, vol. 331,
+     pp. 751–759.
+192. Pickel P. F. Finitely generated nilpotent groups with isomorphic finite quotients. Trans.
+     Amer. Math. Soc., 1971, vol. 160, pp. 327–341.
+193. Pickel P. F. Metabelian groups with the same finite quotients. Bull. Austral. Math. Soc.,
+     1974, vol. 11, pp. 115–120.
+194. Plotkin B. I. Varieties of algebras and algebraic varieties. Izrael J. Math., 1996, vol. 96, no. 2,
+     pp. 511–522.
+195. Plotkin B. I. Varieties of algebras and algebraic varieties. Categories of algebraic varieties.
+     Siberian Adv. Math., 1997, vol. 7, no. 2, pp. 64–97.
+196. Plotkin B. I. Geometrical equivalence, geometrical similarity, and geometrical compatibility
+     of algebras. J. Math. Sci., 2007, vol. 140, no. 5, pp. 716–728.
+197. Plotkin B. Seven lectures on algebraic geometry. Groups, Algebras and Identities. E. Plotkin
+     (ed.), Research workshop of the Israel Science Foundation Honoring Boris Plotkin’s 90th
+     birthday, March 20–24, 2016. Contemporary Math., 2016, vol. 726, pp. 143–211.
+198. Poincaré H. Sur l’Analysis situs Comptes Rendus, 1892, vol. 115, pp. 633–636. (in French)
+199. Poincaré H. Analysis Situs. J. d’Ecole Polytechnique Normale, 1895, vol. 1, pp. 1–121. (in
+     French)
+200. Post E. L. A variant of a recursively unsolvable problem. Bull. Amer. Math. Soc., 1946,
+     vol. 52, pp. 264–268.
+201. Rabin M. O. Recursive unsolvability of group theoretic problems. Ann. Math., 1958, vol. 67,
+     no. 1, pp. 172–194.
+202. Rapaport E. On free groups and their automorphisms. Acta Math., 1958, vol. 99, pp. 139–163.
+203. Reid A. W. Profinite rigidity. Proc. Int. Cong. Math., Rio de Janeiro, 2018, vol. 1, pp. 1191–
+     1214.
+204. Reidemeister K. Über unendliche discrete Gruppen. Hamburg Abh., 1926, vol. 3, pp. 33–39.
+     (in German)
+205. Reidemeister K. Einführung in die kombinatorische Topologie. Braunschweig, 1932, XII +
+     209 p. (in German). Translated and reprinted by Chelsea, New York, 1952.
+206. Remeslennikov V. N. Conjugacy separability of groups. Siberian Math. J., 1971, vol. 12,
+     pp. 783–792.
+207. Remeslennikov V. N. Example of a group finitely generated in the variety An , n ⩾ 5, with
+     the unsolvable word problem. Algebra and Logic, 1973, vol. 12, no. 5, pp. 327–346.
+208. Remeslennikov V. N. An algorithmic problem for nilpotent groups and rings. Siberian Math.
+     J., 1979, vol. 20, no. 5, pp. 71–74.
+209. Remeslennikov V. N. and Romanovskii N. S. Irreducible algebraic sets in metabelian groups.
+     Algebra and Logic, 2005, vol. 44, no. 5, pp. 336–347.
+210. Remeslennikov V. N. and Roman’kov V. A. Model-theoretic and algorithmic questions in
+     group theory. J. Soviet Math., 1985, vol. 31, no. 3, pp. 2887–2939.
+211. Remeslennikov V. N. and Sokolov V. G. Some properties of a Magnus embedding. Algebra
+     and Logic, 1970, vol. 9, no. 5, pp. 342–349.
+212. Remeslennikov V. N. and Stöhr R. On the quasivariety generated by a non-cyclic free
+     metabelian group. Alg. Colloq., 2004, vol. 11, no. 2, pp. 191–214.
+213. Repin N. N. Equations with one unknown in nilpotent groups. Math. Notes, 1983, vol. 34,
+     no. 2, pp. 582–585.
+62                                      V. A. Roman’kov
+
+214. Repin N. N. The solvability problem for equations in one unknown in nilpotent groups. Math.
+     USSR-Izv., 1985, vol. 48, no. 6, pp. 1295–1313.
+215. Rips E. Subgroups of small cancellation groups. Bull. London Math. Soc., 1982, vol. 14, no. 1,
+     pp. 45–47.
+216. Romanovskii N. S. Some algorithmic problems for solvable groups. Algebra and Logic, 1974,
+     vol. 13, no. 1, pp. 13–16.
+217. Romanovskii N. S. Free subgroups of finitely presented groups. Algebra and Logic, 1977,
+     vol. 16, no. 1, pp. 62–68.
+218. Romanovskii N. S. The occurrence problem for extensions of abelian groups by nilpotent
+     groups. Siberian Math. J., 1980, vol. 21, pp. 170–174.
+219. Romanovskii N. S. On the elementary theory of an almost polycyclic group. Math. USSR-
+     Sbornik, 1981, vol. 39, no. 1, pp. 125–132.
+220. Romanovskii N. S. Algebraic sets in metabelian groups. Algebra and Logic, 2007, vol. 46,
+     no. 4, pp. 503–513.
+221. Romanovskii N. S. Universal theories for free solvable groups. Algebra and Logic, 2012,
+     vol. 51, no. 3, pp. 259–263.
+222. Romanovskii N. S. and Gupta C. K. The word problem for polynilpotent groups with a single
+     primitive defining relation. Algebra and Logic, 2006, vol. 45, no. 1, pp. 17–25.
+223. Romanovskii N. S. and Timoshenko E. I. On some elementary properties of soluble groups of
+     derived length 2. Siberian Math. J., 2003, vol. 44, pp. 350–354.
+224. Romanovskii N. S. and Timoshenko E. I. Elementary equivalence and direct product
+     decompositions of partially commutative groups of varieties. Siberian Math. J., 2020, vol. 61,
+     no. 3, pp. 538–541.
+225. Roman’kov V. A. Unsolvability of the endomorphic reducibility problem in free nilpotent
+     groups and in free rings. Algebra and Logic, 1977, vol. 16, no. 4, pp. 310–320.
+226. Roman’kov V. A. Equations in free metabelian groups. Siberian Math. J., 1979, vol. 20, no. 3,
+     pp. 469–471.
+227. Roman’kov V. A. Universal theory of nilpotent groups. Math. Notes, 1979, vol. 25, no. 4,
+     pp. 253–258.
+228. Roman’kov V. A. Infinite generation of automorphism groups of free pro-p groups. Siberian
+     Math. J., 1993, vol. 34, no. 4, pp. 727–732.
+229. Roman’kov V. A. On the occurence problem for rational subsets of a group. V. Roman’kov
+     (ed.), Int. Conf. on Comb. and Comput. Methods in Math., 1999, pp. 76–81.
+230. Roman’kov V. A. Asymptotic growth of averaged Dehn function for nilpotent groups. Algebra
+     and Logic, 2007, vol. 46, no. 1, pp. 37–45.
+231. Roman’kov V. A. The twisted conjugacy problem for endomorphisms of polycyclic
+     groups //J. Group Theory. 2010. vol. 13, no. 3, pp. 355–364.
+232. Roman’kov V. A. Equations over groups. Groups, Complexity, Cryptology, 2012, vol. 4, no. 2,
+     pp. 191–239.
+233. Roman’kov V. A. The Post Correspondence Problem in metabelian and polycyclic groups.
+     Proc. Conference “Algebra and Math. Logic: Theory and Applications” (Kazan, June 2–6,
+     2014), Kazan: Kazan Federal University, 2014, pp. 32–32.
+234. Roman’kov V. A. The Post Correspondence Problem. https://www.researchgate.net/
+     publication/269169063_The_Post_Correspondence_Problem_PCP, 2014.
+235. Roman’kov V. A. Ratsional’nye podmnozhestva v gruppakh [Rational Subsets in Groups].
+     Omsk, Omsk State Univrersity, 2014. 176 p. (in Russian)
+236. Roman’kov V. A. Diophantine questions in the class of finitely generated nilpotent groups.
+     J. Group Theory, 2016, vol. 19, no. 3, pp. 497–516.
+                               Algorithmic theory of solvable groups                               63
+
+237. Roman’kov V. A. Rationality of verbal subsets of solvable groups. Algebra and Logic, 2018,
+     vol. 57, no. 1, pp. 39–48.
+238. Roman’kov V. A. Polycyclic, metabelian, or soluble of type (FP)∞ groups with Boolean
+     algebra of rational sets and biautomatic soluble groups are virtually abelian. Glasgow Math.
+     J., 2018, vol. 60, no. 1, pp. 209–218.
+239. Roman’kov V. A. Essays in Group Theory and Cryptology. Solvable Groups. Omsk, Omsk
+     State University Publishing House, 2017. 268 p.
+240. Roman’kov V. A. Nonsolvability of the submonoid membership problem for the free nilpotent
+     group of class l ⩾ 2 of suffitiently large rank. Izv. RAS, Ser. Math., submitted for publication.
+241. Sarkisjan R. A. Algorithmic questions for linear algebraic groups, I. Math. USSR-Sbornik,
+     1982, vol. 41, no. 2, pp. 149–189.
+242. Sarkisjan R. A. Algorithmic questions for linear algebraic groups, II. Math. USSR-Sbornik,
+     1982, vol. 41, no. 3, pp. 329–359.
+243. Schreier O. Die Untergruppen der freien Gruppen. Abh. Math. Sem. Univ. Hamburg, 1927,
+     vol. 5, pp. 161–183. (in German)
+244. Segal D. Decidable properties of polycyclic groups.Proc. London Math. Soc., 1990, vol. 61,
+     pp. 497–528.
+245. Seress Á. Permutation Group Algorithms, Cambridge Tracts in Math. 152, Cambridge,
+     Cambridge University Press, 2003. 264 p.
+246. Shmel’kin A. L. Wreath products and varieties of groups. Math. USSR-Izvestia, 1965, vol. 29,
+     pp. 433–434.
+247. Shmel’kin A. L. O polnykh nil’potentnykh gruppakh [On complete nilpotent groups]. Algebra
+     i Logika. Sem., 1967, vol. 6, no. 2, pp. 111–114. (in Russian)
+248. Sims C. C. Computation with finitely presented groups, Encyclopedia of Math. and its
+     Applications. Cambridge, Cambridge University Press, 1994, vol. 48. 624 p.
+249. Szmielew W. Elementary properties of abelian groups. Fund. Math., 1955, vol. 41,
+     pp. 203–271.
+250. Tietze H. Über die topologischen Invarianten mehrdimensionaler Mannigfaltigkeiten.
+     Monatsh. f. Math. u. Phys., 1908, vol. 19, pp. 1–118. (in German)
+251. Timoshenko E. I. Preservation of elementary and universal equivalence under the wreath
+     product. Algebra and Logic, 1968, vol. 7, no. 4, pp. 273–276.
+252. Timoshenko E. I. K voprosu ob elementarnoy ekvivalentnosti grupp [On the question of
+     elementary equivalence of groups]. Algebra, 1972, vol. 1, Irkutsk, Irkutsk State University,
+     pp. 92– 96. (in Russian)
+253. Timoshenko E. I. Algorithmic problems for metabelian groups. Algebra and Logic, 1973,
+     vol. 12, no. 2, pp. 132–137.
+254. Timoshenko E. I. Universally equivalent solvable groups. Algebra and Logic, 2000, vol. 39,
+     no. 2, pp. 131–138.
+255. Timoshenko E. I. Universal equivalence of partially commutative metabelian groups. Algebra
+     and Logic, 2010. vol. 49, no. 2, pp. 177–196.
+256. Timoshenko E. I. Endomorfizmy i universal’nye teorii razreshimykh grupp [Endomorphisms
+     and universal theories of solvable groups]. Novosibirsk, Novosibirsk State Technical
+     University, 2011. 327 p. (in Russian)
+257. Timoshenko E. I. Universal theory of a free polynilpotent group. Izv. Math., 2016, vol. 80,
+     no. 3, pp. 623–632.
+258. Timoshenko E. I. A remark on spherical equations in free metabelian groups. Groups,
+     Complexity, Cryptology, 2017, vol. 9, no. 2, pp. 155–158.
+64                                      V. A. Roman’kov
+
+259. Timoshenko E. I. O fragmentakh teoriy nekotorykh razreshimykh ili nil’potentnykh grupp
+     [On fragments of theories of some solvable or nilpotent groups]. Vestnik Omskogo
+     universiteta, 2018, vol. 23, no. 2, pp. 47–52. (in Russian)
+260. Timoshenko E. I. Theories of relatively free solvable groups with extra predicate. Algebra
+     and Logic, 2018, vol. 57, no. 4 pp. 295–308.
+261. Umirbaev U. U. Occurrence problem for free solvable groups. Algebra and Logic, 1995, vol. 34,
+     no. 2, pp. 112–124.
+262. Ushakov A. Algorithmic theory of free solvable groups: randomized computations. J. Algebra,
+     2014, vol. 407, no. 1, pp. 178–200.
+263. Vassileva S. Polynomial time conjugacy in wreath products and free solvable groups. Groups,
+     Complexity, Cryptology, 2011, vol. 3, no. 1, pp. 105–120.
+264. Ventura E. and Roman’kov V. A. The twisted conjugacy problem for endomorphisms of
+     metabelian groups. Algebra and Logic, 2009. vol. 48, no. 2, pp. 89–98.
+265. Vollmer H. Introduction to Circuit Complexity. Berlin, Springer, 1999. 272 p.
+266. Whitehead J. H. C. On equivalent sets of elements in a free group. Ann. Math., 1936, vol. 37,
+     no. 4, pp. 782–800.
+267. Word problems, II. S. I. Adian, W. W. Boone, G. Higman (eds.), Amsterdam; N.Y.; Oxford,
+     North-Holland, 1980 (Studies in Logic and the Foundations of Math., vol. 95). 578 p.
+268. Zil’ber B. I. An example of two elementarily equivalent but non-isomorphic finitely generated
+     groups. Algebra and Logic, 1971, vol. 10, no. 3, pp. 192–197.
+

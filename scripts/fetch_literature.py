@@ -20,6 +20,8 @@ def main():
     record={'url':args.url,'retrieved_utc':datetime.now(timezone.utc).isoformat()}
     with urllib.request.urlopen(req,timeout=45) as response:
         data=response.read(20*1024*1024+1)
+        if response.status != 200 or not data:
+            raise SystemExit(f'No usable source: HTTP {response.status}, {len(data)} bytes.')
         if len(data)>20*1024*1024:raise SystemExit('Source exceeds 20 MiB; inspect before downloading.')
         if args.pdf and not data.startswith(b'%PDF'):raise SystemExit('Expected a PDF; response is not a PDF.')
         path=out/(args.key+('.pdf' if args.pdf else '.html'));path.write_bytes(data)

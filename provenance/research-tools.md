@@ -15,3 +15,5 @@ LD_LIBRARY_PATH="$PWD/scratch/browser-libs/root/usr/lib/x86_64-linux-gnu" \
 The renderer opens archived original HTML with external HTTP(S) requests blocked. Its PNG captures only the selected paragraph; additional paragraphs/subparts require separate inspection. A generated capture is not evidence that an agent has visually inspected it. Inspection is recorded separately in each audit's metadata.
 
 Runtime installations and package downloads are ignored rather than embedded in Git. These dependencies support source inspection; they are not mathematical evidence or imported Kourovka arguments.
+
+For the N8 exact prototype installed SymPy 1.14.0 and mpmath 1.3.0 in the ignored virtual environment. Smith decompositions use `sympy.polys.matrices.normalforms.smith_normal_decomp`; the implementation checks D=S*A*T on each use.

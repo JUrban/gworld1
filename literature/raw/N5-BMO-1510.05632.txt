@@ -1,0 +1,817 @@
+                                              DECOMPOSABILITY OF FINITELY GENERATED
+                                                  TORSION-FREE NILPOTENT GROUPS
+arXiv:1510.05632v2 [math.GR] 17 Dec 2015
+
+
+
+
+                                                        GILBERT BAUMSLAG, CHARLES F. MILLER III,
+                                                               AND GRETCHEN OSTHEIMER
+
+                                                  Abstract. We describe an algorithm for deciding whether or not
+                                                  a given finitely generated torsion-free nilpotent group is decompos-
+                                                  able as the direct product of nontrivial subgroups.
+
+
+
+
+                                                                        1. Introduction
+                                              Finitely generated nilpotent groups seem tractable from some points
+                                           of view. Such a nilpotent group G is finitely presented, and the ele-
+                                           ments of finite order form a finite normal subgroup T with torsion-free
+                                           quotient G/T . Moreover many algorithmic problems have positive so-
+                                           lutions for finitely generated nilpotent groups. For example, the word
+                                           and conjugacy problems can be solved in a number of ways. Perhaps
+                                           most remarkably, Grunewald and Segal [8] have solved the isomorphism
+                                           problem for finitely generated nilpotent groups.
+                                              In this paper we address a still open decidability question for these
+                                           groups, raised by Baumslag in [5]: determine whether a nilpotent group
+                                           given by a finite presentation has a nontrivial direct product decom-
+                                           position. We show that such an algorithm exists for the subclass of
+                                           torsion-free finitely generated nilpotent groups.
+                                              Two common algorithmic approaches are (1) using residual prop-
+                                           erties and (2) using a polycyclic series inductively. So the conjugacy
+                                           problem for nilpotent groups can be solved by showing such groups
+                                           are conjugacy separable, that is, non-conjugate elements remain non-
+                                           conjugate in some finite quotient. Enumeration arguments then provide
+                                           an algorithm to determine conjugacy. The second approach also gives
+                                           algorithms solving a wide variety of problems for nilpotent and poly-
+                                           cyclic groups ([4],[2],[3]) often using an effective version of the Hilbert
+                                           basis theorem.
+
+                                             Date: September 13, 2018.
+                                             2010 Mathematics Subject Classification. 20F10, 20F18, 17B30.
+                                             Key words and phrases. nilpotent groups, direct decomposition, algorithm.
+                                                                                   1
+2                BAUMSLAG, MILLER, AND OSTHEIMER
+
+   There are some known difficulties with nilpotent groups. Remeslen-
+nikov [10] constructs non-isomorphic finitely presented nilpotent groups
+which have the same collection of finite quotient groups. Perhaps
+more ominously, Remesennikov [11] shows that while one can deter-
+mine whether one nilpotent group embeds in another, there is no al-
+gorithm to determine whether one is a quotient of another. He shows
+Hilbert’s tenth problem is reducible to this epimorphism problem.
+   Moreover, the Remak-Krull-Schmidt theorem fails for finitely gen-
+erated nilpotent groups, because direct product decompositions, when
+they do exist, are far from unique: in [1], Baumslag shows that for any
+pair of integers m, n > 1, it is possible to construct a single torsion-
+free nilpotent group with two different direct product decompositions,
+one with m indecomposable factors, the other with n indecomposable
+factors, where no factor in the first decomposition is isomorphic to
+any factor of the second decomposition. An analysis of Baumslag’s
+non-uniqueness examples led us to the following theorem.
+Theorem 15. There is an algorithm to determine of an arbitrary finite
+presentation of a torsion-free nilpotent group G whether or not G has an
+abelian direct factor. If so, the algorithm expresses G as G ∼
+                                                             = G1 × Zn
+where G1 has no nontrivial abelian direct factor.
+   In Section 5 we illustrate how the existence of abelian direct fac-
+tors can be a source of non-uniqueness. The algorithm of Theorem
+15 combines some elementary considerations with several known al-
+gorithms for presenting subgroups of abelian and nilpotent groups.
+Making progress in the absence of abelian direct factors involves more
+elaborate methods. We rely on properties of the rational closure (Mal-
+cev completion) of torsion-free nilpotent groups and use uniqueness
+of decomposition results for rational Lie algebras. Our result is the
+following:
+Theorem 28. There is an algorithm to determine of an arbitrary finite
+presentation of a torsion-free nilpotent group G without abelian direct
+factors, whether or not G has a nontrivial direct decomposition. If so,
+the algorithm expresses G as G ∼   = G1 × . . . × Gn where each Gi is
+directly indecomposable.
+  Our paper is structured as follows. In Section 2 we present some
+background material about the rational closures of finitely generated
+torsion-free nilpotent groups. We believe that these results are prob-
+ably well-known, but since we have not been able to find references,
+we include proofs here. In Section 3 we prove Theorem 15. In Section
+4 we present some structural theorems that describe the relationship
+              DECOMPOSABILITY OF NILPOTENT GROUPS                         3
+
+between the myriad decompositions of a torsion-free nilpotent group
+and the more constrained decompositions of its rational closure and we
+use these to prove Theorem 28. In Section 5 we use the examples from
+[1] to illustrate our algorithm.
+   We leave three obvious questions unanswered. First, can our result
+be extended to include groups with torsion? Second, is the algorithm
+presented here practical; that is, is it possible to implement this algo-
+rithm (or a variant of it) in such a way that the algorithm can be used
+to determine the decomposability (and also to find a decomposition)
+in reasonably complex examples? Third, if a finitely generated torsion-
+free nilpotent group does not have any nontrivial abelian factors, is its
+decomposition as a direct product of directly indecomposable groups
+unique up to isomorphism?
+   In memoriam Gilbert Baumslag: This work results from discussions
+among the authors at various times, particularly during July and Au-
+gust of 2014. In September of that year Gilbert was diagnosed with
+incurable pancreatic cancer and he died on 20 October. His passing was
+of great sadness to us and to his many friends and colleagues. Gilbert’s
+contributions to group theory were vast, he enjoyed sharing ideas and
+collaborated widely, and he gave assistance generously to students and
+younger colleagues. We miss him greatly.
+
+
+   2. Background material about the rational closure
+   In this section we gather together results about the rational closures
+of finitely generated torsion-free nilpotent groups. We suspect that all
+of the results presented here are well-known. For those results for which
+we have been unable to find references, we include our own proofs.
+   For every finitely generated torsion-free nilpotent group G, there ex-
+ists a torsion-free nilpotent group G satisfying the following properties:
+     • G embeds in G;
+     • for all h ∈ G and for all positive integers α, there exists a unique
+       element k ∈ G such that k α = h;
+     • for all h ∈ G there exists a positive integer α such that hα ∈ G.
+G is unique up to isomorphism and it is called the rational closure of
+G (see Chapter 6 in [12]).
+   In order to understand the relationship between the direct product
+decompositions of G and those of G, we need two straightforward re-
+sults: first, a direct decomposition of G gives rise to a direct decompo-
+sition of G; second, the well-known theorem regarding the uniqueness
+of direct sum decompositions of Lie algebras can be reframed to give a
+4                 BAUMSLAG, MILLER, AND OSTHEIMER
+
+useful description of the uniqueness of the direct product decomposi-
+tions of G. There are a number of ways to approach these proofs. Here
+we choose to exploit the fact that our groups can be represented by
+unitriangular matrices with integer entries and that in this context we
+can use the logarithm map to embed our groups in a finite dimensional
+Lie algebra. (This approach is described in [12], for example.) The
+reader who is willing to accept Proposition 5 and Proposition 10 below
+can skip to Section 3.
+   For ring S = Z, Q and for m = 0, 1 ∈ S, we let T rm (r, S) denote
+the set of r × r upper-triangular matrices with entries in S and m’s on
+the diagonal. Every finitely generated torsion-free nilpotent group can
+be embedded in the group T r1 (r, Z) for a suitably chosen r (see, for
+example, Chapter 5 in [12]). Some of the proofs here will be easy using
+such a matrix representation, so we will assume that our given group
+is a subgroup of T r1 (r, Z) whenever it is convenient to do so.
+   Recall that for x ∈ T r1 (r, Q), log(x) is defined by log(x) = u − 21 u2 +
+1 3
+3
+  u − · · · , where u = x − 1. For u ∈ T r0 (r, Q), exp(u) is defined by
+exp(u) = 1 + u + 2!1 u2 + 3!1 u3 + · · · . In both cases, since ur = 0, the
+indicated sum is finite.
+   The following standard properties of log and exp can be found in
+[12], for example.
+Remark 1. For all x ∈ T r1 (r, Q) and all u ∈ T r0 (r, Q), exp(log(x)) =
+x and log(exp(u)) = u.
+Remark 2. For all x ∈ T r1 (r, Q) and all non-negative integers n,
+log(xn ) = n log(x) .
+   The log and exp maps can be used to construct G as follows (see [12]
+for example).
+Proposition 3. Let G be a subgroup of T r1 (r, Z). Let L be the vector
+space of T r0 (r, Q) generated by {log(g) | g ∈ G}. Let H = exp(L).
+Then H is the rational closure of G.
+Proposition 4. Let x1 , x2 ∈ T r1 (r, Q), u1 , u2 ∈ T r0 (r, Q). Then x1
+and x2 commute if and only if log(x1 ) and log(x2 ) commute. Likewise
+u1 and u2 commute if and only if exp(u1 ) and exp(u2 ) commute.
+Proof. Let x1 and x2 be commuting matrices in T r1 (r, Q). Let ui =
+xi − 1. Then u1 and u2 commute. Thus, from the definition of log,
+we see that log x1 and log x2 also commute. From this we also see
+that if exp(u1 ) and exp(u2 ) commute, then by Remark 1 so do u1 =
+log(exp(u1)) and u2 = log(exp(u2 )).
+               DECOMPOSABILITY OF NILPOTENT GROUPS                         5
+
+   Now let u1 and u2 be commuting matrices in T r0 (r, Q). By the
+definition of exp, exp(u1 ) and exp(u2 ) also commute. From this we
+also see that if log x1 and log x2 commute, then by Remark 1 so do
+x1 = exp(log(x1 )) and x2 = exp(log(x2 )).                        
+  In T r0 (r, Q) we will denote by (u, v) the Lie bracket uv − vu.
+Proposition 5. Let H be a finitely generated torsion-free nilpotent
+group. If H = H1 × H2 , then H = H1 × H2 .
+Proof. We may assume that H is a subgroup of T r1 (r, Z). We first
+show that H1 and H2 commute. Let k1 ∈ H1 and k2 ∈ H2 . There
+exist positive integers m1 and m2 such that k1m1 ∈ H1 and k2m2 ∈ H2 .
+Therefore, by Remark 2,
+                      0 = (log(k1m1 ), log(k2m2 ))
+                        = (m1 log(k1 ), m2 log(k2 ))
+                        = m1 m2 (log(k1 ), log(k2 )).
+Therefore (log(k1 ), log(k2 )) = 0, and hence by Proposition 4, k1 and k2
+also commute, as desired.
+   It is easy to see that H1 ∩ H2 = 1. If h ∈ H1 ∩ H2 , then there exist
+positive integers m1 and m2 such that hm1 ∈ H1 and hm2 ∈ H2 . Thus
+hm1 m2 ∈ H1 ∩ H2 = 1. Since T r1 (n, Q) is torsion-free, h = 1.
+   Finally we show that H ⊆ H1 ×H2 . Suppose that h ∈ H. Then there
+exists a positive integer m and elements h1 ∈ H1 , h2 ∈ H2 such that
+hm = h1 h2 . Let r1 and r2 be the m’th roots of h1 and h2 respectively.
+Since H1 and H2 commute,
+                      (r1 r2 )m = r1m r2m = h1 h2 = hm .
+Since roots are unique in T r1 (r, Q), h = r1 r2 .                        
+  The upper central series plays a special role in the relationship be-
+tween a finitely generated torsion-free group and its rational closure,
+as the following well-known theorem asserts (see [9] p. 257 for a proof
+and a discussion of the history of this result).
+Theorem 6. Let G be a finitely generated torsion-free nilpotent group.
+Let Γi (G) be the i’th term in the upper central series of G. Then
+Γi (G) = Γi (G) and Γi (G) = Γi (G) ∩ G.
+  We will now describe the strong sense in which decompositions of
+rational nilpotent groups are unique. We begin with a classical result
+about the uniqueness of decompositions in Lie algebras. Let L be a Lie
+algebra, and let (i, j) denote the Lie bracket of two elements i and j in
+L. Recall that a subspace J of L is an ideal if for all j ∈ J and all l ∈ L,
+6                  BAUMSLAG, MILLER, AND OSTHEIMER
+
+(j, l) ∈ J and (l, j) ∈ J, and such an ideal is indecomposable if it cannot
+be written as the direct sum of two nontrivial ideals. L is Artinian
+(resp. Noetherian) it it satisfies the descending (resp. ascending) chain
+condition on ideals.
+   The following is proved in [7].
+Theorem 7. Let L be a Lie algebra that is both Artinian and Noether-
+ian. Suppose also that L has two decompositions as a direct sum of
+nontrivial indecomposable ideals:
+                      L = M1 ⊕ M2 ⊕ · · · ⊕ Mr
+                        = N1 ⊕ N2 ⊕ · · · ⊕ Ns
+Let πi be the projection of L onto Mi , and let ψi be the projection of L
+onto Ni . Then r = s and the summands can be reordered such that the
+following hold for all 1 ≤ k ≤ r:
+      • πk (Nk ) = Mk and the restriction of πk to Nk is an isomorphism
+        from Nk to Mk whose inverse is the restriction of ψk to Mk ;
+      •
+            L = M1 ⊕ M2 ⊕ · · · ⊕ Mk ⊕ Nk+1 ⊕ · · · ⊕ Nr .
+    We will need a slight reformulation:
+Corollary 8. Let L be a Lie algebra satisfying the hypotheses of The-
+orem 7. Then for any k such that 1 ≤ k ≤ r,
+         L = M1 ⊕ M2 ⊕ · · · ⊕ Mk−1 ⊕ Nk ⊕ Mk+1 · · · ⊕ Mr .
+Proof. To see that
+          L = M1 + M2 + · · · + Mk−1 + Nk + Mk+1 · · · + Mr ,
+we need to show that Mk ⊆ M1 +M2 +· · ·+Mk−1 +Nk +Mk+1 · · ·+Mr .
+Let m ∈ Mk , and let nk = ψk (m) ∈ Nk . Then πk (m − nk ) = 0, so
+m − nk ∈ M1 + · · · + Mk−1 + Mk+1 + · · · + Mr . Thus m ∈ M1 + M2 +
+· · · + Mk−1 + Nk + Mk+1 · · · + Mr .
+    It is clear from the statement of Theorem 7 that Nk commutes with
+and is disjoint from M1 ⊕ M2 ⊕ · · · ⊕ Mk−1 , and by reversing the roles
+of the Mi ’s and Ni ’s in Theorem 7, it is clear also that Nk commutes
+with and is disjoint from Mk+1 ⊕ · · · ⊕ Mr .                         
+    The log and exp maps satisfy the following well-known properties.
+Proposition 9. Let H1 , H2 be subsets of T r1 (r, Q) and let M1 , M2 be
+subsets of T r0 (r, Q) such that Mi = log(Hi ). Then
+   (1) H1 and H2 commute if and only if M1 and M2 commute;
+   (2) H1 ∩ H2 = 1 if and only if M1 ∩ M2 = 0;
+                DECOMPOSABILITY OF NILPOTENT GROUPS                           7
+
+   (3) Hi is a rational subgroup of T r1 (r, Q) if and only if Mi is a Lie
+       subalgebra of T r0 (r, Q).
+Proof. The first claim follows from Lemma 4.
+   The second claim follows easily from the fact that log and exp are
+inverse bijections. Suppose that H1 ∩ H2 = 1, and let m ∈ M1 ∩ M2 .
+Then there exist hi ∈ Hi such that m = log(h1 ) = log(h2 ). Thus
+exp(m) = h1 = h2 = 1 and hence m = log(1) = 0. Conversely suppose
+that M1 ∩ M2 = 0 and let h ∈ H1 ∩ H2 . Then log(h) ∈ M1 ∩ M2 = 0,
+so log(h) = 0. Therefore h = 1.
+   We now prove the third claim. If H1 is a rational subgroup, then
+M1 is a Lie subalgebra (see Theorem 2 on page 104 of [12]). For the
+converse, suppose that M1 is a Lie subalgebra. There is an operator ⋆
+on T r0 (r, Q) defined using the Baker-Campbell-Hausdorff formula: for
+u, v ∈ T r0 (r, Q), u ⋆ v = u + v + l, where l is a certain Q-linear com-
+bination of repeated Lie brackets of u and v. This ⋆ operator satisfies
+exp(u ⋆ v) = exp u exp v for all u, v ∈ T r0 (r, Q). (For a definition and
+properties of ⋆, see p. 102 in [12].) Since M1 is closed under ⋆, it follows
+that H1 is closed under multiplication. Since exp(qu) = (exp u)q for all
+u ∈ T r0 (r, Q) and all q ∈ Q, H1 is closed under the taking of roots and
+inverses. This establishes the third claim in our proposition.            
+  We are now in a position to state our desired result concerning the
+uniqueness of decompositions in the rational closure of a finitely gen-
+erated torsion-free nilpotent group.
+Proposition 10. Let G be a finitely generated torsion-free nilpotent
+group. Suppose that we have two decompositions of G as the direct
+product of nontrivial rational subgroups which are themselves rationally
+indecomposable:
+                       G = R1 × R2 × · · · × Rm
+                         = K1 × K 2 × · · · × Kn .
+Let αi be the projection of G onto Ri , and let βi be the projection of
+G onto Ki . Then m = n. Furthermore, there is a way to reorder the
+factors such that the following three properties hold for all 1 ≤ i ≤ m:
+    (1) αi (Ki ) = Ri , and the restriction of αi to Ki is an isomorphism
+        from Ki to Ri whose inverse is the restriction of βi to Ri , and
+    (2)
+          G = R1 × R2 × · · · × Ri−1 × Ki × Ri+1 × · · · × Rm .
+Proof. Let L = log(G). Since L is a Lie subalgebra of the finite dimen-
+sional Lie algebra T r0 (r, Q), it is itself finite dimensional, and hence it is
+8                       BAUMSLAG, MILLER, AND OSTHEIMER
+
+both Artinian and Noetherian. Let Mi = log(Ri ) and let Ni = log(Ki ).
+By Proposition 9, we have
+                             L = M1 ⊕ M2 ⊕ · · · ⊕ Mr
+                               = N1 ⊕ N2 ⊕ · · · ⊕ Ns ,
+and the conclusions of Theorem 7 and its corollary hold. Applying the
+exp map to
+          L = M1 ⊕ M2 ⊕ · · · ⊕ Mi−1 ⊕ Ni ⊕ Mi+1 · · · ⊕ Mm ,
+we get
+            G = R1 × R2 × · · · × Ri−1 × Ki × Ri+1 × · · · × Rm .
+   Since αi and βi are projections, they are clearly group homomor-
+phisms. It is easy to see that αi = exp ◦πi ◦ log and that βi =
+exp ◦ψi ◦ log: let h ∈ G, and let ri ∈ Ri such that h = r1 r2 · · · rm ;
+since the ri ’s commute,
+           exp ◦πi ◦ log(h) = exp ◦πi (log(r1 ) + · · · + log(rm ))
+                            = exp(log(ri )) = ri = αi (h).
+It now follows from Theorem 7 that the suitable restrictions of αi and
+βi are inverse bijections as desired.                                
+  An automorphism θ of a group G is called normal if for all x, y ∈ G,
+θ(xy ) = (θ(x))y .
+Corollary 11. Let G be a group satisfying the hypotheses of Proposi-
+tion 10. If Θi is given by
+       Θi ((r1 , r2 , . . . , rm )) = (r1 , r2 , . . . , ri−1 , βi (ri ), ri+1 , . . . , rm )),
+then Θi is a normal automorphism of G.
+Proof. The fact that Θi is an automorphism follows immediately from
+Proposition 10. To show that Θi is normal, it suffices to show that
+for all r, s ∈ Ri , βi (r s ) = (βi (r))s , but it is easy to see that (βi (r))s =
+(βi (r))βi(s) = βi (r s ).                                                       
+   We are interested in normal automorphisms because they fix central-
+izers:
+Remark 12. If θ is a normal automorphism of group G, and if CG (h)
+is the centralizer of h in G, then CG (h) = θ(CG (h)).
+Proof. Let x ∈ CG (h). Let y = θ−1 (x). Then
+                    θ(hy ) = θ(h)θ(y) = θ(h)x = θ(hx ) = θ(h).
+               DECOMPOSABILITY OF NILPOTENT GROUPS                        9
+
+Therefore, hy = h and y ∈ CG (h). Thus CG (h) ⊆ θ(CG (h)). We obtain
+the opposite inclusion by considering the inverse of θ.           
+  Finally we will need to use the fact that there exist algorithms to
+determine whether G is rationally decomposable, and, if so, to compute
+a decomposition (see Section 1.15 of [6], for example).
+Proposition 13. Let G be a finitely generated torsion-free nilpotent
+group. There exists an algorithm to compute finite sets A1 , A2 , . . . , Am
+of elements of G such that if Si is the smallest rational subgroup of G
+containing Ai , then
+                        G = S1 × S2 × · · · × Sm .
+
+                     3. Abelian direct factors
+   In this section we describe an algorithm for deciding whether a given
+finitely generated torsion-free nilpotent group has a nontrivial abelian
+direct factor. In [1], Baumslag proves that factorizations of finitely
+generated torsion-free nilpotent groups are not unique. In Section 5 we
+will illustrate how the algorithms of this section provide an easy proof
+of this fact.
+   Let G be a finitely generated torsion-free nilpotent group. Suppose
+that G has an abelian factor. Then G ∼  = H ×Z = H ×hc | i. Computing
+abelianizations (factor derived groups) we have G/[G, G] ∼= H/[H, H]×
+hc | i so that c is a primitive element in G/[G, G]. Here G/[G, G] can
+have torsion, so by primitive element we mean that its image is part
+of a basis modulo the torsion subgroup. Note that c ∈ Z(G). Here is
+a test for the presence of an abelian direct factor.
+Lemma 14. Let G be a finitely generated torsion-free nilpotent group.
+Then G has a nontrivial abelian direct factor if and only if the image of
+Z(G) in the factor derived group G/[G, G] contains a primitive element.
+Proof. We know from above that the condition is necessary. For suffi-
+ciency, suppose we have an element c ∈ Z(G) which is primitive. Then
+there is a retraction θ : G →
+                            → hc | i. Since c ∈ Z(G), this gives a direct
+product decomposition G = ker θ × hc | i.                              
+Theorem 15. There is an algorithm to determine of an arbitrary finite
+presentation of a torsion-free nilpotent group G whether or not G has
+an abelian direct factor. If so, the algorithm expresses G as G ∼
+                                                                = G1 ×Zr
+where G1 has no nontrivial abelian direct factor.
+Proof. Let W be the free abelian group G/T , where T is the pullback
+in G of the torsion subgroup of G/[G, G], and let n be the rank of
+10               BAUMSLAG, MILLER, AND OSTHEIMER
+
+W . Let V be the subgroup of W given by V = Z(G)[G, G]/[G, G],
+and let k be the rank of V . We can compute a basis for W and a
+set of generators for V . We can use a Smith normal form calculation
+to determine if V contains a primitive element of W as follows. Let
+M be the n × k matrix whose j’th column is the j’th generator for
+V , expressed in terms of our basis for W . Compute P ∈ Gln (Z) and
+Q ∈ Glk (Z) such that P MQ = S, where S is in Smith normal form.
+Then V contains a primitive element of W if and only if S1,1 = 1, in
+which case the first column of P −1 is a primitive element of W which
+is also an element of V .                                          
+
+                 4. Nonabelian direct factors
+  In the previous section we described an algorithm for deciding if G
+has a nontrivial abelian direct factor; in this section we will develop
+an algorithm for deciding if G has a decomposition as the the direct
+product of indecomposable nonabelian factors. In order to do so, we
+prove some structural theorems about the relationship between the
+decompositions of a finitely generated torsion-free nilpotent group and
+the decompositions of its rational closure.
+  We begin with two definitions which will help simplify the exposition
+that follows.
+Definition 16. We say that decomposition G = R1 × R2 matches
+decomposition G = G1 × G2 if Gi Z(G) = Ri Z(G).
+Definition 17. We say that decomposition G = R1 × R2 gives rise to a
+decomposition of G/Z(G) if when Xi = Ri Z(G) ∩ G, then G = X1 X2 ,
+[X1 , X2 ] = 1 and X1 ∩ X2 = Z(G).
+  We begin with some technical results. In Proposition 10 we saw that
+decompositions of G are unique up to isomorphism. We will need a
+result which is slightly stronger in a way.
+Proposition 18. Let G be a finitely generated torsion-free nilpotent
+group. Suppose that we have two decompositions of G as the direct
+product of nontrivial rational subgroups which are themselves rationally
+indecomposable:
+                     G = R1 × R2 × · · · × Rm
+                       = K1 × K 2 × · · · × Km
+and that the Ki ’s have been permuted so that the conclusions of Propo-
+sition 10 hold. Then for all i, Ki Z(G) = Ri Z(G).
+               DECOMPOSABILITY OF NILPOTENT GROUPS                       11
+
+Proof. It suffices to prove the proposition for i = 1. Let R = R2 × R3 ×
+· · · × Rm . Let Θ be the normal automorphism Θ1 whose existence is
+posited in Proposition 10, so Θ(R1 ) = K1 and Θ fixes every element of
+R. Fix h ∈ R. The centralizer CG (h) = R1 × CR (h). Θ(R1 × CR (h)) =
+K1 × CR (h). Since Θ fixes centralizers, we see that R1 × CR (h) =
+K1 × CR (h), and hence that K1 ≤ R1 × CR (h). Since this holds for all
+h ∈ R, we get
+      K1 ≤ ∩h∈R (R1 × CR (h)) = R1 × ∩h∈R CR (h) = R1 × Z(R),
+so K1 ≤ R1 Z(G).
+  By considering the inverse of Θ, we see that R1 ≤ K1 Z(G), so our
+result now follows.                                              
+  The following corollary establishes that if G = G1 × G2 we can use
+a decomposition of G to make a finite list of decompositions of G as
+G = R1 × R2 and trust that at least one of those decompositions
+matches the decomposition G = G1 × G2 .
+Corollary 19. Let G be a finitely generated torsion-free nilpotent group.
+Suppose that G = S1 × S2 × · · · × Sm is a decompostion of G into non-
+trivial rational subgroups each of which is rationally indecomposable.
+Suppose furthermore that G = G1 × G2 is a nontrivial decomposition of
+G. Then it is possible to reorder the Si ’s and to choose j such that if
+R1 = S1 ×S2 ×· · ·×Sj and R2 = Sj+1 ×· · ·×Sm , then the decomposition
+G = R1 × R2 matches the decomposition G = G1 × G2 .
+Proof. We can decompose G1 and G2 into nontrivial rationally inde-
+composable subgroups as follows:
+                        G1 = T1 × · · · × Tj ,
+                        G2 = Tj+1 × · · · × Tm .
+By Proposition 18 we can reorder the Si ’s such that for all i, Si Z(G) =
+Ti Z(G). Let R1 = S1 × S2 × · · · Sj and R2 = Sj+1 × · · · × Sm . Then
+for i = 1, 2, Ri Z(G) = Gi Z(G).                                        
+   We will rely repeatedly on the following obvious fact about the center
+of a direct product.
+Lemma 20. Let H be any group. Suppose that H = H1 × H2 . Then
+Z(H) = Z(H1 ) × Z(H2 ).
+Proof. Let z ∈ Z(G). Let gi ∈ Hi such that z = g1 g2 . Let h1 ∈ H1 .
+Then zh1 = (g1 g2 )h1 = (g1 h1 )g2 . On the other hand, h1 z = (h1 g1 )g2 .
+Therefore h1 g1 = g1 h1 . Hence g1 ∈ Z(H1 ). Likewise g2 ∈ Z(H2 ).
+Hence Z(G) = Z(H1 )Z(H2 ) = Z(H1 ) × Z(H2 ).                            
+12                BAUMSLAG, MILLER, AND OSTHEIMER
+
+Proposition 21. Let G be a finitely generated torsion-free nilpotent
+group. Suppose that decomposition G = R1 ×R2 matches decomposition
+G = G1 × G2 . Let Xi = Ri Z(G) ∩ G. Then Xi = Gi Z(G).
+Proof. Let x ∈ X1 . Since Ri Z(G) = Gi Z(G), there exist r1 ∈ G1 and
+z ∈ Z(G) such that x = rz. By Proposition 5, G = G1 × G2 and
+hence by Lemma 6, Z(G) = Z(G1 ) × Z(G2 ). Therefore, there exist
+zi ∈ Z(Gi ) such that z = z1 z2 . Since x ∈ G, there exist gi ∈ Gi such
+that x = g1 g2 . Thus we have two ways of expressing x as an element
+of G1 × G2 : x = (r1 z1 )z2 = g1 g2 . Therefore, r1 z1 = g1 and z2 = g2 .
+Therefore, r1 z1 ∈ G1 and z2 ∈ Z(G), so x ∈ G1 Z(G). We have shown
+that X1 ⊆ G1 Z(G). The other inclusion is clear since by Theorem 6
+Z(G) ⊆ Z(G).                                                          
+Corollary 22. Let G be a finitely generated torsion-free nilpotent group.
+Suppose that decomposition G = R1 × R2 matches decomposition G =
+G1 × G2 . Then G = R1 × R2 gives rise to a decomposition of G/Z(G).
+Proof. By Proposition 21, Xi = Gi Z(G). It is obvious that G = X1 X2 .
+To see that X1 ∩ X2 = Z(G), it suffices to show that G1 ∩ G2 Z(G) ≤
+Z(G). Suppose that g1 ∈ G1 ∩ G2 Z(G). By Lemma 20, g1 = g2 z1 z2
+for some g2 ∈ G2 and zi ∈ Z(Gi ). Therefore g1 = z1 (g2 z2 ). Hence
+g1 = z1 ∈ Z(G1 ). Hence g1 ∈ Z(G).
+            [X1 , X2 ] = [G1 Z(G), G2 Z(G)] = [G1 , G2 ] = 1.
+                                                                       
+Lemma 23. Let G be a finitely generated torsion-free nilpotent group.
+Suppose that decomposition G = R1 × R2 matches decomposition G =
+G1 × G2 . Let Xi = Ri Z(G) ∩ G. If H1 and H2 are subgroups of G such
+that Xi = Hi Z(G) and Z(G) = Z(H1 ) × Z(H2 ), then G = H1 × H2 .
+Proof. By Proposition 21, Xi = Gi Z(G) and by Corollary 22, G =
+X1 X2 , [X1 , X2 ] = 1 and X1 ∩ X2 = Z(G).
+  We first show that G = H1 H2 . Let g ∈ G. Then g = x1 x2 for
+some xi ∈ Xi . Since each xi ∈ Hi Z(G), g = h1 h2 z for some hi ∈ Hi
+and z ∈ Z(G). By assumption there exist zi ∈ Z(G) ∩ Hi such that
+z = z1 z2 . Therefore g = h1 h2 z1 z2 = (h1 z1 )(h2 z2 ) ∈ H1 H2 .
+  We next show that H1 ∩ H2 = 1. Suppose that g ∈ H1 ∩ H2 . Then
+g ∈ X1 ∩X2 = Z(G), and hence g ∈ H1 ∩Z(G). Since Z(G) = Z(H1 )×
+Z(H2 ), g ∈ Z(H1 ). Similarly g ∈ Z(H2 ). Since Z(H1 ) ∩ Z(H2 ) = 1,
+g = 1.
+  Finally,
+       [H1 , H2 ] ≤ [X1 , X2 ] = [G1 Z(G), G2 Z(G) = [G1 , G2 ] = 1.
+                 DECOMPOSABILITY OF NILPOTENT GROUPS                                13
+
+                                                                                    
+Lemma 24. Let G be a finitely generated torsion-free nilpotent group.
+Suppose that the decomposition G = R1 × R2 matches decomposition
+G = G1 × G2 . Let Xi = Ri Z(G) ∩ G. Suppose that a1 , a2 , . . . , ak are
+elements of X1 such that
+                         a1 Z(G), a2 Z(G), . . . , ak Z(G)
+is a consistent polycyclic generating sequence for X1 /Z(G). Suppose
+that b1 , b2 , . . . , bl is a corresponding sequence of elements of X2 . Define
+f1 = ha1 , a2 , . . . , ak , Z(G1 )i and G
+G                                           f2 = hb1 , b2 , . . . , bl , Z(G2 )i. Then
+G=G   f1 × G   f2 .
+
+Proof. We first notice that by Corollary 22, the decomposition G =
+R1 × R2 gives rise to a decomposition of G/Z(G) and so by Proposition
+21, Gi Z(G) = Xi . Also notice that G  fi Z(G) = Gi Z(G) = Xi . By
+Lemma 23 it suffices to show that Z(G   fi ) = Z(Gi ). Let z ∈ Z(G
+                                                                 fi ).
+There exist integers αi and an element z1 ∈ Z(G1 ) such that
+                               z = aα1 1 aα2 2 · · · aαk k z1 .
+This implies that aα1 1 aα2 2 · · · aαk k ∈ Z(G). But by our choice of the ai ’s,
+this in turn implies that each αi is equal to 0. Therefore, z = z1 and
+hence z ∈ Z(G1 ). The opposite inclusion is obvious.                           
+   We now describe an algorithm to test whether a given decomposition
+G = R1 × R2 which gives rise to a decomposition of G/Z(G) satisfies
+the further property that it matches a decomposition G = G1 × G2 . If
+it does, then the algorithm produces a decomposition.
+Theorem 25. Let G be a finitely generated torsion-free nilpotent group.
+Suppose that the decomposition G = R1 × R2 gives rise to a decompo-
+sition of G/Z(G). Let Xi = Ri Z(G) ∩ G. Suppose that a1 , a2 , . . . , ak
+are elements of X1 such that
+                         a1 Z(G), a2 Z(G), . . . , ak Z(G)
+is a consistent polycyclic generating sequence for X1 /Z(G). Suppose
+that b1 , b2 , . . . , bl is a corresponding sequence of elements of X2 . Let
+H1 = ha1 , a2 , . . . , ak i and let H2 = hb1 , b2 , . . . , bl i. If the decomposition
+G = R1 × R2 matches a decomposition G = G1 × G2 , then there is a
+decomposition Z(G) = Z1 ×Z2 such that Z(H1 ) ≤ Z1 and Z(H2 ) ≤ Z2 .
+Conversely, if there is a decomposition Z(G) = Z1 × Z2 such that
+Z(H1 ) ≤ Z1 and Z(H2 ) ≤ Z2 , then G = G1 × G2 where Gi = Hi Zi ,
+and G = R1 × R2 matches this decomposition.
+14                   BAUMSLAG, MILLER, AND OSTHEIMER
+
+Proof. Suppose that there is a decomposition G = G1 ×G2 that matches
+the decomposition G = R1 ×R2 . To show that there is a decomposition
+Z(G) = Z1 × Z2 such that Z(H1 ) ≤ Z1 and Z(H2 ) ≤ Z2 , we let
+f1 = ha1 , a2 , . . . , ak , Z(G1 )i and G
+G                                         f2 = hb1 , b2 , . . . , bl , Z(G2 )i. Then by
+Lemma 24, G = G         f1 × G f2 . Let Zi = Z(G fi ). Then Z(G) = Z1 × Z2 .
+We will show that Z(Hi ) ≤ Zi . Let z ∈ Z(Hi ). Then z ∈ G                      fi and z
+commutes with everything in G         fi . Therefore, z ∈ Zi .
+   Suppose that there is a decomposition Z(G) = Z1 × Z2 such that
+Z(H1 ) ≤ Z1 and Z(H2 ) ≤ Z2 , and we let Gi = Hi Zi . Notice that
+Xi = Gi Z(G). Since we are assuming that our decomposition G =
+R1 × R2 gives rise to a decomposition of G/Z(G), we know that G =
+X1 X2 , [X1 , X2 ] = 1 and X1 ∩ X2 = Z(G), from which it follows that
+[G1 , G2 ] = [X1 , X2 ] = 1.
+   We now show that G = G1 G2 . Let g ∈ G. Since g ∈ X1 X2 , g =
+h1 z1 h2 z2 for some hi ∈ Hi and zi ∈ Z(G). Since z1 z2 ∈ Z(G) there
+exists z1′ ∈ Z1 and z2′ ∈ Z2 such that z1 z2 = z1′ z2′ . Now g = h1 z1′ h2 z2′ ∈
+G1 G2 .
+   Finally, G1 ∩ G2 = 1. To see this, suppose that g ∈ G1 ∩ G2 . Then
+g ∈ X1 ∩ X2 = Z(G) so g = z1 z2 for some zi ∈ Zi . Therefore, z1 ∈ G2 ,
+so z1 = h2 z2′ for some h2 ∈ H2 and z2′ ∈ Z2 . Therefore h2 ∈ Z(G) and
+hence h2 ∈ Z2 . Now z1 ∈ Z1 ∩ Z2 = 1, so z1 = 1. Likewise z2 = 1, so
+g = 1. We have proven that G = G1 × G2 .
+   It remains only to show that G = R1 × R2 matches G = G1 × G2 , i.e.
+that Gi Z(G) = Ri Z(G). Let x ∈ Gi . There exists a positive integer
+m such that xm ∈ Gi , so xm ∈ Xi . Hence xm ∈ Ri Z(G). Since Ri
+is rational and by Theorem 6 Z(G) = Z(G), Ri Z(G) is rational and
+hence x ∈ Ri Z(G).
+   Conversely, suppose that x ∈ Ri . There exists a positive integer m
+such that xm ∈ G. Thus xm ∈ Ri ∩ G ≤ Xi = Gi Z(G). Therefore
+x ∈ Gi Z(G) = Gi Z(G). We have shown that the decomposition G =
+R1 × R2 matches the decomposition G = G1 × G2 .                                       
+
+   Suppose that A is a finitely generated abelian group, so it is a direct
+product of finitely many cyclic groups. We recall that a subgroup V of
+A is pure if w k ∈ V implies w ∈ V . A pure subgroup of A is a direct
+factor. Also the intersection of pure subgroups is pure. We need the
+following variation on the Smith normal form algorithm.
+
+Lemma 26. There is an algorithm which, given a finitely generated
+free abelian group A and a finitely gnerated subgroup V , finds a set of
+generators for the smallest subgroup W ≥ V which is pure in A. The
+                DECOMPOSABILITY OF NILPOTENT GROUPS                          15
+
+algorithm determines whether V is already pure, and finds a splitting
+A = W × A2 . Also, rankZ W = rankZ V .
+Proof. Since we are dealing with abelian groups, it is convenient to use
+additive notation. Let W be the set of all elements w ∈ A such that
+kw ∈ V for some k ∈ Z. Then W is the smallest pure subgroup of A
+containing V . The usual Smith normal form computations giving the
+structure of finitely generated abelian groups can be applied here. So
+if M is the integer matrix expressing the generators of V in terms of
+the basis for A, the computation does row and column operations to
+obtain a new matrix P MQ in canonical form with integer invariants
+c1 , . . . cm where 1 ≤ ci ∈ Z and ci |ci+1 . Here m is the rank of V and
+n is the rank of A. Using the matrix P −1 we can find the new basis
+{w1 , . . . , wn } such that V is generated by {c1 w1 , . . . , cm wm }. Clearly
+W = gp{w1 , . . . , wm } is the smallest pure subgroup containing V . No-
+tice that V itself is pure if and only if all the ci = 1. Also, if we
+put A2 = gp{wm+1 , . . . , wn } then we have a direct product splitting
+A = W × A2 .                                                                  
+  The following lemma shows that the condition of Theorem 25 is easily
+testable.
+Lemma 27. There is an algorithm which, given a finitely generated
+free abelian group A and two finitely gnerated subgroups V1 and V2 ,
+determines whether or not there exists a splitting A = A1 × A2 such
+that Ai ≥ Vi . If such splitting exists, the algorithm produces such a
+decomposition explicitly.
+Proof. Given the subgroups Vi , we use the algorithm of Lemma 26 to
+compute the smallest pure subgroups Wi ≥ Vi . Notice that W1 ∩ W2 =
+{0} if and only if V1 ∩ V2 = {0}.
+  Now consider the subgroup B = gp{W1, W2 }. In general B may
+not be pure in A. But if there is a splitting A = A1 × A2 such that
+Ai ≥ Vi , then Ai ≥ Wi ≥ Vi , and hence B is pure in A and rankZ B =
+rankZ W1 + rankZ W2 . Conversely suppose that B is pure in A. Then
+rank formula is rankZ B = rankZ W1 + rankZ W2 − rankZ (W1 ∩ W2 ).
+But rankZ B = rankZ W1 + rankZ W2 implies W1 ∩ W2 = {0} so that
+B = W1 × W2 . Hence we can find the desired splitting. Since we
+can test purity and compute ranks, we can determine whether such a
+splitting of A exists, and if so explicitly find one.              
+  Notice that in the special case when one of the rational factors is
+abelian, Theorem 25 is vacuous. In this case X1 = G, X2 = Z(G)
+and H2 = 1. If we let Z1 = Z(G) and Z2 = 1 we get a splitting
+16               BAUMSLAG, MILLER, AND OSTHEIMER
+
+Z(G) = Z1 × Z2 with Z(H1 ) ≤ Z1 and Z(H2 ) = 1. We then find that
+G1 = G and G2 = 1, so we have proven the existence of the trivial
+decomposition for G, that is, we have proven nothing. However, if G
+has a decomposition G = G1 × G2 where neither factor is abelian, then
+given any decomposition of G as the direct product of rationally inde-
+composable groups, there will be a way to group the indecomposable
+factors to obtain G = R1 × R2 such that neither Ri is abelian. Thus,
+the theorems described in this section provide a test for the existence
+of a nontrivial nonabelian direct factor. In Section 3 we described a
+separate algorithm for deciding if G has a nontrivial abelian factor.
+   We can now summarize our algorithm for deciding whether or not
+there exist nonabelian groups G1 and G2 such that G = G1 × G2 . We
+compute a decomposition G = S1 × S2 × · · · × Sm of G into nontrivial
+rational subgroups each of which is rationally indecomposable. There
+are a finite number of ways to group the Si ’s to obtain G = R1 ×
+R2 where neither Ri is abelian. We further restrict our attention to
+decompositions that give rise to a decomposition of G/Z(G) which
+we determine by computing Xi = Ri Z(G) ∩ G and deciding whether
+G = X1 X2 , [X1 , X2 ] = 1 and X1 ∩X2 = Z(G). If none of our computed
+decompositions G = R1 × R2 give rise to a decomposition of G/Z(G),
+we conclude that G does not have a decomposition into two nonabelian
+factors.
+   Otherwise, for each of the computed decompositions of G that does
+give rise to a decomposition of G/Z(G), we decide whether that de-
+composition matches a decomposition G = G1 × G2 as follows. We de-
+fine Hi using a consistent polycyclic generating sequence for Xi /Z(G)
+as in Theorem 25. We compute Z(H1 ) and Z(H2 ). By Theorem 25
+and Remark 27, there exists a decomposition of G corresponding with
+G = R1 ×R2 if and only if Z(H1 )∩Z(H2 ) = 1. In this case we compute a
+decomposition Z(G) = Z1 ×Z2 with Z(Hi ) ≤ Zi , and we let Gi = Hi Zi .
+Then G = R1 × R2 matches the decomposition G = G1 × G2 . If, after
+consideration of all our computed decompositions G = R1 × R2 that
+give rise to decompositions of G/Z(G), we find that none matches a
+decomposition of G, then we deduce that G is cannot be decomposed
+as the direct product of two nonabelian factors.
+   We have now completed the proof of our main theorem.
+Theorem 28. There is an algorithm to determine of an arbitrary finite
+presentation of a torsion-free nilpotent group G without abelian direct
+factors, whether or not G has a nontrivial direct decomposition. If so,
+the algorithm expresses G as G ∼   = G1 × . . . × Gn where each Gi is
+directly indecomposable.
+              DECOMPOSABILITY OF NILPOTENT GROUPS                       17
+
+                             5. Examples
+   In this section we use the examples from [1] to illustrate how our
+algorithms work. In doing so we also provide an easy proof of the
+theorem in [1] asserting that direct product decompositions of finitely
+generated torsion-free groups may not be unique.
+   We begin by describing some examples of torsion free nilpotent groups
+which we shall denote by Gp for p > 1 (and which are denoted G(1, p)
+in [1]). Let A = ha, b, ci be the free abelian group of rank 3 on the
+listed generators. Then the HNN-extension
+
+                   B = hA, t | at = ab, bt = bc, ct = ci
+
+is torsion-free and nilpotent of class 3. Let F = hf i be the free abelian
+group of rank 1 on the given generator, and put K = B × F . We define
+a subgroup K ⊂ Gp ⊂ K by Gp = hK, si where sp = bf . Thus s is the
+unique p-th root of bf in K.
+    In Lemma 3 of [1] Baumslag proves that Gp is not directly decom-
+posable. Here we provide a simpler proof of this lemma using our
+algorithm. We begin with some simple observations about the struc-
+                                   1        1
+ture of Gp . Notice that neither b p nor f p is an element of Gp , and yet
+  1
+c p is an element of Gp : an easy calculation shows that [t, s−1 ]p = c.
+                                              1
+The center of Gp is given by Z(Gp ) = hc p , f i. The derived subgroup
+                                     1
+of Gp is given by [Gp , Gp ] = hb, c p i. The abelianization of Gp is free
+abelian on {t, a, s}.
+    We use the algorithm of Section 3 to show that Gp has no abelian
+direct factor. The image of Z(Gp ) in the abelianization is generated
+by the image of f which is equal to the image of sp . Clearly the image
+of sp is not primitive in the abelianization. By Lemma 14, Gp has no
+abelian direct factor.
+    We use Proposition 5 to show that Gp cannot be decomposed as
+the direct product of nonabelian factors by showing that Gp cannot
+be decomposed as the direct product of nonabelian factors. The ra-
+tional closure of Gp has the following decomposition into rationally
+indecomposable groups: Gp = K = B × F . To see that B is rationally
+indecomposable, observe that the center of B is the cyclic group gen-
+erated by c, and hence, by Theorem 6, the center of B is isomorphic to
+Q. Since every factor in a splitting has a nontrivial center, this shows
+that B is rationally indecomposable.
+    Next we consider D = Gp × Gq , where p and q are relatively prime.
+We will prove that this decomposition (as the direct product of inde-
+composable groups) is not unique by using the algorithm of Section
+18                BAUMSLAG, MILLER, AND OSTHEIMER
+
+3 to find an abelian direct factor. We will name the generators of
+Gq using the corresponding Greek letters α, β, γ, σ and φ, so, for ex-
+ample, σ q = βφ. The abelianization of D is free abelian with basis
+{t, a, s, τ, α, σ}. The image of Z(D) in the abelianization is generated
+by the images of sp and σ q . We can perform a Smith normal form
+calculation as described in Section 3, but in this case it iseasy to see
+                                                                        
+                                                                  p m
+that if l and m are integers such that lp + mq = 1, then
+                                                                  −q l
+                             −1 p −q
+is invertible, and hence b s σ β = f φ is a primitive element of
+                                              −1
+
+the abelianization that is central in D. Thus f φ−1 generates a cyclic
+direct factor T of D. We have proved that the decomposition of D is
+not unique, even up to isomorphism.
+   We use our algorithm to show that the complement S to T in D
+is itself indecomposable. We are going consider S as the quotient of
+D obtained by identifying f and φ (that is D/T ). Notice that in
+D the subgroup T intersects each of Gp and Gq trivially, and so the
+quotient D/T = S is a direct product with central amalgamation, and
+S is isomorphic to the subgroup S̃ of D generated by t, a, s, τ, α, f and
+β 1/q f 1/q . To simplify the notation for the rest of this section we will
+refer to S̃ as S, even though S̃ is not actually a subgroup of D, but
+rather it is a subgroup of D that is isomorphic to a direct complement
+of T in D. Notice that with this notation, the derived subgroup of
+                                1     1
+S is given by [S, S] = hb, c p , β, γ q i and the center of S is given by
+   1     1
+hc p , γ q , f i.
+   We first show that S does not have an abelian factor. In the abelian-
+ization of S, the image of the center is generated by f , which is also
+the image of sp and σ q , and so is a pq’th power. Therefore f is not
+a primitive element of the abelianization. Thus by Lemma 14, S does
+not have an abelian factor.
+   Finally we will show that S is not the direct product of two non-
+abelian factors. Note that S decomposes into rationally indecompos-
+able factors as follows: S = Bp × Bq × F , where we use Bp to denote
+the subgroup of S generated by t, a, and Bq to denote the subgroup
+of S generated by τ, α, so B ∼    = Bp ∼  = Bq . The first step of the al-
+gorithm demands that we consider all ways of partitioning the given
+factors of S to obtain S = R1 × R2 , where both Ri ’s are rational and
+nonabelian. There are essentially two partitions here to consider which
+are entirely analogous. So it suffices look at the case when R1 = Bp
+and R2 = Bq × F .
+                DECOMPOSABILITY OF NILPOTENT GROUPS                               19
+
+   We must first decide whether S = R1 × R2 gives rise to a decompo-
+sition of S/Z(S). Let Xi = Ri Z(S) ∩ S. We find that
+                                          1       1           1           1
+                       X1 = ht, a, b p f p , c p , γ q , f i,
+                                              1       1           1           1
+                       X2 = hτ, α, β q f q , c p , γ q , f i.
+  We now define H1 and H2 according to the requirements of Theorem
+                          1   1
+25. The images of t, a, b p f p form a consistent polycyclic generating
+                                                 1  1
+sequence for X1 /Z(S) and the images of τ, α, β q f q form a consistent
+polycyclic generating sequence for X2 /Z(S). We let
+                                                          1       1
+                             H1 = ht, a, b p f p i,
+                                                              1       1
+                             H2 = hτ, α, β q f q i.
+Then f ∈ Z(H1 ) ∩ Z(H2 ), and so by Theorem 25 and Remark 27,
+there is no decomposition S = G1 ×G2 that matches the decomposition
+S = R1 × R2 . We have completed our proof that S is indecomposable.
+
+                                 References
+ [1] Gilbert Baumslag. Direct decompositions of finitely generated torsion-free
+     nilpotent groups. Math. Z., 145(1):1–10, 1975.
+ [2] Gilbert Baumslag, Frank B. Cannonito, and Charles F. Miller, III. Infinitely
+     generated subgroups of finitely presented groups. I. Math. Z., 153(2):117–134,
+     1977.
+ [3] Gilbert Baumslag, Frank B. Cannonito, and Charles F. Miller, III. Infinitely
+     generated subgroups of finitely presented groups. II. Math. Z., 172(2):97–105,
+     1980.
+ [4] Gilbert Baumslag, Frank B. Cannonito, Derek J. S. Robinson, and Dan Segal.
+     The algorithmic theory of polycyclic-by-finite groups. J. Algebra, 142:118–149,
+     1991.
+ [5] Gilbert Baumslag, Alexei G. Myasnikov, and Vladimir Shpilrain. Open prob-
+     lems in combinatorial group theory. Second edition. In Combinatorial and geo-
+     metric group theory (New York, 2000/Hoboken, NJ, 2001), volume 296 of
+     Contemp. Math., pages 1–38. Amer. Math. Soc., Providence, RI, 2002.
+ [6] Willem A. de Graaf. Lie algebras: theory and algorithms, volume 56 of North-
+     Holland Mathematical Library. North-Holland Publishing Co., Amsterdam,
+     2000.
+ [7] David J. Fisher, Robert J. Gray, and Peter E. Hydon. Automorphisms of real
+     Lie algebras of dimension five or less. J. Phys. A, 46(22):225204, 18, 2013.
+ [8] Fritz Grunewald and Daniel Segal. Some general algorithms II: Nilpotent
+     groups. Ann. of Math., 112:585–617, 1980.
+ [9] A. G. Kurosh. The theory of groups. Vol. II. Chelsea Publishing Company, New
+     York, N.Y., 1956. Translated from the Russian and edited by K. A. Hirsch.
+[10] V. N. Remeslennikov. Conjugacy of subgroups in nilpotent groups. Algebra i
+     Logika Sem., 6(2):61–76, 1967.
+20                 BAUMSLAG, MILLER, AND OSTHEIMER
+
+[11] V. N. Remeslennikov. An algorithmic problem for nilpotent groups and rings.
+     Sibirsk. Mat. Zh., 20(5):1077–1081, 1167, 1979.
+[12] Daniel Segal. Polycyclic Groups, volume 82 of Cambridge tracts in mathemat-
+     ics. Cambridge University Press, New York, 1983.
+
+  Gilbert Baumslag, Department of Mathematics and Computer Sci-
+ence, City College of New York, Convent Ave. and 138th Street,
+New York, N.Y. 10031, USA
+
+  Charles F. Miller III, Department of Mathematics and Statistics,
+University of Melbourne, Melbourne 3010, Australia
+  E-mail address: c.miller@ms.unimelb.edu.au
+
+  Gretchen Ostheimer, Department of Computer Science, 211 Adams
+Hall, Hofstra University, Hempstead NY 11549, USA
+  E-mail address: gretchen.ostheimer@hofstra.edu
+
