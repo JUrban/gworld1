@@ -335,3 +335,49 @@ Tally remains three whole-entry candidates (F28,N5,M0), one partial
 candidate (N8), and zero established novel results. No imported
 Kourovka mathematics/code, subagents, push or external contact. The
 48-hour deadline remains 30 September 2026 at 10:04:49 UTC.
+
+## 28 September 2026, 16:09–17:02 UTC — class-eight proof and implementation audit
+
+Developed six all-rank correction-kernel lemmas for N8(b), then a
+stronger quadratic cokernel obstruction in the exceptional (1,4)
+branch. The latter leaves at most two integer parameters, avoiding
+the initially proposed cubic/progression route. The complete candidate
+argument is in `problems/N8/class8-proof.md`; scope promotion awaits
+the remaining independent group checks. Tally remains unchanged.
+
+Exact bounded checks passed 39 kernels and eight quadratic obstructions
+in ranks two and three, and GAP independently confirmed all their
+ranks. The final rank-two suite passed 22 targets; GAP checked 15
+witnesses, 75 linear decisions, ten polynomial decisions and 50 samples.
+Preserved all syntax failures, diagnostic runs, incomplete suites,
+raw logs and relevant source snapshots. The audit details them.
+
+The rank-three investigation exposed a mutable test-fixture alias:
+appending to a borrowed Hall word changed the stored word but not its
+algebraic value. An exact reproducer archives the discrepancy; copying
+the word fixes the fixture. No proof or group-arithmetic correction
+was needed for that failure. A separate certificate change retains
+the original target word, avoiding a redundant large expansion.
+
+To make the larger checks practical, projected joint-tail systems to
+injective Hall pivot rows, preserving their entire integral solution
+sets. Added balanced cached word expansion, checked against the prior
+sequential arithmetic and every Hall word through degree eight in
+ranks two and three. Integer-kernel shortening was also verified; its
+measured improvement was small and is not credited with the major
+speed gain. All checks use exact arithmetic; no numeric approximation
+decides membership.
+
+The combined rank-three run has passed its eight primitive leading-type
+examples and both mixed-generator exceptional examples. Its random
+nonprimitive (1,3) example is expensive; a separate bounded suite is
+checking degree-seven and degree-eight negative controls. The previous
+rank-two nonprimitive example already exercised period three, residue
+one. Do not describe a partial run as a completed suite.
+
+A wider reading pass over the unresolved matrix, free-group, solvable
+and tree-action questions yielded no further candidate. In particular,
+an archimedean small-root argument does not apply to arbitrary ordered
+abelian length groups in GA1. No new scope claim follows. A telescoping
+derivation identity supplies higher (1,2m+2) kernel examples for future
+N8 investigation, but no class-nine algorithm is inferred.

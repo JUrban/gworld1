@@ -192,3 +192,22 @@ Further searches over N4, solvable-group entries and group actions supplied no c
 - [Cornell Topology Festival 2019 panel report](https://e.math.cornell.edu/sites/topology/2019/Panel-Discussion.pdf), Barmak segment, printed pp.6–7: read via web as an additional historical lead, not used in place of Barmak's paper. Not archived locally.
 
 Full original F27 HTML, linked background and actual containing-paragraph screenshot were inspected. The finite abelianization constraint and free-factor reduction in `research/notes/F27-normal-root-lead.md` are elementary observations, not new solution claims. This limited search is not a certification that no later answer exists.
+
+## N8 class-eight follow-up, 28 September 2026 approximately 16:29–16:40 UTC
+
+Targeted searches for free-nilpotent single-commutator algorithms, class
+eight and commutator equations found no matching full higher-class
+decision theorem. This is a limited search, not novelty certification.
+The already credited class-two result and general equation-system
+undecidability are distinct scopes.
+
+The primary abstract by Kenneth W. Weston, *Commutator equations over
+free nilpotent class 2 groups*, AMS Notices January 1978, abstract
+752-20-34, printed p.A-75, was read online in the
+[original issue](https://www.ams.org/journals/notices/197801/197801FullIssue.pdf).
+It announces a rank-two/class-two single-equation algorithm while
+distinguishing undecidability of systems. Only this preliminary-report
+abstract was read; no full proof audit or new prior scope beyond the
+known class-two setting is inferred. An attempted archive of the full
+issue was refused by `fetch_literature.py` because it exceeds its
+20-MiB download limit. No local full-issue archive is claimed.
