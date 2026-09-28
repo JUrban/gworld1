@@ -2,18 +2,20 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately22:08 UTC: four whole-entry candidates
-(F28,N5,M0,H4), three partial candidates (N8,F41,F38(a)), zero established
-novel results. F38(a) now has a written all-rank decision argument using
-a determinant product and an effective EDT0L relation. The polynomial
-stage and free-word controls passed independent GAP replay; the imported
-recompression construction is not implemented. Rank two is prior.
+Latest checkpoint, approximately22:22 UTC: four whole-entry candidates
+(F28,N5,M0,H4), four partial candidates (N8,F41,F38(a),F34(a)), zero
+established novel results. The two new free-group decision candidates
+share the effective EDT0L relation and polynomial-span method. F38(a)
+uses KLSS injective translation equivalence; F34(a) uses an elementary
+positivity-reflection lemma. The polynomial stage and270 explicit F34
+automorphism witnesses passed independent GAP replay. Full recompression
+is an imported theorem, not implemented. Rank-two results are prior.
 
-Next: continue the broader unresolved portfolio and adversarial candidate
-review. F38(c) does not follow from polynomial identity testing. Review
-potential applications only with their exact quantifiers; do not relabel
-new N8 families or restatements as additional problem resolutions. Keep
-all novelty qualifications and the original deadline visible.
+Next: return to the broader unresolved portfolio and adversarial candidate
+review. F38(c) does not follow from polynomial identity testing. Avoid
+counting the shared method, simultaneous-positivity observation, or new
+N8 families as additional problem resolutions. Keep novelty qualifications
+and the original deadline visible.
 
 ## First pass: source and literature triage
 

@@ -1,0 +1,1178 @@
+                                           GROWTH AND LANGUAGE COMPLEXITY OF POTENTIALLY
+                                                  POSITIVE ELEMENTS IN FREE GROUPS
+
+
+                                           EMMA DINOWITZ, LUCY KOCH-HYDE, SIOBHÁN O’CONNOR, AND ÉAMONN OLIVE
+arXiv:2512.13967v1 [math.GR] 16 Dec 2025
+
+
+
+
+                                                    Abstract. An word in a free group is called “potentially positive” if it is
+                                                    automorphic to an element which is written with only positive exponents. We
+                                                    will develop automata to analyze properties of potentially positive words. We
+                                                    will use these to give new bounds on the asymptotic growth of potentially
+                                                    positive elements in free groups of 2 to 7 generators. We prove the bounds for
+                                                    F2 are tight, giving the growth function up to a constant multiplier. We use
+                                                    the same tools to show that certain restricted automata cannot recognize the
+                                                    set of potentially positive elements.
+
+
+
+
+                                                                                 1. Introduction
+                                              A word in a free group Fr = F (x1 , . . . , xr ) is called positive if it can be expressed
+                                           as a product of the generators, x1 , . . . , xr , without inverses.
+                                              Groups which can be given as a presentation with a single positive relator are
+                                           called positive one-relator groups. Several results are known about this class
+                                           of groups:
+                                                 • It is shown in [1] that positive one-relator groups are residually solvable.
+                                                   [11] strengthens this by proving that positive one-relator groups are free-
+                                                   by-solvable.1
+                                                 • It is shown in [20] that positive one-relator groups satisfying the C ′ (1/6)
+                                                   small cancellation condition are residually finite.
+                                           Unfortunately, the probability that a randomly selected word of a given length is
+                                           positive vanishes exponentially as the length increases; the number of positive words
+                                                                                                                                 n−1
+                                           of length n is rn while the total number of words of length n is 2r (2r − 1)              .
+                                              However, applying a free group automorphism to the relators of a group presen-
+                                           tation produces an isomorphic group. Thus if a word is automorphic to a positive
+                                           word, its associated one-relator group has properties analogous to the ones above.
+                                           Such words are called potentially positive, and were first introduced in [2].
+                                              This motivates our main topic of investigation:
+                                           Question 1.1. How many potentially positive words are there of length n in Fr ?
+                                           i.e. How does the set of potentially positive words grow?
+                                              Previous work has calculated asymptotic approximations of the growth of other
+                                           similar classes of words. We call words that are automorphic
+                                                                                                     √ to a generator prim-
+                                                                                                        n
+                                           itive. [13] gives the growth of primitive words in F2 as 3 , and [12] gives the
+                                           growth of primitive words in Fr as (2r − 3)n when r > 2. (These are asymp-
+                                           totic approximations. We will formally define what sort of approximations these
+                                             1[11] also shows that torsion-free positive one-relator groups satisfy an even stronger property.
+                                           They are free-by-(Q-solvable).
+                                                                                           1
+2        GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY
+
+
+are later.) Since primitive words are also potentially positive, these form a start-
+ing lower bound for the growth of potentially positive words. This also tells us
+that, apart from rank 2, the potentially positive elements grow significantly faster
+than the positive elements. In fact the density of the positive elements among the
+potentially positive elements goes to zero as the size increases.
+   The main result of this paper answers Question 1.1 for F2 . More specifically, we
+prove the following theorem.
+Theorem 1.2. The number of potentially positive words in F2 of length n is Θ(λn1 ),
+where λ1 ≈ 2.50506841362147 is the largest root of the polynomial
+(1)                            λ4 − 3λ3 + λ2 + λ − 1
+   From this calculation we see that potentially positive words do exponentially
+vanish in the set of all reduced words in F2 , but at a slower rate than positive
+words.
+   We also give novel lower bounds for the growth of potentially positive words in
+Fr for 3 ≤ r ≤ 7. To our knowledge, the best lower bounds for ranks greater than 7
+remain those coming from [12]. Further progress on Question 1.1 likely requires an
+algorithm that recognizes potentially positive words in Fr ; our answer in F2 relies
+on one for F2 first provided by Goldstein in [5], and improved in [9]. It is not known
+whether such an algorithm exists for r > 2, thus we ask:
+Question 1.3. How complicated is it to decide whether a word is potentially posi-
+tive?
+   In particular, we would like to determine what sorts of automata can recognize
+potential positivity. The existing algorithms show that for rank two anything at
+least as powerful as a Turing machine can decide it. In fact [9] provides an algorithm
+which uses worst-case linear memory and so the rank two case can be decided with
+a linear bounded automaton.
+   In this paper we will approach the question in the opposite direction. We will
+show that certain models of computation (including finite state machines and push
+down automata) are insufficient for deciding Fr for r ≥ 2.
+
+                                  2. Background
+2.1. Growth and density. This paper deals heavily with the growth of sets of
+words.
+Definition 2.1. Let S be a set of words on a finite alphabet Σ. We define the
+growth function gn (S) to be the number of the words in S with length n.
+  We will define several asymptotic ways to consider growth for these functions.
+The finest notion of growth we will use is asymptotic equivalence.
+Definition 2.2. We say two functions f, g : N → N are asymptotically equiva-
+lent, written f ∼ g, when
+                                     f (n)
+                                lim         =1
+                               n→∞ g(n)
+
+    Coarser notions of growth will be useful.
+Definition 2.3. We will have the following classes of N → N functions:
+     • O(g) = {f | ∃C, m : ∀n ≥ m : Cg(n) > f (n)}
+         GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY                        3
+
+
+      • Ω(g) = {f | g ∈ O(f )}
+      • Θ(g) = Ω(g) ∩ O(g)
+
+   These create a partial order, being analogous to ≤, ≥, and =, respectively. The
+most well known of these notions is certainly the first, called “big-O”, which is
+commonly used in algorithmic analysis. We will make use of each of them. We will
+also make sparing use of the classes analogous to < and >:
+      • o(g) = O(g) \ Θ(g)
+      • ω(g) = Ω(g) \ Θ(g)
+
+Definition 2.4. A set B ⊆ A ⊆ Σ∗ has a density function defined as
+
+                                          gn (B) + 1
+                                   n 7→
+                                          gn (A) + 1
+
+Definition 2.5. A set B ⊆ A is negligible in A when the limit of the density is
+0. Alternatively B is generic in A when the limit of the density is 1.
+
+  A stronger condition will also be useful.
+
+Definition 2.6. A set B ⊆ A with density function d is exponentially negligible
+in A when d(n) ∈ O (C −n ) for some constant C > 1. Likewise B is exponentially
+generic when its relative complement, A \ B, is exponentially negligible.
+
+2.2. Free groups. In order to increase the visual contrast between letters we will
+generally write the generators of a free group using colored shapes ( , , , and ).
+We will represent the inverse of a generator with the outline of the corresponding
+shape ( , , , and respectively).
+    We will represent automorphisms by showing the action only on the affected
+generators. For example, in F ( , ) we use 7→            to indicate the automorphism
+which performs that mapping and behaves as the identity on .
+    We say a word is cyclically reduced if its first and last letters are not each
+other’s inverses. Similarly, we can find a word’s cyclic reduction by deleting its
+first and last letter until it is cyclically reduced. Since cyclic reduction is always a
+conjugation, the cyclic reduction of a word is always in the same automorphic orbit
+as the word.
+    We will see in the following results that finding the growth rate of the cyclically
+reduced words is often sufficient for determining the growth rate of all words. In
+fact, if a set of words grows faster than the conjugacy class of one of the words,
+then the growth of the cyclically reduced words is the same as that of the whole set.
+We will see this in Corollary 2.8, but first we need the following technical lemma.
+
+Lemma 2.7. Let us have two functions f and g, and some b > a > 1 such that
+f (n) ∈ O(an ) and g(n) ∈ Ω(bn ). Roughly speaking, the exponential
+                                                              Px part of g has a
+greater base than the exponetial part of f . The function x 7→ i=0 f (i)g(x − i) is
+in Θ(g).
+
+Proof. The lower bound is trivial, so we will proceed to the upper bound.
+4        GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY
+
+
+    Observe the following.
+                          x
+                                            !        x
+                                                                       !
+                          X                          X f (i)g(x)
+(1)                  O          f (i)g(x − i)   ⊆O
+                          i=0                         i=1
+                                                              bi
+                                                            x
+                                                                       !
+                                                            X ai
+(2)                                             ⊆ O g(x)
+                                                            i=1
+                                                                  bi
+                                                             ∞
+                                                                       !
+                                                            Xai
+                                                ⊆ O g(x)
+                                                         i=1
+                                                             bi
+(3)                                             = O (g)
+
+
+(1) holds because g(n) ∈ Ω(bn ) implies bg(x−1) ≤ g(x) and thus g(x−i) ≤ b−1 g(x).
+(2) holds because f (n) ∈ O(an ). (3) holds because b > a and thus the series
+converges to (1 − b/a)−1 , a constant.                                          □
+
+Corollary 2.8. Let S be a subset of Fr that contains only cyclically reduced words.
+Let S̄ be the set of words whose
+                              cyclic reductions
+                                            √ are in S. If the growth of words
+of length ℓ in S is g ∈ Ω bℓ for some b > 2r − 1, then the growth of words of
+length ℓ in S̄ is Θ(g).
+Proof. Let us consider words in S̄ of length ℓ and cyclically reduced length ℓ′ . These
+words are of the form vwv −1 where w is in S and there is no cancellation between
+v and w or between w and v −1 . It follows that |w| = ℓ′ and |v| = (ℓ − ℓ′ )/2.
+From our hypothesis, the growth of words of length ℓ′ in S is some function g. v
+can be any word of length (ℓ − ℓ′ )/2 so long as its last letter does not cancel with
+the first letter of w or that of w−1 . The growth of such words is some function
+                             ′            √        ℓ−ℓ′
+f (ℓ − ℓ′ ) ∈ Θ (2r − 1)(ℓ−ℓ )/2 = Θ        2r − 1      . Thus the growth of words of
+this form is g(ℓ′ )f (ℓ − ℓ′ ). The set of all words in S̄ of length ℓ is then the sum for
+every ℓ′ between 0 and ℓ. Thus by Lemma 2.7 this is Θ(g).                               □
+
+   This corollary will be applicable to all of the sets addressed in the paper. We are
+lucky enough that our growth is always significantly higher than that of a conjugacy
+class. However, an analogous argument can be applied to show the following as well.
+Corollary 2.9. Let S be a subset of Fr that contains only cyclically reduced words.
+Let S̄ be the set of words whose
+                                cyclic reductions
+                                              √ are in S. If the growth of words
+of length ℓ in S isg ∈ O bℓ for some b < 2r − 1, then the growth of words of
+                     √       ℓ
+length ℓ in S̄ is Θ    2r − 1 .
+
+   Cyclically reduced primitive
+                      √         words in F2 grow as a polynomial, and so the total
+set grows at a rate of 3, the same rate as a conjugacy class.
+
+2.3. Potential positivity. We will need a few facts about potential positivity,
+especially in F2 . First, we present a basic but very useful fact about potential
+positivity in free groups of any rank.
+Proposition 2.10. Suppose a word w in Fr = F (x1 , . . . , xr ), r ≥ 2, has r − 1
+generators that only occur with positive exponents. Then w is potentially positive.
+         GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY                                5
+
+
+Proof. Suppose without loss of generality that every generator except xr only occurs
+with positive exponents. Then every syllable of xm       r where m is negative occurs
+after a syllable of another generator to a positive power. Let k be the largest
+negative exponent in absolute value that appears on xr in w. Since x1 , . . . , xr−1
+only appear with positive exponents, applying the automorphism xi 7→ xi x−k    r  for
+each i ∈ {1, 2, . . . , r − 1} sends w to a positive word.                         □
+   We will make extensive use of the following theorem of Goldstein [5] (for an
+alternate proof, see [9]).
+Theorem 2.11 (Goldstein’s Criterion). Let w be cyclically reduced and potentially
+positive. If we consider w as a cyclic word, there exists x, y ∈ { , , , } such that
+every occurrence of x is preceded and followed by y.
+  We will also take the following related technical lemma from [9].
+Lemma 2.12. If w ∈ F2 is potentially positive and satisfies Goldstein’s Criterion
+with x = and y = , applying 7→          to w sends it to a word satisfying Goldstein’s
+Criterion either with x = and y = or with x = and y = . By symmetry, if
+w is potentially positive and satisfies Goldstein’s Criterion with x = and y = ,
+applying 7→      to w sends it to a word satisfying Goldstein’s Criterion either with
+x = and y = or with x = and y = .
+   Finally, for brevity, we will use the shorthand PPr to represent the set of
+cyclically-reduced potentially positive words in in Fr .
+
+                            3. Automata and matrices
+3.1. Automata and matrices. Our method for creating lower bounds will be to
+provide automata which generate potentially positive words (i.e. regular languages
+of potentially positive words) and calculate their growth from the automaton. We
+will consider an automaton A to be a directed graph whose nodes are labeled with
+letters in the free group (that is the generators and their inverses). We will call this
+labeling function ηA . ηA induces a mapping from paths in the digraph to words in
+the free group. A path here is defined to be a sequence (finite unless specified) of
+nodes such that for any two consecutive nodes x and y, there is an edge from x to
+y. Considering the path as a sequence of nodes, we get a word by applying ηA to
+each node in the sequence.
+   For this reason we will call an automaton reduced when no edge of the digraph
+connects a node to an inversely labeled node. If an automaton is reduced then the
+image of any path is a reduced word.
+   We will in particular be interested in closed paths and their images. We say a
+path from a node x to a node y is closed if there exists an edge from y to x. We will
+consider the empty path, that is the path with no nodes, to be closed by vacuity.
+Closed paths in reduced automata must then lift to cyclically reduced words, since
+we require that there exists an edge between the last and first letters.
+   We will also define a mixing2 automaton.
+Definition 3.1. We say a digraph (or by extension an automaton) is mixing if
+there exists some N such that for every ordered pair of nodes x and y, and for every
+n ≥ N , there exists a path from x to y of length n.
+  2We borrow this terminology from symbolic dynamics. See [10, Def. 4.5.9] for a comparison.
+6        GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY
+
+
+   These automata will be useful to us because of the following theorem which
+allows us to count closed paths:
+Lemma 3.2. Let G be a mixing sofic shift whose adjacency matrix has largest
+eigenvalue λ. The number of closed paths of length n in G is Θ(λn )
+Proof. An irreducible sofic shift has a right resolving presentation G = (G′ , L)
+([10, Thm. 3.3.11]) and for a right resolving graph the number of paths |Ln | of
+length n satisfies k1 |Ln (G′ )| ≤ |Ln (G)| ≤ |Ln (G′ )| ([10, Thm. 4.1.13]), where k is
+the number of states in G′ . An irreducible graph has Cλn ≤ |Ln | ≤ C ′ λn . The
+number of closed paths Pn of length n has |Pn | ≤ |Ln | ≤ C ′ λn . Since G is mixing
+there is an N so that every pair of nodes v, v ′ has a path from v to v ′ of length N .
+Therefore there is an embedding of Ln into Pn+2N,w (the closed paths about the
+node w) by adding a path of length N from w to the word and a path of length
+N from the word to w. Therefore Cλ−2N λn ≤ |Ln−2N | ≤ |Pn,w | ≤ |Pn | for all
+n ≥ 2N .                                                                              □
+   In practice nearly everything discussed here will be mixing, however for com-
+pleteness we can give the following corollary:
+Corollary 3.3. Let G be the sum of finitely many mixing digraphs. The number
+of closed paths of length n in G is Θ(λn ), where λ is the largest eigenvalue of the
+adjacency matrix of G.
+Proof. The adjacency matrix of the sum of digraphs is a block matrix with blocks
+consisting of each component of the sum. λ is then the maximum eigenvalue of the
+blocks. It follows then that if G has k components the number of closed paths is
+O(kλn ) = O(λn ).
+   Since there is also a component which has largest eigenvalue λ, the paths in that
+block grow Θ(λn ). Thus the number of closed paths in G is Ω(λn ).                □
+   Our strategy then is to use Corollary 3.3 to calculate the number of closed paths
+in the digraph. If our labeling map is one-to-one, then this gives us the Θ-class for
+the set of (cyclically reduced) words produced by the machine. However, injectivity
+is going to be too strong of a requirement for what we want to do.
+Definition 3.4. The node labeling of an automaton is one-to-constant if there
+exists a constant c such that for any cyclically reduced word w there are at most c
+closed paths whose image is w.
+   To make it easier to determine if an automaton’s labeling is one-to-constant we
+will give the following helpful lemma:
+Lemma 3.5. The node labeling of a mixing automaton is one-to-constant iff no
+distinct paths have the same start-point, end-point, and image.
+Proof. Suppose we have two distinct paths, p0 and p1 , from x to y with ηA (p0 ) =
+ηA (p1 ). Now let us have an arbitrary path q from y to x. Since the automaton is
+mixing q must exist. Let p0 ◦ q denote the path formed by following p0 and then q.
+We have that ηA (p0 ◦ q) = ηA (p1 ◦ q). Let us say w = ηA (p0 ◦ q). Since there are at
+least two ways to get from x to itself with an image of w there are at least 2n ways
+to get from x to itself with an image of wn . Since the length wn grows linearly on
+n and 2n grows exponentially on n, there is no polynomial bound on the number
+of duplicate words produced, let alone a constant bound.
+         GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY                      7
+
+
+   Now let us suppose that no such pair of paths exist. For an arbitrary pair of
+closed paths which map to the same word, we can show they must be completely
+disjoint. If they were not disjoint they would share some node x. Then we could
+construct distinct paths from x to itself which map to the same word by following
+our two closed paths starting from x. Since any collection of duplicate words must
+be induced by a set of pairwise disjoint closed paths, the total number of duplicate
+words is bounded above by the number of nodes, a constant.                        □
+
+  The following:
+Lemma 3.6. Let A be a mixing automaton whose labeling is one-to-constant. Let
+p(n) be the number of closed paths of length n in A. Let w(n) be the number of
+cyclic words of length n produced by A. w ∈ Θ(p).
+                                                                     1
+Proof. Since the labeling is one-to-constant and preserves length,     p(n) ≤ w(n) ≤
+                                                                     c
+p(n). Therefore w ∈ Θ(p).                                                          □
+
+   From here we have everything that is needed to prove our lower bounds. We
+will give several machines, demonstrate they are reduced, mixing, one-to-constant
+and produce only potentially positive words. Their eigenvalues then give us lower
+bounds.
+   However, we think that this would be a be a bit mystical. Our techniques for
+producing the automaton may be useful. It is possible for a fixed automaton A and
+automorphism φ to construct an automaton which produces exactly the images of
+the words produced by A under φ. Our strategy is then to start from the automaton
+which produces the positive words and apply automorphisms to increase the largest
+eigenvalue. The automata we produce are all the result of limiting an infinite family
+of automorphisms.
+
+                                4. Lower bounds
+
+
+
+     Figure 4.1. A machine which only produces potentially positive words
+
+
+
+
+4.1. Rank 2.
+Theorem 4.2. All words generated by the machine in Figure 4.1 are potentially
+positive. Furthermore, the growth of paths of length n through this machine is Θ(λn1 )
+where λ1 ≈ 2.50506841362147 is the largest root of the polynomial
+                         (1 − λ) λ4 − 3λ3 + λ2 + λ − 1 .
+                                                          
+8       GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY
+
+
+Proof. Fix a word w produced by the machine. Consider the effect of 7→        on w.
+All the syllables in w are flanked by on both sides, so 7→       decreases each of
+their lengths by 1. Since each is preceded by n , any it introduces cancels with
+one of the s and the introduces a new to replace the one that was canceled.
+Thus the resulting word is still generated by the machine and has strictly fewer
+ s (unless it had none to begin with). By induction, repeated application of this
+automorphism eventually results in a word with no s. Since all words in F2 which
+have only positive exponents on one of the generators are potentially positive, this
+word is potentially positive.
+   The machine has two nodes labeled with , however we can be sure there are no
+duplicate paths since one has only incoming edges from itself and and the other
+has only incoming from itself and .
+   The characteristic polynomial of the transition matrix for the machine in Fig-
+ure 4.1 is
+                          (1 − λ) λ4 − 3λ3 + λ2 + λ − 1 .
+                                                       
+
+This has largest root λ1 ≈ 2.50506841362147, and thus the growth of paths of
+length n is Θ(λn1 ).                                                      □
+
+
+
+
+      Figure 4.3. This machine only produces potentially positive words.
+
+4.2. Rank 3 through 7. To get lower bounds in higher ranks we will provide a
+general strategy. For this it might help to refer to the machines in Figures 4.3 and
+4.4.
+   Looking specifically at Figure 4.4, the strategy to take words produced by this
+to positive words is to send out in both directions from , then send out in
+        GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY                      9
+
+
+
+
+                                                              ±
+
+
+
+
+        Figure 4.4. The machine only producing potentially positive
+        words described in (2) for rank 4. In that machine the nodes
+        labeled and have the exact same incoming and outgoing edges,
+        except in that they each have a self-loop but no edge to the other.
+        To reduce clutter, we have combined these two nodes with nearly
+        identical behavior into a single node. This node is labeled ± ,
+        and indicates that when following an incoming arrow to that node
+        from another one, the machine can produce either or . However,
+        when following an in arrow from ± to itself, the machine cannot
+        switch the sign. When calculating the eigenvalue one can use the
+        original matrix or the above if the edges directed to the ± labeled
+        node (other than the self-loop) are weighted with a 2 (representing
+        the two possibilities).
+
+
+
+both directions from . The circular portions of the machine on the left and right
+insulate the s and s until the s and s in the middle are eliminated. This works
+because everything that can point to the nodes on the right eventually “becomes”
+a when we send out in both directions from . At the end we can use the s to
+eliminate the remaining appearances of and the s to eliminate the remaining s.
+Then we can use Proposition 2.10 to finish. In higher ranks we iterate this strategy.
+We will give the general description in more detail below.
+10       GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY
+
+
+   We first present the general adjacency matrix of our automaton for Fr as a block
+matrix below. Here U is a matrix with all entries above the diagonal equal to 1
+and all entries below and on the diagonal equal to 0. L is U ⊺ , and I is the identity
+matrix. All of these blocks are square (r − 2) × (r − 2) matrices.
+   We will also name and label each node. We name the nodes with Greek letters
+corresponding to the row of the block array and with a subscript equal to the
+subscript of the label (e.g. there is no ε1 node because there is no node labeled x−1
+                                                                                   1
+in the ε row of the block matrix).
+   It is helpful to note that in all cases a U between two sets of nodes means that
+there is a transition between nodes where the source has a strictly higher index
+than the destination. L has the opposite meaning, with the source having a strictly
+lower index than the destination.
+
+            α1    {x
+                  1
+                                1 1     1   1    0       1     0   0   1
+                  
+                     x       2                                         
+             βi             ..                                          
+                             . 1  1     1   1   U +L    U      0   0   U
+                                
+                                                                        
+                    xr−1 
+                                                                       
+                                                                         
+            γr    {x             1 1     1   0    1       0     0   0   0
+                                                                        
+                   r−1 
+            δr     x             1 1     0   1    1       0     0   0   0
+                                                                        
+                   r −1       
+                     x
+                                                                         
+                   2 
+                                                                       
+                          .. 1
+                                                                         
+             εi            .      L     0   0   L+I      0     0   0   0
+                                                                         
+                   −1 
+                                                                        
+                  xr−1
+                                                                        
+                       −1 
+                                                                        
+                    x
+                   2 
+                                                                         
+                           .. 1 U + L
+                                                                         
+             ζi                          1   1    L     U +I    0   0   U
+                                                                         
+(2)                         . 
+                   −1 
+                                                                        
+                  xr−1 
+                                                                        
+                                                                         
+                   x2 
+                                                                       
+                                                                         
+             ηi          ..     1 L     0   0    L       0     I   0   0
+                                                                         
+                         .                                            
+                    x
+                                                                       
+                   r−1−1 
+                                                                        
+                  
+                    x 1        
+                                                                         
+                                                                         
+             θi         ..                                              
+                         . 0      0     0   0    0       0     I   0   0
+                   −1 
+                                                                        
+                  xr−2 
+                                                                        
+                                                                         
+                   x2 
+                                                                        
+                                                                        
+             ιi        ..      0 0     0   0    0       0     0   I
+                                                                         
+                                                                        I
+                       .
+                    xr−1
+                  
+
+
+Theorem 4.5. All words produced by (2) are potentially positive.
+Proof. Let us have a word w produced by the machine in (2). We will explicitly
+construct a sequence of automorphisms which brings w to a positive word. To begin
+we will apply the automorphism x1 7→ xn2 2 x1 xn2 2 where n2 is one more than the
+exponent on the largest x−1
+                         2 syllable, i.e. the length of the longest run of consecutive
+x−1
+ 2  s. Three  nodes in the machine are labeled with x−1   2 . Note that two of these,
+ε2 and ζ2 , must always occur in a syllable adjacent to a x1 . Specifically ε2 must
+always come after a x1 and ζ2 must always come before an x1 . Thus applying the
+automorphism x1 7→ xn2 2 x1 xn2 2 replaces all syllables generated by ε2 and ζ2 with
+         GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY                         11
+
+
+positive x2 syllables. Note further that the only place x−1    1 can occur is in substrings
+of the form x1 xi2 x−1
+                    1  x j
+                           x
+                         2 1 (for positive i and j). Thus     the x−n
+                                                                   2
+                                                                     2
+                                                                       syllables introduced
+        −1
+from x1 syllables by applying this automorphism are immediately canceled.
+   Next we apply x2 7→ xn3 3 x2 xn3 3 where n3 is one more than the exponent on the
+largest x−1                                         −1
+          3 syllable. This eliminates all the x3 syllables produced by ε3 and ζ3 .
+              −1
+Note that x2 syllables produced by θi may appear in various substrings in the
+initial word w, but after applying x1 7→ xn2 2 x1 xn2 2 , they always appear in substrings
+                          j
+of the form x2 xi3 x−1                         −1
+                     2 x3 x2 . Thus no new x3 syllables are introduced by applying
+this second automorphism.
+   We continue this process by having each generator up to xr−2 produce the follow-
+ing generator in both directions, until we have eliminated all syllables originating
+from εi and ζi .
+   At this point every negative syllable is either:
+     (1) appearing in a subword of the form xr−1 x−1        i xr−1 for i < r − 1. (These
+         originate from θi )
+     (2) a x−1
+            r syllable. (These originate from δi )
+We will handle (1) first. Note that at this point all xr−1 syllables are positive.
+We start by applying the automorphism xr−1 7→ xr−1 xr−2 . This eliminates all
+the remaining negative xr−2 syllables since they are all adjacent to a xr−1 . Now
+every syllable previously covered by (1) is adjacent to a xr−2 , so we perform the
+automorphism xr−2 7→ xr−2 xr−3 and continue in this descending pattern until we
+apply x2 7→ x2 x1 , eliminating the final negative syllable of type (1).
+   Now the only negative syllables remaining are of the form x−k        r , so by Proposi-
+tion 2.10 we are done.
+                                                                                          □
+
+                                   5. Upper bound
+  We want to produce an upper bound for the growth rate of potentially positive
+words in F2 , so we will begin by using a necessary condition for potential positivity.
+
+
+         Figure 5.1. A machine which produces exactly those words
+         words which satisfy Goldstein’s Criterion with y = and x =
+
+
+
+
+   The machine in Figure 5.1 produces all words which satisfy Goldstein’s Criterion
+for a particular choice of x and y. It is easy to see that the growth rate of all
+words which satisfy Goldstein’s Criterion has the same growth rate, since there
+are 8 meaningful x, y combinations and each combination gives a relabeling of the
+machine in Figure 5.1.
+   Thus we have the following:
+Lemma 5.2. The growth of PP2 is Ω(λn1 ), where λ1 ≈ 2.53209, is the largest root
+of the polynomial:
+(3)                                   λ3 − 3λ2 + 3
+12       GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY
+
+
+Proof. From Figure 5.1 we get the following transition matrix:
+                                             
+                                  1 1 0 0
+                                 1 1 1 0
+(4)                              
+                                 0 1 1 1
+                                              
+
+                                  0 0 1 0
+We can calculate the characteristic polynomial of (4) to be
+                                 λ λ3 − 3λ2 + 3
+                                                
+
+   Since each node has a unique label, the function assigning paths to words is
+certainly injective. Thus the growth rate of the machine in Figure 5.1 is the largest
+root of (3). By Theorem 2.11, every potentially positive word is generated by this
+machine, so the growth rate of potentially positive words is Ω(λn1 ).              □
+
+   We will use the notation γ to mean the automorphism ↔ . We have seen
+that the number of potentially positive words is bounded above by the number
+of words that satisfies Goldstein’s Criterion. We can bring this bound down by
+considering words which satisfy Goldstein’s Criterion, and still satisfy it after ap-
+plying an automorphism. By Lemma 2.12, if a potentially positive word satisfies
+the criterion with a certain x and y, after applying a certain automorphism it must
+either satisfy the criterion with the same x and y or with γ(x) and γ(y). We can
+then split the set of potentially positive words satisfying Goldstein’s Criterion after
+applying the automorphism from Lemma 2.12 into two sets; one corresponding to
+x and y, the other to γ(x) and γ(y). The Θ-class of words satisfying the criterion
+after the automorphism is then the Θ-class of the larger of these two sets, so we can
+consider them separately. Furthermore, if we apply the automorphism specified by
+Lemma 2.12 again, each of these two sets can be split into two more cases in the
+same manner. Iterating this process gives an infinite binary tree (Figure 5.4). Each
+layer of the tree consists of all the ways a word can satisfy Goldstein’s Criterion
+over the course of a fixed number of iterations of this process. The fastest growing
+set in each layer gives an upper bound on the number of potentially positive words
+in F2 . We formalize this idea with the following definition.
+Definition 5.3. Let us define G to be the set of words satisfying Goldstein’s
+Criterion with x = and y = . Let φ be the automorphism 7→        described in
+Lemma 2.12 and let γ be the automorphism ↔ as before. Recursively:
+                         R(S) = {w : w ∈ G, φ(w) ∈ S}
+                         L(S) = {w : w ∈ G, γ(φ(w)) ∈ S}
+We will employ a convenient shorthand wherein we leave the parentheses and a
+final G as implicit. Thus, e.g. we will write L2 R to mean L2 (R(G)).
+   Our proof of Theorem 1.2 relies on the following three facts about the tree in
+Figure 5.4.
+Proposition 5.5. For every set S in the tree, g(SL), g(SR) ∈ O (g(S)). In other
+words, the growth rate of the children of S is at most that of S.
+  We will call the set of words generated by the machine in Figure 4.1 R∞ , a
+notation which will make sense in light of the following proposition:
+        GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY                     13
+
+
+                                          G
+
+
+
+
+                            L                         R
+
+
+
+
+                      L2          LR           RL            R2
+
+
+
+
+                 L3    L2 R LRL LR2 RL2 RLR R2 L                  R3
+
+             Figure 5.4. The first four layers of sets drawn as a tree
+
+Proposition 5.6.
+                                   ∞
+                                   \
+                                         Rn = R∞
+                                   n=0
+
+Proposition 5.7. For all n ∈ N,
+                                g(Rn L) ∈ o(g(R∞ ))
+  Taking these propositions as given for now, we can prove our main result:
+Proof of Theorem 1.2. Let us call the set of words produced by the nth layer of the
+tree Yn . These can be thought of as all words which do not reach a non-positive
+word after n steps of Goldstein’s algorithm.
+    We can see that g(Yn ) gives successive upper bounds on the growth of PP2 which
+get tighter as n approaches infinity. We will show that g(Yn ) ∼ g(Rn ), and so the
+pointwise limit of g(Rn ) as n approaches infinity is an upper bound.
+    Since Rn L grows strictly slower than R∞ (Proposition 5.7), by induction, all
+sets in the tree which include any L in their name must have strictly slower growth
+than R∞ . Since R∞ is a subset of Rn it must grow slower (g(Rn ) ∈ Ω(g(R∞ ))),
+and so for any node in the tree S containing an L, g(S) ∈ o(g(Rn )). Since Yn is
+the union of Rn with other sets in the tree containing L, g(Yn ) ∼ g(Rn ).
+    Since g(Rn ) converges to at most g(R∞ ), this means our upper bounds converge
+to O(gk (R∞ )) = O(λk1 ). From Theorem 4.2 we have that gk (PP2 ) ∈ Ω(λk1 ) and so
+gk (PP2 ) ∈ Θ(λk1 ).                                                             □
+   All that remains is to prove the propositions. The proof of Proposition 5.5 is the
+shortest.
+Proof of Proposition 5.5. We will prove only that g(SL) ∈ O(g(S)). The other case
+follows in the same manner. We proceed by induction over all paths in the tree. By
+Definition 5.3, we have that L ⊆ G. Let Z0 and Z1 be sets such that Z0 ⊆ Z1 . It
+follows then that R(Z0 ) ⊆ R(Z1 ) and likewise L(Z0 ) ⊆ L(Z1 ). Then by induction
+SL ⊆ S and therefore g(SL) ∈ O(g(S)).                                            □
+14      GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY
+
+
+   Now we will give descriptions of the languages Rn and Rn L in terms of forbidden
+subwords (called “forbidden blocks” in [10]). This description will be useful for
+proving the other two propositions.
+Lemma 5.8. The set Rn is all reduced words that do not contain the following
+subwords:
+     •
+     •
+     • all k where 0 ≤ k ≤ n
+Proof. First we will show none of these subwords may appear. It follows from
+Goldstein’s Criterion that , , and     cannot appear. The set Rn can be given
+as:
+(5)                   Rn = {w | w ∈ G, ( 7→      n
+                                                     ) (w) ∈ G}
+Suppose w ∈ Rn contains a subword k . Its image under 7→ n must contain
+   k−n
+        , since the right produces −n on its left and neither can cancel under an
+automorphism which only introduces new and letters. If k < n, this image then
+contains      which is forbidden in G. If k = n, this image then contains   which is
+also forbidden in G. Therefore k must be larger than n.
+    Suppose w is a cyclic word not containing , , or . Then can only appear
+next to in w, so w ∈ G = R0 . We will proceed by induction on n. Suppose w
+does not contain , , or k for any 0 ≤ k ≤ n. We will show that if φ is the
+automorphism 7→ , φ(w) does not contain , , or k for any 0 ≤ k ≤ n − 1.
+Suppose by way of contradiction that it does contain one of these types of subword.
+If φ(w) contains , φ must have added an that did not cancel, so w must have had
+a subword of the form        or , contradicting our assumption. Similarly, if φ(w)
+contains , either the was already there in w or it was added by φ. Therefore
+w either contained a subword of the form        or , contradicting our assumption.
+Finally, if φ(w) contains a subword of the form k for 0 ≤ k ≤ n − 1, w must have
+contained a subword of the form k+1 , again contradicting our assumption. □
+Lemma 5.9. The set Rn L is all reduced words in Rn which do not contain any
+subwords of the form k where k > n + 2.
+Proof. Let φ be the automorphism 7→ . First, let us note that the set Rn L can
+be given as
+                Rn L = {w | w ∈ G, φn (w) ∈ L}
+                      = {w | w ∈ G, φn (w) ∈ G, γ(φn+1 (w)) ∈ G}.
+This shows immediately that if w is not in Rn then it is not in Rn L.
+   Next, suppose w contains a subword of the form k for some k > n + 2. Let
+ψ be the automorphism γ ◦ φn+1 . Then ψ( k ) contains k−n−1 as a subword.
+Since k > n + 2, the exponent on in the image of the subword must be at least
+two, which means that ψ(w) contains     as a subword and so is not in G. Therefore
+if w contains a subword of the form k , it is not in Rn L.
+   Suppose, on the other hand, that w ∈ Rn and w does not contain a subword of
+the form k where k > n + 2. To show that w is in Rn L, all we need to do is
+show that γ(φn+1 (w)) ∈ G. This is equivalent to showing that , , and           do
+not appear as subwords in φn+1 (w). Any occurrence of in φn+1 (w) must have
+already been in w. Indeed, any new must be produced from an , however each
+         GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY                      15
+
+
+  must be adjacent on both sides to syllables, and by Lemma 5.8 the exponent
+on these syllables must be greater than n. Since w ∈ G, it cannot contain m or
+  m
+      as subwords, and so any occurrence of in w must be in a subword of the
+form k for k > 0. Thus, so long as k ≤ n + 2 for any such subwords of w,
+cannot be a subword of φn+1 (w), and so w is in Rn L.                       □
+Proof of Proposition 5.6. It follows from Lemma 5.8 that the union of all Rn are
+the words not containing , , or k for any k ≥ 0.
+   It is clear from Figure 4.1 that none of these subwords can appear in R∞ .
+   Suppose w does not contain , , or k for any k ≥ 0. We will show that
+the machine in Figure 4.1 produces w. From our assumptions it follows that every
+  in w is preceded and followed by and that cannot appear before or after .
+Finally, a that occurs after an cannot be followed by an . Thus we see that
+indeed w is a path in the machine.                                            □
+Proof of Proposition 5.7. Let us consider the cyclic words in Rn L. We will define
+a function f which takes a generic subset of Rn L and assigns each word to a word
+of equal length in R∞ . This will show that gk (Rn L) ∈ O (gk (R∞ )), because such
+an encoding would show that the chosen subset grows as R∞ and the remainder is
+negligible and so does not effect the asymptotic growth.
+   There are two differences between the machines Rn L and R∞ :
+      • Rn L forbids all subwords of the form n+2+k where k is a positive integer,
+        while R∞ does not.
+      • R∞ forbids all subwords of the form n+k where k is a positive integer,
+        while Rn L does not.
+All other subwords (not containing any of the above subwords) are either illegal in
+both machines, or legal in both machines.
+   Our function f will then replace segments of the form:
+                            k0    n+k1     n+k2           n+ks−1    ks
+                                                   ...
+where s ≥ 2 and k0 , . . . , ks are positive integers, with the following:
+                        k0 −1    n+k1 +2    n+k2           n+ks−1    ks −1
+                                                    ...
+We present some observations.
+      • The segments we are replacing are legal in Rn L but illegal in R∞ .
+      • It is impossible for segments of the first form to overlap, and thus there is
+         no ambiguity with the replacement scheme.
+      • So long as a word in Rn L contains , all its subwords that are illegal in R∞
+         must be of this form.
+      • The image after replacement in f is a string which is legal in R∞ , but illegal
+         in Rn L.
+      • The segment and its image have the same length.
+If we consider the subset of words in Rn L which do not contain , we can see
+that they must also not contain , and thus they can grow at most O 2ℓ . This
+makes them negligible in the total set Rn L, which certainly grows faster than that.
+Therefore, if we let Rn L′ be the set of words which are in Rn L and contain , we
+have that the growth of Rn L′ is asymptotically equivalent to Rn L.
+   The function f : Rn L′ → R∞ is an injective function which maintains the length
+of the input. Thus we have
+16        GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY
+
+
+
+
+                          g (Rn L) ∼ g (Rn L′ ) ∈ O(g (R∞ ))
+                                       n n+3
+   Furthermore the subword v =                  cannot appear in the image of any
+       n ′
+w ∈ R L under f . This is because v is illegal in Rn L, but cannot appear as the
+subword of a substituted segment since the first syllable of such a segment always
+has exponent > n + 2, and each other syllable must be preceded by         (while this
+is preceded by ).
+   Since R∞ is a language produced by a irreducible mixing automaton, it is
+“growth sensitive” (see [3]) and thus excluding any subword gives an exponentially
+negligible subset. Thus gk (Rn L′ ) ∈ O(εk gk (R∞ )) for some ε < 1, and so
+                          g (Rn L) ∼ g (Rn L′ ) ∈ o(g (R∞ ))
+     and we are done.                                                                □
+   That gives us the weaker claim in Theorem 1.2, now we will prove the slightly
+stronger version. A strengthening of Proposition 5.7 will be as follows:
+Lemma 5.10. R∞ is not negligible in PP2
+                                                                        S∞
+Proof. More precisely, we will be showing that R∞ is not negligible in n=0 Rn L.
+This is sufficient since Rn L ⊋ PP2 . As we did in the proof of Proposition 5.7, we
+will discard all words which do not contain a , since, by the same reasoning, these
+words are negligible in the total.                   S∞
+   Our strategy will be to provide an injection f : ( n=0 Rn L′ \ R∞ ) ↣ R∞ which
+increases the length by at most a constant bound. More formally there exists a
+constant c such that for every w in the domain, |w| + c ≥ |f (w)|. This is sufficient
+because R∞ grows exponentially, i.e. gn (R∞ ) ∈ Θ(λk ). Thus
+                          gk+c (R∞ ) ∼ λc gk (R∞ ) ∈ Θ(λk )
+To define f consider some word w in the domain. w belongs to Rn L for some n.
+If w belongs to multiple Rn L, let us take n to be the largest value possible. With
+the selected n, the subwords forbidden in R∞ are of the form
+                          k0    n+k1   n+k2          n+ks−1     ks
+                                              ...
+where s ≥ 2 and each ki is positive. We will selected one of these subwords arbi-
+trarily to be the “signal segment”. All other of these forbidden subwords we will
+replace with:
+                         k0 −1 n+k1 +2 k2
+                                           . . . ks−1 ks −1
+This type of replacement cannot increase the length of the word. For the signal
+segment we will replace it with the form:
+                        k0 −1    n+3    k1    k2         ks−1   ks −1
+                                                   ...
+This type of replacement can increase the length, but by at most 4 (this happens
+when s = 2).
+   In order to show that this is an injection we will provide a way to recover the word
+w from the image. We first can use the signal to recover the n used in the encoding.
+We find all subwords of the form i          m+3
+                                                  for non-negative i and m. One such
+subword must be from the encoded signal, and none can come from other encoded
+forbidden words as all of those would require the first syllable to have a exponent
+of at least 3. It is possible for there to be multiple subwords, but other than the
+         GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY                     17
+
+
+signal must have been present in the initial word, so our signal is the one with the
+largest exponent. Once we have recovered n is is trivial to reverse the encoding on
+the signal segment, but we can also determine the locations of all the non-signal
+segments and reverse their encodings as well. Each encoded subword must contain
+a word of the form n+k+2 for positive k, and such segments are forbidden in
+Rn L, so they cannot appear elsewhere. Thus we can reverse the encoding and f is
+injective.
+   Since the only replacement which can increase the length is the signal encoding
+which happens exactly once, the total increase in length is at most 6.            □
+    The natural extension to this question is whether R∞ is generic in PP2 . In
+the encoding we have provided there is a choice as to which segment is the signal.
+This indicates that there may be a degree of wiggle room, suggesting R∞ could
+be generic. However, the cases in where there is a choice requires multiple of the
+forbidden segments, which turns our to be quite rare. In fact, counter to this initial
+intuition, computer simulations suggest that R∞ is not generic, with a fixed density
+at very roughly 1/5. (Uniform sampling of potentially positive words is difficult
+especially for larger words. for this we sampled approximately 100 words of length
+about 300)
+    For now we offer no proof in either direction, but we will offer evidence that R∞
+is the correct set to consider for this question.
+Theorem 5.11. If there is a finite strongly connected automaton which produces
+a generic subset of PP2 , R∞ produces a generic subset of PP2 .
+Proof. Let A be strongly connected automaton which produces a generic subset of
+PP2 . Assume by way of contradiction that R∞ is not generic in PP2 , and so by
+Lemma 5.10 the density of R∞ converges to some constant value between 0 and 1.
+   A cannot completely contain R∞ , since by [3, Main result] A would grow faster
+than R∞ . Since R∞ grows like PP2 by Lemma 5.10, this would imply that A grows
+faster than the set in which in which it supposedly is contained.
+   Now let us consider the intersection P = A ∩ R∞ . Since R∞ is non-negligible
+and A is generic, P is a generic proper subset of R∞ . However, the intersection
+of two sets produced strongly connected automata is also produced by a strongly
+connected automaton, so by [3, Main result] the intersection cannot be generic in
+R∞ .                                                                           □
+
+          6. An automaton for the potentially positive words
+   In our proof of Theorem 5.11, we provide an argument which can show that there
+is no finite strongly connected automaton which produces exactly the potentially
+positive words.
+   In light of this we if we can produce PP2 using a more general type of automaton.
+Most directly we might lift the requirement that words are produced by closed loops
+allowing specified start and end states and considering the images of all paths from
+a start state to an end state. (Our closed loop requirement can be translated to
+such an automaton by creating one copy of the automaton for each node and a
+node in each copy as the start and end state.) Such an automaton is called a “finite
+state machine” (FSM) and a language produced by an FSM is called “regular”.
+Question 6.1. Is PPr a regular language for any r ≥ 2?
+18          GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY
+
+
+    For those whose background is mainly in dynamics, this is equivalent to asking
+if the shift of potentially positive words is sofic.
+    If the answer to these questions were “Yes”, it would mean we could implement
+an algorithm to identify cyclically-reduced potentially positive words of length n
+with worst-case time complexity O(n) and constant space. Indeed this is an enticing
+prospect.
+    The reader may have already guessed that, since this is posed as a question
+rather than a proposition, this dream will not come to pass. We will be showing
+that no automaton can exist. In fact, we will be showing a more general result.
+    Finite state machines are equivalent to Turing machines without a memory tape.
+Hence they are called finite state machines, they are a a computation model with
+finite, i.e. bounded by a constant, memory. We already know from [9] that a
+deterministic Turing machine can recognize PP2 . Thus unrestricted memory is
+enough. In fact the algorithm provided uses only linear space (DSPACE(n)), and so
+PP2 can be identified by a Turing machine with a linear bound on its memory. Such
+an automaton is called a “linear bounded automaton”, and a language which can
+be recognized by one is called “context-sensitive”. Other classes of automata exist
+between linear bounded automata and finite sate machines. For example context-
+free languages are those which can be identified with a push down automaton.
+Theorem 6.2. For r ≥ 2, PPr is not a well-nested multiple context-free language.
+   Well-nested multiple context-free languages (well-nested MCFLs) are a class of
+languages containing all regular languages. Well-nested MCFLs are not a widely
+known class of languages, and so it is very likely that readers of this paper will be
+unfamiliar with them. We will not make any attempt to change that. A definition
+can be found in [7], but our proof will not use the technical details of the defi-
+nition. Since the regular languages are contained within the well-nested MCFLs,
+Theorem 6.2 will imply the answer to Question 6.1 is “No”. In fact, because we
+avoid the technical details and instead use existing results, the reader can substitute
+“well-nested MCFL” for “regular” and still completely understand the proof. In
+fact other well known families of languages such as context-free languages, ETOL
+languages, and tree-adjoining languages are also contained within the well-nested
+MCFLs, and can be substituted in the same way.
+   We will establish the two instrumental lemmata about well-nested MCFLs:
+Lemma 6.3 (Pumping lemma for well-nested MCFLs [7]). If L ⊆ Σ∗ is a well-
+nested MCFL, there exists some k ≥ 1 (called the pumping dimension of L) and
+some p ≥ 1 (called the pumping length of L) such that, every string s ∈ L with
+|s|Σ ≥ p can be written as
+                                   s = v0 w1 v1 w2 v2 . . . wk vk
+where:
+     • {wi | 1 ≤ i ≤ k} ̸= {ε}
+     • ∀n ∈ Z≥0 : v0 w1n v1 w2n v2 . . . wkn vk ∈ L
+   Naturally this lemma applies to all weaker classes of language. However, a much
+simpler pumping lemma exists for regular languages. See [6, Thm. 4.1].3 Both can
+be used to exclude PP2 from the respective classes using the same techniques we
+will employ.
+     3For context-free languages see [6, Thm. 7.18]. For tree adjoining languages see [19, Thm. 4.7].
+             GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY                            19
+
+
+Lemma 6.4 ([16, Prp. 6]4). For each well-nested MCFL L1 ⊆ Σ∗ there is a k
+such that for every regular language L2 ⊆ Σ∗ , L1 ∩ L2 is a well-nested MCFL with
+pumping dimension k.
+   For the equivalent on regular languages see [15, Thm. 2.7].5
+   From here Theorem 6.2 will be a rather simple corollary of the following:
+Lemma 6.5. PP2 is not a well-nested MCFL.
+Proof. Assume by way of contradiction that PP2 is a well-nested MCFL with pump-
+ing dimension k. Let us consider the language Λk consisting of words of the form:
+                                 n1           n2       n2                  nk     m
+                                                              ...
+where n1 , . . . , nk , m ≥ 1. Since Λk is regular, it follows from Lemma 6.4 that PP2
+is a well-nested MCFL only if Λk ∩ PP2 is a well-nested MCFL. We will show first
+that if a word w ∈ Λk is potentially positive then ∀i : ni ≥ m − 1.
+   Let us consider a word s which is in the language Λk but has some ni < m−1. We
+note that s satisfies Goldstein’s Criterion with x = and y = . We will show that
+this word no longer satisfies Goldstein’s Criterion after applying the automorphism
+  7→ n where n is the minimum ni in s. After applying the automorphism, the
+syllable n becomes empty, creating a             subword, so x ̸= . By Lemma 2.12,
+the only other option is x = . However,              must appear as a subword because
+   m
+      appeared in the original word and we have only removed n ≤ m − 2 from
+the exponent. Since s is automorphic to a word which does not satisfy Goldstein’s
+Criterion it is not potentially positive.
+   Now let the pumping length of Lk ∩ PP2 be p. We consider the word
+                                      p       p                p           p+1
+                            s=                         ...                        ∈ Lk .
+This word is potentially positive as we can demonstrate:
+                                              p        p               p        p+1
+                                s=                           ...
+         p                                    k+1
+( 7→         )                    7→
+       k+1
+( 7→             )                7→
+( 7→     )                        7→
+And thus s ∈ Lk ∩ PP2 .
+    |s| = (k + 1)(p + 1) + 5 ≥ p thus Lemma 6.3 should apply to this word. No
+wi can contain any of the underlined sections in the following since removing them
+(i.e. v0 w10 v1 w20 v2 . . . wk0 vk ) makes the word no longer Lk :
+                                          p        p               p        p+1
+                                                        ...
+There are k + 1 separate segments remaining, so it is impossible for all of them
+to contain a wi . Each segment is either a or syllable. No wi can contain any
+part of the remaining syllable, since increasing the power on without increasing
+the powers of all the other syllables would make the word no longer potentially
+positive by the argument above.
+
+    4The presentation in [16] significantly differs from the presentation here. One can refer to
+[7, pg. 323] which reports the result in a more harmonious way.
+    5For context-free languages see [6, Thm. 7.27], and for tree adjoining languages see [19, Thm.
+4.5].
+20        GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY
+
+
+   Furthermore, if some non-empty wi contained some part of a remaining syllable,
+removing the wi subword would decrease the exponent on that syllable. That would
+make it less than m − 1 = p. m cannot decrease because the syllable contains no
+wj . Thus the word would no longer be potentially positive.
+   There must be a non-empty wi , but none can be contained in any part of s, so
+we have a contradiction and PP2 cannot be a well-nested MCFL.                  □
+     Now Theorem 6.2 will follow easily:
+Proof of Theorem 6.2. By the main result of [4], PPr ∩ Fn = PPn when r ≥ n.
+Since Fr is regular, we can apply Lemma 6.4 to see that PPr for r ≥ 2 is a well-
+nested MCFL only if PP2 is a well-nested MCFL. Since PP2 is not a well-nested
+MCFL, no higher rank is either.                                              □
+Corollary 6.6. There is no algorithm to decide cyclically-reduced potentially pos-
+itive words using constant space.
+   This follows from a classic result in complexity theory (see [17]) which tells us
+that if a set is decidable in constant space it is regular.
+
+
+          Figure 6.7. An Euler diagram indicating the placement of po-
+          tential positivity in relation to various classes of formal languages.
+          The classes in the classical Chomsky hierarchy are drawn thicker
+          and darker than the other classes. The dotted line indicates the
+          greatest possible span of PPr for r ≥ 2 with our current under-
+          standing.
+                                     Semi-decidable
+
+                                       Decidable
+
+                                   Context-sensitive                  PPr
+
+                                  Well-nested MCFL             PP2
+
+                                     Tree-adjoining
+
+                                      Context-free
+
+                                        Regular
+
+
+
+                     7. Towards non-trivial upper bounds
+  Finding an upper bound for F3 has proven to be more difficult. Whereas in F2
+we were able to use the algorithms in [5] and [9] to eliminate words and produce an
+upper bound, no algorithm is currently known for higher ranks. In fact, the words
+known to not be potentially positive in F3 are fairly restricted.
+   (1) Words in the commutator subgroup [F3 , F3 ].
+          GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY                   21
+
+
+      (2) Words in F2 which are not potentially positive under the automorphisms
+          of F2 (see [4]) and words which are automorphic to them.
+Theorem 3.9 in [8] can be used to show that (2) is exponentially negligible. A slight
+narrowing of that theorem to fit this paper:
+
+Theorem 7.1 (Thm 3.9). If w ∈ Fr is a cyclically reduced word in the orbit of a
+word v ∈ Fr−1 then w does not contain a primitivity blocking subword.
+
+   By [3, Example 1] if there is a forbidden subword for some subset of a free group
+then that set is negligible.
+   So then, (1) seems most promising. If we recall the Cohen-Grigorchuk theorem:
+
+Theorem 7.2 (Cohen-Grigorchuk). Let φ : Fr → G be a surjective group homo-
+morphism. G is amenable if and only if
+                              p
+                          lim n gn (ker(φ)) = 2r − 1
+                             n→∞
+
+   We refer the reader to [18] for a proof. The implication here is that, because
+the abelianization of Fr is amenable, the commutator subgroup coarsely (up to
+a sub-exponential factor) grows like (2r − 1)n . This gives us the beginning of a
+non-trivial upper bound:
+
+Corollary 7.3. The set of potentially positive words in Fr is not exponentially
+generic in the set of all words.
+
+Proof. The set of all words grow as Θ((2r − 1)n ). If the set of potentially positive
+words were to be exponentially generic, then its compliment, which contains the
+commutator subgroup, would have to grow as O(εn (2r − 1)n ) for some ε < 1.
+  Thus
+                          p
+                      lim n gn ([Fr , Fr ]) ≤ ε(2r − 1) < 2r − 1
+                       n→∞
+
+a contradiction with Theorem 7.2.                                                  □
+
+     A more precise asymptotic for the growth of [Fr , Fr ] can be obtained from [14]
+as
+                                     1           n
+(6)                                 √ r (2r − 1)
+                                     n
+This tells us that the commutator subgroup is in fact negligible (only not exponen-
+tially so).
+   We summarize the current situation in this table:
+                   pos.      prim.          p. pos.6            all
+                             √ n 
+             F2 Θ (2n )    Θ     3        Θ (2.505n )         Θ(3n )
+              F3   Θ (3n )   Θ (n3n )     Ω (4.024n )      Θ(5n )
+                       n           n               n
+              F4   Θ (4 )    Θ (n5 )      Ω (5.746 )       Θ(7n )
+                       n           n               n
+              F5   Θ (5 )    Θ (n7 )      Ω (7.509 )       Θ(9n )
+                       n           n               n
+              F6   Θ (6 )    Θ (n9 )      Ω (9.290 )      Θ(11n )
+                       n            n               n
+              F7   Θ (7 )    Θ (n11 )    Ω (11.083 )      Θ(13n )
+              Fr   Θ (r ) Θ (n(2r − 3) ) Ω ((2r − 3) ) Θ ((2r − 1)n )
+                       n              n              n
+22         GROWTH AND LANGUAGE COMPLEXITY OF POTENTIAL POSITIVITY
+
+
+                                        References
+ [1] Gilbert Baumslag, Positive one-relator groups, Transactions of the American Mathematical
+     Society 156 (May 1971) (en).
+ [2] Gilbert Baumslag, Alexei G. Myasnikov, and Vladimir Shpilrain, Open problems in combi-
+     natorial group theory, Contemporary Mathematics, 1999, pp. 1–27 (en).
+ [3] Tullio Ceccherini-Silberstein and Wolfgang Woess, Growth and ergodicity of context-free lan-
+     guages, Trans. Amer. Math. Soc. 354 (2002), no. 11, 4597–4625. MR1926891
+ [4] Aaron Clark and Richard Goldstein, Stability of numerical invariants in free groups, Com-
+     munications in Algebra 33 (October 2005), no. 11, 4097–4104 (en).
+ [5] Richard Goldstein, An algorithm for potentially positive words in F2 , Contemporary Math-
+     ematics 421 (2006), 157–168 (en).
+ [6] John E. Hopcroft, Rajeev Motwani, and Jeffrey D. Ullman, Introduction to automata theory,
+     languages, and computation, 3rd ed., Pearson, Bosten San Francisco Munich, 2007 (eng).
+ [7] Makoto Kanazawa, The pumping lemma for well-nested multiple context-free languages, De-
+     velopments in Language Theory, 2009, pp. 312–325 (en). Series Title: Lecture Notes in Com-
+     puter Science.
+ [8] Lucy Koch-Hyde, Siobhan O’Connor, Eamonn Olive, and Vladimir Shpilrain, Orbit-blocking
+     words in free groups, J. Group Theory (2025).
+ [9] Lucy Koch-Hyde, Siobhan O’Connor, and Eamonn Olive, Complexity of recognizing poten-
+     tially positive elements in the free group of rank 2, Int. J. of Algebra and Comput. (2025)
+     (en).
+[10] Douglas A. Lind and Brian Marcus, An introduction to symbolic dynamics and coding, Second
+     edition, Cambridge University Press, Cambridge, 2021 (eng).
+[11] Marco Linton, Residually rationally solvable one-relator groups, Bull. of London Math. Soc.
+     (October 2025), blms.70210 (en).
+[12] D. Puder and C. Wu, Growth of primitive elements in free groups, Journal of the London
+     Mathematical Society 90 (201405), no. 1, 89–104, available at https://academic.oup.com/
+     jlms/article-pdf/90/1/89/9682782/jdu009.pdf.
+[13] Igor Rivin, A remark on ‘Counting primitive elements in free groups’ (by J. Burillo and E.
+     Ventura), Geometriae Dedicata 107 (August 2004), no. 1, 99–100.
+[14]         , Growth in free groups (and other stories)—twelve years later, Illinois Journal of
+     Mathematics 54 (2010), no. 1, 327 –370.
+[15] Arto Salomaa, Jewels of formal language theory, Computer Science Press, Rockville, Md,
+     1981 (eng).
+[16] H. Seki and Y. Kato, On the generative power of multiple context-free grammars and macro
+     grammars, IEICE Transactions on Information and Systems E91-D (February 2008), no. 2,
+     209–221 (en).
+[17] R. E. Stearns, J. Hartmanis, and P. M. Lewis, Hierarchies of memory-limited computations,
+     6th Annual Symposium on Switching Circuit Theory and Logical Design (SWCT 1965), 1965,
+     pp. 179–190 (en).
+[18] Ryszard Szwarc, A short proof of the Grigorchuk-Cohen cogrowth theorem, Journal of the
+     American Mathematical Society 106 (July 1989), 663–665 (en).
+[19] K. Vijayshanker, David J. Weir, and Aravind K. Joshi, Characterizing structural descriptions
+     produced by various grammatical formalisms, Proceedings of the 25th annual meeting on
+     Association for Computational Linguistics -, 1987, pp. 104–111 (en).
+[20] Daniel T. Wise, The residual finiteness of positive one-relator groups, Comment. Math. Helv.
+     76 (June 2001), no. 2, 314–338 (en).
+
+     Department of Mathematics, CUNY Graduate Center, New York, NY 10016
+     Email address: emmad4867@gmail.com
+
+     Department of Mathematics, CUNY Graduate Center, New York, NY 10016
+     Email address: lhyde@gradcenter.cuny.edu
+
+     Department of Mathematics, CUNY Graduate Center, New York, NY 10016
+     Email address: doconnor@gradcenter.cuny.edu
+
+     Email address: ejolive97@gmail.com
+

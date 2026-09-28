@@ -330,3 +330,8 @@ A bounded follow-up search for free-nilpotent single-commutator algorithms and c
 ## 2026-09-28T22:08:34.500889+00:00 — F38 decision-procedure dependencies and scope
 
 Archived KLSS math/0409284 (Cor1.4 plus Section2), Ciobanu-Diekert-Elder1508.02149 (Theorem4/Cor5), Diekert-Elder1701.03297v6 (Theorem4.3, full constrained tuple relation), Lee math/0610833 (prior rank-two theorem), Ciobanu-Zetzsche2405.07911 (related prior counting inequations), and GAGTA2026 abstracts (OConnor rank-two algorithm). Rechecked Shpilrain2510.00889, whose archived version was published17June2026. Precise pages, actual visual checks, queries and reading limits are in problems/F38/part-a-audit.md. No exhaustive novelty or imported-proof audit is claimed.
+
+
+## 2026-09-28T22:21:55.381017+00:00 — F34 higher-rank scope
+
+Archived Dinowitz-Koch-Hyde-OConnor-Olive2512.13967v1 (Introduction/Question1.3, Section7) and Koch-Hyde-OConnor-Olive2606.13933v2 (Introduction/Question1.5); viewed page2 of each. Both discuss the higher-rank algorithmic gap. Reused prior Lee0802.0584 and June2026 Shpilrain survey records for credit. Newer book F33 corresponds to frozen website F34. Clark-Goldstein part(b) credited via source background; its full paper not obtained. Reading limits and queries are in problems/F34/part-a-audit.md; no novelty certification.
