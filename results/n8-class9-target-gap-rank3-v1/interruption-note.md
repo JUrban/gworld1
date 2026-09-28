@@ -1,0 +1,1 @@
+Deliberately interrupted after all five witnesses and one linear decision, during the remaining branch checks. Replaced by exact abelian-tail integer membership and balanced word evaluation, after the replacement reproduced the complete rank-two suite. This is an incomplete validation, not a pass.

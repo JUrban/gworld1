@@ -6,7 +6,7 @@ from n8_class7 import (ONE,apply,finished,mixed_candidates,equal_candidates,
 from n8_multigraded_magnus import Magnus
 from n8_class9_tail import tail
 from n8_central import bracket
-from n8_sparse_polynomial_lattice import polynomial_system,differences,evaluate
+from n8_polynomial_lattice import polynomial_system,differences,evaluate
 
 
 def period_choices(vector,kernel,gauge):

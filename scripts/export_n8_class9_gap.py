@@ -23,7 +23,9 @@ else:
     raw=gzip.decompress(packed.read_bytes()).decode() if packed.exists() else (p/'polynomials.json').read_text()
     output='N8C9Polynomials := '+gap(json.loads(raw))+';\n'
     name='polynomial-fixtures.g'
-output+='N8C9Halls := '+gap([halls[str(d)] for d in range(1,10)])+';\n'
+degrees=sorted(map(int,halls))
+assert degrees==list(range(1,max(degrees)+1))
+output+='N8C9Halls := '+gap([halls[str(d)] for d in degrees])+';\n'
 if args.kind=='targets' and (p/'polynomials.json.gz').exists():
     (p/(name+'.gz')).write_bytes(gzip.compress(output.encode(),mtime=0))
 else:(p/name).write_text(output)

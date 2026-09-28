@@ -636,3 +636,43 @@ and GAP verification are running. Failed scripts and logs are retained.
 No new whole-entry count, established novelty, external review, subagent,
 push or contact is claimed. All recorded computations use one core and8GB
 per process within the shared budget.
+
+
+## 2026-09-28 approximately 19:35--20:15 UTC — independent class-nine audit and arbitrary-class lead
+
+The last continuation returned to preparation context and only rechecked a
+separate preparation checkout. It made no progress on the research goal.
+The original active repository and deadline were revalidated; research
+resumed without restarting the clock.
+
+Completed independent rank-three class-nine kernel checks in GAP's free
+associative algebra, using exact relations and full modular ranks. Added
+component Hermite arithmetic and retained the seven completed new-stratum
+records from an otherwise timed-out rank-three target benchmark. The first
+GAP target replay was deliberately interrupted after five witnesses and
+one linear decision; subsequent exact integer-coordinate and component
+versions first reproduced the full rank-two certificate suite. The larger
+replays remain in progress. See problems/N8/class9-audit.md for exact
+completed evidence and every unsuccessful run. Counted scope remains
+unchanged until the audit is closed.
+
+Developed a uniform special family in every class c>=6: targets in degree
+c-2 with leading term ad_z^(c-4)(T), T in L2. A free differential-algebra
+argument classifies the first correction by parity. For even n=c-5 the
+functional T_j -> A+(-2)^j B gives a nonzero quadratic obstruction
+1-4^(n/2), leaving at most two integer parameters. A block-quadratic
+argument proves uniqueness of the degree-one leading direction. The
+written proof and implementation now recognize rational scope before
+checking integral factorization; unsupported inputs are never returned
+as negative answers.
+
+Exact jet identities passed for n=1,...,16. Group suites passed in class10
+and class11, rank2, and mixed-generator class7, rank3. They include both
+negative perturbations and nonprimitive leading factors. The class10
+GAP replay passed; the other independent group replays are running.
+Version-one sources are retained before the recognition refinement.
+The special-family proof is still an uncounted extension under audit.
+
+All computations use one core and8GB each; current concurrent reservations
+are within the shared budget. No subagents, specialist review, remote
+push, contact or parent-repository edit.

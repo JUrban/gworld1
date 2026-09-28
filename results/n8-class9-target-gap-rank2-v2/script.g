@@ -11,9 +11,7 @@ N8C9Group:=function(r,c)
     local key;
     key:=Concatenation(String(r),"_",String(c));
     if not IsBound(N8C9Groups.(key)) then
-        Print("BEGIN GAP quotient ",r," ",c,"\n");
         N8C9Groups.(key):=NilpotentQuotient(FreeGroup(r),c);
-        Print("READY GAP quotient ",r," ",c,"\n");
     fi;
     return N8C9Groups.(key);
 end;;
@@ -103,7 +101,6 @@ for item in N8C9Witnesses do
     if Comm(N8C9Eval(group,item[4]),N8C9Eval(group,item[5]))<>
        N8C9Eval(group,item[3]) then N8C9Fail("word witness");fi;
     N8C9Positive:=N8C9Positive+1;
-    Print("WITNESS ",N8C9Positive,"\n");
 od;
 N8C9Count:=0;;N8C9Negative:=0;;
 for item in N8C9Steps do
@@ -121,12 +118,10 @@ for item in N8C9Steps do
     soluble:=delta in subgroup;
     if soluble<>item[7] then N8C9Fail("linear branch membership");fi;
     N8C9Count:=N8C9Count+1;
-    Print("LINEAR ",N8C9Count," ",soluble,"\n");
     if not soluble then N8C9Negative:=N8C9Negative+1;fi;
 od;
 N8C9Samples:=0;;N8C9NoParameters:=0;;hall:=[];;
 for item in N8C9Polynomials do
-    Print("BEGIN POLYNOMIAL ",item.degree,"\n");
     c:=item.certificate;
     N8C9Arithmetic(c,item.q=4);
     if Length(c.values)=0 then N8C9NoParameters:=N8C9NoParameters+1;fi;

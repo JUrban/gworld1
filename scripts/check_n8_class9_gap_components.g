@@ -6,22 +6,37 @@ if IsExistingFile(Concatenation(N8C9Directory,"/polynomial-fixtures.g")) then
 else
     Read(Concatenation(N8C9Directory,"/polynomial-fixtures.g.gz"));
 fi;
-N8C9Groups:=rec();;
+N8C9Groups:=rec();;N8C9Caches:=[];;
 N8C9Group:=function(r,c)
     local key;
     key:=Concatenation(String(r),"_",String(c));
     if not IsBound(N8C9Groups.(key)) then
         Print("BEGIN GAP quotient ",r," ",c,"\n");
         N8C9Groups.(key):=NilpotentQuotient(FreeGroup(r),c);
+        Add(N8C9Caches,rec(group:=N8C9Groups.(key),cache:=NewDictionary([1],true)));
         Print("READY GAP quotient ",r," ",c,"\n");
     fi;
     return N8C9Groups.(key);
 end;;
-N8C9Eval:=function(group,word)
-    local ans,gens,s;
-    ans:=One(group);gens:=GeneratorsOfGroup(group);
-    for s in word do ans:=ans*gens[AbsInt(s)]^SignInt(s);od;
+N8C9Balanced:=function(group,word,cache)
+    local found,ans,gens,s,cut;
+    found:=LookupDictionary(cache,word);
+    if found<>fail then return found;fi;
+    if Length(word)<=16 then
+        ans:=One(group);gens:=GeneratorsOfGroup(group);
+        for s in word do ans:=ans*gens[AbsInt(s)]^SignInt(s);od;
+    else
+        cut:=QuoInt(Length(word),2);
+        ans:=N8C9Balanced(group,word{[1..cut]},cache)
+             *N8C9Balanced(group,word{[cut+1..Length(word)]},cache);
+    fi;
+    AddDictionary(cache,word,ans);
     return ans;
+end;;
+N8C9Eval:=function(group,word)
+    local cache;
+    cache:=First(N8C9Caches,row->IsIdenticalObj(row.group,group)).cache;
+    return N8C9Balanced(group,word,cache);
 end;;
 N8C9Fail:=function(message)
     Print("FAIL ",message,"\n");FORCE_QUIT_GAP(1);
@@ -48,12 +63,15 @@ N8C9Decode:=a->List(a,row->List(row,v->v[1]/v[2]));;
 N8C9Poly:=function(coeff,k)
     return coeff[1]+k*coeff[2]+(k*(k-1)/2)*coeff[3];
 end;;
+Read("scripts/n8_gap_integer_components.g");
 N8C9Arithmetic:=function(c,require_injective)
     local B,H,U,rank,i,j,pivots,pivot,last,part,residual,z,den,nums,equation,
-          candidates,values,k,good,eq;
+          candidates,values,k,good,eq,remainder;
     B:=c.columns;H:=c.H;U:=c.U;rank:=c.rank;
-    if U*B<>H or AbsInt(DeterminantMat(U))<>1 then
-        N8C9Fail("Hermite transformation");fi;
+    if not N8C9Unimodular(U) then N8C9Fail("Hermite unimodularity");fi;
+    for i in [1..Length(U)] do
+        if N8C9SparseProduct(U[i],B)<>H[i] then N8C9Fail("Hermite identity");fi;
+    od;
     pivots:=[];last:=0;
     for i in [1..Length(H)] do
         pivot:=PositionProperty(H[i],x->x<>0);
@@ -71,7 +89,16 @@ N8C9Arithmetic:=function(c,require_injective)
            ForAny(pivots,i->residual[j][i]<>0) then
             N8C9Fail("rational polynomial reduction");fi;
     od;
-    z:=part*U^-1;
+    z:=[];
+    for j in [1..3] do
+        Add(z,ListWithIdenticalEntries(Length(H),0));remainder:=ShallowCopy(c.coefficients[j]);
+        for i in [1..rank] do
+            z[j][i]:=remainder[pivots[i]]/H[i][pivots[i]];
+            if z[j][i]<>0 then remainder:=remainder-z[j][i]*H[i];fi;
+        od;
+        if remainder<>residual[j] or N8C9SparseProduct(z[j],U)<>part[j] then
+            N8C9Fail("independent echelon reduction");fi;
+    od;
     for i in [1..rank] do
         den:=Lcm(List(z,row->DenominatorRat(row[i])));
         nums:=List(z,row->den*row[i]);
@@ -97,6 +124,37 @@ N8C9Arithmetic:=function(c,require_injective)
     if values<>c.values then N8C9Fail("complete integral parameter list");fi;
 end;;
 
+# nq stores its lower central series as suffixes of the defining pcp.
+# On gamma_s with 2s>class these coordinates add, so integer row-lattice
+# membership is exactly subgroup membership. Check the suffix and support.
+N8C9Membership:=function(group,degree,columns,target)
+    local pcp,gens,lcs,low,suffix,cut,allcoords,row,rows,rhs,solution,product,i;
+    if Length(columns)=0 then return target=One(group);fi;
+    pcp:=Pcp(group);gens:=GeneratorsOfPcp(pcp);
+    if gens<>GeneratorsOfGroup(group) or
+       ForAny(RelativeOrdersOfPcp(pcp),n->n<>0) then
+        N8C9Fail("unexpected ambient pcp");fi;
+    lcs:=LowerCentralSeriesOfGroup(group);low:=QuoInt(degree,2)+1;
+    if Length(lcs)>degree+1 then N8C9Fail("nilpotency class bound");fi;
+    suffix:=GeneratorsOfGroup(lcs[low]);cut:=Length(gens)-Length(suffix);
+    if suffix<>gens{[cut+1..Length(gens)]} then
+        N8C9Fail("lower central pcp suffix");fi;
+    allcoords:=List(Concatenation(columns,[target]),g->ExponentsByPcp(pcp,g));
+    for row in allcoords do
+        if ForAny(row{[1..cut]},n->n<>0) then
+            N8C9Fail("increment outside certified abelian tail");fi;
+    od;
+    rows:=List(allcoords{[1..Length(columns)]},row->row{[cut+1..Length(gens)]});
+    rhs:=Last(allcoords){[cut+1..Length(gens)]};
+    solution:=N8C9IntegerSolution(rows,rhs);
+    if solution=fail then return false;fi;
+    if solution*rows<>rhs then N8C9Fail("integer tail solution");fi;
+    product:=One(group);
+    for i in [1..Length(columns)] do product:=product*columns[i]^solution[i];od;
+    if product<>target then N8C9Fail("tail solution group product");fi;
+    return true;
+end;;
+
 N8C9Positive:=0;;
 for item in N8C9Witnesses do
     group:=N8C9Group(item[1],item[2]);;
@@ -107,18 +165,19 @@ for item in N8C9Witnesses do
 od;
 N8C9Count:=0;;N8C9Negative:=0;;
 for item in N8C9Steps do
+    Print("BEGIN LINEAR ",N8C9Count+1,"\n");
     group:=N8C9Group(item[1],item[2]);;
     x:=N8C9Eval(group,item[4]);;y:=N8C9Eval(group,item[5]);;
     base:=Comm(x,y);;delta:=base^-1*N8C9Eval(group,item[3]);;
     corrections:=[];
+    Print("BEGIN COLUMNS ",Length(item[6]),"\n");
     for axis in item[6] do
         h:=N8C9Eval(group,axis[2]);
         if axis[1]=0 then Add(corrections,base^-1*Comm(x*h,y));
         else Add(corrections,base^-1*Comm(x,y*h));fi;
     od;
-    subgroup:=Subgroup(group,corrections);;
-    if not IsAbelian(subgroup) then N8C9Fail("nonabelian linear increments");fi;
-    soluble:=delta in subgroup;
+    Print("BEGIN MEMBERSHIP\n");
+    soluble:=N8C9Membership(group,item[2],corrections,delta);
     if soluble<>item[7] then N8C9Fail("linear branch membership");fi;
     N8C9Count:=N8C9Count+1;
     Print("LINEAR ",N8C9Count," ",soluble,"\n");
@@ -129,6 +188,7 @@ for item in N8C9Polynomials do
     Print("BEGIN POLYNOMIAL ",item.degree,"\n");
     c:=item.certificate;
     N8C9Arithmetic(c,item.q=4);
+    Print("ARITHMETIC VERIFIED\n");
     if Length(c.values)=0 then N8C9NoParameters:=N8C9NoParameters+1;fi;
     group:=N8C9Group(item.rank,item.degree);;
     hall:=List(N8C9Halls[item.degree],w->N8C9Eval(group,w));;
