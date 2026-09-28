@@ -768,3 +768,8 @@ Original clock and all frozen source inputs unchanged.
 ## 2026-09-28T21:27:09.306817+00:00 — wider scope audit
 
 Broader portfolio pass retired F24(b) using Diao-Feighn 2005, whose introduction explicitly names the problem. Read its input and algorithm statements. Audited H5 recognition versus decision and compared the H4 size obstruction with polynomial hyperbolicity certification methods; no conflict found in their stated scopes. Saved exact primary sources and F24/H5 rendered audits. No new count. The prior preparation-only response made no progress on mathematical discovery; this continuation resumes the same original run and deadline.
+
+
+## 2026-09-28T21:41:56.112567+00:00 — nonlinear class-ten extension
+
+Completed the nonlinear class-ten family argument: forced leading type and direction, injective polarization recognition, all-rank one-dimensional first kernel, and a nonzero final quadratic obstruction. The exact formal probe passed after a saved test-helper precondition failure. Five supported rank-two targets and three scope controls passed in Python; GAP independently verified three witnesses, seven linear checks, seven polynomial certificates (four empty) and35 samples. Two rank-three positive recognition cases and two scope controls passed. Added the family to the same N8 partial scope; tally unchanged at4 whole,2 partial,0 established novel. No live jobs remain from these suites, no push/contact/agents, original clock unchanged.

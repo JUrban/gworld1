@@ -1,0 +1,1108 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Hyperbolic Groups — Automatic and Hyperbolic Groups &#8212; Magma Handbook</title>
+  <script data-cfasync="false">
+    (function () {
+      var theme;
+      try {
+        var m = document.cookie.match(/(?:^|;\s*)mg-theme=(dark|light)(?:;|$)/);
+        theme = m ? m[1] : localStorage.getItem("mg-theme");
+        if (theme === "dark" || theme === "light") {
+          localStorage.setItem("theme", theme);
+          localStorage.setItem("mode", theme);
+        }
+      } catch (_) { /* Storage may be unavailable. Keep the default theme. */ }
+    })();
+  </script>
+  
+  
+  
+  <script data-cfasync="false">
+    (function () {
+      var mode = localStorage.getItem("mode") || "auto";
+      var dark = mode === "dark" || (mode === "auto" && matchMedia("(prefers-color-scheme: dark)").matches);
+      document.documentElement.dataset.mode = mode;
+      document.documentElement.dataset.theme = localStorage.getItem("theme") || (dark ? "dark" : "light");
+    })();
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+    <link rel="stylesheet" type="text/css" href="../../_static/web-base/css/web-base.css?v=6b5ce329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/magma-parameter.css?v=81ebe544" />
+    <link rel="stylesheet" type="text/css" href="../../_static/collapsible-right-toc.css?v=5fe827f7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/collapsible-toctree.css?v=eba292e3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pagefind-search.css?v=dfb9889d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/index-cards.css?v=5ad81d62" />
+    <link rel="stylesheet" type="text/css" href="../../_static/references.css?v=2899b615" />
+    <link rel="stylesheet" type="text/css" href="../../_static/holdback.css?v=fda2be1a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/part-downloads.css?v=8b2f1223" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=a962e7db" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=f7592434"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=60664d96"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "displayMath": [["$$", "$$"], ["\\[", "\\]"]], "macros": {"HH": "{\\mathcal{H}}", "from": "\\colon", "ar": "\\rightarrow", "A": "{\\mathbb{A}}", "C": "{\\mathbb{C}}", "R": "{\\mathbb{R}}", "Q": "{\\mathbb{Q}}", "Z": "{\\mathbb{Z}}", "F": "{\\mathbb{F}}", "H": "{\\mathbb{H}}", "P": "{\\mathbb{P}}", "N": "{\\mathbb{N}}", "Hh": "{\\mathbb{H}}", "SL": "{\\operatorname{SL}}", "GL": "{\\operatorname{GL}}", "PSL": "{\\operatorname{PSL}}", "PGL": "{\\operatorname{PGL}}", "Sp": "{\\operatorname{Sp}}", "GSp": "{\\operatorname{GSp}}", "Gal": "{\\operatorname{Gal}}", "Aut": "{\\operatorname{Aut}}", "Sym": "{\\operatorname{Sym}}", "End": "{\\operatorname{End}}", "Reg": "{\\operatorname{Reg}}", "Ord": "{\\operatorname{Ord}}", "St": "{\\operatorname{St}}", "Ind": "{\\operatorname{Ind}}", "eps": "\\varepsilon", "Hom": "{\\operatorname{Hom}}", "Mat": "{\\operatorname{Mat}}", "Fix": "{\\operatorname{Fix}}", "Irr": "{\\operatorname{Irr}}", "Tr": "{\\operatorname{Tr}}", "Nm": "{\\operatorname{N}}", "Frob": "{\\operatorname{Frob}}", "Cl": "{\\operatorname{Cl}}", "Li": "{\\operatorname{Li}}", "Alt": "{\\operatorname{Alt}}", "PAut": "{\\operatorname{PAut}}", "Im": "{\\operatorname{Im}}", "M": "{\\operatorname{M}}", "abs": "{\\operatorname{abs}}", "sign": "{\\operatorname{sign}}", "erf": "{\\operatorname{erf}}", "li": "{\\operatorname{li}}", "cosec": "{\\operatorname{cosec}}", "sech": "{\\operatorname{sech}}", "cosech": "{\\operatorname{cosech}}", "adj": "{\\operatorname{adj}}", "id": "{\\operatorname{id}}", "gens": "{\\operatorname{gens}}", "rels": "{\\operatorname{rels}}", "lcm": "{\\operatorname{lcm}}", "undef": "{\\operatorname{undef}}", "SU": "{\\operatorname{SU}}", "GU": "{\\operatorname{GU}}", "CU": "{\\operatorname{CU}}", "SO": "{\\operatorname{SO}}", "GO": "{\\operatorname{GO}}", "CO": "{\\operatorname{CO}}", "CSp": "{\\operatorname{CSp}}", "Spin": "{\\operatorname{Spin}}", "Sz": "{\\operatorname{Sz}}", "PSz": "{\\operatorname{PSz}}", "PSU": "{\\operatorname{PSU}}", "PGU": "{\\operatorname{PGU}}", "PSO": "{\\operatorname{PSO}}", "PGO": "{\\operatorname{PGO}}", "PSp": "{\\operatorname{PSp}}", "ASL": "{\\operatorname{ASL}}", "AGL": "{\\operatorname{AGL}}", "GammaL": "{\\operatorname{\\Gamma L}}", "GammaU": "{\\operatorname{\\Gamma U}}", "GammaSp": "{\\operatorname{\\Gamma Sp}}", "GammaO": "{\\operatorname{\\Gamma O}}", "SigmaL": "{\\operatorname{\\Sigma L}}", "AGammaL": "{\\operatorname{A\\Gamma L}}", "ASigmaL": "{\\operatorname{A\\Sigma L}}", "PGammaL": "{\\operatorname{P\\Gamma L}}", "PGammaU": "{\\operatorname{P\\Gamma U}}", "PSigmaL": "{\\operatorname{P\\Sigma L}}", "PSigmaU": "{\\operatorname{P\\Sigma U}}", "PSigmaSp": "{\\operatorname{P\\Sigma Sp}}", "PSigma": "{\\operatorname{P\\Sigma}}", "POmega": "{\\operatorname{P}\\Omega}", "FF": "{\\mathbb{F}}", "Qm": "{\\mathbb{Q}(\\zeta_m)}", "i": "{\\mathrm{i}}", "zm": "{\\Z/m\\Z}", "zn": "{\\Z/n\\Z}", "zp": "{\\Z/p\\Z}", "zmstar": "{(\\zm)^*}", "znstar": "{(\\zn)^*}", "ldot": ".", "col": "{:}", "bracketstar": "{[*}", "starbracket": "{*]}", "bracestar": "{\\lbrace*}", "starbrace": "{*\\rbrace}", "p": "{\\mathfrak{p}}", "pp": "{\\mathfrak{p}}", "tensor": "{\\otimes}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area|citation", "skipHtmlTags": ["pre", "code", "script", "style", "textarea"], "a11y": {"inTabOrder": false}}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'FinitelyPresentedGroups/AutomaticAndHyperbolicGroups/hyperbolic-groups';</script>
+    <script src="../../_static/collapsible-right-toc.js?v=334116a4"></script>
+    <script src="../../_static/collapsible-toctree.js?v=365f8061"></script>
+    <script src="../../_static/global-sidebar-nav.js?v=be0589e3"></script>
+    <script src="../../_static/left-sidebar-collapse.js?v=a0832f18"></script>
+    <script src="../../_static/pagefind-search.js?v=a58a4ad5"></script>
+    <script src="../../_static/index-cards.js?v=0d842eb2"></script>
+    <script src="../../_static/magma-code.js?v=ffcc499d"></script>
+    <script src="../../_static/web-base-chrome.js?v=c47987e1"></script>
+    <script src="../../_static/sidebar-dialog-close.js?v=4672ec26"></script>
+    <script src="../../_static/sidebar-toc-trim-output.js?v=814c270e"></script>
+    <script src="../../_static/arrow-key-nav.js?v=c960b461"></script>
+    <script src="../../_static/math-overflow-focus.js?v=c36c5d44"></script>
+    <link rel="canonical" href="https://docs.magma-maths.org/FinitelyPresentedGroups/AutomaticAndHyperbolicGroups/hyperbolic-groups.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Groups of Straight-Line Programs" href="../GroupsOfStraightLinePrograms/index-groups-of-straight-line-programs.html" />
+    <link rel="prev" title="Automatic Groups" href="automatic-groups.html" />
+    <link rel="alternate" type="text/markdown" title="Markdown for LLMs" href="hyperbolic-groups.md" />
+    <link rel="llms-txt" title="llms.txt" href="../../llms.txt" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="google-site-verification" content="uR0P9YHKIwYJoMhW2RdPelFQPahHkBoTwLr9VjQyMCc" />
+  </head>
+  
+  
+  <body class="mg-no-js" data-theme-cookie-domain="magma-maths.org" data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <script>document.body.classList.replace("mg-no-js", "mg-js");</script>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header mg-site-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/magma-logo-wide-small.svg" class="logo__image only-light" alt="Magma"/>
+    <img src="../../_static/magma-logo-wide-small-dark.svg" class="logo__image only-dark pst-js-only" alt="Magma"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav aria-label="Magma website navigation" class="handbook-web-base-nav">
+  <div class="mg-navbar-links-primary">
+            
+            <div class="mg-navbar-links-row1">
+            
+          <div class="mg-navbar-dropdown" id="mg-navbar-about">
+            <button class="mg-navbar-dropdown-trigger" aria-expanded="false" aria-controls="mg-navbar-about-links">
+              About
+              <svg class="mg-navbar-dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="mg-navbar-dropdown-menu" id="mg-navbar-about-links">
+              
+              <a href="https://magma-maths.org/about/" class="mg-navbar-dropdown-item">What is Magma?</a>
+              
+              <a href="https://magma-maths.org/members/" class="mg-navbar-dropdown-item">Members</a>
+              
+              <a href="https://magma-maths.org/visitors/" class="mg-navbar-dropdown-item">Visitors</a>
+              
+              <a href="https://magma-maths.org/conferences/" class="mg-navbar-dropdown-item">Conferences</a>
+              
+              <a href="https://magma-maths.org/seminar/" class="mg-navbar-dropdown-item">Seminars</a>
+              
+              <a href="https://magma-maths.org/cite/" class="mg-navbar-dropdown-item">How to Cite</a>
+              
+            </div>
+          </div>
+          
+            
+          <div class="mg-navbar-dropdown" id="mg-navbar-resources">
+            <button class="mg-navbar-dropdown-trigger" aria-expanded="false" aria-controls="mg-navbar-resources-links">
+              Resources
+              <svg class="mg-navbar-dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="mg-navbar-dropdown-menu" id="mg-navbar-resources-links">
+              
+              <a href="https://magma-maths.org/areas/" class="mg-navbar-dropdown-item">Mathematical Areas</a>
+              
+              <a href="/" class="mg-navbar-dropdown-item">Handbook</a>
+              
+              <a href="https://magma-maths.org/thirdparty/" class="mg-navbar-dropdown-item">Third Party Libraries</a>
+              
+              <a href="https://magma-maths.org/databases/" class="mg-navbar-dropdown-item">Databases</a>
+              
+              <a href="https://magma-maths.org/links/" class="mg-navbar-dropdown-item">Links</a>
+              
+              <a href="https://magma-maths.org/citations/" class="mg-navbar-dropdown-item">Citation Database</a>
+              
+            </div>
+          </div>
+          
+            
+          <div class="mg-navbar-dropdown" id="mg-navbar-learn">
+            <button class="mg-navbar-dropdown-trigger" aria-expanded="false" aria-controls="mg-navbar-learn-links">
+              Learn
+              <svg class="mg-navbar-dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="mg-navbar-dropdown-menu" id="mg-navbar-learn-links">
+              
+              <a href="https://magma-maths.org/new-to-magma/" class="mg-navbar-dropdown-item">New to Magma</a>
+              
+              <a href="https://magma-maths.org/tutorials/" class="mg-navbar-dropdown-item">Tutorials</a>
+              
+            </div>
+          </div>
+          
+            
+            <a href="https://magma-maths.org/calc/">Calculator</a>
+            </div>
+
+            <div class="mg-navbar-links-row2">
+            
+            <a href="https://magma-maths.org/subscriptions/">Subscriptions</a>
+            
+            <a href="https://magma-maths.org/download/">Download</a>
+            
+            <a href="https://magma-maths.org/news/">News</a>
+            
+            
+          <div class="mg-navbar-dropdown" id="mg-navbar-support">
+            <button class="mg-navbar-dropdown-trigger" aria-expanded="false" aria-controls="mg-navbar-support-links">
+              Support
+              <svg class="mg-navbar-dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="mg-navbar-dropdown-menu" id="mg-navbar-support-links">
+              
+              <a href="https://magma-maths.org/bug_reporting/" class="mg-navbar-dropdown-item">Bug reporting</a>
+              
+              <a href="https://magma-maths.org/contact/" class="mg-navbar-dropdown-item">Contact</a>
+              
+              <a href="https://magma-maths.org/faq/" class="mg-navbar-dropdown-item">FAQ</a>
+              
+            </div>
+          </div>
+          
+            </div>
+          </div>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <svg class="search-button__glyph" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+<div class="mg-navbar-right">
+  <button class="mg-navbar-icon-btn mg-navbar-theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+            <svg class="mg-theme-icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="mg-theme-icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </button>
+
+          
+          <span class="mg-navbar-right-divider" aria-hidden="true"></span>
+
+          
+          
+          <a href="https://account.magma-maths.org/login" class="mg-navbar-login">Login</a>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <svg class="search-button__glyph" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav aria-label="Magma website navigation" class="handbook-web-base-nav">
+  <div class="mg-navbar-links-primary">
+            
+            <div class="mg-navbar-links-row1">
+            
+          <div class="mg-navbar-dropdown" id="mg-navbar-about-2">
+            <button class="mg-navbar-dropdown-trigger" aria-expanded="false" aria-controls="mg-navbar-about-links-2">
+              About
+              <svg class="mg-navbar-dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="mg-navbar-dropdown-menu" id="mg-navbar-about-links-2">
+              
+              <a href="https://magma-maths.org/about/" class="mg-navbar-dropdown-item">What is Magma?</a>
+              
+              <a href="https://magma-maths.org/members/" class="mg-navbar-dropdown-item">Members</a>
+              
+              <a href="https://magma-maths.org/visitors/" class="mg-navbar-dropdown-item">Visitors</a>
+              
+              <a href="https://magma-maths.org/conferences/" class="mg-navbar-dropdown-item">Conferences</a>
+              
+              <a href="https://magma-maths.org/seminar/" class="mg-navbar-dropdown-item">Seminars</a>
+              
+              <a href="https://magma-maths.org/cite/" class="mg-navbar-dropdown-item">How to Cite</a>
+              
+            </div>
+          </div>
+          
+            
+          <div class="mg-navbar-dropdown" id="mg-navbar-resources-2">
+            <button class="mg-navbar-dropdown-trigger" aria-expanded="false" aria-controls="mg-navbar-resources-links-2">
+              Resources
+              <svg class="mg-navbar-dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="mg-navbar-dropdown-menu" id="mg-navbar-resources-links-2">
+              
+              <a href="https://magma-maths.org/areas/" class="mg-navbar-dropdown-item">Mathematical Areas</a>
+              
+              <a href="/" class="mg-navbar-dropdown-item">Handbook</a>
+              
+              <a href="https://magma-maths.org/thirdparty/" class="mg-navbar-dropdown-item">Third Party Libraries</a>
+              
+              <a href="https://magma-maths.org/databases/" class="mg-navbar-dropdown-item">Databases</a>
+              
+              <a href="https://magma-maths.org/links/" class="mg-navbar-dropdown-item">Links</a>
+              
+              <a href="https://magma-maths.org/citations/" class="mg-navbar-dropdown-item">Citation Database</a>
+              
+            </div>
+          </div>
+          
+            
+          <div class="mg-navbar-dropdown" id="mg-navbar-learn-2">
+            <button class="mg-navbar-dropdown-trigger" aria-expanded="false" aria-controls="mg-navbar-learn-links-2">
+              Learn
+              <svg class="mg-navbar-dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="mg-navbar-dropdown-menu" id="mg-navbar-learn-links-2">
+              
+              <a href="https://magma-maths.org/new-to-magma/" class="mg-navbar-dropdown-item">New to Magma</a>
+              
+              <a href="https://magma-maths.org/tutorials/" class="mg-navbar-dropdown-item">Tutorials</a>
+              
+            </div>
+          </div>
+          
+            
+            <a href="https://magma-maths.org/calc/">Calculator</a>
+            </div>
+
+            <div class="mg-navbar-links-row2">
+            
+            <a href="https://magma-maths.org/subscriptions/">Subscriptions</a>
+            
+            <a href="https://magma-maths.org/download/">Download</a>
+            
+            <a href="https://magma-maths.org/news/">News</a>
+            
+            
+          <div class="mg-navbar-dropdown" id="mg-navbar-support-2">
+            <button class="mg-navbar-dropdown-trigger" aria-expanded="false" aria-controls="mg-navbar-support-links-2">
+              Support
+              <svg class="mg-navbar-dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="mg-navbar-dropdown-menu" id="mg-navbar-support-links-2">
+              
+              <a href="https://magma-maths.org/bug_reporting/" class="mg-navbar-dropdown-item">Bug reporting</a>
+              
+              <a href="https://magma-maths.org/contact/" class="mg-navbar-dropdown-item">Contact</a>
+              
+              <a href="https://magma-maths.org/faq/" class="mg-navbar-dropdown-item">FAQ</a>
+              
+            </div>
+          </div>
+          
+            </div>
+          </div>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="mg-navbar-right">
+  <button class="mg-navbar-icon-btn mg-navbar-theme-toggle" id="theme-toggle-2" aria-label="Toggle dark mode">
+            <svg class="mg-theme-icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="mg-theme-icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </button>
+
+          
+          <span class="mg-navbar-right-divider" aria-hidden="true"></span>
+
+          
+          
+          <a href="https://account.magma-maths.org/login" class="mg-navbar-login">Login</a>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Handbook contents">
+  <div
+    class="bd-toc-item navbar-nav active magma-global-sidebar-nav"
+    data-nav-src="../../_static/magma-sidebar-nav.inc"
+    data-nav-root="../../index.html"
+  >
+    <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../preface.html">Preface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../MagmaLanguage/index-magma-language.html">The Magma Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SetsSequencesMappings/index-sets-sequences-mappings.html">Sets, Sequences and Mappings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../BasicRings/index-basic-rings.html">Basic Rings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../MatricesLinearAlgebra/index-matrices-linear-algebra.html">Matrices and Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../LatticesQuadraticForms/index-lattices-quadratic-forms.html">Lattices and Quadratic Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../GlobalFields/index-global-fields.html">Global Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../LocalFields/index-local-fields.html">Local Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Modules/index-modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../FiniteGroups/index-finite-groups.html">Finite Groups</a></li>
+<li class="toctree-l1 current active"><a class="reference internal" href="../index-finitely-presented-groups.html">Finitely Presented Groups</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Algebras/index-algebras.html">Algebras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../RepresentationTheory/index-representation-theory.html">Representation Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../LieTheory/index-lie-theory.html">Lie Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CommutativeAlgebra/index-commutative-algebra.html">Commutative Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../AlgebraicGeometry/index-algebraic-geometry.html">Algebraic Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ArithmeticGeometry/index-arithmetic-geometry.html">Arithmetic Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ModularArithmeticGeometry/index-modular-arithmetic-geometry.html">Modular Arithmetic Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Topology/index-topology.html">Topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Geometry/index-geometry.html">Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Combinatorics/index-combinatorics.html">Combinatorics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CodingTheory/index-coding-theory.html">Coding Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Cryptography/index-cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Optimization/index-optimization.html">Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">References</a></li>
+</ul>
+
+  </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index-finitely-presented-groups.html" class="nav-link">Finitely Presented Groups</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index-automatic-and-hyperbolic-groups.html" class="nav-link">Automatic and Hyperbolic Groups</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Hyperbolic Groups</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+
+                <article class="bd-article" data-pagefind-body><div data-pagefind-filter="area:FinitelyPresentedGroups" style="display:none"></div>
+                  
+  <section id="hyperbolic-groups">
+<h1>Hyperbolic Groups<a class="headerlink" href="#hyperbolic-groups" title="Link to this heading"><span aria-hidden="true">#</span></a></h1><div id="searchbox"></div>
+<p>For an introduction to the theory of hyperbolic groupss (also known as <em>word-hyperbolic</em> or sometimes <em>Gromov hyperbolic</em> groups), see for example <span class="bibtex-citation" id="id1">[<a class="reference internal" href="../../references.html#cite-hrr17" title="Derek F. Holt, Sarah Rees, and Claas E. Röver. Groups, languages and automata. Volume 88 of London Mathematical Society Student Texts. Cambridge University Press, Cambridge, 2017.">Holt <em>et al.</em>, 2017</a>]</span>.</p>
+<p>The problem of determining whether or not a finitely presented group is <em>hyperbolic</em> is undecidable in general, but if the group is hyperbolic, then it is possible in principle to verify this property,</p>
+<p>In the following two sections, we describe two Magma intrinsics for attempting to verify that a group is hyperbolic. The first of these requires the prior construction of an automatic structure for the group, whereas the second can be applied directly to a finitely presented group.</p>
+<section id="testing-an-automatic-group-for-hyperbolicity">
+<span id="atc-hyperbolicity"></span><span id="sec-atc-hyperbolicity"></span><h2>Testing an Automatic Group for Hyperbolicity<a class="headerlink" href="#testing-an-automatic-group-for-hyperbolicity" title="Link to this heading"><span aria-hidden="true">#</span></a></h2>
+<p>In this section we describe the version of the intrinsic <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> that can applied to an automatic group.</p>
+<p>The other version of <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code>, described below in Section <a class="reference internal" href="#sec-fpg-hyperbolicity"><span class="std std-ref">Testing a Finitely Presented Group for Hyperbolicity</span></a>, can be applied to any finitely presented group. It succeeds less often than the hyperbolicity test for an automatic group when applied to hyperbolic groups having a small number of generators, but is much faster when it does succeed, and it does not require the prior computation of an automatic structure for <span class="math notranslate nohighlight">\(G\)</span>.</p>
+<dl class="magma function">
+<dt class="sig sig-object magma" id="function-ishyperbolic-grpatc">
+<span class="sig-name descname"><span class="pre">IsHyperbolic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">G</span></em><span class="sig-paren">)</span><span class="p"><span class="pre">:</span> </span><span class="pre">GrpAtc</span><span class="p"> <span class="pre">-&gt;</span> </span><span class="pre">BoolElt,</span> <span class="pre">Rec</span><a class="headerlink" href="#function-ishyperbolic-grpatc" title="Link to this definition"><span aria-hidden="true">#</span></a></dt>
+<dd><div class="magma-param highlight-magma notranslate"><div class="highlight"><pre><span></span><span class="n">MaxTries</span>   <span class="p">:</span> <span class="kt">RngIntElt</span>                    <span class="n">Default</span><span class="p">:</span> <span class="mi">10</span>
+<span class="n">MaxBadWords</span><span class="p">:</span> <span class="kt">RngIntElt</span>                    <span class="n">Default</span><span class="p">:</span> <span class="mi">200</span>
+</pre></div>
+</div>
+<p>This intrinsic attempts to prove that the automatic group <span class="math notranslate nohighlight">\(G\)</span> is hyperbolic. If <code class="docutils literal notranslate"><span class="pre">true</span></code> is returned, then the group has been proved to be hyperbolic, and a finite state automaton that accepts all geodesic words over the group generators is also returned.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">false</span></code> is returned, then this means that <span class="math notranslate nohighlight">\(G\)</span> has not been proved to be hyperbolic. It does <em>not</em> mean that <span class="math notranslate nohighlight">\(G\)</span> is not hyperbolic, but the program has no possibility of proving it.</p>
+<p>It works by making successive attempts to construct the automaton that accepts geodesic words, and it gives up and returns <code class="docutils literal notranslate"><span class="pre">false</span></code> if it fails to do this after <code class="docutils literal notranslate"><span class="pre">MaxTries</span></code> attempts. So it may still be possible to verify hyperbolicity by increasing the value of this parameter. When an attempt fails, a set of at most <code class="docutils literal notranslate"><span class="pre">MaxBadWords</span></code> words is found consisting of geodesic words that are not accepted by the current version of the putative geodesic word acceptor.</p>
+<p>If the verbose flag “KBMAG” is set to <span class="math notranslate nohighlight">\(1\)</span> or more, then the number of states of the putative geodesic word acceptor is printed after each attempt, which might help the use to decide whether it might be worthwhile to try with an increased value of <code class="docutils literal notranslate"><span class="pre">maxtries</span></code>.</p>
+</dd></dl>
+
+<dl class="magma example">
+<dt class="sig sig-object magma" id="example-ex-29ea10">
+<span class="sig-name descname"><span class="pre">Example:</span> <span class="pre">verbose</span></span> <span class="magma-example-tag"><span class="pre">(ex-29ea10)</span></span><a class="headerlink" href="#example-ex-29ea10" title="Link to this definition"><span aria-hidden="true">#</span></a></dt>
+<dd><div class="highlight-magma notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">G</span> <span class="o">:=</span> <span class="nb">Group</span><span class="p">&lt;</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="p">|</span> <span class="n">x</span><span class="o">^</span><span class="mi">3</span><span class="p">,</span> <span class="n">y</span><span class="o">^</span><span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">^</span><span class="mi">6</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="o">^</span><span class="mi">6</span> <span class="p">&gt;;</span>
+<span class="gp">&gt; </span><span class="n">A</span> <span class="o">:=</span> <span class="nf">AutomaticGroup</span><span class="p">(</span><span class="n">G</span> : <span class="n">Large</span>:=<span class="kc">true</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="nf">SetVerbose</span><span class="p">(</span><span class="s">"KBMAG"</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">GWA</span> <span class="o">:=</span> <span class="nf">IsHyperbolic</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
+<span class="go">Word acceptor has 459 states</span>
+<span class="go">There are 219 word differences</span>
+<span class="go">Geodesic word acceptor has 1028 states</span>
+<span class="go">Attempt number 1 failed. There are now 245 word differences</span>
+<span class="go">Geodesic word acceptor has 762 states</span>
+<span class="go">Attempt number 2 failed. There are now 251 word differences</span>
+<span class="go">Geodesic word acceptor has 508 states</span>
+<span class="go">Hyperbolicity proved after 3 attempts</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">;</span>
+<span class="go">true</span>
+</pre></div>
+</div>
+<p class="magma-play-wrap"><a class="magma-play-btn" href="https://magma-maths.org/calc/?code=G+%3A%3D+Group%3C+x%2Cy+%7C+x%5E3%2C+y%5E3%2C+%28x%2Ay%29%5E6%2C+%28x%2Cy%29%5E6+%3E%3B%0AA+%3A%3D+AutomaticGroup%28G+%3A+Large%3A%3Dtrue%29%3B%0ASetVerbose%28%22KBMAG%22%2C1%29%3B%0Aish%2C+GWA+%3A%3D+IsHyperbolic%28A%29%3B%0Aish%3B" target="_blank" rel="noopener noreferrer" title="Load this example into the Magma calculator"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>Run in calculator<span class="magma-visually-hidden"> (opens in a new tab)</span></a><button type="button" class="magma-copy-input-btn" data-copy-text="G := Group&lt; x,y | x^3, y^3, (x*y)^6, (x,y)^6 &gt;;
+A := AutomaticGroup(G : Large:=true);
+SetVerbose(&quot;KBMAG&quot;,1);
+ish, GWA := IsHyperbolic(A);
+ish;" title="Copy just the input lines, without their output"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="magma-copy-input-label">Copy input</span></button></p></dd></dl>
+
+<dl class="magma function">
+<dt class="sig sig-object magma" id="function-isconjugate-grpatc-grpatcelt-grpatcelt">
+<span class="sig-name descname"><span class="pre">IsConjugate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">G</span></em>, <em class="sig-param"><span class="pre">x</span></em>, <em class="sig-param"><span class="pre">y</span></em><span class="sig-paren">)</span><span class="p"><span class="pre">:</span> </span><span class="pre">GrpAtc,</span> <span class="pre">GrpAtcElt,</span> <span class="pre">GrpAtcElt</span><span class="p"> <span class="pre">-&gt;</span> </span><span class="pre">BoolElt,</span> <span class="pre">GrpAtcElt</span><a class="headerlink" href="#function-isconjugate-grpatc-grpatcelt-grpatcelt" title="Link to this definition"><span aria-hidden="true">#</span></a></dt>
+<dd><p>Test elements <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> of the hyperbolic automatic group <span class="math notranslate nohighlight">\(G\)</span> for conjugacy in <span class="math notranslate nohighlight">\(G\)</span>, and return <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>, together with an element <span class="math notranslate nohighlight">\(g\)</span> with <span class="math notranslate nohighlight">\(g^{-1}xg=y\)</span> in the positive case.</p>
+<p>This will only work if <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code><span class="math notranslate nohighlight">\((G)\)</span> returns <code class="docutils literal notranslate"><span class="pre">true</span></code>. The algorithm, which is due to Eric Swenson and Joe Marshall, is described in <span class="bibtex-citation" id="id2">[<a class="reference internal" href="../../references.html#cite-marshall" title="Joseph Marshall. Computational problems in hyperbolic groups. Internat. J. Algebra Comput., 15(1):1–13, 2005. URL: https://doi.org/10.1142/S0218196705002086, doi:10.1142/S0218196705002086.">Marshall, 2005</a>]</span>. and it can only be applied to elements of infinite order. It will exit with an error message if <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> have the same finite order.</p>
+<p>The first call of this function on an automatic group <span class="math notranslate nohighlight">\(G\)</span> will require the computation of some automata, which may take some time. Subsequent calls on the same group <span class="math notranslate nohighlight">\(G\)</span> will be fast.</p>
+</dd></dl>
+
+</section>
+<section id="testing-a-finitely-presented-group-for-hyperbolicity">
+<span id="fpg-hyperbolic"></span><span id="sec-fpg-hyperbolicity"></span><h2>Testing a Finitely Presented Group for Hyperbolicity<a class="headerlink" href="#testing-a-finitely-presented-group-for-hyperbolicity" title="Link to this heading"><span aria-hidden="true">#</span></a></h2>
+<p>This version of the intrinsic <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> attempts to prove that a finitely-presented group is hyperbolic. It is based on a forthcoming paper by Holt, Linton, Neunhöffer, Parker, Pfeiffer and Roney-Dougal, provisionally entitled <em>A New Approach to Proving Hyperbolicity</em>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code> then the given group is guaranteed to have a linear Dehn function, and hence be hyperbolic. It may fail and return <code class="docutils literal notranslate"><span class="pre">false</span></code>, in which case the group may still be hyperbolic: if it fails, then it returns extra data on the cause of failure, which may help the user to modify the presentation and try again.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> succeeds, then the value of the parameter <span class="math notranslate nohighlight">\(\epsilon\)</span> (written as <code class="docutils literal notranslate"><span class="pre">epsilon</span></code> in the intrinsic) yields information about the group. In particular, let <span class="math notranslate nohighlight">\(r\)</span> be the length of the longest relator in <code class="docutils literal notranslate"><span class="pre">green</span></code>, then the Dehn function of the group is bounded above by</p>
+<div class="math notranslate nohighlight">
+\[f(n) = n(4 + r + {3+r\over 2\epsilon}) - {3+r\over\epsilon}.\]</div>
+<p>By default, if <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> succeeds, then it also attempts to compute a Dehn algorithm for the group, which can be used to test whether words in the group generators define the identity element of the group. This attempt is usually successful but may fail.</p>
+<p>The alternative intrinsic, also called <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code>, for attempting to prove that an automatic group is hyperbolic was described above in Section <a class="reference internal" href="#sec-atc-hyperbolicity"><span class="std std-ref">Testing an Automatic Group for Hyperbolicity</span></a>). To use that version, it is necessary to first convert the finitely presented group <span class="math notranslate nohighlight">\(G\)</span> into an automatic group, by using the function <code class="docutils literal notranslate"><span class="pre">AutomaticGroup(G)</span></code>. For groups with a moderately small number of generators, applying <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> to an automatic group will succeed on more examples than the version of <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> that we describe in this section. But the version in this section will typically be much faster if it does work, and it does not require prior computation of an automatic structure for the finitely-presented group <span class="math notranslate nohighlight">\(G\)</span>. Also the version described here can be applied to groups with large numbers (several thousands) of generators, and it can be used for investigating the asymptotic behaviour of such groups.</p>
+<dl class="magma function">
+<dt class="sig sig-object magma" id="function-ishyperbolic-grpfp-seqenum-seqenum">
+<span class="sig-name descname"><span class="pre">IsHyperbolic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">F</span></em>, <em class="sig-param"><span class="pre">red</span></em>, <em class="sig-param"><span class="pre">green</span></em><span class="sig-paren">)</span><span class="p"><span class="pre">:</span> </span><span class="pre">GrpFP,</span> <span class="pre">SeqEnum,</span> <span class="pre">SeqEnum</span><span class="p"> <span class="pre">-&gt;</span> </span><span class="pre">BoolElt,</span> <span class="pre">BoolElt,</span> <span class="pre">SeqEnum,</span> <span class="pre">SeqEnum</span><a class="headerlink" href="#function-ishyperbolic-grpfp-seqenum-seqenum" title="Link to this definition"><span aria-hidden="true">#</span></a></dt>
+<dd><div class="magma-param highlight-magma notranslate"><div class="highlight"><pre><span></span><span class="n">epsilon</span>     <span class="p">:</span> <span class="kt">FldRatElt</span>                    <span class="n">Default</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="mi">10</span>
+<span class="n">VerifySolver</span><span class="p">:</span> <span class="kt">BoolElt</span>                      <span class="n">Default</span><span class="p">:</span> <span class="kc">true</span>
+<span class="n">Print</span>       <span class="p">:</span> <span class="kt">RngIntElt</span>                    <span class="n">Default</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">noboundary</span>  <span class="p">:</span> <span class="kt">BoolElt</span>                      <span class="n">Default</span><span class="p">:</span> <span class="kc">false</span>
+<span class="n">verifypgp</span>   <span class="p">:</span> <span class="kt">BoolElt</span>                      <span class="n">Default</span><span class="p">:</span> <span class="kc">true</span>
+<span class="n">complete</span>    <span class="p">:</span> <span class="kt">BoolElt</span>                      <span class="n">Default</span><span class="p">:</span> <span class="kc">false</span>
+</pre></div>
+</div>
+<p>The group <span class="math notranslate nohighlight">\(F\)</span> should be a free group, and <code class="docutils literal notranslate"><span class="pre">red</span></code> and <code class="docutils literal notranslate"><span class="pre">green</span></code> should be (possibly empty) lists <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> of elements of <span class="math notranslate nohighlight">\(F\)</span> that define a finitely presented group <span class="math notranslate nohighlight">\(G = F/{\rm ncl}_F\langle A \cup B\rangle\)</span>. The words in <code class="docutils literal notranslate"><span class="pre">red</span></code> must all have length <span class="math notranslate nohighlight">\(3\)</span>.</p>
+<p>The easiest way to use <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> is to put all relators into <code class="docutils literal notranslate"><span class="pre">green</span></code>, leaving <code class="docutils literal notranslate"><span class="pre">red</span></code> empty. The following example shows that <span class="math notranslate nohighlight">\(\langle x, y, z | (xyz)^2 \rangle\)</span> is hyperbolic:</p>
+</dd></dl>
+
+<dl class="magma example">
+<dt class="sig sig-object magma" id="example-ex-d7a495">
+<span class="sig-name descname"><span class="pre">Example:</span> <span class="pre">rsym1</span></span> <span class="magma-example-tag"><span class="pre">(ex-d7a495)</span></span><a class="headerlink" href="#example-ex-d7a495" title="Link to this definition"><span aria-hidden="true">#</span></a></dt>
+<dd><div class="highlight-magma notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="nb">F</span><span class="p">&lt;</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">&gt;</span><span class="o">:=</span> <span class="nf">FreeGroup</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">red</span><span class="o">:=</span> <span class="p">[];</span>
+<span class="gp">&gt; </span><span class="n">green</span><span class="o">:=</span> <span class="p">[(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">z</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">];</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span><span class="p">,</span> <span class="n">D1</span><span class="p">,</span> <span class="n">D2</span> <span class="o">:=</span> <span class="nf">IsHyperbolic</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span><span class="p">;</span>
+<span class="go">true true</span>
+</pre></div>
+</div>
+<p class="magma-play-wrap"><a class="magma-play-btn" href="https://magma-maths.org/calc/?code=F%3Cx%2C+y%2C+z%3E%3A%3D+FreeGroup%283%29%3B%0Ared%3A%3D+%5B%5D%3B%0Agreen%3A%3D+%5B%28x%2Ay%2Az%29%5E2%5D%3B%0Aish%2C+dehn%2C+D1%2C+D2+%3A%3D+IsHyperbolic%28F%2C+red%2C+green%29%3B%0Aish%2C+dehn%3B" target="_blank" rel="noopener noreferrer" title="Load this example into the Magma calculator"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>Run in calculator<span class="magma-visually-hidden"> (opens in a new tab)</span></a><button type="button" class="magma-copy-input-btn" data-copy-text="F&lt;x, y, z&gt;:= FreeGroup(3);
+red:= [];
+green:= [(x*y*z)^2];
+ish, dehn, D1, D2 := IsHyperbolic(F, red, green);
+ish, dehn;" title="Copy just the input lines, without their output"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="magma-copy-input-label">Copy input</span></button></p><p>The variables <code class="docutils literal notranslate"><span class="pre">ish</span></code> and <code class="docutils literal notranslate"><span class="pre">dehn</span></code> are both <code class="docutils literal notranslate"><span class="pre">true</span></code>, which means that the group has been proved hyperbolic and a Dehn algorithm has been calculated. The data returned as <code class="docutils literal notranslate"><span class="pre">D1</span></code> can be used to decide whether words in <span class="math notranslate nohighlight">\(F\)</span> define the identity element of <span class="math notranslate nohighlight">\(G\)</span>, using the function <code class="docutils literal notranslate"><span class="pre">IsIdentity</span></code> described in Section <a class="reference internal" href="#using-dehn"><span class="std std-ref">The Dehn Algorithm</span></a> below.</p>
+</dd></dl>
+
+<p>The intrinsic <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> can be applied to a group <span class="math notranslate nohighlight">\(G\)</span> that is already constructed in Magma as a group of type <code class="docutils literal notranslate"><span class="pre">FPGroup</span></code>, as follows:-</p>
+<dl class="magma example">
+<dt class="sig sig-object magma" id="example-ex-b541e8">
+<span class="sig-name descname"><span class="pre">Example:</span> <span class="pre">rsym6</span></span> <span class="magma-example-tag"><span class="pre">(ex-b541e8)</span></span><a class="headerlink" href="#example-ex-b541e8" title="Link to this definition"><span aria-hidden="true">#</span></a></dt>
+<dd><div class="highlight-magma notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="nb">F</span><span class="p">&lt;</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">&gt;</span><span class="o">:=</span> <span class="nf">FreeGroup</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">G</span><span class="o">:=</span> <span class="nb">quo</span><span class="p">&lt;</span><span class="n">F</span> <span class="p">|</span> <span class="n">a</span><span class="o">^</span><span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="p">)</span><span class="o">^</span><span class="mi">7</span><span class="p">&gt;;</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span><span class="p">,</span> <span class="n">L1</span><span class="p">,</span> <span class="n">L2</span> <span class="o">:=</span> <span class="nf">IsHyperbolic</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[],</span> <span class="nf">Relators</span><span class="p">(</span><span class="n">G</span><span class="p">));</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span><span class="p">;</span>
+<span class="go">true true</span>
+</pre></div>
+</div>
+<p class="magma-play-wrap"><a class="magma-play-btn" href="https://magma-maths.org/calc/?code=F%3Ca%2C+b%2C+c%3E%3A%3D+FreeGroup%283%29%3B%0AG%3A%3D+quo%3CF+%7C+a%5E5%2C+%28b%2Ac%29%5E7%3E%3B%0Aish%2C+dehn%2C+L1%2C+L2+%3A%3D+IsHyperbolic%28F%2C+%5B%5D%2C+Relators%28G%29%29%3B%0Aish%2C+dehn%3B" target="_blank" rel="noopener noreferrer" title="Load this example into the Magma calculator"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>Run in calculator<span class="magma-visually-hidden"> (opens in a new tab)</span></a><button type="button" class="magma-copy-input-btn" data-copy-text="F&lt;a, b, c&gt;:= FreeGroup(3);
+G:= quo&lt;F | a^5, (b*c)^7&gt;;
+ish, dehn, L1, L2 := IsHyperbolic(F, [], Relators(G));
+ish, dehn;" title="Copy just the input lines, without their output"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="magma-copy-input-label">Copy input</span></button></p></dd></dl>
+
+</section>
+<section id="common-error-messages-and-how-to-avoid-them">
+<h2>Common Error Messages, and How to Avoid Them<a class="headerlink" href="#common-error-messages-and-how-to-avoid-them" title="Link to this heading"><span aria-hidden="true">#</span></a></h2>
+<p>The function will return an error if <code class="docutils literal notranslate"><span class="pre">green</span></code> contains any relators of the form <span class="math notranslate nohighlight">\(ab\)</span> with <span class="math notranslate nohighlight">\(a \neq b\)</span>. The intrinsic <a class="reference internal" href="../FPGroups/simplification.html#function-grpfp-1-simplify" title="Simplify(G: parameters)"><code class="docutils literal notranslate"><span class="pre">Simplify</span></code></a> should be applied before invoking <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> in this case.</p>
+<dl class="magma example">
+<dt class="sig sig-object magma" id="example-ex-cd92b6">
+<span class="sig-name descname"><span class="pre">Example:</span> <span class="pre">rsym2</span></span> <span class="magma-example-tag"><span class="pre">(ex-cd92b6)</span></span><a class="headerlink" href="#example-ex-cd92b6" title="Link to this definition"><span aria-hidden="true">#</span></a></dt>
+<dd><div class="highlight-magma notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="nb">F</span><span class="p">&lt;</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">&gt;</span><span class="o">:=</span> <span class="nf">FreeGroup</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">green</span><span class="o">:=</span> <span class="p">[</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="p">)</span><span class="o">^</span><span class="mi">6</span><span class="p">];</span>
+<span class="gp">&gt; </span><span class="n">flag</span><span class="o">:=</span> <span class="nf">IsHyperbolic</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[],</span> <span class="n">green</span><span class="p">);</span>
+<span class="go">Runtime error: Non-square relators must have length at least 3</span>
+<span class="gp">&gt; </span><span class="n">G</span><span class="o">:=</span> <span class="nf">Simplify</span><span class="p">(</span><span class="nb">quo</span><span class="p">&lt;</span><span class="n">F</span><span class="p">|</span><span class="n">green</span><span class="p">&gt;);</span>
+<span class="gp">&gt; </span><span class="n">G</span><span class="p">;</span>
+<span class="go">Finitely presented group on 2 generators</span>
+<span class="go">Generators as words</span>
+<span class="go">    G.1 = $.1</span>
+<span class="go">    G.2 = $.3</span>
+<span class="go">Relations</span>
+<span class="go">    G.2^6 = Id($)</span>
+<span class="gp">&gt; </span><span class="n">flag</span><span class="o">:=</span> <span class="nf">IsHyperbolic</span><span class="p">(</span><span class="nf">FreeGroup</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="p">[],</span> <span class="nf">Relators</span><span class="p">(</span><span class="n">G</span><span class="p">));</span>
+<span class="gp">&gt; </span><span class="n">flag</span><span class="p">;</span>
+<span class="go">true</span>
+</pre></div>
+</div>
+<p class="magma-play-wrap"><a class="magma-play-btn" href="https://magma-maths.org/calc/?code=F%3Ca%2C+b%2C+c%3E%3A%3D+FreeGroup%283%29%3B%0Agreen%3A%3D+%5Ba%2Ab%2C+%28a%2Ab%2Ac%29%5E6%5D%3B%0Aflag%3A%3D+IsHyperbolic%28F%2C+%5B%5D%2C+green%29%3B%0AG%3A%3D+Simplify%28quo%3CF%7Cgreen%3E%29%3B%0AG%3B%0Aflag%3A%3D+IsHyperbolic%28FreeGroup%28G%29%2C+%5B%5D%2C+Relators%28G%29%29%3B%0Aflag%3B" target="_blank" rel="noopener noreferrer" title="Load this example into the Magma calculator"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>Run in calculator<span class="magma-visually-hidden"> (opens in a new tab)</span></a><button type="button" class="magma-copy-input-btn" data-copy-text="F&lt;a, b, c&gt;:= FreeGroup(3);
+green:= [a*b, (a*b*c)^6];
+flag:= IsHyperbolic(F, [], green);
+G:= Simplify(quo&lt;F|green&gt;);
+G;
+flag:= IsHyperbolic(FreeGroup(G), [], Relators(G));
+flag;" title="Copy just the input lines, without their output"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="magma-copy-input-label">Copy input</span></button></p></dd></dl>
+
+<p>The function will also return an error if <code class="docutils literal notranslate"><span class="pre">green</span></code> contains any pairs of relators (or their inverses) that are identical in all but one letter. Again the function <code class="docutils literal notranslate"><span class="pre">Simplify</span></code> may be able to resolve the problem.</p>
+<dl class="magma example">
+<dt class="sig sig-object magma" id="example-ex-976118">
+<span class="sig-name descname"><span class="pre">Example:</span> <span class="pre">Rsym</span> <span class="pre">3</span></span> <span class="magma-example-tag"><span class="pre">(ex-976118)</span></span><a class="headerlink" href="#example-ex-976118" title="Link to this definition"><span aria-hidden="true">#</span></a></dt>
+<dd><div class="highlight-magma notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="nb">F</span><span class="p">&lt;</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">&gt;</span><span class="o">:=</span> <span class="nf">FreeGroup</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">green</span><span class="o">:=</span> <span class="p">[(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">];</span>
+<span class="gp">&gt; </span><span class="nf">IsHyperbolic</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[],</span> <span class="n">green</span><span class="p">);</span>
+<span class="go">Runtime error: A piece of a relator consists of all but one letter</span>
+<span class="gp">&gt; </span><span class="n">G</span><span class="o">:=</span> <span class="nf">Simplify</span><span class="p">(</span><span class="nb">quo</span><span class="p">&lt;</span><span class="n">F</span><span class="p">|</span><span class="n">green</span><span class="p">&gt;);</span>
+<span class="gp">&gt; </span><span class="n">G</span><span class="p">;</span>
+<span class="go">Finitely presented group G on 2 generators</span>
+<span class="go">Generators as words</span>
+<span class="go">  G.1 = $.1</span>
+<span class="go">  G.2 = $.2</span>
+<span class="go">Relations</span>
+<span class="go">  (G.1 * G.2^2)^2 = Id(G)</span>
+<span class="gp">&gt; </span><span class="nf">IsHyperbolic</span><span class="p">(</span><span class="nf">FreeGroup</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="p">[],</span> <span class="nf">Relators</span><span class="p">(</span><span class="n">G</span><span class="p">));</span>
+<span class="go">true</span>
+</pre></div>
+</div>
+<p class="magma-play-wrap"><a class="magma-play-btn" href="https://magma-maths.org/calc/?code=F%3Ca%2C+b%2C+c%3E%3A%3D+FreeGroup%283%29%3B%0Agreen%3A%3D+%5B%28a%2Ab%2Ac%29%5E2%2C+a%2Ab%2Ac%2Aa%2Ab%2Ab%5D%3B%0AIsHyperbolic%28F%2C+%5B%5D%2C+green%29%3B%0AG%3A%3D+Simplify%28quo%3CF%7Cgreen%3E%29%3B%0AG%3B%0AIsHyperbolic%28FreeGroup%28G%29%2C+%5B%5D%2C+Relators%28G%29%29%3B" target="_blank" rel="noopener noreferrer" title="Load this example into the Magma calculator"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>Run in calculator<span class="magma-visually-hidden"> (opens in a new tab)</span></a><button type="button" class="magma-copy-input-btn" data-copy-text="F&lt;a, b, c&gt;:= FreeGroup(3);
+green:= [(a*b*c)^2, a*b*c*a*b*b];
+IsHyperbolic(F, [], green);
+G:= Simplify(quo&lt;F|green&gt;);
+G;
+IsHyperbolic(FreeGroup(G), [], Relators(G));" title="Copy just the input lines, without their output"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="magma-copy-input-label">Copy input</span></button></p></dd></dl>
+
+</section>
+<section id="the-relators-red">
+<h2>The Relators red<a class="headerlink" href="#the-relators-red" title="Link to this heading"><span aria-hidden="true">#</span></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> function is based on a generalisation of the ideas of small cancellation theory. If a presentation contains very short relators then it is harder for small cancellation conditions to be satisfied. However, it is possible for <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> to work on such presentations, by using the <code class="docutils literal notranslate"><span class="pre">red</span></code> relators. These relators are required to have length <span class="math notranslate nohighlight">\(3\)</span> and (together with any relators of the form <span class="math notranslate nohighlight">\(x^2\)</span> in <code class="docutils literal notranslate"><span class="pre">green</span></code>) should define a pregroup structure on the group generators, their inverses, and the identity, as defined by Stallings.</p>
+<p>A <em>pregroup</em> <span class="math notranslate nohighlight">\(P\)</span> is a set <span class="math notranslate nohighlight">\(X\)</span>, with a distinguished element <span class="math notranslate nohighlight">\(1\)</span>, an involution <span class="math notranslate nohighlight">\(\sigma\)</span> and a partial multiplication <span class="math notranslate nohighlight">\((x, y) \to xy\)</span> which is defined for <span class="math notranslate nohighlight">\((x, y) \in D(P)\)</span>, satisfying five axioms. The first three of these axioms essentially state that <span class="math notranslate nohighlight">\(\sigma\)</span> operates in the same way as group inversion, and that <span class="math notranslate nohighlight">\(1\)</span> acts as an identity. The final two axioms are</p>
+<p>(P4)  if <span class="math notranslate nohighlight">\((x, y), (y, z) \in D(P)\)</span> then <span class="math notranslate nohighlight">\((xy, z) \in D(P)\)</span> if and only if <span class="math notranslate nohighlight">\((x, yz) \in D(P)\)</span>, in which case <span class="math notranslate nohighlight">\((xy)z = x(yz)\)</span>; and</p>
+<p>(P5)  if <span class="math notranslate nohighlight">\((x, y), (y, z), (z, t) \in D(P)\)</span> then at least one of <span class="math notranslate nohighlight">\((xy, z)\)</span> and <span class="math notranslate nohighlight">\((yz, t)\)</span> is in <span class="math notranslate nohighlight">\(D(P)\)</span>.</p>
+<p>These axioms are checked unless the parameter <code class="docutils literal notranslate"><span class="pre">verifypgp</span></code> is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>Any group which is a quotient of a free product of free and finite groups can be defined by a presentation with relators in <code class="docutils literal notranslate"><span class="pre">red</span></code> and <code class="docutils literal notranslate"><span class="pre">green</span></code>, satisfying a pregroup structure. It is also possible to present any group which is a quotient of a virtually free group by including additional relators in this way, but the choice of relators to put in <code class="docutils literal notranslate"><span class="pre">red</span></code> may be more complicated.</p>
+<p>The following example shows that the quotient <span class="math notranslate nohighlight">\(\langle a, b | a^2, b^3, (ab)^7 \rangle\)</span> of the modular group <span class="math notranslate nohighlight">\(C_2 \ast C_3\)</span> is hyperbolic.</p>
+<dl class="magma example">
+<dt class="sig sig-object magma" id="example-ex-5a8018">
+<span class="sig-name descname"><span class="pre">Example:</span> <span class="pre">Rsym</span> <span class="pre">4</span></span> <span class="magma-example-tag"><span class="pre">(ex-5a8018)</span></span><a class="headerlink" href="#example-ex-5a8018" title="Link to this definition"><span aria-hidden="true">#</span></a></dt>
+<dd><div class="highlight-magma notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="nb">F</span><span class="p">&lt;</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">&gt;</span><span class="o">:=</span> <span class="nf">FreeGroup</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="o">:=</span> <span class="nf">IsHyperbolic</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="n">b</span><span class="o">^</span><span class="mi">3</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="o">^</span><span class="mi">7</span><span class="p">]);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">;</span>
+<span class="go">false</span>
+<span class="gp">&gt; </span><span class="n">red</span><span class="o">:=</span> <span class="p">[</span><span class="n">b</span><span class="o">^</span><span class="mi">3</span><span class="p">];</span>
+<span class="gp">&gt; </span><span class="n">green</span><span class="o">:=</span> <span class="p">[</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="o">^</span><span class="mi">7</span><span class="p">];</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span> <span class="o">:=</span> <span class="nf">IsHyperbolic</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span><span class="p">;</span>
+<span class="go">true true</span>
+</pre></div>
+</div>
+<p class="magma-play-wrap"><a class="magma-play-btn" href="https://magma-maths.org/calc/?code=F%3Ca%2C+b%3E%3A%3D+FreeGroup%282%29%3B%0Aish%3A%3D+IsHyperbolic%28F%2C+%5B%5D%2C+%5Ba%5E2%2C+b%5E3%2C+%28a%2Ab%29%5E7%5D%29%3B%0Aish%3B%0Ared%3A%3D+%5Bb%5E3%5D%3B%0Agreen%3A%3D+%5Ba%5E2%2C+%28a%2Ab%29%5E7%5D%3B%0Aish%2C+dehn+%3A%3D+IsHyperbolic%28F%2C+red%2C+green%29%3B%0Aish%2C+dehn%3B" target="_blank" rel="noopener noreferrer" title="Load this example into the Magma calculator"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>Run in calculator<span class="magma-visually-hidden"> (opens in a new tab)</span></a><button type="button" class="magma-copy-input-btn" data-copy-text="F&lt;a, b&gt;:= FreeGroup(2);
+ish:= IsHyperbolic(F, [], [a^2, b^3, (a*b)^7]);
+ish;
+red:= [b^3];
+green:= [a^2, (a*b)^7];
+ish, dehn := IsHyperbolic(F, red, green);
+ish, dehn;" title="Copy just the input lines, without their output"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="magma-copy-input-label">Copy input</span></button></p></dd></dl>
+
+<p>As a more complicated example, the following example shows how to work with a quotient of <span class="math notranslate nohighlight">\(S_3 \ast C_3 \ast Z\)</span>, using the function <code class="docutils literal notranslate"><span class="pre">RedRelatorsForFreeProduct</span></code>.</p>
+<dl class="magma function">
+<dt class="sig sig-object magma" id="function-redrelatorsforfreeproduct-list-rngintelt">
+<span class="sig-name descname"><span class="pre">RedRelatorsForFreeProduct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">groupList</span></em>, <em class="sig-param"><span class="pre">freeFacs</span></em><span class="sig-paren">)</span><span class="p"><span class="pre">:</span> </span><span class="pre">List,</span> <span class="pre">RngIntElt</span><span class="p"> <span class="pre">-&gt;</span> </span><span class="pre">GrpFP,</span> <span class="pre">SeqEnum,</span> <span class="pre">SeqEnum,</span> <span class="pre">Map,</span> <span class="pre">SeqEnum</span><a class="headerlink" href="#function-redrelatorsforfreeproduct-list-rngintelt" title="Link to this definition"><span aria-hidden="true">#</span></a></dt>
+<dd><p>The list <code class="docutils literal notranslate"><span class="pre">groupList</span></code> should be a nonempty list of finite permutation groups <span class="math notranslate nohighlight">\(G_1, \ldots, G_t\)</span>, and the integer <code class="docutils literal notranslate"><span class="pre">freeFacs</span></code> should be an integer <span class="math notranslate nohighlight">\(k \geq 0\)</span>. It produces the free product <span class="math notranslate nohighlight">\(G_1 \ast G_2 \ast \cdots \ast G_t \ast F_k\)</span> in a form that can be worked with by <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code>. The function <code class="docutils literal notranslate"><span class="pre">RedRelatorsForFreeProduct</span></code> will return a free group, a list of red relators, a list of involutory generators (to which additional green relators can be added by the user) and a function for turning lists of elements from the groups <span class="math notranslate nohighlight">\(G_i\)</span> and <span class="math notranslate nohighlight">\(F_k\)</span> into relators over the free product. The final return value is a list of generators for each group, in the order to which they correspond to the generators of the new free group <span class="math notranslate nohighlight">\(F\)</span>, and may be helpful for checking accuracy.</p>
+</dd></dl>
+
+<dl class="magma example">
+<dt class="sig sig-object magma" id="example-ex-fac47e">
+<span class="sig-name descname"><span class="pre">Example:</span> <span class="pre">Rsym</span> <span class="pre">Red1</span></span> <span class="magma-example-tag"><span class="pre">(ex-fac47e)</span></span><a class="headerlink" href="#example-ex-fac47e" title="Link to this definition"><span aria-hidden="true">#</span></a></dt>
+<dd><div class="highlight-magma notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">groupList</span><span class="o">:=</span> [*<span class="nf">Sym</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="nf">CyclicGroup</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>*]<span class="p">;</span>
+<span class="gp">&gt; </span><span class="n">F</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">,</span> <span class="n">GreenRelator</span><span class="p">,</span> <span class="n">gens</span><span class="o">:=</span>
+<span class="gp">&gt; </span>    <span class="nf">RedRelatorsForFreeProduct</span><span class="p">(</span><span class="n">groupList</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">F</span><span class="p">;</span>
+<span class="go">Finitely presented group F on 6 generators (free)</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span> <span class="o">:=</span> <span class="nf">IsHyperbolic</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span><span class="p">;</span>
+<span class="go">true true</span>
+</pre></div>
+</div>
+<p class="magma-play-wrap"><a class="magma-play-btn" href="https://magma-maths.org/calc/?code=groupList%3A%3D+%5B%2ASym%283%29%2C+CyclicGroup%283%29%2A%5D%3B%0AF%2C+red%2C+green%2C+GreenRelator%2C+gens%3A%3D%0A++++RedRelatorsForFreeProduct%28groupList%2C+1%29%3B%0AF%3B%0Aish%2C+dehn+%3A%3D+IsHyperbolic%28F%2C+red%2C+green%29%3B%0Aish%2C+dehn%3B" target="_blank" rel="noopener noreferrer" title="Load this example into the Magma calculator"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>Run in calculator<span class="magma-visually-hidden"> (opens in a new tab)</span></a><button type="button" class="magma-copy-input-btn" data-copy-text="groupList:= [*Sym(3), CyclicGroup(3)*];
+F, red, green, GreenRelator, gens:=
+    RedRelatorsForFreeProduct(groupList, 1);
+F;
+ish, dehn := IsHyperbolic(F, red, green);
+ish, dehn;" title="Copy just the input lines, without their output"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="magma-copy-input-label">Copy input</span></button></p><p>This is unsurprising, since only a free product has been constructed at this point! The next step is to define an additional relator, using the returned function <code class="docutils literal notranslate"><span class="pre">GreenRelator</span></code>:</p>
+<div class="highlight-magma notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">extra_rel</span><span class="o">:=</span> <span class="nf">GreenRelator</span><span class="p">(</span>[* &lt; <span class="mi">1</span><span class="p">,</span> <span class="nf">Sym</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">!</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>&gt;<span class="p">,</span>
+<span class="gp">&gt; </span>  &lt;<span class="mi">3</span><span class="p">,</span> <span class="mi">1</span>&gt;<span class="p">,</span> &lt;<span class="mi">2</span><span class="p">,</span> <span class="nf">CyclicGroup</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">!</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>&gt;<span class="p">,</span> &lt;<span class="mi">3</span><span class="p">,</span> <span class="mi">-1</span>&gt;<span class="p">,</span>
+<span class="gp">&gt; </span>  &lt;<span class="mi">2</span><span class="p">,</span> <span class="nf">CyclicGroup</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">!</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>&gt;<span class="p">,</span> &lt;<span class="mi">1</span><span class="p">,</span> <span class="nf">Sym</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">!</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>&gt;<span class="p">,</span> &lt;<span class="mi">3</span><span class="p">,</span> <span class="mi">1</span>&gt;*]<span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">extra_rel</span><span class="p">;</span>
+<span class="go">F.1^-1 * F.6 * F.5 * F.6^-1 * F.5^-1 * F.3 * F.6</span>
+<span class="gp">&gt; </span><span class="nf">Append</span><span class="p">(</span><span class="o">~</span><span class="n">green</span><span class="p">,</span> <span class="n">extra_rel</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span><span class="p">,</span> <span class="n">D1</span><span class="p">,</span> <span class="n">D2</span> <span class="o">:=</span> <span class="nf">IsHyperbolic</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span><span class="p">;</span>
+<span class="go">true false</span>
+</pre></div>
+</div>
+<p class="magma-play-wrap"><a class="magma-play-btn" href="https://magma-maths.org/calc/?code=extra_rel%3A%3D+GreenRelator%28%5B%2A+%3C+1%2C+Sym%283%29%21%281%2C+3%2C+2%29%3E%2C%0A++%3C3%2C+1%3E%2C+%3C2%2C+CyclicGroup%283%29%21%281%2C+2%2C+3%29%3E%2C+%3C3%2C+-1%3E%2C%0A++%3C2%2C+CyclicGroup%283%29%21%281%2C+3%2C+2%29%3E%2C+%3C1%2C+Sym%283%29%21%281%2C+2%29%3E%2C+%3C3%2C+1%3E%2A%5D%29%3B%0Aextra_rel%3B%0AAppend%28~green%2C+extra_rel%29%3B%0Aish%2C+dehn%2C+D1%2C+D2+%3A%3D+IsHyperbolic%28F%2C+red%2C+green%29%3B%0Aish%2C+dehn%3B" target="_blank" rel="noopener noreferrer" title="Load this example into the Magma calculator"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>Run in calculator<span class="magma-visually-hidden"> (opens in a new tab)</span></a><button type="button" class="magma-copy-input-btn" data-copy-text="extra_rel:= GreenRelator([* &lt; 1, Sym(3)!(1, 3, 2)&gt;,
+  &lt;3, 1&gt;, &lt;2, CyclicGroup(3)!(1, 2, 3)&gt;, &lt;3, -1&gt;,
+  &lt;2, CyclicGroup(3)!(1, 3, 2)&gt;, &lt;1, Sym(3)!(1, 2)&gt;, &lt;3, 1&gt;*]);
+extra_rel;
+Append(~green, extra_rel);
+ish, dehn, D1, D2 := IsHyperbolic(F, red, green);
+ish, dehn;" title="Copy just the input lines, without their output"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="magma-copy-input-label">Copy input</span></button></p></dd></dl>
+
+<p>So this is an example where hyperbolicity was proved, but <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> failed to compute a Dehn algorithm. In this case, the data items <code class="docutils literal notranslate"><span class="pre">D1</span></code> and <code class="docutils literal notranslate"><span class="pre">D2</span></code> provide extra information on the cause of this failure as described in the forthcoming paper mentioned earlier. If it is not known how to represent the input group as a quotient of a free product of groups, and <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> fails to succeed with the given presentation, some general tips are:</p>
+<ol class="arabic simple">
+<li><p>It is advisable to include all relators of the form <span class="math notranslate nohighlight">\(x^3\)</span> in <code class="docutils literal notranslate"><span class="pre">red</span></code>.</p></li>
+<li><p>If there are relators <span class="math notranslate nohighlight">\(x^k\)</span> for small values of <span class="math notranslate nohighlight">\(k\)</span> (<span class="math notranslate nohighlight">\(k \le 6\)</span>), then it may be a good idea to introduce new generators so that the relator <span class="math notranslate nohighlight">\(x^k\)</span> can be broken up into relators of length <span class="math notranslate nohighlight">\(3\)</span>, all of which can be put into <code class="docutils literal notranslate"><span class="pre">red</span></code>.</p></li>
+</ol>
+<p>This is illustrated in the following example.</p>
+<dl class="magma example">
+<dt class="sig sig-object magma" id="example-ex-2ba258">
+<span class="sig-name descname"><span class="pre">Example:</span> <span class="pre">rsym5</span></span> <span class="magma-example-tag"><span class="pre">(ex-2ba258)</span></span><a class="headerlink" href="#example-ex-2ba258" title="Link to this definition"><span aria-hidden="true">#</span></a></dt>
+<dd><div class="highlight-magma notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="nb">F</span><span class="p">&lt;</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">&gt;</span> <span class="o">:=</span> <span class="nf">FreeGroup</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">red</span> <span class="o">:=</span> <span class="p">[</span><span class="n">y</span><span class="o">^</span><span class="mi">3</span><span class="p">];</span> <span class="n">green</span> <span class="o">:=</span> <span class="p">[</span><span class="n">x</span><span class="o">^</span><span class="mi">4</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">^</span><span class="mi">4</span> <span class="p">];</span>
+<span class="gp">&gt; </span><span class="n">ish</span> <span class="o">:=</span> <span class="nf">IsHyperbolic</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">;</span>
+<span class="go">false</span>
+</pre></div>
+</div>
+<p class="magma-play-wrap"><a class="magma-play-btn" href="https://magma-maths.org/calc/?code=F%3Cx%2Cy%3E+%3A%3D+FreeGroup%282%29%3B%0Ared+%3A%3D+%5By%5E3%5D%3B+green+%3A%3D+%5Bx%5E4%2C+%28x%2Ay%29%5E4+%5D%3B%0Aish+%3A%3D+IsHyperbolic%28F%2C+red%2C+green%29%3B%0Aish%3B" target="_blank" rel="noopener noreferrer" title="Load this example into the Magma calculator"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>Run in calculator<span class="magma-visually-hidden"> (opens in a new tab)</span></a><button type="button" class="magma-copy-input-btn" data-copy-text="F&lt;x,y&gt; := FreeGroup(2);
+red := [y^3]; green := [x^4, (x*y)^4 ];
+ish := IsHyperbolic(F, red, green);
+ish;" title="Copy just the input lines, without their output"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="magma-copy-input-label">Copy input</span></button></p><p>That didn’t work, but let’s try breaking up the relator <span class="math notranslate nohighlight">\(x^4\)</span>.</p>
+<div class="highlight-magma notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="nb">F</span><span class="p">&lt;</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">&gt;</span> <span class="o">:=</span><span class="nf">FreeGroup</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">red</span> <span class="o">:=</span> <span class="p">[</span><span class="n">y</span><span class="o">^</span><span class="mi">3</span><span class="p">,</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">];</span> <span class="n">green</span> <span class="o">:=</span> <span class="p">[</span><span class="n">t</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">^</span><span class="mi">4</span><span class="p">];</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span> <span class="o">:=</span> <span class="nf">IsHyperbolic</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">red</span><span class="p">,</span> <span class="n">green</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span><span class="p">;</span>
+<span class="go">true true</span>
+</pre></div>
+</div>
+<p class="magma-play-wrap"><a class="magma-play-btn" href="https://magma-maths.org/calc/?code=F%3Cx%2Cy%2Ct%3E+%3A%3DFreeGroup%283%29%3B%0Ared+%3A%3D+%5By%5E3%2C+x%5E2%2At%5D%3B+green+%3A%3D+%5Bt%5E2%2C+%28x%2Ay%29%5E4%5D%3B%0Aish%2C+dehn+%3A%3D+IsHyperbolic%28F%2C+red%2C+green%29%3B%0Aish%2C+dehn%3B" target="_blank" rel="noopener noreferrer" title="Load this example into the Magma calculator"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>Run in calculator<span class="magma-visually-hidden"> (opens in a new tab)</span></a><button type="button" class="magma-copy-input-btn" data-copy-text="F&lt;x,y,t&gt; :=FreeGroup(3);
+red := [y^3, x^2*t]; green := [t^2, (x*y)^4];
+ish, dehn := IsHyperbolic(F, red, green);
+ish, dehn;" title="Copy just the input lines, without their output"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="magma-copy-input-label">Copy input</span></button></p><p>However, it will not always work simply to put all relators of length <span class="math notranslate nohighlight">\(3\)</span> into <code class="docutils literal notranslate"><span class="pre">red</span></code>, as the conditions for being a pregroup may fail.</p>
+<div class="highlight-magma notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="nb">F</span><span class="p">&lt;</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">&gt;</span> <span class="o">:=</span> <span class="nf">FreeGroup</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">red</span> <span class="o">:=</span> <span class="p">[</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="o">^</span><span class="mi">-1</span><span class="p">,</span> <span class="n">b</span><span class="o">*</span><span class="n">c</span><span class="o">*</span><span class="n">d</span><span class="o">^</span><span class="mi">-1</span><span class="p">,</span> <span class="n">c</span><span class="o">*</span><span class="n">d</span><span class="o">*</span><span class="n">e</span><span class="o">^</span><span class="mi">-1</span><span class="p">,</span> <span class="n">d</span><span class="o">*</span><span class="n">e</span><span class="o">*</span><span class="n">a</span><span class="o">^</span><span class="mi">-1</span><span class="p">,</span> <span class="n">e</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">^</span><span class="mi">-1</span> <span class="p">];</span>
+<span class="gp">&gt; </span><span class="nf">IsHyperbolic</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">red</span><span class="p">,[]);</span>
+<span class="go">Runtime error: Pregroup axiom (P5) fails on generators &lt;1, 2, 3, 4&gt;</span>
+</pre></div>
+</div>
+<p class="magma-play-wrap"><a class="magma-play-btn" href="https://magma-maths.org/calc/?code=F%3Ca%2Cb%2Cc%2Cd%2Ce%3E+%3A%3D+FreeGroup%285%29%3B%0Ared+%3A%3D+%5Ba%2Ab%2Ac%5E-1%2C+b%2Ac%2Ad%5E-1%2C+c%2Ad%2Ae%5E-1%2C+d%2Ae%2Aa%5E-1%2C+e%2Aa%2Ab%5E-1+%5D%3B%0AIsHyperbolic%28F%2Cred%2C%5B%5D%29%3B" target="_blank" rel="noopener noreferrer" title="Load this example into the Magma calculator"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>Run in calculator<span class="magma-visually-hidden"> (opens in a new tab)</span></a><button type="button" class="magma-copy-input-btn" data-copy-text="F&lt;a,b,c,d,e&gt; := FreeGroup(5);
+red := [a*b*c^-1, b*c*d^-1, c*d*e^-1, d*e*a^-1, e*a*b^-1 ];
+IsHyperbolic(F,red,[]);" title="Copy just the input lines, without their output"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="magma-copy-input-label">Copy input</span></button></p></dd></dl>
+
+<p>Here is another example, where we use the same technique to prove that the group <span class="math notranslate nohighlight">\(\langle x,y \mid x^4, y^5, (xy)^7, [x,y]^3 \rangle\)</span> is hyperbolic. Note that the alternative intrinsic <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> described in Section <a class="reference internal" href="#sec-atc-hyperbolicity"><span class="std std-ref">Testing an Automatic Group for Hyperbolicity</span></a> for proving hyperbolicity of automatic groups succeeds on the groups <span class="math notranslate nohighlight">\(\langle x,y \mid x^4, y^5, (xy)^k, [x,y]^3 \rangle\)</span> for all <span class="math notranslate nohighlight">\(k \ge 4\)</span>.</p>
+<dl class="magma example">
+<dt class="sig sig-object magma" id="example-ex-7ee847">
+<span class="sig-name descname"><span class="pre">Example:</span> <span class="pre">rsym6</span></span> <span class="magma-example-tag"><span class="pre">(ex-7ee847)</span></span><a class="headerlink" href="#example-ex-7ee847" title="Link to this definition"><span aria-hidden="true">#</span></a></dt>
+<dd><div class="highlight-magma notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="nb">F</span><span class="p">&lt;</span><span class="n">x</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">u</span><span class="p">&gt;</span> <span class="o">:=</span> <span class="nf">FreeGroup</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span> <span class="o">:=</span> <span class="nf">IsHyperbolic</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="o">^</span><span class="mi">2</span><span class="o">*</span><span class="n">u</span><span class="p">,</span> <span class="n">u</span><span class="o">^</span><span class="mi">-2</span><span class="o">*</span><span class="n">y</span><span class="p">],</span> <span class="p">[</span><span class="n">t</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">^</span><span class="mi">7</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="o">^</span><span class="mi">3</span><span class="p">]);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span><span class="p">;</span>
+<span class="go">true true</span>
+</pre></div>
+</div>
+<p class="magma-play-wrap"><a class="magma-play-btn" href="https://magma-maths.org/calc/?code=F%3Cx%2Ct%2Cy%2Cu%3E+%3A%3D+FreeGroup%284%29%3B%0Aish%2C+dehn+%3A%3D+IsHyperbolic%28F%2C+%5Bx%5E2%2At%2C+y%5E2%2Au%2C+u%5E-2%2Ay%5D%2C+%5Bt%5E2%2C+%28x%2Ay%29%5E7%2C+%28x%2Cy%29%5E3%5D%29%3B%0Aish%2C+dehn%3B" target="_blank" rel="noopener noreferrer" title="Load this example into the Magma calculator"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>Run in calculator<span class="magma-visually-hidden"> (opens in a new tab)</span></a><button type="button" class="magma-copy-input-btn" data-copy-text="F&lt;x,t,y,u&gt; := FreeGroup(4);
+ish, dehn := IsHyperbolic(F, [x^2*t, y^2*u, u^-2*y], [t^2, (x*y)^7, (x,y)^3]);
+ish, dehn;" title="Copy just the input lines, without their output"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="magma-copy-input-label">Copy input</span></button></p></dd></dl>
+
+</section>
+<section id="the-parameter-epsilon">
+<h2>The Parameter epsilon<a class="headerlink" href="#the-parameter-epsilon" title="Link to this heading"><span aria-hidden="true">#</span></a></h2>
+<p>The intrinsic <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> works by attempting to move positive curvature in van Kampen diagrams for the group presentation to the boundary of these diagrams. The aim is to ensure that, after this curvature shifting, all non-boundary regions of a diagram that are labelled by green relators have negative curvature of at most <span class="math notranslate nohighlight">\(-\)</span><code class="docutils literal notranslate"><span class="pre">epsilon</span></code>, where <code class="docutils literal notranslate"><span class="pre">epsilon</span></code> is a small positive number that can be adjusted by the user. Its default value is <span class="math notranslate nohighlight">\(1/10\)</span>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> fails, then the third and fourth return values describe how it failed, in the form of a list of lists and a list of places. If the fourth value in the third entry is less than the value of <code class="docutils literal notranslate"><span class="pre">epsilon</span></code> that was used, then running again with a smaller value of <code class="docutils literal notranslate"><span class="pre">epsilon</span></code> <em>might</em> enable it to succeed. Conversely, if it succeeds with the default value, then the user may wish to try again with a larger value of <span class="math notranslate nohighlight">\(\epsilon\)</span>, to deduce lower bounds for the Dehn function.</p>
+<dl class="magma example">
+<dt class="sig sig-object magma" id="example-ex-9972b6">
+<span class="sig-name descname"><span class="pre">Example:</span> <span class="pre">Rsym</span> <span class="pre">Eps</span></span> <span class="magma-example-tag"><span class="pre">(ex-9972b6)</span></span><a class="headerlink" href="#example-ex-9972b6" title="Link to this definition"><span aria-hidden="true">#</span></a></dt>
+<dd><div class="highlight-magma notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="nb">F</span><span class="p">&lt;</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">&gt;</span><span class="o">:=</span> <span class="nf">FreeGroup</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span><span class="p">,</span> <span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="o">:=</span> <span class="nf">IsHyperbolic</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[</span><span class="n">b</span><span class="o">^</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="o">^</span><span class="mi">7</span><span class="p">]</span>: <span class="n">epsilon</span>:= <span class="mi">1</span><span class="o">/</span><span class="mi">5</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span><span class="p">;</span>
+<span class="go">false false</span>
+<span class="gp">&gt; </span><span class="n">D1</span><span class="p">;</span>
+<span class="go">[</span>
+<span class="go">    [ 1, 0, 0, 0, 0, 0 ],</span>
+<span class="go">    [ 1, 2, 1, 1/210, 1, 2 ],</span>
+<span class="go">    [ 1, 4, 2, 1/105, 2, 2 ],</span>
+<span class="go">    [ 1, 6, 3, 1/70, 3, 2 ],</span>
+<span class="go">    [ 1, 8, 4, 2/105, 4, 2 ],</span>
+<span class="go">    [ 1, 10, 5, 1/42, 5, 2 ],</span>
+<span class="go">    [ 1, 12, 6, 1/35, 6, 2 ],</span>
+<span class="go">    [ 1, 14, 7, 1/30, 7, 2 ]</span>
+<span class="go">]</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span><span class="p">,</span> <span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="o">:=</span> <span class="nf">IsHyperbolic</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[</span><span class="n">b</span><span class="o">^</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="o">^</span><span class="mi">7</span><span class="p">]</span>: <span class="n">epsilon</span>:= <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span><span class="p">;</span>
+<span class="go">true true</span>
+</pre></div>
+</div>
+<p class="magma-play-wrap"><a class="magma-play-btn" href="https://magma-maths.org/calc/?code=F%3Ca%2C+b%3E%3A%3D+FreeGroup%282%29%3B%0Aish%2C+dehn%2C+D1%2C+D2%3A%3D+IsHyperbolic%28F%2C+%5Bb%5E3%5D%2C+%5Ba%5E2%2C+%28a%2Ab%29%5E7%5D%3A+epsilon%3A%3D+1%2F5%29%3B%0Aish%2C+dehn%3B%0AD1%3B%0Aish%2C+dehn%2C+D1%2C+D2%3A%3D+IsHyperbolic%28F%2C+%5Bb%5E3%5D%2C+%5Ba%5E2%2C+%28a%2Ab%29%5E7%5D%3A+epsilon%3A%3D+1%2F6%29%3B%0Aish%2C+dehn%3B" target="_blank" rel="noopener noreferrer" title="Load this example into the Magma calculator"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>Run in calculator<span class="magma-visually-hidden"> (opens in a new tab)</span></a><button type="button" class="magma-copy-input-btn" data-copy-text="F&lt;a, b&gt;:= FreeGroup(2);
+ish, dehn, D1, D2:= IsHyperbolic(F, [b^3], [a^2, (a*b)^7]: epsilon:= 1/5);
+ish, dehn;
+D1;
+ish, dehn, D1, D2:= IsHyperbolic(F, [b^3], [a^2, (a*b)^7]: epsilon:= 1/6);
+ish, dehn;" title="Copy just the input lines, without their output"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="magma-copy-input-label">Copy input</span></button></p><p>And it worked this time!</p>
+</dd></dl>
+
+</section>
+<section id="the-dehn-algorithm">
+<span id="using-dehn"></span><h2>The Dehn Algorithm<a class="headerlink" href="#the-dehn-algorithm" title="Link to this heading"><span aria-hidden="true">#</span></a></h2>
+<dl class="magma function">
+<dt class="sig sig-object magma" id="function-isidentity-grpfpelt-rec">
+<span class="sig-name descname"><span class="pre">IsIdentity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">w</span></em>, <em class="sig-param"><span class="pre">D1</span></em><span class="sig-paren">)</span><span class="p"><span class="pre">:</span> </span><span class="pre">GrpFPElt,</span> <span class="pre">Rec</span><span class="p"> <span class="pre">-&gt;</span> </span><span class="pre">BoolElt,</span> <span class="pre">GrpFPElt,</span> <span class="pre">SeqEnum,</span> <span class="pre">SeqEnum</span><a class="headerlink" href="#function-isidentity-grpfpelt-rec" title="Link to this definition"><span aria-hidden="true">#</span></a></dt>
+<dd><p>If <code class="docutils literal notranslate"><span class="pre">IsHyperbolic</span></code> has proved that a group <span class="math notranslate nohighlight">\(G\)</span> is hyperbolic and computed a Dehn algorithm for <span class="math notranslate nohighlight">\(G\)</span>, then the data returned as the third return value can be used to apply the Dehn algorithm to words in the free group, and to test whether they map onto the identity element of <span class="math notranslate nohighlight">\(G\)</span>. The result of application of the Dehn algorithm to the word is also returned. In general, it is possible for different representatives of the same group element to reduce to different words, so this reduction cannot be used as a normal form for group elements.</p>
+</dd></dl>
+
+<dl class="magma example">
+<dt class="sig sig-object magma" id="example-ex-1c88ea">
+<span class="sig-name descname"><span class="pre">Example:</span> <span class="pre">Rsym</span> <span class="pre">Dehn</span></span> <span class="magma-example-tag"><span class="pre">(ex-1c88ea)</span></span><a class="headerlink" href="#example-ex-1c88ea" title="Link to this definition"><span aria-hidden="true">#</span></a></dt>
+<dd><div class="highlight-magma notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="nb">F</span><span class="p">&lt;</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">&gt;</span><span class="o">:=</span> <span class="nf">FreeGroup</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span><span class="p">,</span> <span class="n">D1</span><span class="p">,</span> <span class="n">D2</span><span class="o">:=</span> <span class="nf">IsHyperbolic</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="p">[</span><span class="n">b</span><span class="o">^</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">)</span><span class="o">^</span><span class="mi">7</span><span class="p">]);</span>
+<span class="gp">&gt; </span><span class="n">ish</span><span class="p">,</span> <span class="n">dehn</span><span class="p">;</span>
+<span class="go">true true</span>
+<span class="gp">&gt; </span><span class="n">isid</span><span class="p">,</span> <span class="n">wd</span> <span class="o">:=</span> <span class="nf">IsIdentity</span><span class="p">((</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">6</span><span class="p">,</span><span class="n">D1</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">isid</span><span class="p">,</span> <span class="n">wd</span><span class="p">;</span>
+<span class="go">false b * a</span>
+<span class="gp">&gt; </span><span class="n">isid</span><span class="p">,</span> <span class="n">wd</span> <span class="o">:=</span> <span class="nf">IsIdentity</span><span class="p">(</span><span class="n">b</span><span class="o">^</span><span class="mi">-1</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span><span class="o">^</span><span class="mi">6</span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="n">D1</span><span class="p">);</span>
+<span class="gp">&gt; </span><span class="n">isid</span><span class="p">,</span> <span class="n">wd</span><span class="p">;</span>
+<span class="go">true Id(F)</span>
+</pre></div>
+</div>
+<p class="magma-play-wrap"><a class="magma-play-btn" href="https://magma-maths.org/calc/?code=F%3Ca%2C+b%3E%3A%3D+FreeGroup%282%29%3B%0Aish%2C+dehn%2C+D1%2C+D2%3A%3D+IsHyperbolic%28F%2C+%5Bb%5E3%5D%2C+%5Ba%5E2%2C+%28a%2Ab%29%5E7%5D%29%3B%0Aish%2C+dehn%3B%0Aisid%2C+wd+%3A%3D+IsIdentity%28%28a%2Ab%5E2%29%5E6%2CD1%29%3B%0Aisid%2C+wd%3B%0Aisid%2C+wd+%3A%3D+IsIdentity%28b%5E-1%2A%28a%2Ab%5E2%29%5E6%2Aa%2CD1%29%3B%0Aisid%2C+wd%3B" target="_blank" rel="noopener noreferrer" title="Load this example into the Magma calculator"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>Run in calculator<span class="magma-visually-hidden"> (opens in a new tab)</span></a><button type="button" class="magma-copy-input-btn" data-copy-text="F&lt;a, b&gt;:= FreeGroup(2);
+ish, dehn, D1, D2:= IsHyperbolic(F, [b^3], [a^2, (a*b)^7]);
+ish, dehn;
+isid, wd := IsIdentity((a*b^2)^6,D1);
+isid, wd;
+isid, wd := IsIdentity(b^-1*(a*b^2)^6*a,D1);
+isid, wd;" title="Copy just the input lines, without their output"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="magma-copy-input-label">Copy input</span></button></p></dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="automatic-groups.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Automatic Groups</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../GroupsOfStraightLinePrograms/index-groups-of-straight-line-programs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Groups of Straight-Line Programs</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-an-automatic-group-for-hyperbolicity">Testing an Automatic Group for Hyperbolicity</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-ishyperbolic-grpatc"><code class="docutils literal notranslate"><span class="pre">IsHyperbolic(G):</span> <span class="pre">GrpAtc</span> <span class="pre">→</span> <span class="pre">BoolElt,</span> <span class="pre">Rec</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-29ea10"><code class="docutils literal notranslate"><span class="pre">Example:</span> <span class="pre">verbose</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-isconjugate-grpatc-grpatcelt-grpatcelt"><code class="docutils literal notranslate"><span class="pre">IsConjugate(G,</span> <span class="pre">x,</span> <span class="pre">y):</span> <span class="pre">GrpAtc,</span> <span class="pre">GrpAtcElt,</span> <span class="pre">GrpAtcElt</span> <span class="pre">→</span> <span class="pre">BoolElt,</span> <span class="pre">GrpAtcElt</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-a-finitely-presented-group-for-hyperbolicity">Testing a Finitely Presented Group for Hyperbolicity</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-ishyperbolic-grpfp-seqenum-seqenum"><code class="docutils literal notranslate"><span class="pre">IsHyperbolic(F,</span> <span class="pre">red,</span> <span class="pre">green):</span> <span class="pre">GrpFP,</span> <span class="pre">SeqEnum,</span> <span class="pre">SeqEnum</span> <span class="pre">→</span> <span class="pre">BoolElt,</span> <span class="pre">BoolElt,</span> <span class="pre">SeqEnum,</span> <span class="pre">SeqEnum</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-d7a495"><code class="docutils literal notranslate"><span class="pre">Example:</span> <span class="pre">rsym1</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-b541e8"><code class="docutils literal notranslate"><span class="pre">Example:</span> <span class="pre">rsym6</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-error-messages-and-how-to-avoid-them">Common Error Messages, and How to Avoid Them</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-cd92b6"><code class="docutils literal notranslate"><span class="pre">Example:</span> <span class="pre">rsym2</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-976118"><code class="docutils literal notranslate"><span class="pre">Example:</span> <span class="pre">Rsym</span> <span class="pre">3</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-relators-red">The Relators red</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-5a8018"><code class="docutils literal notranslate"><span class="pre">Example:</span> <span class="pre">Rsym</span> <span class="pre">4</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-redrelatorsforfreeproduct-list-rngintelt"><code class="docutils literal notranslate"><span class="pre">RedRelatorsForFreeProduct(groupList,</span> <span class="pre">freeFacs):</span> <span class="pre">List,</span> <span class="pre">RngIntElt</span> <span class="pre">→</span> <span class="pre">GrpFP,</span> <span class="pre">SeqEnum,</span> <span class="pre">SeqEnum,</span> <span class="pre">Map,</span> <span class="pre">SeqEnum</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-fac47e"><code class="docutils literal notranslate"><span class="pre">Example:</span> <span class="pre">Rsym</span> <span class="pre">Red1</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-2ba258"><code class="docutils literal notranslate"><span class="pre">Example:</span> <span class="pre">rsym5</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-7ee847"><code class="docutils literal notranslate"><span class="pre">Example:</span> <span class="pre">rsym6</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-parameter-epsilon">The Parameter epsilon</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-9972b6"><code class="docutils literal notranslate"><span class="pre">Example:</span> <span class="pre">Rsym</span> <span class="pre">Eps</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-dehn-algorithm">The Dehn Algorithm</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-isidentity-grpfpelt-rec"><code class="docutils literal notranslate"><span class="pre">IsIdentity(w,</span> <span class="pre">D1):</span> <span class="pre">GrpFPElt,</span> <span class="pre">Rec</span> <span class="pre">→</span> <span class="pre">BoolElt,</span> <span class="pre">GrpFPElt,</span> <span class="pre">SeqEnum,</span> <span class="pre">SeqEnum</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-ex-1c88ea"><code class="docutils literal notranslate"><span class="pre">Example:</span> <span class="pre">Rsym</span> <span class="pre">Dehn</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+<footer class="mg-site-footer">
+  <div class="mg-footer-inner">
+
+    
+    <div class="mg-footer-brand">
+      <a href="https://magma-maths.org/" class="mg-footer-logo-link" aria-label="Magma home">
+        <img src="../../_static/web-base/images/MagmaLogoOfficial.png"
+             alt="Magma" width="48" height="48" class="mg-logo-light mg-footer-logo-img">
+        <img src="../../_static/web-base/images/MagmaLogoOfficialDark.png"
+             alt="Magma" width="48" height="48" class="mg-logo-dark mg-footer-logo-img">
+      </a>
+      <p class="mg-footer-desc">Magma is maintained and distributed by the Computational Algebra Group, School of Mathematics and Statistics, University of Sydney.</p>
+      <a href="https://www.sydney.edu.au/" target="_blank" rel="noopener noreferrer" class="mg-footer-usyd">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        University of Sydney
+      </a>
+    </div>
+
+    
+    <div class="mg-footer-col">
+      <h2 class="mg-footer-col-heading">Explore</h2>
+      <ul class="mg-footer-links">
+        <li><a href="https://magma-maths.org/about/">About Magma</a></li><li><a href="/">Documentation</a></li><li><a href="https://magma-maths.org/areas/">Mathematical Areas</a></li><li><a href="https://magma-maths.org/download/">Download</a></li><li><a href="https://magma-maths.org/calc/">Calculator</a></li>
+      </ul>
+    </div>
+    
+    <div class="mg-footer-col">
+      <h2 class="mg-footer-col-heading">Community</h2>
+      <ul class="mg-footer-links">
+        <li><a href="https://magma-maths.org/members/">Members</a></li><li><a href="https://magma-maths.org/visitors/">Visitors</a></li><li><a href="https://magma-maths.org/conferences/">Conferences</a></li><li><a href="https://magma-maths.org/seminar/">Seminars</a></li><li><a href="https://magma-maths.org/news/">News</a></li>
+      </ul>
+    </div>
+    
+    <div class="mg-footer-col">
+      <h2 class="mg-footer-col-heading">Help</h2>
+      <ul class="mg-footer-links">
+        <li><a href="https://magma-maths.org/faq/">FAQ</a></li><li><a href="https://magma-maths.org/contact/">Contact</a></li><li><a href="https://magma-maths.org/subscriptions/">Subscriptions</a></li><li><a href="https://magma-maths.org/cite/">How to Cite</a></li>
+      </ul>
+    </div>
+    
+
+  </div>
+
+  
+  <div class="mg-footer-bottom">
+    <div class="mg-footer-bottom-inner">
+      <span class="mg-footer-copyright">
+        &copy; 1993&ndash;2026
+        Computational Algebra Group.
+        All rights reserved.
+      </span>
+      <span class="mg-footer-built">
+        Built at the University of Sydney, Australia.
+      </span>
+    </div>
+  </div>
+
+</footer>
+  </body>
+</html>

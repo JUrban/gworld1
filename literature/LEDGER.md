@@ -320,3 +320,8 @@ list establishes current openness.
 ## 2026-09-28T21:27:09.307003+00:00 — wider scope audit
 
 Archived Diao-Feighn 2005 (F24(b), explicit prior full answer), Rees arXiv:2205.14911 (automatic-group scope), and the 22 July 2020 manuscript Polynomial-time proofs that groups are hyperbolic (positive certification may fail). Reading limits and exact implications are in research/notes/F24-automatic-scope-refresh.md. No exhaustive novelty or proof audit claimed.
+
+
+## 2026-09-28T21:41:56.112567+00:00 — nonlinear class-ten extension
+
+A bounded follow-up search for free-nilpotent single-commutator algorithms and class-ten equations found no matching nonlinear-family theorem. Rechecked the primary Truss1995 abstract (doi:10.1112/blms/27.1.39); its general class-three unification obstruction and restricted class-two positive result do not answer this scope. Novelty remains provisional. Archived the official Magma hyperbolicity page underlying the preceding H5 scope note.

@@ -2,20 +2,18 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately21:15 UTC: four whole-entry candidates
+Latest checkpoint, approximately21:43 UTC: four whole-entry candidates
 (F28,N5,M0,H4), two partial candidates (N8,F41), zero established novel
-results. H4 now has a written explicit-output size obstruction, source
-audit and bounded independent GAP checks. The same N8 partial candidate
-also includes a second uniform iterated-adjoint family in odd classes;
-its extra class13 GAP benchmark remains incomplete and is not counted
-as independently replayed evidence. All candidates await specialist and
-novelty review. Earlier checkpoint counts below are historical.
+results. The N8 scope now also includes a nonlinear degree-eight leading
+family in class ten, with a written all-rank argument and independent GAP
+checks of five supported rank-two targets. Rank-three checks cover
+recognition only. F24(b) was retired as an explicit prior answer in
+Diao-Feighn2005. Earlier checkpoint counts below are historical.
 
-Next: continue the wider portfolio, while preserving H4's explicit-output
-qualification and checking for prior size-bound arguments. For N8, an
-additional nonlinear first-kernel lead in class10 needs structural
-classification before it can justify another scope extension.
-
+Next: return to the wider unresolved portfolio and adversarial candidate
+review. Do not conflate further N8 family extensions with additional
+problem resolutions or full class-ten decidability. Keep H4's explicit
+output convention and all novelty qualifications visible.
 
 ## First pass: source and literature triage
 
