@@ -277,3 +277,18 @@ also checked for scope and archived; neither is used to establish
 novelty. Culler1981 was read for an abandoned quadratic-word route,
 not used in the final argument. Exact reading limits, prior credit,
 proof and finite evidence: `problems/F41/audit.md`.
+
+
+## N8 class-nine structural source, 28 September 2026 approximately 19:09--19:34 UTC
+
+- Poroshenko--Timoshenko, *Universal equivalence of partially commutative
+  metabelian Lie algebras*, [arXiv:1107.0430](https://arxiv.org/abs/1107.0430),
+  Theorem4.3, printed p.8: the derived ideal of the free metabelian Lie
+  algebra is torsion-free over the polynomial ring. Archived exact PDF and
+  text, read the theorem/proof, and visually inspected p.8. Used over Q to
+  obtain injectivity of ad_z on L'/L''. The ordinary homogeneous Shirshov
+  lemma remains credited to the earlier Bryant--Kovacs--Stohr source.
+- Searches for free-nilpotent commutator decidability, single-commutator
+  algorithms and class-nine commutator equations located no matching new
+  primary theorem. The earlier Roman'kov and Duchin--Liang--Shapiro scope
+  distinctions still apply. This bounded search does not certify novelty.

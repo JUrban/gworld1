@@ -600,3 +600,39 @@ why the theorem must not be extended to arbitrary homomorphic images.
 Proof and audit are in problems/F41/. Tally becomes three whole-entry
 candidates and two partial candidates, with zero established novel
 results. No external contact, push, subagents or parent-repo changes.
+
+
+## 2026-09-28 approximately 19:08--19:34 UTC — N8 class-nine proof and prototype
+
+Resumed the original clock and repository after a preparation-only detour in
+the preceding continuation. That detour did not advance the research goal;
+its separate checkout is not used for this run and did not reset the deadline.
+
+Developed a homogeneous delta-stable free basis of the derived free Lie
+algebra, using the primary free-metabelian torsion-free module theorem and
+the previously credited homogeneous Shirshov lemma. Wrote five correction
+kernel proofs, an exact simultaneous-commutator-conjugation period, and a
+new degree-nine quadratic obstruction. The all-rank class-nine theorem is
+written as a proposed extension under audit in problems/N8/class9-proof.md.
+The counted N8 scope remains classes three through eight pending completion
+of the independent checks.
+
+Exact Python checks passed for 21 rank-two and 23 rank-three kernels and two
+obstructions in each rank. The rank-two solver completed 27 target records
+(including repeated controls), with 21 witnesses; GAP independently replayed
+68 linear decisions, 17 polynomial certificates and 85 samples. Eight
+polynomial branches had no admissible parameter. A nonprimitive type(1,2)
+example required first residue2 and third residue1, both modulo4.
+
+Two rank-three kernel benchmarks timed out before a multidegree-block
+projection and zero-skipping reconstruction completed the same suite in
+115.16s. A long-word arithmetic comparison timed out; a shorter comparison
+passed 128 coordinate/rational-line cases and eight collection cases. An
+exact tail formula passed 18 comparisons with full group commutators. The
+full rank-three target benchmark timed out at400s in its first joint tail;
+this is not counted as a completed decision. Further high-weight decisions
+and GAP verification are running. Failed scripts and logs are retained.
+
+No new whole-entry count, established novelty, external review, subagent,
+push or contact is claimed. All recorded computations use one core and8GB
+per process within the shared budget.
