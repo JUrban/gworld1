@@ -106,3 +106,10 @@ F38(a): candidate all-finite-rank decision procedure for translation equivalence
 ## 2026-09-28T22:21:55.381017+00:00 — F34(a) candidate
 
 F34(a): candidate uniform decision algorithm for potential positivity in every finite rank. A positive image under an injection pulls back through a spanning-tree basis; a nonzero-determinant test on the full EDT0L solution relation decides existence. GAP independently verified270 explicit positive automorphism witnesses in ranks2--4 and3 scope controls. Rank2 and part(b) are prior; potentially new scope is rank>=3. Full recompression is imported, not implemented. Proof and audit: `problems/F34/part-a-proof.md`, `part-a-audit.md`.
+
+
+## 2026-09-28T22:34:32.776894+00:00 — audit checkpoint
+
+The shared F34(a)/F38(a) polynomial method now has a separate internal audit and a finite accepted-path bound after a grammar is supplied. This adds no candidate or implementation claim; general recompression remains imported. A concrete subgroup example blocks the same determinant substitution for F39(a). See `research/notes/F34-F38-shared-foundation-audit.md`.
+
+GA1's proposed nonorientable-surface obstruction is ruled out by prior Z^2-free actions. General root adjunction still falls outside the combination theorem checked here; see `research/notes/GA1-root-adjunction-boundary.md`. No result count changes.

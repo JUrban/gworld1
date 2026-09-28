@@ -783,3 +783,10 @@ The preceding preparation-only turn was no mathematical progress on this active 
 ## 2026-09-28T22:21:55.381017+00:00 — F34(a) positivity application
 
 Developed a second application of the finite polynomial method: injective images reflect potential positivity by collapsing a spanning tree in the image subgroup graph. This yields a full decision argument for F34(a) using nonzero determinant, without claiming part(b) anew. Read original source/render/background and current primary higher-rank scope statements. Constructed270 explicit positive automorphism witnesses and3 scope controls; independent GAP checks all subgroup bases, automorphism surjectivity and positive paths. Both jobs passed with empty stderr. Recorded one further partial candidate:4 whole,4 partial,0 established novel. No new Kourovka import, agents, contacts or push. Original deadline unchanged.
+
+
+## 2026-09-28T22:34:32.776894+00:00 — shared decision audit and GA1 boundary
+
+The preceding preparation-only response made no progress on this active research goal. Revalidated the original launch/deadline and resumed gworld1 with no live recorded jobs. Wrote a shared F34/F38 audit with an explicit finite control-path bound for the polynomial stage and a counterexample to transferring the determinant reduction to F39(a). No gap found in this bounded internal reread; no outside review or new candidate count.
+
+A GA1 surface-obstruction lead fails by Martino–ORourke's prior Z^2 actions, including the genus-three nonorientable surface. Read the relevant primary proofs and archived both author-hosted papers. General root adjunction does not satisfy the cited maximal-abelian amalgamation hypotheses. Recorded the exact remaining gap. Tally remains4 whole,4 partial,0 established novel. No agents, push or contacts; original clock unchanged.

@@ -1,0 +1,726 @@
+          FREE ACTIONS ON Zn -TREES: A SURVEY
+
+
+                          A. MARTINO, S. O ROURKE
+
+
+        Abstract. We survey the topic of free isometric actions of groups
+           Z
+        on n -trees. We record some new results not explicitly stated in the
+        literature.
+
+
+
+
+                               1. Introduction
+   The theory of isometric actions of groups on Λ-trees (where Λ is a li-
+nearly ordered abelian group) has its origins in a paper of Lyndon where
+integer-valued functions (‘length functions’) on groups satisfying two par-
+ticular sets of axioms are studied, and it is shown that a group that admits
+such a function is a free group in one case and a free product in the other
+case. Chiswell later considered a weaker set of axioms for length functions
+and demonstrated a duality between groups equipped with such a length
+function and group actions by graph automorphisms on trees. The sets of
+axioms considered by Lyndon then correspond to the case where the ver-
+tices have trivial stabilisers (in the first case) and the edges have trivial
+stabilisers (in the second case).
+   By the time this result was published, another fundamental duality had
+been discovered, namely Bass-Serre theory, which gives an equivalence be-
+tween group actions (without inversions) on a tree and so-called graphs of
+groups. This theory has become an important and well-established tool in
+group theory, exhibiting how a group that admits a suitably non-trivial ac-
+tion on a tree is built up from its vertex stabilisers (and the fundamental
+group of the corresponding quotient graph) by amalgamated free products
+and HNN extensions.
+   Group actions on trees are thus a well-established theme in combinatorial
+group theory, and the dualities outlined above give two ways to think, in par-
+ticular, of free groups; namely as a group equipped with a length function,
+and as a group acting on a tree with trivial vertex stabilisers. It is inter-
+esting to note that these viewpoints give a geometric understanding of the
+combinatorial arguments, attributed to Nielsen and Schreier respectively, of
+the classical theorem that bears their names. Group actions on trees thus
+provide a way of unifying, and making more natural, the original proofs of
+                                         1
+2                         A. MARTINO, S. O ROURKE
+
+
+this theorem. (Length functions and Bass-Serre theory similarly give two
+new proofs of Kuroš’s theorem concerning subgroups of free products.)
+   Lyndon’s arguments make relatively little use of properties peculiar to
+the integers, prompting him to speculate that the study of integer-valued
+length functions on groups might be profitably generalised to that of length
+functions whose codomain is the real additive group or, more generally,
+an ordered abelian group. The definition of Λ-tree where Λ is an ordered
+abelian group was given some 22 years later, by Morgan and Shalen, in the
+course of their work on compactifications of character varieties. One is led
+to the notion of an isometric group action on a Λ-tree, and thus to that
+of a Λ-valued length function, just as in the case of action of an ordinary
+tree: given a fixed basepoint u, one defines L(g) = Lu (g) = d(u, gu) for
+each group element g. One can axiomatise the Λ-valued functions that
+arise in this way, giving an analogue of Chiswell’s theorem for an arbitrary
+ordered abelian group Λ. That is, there is a natural duality between Λ-
+valued functions on a group G satisfying a certain set of axioms on the one
+hand, and isometric actions of G on Λ-trees on the other.
+   The natural challenge, posed by Alperin and Bass in their detailed study
+of isometric actions on Λ-trees, is to develop a systematic theory of such
+actions akin to Bass-Serre theory, which gives as complete a description as
+one could hope for of groups from their actions on Λ-trees in the special
+case Λ = Z. Since it is now generally considered too ambitious to attempt
+to produce a single theory for arbitrary Λ, the more modest goal is to look
+at particular classes of ordered abelian groups, and to look at certain classes
+of actions. In particular, free actions of groups on R-trees have received a
+great deal of attention from geometric group theorists. It was conjectured
+by Lyndon (in the language of length functions) that a group that admits
+a free action on an R-tree is a free product of subgroups of R. The first
+counterexamples were described by Alperin and Moss in 1980, and the first
+finitely generated counterexamples were given by Morgan and Shalen in
+1991, when they showed that the fundamental groups of closed surfaces
+(with three exceptions) also admit free isometric actions on R-trees. Rips
+later showed that these are the only freely indecomposable finitely generated
+counterexamples.
+
+Theorem 1 (Rips’ Theorem). Let G be a finitely generated group acting
+freely on an R-tree. Then G is the free product of free abelian and surface
+groups, where any surface is permitted except the connected sum of one, two
+or three projective planes.
+
+   Although group actions on R-trees have received much attention, partic-
+ularly in the last 12 years or so, and are now relatively well understood,
+                   FREE ACTIONS ON Zn -TREES: A SURVEY                         3
+
+
+there has been somewhat less progress in the study of group actions on Λ-
+trees for more exotic Λ. There is perhaps a perception that consideration
+of group actions on such Λ-trees is more trouble than it is worth. It is our
+contention, however, that such group actions should be more widely known,
+particularly in the case where
+                          Λ = Zn = Z × Z × · · · × Z
+                                   |     {z        }
+                                             n
+
+for some n ∈ N. This is due to a combination of factors: firstly there are
+now several interesting examples of such actions arising ‘in nature’; secondly,
+there has been much progress in the understanding of group actions on Zn -
+trees, as a result of work by Bass; and thirdly, there are a number of very
+interesting open questions to guide further research.
+   Readers wishing to learn about group actions on R-trees have a variety
+of good surveys to choose from, notably [4], [21] and [9]. For the case of
+general Λ, we refer the reader to [17] where Λ-trees are first defined, [1] for
+the first systematic (and technical) treatment and [7] for an accessible and
+uptodate account.
+   In the course of this article we shall review the general theory of Λ-
+trees and then look more closely at free isometric actions on Zn -trees. It
+should be noted that this last topic has received some interest of late due
+in connections with the solution of the Tarski problem in [11], [12] and also
+in [20].
+
+                       2. Basic theory of Λ-trees
+   For this section, Λ will denote an arbitrary ordered abelian group, which
+will be written additively. That is to say, (Λ, +) is an abelian group, and ≤
+is a linear (i.e. total) order on Λ satisfying a ≤ b ⇒ a + c ≤ b + c.
+   Let Λi Q (i = 1, 2, . . . , n) be ordered abelian groups. We define a linear
+order on       Λi = Λ1 × Λ2 × · · · × Λn , by declaring (λi )ni=1 < (λ0i )ni=1 if
+λi0 < λi0Qwhere i0 = min{i : λi 6= λ0i }. This is called the lexicographic
+          0
+
+order on      Λi . It should be noted that this order depends very much on
+the direct decomposition of Λ: there are countably infinitely many ways of
+defining such an order on Z × Z, depending on which basis one chooses. Nor
+are lexicographic orders the only natural orders on Z × Z, for the subgroups
+h1, αi of the real additive group give uncountably many distinct linear or-
+ders on the free abelian group of rank 2, each compatible with the group
+structure.
+   It is clear that every subgroup of an ordered abelian group is naturally an
+ordered abelian group in its own right. Let Λ0 be a subgroup of Λ with the
+property that if a, c ∈ Λ0 and a ≤ b ≤ c then b ∈ Λ0 . We then call Λ0 a convex
+4                          A. MARTINO, S. O ROURKE
+
+
+subgroup of Λ. Examples include the trivial subgroup 0, and Λ itself. In the
+case where Λ ≤ R these are the only examples. Conversely, if Λ has at most
+two convex subgroups then there is an order-preserving embedding of Λ in
+R. Such an ordered abelian group is said to be archimedean. Archimedean
+ordered abelian groups are also characterised by the property that for all
+x, y ∈ Λ with y 6= 0, there exists  Q n ∈ Z with x < ny.
+   The ordered abelian group Λi has convex subgroups of the form
+0 × · · · × 0 × Λi+1 × · · · × Λn . If each Λi is archimedean, these are the only
+convex subgroups. If Λ is finitely generated, then Λ is expressible as a direct
+product of archimedean Λi with the lexicographic order.
+   A Λ-metric space is a pair (X, d), where d : X × X −→ Λ is function
+satisfying
+  M1. d(x, y) = 0 ⇔ x = y; and
+  M2. d(x, y) ≤ d(x, z) + d(y, z) for all x, y, z ∈ X.
+   If Λ = R this is equivalent to the usual definition of metric space. Note
+that in general, we have the additional familiar properties that d takes non-
+negative values and is symmetric. The most obvious generic example of a
+Λ-metric space is Λ itself, with d(λ, µ) = |λ − µ| = max{λ − µ, µ − λ}.
+   An isometry between Λ-metric spaces is a function that preserves dis-
+tances. Note that while such a function is guaranteed to be injective (by
+M1), it need not be surjective. A segment in Λ is a set of the form
+                   [λ, µ]Λ = [µ, λ]Λ = {κ ∈ Λ : λ ≤ κ ≤ µ}
+where λ ≤ µ. (The subscript will of course usually be suppressed.) Let X
+be a Λ-metric space. A segment in X is an isometry φ : [0, α]Λ −→ X. The
+points φ(0) and φ(α) are called the endpoints of the segment φ. If every pair
+of points of X arise as the endpoints of some segment, then X is said to be
+geodesic. If, for each x and y in X, there is a unique segment φ : [0, α] −→ X
+with φ(0) = x and φ(α) = y, then X is said to be geodesically convex, and
+the image of such a segment in X is denoted [x, y] = [x, y]X .
+   We can now give a definition of Λ-tree: this is a Λ-metric space (X, d)
+which is geodesically convex and which satisfies the following properties, for
+all x, y, z ∈ X.
+     (i) [x, y] ∩ [y, z] = [y, w] for some w ∈ X;
+    (ii) [x, y] ∩ [y, z] = {y} ⇒ [x, z] = [x, y] ∪ [y, z].
+   The reader should convince herself that in the case Λ = Z, this definition
+describes those metric spaces that arise as the path metric on the vertex set
+of a tree T in the ordinary sense. Moreover, there is a natural one-to-one
+correspondence between graph automorphisms of T and isometries of V (T ).
+The study of group actions by automorphisms on trees is thus equivalent to
+the study of isometric actions on Z-trees.
+                   FREE ACTIONS ON Zn -TREES: A SURVEY                        5
+
+
+   Each ordered abelian group Λ is a Λ-tree considered as a Λ-metric space.
+Since we will be primarily concerned with Zn -trees, let us give a concrete
+description of a simple (Z × Z)-tree.
+   Let X denote the (Z × Z)-tree {(j, n) : n ∈ Z, j = 0, 1}, where
+                                        ½
+                                          (0, |n1 − n2 |) if j1 = j2
+            d((j1 , n1 ), (j2 , n2 )) =
+                                           (1, n2 − n1 ) otherwise.
+This is perhaps the simplest example of a (Z × Z)-tree, and is best pictured
+as a pair of copies of Z joined end to end. Here we have two ‘balls of
+radius 0 × Z’, namely the sets {(j, n) : n ∈ Z} (j = 0, 1), and an associated
+‘quotient’ Z-tree consisting of two vertices. Note however, this is not the
+only compatible (Z × Z)-metric that can be defined on X: for k ∈ Z, we
+have the metric dk given by dk ((0, n), (1, m)) = (1, m − n + k).
+    More generally, a (Z × Λ0 )-tree is best pictured as a Z-tree, where each
+vertex is replaced by a Λ0 -tree, and for each edge incident to a particular
+vertex, there is an associated ‘end’ or ‘point at infinity’ of the Λ0 -tree. As
+the multitude of compatible metrics on X above suggests, a (Z × Λ0 )-metric
+is not determined by these Λ0 -trees together with the Z-metric on the set
+of Λ0 -trees: the metric is determined in addition by a choice of ‘end maps’
+for each adjacent pair of Λ0 -trees.
+    There is a classification of (bijective) isometries σ : X −→ X of Λ-
+trees analogous to that of ordinary trees. Either (i) σ fixes a point, in
+which case the set of all fixed points forms a subtree — that is, a subset
+A such that x, y ∈ A implies [x, y] ⊆ A; (ii) σ fixes no point and there
+is a σ-invariant segment [x, y] which is fixed by σ 2 ; or (iii) there is a σ-
+invariant linear subtree Aσ of X on which σ acts by translations. Moreover,
+Aσ contains every linear σ-invariant subtree in this case. These are called
+elliptic isometries, inversions and hyperbolic isometries respectively and the
+set Aσ is called the characteristic set of σ. It is convenient to let Aσ denote
+the set of fixed points when σ is elliptic, and to put Aσ = ∅ when σ is an
+inversion.
+Definition 2. An isometric action of a group on a Λ-tree X is free if there
+are no inversions and the stabiliser of each point of X is trivial. We say
+that a group G is Λ-free if G admits such an action on some Λ-tree, and
+say that G is tree-free if it is Λ0 -free for some Λ0 .
+
+                   2.1. Properties of tree-free groups
+
+Theorem 2.1.
+    (i) Λ, as an additive group, is Λ-free. In particular, the natural action
+        of Λ on itself by translations is free.
+   (ii) The class of Z-free groups is precisely the class of free groups.
+6                          A. MARTINO, S. O ROURKE
+
+
+      (iii) The class of Λ-free groups is closed under taking subgroups.
+      (iv) If G is Λ-free and Λ embeds (as an ordered abelian group) in Λ0 ,
+            then G is Λ0 -free.
+       (v) Any tree-free group is torsion-free.
+      (vi) Tree-free groups have the CSA property. That is, every maximal
+            abelian subgroup, M , is malnormal; meaning that M g ∩ M = 1 for
+            all g 6∈ M .
+     (vii) Commutativity is a transitive relation on the non-identity elements
+            of a tree-free group.
+    (viii) Soluble subgroups of tree-free groups are abelian.
+      (ix) If G is Λ-free, then any abelian subgroup can be embedded in Λ. If
+            in addition G is finitely generated, G is free abelian.
+       (x) Tree-free groups cannot contain Baumslag-Solitar groups other than
+            Z × Z. That is, no group of the form ha, t : t−1 ap t = aq i can be a
+            subgroup of a tree-free group unless p = q = ±1.
+      (xi) Any two generator subgroup of a tree-free group is either free or
+            free abelian.
+     (xii) The class of tree-free groups is closed under taking free products.
+
+
+    We note that (i) is elementary and we have already observed that group
+actions on Z-trees are equivalent to group actions on simplicial trees. Hence
+(ii) is the well known statement that free groups are the groups which act
+freely on trees. Property (iii) is elementary, (iv) is a manifestation of the
+base change functor – see Theorem 2.3 – and (v) is a consequence of the
+classification of isometries. Property (vi) holds because two non-trivial ele-
+ments of a Λ-free group G commute if and only if they act as translations
+along the same linear subtree. It follows that proper centralisers of G, max-
+imal abelian subgroups of G and stabilisers of axes of non-trivial elements of
+G describe the same subgroups of G. Thus if γ 6= 1 belonged to a maximal
+abelian subgroup M = CG (x) as well as to M g = CG (xg ) it would follow
+that Ax = Aγ = Axg , whence M = M g . A simple geometric argument
+shows that g cannot stabilise a linear subtree unless it is contained in Ag .
+Thus Ag = Ax , giving g ∈ M .
+    Properties (vii) and (viii) can now be easily deduced from (vi). Property
+(ix) relies on the same reasoning as in (vi), that an abelian subgroup must
+stabilise and act as translations along a Λ-line and a similar argument may
+be used to prove (x). The verification of (xi) requires a more involved
+analysis, which we shall not attempt here but can be found in [7].
+    To give some indication of why free products of Λ-free groups are Λ-free,
+we introduce the notion of a Λ-valued Lyndon length function on a group
+G. This is a function L : G −→ Λ satisfying axioms L1-L4 below. First
+                   FREE ACTIONS ON Zn -TREES: A SURVEY                         7
+
+
+define c(g, h) for a pair of elements of G to be 12 (L(g) + L(h) − L(g −1 h)),
+noting that this is an element of 21 Λ ⊃ Λ.
+L1: c(g, h) ∈ Λ
+L2: L(1)=0
+L3: L(g −1 ) = L(g)
+L4: c(g, h) > c(g, k) ⇒ c(g, k) = c(h, k)
+   Examples of Λ-valued Lyndon length functions include the following. Let
+(X, d) be a Λ-tree and x ∈ X, and suppose that G acts isometrically on X.
+Then putting L(g) = Lx (g) = d(x, gx) for g ∈ G defines a Lyndon length
+function. This in fact accounts for all examples.
+Theorem 2.2 (Chiswell). Let L be a Λ-valued Lyndon length function on
+a group G. There exist a Λ-tree (X, d), a point x ∈ X, and an isometric
+action of G on X such that L(g) = d(x, gx) for all g ∈ G.
+   In fact Chiswell proved a somewhat stronger result concerning the unique-
+ness of such an X — we refer the reader to his book [7] for details.
+   The Lyndon length function associated with an isometric action on a
+Λ-tree is not the only one: one also has the associated translation length
+function , given by
+                ½
+                   min{d(x, gx) : x ∈ X} if g is not an inversion
+          kgk =
+                   0                       otherwise.
+It can be shown that this minimum is always realised. We record two
+properties relating the two length functions we have defined.
+     (i) Lx (g) = kgk + 2d(x, Ag ) if g is not an inversion.
+    (ii) kgk = max{0, Lx (g 2 ) − Lx (g)}.
+   Here, it should be noted that for points x ∈  / Ag , there is a unique closest
+point of Ag to x; the distance between these points is the one referred to
+in (i). While Ag = Agn for all n 6= 0 in the case where g is hyperbolic, if g
+fixes a point, it is possible that Ag2 ⊃ Ag . We may have Lx (g 2 ) − Lx (g) < 0
+in this case.
+   Free actions are characterised, in the language of length functions, by the
+facts (i) kgk > 0 for all g 6= 1, and (ii) Lx (g 2 ) > Lx (g) for all g 6= 1. The
+latter follows from the fact that kg n k = |n|kgk for all g.
+   We note that there are axioms for the translation length function which
+were shown to essentially characterise actions on Λ-trees, up to equivariant
+isometry, by Parry, [18].
+   Now consider a free product G = ∗i∈I Gi of groups Gi , and suppose that
+each Gi is Λ-free. Then, equivalently, each Gi admits a Lyndon length
+function Li with the additional property that Li (g 2 ) > Li (g) for all g ∈ Gi
+and i ∈ I. We now define a length function L on G from the given length
+8                           A. MARTINO, S. O ROURKE
+
+
+functions on the Gi . Given an arbitrary element γ = g1 g2 . . . gn of G (where
+each gi and gi+1 are non-trivial and belong to distinct free factors) we put
+                                        n
+                                        X
+                               L(γ) =         Lji (gi ).
+                                        i=1
+
+It is easy to check that L satisfies L1, L2 and L3, and that L(g 2 ) > L(g) for
+all g 6= 1. A somewhat tedious check establishes L4. By Chiswell’s theorem,
+we can conclude that there is a free action of G on a Λ-tree.
+    This argument is not sufficient to show that a free product of tree-free
+groups is tree-free; in other words, if the ordered abelian group varies with
+i ∈ I, the definition of L above fails. However, using the base-change functor
+as described below, it is possible to produce a single ordered abelian group
+Λ from the Λi , and a set of suitable Λ-valued length functions so that the
+argument above works.
+   It is not initially clear that there are any other examples of Λ-free groups
+— Lyndon stated a conjecture in [15] to the effect that all R-free groups can
+be accounted for in this way, and it was 11 years before a counterexample
+was found. It was shown by Morgan and Shalen in 1991 that if M is a
+closed surface other than the connected sum of at most 3 projective planes,
+then π1 (M ) admits a free action on an R-tree.
+   An important device relating Λ1 -trees and Λ2 -trees is the base change
+functor.
+Theorem 2.3 (Base-Change Functor). Let h : Λ1 → Λ2 be an order pre-
+serving homomorphism between ordered abelian groups and let G be a group
+acting by isometries on a Λ1 -tree, (X1 , d1 ). Then there is a Λ2 -tree, (X2 , d2 )
+on which G acts by isometries and a mapping φ : X1 → X2 such that
+(i) d2 (φ(x), φ(y)) = h(d1 (x, y)), for all x, y ∈ X1 ,
+(ii) φ(gx) = gφ(x) for all g ∈ G and x ∈ X1 ,
+(iii) kgkX2 = h(kgkX1 ) for all g ∈ G.
+   The Λ2 -tree X2 constructed in the proof is essentially the smallest pos-
+sible, and is denoted X1 ⊗Λ1 Λ2 even though the definition depends on the
+choice of h. It is an easy exercise to show that in general if the action of G
+on X1 is free and h is injective, then the action of G on X2 = X1 ⊗Λ1 Λ2 is
+also free.
+   Let us consider some examples.
+    1: The barycentric subdivision of a Λ-tree
+    Let (X, d) be a Λ-tree, and h the endomorphism λ 7→ 2λ. Then the base
+change functor gives rise to a Λ-tree X 0 with the property that
+d0 (φ(x), φ(y)) = 2d(x, y). It can be seen from the definition of segment
+                   FREE ACTIONS ON Zn -TREES: A SURVEY                        9
+
+
+that there exists a midpoint of [φ(x), φ(y)]; that is, a point u such that
+d0 (φ(x), u) = d0 (u, φ(y)) = λ.
+    The importance of this example arises from the fact that if σ is an inver-
+sion of X, and [x, y] is stabilised by σ, then the induced isometry of X 0 must
+fix the midpoint. Thus, for any isometric action of G on a X, the associated
+action on X 0 is without inversions. Since h is an embedding, X embeds in
+X 0 , and σ is hyperbolic as an isometry of X precisely when it is hyperbolic
+as an isometry of X 0 . Indeed φ is an equivariant embedding of X in X 0 , so
+the actions on X and X 0 are essentially equivalent for most purposes. This
+is why it is often somewhat benignly assumed that an isometric action on
+a Λ-tree is without inversions.
+
+   2: Λ0 -trees where Λ0 ≤ Λ
+   For such Λ0 , the base change functor applied to the inclusion map enables
+us to embed Λ0 -trees equivariantly in Λ-trees, and enables us to view group
+actions Λ0 -trees as a particular case of actions on Λ-trees.
+   In particular let (X, d) be a Z-tree, and h : Z −→ R the inclusion map.
+The base change functor gives rise to an R-tree real(X), called the geometric
+realisation of X, which is usually defined to be a quotient of the union of
+closed intervals Ie where e ranges through the set of edges of the associated
+simplicial tree.
+
+    3: Λ0 -trees where h : Λ ³ Λ0
+    In each of the examples so far h has been an embedding. This need not
+always be so: in what follows we will consider the case where h : Λ −→ Λ0 is
+an (order-preserving) epimorphism. In this case, the kernel Λ0 is a convex
+subgroup of Λ. (Conversely, for any convex subgroup Λ0 , the quotient group
+is itself an ordered abelian group onto which Λ maps via the natural map.)
+    It is easy to check that the relation ∼ on a Λ-tree given by
+
+                            x ∼ y if d(x, y) ∈ Λ0
+
+is an equivalence relation. We call the equivalence classes balls of radius
+Λ0 . The convexity of Λ0 means that such balls are subtrees. The distance
+between points belonging to distinct balls is larger than nλ0 for any λ0 ∈ Λ0
+and n ∈ Z; we think of this distance as being ‘infinitely larger’ than any
+element of Λ0 .
+   The Λ0 -tree arising from h may now be thought of as obtained from the
+Λ-tree by collapsing each of the balls of radius Λ0 to a point. In the opposite
+direction the Λ-tree X is, in a certain sense, built up from the Λ0 -tree X 0
+and the balls of radius Λ0 , which are themselves naturally Λ0 -trees.
+10                         A. MARTINO, S. O ROURKE
+
+
+                  3. Group actions on (Z × Λ0 )-trees
+  We describe in this section some results for groups acting isometrically
+on a Λ-tree, where Λ is of the form Z × Λ0 for some ordered abelian group
+Λ0 and where the product is given the lexicographic ordering. One has a
+map from Z × Λ0 to Z, as in example 3, by factoring out Λ0 and we can
+apply the base change functor, via this map to deduce the following.
+
+Theorem 3.1. Let G be a group acting isometrically on a Z×Λ0 -tree. Then
+G acts on a Z-tree (a simplicial tree). Hence, by Bass-Serre theory, G has
+a graph of groups decomposition where each vertex group acts isometrically
+on some Λ0 tree and there is a homomorphism from each edge group into
+Λ0 . If, additionally, the action is free, then each vertex group is Λ0 -free and
+each each edge group is a maximal abelian subgroup of G that embeds into
+Λ0 .
+
+    Let us give some justification for this result. The effect of applying the
+base change functor, using the natural map Z × Λ0 → Z, is to form a Z-tree
+X ∗ by collapsing all the balls of radius Λ0 . Each of these balls is a Λ0 -tree
+and these form the vertex set of X ∗ . Hence the vertex stabilisers of X ∗ act
+on Λ0 -trees.
+    An edge of X ∗ corresponds to a pair of ends of full Λ0 type in adjacent Λ0
+balls. Here an end of full Λ0 -type is defined by first defining a half Λ0 -line
+to be the isometric image of [0, ∞) ⊆ Λ0 and two such half lines are said to
+be equivalent if they meet in another half line. The ends of full Λ0 -type are
+then the equivalence classes. The definition of general ends is slightly more
+technical, but the important feature is that, in our situation, a vertex group
+Gv has an associated Λ0 -tree, Xv , and acts on the set of ends Ends(Xv ).
+    Also, given any end ² ∈ Ends(Xv ), there is an induced homomorphism,
+τ² , from the stabiliser of ² to Λ0 , τ² : G² → Λ0 . In fact, τ² (g) = ±kgk, where
+the sign depends on whether g translates toward ² or away from it.
+    Thus, in the Z-tree, X ∗ , edge groups are end stabilisers. In the case of
+a free action, the vertex stabilisers act freely on Λ0 trees and the maps τ²
+become monomorphisms.
+
+   It then becomes natural to ask whether there is a converse to this result.
+That is, given a group, G, in terms of a graph of groups decomposition,
+associated Λ0 -trees and various other conditions, when can we contruct an
+action of G on a (Z × Λ0 )-tree? This is answered by results of Bass.
+   We introduce first some notation and conventions. We regard a tree X ∗
+as a set of vertices to which are associated its set of directed edges e = (x, y).
+We write ∂0 (e) = x and ∂1 (e) = ∂0 (ē) = y for such an edge.
+                    FREE ACTIONS ON Zn -TREES: A SURVEY                         11
+
+
+   Part of the structure of a graph of groups (G, Y ∗ ) is an embedding of
+each edge group G(e) in its end vertex group G(∂0 (e)) — we denote such an
+embedding by αe .
+Theorem 3.2 (Bass 3.8). Let (G, Y ∗ ) be a graph of groups with fundamental
+group G, and for vertices or edges s of Y ∗ let Gs denote the corresponding
+group. For (vertices) x∗ ∈ Y ∗ , let Xx∗ be a Λ0 -tree on which Gx∗ acts.
+   For each edge e of Y ∗ , let ²e be an end of Xx∗ of full Λ0 -type, and τe the
+homomorphism G²e −→ Λ0 .
+   Suppose that the following are also satisfied.
+     (i) For edges e of Y ∗ , the end stabiliser (G∂0 (e) )²e is equal to αe (Ge )
+         and
+                               τe ◦ αe = −τē ◦ αē .
+    (ii) For distinct edges e and f of Y ∗ with ∂0 (e) = ∂0 (f ), the ends ²e
+         and ²f lie in distinct G∂0 (e) orbits.
+   There is a Λ-tree X on which G acts, with X ∗ ∼= X ⊗Λ Z.
+    Remarks: (a) Assumption (i) guarantees that if g fixes an edge e =
+(x∗ , y ∗ )of X ∗ the translation length and orientation of g, as an element of
+both Gx∗ and Gy∗ , are compatible. With regard to the requirement that
+each ²e is of full Λ0 -type, it is worth noting that to any Λ0 -tree X 0 , there is
+the associated Λ0 -fulfilment λ(X 0 ), which is a Λ0 -tree in which X 0 embeds
+Aut(X 0 )-equivariantly and of which every end is of full Λ0 -type. See [2, E1]
+for details.
+    (b) Note that the metric on X is essentially determined by the data
+required by the hypotheses. There is however some degree of freedom in
+terms of what Bass calls end maps.
+    (c) It is easy to see that the resulting action of G on X is free if and only
+if the action of each vertex group Gx∗ on X(x∗ ) is free.
+   Armed with this result, we can give many examples of free actions on
+Λ-trees. In the following corollary, the group G is the fundamental group of
+a graph of groups with a single vertex and a single edge loop. Since maximal
+abelian subgroups correspond to line stabilisers, one can associate the two
+ends of this line to the two oriented edges to apply the previous result and
+get the following. Bass calls the group G a ‘benign’ HNN extension.
+
+Corollary 3.3 ([2], [11], [12]). Let G0 be a group that admits a free action
+on a Λ0 -tree, H a maximal abelian subgroup, and put
+                    G = hG0 , t | t−1 ht = h for all h ∈ Hi.
+Then G acts freely on a (Z × Λ0 )-tree.
+12                         A. MARTINO, S. O ROURKE
+
+
+                              4. Zn -free groups
+   Since Z-free groups are precisely free groups, the results of the previous
+section are particularly powerful when Λ0 is a cartesian product of a finite
+number of copies of Z. That is, when we are considering Zn -actions. Of
+particular interest is the case of free Zn -actions and Zn -free groups.
+   One motivation for considering this class of groups is that one has some
+good examples. For instance, using a construction involving foliations on
+surfaces and taking the fundamental group of a finite collection of surfaces,
+glued together at the boundary, Liousse was able to prove the following.
+
+Theorem 4.1 ([13]). A group is said to act affinely on an R-tree if to
+each group element, g, there is associated a postive constant, µg , such that
+d(gx, gy) = µg d(x, y). Then there are groups which act freely and affinely
+on R-trees, but admit no free isometric action on an R-tree.
+
+   However, it turns out [16] that all these groups acting freely and isomet-
+rically on (Z × Z)-trees.
+   One of the most important examples of groups in this class have been
+considered by Kharlampovich and Myasnikov, who have proved the follow-
+ing.
+   Recall that a group G is said to be fully residually free if, for any finite set
+of non-trivial elements g1 , . . . , gk , there exists a homomorphism, φ : G → F ,
+to a free group F , such that φ(gi ) 6= 1 for all i.
+
+Theorem 4.2 ([11], [12]). Let G be a finitely generated fully residually free
+group. Then G acts freely on some Zn -tree.
+
+   Indeed, they proved a conjecture that every finitely generated fully resid-
+ually free group embeds in Lyndon’s exponential group F Z[x] , which is the
+union of the groups Gn , where G0 = F is a free group and
+
+                  Gn+1 = hGn , tn | t−1
+                                     n un tn = un , un ∈ Cn i
+
+where Cn is some proper centraliser in Gn . Since G0 acts freely on a Z-tree,
+inductively Gn acts freely on a (Zn+1 )-tree — this hinges on the observation
+that the maximal abelian subgroups of Gn are exactly the proper centralisers
+in Gn . Since every finitely generated subgroup of F Z[x] is a subgroup of some
+Gn , this proves the theorem.
+   We note that Sela in [20] proves that any finitely generated fully residually
+free group is Rn -free for some n. However, to answer Conjecture Q 3.4 on
+Bestvina’s problem page in the negative, it is not true that any Rn -free (or
+even Zn -free) group is fully residually free.
+                   FREE ACTIONS ON Zn -TREES: A SURVEY                        13
+
+
+Theorem 4.3 ([8], [14]). The fundamental group G of the connected sum of
+three projective planes is (Z × Z)-free. However, any homomorphism from
+G to a free group has a cyclic image. Hence G is not fully residually free.
+   We note that while Theorem 4.2 proves that most surface groups are
+Zn -free, [16] prove that every surface group, except the fundamental group
+of the projective plane and the the Klein bottle is (Z × Z)-free. And it is
+easy to see that the stated two exceptions cannot act freely on any Λ-tree.
+Moreover, results from [16] indicate that the class of Zn -free groups is much
+larger than the class of fully residually free groups.
+Theorem 4.4. Let G1 and G2 be Zn -free groups. Then the amalgamated
+free product G1 ∗Z G2 is Zm -free for some m, provided that the image of Z
+is maximal abelian in each Gi .
+    One would expect that the proof of the above theorem would consist of
+‘rescaling’ the element generating the infinite cyclic subgroup in each factor.
+However, this naive approach is not quite sufficient in the non-Archimedean
+case. For instance, let us suppose that both G1 and G2 are Z3 -free and
+denote by gi the generator in Gi of the image of Z (i = 1, 2). Then we may
+have that for the given actions, kg1 k = (1, 0, 0), while kg2 k = (0, 1, −1),
+both of which are positive elements of Z3 . In order to apply Theorem 3.2, it
+is essentially sufficient to find actions in which g1 and g2 have the same Zn
+translation length. The first problem is that they are not even comparable,
+but this is easily managed by embedding Z3 into Z4 in two different ways and
+applying the base change functor. One would then get that kg1 k = (0, 1, 0, 0)
+and kg2 k = (0, 1, −1, 0). But one is left with the problem that rescaling, even
+applied to coordinates, can only be multiplication by a positive element and
+the result has to be obtained by defining a new translation length function
+or a Lyndon length function from the old.
+    Although we are not aware that the following fact has been recorded, it
+is fairly straightforward to show that the class of groups which are finitely
+generated and act freely on some Zn -tree have solvable word problems. It
+follows from the following elementary fact about graphs of groups.
+Theorem 4.5. Let G be a finite graph of groups in which all the vertex
+groups have solvable word problem and in which each edge group has solvable
+membership problem in its respective vertex groups. Then π1 (G) has solvable
+word problem.
+   One can use this to show that any finitely generated Zn -free group has
+solvable word problem by induction on n. The case n = 1 corresponds to
+the class of finitely generated free groups where the result is well known.
+Suppose the then that we have shown that the class of finitely generated
+14                         A. MARTINO, S. O ROURKE
+
+
+Zn−1 -free groups have solvable word problem and consider a finitely gener-
+ated Zn -free group G. By Theorem 3.1, G = π1 (G) and the vertex groups
+must be Zn−1 -free groups. Since G is finitely generated, we can take G to
+be finite. Moreover, the vertex groups must be finitely generated and hence,
+by induction, have solvable word problem. The edge groups are maximal
+abelian subgroups in their vertex groups and must, by the CSA property
+Theorem 2.1, have solvable membership problem. (If M is maximal abelian
+in a tree-free group, then the CSA property says that g ∈ M if and only
+if g commutes with some fixed non-trivial element of M . This is decidable
+from the word problem.) Thus the hypotheses of the above Theorem would
+hold and G would has solvable word problem.
+    Note that while Zn -free groups have all the properties of general tree-free
+groups, some of which we have listed in Theorem 2.1, one can also show that
+they have more.
+       (i) The class of Zn -free groups is closed under taking free products.
+      (ii) Any abelian subgroup of a Zn -free group is free abelian of rank at
+           most n.
+     (iii) Zn -free groups are coherent. That is, any finitely generated sub-
+           group of a Zn -free group is finitely presented.
+     (iv) A finitely generated Zn -free group, G, is of type F. This means
+           that G is the fundamental group of a finite cell complex whose
+           universal cover is contractible and the same is true of any finitely
+           generated subgroup.
+      (v) A finitely generated Zn -group with no Z × Z subgroups is word
+           hyperbolic, as are all its finitely generated subgroups.
+     (vi) The class of Zn -free groups have solvable word problem.
+   Note that (i) and (ii) are restatements of (ix) and (xii) of Theorem 2.1.
+Items (iii) and (iv) are consequences of Theorem 3.1, as is (v) once one
+applies the Combination Theorem of [3]. Item (vi) is proved above.
+   In light of these results it seems fairly natural to ask if Zn -groups act
+properly and cocompactly on CAT(0) spaces (see [5]), as they share many
+of the same properties. While that question remains open, it is clear that
+not every group which acts properly and cocompactly on a CAT(0) space
+is Zn -free. For instance, the direct product of two non-abelian free groups
+of finite rank cannot be tree-free, because that group is not commutative
+transitive, but does act on a CAT(0) space, properly and cocompactly.
+   The theory of Zn -free groups seems much more tractible than the general
+theory of tree-free groups, and so one is led to ask the following.
+
+Question 4.6. Is every finitely generated tree-free group Zn -free for some
+n?
+                    FREE ACTIONS ON Zn -TREES: A SURVEY                        15
+
+
+   A positive answer to this question would clearly simplify the study of
+tree-free groups and a useful first step in trying to prove it may be to show
+that Rm -free groups are Zn -free for some n, perhaps by using the Rips
+machine.
+   An affirmative answer to this question (together with property (iii) of
+Zn -free groups) would, in particular, imply an affirmative answer to the
+following.
+Question 4.7. Is every finitely generated tree-free group finitely presented?
+    As we have noted, all of the groups described in [13] which admit a free
+affine action on an R-tree admit a free isometric action on a Z × Z-tree. It
+is natural to wonder whether this reflects a general fact.
+Question 4.8. Suppose that G admits a free affine action on an R-tree. Is
+G Zn -free?
+   Since many of the groups we have discussed admit free actions, not merely
+on Zn -trees for some n, but on (Z×Z)-trees, it seems worthwhile to produce
+examples of groups that admit ‘essential’ free actions on Zn -trees.
+Problem 4.9. Describe a family of groups Gn (n ∈ N) such that for all
+n∈N
+     (i) Gn admits a free action on a Zn -tree;
+    (ii) Gn admits no free action on a Zm -tree for m < n;
+   (iii) Gn contains no free abelian subgroup of rank 2.
+   Observe that such groups Gn would be word hyperbolic, by the Combi-
+nation Theorem of [3].
+   We note that Theorem 4.4 has no direct analogue for HNN extensions.
+Indeed, it can be shown that a group of the form,
+
+                         hx, y, t | t−1 [xm , y n ]t = [xs , y t ]i
+   is tree-free if and only if it is (Z×Z)-free, which is if and only if (|m|−|s|)
+and (|t| − |n|) have the same sign. This leads us to ask for what HNN
+extensions of free groups with cyclic edge group admit a free action on a
+Λ-tree.
+Question 4.10. Are the following equivalent?
+    (i) A free group F acts freely on some Z-tree, in which the group ele-
+        ments u, v ∈ F have the same translation length.
+   (ii) The HNN extension hF, t | t−1 ut = vi is tree-free.
+   Note that (i) implies that the HNN extension given in (ii) is actually
+(Z × Z)-free, but it seems hard to find an essential counterexample to this
+question.
+16                             A. MARTINO, S. O ROURKE
+
+
+                                      References
+ 1. Roger Alperin and Hyman Bass, Length functions of group actions on Λ-trees, Com-
+    binatorial group theory and topology (Alta, Utah, 1984), Ann. of Math. Stud., vol.
+    111, Princeton Univ. Press, Princeton, NJ, 1987, pp. 265–378. MR 89c:20057
+ 2. Hyman Bass, Group actions on non-Archimedean trees, Arboreal group theory
+    (Berkeley, CA, 1988), Math. Sci. Res. Inst. Publ., vol. 19, Springer, New York, 1991,
+    pp. 69–131. MR 93d:57003
+ 3. M. Bestvina and M. Feighn, A combination theorem for negatively curved groups, J.
+    Differential Geom. 35 (1992), no. 1, 85–101. MR 93d:53053
+                        R
+ 4. Mladen Bestvina, -trees in topology, geometry, and group theory, Handbook of
+    geometric topology, North-Holland, Amsterdam, 2002, pp. 55–91. MR 2003b:20040
+ 5. Martin R. Bridson and André Haefliger, Metric spaces of non-positive curvature,
+    Grundlehren der Mathematischen Wissenschaften [Fundamental Principles of Math-
+    ematical Sciences], vol. 319, Springer-Verlag, Berlin, 1999. MR 2000k:53038
+ 6. I. M. Chiswell, Harrison’s theorem for Λ-trees, Quart. J. Math. Oxford Ser. (2) 45
+    (1994), no. 177, 1–12. MR 95b:20043
+ 7. Ian Chiswell, Introduction to Λ-trees, World Scientific Publishing Co. Inc., River
+    Edge, NJ, 2001. MR 2003e:20029
+ 8. A. M. Gaglione and D. Spellman, Generalizations of free groups: some questions,
+    Comm. Algebra 22 (1994), no. 8, 3159–3169. MR 95c:20035
+ 9. H. Gillet and P. Shalen, Cohomological dimension of groups acting on R-trees, Arbo-
+    real group theory (Berkeley, CA, 1988), Math. Sci. Res. Inst. Publ., vol. 19, Springer,
+    New York, 1991, pp. 231–250. MR 92k:57001
+10. Nancy Harrison, Real length functions in groups, Trans. Amer. Math. Soc. 174
+    (1972), 77–106. MR 46 #7397
+11. O. Kharlampovich and A. Myasnikov, Irreducible affine varieties over a free group.
+    I. Irreducibility of quadratic equations and Nullstellensatz, J. Algebra 200 (1998),
+    no. 2, 472–516. MR 2000b:20032a
+12.         , Irreducible affine varieties over a free group. II. Systems in triangular quasi-
+    quadratic form and description of residually free groups, J. Algebra 200 (1998), no. 2,
+    517–570. MR 2000b:20032b
+13. Isabelle Liousse, Actions affines sur les arbres réels, Math. Z. 238 (2001), no. 2,
+    401–429. MR 2003a:20044
+14. R. C. Lyndon, The equation a2 b2 = c2 in free groups, Michigan Math. J 6 (1959),
+    89–95. MR 21 #1999
+15. Roger C. Lyndon and Paul E. Schupp, Combinatorial group theory, Springer-Verlag,
+    Berlin, 1977, Ergebnisse der Mathematik und ihrer Grenzgebiete, Band 89. MR 58
+    #28182
+16. A. Martino and S. ORourke, Some free actions on non-archimedean trees, J. Group
+    Theory, to appear.
+17. John W. Morgan and Peter B. Shalen, Valuations, trees, and degenerations of hy-
+    perbolic structures. I, Ann. of Math. (2) 120 (1984), no. 3, 401–476. MR 86f:57011
+18. Walter Parry, Axioms for translation length functions, Arboreal group theory (Berke-
+    ley, CA, 1988), Math. Sci. Res. Inst. Publ., vol. 19, Springer, New York, 1991,
+    pp. 295–330. MR 92f:57005
+19. Peter Scott and Terry Wall, Topological methods in group theory, Homological group
+    theory (Proc. Sympos., Durham, 1977), London Math. Soc. Lecture Note Ser., vol. 36,
+    Cambridge Univ. Press, Cambridge, 1979, pp. 137–203. MR 81m:57002
+                     FREE ACTIONS ON Zn -TREES: A SURVEY                             17
+
+
+20. Zlil Sela, Diophantine geometry over groups. I. Makanin-Razborov diagrams, Publ.
+    Math. Inst. Hautes Études Sci. (2001), no. 93, 31–105. MR 2002h:20061
+21. Peter B. Shalen, Dendrology and its applications, Group theory from a geometrical
+    viewpoint (Trieste, 1990), World Sci. Publishing, River Edge, NJ, 1991, pp. 543–616.
+    MR 94e:57020
+
+
+    A. Martino                                   S. O Rourke
+    Centre de Recerca Matemàtica                Department of Mathematics
+    08193 Bellaterra (Spain)                     University College Cork (Ireland)
+    E-mail : AMartino@crm.es                     E-mail : S.ORourke@ucc.ie
+

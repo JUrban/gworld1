@@ -1,0 +1,575 @@
+Some free actions on non-archimedean trees
+                    A. Martino
+             email: A.Martino@ucc.ie
+
+        S. O Rourke (corresponding author )
+             email: S.ORourke@ucc.ie
+
+           Department of Mathematics
+            University College Cork
+                    Ireland
+                  May 31, 2010
+
+
+
+
+                         1
+                                     Abstract
+          In this paper we show that various groups are Zn -free. In particular
+      we show that almost every surface group is (Z × Z)-free as are the groups
+      of Liousse [11]. We also demonstrate that the class of Zn -free groups
+      is closed under taking amalgamated free products over an infinite cyclic
+      group as long as it is maximal abelian in each vertex group. It follows
+      that a large class of hyperbolic groups is Zn -free.
+
+
+1    Introduction
+Bass-Serre theory ([15], [6], [5]), the theory of group actions on simplicial trees,
+has proven to be very successful in describing the structure of discrete groups.
+In particular one can obtain a presentation for a group acting on a tree in terms
+of the vertex and edge stabilisers, a graph of groups decomposition.
+    It is therefore natural to try to generalise the notion of tree in order to
+broaden the scope of the theory. The study of isometric actions on real trees has
+had some success, notably Rips’ Theorem which characterises finitely generated
+groups that admit a free isometric action on an real tree ([7], [8], [4]), and has
+become an established technique in geometric group theory.
+    There has been a further generalisation to group actions on Λ-trees, where
+Λ is an ordered abelian group. This generalisation encompasses actions on
+simplicial and real trees on taking Λ = Z and Λ = R respectively.
+    While several authors have extended many of the results from the theory of
+real trees to that of Λ-trees ([4] provides a comprehensive exposition) this has
+not been as widely adopted as a technique in the study of discrete groups as has
+the theory of real trees. This is due in part to an incomplete understanding of
+free actions on Λ-trees, and in part to a perceived lack of motivation in passing
+from R to a more general Λ.
+    The goal of this paper is to provide examples of groups which act freely on
+Zn -trees for some n. The original motivation was a paper of Liousse which,
+among other things, constructs some groups (described in 2.3) that admit free
+affine actions on real trees, but which do not admit any free isometric action on
+a real tree.
+    We describe in Theorem 3.1 a family of one-relator groups that act freely
+and isometrically on (Z × Z)-trees. As a consequence, we have
+Corollary 3.4 Liousse’s groups are (Z × Z)-free.
+   Thus by considering more general Λ we can construct actions of Liousse’s
+groups which are, in some sense, better behaved.
+   Another consequence of Theorem 3.1 is
+Corollary 3.3 Every surface group except π1 (RP) and π1 (RP#RP) is (Z × Z)-
+free. Hence every finitely generated R-free group is Zn -free for some n. Moreover
+we can take n = max{2, ab(G)}, where ab(G) is the maximal rank of any free
+abelian subgroup of G.
+
+
+
+                                         2
+    We note that Gaglione and Spellman [9] have shown that π1 (M ) is (Z × Z)-
+free when M = RP#RP#RP. Also, it has been shown in [10], that finitely
+generated fully residually free groups are Zn -free, for some n. As every surface
+group except the fundamental group of the connected sum of at most three
+projective planes is fully residually free, Corollary 3.3 is largely known, though
+we believe the bound on n to be new.
+    The main result of the paper, a consequence of Theorem 4.3, is
+Theorem Suppose that G1 and G2 are Zn -free for some n. Then G1 ∗Z G2 is
+Zm -free for some m ≥ n if and only if Z embeds as a maximal abelian subgroup
+in each Gi .
+    A result of Bestvina and Feighn, [3], implies that if, in addition, G1 and
+G2 are word hyperbolic, then G1 ∗Z G2 is also word hyperbolic if Z is maximal
+abelian in each Gi . Thus one may construct many word hyperbolic groups which
+act freely on some Zn -tree.
+    Throughout, we rely on results from Bass’s paper [2] which we recall in
+2.4. The main difficulty in applying these results is the presence of technical
+hypotheses concerning the particular actions on Zn -trees.
+    Our main theorem does not have an exact analogue in the case of HNN-
+extensions. In fact, the group
+
+                             hx, y, t | t−1 [x, y]t = [x2 , y 2 ]i
+
+is not Λ-free for any Λ.
+
+
+2     Preliminaries
+2.1    Λ-trees
+We refer the reader to [4] for a full account of the basic theory of Λ-trees and
+isometric actions thereon. We recall some of the details here.
+    Let Λ be a (linearly) ordered abelian group . Examples of ordered abelian
+groups include R, and Zn equipped with the lexicographic order.
+    A Λ-metric space is defined in the same way as a conventional metric space
+with R replaced by Λ. Thus Λ is itself a Λ-metric space by putting d(λ, µ) =
+|λ − µ| = max{λ − µ, µ − λ}. A Λ-metric space X is geodesically convex if, for all
+x, y ∈ X, there is a unique isometry φ : [0, d(x, y)]Λ −→ X with φ(0) = x and
+φ(d(x, y)) = y. We denote the image of such an isometry by [x, y] = [x, y]X .
+    The Λ-metric space (X, d) is a Λ-tree if
+ (i). X is geodesically convex;
+(ii). [x, y] ∩ [y, z] = [y, w] for some w ∈ X;
+(iii). [x, y] ∩ [y, z] = {y} implies [x, y] ∪ [y, z] = [x, z].
+
+
+
+
+                                              3
+    A Λ-tree can also be characterised as a geodesically convex Λ-metric space
+which is 0-hyperbolic and which satisfies d(x, v) + d(y, v) − d(x, y) ∈ 2Λ for all
+x, y, v ∈ X.
+    Associated to an isometric group action on a Λ-tree is the translation length
+function k.k : G → Λ. The value of kgk is equal to 0 if g has a fixed point or is
+an inversion, and is equal to min{d(x, gx) : x ∈ X} otherwise. We call an action
+of G on a Λ-tree free if there are no inversions and only the identity element has
+a fixed point. An action is thus free if and only if kgk > 0 for all g ∈ G\{1}.
+    A group that admits a free action on a Z-tree is a free group; this fact follows,
+for example, from Bass-Serre theory. A group G is said to be Λ-free if G admits
+a free isometric action (without inversions) on some Λ-tree, and tree-free if it
+is Λ-free for some Λ. It is an elementary fact that tree-free groups are torsion
+free and commutative transitive, that is, commutativity is a transitive relation
+on non-identity elements. Clearly, any subgroup of a Λ-free group is Λ-free and
+it can also be shown that free products of Λ-free groups are Λ-free.
+    Note that Λ, viewed as a Λ-metric space, is a Λ-tree. Moreover, Λ acts on
+itself by translations and hence is Λ-free.
+    The natural and long-standing question of which groups are R-free was an-
+swered, in the finitely generated case, by Rips in 1991:
+
+Theorem 2.1.1 (Rips’ Theorem) A finitely generated group G admits a free
+action on an R-tree if and only if G is expressible as a free product G1 ∗G2 ∗· · · Gn
+where each Gi is either a finitely generated free abelian group or the fundamental
+group of a closed surface other than the connected sum of 1, 2 or 3 projective
+planes.
+
+2.2    Surface groups
+There is a well-known classification of closed surfaces (i.e. compact, connected
+2-manifolds without boundary) — see [13] for details. It follows from this clas-
+sification that the fundamental group of an orientable surface M of genus g has
+the presentation
+                                                             g
+                                                             Y
+                    π1 (M ) = hx1 , y1 , . . . , xg , yg |         [xi , yi ] = 1i
+                                                             i=1
+
+and the fundamental group of a non-orientable surface of genus g has the pre-
+sentation
+                                                  g
+                                                  Y
+                     π1 (M ) = hx1 , . . . , xg |   x2i = 1i.
+                                                        i=1
+
+
+2.3    Affine actions and Liousse groups
+Let X be an R-tree. An action of G on X is said to be affine if, for each
+g ∈ G, there is a positive real number αg such that d(gx, gy) = αg d(x, y) for
+all x, y ∈ X. In her paper [11], Liousse examines affine actions on R-trees and
+
+
+                                                4
+constructs groups which admit a free, affine action on an R-tree, but do not
+act freely and isometrically on an R-tree. The groups considered fall into two
+Types.
+    Type I groups are obtained by taking a finite collection of surfaces, taking
+one boundary component from each, and gluing the surfaces along these bound-
+ary components via homeomorphisms. The fundamental group of the resulting
+quotient space is a Type I group.
+    It follows from Van Kampen’s theorem (and using Tietze transformations, if
+necessary) that Type I groups are isomorphic to an iterated free product with
+amalgamation of the form, G = F1 ∗Z F2 ∗Z ∗ · · · ∗Z Fn , where each Fi is a finitely
+generated free group. In fact, each amalgamated Z will be generated by the same
+element of G since the embeddings in Fi have the same image for 2 ≤ i ≤ n − 1,
+though this will not be relevant for our purposes. The embedded image of each
+cyclic group in the appropriate free group is a product of commutators, or a
+product of (at least two) squares, of basis elements. In particular, these images
+are maximal abelian in the respective free groups.
+    Type II groups are formed by taking two surfaces and gluing a boundary
+component of one to a boundary component of the other via a map of some
+degree k ≥ 1 (both of these boundary components are circles). The fundamental
+group of the resulting space is a Type II group and is either a free group or has
+a presentation of the form hx1 , . . . , xn , y1 , . . . , ym | w = v k i. Here w corresponds
+to the path around the boundary component of the first surface and is of the
+form [x1 , x2 ] . . . [x2r−1 , x2r ] where n = 2r, or x21 . . . x2n and n ≥ 2. Similarly v
+corresponds to the path around the boundary component of the second surface.
+For our purposes it suffices to observe that v is a non-trivial word in y1 , . . . , ym .
+
+2.4     Free actions on (Z × Λ)-trees
+We shall be concerned with showing that certain groups are Zn -free. In order
+to do this we shall use results from [2] which we collect here for convenience.
+Theorem 2.4.1 (Bass, [2]) (i). Suppose that G acts freely on a Λ-tree X
+    and that t1 , t2 ∈ G each generates a maximal abelian subgroup of G. Fur-
+    ther assume that t1 is not conjugate to t−1
+                                             2 and that kt1 kX = kt2 kX . Then
+    the HNN-extension hG, x | x−1 t1 x = t2 i is (Z × Λ)-free.
+(ii). Suppose that G1 , G2 act freely on Λ-trees X1 , X2 respectively and that t1 ∈
+      G1 , t2 ∈ G2 generate maximal abelian subgroups. Further, if we assume
+      that kt1 kX1 = kt2 kX2 , then the amalgamated free product G1 ∗ht1 =t2 i G2 is
+      (Z × Λ)-free.
+(iii). Suppose that G1 , . . . , Gk are free groups, and let si ∈ Gi (1 ≤ i ≤ k − 1)
+       and ti ∈ Gi (2 ≤ i ≤ k) be two families of elements, none of which is a
+       proper power in their respective group. Then the amalgamated free product
+       G1 ∗hs1 =t2 i G2 ∗hs2 =t3 i ∗ · · · ∗hsk−1 =tk i Gk is (Z × Z)-free.
+  Part (i) of the theorem is Proposition 4.15 of [2]. Part (ii) follows from [2],
+Theorem 4.7 in the same way that Proposition 4.15 follows from Theorem 4.7.
+
+                                             5
+Namely, one replaces each Xi by its Λ-fulfilment (see the appendix on ends in
+[2]) and applies Theorem 4.7 of [2].
+     Let 1 denote the attracting end of At1 ⊆ X1 , and 2 the repelling end of
+At2 ⊆ X2 . Then the stabiliser in Gi of i is equal to hti i by Theorem 1.10 of
+[2] since this subgroup is maximal abelian in Gi , so that condition α of Bass’s
+Theorem 4.7 is satisfied.
+     The condition that kt1 kX1 = kt2 kX2 and choice of ends i ensures that we
+have τ1 = −τ2 , and so Bass’s condition β is satisfied.
+     Finally, Bass’s condition γ is trivially satisfied, since there is only one unori-
+ented edge in our graph of groups.
+     Part (iii) of the theorem follows from Theorem 4.9 of [2] once we note that
+free groups are precisely the Z-free groups, that the conditions on si , ti en-
+sure that the subgroups they generate are maximal abelian, and that condition
+(iii)(γ) of Theorem 4.9 is trivially satisfied.
+
+
+3     Some (Z × Z)-free groups
+In this section we shall show that Liousse groups are (Z × Z)-free. We also show
+that surface groups are (Z × Z)-free and hence that finitely generated R-free
+groups are Zn -free. These will be easy consequences of the following result.
+
+Theorem 3.1 Let G = ha, b, x1 , . . . , xn | aba−1 b = wi where  = ±1 and w is
+any word in {x1 , . . . , xn }. Then G acts freely on a (Z × Z)-tree, unless  = 1
+and w = 1.
+
+    Proof: Note first that if w = 1 and  = −1, then G has the sole defining
+relation [a, b] = 1 and is thus (Z × Z)-free since it is a free product of a free
+abelian group of rank 2 with a free group. We will henceforth assume, therefore,
+that w 6= 1.
+    By the Freiheitssatz [12], the set {b, x1 , . . . , xn } is a basis for a free subgroup
+of G which we will denote by F .
+    We first consider the case where w has even length in the given generators
+of F . Thus we can write w = w1 w2 where this product is reduced as written
+and w1 , w2 have the same length. Now consider a new basis X = {c, x1 . . . , xn }
+of F given by c = w2 b− . As w does not involve b, the lengths of w1 , w2 are
+equal with respect to this new basis. Replacing b by (w2 −1 c)− we get a new
+presentation of G,
+
+                   G = ha, c, x1 , . . . , xn | a(w2 −1 c)− a−1 = w1 ci.
+
+    This realises G as an HNN-extension of F by the stable letter a and with
+cyclic edge group.
+    Clearly, (w2 −1 c)− and w1 c have the same word length with respect to X and
+they are both cyclically reduced since they each contain exactly one occurrence
+of the basis letter c either at the start or at the end. Now let Γ be the Cayley
+
+
+
+                                             6
+graph of F with respect to the basis X. We have shown that (w2 −1 c)− and
+w1 c have the same translation length when considered as isometries of Γ.
+    Recall that cyclically reduced conjugates in a free group are cyclic permuta-
+tions of each other. Thus if (w2 −1 c) and w1 c were conjugate in F , it would force
+ = 1 and w2 −1 = w1 . As the latter is not the case, we deduce that (w2 −1 c)
+and w1 c are not conjugate in F . Thus we may apply part (i) of Theorem 2.4.1
+to conclude that G is (Z × Z)-free.
+    In the case where w is not of even length, we consider the group
+
+                         G1 = ha, b, y1 , . . . , yn | aba−1 b = vi
+
+where the word v is obtained from w by replacing each occurrence of xi by yi2 .
+We then map G to G1 by sending a to a, b to b and xi to yi2 ; it is easy to see
+that this is an embedding. We can apply the above argument to show that G1
+acts freely on a (Z × Z)-tree, and G acts by restriction.
+
+
+Corollary 3.2 Let G be a group with presentation G = hX1 t X2 | w1 = w2n i
+where n ≥ 1, and where each wi is either a product x21 x22 . . . x2mi of squares of
+distinct elements of Xi , or a product [x1 , y1 ][x2 , y2 ] . . . [xmi , ymi ] of commutators
+of distinct elements of Xi . Assume that w1 is non-trivial and not equal to x21 ,
+and that w2 6= 1 if w1 = x21 x22 . Then G is (Z × Z)-free.
+
+    Proof: If w1 is a product of commutators, then the relation can be rewritten
+as [x1 , y1 ] = w2n [ym1 , xm1 ] . . . [y2 , x2 ]. The right-hand side of this equation has
+no occurrence of x1 or y1 , and so, by Theorem 3.1, we conclude that G is
+(Z × Z)-free.
+    If w1 = x21 x22 . . . x2m1 where m1 ≥ 2, then putting a = x1 x2 , G can be written
+in the form
+                           hX10 t X2 | x1 ax−1           n −2        −2
+                                                  1 a = w2 xn . . . x3 i,
+
+where X10 = X1 ∪ {a}\{x2 }. Once again, we can apply Theorem 3.1 (noting
+                    −2
+that w2n x−2
+          m1 · · · x3 6= 1 by assumption) to conclude that G is (Z × Z)-free.
+
+
+    It follows from the corollary that π1 (M ) is (Z × Z)-free for any closed surface
+M except for RP and RP#RP.
+    Moreover these exceptions are genuine: π1 (RP) is not torsion-free, and in
+the group π1 (RP#RP) we have x2 y 2 = 1 = y 2 x2 which, in a tree-free group,
+would force xy = yx by commutative transitivity. It follows that neither of
+these groups is tree-free. The latter example also shows that Theorem 3.1 is
+false if the case  = 1, w = 1 is not excluded.
+    It is clear that finitely generated free abelian groups of rank n are Zn -free
+and that a Zm -free group is also Zn -free for any n ≥ m — the latter can also
+be seen as a consequence of Theorem 4.1. Moreover the class of Λ-free groups is
+closed under the formation of free products. One can thus deduce the following
+from Rips’ theorem.
+
+
+
+                                             7
+Corollary 3.3 Every surface group except π1 (RP) and π1 (RP#RP) is (Z × Z)-
+free. Hence every finitely generated R-free group is Zn -free for some n. Moreover
+we can take n = max{2, ab(G)}, where ab(G) is the maximal rank of any free
+abelian subgroup of G.
+Corollary 3.4 Liousse groups are (Z × Z)-free.
+   Proof: A group of Type I is (Z × Z)-free by part (iii) of Theorem 2.4.1.
+   An examination of the presentation of the Type II groups shows that they
+are (Z × Z)-free by Corollary 3.2.
+
+
+
+4    Constructing Zn -free groups
+In this section we show that certain amalgamated free products G1 ∗Z G2 are
+Zn -free. In turn, this allows us to construct a large class of hyperbolic groups
+which are Zn -free.
+    In order to do this, we apply part (ii) of Theorem 2.4.1. However, this
+theorem relies on certain translation lengths being equal. Thus, starting with
+groups G1 acting freely on a Zn1 -tree and G2 acting freely on a Zn2 -tree, we show
+how one can modify the actions in order to make them sufficiently compatible
+to apply the result and deduce that G1 ∗Z G2 is Zn -free for some n.
+    Before proceeding, we introduce some notation. We write ej to denote the
+element (0, . . . 0, 1, 0, . . . 0) of Zn for 1 ≤ j ≤ n. We write Zk to denote not
+           | {z }
+           j−1
+only the ordered abelian group Z × · · · × Z but also the subgroup 0 × · · · 0 ×
+                               |   {z      }
+                                       k
+Z × · · · × Z of Zn for k ≤ n.
+|   {z      }
+     k
+    In what follows it will be convenient to be able to change our actions by
+scaling the metric and thinking of Zn as a subgroup of Zn+k . These modifi-
+cations to actions on Λ-trees come under a general construction known as the
+base change functor. Details may be found in [4], Theorem 4.7, Corollaries 4.8,
+4.9.
+Theorem 4.1 (Base Change Functor) Let h : Λ → Λ0 be an order preserv-
+ing homomorphism between ordered abelian groups and let G be a group acting
+by isometries on a Λ-tree, (X, d). Then there is a Λ0 -tree, (X 0 , d0 ) on which G
+acts by isometries and a mapping φ : X → X 0 such that
+(i) d0 (φ(x), φ(y)) = h(d(x, y)), for all x, y ∈ X
+(ii) φ(gx) = gφ(x) for all g ∈ G and x ∈ X
+(iii) kgkX 0 = h(kgkX ) for all g ∈ G.
+In particular, if the action of G on X is free and h is injective, then the action
+of G on X 0 is also free.
+   The base change functor by itself will not be enough for our purposes. The
+next proposition describes another way in which the action on a Zn -tree may be
+
+                                           8
+changed. Although it may seem like a rabbit out of a hat, Proposition 4.2 arises
+quite naturally when one considers the geometry of a Zn -tree. To be precise,
+if one looks at a Zn -tree X and shrinks the balls of radius Zn−1 to a point,
+then the resulting object has the structure of a simplicial tree. The Zn -metric
+on X is constructed from the metric on the simplicial tree along with what
+Bass [2] refers to as end maps. These end maps allow a great deal of variation
+in the metric on X. By adding the same amount to each end map, one can
+follow the resulting change in the metric. If a group G acts isometrically on
+X, one can also deduce the change in the translation length function and a
+similar process can be performed by changing the end maps between the Zk -
+balls. Proposition 4.2 reverses this reasoning by starting from a translation
+length function and producing the Zn -tree.
+
+Proposition 4.2 Let (X, d) be a Zn -tree on which the group G acts by isome-
+tries and let πi : Zn → Z denote the projection onto the ith component of Zn
+(from the left). Then for 1 ≤ i ≤ n and c ∈ Zn−i there is a Zn -tree (X 0 , d0 ) on
+which G acts isometrically such that kgk0 = kgk + cπi (kgk) for all g ∈ G. If the
+action of G on X is free then so is the action on X 0 .
+
+   Proof: It is a standard fact (see [14, pp. 297–8] and [1, §8]) that if G acts
+on a Λ tree X, then the translation function k.k : G → Λ satisfies the following
+axioms.
+   0. Given g, h ∈ G with kgk > 0 and khk > 0, then
+
+                          max{0, kghk − kgk − khk} ∈ 2Λ
+
+   I. kghg −1 k = kgk for every g, h ∈ G.
+   II. Given g, h ∈ G, either
+
+             kghk = kgh−1 k or        max{kghk, kgh−1 k} ≤ kgk + khk.
+
+   III. Given g, h ∈ G with kgk > 0 and khk > 0, either
+
+      kghk = kgh−1 k > kgk + khk or            max{kghk, kgh−1 k} = kgk + khk.
+
+    Conversely, the main theorem of [14] states that given a function k.k : G → Λ
+satisfying the above axioms, there is a Λ tree, X upon which G acts isometrically
+and with translation length function k.k. Thus we shall verify that the axioms
+hold for k.k0 in the statement of this proposition, given that they already hold
+for k.k.
+    It is clear that since k.k satisfies axiom 0, so will k.k0 . Also, if kgk = khk then
+kgk0 = khk0 so that k.k0 satisfies axiom I. Given that k1k0 = 0, the remaining
+two axioms may be verified from the following claim.
+Claim: Let g1 , g2 , h1 , h2 ∈ G. If kg1 k + kg2 k < kh1 k + kh2 k then kg1 k0 + kg2 k0 <
+kh1 k0 + kh2 k0 . Also, if kg1 k + kg2 k = kh1 k + kh2 k then kg1 k0 + kg2 k0 = kh1 k0 +
+kh2 k0 .
+
+
+
+                                           9
+Proof of claim As Zn is ordered lexicographically, kg1 k + kg2 k < kh1 k + kh2 k
+means that for some 1 ≤ t ≤ n,
+
+            πj (kg1 k + kg2 k) = πj (kh1 k + kh2 k), for 1 ≤ j < t, and
+            πt (kg1 k + kg2 k) < πt (kh1 k + kh2 k)
+
+Note that if k ≤ i then πk (kg1 k+kg2 k) = πk (kg1 k0 +kg2 k0 ) and πk (kh1 k+kh2 k) =
+πk (kh1 k0 + kh2 k0 ). Hence if t ≤ i then kg1 k0 + kg2 k0 < kh1 k0 + kh2 k0 . However,
+if t > i then πi (kg1 k + kg2 k) = πi (kh1 k + kh2 k) which implies that
+
+               kg1 k0 + kg2 k0       = kg1 k + kg2 k + cπi (kg1 k + kg2 k)
+                                     < kh1 k + kh2 k + cπi (kh1 k + kh2 k)
+                                     = kh1 k0 + kh2 k0 .
+
+In either case, kg1 k0 + kg2 k0 < kh1 k0 + kh2 k0 .
+    The second statement of the claim is clear.
+    With this claim, we can now verify the above axioms for k.k0 . The fact that
+the resulting action is free follows from the claim since kgk > 0 for all g 6= 1
+implies that kgk0 > 0 for all g 6= 1.
+
+   Our main theorem now follows from the following.
+
+Theorem 4.3 Let G1 and G2 be groups with maximal abelian subgroups, ht1 i ≤
+G1 and ht2 i ≤ G2 . Suppose that G1 acts freely without inversions on a Zn1 -
+tree X1 and G2 acts freely and without inversions on a Zn2 -tree X2 . Then the
+associated amalgamated free product G1 ∗ht1 =t2 i G2 admits a free action without
+inversions on a Zn -tree for some n ≥ max {n1 , n2 }.
+
+   Note that if hti i is not maximal abelian in Gi , then G1 ∗ht1 =t2 i G2 fails to be
+commutative transitive and hence cannot be tree-free.
+   Proof: We use Theorem 2.4.1(ii) applied to the amalgamated free product,
+together with the given actions of Gi on Xi modified by several applications of
+the base change functor and Proposition 4.2 as we now describe. To prevent
+the notation from becoming too cumbersome, we will abuse notation slightly
+throughout the proof, and denote a Λ-tree by Xi if it arises from Xi by such
+modifications. Similarly, we will denote the hyperbolic length functions associ-
+ated to the action of Gi on Xi by k.ki (i = 1, 2).
+   Note first that there is no loss of generality in assuming that n1 = n2 , for
+otherwise, if n1 > n2 say, we can use the base change functor to replace the
+Zn2 -tree X2 by the Zn1 -tree obtained via the embedding
+
+                  (k1 , k2 , . . . , kn2 ) 7→ (k1 , k2 , . . . , kn2 , 0, 0, . . . , 0).
+                                                                       | {z }
+                                                                          n1 −n2
+
+    Hence we may assume that both G1 and G2 are Zn1 -free and that the trans-
+lation length functions have the same codomain, ||.||i : Gi → Zn1 .
+    Suppose now that kti ki = mi eji + λi , where mi > 0 is an integer, and
+λi ∈ Zn1 −ji . Again there is no loss of generality in assuming that j1 ≥ j2 (so
+
+                                                   10
+that kt1 k1 belongs to the convex subgroup of Zn1 generated by kt2 k2 ). So put
+j = j1 − j2 ≥ 0, and consider the embeddings
+
+                   h1 : (k1 , k2 , . . . , kn1 ) 7→ (k1 , k2 , . . . , kn1 , 0, 0, . . . , 0)
+                                                                             | {z }
+                                                                                   j
+
+and
+                   h2 : (k1 , k2 , . . . , kn1 ) 7→ (0, 0, . . . , 0, k1 , k2 , . . . , kn1 )
+                                                     | {z }
+                                                             j
+
+of Zn1 in Zn = Zn1 +j .
+    These embeddings enable us to replace the Xi by Zn -trees on which the
+Gi act. With respect to these new actions, we have kt1 k1 = m1 ej1 + λ1 and
+kt2 k2 = m2 ej1 + λ2 (since j1 = j + j2 ). Rescaling the metric on X1 by m2 and
+the metric on X2 by m1 (and noting that these integers are positive), we now
+have actions of Gi on Xi where the first non-zero components of kt1 k1 and kt2 k2
+are equal and occur in the same position.
+    The results of these modifications are actions of Gi on Zn -trees Xi (i = 1, 2)
+with kt1 k1 = mel + λ1 and kt2 k2 = mel + λ2 where m > 0, l = j1 , and
+λi ∈ Zn−l . Applying the base change functor associated to the embedding
+h : (k1 , k2 , . . . , kn ) 7→ (k1 , k2 , . . . kl , mkl+1 , . . . , mkn ) to each Xi , we have kti ki =
+mel + mλi (i = 1, 2).
+    Now apply Proposition 4.2 to the action of G1 on X1 with i = l and c =
+λ2 − λ1 . Then kt1 k01 = mel + mλ1 + (λ2 − λ1 )m = mel + mλ2 = kt2 k2 .
+    The result follows by part (ii) of Theorem 2.4.1.
+
+    We note that by a result in [3], Corollary (torsion free products over Z)
+p. 100, an amalgamated free product A ∗Z B, where A and B are torsion free
+hyperbolic groups is itself hyperbolic if Z is maximal abelian in either A or
+B. As a tree-free group is necessarily torsion free we may note the following
+corollary.
+
+Corollary 4.4 If G1 and G2 are hyperbolic then so is G.
+
+    The main reason for noting this corollary is that it allows one to construct
+many examples of hyperbolic groups which act freely on Zn -trees. Let C be the
+class of hyperbolic groups which act freely on Zn -trees for some n. Then this
+class contains all free groups of finite rank and is closed under taking amalga-
+mated free products over an infinite cyclic group, as long as the generator is not
+a proper power in either of the vertex groups. Thus, C is a large class of torsion
+free hyperbolic groups, most of which cannot act freely on an R-tree.
+    We note that Theorem 4.3 cannot easily be generalised to include the case
+of HNN-extensions. The reason is that for amalgamated free products it is
+possible to change the actions of the vertex groups independently so that two
+given group elements have the same translation length. This is the key ingredient
+to applying Theorem 4.7 of [2]. To generalise to the case of an HNN-extension,
+
+
+                                                      11
+one would also have two group elements which would need to have the same
+translation length. The fact that both elements would lie in the same group
+means that one could not ensure this equality by using the base change functor
+or Proposition 4.2. In fact, it can be shown that the group
+
+                          hx, y, t | t−1 [x, y]t = [x2 , y 2 ]i
+
+cannot act freely on any Λ-tree. This is because for any free action of the free
+group of rank 2, F (x, y), on a Λ-tree, we have k[x, y]k < k[x2 , y 2 ]k. Hence the
+obstruction for HNN-extensions to act freely on Zn -trees seems to rely more
+heavily on the group structure.
+     For completeness we note that certain HNN-extensions, called “benign” in
+[2], are known to be tree-free. Namely, if G is a Λ-free group and H is a maximal
+abelian subgroup of G then the HNN-extension
+
+                         hG, t | t−1 ht = h for all h ∈ Hi
+
+is (Z × Λ)-free by [2], Corollary 4.16.
+
+
+References
+ [1] R. Alperin and H. Bass. Length functions of group actions on Λ-trees. In
+     Combinatorial group theory and topology (Alta, Utah, 1984), Ann. of Math.
+     Stud., 111 (Princeton Univ. Press, 1987), pp. 265–378.
+ [2] H. Bass. Group actions on non-Archimedean trees. In Arboreal group theory,
+     (Berkeley, CA, 1988), Math. Sci. Res. Inst. Publ., 19 (Springer, 1991),
+     pp. 69–131.
+ [3] M. Bestvina and M. Feighn. A combination theorem for negatively curved
+     groups. J. Differential Geom. 35 (1992), 85–101.
+ [4] I. M. Chiswell. Introduction to Λ-trees (World Scientific Publishing Co.
+     Inc., 2001).
+
+ [5] D. E. Cohen. Combinatorial group theory: a topological approach (Cam-
+     bridge University Press, 1989).
+ [6] W. Dicks and M. J. Dunwoody. Groups acting on graphs (Cambridge Uni-
+     versity Press, 1989).
+
+ [7] D. Gaboriau, G. Levitt, and F. Paulin. Pseudogroups of isometries of R
+     and Rips’ theorem on free actions on R-trees. Israel J. Math. 87 (1994),
+     403–428.
+ [8] D. Gaboriau. Générateurs indépendants pour les systèmes d’isométries de
+     dimension un. Ann. Inst. Fourier (Grenoble) 47 (1997), 101–122.
+
+
+
+                                          12
+ [9] A. M. Gaglione and D. Spellman. Generalizations of free groups: some
+     questions. Comm. Algebra 22 (1994), 3159–3169.
+[10] O. Kharlampovich and A. Myasnikov. Irreducible affine varieties over a
+     free group. II. Systems in triangular quasi-quadratic form and description
+     of residually free groups. J. Algebra 200 (1998), 517–570.
+[11] I. Liousse. Actions affines sur les arbres réels. Math. Z. 238 (2001), 401–429.
+[12] R. C. Lyndon and P. E. Schupp. Combinatorial group theory. Ergebnisse
+     der Mathematik und ihrer Grenzgebiete (Springer-Verlag, 1977).
+
+[13] W. S. Massey. Algebraic topology: an introduction (Harcourt, Brace &
+     World, Inc., 1967).
+[14] W. Parry. Axioms for translation length functions. In Arboreal group theory
+     (Berkeley, CA, 1988), Math. Sci. Res. Inst. Publ., 19 (Springer, 1991),
+     pp. 295–330.
+[15] J.-P. Serre. Trees (transl. J. Stillwell). (Springer-Verlag, 1980).
+
+
+
+
+                                         13
+

@@ -335,3 +335,8 @@ Archived KLSS math/0409284 (Cor1.4 plus Section2), Ciobanu-Diekert-Elder1508.021
 ## 2026-09-28T22:21:55.381017+00:00 — F34 higher-rank scope
 
 Archived Dinowitz-Koch-Hyde-OConnor-Olive2512.13967v1 (Introduction/Question1.3, Section7) and Koch-Hyde-OConnor-Olive2606.13933v2 (Introduction/Question1.5); viewed page2 of each. Both discuss the higher-rank algorithmic gap. Reused prior Lee0802.0584 and June2026 Shpilrain survey records for credit. Newer book F33 corresponds to frozen website F34. Clark-Goldstein part(b) credited via source background; its full paper not obtained. Reading limits and queries are in problems/F34/part-a-audit.md; no novelty certification.
+
+
+## 2026-09-28T22:34:32.776894+00:00 — GA1 root-adjunction scope
+
+Archived author-hosted Martino–ORourke *Some free actions on non-archimedean trees* and *Free actions on Z^n-trees: a survey*. The genus-three nonorientable surface is explicitly Z^2-free, so failure of R-freeness/full residual freeness supplies no GA1 obstruction. General root adjunction does not meet the maximal-abelian hypotheses on both amalgam factors. Exact sources, hashes and reading limits: `research/notes/GA1-root-adjunction-boundary.md`. No new solution.
