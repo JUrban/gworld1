@@ -1,0 +1,698 @@
+                                            Andrews-Curtis and Nielsen equivalence relations
+                                                       on some infinite groups
+                                                                            Aglaia Myropolska∗
+arXiv:1304.2668v2 [math.GR] 17 Sep 2014
+
+
+
+
+                                             The Andrews-Curtis conjecture asserts that, for a free group Fn of
+                                          rank n and a free basis (x1 , ..., xn ), any normally generating tuple
+                                          (y1 , ..., yn ) is Andrews-Curtis equivalent to (x1 , ..., xn ). This equiva-
+                                          lence corresponds to the actions of Aut Fn and of Fn on normally gen-
+                                          erating n-tuples. The equivalence corresponding to the action of Aut Fn
+                                          on generating n-tuples is called Nielsen equivalence. The conjecture for
+                                          arbitrary finitely generated group has its own importance to analyse
+                                          potential counter-examples to the original conjecture. We study the
+                                          Andrews-Curtis and Nielsen equivalence in the class of finitely gener-
+                                          ated groups for which every maximal subgroup is normal, including
+                                          nilpotent groups and Grigorchuk groups.
+
+                                                                            1. Introduction
+                                            The famous Andrews-Curtis conjecture [3, 23] can be stated as fol-
+                                          lows:
+                                          Conjecture 1.1 (The Andrews-Curtis conjecture). Let Fn be a free
+                                          group of rank n ≥ 2. If {x1 , ..., xn } is a free basis and {r1 , ..., rn } is
+                                          a normally generating set of Fn , then (r1 , ..., rn ) and (x1 , ..., xn ) are
+                                          Andrews-Curtis equivalent.
+                                             Let us give some background related to this conjecture. Let G be a
+                                          finitely generated group. The rank rank(G) of a group G is the minimal
+                                          number of generators of G. The following transformations of the set
+                                          Gn , n ≥ 1, are called elementary Nielsen moves:
+                                                   ±
+                                                  Rij (x1 , ..., xi , ..., xj , ..., xn ) = (x1 , ..., xi x±1
+                                                                                                           j , ..., xj , ..., xn ),
+
+                                                  L±                                                    ±1
+                                                   ij (x1 , ..., xi , ..., xj , ..., xn ) = (x1 , ..., xj xi , ..., xj , ..., xn ),
+
+                                                            Ij (x1 , ..., xj , ..., xn ) = (x1 , ..., x−1
+                                                                                                       j , ..., xn ),
+
+
+
+                                          where 1 ≤ i, j ≤ n, i 6= j. Elementary Nielsen moves transform gen-
+                                          erating sets of G into generating sets. Two generating sets are called
+                                          Nielsen equivalent if one is obtained from the other by a finite chain of
+                                          elementary Nielsen moves.
+                                            ∗
+                                             The author acknowledges the support of the Swiss National Science Foundation,
+                                          grant 200021 144323.
+                                                                                         1
+2
+
+    Elementary Nielsen moves together with the transformations
+                    ACi,s (x1 , ..., xi , ..., xn ) = (x1 , ..., xsi , ..., xn )
+where 1 ≤ i ≤ n, s ∈ S ∪ S −1 ⊂ G, S is a fixed subset of G, form
+the set of elementary Andrews-Curtis moves relative to S, or shortly
+ACS -moves. Elementary ACS -moves transform normally generating
+sets (sets which generate G as a normal subgroup) into normally gen-
+erating sets. Two normally generating sets are called Andrews-Curtis
+equivalent relative to S (ACS equivalent) if one is obtained from the
+other by a finite chain of elementary ACS -moves. In the case when
+S = G, we refer to AC-moves.
+  As in [21], the weight w(G) of a group G is the minimal number of
+normal generators of G.
+  Given an integer n ≥ w(G) and a subset S ⊂ G, the Andrews-Curtis
+graph (AC-graph) ∆n,S (G) of the group G is defined as follows:
+      - the set of vertices consists of normally generating n-tuples, i.e.
+               V∆n,S (G) = {(g1 , ..., gn ) ∈ Gn |≪ g1 , ..., gn ≫= G};
+     - two vertices are connected by an edge if one of them is obtained
+       from the other by an elementary ACS -move.
+If S = G we simplify the notation to ∆n (G). Clearly if S generates
+G, the graph ∆n,S (G) is connected if and only if the graph ∆n (G) is
+connected. The graph ∆n,S (G) is a regular graph which admits loops
+and multiple edges.
+   The Andrews-Curtis conjecture can be reformulated in terms of graphs:
+Conjecture 1.2 (The Andrews-Curtis conjecture). For a free group
+Fn of rank n ≥ 2, the Andrews-Curtis graph ∆n (Fn ) is connected.
+
+  Let G be a finitely generated group and n ≥ rank(G). The set of n-
+tuples Gn can be identified with the set of homomorphisms from Fn to
+G and, therefore, the set of generating n-tuples can be identified with
+the set of epimorphisms Epi(Fn , G). Hence there are natural actions
+of the automorphism group Aut Fn on both Gn and Epi(Fn , G), by
+precomposition. Elementary Nielsen moves can be seen as elements of
+Aut Fn ; moreover, by a result of Nielsen (see [24], Chap. I, Prop. 4.1),
+they generate Aut Fn . Therefore the orbits of the action of Aut Fn
+on Epi(Fn , G) are the Nielsen equivalence classes. Transitivity of this
+action has been studied in different contexts, see [12, 23, 31].
+  We define the Nielsen graph ‡ Γn (G), n ≥ rank(G), as follows:
+    ‡
+        Also called the Extended Product Replacement Graph.
+                                                                         3
+
+     - the set of vertices consists of generating n-tuples, i.e.
+            VΓn (G) = {(g1 , ..., gn ) ∈ Gn | hg1 , ..., gn i = G};
+      - two vertices are connected by an edge if one of them is obtained
+        from the other by an elementary Nielsen move.
+Observe that the graph Γn (G) is connected if and only if the action of
+Aut Fn on Epi(Fn , G) is transitive.
+   As an example, let us consider a finitely generated abelian group G.
+Then a normal generating set is just a generating set and elementary
+Andrews-Curtis moves coincide with elementary Nielsen moves. There-
+fore the two graphs ∆n (G) and Γn (G) coincide. Moreover, we have the
+following:
+Theorem 1.1 ([29, 8, 30]). Let G be a finitely generated abelian group
+given as
+                    G∼  = Zm1 × Zm2 × ... × Zmr × Zs
+where r, s ≥ 0, m1 , ..., mr ≥ 2 and m1 |m2 |...|mr . Then rank(G) = r + s
+and
+     • Γn (G) is connected for n ≥ r + s + 1;
+     • if r = 0, i. e., G ∼ = Zs , then Γs (G) is connected;
+     • otherwise if m1 = 2 then Γr+s (G) is connected and if m1 6= 2
+       then Γr+s (G) has φ(m   2
+                                 1)
+                                    connected components, where φ(m) is
+       the Euler function (the number of integers less than m which
+       are coprime with m).
+   Along with this result there are several partial results about the
+connectedness of Γn (G) for particular families of groups. For instance,
+Γn+1 (G) is connected when G is a finitely generated nilpotent group of
+rank n [11]. For further known results we refer the reader to Section 4
+on Nielsen equivalence, and to the references therein.
+   Let us get back to the Andrews-Curtis conjecture, which is still open.
+There have been several attempts to construct counter-examples. See
+Section 3 on Andrews-Curtis equivalence for more on that. A possible
+way to disprove the conjecture would be to find two normally gener-
+ating systems of Fn such that their images in some finitely generated
+group are not Andrews-Curtis equivalent. This motivates to analyse
+the connected components of the Andrews-Curtis graph of finitely gen-
+erated groups. One of the few positive results in this direction is that
+∆n (G) is connected when G is a free soluble group of rank n [27], and
+its proof can be adapted for free nilpotent groups.
+   Borovik, Lubotzky and Myasnikov [6] studied connected components
+of ∆n (G) for finite groups. In particular, they proved the following:
+4
+
+Theorem 1.2 ([6]). Let G be a finite group and n ≥ max{w(G), 2}.
+Then two normally generating tuples U, V are AC equivalent if and
+only if they are AC equivalent in the abelianization Ab(G) = G/[G, G].
+In other words, the connected components of the AC-graph ∆n (G) are
+precisely the preimages of the connected components of the AC-graph
+∆n (Ab(G)).
+   Furthermore, they raised the question whether such a criterion holds
+for the Grigorchuk group [14, 16]: this is a 3-generated residually finite
+2-group which is just-infinite; hence Theorem 1.2 holds in every proper
+quotient of the group. It equally makes sense to ask the question for
+other just-infinite groups. We will now discuss a class of groups which
+includes the Grigorchuk group (see e.g. [19], Chap. VIII for more on
+the Grigorchuk group).
+  In this paper we focus on the class C of finitely generated groups for
+which every maximal subgroup is normal.
+  A finite group is in C if and only if it is nilpotent [34, 5.2.4]. Moreover
+C contains finitely generated nilpotent groups, because any maximal
+subgroup of a nilpotent group is normal [7, I.70]. The class C also
+contains the family of Grigorchuk groups (Gω )w∈Ω [14, 15] indexed by
+sequence in Ω = {0, 1, 2}N , and Gupta-Sidki p-groups [32, 33].
+  We will now state our first result:
+Theorem 1.3. Let G be in C and n ≥ w(G). Then two normally
+generating n-tuples U, V are AC equivalent if and only if they are AC
+equivalent in the abelianization Ab(G) = G/[G, G]. In other words, the
+connected components of the AC-graph ∆n (G) are precisely the preim-
+ages of the connected components of the AC-graph ∆n (Ab(G)).
+  Together with Theorem 1.1 our result describes the connected com-
+ponents of the Andrews-Curtis graph for groups in C.
+Corollary 1.3. For the Grigorchuk group G the Andrews-Curtis graph
+∆n (G), n ≥ 3, is connected.
+   It is not hard to see that, for groups in C, the set of vertices of ∆n (G)
+and Γn (G) coincide (see Proposition 2.1). Therefore connectedness of
+Γn (G) implies connectedness of ∆n (G). Our other results are devoted
+to connectedness of Γn (G). We have already mentioned that Γn (G) is
+connected for nilpotent groups when n ≥ rank(G) + 1. Here we study
+connectedness of Γn (G) for nilpotent groups when n = rank(G). For
+free nilpotent groups, as a direct corollary of the result by Andreadakis
+[2] and Bachmuth [4], we obtain the following:
+                                                                               5
+
+Theorem 1.4 (Section 4.2). Let G be the free nilpotent group of rank
+n ≥ 2 and nilpotency class c. Then Γn (G) is connected if and only if
+c = 1 or 2.
+  Furthermore, let Hk be the discrete Heisenberg group of rank 2k
+(Section 4.2).
+Theorem 1.5 (Section 4.2). The graph Γn (Hk ) is connected when n ≥
+2k.
+  In the end we prove the connectedness of Γn (G) for p-groups in C
+with n ≥ rank(G) + 1:
+Theorem 1.6 (Section 4.1). Let G be a p-group in C. Then Γn (G) is
+connected when n ≥ rank(G) + 1.
+   We remind that the Gupta-Sidki p-group, defined for every odd prime
+p, is 2-generated.
+Corollary 1.4. Γn (G) is connected for the Grigorchuk group and the
+Gupta-Sidki group, when n ≥ 4 and n ≥ 3 respectively.†
+Corollary 1.5. Let G be the Gupta-Sidki p-group, p > 3. Then Γ2 (G)
+has at least p−1
+              2
+                 connected components.
+Question 1. Is Γ3 (G) connected for the Grigorchuk group? Is Γ2 (G)
+connected for the Gupta-Sidki 3-group?
+
+   Acknowledgements. It is a pleasure to thank my advisor Tatiana
+Smirnova-Nagnibeda and Pierre de la Harpe for numerous discussions,
+valuable questions and beneficial comments, and also for revising the
+introduction. I am also grateful to Tsachik Gelander and Rostislav
+Grigorchuk for discussions, Alexei Myasnikov for bringing my attention
+to the problem in [6], and Christian Hagendorf for comments on a
+preliminary version of the manuscript.
+
+                                 2. Class C
+  The class C is a class of finitely generated groups for which every
+maximal subgroup is normal.
+  We recall that the Frattini subgroup Φ(G) of a group G is the inter-
+section of all maximal subgroups of G, and Φ(G) = G if G does not
+have maximal subgroups.
+  †
+    Connectedness of Γn (G), n ≥ 4, for the Grigorchuk group was also obtained in
+[26].
+6
+
+Proposition 2.1. Let G be a finitely generated group. Then G is in C if
+and only if all normally generating sets are generating sets. Moreover,
+if G is in C, then [G, G] ≤ Φ(G).
+Proof. Let G be in C and assume by contradiction that there is a nor-
+mally generating set S which is not a generatng set. Since G is finitely
+generated, any proper subgroup is contained in some proper maximal
+subgroup [28], therefore hSi ≤ M < G for some proper maximal sub-
+group M . Then ≪ S ≫= G ≤ M G = M < G. It is a contradiction.
+   Conversely, we will prove that if all normally generating sets are
+generating sets then all maximal subgroups are normal. We prove the
+equivalent statement: if there is a maximal subgroup M which is not
+normal, then there exists a normally generating set which is not a
+generating set. We take as a normally generating set S = M. Then
+≪ S ≫= G since M is maximal and hSi =    6 G since M is proper.
+   Futhermore, if G is in C then for any maximal subgroup M the
+quotient G/M is isomorphic to Z/pZ by the correspondence theorem,
+in particular, G/M is abelian. Therefore [G, G] ≤ M and we conclude
+that [G, G] ≤ Φ(G).                                                   
+Proposition 2.2. Let G be in C and n ≥ 1. Then the natural maps
+                  πn : Epi(Fn , G) → Epi(Fn , G/[G, G]),
+                  φn : Epi(Fn , G) → Epi(Fn , G/Φ(G))
+are surjective.
+Proof. We will now prove the case of πn . Consider the projection π :
+G → G/[G, G].
+   If n < rank(G/[G, G]), the sets Epi(Fn , G/[G, G]) and Epi(Fn , G)
+are empty and there is nothing to prove. Assume now that n ≥
+rank(G/[G, G]). Let s1 , ..., sn ∈ G such that π(s1 ), ..., π(sn ) generate
+G/[G, G]. Suppose hs1 , ..., sn i ≤ M for some maximal subgroup M of
+G; we will obtain a contradiction. By Proposition 2.1, [G, G] ≤ M,
+and we have M/[G, G] = π(M) = π(G) = G/[G, G]. Hence {e} =
+G/[G,G] ∼
+M/[G,G] =
+          G/M. This is a contradiction since M is a proper subgroup
+of G. The proof for φn repeats the one above with [G, G] replaced by
+Φ(G).                                                                    
+
+                  3. Andrews-Curtis equivalence
+  There are doubts as to whether the Andrews-Curtis conjecture is
+true. A possible way to disprove it would be to find two normally
+generating systems of Fn such that their images are not Andrews-Curtis
+equivalent in some finitely generated group.
+                                                                         7
+
+   Akbulut and Kirby [1] suggest a series of potential counter-examples
+for F2 = hx, yi, i.e., normally generating tuples which are not known
+to be AC equivalent to (x, y):
+(1)            (u, vl ) = (xyxy −1 x−1 y −1 , xl y −(l+1) ), l ≥ 1.
+  It was suggested in [5] that one could confirm one of these potential
+counter-examples by showing that for some homomorphism φ : F2 → G
+to a finite group G, the images of the pairs (1) are not Andews-Curtis
+equivalent.
+  Notice that in an abelian group of rank 2:
+                  (xyxy −1 x−1 y −1 , xl y −(l+1) ) ∼AC (x, y)
+so for every homomorphism φ : F2 → A into an abelian group A, the
+images of the pairs (1) are AC equivalent.
+   In view of the latter, [6] considered the class of groups with the fol-
+lowing property: for any n ≥ max{w(G), 2}, two normally generating
+n-tuples U, V are AC equivalent in G if and only if their images are
+AC equivalent in the abelianization Ab(G). Therefore groups from
+this class will not confirm the potential counter-examples (1). Borovik,
+Lubotzky and Myasnikov [6] proved that all finite groups belong to this
+class. They also ask whether it is true for the Grigorchuk group. Our
+Theorem 1.3 answers their question positively.
+
+  We will now proceed to the proof of Theorem 1.3.
+First, we present a few well-known properties of the Frattini subgroup:
+Lemma 3.1. Let G be a group.
+  (1) [34, 5.2.12] Frattini subgroup Φ(G) is equal to the set of non-
+      generators of G, i.e., if g ∈ Φ(G) and hg, Xi = G then hXi =
+      G.
+  (2) [11] Let G = hx1 , ..., xn i and ϕ1 , ..., ϕn ∈ Φ(G). Then
+                              hx1 ϕ1 , ..., xn ϕn i = G.
+Proof of Theorem 1.3. Let G be in C. Then by Proposition 2.1 nor-
+mally generating sets coincide with generating sets of G and therefore
+rank(G) = w(G).
+  Consider two generating tuples U, V in G which are AC equivalent.
+Then for any normal subgroup N ✁ G their images in G/N are AC
+equivalent. In particular, it is true for N = [G, G].
+  Assume now that the images of U, V in Ab(G) are AC equivalent.
+Let us first consider the case n = rank(G) and rank(G) = 2. Proving
+that U = (u1 , u2 ), V = (x, y) are AC equivalent is equivalent to proving
+that (x, y) and (xϕ1 , yϕ2) are AC equivalent for ∀ϕ1 , ϕ2 ∈ [G, G].
+8
+
+    Denote by ordG (g) the order of g in G. One computes that
+     {xn1 y n2 |n1 ∈ (− ordG (x), ordG (x)), n2 ∈ (− ordG (y), ordG (y))}
+is a right coset representative system for G mod [G, G]. Using the
+Reidemeister-Schreier rewriting process we find a set S of generators
+for [G, G]:
+       S = {xn1 y n2 x(xn1 +1 y n2 )−1 , n1 ∈ (− ordG (x), ordG (x)), n2 ∈
+                           (− ordG (y), ordG (y))}.
+  We will proceed by induction on the length of ϕ1 ∈ [G, G] in gen-
+erators of S to prove that (x, y) and (xϕ1 , y) are AC equivalent. Let
+ϕ1 = sϕ′1 with s ∈ S and ϕ′1 ∈ [G, G] such that lS (ϕ′1 ) < lS (ϕ1 ). Then
+       (xϕ1 , y) = (xsϕ′1 , y) = (x · xn1 y n2 xy −n2 x−n1 −1 ϕ′1 , y) ∼I2 ,AC
+       (x · xn1 y n2 xy −n2 x−n1 −1 ϕ′1 , xn1 +1 y −1x−n1 −1 ) ∼L12 |n1 |+1 times
+               (xn1 +2 y −n2 x−n1 −1 ϕ′1 , xn1 +1 y −1x−n1 −1 ) ∼AC,I2
+                          (xn1 +2 y −n2 x−n1 −1 ϕ′1 , y) ∼AC
+               n1 +2 −n2 −n1 −1 ′
+             (x       y x           ϕ1 , xn1 +2 yx−n1 −2 ) ∼L12 |n2 | times
+                       (xϕ′1 , xn1 +2 yx−n1−2 ) ∼AC (xϕ′1 , y).
+By induction we conclude that (xϕ1 , y) and (x, y) are AC equivalent.
+
+  Now let x̂ = xϕ1 and G = hx̂, yi. By a similar procedure using the
+Reidemeister-Schreier rewriting process we find [G, G] = hSi where
+S = {x̂n1 y n2 x̂(x̂n1 +1 y n2 )−1 , n1 ∈ (− ordG (x̂), ordG (x̂)), n2 ∈ (− ordG (y), ordG (y))}.
+Let ϕ2 = sϕ′2 with s ∈ S and ϕ′2 ∈ [G, G] such that lS (ϕ′2 ) < lS (ϕ2 ).
+Then
+                 (x̂, yϕ2) = (x̂, y x̂n1 y n2 x̂(x̂n1 +1 y n2 )−1 ϕ′2 ) ∼I1 ,AC
+      (y x̂n1 y n2 x̂−1 y −n2 x̂−n1 y −1 , y x̂n1 y n2 x̂(x̂n1 +1 y n2 )−1 ϕ′2 ) ∼L21 ,AC,I1
+             (x̂, y x̂−1 ϕ′2 ) ∼AC (y x̂y −1, y x̂−1 ϕ′2 ) ∼L21 ,AC (x̂, yϕ′2).
+By induction (x̂, y) and (x̂, yϕ2) are AC equivalent. We conclude that
+(x, y) and (xϕ1 , yϕ2) are AC equivalent.
+  Let n = rank(G) ≥ 3 and G = hx1 , ..., xn i. Then [G, G] = hSi, with
+                           ml +1
+S = {xm      mn     m1
+       1 ...xn xl (x1 ...xl
+         1
+                                 ...xmn −1
+                                     n ) , mi ∈ (− ordG (xi ), ordG (xi )),
+mn 6= 0, 1 ≤ l < n}. Then the proof above can be repeated with more
+similar cases to consider.
+  Finally, assume n > rank(G), and for simplicity rank(G) = 2. Let
+us fix a system of generators {x, y} of G.
+  Since G/[G, G] is abelian and n > rank(G/[G, G]), the ∆n (G/[G, G]) =
+Γn (G/[G, G]) is connected by Theorem 1.1. We need to prove that
+∆n (G) is connected. This is equivalent to proving that (xϕ1 , yϕ2, ϕ3 , ..., ϕn ) ∼AC
+                                                                                             9
+
+(x, y, 1, ..., 1), ∀ϕ1 , ..., ϕn ∈ [G, G]. We use that (xϕ1 , yϕ2) ∼AC (x, y)
+∀ϕ1 , ϕ2 ∈ [G, G], and conclude with the following: (xϕ1 , yϕ2, ϕ3 , ..., ϕn ) ∼AC
+(x, y, ϕ3, ..., ϕn ) ∼AC (x, y, ϕ3 · (ϕ3 )−1 , ..., ϕn · (ϕn )−1 ) = (x, y, 1, ..., 1).
+  If n > rank(G) > 2 then one concludes that ∆n (G) is connected
+with the same type of arguments.                                                      
+
+  There is a different proof for the fact that if hx1 , ..., xn i = G then
+∀c ∈ [G, G]: (x1 , ..., xn ) ∼AC (x1 c, x2 , ..., xn ) (see [27, Property 2]).
+Question 2. Is it true that, if ∆n (G) is connected for some n ≥ w(G),
+then ∆m (G) is connected for every m > n?
+   The following proposition gives a partial answer to Question 2:
+Proposition 3.1. Let G be in C and suppose ∆n (G) is connected for
+some n ≥ w(G). Then ∆k (G) is connected for every k ≥ n + 1.
+Proof. Let G =≪ x1 , ..., xn ≫. Since G is in C we have hx1 , ..., xn i = G.
+By assumption ∆n (G) is connected for some n ≥ w(G). It is suffi-
+cient to prove the statement for k = n + 1. We need to show that
+for each normally generating (n + 1)-tuple (g1 , ..., gn+1) there is a se-
+quence of Andrews-Curtis moves which transforms (g1 , ..., gn+1 ) into
+(x1 , ..., xn , 1). Consider the natural projection π : G → Ab(G). No-
+tice that n + 1 ≥ rank(Ab(G)) + 1 and therefore ∆n+1 (Ab(G)) is
+connected by Theorem 1.1. Hence (g 1 , ..., g n+1 ) ∼AC (x1 , ..., xn , 1)
+in Ab(G), and consequently (g1 , ..., g+1) ∼AC (x1 c1 , ..., xn cn , cn+1 ) for
+some c1 , ..., cn+1 ∈ [G, G]. Since G is in C we have that [G, G] ≤ Φ(G)
+and therefore hx1 c1 , ..., xn cn i = G. Hence
+(x1 c1 , ..., xn cn , cn+1 ) ∼AC (x1 c1 , ..., xn cn , cn+1 · c−1
+                                                               n+1 ) = (x1 c1 , ..., xn cn , 1) ∼AC
+(x1 c1 , ..., xn cn , c1 ) ∼AC (x1 , x2 c2 ..., xn cn , 1) ∼AC ... ∼AC (x1 , ..., xn , 1).
+                                                                                         
+Proof of Corollary 1.3. Since G/[G, G] ∼= (Z/2Z)3 (see, for example,
+[19], VIII.22), the graph ∆3 (G/[G, G]) = ∆3 ((Z/2Z)3 ) = Γ3 ((Z/2Z)3 )
+is connected for n ≥ 3 by Theorem 1.1. To obtain connectedness of
+∆n (G), n ≥ 3, apply Theorem 1.3 and Proposition 3.1.               
+
+                            4. Nielsen equivalence
+  The question about transitivity of the action of Aut Fn on Epi(Fn , G)
+was raised in 1951 by B.H. Neumann and H. Neumann [29] and has
+been studied in different contexts, see [12, 23, 31]. If G is a fundamen-
+tal group of a closed surface Σ then the action of Aut Fn is transitive
+10
+
+already for n = rank(G) [22, 35]. There are examples of finitely gener-
+ated groups when it is not. For instance, for finitely generated abelian
+groups (see Theorem 1.1) with m1 ≥ 3. But once n ≥ rank(G) + 1
+transitivity is easier to get. It holds for finitely generated nilpotent
+groups [11], for finite solvable groups [10], as well as for P SL(2, q) for
+n ≥ 4 and q a prime power [13].
+Proposition 4.1. [11] Let G be a finitely generated group and n ≥
+rank(G) + 1. If Γn (G/Φ(G)) is connected then Γn (G) is connected.
+Proof. Let rank(G) = d and G = hx1 , ..., xd i. Assume that Γn (G/Φ(G))
+is connected. Then any generating system (g1 , ..., gn ) of G is Nielsen
+equivalent to (x1 ϕ1 , ..., xd ϕd , ϕd+1 , ..., ϕn ) for some ϕ1 , ..., ϕn ∈ Φ(G).
+Since ϕ1 , ..., ϕd ∈ Φ(G) then hx1 ϕ1 , ..., xd ϕd i = G, and we conclude the
+proof with the following:
+ (g1 , ..., gn ) ∼ (x1 ϕ1 , ..., xd ϕd , ϕd+1 , ..., ϕn ) ∼ (x1 ϕ1 , ..., xd ϕd , 1, ..., 1) ∼
+            (x1 ϕ1 , ..., xd ϕd , ϕ1 , 1..., 1) ∼ (x1 , x2 ϕ2 ..., xd ϕd , 1..., 1) ∼
+                                   (x1 , x2 , ..., xd , 1..., 1).
+                                                                                            
+   In fact, for groups in the class C the converse is also true by Propo-
+sition 2.2:
+Corollary 4.1. Let G be in C and n ≥ rank(G) + 1. Then Γn (G) is
+connected if and only if Γn (G/Φ(G)) is connected.
+Corollary 4.2. Let G be in C and suppose Γn (G) is connected for some
+n ≥ rank(G). Then Γk (G) is connected for all k ≥ n + 1.
+Proof. Since G is in C then [G, G] ≤ Φ(G). Use that G/Φ(G) is abelian
+and apply Theorem 1.1 and Corollary 4.1.                            
+4.1. Nielsen equivalence for p-groups in class C. In this chapter
+we will prove Theorem 1.6. In view of the Corollary 4.1 it is desirable
+to analyse the quotient of the group by its Frattini subgroup.
+Proposition 4.2. Let G be a finitely generated p-group from C. Then
+                    G/Φ(G) ∼ = (Z/pZ)rank(G) .
+Proof. First we prove that Φ(G) is of finite index in G and then show
+that G/Φ(G) ∼  = (Z/pZ)rank(G) .
+  Let M be a proper maximal subgroup of G. Then by assumption
+M ✁ G and G/M is an abelian p-group, hence finite. Let us prove
+that [G : M] = p. Assume that [G : M] 6= p. Since G is a p-group it
+                            k
+must be pk , k ≥ 2. Then g p ∈ M for any g ∈ G. We choose g ∈    / M.
+                                                                             11
+                                     r+1               r
+There is 0 ≤ r < k such that g p        ∈ M and g p ∈ / M. Consider the
+subgroup M1 = hg, Mi. Obviously M < M1 and M1 6= G. Indeed,
+assuming that M1 = G we get by the third isomorphism theorem that
+          |G/M |       k
+|{e}| = |M  1 /M |
+                   = ppr = pk−r 6= 1. So M < M1 < G which contradicts
+the maximality of M. Hence G/M has order p.
+   Since G is finitely generated, there are only finitely many subgroups
+of a given index [18]. Hence there are finitely many maximal subgroups
+of G. We use that the intersection of finitely many subgroups of finite
+index is a subgroup of finite index [18] and conclude that the index of
+the Frattini subgroup Φ(G) is finite.
+   Since G is in C, [G, G] ≤ Φ(G) by Proposition 2.1. Also for given
+g ∈ G we have g p ∈ M for any maximal subgroup M and thus g p ∈
+Φ(G). Moreover G/Φ(G) is finite and we conclude that G/Φ(G) is
+an elementary abelian group. By the fundamental theorem of abelian
+groups G/Φ(G) is a direct product of nontrivial cyclic subgroups, each
+of which must have order p:
+                             G/Φ(G) ∼ = (Z/pZ)ℓ ,
+where ℓ ≤ d = rank(G). Suppose that ℓ < d and there is a generating ℓ-
+tuple (s1 , ..., sℓ ) of G/Φ(G). By Proposition 2.2 (s1 , ..., sℓ ) has preimage
+in Epi(Fℓ , G) therefore rank(G) < d. We obtain a contradiction.              
+Proof of Theorem 1.6. Use Proposition 4.2, Theorem 1.1 and Corollary
+4.1.                                                                  
+Proof of Corollary 1.5. Since G/Φ(G) ∼ = (Z/pZ)2 [33], the graph Γ2 (G/Φ(G))
+     p−1
+has 2 connected components by Theorem 1.1. If two generating tu-
+ples of G are Nielsen equivalent in G then their images in G/Φ(G) are
+also Nielsen equivalent. We deduce that there are at least p−1 2
+                                                                   ≥ 2
+connected components of Γ2 (G).                                       
+4.2. Nielsen equivalence of free nilpotent and Heisenberg groups.
+Let us recall the following definitions:
+      • A subgroup K of a group G is called characteristic if K is
+        invariant by all automorphisms of G;
+      • Let Wµ (xλ ), µ = 1, 2, ..., be a set of words in the symbols xλ ,
+        λ = 1, 2, .... Then the {Wµ }-verbal subgroup G(Wµ ) of a group
+        G is the subgroup of G generated by all elements of the form
+        Wµ (gλ ), where gλ ranges over G.
+Any verbal subgroup is characteristic, but the converse is false.
+   Let Fn be the free group of rank n ≥ 2 and let V be a verbal subgroup
+of Fn . Then, in particular, V is characteristic and the natural mapping
+Fn → Fn /V induces a homomorphism ρ : Aut(Fn ) → Aut(Fn /V ). The
+12
+
+elements of the image of ρ are called tame automorphisms of Fn /V .
+Since V is a verbal subgroup, a map between two generating n-tuples
+of Fn /V can be extended to an automorphism of Fn /V (see [25], The-
+orem 1.1). Thereby the transitivity of the action of Aut Fn on the set
+of generating n-tuples is reduced to the question whether all automor-
+phisms of Fn /V are tame.
+   Recall that for a finitely generated nilpotent group G, Γn (G) is con-
+nected for n ≥ rank(G) + 1 [11]. We will discuss Γn (G), n = rank(G)
+for free nilpotent groups and Heisengroup groups.
+   Consider the lower central series of Fn : Fn ✄[Fn , Fn ]✄[Fn , [Fn , Fn ]]...,
+every member of which is a verbal subgroup of Fn . Let γc Fn be its c-th
+term. The group Fn (c) = Fn /γc+1 Fn is the free nilpotent group of rank
+n and class c.
+Theorem 4.3 ([2, 4]). Let Fn (c) be a free nilpotent group of rank n ≥ 2
+and class c. Then
+  - all elements of Aut Fn (c) are tame for c = 1 or c = 2;
+  - if c ≥ 3 then there exist non-tame automorphisms in Aut Fn (c).
+  The Theorem 1.4 is a straighforward corollary from the Theorem 4.3.
+Moreover in the case n = 2, c = 3, the result of Andreadakis implies
+that there are infinitely many Nielsen equivalence classes (Proposition
+4.4 below).
+Proposition 4.4. For the free nilpotent group F2 (3) there are infinitely
+many Nielsen equivalence classes.
+Proof. Andreadakis [2] showed that for F2 (3) = hx, yi, the central au-
+tomorphism of F2 (3)
+                       (
+                           x → x[y, x, x]λ1 [y, x, y]λ2
+(2)
+                           y → y[y, x, x]µ1 [y, x, y]µ2
+is tame if λ1 = µ2 and λ2 = µ1 = 0. We consider a non-tame automor-
+phism of F2 (3):          (
+                             x → x[y, x, x]
+                       α:                    ,
+                             y → y
+and show that there is no σ ∈ AutF2 such that αi = σαj , for i > j.
+Equivalently, there is no σ ∈ AutF2 such that αk = σ for an arbitrary
+positive integer k. By the criterion stated above the automorphism αk
+is tame if it is trivial. Consider α2 (x) = x[y, x, x][y, x[y, x, x], x[y, x, x]] =
+x[y, x, x]2 . More generally,
+                                 (
+                            k        x → x[y, x, x]k
+                           α :
+                                     y → y
+                                                                                             13
+
+Hence αk is not trivial for any k > 0.                                                       
+  It is easy to see that there is just one Nielsen equivalence class if
+c = 1 not using Theorem 1.4. Fn (1) ∼ = Zn and Epi(Fn , Zn ) = GLn (Z).
+Moreover ρ(Aut Fn ) = GLn (Z) and the action of GLn (Z) is obviously
+transitive on itself. For n = c = 2 the nilpotent group F2 (2) is isomor-
+phic to the Heisenberg group H1 = hx, y|[x, [x, y]], [y, [x, y]]i [20].
+Corollary 4.3. For the first Heisenberg group H1 the graph Γ2 (H1 ) is
+connected.
+  This statement about the Heisenberg group H1 can be generalised
+to higher dimensions. The discrete Heisenberg group Hk , k ≥ 1, is the
+group of integer matrices of the form
+                                                      
+                                       1 x z
+                                 v =  0 Ik y 
+                                             
+                                       0 0 1
+with x = (x1 , ..., xk ) a row vector of length k, y = (y1 , ..., yk )T a column
+vector of length k, and Ik is the k × k identity matrix.
+
+Proof of Theorem 1.5. We will prove that Nrank(Hk ) (Hk /Φ(Hk )) is con-
+nected and deduce connectedness for Nrank(Hk ) (Hk ). We refer to [11]
+for the case n ≥ rank(Hk ) + 1.
+   Each element of Hk can be written as (x1 , ..., xk , y1 , ..., yk , z). The
+identity element of H is (0, 0, ..., 0) and
+(x1 , ..., xk , y1 , ..., yk , z)−1 = (−x1 , ..., −xk , −y1 , ..., −yk , x1 y1 +...+xk yk −z).
+The group multiplication is then given by the following rule:
+              (x1 , ..., xk , y1, ..., yk , z)(x′1 , ..., x′k , y1′ , ..., yk′ , z ′ ) =
+  (x1 + x1 , ..., xk + x′k , y1 + y1′ , ..., yk + yk′ , z + z ′ + x1 y1′ + ... + xk yk′ ).
+         ′
+
+
+  Calculations show that [Hk , Hk ] = Z(Hk ) ∼      = Z and Ab(Hk ) = Z2k .
+  Observe that Hk = h(1, 0, ..., 0, 0), (0, 1, ..., 0, 0), ..., (0, ..., 1, 0)i and
+rank(Hk ) = 2k. Let π : Hk → Ab(Hk ) be the natural epimorphism.
+Then more generally
+        hh1 , ..., h2k i = Hk if and only if hπ(h1 ), ..., π(h2k )i = Z2k .
+Indeed, if hh1 , ..., h2k i = Hk then clearly hπ(h1 ), ..., π(h2k )i = Z2k . The
+proof of the inverse implication goes as follows. Let hπ(h1 ), ..., π(h2k )i =
+Z2k . Then (π(h1 ), ..., π(h2k )) is Nielsen equivalent to ((1, 0, ..., 0, 0), (0, 1, ..., 0, 0), ..., (0, ..., 1, 0))
+in Z2k . In other words, (h1 , ..., h2k ) is Nielsen equivalent to
+              ((1, 0, ..., 0, m1), (0, 1, ..., 0, m2), ..., (0, ..., 1, m2k ).
+14
+
+The last step is to show that h(1, 0, ..., 0, m1), (0, 1, ..., 0, m2), ..., (0, ..., 1, m2k )i =
+Hk . We calculate [(1, 0, ..., 0, m1), (0, ..., 1, ...0, mk+1)] = (0, ..., 0, 1).
+Moreover for all si ∈ Z letting a = s2k+1 − s1 m1 − ... − s2k m2k −
+s1 sk+1 − ... − sk s2k we have
+
+                               (s1 , s2 , ..., s2k , s2k+1 ) =
+        [(1, 0, ..., 0, m1), (0, ..., 1, ...0, mk+1)]a · (1, 0, ..., 0, m1)s1 · ... ·
+                                   (0, ..., 0, 1, m2k )s2k .
+
+We get then that (h1 , ..., h2k ) is Nielsen equivalent to a generating sys-
+tem of Hk and conclude that (h1 , ..., h2k ) is also a generating system.
+  Since Hk is nilpotent group we have [Hk , Hk ] ≤ Φ(Hk ) [11]. Let
+us show that Φ(Hk ) ≤ [Hk , Hk ] or, equivalently, if g ∈            / [Hk , Hk ] then
+                                                          ab
+g ∈/ Φ(Hk ). Assume g ∈       / [Hk , Hk ] then g 6= 0. We deduce that
+∃g2′ , ..., g2k
+             ′
+                ∈ Z2k such that hg ab , g2′ , ..., g2k
+                                                    ′
+                                                       i = Z2k . Therefore g ∈
+                                                                             / Φ(Hk )
+and [Hk , Hk ] = Φ(Hk ).
+  Notice that Aut F2k acts transitively on Hk /Φ(Hk ) ∼             = Z2k . Therefore
+any generating 2k-tuple of Hk is Nielsen equivalent to
+
+               ((1, 0, ..., 0, m1), (0, 1, ..., 0, m2), ..., (0, ..., 1, m2k ))
+
+for some integers m1 , ..., m2k . To obtain connectedness of N2k (Hk ) it is
+sufficient to prove that there exists σ ∈ Aut F2k which transforms
+
+                   ((1, 0, ..., 0, 0), (0, 1, ..., 0, 0), ..., (0, ..., 1, 0))
+
+into
+               ((1, 0, ..., 0, m1), (0, 1, ..., 0, m2), ..., (0, ..., 1, m2k ))
+for any mi ∈ Z.
+   One calculates
+
+       (L−1
+         1,k+1 R1,k+1 )
+                        m1
+                           ((1, 0, ..., 0, 0), (0, 1, ..., 0, 0), ..., (0, ..., 1, 0)) =
+                ((1, 0, ..., 0, m1), (0, 1, ..., 0, 0), ..., (0, ..., 1, 0)).
+
+More generally ∀i : 1 ≤ i ≤ k
+
+             (L−1            mi
+               i,k+i Ri,k+i ) (0, ..., 1, ..., 0, 0) = (0, ..., 1, ..., 0, mi )
+
+and ∀k : k + 1 ≤ i ≤ 2k
+                      −1
+             (Li,i−k Ri,i−k )mi (0, ..., 1, ..., 0, 0) = (0, ..., 1, ..., 0, mi).
+
+                                                                                           
+                                                                                  15
+
+                                  References
+[1] S. Akbulut, R. Kirby, A potential smooth counterexample in dimension 4 to the
+    Poincare conjecture, the Schoenflies conjecture, and the Andrews-Curtis conjec-
+    ture, Topology 24 (4) (1985), 375–390.
+[2] S. Andreadakis, On the automorphisms of free groups and free nilpotent groups,
+    Proc. London Math. Soc. (3) 15 (1965), 239–268.
+[3] J. J. Andrews, M. L. Curtis, Free groups and handlebodies, Proc. Amer. Math.
+    Soc. 16 (1965), 192–195.
+[4] S. Bachmuth, Induced automorphisms of free groups and free metabelian groups,
+    Trans. Amer. Math. Soc. 122 (1966), 1–17.
+[5] A. V. Borovik, E. I. Khukhro, A. G. Myasnikov, The Andrews-Curtis Conjecture
+    and black box groups, Internat. J. Algebra Comput. 13 (4) (2003), 415–436.
+[6] A. V. Borovik, A. Lubotzky, A. G. Myasnikov, The Finitary Andrews-Curtis
+    Conjecture, Infinite groups: geometric, combinatorial and dynamical aspects,
+    pp. 15–30, Progr. Math., 248, Birkhäuser, Basel, 2005.
+[7] N. Bourbaki, Algébre 1–3, Springer, Berlin, 2006.
+[8] P. Diaconis, R. Graham, The graph of generating sets of an abelian group, Col-
+    loq. Math. 80 (1999), 31–38.
+[9] M. J. Dunwoody, On T-systems of groups, J. Austral. Math. Soc. 3 (1963),
+    172–179.
+[10] M. J. Dunwoody, Nielsen transformations, Computational Problems in Ab-
+    stract Algebra, pp. 45–46, Pergamon, Oxford, 1970.
+[11] M. J. Evans, Presentations of group involving more generators than are neces-
+    sary, Proc. London Math. Soc. 67 (1) (1993), 106–126.
+[12] M. J. Evans, Nielsen equivalence classes and stability graphs of finitely gener-
+    ated groups, Ischia Group Theory 2006, pp. 103–119, World Scientific.
+[13] S. Garion, Connectivity of the Product Replacement Algorithm Graph of
+    P SL(2, q), J. Group Theory 11 (6) (2008), 765–777.
+[14] R. I. Grigorchuk, On Burnside’s problem on periodic groups, Funktsional. Anal.
+    i Prilozhen. 14 (1) (1980), 53–54.
+[15] R. I. Grigorchuk, Degrees of growth of finitely generated groups and the theory
+    of invariant means, Izv. Akad. Nauk SSSR Ser. Mat. 48 (5) (1984), 939–985.
+[16] R. I. Grigorchuk, Solved and unsolved problem around one group, Infinite
+    Groups: Geometric, Combinatorial and Dynamical Aspects, pp. 117–218, Progr.
+    Math., 248, Birkhäuser, Basel, 2005.
+[17] N. Gupta, S. Sidki, Some infinite p-groups, Algebra i Logika 22 (1983), 584–
+    589.
+[18] M. Hall, A topology for free groups and related topics, Annals Math. 52 (1950),
+    127–139.
+[19] P. de la Harpe, Topics in geometric group theory, Chicago Lectures in Mathe-
+    matics, University of Chicago Press, Chicago, IL, 2000.
+[20] P. J. Kahn, Automorphisms of the discrete Heisenberg group,
+    http://www.math.cornell.edu/People/Faculty/Heisen.pdf, 2005.
+[21] M. A. Kervaire, Les noeuds de dimensions supérieures, Bull. Soc. Math. France
+    93 (1965), 225–271.
+[22] L. Louder, Nielsen equivalence of generating sets for closed surface groups
+    (submitted) http://arxiv.org/abs/1009.0454, 2010.
+16
+
+[23] A. Lubotzky, Dynamics of Aut(F n) actions on group presentations and rep-
+    resentations, Geometry, rigidity, and group actions, pp. 609–643, Chicago Lec-
+    tures in Math., Univ. Chicago Press, Chicago, IL, 2011.
+[24] R. C. Lyndon, P. E. Schupp, Combinatorial group theory, Springer-Verlag,
+    Berlin (1977), Ergebnisse der Mathematik und ihrer Grenzgebiete, Band 89.
+[25] W. Magnus, A. Karrass, D. Solitar, Combinatorial Group Theory, Interscience
+    Publishers, New York - London - Sydney, 1966.
+[26] A. Malyshev, I. Pak, Growth in Product Replacement graphs, arXiv:1304.5320,
+    2013.
+[27] A. G. Myasnikov, Extended Nielsen transformations and the trivial group, Mat.
+    Zametki 35 (4) (1984), 491–495.
+[28] B. H. Neumann, Some remarks on infinite groups, Proc. London Math. Soc.
+    12 (1937), 120–127.
+[29] B. H. Neumann, H. Neumann, Zwei Klassen charakteristischer Untergruppen
+    und ihre Faktorgruppen, Math. Nachr. 4 (1951), 106–125.
+[30] D. Oancea, A note on Nielsen equivalence in finitely generated abelian groups,
+    Bull. Aust. Math. Soc. 84 (1) (2011), 127–136.
+[31] I. Pak, What do we know about the product replacement algorithm?, Groups
+    and computation, III, pp. 301–347, Ohio State Univ. Math. Res. Inst. Publ., 8,
+    de Gruyter, Berlin, 2001.
+[32] E. L. Pervova, Everywhere Dense Subgroups of One Group of Tree Automor-
+    phisms, (Russian) Tr. Mat. Inst. Steklova 231 (2000), Din. Sist., Avtom. i
+    Beskon. Gruppy, 356–367; translation in Proc. Steklov Inst. Math. 2000, 4 (231),
+    339–350.
+[33] E. L. Pervova, Maximal subgroups of some non locally finite p-groups, Internat.
+    J. Algebra Comput. 15 (5–6) (2005), 1129–1150.
+[34] D. J. S. Robinson, A Course in the Theory of Groups, Graduate Texts in
+    Mathematics, 80, Springer-Verlag, New York - Berlin, 1982.
+[35] H. Zieschang, Über die Nielsensche Kürzungsmethode in freien Produkten mit
+    Amalgam, Invent. Math. 10 (1970), 4–37.
+
+Section de Mathématiques, Université de Genève
+2-4 rue du Lièvre, 1211 Genève, Switzerland
+email: Aglaia.Myropolska@unige.ch
+

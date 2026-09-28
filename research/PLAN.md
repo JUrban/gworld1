@@ -60,3 +60,13 @@ stage remains linear. Alternate with N3/N4/N9, unresolved metabelian and
 matrix questions, and the wider portfolio. Bibliographic leads for AUX3(b)
 and FP17 await primary full-scope checks. Maintain separate audits of
 M0, N5 and F28 rather than treating their candidate status as validation.
+
+## Working focus after the 13:45 UTC checkpoint
+
+Three degree-five correction injections extend N8 to all targets in
+class six. A higher-degree nonzero kernel is explicitly recorded, so
+the same uniqueness argument cannot simply be repeated for class seven.
+Return to the wider unresolved portfolio before extending this calculation
+further. AUX3(b) and FP17 have now been excluded using exact prior scope
+evidence; FP17's full proof remains unavailable in the archive, which is
+documented rather than presented as a completed full-text audit.

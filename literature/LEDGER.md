@@ -121,3 +121,10 @@ The same scan found narrower metabelian results, not full answers to M1–M4: a 
 ## N8 penultimate-layer extension, 28 September 2026 approximately 13:21–13:30 UTC
 
 Queries “commutator equation penultimate nilpotent”, “single commutator nilpotent central algorithm”, and “N8 commutator nilpotent” did not locate a matching theorem. The argument builds on the previously credited homogeneous factor method and adds complete integral scale/sublattice enumeration followed by one central integer lift. No additional theorem from the Kourovka run was imported. This limited search is not a novelty certification.
+
+## Class six and further prior answers, 28 September 2026 approximately 13:36–13:45 UTC
+
+N8 searches for “single commutator class six nilpotent”, “commutator free nilpotent decidable”, and “equation free nilpotent groups class 6” found no matching decision theorem. A survey snippet rendered an inequality sign as “6”; the archived primary text, not that extraction, remains the scope evidence. The new class-six proof includes its degree-five bracket and module-kernel lemmas explicitly; no additional external theorem was silently imported.
+
+- [Myropolska, arXiv:1304.2668](https://arxiv.org/abs/1304.2668), Theorem 1.3 and the following Grigorchuk corollary, answer AUX3(b) positively. Archived full PDF and read the exact theorem/proof. AUX3(a) remains separate.
+- [Ould Houcine, J. Algebra 307 (2007), 1–23](https://doi.org/10.1016/j.jalgebra.2006.07.015), primary publisher's indexed abstract, explicitly answers FP17 positively, even with one universal finitely presented group having solvable word problem. Full-text access failed (publisher 403, old author link 404); only the primary abstract scope was checked. Details in `research/notes/AUX3-FP17-prior-resolutions.md`.
