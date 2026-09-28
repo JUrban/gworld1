@@ -35,3 +35,13 @@ N8 now has candidate algorithms for the two extreme target strata in arbitrary c
 ## Working focus after the 12:43 UTC checkpoint
 
 N5 has a whole-entry candidate including torsion, with an explicit finite reduction and tested central lifting. Keep its remaining specialist/novelty audit separate from the implemented examples. Next, revisit the other unresolved algorithmic and solvable-group questions and deepen F28's novelty check; do not let the N8 and N5 developments narrow the original 195-entry portfolio.
+
+## Working focus after the 13:05 UTC checkpoint
+
+M0 now has an all-finite-rank candidate from finite-field Fox matrices and
+explicit primitive-word orbits. Rank <=2 is prior; rank >=3 needs independent
+specialist and novelty review. GA5(b) has been removed from the discovery
+queue using the exact binary-tree theorem of Bartholdi–Sidki (2018/2020).
+Continue alternating the wider portfolio with review of the four current
+candidates. The solvable-group search did not settle S4–S8; in particular,
+co-Hopfian direct-product results do not answer the Hopfian question S5.
