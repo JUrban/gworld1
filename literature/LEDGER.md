@@ -128,3 +128,13 @@ N8 searches for “single commutator class six nilpotent”, “commutator free 
 
 - [Myropolska, arXiv:1304.2668](https://arxiv.org/abs/1304.2668), Theorem 1.3 and the following Grigorchuk corollary, answer AUX3(b) positively. Archived full PDF and read the exact theorem/proof. AUX3(a) remains separate.
 - [Ould Houcine, J. Algebra 307 (2007), 1–23](https://doi.org/10.1016/j.jalgebra.2006.07.015), primary publisher's indexed abstract, explicitly answers FP17 positively, even with one universal finitely presented group having solvable word problem. Full-text access failed (publisher 403, old author link 404); only the primary abstract scope was checked. Details in `research/notes/AUX3-FP17-prior-resolutions.md`.
+
+## Matrix/metabelian scope checks, 28 September 2026 approximately 13:47–14:01 UTC
+
+No additional candidate. Detailed conclusions and failed reductions are in
+`research/notes/matrix-metabelian-scope-audit.md`.
+
+- [Krasil'nikov, Math. USSR-Izvestiya 37 (1991), 539–553](https://www.mathnet.ru/php/getFT.phtml?jrnid=im&paperid=1041&what=fullteng), Theorem 1 and its corollary, prove finite identity bases for groups with nilpotent derived subgroup and for connected linear groups. Archived Russian original and English translation; English p.539 inspected visually. This does not settle MA5's finite-extension case. An initial stale hash URL failed the PDF check; the `what=fullt` request then returned Russian despite `option_lang=eng`, correctly identified and retained as `-ru`.
+- [Chorna–Geller–Shpilrain, arXiv:1605.05226v4](https://arxiv.org/abs/1605.05226), Section 2 and Theorem 4, concern special two-generator parabolic subgroups. Archived full text and read the relevant statements. The integer-parameter membership algorithm does not solve general MA3(b); the paper also retains MA6's rational-parameter question. No claim of current openness follows merely from its 2017 status discussion.
+- [Artamonov, Uspekhi Mat. Nauk 32:3(195) (1977), 166](https://www.mathnet.ru/eng/rm3198), Theorem 1, explicitly assumes finite rank. Archived and read/viewed the one-page primary announcement. Its nonfree examples concern a different variety. The longer 1978 proof was not obtained; no infinite-rank M4 answer inferred.
+- [Baumslag–Cannonito–Miller, Math. Z. 153 (1977), 117–134](https://doi.org/10.1007/BF01179785), publication verified at the publisher; full text unavailable here. The **bounded local degree** scope is reported in [Kourovka 5.16](https://alglog.org/20tkt.pdf), not independently checked in the original proof. FP9 remains unresolved here. A non-effective universal-tree observation is saved as a lead, with the recursive-presentation gap explicit.

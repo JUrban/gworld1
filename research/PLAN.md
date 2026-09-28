@@ -70,3 +70,18 @@ Return to the wider unresolved portfolio before extending this calculation
 further. AUX3(b) and FP17 have now been excluded using exact prior scope
 evidence; FP17's full proof remains unavailable in the archive, which is
 documented rather than presented as a completed full-text audit.
+
+## Working focus after the 14:01 UTC checkpoint
+
+The wider matrix/metabelian pass produced scope clarifications and no
+new candidate. MA5's connected case, MA3's special parabolic subgroups
+and M4's finite-rank theorem are now documented from primary sources.
+FP9's abstract universal-tree construction still lacks an effective
+diagram; do not treat countability as recursive presentability.
+
+Give the remaining free-group, braid and group-action questions another
+bounded pass, using the precise B9 terminology warning in
+`research/notes/portfolio-followups.md`. Continue auditing the existing
+four candidates and return to the unresolved N8 kernels only after
+this wider pass. Preserve the distinction between exploratory reductions
+and complete candidates.
