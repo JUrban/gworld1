@@ -131,3 +131,29 @@ def relation_constraints(exponent_matrix,defects,n,orders,side):
         for j,order in enumerate(orders):vector[n+j]%=order
         constraints.append((side,vector,modulus))
     return constraints
+
+
+def lifting_corrections(exponent_matrix,defects,generator_count,n,orders,side,p):
+    """Central changes to the chosen generators for an accepted splitting."""
+    e=Matrix(exponent_matrix);size=n+len(orders)
+    if e.rows==0:return [[0]*size for _ in range(generator_count)]
+    d,u,v=smith(e);complement=Matrix.eye(size)-p if side==1 else p
+    rhs=-u*Matrix(defects)*complement.T
+    w=Matrix.zeros(e.cols,size)
+    for i in range(e.rows):
+        diagonal=abs(int(d[i,i])) if i<e.cols else 0
+        for j in range(size):
+            b=int(rhs[i,j]);order=0 if j<n else orders[j-n]
+            if not diagonal:
+                assert b==0 if order==0 else b%order==0
+            elif not order:
+                assert b%diagonal==0;w[i,j]=b//int(d[i,i])
+            else:
+                divisor=gcd(diagonal,order);assert b%divisor==0
+                modulus=order//divisor
+                w[i,j]=0 if modulus==1 else (b//divisor)*pow(int(d[i,i])//divisor,-1,modulus)%modulus
+    answer=v*w
+    remainder=(Matrix(defects)+e*answer)*complement.T
+    assert all(x==0 for x in remainder[:,:n])
+    assert all(int(remainder[i,n+j])%order==0 for i in range(e.rows) for j,order in enumerate(orders))
+    return [[int(x) for x in answer.row(i)] for i in range(answer.rows)]

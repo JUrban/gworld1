@@ -1,0 +1,1066 @@
+                                          Automorphisms of real Lie algebras of dimension five or less
+                                                                  David J Fisher∗, Robert J Gray†, Peter E Hydon‡
+
+                                              Department of Mathematics, University of Surrey, Guildford GU2 7XH, UK
+                                                                                    October 31, 2018
+arXiv:1303.3376v3 [math.RA] 11 Jun 2013
+
+
+
+
+                                                                                         Abstract
+                                                     The Lie algebra version of the Krull-Schmidt Theorem is formulated and proved. This
+                                                 leads to a method for constructing the automorphisms of a direct sum of Lie algebras from
+                                                 the automorphisms of its indecomposable components. For finite-dimensional Lie algebras,
+                                                 there is a well-known algorithm for finding such components, so the theorem considerably
+                                                 simplifies the problem of classifying the automorphism groups. We illustrate this by classi-
+                                                 fying the automorphisms of all indecomposable real Lie algebras of dimension five or less.
+                                                 Our results are presented very concisely, in tabular form.
+
+
+                                          1      Introduction
+                                          Automorphisms of Lie algebras are of fundamental importance in various branches of mathe-
+                                          matics and physics. For example, nilpotent Lie algebras of a given dimension can be classified
+                                          by treating each one as a central extension of a lower-dimensional nilpotent Lie algebra, L. The
+                                          automorphisms of L are used to sort the set of extensions into equivalence classes [1, 2], greatly
+                                          simplifying the classification problem. Similarly, if one knows the group of automorphisms of
+                                          each Lie algebra of dimension n over a field of characteristic zero, one can (in principle) clas-
+                                          sify all solvable Lie algebras of dimension n + 1 over the same field. However, the complexity
+                                          of the computations increases very rapidly with n. An alternative approach, due to Patera &
+                                          Zassenhaus [3], is to construct each solvable Lie algebra of a given dimension from an associated
+                                          nilpotent Lie algebra of the same dimension; once again, automorphisms are used to simplify the
+                                          calculations.
+                                              Lie algebra automorphisms are useful in cosmology; Terzis & Christodoulakis [4] used them to
+                                          find systematically a complete set of vacuum solutions to Einstein’s field equations for Bianchi-
+                                          type spacetime geometries. Similarly, the problem of classifying four-dimensional homogeneous
+                                          spaces for 4 + 1-dimensional spacetimes led Christodoulakis et al. to classify the automorphisms
+                                          of every four-dimensional real Lie algebra [5].
+                                              Automorphisms are also essential for constructing the discrete symmetries of a given differ-
+                                          ential equation. Such symmetries are used in equivariant bifurcation theory, the construction of
+                                          invariant solutions and the simplification of numerical schemes. Given a differential equation, the
+                                          symmetry condition is a highly-coupled nonlinear system; one cannot usually determine discrete
+                                          symmetries by attempting to solve the symmetry condition directly. By contrast, it is often quite
+                                              ∗ D.J.Fisher@surrey.ac.uk
+                                              † R.J.Gray@surrey.ac.uk
+                                              ‡ P.Hydon@surrey.ac.uk
+
+
+
+
+                                                                                              1
+easy to solve the linearized symmetry condition, which yields generators of Lie point, contact
+or generalized symmetries. Once a nontrivial Lie algebra L of symmetry generators is known,
+the problem of finding all discrete symmetries can be tackled indirectly, as follows [6, 7]. The
+adjoint action of each symmetry induces an automorphism of the Lie algebra, so the first step
+is to determine all automorphisms of L. To simplify the problem, it is helpful to remove some
+parameters by applying suitable inner automorphisms. The remaining automorphisms produce
+a set of constraints that determine the discrete symmetries. Typically, it is easy to solve the
+symmetry condition subject to the constraints. Indeed, the hardest part of the calculation is the
+classification of all automorphisms of L. For this reason, it is valuable to have look-up tables
+that list the automorphisms of various types of real Lie algebras.
+    At present, the largest such tables are those of Christodoulakis et al. [5] and Laine-Pearson
+& Hydon [8]. The classification by Christodoulakis et al. deals with all four-dimensional real
+Lie algebras; it is based on the comprehensive list of real Lie algebras in Patera et al. [9],
+which is adapted from the work of Mubarakzyanov [10, 11, 12]. Earlier, Harvey classified the
+automorphisms of three-dimensional Lie algebras [13]; the increase from three to four dimensions
+substantially increases the complexity of the classification. Laine-Pearson & Hydon’s table is
+based on the classification by González-López et al. of all real Lie algebras that occur for point
+symmetries of scalar ordinary differential equations [14]. This classification includes some families
+of Lie algebras of arbitrary dimension, but it excludes many Lie algebras that occur for systems
+of ordinary differential equations and for partial differential equations.
+    Both of the above classifications are lengthy, so one might expect that a classification of
+automorphisms of five-dimensional Lie algebras would be too long for publication. However, the
+results can be greatly simplified by removing various redundancies. A Lie algebra L is decompos-
+able if it is a direct sum of proper ideals; if these ideals are indecomposable, the decomposition
+is irreducible. Given any decomposable finite-dimensional Lie algebra, one can construct an
+irreducible decomposition by using an algorithm due to Rand et al. [15] (see also [16]).
+    The expression of a group as an internal direct product of a finite number of indecomposable
+normal subgroups is known to be unique, up to isomorphism and the order of the factors, provided
+that the ascending and descending chain conditions hold on normal subgroups. This is the Krull-
+Schmidt Theorem (see [17]), which also establishes an exchange property for such groups: if
+
+                          G = H1 × H2 × · · · × H r = J1 × J2 × · · · × J s
+
+then r = s and the factors can be labelled such that, for each i, Hi ∼
+                                                                     = Ji and
+
+                              G = H1 × · · · × Hi × Ji+1 × · · · × Jr .
+
+A corresponding theorem holds for a module over a ring, expressed as a direct sum of indecom-
+posable submodules, provided that the chain conditions hold for submodules ([18]).
+    We have not found a similar result for Lie algebras in the literature. Theorem 2.8 of [15]
+summarizes the decomposition algorithm, but Theorem 2.8 (e) seems to imply (incorrectly) that
+the decomposition is unique when there is no central component. We show that uniqueness holds
+if the algebra is centreless or equals its own derived algebra. Otherwise, multiple decompositions
+are possible, which we characterize. Our proof is modelled on those for groups and modules.
+    Having proved the Krull-Schmidt Theorem for Lie algebras, we introduce a method for con-
+structing the automorphisms of a decomposable Lie algebra from the automorphisms of its in-
+decomposable components. Armed with such a method, it is then sufficient to classify the
+automorphisms of indecomposable Lie algebras.
+    Finally, we classify all automorphisms of five-dimensional indecomposable real Lie algebras
+and present the results in a compact look-up table. This allows the user to identify inner and outer
+
+
+                                                 2
+automorphisms, distinguishing between exponentiated derivations and discrete automorphisms.
+For completeness, we also present the automorphisms of lower-dimensional indecomposable real
+Lie algebras in the same form.
+   Note: As our main motivation for producing look-up tables of Lie algebra automorphisms is
+their use for finding discrete symmetries, we use the standard convention for symmetry analysis,
+which is that the Lie algebra of a symmetry Lie group G is the vector space of right -invariant
+vector fields on G [19]. For applications where the Lie algebra is regarded as the set of left-
+invariant vector fields on G, the automorphism matrices that arise from our tables must be
+transposed.
+
+
+2    Determining equations for automorphisms
+Given a basis {X1 , · · · , XR } of a real finite-dimensional Lie algebra L, the structure constants
+ckij are determined by the commutators of the basis elements,
+
+                                  Xi , Xj = ckij Xk ,
+                                        
+                                                               1 ≤ i < j ≤ R.
+
+(Here and throughout, the Einstein summation convention applies.) An automorphism of L is a
+bijective linear map Φ : L 7→ L such that for all X, Y ∈ L,
+                                                          
+                                    Φ [X, Y ] = Φ(X), Φ(Y ) .                             (2.1)
+
+In terms of the given basis, the automorphism Φ is represented by a real-valued matrix B = bli ,
+                                                                                              
+
+where the lower (upper) index is the row (column) number:
+
+                                    Φ(Xi ) = bli Xl ,         i = 1, . . . , R.
+
+Then the automorphism condition (2.1) amounts to
+
+                                   cnlm bli bm    k n
+                                             j = cij bk ;       det(B) 6= 0.                   (2.2)
+
+The equations with i ≥ j are equivalent to those with i < j, so (2.2) is a system of up to
+R2 (R − 1)/2 + 1 determining equations for the automorphism group Aut(L). Typically, the
+complexity of this system grows rapidly with R, though it is determined mainly by the number
+of structure constants that are nonzero.
+    It is usually possible to spot some zero sub-blocks of B without having to solve any equations.
+For example, any automorphism will map the elements of the derived series of L to itself. The
+same is true for the upper and lower central series of L. Furthermore, (2.2) yields the following
+simple necessary conditions for any automorphism (see [5]).
+
+                             cnln blj = cnln δjl ,      cnlk ckmn bli bm    n k
+                                                                       j = cik cjn ;
+
+here δjl is the Kronecker delta. The first of these identities shows that if tr{ad(Xl )} (which is
+−cnln ) is nonzero then 1 is an eigenvalue of every automorphism matrix; the second expresses the
+fact that every automorphism preserves the Killing form.
+    As L is finite-dimensional, the group of automorphisms, Aut(L), is a Lie group. Our aim
+is to obtain the matrix representation of this group by solving the determining equations (2.2).
+Typically, some of these equations are very easy to solve, but there will often be a remaining set
+of highly-coupled conditions.
+
+
+
+                                                        3
+    It is helpful to simplify these by using appropriate inner automorphisms, AdX . The adjoint
+action of each basis vector, Xj , generates a one-parameter Lie group of inner automorphisms
+whose matrix representation is
+                                                                       k
+                       Aj (εj ) = exp{εC(j)},          where       C(j) i = ckij .          (2.3)
+
+(Here exp is the matrix exponential.) In the matrix representation, every inner automorphism
+is a finite product of the matrices (2.3). Indeed, every inner automorphism that is sufficiently
+close to the identity can be expressed as a product in which each Aj is used once. We can use
+any convenient ordering of these matrices, but the values of the parameters εj will depend on
+the ordering. (Generally speaking, this result is not true globally; Weyl reflections are inner
+automorphisms that cannot be written in this way.) Nevertheless, the local result is useful, as
+follows.
+    Suppose that we have solved as many of the determining equations (2.2) as possible and
+therefore B is partly determined. Let
+
+                                B̃ = A1 (ε̃1 )A2 (ε̃2 ) · · · AR (ε̃R )B.                   (2.4)
+
+Clearly, B satisfies the remaining determining equations if and only if B̃ does. Thus we choose
+the parameters ε̃j so as to create as many zero entries in B̃ as possible, and we use any Aj that
+are diagonal to scale one or more nonzero entries to ±1. It is not necessary to use the ordering
+in (2.4); any convenient ordering will do, so the simplification can proceed one step at a time.
+    This approach is highly effective. Once the remaining determining equations have been solved
+and we know B̃, we can reconstruct the whole automorphism group by writing
+
+                                B = A1 (ε1 )A2 (ε2 ) · · · AR (εR )B̃,                      (2.5)
+
+where now each εj is a free variable.
+   One further major simplification is possible for any finite-dimensional Lie algebra L that is
+a direct sum of proper ideals, Mi : one can construct Aut(L) from each Aut(Mi ). This result
+uses the Krull-Schmidt Theorem for Lie algebras, which we state and prove in the next section.
+
+
+3    Automorphisms of direct sums of Lie algebras
+Let L be a Lie algebra that is a direct sum of proper ideals:
+
+                                      L = M1 ⊕ · · · ⊕ Mr .                                 (3.1)
+
+In other words, L is a vector space direct sum (denoted +̇ ),
+
+                          L = M1 +̇ · · · +̇ Mr ,         Mi ∩ Mj = {0},
+
+and [Mi , Mj ] = {0} for i 6= j, because each Mi is an ideal. We call a direct sum decomposition
+of L irreducible if each Mi is indecomposable, that is, if no Mi can be expressed as a direct sum
+of proper ideals. We denote the centre of L by Z(L) and the derived algebra, [L, L], by L′ . A
+direct summand Mi is a central component of L if Mi ⊂ Z(L). Clearly, each central component
+is abelian, so if it is indecomposable, it has dimension 1.
+    Given any direct sum decomposition (3.1) of L, each X ∈ L has a unique representation:
+
+                               X = X1 + · · · + Xr ,          Xi ∈ M i .
+
+
+                                                   4
+The projection πi is the endomorphism of L defined by πi (X) = Xi , so Mi = πi (L). Clearly,
+
+                        πi 2 = πi ,    πi πj = 0 if i 6= j,    π1 + · · · + πr = ι,
+
+where ι is the identity map on L. Let Mi = (ι − πi )(L); this is a direct sum of all Mj for j 6= i.
+   An endomorphism φ : L → L is normal if φ commutes with each adX :
+
+                          φ([X, Y ]) = [φ(X), Y ] = [X, φ(Y )],      X, Y ∈ L.
+
+In particular, the projection maps πi and ι − πi are normal endomorphisms of L. Any composite
+of normal endomorphisms is normal. If φ is an endomorphism of L and
+
+                                 φ2 (L) = φ(L),       Ker(φ2 ) = Ker(φ),                          (3.2)
+
+then, by Fitting’s Lemma ([20]), L = Ker(φ) +̇ φ(L). If φ is normal then φ(L) is an ideal of L,
+so when the conditions (3.2) hold, there is a direct sum decomposition, L = Ker(φ) ⊕ φ(L).
+   A Lie algebra L is Artinian or Noetherian if it satisfies the descending or ascending chain
+condition respectively on ideals. The ascending chain condition guarantees that any direct-sum
+decomposition has finitely many components. If L is finite-dimensional, it is both Artinian and
+Noetherian. However, the results that we prove below apply equally to infinite-dimensional Lie
+algebras that satisfy both chain conditions.
+
+Lemma 3.1 Let M be an indecomposable Lie algebra which is both Artinian and Noetherian.
+Then every normal endomorphism of M is either bijective or nilpotent.
+
+Proof Let φ : M → M be a normal endomorphism, so φ(M) is an ideal of M. As both chain
+conditions hold for ideals, there exists k ∈ N such that for all ℓ ≥ k, φk (M) = φℓ (M) and
+Ker(φk ) = Ker(φℓ ). Taking ℓ = 2k, Fitting’s Lemma gives M = Ker(φk ) ⊕ φk (M).
+   As M is indecomposable, either M = Ker(φk ), so φ is nilpotent, or M = φk (M) and
+Ker(φk ) = {0}, in which case φk is bijective and hence so is φ.                          
+
+   For the rest of this section, we shall assume that L is both Artinian and Noetherian. Suppose
+that M1 ⊕ · · · ⊕ Mr and N1 ⊕ · · · ⊕ Ns are irreducible decompositions of L, with projections πi
+(onto Mi ) and ψj (onto Nj ) respectively. It is easy to show that the restriction of ψj to Mi is
+a normal endomorphism. We can write Mi in terms of the composite maps πi ψj in two ways:
+                                                  
+         Mi = πi (L) = πi ψ1 (L) ⊕ · · · ⊕ ψs (L) = πi ψ1 (L) + · · · + πi ψs (L),           (3.3)
+                                                       
+         Mi = πi (Mi ) = πi ψ1 (Mi ) ⊕ · · · ⊕ ψs (Mi ) = πi ψ1 (Mi ) + · · · + πi ψs (Mi ). (3.4)
+
+(Here the vector space sum + is not necessarily a direct sum.) We use πi ψj to denote both
+this map on L and its restriction to Mi , as the meaning will be clear from the context; each
+composite projection πi ψj is a normal endomorphism of both L and Mi .
+
+Lemma 3.2 For each i ∈ {1, . . . , r} there exists j ∈ {1, . . . , s} such that:
+
+      πi (Nj ) = Mi ,     Nj = ψj (Mi ),      Nj ∼
+                                                 = Mi ,       Nj′ = Mi′ ,    Nj ⊂ Mi ⊕ Z( Mi ).
+
+If Mi is non-abelian, j is uniquely determined by i.
+
+Proof For each n ∈ N, (πi ψj )n = πi (ψj πi )n−1 ψj and (ψj πi )n = ψj (πi ψj )n−1 πi . Therefore, by
+Lemma 3.1, the normal endomorphisms πi ψj : Mi → Mi and ψj πi : Nj → Nj are either both
+nilpotent or both bijective.
+
+                                                     5
+    If Mi is abelian then dim(Mi ) = 1. From (3.4), there exists j such that πi ψj (Mi ) 6= {0}.
+For this j, therefore, πi ψj (Mi ) = Mi , and so πi ψj is bijective on Mi .
+    Now assume that Mi is non-abelian. Suppose that πi ψj is nilpotent on Mi . Then ι − πi ψj
+is bijective on Mi , and therefore
+
+                       Mi = (ι − πi ψj )(Mi ) = πi (ι − ψj )(Mi ) ⊂ πi ( Nj ).
+
+Thus
+                               Mi′ ⊂ [πi ( Nj ), Mi ] = [Nj , Mi ] ⊂ Nj
+and hence ψj (Mi′ ) = {0}. However,
+
+                              ψ1 (Mi′ ) + · · · + ψS (Mi′ ) = Mi′ 6= {0},
+
+so there exists j such that πi ψj is bijective, rather than nilpotent, on Mi .
+    We have established that, whether or not Mi is abelian, there exists j such that πi ψj and
+ψj πi are bijective; the restricted projections for this j, namely
+
+                                πi : Nj → Mi ,        ψj : Mi → Nj ,
+
+are isomorphisms. Thus
+
+                      Nj′ = [Nj , ψj (Mi )] = ψj [Nj , Mi ] = [Nj , Mi ] ⊂ Mi′ ,
+                                                           
+
+and similarly Mi′ ⊂ Nj′ , so Nj′ = Mi′ . If Mi is non-abelian then Mi′ 6= {0}, in which case j is
+uniquely determined by i. Finally,
+
+ [(ι−πi )(Nj ), Mi ] = [(ι−πi )(Nj ), L] = (ι−πi )[Nj , L] = (ι−πi )(Nj′ ) = (ι−πi )(Mi′ ) = {0}, (3.5)
+
+so (ι − πi )(Nj ) ⊂ Z( Mi ) and hence Nj ⊂ Mi ⊕ Z( Mi ).                                             
+
+Theorem 3.3 (Krull-Schmidt Theorem for Lie algebras)
+With the above notation, s = r and the summands can be numbered such that, for i = 1, . . . , r,
+
+    πi (Ni ) = Mi ,   Ni = ψi (Mi ),     Ni ∼
+                                            = Mi ,      Ni ′ = Mi′ ,      Ni ⊂ Mi ⊕ Z( Mi ).     (3.6)
+
+Furthermore, for each k from 1 to r − 1,
+
+                             L = M1 ⊕ · · · ⊕ Mk ⊕ Nk+1 ⊕ · · · ⊕ Nr .                           (3.7)
+
+If Z(L) = {0} or L′ = L, the decomposition (3.1) is unique up to the order of the summands.
+
+Proof By Lemma 3.2, there exists j such that π1 ψj is bijective on M1 (and ψj π1 is bijective
+on Nj ); if M1 is abelian, pick any such j. Choose the labels so that Nj becomes N1 . Then
+
+(π1 ψ1 )2 (L) = π1 ψ1 (M1 ) = M1 ,  Ker (π1 ψ1 )2 = Ker(π1 ψ1 ) = Ker(ψ1 π1 ψ1 ) = Ker(ψ1 ) = N1 ,
+                                                 
+
+
+so, by Fitting’s Lemma, L = M1 ⊕ N1 . Hence (3.7) holds when k = 1. Now suppose that
+
+                             L = M1 ⊕ · · · ⊕ Mk ⊕ Nk+1 ⊕ · · · ⊕ Nr
+
+for a particular k < r. Comparing this decomposition with
+
+                            L = M1 ⊕ · · · ⊕ Mk ⊕ Mk+1 ⊕ · · · ⊕ Mr ,
+
+                                                  6
+the above reasoning enables us to identify a summand in the former decomposition, having all of
+the stated properties, which can be replaced by Mk+1 . This is not any of M1 , . . . , Mk because
+πk+1 (Mi ) = 0 for i 6= k + 1; so, renumbering if necessary, we can take it to be Nk+1 . Then
+
+                         L = M1 ⊕ · · · ⊕ Mk ⊕ Mk+1 ⊕ Nk+2 ⊕ · · · ⊕ Nr .
+
+By induction, (3.7) holds for k = 2, . . . , r and both decompositions contain the same number of
+summands. At each stage, we have arranged the remaining labels so that j = i and hence (3.6)
+holds. If Z(L) = {0} then Mi = Ni for each i. If L′ = L then Mi = Mi′ = Ni ′ = Ni . In each
+of these cases, L has a unique decomposition (up to the ordering of the summands).             
+
+Theorem 3.4 A bijective linear map φ : L → L is an automorphism of L if and only if it has
+the form θ + ζ, where θ is an automorphism of L that maps each Mi to itself or to an isomorphic
+summand, Mj , and where ζ is a linear map of L such that ζ(L) ⊂ Z(L) and ζ(L′ ) = {0}.
+
+Proof Any automorphism φ of (3.1) gives a decomposition L = φ(M1 ) ⊕ · · · ⊕ φ(Mr ). Label
+φ(M1 ), . . . , φ(Mr ) as N1 , . . . , Nr in such an order that Ni corresponds to Mi as in Theorem
+3.3; then there is a permutation p(i) of (1, . . . , r) such that Ni = φ(Mp(i) ) and Mp(i) ∼= Mi .
+Now define the linear maps ζ and θ on L by
+                      r
+                      X                                r
+                                                       X
+             θ(X) =         πi φπp(i) (X),   ζ(X) =          (ι − πi )φπp(i) (X),   X ∈ L.
+                      i=1                              i=1
+
+Clearly, φ = θ + ζ; morever, ζ(L) ⊂ Z(L) because, from (3.5),
+
+                        (ι − πi )φπp(i) (X) ∈ (ι − πi )Ni ⊂ Z(L),          X ∈ L.
+              ′
+Note that φ(Mp(i)) = Ni ′ = Mi′ , and so ζ(L′ ) = {0}. By definition,
+                                                  
+                            θ Mp(i) = πi φ Mp(i) = πi Ni = Mi ,
+
+so θ(L) = L; as θ is a composite of Lie algebra homomorphisms, it is an automorphism of L.
+    Conversely, suppose that θ and ζ have the stated properties. Then θ permutes the components
+Mi ; it is of the form θ1 + · · · + θr , where each θi is an isomorphism from Mi to some Mj . As
+φ = θ + ζ is the sum of two linear maps of L, it is a linear map of L. For any X, Y ∈ L,
+
+  φ([X, Y ]) = θ([X, Y ]) + ζ([X, Y ]) = [θ(X), θ(Y )] = [θ(X) + ζ(X), θ(Y ) + ζ(Y )] = [φ(X), φ(Y )].
+
+Thus φ is an endomorphism of L; provided that φ is bijective, it is an automorphism of L.                
+
+    When L is finite-dimensional, Theorem 3.4 gives necessary and sufficient conditions on the
+matrix representing an automorphism of L. Let B = (bqp ) be the matrix of φ relative to a
+basis for L ordered in such a way that a basis for M1 is followed by a basis for M2 , etc. Let
+{Xi1 , . . . , Xiki } be a basis for Mi . If it is not clear how L can be expressed as a direct sum, the
+algorithm in [16] can be used. Note that this may reveal the presence of a central component,
+in which case one or more of the direct summands will be one-dimensional. Their presence does
+not affect our argument.
+    If Mi is not isomorphic to any other direct summand then the sub-matrix of B consisting
+of the bqp for i1 ≤ p ≤ iki , i1 ≤ q ≤ iki represents an automorphism of Mi . All entries are zero
+outside the blocks corresponding to automorphisms of the Mi , except when Xp ∈         / L′ , Xq ∈ Z(L),
+                     q
+in which case bp is arbitrary subject to B being non-singular.
+
+                                                   7
+   If Mi ∼
+         = Mi′ for some i′ 6= i, the above automorphisms may be composed with an automor-
+phism that swaps Mi and Mi′ . So whenever an irreducible decomposition of L has two or more
+isomorphic summands, any permutation of these is allowable.
+   Example Let L have a basis {X1 , · · · , X8 } with non-zero commutator relations
+
+                        [X1 , X2 ] = X1 ,   [X4 , X5 ] = X3 ,   [X7 , X8 ] = X6 .
+
+Then L is the direct sum M1 ⊕ M2 ⊕ M3 where M1 =        ∼ A2,1 , M2 =∼ M3 = ∼ A3,1 (see Table 1).
+The automorphisms of A2,1 , with [X1 , X2 ] = X1 , have matrices of the form
+                                       
+                                  a 0
+                                            ; a 6= 0, a, b ∈ R.
+                                  b 1
+
+The automorphisms of the nilpotent Lie algebra A3,1 , with [X4 , X5 ] = X3 , have matrices of the
+form                               
+                    eh − f g 0 0
+                      c      e g  ; eh − f g 6= 0, c, d, e, f, g, h ∈ R.
+                       d      f h
+Moreover, Z(L) = span{X3 , X6 } and [L, L] = span{X1 , X3 , X6 }. Hence any matrix of the
+following form represents an automorphism of L:
+                                                 
+             a 0      0      0 0      0      0 0
+          b 1        α      0 0      β      0 0 
+                                                 
+          0 0 eh − f g 0 0           0      0  0 
+                                                 
+          0 0        c      e g      γ      0 0 
+         
+          0 0
+                                                  ,    a(eh − f g)(kn − lm) 6= 0.
+                     d      f h      δ      0 0 
+          0 0
+                     0      0 0 kn − lm 0 0     
+          0 0        ε      0 0      i      k m 
+             0 0      ζ      0 0      j      l n
+
+Here Greek letters represent the additional arbitrary Z(L) components. As M2 ∼   = M3 , there
+are other automorphisms formed by swapping these two direct summands; their matrices are
+                                                    
+            a 0       0      0 0        0      0 0
+          b 1        α      0 0        β      0 0 
+                                                    
+          0 0
+                     0      0 0 eh − f g 0 0       
+          0 0        γ      0 0        c      e g 
+         
+          0 0
+                                                     ,     a(eh − f g)(kn − lm) 6= 0.
+                     δ      0 0        d      f h  
+          0 0 kn − lm 0 0              0      0 0  
+         
+          0 0        i      k m        ε      0 0 
+            0 0       j      l n        ζ      0 0
+
+By Theorem 3.4, there are no other automorphisms of L.
+
+
+4    Automorphisms of real Lie algebras of dimension ≤ 5
+We now present the classification of automorphism groups for indecomposable real Lie algebras
+of dimension five or less. The Lie algebras are labelled according to the tables in the classification
+of invariants by Patera et al. [9]. In a few instances, it is helpful to use a basis that is slightly
+different to [9]; where this occurs, we append an asterisk, (∗), to the label.
+
+
+                                                   8
+4.1     How to use the tables
+Tables 1, 2 and 3 are designed to present the results concisely, avoiding the need to write out
+matrices explicitly (except in one particularly complicated case which is treated separately).
+Here is a typical entry:
+
+ Name     Notes     Nonzero ckij (i < j)              Discrete Generators            Extra Outer Der.        Block Diag.
+
+ A4,8               c123 = c224 = 1, c334 = −1     p12 , (−X1 , X3 , X2 , −X4 )         E11 +E33 , E41        (1, 1, 1, 1)
+
+    The first three columns give the name of the Lie algebra (in this case, A4,8 ), any explanatory
+notes (such as restrictions on parameter values), and all nonzero structure constants ckij for which
+i < j. To understand the remaining columns, it is helpful to look in detail at the automorphisms
+of A4,8 . For this Lie algebra, the determining equations (2.2) are easily solved without the aid
+of inner automorphisms. There are two families of solutions:
+           2 3
+                                                         −b32 b23 0 0
+                                                                            
+            b2 b3 0 0 0                                                    0
+           b22 b34 b22 0 0  2 3                      −b32 b24 0 b32 0  3 2
+    B1 =     3  2       3
+                               , b2 b3 6= 0;  B  2 =                         , b b 6= 0; (4.1)
+           b3 b4 0 b3 0                              −b23 b34 b23 0     0  2 3
+              b14 b24 b34 1                                b14    b24 b34 −1
+all parameters are arbitrary real numbers, subject only to the determinant of each matrix being
+nonzero. Although we have not needed to use the inner automorphisms so far, it is useful to do
+so now. As X1 belongs to the centre of A4,8 , the matrix A1 (ε1 ) is the identity matrix and cannot
+change B. The remaining matrices that generate the inner automorphisms are
+                                                                                            
+               1    0    0 0                    1 0 0 0                         1 0       0    0
+             0                                                                     ε4
+                    1    0 0  , A3 (ε3 ) =  ε3 1 0 0 , A4 (ε4 ) =  0 e
+                                                                                       0    0 
+ A2 (ε2 ) = 
+             −ε2                                                             0 0 e−ε4 0 ,
+                                                                                                 
+                    0    1 0                 0 0 1 0 
+               0   −ε2 0 1                      0 0 ε3 1                        0 0       0    1
+where each εj is a real-valued parameter. To simplify the automorphism matrices (4.1), let
+    B̃1 = A4 (− ln |b22 |)A2 (b13 /b11 )A3 (−b12 /b11 )B1 ,       B̃2 = A4 (ln |b23 |)A2 (b13 /b11 )A3 (−b12 /b11 )B2 .
+After a change of parameters to remove unnecessary indices, we obtain
+                                                         
+               ǫa 0 0 0                    −ǫa 0 0 0
+              0 ǫ 0 0                   0     0 a 0 
+              0 0 a 0 ,
+       B̃1 =                     B̃2 = 
+                                          0
+                                                            ,      ǫ = ±1, a 6= 0.                                  (4.2)
+                                                 ǫ 0 0 
+                b 0 0 1                    −b 0 0 −1
+All that remains is to decompose these automorphisms, as follows:
+                                                                                       
+                                    0 0 0 0            α 0 0                            0
+                                   0 0 0 0         0 0 0                             0 
+                       B̃ = ∆ exp 
+                                   0 0 0 0  exp  0 0 α
+                                                                                        ,                         (4.3)
+                                                                                        0 
+                                    β 0 0 0            0 0 0                            0
+where the matrix ∆ is an element of the discrete subgroup generated by
+                                                                    
+                          −1 0 0 0                       −1 0 0 0
+                        0 −1 0 0                      0 0 1 0 
+                 ∆1 =  0
+                                          ,      ∆2 = 
+                                                        0 1 0 0 .
+                                                                                                                    (4.4)
+                               0 1 0 
+                           0   0 0 1                      0 0 0 −1
+
+                                                              9
+This eight-element subgroup is isomorphic to the dihedral group D4 . At this stage, we have
+decomposed the automorphism group into elements that can be described with fairly simple
+notation, as follows.
+  1. Let pm (where m is a multi-index) denote the matrix diag{s1 , . . . , sR }, where si = −1 if i is
+     in m and si = 1 otherwise. For R < 10, the components of the multi-index are single digits
+     and, to save space, we will not separate them by commas. So in our example, ∆1 = p12 .
+  2. Denote a discrete symmetry that is not of the above form,
+
+                        Φ : (X1 , . . . , XR ) 7−→ (X̃1 , . . . , X̃R ) = (bl1 Xl , . . . , blR Xl ),
+
+     by (X̃1 , . . . , X̃R ) expressed in terms of the generators Xi . In our example,
+
+                                           ∆2 = (−X1 , X3 , X2 , −X4 ).
+
+  3. Where there is a one-parameter (local) subgroup of exponentiated outer derivations, write
+     the generator in terms of the Weyl basis; here Eij is the matrix whose only nonzero entry
+     is a 1 in row i, column j. In our example, the subgroup that is parametrized by α in (4.3)
+     is generated by E11 + E33 , while the subgroup that is parametrized by β is generated by E41 .
+     In the table, generators of a discrete group of automorphisms are listed in the column headed
+‘Discrete Generators’, and generators of one-parameter local Lie subgroups of exponentiated
+outer derivations are placed under the heading ‘Extra Outer Derivations’. In principle, one can
+list all components of B̃ under one of these two headings (omitting the word ‘Extra’). However,
+this turns out to be unwieldy for Lie algebras with large automorphism groups. As a compromise,
+we use a sixth column, as follows.
+
+  4. The ‘Block Diagonal’ entry lists the block diagonal structure, ordered by row/column
+     number; for Lie algebras other than A5,4 (see below), all entries are nonzero scalars and/or
+     SL(n, R) matrix blocks. Each scalar is either 1 or an arbitrary nonzero real number (denoted
+     a, b, c, . . . ); the identity matrix corresponds to a string of 1s. Where an SL(n, R) block is
+     entirely arbitrary (apart from the condition that its determinant is 1), it is denoted by Sm ,
+     where the multi-index m lists the n contiguous rows/columns where the block is located.
+     If the same block occurs elsewhere in the block diagonal structure, the multi-index will be
+     repeated. For instance, the block diagonal matrices
+        2                                                             
+           a 0 0 0                    1 0 0 0               p q 0        0
+        0 b 0 0                    0 p q 0            r s 0         0 
+        0 0 ab 0  ,                0 r s 0  ,  0 0 ap aq  , where ps − qr = 1,
+                                                                      
+
+            0 0 0 c                   0 0 0 1               0 0 ar as
+
+     are denoted respectively by
+
+                                (a2 , b, ab, c),       (1, S23 , 1),        (S12 , aS12 ).
+
+     For A5,4 , the 4 × 4 block labelled Sp(4, R)T denotes the transpose of an arbitrary matrix
+     M in the symplectic group Sp(4, R). So M is subject only to the constraint
+                                                                        
+                                                          0    0 1 0
+                                                       0      0 0 1 
+                          M T ΩM = Ω, where Ω =       −1 0 0 0  .
+                                                                         
+
+                                                          0 −1 0 0
+
+
+                                                        10
+The advantage of the above compromise is that the notation remains concise. One can decom-
+pose the block diagonal structure, but this is not necessary for the reconstruction of the full
+automorphism group, which proceeds as follows.
+    Premultiply the block diagonal matrix by each exponentiated extra outer derivation. Pre-
+multiply the result by an element ∆ of the discrete group whose generators are in the fourth
+column; one needs to keep track of the separate outcomes of using each possible ∆. Finally,
+premultiply every outcome by the inner automorphisms A1 (ε1 ) · · · AR (εR ), where each εj takes
+all possible values. Schematically, each ∆ produces a matrix of automorphisms,
+                 Y             Y                                                    
+          B=         Aj (εj ) ∆     exp(αi Extra Outer Derivationi ) Block Diagonal ;
+
+the set of all such matrices comprises the full automorphism group.
+    The above information is sufficient to construct the automorphism group of each indecom-
+posable Lie algebra of dimension ≤ 5 (bar one) from the tables that follow (the sole exception is
+treated separately in §4.2). However, we have added two further pieces of notation, for clarity.
+
+  5. The ‘Discrete Generators’ lists for A3,8 and A5,40 each include a Weyl reflection, which is
+     denoted by double parentheses. This is an inner automorphism that cannot be expressed
+     as a product in which each Aj is used once only. Weyl reflections are the only inner
+     automorphisms that appear in the last three columns.
+  6. Where an extra outer derivation is enclosed in square brackets with a subscript u (for
+     example, [E11 + E22 ]u ), one can exponentiate it with a parameter that is restricted to be in
+     the range [0, 2π|u|). The remaining values are generated by inner automorphisms. However,
+     if one is only interested in reconstructing the full automorphism group, it is simpler to allow
+     the parameter to take arbitrary values, while recognising that the inner automorphisms will
+     then produce some duplications.
+
+4.2    The automorphism group of Au,v,w
+                                  5,17
+
+The nonzero structure constants ckij (i < j) are
+
+        c115 = c225 = u, c335 = c445 = v, c215 = −1, c125 = 1, c435 = −w, c345 = w,   w 6= 0.
+
+For all parameter values, every real nonsingular matrix of the form
+                                                              
+                                          a   b   0     0 0
+                                       −b a      0     0 0 
+                                                              
+                                B1 =  0
+                                             0   g     h 0   
+                                       0     0 −h g 0 
+                                         k1 k2 k3 k4 1
+
+is an automorphism; indeed, every automorphism matrix is of this form, except in the following
+special cases.
+    If u = −v 6= 0 and |w| = 1 then the group of automorphisms is generated by B1 and
+                                                          
+                                          0 0 0 w 0
+                                        0 0 1 0        0 
+                                                          
+                                 B2 =   0  w   0  0   0 .
+                                        1 0 0 0        0 
+                                          0 0 0 0 −1
+
+                                                  11
+    If u = v 6= 0 and |w| = 1 then the group of automorphisms consists of all nonsingular matrices
+of the following form:                                         
+                                          a     b     c   d 0
+                                      −b       a −wd wc 0 
+                                                               
+                               B3 =  e
+                                               f    g    h 0  ,
+                                      −wf we −h          g 0 
+                                         k1    k2    k3   k4 1
+   If u = v = 0 there is an extra subgroup of automorphisms that is generated by p245 , so the
+automorphism group is generated by: (a) B1 and p245 , if |w| 6= 1; (b) B3 and p245 , if |w| = 1.
+
+
+
+
+                                               12
+                              Table 1: Automorphisms of 2- and 3-dimensional indecomposable real Lie algebras
+
+                      Name      Notes            Structure Constants ck
+                                                                      ij (i < j)               Discrete Generators        Extra Outer Derivations          Block Diagonal
+
+                      A2,1                       c112 = 1                                              p1                                                             (1, 1)
+                      A3,1      nilpotent        c123 = 1                                             p12                             E11 +E22                   (1, S23 )
+                      A3,2                       c113 = c123 = c223 = 1                                                                                          (a, a, 1)
+                      A3,3                       c113 = c223 = 1                                       p1                                                        (S12 , 1)
+                      A3,4                       c113 = 1, c223 = −1                            (−X2 , X1 , −X3 )                                                 (1, a, 1)
+                      Au
+                       3,5      0 < |u| < 1      c113 = 1, c223 = u                                    p1                                                         (1, a, 1)
+                      A3,6                       c213 = −1, c123 = 1                                  p23                             E11 +E22                    (1, 1, 1)
+                      Au                         c113 = c223 = u, c213 = −1, c123 = 1                                                 E11 +E22 u
+                                                                                                                                             
+                       3,7      u>0                                                                                                                               (1, 1, 1)
+                      A3,8      sl(2, R)         c112 = c323 = 1, c213 = −2                p13 , ((−X3 , −X2 , −X1 ))                                             (1, 1, 1)
+                      A3,9      so(3)            c312 = c123 = 1, c213 = −1                                                                                       (1, 1, 1)
+13
+
+
+
+
+                                 Table 2: Automorphisms of 4-dimensional indecomposable real Lie algebras
+
+     Name       Notes                         Structure Constants ck
+                                                                   ij (i < j)                                 Discrete Generators                Extra Outer Derivations        Block Diagonal
+
+     A4,1       nilpotent                     c124 = c234 = 1                                                                                           E31 ,   E43              (ab2 , ab, a, b)
+     Au
+      4,2       u 6∈ {0, 1}                   c114 = u, c224 = c234 = c334 = 1                                                                                                     (a, b, b, 1)
+     A14,2                                    c114 = c224 = c234 = c334 = 1                                                                             E12 , E31                  (a, b, b, 1)
+     A4,3                                     c114 = c234 = 1                                                                                              E43                     (a, b, b, 1)
+     A4,4                                     c114 = c124 = c224 = c234 = c334 = 1                                                                         E31                    (a, a, a, 1)
+     Au,v
+      4,5       uv 6= 0, −1 ≤ u < v < 1       c114 = 1, c224 = u, c334 = v                                                p1                                                       (1, a, b, 1)
+     Au,u
+      4,5       u 6= 0, −1 ≤ u < 1            c114 = 1,   c224 = c334 = u                                               p1 , p2                            E22                    (1, S23 , 1)
+     Au,1
+      4,5 (∗)   u 6= 0, −1 ≤ u < 1            c114 = u, c224 = c334 = 1                                                 p1 , p2                            E22                    (1, S23 , 1)
+     A1,1
+      4,5                                     c114 = c224 = c334 = 1                                                      p1                                                       (S123 , 1)
+     Au,v
+      4,6       u 6= 0, v ≥ 0                 c114 = u, c224 = c334 = v, c324 = −1, c234 = 1                                                           [E22 +E33 ]v               (a, 1, 1, 1)
+     A4,7                                     c114 = 2, c123 = c224 = c234 = c334 = 1                                                                                             (a2 , a, a, 1)
+
+                                                                                                                                                                        Continued on next page
+                Name           Notes              Structure Constants ck
+                                                                       ij (i < j)                                      Discrete Generators         Extra Outer Derivations               Block Diagonal
+
+                A4,8                              c123 = c224 = 1,   c334 = −1                                      p12 , (−X1 , X3 , X2 , −X4 )        E11 +E33 ,   E41                   (1, 1, 1, 1)
+                Au
+                 4,9           −1 < u < 1         c114 = u+1, c123 = c224 = 1, c334 = u                                         p12                                                        (a, 1, a, 1)
+                A14,9                             c114 = 2, c123 = c224 = c334 = 1                                              p12                                                        (1, S23 , 1)
+                A4,10                             c123 = c234 = 1, c324 = −1                                                    p124                 2E11 +E22 +E33 , E41                  (1, 1, 1, 1)
+                Au                                c114 = 2u,   c123 = c234 = 1,     c224 = c334 = u,   c324 = −1
+                                                                                                                                                       1
+                                                                                                                                                       2E1 +E22 +E33 u
+                                                                                                                                                                      
+                 4,11          u>0                                                                                                                                                         (1, 1, 1, 1)
+                A4,12                             c113 = c223 = c124 = 1, c214 = −1                                             p24                                                        (1, 1, 1, 1)
+
+
+
+
+                                            Table 3: Automorphisms of 5-dimensional indecomposable real Lie algebras
+
+     Name        Notes                          Structure Constants ck
+                                                                     ij (i < j)                                      Discrete Generators                Extra Outer Derivations                     Block Diagonal
+
+                                                                                                                                                            E11 +E33 , E31 , E32 ,
+     A5,1        nilpotent                      c135 = c245 = 1                                                               p13                                                                    (aS34 , S34 , a)
+                                                                                                                                                            E41 , E42 , E53 , E54
+     A5,2        nilpotent                      c125 = c235 = c345 = 1                                                                                      E31 +E42 , E41 , E54                  (ab3 , ab2 , ab, a, b)
+14
+
+
+
+
+                                                                                                                                                           2E11 +E22 +E33 +E44 ,
+     A5,3 (∗)    nilpotent                      c134 = c235 = c345 = 1                                                        p234                                                                    (S12 , 1, S12 )
+                                                                                                                                                            E41 , E42 , E51 , E52
+     A5,4        nilpotent                      c124 = c135 = 1                                                               p123                             E11 +E22 +E33                         (1, Sp(4, R)T )
+     A5,5        nilpotent                      c125 = c134 = c235 = 1                                                                                 E32 −E54 ,   E34 ,   E42 +E53 ,   E52       (ab2 , ab, a, b2 , b)
+     A5,6        nilpotent                      c125 = c134 = c235 = c345 = 1                                                                          E32 +E43 −E54 , E42 +E53 , E52              (a5 , a4 , a3 , a2 , a)
+     Au,v,w
+      5,7        uvw 6= 0, −1 < w < v < u < 1   c115 = 1,   c225 = u,   c335 = v,   c445 = w                                   p1                                                                     (1, a, b, c, 1)
+     Au,u,w
+      5,7        uw 6= 0, −1 ≤ w < u < 1        c115 = 1, c225 = c335 = u, c445 = w                                          p1 , p2                                   E22                            (1, S23 , a, 1)
+     Au,v,v
+      5,7        uv 6= 0, −1 ≤ v < u < 1        c115 = 1, c225 = u, c335 = c445 = v                                          p1 , p3                                   E33                            (1, a, S34 , 1)
+     A1,v,w
+      5,7        vw 6= 0, −1 ≤ w < v < 1        c115 = c225 = 1, c335 = v, c445 = w                                            p1                                                                     (S12 , a, b, 1)
+     Au,u.u
+      5,7        u 6= 0, −1 ≤ u < 1             c115 = 1,   c225 = c335 = c445 = u                                           p1 , p2                                   E22                                (1, S234 , 1)
+     A1,1,w
+      5,7        w 6= 0, −1 ≤ w < 1             c115 = c225 = c335 = 1, c445 = w                                               p1                                                                      (S123 , a, 1)
+      1,1,1
+     A5,7                                       c115 = c225 = c335 = c445 = 1                                                  p1                                                                         (S1234 , 1)
+     A1,v,v
+      5,7        0 < |v| < 1                    c115 = c225 = 1, c335 = c445 = v                                             p1 , p3                                   E33                            (S12 , S34 , 1)
+     Au,v,−
+      5,7
+           1
+                 uv(u+v) 6= 0, −1 < v < u < 1   c115 = 1, c225 = u, c335 = v, c445 = −1                                        p1                                                                     (1, a, b, c, 1)
+      u,−u,−1
+     A5,7        0<u<1                          c115 = 1, c225 = u, c335 = −u, c445 = −1                           (−X4 , X3 , X2 , X1 , −X5 )                                                        (1, a, b, c, 1)
+
+                                                                                                                                                                                          Continued on next page
+     Name         Notes                   Structure Constants ck
+                                                               ij (i < j)                          Discrete Generators            Extra Outer Derivations                       Block Diagonal
+      1,−1,−1
+     A5,7                                 c115 = c225 = 1,   c335 = c445 = −1                  p3 , (−X4 , X3 , X2 , X1 , −X5 )                      E33                         (S12 , S34 , 1)
+     Au
+      5,8         0 < |u| < 1             c125 = c335 = 1, c445 = u                                                                                  E52                          (a, a, b, c, 1)
+       1
+     A−
+      5,8                                 c125 = c335 = 1,   c445 = −1                          (X1 , −X2 , −X4 , X3 , −X5 )               E33 +E44 ,        E52                 (a, a, b, 1, 1)
+     A15,8                                c125 = c335 = c445 = 1                                             p3                                 E33 , E52                        (a, a, S34 , 1)
+     Au,v
+      5,9         v < u, u, v 6∈ {0, 1}   c115 = c125 = c225 = 1, c335 = u, c445 = v                                                                                              (a, a, b, c, 1)
+     A1,v
+      5,9         v 6= 0, v < 1           c115 = c125 = c225 = c335 = 1, c445 = v                                                               E23 , E31                         (a, a, b, c, 1)
+     Au,1
+      5,9         1<u                     c115 = c125 = c225 = c445 = 1, c335 = u                                                               E24 , E41                         (a, a, b, c, 1)
+     Au,u
+      5,9         u 6∈ {0, 1}             c115 = c125 = c225 = 1,    c335 = c445 = u                         p3                                      E33                         (a, b, S34 , 1)
+     A1,1
+      5,9                                 c115 = c125 = c225 = c335 = c445 = 1                               p3                    E23 , E24 , E31 , E33 , E41                   (a, b, S34 , 1)
+     A5,10                                c125 = c235 = c445 = 1                                                                                E31 ,   E53                      (a, a, a, b, 1)
+     Au
+      5,11        u 6∈ {0, 1}             c115 = c125 = c225 = c235 = c335 = 1, c445 = u                                                             E31                         (a, a, a, b, 1)
+     A15,11                               c115 = c125 = c225 = c235 = c335 = c445 = 1                                                      E31 ,     E34 ,   E41                 (a, a, a, b, 1)
+     A5,12                                c115 = c125 = c225 = c235 = c335 = c345 = c445 = 1                                               E31 +E42 , E41                        (a, a, a, a, 1)
+                                          c115 = 1, c225 = u, c335 = c445 = v,
+     Au,v,w                                                                                                                                    E33 +E44 v/w
+15
+
+
+
+
+                                                                                                                                                      
+      5,13        uvw 6= 0, −1 ≤ u < 1,                                                                                                                                          (a, b, 1, 1, 1)
+                                          c435 = −w, c345 = w
+     Au,0,w
+      5,13        uw 6= 0, |u| < 1,       c115 = 1, c225 = u, c435 = −w, c345 = w                                                               E33 +E44                         (a, b, 1, 1, 1)
+
+                                          c115 = c225 = 1, c335 = c445 = v,
+     A1,v,w                                                                                                                          E11 ,          E33 +E4 v/w
+                                                                                                                                                             4
+                                                                                                                                                              
+      5,13        vw 6= 0                                                                                    p1                                                                  (S12 , 1, 1, 1)
+                                          c435 = −w, c345 = w
+     A1,0,w
+      5,13        w 6= 0                  c115 = c225 = 1,   c435 = −w,    c345 = w                          p1                            E11 ,     E33 +E44                    (S12 , 1, 1, 1)
+       1,0,w
+     A−
+      5,13        w 6= 0                  c115 = 1,   c225 = −1,    c435 = −w,   c345 = w       (−X2 , X1 , X3 , −X4 , −X5 )         E11 +E22 ,         E33 +E44                 (a, 1, 1, 1, 1)
+     Au                                   c125 = c345 = 1, c335 = c445 = u, c435 = −1                                              E21 ,
+                                                                                                                                             3
+                                                                                                                                             E3 +E44 u , E52
+                                                                                                                                                    
+      5,14        u 6= 0                                                                                                                                                         (a, a, 1, 1, 1)
+     A05,14                               c125 = c345 = 1,   c435 = −1                                      p245                     E21 ,      E33 +E44 ,         E52           (a, a, 1, 1, 1)
+     Au
+      5,15        0 < |u| < 1             c115 = c125 = c225 = c345 = 1, c335 = c445 = u                                                             E21                          (a, a, b, b, 1)
+       1
+     A−
+      5,15                                c115 = c125 = c225 = c345 = 1,   c335 = c445 = −1     (−X3 , X4 , X1 , −X2 , −X5 )               E21 ,     E33 +E44                    (a, a, 1, 1, 1)
+     A05,15                               c115 = c125 = c225 = c345 = 1                                                                         E21 , E54                         (a, a, b, b, 1)
+     A15,15 (*)                           c115 = c225 = c135 = c335 = c245 = c445 = 1                        p13                     E31 , E32 , E41 , E42                       (S12 , S12 , 1)
+
+                                          c115 = c125 = c225 = 1, c335 = c445 = u,
+     Au,v                                                                                                                            E21 ,
+                                                                                                                                                 3
+                                                                                                                                                 E3 +E44 u/v
+                                                                                                                                                        
+      5,16        v 6= 0                                                                                                                                                         (a, a, 1, 1, 1)
+                                          c435 = −v, c345 = v
+                                                                                                                                                                         Continued on next page
+     Name     Notes                              Structure Constants ck
+                                                                      ij (i < j)                             Discrete Generators          Extra Outer Derivations              Block Diagonal
+
+                                                 c115 = c225 = u, c335 = c445 = v,
+     Aw,u,v
+      5,17    w 6= 0                                                                                                                                                               see §4.2
+                                                 c215 = −1, c125 = 1, c435 = −w,        c345 = w
+
+                                                 c115 = c225 = c335 = c445 = u,                                                                E11 +E22 +E33 +E44 u ,
+                                                                                                                                                                
+     Au
+      5,18    u>0                                                                                                                                                                (1, 1, 1, 1, 1)
+                                                 c215 = c435 = −1,   c125 = c135 = c245 = c345 = 1                                              E31 +E42 , E32 −E41
+
+                                                                                                                                               E11 +E22 +E33 +E44 ,
+     A05,18                                      c215 = c435 = −1, c125 = c135 = c245 = c345 = 1                      p235                                                       (1, 1, 1, 1, 1)
+                                                                                                                                                E31 +E42 , E32 −E41
+     Au,v
+      5,19    u 6∈ {0, 1, 2}, v 6∈ {0, u−1, u}   c115 = u, c123 = c225 = 1, c335 = u−1, c445 = v                       p12                                                       (a, 1, a, b, 1)
+     Au,u
+      5,19    u∈
+               / {0, 1, 2}                       c123 = c225 = 1, c335 = u−1, c115 = c445 = u                          p12                              E41                      (a, 1, a, b, 1)
+      u,u−1
+     A5,19    u∈
+               / {0, 1, 2}                       c115 = u,   c123 = c225 = 1,   c335 = c445 = u−1                      p12                              E34                      (a, 1, a, b, 1)
+     A0,v
+      5,19    v∈
+               / {−1, 0, 1}                      c123 = c225 = 1, c335 = −1, c445 = v                                  p12                              E51                      (a, 1, a, b, 1)
+     A0,−1
+      5,19                                       c123 = c225 = 1, c335 = c445 = −1                                     p12                           E34 , E51                   (a, 1, a, b, 1)
+     A0,1
+      5,19                                       c123 = c225 = c445 = 1,   c335 = −1                                   p12                           E24 ,   E51                 (a, 1, a, b, 1)
+     A1,v
+      5,19    v∈
+               / {0, 1}                          c115 = c123 = c225 = 1, c445 = v                                      p12                                                       (a, 1, a, b, 1)
+     A1,1
+      5,19                                       c115 = c123 = c225 == c4451                                           p12                           E24 ,   E41                 (a, 1, a, b, 1)
+     A2,v
+16
+
+
+
+
+      5,19    v∈
+               / {0, 1, 2}                       c115 = 2, c123 = c225 = c335 = 1, c445 = v                            p12                                                       (1, S23 , a, 1)
+     A2,1
+      5,19                                       c123 = c225 = c335 = c445 = 1, c115 = 2                               p12                           E24 , E34                   (1, S23 , a, 1)
+     A2,2
+      5,19                                       c123 = c225 = c335 = 1, c115 = c445 = 2                               p12                              E41                      (1, S23 , a, 1)
+
+                                                 c115 = c445 = u,   c123 = c225 = c145 = 1,
+     Au
+      5,20    u∈
+               / {0, 1, 2}                                                                                                                                                      (ab, a, b, ab, 1)
+                                                 c335 = u−1
+     A05,20                                      c123 = c225 = c145 = 1, c335 = −1                         (X1 , X3 , −X2 , −X4 , −X5 )           E22 −E33 , E54                 (a, 1, a, a, 1)
+     A15,20                                      c115 = c123 = c225 = c145 = c445 = 1                                                                E53 −E24                   (ab, a, b, ab, 1)
+     A25,20                                      c115 = c445 = 2, c123 = c225 = c335 = c145 = 1                       p124                        E11 +E22 +E44                  (1, S23 , 1, 1)
+     A5,21                                       c115 = 2,   c123 = c225 = c325 = c335 = c435 = c445 = 1                                                E24                     (a2, a, a, a, 1)
+     A5,22                                       c123 = c325 = c445 = 1                                                                                 E51                     (a2, a, a, b, 1)
+     Au
+      5,23    u∈
+               / {0, 1, 2}                       c115 = 2,   c123 = c225 = c325 = c335 = 1,   c445 = u                                                                          (a2, a, a, b, 1)
+     A15,23                                      c115 = 2, c123 = c225 = c325 = c335 = c445 = 1                                                         E24                     (a2, a, a, b, 1)
+     A25,23                                      c115 = c445 = 2,   c123 = c225 = c325 = c335 = 1                                                       E41                     (a2, a, a, b, 1)
+
+                                                 c115 = c445 = 2, c123 = c225 = c325 = c335 = 1,
+     Aǫ5,24   ǫ = ±1                                                                                                                                    E41                     (a2, a, a, a2, 1)
+                                                 c145 = ǫ
+                                                                                                                                                                        Continued on next page
+     Name     Notes                         Structure Constants ck
+                                                                 ij (i < j)                                  Discrete Generators             Extra Outer Derivations               Block Diagonal
+
+                                            c115 = 2v, c123 = c325 = 1,     c225 = c335 = v,
+     Au,v
+                                                                                                                                                    1
+                                                                                                                                                    2E1 +E22 +E33 v
+                                                                                                                                                                 
+      5,25    u∈
+               / {0, 2v}, v 6= 0                                                                                                                                                     (1, 1, 1, a, 1)
+                                            c235 = −1, c445 = u
+     Au,0
+      5,25    u 6= 0                        c123 = c325 = 1, c235 = −1, c445 = u                                                                  2E11 +E22 +E33 , E51               (1, 1, 1, a, 1)
+
+                                            c115 = c445 = 2v,   c123 = c325 = 1,   c225 = c335 = v,
+     A2v,v
+                                                                                                                                                  1
+                                                                                                                                                  2E1 +E22 +E33 v , E41
+                                                                                                                                                               
+      5,25    v 6= 0                                                                                                                                                                 (1, 1, 1, a, 1)
+                                            c235 = −1
+
+                                            c115 = c445 = 2u, c123 = c325 = 1, c225 = c335 = u,                                                  2E11 +E22 +E33 +2E4 u ,
+                                                                                                                                                                      4
+                                                                                                                                                                       
+     Au,ǫ
+      5,26    ǫ = ±1, u 6= 0                                                                                                                                                         (1, 1, 1, 1, 1)
+                                            c235 = −1, c145 = ǫ                                                                                            E41
+
+                                                                                                                                                 2E11 +E22 +E33 +2E44 ,
+     A0,ǫ
+      5,26    ǫ = ±1                        c123 = c325 = 1, c235 = −1, c145 = ǫ                                      p135                                                           (1, 1, 1, 1, 1)
+                                                                                                                                                        E41 , E54
+     A5,27                                  c115 = c123 = c335 = c435 = c145 = c445 = 1                                                                 E52 −E41                    (a, 1, a, a, 1)
+
+                                            c115 = u, c123 = c335 = c435 = c445 = 1,
+     Au
+      5,28    u∈
+               / {0, 1, 2}                                                                                                                                                          (ab, a, b, b, 1)
+                                            c225 = u−1
+     A05,28                                 c123 = c335 = c435 = c445 = 1, c225 = −1                                                                       E51                      (ab, a, b, b, 1)
+     A15,28                                 c115 = c123 = c335 = c435 = c445 = 1                                                                        E52 −E41                    (ab, a, b, b, 1)
+     A25,28                                 c115 = 2,   c123 = c225 = c335 = c435 = c445 = 1                                                            E24 ,   E32                 (ab, a, b, b, 1)
+17
+
+
+
+
+     A5,29                                  c115 = c124 = c225 = c345 = 1                                                                                  E21                      (ab, a, b, b, 1)
+                                            c115 = u+1,     c124 = c234 = c445 = 1,     c225 = u,
+     Au
+      5,30    u∈
+               / {−1, 2}                                                                                              p24                                                           (a, a, a, 1, 1)
+                                            c335 = u−1
+       1
+     A−
+      5,30                                  c124 = c234 = c445 = 1, c225 = −1, c335 = −2                              p24                                  E51                      (a, a, a, 1, 1)
+     A25,30                                 c124 = c234 = c445 = c335 = 1,    c225 = 2,   c115 = 3                    p24                                  E43                      (a, a, a, 1, 1)
+
+                                            c115 = 3,   c124 = c234 = c335 = c345 = c445 = 1,
+     A5,31                                                                                                                                                                          (a3, a2, a, a, 1)
+                                            c225 = 2
+     Au
+      5,32    u 6= 0                        c115 = c124 = c225 = c234 = c335 = 1, c135 = u                            p24                                                           (a, a, a, 1, 1)
+     A05,32                                 c115 = c124 = c225 = c234 = c335 = 1                                      p123                                 E31                      (a2, a, 1, a.1)
+
+              u2 +v 2 6= 0, u 6= −1 6= v,
+     Au,v
+      5,33                                  c114 = c225 = 1, c334 = v, c335 = u                                      p1 , p2                                                         (1, 1, a, 1, 1)
+              v < u, (u,v) 6= (1,0)
+     Au,u
+      5,33    u 6∈ {−1,0}                   c114 = c225 = 1,   c334 = c335 = u                           p2 , (X2 , −X1 , X3 , X5 , X4 )                                             (1, 1, a, 1, 1)
+      u,−1
+     A5,33    u 6= −1                       c114 = c225 = 1,   c334 = −1,    c335 = u                 p2 , (−X3 , X2 , X1 ,−X4 , X5 +uX4 )                                           (1, 1, a, 1, 1)
+
+       1,−1                                                                                             (X3 , −X1 , X2 , −X5 , X4 −X5 ),
+     A−
+      5,33                                  c114 = c225 = 1, c334 = c335 = −1                                                                              E33                       (1, 1, 1, 1, 1)
+                                                                                                           (X2 , −X1 , X3 , X5 , X4 )
+                                                                                                                                                                            Continued on next page
+     Name    Notes           Structure Constants ck
+                                                  ij (i < j)                         Discrete Generators              Extra Outer Derivations   Block Diagonal
+
+     A1,0
+      5,33                   c114 = c225 = c335 = 1                                         p1 , p2                                              (1, S23 , 1, 1)
+     Au
+      5,34                   c114 = u, c115 = c224 = c334 = c235 = 1                          p23                                                (a, 1, 1, 1, 1)
+
+                             c114 = v, c115 = u,   c224 = c334 = c235 = 1,
+     Au,v
+      5,35   u 6= 0                                                                                                                              (a, 1, 1, 1, 1)
+                             c325 = −1
+     A0,v
+      5,35                   c114 = v, c224 = c334 = c235 = 1, c325 = −1                      p35                                                (a, 1, 1, 1, 1)
+     A5,36                   c114 = c123 = c224 = c335 = 1, c225 = −1        p13 , (X1 , X3 ,−X2 , X4 +X5 ,−X5 )                                 (1, 1, 1, 1, 1)
+
+                             c114 = 2, c123 = c224 = c334 = c235 = 1,
+     A5,37                                                                                   p135                                                (1, 1, 1, 1, 1)
+                             c325 = −1
+     A5,38                   c114 = c225 = c345 = 1                               (−X2 , X1 , −X3 , X5 , X4 )                   E22              (a, 1, 1, 1, 1)
+     A5,39                   c114 = c224 = c125 = c345 = 1,   c215 = −1                      p135                          E11 +E22 ,   E43      (1, 1, 1, 1, 1)
+
+                             c112 = c323 = 2, c213 = c525 = −1,
+     A5,40   sl(2, R) ⋉ R2                                                   p135 , ((−X3 , −X2 , −X1 , −X5 , X4 ))          E44 +E55            (1, 1, 1, 1, 1)
+                             c514 = c424 = c435 = 1
+18
+Acknowledgements
+We thank Alessandro Torrielli for his helpful comments on an early draft, and Katy Pelling,
+whose project work on low-dimensional real Lie algebras contributed to a concise presentation
+of the automorphisms. We also thank the Nuffield Foundation for an Undergraduate Research
+Bursary (URB/01451/G).
+
+
+References
+ [1] Cicalò, S., de Graaf, W. A., Schneider, C., 2012, Six-dimensional nilpotent Lie algebras.
+     Lin. Alg. Appl. 436: 163–189.
+ [2] Skjelbred, T., Sund, T., 1978, Sur la classification des algèbres de Lie nilpotentes. C. R.
+     Acad. Sci. Paris Sér. A 286: 241–242.
+ [3] Patera, J., Zassenhaus, H., 1990, The construction of solvable Lie algebras from equidimen-
+     sional nilpotent algebras. Lin. Alg. Appl. 133: 89–120.
+ [4] Terzis, P. A., Christodoulakis, T., 2009, The general solution of Bianchi type V IIh vacuum
+     cosmology. Gen. Relativ. Gravit. 41 (3): 469–495.
+ [5] Christodoulakis, T., Papadopoulos, G. O., Dimakis, A., 2003, Automorphisms of real four-
+     dimensional Lie algebras and the invariant characterization of homogeneous 4-spaces. J.
+     Phys. A: Math. Gen. 36: 427–441. Corrigendum. J. Phys. A: Math. Gen. 36: 2379.
+ [6] Hydon, P. E., 1998, Discrete point symmetries of ordinary differential equations. Proc. Roy.
+     Soc. Lond. A 454: 1961–1972.
+ [7] Hydon, P. E., 2000, How to construct the discrete symmetries of partial differential equa-
+     tions. Eur. J. Appl. Math. 11: 515–527.
+ [8] Laine-Pearson, F. E., Hydon, P. E., 2003, Classification of discrete symmetries of ordinary
+     differential equations. Stud. Appl. Math. 111: 269–299.
+ [9] Patera, J., Sharp, R. T., Winternitz, P., Zassenhaus, H., 1976, Invariants of real low dimen-
+     sion Lie algebras. J. Math. Phys. 17: 986–994.
+[10] Mubarakzyanov, G. M., 1963, On solvable Lie algebras. Izv. Vys. Ucheb. Zaved. Matematika
+     1963(1): 114–123 (in Russian).
+[11] Mubarakzyanov, G. M., 1963, Classification of real structures of Lie algebras of fifth order.
+     Izv. Vys. Ucheb. Zaved. Matematika 1963(3): 99–106 (in Russian).
+[12] Mubarakzyanov, G. M., 1963, Classification of solvable Lie algebras of sixth order with
+     a non-nilpotent basis element. Izv. Vys. Ucheb. Zaved. Matematika 1963(4): 104–116 (in
+     Russian).
+[13] Harvey, A., 1979, Automorphisms of the Bianchi model Lie groups. J. Math. Phys. 20:
+     251–253.
+[14] González-López, A., Kamran, N., Olver, P. J., 1992, Lie algebras of vector fields in the real
+     plane. Proc. Lond. Math. Soc. 64: 339–368.
+
+
+
+                                                19
+[15] Rand, D., Winternitz, P., Zassenhaus, H., 1988, On the identification of a Lie algebra given
+     by its structure constants. 1. Direct decompositions, Levi decompositions, and nilradicals.
+     Lin. Alg. Appl. 109: 197–246.
+[16] de Graaf, W. A., 2000, Lie Algebras: Theory and Algorithms, North-Holland, Amsterdam.
+[17] Hungerford, T. W., 1980, Algebra, Springer-Verlag, New York.
+[18] Jacobson, N., 2009, Basic Algebra II (2nd ed.), Dover, New York.
+[19] Olver, P.J. 1993, Applications of Lie Groups to Differential Equations (2nd ed.), Springer-
+     Verlag, New York.
+[20] Jacobson, N., 1979, Lie Algebras, Dover, New York.
+
+
+
+
+                                               20
+

@@ -31,3 +31,7 @@ Reserve the last eight hours for overlapping discovery and verification, with th
 ## Working focus after the 12:15 UTC checkpoint
 
 N8 now has candidate algorithms for the two extreme target strata in arbitrary class, in addition to all targets in classes three through five. The remaining challenge is intermediate target layers. A possible next route uses weighted free presentations of lower-central subgroups, but finite integral orbit representatives for arbitrary higher-weight factors have not been proved; do not infer them from the degree-one IA argument. Alternate this bounded investigation with the unresolved portfolio in `research/notes/portfolio-followups.md`, and continue the novelty audit of F28.
+
+## Working focus after the 12:43 UTC checkpoint
+
+N5 has a whole-entry candidate including torsion, with an explicit finite reduction and tested central lifting. Keep its remaining specialist/novelty audit separate from the implemented examples. Next, revisit the other unresolved algorithmic and solvable-group questions and deepen F28's novelty check; do not let the N8 and N5 developments narrow the original 195-entry portfolio.

@@ -52,3 +52,5 @@ Let D be the lcm of the positive Smith diagonals (D=1 if no nontrivial congruenc
 - Evaluate group witnesses independently in GAP, including torsion, central factors, and an obstruction from bad quotient lifts.
 - Inspect the full original N5 statement/rendering and update literature. The BMO paper expressly asks about torsion, but this alone is not proof that no later result exists.
 - Do not add a candidate until the completeness and termination proof has survived this audit.
+
+Update, approximately 12:41 UTC: the gaps above have been addressed in `problems/N5/proof.md`, with a separate audit and implementation evidence. The full torsion-case algorithm is now a recorded candidate, awaiting independent review and novelty confirmation. This early lead is retained as history.
