@@ -256,3 +256,8 @@ replay has been implemented for that lead. Give its next decisive check a
 bounded attempt, then return to the wider unresolved portfolio and specific
 adversarial concerns in F28,N5,M0,F41. Do not turn verification performance
 tuning or enlargement of finite samples into the research objective.
+
+
+## Working focus after the N5 integrality audit
+
+N5 passes the targeted composite-congruence and relator-defect audit without correction. Its general rational decomposition remains imported machinery, not an end-to-end implementation. F6 has a full prior Out(F3) theorem, but its Aut(F_n) scope is not retired. Do not repeat these small audits for volume. Resume a concrete unresolved mathematical lead, maintaining statement and novelty checks and the original deadline. Current tally:4 whole-entry candidates,4 partial candidates,0 established novel results.

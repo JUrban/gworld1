@@ -805,3 +805,10 @@ The preceding preparation-only response made no mathematical progress on this ac
 ## 2026-09-28T23:36:21.500599+00:00 — all-target class-ten extension
 
 Completed an all-target class-ten N8 candidate using six kernel arguments and an injective coupled stage followed by a quadratic obstruction. Both Python structural suites passed; rank-two GAP passed, two rank-three GAP attempts timed out without per-case confirmation. The first group run failed on a discarded class-ten conjugation term; a new tail routine retained it. Main and supplemental Python/GAP suites then passed, covering all coupled outcomes and the older degree-seven exception. Exact failed/successful sources and checks retained. Extended the same N8 partial scope, with no tally increase. All jobs terminal, original frozen inputs and clock unchanged, no agents/push/contacts.
+
+
+## 2026-09-28T23:52:51.187084+00:00 — N5 integral lifting and F6 scope audit
+
+The previous preparation-only response made no mathematical progress on the active goal. Revalidated the original gworld1 clock and empty job list. A targeted N5 audit rejects modular idempotents whose local ranks cannot lift to an integral splitting; ten composite/exact/mixed-centre controls pass. Eight relator systems agree with direct lift enumeration in Python and GAP, including four negative decisions. GAP also verifies four positive projections. Both recorded jobs passed with empty stderr; no candidate correction was required.
+
+Archived and checked the primary Out(F3) conjugacy theorem and its prior Aut(F2) scope. The original F6 asks about Aut, so the rank-three outer theorem does not retire it. Original statement and primary theorem pages viewed. Tally remains4 whole,4 partial,0 established novel. No new Kourovka import, agents, contacts or push; all jobs terminal and original deadline retained.

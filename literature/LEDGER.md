@@ -355,3 +355,8 @@ Archived Lee--Ventura2010 (bounded example and explicit commutator convention), 
 ## 2026-09-28T23:36:21.500599+00:00 — all-target class-ten extension
 
 Bounded searches for free-nilpotent commutator algorithms and single-commutator decidability returned the already credited class-two/general-nilpotent sources, no matching full-class-ten theorem. This is not a novelty certification. Re-read the frozen N8 HTML and viewed its screenshot around23:31 UTC; the structural source dependencies are unchanged. Exact queries, proof dependencies and limitations are recorded in problems/N8/class10-audit.md.
+
+
+### F6 scope, 28 September 2026
+
+Dahmani--Francaviglia--Martino--Touikan, *The conjugacy problem for Out(F3)*, Forum Math. Sigma13 (2025)e41, doi:10.1017/fms.2025.3. Archived primary arXiv2311.04010v1 (2023). Read Theorem1.1, Theorem3.9 and its rank-two proof/discussion, and Remark3.10; viewed printed pages2 and13. Published theorem numbering shifts the rank-two statement to3.10. This solves outer conjugacy in rank3, not the Aut(F_n) problem F6; Aut(F2) is credited prior. Long rank-three proof not independently audited. No new discovery counted.

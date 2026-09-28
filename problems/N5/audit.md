@@ -18,6 +18,12 @@ The full original HTML and its N5 paragraph were read. The screenshot was inspec
 
 This is an internal audit by the same research agent, not independent review.
 
+A subsequent [integrality audit](integrality-audit.md) checks the distinction
+between arbitrary modular idempotents and reductions of integral splittings.
+It also compares eight central relator systems with direct enumeration of
+lift changes in Python and GAP. The candidate passes these targeted controls;
+no proof or implementation correction was required.
+
 ## An arbitrary-lift obstruction
 
 One shortcut encountered while reading the preceding torsion-free argument is invalid when read literally. This is recorded separately from the new proof and is not a claim that the published main theorem cannot be repaired.

@@ -1,0 +1,1252 @@
+                                                  THE CONJUGACY PROBLEM FOR Out(F3 ).
+
+
+
+                                                                   FRANÇOIS DAHMANI
+
+                                             Univ. Grenoble Alpes, CNRS, IF, 38000 Grenoble, France, and
+arXiv:2311.04010v1 [math.GR] 7 Nov 2023
+
+
+
+
+                                             IRL-CRM CNRS, Université de Montréal, Montréal, Canada.
+
+
+                                                                STEFANO FRANCAVIGLIA
+
+                                                 Dipartimento di Matematica of the University of Bologna
+
+
+                                                                   ARMANDO MARTINO
+
+                                                    Mathematical Sciences, University of Southampton
+
+
+                                                                   NICHOLAS TOUIKAN
+
+                                                          Department of Mathematics & Statistics
+                                                         University of New Brunswick (Fredericton)
+
+
+
+                                                 Abstract. We present a solution to the Conjugacy Problem in
+                                                 the group of outer-automorphisms of F3 , a free group of rank 3.
+                                                 We distinguish according to several computable invariants, such as
+                                                 irreducibility, subgroups of polynomial growth, and subgroups car-
+                                                 rying the attracting lamination. We establish, by considerations
+                                                 on train tracks, that the conjugacy problem is decidable for the
+                                                 outer-automorphisms of F3 that preserve a given rank 2 free fac-
+                                                 tor. Then we establish, by consideration on mapping tori, that it
+                                                 is decidable for outer-automorphisms of F3 whose maximal poly-
+                                                 nomial growth subgroups are cyclic. This covers all the cases left
+                                                 by the state of the art.
+
+
+                                            E-mail addresses: francois.dahmani@univ-grenoble-alpes.fr,
+                                          stefano.francaviglia@unibo.it, A.Martino@soton.ac.uk,
+                                          nicholas.touikan@unb.ca.
+                                            2020 Mathematics Subject Classification. 20F65, 20F67 ,20E05, 20E36, 20F10.
+                                                                                 1
+2               THE CONJUGACY PROBLEM FOR Out(F3 ).
+
+                               Contents
+    1. Introduction                                                     2
+    Acknowledgements                                                    5
+    2. Computability of a few invariants                                5
+    Notations                                                           5
+    Irreducibility                                                      6
+    Growth                                                              7
+    Lamination carriers are computable                                  9
+    3. The case of a given invariant rank 2 free factor                11
+    4. Polynomially growing automorphisms                              15
+    Quadratic polynomial growth in F3 .                                15
+    Conjugacy Problem in polynomial growth for Out F3 .                17
+    5. Exponential growth: laminations                                 17
+    Invariant Free Factor Systems in F3                                17
+    Conjugacy problem for exponential growth with rank 2
+                 lamination                                            19
+    6. Exponential growth: mapping tori                                19
+    The Almost Toral case                                              21
+    The polynomially growing subgroups in F3                           22
+    References                                                         25
+
+
+                           1. Introduction
+  In this paper we solve Dehn’s conjugacy problem in Out(F3 ), the
+group of outer automorphisms of the free group F3 of rank 3:
+Theorem 1.1. There exists an algorithm which takes two automor-
+phisms ϕ, ψ ∈ Aut(F3 ) and correctly outputs yes or no whether their
+outer classes are conjugate in Out(F3 ).
+   The conjugacy problem has already been solved within certain classes
+of outer automorphisms of free groups: the atoroidal fully irreducible
+ones by Sela [Sel95], all the irreducible ones by Los [Los96], all the
+atoroidal ones by [Dah16], the linearly growing ones by Kristić, Lustig,
+and Vogtmann [KLV01], the unipotent polynomially growing ones by
+Feighn and Handel [FH19].
+   In the case of a free group of rank 2, Out(F2 ) ≃ GL(2, Z) is well
+known and virtually free, and there is an algorithm to solve its conju-
+gacy problem.
+   In the case of a free group of rank 3, Out(F3 ) is more complicated,
+and our conjugacy decision algorithm operates by classifying the pair
+of input automorphisms by means of invariants, in subclasses, in which
+specific methods can be applied.
+   Let us mention key conjugacy invariants that are relevant in these
+classifications, and are computable. They give a first frame of reference.
+                 THE CONJUGACY PROBLEM FOR Out(F3 ).                        3
+
+     • Irreducibility (whether there is an invariant conjugacy class of
+       free factor system, or not), [Kap14], [FM22];
+     • exponential growth (whether there is a conjugacy class whose
+       iterated images grow exponentially fast, or not), [BFH05];
+     • rank of the maximal polynomially growing subgroups (the max-
+       imal subgroups whose elements have iterated images that grow
+       at most polynomially in conjugacy length), and polynomial de-
+       gree of growth in these subgroups (Proposition 2.7);
+     • arrangement of these subgroups (their orbit under the automor-
+       phism group of the ambiant free group) (Gersten’s algorithm);
+     • ranks of the free factors carrying the so-called attracting lami-
+       nation (Proposition 2.9).
+Example 1.2. The map a 7→ a, b 7→ ba, c 7→ cb extends to the free
+group of basis {a, b, c} as an automorphism that is reducible (⟨a, b⟩ is
+an invariant free factor of rank 2), polynomially growing of degree 2
+(the growth of c is quadratic).
+Example 1.3. A pseudo-Anosov mapping class on a twice punctured
+torus gives an automorphism that is reducible (each puncture corre-
+sponds to a free factor of rank one that is preserved), of exponential
+growth, with two conjugacy classes of maximal polynomially growing
+subgroups (corresponding to the punctures), both cyclic, on which the
+automorphism has polynomial degree 0. They are both rank 1 free fac-
+tors, but not in a same free factor system. The attracting lamination
+is supported by the entire group.
+Example 1.4. Take T a torus with one hole ∂T , with a base point on
+its boundary, and a circle C with a base point, and take the wedge of
+these spaces, identifying the two base points: its fundamental group is
+F3 . Consider a pseudo-Anosov mapping class on T , fixing the boundary
+pointwise, and a map that sends C on the concatenation C · ℓ for a
+chosen loop ℓ in T . The defined map on T ∧C induces an automorphism
+of F3 that is reducible, of exponential growth, with an invariant free
+factor of rank 2 (the group of T ). The cyclic group of the boundary ∂T
+of T is polynomially growing of degree 0. Depending on the choice of ℓ,
+it might or might not be a maximal polynomially growing subgroup: if ℓ
+is a power of the loop ∂T , the maximal polynomially growing subgroup
+containing π1 (∂T ) is actually of rank 2, on which the automorphism
+has polynomial degree 0 or 1, and it is not a free factor of F3 but rather
+a factor of a decomposition of F3 as some amalgamated free product
+                        π1 (T ) ∗π1 (∂T ) π1 (C ∧ ∂T ).
+The attracting lamination is carried by the rank 2 free factor π1 (T ).
+  It is nevertheless not sufficient to collect these invariants to have char-
+acterised the conjugacy class of an outer-automorphism. For instance,
+knowing that the automorphisms are irreducible, with pure exponential
+4                THE CONJUGACY PROBLEM FOR Out(F3 ).
+
+growth (i.e. the only polynomially growing subgroup is the trivial one)
+still requires stamina to decide the conjugation between such outer-
+automorphisms. Actually, all the solved cases listed in the beginning
+of this introduction all correspond to some particular situation in this
+frame of reference.
+   In our study of Out(F3 ), we will observe that, given the state of
+the art, only three configurations in this frame of reference need to be
+treated. We will cast two of them in the point of view of automorphisms
+preserving a specific rank 2 free factor. We will cast the last one in
+the point of view of toral relatively hyperbolic mapping tori. The first
+configurations is that of the polynomial growth of degree 2 on the group
+F3 (well illustrated by Example 1.2). The second configuration is the
+case of exponential growth in which a rank 2 free factor is invariant,
+and ”attracts” all the growth. In that case (that is well illustrated
+by our example 1.4) there is only one class of maximal polynomially
+growing subgroup, it is not a free factor, it is either cyclic (generated
+by the commutator of a basis in the invariant rank 2 free factor), or
+of rank 2 (attached to this free factor). The last case (illustrated by
+Example 1.3) is when the growth is exponential, with a rank 1 free
+factor preserved, and the maximal polynomial growth subgroups are of
+rank 1 (there might be two of them up to conjugacy).
+   Our algorithm is shown in Figure 1 and its correctness is derived from
+the correctness of every classification step as well as every terminal step.
+There are several ways to separate cases toward the use of Theorem
+3.1 or the use of Theorem 6.4 or of methods in section 6, since they
+overlap, but considering complexity it seems reasonable to leave the
+later for the smaller number of cases.
+   In Section 3 we show how to solve the conjugacy problem in Out(F3 )
+among all outer automorphisms with a given invariant rank 2 free fac-
+tor. This result, in a sense, is a type of induction step from Out(F2 ) to
+Out(F3 ), but as will be explained in Remark 3.10, it will not generalize
+similarly to higher ranks. This case is critically important as we will
+show that most problematic situations (which actually fall in the case
+where the given automorphism induces a polynomial growth automor-
+phism on a non-cyclic subgroup) lead to an invariant free factor of rank
+2.
+   In Section 4 we show that quadratically growing outer automor-
+phisms have an invariant rank 2 free factor. In Section 5 we use train
+track methods to study the types of attracting laminations that arise.
+One possibility gives rise (again) to an an invariant rank 2 free factor.
+In Section 6 we show that the other possibility implies that the outer
+automorphisms are so-called almost toral relatively hyperbolic and the
+conjugacy problem for this class of outer automorphisms is established
+by the main result of [DT21] in its particular case where the so-called
+                   THE CONJUGACY PROBLEM FOR Out(F3 ).                                                       5
+
+                     Take a pair (ϕ, ψ) of
+                                                              Irreducible          Use Theorem 5.1
+                  automorphisms in Out(F3 ).
+                                                                                 to decide conjugacy.
+       Decide whether they are irreducible [Kap14, FM22]
+
+
+                     Reducible
+
+
+                    For each automorphism                                      For Polynomial Growth
+                     construct algorithmic               Polynomial                 of degree ≤ 1
+                   relative train track maps             Degree ≤ 1               Use Theorem 4.1
+          and use this to compute growth (Prop. 2.7)                             to decide conjugacy
+
+                                                           Pol
+                                                               yo  nom
+                   Exponential                             Deg         ial
+                                                                 ree
+                                                                     2
+
+              Reducible with exponential growth                              Quadratic Polynomial Growth
+
+
+
+
+                                                                                   There is a unique
+                  Find the free factor carrier                                invariant rank 2 free factor
+                                                       Rank=2
+                   of the unique lamination                                     for each automorphism.
+                   and its rank (Prop. 2.9)                                         Use Theorem 3.1
+                                                                                  to decide conjugacy
+
+                      Rank =3
+
+
+           By Corollary 6.7 both automorphisms are
+              almost toral relatively hyperbolic.
+            Use Theorem 6.4 to decide conjugacy.
+
+
+       Flowchart 1. Our algorithm to solve the conjugacy
+       problem in Out(F3 ). If at any time the given automor-
+       phisms ϕ and ψ follow different arrows, they are not con-
+       jugate.
+
+peripheral subgroups are Z × Z or Z ⋊ Z, the fundamental group of the
+Klein bottle.
+Acknowledgements. We would like to thank Vincent Guirardel, Mark
+Feighn and Michael Handel for valuable discussions.
+   F.D. is supported by ANR-22-CE40-0004 GoFR. S.F. is supported
+by INdAM group GNSAGA and the European Union - NextGenera-
+tionEU under the National Recovery and Resilience Plan (PNRR) –
+Mission 4 Education and Research – Component 2 From Research to
+Business - Investment 1.1, Notice Prin 2022 issued with Decree No. 104
+on 2/2/2022, with the title ‘Geometry and Topology of Manifolds,’ pro-
+posal code 2022NMPLT8 - CUP J53D23003820001. N.T. is supported
+by an NSERC Discovery Grant.
+
+              2. Computability of a few invariants
+Notations. We begin by some general notations, and definitions.
+Notation 2.1.
+    • In a group G, the conjugation of g by h is g h := h−1 gh.
+6                  THE CONJUGACY PROBLEM FOR Out(F3 ).
+
+      • Aut(G) acts on the right: for ϕ ∈ Aut(G), g ∈ G, the image of
+        g under ϕ is gϕ.
+      • Ad(g) denotes the automorphism of G that is conjugation by
+        g: x Ad(g) = xg . Hence Ad(g) Ad(h) = Ad(gh).
+      • Out(G) = Aut(G)/ Inn(G), for Inn(G) = {Ad(g), g ∈ G}.
+      • F3 = ⟨a, b, c⟩ denotes a free group of rank 3.
+      • We will prefer the notation K for free factors, and H for sub-
+        groups.
+      • We write outer-automorphisms with capital greek letters, and
+        automorphisms with small greek letter: if Φ is an outer-automorphism,
+        ϕ ∈ Φ is an automorphism in its class. In this convention, (ac-
+        cording to context) X reads Chi, and χ ∈ X is an automorphism.
+   For Φ ∈ Out(F ), we say a subgroup H ≤ F is Φ-invariant if for any
+ϕ ∈ Φ we have that H is conjugate to Hϕ.
+   A free factor system of F is a set of conjugacy classes of subgroups
+of F , {[K1 ], . . . , [Km ]} such that there exists a free subgroup Fr < F
+for which F = K1 ∗ · · · ∗ Km ∗ Fr . It is proper if the Ki are neither {1}
+nor F . It is Φ invariant if all Ki (not necessarily Fr ) are Φ invariants.
+   A free factor system {[Y1 ], . . . , [Ys ]} is smaller than {[K1 ], . . . , [Km ]}
+if for each i there exists j such that Yi has conjugate inside Kj .
+Irreducibility. A first conjugacy invariant, and decidable, property
+is the irreducibility of outer-automorphisms.
+Definition 2.2. An outer-automorphism Φ is called reducible if it ad-
+mits an invariant proper, non-trivial, free factor system - see [BFH00].
+Otherwise it is said to be irreducible.
+  An automorphism is fully irreducible if every positive power is irre-
+ducible.
+Remark 2.3. An automorphism is fully irreducible if and only if the
+only periodic free factors preserved up to conjugacy are given by ei-
+ther the trivial subgroup or the whole group. Every fully irreducible
+automorphism is irreducible, but not conversely.
+  An example of an irreducible automorphism which is not fully irre-
+ducible is as follows: take a surface with p > 1 punctures. Consider
+a pseudo-Anosov map on the surface which cyclically permutes the
+punctures. Then the outer automorphism induced on the fundamental
+group is irreducible but not fully irreducible. In fact, any example of
+exponential growth arises in this way.
+  Fully irreducible is often referred to as ‘iwip’ - irreducible with irre-
+ducible powers - in the literature.
+   There is an algorithm to detect whether Φ ∈ Out(Fn ) is fully ir-
+reducible given in [Kap14], and whether it is irreducible in [FM22].
+A more recent algorithm given in [KB19] decides whether Φ is fully
+irreducible in polynomial time.
+                 THE CONJUGACY PROBLEM FOR Out(F3 ).                            7
+
+Growth. A second set of conjugacy invariant, and decidable, proper-
+ties is related to growth.
+Definition 2.4. Given ϕ ∈ Φ ∈ Out(Fn ) and g ∈ Fn and a fixed basis
+X of Fn we define the growth rate of g as follows:
+     • The element g has polynomial growth of degree at most d under
+       Φ if ∥gϕn ∥X = O(nd ).
+     • The element g has exponential growth if there exists λ > 1 for
+       which λn = O(∥gϕn ∥X ). 1
+  This growth rate is independent of the choice of X and ϕ ∈ Φ.
+Moreover, by [BH92], the growth rate of every g ∈ Fn is either at least
+exponential or at most polynomial.
+Definition 2.5. An outer-automorphism Φ of Fn is said to have
+    • polynomial growth if all elements g ∈ Fn have polynomial growth
+       rate,
+    • exponential growth if some element g ∈ Fn has exponential
+       growth rate.
+  In the case of a polynomial growth outer-automorphism of Fn , there
+exists d ≥ 0 for which all elements of F have polynomial growth of
+degree at most d, and moreover, the smallest such d satisfies d ≤ n − 1,
+see [BFH05], [Lev09].
+Definition 2.6. A polynomial growth outer-automorphism of Fn is
+unipotent if it induces an automorphism of the abelianisation Zn that
+is represented by a unipotent matrix.
+   Such a matrix of the abelianisation of an automorphism of Fn of poly-
+nomial growth only has eigenvalues of modulus 1, and in in GL(n, Z),
+so its |GL(n, Z/3)|-th power is unipotent.
+   The following is known to specialists, and important to us. We
+explain a proof, using the theory of CT maps [FH18], that are certain
+homotopy equivalences on graphs, representing outer-automorphisms
+on their fundamental groups; the interested reader is referred to this
+reference.
+Proposition 2.7 ([FH11, FH18]). Given an automorphism, Φ ∈ Out(Fn ),
+there is an algorithm to decide:
+     • If Φ has polynomial or exponential growth and,
+     • If Φ has polynomial growth, decide the degree of polynomial
+        growth.
+  1Note that (for non-negative functions) f (n) = O(g(n)) means f (n) ≤ M g(n) for
+some constant M . The reason for the asymmetric definition of growth is that the
+idea to bound polynomial growth from above and exponential growth from below.
+It is easy to see that there is always an exponential upper bound.
+8               THE CONJUGACY PROBLEM FOR Out(F3 ).
+
+Proof. By [FH18], there is an algorithm to construct a CT map (which
+is, in particular, a relative train track map) representing a rotationless
+power of Φ. Since the properties needed here are invariant under tak-
+ing positive powers, we may as well assume that Φ itself is so-called
+rotationless (the power needed can be determined in advance). In par-
+ticular, a rotationless automorphism of polynomial growth would be
+unipotent, see [FH11, Lemma 4.2.2].
+   So take a CT map, f : G → G representing Φ.
+   It then follows immediately that if f admits an exponential stra-
+tum then Φ will have exponential growth. So we can algorithmically
+distinguish between exponential and polynomial growth.
+   So if Φ has polynomial growth, then all strata will be NEG (non-
+exponentially growing); note that by [FH11], Theorem 2.19, there will
+be no zero strata in the absence of exponential strata. Then Lemma
+4.2 of [FH11] shows that each such NEG stratum consists of a single
+edge, E, such that f (E) = E · u, where the dot denotes a splitting.
+In particular, the growth of f k (E) is polynomial of one degree higher
+than that of u. Hence, by induction, we can determine the growth of
+every edge.
+   This almost determines the growth of the automorphism, Φ, in the
+sense that Φ has polynomial growth of degree d > 1 if and only if
+some edge grows polynomially with degree d. However, it is possible
+to represent the identity map as a CT map where some edge grows
+linearly and this is the only exception. See [Mac02, Lemma 2.16] and
+[AHK22, Lemma 2.3].
+   However, since we have already passed to a rotationless power (in
+particular it will be UPG), our automorphism will have growth of de-
+gree 0 if and only if it represents the identity and this is immediately
+checked.
+                                                                        □
+
+   For an outer-automorphism of Fn of exponential growth, there exists
+a canonical finite collection of conjugacy classes of finitely generated
+subgroups of Fn , such that an element g ∈ Fn has polynomial growth
+rate if and only if it is conjugate in one of these subgroups [Lev09].
+Those are the maximal polynomially growing subgroups.
+   Given H such a maximal subgroup, and ϕ ∈ Φ, there is an integer
+m > 0, and g ∈ Fn for which H(ϕm Ad(g)) = H. The automorphism
+ϕm Ad(g) of H is then a polynomial growth automorphism. We again
+refer to [Lev09]. Through standard arguments of quasi-isometry, its
+polynomial degree of growth rate does not depend on ϕ ∈ Φ, m and g
+satisfying the above. We thus call it the degree of growth of Φ on H.
+
+Proposition 2.8. There is an algorithm that, given Φ ∈ Out(Fn ) of
+exponential growth, computes a basis for each conjugacy-representative
+                THE CONJUGACY PROBLEM FOR Out(F3 ).                      9
+
+of maximal polynomially growing subgroup of Fn , and the degree of
+growth of Φ on it.
+  Proposition 2.8 follows from the relative hyperbolicity of Fn ⋊Z given
+by Φ [Gho23, DL20], and the computability of its peripheral subgroups
+[DG13]. This detects the maximal polynomially growing subgroups of
+Fn . Then, Proposition 2.7 determines the induced growth on each of
+them.
+
+Lamination carriers are computable. A more involved conjugacy
+invariant for outer-automorphisms of free groups that have exponential
+growth is that of the carrier of the attracting laminations [BFH00,
+Section 3]. This is a specific conjugacy class of free factor systems
+of Fn , that in some sense, attracts all the exponential growth of the
+automorphism.
+   More concretely, let ∂Fn , denote Gromov boundary of Fn , which for
+a free group is the same as the set of ends. Let Be = (∂Fn ×∂Fn −∆)/Z2 ;
+where ∆ is the diagonal subset of ∂Fn × ∂Fn , and the Z2 action is via
+interchanging the coordinates. That is, Be can be thought of as the set
+of unordered pairs of distinct points on the boundary of Fn ; morally,
+this is the set of lines in Fn . The action of Fn on its boundary extends
+to an action on B. e
+   We then let B = B/F   e n . We say that β ∈ B is carried by (the
+conjugacy class of) a free factor K, if β lies in the image of ∂K ×∂K →
+B. A subset, S, of B is carried by a free factor system, F, if every
+element of S is carried by some free factor in F.
+   An attracting lamination for Φ is then a closed subset of B which
+is the closure of a single point, β, and has some extra properties (β
+is birecurrent, admits an attracting neighbourhood for some positive
+iterate of Φ, and is not carried by a Φ-periodic free factor of rank one
+- see [BFH00, Definition 3.1.5]).
+   Any automorphism, Φ, then admits a finite set of attracting lam-
+inations, L(Φ) which is carried by a Φ-invariant free factor system
+([BFH00, Lemmas 3.1.6 and 3.1.13]). Morally, one has one attract-
+ing lamination for every exponential stratum for a relative train track
+representative for Φ (or some power) and moreover L(Φ) is canonical.
+   For instance, a fully irreducible automorphism will have a single at-
+tracting lamination which is only carried by the whole group. A poly-
+onomially growing automorphism will have no attracting laminations.
+   Again the theory of CT maps allows to compute this invariant. We
+would like to thank Mark Feign and Michael Handel for the proof of
+the following Proposition.
+Proposition 2.9. Given an automorphism, Φ ∈ Out(Fn ) of exponen-
+tial growth, there is an algorithm to find the smallest free factor system
+which carries the set of attracting laminations.
+10                THE CONJUGACY PROBLEM FOR Out(F3 ).
+
+Proof. Since the set of attracting laminations is stable under taking
+positive powers, we are free to replace Φ with a (rotationless) power
+and use [FH18] to algorithmically produce a CT map representing this
+power of Φ. Since we are dealing with a rotationless automorphism,
+each exponential stratum produces exactly one attracting lamination.
+It is therefore sufficient to produce an algorithm which, given this CT
+map and a specific exponential stratum, Hk of it, finds the smallest
+free factor carrying Λ, the associated attracting lamination.
+   Let f : G 7→ G be the CT map for the power of Φ and let Hk be
+an exponential stratum with corresponding attracting lamination Λ.
+Construct a leaf L of Λ by choosing a point fixed by f in the interior
+of an edge e of Hk and considering:
+
+                           e ⊂ f (e) ⊂ f 2 (e) ⊂ . . .
+Note that L is f -invariant.
+  Choose a segment of L that starts and ends with a copy of the same
+oriented edge of Hk and with e interior to the segment. Glue the initial
+and terminal edges of the segment to form a loop γ immersing to G. For
+i ≥ 0, denote by γi the immersed loop (or conjugacy class) [f i (γ)]. Note
+that γi is obtained from L by gluing segments of the form [f i (edge)].
+In particular, these segments are long if i is big.
+Claim: The free factor support F (Λ) of Λ is equal to the free factor
+support, F (∪i≥0 {γi }) of
+
+                                   ∪i≥0 {γi }.
+Comment: The free factor support of a finite collection of elements can
+be found algorithmically - see [FH18, Lemma 4.2]. Moreover, sequence
+of free factor supports of {γ1 }, {γ1 , γ2 }, . . . stabilises. Hence, for an
+algorithm, it is enough to prove the claim.
+Proof of Claim: That F (Λ) ⊂ F (∪i≥0 {γi }) is clear.
+    For the other direction, we will show that γi is contained in every
+Φ-invariant free factor F ′ that carries Λ. It is enough to assume that i
+is large.
+    Let G′ be a marked graph with sub-graph K ′ representing F ′ . Let
+K̃ ′ ⊂ G̃′ and G̃ denote universal covers. View L (defined above) as a
+subset of G̃ such that its representation in G̃′ is a subset of K̃ ′ . Let T
+denote the covering translation of G that identifies the segments of L
+that give γi .
+    If lines in G̃ have long (depending on G′ ) overlap then their represen-
+tations in G′ intersect - this is a consequence of the bounded cancella-
+tion lemma. Let L′ denote the representation in G̃′ of L and T ′ denote
+the covering translation of G̃′ corresponding to T . In particular, L′ and
+T ′ (L′ ) intersect. Since L′ is in K̃ ′ and intersects T ′ (L′ ) the union of L′
+                 THE CONJUGACY PROBLEM FOR Out(F3 ).                       11
+
+and T ′ (L′ ) is contained in K̃ ′ - this follows since translates of K̃ ′ are
+either equal or disjoint.
+   More generally the union as j ranges over the set of integers of T ′j (L′ )
+is connected, contained in K̃ ′ , and T ′ -invariant. Hence γi is carried by
+F ′.                                                                        □
+
+      3. The case of a given invariant rank 2 free factor
+  For a free factor K ≤ F we define
+            Out(F, K) = {Φ ∈ Out(F ) : K is Φ-invariant}.
+  For any Φ ∈ Out(F, K), the restriction to K is not well defined as
+an automorphism, but it is well defined as an outer-automorphism,
+because K is its own normaliser in F .
+  This section is devoted to the proof of the following.
+Theorem 3.1. Let K ≤ F3 be a free factor of rank 2. Then conjugacy
+problem in Out(F3 , K) for pairs elements that induce infinite order
+outer-automorphisms of K, is decidable.
+  It will be enough to consider the case where K = ⟨a, b⟩ < F3 =
+⟨a, b, c⟩. Before the proof of Theorem 3.1 we estabish some needed
+result.
+Lemma 3.2. Let G = Out(F3 , K), and X ∈ G. Then there exists
+a unique χ ∈ X such that there exists ϵ = ±1, g ∈ ⟨a, b⟩ and χ0 ∈
+Aut(⟨a, b⟩), satisfying
+                               
+                                c →
+                                   7     gcϵ
+(1)                         χ:   b → 7   bχ0
+                                 a →   7 aχ0 .
+                               
+
+In particular, G is isomorphic to an iterated semi-direct product, C2 ⋉
+(Aut(F2 ) ⋉ F2 ), where the Aut(F2 ) action on F2 is the natural one, and
+the C2 action on Aut(F2 ) ⋉ F2 is given by the involution which maps
+(χ0 , g) to (χ0 Ad(g), g −1 ).
+ In the light of the decomposition of the lemma, we can represent any
+Out(F3 , K) uniquely as an ordered triple, (ϵ, χ0 , g).
+Proof. The outer automorphism X preserves the conjugacy class of K =
+⟨a, b⟩, hence an element of X preserves ⟨a, b⟩; note that this element is
+only well-defined up to the normaliser of ⟨a, b⟩, which is again ⟨a, b⟩.
+   Then, X must send c into ⟨a, b⟩c±1 ⟨a, b⟩, and therefore (after com-
+posing with another inner automorphism by an element of ⟨a, b⟩) an
+element of X sends c in ⟨a, b⟩cϵ , for ϵ ∈ {−1, 1}. An inner automor-
+phism preserving ⟨a, b⟩ and sending c in ⟨a, b⟩c±1 has to be trivial, and
+therefore we obtain the first part of the statement.
+12                THE CONJUGACY PROBLEM FOR Out(F3 ).
+
+   The set of X ∈ G for which ϵ = 1 clearly forms a normal subgroup,
+G1 . In G1 , the set of elements for which χ0 = Id is again a normal
+subgroup, G2 , isomorphic to ⟨a, b⟩. It is clear that the quotient G1 /G2
+(isomorphic to Aut(F2 )) lifts in G1 , making G1 ≃ (Aut(F2 ) ⋉ F2 ).
+Finally, G/G1 ≃ Z/2 also clearly lifts in G, as the automorphism given
+by χ0 = 1, g = 1, ϵ = −1, making G an iterated semi-direct product.
+One verifies that the involution on G1 given by the later lift is the one
+given in the statement.                                                 □
+Notation 3.3.
+    • Let G be a group and H a subgroup. For x, y ∈ G we write
+      x ∼H y if there exists an h ∈ H such that xh = y. We do not
+      require x, y to be in H.
+    • We say that ∼H is decidable if we can construct is an algorithm
+      which decides on inputs x, y ∈ G, whether x ∼H y. That is,
+      ∼H is decidable means that it is a recursive subset of G2 , and
+      we have an explicit algorithm to decide membership.
+Lemma 3.4. Let G be a group, H a subgroup of G and H0 a finite
+index subgroup of H. Then if ∼H0 is decidable and we can compute a
+complete set h1 , . . . , hk of coset representatives of H/H0 then so is ∼H .
+Proof. Let h1 , . . . , hk be computed set of coset representatives of H0 in
+H. Then x ∼H y if and only if there exists an i such that xhi ∼H0 y. □
+Remark 3.5. Some care needs to be taken here. It is false - there are
+counterexamples - that if the conjugacy problem is solvable in a finite
+index subgroup, then it is solvable in the group. That is, there are
+examples of groups G, with finite index subgroups H such that:
+     • ∼H ∩H 2 is recursive,
+     • ∼G is not recursive.
+Hence conjugacy is solvable in H but not in G. This doesn’t contradict
+the Lemma above since we have the stronger hypothesis that ∼H is
+decidable.
+  The main tool we will use to solve conjugacy in G is the twisted
+conjugacy problem.
+Definition 3.6. Let ϕ ∈ Aut(Fn ). Then x, y ∈ Fn are said to be
+twisted ϕ conjugate, written x ∼ϕ y if there exists a w ∈ Fn such that:
+                              x = (wϕ)yw−1 .
+     We need the following later:
+Lemma 3.7. Let ϕ ∈ Aut(Fn ) and x ∈ Fn . Then for any k ∈ Z,
+x ∼ϕ xϕk .
+Proof. Simply notice that xϕ = (xϕ)xx−1 and xϕ−1 = ((x−1 ϕ−1 )ϕ)x(xϕ−1 )
+and that ∼ϕ is an equivalence relation.                            □
+                THE CONJUGACY PROBLEM FOR Out(F3 ).                     13
+
+Theorem 3.8 (Theorem 1.5 of [BMMV06]). Let ϕ ∈ Aut(Fn ). Then
+the twisted conjugacy problem for ϕ is solvable. That is, ∼ϕ is a recur-
+sive subset of Fn2 .
+  We will also need the following:
+Theorem 3.9. The conjugacy problem is solvable in Out(F2 ) and Aut(F2 ).
+Moreover for any Φ ∈ Out(F2 ) of infinite order and for any ϕ ∈ Φ:
+    • The centraliser of Φ in Out(F2 ) is virtually cyclic;
+    • there is an algorithm that computes the coset representatives of
+      ⟨Φ⟩ in its centraliser;
+    • the centraliser of ϕ in Aut(F2 ) has a finite index subgroup
+C0 = {ϕk Ad(g) : k ∈ Z, g ∈ F ix(ϕ)} = ⟨ϕ⟩ × ⟨Ad(g) : g ∈ F ix(ϕ)⟩;
+      • the group D = {χ ∈ Aut(F2 ) : ϕχ = ϕ Ad(h), h ∈ F2 } has a
+        finite index subgroup D0 = {ϕk Ad(x) : k ∈ Z, x ∈ F2 }.
+Proof. We note that Out(F2 ) ∼ = GL2 (Z) is virtually a free group of rank
+2, and therefore word hyperbolic. Therefore the conjugacy problem is
+solvable and centralisers of infinite order elements are virtually cyclic.
+For any element of infinite order, g in a hyperbolic group it is known to
+be algorithmic to find the coset representatives of ⟨g⟩ in its centraliser.
+This is folklore, but a detailed proof appears in Proposition 4.11 of
+[BMV10].
+   The solution for the conjugacy problem for Aut(F2 ) appears in [Bog00]
+and also as Corollary 5.2 of [BMV10].
+   The rest of the statements about Aut(F2 ) are then just translations
+of the corresponding statements about Out(F2 ).                          □
+  We now address the conjugacy problem in Out(F3 , K) for elements
+that induce infinite order outer-automorphisms on K.
+Proof of Theorem 3.1. Let G = Out(F3 , K), and Φ, Ψ ∈ G, given by
+data, as in Lemma 3.2, as
+                     Φ = (ϵ1 , ϕ0 , u) and Ψ = (ϵ2 , ψ0 , v).
+  We assume that ϕ0 , ψ0 define infinite order outer-automorphisms of
+K. We must decide whether there exists a conjugator, χ = (ϵ3 , χ0 , h) ∈
+G, such that Φχ = Ψ. By Lemma 3.4, we may assume that ϵ3 = 1. We
+calculate the possibilities for Φχ , listed as a triple:
+
+         If ϵ1 = 1      Φχ = (1, ϕχ0 0 , (h−1 ϕχ0 0 )(uχ0 )h)
+(2)
+         If ϵ1 = −1 Φχ = (−1, ϕχ0 0 Ad(h), h−1 (h−1 ϕχ0 0 )(uχ0 ))
+  Hence if ϵ1 = 1, then for Φ and Ψ to be conjugate, we would require
+that ϕ0 and ψ0 are conjugate. If ϵ1 = −1, they would need to be
+conjugate as outer automorphisms. But notice that in this case, when
+14                  THE CONJUGACY PROBLEM FOR Out(F3 ).
+
+ϵ1 = −1, we can set χ0 = Id, and by varying h, we can obtain triples
+where the second entry is anything of the form ϕ0 Ad(h).
+   Hence, if Φ, Ψ are to be conjugate, we would require ϵ1 = ϵ2 (oth-
+erwise we know that they are not conjugate). Moreover, by solving
+conjugacy in Aut(F2 ) or Out(F2 ), we may assume that ϕ0 = ψ0 as
+automorphisms. To summarise, we have reduced the problem to the
+situation where:
+      • ϵ1 = ϵ2 ,
+      • ϕ0 = ψ0 in Aut(F2 ).
+Case 1: ϵ1 = ϵ2 = 1. :
+   In this case we must have that ϕχ0 0 = ψ0 = ϕ0 . Hence χ0 centralises
+ϕ0 . Let C = CAut(F2 ) (ϕ0 ) be the centraliser of ϕ0 in Aut(F2 ). Then χ
+lies in the subgroup, C ⋉ F2 of G. By Lemma 3.4, it will be enough
+to solve the problem where we look at conjugators that lie in the sub-
+group, C0 ⋉ F2 , where C0 is the finite index subgroup of C given by
+Theorem 3.9. Hence we may assume that χ0 = ϕk0 Ad(x), where k ∈ Z
+and x ∈ F ix(ϕ0 ).
+   But then we get that:
+     Φχ = (1, ϕ0 , (h−1 ϕ0 )(uϕk0 Ad(x))h) = (1, ϕ0 , ((h−1 x−1 )ϕ0 )(uϕk0 )xh),
+using that fact that xϕ0 = x. Since Ψ = (1, ϕ0 , v), that means we are
+trying to decide whether there exist k ∈ Z, h ∈ F2 , x ∈ F ix(ϕ0 ) such
+that:
+
+                        (h−1 x−1 )ϕ0 (uϕk0 )xh = v.
+Putting h′ = xh, this is equivalent to deciding:
+                                  −1
+                               (h′ )ϕ0 (uϕk0 )h′ = v.
+But by Lemma 3.7, this is equivalent to saying that u ∼ϕ0 v, which is
+decidable by Theorem 3.8.
+Case 2: ϵ1 = ϵ2 = −1. :
+  As before, we have that ϕ0 = ψ0 . This time, by Equation 2, we get
+that χ0 belongs to the subgroup D given by Theorem 3.9. Hence, by
+Lemma 3.4, we may assume that χ0 ∈ D0 . Hence, χ0 = ϕk0 Ad(x) for
+some x ∈ F2 . Therefore, using Equation 2 and simplifying:
+              Φχ = (−1, ϕ0 Ad(w), h−1 (h−1 ϕ0 Ad(wh−1 ))(uχ0 )),
+where w = (x−1 ϕ0 )xh. However, since we have reduced to the case
+where ϕ0 = ψ0 , we get the extra restriction that w = 1 that is equivalent
+to h = x−1 (xϕ0 ). And hence for Φ and Ψ to be conjugate we would
+need to simply equate the third entry of the triple:
+                           (h−1 ϕ0 )h−1 x−1 (uϕk0 )x = v.
+Putting h = x−1 (xϕ0 ) this gives:
+              (x−1 ϕ20 )(xϕ0 )(x−1 ϕ0 )(uϕk0 )x = (x−1 ϕ20 )(uϕk0 )x = v.
+                THE CONJUGACY PROBLEM FOR Out(F3 ).                   15
+
+Hence this problem is equivalent, by Lemma 3.7 to u ∼ϕ20 v or uϕ0 ∼ϕ20
+v, both of which are solvable by Theorem 3.8.                      □
+Remark 3.10. A natural question to ask is whether the strategy above
+can be generalized to higher rank free groups. We note that ingredients
+used in the proof above are
+     • The conjugacy problem in Aut(F2 ). The conjugacy problem in
+       Aut(Fn ) appears to be harder than the conjugacy problem in
+       Out(Fn ).
+     • Explicit computations of centralizers in Out(F2 ). In our case,
+       we were able to exploit the fact that Out(F2 ) is virtually free.
+       It was shown in [BFH97] that centralizers of irreducible auto-
+       morphisms are virtually cyclic. As for more general automor-
+       phisms, the current state of the art for polynomially growing
+       automorphisms [Rod13, RW15, AM22a] amounts to establish-
+       ing finiteness properties.
+For these reasons, the argument above does not obviously generalize.
+
+           4. Polynomially growing automorphisms
+  Before turning our attention to the quadratic growth case in F3 (i.e.
+the largest polynomial growth permitted there), let us record the com-
+bination of classical results, on the conjugacy problem for low degree
+polynomial growth outer-automorphisms of Fn .
+Theorem 4.1 ([Krs89, KLV01]). The conjugacy problem in Out(Fn ) is
+decidable among outer automorphisms with growth of polynomial degree
+0 or 1.
+   Recall also that the conjugacy problem among unipotent polynomi-
+ally growing outer automorphisms of Fn has been solved by [FH19].
+Quadratic polynomial growth in F3 . Every Φ ∈ Out(Fn ) of poly-
+nomial growth has a power Φn that is unipotent. In fact, one can
+take this power to be uniform for every n; the exponent (or order) of
+GLn (Z3 ) suffices, as one can define a UPG automorphism as one of
+polynomial growth which induces the trivial map in Z3 homology.
+Definition 4.2. Two automorphisms ϕ, ψ ∈ Aut(Fn ) are said to be
+isogredient if they are conjugate by an inner automorphism.
+  Recall that any outer-automorphism of Fn is a coset of Inn(Fn ) in
+Aut(Fn ). On each such outer automorphism, the relation of isogredi-
+ence is an equivalence relation.
+Theorem 4.3 (Bestvina-Handel Theorem, [BH92]). Let Φ ∈ Out(Fn ).
+Then,        X
+                 max{rank(Fix ϕ) − 1, 0} ≤ n − 1,
+16              THE CONJUGACY PROBLEM FOR Out(F3 ).
+
+where the sum is taken over representatives, ϕ, of isogredience classes
+in Φ.
+Theorem 4.4. Let Φ ∈ Out(Fn ) have quadratic growth. Then,
+               X
+           1≤      max{rank(Fix ϕ) − 1, 0} ≤ n − 2,
+If n = 3, this sum is exactly equal to 1 and exactly one isogredience
+class has a non-zero contribution to this sum.
+Proof. This follows from results in either [Lev09] or [Mar02]. A full
+discussion of this is also given in [AM22b].
+  More specifically, as argued in [AM22b, Theorems 2.4.6 and 2.4.8],
+any outer automorphism, Φ of Fn , which satisfies the equality from 4.3,
+namely:
+                 X
+                      max{rank(Fix ϕ) − 1, 0} = n − 1,
+must have linear growth.                                                □
+Lemma 4.5. Let Φ ∈ Out(F2 ) be UPG. Then some automorphism in
+Φ has fixed subgroup of rank 2.
+Proof. It is easy to show that there is a basis of F2 , ⟨a, b⟩ where (some
+automorphism of) Φ acts as: a 7→ a, b 7→ bak for some integer k. Hence
+the fixed subgroup is ⟨a, bab−1 ⟩ or ⟨a, b⟩ when k = 0.                  □
+Theorem 4.6. Let Φ ∈ Out(F3 ) be a UPG automorphism of quadratic
+growth. Then Φ admits a rank 2 invariant free factor, K which is
+algorithmically computable. Moreover, K is unique in the sense that if
+K1 is any other invariant rank 2 free factor, then K1 is conjugate to
+K.
+Proof. By [BFH05], there is a basis, a, b, c for Φ such that some ϕ ∈
+Φ has the following representation. In fact, by [FH18] there is an
+algorithm to produce the following basis:
+
+                                   ϕ
+                                a 7→ a
+                                b 7→ bak
+                                c 7→ ucv,
+where k ∈ Z and u, v ∈ ⟨a, b⟩ and ϕ ∈ Φ.
+   Notice that k = 0 implies that Φ has linear growth, and hence we
+deduce that k ̸= 0. In particular, Fix ϕ = ⟨a, bab−1 ⟩ (it cannot have
+higher rank due to Theorems 4.3 and 4.4). Hence ⟨a, b⟩ is the smallest
+free factor containing Fix ϕ.
+   Thus we have algorithmically produced a Φ-invariant rank 2 free
+factor, ⟨a, b⟩, and all that remains is to show is that it is unique.
+   If K1 were another Φ-invariant rank 2 free factor, then the restriction
+of Φ to K1 would again be UPG, and Lemma 4.5 would imply that
+                THE CONJUGACY PROBLEM FOR Out(F3 ).                     17
+
+some ψ ∈ Φ would have a fixed subgroup of rank 2, contained in K1 .
+But Theorem 4.4 then implies that ϕ and ψ are isogredient and, hence
+have conjugate fixed subgroups implying that ⟨a, b⟩ and K1 are also
+conjugate.                                                        □
+Corollary 4.7. Let Φ ∈ Out(F3 ) be an automorphism of quadratic
+growth. Then Φ admits a unique invariant rank 2 free factor. More-
+over, there is an algorithm to determine this free factor.
+Proof. Some positive power, Φk of Φ is UPG. By Theorem 4.6, Φk
+admits a unique invariant rank 2 free factor, K. But KΦ is also Φk
+invariant, and hence the uniqueness of K implies that K is conjugate
+to KΦ.
+  Finally, if K1 is any Φ-invariant rank 2 free factor, it must also be
+Φk -invariant, and hence by Theorem 4.6 again, K1 is conjugate to K.
+  This free factor is produced algorithmically as in Theorem 4.6. □
+
+Conjugacy Problem in polynomial growth for Out F3 . We may
+conclude for this section.
+   Recall (Proposition 2.7) that given Φ and Ψ two outer-automorphisms
+of F3 we may decide whether they are of polynomial growth, and we
+may compute their degree.
+   Assume first that both are polynomial growth of degree 2. We may
+compute by 4.7 the unique conjugacy classes [KΦ ], [KΨ ] of invariant
+free factor of rank 2 of F3 . After conjugating Ψ by a (computable)
+automorphism that sends KΦ to KΨ , we may assume that these two
+groups are equal. We may then apply Theorem 3.1 in order to decide
+whether Φ and Ψ are conjugate in Out (F3 , K).
+   Since by Corollary 4.7, the rank 2 invariant free factor of Φ is unique,
+the two outer-automorphisms are conjugate in Out (F3 , K) if and only
+if they are conjugate in Out (F3 ).
+   This, together with Theorem 4.1, solves the conjugacy problem in
+Out F3 for all polynomially growing outer-automorphisms.
+
+              5. Exponential growth: laminations
+   Recall (references in Section 2, Proposition 2.7) that one can decide
+whether an outer-automorphism is of exponential growth, and whether
+it is irreducible. In that case, we recall the following.
+Theorem 5.1 ([Los96, Lus07, Kap14, FM22]). The conjugacy problem
+is decidable among irreducible elements of Out(Fn ).
+  We will now focus on the reducible case.
+
+Invariant Free Factor Systems in F3 . We will now work towards
+describing reducible exponentially growing automorphisms. Following
+[BFH00] we have
+18               THE CONJUGACY PROBLEM FOR Out(F3 ).
+
+Proposition 5.2. Let Φ ∈ Out(F3 ). Then any relative train track
+representative of Φ has at most one exponential stratum.
+
+Proof. Suppose that f : Γ → Γ is a relative train track representative
+of Φ. Suppose that Hr is an exponential stratum and that Gr is the
+corresponding f -invariant subgraph (the union of all the strata, up to
+and including Hr ).
+   Similarly, let Gr−1 be the f -invariant subgraph consisting of the
+union of the strata up to, but not including, Hr .
+   Let Cr be a connected component of Hr and let Cr−1 be a connected
+component of Cr ∩ Gr−1 (which we allow to be empty). Since the
+transition matrix of Hr is irreducible, some power of f must leave both
+Cr and Cr−1 invariant. However, since Hr is an exponential stratum,
+the the rank of π1 (Cr ) is at least 2 more than the rank of π1 (Cr−1 ).
+(For instance, take an edge of Hr incident to Cr−1 an take a power, k,
+of f such that f k (e) crosses e at least 3 times). This immediately gives
+the result: either the rank of π1 (Cr−1 ) is zero and the rank of π1 (Cr )
+is at least 2, in which case there can only be zero or polynomial strata
+above Hr , or the rank of π1 (Cr−1 ) is one, and there can be no strata
+above Hr .                                                              □
+
+Corollary 5.3. Let Φ ∈ Out(F3 ) have exponential growth. Then Φ
+has exactly one attracting lamination. This lamination is carried by a
+Φ-invariant conjugacy class of a free factor, K of F3 .
+  The rank of K is either 2 or 3. If the rank of K is 2, then it is
+unique in the following sense: if K1 is another free factor of rank 2
+which is Φ-invariant (up to conjugacy), then K1 is conjugate to K.
+
+Proof. Some positive power of Φ has an improved relative train track
+representative by [BFH00, Theorem 5.1.5]. All we will really need here
+is that this relative train track is eg-aperiodic; that is, the transition
+matrix of every exponential stratum is not just irreducible but also
+aperiodic (also known as primitive), meaning that it has a power where
+every entry is positive. In fact, it is clear that every relative train track
+map has a positive iterate which is eg-aperiodic, and we don’t really
+need the full force of [BFH00, Theorem 5.1.5].
+   Let us call this relative track representative, f : Γ → Γ and denote
+the rth stratum by Hr .
+   Then, by [BFH00, Lemma 3.1.10], if β is a generic line of some lami-
+nation for Φ, then representing β in Γ yields a line, λ, where the highest
+stratum crossed by λ is an exponential stratum. (Using the terminol-
+ogy from [BFH00]). Moreover, by [BFH00, Corollary 3.1.11], since our
+relative train track is eg-aperiodic, any generic line of any lamination
+whose realisation in Γ which crosses the same Hr but no higher stratum
+will have the same closure as β. However, by Proposition 5.2, f only
+admits one exponential stratum. Since laminations are closures of such
+                THE CONJUGACY PROBLEM FOR Out(F3 ).                     19
+
+lines this means that there is exactly one lamination for Φ, which must
+therefore be fixed by Φ (and not just periodic for Φ).
+   As in [BFH00, Corollary 2.6.5 and Definition 3.2.3], there is a unique
+free factor whose conjugacy class carries the lamination of Φ. Since the
+lamination is fixed by Φ, this free factor is Φ-invariant up to conjugacy.
+   For the final part, we note that an exponential stratum cannot have
+a component which has rank 1 as a graph (is homotopic to a circle), so
+K must have rank 2 or 3.
+   Furthermore, if K has rank 2, and if K1 is a Φ-invariant free fac-
+tor (up to conjugacy) also of rank 2, then we can form - via [BFH00,
+Theorem 5.1.5] - an improved relative train track representative for
+some power of Φ, where K1 is the fundamental group of some invari-
+ant subgraph, Gr . If the restriction of the relative train track map
+to Gr is polynomial, then the whole automorphism will have poly-
+nomial growth; this is excluded by hypothesis. Hence, by [BFH00,
+Lemma 3.1.9], there is a lamination carried by (the conjugacy class
+of) K1 . But there is only one lamination for Φ, hence K and K1 are
+conjugate.
+                                                                        □
+
+Conjugacy problem for exponential growth with rank 2 lam-
+ination. Consider Φ and Ψ two outer-automorphisms of F3 that are
+of exponential growth, and whose attracting lamination is carried by a
+free factor of rank 2, respectively KΦ and KΨ .
+   By Proposition 2.9 (and the unicity of Corollary 5.3), the groups KΦ
+and KΨ can be computed.
+   Since both KΦ and KΨ are free factors of same rank, there exists
+(and one can compute) an automorphism χ of F3 sending KΨ to KΦ ,
+and after conjugating Ψ by the outer-class X of χ, we may assume that
+KΦ = KΨ , and we denote it K.
+   Since by Corollary 5.3, this invariant free factor is unique, the two
+automorphisms Φ and Ψ are conjugated in Out(F3 ) if and only if they
+are conjugated in Out(F3 , K). This can be decided by Theorem 3.1.
+
+             6. Exponential growth: mapping tori
+   In this section, we take the point of view of analysing the semi-
+direct products of F3 that are associated to automorphisms (see also
+[Sel95, Dah16, Dah17, DT21]). Although this point of view allows to
+treat the conjugacy problem for all the exponentially growing outer-
+automorphisms of F3 , we restrict our presentation to the remaining case
+in Flowchart 1, namely the case of automorphisms whose attracting
+lamination carrier is the entire group F3 .
+   Given ϕ ∈ Aut(Fn ), the associated mapping torus is Fn ⋊ϕ ⟨t⟩. The
+normal subgroup Fn < Fn ⋊ϕ ⟨t⟩ is called a fiber. If ϕ = ψ Ad(g) then
+we have Fn ⋊ψ ⟨t⟩ = Fn ⋊ϕ ⟨tg⟩, in particular Φ = [ϕ] ∈ Out(Fn ) has
+20               THE CONJUGACY PROBLEM FOR Out(F3 ).
+
+a well-defined mapping torus. The following proposition describes how
+it relates to conjugacy in Out(Fn ). We refer the reader to [DT21] for
+precise definititions.
+Proposition 6.1 (Standard mapping torus criterion for conjugacy).
+Let G be a group, Φ, Ψ ∈ Out(G) and ϕ ∈ Φ, ψ ∈ Ψ. Then Φ is
+conjugate to Ψ in Out(G) if and only if there is an isomorphism
+                         f : G ⋊ϕ ⟨t⟩ → G ⋊ψ ⟨t⟩
+such that f (G) = G and f (t) = tw for some w ∈ G.
+  The following theorem relates dynamical characteristics of outer au-
+tomorphisms to the structure of their mapping tori.
+Theorem 6.2 (Relative hyperbolicity in exponential growth). For any
+Φ ∈ Out(Fn ), its mapping torus admits a properly relatively hyper-
+bolic (possibly word-hyperbolic) metric if, and only if, Φ has exponential
+growth. Peripheral subgroups of the relatively hyperbolic structure can
+be taken to be the mapping tori of Φ restricted to maximal polynomially
+growing subgroups.
+Proof. The converse implication was obtained in [Gho23, Theorem 3.1]
+and [DL20, Theorem 4]. The direct implication is found in [Mac02],
+[Dah17, Prop 1.3] see also [Hag19], [Bri00, Theorem 1.2].         □
+   Using this strategy, in [DT21] the conjugacy problem in Out(Fn )
+is completely reduced to specific algorithmic problems in the periph-
+eral subgroups. These problems are the algorithmic tractability for
+their subgroups (effective coherence, conjugacy problem, generation
+problem), the Minkowski property for certain subgroups, the mixed
+Whitehead problem, and the conjugacy problem for the induced au-
+tomorphisms on maximal polynomially growing subgroups. In this
+reduction, the exponential growth part of the outer automorphisms
+is completely evacuated from the discussion (it is treated during the
+reduction).
+   In the case of exponentially growing automorphisms of F3 , the poly-
+nomially growing subgroups are sufficiently small that we can complete
+a solution of the conjugacy problem in their case. We will explain this
+in the remaining case of Flowchart 1, in which the polynomially growing
+subgroups are even simpler.
+   This will require two steps. The first step is giving the solution to
+the criterion of Proposition 6.1 in the case the mapping tori of the given
+autmorphisms are so called almost toral. The second step is proving
+that if the mapping torus of an automorphism is not almost toral, then
+there is a rank 2 free factor carrying the attracting lamination. This
+allows to conclude since this later case was already treated. Treating
+it alternatively through the criterion of Proposition 6.1 is still possible,
+and involves cases covered by the larger study [DT23], but is not done
+here.
+                THE CONJUGACY PROBLEM FOR Out(F3 ).                    21
+
+The Almost Toral case. We say Φ ∈ Out(Fn ) or its mapping torus
+Fn ⋊ϕ Z, ϕ ∈ Φ is almost toral relatively hyperbolic if Fn ⋊ϕ Z is hy-
+perbolic relative to a collection of subgroups isomorphic to Z × Z or
+to Z ⋊ Z, the fundamental group of a Klein bottle. By extension,
+in that case, we say that the automorphism is almost toral relatively
+hyperbolic.
+  The groups Z × Z and Z ⋊ Z are the only possible virtually abelian
+peripheral subgroups in the relatively hyperbolic structure of Theorem
+6.2. Actually the following is immediate from Theorem 6.2 and Nielsen-
+Schreier theorem.
+Proposition 6.3. The mapping torus of an outer automorphism of Fn
+is almost toral if and only if its maximal polynomially growing subgroups
+have rank one.
+   It is furthermore decidable whether the mapping torus of a given
+automorphism of Fn is almost toral, by [DG13] (this is decidable in the
+following sense: there is an algorithm that will terminate if the auto-
+morphism is exponentially growing, and provide presentations for each
+conjugacy representative of peripheral subgroup, and indicate whether
+or not they are abelian, or isomorphic to Z ⋊ Z).
+Theorem 6.4. The conjugacy problem in Out(Fn ) is decidable among
+the almost toral relatively hyperbolic automorphisms.
+Proof. If the mapping tori are hyperbolic (i.e. if the peripheral struc-
+tures are empty) it is enough to invoque [Dah16]. We now assume that
+the peripheral structures are non-empty.
+   Using [DT21, Theorem 2.1], it suffices to check that Z2 and Z ⋊ Z
+form a class of algorithmically tractable groups, with solvable fiber-
+and-orientation preserving mixed Whitehead problem, and Minkowski
+property for their subgroups.
+   The algorithmic tractability is actually immediate, despite the defi-
+nition of this property.
+   That the group Z2 (or any of its subgroups) satisfies the Minkowski
+property is due to the classic observation of Minkowski: GL2 (Z) →
+GL2 (Z/3) has torsion free kernel.
+   For K = Z⋊Z, the Minkowski property asks for a finite characteristic
+quotient in which all torsion elements of Out(Z ⋊ Z) survive. Let us
+write K = ⟨a⟩ ⋊ ⟨t⟩. The following lemma establishes the Minkowski
+property.
+Lemma 6.5. The abelianisation K ab of K is K/⟨a2 ⟩ ≃ (Z/2) × Z.
+  Out(K) ≃ (Z/2) × (Z/2), and injects by the congruence map in
+Out((Z/2) × (Z/3)).
+Proof. The first assertion is standard. The subgroups ⟨t2 ⟩ (the center)
+and ⟨a⟩ (the preimage of the torsion in the abelianisation) are preserved
+22               THE CONJUGACY PROBLEM FOR Out(F3 ).
+
+by all automorphisms. The square roots of t2 are the ak t, k ∈ Z.
+Therefore any automorphism has the form (a 7→ aϵ1 , t 7→ ak tϵ2 ) for
+ϵ1 , ϵ2 ∈ {−1, 1}, and k ∈ Z. Since (a 7→ a−1 , t 7→ t), and (a 7→ a, t 7→
+a2 t) are both inner, it follows that Out(K) ≃ (Z/2) × (Z/2), with
+representatives being (a 7→ a, t 7→ au tϵ ) for u ∈ {0, 1}, and ϵ ∈ {−1, 1}.
+All three non-trivial automorphisms descend as obviously non trivial
+automorphisms in Aut((Z/2) × (Z/3)), when quotienting by a2 and
+t3 .                                                                      □
+
+  It remains to solve the fiber and orientation preserving mixed White-
+head problem for K, the fiber being ⟨a⟩. This problem is an orbit
+problem for the group of outer automorphisms preserving fiber and
+orientation, for tuples of conjugacy classes of tuples. In the case of
+K, all outer automorphisms of K (see their expression above) preserve
+the fiber ⟨a⟩ and the orientation ⟨a⟩t. There are only four of them, so
+the problem reduces to the classical multiple conjugacy problem in K,
+which is easy to solve.
+                                                                     □
+
+
+The polynomially growing subgroups in F3 . By Levitt’s theorem
+[Lev09, Theorem 4.1], given an outer automorphism of Fn , its maximal
+polynomially growing subgroups have rank ≤ n, they have rank < n if
+the automorphism has an exponentially growing conjugacy class, and
+in the later case, if one such group has rank n − 1, it is unique up to
+conjugacy.
+   In the case of n = 3, the possible polynomially growing subgroups
+for an exponentially growing outer automorphism of F3 are then ei-
+ther trivial, or cyclic, or of rank 2. Given the previous discussion, we
+consider the case of a single conjugacy class of polynomially growing
+subgroup of rank 2. It turns out, as we will show, that it must be
+placed very specifically in the group F3 , revealing a lamination carrier
+of rank 2.
+   Recall that if D is a Φ-invariant subgroup, we can find ϕ ∈ Φ such
+that ϕ(D) = D.
+
+Proposition 6.6. If ϕ ∈ Aut(F3 ) is of exponential growth and has an
+invariant subgroup D of rank at least 2 on which it induces a polyno-
+mially growing automorphism, then it preserves the conjugacy class of
+a rank 2 free factor Q on which it induces an exponentially growing
+outer-automorphism.
+  Moreover, the conjugacy class of such a free factor is unique and
+there exists a conjugate D′ of D, containing a subgroup C ′ of Q ∩ D′ ,
+such that C ′ is generated by the commutator of a basis in Q, and F3 =
+Q ∗C ′ D ′ .
+                THE CONJUGACY PROBLEM FOR Out(F3 ).                     23
+
+Proof. We assume without loss of generality that D is a maximal ϕ-
+invariant subgroup on which ϕ|D is polynomially growing. By maxi-
+mality, we cannot have D < H < F3 with H of rank 2 and ϕ-invariant.
+Indeed, if this were the case either ϕ|H is either polynomially growing,
+which contradicts maximality, or exponentially growing with a poly-
+nomially growing invariant subgroup of rank 2, which is impossible in
+Out(F2 ). Furthermore, D cannot be a free factor of F3 as the xpression
+(1) from Lemma 3.2 would imply that ϕ is also polynomially growing.
+It follows that (F3 , D) is relatively one-ended.
+   By [GJLL98, Theorem II.2] F3 acts faithfully on an R-tree T∞ with
+trivial arc stabilizers and there is a homotethy H : T∞ → T∞ such that
+for all x ∈ T∞ and f ∈ F3 , f · H(x) = H((f ϕ)x) (here, a homotethy is
+a map satisfying d(H(x), H(y)) = λd(x, y) for some fixed stretch factor
+λ ≥ 1). Note that from [GJLL98, §B - §E] the action of F3 on T∞ is
+obtained as a limit of rescaled actions on a fixed free cocompact action
+of F3 on a simplicial metric tree τ . Exponential growth of ϕ implies
+that D fixes a point in T∞ .
+   Trivial arc stabilizers and the non-trivial subgroup D (which cannot
+be in a proper free factor) that fixes a point (so the action is not free)
+imply that we may apply [Hor14, Lemma 4.6] to the action of F3 on T∞
+with the empty free factor system. This lemma gives three possiblities.
+Two of these imply that point stabilizers must all either be cyclic or
+contained in proper free factors of F3 , which is impossible because of
+the properties of D. The remaining possiblity is that the action of F3
+on T∞ has a so-called dynamical proper free factor. This implies that
+T∞ is not a simplicial R-tree, since by definition a dynamical proper
+free factor must act on its minimal invariant tree with dense orbits.
+   We now apply [Gui08, Theorem 5.1]. The triviality of arc stabilizers,
+one-endeness of F3 relative to D, and the faithfullness of the action of
+F3 on T∞ , imply that the action of F3 on T∞ decomposes into a graph
+of actions where each vertex action is either simpicial, Seifert type, or
+axial. Free groups cannot admit faithful axial actions and since T∞ is
+not simplicial, the graph of actions must contain a Seifert type vertex.
+Orbifolds with free fundamental groups are surfaces with boundary.
+Therefore F3 decomposes as a graph of groups Y and one of the vertex
+groups Yq must be isomorphic to the fundamental group of a surface Σ
+with boundary, equipped with a measured foliation F with dense leaves,
+for which the action of Yq on the minimal invariant subtree (T∞ )Yq is
+equivariantly isomorphic to the action of π1 (Σ) on the R-tree dual to
+lifted measured foliation on the universal cover (Σ̃, F̃). The subgroup
+D, elliptic in T∞ , must also lie in some vertex group YD . Since D is a
+free group of rank 2 that fixes a point, it cannot be conjugate into the
+subgroup Yq , so Yq ̸= YD .
+   By the definition of a graph of actions (see [Gui08, §1.3]), the edge
+group incident to Yq must be a point stabilizer, which in turn must
+24              THE CONJUGACY PROBLEM FOR Out(F3 ).
+
+either be trivial or conjugate to the π1 -image of ∂Σ. The former case
+gives a free decomposition of F3 relative to D which contradicts earlier
+considerations. The latter case implies that all the edges adjacent to
+q have cyclic edge groups. It also follows that if we collapse all edges
+of Y that have non-cyclic edge group to get a new graph of groups Ȳ ,
+Yq is still a vertex group of this collapsed splitting and Ȳ has another
+vertex group containing D. It follows that F3 admits a non-trivial cyclic
+splitting relative to D containing Yq as a quadratically hanging (QH)
+subgroup, that is to say it is isomorphic to π1 (Σ) where Σ is a compact
+surface with boundary and the (conjugacy classes) of the incident edge
+groups coincide with the π1 -image of ∂Σ.
+   Because F3 is one ended relative to D, by [GL17, Theorem 9.5] F3
+admits a canonical cyclic JSJ decomposition J relative to D. By our
+description of Ȳ above we know that J has at least two vertex groups
+and that one of them is a maximal QH subgroup. Arc stabilizers of the
+Bass-Serre tree dual to J are cyclic and there are at least two vertex
+orbits so we can apply, for example [GL95], to conclude that J has
+exactly two non-cyclic vertex groups and that these vertex groups have
+rank exactly 2. One of these vertex groups contains (a conjugate of) Yq
+and is a maximal QH subgroup. The other vertex group contains D.
+The automorphism invariance of JSJ decompositions, [GL17, Corollary
+7.4], implies that ϕ must preserve J, i.e. ϕ maps vertex groups and edge
+groups to conjugates of vertex and edge groups (respectively). Since Q
+is the unique flexible subgroup of J we must have that ϕ(Q) is mapped
+to a conjugate of Q.
+   Now the vertex group Yq from the graph of actions Y sits inside the
+QH subgroup Q as the π1 -image of some subsurface, since both groups
+have the same rank, Yq = Q (up to conjugacy). By [CV91] the only
+Seifert-type action of F2 is dual to an irrational foliation on a once
+punctured torus. It follows that the QH strucutre on Q is that of an
+orientable surface of genus 1 with one boundary component. Therefore
+there is exactly one edge group incident to Q.
+   Let J¯ be the graph of groups obtained by contracting all edges except
+the unique edge adjacent to the unique QH vertex group Q. Then J¯ is
+the amalgamated product F3 = D′ ∗C Q. D′ must contain a conjugate of
+D and by construction this splitting is ϕ-invariant, so D′ = D. Since C
+is conjugate to the π1 -image of ∂Σ in π1 (Σ) = Q we have that Q is one-
+ended relative to C. Since F3 many-ended, by [She55, Swa86, Tou15],
+D is forced to admit a free decomposition D = ⟨d⟩ ∗ ⟨c⟩ with C ≤ ⟨c⟩.
+This gives
+                           F3 = ⟨d⟩ ∗ (⟨c⟩ ∗C Q).
+                                 | {z }
+                                   D
+Since Q must be the fundamental group of a torus Σ with a boundary
+component we have that C, the π1 -image of ∂Σ, must be a commutator
+and therefore cannot be a proper power, thus C = ⟨c⟩ so Q is a free
+                 THE CONJUGACY PROBLEM FOR Out(F3 ).                        25
+
+factor of F3 as required. Its uniqueness follows from the canonicity of
+the JSJ decomposition.
+  By [GJLL98, Theorem II.1] if the stretch factor of the homotethy
+H is λ = 1, then T∞ is simplicial. Since that Q acts on (T∞ )Q with
+dense orbits we have λ > 1. Since up to coposition with an inner auto-
+morphism we have ϕ(Q) = Q we have that ϕ induces an exponentially
+growing automorphism on Q.                                           □
+  In particular, we get the following.
+Corollary 6.7. Let Φ ∈ Out(F3 ) be exponentially growing, not fully
+irreducible, and such that no power has an invariant proper free factor
+of rank 2. Then the mapping torus F3 ⋊ϕ Z is almost toral relatively
+hyperbolic.
+  This concludes all cases of Flowchart 1, and thus proves Theorem
+1.1.
+
+                               References
+[AHK22]  Naomi Andrew, Sam Hughes, and Monika Kudlinska. Torsion homol-
+         ogy growth of polynomially growing free-by-cyclic groups. November
+         2022.
+[AM22a]  Naomi Andrew and Armando Martino. Centralisers of linear growth
+         automorphisms of free groups. May 2022. Number: arXiv:2205.12865
+         arXiv:2205.12865 [math].
+[AM22b]  Naomi Andrew and Armando Martino. Free-by-cyclic groups, auto-
+         morphisms and actions on nearly canonical trees. Journal of Algebra,
+         604:451–495, 2022.
+[BFH97]  M. Bestvina, M. Feighn, and M. Handel. Laminations, trees, and irre-
+         ducible automorphisms of free groups. Geometric & Functional Analy-
+         sis GAFA, 7(2):215–244, May 1997.
+[BFH00]  Mladen Bestvina, Mark Feighn, and Michael Handel. The tits alterna-
+         tive for Out(fn ). i: Dynamics of exponentially-growing automorphisms.
+         Annals of Mathematics. Second Series, 151(2):517–623, 2000.
+[BFH05]  Mladen Bestvina, Mark Feighn, and Michael Handel. The Tits alterna-
+         tive for Out(Fn ). II: A Kolchin type theorem. Annals of Mathematics.
+         Second Series, 161(1):1–59, 2005.
+[BH92]   Mladen Bestvina and Michael Handel. Train tracks and automorphisms
+         of free groups. Annals of Mathematics. Second Series, 135(1):1–51,
+         1992.
+[BMMV06] O. Bogopolski, A. Martino, O. Maslakova, and E. Ventura. The con-
+         jugacy problem is solvable in free-by-cyclic groups. Bull. Lond. Math.
+         Soc., 38(5):787–794, 2006.
+[BMV10] O. Bogopolski, A. Martino, and E. Ventura. Orbit decidability and the
+         conjugacy problem for some extensions of groups. Transactions of the
+         American Mathematical Society, 362(4):2003–2036, 2010.
+[Bog00]  O. Bogopolski. Classification of automorphisms of the free group of
+         rank 2 by ranks of fixed-point subgroups. Journal of Group Theory,
+         3(3):339–351, 2000.
+[Bri00]  P. Brinkmann. Hyperbolic automorphisms of free groups. Geometric
+         and Functional Analysis, 10(5):1071–1089, 2000.
+26               THE CONJUGACY PROBLEM FOR Out(F3 ).
+
+[CV91]     Marc Culler and Karen Vogtmann. The Boundary of Outer Space in
+           Rank Two. In S. S. Chern, I. Kaplansky, C. C. Moore, I. M. Singer,
+           and Roger C. Alperin, editors, Arboreal Group Theory, volume 19,
+           pages 189–230. Springer New York, New York, NY, 1991. Series Title:
+           Mathematical Sciences Research Institute Publications.
+[Dah16]    François Dahmani. On suspensions and conjugacy of hyperbolic au-
+           tomorphisms. Transactions of the American Mathematical Society,
+           368(8):5565–5577, August 2016.
+[Dah17]    François Dahmani. On suspensions, and conjugacy of a few more auto-
+           morphisms of free groups. In Hyperbolic geometry and geometric group
+           theory, volume 73 of Adv. Stud. Pure Math., pages 135–158. Math. Soc.
+           Japan, Tokyo, 2017.
+[DG13]     François Dahmani and Vincent Guirardel. Presenting parabolic sub-
+           groups. Algebraic & Geometric Topology, 13(6):3203–3222, 2013.
+[DL20]     François Dahmani and Ruoyu Li. Relative hyperbolicity for automor-
+           phisms of free products. Journal of Topology and Analysis, pages 1–38,
+           October 2020. arXiv: 1901.06760.
+[DT21]     François Dahmani and Nicholas Touikan. Reducing the conjugacy prob-
+           lem for relatively hyperbolic automorphisms to peripheral components.
+           arXiv:2103.16602 [math], March 2021. arXiv: 2103.16602.
+[DT23]     François Dahmani and Nicholas Touikan. Unipotent linear suspensions
+           of free groups. arXiv:2305.11274, 2023.
+[FH11]     Mark Feighn and Michael Handel. The recognition theorem for
+           Out(Fn ). Groups, Geometry, and Dynamics, 5(1):39–106, 2011.
+[FH18]     Mark Feighn and Michael Handel. Algorithmic constructions of relative
+           train track maps and CTs. Groups Geom. Dyn., 12(3):1159–1238, 2018.
+[FH19]     Mark Feighn and Michael Handel. The conjugacy problem for upg el-
+           ements of out(fn ), 2019.
+[FM22]     Stefano Francaviglia and Armando Martino. Displacements of auto-
+           morphisms of free groups. II: Connectivity of level sets and deci-
+           sion problems. Transactions of the American Mathematical Society,
+           375(4):2511–2551, 2022.
+[Gho23]    Pritam Ghosh. Relative hyperbolicity of free-by-cyclic extensions.
+           Compositio Mathematica, 159(1):153–183, 2023.
+[GJLL98]   Damien Gaboriau, Andre Jaeger, Gilbert Levitt, and Martin Lustig.
+           An index for counting fixed points of automorphisms of free groups.
+           Duke Math. J., 93(3):425–452, 1998.
+[GL95]     Damien Gaboriau and Gilbert Levitt. The rank of actions on R-trees.
+           Ann. Sci. Éc. Norm. Supér. (4), 28(5):549–570, 1995.
+[GL17]     Vincent Guirardel and Gilbert Levitt. JSJ decompositions of groups.
+           Astérisque, (395):vii+165, 2017.
+[Gui08]    Vincent Guirardel. Actions of finitely generated groups on $\Bbb
+           R$-trees. UniversitÃ© de Grenoble. Annales de l’Institut Fourier,
+           58(1):159–211, 2008.
+[Hag19]    Mark Hagen. A remark on thickness of free-by-cyclic groups. Illinois
+           Journal of Mathematics, 63(4):633–643, December 2019.
+[Hor14]    Camille Horbez. The tits alternative for the automorphism group of a
+           free product, 2014.
+[Kap14]    Ilya Kapovich. Algorithmic detectability of iwip automorphisms. Bull.
+           Lond. Math. Soc., 46(2):279–290, 2014.
+                THE CONJUGACY PROBLEM FOR Out(F3 ).                            27
+
+[KB19]    Ilya Kapovich and Mark C. Bell. Detecting Fully Irreducible Auto-
+          morphisms: A Polynomial Time Algorithm. Experimental Mathemat-
+          ics, 28(1):24–38, January 2019. Publisher: Taylor & Francis eprint:
+          https://doi.org/10.1080/10586458.2017.1326326.
+[KLV01]   Sava Krstić, Martin Lustig, and Karen Vogtmann. An equivariant
+          Whitehead algorithm and conjugacy for roots of Dehn twist automor-
+          phisms. Proc. Edinb. Math. Soc., II. Ser., 44(1):117–141, 2001.
+[Krs89]   Sava Krstić. Actions of finite groups on graphs and related automor-
+          phisms of free groups. Journal of Algebra, 124(1):119–138, July 1989.
+[Lev09]   Gilbert Levitt. Counting growth types of automorphisms of free groups.
+          Geometric and Functional Analysis. GAFA, 19(4):1119–1146, 2009.
+[Los96]   Jérôme E. Los. On the conjugacy problem for automorphisms of free
+          groups. Topology, 35(3):779–806, July 1996.
+[Lus07]   Martin Lustig. Conjugacy and centralizers for iwip automorphisms of
+          free groups. In Geometric group theory. Geneva and Barcelona confer-
+          ences. Selected papers of the conference on asymptotic and probabilistic
+          methods in geometric group theory, Geneva, Switzerland, June 20–25,
+          2005 and the Barcelona conference in group theory, Barcelona, Spain,
+          June 28 – July 3, 2005., pages 197–224. Basel: Birkhäuser, 2007.
+[Mac02]   Natasa Macura. Detour Functions and Quasi-Isometries. The Quarterly
+          Journal of Mathematics, 53(2):207–239, June 2002.
+[Mar02]   Armando Martino. Maximal index automorphisms of free groups with
+          no attracting fixed points on the boundary are Dehn twists. Algebraic
+          & Geometric Topology, 2(2):897–919, October 2002. Publisher: Math-
+          ematical Sciences Publishers.
+[Rod13]   Moritz Rodenhausen. Centralisers of polynomially growing automor-
+          phisms of free groups. Thesis, Universitäts- und Landesbibliothek
+          Bonn, July 2013. Accepted: 2020-04-18T22:20:26Z.
+[RW15]    Moritz Rodenhausen and Richard D. Wade. Centralisers of Dehn
+          twist automorphisms of free groups. Mathematical Proceedings of the
+          Cambridge Philosophical Society, 159(1):89–114, July 2015. Publisher:
+          Cambridge University Press.
+[Sel95]   Z. Sela. The isomorphism problem for hyperbolic groups. I. Annals of
+          Mathematics. Second Series, 141(2):217–283, 1995.
+[She55]   Abe Shenitzer. Decomposition of a group with a single defining relation
+          into a free product. Proceedings of the American Mathematical Society,
+          6(2):273–279, 1955.
+[Swa86]   G. A. Swarup. Decompositions of free groups. Journal of Pure and
+          Applied Algebra, 40:99–102, January 1986.
+[Tou15]   Nicholas Touikan. On the one-endedness of graphs of groups. Pacific
+          Journal of Mathematics, 278(2):463–478, October 2015.
+

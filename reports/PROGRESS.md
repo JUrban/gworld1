@@ -128,3 +128,6 @@ F38(c)'s automorphism quantifier cannot be replaced by all injective endomorphis
 ## 2026-09-28T23:36:21.500599+00:00 — all-target class-ten extension
 
 N8(b) now has a candidate decision procedure for all targets in class ten, in all finite ranks; see problems/N8/class10-proof.md and class10-audit.md. Independent GAP replay verified16 witnesses,111 linear decisions (32 negative),13 coupled systems (6 inconsistent),9 polynomial certificates (4 empty),45 samples, and14 rank-two structural records. The rank-three Python structural suite passed17 cases; two GAP replays timed out and are explicitly incomplete. A saved first-run failure exposed a final-layer conjugation term and was corrected. Tally unchanged at4 whole,4 partial,0 established novel.
+
+
+N5 integrality follow-up: ten targeted splitting controls and eight central relator systems passed. Independent GAP replay verifies four positive projections and all eight direct lift decisions, including four negative systems. The audit rejects arbitrary modular idempotents with incompatible local ranks; no correction was needed. See `problems/N5/integrality-audit.md`. F6 remains distinct from the prior Out(F3) theorem; the exact Aut/Out scope is recorded in `research/notes/F6-outer-versus-automorphism-scope.md`. Counts are unchanged.

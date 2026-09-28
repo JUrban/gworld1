@@ -180,4 +180,11 @@ Commands, return codes, output hashes and resource allocations are recorded in `
 
 These bounded computations support the implementation and expose several tempting shortcuts; the universal conclusion rests on Sections 1–5. Targeted primary-source searches have not located a prior full torsion-case decision theorem. This is provisional bibliographic evidence, not an exhaustive novelty determination. Neither these calculations nor the internal audit constitute independent specialist review.
 
+A later targeted check of composite congruences, exact summands and mixed
+centres passed ten splitting controls. Eight dependent-relator systems were
+also compared with direct enumeration of lift changes in Python and GAP.
+In particular, modular idempotents with incompatible ranks at different
+primes are correctly rejected. See `integrality-audit.md` for the proof of
+these controls and the exact computational scope.
+
 No mathematics or code from the Kourovka experiment has been imported. The standard rational decomposition ingredients and prior torsion-free algorithm are credited above.
