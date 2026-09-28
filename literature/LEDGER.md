@@ -117,3 +117,7 @@ Exact scope audit and elementary consequence arguments are in `research/notes/OR
 - [Louder–Wilton, arXiv:2107.08911](https://arxiv.org/abs/2107.08911), Theorems 5.1 and 6.5(i), plus the Fischer–Karrass–Solitar ends theorem as used in Section 3 of [Logan's primary paper](https://eprints.gla.ac.uk/121498/19/121498.pdf), imply OR12. Both PDFs archived and relevant proofs read. The note gives the necessary finite-index transfer explicitly; no general commensurability invariance of co-Hopficity is assumed. This is a consequence of prior work, not a novelty claim.
 
 The same scan found narrower metabelian results, not full answers to M1–M4: a 2026 Robinson isomorphism paper concerns a special polynomial-associated family, and Artamonov's 1975 nonfree projective examples concern a different metabelian variety. The latter title alone does not answer M4. Follow-up references for AUX3(b) (Myropolska, arXiv:1304.2668) and FP17 (Ould Houcine 2007) remain pending full scope checks.
+
+## N8 penultimate-layer extension, 28 September 2026 approximately 13:21–13:30 UTC
+
+Queries “commutator equation penultimate nilpotent”, “single commutator nilpotent central algorithm”, and “N8 commutator nilpotent” did not locate a matching theorem. The argument builds on the previously credited homogeneous factor method and adds complete integral scale/sublattice enumeration followed by one central integer lift. No additional theorem from the Kourovka run was imported. This limited search is not a novelty certification.

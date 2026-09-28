@@ -45,3 +45,18 @@ queue using the exact binary-tree theorem of Bartholdi–Sidki (2018/2020).
 Continue alternating the wider portfolio with review of the four current
 candidates. The solvable-group search did not settle S4–S8; in particular,
 co-Hopfian direct-product results do not answer the Hopfian question S5.
+
+## Working focus after the 13:30 UTC checkpoint
+
+OR2/6/7/8/11/12 have prior resolutions or direct prior consequences; all
+are excluded from new-result counts. Exact scope and transfer arguments
+are recorded in `research/notes/OR-prior-resolutions.md`.
+
+The N8 candidate now also covers the penultimate lower-central term in
+every class. For a bounded next investigation, examine whether the first
+correction kernel for higher-weight factors can be controlled by exact
+commutator-preserving operations; do not assume that a second lifting
+stage remains linear. Alternate with N3/N4/N9, unresolved metabelian and
+matrix questions, and the wider portfolio. Bibliographic leads for AUX3(b)
+and FP17 await primary full-scope checks. Maintain separate audits of
+M0, N5 and F28 rather than treating their candidate status as validation.
