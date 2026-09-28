@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+"""Use the existing GAP installation without copying it into this repository."""
+import json
+import os
+from pathlib import Path
+import sys
+
+root=Path(__file__).resolve().parents[1]
+local=root/'config/local-tools.json'
+config=json.loads(local.read_text()) if local.exists() else {}
+gap_root=os.environ.get('GWORLD_GAP_ROOT') or config.get('gap_root')
+if not gap_root or not (Path(gap_root)/'gap').is_file():
+    sys.exit('Set GWORLD_GAP_ROOT or gap_root in config/local-tools.json to a working GAP installation.')
+for name in ['OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS']:
+    os.environ[name]='1'
+os.execv(str(Path(gap_root)/'gap'), [str(Path(gap_root)/'gap'),'-l',gap_root,'-q','-b','-T','-m','128m','-o','4g',*sys.argv[1:]])

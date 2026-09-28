@@ -1,0 +1,33 @@
+# GroupWorld: preparation for a 48-hour experiment
+
+**Preparation only. The experiment has not started.** No problems have been investigated or claimed solved in this repository.
+
+This is a fresh repository for the collection of [open problems in combinatorial group theory](https://shpilrain.ccny.cuny.edu/gworld/problems/oproblems.html) selected by G. Baumslag, A. G. Myasnikov and V. Shpilrain, together with its [Hall of Fame](https://shpilrain.ccny.cuny.edu/gworld/problems/Halloffame.html). The snapshot was downloaded on 28 September 2026.
+
+[Start here](START_HERE.md) · [Problem catalogue](data/CATALOG.md) · [Status notes](docs/STATUS_NOTES.md) · [Experiment protocol](docs/PROTOCOL.md) · [Lessons from Kourovka](docs/KOUROVKA_LESSONS.md)
+
+The archive contains **195 numbered entries in 16 categories**, both background pages, the Hall of Fame and the locally linked PDF. Each entry has an offline HTML excerpt and an exact source fragment under `problems/ID/`. The numbered-entry count is not a count of currently open problems: entries have multiple parts, overlap, and include known results.
+
+The catalogue preserves 49 heading stars, 11 entries with subpart stars, and 69 Hall of Fame links referring to 58 distinct entries. Sixty entries have at least one of these site indications. One additional bibliographic update records Gardam's 2021 answer to O12(b), which is unmarked on the site. All scope and openness assessments still require review before research; no exhaustive current literature survey has been done.
+
+## Relationship to Kourovka
+
+This repository has its own Git history, corpus, clock and result ledgers. The existing Kourovka repository is a read-only reference for methods, code, arguments and corrections. It is **not** a clean-room experiment: any later use of a Kourovka result must be recorded in [the transfer ledger](research/transfers.jsonl). The preparation source revision and file hashes are in [provenance/kourovka.json](provenance/kourovka.json).
+
+Locally this checkout is `/project/gworld1`, excluded from the enclosing Kourovka checkout using that checkout's `.git/info/exclude`. It can be moved or published as a separate repository. No remote is configured. The GAP installation is shared through a local configuration file; its binaries and large datasets are not copied.
+
+## Tools and state
+
+Python 3 and Git suffice for the preparation utilities. Set up `config/local-tools.json` from [the example](config/local-tools.example.json), or set `GWORLD_GAP_ROOT`, to use `bin/gap`. The local GAP 4.16.1 installation and `smallgrp`, `fga`, `kbmag`, `nq`, `polycyclic`, and `ace` packages passed a load check. [Environment record](provenance/environment.json).
+
+```sh
+python3 scripts/verify_preparation.py
+python3 scripts/session.py status
+python3 -m unittest discover -s tests -v
+```
+
+The proposed run budget is 48 hours, 20 CPU cores and 100 GB RAM, inherited from Kourovka and adjustable before launch. Research commands launched through `scripts/run_recorded.py` are disabled during preparation. No background solver or timer is running.
+
+Source bytes, retrieval metadata, links and SHA-256 hashes are retained in [sources/manifest.json](sources/manifest.json). One malformed publisher link, `Back.htm`, returns 404; its adjacent correct `Back.html` link is downloaded. [Source scope and limitations](sources/README.md).
+
+The local pre-commit hook rejects staged blobs of 90,000,000 bytes or more. After cloning elsewhere, enable it with `git config core.hooksPath .githooks`.
