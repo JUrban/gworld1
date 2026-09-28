@@ -44,3 +44,13 @@ bound, using Kronecker substitution and deterministic factorization.
 GAP verified nine new witness certificates and three unit determinants.
 See `problems/M0/kronecker-construction.md`. This strengthens the same
 candidate and makes no claim of practical complexity or specialist review.
+
+N9(a) follow-up: the fixed ambient group remains an essential gap.
+An attempted reduction by varying retracts of a fixed base fails
+because retracts reflect solvability of equations. The prior uniform
+construction has been written with a class-two coproduct, resolving
+a cross-commutation issue in the literal central-product reading of
+the accessible source text. GAP checked four exact examples. The
+original article PDF was not obtained, so its terminology is qualified;
+see `research/notes/N9-fixed-ambient-and-coproduct.md`. No result count
+is added.

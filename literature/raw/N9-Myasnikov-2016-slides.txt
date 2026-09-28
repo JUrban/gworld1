@@ -1,0 +1,1440 @@
+Equations in groups and rings
+
+         Alexei Miasnikov
+         Stevens Institute
+
+
+  (Diablerets , March 10th, 2016)
+
+
+
+
+                                    1 / 48
+Outline
+
+
+
+
+      Groups
+          Equations and Diophantine problems
+          Commutative rings with decidable/undecidable DP Groups and
+          rings with decidable/undecidable DP
+          Nilpotent groups
+          Particular equations
+      Free associative and Lie algebras
+
+
+
+
+                                                                       2 / 48
+Equations in rings
+
+
+      Equations in associative commutative rings R are the classical
+      polynomial equations in R:
+
+               p(x1 , . . . , xn ) = 0,   where     p ∈ R[x1 , . . . , xn ]
+
+      Solutions:
+                        x1 → a1 , . . . , xn → an     (ai ∈ R)
+      such that
+                             p(a1 , . . . , an ) = 0 in R.
+
+
+      Similar for systems of equations in variables x1 , . . . , xn . If R is
+      Noetherian it suffices to consider only finite systems of
+      equations.
+
+
+                                                                                3 / 48
+Equations in rings
+
+
+      Equations in associative commutative rings R are the classical
+      polynomial equations in R:
+
+               p(x1 , . . . , xn ) = 0,   where     p ∈ R[x1 , . . . , xn ]
+
+      Solutions:
+                        x1 → a1 , . . . , xn → an     (ai ∈ R)
+      such that
+                             p(a1 , . . . , an ) = 0 in R.
+
+
+      Similar for systems of equations in variables x1 , . . . , xn . If R is
+      Noetherian it suffices to consider only finite systems of
+      equations.
+
+
+                                                                                3 / 48
+Diophantine problems
+
+
+  Diophantine problems for a given ring R: if there exists an
+  algorithm that decides whether or not a given equation (finite
+  system of equations) in R has a solution in R.
+  Diophantine problem = decidability of equations = generalized
+  tenth Hilbert problem
+  For an integral domain R finite systems of equations are equivalent
+  to single equations provided the field of fractions of R is not
+  algebraically closed.
+  Remark: to consider Diophantine problems in R the coefficients of
+  the polynomial equations must be ”constructible” or
+  ”computable”, say integers, or elements from a computable
+  subring R0 ≤ R.
+
+
+                                                                        4 / 48
+Diophantine problems
+
+
+  Diophantine problems for a given ring R: if there exists an
+  algorithm that decides whether or not a given equation (finite
+  system of equations) in R has a solution in R.
+  Diophantine problem = decidability of equations = generalized
+  tenth Hilbert problem
+  For an integral domain R finite systems of equations are equivalent
+  to single equations provided the field of fractions of R is not
+  algebraically closed.
+  Remark: to consider Diophantine problems in R the coefficients of
+  the polynomial equations must be ”constructible” or
+  ”computable”, say integers, or elements from a computable
+  subring R0 ≤ R.
+
+
+                                                                        4 / 48
+Diophantine problems
+
+
+  Diophantine problems for a given ring R: if there exists an
+  algorithm that decides whether or not a given equation (finite
+  system of equations) in R has a solution in R.
+  Diophantine problem = decidability of equations = generalized
+  tenth Hilbert problem
+  For an integral domain R finite systems of equations are equivalent
+  to single equations provided the field of fractions of R is not
+  algebraically closed.
+  Remark: to consider Diophantine problems in R the coefficients of
+  the polynomial equations must be ”constructible” or
+  ”computable”, say integers, or elements from a computable
+  subring R0 ≤ R.
+
+
+                                                                        4 / 48
+Examples: decidable DP
+
+
+
+
+  For the following fields Diophantine problem is decidable:
+      C, coefficients in Q̄. In fact, Th(C) is decidable.
+      R, coefficients are computable reals. Th(R) is decidable.
+      Qp , coefficients are computable p-adics. Th(Qp ) is decidable.
+
+  By the way, there are rings where equations are decidable, but the
+  elementary theory is not.
+
+
+
+
+                                                                        5 / 48
+Examples: decidable DP
+
+
+
+
+  For the following fields Diophantine problem is decidable:
+      C, coefficients in Q̄. In fact, Th(C) is decidable.
+      R, coefficients are computable reals. Th(R) is decidable.
+      Qp , coefficients are computable p-adics. Th(Qp ) is decidable.
+
+  By the way, there are rings where equations are decidable, but the
+  elementary theory is not.
+
+
+
+
+                                                                        5 / 48
+Examples: decidable DP
+
+
+
+
+  For the following fields Diophantine problem is decidable:
+      C, coefficients in Q̄. In fact, Th(C) is decidable.
+      R, coefficients are computable reals. Th(R) is decidable.
+      Qp , coefficients are computable p-adics. Th(Qp ) is decidable.
+
+  By the way, there are rings where equations are decidable, but the
+  elementary theory is not.
+
+
+
+
+                                                                        5 / 48
+Examples: decidable DP
+
+
+
+
+  For the following fields Diophantine problem is decidable:
+      C, coefficients in Q̄. In fact, Th(C) is decidable.
+      R, coefficients are computable reals. Th(R) is decidable.
+      Qp , coefficients are computable p-adics. Th(Qp ) is decidable.
+
+  By the way, there are rings where equations are decidable, but the
+  elementary theory is not.
+
+
+
+
+                                                                        5 / 48
+Examples: decidable DP
+
+
+
+
+  For the following fields Diophantine problem is decidable:
+      C, coefficients in Q̄. In fact, Th(C) is decidable.
+      R, coefficients are computable reals. Th(R) is decidable.
+      Qp , coefficients are computable p-adics. Th(Qp ) is decidable.
+
+  By the way, there are rings where equations are decidable, but the
+  elementary theory is not.
+
+
+
+
+                                                                        5 / 48
+Examples: decidable DP
+
+
+
+
+  For the following fields Diophantine problem is decidable:
+      C, coefficients in Q̄. In fact, Th(C) is decidable.
+      R, coefficients are computable reals. Th(R) is decidable.
+      Qp , coefficients are computable p-adics. Th(Qp ) is decidable.
+
+  By the way, there are rings where equations are decidable, but the
+  elementary theory is not.
+
+
+
+
+                                                                        5 / 48
+Tenth Hilbert Problem
+
+
+
+
+  Matiyasevich, 1970
+  Diophantine problem for Z is undecidable.
+
+  This truly fundamental result is the combined work of Martin
+  Davis, Yuri Matiyasevich, Hilary Putnam and Julia Robinson which
+  spans 21 years.
+
+
+
+
+                                                                     6 / 48
+Diophantine problem for Q
+
+  Tenth Hilbert Problem for Q
+  Diophantine problem for Q is a major open problem in number
+  theory.
+
+  J. Robinson showed that Z is definable in Q by some first order
+  formulas. But all attempts to define to define this Z by equations
+  failed so far.
+  All known examples of algebraic varieties over Q have the property
+  that the real topological closure of the Zariski closure of their
+  rational points has finitely many connected components. Barry
+  Mazur has conjectured that this holds for any variety over the Q.
+  If true Mazur’s conjecture implies that the integers are not
+  Diophantine over the rationals.
+
+                                                                       7 / 48
+Diophantine problem for Q
+
+  Tenth Hilbert Problem for Q
+  Diophantine problem for Q is a major open problem in number
+  theory.
+
+  J. Robinson showed that Z is definable in Q by some first order
+  formulas. But all attempts to define to define this Z by equations
+  failed so far.
+  All known examples of algebraic varieties over Q have the property
+  that the real topological closure of the Zariski closure of their
+  rational points has finitely many connected components. Barry
+  Mazur has conjectured that this holds for any variety over the Q.
+  If true Mazur’s conjecture implies that the integers are not
+  Diophantine over the rationals.
+
+                                                                       7 / 48
+Diophantine problem for Q
+
+  Tenth Hilbert Problem for Q
+  Diophantine problem for Q is a major open problem in number
+  theory.
+
+  J. Robinson showed that Z is definable in Q by some first order
+  formulas. But all attempts to define to define this Z by equations
+  failed so far.
+  All known examples of algebraic varieties over Q have the property
+  that the real topological closure of the Zariski closure of their
+  rational points has finitely many connected components. Barry
+  Mazur has conjectured that this holds for any variety over the Q.
+  If true Mazur’s conjecture implies that the integers are not
+  Diophantine over the rationals.
+
+                                                                       7 / 48
+Diophantine problem for Q
+
+  Tenth Hilbert Problem for Q
+  Diophantine problem for Q is a major open problem in number
+  theory.
+
+  J. Robinson showed that Z is definable in Q by some first order
+  formulas. But all attempts to define to define this Z by equations
+  failed so far.
+  All known examples of algebraic varieties over Q have the property
+  that the real topological closure of the Zariski closure of their
+  rational points has finitely many connected components. Barry
+  Mazur has conjectured that this holds for any variety over the Q.
+  If true Mazur’s conjecture implies that the integers are not
+  Diophantine over the rationals.
+
+                                                                       7 / 48
+Diophantine problem for Q
+
+
+
+
+  Another approach is to interprete Z in Q using elliptic curves or
+  abelian varieties over Q.
+  In any case, common believe is that the Diophantine problem over
+  Q is undecidable.
+
+
+
+
+                                                                      8 / 48
+Diophantine problem for number fields and their algebraic
+integers
+
+
+
+
+  Conjectures
+      Diophantine problem in a ring of algebraic integers is
+      undecidable.
+      Diophantine problem in a finite extension of Q is undecidable.
+
+
+
+
+                                                                       9 / 48
+Further results
+
+
+
+  Theorem (Denef, 78)
+  Let R be an integral domain of characteristic zero. Then the
+  diophantine problem for R[t] with coefficients in Z[t] is
+  undecidable.
+
+  Theorem (Pappas, 85)
+  Let R be an integral domain of characteristic zero. Then the
+  diophantine problem for R[t, t −1 ] with coefficients in Z[t] is
+  undecidable.
+
+
+
+
+                                                                     10 / 48
+Equations in groups
+
+
+  A group equation in variables X and constants from a group G is a
+  formal expression of the type
+
+                          w (x1 , . . . , xn , g1 , . . . , gm ) = 1,
+
+  where w is a group word in X and constants from G .
+  Solutions:
+                        x1 → u1 , . . . , xn → un         (ui ∈ G )
+  such that w (u1 , . . . , un , g1 , . . . , gm ) = 1 in G .
+  Systems of equations, etc.
+
+
+
+
+                                                                        11 / 48
+Equations in other structures
+
+
+
+
+  Let M be an arbitrary structure in a language L.
+  An equation in M is equality of two terms in L with constants
+  from M:
+
+         t(x1 , . . . , xn , a1 , . . . , am ) = s(x1 , . . . , xn , b1 , . . . , bm ).
+
+  So one can consider equations in semigroups, associative or Lie
+  algebras, etc.
+
+
+
+
+                                                                                          12 / 48
+Principal questions
+
+
+  The principal questions on equations in M:
+      Decidability of single equations and finite systems
+      (Diophantine problems).
+      Is every infinite system of equations in finite number of
+      variables and constants from M equivalent in M to some
+      finite subsystem of this system? In this case M is called
+      Equationally Noetherian.
+      Description of solution sets of finite systems of equations.
+      Algebraic geometry over M.
+      Algebraically (existentially) closed objects related to M.
+
+
+
+
+                                                                     13 / 48
+Principal questions
+
+
+  The principal questions on equations in M:
+      Decidability of single equations and finite systems
+      (Diophantine problems).
+      Is every infinite system of equations in finite number of
+      variables and constants from M equivalent in M to some
+      finite subsystem of this system? In this case M is called
+      Equationally Noetherian.
+      Description of solution sets of finite systems of equations.
+      Algebraic geometry over M.
+      Algebraically (existentially) closed objects related to M.
+
+
+
+
+                                                                     13 / 48
+Principal questions
+
+
+  The principal questions on equations in M:
+      Decidability of single equations and finite systems
+      (Diophantine problems).
+      Is every infinite system of equations in finite number of
+      variables and constants from M equivalent in M to some
+      finite subsystem of this system? In this case M is called
+      Equationally Noetherian.
+      Description of solution sets of finite systems of equations.
+      Algebraic geometry over M.
+      Algebraically (existentially) closed objects related to M.
+
+
+
+
+                                                                     13 / 48
+Principal questions
+
+
+  The principal questions on equations in M:
+      Decidability of single equations and finite systems
+      (Diophantine problems).
+      Is every infinite system of equations in finite number of
+      variables and constants from M equivalent in M to some
+      finite subsystem of this system? In this case M is called
+      Equationally Noetherian.
+      Description of solution sets of finite systems of equations.
+      Algebraic geometry over M.
+      Algebraically (existentially) closed objects related to M.
+
+
+
+
+                                                                     13 / 48
+Principal questions
+
+
+  The principal questions on equations in M:
+      Decidability of single equations and finite systems
+      (Diophantine problems).
+      Is every infinite system of equations in finite number of
+      variables and constants from M equivalent in M to some
+      finite subsystem of this system? In this case M is called
+      Equationally Noetherian.
+      Description of solution sets of finite systems of equations.
+      Algebraic geometry over M.
+      Algebraically (existentially) closed objects related to M.
+
+
+
+
+                                                                     13 / 48
+Developing the theory
+
+
+
+
+      Algebraic geometry over M.
+      Algebraically (existentially) closed objects related to M.
+
+
+
+
+                                                                   14 / 48
+Developing the theory
+
+
+
+
+      Algebraic geometry over M.
+      Algebraically (existentially) closed objects related to M.
+
+
+
+
+                                                                   14 / 48
+Equations in groups
+
+
+
+  The principal questions are solved in the following groups:
+      Abelian (linear systems of equations).
+      Free groups (Makanin-Razborov, Kharlampovich-M.)
+      Hyperbolic and toral relatively hyperbolic groups (Rips-Sela,
+      Dahmani-Groves)
+      Right angled Artin groups (Diekert-Muscholl,
+      Casals-Ruiz-Kazachkov)
+      Free products of groups (Casals-Ruiz-Kazachkov)
+
+
+
+
+                                                                      15 / 48
+Equations in groups
+
+
+
+  The principal questions are solved in the following groups:
+      Abelian (linear systems of equations).
+      Free groups (Makanin-Razborov, Kharlampovich-M.)
+      Hyperbolic and toral relatively hyperbolic groups (Rips-Sela,
+      Dahmani-Groves)
+      Right angled Artin groups (Diekert-Muscholl,
+      Casals-Ruiz-Kazachkov)
+      Free products of groups (Casals-Ruiz-Kazachkov)
+
+
+
+
+                                                                      15 / 48
+Complexity questions
+
+  If Diophantine problems are decidable in a group G the next
+  fundamental algorithmic question is on complexity of the decision
+  algorithms.
+  Initial Makanin’s algorithm was evaluated as non-elementary. At
+  present, due to brilliant ”compression” ideas introduced by
+  Plamdowski and Jeh,
+  It seems the current space complexity estimate is
+  NSPACE (n log n).
+  Major open problem
+  Are the Diophantine problems in free groups decidable in
+  non-deterministic polynomial time?
+
+  Kharlampovch, Lysenok, M., and Touikan showed that decidability
+  of quadratic equations in a given free group is NP-complete.
+
+                                                                      16 / 48
+Complexity questions
+
+  If Diophantine problems are decidable in a group G the next
+  fundamental algorithmic question is on complexity of the decision
+  algorithms.
+  Initial Makanin’s algorithm was evaluated as non-elementary. At
+  present, due to brilliant ”compression” ideas introduced by
+  Plamdowski and Jeh,
+  It seems the current space complexity estimate is
+  NSPACE (n log n).
+  Major open problem
+  Are the Diophantine problems in free groups decidable in
+  non-deterministic polynomial time?
+
+  Kharlampovch, Lysenok, M., and Touikan showed that decidability
+  of quadratic equations in a given free group is NP-complete.
+
+                                                                      16 / 48
+Good descriptions of solution sets
+
+
+
+
+      Makanin-Razborov diagrams (process, not the description)
+      Ciobanu-Diekert-Elder (no cancellation, EDT0L)
+      Kharlampovich-Miasnikov (algebraic geometry)
+
+
+
+
+                                                                 17 / 48
+Good descriptions of solution sets
+
+
+
+
+      Makanin-Razborov diagrams (process, not the description)
+      Ciobanu-Diekert-Elder (no cancellation, EDT0L)
+      Kharlampovich-Miasnikov (algebraic geometry)
+
+
+
+
+                                                                 17 / 48
+Good descriptions of solution sets
+
+
+
+
+      Makanin-Razborov diagrams (process, not the description)
+      Ciobanu-Diekert-Elder (no cancellation, EDT0L)
+      Kharlampovich-Miasnikov (algebraic geometry)
+
+
+
+
+                                                                 17 / 48
+Good descriptions of solution sets
+
+
+
+
+      Makanin-Razborov diagrams (process, not the description)
+      Ciobanu-Diekert-Elder (no cancellation, EDT0L)
+      Kharlampovich-Miasnikov (algebraic geometry)
+
+
+
+
+                                                                 17 / 48
+Good descriptions of solution sets
+
+
+
+
+      Makanin-Razborov diagrams (process, not the description)
+      Ciobanu-Diekert-Elder (no cancellation, EDT0L)
+      Kharlampovich-Miasnikov (algebraic geometry)
+
+
+
+
+                                                                 17 / 48
+NTQ-systems
+
+  Triangular quasi-quadratic (TQ) system is a finite system that
+  has the following form
+  S1 (X1 , X2 , . . . , Xn , A) = 1,
+       S2 (X2 , . . . , Xn , A) = 1,
+           ...
+                  Sn (Xn , A) = 1
+  where either Si = 1 is quadratic in variables Xi , or Si = 1 is a
+  system [xj , xk ] = 1 and, in addition, equations [x, u] = 1 for all
+  x, xj , xk ∈ Xi and some u ∈ FR(Si+1 ,...,Sn ) or Si is empty.
+  A TQ system above is non-degenerate ( NTQ) if for every i,
+  Si (Xi , . . . , Xn , A) = 1 has a solution in the coordinate group
+  Gi = FR(Si+1 ,...,Sn ) , where Gn = F (or Gn = Γ).
+
+
+                                                                         18 / 48
+Description of solution sets of equations
+
+  Theorem
+  For a system of equations
+
+                               S(X , A) = 1
+
+  over F one can find finitely many NTQ systems
+
+                   U1 (Y1 , A) = 1, . . . , Um (Ym , A) = 1
+
+  such that
+
+               VF (S) = P1 (V (U1 )) ∪ . . . ∪ Pm (V (Um ))
+
+  for some word mappings P1 , . . . , Pm . (Pi maps a tuple Ȳi ∈ V (Ui )
+  to a tuple X̄ ∈ VF (S).
+
+  Similarly one can effectively describe the solution set of a system
+  over a torsion-free hyperbolic group Γ.
+                                                                            19 / 48
+Groups with undecidable word and conjugacy problems
+
+
+
+
+  Especially constructed finitely presented groups:
+      with undecidable word problem,
+      with undecidable conjugacy problem
+  The main tool: simulating Turing or Minski machines in the
+  groups.
+
+
+
+
+                                                               20 / 48
+Nilpotent and solvable groups
+
+
+
+
+  Two crucial results:
+      (Romankov) Single equations are undecidable in free nilpotent
+      groups of sufficiently large rank and nilpotency class.
+
+      (Romankov) Single equations are undecidable in free
+      metabelian groups of sufficiently large rank
+  The main tool: interpreting arithmetic in the groups.
+
+
+
+
+                                                                      21 / 48
+Nilpotent and solvable groups
+
+
+
+
+  Two crucial results:
+      (Romankov) Single equations are undecidable in free nilpotent
+      groups of sufficiently large rank and nilpotency class.
+
+      (Romankov) Single equations are undecidable in free
+      metabelian groups of sufficiently large rank
+  The main tool: interpreting arithmetic in the groups.
+
+
+
+
+                                                                      21 / 48
+Systems of equations in Nilpotent groups
+
+
+
+  Theorem [Moon Duchin, Hao Liang, Michael Shapiro]
+  The following hold:
+      Single equations are decidable in UT (3, Z);
+
+      Finite systems of equations are undecidable in all non-abelian
+      free nilpotent groups.
+
+  Finite systems of equations are not equivalent to single equations
+  in UT (3, Z).
+  The main tool: interpreting arithmetic in the groups.
+
+
+
+
+                                                                       22 / 48
+Systems of equations in Nilpotent groups
+
+
+
+  Theorem [Moon Duchin, Hao Liang, Michael Shapiro]
+  The following hold:
+      Single equations are decidable in UT (3, Z);
+
+      Finite systems of equations are undecidable in all non-abelian
+      free nilpotent groups.
+
+  Finite systems of equations are not equivalent to single equations
+  in UT (3, Z).
+  The main tool: interpreting arithmetic in the groups.
+
+
+
+
+                                                                       22 / 48
+Systems of equations in Nilpotent groups
+
+
+
+  Theorem [Moon Duchin, Hao Liang, Michael Shapiro]
+  The following hold:
+      Single equations are decidable in UT (3, Z);
+
+      Finite systems of equations are undecidable in all non-abelian
+      free nilpotent groups.
+
+  Finite systems of equations are not equivalent to single equations
+  in UT (3, Z).
+  The main tool: interpreting arithmetic in the groups.
+
+
+
+
+                                                                       22 / 48
+Interpretations by equations.
+
+
+
+
+  E-definable sets.
+  A ⊂ Mn is called e-definable in M if there exists a finite system of
+  equations Σ(x1 , . . . , xn , ȳ ) such that
+
+      (a1 , . . . , an ) is in A iff Σ(a1 , . . . , an , ȳ ) has a solution in ȳ .
+
+
+
+
+                                                                                       23 / 48
+Examples
+
+
+
+
+     Positive numbers in R: x = y 2 ;
+     Natural numbers N in integers Z:
+
+                  x ∈ N ⇐⇒ ∃y1 , . . . , y4 (x = y12 + . . . y42 )
+
+     Center of a f.g. group G ;
+     G 0 if it has a finite width : x = [y1 , y2 ] · · · , [y2k−1 , y2k ];
+
+
+
+
+                                                                             24 / 48
+Interpretations by equations.
+
+
+
+
+  E-interpretation or Diophantine interpretation
+  Let A and M be algebraic structures. A map φ : X ⊂ Mn → A is
+  called an e-interpretation of A in M if
+      φ is onto;
+      X is e-definable in M;
+      Preimage of ” = ” in A is e-definable:
+      Preimage of the graph of every function in A is e-definable;
+
+
+
+
+                                                                     25 / 48
+Encoding equations.
+
+
+
+
+  Reduction of equations.
+  there is an effective procedure that given an e-enterpretation
+  φ : X ⊂ Mn → A and a finite system of equations over A
+  constructs an equivalent system of equations over M.
+
+      Negative direction;
+      Positive direction.
+
+
+
+
+                                                                   26 / 48
+Examples
+
+
+
+
+     Z (G ) for any finitely generated group G ; G 0 for any polycyclic
+     group G . They are e-interpretable as groups!
+     G /Z (G ) for any finitely generated group G ;
+     For a commutative associative ring R (f.g. additive group),
+     nillradical of R.
+
+
+
+
+                                                                          27 / 48
+Sytems of equations in nilpotent groups
+
+
+  Main theorem [ Albert Garreta Fontelles, M., Denis Ovchinnikov]
+  For every finitely generated non-virtually abelian nilpotent group G
+  there exists (and can be effectively computed) a ring of algebraic
+  integers O(G ) which e-interpretable in G . Hence, the Diophantine
+  problem in O(G ) reduces to the Diophantine problem in G .
+
+  Corollary The Diophantine problem in the class of torsion-free
+  finitely generated nilpotent groups of class 2 (or higher) is
+  equivalent to the Diophantine problem in the rings of algebraic
+  integers: G → O(G ), O → UT (3, O).
+  Probably, it is undecidable.
+
+
+
+                                                                         28 / 48
+Sytems of equations in nilpotent groups
+
+
+  Main theorem [ Albert Garreta Fontelles, M., Denis Ovchinnikov]
+  For every finitely generated non-virtually abelian nilpotent group G
+  there exists (and can be effectively computed) a ring of algebraic
+  integers O(G ) which e-interpretable in G . Hence, the Diophantine
+  problem in O(G ) reduces to the Diophantine problem in G .
+
+  Corollary The Diophantine problem in the class of torsion-free
+  finitely generated nilpotent groups of class 2 (or higher) is
+  equivalent to the Diophantine problem in the rings of algebraic
+  integers: G → O(G ), O → UT (3, O).
+  Probably, it is undecidable.
+
+
+
+                                                                         28 / 48
+Corrolaries
+
+
+
+  Polycyclic groups
+  For any polycyclic group G that contains at least one non virtually
+  abelian nilpotent subgroup, the analogue of the last theorem holds.
+  In particular any non virtually metabelian nilpotent subgroup is like
+  this.
+
+  Arithmetic groups
+  For any arithmetic group that contains a non virtually nilpotent
+  subgroup, the analogue of the last result holds.
+
+
+
+
+                                                                          29 / 48
+Random nilpotent groups
+
+
+ The elements a and b are said to be in general position in a
+ 2-nilpotent group G if [a, b] 6= 1 and the only solutions to the
+ system
+
+                            [a, x] = 1,                             (1)
+                            [b, y ] = 1,
+                            [a, y ] = [x, b].
+
+ in G have the following form:
+
+               x = b t mod Z (G ),    y = at mod Z (G ),
+ for t any integer.
+
+
+
+                                                                          30 / 48
+Theorem
+If a 2-nilpotent group G has a pair of elements in a general
+position then O(G ) = Z. Hence the Diophantine problem in G is
+undecidable.
+
+Many 2-nilpotent finitely generated groups have elements in a
+general position.
+
+
+
+
+                                                                 31 / 48
+Theorem
+If a 2-nilpotent group G has a pair of elements in a general
+position then O(G ) = Z. Hence the Diophantine problem in G is
+undecidable.
+
+Many 2-nilpotent finitely generated groups have elements in a
+general position.
+
+
+
+
+                                                                 31 / 48
+The commutator equation in Nilpotent groups
+
+
+
+
+  The commutator problem in a group G : Is there an algorithm that
+  decides if a given element g ∈ G is a commutator or not?
+  Decidability of commutator equations [x, y ] = g in G .
+  Common intuition: The commutator equations are decidable in
+  most ”reasonable groups”.
+
+
+
+
+                                                                     32 / 48
+The commutator equation in Nilpotent groups
+
+
+
+
+  The commutator problem in a group G : Is there an algorithm that
+  decides if a given element g ∈ G is a commutator or not?
+  Decidability of commutator equations [x, y ] = g in G .
+  Common intuition: The commutator equations are decidable in
+  most ”reasonable groups”.
+
+
+
+
+                                                                     32 / 48
+A surprising result
+
+
+
+
+  Theorem [Romankov, 2015]
+  There is a finitely generated 2-nilpotent group G with undecidable
+  Commutator Problem.
+
+
+
+
+                                                                       33 / 48
+Endomorphism Problem
+
+  The Endomorphism Problem in a group G : given two elements
+  u, v ∈ G decide whether there is an endomorphism φ ∈ End(G )
+  such that φ(u) = v .
+  Corollary of Romankov’s theorem
+  There is a finitely generated 2-nilpotent group H with undecidable
+  Endomorphism Problem.
+
+  Proof:
+  Let G be the group from Romankov’s theorem. Put
+
+                            H = G × N2,2 ,
+
+  where N2,2 has basis {x, y }. Then an element g ∈ G is an
+  endomorphic image of [x, y ] if and only if g is a commutator in G .
+
+                                                                         34 / 48
+Endomorphism Problem
+
+  The Endomorphism Problem in a group G : given two elements
+  u, v ∈ G decide whether there is an endomorphism φ ∈ End(G )
+  such that φ(u) = v .
+  Corollary of Romankov’s theorem
+  There is a finitely generated 2-nilpotent group H with undecidable
+  Endomorphism Problem.
+
+  Proof:
+  Let G be the group from Romankov’s theorem. Put
+
+                            H = G × N2,2 ,
+
+  where N2,2 has basis {x, y }. Then an element g ∈ G is an
+  endomorphic image of [x, y ] if and only if g is a commutator in G .
+
+                                                                         34 / 48
+Retract Problem
+
+
+
+  The Retract Problem in a group G : given a finitely generated
+  subgroup H of G decide if H is a retract of G or not.
+  Corollary of Romankov’s theorem
+  There is no (uniform) algorithm to solve Retract Problem in all
+  finitely generated 2-nilpotent groups.
+
+  Proof:
+  Let H = G ×[x,y ]=g N2,2 . Then there is a retraction ϕ : H → G if
+  and only if g is a commutator in G .
+
+
+
+
+                                                                       35 / 48
+Retract Problem
+
+
+
+  The Retract Problem in a group G : given a finitely generated
+  subgroup H of G decide if H is a retract of G or not.
+  Corollary of Romankov’s theorem
+  There is no (uniform) algorithm to solve Retract Problem in all
+  finitely generated 2-nilpotent groups.
+
+  Proof:
+  Let H = G ×[x,y ]=g N2,2 . Then there is a retraction ϕ : H → G if
+  and only if g is a commutator in G .
+
+
+
+
+                                                                       35 / 48
+Equations in free associative algebras and group rings
+
+
+
+  Let AK (A) be a free associative algebra with basis X over field K .
+  An equation with variables in X = {x1 , . . . , xn } and constants from
+  AK (A) is an expression
+
+                              P(X , A) = 0
+
+  where P(X , A) is an element from AK (A ∪ X ).
+  Solutions are maps xi → ui ∈ AK (A) such that
+  P(u1 , . . . , un , A) = 0 in AK (A).
+
+
+
+
+                                                                            36 / 48
+Diophantine problem in AK (A)
+
+
+
+
+  Diophantine problem in AK (A)
+  Is it true that there is an algorithm which given an equation in
+  AK (A) decides if the equation has a solution in AK (A) or not for
+  an algebraically closed field K? A finite field K?
+
+
+
+
+                                                                       37 / 48
+Solutions of bounded degree
+
+
+
+  We assume that the Diophantine problem in K is decidable.
+  Theorem
+  For each m ∈ N there exists an algorithm which given a finite
+  system of equations in AK (A) decides whether there is a solution of
+  degree ≤ m of the system (and if it exists the algorithm finds one).
+  Hence the Bounded Diophantine Problem in AK (A) is decidable.
+
+  The result follows from the decidability of the Diophantine problem
+  in K .
+
+
+
+
+                                                                         38 / 48
+Solutions of bounded degree
+  width width(f ) of a polynomial f = the number of monomials in f .
+  Theorem
+  Assume that the Diophantine problem in K is decidable. Then for
+  each m ∈ N there exists an algorithm which given a finite system
+  of equations in AK (A) decides whether there is a solution of
+  degree ≤ m of the system (and if it exists the algorithm finds one).
+  Hence the Bounded Diophantine Problem in AK (A) is decidable.
+
+  The result follows from Makanin’s result on the decidability of the
+  systems of equations in a free semigroup.
+  Conjecture
+  Let K be a field with decidable Diophantine problem and AK (A) a
+  free associative algbera of finite rank. Then there is a computable
+  function c : N → N such that if an equation P = 0 has a solution
+  in AK (A) then it has a solution of width at most f (degP).
+
+  If the conjecture holds then the Diophantine problem would be
+                                                                         39 / 48
+Solutions of bounded degree
+  width width(f ) of a polynomial f = the number of monomials in f .
+  Theorem
+  Assume that the Diophantine problem in K is decidable. Then for
+  each m ∈ N there exists an algorithm which given a finite system
+  of equations in AK (A) decides whether there is a solution of
+  degree ≤ m of the system (and if it exists the algorithm finds one).
+  Hence the Bounded Diophantine Problem in AK (A) is decidable.
+
+  The result follows from Makanin’s result on the decidability of the
+  systems of equations in a free semigroup.
+  Conjecture
+  Let K be a field with decidable Diophantine problem and AK (A) a
+  free associative algbera of finite rank. Then there is a computable
+  function c : N → N such that if an equation P = 0 has a solution
+  in AK (A) then it has a solution of width at most f (degP).
+
+  If the conjecture holds then the Diophantine problem would be
+                                                                         39 / 48
+Pell equation In R[t]
+
+
+  Pell equation in R[t] for an integral domain R of char 0:
+
+                         X 2 − (t 2 − 1)Y 2 = 1.
+
+  The solution set P of the Pell equation in R[t] (the Pell curve) is
+  precisely the set of pairs
+
+                     P = (±Xn , ±Yn−1 ),      n ∈ N,
+
+  where Xn , Yn ∈ Z[t] are Chebyshev’s polynomials.
+  Recall that:
+      degYn = n
+      Yn (1) = n + 1, so {Yn (1) | n = 0, 1, 2, . . .} = Z.
+
+
+
+                                                                        40 / 48
+Pell equation In R[t]
+
+
+  Pell equation in R[t] for an integral domain R of char 0:
+
+                         X 2 − (t 2 − 1)Y 2 = 1.
+
+  The solution set P of the Pell equation in R[t] (the Pell curve) is
+  precisely the set of pairs
+
+                     P = (±Xn , ±Yn−1 ),      n ∈ N,
+
+  where Xn , Yn ∈ Z[t] are Chebyshev’s polynomials.
+  Recall that:
+      degYn = n
+      Yn (1) = n + 1, so {Yn (1) | n = 0, 1, 2, . . .} = Z.
+
+
+
+                                                                        40 / 48
+Undecidability of the Diophantine problem in R[t]
+
+  Notice that for f , g ∈ Z[t] one has
+
+                f (1) = g (1) ⇐⇒ ∃h(f − g = h(t − 1))
+
+  So the equivalence relation f ∼ g ⇐⇒ f (1) = g (1) is definable by
+  equations in Z[t]. Hence
+
+                     Z = {Yn | n = 0, 1, 2, . . .}/ ∼
+
+  and the standard operation + and × on Z are interpretable by
+  equations on the Pell curve:
+
+                    m + n = k ⇐⇒ Ym + Yn ∼ Yk ,
+
+                    m × n = k ⇐⇒ Ym × Yn ∼ Yk .
+
+
+                                                                       41 / 48
+Degrees of minimal solutions are unbounded
+
+
+
+  Theorem
+  Arithmetic Z is interpretable by equations on the Pell curve in
+  R[t]. In particular, the Tenth Hilbert Problem reduces to
+  decidability of equations on the Pell curve in R[t].
+
+  From undecidability of THP for Z follows that the least positive
+  solution of a Diophantine equation P = 0 in Z is not bounded by a
+  computable function on the size of P.
+  Hence the degrees of minimal solutions of polynomial equations on
+  the Pell curve are not bounded by any computable function.
+
+
+
+
+                                                                      42 / 48
+Diophantine problem in AK (A)
+
+
+
+
+  Theorem
+  Let AK (X ) be a free associative algebra over K . Then for any field
+  K of characteristic zero the Diophantine problem for AK (X ) is
+  undecidable.
+
+
+
+
+                                                                          43 / 48
+Diophantine problem in group rings
+
+
+
+
+  Theorem
+  Let G be a torsion-free hyperbolic group. Then for any field K of
+  characteristic zero the Diophantine problem for K (G ) is
+  undecidable.
+
+
+
+
+                                                                      44 / 48
+Zelmanov’s question
+
+
+
+  Towards Dehn functions
+  Given elements r , r1 , . . . , rn ∈ AK (A), decide whether there exist
+  elements y1 , z1 , . . . , yn , zn ∈ AK (A) such that r = Σni=1 yi ri zi .
+
+  Solution to this problem would clarify the algorithmic nature of
+  Dehn’s functions in finitely generated associative algebras.
+  Observe, that existence of finitely presented algebras with
+  undecidable word problem does not imply undecidability of the
+  quadratic equations above.
+
+
+
+
+                                                                               45 / 48
+Zelmanov’s question
+
+
+
+  Towards Dehn functions
+  Given elements r , r1 , . . . , rn ∈ AK (A), decide whether there exist
+  elements y1 , z1 , . . . , yn , zn ∈ AK (A) such that r = Σni=1 yi ri zi .
+
+  Solution to this problem would clarify the algorithmic nature of
+  Dehn’s functions in finitely generated associative algebras.
+  Observe, that existence of finitely presented algebras with
+  undecidable word problem does not imply undecidability of the
+  quadratic equations above.
+
+
+
+
+                                                                               45 / 48
+Open questions
+
+
+
+
+  Interesting topic
+  Study elliptic curves in AK (A).
+
+
+  Interesting topic
+  Is the algebra AK (A) equationally Noetherian?.
+
+
+
+
+                                                    46 / 48
+Open questions
+
+
+
+
+  Interesting topic
+  Study elliptic curves in AK (A).
+
+
+  Interesting topic
+  Is the algebra AK (A) equationally Noetherian?.
+
+
+
+
+                                                    46 / 48
+Equations in free Lie algebras
+
+
+  Let LK (X ) be a free Lie algebra over a field K with basis X
+  (|X | ≥ 2).
+  General question
+  Is Diophantine problem in LK (X ) decidable?
+
+
+  Theorem
+  If DP is undecidable in K then it is undecidable in LK (X ).
+
+  Based on a result that the field K is interpretable by equations in
+  LK (X ).
+
+
+
+
+                                                                        47 / 48
+Equations in free Lie algebras
+
+
+  Let LK (X ) be a free Lie algebra over a field K with basis X
+  (|X | ≥ 2).
+  General question
+  Is Diophantine problem in LK (X ) decidable?
+
+
+  Theorem
+  If DP is undecidable in K then it is undecidable in LK (X ).
+
+  Based on a result that the field K is interpretable by equations in
+  LK (X ).
+
+
+
+
+                                                                        47 / 48
+Equations in free Lie algebras
+
+
+
+  Interesting question
+  Is the Diophantine problem decidable in free Lie algebras over an
+  algebraically closed fields?
+
+
+  Question
+  Is there an analog of Pell equation in LK (X )?
+
+
+  Interesting topic
+  Is the algebra AK (A) equationally Noetherian?.
+
+
+
+
+                                                                      48 / 48
+Equations in free Lie algebras
+
+
+
+  Interesting question
+  Is the Diophantine problem decidable in free Lie algebras over an
+  algebraically closed fields?
+
+
+  Question
+  Is there an analog of Pell equation in LK (X )?
+
+
+  Interesting topic
+  Is the algebra AK (A) equationally Noetherian?.
+
+
+
+
+                                                                      48 / 48
+Equations in free Lie algebras
+
+
+
+  Interesting question
+  Is the Diophantine problem decidable in free Lie algebras over an
+  algebraically closed fields?
+
+
+  Question
+  Is there an analog of Pell equation in LK (X )?
+
+
+  Interesting topic
+  Is the algebra AK (A) equationally Noetherian?.
+
+
+
+
+                                                                      48 / 48
+

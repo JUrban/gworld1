@@ -228,3 +228,21 @@ Do not record N3 as a verified prior resolution from this paper. Equally, do not
 - S3: [Timoshenko1998, MathNet mzm1471](https://www.mathnet.ru/eng/mzm1471), Theorem2 and final corollary, covers last-derived relators, including proper powers there. The broader theorem assumes a centreless quotient and a group ring without zero divisors. Read the exact Russian PDF pages925,926,930,931 visually because extraction is garbled. English full-text endpoint returned non-PDF content. The module-invariant reduction and its unresolved annihilator obstruction are in `research/notes/S3-S9-scope-followup.md`.
 - H16: the Roman'kov2018 paper with DOI10.1017/S0017089516000677 concerns **biautomatic** soluble groups. Its Theorem6.3 does not by itself answer the original **automatic** metabelian question. No full proof audit made in this pass.
 - S4–S8: the targeted searches did not yield a further full answer. In particular, commutator-width results for free solvable Lie rings, and co-Hopfian direct-product results, retain their earlier scope cautions.
+
+## N9 fixed-ambient follow-up, approximately 18:09–18:21 UTC
+
+Read the introduction, definitions and final corollaries/theorem in the
+web-extracted [author copy of Roman'kov2016](https://www.researchgate.net/publication/300075306_Diophantine_questions_in_the_class_of_finitely_generated_nilpotent_groups).
+The fixed/uniform distinction is explicit. The original PDF could not
+be retrieved: publisher HTTP202/empty, author-page HTTP403. Archived
+and visually checked [Myasnikov's 2016 slides](https://www.macs.hw.ac.uk/~lc45/Conferences/2016/Slides_for_web/Miasnikov_Diablerets.pdf),
+slide35 (physical PDF page65), which repeat the uniform construction.
+
+The literal central-direct-product interpretation has a
+cross-commutation obstruction. A class-two coproduct quotient repairs
+the reduction, with the base embedding proved explicitly; the uniform
+theorem is retained. Source terminology is qualified pending the
+original PDF. The fixed-group question is still unresolved, and an
+attempted encoding by retracts of a fixed base fails by equation
+reflection. See `research/notes/N9-fixed-ambient-and-coproduct.md`.
+No new candidate or novelty assertion follows.

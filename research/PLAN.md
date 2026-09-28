@@ -210,3 +210,19 @@ Do not enlarge its sample merely for volume. Return to a concrete
 unresolved mathematical lead, alternating with adversarial review.
 The count remains three whole-entry candidates and one partial, with
 zero established novel results. The original deadline remains fixed.
+
+## Working focus after the N9 construction audit
+
+The attempted fixed-ambient N9(a) reduction is blocked by equation
+reflection for retracts. A precise coproduct construction supports the
+prior uniform undecidability reduction, but its ambient group depends
+on the input. Do not count the repair or mistake an undecidable
+endomorphism orbit for undecidable retract recognition.
+
+The original 2016 article PDF remains unavailable; the literal product
+interpretation is qualified accordingly. Four GAP examples support
+the algebraic distinction, and the first run's global-scope warnings are
+preserved. Further similar examples would not answer the fixed-group
+question. Resume the unresolved portfolio or a specific adversarial
+proof concern in the existing candidates; retain the original deadline
+and three-whole/one-partial tally.

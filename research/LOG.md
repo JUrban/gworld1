@@ -535,3 +535,32 @@ limits, regeneration instructions and an artifact manifest. The old
 bounded constructor remains unchanged. This adds no result count;
 M0's specialist review and novelty audit are still outstanding. No
 external contact, push, subagents or parent-repo modification.
+
+## 2026-09-28 approximately 18:09–18:21 UTC — N9 fixed-group reduction audit
+
+Read the original N9 statement, full page, background and actual
+rendering. The background and Roman'kov2016 introduction both distinguish
+uniform retract undecidability from the fixed-group question. Obtained
+the author's paper text through web extraction but not its PDF:
+publisher HTTP202/empty, author-page HTTP403. Archived and visually
+checked Myasnikov2016 slide35, physical page65.
+
+The literal central-product construction forces both new generator
+images to be central in the base, so its retraction exists only for a
+trivial target. Wrote an explicit class-two coproduct repair for targets
+in G', proving that the base embeds and that a retraction exists exactly
+when the target is a commutator. This preserves the uniform theorem;
+its ambient group still varies. Source terminology is qualified until
+the original article PDF is checked.
+
+The attempted automorphism/shear encoding in a fixed base also fails:
+retracts reflect equations with coefficients in them, so a fixed common
+target has constant commutator status across such a family. Preserved
+this obstruction and the older failed extra-central-generator route.
+
+GAP/nq verified the corrected inclusions/retractions for four integer
+parameters and rejected the invalid central-product assignments, with
+an explicit zero-target control. First run passed with parser warnings;
+its exact source/logs remain. The locally scoped rerun passed in1.93s
+with empty stderr, one core/8GB. No new whole or partial candidate,
+external review, imported Kourovka argument, contact or push.
