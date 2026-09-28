@@ -164,10 +164,95 @@ and have empty stderr. Their overlapping records add no theorem count.
 
 ## Rank-three group checks
 
-The focused rank-three rerun and its independent verification are
-recorded below when complete. Until then the rank-three group checks
-are incomplete; the completed all-rank proof and bounded rank-three
-kernel checks should not be described as a completed group suite.
+The broad rank-three run `n8-class8-final-rank3-v1` completed ten
+positive records before reaching its 400.03-second limit on the random
+nonprimitive (1,3) example. Those records cover all eight middle
+leading types and two mixed-generator exceptional targets, with
+z involving generators 1 and 3 and T involving all three generators.
+The saved prefix contains ten witnesses, 24 linear decisions (one
+negative branch), two polynomial decisions and ten parameter samples.
+It is explicitly a completed prefix of an incomplete benchmark.
+
+The deterministic controls are six perturbations of the same exceptional
+base, in degrees seven and eight, plus identity and nonzero abelianization.
+`n8-class8-rank3-controls-v1` completed five negative records before a
+240.03-second timeout. `n8-class8-rank3-controls-remaining-v1` ran only
+the missing degree-eight case and the two boundaries, completing in
+85.06 seconds. The latter has one scheduled stack snapshot in stderr;
+the process completed normally. Both used one CPU/12 GB.
+
+`merge_n8_class8_certificates.py` combines their disjoint saved records
+without rerunning any group decision. It verifies the common Hall
+words, rejects duplicate targets and records the source-file hashes.
+The combined eight records contain one witness, 18 linear decisions
+(six negative), twelve polynomial decisions (six empty parameter
+lists), and sixty parameter samples. All six perturbations are negative;
+the sole positive boundary is the identity. Completion of this bounded
+control set does not turn the earlier timed-out process into a pass.
+
+The first independent GAP check of the positive prefix,
+`n8-class8-rank3-partial-gap-v1`, reached its 600.02-second limit without
+a completion marker. Its stdout contains only the original carriage
+return, and stderr is empty, so its exact stopping phase is unknown.
+No completed validation is attributed to that run.
+
+The cached verifier `scripts/check_n8_class8_gap_cached.g` evaluates
+word halves by multiplication and memoizes words separately for each
+nilpotent quotient. Associativity gives the same group element as the
+original letterwise evaluation; every membership and arithmetic test
+is unchanged. Its full rank-two comparison
+`n8-class8-cached-rank2-gap-v1` passed all 15 witnesses, 75 linear
+decisions and ten polynomial decisions in 3.08 seconds, with empty
+stderr. Progress markers identify its phase during later larger runs.
+
+`n8-class8-rank3-partial-gap-v2` checked all ten witnesses and ten
+linear decisions before being deliberately interrupted after 335.12
+seconds during another large subgroup test. It did not complete the
+suite. The original control-set checker,
+`n8-class8-rank3-controls-gap-v1`, also reached its 600.02-second
+limit without a marker or diagnostic phase information. Both raw
+runs and both verifier versions are preserved.
+
+The final verifier `scripts/check_n8_class8_gap_linear.g` replaces
+general subgroup construction by exact integer membership in GAP's
+own polycyclic coordinates on gamma_s, where 2s exceeds the class.
+The installed nq source `gap/nqpcp.gi`, function
+`NqPcpGroupByCollector`, stores the lower central series as suffixes
+of its defining generating sequence. The checker verifies that the
+ambient pcp has infinite relative orders, that its generators agree
+with the defining sequence, that the required lower-central term is
+the matching suffix, and that every increment and target has zero
+coordinates before that suffix. Since [gamma_s,gamma_s]=1, these
+suffix coordinates add. Thus `SolutionIntMat` decides the exact
+integer subgroup membership; every positive coefficient solution is
+also multiplied out in the actual GAP group. This is not a rational
+membership approximation or a call to the Python solver.
+
+The APIs were checked against the installed primary Polycyclic manual,
+Section 5.4 (`Pcp`, `GeneratorsOfPcp`, `RelativeOrdersOfPcp`,
+`ExponentsByPcp`), and GAP's `lib/matint.gd` documentation for
+`SolutionIntMat`. The full rank-two comparison
+`n8-class8-linear-rank2-gap-v1` agreed on all 75 linear decisions
+and all other certificates in 2.63 seconds, with empty stderr.
+
+The completed rank-three verification runs are:
+
+| Run | Independently checked records | Seconds |
+| --- | --- | ---: |
+| `n8-class8-rank3-partial-gap-v3` | 10 witnesses; 24 linear decisions (1 negative); 2 polynomial decisions; 10 samples | 119.68 |
+| `n8-class8-rank3-controls-gap-v2` | 1 witness; 18 linear decisions (6 negative); 12 polynomial decisions (6 empty); 60 samples | 85.56 |
+
+Both used one CPU/12 GB and have empty stderr. Their PASS markers
+refer exactly to the saved records listed above. They do not certify
+completion of the original broader Python benchmark or its unfinished
+nonprimitive rank-three case.
+
+Together with the final rank-two suite, the final datasets contain
+40 completed target records, 26 independently checked word witnesses,
+117 linear decisions (39 negative), 24 polynomial decisions (six empty
+parameter sets), and 120 group parameter samples. These are supporting
+checks of a candidate proof, not an exhaustive verification or an
+independent specialist review.
 
 ## Preserved unsuccessful runs
 
@@ -261,8 +346,16 @@ Target generators refuse to overwrite an
 existing `checks.json`. `export_n8_class8_gap.py --rank R --directory
 PATH` translates saved group certificates into GAP literals without
 redoing mathematical work. Set `N8C8Directory` to PATH before reading
-`scripts/check_n8_class8_gap.g`. Use the exact commands in successful
+`scripts/check_n8_class8_gap_linear.g` for the final verifier. The older
+verifiers are retained for the earlier runs. Use the exact commands in successful
 process records to reproduce the respective suites.
+
+The rank-three controls' combined directory is reproduced by running
+the deterministic control cases (or their saved prefix and remaining
+case), then the recorded merge/export commands. Its `checks.json`
+records the hashes of both source directories. A fresh run with a
+longer per-process limit can execute all eight controls consecutively;
+this does not alter the experiment's original 48-hour deadline.
 
 ## Bibliographic limits
 

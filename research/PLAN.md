@@ -153,3 +153,29 @@ Return to a concrete unresolved mathematical route in the wider
 portfolio, alternating discovery with the outstanding novelty and
 specialist-review needs of the four candidates. The clock and tally
 remain unchanged.
+
+## Working focus after the class-eight verification checkpoint
+
+N8's candidate now covers all targets in classes three through eight
+in every finite rank, as well as the previously stated arbitrary-class
+strata. The six new kernel lemmas and the quadratic cokernel argument
+are written out. Independent GAP checks cover the final bounded
+datasets; every timed-out benchmark and the corrected fixture alias
+remain documented. A difficult nonprimitive rank-three benchmark was
+not completed and must not be described as passed.
+
+Return to the wider unresolved portfolio and adversarial review of
+F28, N5 and M0 before extending the N8 computation again. M4's
+countable-rank question remains distinct from Artamonov's finite-rank
+theorem; a local-freeness argument alone does not prove it. For GA1,
+an archimedean small-root argument does not handle arbitrary ordered
+abelian length groups. No new candidate follows from the latest
+bounded reading pass over these questions.
+
+The elementary higher-kernel family recorded in the class-eight lead
+already prevents a naive uniqueness extrapolation to type (1,6).
+It is not a class-nine decision procedure. Avoid spending the run
+merely enlarging existing validation suites: further computations
+should answer a new mathematical question or a specific audit concern.
+The tally remains three whole-entry candidates, one partial candidate,
+and zero established novel results. No external review has occurred.

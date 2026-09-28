@@ -381,3 +381,53 @@ an archimedean small-root argument does not apply to arbitrary ordered
 abelian length groups in GA1. No new scope claim follows. A telescoping
 derivation identity supplies higher (1,2m+2) kernel examples for future
 N8 investigation, but no class-nine algorithm is inferred.
+
+## 28 September 2026, 17:03–17:23 UTC — class-eight candidate scope recorded
+
+The rank-three broad Python benchmark reached its 400-second cap after
+completing ten positive targets, on its random nonprimitive (1,3) case.
+Kept the complete prefix and the timeout; the unfinished case is not
+reported as passed. A separate deterministic control run completed five
+negative targets before its 240-second cap. Running only its remaining
+case and the two boundaries completed the eight-control dataset.
+The data-only merger checks disjoint targets and common Hall words and
+records source-file hashes. No completed target needed to be rerun for
+that merge.
+
+The first GAP positive and control runs each reached 600 seconds without
+a completion marker. A cached word evaluator passed the full rank-two
+comparison and then checked all ten rank-three witnesses, but larger
+subgroup membership tests remained slow. That intermediate checker was
+interrupted after 335 seconds and is preserved with its progress output.
+
+The final GAP verifier uses its own integral polycyclic coordinates in
+an abelian lower-central tail. It checks the defining-pcp and
+lower-central-suffix conditions, infinite relative orders and coordinate
+support, solves the resulting integer system with GAP's SolutionIntMat,
+and multiplies every positive coefficient solution in the actual group.
+The relevant primary nq source and Polycyclic/GAP API documentation were
+read locally. This avoids repeated general subgroup construction and
+retains independent integer and group arithmetic. The full rank-two
+comparison passed before using the revised verifier on rank three.
+
+Both final rank-three GAP checks completed with empty stderr: the ten
+positive records in 119.68 seconds, and the eight controls in 85.56
+seconds. They verify eleven witnesses, 42 linear decisions (seven
+negative), fourteen polynomial decisions (six empty parameter sets)
+and seventy parameter samples. Together with the final rank-two data,
+there are forty completed target records, 26 witnesses, 117 linear
+checks, 24 polynomial certificates and 120 samples. These counts refer
+to the final datasets, not the overlapping preliminary suites. The
+39 kernel and eight quadratic-obstruction ranks were also checked in
+GAP separately.
+
+Promoted the written class-eight extension to the same partial N8(b)
+candidate in the append-only claim ledger, current triage and progress
+report. Scope is now all targets in classes three through eight, in
+every finite rank, plus the earlier arbitrary-class strata. Classes
+nine and higher retain uncovered intermediate layers. No external
+specialist review or exhaustive novelty certification has occurred.
+The tally remains three whole-entry candidates, one partial candidate,
+and zero established novel results. All work is local; no push,
+external contact, subagent or Kourovka mathematical/code transfer.
+The original deadline remains 30 September 2026 at 10:04:49 UTC.

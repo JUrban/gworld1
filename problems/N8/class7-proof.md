@@ -198,3 +198,8 @@ Besides the previously credited integral Hall theory and earlier N8
 lemmas, the new structural dependency is the homogeneous Shirshov
 lemma identified in Section 1. The kernel classification and its
 application here are supplied in full; their novelty remains provisional.
+
+Subsequent development: `class8-proof.md` extends the candidate to
+class eight. This earlier proof and its original audit remain unchanged
+in mathematical scope; the extension is still the same partial N8(b)
+candidate.
