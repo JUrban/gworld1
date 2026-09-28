@@ -5,11 +5,11 @@ Active experiment: 28 September 2026 10:04:49 UTC to 30 September 2026 10:04:49 
 Current counts: **1 partial candidate**, **0 whole-entry candidate solutions**, **0 established novel results**. Novelty of the partial candidate remains provisional.
 
 - The independent repository, frozen corpus, clock, recorded computation runner and research plan are in place.
-- First reading of all 146 entries without heading stars completed at extracted-text level. Heading-star residual scope and full original statements remain part of triage.
+- First textual reading of all 195 entries completed, including 49 heading-star entries. Full original statements, linked background and residual scope remain part of targeted audits.
 - F42: derived the exact extremal formula and a covering-graph construction, then found Koch-Hyde–Olive's September 2026 preprint already proving the same answer. Preserved as a rediscovery, excluded from new-solution count.
 - F11: derived a cyclic-retract/index-three counterexample, then found the same mechanism in Snopce–Tanushevski–Zalesskii (2019). Also excluded. Original HTML screenshots for F11/F42 have now been inspected.
 - Primary sources also report prior resolutions of F15, F30, F31 and F40. B11 has a 2025 primary seminar announcement; full proof not yet located. Scope checks are recorded in `research/triage.csv` and `literature/LEDGER.md`.
-- N8(b): a constructive algorithm for the single-commutator problem in every finite-rank free nilpotent group of class three. The written candidate proof is `problems/N8/class3-proof.md`. The exact prototype passed 173 checks; GAP independently verified 165 positive witnesses. Higher classes remain open in this investigation.
+- N8(b): constructive algorithms for the single-commutator problem in every finite-rank free nilpotent group of class three or four. Candidate proofs: `problems/N8/class3-proof.md` and `problems/N8/class4-proof.md`. Class three passed 173 exact checks and 165 GAP witness checks; class four passed 108 exact checks and 100 GAP witness checks. This remains one partial candidate; classes five and above remain unanswered here.
 - GAP 4.16.1 and relevant packages are available. Chromium rendering works using locally extracted system libraries, without root access. The first GAP check exposed an nq crash on the rank-one/class-three request; the rerun handles the infinite cyclic case directly, and the failed log is retained.
 
 See `research/PLAN.md` for the portfolio and `research/LOG.md` for dated progress. Known results and bibliographic updates are not counted as new solutions.
