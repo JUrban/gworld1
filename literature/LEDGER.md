@@ -147,3 +147,11 @@ No additional candidate. Detailed conclusions and failed reductions are in
 - [Dehornoy, arXiv:1711.09794](https://arxiv.org/abs/1711.09794), Section 3.2 and Question 3.19, gives the relevant B9 terminology. Its printed p.13 numerical bound 2^n conflicts with the certified 52 examples in B5; this does not refute the actual height-converse question. Exact scope and computational evidence are in `research/notes/B9-bounded-enumeration.md`.
 
 All four original paragraphs and primary theorem pages were inspected visually. No additional candidate solution results from this pass.
+
+## Free-group/group-action scope pass, 28 September 2026 approximately 14:20–14:47 UTC
+
+- [Moravec–Morse, *Basic commutators as relations: A computational perspective*](https://users.fmf.uni-lj.si/moravec/Papers/mmpaper.pdf), Contemp. Math. 511 (2010), 83–92: archived and read in full. The weight-five result and failed rank-two weight-six attempt inform the bounded F20 probes. Jackson's [2008 publisher abstract](https://doi.org/10.1080/00927870802108148) uses weights six and seven together; a full-text CiteSeer attempt failed with 404. See `research/notes/F20-bounded-rewriting.md`.
+- [Kharlampovich–Vdovina, arXiv:1710.10306](https://arxiv.org/abs/1710.10306), sections 2.3, 3.2, 6: archived and exact scope read. Corollary 3 is the finitely presented biautomaticity theorem; Conjecture 1 records the finite-generation gap. Neither CSA nor an affine tree action is silently promoted to a stronger property. See `research/notes/GA-scope-audit.md`.
+- Further N8 class-seven/free-nilpotent commutator searches located no matching algorithm theorem. Earlier primary Roman'kov background remains credited. The rank-two extension proves its additional Lie minor and polynomial-lattice facts explicitly. Novelty remains provisional.
+
+The original F20, GA2 and GA3 paragraph screenshots were inspected. No new whole-entry or additional partial count arises from these scope checks.

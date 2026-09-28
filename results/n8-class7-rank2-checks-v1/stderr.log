@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/project/gworld1/scripts/check_n8_class7_rank2.py", line 82, in <module>
+    check(wcomm(x,y),'constructed_positive',True,p=p,q=q,scale=scale)
+  File "/project/gworld1/scripts/check_n8_class7_rank2.py", line 58, in check
+    result=decide_class7_rank2(m,word,audit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/gworld1/scripts/n8_class7_rank2.py", line 193, in decide_class7_rank2
+    if pair is not None:return finished(m,g,*pair,trace,'class7_rank2_middle')
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/gworld1/scripts/n8_class6.py", line 32, in finished
+    return dict(answer=True,x=m.collect(x)[0],y=m.collect(y)[0],trace=trace,case=case)
+                              ^^^^^^^^^^^^
+  File "/project/gworld1/scripts/n8_ia_orbits.py", line 105, in collect
+    for h,n in zip(self.bydegree[d],cc):word.extend(wpow(h['word'],n))
+                                                    ^^^^^^^^^^^^^^^^^
+  File "/project/gworld1/scripts/n8_class3.py", line 68, in wpow
+    return list(word)*n if n >= 0 else winv(word)*(-n)
+                                       ~~~~~~~~~~^^~~~
+OverflowError: cannot fit 'int' into an index-sized integer

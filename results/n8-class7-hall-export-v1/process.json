@@ -1,0 +1,25 @@
+{
+  "command": [
+    ".venv/bin/python",
+    "-c",
+    "import sys,json;sys.path.insert(0,\"scripts\");from n8_ia_orbits import Magnus;from pathlib import Path;m=Magnus(2,7);Path(\"research/certificates/N8-class7/hall7.json\").write_text(json.dumps([h[\"word\"] for h in m.bydegree[7]])+\"\\n\");print(\"PASS Hall basis export\")"
+  ],
+  "cwd": "/project/gworld1",
+  "started_utc": "2026-09-28T14:40:48.602736+00:00",
+  "cpus": [
+    0
+  ],
+  "memory_gb_per_process": 4.0,
+  "timeout_seconds": 60.0,
+  "expected_marker": "PASS Hall basis export",
+  "actual_returncode": 0,
+  "timed_out": false,
+  "interrupted": false,
+  "pid": 475727,
+  "ended_utc": "2026-09-28T14:40:49.074724+00:00",
+  "elapsed_seconds": 0.47199167031794786,
+  "stdout_sha256": "ef6755d02e175e6b98e8e9f8d0dc7b4bedb84d18676bf3a9362d38edf9d3a049",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "marker_seen": true,
+  "process_ok": true
+}

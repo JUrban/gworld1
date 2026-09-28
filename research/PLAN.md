@@ -89,3 +89,18 @@ and complete candidates.
 ## Working focus after the 14:17 UTC checkpoint
 
 B3, B8 and B13 are prior results. B9 has reproducible finite lower bounds but no fixed-strand stopping argument; avoid spending the run merely enlarging these lists. Continue the remaining group-action and free-group scopes, with exact quantifiers, before returning to N8 higher correction kernels. Existing candidates still need adversarial proof and novelty review.
+
+## Working focus after the rank-two class-seven checkpoint
+
+The wider pass left F20's weight-six rewriting inconclusive and exposed
+the finite-generation/presentation gap in GA2. Neither adds a candidate.
+N8's rank-two class-seven case is now a candidate extension with a
+written quadratic-lattice proof and independent GAP certificates.
+Do not infer the same kernel bound in arbitrary rank from the bounded
+probe. Keep the exact Nielsen move x->yx in future arguments.
+
+Return to adversarial checks and wider unresolved entries before further
+large computations. Useful mathematical questions include whether the
+(1,4) correction kernel admits a proved all-rank bound, and whether any
+other target can be handled by a finite number of one-variable polynomial
+conditions. Such leads are not part of the counted scope until complete.

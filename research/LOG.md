@@ -147,3 +147,45 @@ Confirmed three prior positive answers: Fromentin for B8, Bell–Schleimer for B
 For B9, exact Artin-action enumeration through term height four produced 52 special braids in B5. GAP independently checked every recursive witness, equality classes and finite-height closure, and separated all52 by finite Burau matrices. A height-five Artin run timed out at120seconds and is preserved. A different finite-matrix calculation then certified1930 distinct special braids in B6 at height at most five; GAP independently checked the free-word parent identities and all matrix images. Successful runs used one core and4GB, with empty stderr. The numerical bound2^n printed in Dehornoy p.13 cannot hold, but no fixed-strand exhaustion theorem or disproof of the height-converse question follows. This evidence is not an additional counted partial candidate.
 
 Tally unchanged: three whole-entry candidates, one partial candidate, zero established novel results. No Kourovka mathematics/code imported; no subagents or external contacts; deadline unchanged.
+
+## 2026-09-28 approximately 14:20–14:47 UTC — F20/GA scope and rank-two class-seven N8
+
+Archived and read Moravec–Morse's computational F20 paper and the relevant
+parts of Kharlampovich–Vdovina's Lambda-tree survey. The original F20,
+GA2 and GA3 full pages and rendered paragraphs were checked. GA2's
+finitely generated quantifier is not covered by the finitely presented
+biautomaticity theorem. GA3's literal missing nonabelian hypothesis is
+recorded without claiming an intended-problem discovery.
+
+Five one-core/4GB KBMAG probes reproduce the known rank-two weight-five
+case but do not settle weight six. Ten of eighteen next-layer targets
+reduce to identity; the others are undecided. Enlarged limits hit the
+equation or state bounds. One reduction then raises a GAP method error;
+its zero exit status did not fool the recorded runner, which rejected
+the absent completion marker. All logs and the earlier script are saved.
+
+For N8, a rank-two correction kernel has dimension at most one, allowing
+the remaining class-seven obstruction to be decided by an integer-valued
+univariate quadratic modulo a fixed lattice. A displayed determinant-minus-one
+minor handles the other new correction kernel. Higher linear layers
+are solved jointly. The initial exploratory shorthand x->xy was corrected
+to the exact commutator-preserving x->yx; the final proof and algorithm
+use the latter.
+
+The bounded kernel probe passed 51 records in 2.08 seconds. A first group
+test failed after 6.49 seconds because Smith coefficients overflowed Python
+word-list expansion; its scripts and partial outputs are preserved.
+Exact kernel-lattice reduction shortened witnesses. The rerun passed 67
+targets in 94.23 seconds, with 39 positives and 28 negatives. GAP independently
+verified all 39 witnesses, 196 linear decisions (89 negative), 40 arithmetic
+certificates (22 negative), 192 parameter samples, and the degree-six
+rank-four injection in 6.48 seconds. The samples support the polynomial
+degree proof rather than replacing it. The GAP global-variable warning
+is documented; all raw output was inspected and preserved.
+
+The same N8 partial candidate now includes all rank-two/class-seven
+targets. Its larger-rank/class-seven and higher-class intermediate
+layers remain unresolved. Tally unchanged: three whole-entry candidates,
+one partial candidate, zero established novel results. No Kourovka
+mathematics or code was imported; no subagents, pushes or external
+contacts occurred. The original 48-hour deadline remains unchanged.
