@@ -187,3 +187,8 @@ GA1 is negative in the substantive nonabelian scope by an immediate consequence 
 ## 2026-09-29T03:35:05.537079+00:00 — S5 prior proof verified
 
 S5 is retired as a prior affirmative result by Achyuth Jayadevan. The public Lean development was pinned and built here; all298 project-declaration axiom checks and an independent exact-statement check passed. Full source and compact logs are archived; large toolchains and caches remain ignored. Details and trust limits: `research/notes/S5-prior-Lean-proof-audit.md`. This is external prior work, not another candidate or specialist review. Counts remain6 whole,3 partial,0 established novel.
+
+
+## 2026-09-29T04:05:15.277767+00:00 — F28 formal matrix verification
+
+F28 now has a simpler integral proof and a Lean verification of the entire matrix-orbit obstruction: every infinite integral sequence X_(n+1)Q=QX_n with det X_0=1 starts at ±I. An invariant positive energy and odd recurrence replace the real norm and algebraic-integer arguments. The free-group/ping-pong bridge remains written mathematics. Successful final compilation and transitive axiom audit passed in8.848s; three failed versions and one warning-bearing intermediate success are preserved. See `problems/F28/matrix-lean-audit.md`. Counts remain6 whole,3 partial,0 established novel, with independent review outstanding.

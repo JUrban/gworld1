@@ -333,3 +333,8 @@ GA1 scope correction, 2026-09-29T03:19:17.768194+00:00: retire the nonabelian fr
 ## Working focus after S5 prior-proof verification (2026-09-29T03:35:05.537079+00:00)
 
 S5 is already proved in an external pre-launch Lean repository; pinned compilation, axiom audit and statement matching are complete. Do not spend the remaining experiment independently rediscovering it or count its theorem as ours. The installed pinned Lean toolchain can support later checks if a concrete proof concern warrants them. Return to unresolved mathematics and specific candidate concerns. Counts6 whole,3 partial,0 established novel; original deadline unchanged.
+
+
+## Working focus after F28 Lean checkpoint (2026-09-29T04:05:15.277767+00:00)
+
+The entire F28 matrix-orbit obstruction now has a checked Lean proof, and the informal proof uses the same energy/parity argument. Do not enlarge finite word samples or formalization scope merely for volume. The free-group bridge remains an explicit written proof. Return to a genuinely unresolved portfolio question or a specific proof concern. Counts6 whole,3 partial,0 established novel; original deadline retained.

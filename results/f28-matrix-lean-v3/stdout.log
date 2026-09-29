@@ -1,0 +1,32 @@
+Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)
+{"source": "/project/gworld1/research/certificates/F28-matrix-lean/MatrixLemma.lean", "command": ["lake", "env", "lean", "--trust=0", "--stdin"], "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7", "scope": "No external S5 result imported"}
+<stdin>:160:34: error: unsolved goals
+case this
+orbit : ℕ → Mat
+hdet : Matrix.det (orbit 0) = 1
+step : ∀ (n : ℕ), orbit (n + 1) * Q = Q * orbit n
+econst : ∀ (n : ℕ), energy (orbit n) = energy (orbit 0)
+E : ℤ := energy (orbit 0)
+enc : ℕ → Fin 2 → Fin 2 → ↑(Set.Icc (-E) E) := fun n i j => ⟨orbit n i j, ⋯⟩
+i j : ℕ
+hne : i ≠ j
+heq : enc i = enc j
+heq' : orbit i = orbit j
+⊢ ?m.153
+
+orbit : ℕ → Mat
+hdet : Matrix.det (orbit 0) = 1
+step : ∀ (n : ℕ), orbit (n + 1) * Q = Q * orbit n
+econst : ∀ (n : ℕ), energy (orbit n) = energy (orbit 0)
+E : ℤ := energy (orbit 0)
+enc : ℕ → Fin 2 → Fin 2 → ↑(Set.Icc (-E) E) := fun n i j => ⟨orbit n i j, ⋯⟩
+i j : ℕ
+hne : i ≠ j
+heq : enc i = enc j
+heq' : orbit i = orbit j
+this : ?m.153
+⊢ orbit 0 = 1 ∨ orbit 0 = -1
+<stdin>:173:7: error: unexpected token 'repeat'; expected command
+'F28.determinant_one_periodic_is_scalar' depends on axioms: [propext, Classical.choice, Quot.sound]
+'F28.integral_orbit_is_scalar' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+<stdin>:216:0: error: Unexpected axiom sorryAx

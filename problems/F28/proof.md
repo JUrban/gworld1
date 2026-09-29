@@ -47,17 +47,30 @@ Assume H<=S and f(H)<=H, and choose h in H. Take any integral determinant-one ma
 
 is integral: projectively it represents f^n(h), and a determinant-one lift differs from an integral lift by at most its sign.
 
-These matrices form a bounded set over R. To see this without an approximation, use the positive definite matrix
+There is an elementary integral energy bound. For an integral matrix
+X=[[a,b],[c,d]], put
 
-    P = [[4,1],[1,2]].
+    E(X) = (8a-4b+2c-d)^2 + 7(4b+d)^2 + 7(2c-d)^2 + 49d^2.
 
-It has positive leading principal minors 4 and 7, and Q^t P Q=2P. Therefore Q/sqrt(2) is an isometry of the P-inner product. Conjugation by its powers preserves the associated operator norm of M, so all M_n lie in a fixed bounded subset of the four-dimensional real matrix space. A bounded set contains only finitely many integral matrices. Consequently M_i=M_j for some i<j, and M commutes with Q^(j-i).
+Direct expansion shows E(QXQ^-1)=E(X). Thus all M_n have the same
+nonnegative integer energy E_0. Each of the four squared linear forms
+has square at most E_0, and an integer t satisfies |t|<=t^2. Hence all
+four linear forms have absolute value at most E_0. Recovering a,b,c,d
+from these forms shows every entry of M_n lies in [-E_0,E_0]. There
+are only finitely many such integral matrices. Consequently M_i=M_j
+for some i<j, and M commutes with Q^(j-i).
 
-No positive power of Q is scalar. Its eigenvalues are
+To handle every positive exponent without spectral theory, define
+integer pairs by
 
-    lambda=(1+i sqrt(7))/2,   conjugate(lambda)=(1-i sqrt(7))/2.
+    (u_0,v_0)=(0,1),
+    (u_(n+1),v_(n+1))=(u_n+v_n,-2u_n).
 
-Their ratio z has z+z^-1=-3/2. If a positive power of Q were scalar, z would be a root of unity. Then z+z^-1 would be an algebraic integer, contradicting the fact that the rational number -3/2 is not an integer. Thus Q^k has two distinct eigenvalues for every k>0. Its two complex eigenspaces are those of Q. Any matrix commuting with Q^k preserves both eigenspaces and hence commutes with Q.
+The identity Q^2=Q-2I gives Q^n=u_n Q+v_n I by induction. For every
+n>=1, u_n is odd and v_n is even, again by induction starting at
+(u_1,v_1)=(1,0). In particular u_n is nonzero. Therefore any matrix
+commuting with a positive power Q^n commutes with Q: subtracting the
+scalar term gives u_n(MQ-QM)=0.
 
 Writing M=[[a,b],[c,d]], the equation MQ=QM yields
 
@@ -71,6 +84,17 @@ The entries are integers. If b is nonzero, the right-hand side is at least 7/4, 
 
 ## Evidence and limits
 
-The proof handles all subgroups and all word lengths; finite checks are supplementary. `scripts/check_f28.py` verifies the three matrix identities, the positive definite form identity, and all 13,120 nonempty freely reduced words through length eight using exact rational arithmetic. Every tested word eventually leaves the iterated domain, with at most 14 successful steps. These bounds are observations, not a substitute for the bounded-orbit proof. `scripts/check_f28_gap.g` independently checks both subgroup indices/ranks and the matrix identities in GAP. Two controls in `scripts/check_f28_controls.py` prevent overgeneralization: conjugation by diag(2,1) preserves <a>, while conjugation by [[0,-1],[2,0]] preserves <a,b^2>. Thus ellipticity and the absence of scalar powers are both relevant to the argument.
+The proof handles all subgroups and all word lengths; finite checks are supplementary.
+The complete matrix obstruction is now also formalized in Lean 4.24:
+for any sequence of integral 2-by-2 matrices X_n satisfying
+X_(n+1) Q=Q X_n and det(X_0)=1, one has X_0=I or X_0=-I. The
+formal proof includes the energy identity and entry bounds, finiteness,
+return to the initial matrix, the all-exponent recurrence, and the
+integer centralizer calculation. See `matrix-lean-audit.md`. The
+free-group representation and the passage from an invariant subgroup
+to this sequence remain written mathematical arguments, not Lean
+formalizations. No additional candidate or independent review is claimed.
+
+`scripts/check_f28.py` verifies the three matrix identities, the positive definite form identity, and all 13,120 nonempty freely reduced words through length eight using exact rational arithmetic. Every tested word eventually leaves the iterated domain, with at most 14 successful steps. These bounds are observations, not a substitute for the bounded-orbit proof. `scripts/check_f28_gap.g` independently checks both subgroup indices/ranks and the matrix identities in GAP. Two controls in `scripts/check_f28_controls.py` prevent overgeneralization: conjugation by diag(2,1) preserves <a>, while conjugation by [[0,-1],[2,0]] preserves <a,b^2>. Thus ellipticity and the absence of scalar powers are both relevant to the argument.
 
 The original HTML and its complete F28 rendering have been inspected; the screenshot also includes the adjacent F26/F27 statements because the publisher uses one HTML paragraph. The source background refers to Nekrashevych–Sidki on binary-tree actions. Prior work on simple virtual endomorphisms excludes **normal** invariant subgroups; that conclusion alone is weaker than the one proved here. Literature comparisons are recorded separately in `literature/LEDGER.md` and the claim audit.
