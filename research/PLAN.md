@@ -795,3 +795,9 @@ without counting the full entry. A useful next structural test is whether
 right-shelf iterations can stay in one fixed Bn indefinitely: acyclicity
 would then give infinitely many distinct special braids. A bounded list
 alone cannot establish that.
+
+B9 fixed-right-argument test completed: all3969 trajectories leave B5
+within five steps. Park this bounded route; do not merely enlarge its
+seed set. The certified height6/B5 result is preserved at6bb0c76.
+Return to a distinct unresolved scope or a concrete candidate dependency
+concern, retaining final-eight-hours audit/reporting reserve.

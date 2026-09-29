@@ -1821,3 +1821,13 @@ logs remain. The revised evaluation passes in4.68s. See
 problems/B9/height-counterexample.md and research/notes/B9-strand-drop.md.
 Seven terminal jobs: six pass, one timeout. Maximum4cores/6GB for build.
 Counts9whole/1partial/0established-novel unchanged. No push or clock change.
+
+
+## B9 fixed-right-argument orbit probe (2026-09-29T19:44:52.623582+00:00)
+
+All3969 ordered pairs from63 certified special B5 seeds leave B5 by
+the fifth repeated right translation; every departure is detected by
+a finite matrix obstruction. No word/step cap reached. One terminal
+job passes in1.02s,1CPU/4GB. This tests a concrete infinitude route
+but yields no infinite family; see B9-fixed-strand-orbits.md.
+Counts and deadline unchanged; all jobs terminal.
