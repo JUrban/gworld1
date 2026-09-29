@@ -347,3 +347,18 @@ the existing graph lemma; the 2025 primary paper's precise use of it
 was read and actual PDFp20 viewed. The original2005 paper remains
 unavailable. See `research/notes/F34-coverage-reconciliation.md`. No
 mathematical reruns; old proof/audit/manifests retained.
+
+
+## Portfolio and F38 source recheck (2026-09-29T11:47:55.442832+00:00)
+
+The wider scan produced no further candidate: B11 still has a prior
+Shoemaker announcement without a full proof located; B8/B13 are already
+prior; B9 still needs fixed-strand exhaustion; H15/AUX4/F39 retain their
+recorded gaps. A targeted reread of the F38 graded-shortening definitions
+and local lemma found no new gap in the selected shortness/free-factor/
+limit-kernel checks, with specialist review still required. No tests were
+rerun. See `research/notes/portfolio-29sep-late-morning.md`.
+
+Counts remain8 whole-entry coverage candidates,2 partial entries,0
+established novel. The F34 change was accounting only. All jobs terminal;
+no subagents, pushes or contacts. Original deadline unchanged.
