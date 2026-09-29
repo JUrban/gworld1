@@ -1,0 +1,34 @@
+Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)
+{"source": "/project/gworld1/research/certificates/N8-block-separation-lean/Block.lean", "command": ["lake", "env", "lean", "--trust=0", "--stdin"], "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7", "scope": "Universal triangular/full-column implication and at most two parameter values. Group/Lie hypotheses and complete N8 algorithm are not formalized."}
+<stdin>:52:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?m.170 ∈ LinearMap.ker ?m.169
+in the target expression
+  B s ∈ ↑(LinearMap.ker phi)
+
+K : Type u_1
+W : Type u_2
+M : Type u_3
+inst✝⁴ : Field K
+inst✝³ : AddCommGroup W
+inst✝² : Module K W
+inst✝¹ : AddCommGroup M
+inst✝ : Module K M
+I : Type u_4
+t : ℕ
+b : K
+hb : b ≠ 0
+F : ℕ → W
+c : ℕ → ℕ → K
+heq : ∀ j < t, b • F j + ∑ k ∈ Finset.range j, c j k • F k = 0
+phi : M →ₗ[K] W
+A : Submodule K M
+B : I → M
+hA : A ≤ LinearMap.ker phi
+d : I → ℕ → K
+hB : ∀ (s : I), phi (B s) = ∑ i ∈ Finset.Ioc t (2 * t), d s i • F (2 * t - i)
+hF : ∀ j < t, F j = 0
+s : I
+⊢ B s ∈ ↑(LinearMap.ker phi)
+'N8Block.block_quadratic_not_mem' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'N8Block.three_liftable_parameters' depends on axioms: [propext, Classical.choice, Quot.sound]
+<stdin>:116:0: error: Unexpected axiom sorryAx

@@ -846,3 +846,15 @@ Lean declarations pass; two failed intermediate sources remain alongside
 two successful runs. This strengthens the same general N8 candidate;
 the full Lie/group algorithm and the formal assembly of the analytic
 steps remain outside the check. Counts and review status are unchanged.
+
+
+### N8 full-block implication, 2026-09-29T23:18:16.096994+00:00
+
+A [new audit](../problems/N8/block-separation-lean-audit.md) records six
+universal Lean lemmas for triangular compatibility, annihilation of all
+later columns, exclusion of the first quadratic from their full span,
+and at most two liftable first-parameter values. Linear-operator
+coefficients retain the polynomial multipliers required in the proof.
+The group/Lie realization and complete algorithm are still written
+arguments. One failed and one successful run are retained; no tally
+or deadline change and no independent specialist review is implied.

@@ -2055,3 +2055,24 @@ This scan changes no count or prior-status classification.
 Current authoritative progress in this work period is commit48721c0's
 new universal N8 positional bridge. All jobs terminal and original
 deadline unchanged; no push or external contact.
+
+
+## N8 full-block implication checked (2026-09-29T23:18:16.096994+00:00)
+
+The preceding goal turn made concrete progress at48721c0 and recorded
+the subsequent bounded scope scan at9cd38e5. Revalidated active state,
+original deadline and clean worktree; no live jobs existed.
+
+Audited the next N8 dependency: rational prefix normalization, affine
+weight bounds, full-block triangular compatibility and annihilation of
+every later column. No new written-proof gap found. Six universal Lean
+lemmas now check the abstract implication and the at-most-two parameter
+value bound. The formal model uses linear operators, not just rational
+scalars, to cover multiplication by positional polynomials correctly.
+The actual free-Lie/group hypotheses remain a separate written bridge.
+
+First run failed on a set-coercion rewrite and is retained. Second run
+passes in8.15seconds with empty stderr and the restricted axiom audit.
+Both1CPU/8GB, sequential, terminal. No finite Lie/group fixture repeated,
+no source/count/deadline change and no push. The new audit is
+problems/N8/block-separation-lean-audit.md.

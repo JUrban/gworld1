@@ -915,3 +915,16 @@ hypothesis, remain concrete audit targets. Twenty positional/transfer
 Lean declarations are accepted at48721c0; they do not formalize the
 full N8 group algorithm. Keep broader discovery and the original
 final-eight-hours reporting reserve; no FINAL_REPORT yet.
+
+
+## After full-block implication check (2026-09-29T23:18:16.096994+00:00)
+
+The universal triangular/column-span implication and at-most-two root
+values now pass Lean in six declarations. The formal model allows
+polynomial multipliers through linear endomorphisms. Rechecked the
+normalization, weight bounds and residual-coordinate passage; no new
+gap found, but those remain written proof obligations. Do not repeat
+these passed checks or relabel them full N8 formalization.
+Return to broader discovery or a concrete concern in another candidate;
+keep the final-eight-hours audit/reporting reserve and original deadline.
+Ten whole/two partial/zero established novel; all jobs terminal.
