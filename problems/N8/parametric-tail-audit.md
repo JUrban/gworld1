@@ -1,9 +1,12 @@
 # Audit of the overlapping-kernel tail
 
-29 September 2026. Work in progress; the class-18 boundary replay is pending.
-The claims ledger has not yet adopted the general extension in
-`parametric-tail-proof.md`. This file distinguishes the symbolic argument,
-complete arithmetic decisions, and actual group checks.
+29 September 2026. The class-15 and class-18 group and arithmetic replays
+have completed. The claims ledger adopts the extension in
+`parametric-tail-proof.md` as a partial candidate: ten final target layers,
+and all targets through class 18 using the earlier leading-degree result.
+This file distinguishes the symbolic argument, complete arithmetic
+decisions, and actual group checks. General N8 remains unresolved;
+specialist review and novelty assessment are outstanding.
 
 ## Fixtures and what they represent
 
@@ -41,7 +44,7 @@ Hall coordinates are linear and satisfy the same polynomial degree bound.
 ## Independent GAP group replay
 
 `scripts/check_n8_parametric_tail_gap.g` constructs each weighted group
-afresh with `nq`, using free-group Hall relators beyond the cutoff. It
+afresh with `nq`, using compact Hall commutator relators beyond the cutoff. It
 checks the resulting Hirsch length and torsion-freeness, reconstructs the
 Hall words, and independently confirms all three complete kernel dimensions
 in the native rational free associative algebra. No Python tensor engine
@@ -58,7 +61,7 @@ the rational affine line is an integral translate of it. This verifies the
 full parameter lattice, not only selected values of the first parameter.
 
 For all interpolation values GAP compares every polynomial correction
-column and target residual against direct group commutators. It checks
+column and target residual against exact group calculations. It checks
 the two simultaneous correction vectors, the negative target change, the
 exact matrices passed to the arithmetic verifier, and both known and
 computed factors. It also reconstructs the computed factors directly from
@@ -136,8 +139,70 @@ Its stderr is empty; the retained diagnostic file contains one timed stack
 dump, not a process failure.
 
 The independent class-18 arithmetic replay passes in 3.279843 seconds with
-empty stderr. Its full parameter set and witness are verified separately
-from the still-pending actual group replay.
+empty stderr: one complete system, one finite decision, 21 fixed-parameter
+specializations, and one witness. Its full parameter set and witness are
+verified separately from the actual group replay.
+
+## Group replay performance and executed versions
+
+The first class-18 GAP replay timed out after 600.018238 seconds. A timed
+diagnostic version first failed because a GAP arrow function cannot return
+the no-value result of `Print`; the 1.975276-second failure and executed
+source are retained. After that fix, the group relators themselves were
+built in 2 ms, but converting their expanded free-group words to NQ input
+was prohibitively expensive. That run was intentionally interrupted after
+139.423317 seconds; there was no NQ child process yet.
+
+The checker now writes NQ's native nested commutator expressions directly.
+This preserves the presentation and cuts quotient construction to about
+22 ms. Class-15 replay with this input passes in 3.731909 seconds. Class-18
+version 4 verifies both group witnesses, all three kernel dimensions, and
+the complete integral successor line, but times out at 300.019434 seconds
+before completing the polynomial samples. It is not counted as a full pass.
+
+Version 5 uses the exact identities, valid in any group,
+
+    [x h,y] = [x,y]^h [h,y],
+    [x,y h] = [x,h] [x,y]^h.
+
+Its class-15 replay passes in 3.833089 seconds. The class-18 replay verifies
+the first sample's residual and all 50 columns, then spends substantial
+time recomputing a simultaneous correction from scratch. It is intentionally
+interrupted after 348.702550 seconds to replace that calculation. No complete
+sample or full pass is attributed to this interrupted run.
+
+Version 6 also expands the simultaneous correction by the exact identity
+
+    [x h,y k] = [x,k]^h [h,k] ([x,y]^h [h,y])^k.
+
+All factors, conjugations and commutators on the right are computed by GAP
+in the independently constructed NQ group. In particular [h,k] is retained;
+the checker does not assume the claimed linearity or call the Python
+truncated-tail formulas. The first and last column at sample zero are also
+compared with direct full commutators. In class 15 every joint vector is
+additionally compared with a direct full commutator. That version passes
+in 3.827367 seconds with the original totals and 10 direct identity controls.
+The class-18 version-6 replay passes in **427.270968 seconds**, with
+**250 polynomial columns, 10 joint controls, 2 direct identity controls,
+3 complete kernels, 1 complete integral line and 2 group witnesses**.
+All five interpolation samples complete, as does reconstruction from the
+arithmetic witness. Its stderr is empty and its recorded process succeeds.
+There is no class-18 negative-target check; the class-15 branch supplies
+the separate complete negative decision. No larger-class conclusion is
+drawn from these weighted fixtures.
+
+All successful replay stderr files are empty. Each interrupted/failed
+checker version is preserved with its own run; raw logs are kept unchanged.
+The diagnostic progress lines describe completed stages and do not turn an
+incomplete run into a successful full certificate.
+
+The final `manifest.json` records current sources, fixtures and all retained
+runs. The earlier `construction-manifest.json` describes the checkpoint at
+commit `3a30257`; its proof/audit hashes refer to that historical version.
+The five unsuccessful class-18 group runs remain present, with their exact
+executed sources. Reproduction commands and resource limits are recorded
+in each run's `process.json`; the final group run is
+`results/n8-parametric-tail-gap-c18-v6/`.
 
 ## Strict boundary control
 
@@ -177,5 +242,6 @@ The one-parameter arithmetic theorem is prior and remains explicitly
 credited in its separate proof/audit.
 
 No imported Kourovka argument, subagent, push, or external contact. Jobs
-reserve one core and 8 GB each; at most two have run concurrently during
-this work period. The original 48-hour deadline is unchanged.
+reserve one core and 8 GB each. At most three have run concurrently during
+the replay follow-up, including two brief separate Lie probes for an
+uncounted new lead. The original 48-hour deadline is unchanged.

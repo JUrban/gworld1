@@ -9,7 +9,7 @@ N8ParametricTail:=fail;;Read(N8ParametricTailFile);;
        systems,columnchecks,jointchecks,negativechecks,scale,algebra,
        letters,liehall,h,C,D,Bracket,columns,dim,offset,axes,ker,
        successor,tailgroup,tailpcp,higher,highvectors,jointvectors,basecomm,
-       needed,started,Stage,hallstrings,nqinput,correction,directchecks,hh,kk;
+       needed,started,Stage,hallstrings,nqinput,correction,directchecks;
  item:=N8ParametricTail;
  started:=Runtime();Stage:=function(s)Print(s," at ",Runtime()-started," ms\n");end;
  Require:=function(ok,msg)if not ok then Error(msg);fi;end;
@@ -185,7 +185,7 @@ N8ParametricTail:=fail;;Read(N8ParametricTailFile);;
    else actual:=Comm(pair[1],correction)*comm^correction;fi;
    col:=List(mat,row->row[j]);pred:=VectorElement(col);
    Require(comm*pred=actual,"Polynomial correction column");
-   if value=0 and j in [1,Length(item.axes_tail)] then
+   if j in [1,Length(item.axes_tail)] then
     changed:=ShallowCopy(pair);changed[h[1]+1]:=changed[h[1]+1]*correction;
     Require(actual=Comm(changed[1],changed[2]),"Exact commutator identity control");
     directchecks:=directchecks+1;
@@ -194,16 +194,8 @@ N8ParametricTail:=fail;;Read(N8ParametricTailFile);;
   od;
   Stage(Concatenation("Polynomial group sample ",String(value)," columns checked"));
   for vec in item.joint_vectors do
-   changed:=Correct([One(group),One(group)],item.axes_tail,vec);
-   hh:=changed[1];kk:=changed[2];
-   # Exact expansion of [x*h,y*k], retaining all conjugations and [h,k].
-   actual:=Comm(pair[1],kk)^hh*Comm(hh,kk)*(comm^hh*Comm(hh,pair[2]))^kk;
-   Require(comm*VectorElement(mat*vec)=actual,"Joint linearity control");
-   if item.class_bound<=15 then
-    changed:=Correct(pair,item.axes_tail,vec);
-    Require(actual=Comm(changed[1],changed[2]),"Joint identity direct control");
-    directchecks:=directchecks+1;
-   fi;
+   changed:=Correct(pair,item.axes_tail,vec);
+   Require(comm*VectorElement(mat*vec)=Comm(changed[1],changed[2]),"Joint linearity control");
    jointchecks:=jointchecks+1;
   od;
   if item.negative<>fail then

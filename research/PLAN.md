@@ -588,3 +588,19 @@ finite bounds and periodic residues; independently replay complete positive
 and negative certificates. Then test actual group correction branches with
 the overlapping offsets3,5 before any further scope promotion. Preserve
 the full portfolio and the original deadline; all current jobs terminal.
+
+
+## Next step after the overlapping-tail audit (2026-09-29T13:53:00.374793+00:00)
+
+The ten-final-layer/class18 candidate has completed independent finite
+replay; do not repeat these passed suites without a new mathematical issue.
+The proposed parameter-transmission route in
+`research/notes/N8-parameter-transmission-lead.md` is the next concrete
+bounded lead: write the complete integral two-parameter block argument,
+including rank-zero/one cases and the later universal residue procedure.
+Its proposed nonzero-coefficient fixture fails an earlier compatibility
+condition; do not present it as a surviving two-parameter branch. Find a
+valid test or prove why that case cannot occur. No class19/20 or
+leading-degree9/10 extension is counted from this lead. Alternate with
+specific unresolved portfolio questions and candidate dependency audits.
+All jobs terminal;8 whole/2 partial/0 established novel; original clock.

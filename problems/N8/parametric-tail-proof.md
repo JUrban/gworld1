@@ -1,9 +1,10 @@
 # N8: a one-parameter tail through overlapping kernels
 
-29 September 2026. **Candidate argument under computational audit.** Do
-not use this draft alone to promote the claims ledger. The final audit
-must specify which actual group fixtures have completed independent replay.
-No novelty or specialist approval is asserted.
+29 September 2026. **Candidate extension with completed finite fixture
+audit.** Independent class-15 and class-18 group and arithmetic replay
+passes; see `parametric-tail-audit.md` for exact scope and failures. The
+general branch algorithm is not implemented end to end. No novelty or
+specialist approval is asserted.
 
 ## Candidate extension
 
@@ -16,7 +17,7 @@ Here the two leading factors have nonzero weights p<=q and nonzero
 bracket. Earlier offsets have already been fixed in finitely many branches,
 and an exceptional offset means a nonzero kernel before q-p. A positive
 decision constructs factors. Together with the existing exact-substitution
-algorithm and the isolated treatment of offsets 1,2, this would cover all
+algorithm and the isolated treatment of offsets 1,2, this covers all
 targets in the ten final layers c-d<=9, where d is the target's leading
 degree. Combining this with the leading-degree-eight theorem gives all
 targets in classes c<=18. General N8(b) remains unresolved.
@@ -162,7 +163,7 @@ For c<=18 and a nonidentity target in the derived subgroup, either d<=8,
 covered in arbitrary class by `exceptional-boundary-proof.md`, or d>=9,
 when c-d<=9. The identity and abelian/rank-zero cases are immediate, and
 targets outside the derived subgroup are rejected. This explains precisely
-the proposed all-target class-18 consequence and its dependence on the
+the candidate all-target class-18 consequence and its dependence on the
 earlier arbitrary-leading-pair enumeration.
 
 ## 4. What still needs separate scrutiny

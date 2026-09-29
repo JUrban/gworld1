@@ -8,20 +8,14 @@ N8ParametricTail:=fail;;Read(N8ParametricTailFile);;
        value,line,pair,comm,mat,rhs,side,i,j,col,changed,pred,vec,actual,
        systems,columnchecks,jointchecks,negativechecks,scale,algebra,
        letters,liehall,h,C,D,Bracket,columns,dim,offset,axes,ker,
-       successor,tailgroup,tailpcp,higher,highvectors,jointvectors,basecomm,
-       needed,started,Stage,hallstrings,nqinput,correction,directchecks,hh,kk;
+       successor,tailgroup,tailpcp,higher,highvectors,jointvectors,basecomm;
  item:=N8ParametricTail;
- started:=Runtime();Stage:=function(s)Print(s," at ",Runtime()-started," ms\n");end;
  Require:=function(ok,msg)if not ok then Error(msg);fi;end;
- needed:=Union([1..item.retained],List(item.boundaries,i->i+1));
- Require(ForAll(item.boundaries,i->ForAll(item.hall[i+1][2],j->j<item.retained)),"Boundary needs an omitted parent");
  Hall:=function(gens,description)
-  local out,h,i;
+  local out,h;
   out:=[];
-  for i in [1..Length(description)] do
-   h:=description[i];
-   if not i in needed then Add(out,One(gens[1]));
-   elif Length(h[2])=0 then Add(out,gens[Length(out)+1]);
+  for h in description do
+   if Length(h[2])=0 then Add(out,gens[Length(out)+1]);
    else Add(out,Comm(out[h[2][1]+1],out[h[2][2]+1]));fi;
   od;return out;
  end;
@@ -82,20 +76,9 @@ N8ParametricTail:=fail;;Read(N8ParametricTailFile);;
  od;od;
  Require(axes=item.axes_tail,"Incomplete tail coordinates");
  Require(item.rows=List(Filtered([1..item.retained],i->item.hall[i][1]>=item.p+item.q+item.t),i->i-1),"Incomplete output coordinates");
- # NQ accepts nested commutator expressions directly. Expanding them as
- # free-group words and then stringifying them is exponentially wasteful.
- hallstrings:=[];
- for i in [1..Length(item.hall)] do
-  h:=item.hall[i];
-  if not i in needed then Add(hallstrings,"");
-  elif IsEmpty(h[2]) then Add(hallstrings,["a","b"][i]);
-  else Add(hallstrings,Concatenation("[",hallstrings[h[2][1]+1],",",hallstrings[h[2][2]+1],"]"));fi;
- od;
- nqinput:=Concatenation("< a,b | ",JoinStringsWithSeparator(List(item.boundaries,i->hallstrings[i+1]),", ")," >\n");
- if IsBound(N8ParametricTailPresentationFile) then PrintTo(N8ParametricTailPresentationFile,nqinput);fi;
- Stage("Compact weighted relators constructed");
- group:=NilpotentQuotient(:input_string:=nqinput,class:=item.class_bound);
- Stage("Weighted quotient constructed");
+ free:=FreeGroup(2);fhall:=Hall(GeneratorsOfGroup(free),item.hall);
+ relators:=List(item.boundaries,i->fhall[i+1]);
+ group:=NilpotentQuotient(free/relators,item.class_bound);
  Require(HirschLength(group)=item.retained and Size(TorsionSubgroup(group))=1,"Weighted group rank/torsion");
  gens:=GeneratorsOfGroup(group){[1..2]};hall:=Hall(gens,item.hall);
  Require(ForAll(item.boundaries,i->hall[i+1]=One(group)),"Boundary relation");
@@ -103,15 +86,13 @@ N8ParametricTail:=fail;;Read(N8ParametricTailFile);;
  known:=List(item.known_pair,Element);found:=List(item.found_pair,Element);
  Require(Comm(known[1],known[2])=target,"Known witness");
  Require(Comm(found[1],found[2])=target,"Computed witness");
- Stage("Known and computed group witnesses checked");
  # Independently confirm the full exceptional kernel pattern in the
  # weighted two-generator algebra, without the Python matrices.
  algebra:=FreeAssociativeAlgebraWithOne(Rationals,2,"a");letters:=GeneratorsOfAlgebraWithOne(algebra);
  Bracket:=function(a,b)return a*b-b*a;end;
  liehall:=[];
  for h in item.hall do
-  if h[1]>item.q+5 then Add(liehall,Zero(algebra));
-  elif IsEmpty(h[2]) then Add(liehall,letters[Length(liehall)+1]);
+  if IsEmpty(h[2]) then Add(liehall,letters[Length(liehall)+1]);
   else Add(liehall,Bracket(liehall[h[2][1]+1],liehall[h[2][2]+1]));fi;
  od;
  C:=item.x_scale*letters[1];D:=letters[2];for i in [1..4] do D:=Bracket(letters[1],D);od;
@@ -135,7 +116,6 @@ N8ParametricTail:=fail;;Read(N8ParametricTailFile);;
   fi;
   if offset=4 then Require(axes=item.axes4,"Incomplete successor coordinates");fi;
  od;
- Stage("Complete kernel dimensions checked");
  # Verify that the supplied integral affine line is complete, in the
  # actual group's successor layer. That tail is abelian here, so its
  # polycyclic exponent vectors give independent rational rank checks.
@@ -163,8 +143,7 @@ N8ParametricTail:=fail;;Read(N8ParametricTailFile);;
   changed:=Correct(changed,item.axes4,line{[2..Length(line)]});
   Require(Comm(changed[1],changed[2])^-1*target in higher,"Affine line fails successor equations");
  od;
- Stage("Complete integral successor line checked");
- columnchecks:=0;jointchecks:=0;negativechecks:=0;directchecks:=0;
+ columnchecks:=0;jointchecks:=0;negativechecks:=0;
  for value in item.sample_values do
   line:=item.point+value*item.direction;
   pair:=Correct(base,item.axes3,line[1]*item.kernel3);
@@ -175,35 +154,16 @@ N8ParametricTail:=fail;;Read(N8ParametricTailFile);;
   scale:=item.certificate.input_scale;
   Require(MatrixAt(item.certificate.P,value)=scale*mat and
           MatrixAt(item.certificate.b,value)=List(rhs,x->[scale*x]),"Arithmetic certificate input mismatch");
-  Stage(Concatenation("Polynomial group sample ",String(value)," residual checked"));
   for j in [1..Length(item.axes_tail)] do
-   h:=item.axes_tail[j];correction:=hall[h[2]+1];
-   # Exact identities in any group, with [x,y]=x^-1*y^-1*x*y:
-   # [x*h,y]=[x,y]^h*[h,y], [x,y*h]=[x,h]*[x,y]^h.
-   # NQ performs every operation; no truncated Python formula is used.
-   if h[1]=0 then actual:=comm^correction*Comm(correction,pair[2]);
-   else actual:=Comm(pair[1],correction)*comm^correction;fi;
+   changed:=ShallowCopy(pair);h:=item.axes_tail[j];
+   changed[h[1]+1]:=changed[h[1]+1]*hall[h[2]+1];
    col:=List(mat,row->row[j]);pred:=VectorElement(col);
-   Require(comm*pred=actual,"Polynomial correction column");
-   if value=0 and j in [1,Length(item.axes_tail)] then
-    changed:=ShallowCopy(pair);changed[h[1]+1]:=changed[h[1]+1]*correction;
-    Require(actual=Comm(changed[1],changed[2]),"Exact commutator identity control");
-    directchecks:=directchecks+1;
-   fi;
+   Require(comm*pred=Comm(changed[1],changed[2]),"Polynomial correction column");
    columnchecks:=columnchecks+1;
   od;
-  Stage(Concatenation("Polynomial group sample ",String(value)," columns checked"));
   for vec in item.joint_vectors do
-   changed:=Correct([One(group),One(group)],item.axes_tail,vec);
-   hh:=changed[1];kk:=changed[2];
-   # Exact expansion of [x*h,y*k], retaining all conjugations and [h,k].
-   actual:=Comm(pair[1],kk)^hh*Comm(hh,kk)*(comm^hh*Comm(hh,pair[2]))^kk;
-   Require(comm*VectorElement(mat*vec)=actual,"Joint linearity control");
-   if item.class_bound<=15 then
-    changed:=Correct(pair,item.axes_tail,vec);
-    Require(actual=Comm(changed[1],changed[2]),"Joint identity direct control");
-    directchecks:=directchecks+1;
-   fi;
+   changed:=Correct(pair,item.axes_tail,vec);
+   Require(comm*VectorElement(mat*vec)=Comm(changed[1],changed[2]),"Joint linearity control");
    jointchecks:=jointchecks+1;
   od;
   if item.negative<>fail then
@@ -214,7 +174,6 @@ N8ParametricTail:=fail;;Read(N8ParametricTailFile);;
            MatrixAt(item.negative.certificate.b,value)=List(rhs,x->[scale*x]),"Negative certificate input mismatch");
    negativechecks:=negativechecks+1;
   fi;
-  Stage(Concatenation("Polynomial group sample ",String(value)," checked"));
  od;
  value:=item.certificate.witness.t;line:=item.point+value*item.direction;
  pair:=Correct(base,item.axes3,line[1]*item.kernel3);
@@ -223,6 +182,6 @@ N8ParametricTail:=fail;;Read(N8ParametricTailFile);;
  Require(pair=found,"Arithmetic witness does not reconstruct the group factors");
  Print("PASS N8 parametric tail GAP: class ",item.class_bound,"; ",columnchecks,
        " polynomial columns; ",jointchecks," joint controls; ",negativechecks,
-       " negative targets; ",directchecks," direct identity controls; 3 complete kernels; 1 complete integral line; 2 group witnesses\n");
+       " negative targets; 3 complete kernels; 1 complete integral line; 2 group witnesses\n");
 end)();
 QUIT_GAP(0);

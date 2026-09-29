@@ -9,7 +9,7 @@ N8ParametricTail:=fail;;Read(N8ParametricTailFile);;
        systems,columnchecks,jointchecks,negativechecks,scale,algebra,
        letters,liehall,h,C,D,Bracket,columns,dim,offset,axes,ker,
        successor,tailgroup,tailpcp,higher,highvectors,jointvectors,basecomm,
-       needed,started,Stage,hallstrings,nqinput,correction,directchecks,hh,kk;
+       needed,started,Stage,hallstrings,nqinput;
  item:=N8ParametricTail;
  started:=Runtime();Stage:=function(s)Print(s," at ",Runtime()-started," ms\n");end;
  Require:=function(ok,msg)if not ok then Error(msg);fi;end;
@@ -164,7 +164,7 @@ N8ParametricTail:=fail;;Read(N8ParametricTailFile);;
   Require(Comm(changed[1],changed[2])^-1*target in higher,"Affine line fails successor equations");
  od;
  Stage("Complete integral successor line checked");
- columnchecks:=0;jointchecks:=0;negativechecks:=0;directchecks:=0;
+ columnchecks:=0;jointchecks:=0;negativechecks:=0;
  for value in item.sample_values do
   line:=item.point+value*item.direction;
   pair:=Correct(base,item.axes3,line[1]*item.kernel3);
@@ -175,35 +175,16 @@ N8ParametricTail:=fail;;Read(N8ParametricTailFile);;
   scale:=item.certificate.input_scale;
   Require(MatrixAt(item.certificate.P,value)=scale*mat and
           MatrixAt(item.certificate.b,value)=List(rhs,x->[scale*x]),"Arithmetic certificate input mismatch");
-  Stage(Concatenation("Polynomial group sample ",String(value)," residual checked"));
   for j in [1..Length(item.axes_tail)] do
-   h:=item.axes_tail[j];correction:=hall[h[2]+1];
-   # Exact identities in any group, with [x,y]=x^-1*y^-1*x*y:
-   # [x*h,y]=[x,y]^h*[h,y], [x,y*h]=[x,h]*[x,y]^h.
-   # NQ performs every operation; no truncated Python formula is used.
-   if h[1]=0 then actual:=comm^correction*Comm(correction,pair[2]);
-   else actual:=Comm(pair[1],correction)*comm^correction;fi;
+   changed:=ShallowCopy(pair);h:=item.axes_tail[j];
+   changed[h[1]+1]:=changed[h[1]+1]*hall[h[2]+1];
    col:=List(mat,row->row[j]);pred:=VectorElement(col);
-   Require(comm*pred=actual,"Polynomial correction column");
-   if value=0 and j in [1,Length(item.axes_tail)] then
-    changed:=ShallowCopy(pair);changed[h[1]+1]:=changed[h[1]+1]*correction;
-    Require(actual=Comm(changed[1],changed[2]),"Exact commutator identity control");
-    directchecks:=directchecks+1;
-   fi;
+   Require(comm*pred=Comm(changed[1],changed[2]),"Polynomial correction column");
    columnchecks:=columnchecks+1;
   od;
-  Stage(Concatenation("Polynomial group sample ",String(value)," columns checked"));
   for vec in item.joint_vectors do
-   changed:=Correct([One(group),One(group)],item.axes_tail,vec);
-   hh:=changed[1];kk:=changed[2];
-   # Exact expansion of [x*h,y*k], retaining all conjugations and [h,k].
-   actual:=Comm(pair[1],kk)^hh*Comm(hh,kk)*(comm^hh*Comm(hh,pair[2]))^kk;
-   Require(comm*VectorElement(mat*vec)=actual,"Joint linearity control");
-   if item.class_bound<=15 then
-    changed:=Correct(pair,item.axes_tail,vec);
-    Require(actual=Comm(changed[1],changed[2]),"Joint identity direct control");
-    directchecks:=directchecks+1;
-   fi;
+   changed:=Correct(pair,item.axes_tail,vec);
+   Require(comm*VectorElement(mat*vec)=Comm(changed[1],changed[2]),"Joint linearity control");
    jointchecks:=jointchecks+1;
   od;
   if item.negative<>fail then
@@ -223,6 +204,6 @@ N8ParametricTail:=fail;;Read(N8ParametricTailFile);;
  Require(pair=found,"Arithmetic witness does not reconstruct the group factors");
  Print("PASS N8 parametric tail GAP: class ",item.class_bound,"; ",columnchecks,
        " polynomial columns; ",jointchecks," joint controls; ",negativechecks,
-       " negative targets; ",directchecks," direct identity controls; 3 complete kernels; 1 complete integral line; 2 group witnesses\n");
+       " negative targets; 3 complete kernels; 1 complete integral line; 2 group witnesses\n");
 end)();
 QUIT_GAP(0);

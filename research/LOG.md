@@ -1449,3 +1449,33 @@ See `problems/N8/parametric-tail-audit.md` for boundaries and executed versions.
 Counts8 whole/2 partial/0 established novel and original deadline unchanged.
 At most2 cores/16GB reserved; no subagents, pushes, contacts, or parent/prep
 changes. The only remaining live job is the named class18 group replay.
+
+
+## N8 overlapping-tail audit completed (2026-09-29T13:53:00.374793+00:00)
+
+Independent class 18 GAP group replay passes in 427.270968 seconds: 250
+polynomial columns, 10 joint controls, 2 direct identity controls, 3 complete
+kernels,1 full integral successor line and 2 group witnesses. Class15
+passes the same final checker in 3.827367 seconds, with 52 columns, 8 joint
+controls, 4 negative-target comparisons and 10 direct identity controls.
+Complete arithmetic replays and the strict class 19 mixed-term control were
+already successful. The candidate scope is now all ten final layers and
+all targets through class 18, using the previous leading-degree<=8 theorem.
+
+Compact NQ input and exact group commutator identities remove expensive
+expanded-word conversion and repeated full corrections. Five unsuccessful
+class 18 group runs and their executed sources remain recorded. All current
+runs have terminated; successful final stderr files are empty. The general
+ambient branch algorithm is not implemented end to end and still needs
+specialist review. No claim of established novelty.
+
+A separate two-parameter transmission lead remains uncounted. Independent
+Lie checks confirm its proposed proportional obstructions, but also show
+that the suggested perturbation fixes the first parameter too early. That
+failed example is preserved. A bounded wider portfolio pass added no
+candidate; see `research/notes/portfolio-29sep-early-afternoon.md`.
+
+Counts remain 8 whole-entry coverage candidates, 2 partial, 0 established
+novel. At most 3 cores / 24 GB reserved during this follow-up; no subagents,
+pushes, contacts, or parent/preparation-repository changes. Original
+30 September 10:04:49 UTC deadline unchanged.
