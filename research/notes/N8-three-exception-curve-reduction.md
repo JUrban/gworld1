@@ -108,6 +108,48 @@ are constant, q is quadratic, and its quadratic coefficient is nonzero
 by the inherited exceptional-kernel lemma. This follows from the same
 strict weight calculation as in the two-exception block.
 
+### The integer quotient and its first-component flag
+
+Here is the precise lattice step; quotienting a rational vector space
+alone would lose required residue classes. Write the nonempty affine
+block lattice as x0+K Z^a, with K a complete integer-kernel basis.
+Express every exact universal block translation in that basis. If their
+coordinate columns are the integer matrix L, compute a full integer
+Smith decomposition
+
+    P L Q = diag(d1,...,db,0,...),
+
+where P,Q are integer unimodular and the di are positive. In the
+coordinates z'=Pz, complete representatives of Z^a/im L are
+
+    z'_i in {0,...,di-1} for i<=b,
+    z'_i arbitrary integers for i>b.
+
+Transform back by P^-1 and then by K. This gives exactly the finitely
+many torsion cosets and integral affine free families used above.
+In particular no period is replaced by its primitive saturation, and
+large residue sets are finite even when impractical to enumerate.
+
+Every universal offset is at or after the Nielsen offset, whereas all
+exceptions precede it. Therefore universal translations have zero
+coordinates at every exceptional offset. The first-exception coefficient
+k is an integer homomorphism on the quotient. Its restriction to a free
+family is an integer row; a unimodular Bezout change of free coordinates
+turns it into (m,0,...,0), with m the actual nonzero gcd, not a presumed
+unit. The affine constant k0 also retains its coset dependence.
+
+A nonzero rational difference whose exceptional components all vanish
+can be removed successively by universal translations: its first
+nonzero layer is a homogeneous kernel, and the available translations
+span that kernel rationally. Iterating through the finite block proves
+that its rational quotient class is zero. Thus a nonzero free quotient
+direction has a first nonzero exceptional component. For a direction
+with first component zero this occurs at a later exceptional offset.
+No universal component can occur earlier, since the Nielsen offset is
+after every exception. This justifies the flag of leading directions
+used in each rank case, without assuming that arbitrary rational
+kernel generators are primitive integer vectors.
+
 ## 3. Rank cases
 
 - With r<=1, or with all later columns zero, a nonzero scalar quadratic
@@ -131,6 +173,16 @@ strict weight calculation as in the two-exception block.
   rank-one map and retains its scale. The forced coordinate is a
   rational polynomial in T; the other is a free integer R. The
   transformed block is polynomial in T and affine in R.
+
+More explicitly in that last case, write [B C]=v a with v a nonzero
+rational column and a a primitive integer row of length two, absorbing
+its rational scale into v. Integer Bezout operations give Q in GL_2(Z)
+with aQ=(1,0). The corresponding parameter change is bijective on Z^2.
+One nonzero coordinate of v determines the first new parameter; its
+integrality is a congruence with a fixed denominator. The other rows
+give polynomial equalities in T. None introduces a varying modulus or
+a polynomial disequality in the remaining free R. This supplies the
+initial-condition hypothesis of the early-truncation argument.
 
 In the last case R's direction has zero first-exception component. Its
 first nonzero component is at a later exceptional offset s<2t: a

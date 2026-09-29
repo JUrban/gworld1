@@ -1615,3 +1615,19 @@ No class26 or general three-exception extension adopted. Current counts remain
 8 whole-entry candidates,2 partial candidates,0 established novel results.
 A focused F38 shortening-source recheck found no new gap; structural dependencies
 and novelty still need specialist review. Original deadline unchanged.
+
+
+## Class26 arithmetic optimization and source review (2026-09-29T16:29:27.154798+00:00)
+
+The constant-matrix optimization passes all5 regression runs, including
+independent GAP replay of24 integer systems and11 complete polynomial-family
+systems. Two earlier class26 jobs timed out, one in generic Smith arithmetic
+and one after constructing the quotient while building multiplication
+polynomials. Both failures and exact sources are retained. Two revised jobs
+are live; scope is unchanged. See research/notes/N8-constant-diagonal-audit.md.
+
+The three-exception draft now makes the full integer quotient and rank-one
+Bezout reduction explicit. GA3's general-Lambda collapse and boundary-source
+application were reread; no new gap found in that focused check. Details in
+research/notes/GA3-29sep-collapse-recheck.md. Neither review is specialist
+validation. Counts8 whole/2 partial/0 established novel and deadline unchanged.

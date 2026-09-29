@@ -676,3 +676,16 @@ group equations, full integer fibers and arithmetic. Formal substitutions
 still need an ambient period-lattice specialization. Do not promote scope
 from the small blocks alone; they have finite parameter fibers. Candidate
 scope/counts and immutable deadline unchanged.
+
+
+## Class26 continuation (2026-09-29T16:29:27.154798+00:00)
+
+Revalidate the live n8-delayed-quadratic-c26-v2 and
+n8-delayed-quotient-c26-v2 processes; previous v1 runs are terminal timeouts.
+The constant-matrix arithmetic regression suites pass and need no repetition
+without a new concern. Once the class26 certificate exists, replay its group,
+families and arithmetic independently. Build and independently check the
+ambient universal period quotient; all finite cosets must remain represented.
+Prepared sources alone do not count as checks. Cache GAP workspaces only in
+ignored large-artifacts with final hashes/regeneration notes. No scope promotion
+yet;8 whole/2 partial/0 established novel; original deadline unchanged.

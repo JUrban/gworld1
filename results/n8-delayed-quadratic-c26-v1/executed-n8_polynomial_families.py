@@ -18,10 +18,8 @@ def families(A,b):
     integer=(scale*A).applyfunc(S.expand)
     H,U=hermite(fmpz_mat([[int(x) for x in row] for row in integer.T.tolist()]))
     H=S.Matrix(H.tolist());U=S.Matrix(U.tolist())
-    rank=fmpz_mat([[int(x) for x in row] for row in integer.tolist()]).rank();K=U[rank:,:].T
-    # hermite already verifies the full unimodular identity with FLINT;
-    # retain explicit matrix/kernel checks without a second slow determinant.
-    assert H==U*integer.T and A*K==S.zeros(A.rows,K.cols)
+    rank=A.rank();K=U[rank:,:].T
+    assert H==U*integer.T and abs(U.det())==1 and A*K==S.zeros(A.rows,K.cols)
     result=dict(A=encode_matrix(A),b=encode_matrix(b),certificate=rec,
                 integer_scale=scale,H=encode_matrix(H),U=encode_matrix(U),
                 kernel=encode_matrix(K),rank=rank,families=[])

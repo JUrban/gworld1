@@ -22,9 +22,6 @@ def denominator(entries):
 def normal_form(A,domain):
     m,n=A.shape
     if not m or not n:return S.zeros(m,n),S.eye(m),S.eye(n)
-    if all(x.is_Rational for x in A):
-        from n8_constant_diagonal import diagonal
-        return diagonal(A)
     D,U,V=(x.to_Matrix() for x in smith_normal_decomp(DomainMatrix.from_Matrix(A).convert_to(domain)))
     assert (U*A*V-D).applyfunc(S.expand)==S.zeros(m,n)
     assert S.Poly(U.det(),T).degree()==0 and U.det()!=0

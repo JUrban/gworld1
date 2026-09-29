@@ -730,3 +730,12 @@ Read installed Polycyclic manualSection3.3 and collect.gi/coldt.gi while
 resolving native exact-group collection costs. Runtime flag and native Hall
 multiplication-polynomial setup are recorded in the interim N8 audit;
 no package source changes or disabled overflow thresholds.
+
+
+## 2026-09-29T16:29:27.154798+00:00 — GA3 focused collapse recheck
+
+Reread archived Guirardel2004 Sections2.3--2.6, Fact5.1, its general-Lambda
+remark and local proof on printedpages1448--1449; actually viewed the saved
+image of page1448. Reread Rybak2026 Lemmas2.6/2.9 and intervening action
+classification. No new full-paper audit; detailed scope and conclusions in
+research/notes/GA3-29sep-collapse-recheck.md. Candidate and novelty unchanged.
