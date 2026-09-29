@@ -877,3 +877,8 @@ independently audited. Standard lattice/cusp geometry imported.
 The B9 coloring follow-up uses the already archived Dehornoy
 Lemma2.1 and exact division formula; new searches returned no additional
 classification theorem. See the two new research notes.
+
+
+### F41 independent-source boundary, 29 September evening
+
+Archived Perin--Pillay--Sklinos--Tent, [arXiv1210.5757v2](https://arxiv.org/abs/1210.5757v2). Read introduction, initial free-group background, Theorem3.3/Corollary3.4/Proposition3.5 with local proofs and references; viewed printedp7. The independent subgroup-definability proof does not replace KM's arbitrary-definable-set multipattern dichotomy. Higher-rank orbit nondefinability confirms the need to use a definable containing set, as our candidate already does. No new correctness or novelty certification. Failed author-copy TLS retrieval and unavailable publisher DOI comparison recorded in problems/F41/dependency-boundary-audit.md; source/audit hashes in research/certificates/F41-dependency-boundary/manifest-v1.json.

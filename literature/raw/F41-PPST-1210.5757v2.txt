@@ -1,0 +1,590 @@
+                                              On groups and fields interpretable in torsion-free hyperbolic
+                                                                         groups∗
+                                                                         Chloé Perin                        Anand Pillay†
+                                                                   University of Strasbourg               University of Leeds
+arXiv:1210.5757v2 [math.LO] 19 Feb 2013
+
+
+
+
+                                                                      Rizos Sklinos                             Katrin Tent
+                                                              Hebrew University of Jerusalem                 Universität Münster
+
+                                                                                         April 24, 2018
+
+
+
+                                                                                             Abstract
+                                                        We prove that the generic type of a non-cyclic torsion-free hyperbolic group G is
+                                                    foreign to any interpretable abelian group, hence also to any interpretable field. This
+                                                    result depends, among other things, on the definable simplicity of a non-cyclic torsion-free
+                                                    hyperbolic group, and we take the opportunity to give a proof of the latter using Sela’s
+                                                    description of imaginaries in torsion-free hyperbolic groups. We also use the description
+                                                    of imaginaries to prove that if F is a free group of rank > 2 then no orbit of a finite tuple
+                                                    from F under Aut(F) is definable.
+
+
+                                          1        Introduction
+                                          This paper concerns the first order theories of torsion-free hyperbolic groups. There is an
+                                          increasing model theoretic interest in the subject motivated by the positive solution to Tarski’s
+                                          problem (i.e. is the theory of non abelian free groups complete?) by Sela and Kharlampovich-
+                                          Myasnikov. Subsequently Sela proved the stability of all non-cyclic torsion-free hyperbolic
+                                          groups [Selb]. These are in fact remarkable examples of “new stable groups”, given by nature.
+                                              If we fix a torsion-free hyperbolic group G, then understanding the category of defin-
+                                          able/interpretable sets in models of T h(G), informed by stability-theoretic tools and notions,
+                                          is a challenge. Sela’s work on imaginaries in torsion-free hyperbolic groups [Sela] is part of
+                                          this endeavour and will be used in the current paper.
+                                              Our paper contributes to the following conjecture:
+                                          Conjecture 1: Let G be a torsion-free hyperbolic group. Then no infinite field is interpretable
+                                          in (any model of ) T h(G).
+                                             In general, also the nature and complexity of interpretable groups in a theory is important
+                                          and we make another conjecture which will only indirectly be touched on in the current paper:
+                                          Conjecture 2: Let G be a torsion-free hyperbolic group. Any group interpretable in a model
+                                          M of T h(G) is definably isomorphic to a definable subgroup of M × . . . × M.
+                                              ∗
+                                                  Research supported by SFB 878
+                                              †
+                                                  Supported by EPSRC grant EP/I0002294/1
+
+
+                                                                                                 1
+     Note that this is basically the situation in 1-based groups (see [EPP90]).
+     Let G be a non-cyclic torsion-free hyperbolic group. Then the first order theory of G
+is connected and hence has a unique generic type, which we call pG       0 (see section 2). In the
+special case of non abelian free groups a considerable amount of information has been obtained
+around the complexity of pF0 n (by all the authors). For example pF0 n has infinite weight ([Pil09],
+[Skl11a]), and witnesses the fact that the free group is n-ample for all n ([Skl12]). As a matter
+of fact, in [OHT12] it was proved that the theory of any (non-cyclic) torsion-free hyperbolic
+group is n-ample for all n. The ampleness result is consistent with the existence of an infinite
+interpretable field which interacts with pG 0 . Corollary 2 rules this out. Thus, the results of the
+current paper provide a partial solution to Conjecture 1, yielding additional information on
+pG                                                                                           G
+  0 : no interpretable abelian group (hence also interpretable field) can interact with p0 . See
+Section 5 for the stability-theoretic definitions.
+Theorem 1: Let G be a non-cyclic torsion-free hyperbolic group. Then pG
+                                                                      0 is foreign to any
+interpretable abelian group.
+Corollary 2: Let G be a non-cyclic torsion-free hyperbolic group. Then pG
+                                                                        0 is foreign to any
+interpretable field or skew field.
+    We will need to know that non-cyclic torsion-free hyperbolic groups are definably simple
+(no definable proper nontrivial normal subgroup). The stronger result that the only proper
+definable subgroups of torsion-free hyperbolic groups are cyclic, has been stated in several
+places, such as [KM11]. We take the opportunity here to give an independent proof in Section
+3, using Sela’s description of imaginaries [Sela] as a “black box”:
+Theorem 3: The only definable proper subgroups of a torsion-free hyperbolic group are cyclic.
+    In the same section we also prove:
+Theorem 4: Let F be a free group of rank at least 3. Then no orbit of a finite (nontrivial)
+tuple under Aut(F) is definable.
+    Let us stress that by definable we mean definable possibly with parameters.
+    The paper is organised as follows. In the following section we give some model theoretic
+background around torsion-free hyperbolic groups. We give special emphasis to the notion
+of imaginaries and we give a precise account of elimination of imaginaries in model theoretic
+terminology as this is crucial for questions regarding interpretability.
+    In Section 3, we give certain non-definability results. In particular we use Sela’s elimination
+of imaginaries result to prove Theorem 3 and Theorem 4.
+    In Section 4 we prove a result that forbids abelian interpretable groups in non abelian free
+groups to “gain” an element in higher rank free groups. This result is an elaboration on material
+in Chapter 8 of the third author’s Ph.D. thesis [Skl11b], but now we have to consider not only
+real tuples but imaginaries. We also prove an analogous result for torsion-free hyperbolic
+groups.
+    Finally in Section 5, we bring everything together to prove Theorem 1.
+
+
+2    Some model theory of torsion-free hyperbolic groups
+We start our discussion with the free group case. Our notation is fairly standard. By Fn we
+denote the free group on n generators and we usually denote a basis of Fn by e1 , ..., en . By
+Tf g we denote the common theory of non abelian free groups. We also note that the natural
+
+                                                 2
+embedding of Fn in Fm for 2 ≤ n < m is elementary (as proved by Sela and Kharlampovich-
+Myasnikov).
+    In [Poi83] Poizat proved that Fω is connected (thus Tf g is connected). Moreover the
+following theorem has been proved by the second named author in [Pil08].
+Theorem 2.1: Let Fω := he1 , . . . , en , . . .i. Then (ei )i<ω is a Morley sequence in pF0 n . In
+particular tp(en+1 /Fn ) is generic.
+    Now, let G be a torsion-free hyperbolic group. Sela assigns to such a group its elementary
+core EC(G), which is an elementary subgroup of G provided G is not elementarily equivalent to
+a free group (for a definition and further properties see [Sel09]). Note that if G is elementarily
+equivalent to a free group, EC(G) is the trivial group. The elementary core of EC(G) ∗ Z
+is again EC(G), so the latter is an elementary subgroup of the former. This observation led
+Ould Houcine to the following result [OH11]
+Theorem 2.2: Let G be a torsion-free hyperbolic group not elementarily equivalent to a free
+group. Then G is connected. Moreover if H := EC(G) ∗ hei, then tpH (e/EC(G)) is generic.
+    In [OHT12] the following useful result was proved.
+Proposition 2.3: Let G be a torsion-free hyperbolic group not elementarily equivalent to a
+free group. Suppose K is a free factor of a free group F. Then EC(G) ∗ K is an elementary
+subgroup of G ∗ F. In particular since EC(EC(G)) = EC(G) we have an elementary chain
+
+                         EC(G) ≺ EC(G) ∗ Z ≺ . . . ≺ EC(G) ∗ Fn ≺ . . . .
+
+2.1    Imaginaries in torsion-free hyperbolic groups
+We first give a quick overview of the model theoretic notion of imaginaries as well as various
+notions of elimination of imaginaries. We then specialize to torsion-free hyperbolic groups and
+give Sela’s result.
+     Recall that Meq is constructed from M by adding a new sort for each ∅-definable equiva-
+lence relation, E(x̄, ȳ), together with a class function fE : M n → ME , where ME (the domain
+of the new sort corresponding to E) is the set of all E-equivalence classes. The elements in
+these new sorts are called imaginaries. Note that any automorphism of M has a canonical
+extension to Meq .
+     We say that M eliminates imaginaries if it has a saturated elementary extension M in
+which for any element e of Meq , there is a finite tuple b̄ ∈ M such that e ∈ dcleq (b̄) and
+b̄ ∈ dcleq (e).
+     We say that M weakly eliminates imaginaries if it has a saturated elementary extension
+M in which for any element e of Meq , there is a finite tuple b̄ ∈ M such that e ∈ dcleq (b̄) and
+b̄ ∈ acleq (e).
+     We now specialize to torsion-free hyperbolic groups.
+Definition 2.4: Let G be a torsion-free hyperbolic group. The following equivalence relations
+in G are called basic.
+
+  (i) E1 (a, b) if and only if there is g ∈ G such that ag = b. (conjugation)
+
+(ii)m E2m ((a1 , b1 ), (a2 , b2 )) if and only if either b1 = b2 = 1 or b1 6= 1 and CG (b1 ) = CG (b2 ) =
+      hbi and a−1             m
+                 1 a2 ∈ hb i. (m-left-coset)
+
+
+
+                                                    3
+ (iii)m E3m ((a1 , b1 ), (a2 , b2 )) if and only if either b1 = b2 = 1 or b1 6= 1 and CG (b1 ) = CG (b2 ) =
+        hbi and a1 a−1          m
+                      2 ∈ hb i. (m-right-coset)
+
+(iv)m,n E4m,n ((a1 , b1 , c1 ), (a2 , b2 , c2 )) if and only if either a1 = a2 = 1 or c1 = c2 = 1 or a1 , c1 6= 1
+        and CG (a1 ) = CG (a2 ) = hai and CG (c1 ) = CG (c2 ) = hci and there is γ ∈ ham i and
+        ǫ ∈ hcn i such that γb1 ǫ = b2 . (m, n-double-coset)
+
+       The following is Theorem 4.4 in [Sela]:
+  Theorem 2.5: Let G be a torsion-free hyperbolic group. Let E(x̄, ȳ) be a definable equivalence
+  relation in G, with |x̄| = m. Then there exist k, l < ω and a definable relation
+
+                                    RE ⊆ Gm × Gk × S1 (G) × . . . × Sl (G)
+
+  such that:
+
+     (i) each Si (G) is one of the basic sorts;
+
+    (ii) there is some s ∈ N such that for each ā ∈ Gm , |RE (ā, Geq )| ≤ s;
+
+   (iii) ∀z̄(RE (ā, z̄) ↔ RE (b̄, z̄)) if and only if E(ā, b̄).
+
+      In the case of ∅-definable equivalence relations a slight variation of the above theorem is
+  true (see Theorem 4.4 and Proposition 4.5 in [Sela]):
+  Theorem 2.6: Let G be a torsion-free hyperbolic group. Let E(x̄, ȳ) be a ∅-definable equiv-
+  alence relation in G, with |x̄| = m. Then there exist k, l < ω, finitely many “exceptional”
+  ∅-definable equivalence classes, defined by φi (x̄), i ≤ n, and a ∅-definable relation
+
+                                    RE ⊆ Gm × Gk × S1 (G) × . . . × Sl (G)
+
+  such that:
+
+     (i) each Si (G) is one of the basic sorts;
+
+    (ii) there is some s ∈ N such that for each ā ∈ Gm , |RE (ā, Geq )| ≤ s;
+
+   (iii) Geq |= ∀x̄(φ1 (x̄) ∨ φ2 (x̄) ∨ . . . ∨ φn (x̄) → RE (x̄, 1, 1, . . . , (1, 1, 1)) ∧ |RE (x̄, z̄)| = 1), i.e.
+         RE assigns to each tuple in any of the “exceptional” classes a single tuple consisting of
+         identity elements in the corresponding sorts;
+
+    (iv) for any two tuples ā, b̄ not in the union of the “exceptional” classes we have Geq |=
+         ∀z̄(RE (ā, z̄) ↔ RE (b̄, z̄)) if and only if E(ā, b̄).
+
+     Let G be a group elementarily equivalent to a torsion-free hyperbolic group, by Gwe we
+  denote the expansion of G by the above basic sorts, i.e. Gwe = (G, S1 (G), {S2m (G)}m<ω ,
+  {S3m (G)}m<ω , {S4m,n (G)}m,n<ω ). The above theorem easily implies that Gwe weakly elimi-
+  nates imaginaries.
+  Corollary 2.7: Let G be a torsion-free hyperbolic group. Then Gwe weakly eliminates imagi-
+  naries.
+
+
+
+
+                                                          4
+Proof. We work in a saturated extension G of G. Let e be an element of Geq . Then there is
+a ∅-definable equivalence relation E(x̄, ȳ) in G such that e = [ā]E for some element ā ∈ G.
+By Theorem 2.6, E is assigned a ∅-definable relation RE such that RE (ā, z̄) has finitely many
+solutions in Gwe .
+    First assume that ā belongs to an “exceptional” class, then we claim that e ∈ dcleq (1),
+indeed since each exceptional class is ∅-definable any automorphism will fix e. Now suppose
+that ā does not belong to an exceptional class and (ā1 ā2 . . . āk ) is the concatenation of the
+solutions of RE (ā, z̄) in Geq . We claim that e ∈ dcleq (ā1 ā2 . . . āk ) and āW1 ā2 . . . āk ∈ acleq (e).
+The formula ∃ȳ(fE (ȳ) = x∧RE (ȳ, ā1 )∧. . . ∧RE (ȳ, āk )∧∀w̄(RE (ȳ, w̄) → ki=1 w̄ = āi )) defines
+e in Geq . Now consider the formula ∃ȳ(RE (ȳ, x̄1 ) ∧ . . . ∧ RE (ȳ, x̄k ) ∧ fE (ȳ) = e), the solution
+set of this formula is {ā1 , ā2 , . . . , āk }k , which is finite.
+
+
+3     Some (non) definability results
+We first prove that the only definable proper subgroups of a torsion-free hyperbolic group are
+cyclic. This implies, in the case where G is non-cyclic, that T h(G) is definably simple.
+    Let G be a non-cyclic torsion-free hyperbolic group and H := G ∗ hei. If a is an element in
+G, we denote by fa the automorphism of H which is the identity on G and satisfies fa (e) = ea.
+Lemma 3.1: Let β ∈ H eq \ Geq be an element from a basic sort. Suppose β is not contained
+in the following list:
+
+    1. β = [b]E1 , where b = b1 ei1 b2 . . . bm eim with m > 1, bi ∈ G \ {1} for all i ≤ m and
+       bi ∈ C(a) for some i ≤ m; or
+
+    2. β = [(c, b)]E for E = E2p or E = E3p , or β = [(b, c, d)]E4p,q , where b = b1 ei1 b2 ei2 . . . bm
+       eim bm+1 with m > 1, bi ∈ G (if 1 < i < m + 1, then bi is non trivial) and b2 ∈ C(a); or
+
+    3. β = [(c, b)]E for E = E2p or E = E3p , or β = [(b, c, d)]E4p,q , where b, d ∈ G and
+       c = c1 ei1 c2 . . . cm eim cm+1 with ci ∈ G (if 1 < i < m + 1, then ci is non trivial).
+       Moreover, either some ci , for 1 < i < m + 1, is in C(a) or b and/or d belong to the
+       centralizer of some conjugate of a (by an element of G).
+
+Then β has infinite orbit under hfai : i ∈ Zi.
+
+Proof. Assume that β has finite orbit. We take cases according to the list of basic sorts.
+
+    • Let β = [b]E1 . Let b1 ei1 b2 . . . bm eim be the normal form of b with respect to the de-
+      composition G ∗ hei. Suppose for some j ≤ m we have that |ij | > 1. Then eai e
+      or e−1 a−i e−1 will appear in the normal form of f i (b) and the result follows easily.
+      Suppose, for some j we have that ij(mod m) = ij+1(mod m) . Then eai bj+1(mod m) e or
+      e−1 bj+1(mod m) a−i e−1 will appear in the normal form of f i (b) so there must be k so
+      that bk = ai bj+1(mod m) or bk = bj+1(mod m) a−i for infinitely many values of i, which
+      is impossible. If m = 1, then is not hard to see that [b1 e±1 ]E1 has infinite orbit un-
+      der hf i |i < ωi. Lastly, suppose for some j, ij(mod m) = 1 and ij+1(mod m) = −1 but
+      bj+1(mod m) 6∈ C(a). Then eai bj+1(mod m) a−i e−1 will appear in the normal form of f i (b)
+      and since [a, bj+1(mod m) ] 6= 1 the result follows.
+
+    • Let β = [(b, c, d)]E4p,q . We take two subcases:
+
+                                                        5
+        (i) Suppose that b ∈ H \ G. Since H is a torsion-free hyperbolic group we have
+            that there is a γ ∈ H \ G such that f i (b) = γ for infinitely many i’s. Now, let
+            b1 ei1 b2 . . . bm eim bm+1 be the normal form of b with respect to the decomposition
+            G ∗ hei. It follows as in the case above that |ij | = 1 for all j ≤ m, and ij 6= ij+1
+            for all j < m. Moreover, m > 1 and if for some j < m, ij = 1 and ij+1 = −1, then
+            bj+1 ∈ C(a). What remains to be shown is that i1 6= −1, which is trivial to check.
+       (ii) Suppose b, d ∈ G and let c1 ei1 c2 . . . cm eim cm+1 be the normal form of c with respect
+            to the decomposition G ∗ hei. Suppose that |ij | > 1 for some j ≤ m, then f i (c)
+            will have a normal form containing eai e or e−1 a−i e−1 , thus ǫf i (c)δ 6= f j (c) for
+            any ǫ, δ ∈ G and the result follows. Similarly one can prove that ij 6= ij+1 , for
+            all j < m and if for some j < m, ij = 1 and ij+1 = −1 then cj+1 ∈ C(a). We
+            now take cases that depend on the value of m. If m > 2, it is clear that either
+            c2 or c3 will be in C(a). Suppose m = 1 and c = c1 ec2 (or c = c1 e−1 c2 ). Then
+            f i (c) = c1 eai c2 (or f i (c) = c1 a−i e−1 c2 ) and ǫf i (c)δ = f j (c) only if δ ∈ C(c−1
+                                                                                                     2 ac2 )
+                                  −1
+            (only if ǫ ∈ C(c1 ac1 )). Lastly suppose m = 2, in this case we can only have i1 = −1
+            and i2 = 1 (otherwise c2 ∈ C(a)), thus we have c = c1 e−1 c2 ec3 and ǫf i (c)δ = f j (c)
+            only if ǫ ∈ C(c1 ac−1                     −1
+                                  1 ) and δ ∈ C(c3 ac3 ).
+
+    • Let β = [(c, b)]E for E = E2p or E = E3p . The proof is similar to the above and is left
+      to the reader.
+
+
+
+    This immediately yields the following:
+Corollary 3.2: Let a, c ∈ G with C(a) 6= C(c). Then for any element β ∈ H we \ Gwe , β
+has infinite orbit under hfai , fci |i < ωi. In particular, if G is a non-trivial free product and
+β ∈ H we , then Aut(H).β is infinite.
+   We note that the particular case of Corollary 3.2 fails in F2 : the conjugacy class of [e1 , e2 ]
+has exactly two images under Aut(F2 ) (see [LS77, Proposition 5.1,p.44]).
+Theorem 3.3: Let G be a torsion-free hyperbolic group. Then any definable proper subgroup
+of G is cyclic.
+
+Proof. We may assume that G is not cyclic. Suppose the result is not true. We first consider
+the case where G is elementarily equivalent to a free group. Then there is a definable (over
+F2 ) non abelian subgroup of F2 , which we denote by A. Let EA be the (definable over F2 )
+equivalence relation defined by EA (a, b) if and only if a · A = b · A. Let RA be the relation
+given by Theorem 2.5. Let RA (e3 , Feq        3 ) = {b̄1 , . . . , b̄k }. We claim that there is i ≤ k such that
+b̄i is in Feq
+           3  \ F eq
+                  2  . Otherwise,       since  F2 is an elementary substructure, we find some c ∈ F2
+               eq
+with RA (c, F3 ) = {b̄1 , . . . , b̄k }, so c and e3 are equivalent. But then e3 · c−1 is in A. Since
+A is definable over F2 we have that A is generic, contradicting the connectedness of Tf g . So,
+without loss of generality, b̄1 ∈ Feq             eq
+                                           3 \ F2 . Now consider the automorphisms that fix F2 and
+send e3 to e3 · a for some a ∈ A: every such automorphism fixes RA , and clearly EA (e3 , e3 · a).
+Since A is not abelian however, we can find a, c such that [a, c] 6= 1: by Corollary 3.2, b̄1 has
+infinitely many images under the iterates of fa and fc , a contradiction.
+     Finally, suppose G is not elementarily equivalent to a free group. Is not hard to see that the
+above argument is still valid if we replace F2 with the elementary core of G and use Theorem
+2.2.
+
+                                                       6
+   The following corollary follows immediately from the fact that the normalizer of a cyclic
+subgroup in a torsion-free hyperbolic group coincides with its (cyclic) centralizer:
+Corollary 3.4: Let G be a non-cyclic torsion-free hyperbolic group. Then T h(G) is definably
+simple.
+    We give another application of the weak elimination of imaginaries extending a result of
+Kharlampovich-Myasnikov (see [KM11, Corollary 2]) that proved that the set of primitive
+elements of Fn is not definable if n > 2.
+    In [LPS11, Theorem 4.8] it was proved that no (non-trivial) type in S(Tf g ) is isolated,
+equivalently since free groups are homogeneous structures no finite tuple has ∅-definable orbit
+under Aut(Fn ). An easy application of the weak elimination of imaginaries allows us, in free
+groups of rank at least 3, to strengthen this result by showing that no orbit is definable even
+with parameters. Intuitively the reason is that every such orbit is Aut(Fn )-invariant but every
+non trivial canonical parameter can be “moved” by an automorphism of Fn , thus the orbit
+can only be definable over ∅, contradicting the above mentioned theorem. Note that it is well
+known that the orbit of any tuple in F2 (under Aut(F2 )) is definable in F2 by a result of Nielsen
+[Nie17].
+Proposition 3.5: Let v̄ be a non trivial tuple of elements in a non abelian free group F of
+rank at least 3. Then Aut(F).v̄ is not definable.
+
+Proof. Suppose it is, and let e = [ā]E be the canonical parameter for the definable set X :=
+Aut(F).v̄, in Feq . By Theorem 2.6, |RE (ā, Feq )| is finite and by Theorem 4.8 in [LPS11], it
+contains a non trivial tuple, thus by Lemma 3.2 there is an automorphism such that f (e) 6= e,
+but then f (X) 6= X, a contradiction.
+
+
+4      Abelian interpretable groups in torsion-free hyperbolic groups
+We show that if a formula φ over Feq                          eq          eq        eq
+                                   n “gains” an element in Fn+1 , i.e. φ(Fn ) 6= φ(Fn+1 ), then
+it cannot be given definably the structure of an abelian group. In the case of a torsion-free
+hyperbolic group not elementarily equivalent to a free group, we prove an analogous result for
+the elementary core.
+Lemma 4.1: Let G := F0 ∗ X0 ∗ X1 be a free product of groups and let h be an automorphism
+of G fixing F0 pointwise and acting on X0 ∗ X1 as an automorphism of prime order p whose
+fixed point set is exactly X0 .
+    Suppose that h fixes the conjugacy class of a cyclically reduced element a ∈ G \ (F0 ∗ X0 ∪
+X0 ∗ X1 ), of the form
+
+        a = a1 x1 a2 x2 · · · am xm with ai ∈ F0 \ {1} and xi ∈ X0 ∗ X1 \ {1} for i = 1, . . . m.
+
+     Then there is a permutation σ ∈ h(1.....m)i ≤ Sym({1, . . . m}) such that:
+
+    (i) ai = aσ(i) and h(xi ) = xσ(i) ;
+
+ (ii) p divides the order o(σ) of σ.
+
+
+
+                                                   7
+Proof. Since h is the identity on F0 and leaves X0 ∗ X1 invariant and because a is cyclically
+reduced and conjugate to h(a), we see that
+
+                              h(a) = a1 h(x1 )a2 h(x2 ) . . . am h(xm )
+
+differs from a by a cyclic shift only. This implies (i).
+    Now (ii) follows from (i): we see that ho(σ) fixes each of the xi . The elements of X0 ∗ X1
+fixed by h (and thus by any element generating hhi) are exactly those of X0 . Thus ho(σ) must
+be the identity so o(h) = p divides o(σ).
+
+   We will need the following small lemma:
+Lemma 4.2: Let M be a finite cyclic group, let s, t ∈ M and let d > 1. Then there are k, l
+with sk = tl and such that d does not divide both k and l.
+
+Proof. Write o(s) = ef , and o(t) = eg where f, g are coprime. Then sf and tg have order e,
+hence generate the same subgroup of M . So each can be written as a power of the other and
+the conclusion follows.
+
+Lemma 4.3: Let G := Uf ∗ W ∗ Ug be a free product of groups. Let f and g be automorphisms
+of G of prime order p such that f is the identity on W and on Uf and acts without nontrivial
+fixed point on Ug , and g is the identity on W and on Ug and acts without nontrivial fixed point
+on Uf . If a is an element of G whose conjugacy class is fixed both by f and by g, then a lies
+in W ∗ Uf or in W ∗ Ug .
+
+Proof. Suppose that a ∈
+                      / (W ∗Uf )∪(W ∗Ug ). We may choose a = a1 x1 a2 x2 · · · am xm cyclically
+reduced with ai ∈ Uf ∗W, xi ∈ Ug , and ai 6= 1 6= xi for i = 1, . . . m. By Lemma 4.1 applied to f
+and the decomposition G = (Uf ∗ W ) ∗ 1 ∗ Ug on the one hand, and to g and the decomposition
+G = Ug ∗ W ∗ Uf on the other hand we find σ, τ ∈ h(1 . . . m)i such that for i = 1, . . . m we have
+
+                                  ai = aσ(i) and f (xi ) = xσ(i)
+                                  g(ai ) = aτ (i) and xi = xτ (i) .
+   By Lemma 4.2 we can choose k, l with σ k = τ l such that p does not divide both k and l.
+   For i = 1, . . . m we now have
+
+                                  f k (xi ) = xσk (i) = xτ l (i) = xi ,
+
+                                  gl (ai ) = aτ l (i) = aσk (i) = ai .
+Thus f k is the identity (and so p divides k) and gl fixes each ai . Since p does not divide l, we
+conclude that ai ∈ W for i = 1, . . . m showing that a ∈ W ∗ Ug . This contradiction proves the
+lemma.
+
+Lemma 4.4: Let H := G ∗ C be a torsion-free hyperbolic group. Let f be an automorphism
+of H of prime order p > 2 that fixes G and acts on C without non-trivial fixed point.
+   Suppose β ∈ H we \ Gwe is not a conjugacy class, i.e. β is not in S1 (H). Then |{β, f (β),
+ 2
+f (β), . . . , f p−1 (β)}| = p.
+
+
+
+                                                   8
+Proof. We first note that no non-trivial power of f fixes an element in H \ G. This also implies
+that f i (d) 6= d−1 for all d ∈ H \ G, otherwise we would have f 2i (d) = d. We now take cases
+according to the list of basic sorts.
+      We will only treat the case where β = [(b1 , b2 , b3 )]E4k,l . Suppose for the sake of contra-
+diction that (f i (b1 ), f i (b2 ), f i (b3 )) ∼E4k,l (f j (b1 ), f j (b2 ), f j (b3 )) for i 6≡ j mod p. So we have
+[f i (b1 ), f j (b1 )] = 1 and [f i (b3 ), f j (b3 )] = 1. Since H is a torsion-free hyperbolic group we have
+f i−j (b1 ) = b1 or f i−j (b1 ) = b−1   1 . But since f
+                                                             i−j cannot invert or fix an element in H \ G, it
+
+follows that b1 ∈ G and similarly b3 ∈ G. Now since β ∈ H we \ Gwe , we must have b2 ∈ H \ G.
+But then γf i (b2 )ǫ = f j (b2 ) for some γ, ǫ ∈ G, and an easy calculation shows that this is not
+possible.
+
+
+    We will apply Lemma 4.4 to the group H := G∗Fp where G is torsion-free hyperbolic, p > 2
+is a prime and f is the automorphism of H that fixes G and cyclically permutes (e1 , . . . , ep ).
+Proposition 4.5: Let X be a definable set in Feq                   eq          eq
+                                                    n . Suppose X(Fn+1 ) 6= X(Fn ). Then X
+cannot be given definably the structure of an abelian group.
+
+Proof. Suppose otherwise and let (X, ⊙) be an abelian group. Suppose X is a subset of sort SE
+(for some ∅-definable equivalence relation E). By Theorem 2.5 we can assign to E a definable
+equivalence relation RE such that RE (ā, ȳ) cannot have more than s solutions (for any ā) and
+each solution is a tuple containing l-many elements in imaginary sorts.
+    Let p be a prime greater than max{s, 2}. Let Ai := hen+ip+1 , . . . , en+(i+1)p i for i ≤ l · s
+and fi be the automorphism of Fn ∗ Ai which is the identity on Fn and cyclically permutes the
+given basis of Ai .
+    Now let β0 ∈ X(Feq                      eq
+                                n+1 ) \ X(Fn ) and βi be the image of β0 under the automorphism of
+Fω := he1 , e2 , . . . , en , . . .i which exchanges en+1 with en+ip+1 and fixes all other elements of
+the basis.
+    For each 0 ≤ i ≤ s · l we consider the following product of elements of X(Feq      ω ).
+
+                                      βi ⊙ fi (βi ) ⊙ . . . ⊙ fip−1 (βi ) = γi
+
+Is not hard to see that γi is an element of (Fn ∗ Ai )eq \ Feq
+                                                            n . Since (X, ⊙) is abelian we have
+fi (γi ) = γi .
+     Finally we consider the product
+
+                                           γ0 ⊙ γ1 ⊙ . . . ⊙ γl·s = ǫ
+    Let G := Fn ∗ A0 ∗ A1 ∗ . . . ∗ Als and Gj := Fn ∗ Bj , where Bj is a free product with strictly
+less than l · s + 1 distinctSfree factors from the list {A0 , . . . , Al·s }. Then is not hard to see that
+ǫ is an element in G \ j Geq
+                        eq
+                                  j . Note that since all the γi are fixed by each fj (or rather by
+the obvious extension of fj to Fω ), we have ǫ is fixed by each fj .
+    Let ǫ = [ē]E , and suppose that RE (ē, Geq ) contains an element (in a tuple) which is not a
+conjugacy class and lives in Geq \ Feq  n . Then by Lemma 4.4 this element has p distinct images
+by the powers of some fi , a contradiction. Thus, we may assume that all elements in the
+tuples of the solution set RE (ē, Geq ) that live in Geq \ Feq
+                                                              n are conjugacy classes. By repeatedly
+applying Lemma 4.3, we see that each conjugacy class is an element in (Fn ∗ Ai )eq for some
+0 ≤ i ≤ l · s, but since there
+                            S are less than l · s conjugacy classes this contradicts the fact that
+ǫ is an element in Geq \ j Geq   j .
+
+                                                         9
+Proposition 4.6: Let G be a torsion-free hyperbolic group not elementarily equivalent to a
+free group. Let X be a set definable in EC(G)eq such that X(EC(G)eq ) 6= X((EC(G) ∗ Z)eq ).
+Then X cannot be given definably the structure of an abelian group.
+
+Proof. The proof is identical to the proof of Proposition 4.5 replacing Fn by EC(G) and using
+Proposition 2.3.
+
+
+5    The generic type is foreign to any interpretable abelian group
+In this section we bring everything together in order to prove Theorem 1. Before we start we
+give a brief account of the stability theoretic tools we use. For a more thorough exposition
+the reader is referred to [Pil96]. Let us fix a complete stable theory T , countable if you wish,
+and a very saturated model M of T . M, N , .. denote small elementary submodels, and A, B, ..
+small subsets. We repeat a definition and fact from Chapter 7 of [Pil96]. See Definition 7.4.1
+and 7.4.7 there (originally due to Hrushovski).
+Definition 5.1: Let p(x) ∈ S(A) be a stationary type and Σ(y) a partial type over some small
+set B of parameters.
+(i) We say that p is foreign to Σ if for any model M containing A ∪ B, any realization a of
+p|M (the nonforking extension of p over M) and any realization b of Σ, a is independent from
+b over M.
+(ii) We say that p is internal to Σ if for some M containing A ∪ B, and some realization a of
+p|M there is a tuple c of realizations of Σ such that a ∈ dcl(M, c).
+Fact 5.2: Suppose G is a connected definable group, defined over a set A, and let p(x) ∈ S(A)
+be the generic type of G. Suppose that Σ(y) is a partial type over some small set B of parameters
+and that p is not foreign to Σ. Then there is a normal A ∪ B-definable subgroup N of G such
+that the generic type (over A ∪ B) of G/N is internal to Σ.
+   We now specialize to torsion-free hyperbolic groups. Let G be a non-cyclic torsion-free
+hyperbolic group and M |= T h(G). We write pG  0 |M for the unique nonforking extension of
+ G
+p0 over M.
+Theorem 5.3: The generic type of a non-cyclic torsion-free hyperbolic group is foreign to any
+interpretable abelian group.
+
+Proof. Suppose pG     0 is not foreign to some interpretable abelian group A. By Fact 5.2 and
+Corollary 3.4, there is a model M of T h(G) (over which A is defined), and a realization b of
+pG0 |M and a tuple (c1 , .., cn ) of elements of A, such that b ∈ dcl(M, c1 , .., cn ). We may assume
+that M is an elementary extension of the model F2 (respectively EC(G) in the case where
+G 6|= Tf g ). Suppose b = f (c1 , .., cn , m) where f (−) is a partial ∅-definable function, and m is a
+tuple from M. We may assume A is defined over m too, by formula ψ(y, m) (where of course y
+is a variable from the appropriate imaginary sort). Then the formula θ(x, m): “ψ(y, m) defines
+an abelian group" ∧ (∃y1 , .., yn ((∧i ψ(yi , m)) ∧ x = f (y1 , .., yn , m)) is in pG             G
+                                                                                       0 |M. As p0 |M is
+definable over ∅, we can find m ∈ F2 (respectively EC(G)) such that θ(x, m ) ∈ pG
+                                         ′                                                   ′
+                                                                                                      0 |F2
+(respectively pG 0  |EC(G)),    so is satisfied by e in F 3 := F 2 ∗ hei (respectively EC(G)  ∗ hei).  The
+                  ′
+formula ψ(y, m ) then defines an abelian group, B say, and there are elements d1 , .., dn ∈ B
+such that e = f (d1 , ..., dn , m′ ). As F2 ∗ hei (respectively EC(G) ∗ hei) is a model containing F2
+(respectively EC(G)) and e we can find such d1 , .., dn ∈ B(Feq         3 ) (respectively (EC(G) ∗ Z) ).
+                                                                                                        eq
+
+Hence e and (d1 , .., dn ) are interdefinable over F2 (respectively EC(G)). So, for some i ≤ n we
+
+                                                    10
+have di ∈ B(Feq       eq                           eq        eq
+               3 ) \ F2 (respectively B((EC(G) ∗ Z) ) \ EC(G) ), contradicting Proposition
+4.5 (respectively Proposition 4.6).
+
+Acknowledgements. We wish to thank A. Ould Houcine for pointing out that our results
+on interpretable abelian groups and definable simplicity extend easily from non-abelian free
+groups to (non-cyclic) torsion-free hyperbolic groups. The third named author would like to
+thank Frank Wagner for some stimulating questions.
+
+
+References
+[EPP90] David Evans, Anand Pillay, and Bruno Poizat, A group in a group, Algebra and
+        Logic 29 (1990), 244–252.
+
+[KM11]    Olga Kharlampovich and Alexei Myasnikov, Definable sets in a hyperbolic group,
+          arXiv:1111.0577v4 [math.GR], 2011.
+
+[LPS11] Lars Louder, Chloé Perin, and Rizos Sklinos, Hyperbolic towers and independent
+        generic sets in the theory of free groups, to appear in the Proceedings of the confer-
+        ence "Recent developments in Model Theory", Notre Dame Journal of Formal Logic,
+        2012.
+
+[LS77]    R.C. Lyndon and P.E. Schupp, Combinatorial group theory, Springer-Verlag, 1977.
+
+[Nie17]   Jacob Nielsen, Die Isomorphismen der allgemeinen unendliehen Gruppe mit zwei
+          Erzeugenden, Mathematische Annalen (1917), 385–397.
+
+[OH11]    A. Ould Houcine, Homogeneity and prime models in torsion-free hyperbolic groups,
+          Confluentes Mathematici 3 (2011), 121–155.
+
+[OHT12] A. Ould Houcine and K. Tent, Ampleness in the free group, arXiv:1205.0929v2
+        [math.GR], 2012.
+
+[Pil96]   Anand Pillay, Geometric stability theory, Oxford University Press, 1996.
+
+[Pil08]          , Forking in the free group, J. Inst. Math. Jussieu 7 (2008), 375–389.
+
+[Pil09]          , On genericity and weight in the free group, Proc. Amer. Math. Soc. 137
+          (2009), 3911–3917.
+
+[Poi83]   Bruno Poizat, Groupes stables, avec types génériques réguliers, J. Symbolic Logic 48
+          (1983), 339–355.
+
+[PS09]    Chloé Perin and Rizos Sklinos, Homogeneity in the free group, Duke Math. J. 161
+          (2012), 2635–2668.
+
+[Sela]    Zlil Sela, Diophantine geometry over groups IX: Envelopes and Imaginaries, preprint,
+          available at http://www.ma.huji.ac.il/~zlil/.
+
+[Selb]          , Diophantine geometry over groups VIII: Stability, to appear in the Ann. of
+          Math. (2), available at http://www.ma.huji.ac.il/~zlil/.
+
+
+                                              11
+[Sel09]            , Diophantine geometry over groups. VII. The elementary theory of a hyper-
+           bolic group, Proc. Lond. Math. Soc. (3) 99 (2009), 217–273.
+
+[Skl11a] Rizos Sklinos, On the generic type of the free group, J. of Symbolic Logic 76 (2011),
+         227–234.
+
+[Skl11b]          , Some model theory of the free group, Ph.D. thesis, University of Leeds, 2011.
+
+[Skl12]           , A note on ampleness in the theory of non abelian free groups,
+           arXiv:1205.4662v2 [math.LO], 2012.
+
+
+
+
+                                               12
+

@@ -9,7 +9,10 @@ Heading star: False. Starred subparts: none detected. Hall of Fame entries: 0. L
 Current candidate: [full intended-scope proof](multipattern-proof.md) and
 [audit](multipattern-audit.md), 29 September 2026. The earlier
 [rank-two proof](rank-two-proof.md) is retained. Independent specialist
-and novelty review remain outstanding. The identity exception, ball
+and novelty review remain outstanding. The additional
+[dependency audit](dependency-boundary-audit.md) distinguishes the
+multipattern theorem from independently proved subgroup results and
+records why orbit definability cannot be used as a shortcut. The identity exception, ball
 limit and spherical-limsup conventions are explicit. The machine-readable
 source evidence is in `data/problems.json`; the extracted text below is
 a search aid, not an authoritative transcription.

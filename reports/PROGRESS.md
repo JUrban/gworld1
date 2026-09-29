@@ -748,3 +748,13 @@ B12 now has credited prior coverage for5<=n<=12 from McMullen's lattice
 representations plus Osin's filling theorem; n>=13 remains unresolved
 here. See research/notes/B9-coloring-cosets.md and
 research/notes/B12-lattice-quotients-prior-scope.md. Counts unchanged.
+
+
+Checkpoint 2026-09-29T21:20:32.805009+00:00: F41 source-dependency audit added.
+Perin--Pillay--Sklinos--Tent independently proves the subgroup theorem,
+not the multipattern theorem needed here. Its orbit-nondefinability
+result rules out a shortcut that our proof does not take. Primary text
+and actual page7 checked; see problems/F41/dependency-boundary-audit.md.
+No finite suite rerun, no imported deep proof independently established,
+and no new candidate or novelty claim. Counts remain10 whole-entry
+candidates/2 partial/0 established novel. All jobs terminal; no push.
