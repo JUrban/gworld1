@@ -8,6 +8,7 @@ the complete finite quotient, without enumerating its potentially huge size.
 from pathlib import Path
 from fractions import Fraction as Q
 import argparse,json,time
+from math import gcd
 import sympy as S
 from flint import fmpz_mat
 from check_n8_polynomial_group_tail import Group
@@ -63,6 +64,11 @@ def main(args):
             assert not any(vector)
             endvector=S.Matrix([pp[side].get(i,0) for side,i in fixture['end_axes']])
             assert any(endvector) and End*endvector==S.zeros(End.rows,1)
+            assert End.cols-fmpz_mat([[int(x) for x in row] for row in End.tolist()]).rank()==1
+            terminal_step=gcd(*(int(x) for x in endvector))
+            assert terminal_step>0
+            terminal_primitive=[int(x)//terminal_step for x in endvector]
+            assert gcd(*terminal_primitive)==1
         records.append(dict(offset=rec['offset'],power=rec['power'],prefix=[sorted(x.items()) for x in pp],
                             block_translation=[int(x) for x in vector],kernel_coordinates=[int(x) for x in z]))
         print('specialized universal period',rec['offset'],'block coordinates',list(z),flush=True)
@@ -76,6 +82,7 @@ def main(args):
     data=dict(block=str(args.block),gauges=str(args.gauges),prefix_class=25,
         records=records,L=encode_matrix(L),H=encode_matrix(H),U=encode_matrix(U),
         quotient_order=index,residue_bounds=bounds,
+        terminal_period_step=terminal_step,terminal_primitive=terminal_primitive,
         residue_rule='Every integer triple 0<=r_i<residue_bounds[i]; none enumerated or discarded',
         free_coordinate='First adapted block parameter; periods have zero first coordinate',
         seconds=time.monotonic()-begin)

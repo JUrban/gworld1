@@ -8,7 +8,7 @@ Read("research/certificates/N8-three-exception-gauges-c26-v2/fixtures.g");;
  local block,periods,gauges,G,Require,Poly,Mat,hall,gens,i,h,Element,Correct,
        base,probe,formalImages,Images,Prefix,low,rows,A,J,End,L,H,U,record,
        gauge,sign,images,back,j,k,vec,z,counts,pair,expected,actual,tail,
-       blockcolumns,terminalvector,index;
+       blockcolumns,terminalvector,index,step,probeaxes;
  block:=N8DelayedQuadratic;periods:=N8DelayedPeriods;gauges:=N8UniversalFixture;
  G:=N8PreparedGroup;
  Require:=function(ok,msg)if not ok then Error(msg);fi;end;
@@ -28,6 +28,7 @@ Read("research/certificates/N8-three-exception-gauges-c26-v2/fixtures.g");;
   else Add(hall,Comm(hall[h[2][1]+1],hall[h[2][2]+1]));fi;
  od;
  Require(ForAll(block.boundaries,i->Comm(hall[block.hall[i+1][2][1]+1],hall[block.hall[i+1][2][2]+1])=One(G)),"Ambient defining boundary relation");
+ Print("Period ambient Hall words reconstructed\n");
  Element:=function(terms)
   local result,x;result:=One(G);
   for x in terms do result:=result*hall[x[1]+1]^x[2];od;return result;
@@ -39,8 +40,12 @@ Read("research/certificates/N8-three-exception-gauges-c26-v2/fixtures.g");;
   od;return result;
  end;
  base:=List(block.base,Element);
- vec:=List([1..Length(block.point)],i->block.point[i]+J[i]*[1,-2,3,-1]);
- probe:=Correct(base,block.block_axes,vec);
+ # A variable pair with one unit correction in each input at offset7.
+ # It need not lie in the target fiber: universal maps preserve every
+ # pair's commutator, and the same prefix bound applies to both inputs.
+ probeaxes:=List([0,1],side->First(block.block_axes,x->x[1]=side and block.hall[x[2]+1][1]=[1,10][side+1]+7));
+ probe:=Correct(base,probeaxes,[1,-1]);
+ Print("Period base and unit-correction probe reconstructed\n");
  Images:=function(pair,maps)
   local words,i,h,result,row,x,value;words:=[];
   for i in [1..gauges[5]] do
@@ -69,9 +74,14 @@ Read("research/certificates/N8-three-exception-gauges-c26-v2/fixtures.g");;
    Require(ForAll(vec,IsZero),"Last universal should leave block fixed");
    terminalvector:=List(block.end_axes,x->Sum(Filtered(record.prefix[x[1]+1],y->y[1]=x[2]),y->y[2]));
    Require(not ForAll(terminalvector,IsZero) and ForAll(End*terminalvector,IsZero),"Last full terminal period");
+   Require(Length(block.end_axes)-RankMat(End)=1,"Terminal kernel not one-dimensional");
+   step:=Gcd(terminalvector);
+   Require(step>0 and step=periods.terminal_period_step and terminalvector/step=periods.terminal_primitive
+    and Gcd(periods.terminal_primitive)=1,"Terminal integral step/primitive basis");
   fi;
   for pair in [base,probe] do
    for sign in [1,-1] do
+    Print("Checking specialized period ",record.offset," sign ",sign," case ",counts+1,"\n");
     images:=Images(pair,gauge[3+(1-sign)/2]);
     back:=Images(images,gauge[3+(1+sign)/2]);
     Require(back=pair,"Specialized inverse composition");
@@ -94,5 +104,5 @@ Read("research/certificates/N8-three-exception-gauges-c26-v2/fixtures.g");;
  Require(periods.residue_bounds=List([1..3],i->H[i][i]),"Wrong residue bounds");
  index:=AbsInt(DeterminantMat(L));
  Require(index=periods.quotient_order and Product(periods.residue_bounds)=index,"Wrong quotient order");
- Print("PASS N8 delayed periods GAP: ",counts," exact map specializations; complete lattice quotient order ",index," (residues described, not enumerated)\n");
+ Print("PASS N8 delayed periods GAP: ",counts," exact map specializations; complete lattice quotient order ",index,"; terminal period ",step," (residues described, not enumerated)\n");
 end)();

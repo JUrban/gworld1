@@ -689,3 +689,17 @@ ambient universal period quotient; all finite cosets must remain represented.
 Prepared sources alone do not count as checks. Cache GAP workspaces only in
 ignored large-artifacts with final hashes/regeneration notes. No scope promotion
 yet;8 whole/2 partial/0 established novel; original deadline unchanged.
+
+
+## Next native replay checks (2026-09-29T16:47:10.412636+00:00)
+
+Constructor n8-delayed-quadratic-c26-v2 and its complete-family/arithmetic
+replays pass. Both Python period versions pass; v2 includes terminal period.
+Revalidate and finish existing n8-delayed-quotient-c26-v2,
+n8-delayed-quadratic-group-gap-v1 and n8-delayed-periods-gap-v2. The first
+native period run is a terminal timeout, not live. Preserve any further
+failures and their exact sources before optimizing. Native independent
+passes remain necessary before the proposed scope promotion. The restricted
+Lie separating-functional lemma is a separate lead and does not settle
+the general absorption question. Keep all quotient residues and the
+immutable deadline; do not repeat passed arithmetic suites without cause.

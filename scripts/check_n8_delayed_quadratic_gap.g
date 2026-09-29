@@ -45,8 +45,12 @@ N8DelayedQuadratic:=fail;;Read(N8DelayedQuadraticFile);;
  fi;
  Require(HirschLength(group)=item.retained and ForAll(RelativeOrdersOfPcp(Pcp(group)),x->x=0),"Weighted group rank/torsion");
  Require(IsWeightedCollector(Collector(group)),"Collector must support nilpotent weights");
- Print("Computing native Hall multiplication polynomials\n");
- AddHallPolynomials(Collector(group));
+ if not IsBound(N8UseHallPolynomials) or N8UseHallPolynomials then
+  Print("Computing native Hall multiplication polynomials\n");
+  AddHallPolynomials(Collector(group));
+ else
+  Print("Using native combinatorial collector without multiplication polynomials\n");
+ fi;
  Print("Block quotient ready, Hirsch length ",item.retained,"\n");
  gens:=GeneratorsOfGroup(group){[2,1]};hall:=[];
  for i in [1..Length(item.hall)] do

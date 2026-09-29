@@ -630,3 +630,21 @@ Bezout reduction explicit. GA3's general-Lambda collapse and boundary-source
 application were reread; no new gap found in that focused check. Details in
 research/notes/GA3-29sep-collapse-recheck.md. Neither review is specialist
 validation. Counts8 whole/2 partial/0 established novel and deadline unchanged.
+
+
+## Delayed quadratic and restricted separation lemma (2026-09-29T16:47:10.412636+00:00)
+
+The class26 constructor passes with the full four-parameter integer block,
+first quadratic and following universal layer. Independent complete-family
+and arithmetic GAP replays pass. Python specializes the full universal period
+lattice and retains all finite residues symbolically, including terminal
+period479001600. Native group/period replays and multiplication-polynomial
+construction remain live. One native period timeout is retained. Details:
+research/notes/N8-delayed-quadratic-audit-interim.md. The class26/three-exception
+scope remains unadopted; no count change.
+
+A separate complete7-case Lie-space probe passes in GAP and independent
+E-index tensors. Evaluation at(1,-2,1) gives a uniform proof of non-absorption
+in that restricted compatible-deformation model. It is a supporting lead,
+not a general group result: research/notes/N8-compatible-deformation-functional.md.
+The original clock and8 whole/2 partial/0 established novel counts remain.
