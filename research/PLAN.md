@@ -2,12 +2,18 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately 12:30 UTC on 29 September: eight whole-entry
+Latest checkpoint, approximately 17:00 UTC on 29 September: eight whole-entry
 candidates (F28,N5,M0,H4,F41,GA3,F38,F34), two partial candidates
 (N8,G9), zero established novel results. All ten await
 specialist review and novelty assessment. F34 was reclassified to make
 coverage accounting consistent with F38: candidate (a) plus known (b).
 No additional mathematical result was obtained in this correction.
+
+N8's latest candidate range is all targets through class26, leading degrees
+through12 in arbitrary class and at most three remaining exceptional offsets,
+with the fourteen-final-layer and earlier families retained. The complete
+finite audit is in problems/N8/three-exception-audit.md. All current jobs are
+terminal; no passed suite needs repetition without a new concern.
 
 G9 now has a complete candidate proof of effective approximation in every
 finite rank and independently checked numerical rank-two bounds. The
@@ -703,3 +709,19 @@ passes remain necessary before the proposed scope promotion. The restricted
 Lie separating-functional lemma is a separate lead and does not settle
 the general absorption question. Keep all quotient residues and the
 immutable deadline; do not repeat passed arithmetic suites without cause.
+
+
+## Next step after three remaining exceptions (2026-09-29T17:06:25.081284+00:00)
+
+The three-exception/class26 extension has completed its finite audit. Do not
+restart the timed-out generic Smith or full Hall-polynomial jobs; the exact
+constant-matrix solver and native small-exponent group-coefficient method pass.
+The compact substitution periods and full native residue replay pass as well.
+All jobs are terminal. Return to a concrete unresolved portfolio question or
+an adversarial candidate audit before expanding N8 further. A separate N8 lead
+is the separating functional in research/notes/N8-compatible-deformation-functional.md:
+it proves non-absorption only in its restricted Lie model. Extending it to
+arbitrary fixed components and later exceptions would require a new proof;
+finite rank agreement alone is insufficient. Keep broader discovery active,
+then reserve the final eight hours for overlapping discovery and verification.
+Counts8 whole/2 partial/0 established novel; original deadline unchanged.

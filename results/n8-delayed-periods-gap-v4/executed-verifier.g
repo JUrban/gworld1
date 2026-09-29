@@ -9,7 +9,7 @@ Read(N8FormalGaugeFile);;
  local block,periods,gauges,G,Require,Poly,Mat,hall,gens,i,h,Element,Correct,
        base,probe,formalImages,Images,Prefix,low,rows,A,J,End,L,H,U,record,
        gauge,sign,images,back,j,k,vec,z,counts,pair,expected,actual,tail,
-       blockcolumns,terminalvector,index,step,probeaxes,tails,prefixes;
+       blockcolumns,terminalvector,index,step,probeaxes;
  block:=N8DelayedQuadratic;periods:=N8DelayedPeriods;gauges:=N8UniversalFixture;
  G:=N8PreparedGroup;
  Require:=function(ok,msg)if not ok then Error(msg);fi;end;
@@ -47,11 +47,6 @@ Read(N8FormalGaugeFile);;
  probeaxes:=List([0,1],side->First(block.block_axes,x->x[1]=side and block.hall[x[2]+1][1]=[1,10][side+1]+7));
  probe:=Correct(base,probeaxes,[1,-1]);
  Print("Period base and unit-correction probe reconstructed\n");
- tails:=List([1,2],j->Subgroup(G,hall{Filtered([1..block.retained],i->block.hall[i][1]>[1,10][j]+15)}));
- for j in [1,2] do
-  Print("Preparing reusable prefix-tail subgroup ",j,"\n");
-  Pcp(tails[j]);
- od;
  Images:=function(pair,maps)
   local words,Word,result,row,x,value;words:=ShallowCopy(pair);
   # Construct exactly the Hall words used by the requested images and
@@ -73,7 +68,6 @@ Read(N8FormalGaugeFile);;
  counts:=0;blockcolumns:=[];
  for k in [1..Length(periods.records)] do
   record:=periods.records[k];gauge:=gauges[7][k];
-  prefixes:=List([1,-1],sign->List([1,2],j->Element(List(record.prefix[j],x->[x[1],sign*x[2]]))));
   Require([record.offset,record.power]=gauge{[1,2]},"Wrong universal power");
   vec:=record.block_translation;z:=record.kernel_coordinates;
   Require(ForAll(Concatenation(vec,z),IsInt) and z[1]=0,"Lost integrality/free coordinate");
@@ -98,9 +92,10 @@ Read(N8FormalGaugeFile);;
     Require(back=pair,"Specialized inverse composition");
     Require(Comm(images[1],images[2])=Comm(pair[1],pair[2]),"Specialized exact commutator");
     for j in [1,2] do
-     expected:=prefixes[1+(1-sign)/2][j];
+     expected:=Element(List(record.prefix[j],x->[x[1],sign*x[2]]));
      actual:=pair[j]^-1*images[j];
-     tail:=tails[j];
+     rows:=Filtered([1..block.retained],i->block.hall[i][1]>[1,10][j]+15);
+     tail:=Subgroup(G,hall{rows});
      Require(expected^-1*actual in tail,"Incorrect specialized prefix translation");
     od;
     counts:=counts+1;

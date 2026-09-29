@@ -1649,3 +1649,37 @@ E-index tensors. Evaluation at(1,-2,1) gives a uniform proof of non-absorption
 in that restricted compatible-deformation model. It is a supporting lead,
 not a general group result: research/notes/N8-compatible-deformation-functional.md.
 The original clock and8 whole/2 partial/0 established novel counts remain.
+
+
+## N8 three-exception extension completed (2026-09-29T17:06:25.081284+00:00)
+
+The candidate partial scope now includes branches with at most three remaining
+exceptional offsets, leading gaps<=10 and leading degrees<=12 in arbitrary
+class, and all targets through class26 when combined with c-d<=13. General
+N8 remains unresolved. See problems/N8/three-exception-proof.md and its audit.
+The proof retains all integer torsion cosets and fixed congruences, including
+the rank-one delayed quadratic. Its effective curve bound is prior arithmetic.
+
+The class26 native group replay passes in105.778seconds, reconstructing all60
+possible quadratic coefficients,273 block columns,237 terminal columns, the
+complete rank4 integer block lattice and2 group witnesses. Independent complete
+integer-family and arithmetic replays pass. The final native period replay
+passes in65.990seconds on16 exact specialized map cases, checking inverse
+compositions, commutators and the complete integer period quotient. Elementary
+maps reduce the block quotient order to16345929600; the terminal period is
+479001600. Every residue is described; those huge sets were not enumerated.
+
+The full audit retains50 terminal runs:27 successful,23 unsuccessful. Failures
+and superseded sources remain available; none is silently recast as a pass.
+The largest certificate is75046692bytes. A91776352-byte native GAP workspace
+is an ignored local performance cache with documented hash/regeneration;
+the constructor and native uncached group-verification path are included.
+Recorded overlap peaked at7cores/48GB reserved memory. All jobs are terminal.
+
+The group examples have finite first-parameter fibers; none is a surviving
+unbounded absorbed-quadratic branch. The separate restricted Lie functional
+lemma is a supporting lead, not a general non-absorption theorem. The all-rank
+branch algorithm is not implemented end to end, and inherited structural
+arguments and novelty still need specialist review. Counts remain8 whole-entry
+candidates,2 partial candidates,0 established novel results. No push, contacts,
+subagents or parent/preparation changes. Original deadline unchanged.

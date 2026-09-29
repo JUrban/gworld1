@@ -7,7 +7,8 @@ if LoadPackage("nq")<>true then FORCE_QUIT_GAP(1);fi;
 MakeReadWriteGlobal("USE_COMBINATORIAL_COLLECTOR");;
 USE_COMBINATORIAL_COLLECTOR:=true;;
 MakeReadOnlyGlobal("USE_COMBINATORIAL_COLLECTOR");;
-Read("research/certificates/N8-three-exception-gauges-c26-v2/fixtures.g");;
+if not IsBound(N8FormalGaugeFile) then N8FormalGaugeFile:="research/certificates/N8-three-exception-gauges-c26-v2/fixtures.g";fi;
+Read(N8FormalGaugeFile);;
 (function()
  local item,Require,desc,kept,bound,needed,strings,i,h,input,G,gens,
        Halls,Element,hall,comm,row,plus,minus,hplus,hminus,back,forward,

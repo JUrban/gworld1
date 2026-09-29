@@ -4,6 +4,8 @@ Active experiment: 28 September 2026 10:04:49 UTC to 30 September 2026 10:04:49 
 
 Current counts: **2 partial candidates**, **8 whole-entry candidate solutions**, **0 established novel results**. All ten candidates await independent review; novelty remains provisional.
 
+- N8(b): the latest partial candidate covers all targets through class26, leading degrees through12 in arbitrary class, and branches with at most three remaining exceptional offsets. The fourteen-final-layer and earlier families remain included. The completed [three-exception proof](../problems/N8/three-exception-proof.md) and [audit](../problems/N8/three-exception-audit.md) retain all integer residues and distinguish a terminating proof from an implemented all-rank solver. Independent native GAP checks complete class26 group polynomials and exact period lattices. General N8 and novelty remain unresolved.
+
 - G9: a new partial candidate supplies an effective two-sided approximation algorithm for the standard growth constant in every finite rank. A flow-recoverable unfolding proof gives an explicit error bound. Separate finite certificates give `2.658596558 <= lambda_2 <= 2.943737759`: GAP independently verifies all 21,483 bridge atoms for the lower bound, and all 648 relations, 7,872 transitions and 1,968 integer inequalities for the upper bound. The exact constant, fine-precision computation and novelty remain unresolved. See `problems/G9/flow-growth-proof.md` and its audit. The extension in `problems/G9/solvable-extension-proof.md` gives the same modulus for every free solvable rank and derived length. Independent GAP checks68 noncommutative-deck recoveries; this does not add another candidate. The website's quoted decimal is used only for comparison; its cited self-avoiding-walk paper discusses numerical estimates.
 
 - F38 is now a whole-entry candidate: the new `problems/F38/bounded-proof.md` answers part (c) in every finite rank, alongside the existing part (a) candidate and prior part (b). Bounded translation equivalence is characterized by commensurable conjugacy stabilizers. The key sufficiency argument imports Sela's graded shortening theorem, with explicit free-factor, shortness and limiting-kernel checks. Independent GAP reconstructs 12 complete Whitehead graphs and 20,948 edges, checks 15 finite orbits and six negative witnesses, and replays 2,376 factor-twist records and 234 rank-two bounds. These checks do not prove the structural theorem application. Specialist review and novelty remain pending; see `bounded-audit.md`. Earlier restricted-case and exponential-envelope notes are preserved as historical stages.
@@ -648,3 +650,37 @@ E-index tensors. Evaluation at(1,-2,1) gives a uniform proof of non-absorption
 in that restricted compatible-deformation model. It is a supporting lead,
 not a general group result: research/notes/N8-compatible-deformation-functional.md.
 The original clock and8 whole/2 partial/0 established novel counts remain.
+
+
+## N8 three-exception extension completed (2026-09-29T17:06:25.081284+00:00)
+
+The candidate partial scope now includes branches with at most three remaining
+exceptional offsets, leading gaps<=10 and leading degrees<=12 in arbitrary
+class, and all targets through class26 when combined with c-d<=13. General
+N8 remains unresolved. See problems/N8/three-exception-proof.md and its audit.
+The proof retains all integer torsion cosets and fixed congruences, including
+the rank-one delayed quadratic. Its effective curve bound is prior arithmetic.
+
+The class26 native group replay passes in105.778seconds, reconstructing all60
+possible quadratic coefficients,273 block columns,237 terminal columns, the
+complete rank4 integer block lattice and2 group witnesses. Independent complete
+integer-family and arithmetic replays pass. The final native period replay
+passes in65.990seconds on16 exact specialized map cases, checking inverse
+compositions, commutators and the complete integer period quotient. Elementary
+maps reduce the block quotient order to16345929600; the terminal period is
+479001600. Every residue is described; those huge sets were not enumerated.
+
+The full audit retains50 terminal runs:27 successful,23 unsuccessful. Failures
+and superseded sources remain available; none is silently recast as a pass.
+The largest certificate is75046692bytes. A91776352-byte native GAP workspace
+is an ignored local performance cache with documented hash/regeneration;
+the constructor and native uncached group-verification path are included.
+Recorded overlap peaked at7cores/48GB reserved memory. All jobs are terminal.
+
+The group examples have finite first-parameter fibers; none is a surviving
+unbounded absorbed-quadratic branch. The separate restricted Lie functional
+lemma is a supporting lead, not a general non-absorption theorem. The all-rank
+branch algorithm is not implemented end to end, and inherited structural
+arguments and novelty still need specialist review. Counts remain8 whole-entry
+candidates,2 partial candidates,0 established novel results. No push, contacts,
+subagents or parent/preparation changes. Original deadline unchanged.
