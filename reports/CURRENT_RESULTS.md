@@ -1,0 +1,74 @@
+# Current candidate results and review guide
+
+Snapshot: **29 September 2026, 22:26 UTC**. The experiment is still active;
+its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
+index, not the final report.
+
+There are **ten whole-entry coverage candidates, two partial-entry
+candidates, and zero established novel results**. “Whole-entry” means
+that the proposed arguments, together with explicitly credited prior
+answers, cover the entry's intended scope. It does not mean ten entirely
+new theorems. Correctness and novelty require independent specialist
+review. All proof audits below were conducted by the same research agent;
+an independent GAP reconstruction is a separate computational check,
+not an independent mathematical referee.
+
+## Ten whole-entry coverage candidates
+
+| Entry | Current proposed result | Controlling argument and audit | Prior scope and principal limits |
+| --- | --- | --- | --- |
+| F28 | An isomorphism between index-two subgroups of a rank-two free group has no nontrivial subgroup H with f(H) contained in H. No finite-generation or normality assumption on H is needed. | [Proof](../problems/F28/proof.md), [audit](../problems/F28/audit.md), [matrix formalization](../problems/F28/matrix-lean-audit.md). | The Lean result verifies the matrix argument, not the complete free-group theorem. Novelty unverified. |
+| N5 | A uniform algorithm decides nontrivial direct decomposability of a finitely presented group promised to be finitely generated nilpotent, including torsion, and constructs factors. | [Proof](../problems/N5/proof.md), [audit](../problems/N5/audit.md), [integrality audit](../problems/N5/integrality-audit.md). | The torsion-free decision is prior work. General rational decomposition is imported; the complete arbitrary-input algorithm is not implemented. The input promise is essential. |
+| M0 | In every finite rank, an endomorphism of a free metabelian group that preserves primitive elements is an automorphism. | [Proof](../problems/M0/proof.md), [audit](../problems/M0/audit.md), [terminating witness constructor](../problems/M0/kronecker-construction.md). | Ranks at most two are prior. The argument imports Bachmuth's inverse-function theorem. Its finite-field witness bounds are effective, without a practical complexity claim. |
+| H4 | There is no uniform polynomial-time conversion of arbitrary finite presentations of hyperbolic groups into explicit finite Dehn presentations, even allowing a change of generators. | [Proof](../problems/H4/proof.md), [audit](../problems/H4/audit.md), [infinite-input extension](../problems/H4/infinite-input-proof.md) and [audit](../problems/H4/infinite-input-audit.md). | The lower bound also has infinite, non-elementary virtually free inputs. It concerns ordinary explicit output words; compressed output and a torsion-free input restriction are not covered. Classical bounds and related earlier work are credited. |
+| F41 | For a nontrivial nonprimitive word in rank r at least two, its automorphic orbit has ball growth at most a polynomial times (2r−1)^(n/2). | [Multipattern proof](../problems/F41/multipattern-proof.md), [audit](../problems/F41/multipattern-audit.md), [follow-up](../problems/F41/followup-audit.md), [dependency boundary](../problems/F41/dependency-boundary-audit.md). | This gives the requested exponential gap, not the stronger conjectured word-dependent growth rate. Identity and rank-one cases are treated separately. The proof depends on the arbitrary-definable-set multipattern theorem of Kharlampovich–Myasnikov and Pillay's genericity theorem. |
+| GA3 | Every nonabelian group acting freely without inversions on a Λ-tree has the stated discrimination of its free square by conjugating one factor; arbitrary generation and arbitrary ordered abelian Λ are allowed. | [Proof](../problems/GA3/proof.md), [audit](../problems/GA3/audit.md). | The nonabelian restriction is necessary: the literal statement is false for nontrivial abelian groups. The general collapse and boundary arguments import substantial tree-action results; free-group fixtures do not verify those steps. |
+| F38 | Uniform decisions for translation equivalence (a) and bounded translation equivalence (c), in every finite rank. For (c), the proposed criterion is commensurability of the oriented conjugacy stabilizers in Out(F_r). | [(a) proof](../problems/F38/part-a-proof.md) and [audit](../problems/F38/part-a-audit.md); [(c) proof](../problems/F38/bounded-proof.md) and [audit](../problems/F38/bounded-audit.md). | Part (b) and rank-two decisions are prior. Part (a) imports a full EDT0L solution-relation construction, not implemented here. Part (c)'s essential sufficiency step imports Sela's graded shortening theorem; finite tests do not establish that application. The ambient-automorphism quantifier is retained. |
+| F34 | A uniform algorithm decides whether a word can be made positive by an automorphism, in every finite rank. | [(a) proof](../problems/F34/part-a-proof.md), [audit](../problems/F34/part-a-audit.md). | Rank two and the stability statement in (b) are prior. The same unimplemented full EDT0L construction as F38(a) is imported. The identity convention is stated explicitly. |
+| N8 | An algorithm decides a single commutator equation [x,y]=g in every finite-rank free nilpotent group, in every finite class, and constructs solutions. | [General proof](../problems/N8/general-proof.md), [general audit](../problems/N8/general-audit.md). | This is the current candidate for (b); the negative answer to (a) for general nilpotent groups is prior. Earlier class-bounded notes are intermediate stages. The full arbitrary-rank algorithm is not implemented; all-rank structural lemmas remain a central review requirement. |
+| N9 | The retract problem is undecidable in one fixed finitely generated torsion-free class-two group, already on two-generator isolated Heisenberg subgroups with primitive images in both graded layers. | [Proof](../problems/N9/proof.md), [audit](../problems/N9/audit.md), [isolated-input supplement and source audit](../problems/N9/isolated-inputs-and-prior-scope.md). | The class-wide undecidability theorem and the positive free-nilpotent case (b) are prior. Potential new scope is one fixed ambient group. The construction imports DPRM; the universal presentation is not numerically expanded. Lean verifies an integer normalization lemma, not the full reduction. |
+
+## Two partial-entry candidates
+
+| Entry | Current proposed result | Controlling argument and audit | What remains |
+| --- | --- | --- | --- |
+| G9 | The standard growth constant of a free metabelian group is computable, with an explicit approximation modulus in every finite rank. Certified rank-two bounds are 2.658596558 ≤ λ₂ ≤ 2.943737759. The method extends to free solvable groups. | [Flow proof](../problems/G9/flow-growth-proof.md) and [audit](../problems/G9/flow-growth-audit.md); [solvable extension](../problems/G9/solvable-extension-proof.md) and [audit](../problems/G9/solvable-extension-audit.md). | The exact growth constant requested by the entry remains undetermined. Fine-precision computation is not demonstrated. The extension is not a second problem count. |
+| B9 | There are countably infinitely many special braids in every B_N with N at least five. Deductions from Dehornoy's prior structure give exact counts 1, 2 and 4 in B₁, B₂ and B₃. | [Infinite-family proof](../problems/B9/infinite-family-proof.md) and [audit](../problems/B9/infinite-family-audit.md); [small-strand proof](../problems/B9/small-strand-proof.md) and [audit](../problems/B9/small-strand-audit.md). | In B₄, only the exponent-two sector remains unclassified; at least ten special braids are known in total. The [positive-parameter reduction](../problems/B9/positive-parameter-reduction.md), [strand restriction](../problems/B9/exponent-two-parameter-reduction.md) and [excluded families](../research/notes/B9-family-return-obstruction.md) do not exhaust that sector. |
+
+## How to review the evidence
+
+Start with the controlling proof and its audit, then follow its certificate
+and source links. They distinguish a universal argument from finite
+examples, record conventions and hypotheses, and retain failed runs.
+Certificate manifests under [research/certificates](../research/certificates/)
+bind particular artifact versions; an older manifest is not a blanket
+certification of later supplements. Some candidates have several manifests
+or directly cited check records rather than one overall manifest.
+
+There are no complete formal verifications of these twelve candidate
+theorems. The Lean work for F28 and N9 checks explicitly delimited parts.
+Separate reproduced Lean proofs for the prior A5 and S5 results are not
+new solutions from this experiment. In particular, GAP tests of selected
+nilpotent groups, finite word graphs or polynomial examples cannot establish
+all-rank structural claims or the hypotheses of an imported theorem.
+
+The largest shared dependency is the full solution-language construction
+used by F34(a) and F38(a). Other priority review points are F38(c)'s graded
+shortening application, N8's uniform leading-pair and exceptional-parameter
+arguments, F41's arbitrary-set multipattern input, GA3's general Λ-tree
+collapse, and N9's passage from a fixed Diophantine circuit to one fixed
+ambient group. These are review priorities, not assertions of detected
+errors. Their current internal audits are linked above.
+
+Known answers, rediscoveries, failed strategies and unresolved leads remain
+in the [triage](../research/triage.csv), [claim ledger](../research/claims.jsonl),
+[literature ledger](../literature/LEDGER.md) and [progress history](PROGRESS.md).
+F11 and F42 are explicit examples of rediscoveries excluded from the tally.
+The source catalogue has 195 entries, not 195 currently open problems; its
+stars and Hall of Fame links do not settle every subpart's present status.
+
+Historical statements such as “N8 is partial” or earlier candidate counts
+remain in dated notes and immutable audit artifacts. This index identifies
+the current scopes without rewriting that history. Later corrections must
+be recorded explicitly in the claim ledger and reflected here. No external
+publication, contact with authors, or Git push has been performed.

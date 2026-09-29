@@ -914,3 +914,13 @@ the passages read. This is not a novelty guarantee or a full-paper audit.
 See problems/N9/isolated-inputs-and-prior-scope.md and the new reading
 record. The2016 source was previously read beyond its abstract, although
 its original PDF still has not been visually inspected. Part(b) stays prior.
+
+
+## F38 canonical quotient recheck (2026-09-29T22:28:26.470635+00:00)
+
+Reopened the publisher record for Sela2001 and reread the archived
+Definitions10.1–10.3/Lemma10.4 with local proof, Section5 quotient-map
+equivalence and Proposition5.6 constant sequence. Viewed existing printed
+page89/90 images again. No new source downloaded. Exact scope and limits
+are in research/notes/F38-rigid-solid-source-check.md; no full JSJ proof
+reverification or novelty claim.

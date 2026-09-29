@@ -858,3 +858,15 @@ Do not enlarge finite searches along either route; the new universal
 obstructions are in research/notes/B9-family-return-obstruction.md.
 Other underlying families and the full B4 exhaustion remain unproved.
 Tally remains10whole/2partial/0established-novel. Original deadline unchanged.
+
+
+## After interim review index (2026-09-29T22:28:26.470635+00:00)
+
+Use reports/CURRENT_RESULTS.md for controlling candidate scopes; do not
+confuse historical checkpoints with the current ten/two tally. A targeted
+F38 rigid/solid check found no new issue and needs no repeated finite suite.
+Continue wider discovery or a concrete new dependency concern. A useful
+remaining verification priority is the general N8 diagonal polynomial
+separation lemma: its universal argument, not more fixed small Lie spaces.
+All jobs are terminal. Keep the original deadline and final-eight-hours
+verification/reporting reserve; do not create FINAL_REPORT.md prematurely.

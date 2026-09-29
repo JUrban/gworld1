@@ -1946,3 +1946,23 @@ case from n>=4. Independent GAP passes after replacing its unavailable
 polynomial-matrix inverse operation by the checked unipotent inverse.
 A second recurrence-tail attempt is algebraically just the known B2 ray.
 All four B9 jobs terminal; no new count, no push or clock change.
+
+
+## Review index and targeted dependency check (2026-09-29T22:28:26.470635+00:00)
+
+Added reports/CURRENT_RESULTS.md as an interim guide to all ten whole-entry
+candidates and two partial candidates. It links each controlling proof and
+audit, credits prior subparts and distinguishes finite checks from universal
+arguments. Validated all46 local links and reconciled the ten/two row counts
+against the current triage. The README and report index now link it; historical
+progress and manifest-bound proof files remain intact. No mathematical
+computation was rerun for these documentation changes.
+
+The F38 rigid/solid source check spells out why the constant shortest
+embedding gives a maximal canonical quotient, not just an abstractly
+isomorphic group. Reread the original definitions and viewed printed
+pages89/90; no new gap found in this step. Deep shortening machinery still
+needs specialist review. The N8 general proof and the shared F34/F38
+polynomial argument were reread without a scope change. A wider scan of
+unresolved entries did not yield a fresh structural route. All jobs terminal;
+no push, no deadline change, no count change.

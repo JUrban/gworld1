@@ -2,7 +2,7 @@
 
 **Active run: 28 September 2026, 10:04:49 UTC → 30 September 2026, 10:04:49 UTC.**
 
-[Current progress](reports/PROGRESS.md) · [Research plan](research/PLAN.md) · [Research log](research/LOG.md). The initial preparation snapshot is preserved in Git. The generated catalogue and problem READMEs retain their preparation status; current assessments are in [the working triage](research/triage.csv) and [dated claim ledger](research/claims.jsonl).
+[Current results and review guide](reports/CURRENT_RESULTS.md) · [Progress history](reports/PROGRESS.md) · [Research plan](research/PLAN.md) · [Research log](research/LOG.md). The initial preparation snapshot is preserved in Git. The generated catalogue and problem READMEs retain their preparation status; current assessments are in [the working triage](research/triage.csv) and [dated claim ledger](research/claims.jsonl).
 
 Current working tally: **ten whole-entry candidates and two partial
 candidates**, all awaiting independent review and novelty assessment.

@@ -2,7 +2,7 @@
 
 Active experiment: 28 September 2026 10:04:49 UTC to 30 September 2026 10:04:49 UTC.
 
-Current counts: **2 partial candidates**, **10 whole-entry candidate solutions**, **0 established novel results**. All twelve candidates await independent review; novelty remains provisional. Dated checkpoints below preserve earlier scope and counts; this opening summary is current.
+Current counts: **2 partial candidates**, **10 whole-entry candidate solutions**, **0 established novel results**. All twelve candidates await independent review; novelty remains provisional. See [the current results and review guide](CURRENT_RESULTS.md) for controlling proofs and exact scopes. The development notes below include superseded intermediate scopes as well as current results; they preserve the research history.
 
 - B9: a new [infinite-family proof](../problems/B9/infinite-family-proof.md) gives countably infinitely many special braids in every B_N with N>=5. A recurrence constructs special terms whose high strands cancel; an integral Burau entry n(n-1) separates all parameters. Independent GAP verifies the symbolic entry and six faithful-action instances. The [audit](../problems/B9/infinite-family-audit.md) retains the first constant-polynomial comparison failure. The [small-strand supplement](../problems/B9/small-strand-proof.md) deduces exact counts 1, 2 and 4 in B1, B2 and B3 from Dehornoy's prior results; only the B4 exponent-two sector remains unclassified. B9 remains one partial candidate. This extends the earlier uncounted height counterexample; external review and novelty remain pending.
 
@@ -802,3 +802,14 @@ symbolic checks pass, with the failed first bound and unavailable inverse
 method retained. See research/notes/B9-family-return-obstruction.md.
 This prunes two routes but does not exhaust B4. Tally10whole/2partial/
 0established-novel unchanged; all jobs terminal, no push.
+
+
+## Current review guide (2026-09-29T22:28:26.470635+00:00)
+
+[CURRENT_RESULTS.md](CURRENT_RESULTS.md) now identifies the controlling
+proofs, prior coverage and verification limits for all12 candidates. Older
+class-specific N8 scopes and intermediate counts are historical. A further
+[F38 source check](../research/notes/F38-rigid-solid-source-check.md) found
+no new gap in the canonical quotient/maximality step; specialist review of
+the imported shortening argument remains outstanding. Counts10whole/
+2partial/0established-novel are unchanged.
