@@ -903,3 +903,14 @@ braid parabolic intersections, with the exact scope recorded in
 problems/B9/exponent-two-parameter-reduction.md. The B2 coset rigidity
 argument is elementary; its proposed higher-strand extension is explicitly
 refuted. No separate novelty or complete B9 answer is asserted.
+
+
+N9 primary-source follow-up (2026-09-29T22:03:20.231614+00:00): Russian2017 full PDF archived;
+Theorems10 and13 and their proofs read, actualp687/693/695/696 viewed.
+The introduction calls N9(a) solved by citing the2016 class-wide result;
+that source and the frozen background explicitly distinguish the still
+relevant fixed-group scope. No further fixed-group theorem was found in
+the passages read. This is not a novelty guarantee or a full-paper audit.
+See problems/N9/isolated-inputs-and-prior-scope.md and the new reading
+record. The2016 source was previously read beyond its abstract, although
+its original PDF still has not been visually inspected. Part(b) stays prior.

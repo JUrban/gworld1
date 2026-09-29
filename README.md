@@ -11,6 +11,9 @@ retract problem in one fixed torsion-free class-two group, already for
 two-generator subgroups. Its [audit](problems/N9/audit.md) includes actual
 GAP retractions and a Lean check of the integer normalization lemma;
 the full theorem is not formally verified. Part(b) is credited prior work.
+An [additional audit](problems/N9/isolated-inputs-and-prior-scope.md)
+shows that every input subgroup is isolated and checks the precise
+boundary of the published free-nilpotent algorithm.
 [N8](problems/N8/README.md) also has a candidate
 algorithm for single commutator equations in every finite-rank free
 nilpotent group. See its [general proof](problems/N8/general-proof.md)

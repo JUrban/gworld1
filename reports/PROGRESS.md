@@ -780,3 +780,15 @@ special five-strand braids with a four-strand quotient disproves a
 proposed rigidity extension. See problems/B9/exponent-two-parameter-reduction.md.
 The first90-second timeout and GAP keyword failure are retained. All
 jobs terminal; counts10 whole/2 partial/0 established novel unchanged.
+
+
+Checkpoint 2026-09-29T22:03:20.231614+00:00: N9 candidate strengthened to isolated input
+subgroups with primitive images in both lower-central layers. The full
+integer-kernel saturation and fixed witnesses at0 and1 give the universal
+proof; GAP checks its polynomial identity and seven actual toy inputs.
+The first scalar/polynomial comparison failure is preserved; corrected
+run passed with empty stderr. Full2017 free-case theorem/proof checked,
+including introductory attribution against the prior uniform result.
+See problems/N9/isolated-inputs-and-prior-scope.md. Tally unchanged:
+10 whole-entry candidates,2 partial,0 established novel. All jobs terminal;
+no push, external contact, subagent or parent/preparation change.
