@@ -1,0 +1,11 @@
+scripts/check.sh: line 5: scripts/with-lean.sh: Permission denied
+Traceback (most recent call last):
+  File "/project/gworld1/scripts/check_a5_prior_lean.py", line 44, in <module>
+    main()
+  File "/project/gworld1/scripts/check_a5_prior_lean.py", line 35, in main
+    run(['bash', 'scripts/check.sh'])
+  File "/project/gworld1/scripts/check_a5_prior_lean.py", line 32, in run
+    subprocess.run(command, cwd=project, check=True, **kw)
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['bash', 'scripts/check.sh']' returned non-zero exit status 126.

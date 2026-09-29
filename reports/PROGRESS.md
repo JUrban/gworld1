@@ -5,6 +5,8 @@ Active experiment: 28 September 2026 10:04:49 UTC to 30 September 2026 10:04:49 
 Current counts: **3 partial candidates**, **6 whole-entry candidate solutions**, **0 established novel results**. All nine candidates await independent review; novelty remains provisional.
 
 - The independent repository, frozen corpus, clock, recorded computation runner and research plan are in place.
+- A5: Jayadevan's September2026 prior affirmative result is now reproduced in Lean4.24: the author build,1624-declaration transitive axiom audit and independent exact statement checks pass. Earlier permission/restatement failures are retained. See `research/notes/A5-prior-Lean-proof-audit.md`. External prior, no new candidate.
+- M3: A5 plus Bieri–Strebel gives an effective finite presentation of the maximal metabelian quotient on promised solvable inputs. Deciding whether its normally finitely generated kernel is trivial remains open here. An exact S4-to-S3 control passes GAP; `research/notes/M3-effective-metabelian-quotient.md`. No count change.
 - First textual reading of all 195 entries completed, including 49 heading-star entries. Full original statements, linked background and residual scope remain part of targeted audits.
 - F42: derived the exact extremal formula and a covering-graph construction, then found Koch-Hyde–Olive's September 2026 preprint already proving the same answer. Preserved as a rediscovery, excluded from new-solution count.
 - F11: derived a cyclic-retract/index-three counterexample, then found the same mechanism in Snopce–Tanushevski–Zalesskii (2019). Also excluded. Original HTML screenshots for F11/F42 have now been inspected.

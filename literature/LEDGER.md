@@ -508,3 +508,21 @@ Problem6/footnote credits the truncated exterior-unit construction. Our
 additional finite noncommutative matrix argument and all reading/download
 limits are recorded in problems/MA7/exterior-ring-audit.md. No new entry
 count, no claim for the commutative nonscalar strengthening.
+
+
+## 2026-09-29T07:52:51.723191+00:00 — A5 prior Lean proof and M3 consequence
+
+[Jayadevan arXiv2609.10281v1](https://arxiv.org/abs/2609.10281v1): source
+archive88files/467927bytes, pinned Lean4.24 build and all1624project
+declaration axiom checks reproduced. Independent ordinary-presentation
+statements pass after correcting our initial restatement rewrite.
+Paper argument read; pages1/5 and originalA5rendering viewed. Standard
+trusted dependency caches, no specialist or independent-kernel claim.
+This supersedes the earlier unaudited status; external prior only.
+
+[Benli–Grigorchuk–de la Harpe2013](https://doi.org/10.1007/s13373-013-0031-5),
+Theorem1.5 and PropositionA.5(ii') (publisher6.5): exact covering scope
+and relevant discussion read in archived publisherHTML. Used withA5 to
+construct finite presentations of metabelianizations of finitely
+presented solvable groups. Does not decide M3; proofs and limits in
+research/notes/M3-effective-metabelian-quotient.md. No new count.

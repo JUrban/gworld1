@@ -429,3 +429,16 @@ has stabilizer-passing cases outside its known positive branches. These
 are mathematical gaps, not solved statuses. Preserve the whole195-entry
 objective,6 whole/3 partial candidates,0 established novel and original
 48hour clock. No mathematical jobs remain at this checkpoint.
+
+
+## Working focus after A5/M3 checkpoint (2026-09-29T07:52:51.723191+00:00)
+
+A5 now has reproduced prior formal evidence; do not rerun its successful
+build/axiom audit or count it as ours. M3 has an effective ordinary
+metabelian-quotient construction, but the normal kernel's triviality
+remains unresolved. Finite normal generation is not a word-problem
+algorithm or a general finite module presentation. The S4 control
+prevents a false positive. Retain the full unresolved portfolio and
+return to a concrete discovery lead; do not spend time rediscovering
+the already indexed F15/F42 answers. No jobs remain. The original
+deadline and6 whole/3 partial candidate counts are unchanged.

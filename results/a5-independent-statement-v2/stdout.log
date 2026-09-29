@@ -1,0 +1,20 @@
+theorem gworld_A5_enumeration : REPred fun m =>
+  have p := decodePresentation m;
+  (∀ w ∈ p.2, ∀ letter ∈ w, letter.1 < p.1) ∧
+    ∀ (a b c d : PresentedGroup {r | r ∈ List.map (interpretWord p.1) p.2}),
+      a * b * a⁻¹ * b⁻¹ * (c * d * c⁻¹ * d⁻¹) = c * d * c⁻¹ * d⁻¹ * (a * b * a⁻¹ * b⁻¹) :=
+Paper.metabelian_presentations_re
+theorem gworld_A5_certificates : ∃ V,
+  Primrec₂ V ∧
+    ∀ (p : ℕ × List (List (ℕ × Bool))),
+      ((∀ w ∈ p.2, ∀ letter ∈ w, letter.1 < p.1) ∧
+          ∀ (a b c d : PresentedGroup {r | r ∈ List.map (interpretWord p.1) p.2}),
+            a * b * a⁻¹ * b⁻¹ * (c * d * c⁻¹ * d⁻¹) = c * d * c⁻¹ * d⁻¹ * (a * b * a⁻¹ * b⁻¹)) ↔
+        ∃ c, V (Encodable.encode p) c = true :=
+Exists.intro Paper.certificateCheck
+  ⟨Paper.certificateCheck_primrec, fun p =>
+    have he := congrArg (fun q => WellFormed q ∧ Metabelian (GroupOf q)) (decode_encode_presentation p);
+    Iff.trans (Iff.symm (iff_of_eq he)) (Paper.metabelian_iff_certificate (Encodable.encode p))⟩
+'gworld_A5_enumeration' depends on axioms: [propext, Classical.choice, Quot.sound]
+'gworld_A5_certificates' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS: independent A5 statements and transitive axiom check

@@ -1044,3 +1044,31 @@ and documented the command. Publisher/RG403 and expired-certificate source
 downloads are recorded without claiming access. No failed mathematical
 run, agents, contact, push or old-research transfer. Original clock and
 counts6 whole,3 partial,0 established novel retained.
+
+
+## 2026-09-29T07:52:51.723191+00:00 — A5 verified as prior; effective M3 reduction
+
+The preceding preparation-only turn rechecked corpus readiness but made no
+progress toward the active solving goal. Revalidated the original active
+clock and clean research checkout; resumed here without resetting time.
+
+Read Jayadevan's A5 preprint and selected formal modules, archived its
+version-pinned arXiv source, and viewed the original A5 statement plus
+PDF pages1/5. The unchanged author build and1624-declaration axiom audit
+pass. Our independent expanded enumeration/certificate statements also
+pass. Two failed wrapper runs are preserved: missing archive executable
+permission, then a dependent-type rewriting error in our restatement
+after the author's checks had passed. Corrected statement verified in
+8.749s; author sources unchanged. No complete cache/kernel rebuild claim.
+
+A5 is now retired as external prior. For M3, combining A5 with the precise
+Bieri-Strebel covering theorem supplies an effective ordinary presentation
+of G/G'' on solvable inputs, plus normal generators of G''. Wrote the
+termination/soundness proof and the remaining kernel-triviality gap.
+GAP verifies an S4-to-S3 control in1.825s. Original M3 rendering viewed.
+Neither this reduction nor a word-problem-oracle corollary solves M3.
+
+Broader source revisits found no further full resolution; already recorded
+F15/F42 results remain prior. Frozen input hashes and actual log hashes
+verified. All jobs ended. Counts6 whole,3 partial,0 established novel;
+original48hour clock and195-entry objective retained; no agents or push.
