@@ -1,9 +1,11 @@
 # N8: fourteen final layers by one-parameter tails
 
-29 September 2026. **Candidate argument under audit; not yet adopted in
-the claims ledger.** The proposed scope is c-d<=13, where d is a nonzero
-target's leading degree. Combined with the leading-degree-ten theorem,
-this would cover all targets through class 24. General N8 remains separate.
+29 September 2026. **Candidate extension with completed finite audit.**
+See `fourteen-layer-audit.md` for the independent group and arithmetic
+checks, retained failures and limits. The candidate scope is c-d<=13,
+where d is a nonzero target's leading degree. Combined with the earlier
+leading-degree-ten theorem, this covers all targets through class 24.
+General N8, independent specialist validation and novelty remain unresolved.
 
 Use the setup, finite integral leading-pair enumeration and homogeneous
 kernel lemmas of the preceding proofs. For a normalized branch put
@@ -110,11 +112,11 @@ be exceptional: no injectivity or exact universal substitution at 8 is
 needed for this last linear-tail reduction. All remaining cokernel and
 integer-lifting conditions are enforced by (1).
 
-## 4. Scope and outstanding audit
+## 4. Scope and evidence limits
 
 These cases exhaust the first remaining exception. Finite initial choices
 and exact substitutions preserve all solutions; every final integer
-witness is checked by the original group equation. The proposal therefore
+witness is checked by the original group equation. The candidate argument therefore
 gives a terminating decision algorithm for n<=13, subject to the previously
 credited structural dependencies and this new argument's audit.
 
@@ -123,8 +125,10 @@ theorem, or d>=11 and c-d<=13. Identity, abelian cases and targets outside
 the derived subgroup are treated as before. General N8 and novelty remain
 unresolved. The uniform branch algorithm is not implemented end to end.
 
-Computational work should independently check a full three-exception range
-and actual polynomial group tails beyond n=9, with the new degree bound.
-The earlier failed perturbation must not be used as a surviving B!=0 group
-branch. Finite group tests support the reductions but cannot replace this
-all-rank proof or its inherited structural lemmas.
+Independent checks cover the full three-exception Lie range, actual
+polynomial group tails at c=21 and c=24, and a nonzero mixed term at c=25
+showing that the strict weight bound cannot simply be weakened. The test
+families retain their early compatibility rows; they are not surviving
+unbounded B!=0 elimination branches. Neither failed perturbation may be
+used as such an example. Finite group tests support the reductions but
+cannot replace the all-rank argument or its inherited structural lemmas.

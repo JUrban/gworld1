@@ -16,7 +16,7 @@ Current counts: **2 partial candidates**, **8 whole-entry candidate solutions**,
 - F42: derived the exact extremal formula and a covering-graph construction, then found Koch-Hyde–Olive's September 2026 preprint already proving the same answer. Preserved as a rediscovery, excluded from new-solution count.
 - F11: derived a cyclic-retract/index-three counterexample, then found the same mechanism in Snopce–Tanushevski–Zalesskii (2019). Also excluded. Original HTML screenshots for F11/F42 have now been inspected.
 - Primary sources also report prior resolutions of F15, F30, F31 and F40. B11 has a 2025 primary seminar announcement; full proof not yet located. Scope checks are recorded in `research/triage.csv` and `literature/LEDGER.md`.
-- N8(b): the latest partial candidate covers all targets through class twenty, leading degrees through ten in arbitrary class, branches with at most two remaining exceptional offsets, and the previous ten-final-layer and separated-offset scopes. The new block proof retains every integral parameter and kernel residue; independent GAP checks both overlapping patterns (3,5) and (4,6), including the Nielsen boundary, plus complete polynomial solution families. See `problems/N8/two-exception-proof.md` and `two-exception-audit.md`. The general ambient branch algorithm is proved but not implemented end to end; specialist review and novelty remain unresolved. The separate fourteen-final-layer/class24 lead is unverified and uncounted.
+- N8(b): the latest partial candidate covers all targets through class 24, all targets with c-d<=13, leading degrees through ten in arbitrary class, branches with at most two remaining exceptional offsets, and the earlier separated-offset scopes. The new polynomial-tail argument retains every later coordinate, including further exceptional kernels. Independent GAP checks all eight homogeneous kernels in a three-exception range, 3,201 polynomial columns and 34 joint controls across actual weighted class-21/24 groups, two complete integer fibers and four group witnesses. A class-25 mixed-term boundary is retained. See `problems/N8/fourteen-layer-proof.md` and `fourteen-layer-audit.md`. These finite checks do not prove the structural all-rank lemmas; the uniform branch algorithm is not implemented end to end. General N8, specialist validation and novelty remain unresolved. A separate hyperelliptic route is an unverified, uncounted lead.
 - H4: candidate negative answer to polynomial-time conversion into an explicit Dehn presentation. Short presentations of finite metacyclic groups have doubly exponential order; a forbidden-factor automaton bounds the order of any finite group in terms of every Dehn presentation's size. Thus every explicit output is superpolynomial, even with changed generators. Proof: `problems/H4/proof.md`. GAP verified four finite models and independently computed three presentation orders. Related finite-group lower-bound ideas from2012 are credited; novelty and specialist review remain outstanding. Compressed output is a different specification. The strengthened bound in `problems/H4/infinite-input-proof.md` also covers infinite non-elementary virtually free inputs. GAP independently checked three conjugacy-class partitions and two free-kernel presentations (ranks6 and60); this remains the same candidate.
 - F28: explicit negative answer using a rational matrix conjugation on an index-two subgroup of F2. The image also has index two, and the bounded-orbit argument excludes every nontrivial invariant subgroup. Candidate proof: `problems/F28/proof.md`. Exact matrix/word checks covered 13,120 words; GAP independently checked subgroup indices/ranks and defining identities. Related arithmetic constructions in the literature establish weaker normal-subgroup statements; a matching prior full answer has not yet been found.
 - F34: whole-entry coverage combines candidate (a) with known (b); this is a counting reconciliation, not an additional solved subpart. See `research/notes/F34-coverage-reconciliation.md`. Part (a): candidate uniform decision algorithm for potential positivity in every finite rank. A positive image under an injection pulls back through a spanning-tree basis; a nonzero-determinant test on the full EDT0L solution relation decides existence. GAP independently verified270 explicit positive automorphism witnesses in ranks2--4 and3 scope controls. Rank2 and part(b) are prior; potentially new scope is rank>=3. Full recompression is imported, not implemented. Proof and audit: `problems/F34/part-a-proof.md`, `part-a-audit.md`.
@@ -540,3 +540,33 @@ new gap or changing scope; `research/notes/M0-29sep-convention-recheck.md`.
 Counts8 whole/2 partial/0 established novel; at most2 cores/16GB reserved.
 No subagents, pushes, contacts, parent or preparation-repository changes.
 The original30 September10:04:49UTC deadline is unchanged.
+
+
+## N8 fourteen-final-layer audit completed (2026-09-29T15:24:41.390301+00:00)
+
+The candidate partial scope now covers c-d<=13 and, with the previous
+leading-degree-ten theorem, all targets through class24. General N8 is
+unresolved. The class24 constructor passes in534.781437 seconds; its
+independent native GAP replay passes in169.786400 seconds, checking2457
+polynomial columns,18 joint controls,3 complete homogeneous kernels,
+one complete integer fiber of dimension3 and2 actual group witnesses.
+The separate quotient preflight confirms Hirsch length389 and no torsion.
+Together with class21 and the strict class25 boundary, the audit retains
+16 terminal runs:10 successful and6 failed or intentionally interrupted.
+The largest new certificate is40,136,372 bytes, below the90,000,000 limit.
+See problems/N8/fourteen-layer-audit.md for exact evidence and limits.
+
+The actual polynomial examples are not surviving unbounded absorbed
+branches. The general proof keeps those branches, all integer residues
+and all later kernels; its structural dependencies need specialist review.
+The all-rank branch algorithm is not implemented end to end. Counts remain
+8 whole-entry candidates,2 partial candidates,0 established novel results.
+
+A separate hyperelliptic arithmetic route is saved as an unverified,
+uncounted lead. Berczes--Evertse--Gyory2013 Theorem2.2 provides a prior
+effective bound; only the introduction/notation/statements through page4
+were read, and actual page4 viewed, not the full proof. The group-family
+reduction and low-degree arithmetic cases still need a full argument.
+All jobs terminal; at most2 cores/16GB reserved in this work period. No
+pushes, contacts, subagents or parent/preparation changes. Original
+30 September10:04:49UTC deadline unchanged.

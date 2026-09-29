@@ -1,6 +1,6 @@
 # N8 fourteen-layer audit
 
-29 September 2026. **Audit in progress; upper-bound group replay pending.**
+29 September 2026. **Completed finite audit of a candidate extension.**
 The argument is in `fourteen-layer-proof.md`. General N8(b), specialist
 validation and novelty remain unresolved. The all-rank branch algorithm
 is not implemented end to end.
@@ -11,8 +11,8 @@ The full frozen `sources/raw/probnil.html`, the exact N8 fragment and the
 linked N8 background were reread, and the actual archived paragraph image
 was viewed. Part (a) is starred and has Roman'kov's prior negative answer;
 the prior free class-two result is also explicitly excluded from novelty.
-The new proposal concerns part (b), all targets with c-d<=13. Combined
-with the existing leading-degree<=10 theorem, it would cover class<=24.
+The new candidate concerns part (b), all targets with c-d<=13. Combined
+with the existing leading-degree<=10 theorem, it covers class<=24.
 It remains the same partial entry, not a whole-entry solution.
 
 The additional proof obligations are addressed as follows:
@@ -60,7 +60,7 @@ homogeneous calculations, not a proof for all ranks and weights.
 ## Actual nonlinear polynomial group families
 
 Use weighted generators of weights (1,4), leading weights (p,q)=(1,10),
-and the actual base pair (a^2,h_D^3). Here h_D is the right-nested Hall
+and the actual base pair (a^2,h_D^3). Here h_D is the left-normed Hall
 word [e,a,a,a,a,a,a], whose leading Lie term is ad_a^6(e).
 Insert the complete primitive offset-3 kernel with exponent T and the
 complete primitive offset-5 kernel with exponent T^2. Retain every later
@@ -104,8 +104,30 @@ including the early compatibility equations below the tail's first
 possible change at weight 18. Thus the deliberately unnormalized test
 family does not hide those restrictions by dropping zero rows of P.
 
-Class-24 construction and independent replay are pending. The final audit
-will state their terminal results before adopting any scope change.
+The final class-24 constructor `n8-polynomial-group-tail-c24-v3` passes
+in 534.781437 seconds. It gives a 368-by-273 matrix in the weighted group
+of Hirsch length 389. Again 12-6T forces exactly T=2. At that parameter
+the rank is 270 and the full integer kernel has dimension three. All
+nine Python samples 0,...,8, both joint vectors at each sample, and the
+reconstructed commutator witness pass. The saved polynomial input is
+separate from the final complete certificate.
+
+A separate native NQ preflight constructs this class-24 quotient and
+verifies Hirsch length 389 and its trivial torsion subgroup in
+167.195993 seconds. Full run `n8-polynomial-group-tail-gap-c24-v2` passes
+in 169.786400 seconds: 2457 polynomial columns, 18 joint controls, two
+direct identity controls, three complete homogeneous kernels, one
+complete finite decision, one full integer fiber of dimension three,
+and two group witnesses. Its final checker verifies torsion-freeness from
+the all-infinite cyclic factors of the polycyclic series and verifies
+rank from the unimodular Hermite identity and its distinct pivots;
+neither requires repeating an expensive equivalent calculation.
+
+For class 24, the independent replay uses -4,...,4 rather than the Python
+constructor's 0,...,8. Nine distinct integers suffice for the proved
+degree-eight bound. This reduces collection cost while also using a
+different interpolation sample set. No parameter range in the complete
+integer decision is restricted by this choice.
 
 ## Strict upper boundary of this linear-tail reduction
 
@@ -149,12 +171,21 @@ prove undecidability, or rule out other methods, in class 25 or beyond.
   rational-rank calculation (600.047013 seconds). Its executed source
   is retained. Version v3 uses FLINT integer rank, caches identical
   coordinate conversions, and saves the polynomial input before the
-  arithmetic stage. Its run is still pending at this checkpoint.
+  arithmetic stage. That final constructor passes as recorded above.
+- Class-24 GAP v1 was intentionally interrupted after its first positive
+  samples (240.117964 seconds), as native collection cost grew sharply
+  with T. Its exact verifier is retained. Version v2 uses the nine
+  balanced integer samples explained above; no polynomial, degree bound,
+  integer decision or group equation was changed.
 
 All completed successful runs listed above have empty stderr. Diagnostic
 stack dumps in the interrupted class-24 run are preserved separately;
 their periodic 'Timeout' labels are diagnostic alarms, not runner timeouts.
-Resource reservations stayed well below 20 cores and 100 GB. All work
+The successful class-24 constructor also contains such periodic stacks.
+All jobs are terminal. Including the separate compatible-deformation
+probe and quotient preflight, 16 runs are retained: ten successful and
+six unsuccessful or intentionally interrupted.
+Resource reservations stayed at most two cores and 16 GB. All work
 is local; nothing was pushed and no external contact was made.
 
 ## Reproduction and provenance
@@ -171,5 +202,6 @@ Constructors and independent verifiers are:
 Each recorded run's `process.json` gives its exact invocation, limits,
 timestamps, return status and log hashes. Constructor/checker revisions
 superseded during this audit are saved beside their run logs. The final
-hash manifest will bind the current proof, fixtures, dependencies, source
-snapshots and terminal run records. Earlier manifests remain historical.
+hash manifest `research/certificates/N8-polynomial-group-tail/manifest.json`
+binds the current proof, fixtures, dependencies, source snapshots and
+terminal run records. Earlier manifests remain historical.

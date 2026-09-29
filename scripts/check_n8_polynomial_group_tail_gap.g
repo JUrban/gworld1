@@ -11,7 +11,7 @@ N8PolynomialGroupTail:=fail;;Read(N8PolynomialGroupTailFile);;
        P,b,value,pair,comm,mat,rhs,col,actual,correction,changed,
        hh,kk,vec,columnchecks,jointchecks,directchecks,kernelchecks,
        critical,candidates,decision,A,bb,solution,H,U,K,r,last,pivot,
-       accepted,fullkernels,degree;
+       accepted,fullkernels,degree,replayvalues;
  item:=N8PolynomialGroupTail;
  Require:=function(ok,msg)if not ok then Error(msg);fi;end;
  started:=Runtime();Stage:=function(s)Print(s," at ",Runtime()-started," ms\n");end;
@@ -50,7 +50,11 @@ N8PolynomialGroupTail:=fail;;Read(N8PolynomialGroupTailFile);;
  input:=Concatenation("< b,a | ",JoinStringsWithSeparator(List(item.boundaries,i->strings[i+1]),", ")," >\n");
  Stage("Weighted presentation prepared (heavier generator first)");
  group:=NilpotentQuotient(:input_string:=input,class:=item.class_bound);
- Require(HirschLength(group)=item.retained and Size(TorsionSubgroup(group))=1,"Weighted group rank/torsion");
+ Stage("Native quotient collector constructed");
+ # A polycyclic series with every factor infinite cyclic implies
+ # torsion-freeness, without computing the whole torsion subgroup again.
+ Require(HirschLength(group)=item.retained and
+  ForAll(RelativeOrdersOfPcp(Pcp(group)),x->x=0),"Weighted group rank/torsion");
  gens:=GeneratorsOfGroup(group){[2,1]};hall:=[];
  for i in [1..Length(item.hall)] do
   h:=item.hall[i];
@@ -143,7 +147,12 @@ N8PolynomialGroupTail:=fail;;Read(N8PolynomialGroupTailFile);;
   and Length(b)=Length(item.rows) and ForAll(b,row->Length(row)=1),"Polynomial dimensions");
  Stage("Complete kernels and degree bound checked");
  columnchecks:=0;jointchecks:=0;directchecks:=0;
- for value in item.sample_values do
+ # Any degree_bound+1 distinct integers certify the bounded polynomial.
+ # Use different, balanced samples to limit native group collection cost.
+ replayvalues:=[-QuoInt(item.degree_bound,2)..item.degree_bound-QuoInt(item.degree_bound,2)];
+ Require(Length(Set(replayvalues))=item.degree_bound+1,"Incomplete replay samples");
+ Print("Independent replay parameters ",replayvalues,"\n");
+ for value in replayvalues do
   pair:=Family(value);comm:=Comm(pair[1],pair[2]);mat:=At(P,value);rhs:=List(At(b,value),row->row[1]);
   Require(comm*VectorElement(rhs)=target,"Polynomial target residual");
   for j in [1..Length(item.tail_axes)] do
@@ -176,7 +185,10 @@ N8PolynomialGroupTail:=fail;;Read(N8PolynomialGroupTailFile);;
   Require((solution=fail)=(decision.witness=fail),"Integer decision mismatch");
   if decision.witness<>fail then
    Require(ForAll(decision.witness,IsInt) and A*decision.witness=bb,"Integer witness");
-   H:=Mat(decision.H);U:=Mat(decision.U);K:=Mat(decision.kernel);r:=RankMat(A);
+   H:=Mat(decision.H);U:=Mat(decision.U);K:=Mat(decision.kernel);
+   # The verified unimodular identity and distinct pivots below certify
+   # the rank themselves; no second rational elimination is necessary.
+   r:=Number(H,row->ForAny(row,x->x<>0));
    Require(r=decision.rank and H=U*TransposedMat(A) and ForAll(Concatenation(U),IsInt)
     and AbsInt(DeterminantMat(U))=1,"Integral Hermite identity");last:=0;
    for i in [1..Length(H)] do

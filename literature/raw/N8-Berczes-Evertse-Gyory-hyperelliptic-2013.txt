@@ -1,0 +1,1460 @@
+                                                 EFFECTIVE RESULTS FOR HYPER- AND
+                                            SUPERELLIPTIC EQUATIONS OVER NUMBER FIELDS
+
+                                                  ATTILA BÉRCZES, JAN-HENDRIK EVERTSE, AND KÁLMÁN GYŐRY
+
+
+                                                              ”To the memory of Professor Antal Bege”
+arXiv:1301.7168v1 [math.NT] 30 Jan 2013
+
+
+
+
+                                                   Abstract. Let f be a polynomial with coefficients in the ring OS of
+                                                   S-integers of a given number field K, b a non-zero S-integer, and m
+                                                   an integer ≥ 2. Suppose that f has no multiple zeros. We consider
+                                                   the equation (*) by m = f (x) in x, y ∈ OS . In the present paper we
+                                                   give explicit upper bounds in terms of K, S, b, f, m for the heights of
+                                                   the solutions of (*). Further, we give an explicit bound C in terms of
+                                                   K, S, b, f such that if m > C then (*) has only solutions with y = 0 or a
+                                                   root of unity. Our results are more detailed versions of work of Trelina,
+                                                   Brindza, and Shorey and Tijdeman. The results in the present paper are
+                                                   needed in a forthcoming paper of ours on Diophantine equations over
+                                                   integral domains which are finitely generated over Z.
+
+
+
+                                                                            1. Introduction
+
+                                            Let f ∈ Z[X] be a polynomial of degree n without multiple roots and m
+                                          an integer ≥ 2. Siegel proved that the equation
+                                          (1.1)                                  y m = f (x)
+                                          has only finitely many solutions in x, y ∈ Z if m = 2, n ≥ 3 [24] and if
+                                          m ≥ 3, n ≥ 2 [25]. Siegel’s proof is ineffective. In 1969, Baker [1] gave an
+
+                                             2010 Mathematics Subject Classification: 11D41,11D61,11J86.
+                                             Keywords and Phrases: hyperelliptic equations, superelliptic equations, Schinzel-
+                                          Tijdeman theorem, Baker’s method.
+                                             The research was supported in part by the Hungarian Academy of Sciences, and by
+                                          grants K100339 (A.B., K.G.) and K75566 (A.B.) of the Hungarian National Foundation
+                                          for Scientific Research. The work is supported by the TÁMOP 4.2.1./B-09/1/KONV-
+                                          2010-0007 project. The project is implemented through the New Hungary Development
+                                          Plan, co-financed by the European Social Fund and the European Regional Development
+                                          Fund.
+                                                                                      1
+2                 A. BÉRCZES, J.-H. EVERTSE, AND K. GYŐRY
+
+
+effective proof of Siegel’s result. More precisely, he showed that if (x, y) is
+a solution of (1.1), then
+                      (           n                  o
+                                                   2
+                         exp exp (5m)10 (n10n H)n       if m ≥ 3, n ≥ 2,
+      max(|x|, |y|) ≤
+                                         10n   2
+                         exp exp exp {(10 H) }          if m = 2, n ≥ 3,
+where H is the maximum of the absolute values of the coefficients of f . In
+1976, Schinzel and Tijdeman [21] proved that there is an effectively com-
+putable number C, depending only on f , such that (1.1) has no solutions
+x, y ∈ Z with y 6= 0, ±1 if m > C. The proofs of Baker and of Schinzel and
+Tijdeman are both based on Baker’s results on linear forms in logarithms
+of algebraic numbers.
+   First Trelina [27] and later in a more general form Brindza [5] generalized
+the results of Baker to equations of the type (1.1) where the coefficients
+of f belong to the ring of S-integers OS of a number field K for some
+finite set of places S, and where the unknowns x, y are taken from OS .
+In their proof they used Baker’s result on linear forms in logarithms, as
+well as a p-adic analogue of this. In fact, Baker, Schinzel and Tijdeman,
+Trelina and Brindza considered (1.1) also for polynomials f which may have
+multiple roots. Brindza gave an effective bound for the solutions in the most
+general situation where (1.1) has only finitely many solutions. This was later
+improved by Bilu [2] and Bugeaud [6]. Shorey and Tijdeman [22, Theorem
+10.2] extended the theorem of Schinzel and Tijdeman to equation (1.1) over
+the S-integers of a number field. For further related results and applications
+we refer to [23], [2], [6], [13] and the references given there.
+   In a forthcoming paper, we will prove effective analogues of the theorems
+of Baker and Schinzel and Tijdeman for equations of the type (1.1) where
+the unknowns x, y are taken from an arbitrary finitely generated domain
+over Z. For this, we need effective finiteness results for Eq. (1.1) over the
+ring of S-integers of a number field which are more precise than the results
+of Trelina, Brindza, Bilu, Bugeaud and Shorey and Tijdeman mentioned
+above. In the present paper, we derive such precise results. Here, we follow
+improved, updated versions of standard methods. For technical convenience,
+we restrict ourselves to the case that the polynomial f has no multiple roots.
+We mention that recently, Gallegos-Ruiz [11] obtained an explicit bound for
+the heights of the solutions of the hyperelliptic equation y 2 = f (x) in S-
+integers x, y over Q, but his result is not adapted to our purposes.
+                  HYPER- AND SUPERELLIPTIC EQUATIONS                          3
+
+
+   In Theorems 2.1 and 2.2 stated below we give for any fixed exponent m
+effective upper bounds for the heights of the solutions x, y ∈ OS of (1.1)
+which are fully explicit in terms of m, the degree and height of f , the degree
+and discriminant of K and the prime ideals in S. In Theorem 2.3 below
+we generalize the Schinzel-Tijdeman Theorem to the effect that if (1.1) has
+a solution x, y ∈ OS with y not equal to 0 or to a root of unity, then m
+is bounded above by an explicitly given bound depending only on n, the
+height of f , the degree and discriminant of K and the prime ideals in S.
+
+
+
+
+                                 2. Results
+
+   We start with some notation. Let K be a number field. We denote by
+d, DK the degree and discriminant of K, by OK the ring of integers of K
+and by MK the set of places of K. The set MK consists of real infinite
+places, these are the embeddings σ : K ֒→ R; complex infinite places, these
+are the pairs of conjugate complex embeddings {σ, σ : K ֒→ C}, and finite
+places, these are the prime ideals of OK . We define normalized absolute
+values | · |v (v ∈ MK ) as follows:
+            
+             | · |v = |σ(·)| if v = σ is real infinite;
+(2.1)         | · |v = |σ(·)|2 if v = {σ, σ} is complex infinite;
+            
+              | · |v = (NK p)− ordp (·) if v = p is finite;
+
+here NK p = #OK /p is the norm of p and ordp (x) denotes the exponent of
+p in the prime ideal decomposition of x, with ordp (0) = ∞.
+  The logarithmic height of α ∈ K is defined by
+
+                                1         Y
+                   h(α) :=           log     max(1, |α|v ).
+                             [K : Q]     v∈MK
+
+
+
+
+   Let S be a finite set of places of K containing all (real and complex)
+infinite places. We denote by OS the ring of S integers in K, i.e.
+
+                 OS = {x ∈ K : |x|v ≤ 1 for v ∈ MK \ S}.
+4                  A. BÉRCZES, J.-H. EVERTSE, AND K. GYŐRY
+
+
+Let s := #S and put
+                PS = QS := 1 if S consists only of infinite places,
+                                         Yt
+                PS = max NK pi , QS :=      NK pi
+                      i=1,...,t
+                                                   i=1
+                           if p1 , . . . , pt are the prime ideals in S.
+
+    We are now ready to state our results. In what follows,
+(2.2)            f (X) = a0 X n + a1 X n−1 + · · · + an ∈ OS [X]
+is a polynomial of degree n ≥ 2 without multiple roots and b is a non-zero
+element of OS . Put
+                b    1 X
+                h :=        log max(1, |b|v , |a0 |v , . . . , |an |v ).
+                     d v∈M
+                                  K
+
+
+    Our first result concerns the superelliptic equation
+(2.3)                     f (x) = by m           in x, y ∈ OS .
+with a fixed exponent m ≥ 3.
+Theorem 2.1. Assume that m ≥ 3, n ≥ 2. If x, y ∈ OS is a solution to
+the equation (2.3) then we have
+                                       3 3               2 2      2 2         2 3   b
+(2.4)         h(x), h(y) ≤ (6ns)14m n s |DK |2m n Q3m
+                                                   S
+                                                      n 8m n dh
+                                                       e        .
+
+    We now consider the hyperelliptic equation
+(2.5)                      f (x) = by 2          in x, y ∈ OS .
+Theorem 2.2. Assume that n ≥ 3. If x, y ∈ OS is a solution to the equation
+(2.5) then we have
+                                             4            3       3       4   b
+(2.6)            h(x), h(y) ≤ (4ns)212n s |DK |8n QS20n e50n dh .
+
+  Our last result is an an explicit version of the Schinzel-Tijdeman theorem
+over the S-integers.
+Theorem 2.3. Assume that (2.3) has a solution x, y ∈ OS where y is
+neither 0 nor a root of unity. Then
+                                                              2       b
+(2.7)                  m ≤ (10n2 s)40ns |DK |6n PSn e11ndh .
+                    HYPER- AND SUPERELLIPTIC EQUATIONS                                5
+
+
+                   3. Notation and auxiliary results
+
+  We denote by d, DK , hK , RK the degree, discriminant, class number and
+regulator, and by OK the ring of integers of K. Further, we denote by P(K)
+the collection of non-zero prime ideals of OK . For a non-zero fractional ideal
+a of OK we have the unique factorization
+                                    Y
+                              a=          pordp a ,
+                                      p∈P(K)
+
+where there are only finitely many prime ideals p ∈ P(K) with ordp a 6= 0.
+Given α1 , . . . , αn ∈ K, we denote by [α1 , . . . , αn ]K the fractional ideal of
+OK generated by α1 , . . . , αn . For a polynomial f ∈ K[X] we denote by [f ]K
+the fractional ideal generated by the coefficients of f . We denote by NK a
+the absolute norm of a fractional ideal of OK . In case that a ⊆ OK we have
+NK a = #OK /a.
+  We define log∗ x := max(1, log x) for x ≥ 0.
+
+3.1. Discriminant estimates. Let L be a finite extension of K. Recall
+that the relative discriminant ideal dL/K of L/K is the ideal of OK generated
+by the numbers
+                   DL/K (ω1 , . . . , ωn ) with ω1 , . . . ωn ∈ OL ,
+where n := [L : K].
+
+Lemma 3.1. Suppose that L = K(α) and let f ∈ K[X] be a square-free
+polynomial of degree m with f (α) = 0. Then
+                                           [D(f )]K
+(3.1)                           dL/K ⊇               .
+                                            [f ]2m−2
+                                                K
+
+
+Proof. We have inserted a proof for lack of a good reference. We write [·] for
+[·]K . Let g ∈ K[X] be the monic minimal polynomial of α. Then f = g1 g2
+with g2 ∈ K[X]. Let n := deg g1 and k := deg h1 . Then
+                         D(f ) = D(g1 )D(g2)R(g1 , g2 )2 ,
+where R(g1 , g2 ) is the resultant of g1 and g2 . Using determinantal expres-
+sions for D(g1), D(g2 ), R(g1 , g2) we get
+        D(g1 ) ∈ [g1 ]2n−2 ,   D(g2) ∈ [g2 ]2k−2 ,    R(g1 , g2 ) ∈ [g1 ]k [g2 ]n ,
+6                  A. BÉRCZES, J.-H. EVERTSE, AND K. GYŐRY
+
+
+and by Gauss’ Lemma, [f ] = [g1 ] · [g2 ]. Hence
+                [D(f )]    [D(g1 )] [D(g2 )] [R(g1 , g2)]       [D(g1 )]
+                    2m−2
+                         =       2n−2      2k−2      k      n
+                                                              ⊆           .
+               [f ]        [g1 ]      [g2 ]     [g1 ] [g2 ]     [g1 ]2n−2
+Therefore, it suffices to prove
+                                            [D(g1 )]
+                                  dL/K ⊃              .
+                                            [g1 ]2n−2
+Note that [g1 ]−1 consists of all λ ∈ K with λg1 ∈ OK [X]. Hence the ideal
+[D(g1 )] · [g1 ]−2n+2 is generated by the numbers λ2n−2 D(g1 ) = D(λg1 ) such
+that λg1 ∈ OK [X]. Writing h := λg1 , we see that it suffices to prove that if
+h ∈ OK [X] is irreducible in K[X] and h(α) = 0 with L = K(α), then
+                                    D(h) ∈ dL/K .
+To prove this, we use an argument of Birch and Merriman [3]. Let h(X) =
+b0 X m + b1 xm−1 + · · · + bm ∈ OK [X] with h(α) = 0. Put
+                ωi := b0 αi + b1 αi−1 + · · · + bi (i = 0, 1, . . . , n).
+We show by induction on i that ωi ∈ OL . For i = 0 this is clear. Assume
+that we have proved that ωi ∈ OL for some i ≥ 0. By h(α) = 0 we clearly
+have
+                   ωi αn−i + bi+1 αn−i−1 + · · · + bn = 0.
+By multiplying this expression with ωin−i−1, we see that ωi α is a zero of
+a monic polynomial from OL [X], hence belongs to OL . Therefore, ωi+1 =
+ωi α + bi+1 ∈ OL .
+    Now on the one hand, DL/K (1, ω1, . . . , ωn−1 ) ∈ dL/K , on the other hand,
+        DL/K (1, ω1 , . . . , ωn−1 ) = b02n−2 DL/K (1, α, . . . , αn−1 )
+                                               Y
+                                     = b02n−2        (α(i) − α(j) )2 = D(h).
+                                               1≤i<j≤0
+
+Hence D(h) ∈ dL/K .                                                            
+
+   Put u(n) := lcm(1, 2, . . . , n). For the possible prime factors of the dis-
+criminant dL/K we have:
+Lemma 3.2. Let [L : K] = n. Then for every prime ideal p ∈ P(K) with
+ordp (dL/K ) > 0 we have
+                       ordp (dL/K ) ≤ n · (1 + ordp (u(n))).
+                  HYPER- AND SUPERELLIPTIC EQUATIONS                        7
+
+
+Proof. Let DL/K denote the different of L/K. According to J. Neukirch [19,
+p. 210, Theorem 2.6], we have for every prime ideal P of L lying above p
+            ordP (DL/K ) ≤ e(P|p) − 1 + ordP (e(P|p))
+                           ≤ e(P|p) − 1 + e(P|p) ordp (e(P|p)),
+where e(P|p), f (P|p) denote the ramification index and residue class degree
+of P over p. Using dL/K = NL/K DL/K , NL/K P = pf (P|p) ,
+P
+   P|p e(P|p)f (P|p) = [L : K] ≤ n, we infer
+                                             X
+          ordp (dL/K ) = ordp (NL/K DL/K ) =    f (P|p) ordP (DL/K )
+                                                P|p
+                         X
+                     ≤         f (P|p)e(P|p)(1 + ordp (e(P|p))
+                         P|p
+
+                     ≤ n(1 + ordp (u(n))).
+                                                                           
+Lemma 3.3. (i) Let M ⊃ L ⊃ K be a tower of finite extensions. Then we
+have
+                                        [M :L]
+                    dM/K = NL/K (dM/L )dL/K .
+(ii) Let L1 , L2 be finite extensions of K. Then for their compositum L1 · L2
+we have
+                                        [L L :L ] [L L :L ]
+                           dL1 L2 /K ⊇ dL11/K2 1 dL21/K2 2 .
+
+Proof. For (i) see Neukirch [19, p. 213, Korollar 2.10]. For (ii) apply Stark
+[26, Lemma 6] and take norms.                                              
+                                                     √
+Lemma 3.4. Let m ∈ Z≥0 , γ ∈ K ∗ and L := K( m γ). Further, let p ∈
+P(K) be a prime ideal with
+                  ordp (m) = 0,       ordp (γ) ≡ 0 (mod m).
+Then L/K is unramified at p, i.e.
+                                 ordp (dL/K ) = 0.
+
+Proof. Choose τ ∈ K ∗ such that ordp (τ ) = 1. Then γ = τ mt ε with t ∈ Z
+                                          √
+and ordp (ε) = 0. We clearly have L = K( m ε), hence
+                                [D(X m − ε)]   [mm εm−1 ]
+                     dL/K ⊇                  =            .
+                                  [1, ε]2m−2   [1, ε]2m−2
+This implies ordp (dL/K ) = 0.                                             
+8                  A. BÉRCZES, J.-H. EVERTSE, AND K. GYŐRY
+
+
+3.2. S-integers. Let K be an algebraic number field and denote by MK
+its set of places. We keep using throughout the absolute values defined by
+(2.1). Recall that these absolute values satisfy the product formula
+                          Y
+                              |α|v = 1 for α ∈ K ∗ .
+                           v∈MK
+
+If L is a finite extension of K, and v, w places of K, L, respectively, we say
+that w lies above v, notation w|v, if the restriction of | · |w to K is a power
+of | · |v , and in that case we have
+                          |α|w = |α|[L
+                                    v
+                                       w :Kv ]
+                                               for α ∈ K,
+where Kv , Lw denote the completions of K at v, L at w, respectively. In
+case that v = p, w = P are prime ideals of OK , OL , respectively, we have
+w|v if and only if p ⊂ P.
+   Let S be a finite set of places of K containing all infinite places. The
+non-zero fractional ideals of the ring of S-integers OS (i.e., finitely generated
+OS -submodules of K) form a group under multiplication, and there is an
+isomorphism from the multiplicative group of non-zero fractional ideals of
+OS to the group of fractional ideals of OK composed of prime ideals outside
+S given by a 7→ a∗ , where a = a∗ OS . We define the S-norm of a fractional
+ideal of OS by
+                    NS (a) := NK a∗ = absolute norm of a∗ .
+Given α1 , . . . , αr ∈ K we denote by [α1 , . . . , αr ]S the fractional ideal of OS
+generated by α1 , . . . , αr . We have
+                                           Y
+(3.2)          NS ([α1 , . . . , αr ]S ) =   max(|α1 |v , . . . , |αr |v )−1 .
+                                    v∈MK \S
+
+Further, for α ∈ K we define NS (α) := NS ([α]S ). By the product formula,
+                                Y
+(3.3)                 NS (α) =     |α|v for α ∈ K.
+                                     v∈S
+
+  Let L be a finite extension of K, and T the set of places of L lying above
+the places in S. Then the ring of T -integers OT is the integral closure in L of
+OS . Every fractional ideal A of OT can be expressed uniquely as A = A∗ OT
+where A∗ is a fractional ideal of OL composed of prime ideals outside T .
+We put
+                 NT A := NL A∗ , NT /S A := (NL/K A∗ )OS .
+                    HYPER- AND SUPERELLIPTIC EQUATIONS                             9
+
+
+Then
+           
+               NT A = NS (NT /S A),
+(3.4)
+               NT (aOT ) = NS a[L:K] for a fractional ideal a of OS .
+                                                                  Q
+  Let p1 , . . . , pt be the prime ideals in S and put QS := ti=1 NK pi . Let
+                                                             Q′
+P1 , . . . , Pt′ be the prime ideals in T and put QT := ti=1 NK Pi . Then for
+every prime ideal p of OK we have
+             Y           Y               Y
+                 NL P =     (NK p)fP|p ≤    (NK p)eP|p ·fP|p ≤ (NK p)[L:K],
+         P|p           P|p               P|p
+
+where the product is over all prime ideals P of OL dividing p and where
+e(P|p), f (P|p) denote the ramification index and residue class degree of P
+over p. Hence
+                                               [L:K]
+(3.5)                              QT ≤ QS             .
+
+3.3. Class number and regulator. Let again K be a number field.
+
+Lemma 3.5. For the regulator RK and class number hK of K we have the
+following estimates:
+(3.6)                    RK ≥ 0.2,
+                                          1
+(3.7)                    hK RK ≤ |DK | 2 (log∗ |DK |)d−1 .
+
+Proof. Statement (3.6) is a result of Friedman [10]. Inequality (3.7) follows
+from Louboutin [17], see also (59) in Győry and Yu [14].                  
+
+  Let S be a finite set of places of K consisting of the infinite places and of
+the prime ideals p1 , . . . , pt . Then the S-regulator RS is given by
+                                          t
+                                          Y
+(3.8)                        RS = hS RK         log NK pi ,
+                                          i=1
+
+where hS is the order of the group generated by the ideal classes of p1 , . . . , pt
+and where hS and the product are 1 if S consists only of the infinite places.
+Together with Lemma 3.5 this implies
+                                     1
+(3.9)            1
+                 5
+                   ln 2 ≤ RS ≤ |DK | 2 (log∗ |DK |)d−1 · (log PS )t ,
+where the last factor has to be interpreted as 1 if t = 0.
+10                   A. BÉRCZES, J.-H. EVERTSE, AND K. GYŐRY
+
+
+3.4. Heights. We define the absolute logarithmic height of α ∈ Q by
+                            1     X
+                 h(α) =               max(0, log |α|v ),
+                         [K : Q] v∈M
+                                                K
+
+where K is any number field with K ∋ α. More generally, we define the
+logarithmic height of a polynomial f (X) = a0 xn + · · · + an ∈ Q[X] by
+                          1     X
+             h(f ) :=              log max(1, |a0 |v , . . . , |an |v )
+                       [K : Q] v∈M
+                                        K
+
+where K is any number field with f ∈ K[X]. These heights do not depend
+on the choice of K.
+     We will frequently use the inequalities
+                          n
+                          X                               n
+                                                          X
+        h(α1 · · · αn ) ≤   h(αi ), h(α1 + · · · + αn ) ≤   h(αi ) + log n
+                         i=1                                      i=1
+
+for α1 , . . . , αn ∈ Q and the equality
+                                                          ∗
+                      h(αm ) = |m|h(α) for α ∈ Q , m ∈ Z.
+(see Waldschmidt [29, Chapter 3]). Further we frequently use the trivial
+fact that if α belongs to a number field K and S is a finite set of places of
+K containing the infinite places, then
+                                    1
+                         h(α) ≥          log NS (α).
+                                 [K : Q]
+
+     We have collected some further facts.
+Lemma 3.6. Let α1 , . . . , αn ∈ Q and f = (X − α1 ) · · · (X − αn ). Then
+                                       n
+                                       X
+                            |h(f ) −         h(αi )| ≤ n log 2.
+                                       i=1
+
+Proof. See Bombieri and Gubler [4, p.28, Thm.1.6.13].                                 
+Lemma 3.7. Let K be a number field and f = a0 X n + a1 X n−1 + · · · + an ∈
+K[X] a polynomial of degree n with discriminant D(f ) 6= 0. Then
+       (i)    |D(f )|v ≤ n(2n−1)s(v) max(|a0 |v , . . . , |an |v )2n−2 for v ∈ MK ,
+       (ii)   h(D(f )) ≤ (2n − 1) log n + (2n − 2)h(f ),
+where s(v) = 1 if v is real, s(v) = 2 if v is complex, s(v) = 0 if v is finite.
+                    HYPER- AND SUPERELLIPTIC EQUATIONS                            11
+
+
+Proof. Inequality (ii) is an immediate consequence of (i). For finite v, in-
+equality (i) follows from the ultrametric inequality, noting that D(f ) is a
+homogeneous polynomial of degree 2n − 2 in the coefficients of f with inte-
+ger coefficients. For infinite v, inequality (i) follows from a a result of Lewis
+and Mahler [16, p. 335]).                                                      
+
+Lemma 3.8. Let K be an algebraic number field and S a finite set of places
+of K, which consists of the infinite places and of the prime ideals p1 , . . . , pt .
+Then for every α ∈ OS \ {0} and m ∈ N there exists an S-unit η ∈ OS∗ with
+                                                             
+                m      1                             hK
+            h(αη ) ≤ log NS (α) + m · cRK +             log QS ,
+                       d                              d
+                               Q
+where c := 39dd+2 and QS := ti=1 NK pi .
+
+Proof. This is a slightly weaker version of Lemma 3 of Győry and Yu [14].
+The result was essentially proved (with a larger constant) in [9] and [12]. 
+
+Lemma 3.9. Let α be a non-zero algebraic number of degree d which is not
+a root of unity. Then
+                                (
+                                  log 2        if d = 1,
+                 h(α) ≥ m(d) :=              3
+                                  2/d(log 3d) if d ≥ 2.
+
+Proof. See Voutier [28].                                                          
+
+3.5. Baker’s method. Let K be an algebraic number field, and denote by
+MK the set of places of K. Let α1 , . . . , αn be n ≥ 2 non-zero elements of
+K, and b1 , . . . , bn are rational integers, not all zero. Put
+                            Λ := α1b1 . . . αnbn − 1,
+                                 Yn
+                                                      
+                            Θ :=      max h(αi ), m(d) ,
+                                   i=1
+                            B := max(3, |b1 |, , . . . , |bn |),
+where m(d) is the lower bound from Lemma 3.9 (i.e., the maximum is h(αi )
+unless αi is a root of unity). For a place v ∈ MK , we write
+                               (
+                                2      if v is infinite
+                      N(v) =
+                                NK p if v = p is finite.
+12                  A. BÉRCZES, J.-H. EVERTSE, AND K. GYŐRY
+
+
+Proposition 3.10. Suppose that Λ 6= 0. Then for v ∈ MK we have
+
+                                                   N(v)
+(3.10)                log |Λ|v > − c1 (n, d)              Θ log B,
+                                                 log N(v)
+
+where c1 (n, d) = 12(16ed)3n+2 (log∗ d)2 .
+
+Proof. First assume that v is infinite. Without loss of generality, we assume
+that K ⊂ C and | · |v = | · |s(v) where s(v) = 1 if K ⊂ R and s(v) =
+2 otherwise. Denote by log the principal natural logarithm on C (with
+|Im log z| ≤ π for z ∈ C∗ . Let b0 be the rational integer such that |Im Ξ| ≤
+π, where
+
+         Ξ := b1 log α1 + · · · + bn log αn + 2b0 log(−1),        log(−1) = πi.
+
+Thus,
+                    B ′ := max(|2b0 |, |b1 |, . . . , |bn |) ≤ 1 + nB.
+
+A result of Matveev [18, Corollary 2.3] implies that
+                                      s(v)
+     log |Ξ| ≥ − s(v)−1 12 e(n + 1)           (n + 1)3/2 30n+4d2 (log ed)Ω log(eB ′ ),
+
+where
+                                      n
+                                      Y
+                             Ω := π         max(h(αi ), π).
+                                      i=1
+
+Assuming, as we may, that |Λ| ≤ 21 , we get |Ξ| = | log(1 + Λ)| ≤ 2|Λ| ≤ 1.
+Further, Ω ≤ π n+1 m(d)−n Θ. By combining this with Matveev’s lower bound
+we obtain a lower bound for |Λ|v which is better than (3.10).
+  Now assume that v is finite, say v = p, where p is a prime ideal of OK .
+By a result of K. Yu [30] (consequence of Main Theorem on p. 190) we have
+
+                                                                NK p
+      ordp (Λ) ≤ (16ed)2n+2 n3/2 log(2nd) log(2d)enp ·                   · Θ log B,
+                                                             (log NK p)2
+
+where ep is the ramification index of p. Using that log |Λ|p = − ordp (Λ) log NK p
+and ep ≤ d, we obtain a lower bound for log |Λ|p which is better than
+(3.10).                                                                       
+                     HYPER- AND SUPERELLIPTIC EQUATIONS                         13
+
+
+3.6. Thue equations and Pell equations. Let K be an algebraic number
+field of degree d, discriminant DK , regulator RK and class number hK , and
+denote by OK its ring of integers. Let S be a finite set of places of K
+containing all infinite places. Denote by s the cardinality of S and by OS
+the ring of S integers in K. Further denote by RS the S-regulator, let
+p1 , . . . , pt be the prime ideals in S, and put
+              PS := max{NK p1 , . . . , NK pt },     QS := NK (p1 · · · pt ),
+with the convention that PS = QS = 1 if S contains no finite places.
+   We state effective results on Thue equations and on systems of Pell equa-
+tions which are easy consequences of a general effective result on decom-
+posable form equations by Győry and Yu [14]. In both results we use the
+constant
+                         c1 (s, d) := s2s+4 27s+60 d2s+d+2 .
+                                                             Pn
+Proposition 3.11. Let β ∈ K ∗ and let F (X, Y ) =             i=0 ai X
+                                                                       n−i i
+                                                                          Y ∈
+K[X, Y ] be a binary form of degree n ≥ 3 with non-zero discriminant which
+splits into linear factors over K. Suppose that
+                           max h(ai ) ≤ A,         h(β) ≤ B.
+                           0≤i≤n
+
+Then for the solutions of
+(3.11)                        F (x, y) = β     in x, y ∈ OS
+we have
+(3.12) max(h(x), h(y))
+                                                                       
+                    6                log∗ RS           hK
+         ≤ c1 (s, d)n PS RS       1+            · RK +    log QS + ndA + B .
+                                     log∗ PS            d
+
+Proof. Győry and Yu [14, p. 16, Corollary 3] proved this with instead of
+our c1 (s, d) a smaller bound 5d2 n5 · 50(n − 1)c1 c3 , where c1 , c3 are given
+respectively in [14, Theorem 1], and in [14, bottom of page 11].             
+
+Proposition 3.12. Let γ1 , γ2 , γ3 , β12 , β13 be non-zero elements of K such
+that
+                                 p            p
+                 β12 6= β13 ,        γ1 /γ2 , γ1 /γ3 ∈ K,
+                 h(γi ) ≤ A for i = 1, 2, 3,       h(β12 ), h(β13 ) ≤ B.
+14                 A. BÉRCZES, J.-H. EVERTSE, AND K. GYŐRY
+
+
+Then for the solutions of the system
+(3.13)      γ1 x21 − γ2 x22 = β12 , γ1 x21 − γ3 x23 = β13     in x1 , x2 , x3 ∈ OS
+we have
+(3.14) max(h(x1 ), h(x2 ), h(x3 ))
+                                                               
+                              log∗ RS          hK
+       ≤ c1 (s, d)PS RS 1 +            ·  RK +    log QS + dA + B   .
+                              log∗ PS           d
+
+Proof. Put β23 := β13 − β12 , β := β12 β13 β23 and define
+             F := (γ1 X12 − γ2 X22 )(γ1X12 − γ3 X32 )(γ2 X22 − γ3 X32 ).
+Thus, every solution of (3.13) satisfies also
+(3.15)               F (x1 , x2 , x3 ) = β   in x1 , x2 , x3 ∈ OS .
+By assumption, β 6= 0. Further, F is a decomposable form of degree 6
+with splitting field K, i.e., F = l1 · · · l6 where l1 , . . . , l6 are linear forms
+with coefficients in K. We make a graph on {l1 , . . . , l6 } by connecting two
+linear forms li , lj if there is a third linear form lk such that lk = λli + µlj
+for certain non-zero λ, µ ∈ K. Then this graph is connected. Further,
+rank{l1 , . . . , l6 } = 3. Hence F satisfies all the conditions of Theorem 3 of
+Győry and Yu [14]. According to this Theorem, the solutions x1 , x2 , x3 of
+(3.15), and so also the solutions of (3.13), satisfy (3.14) but with instead
+of c1 (s, d) the smaller number 375c1 c3 , where c1 , c3 are given respectively in
+[14, Theorem 1], and on [14, bottom of page 11].                                   
+
+
+     4. Proof of the results in the case of fixed exponent
+
+   Let K be an algebraic number field, put d := [K : Q], and let DK denote
+the discriminant of K. Further, let S be a finite set of places of K containing
+all infinite places.
+
+Lemma 4.1. Let f (X) ∈ K[X] be a polynomial of degree n and discrim-
+inant D(f ) 6= 0. Suppose that f factorizes over an extension of K as
+a0 (X − α1 ) . . . (X − αn ) and let L := K(α1 , . . . , αk ). Then for the discrim-
+inant of L we have
+                                            2knk d          k
+                         |DL | ≤ n · eh(f )         · |DK |n .
+                   HYPER- AND SUPERELLIPTIC EQUATIONS                                  15
+
+
+For the case k = 1 we have the sharper estimate
+                   |DL | ≤ n(2n−1)d · e(2n−2)d·h(f ) · |DK |[L:K].
+
+Proof. By Lemma 3.3 (i), we have
+                                                                                   k
+(4.1)          |DL | = NK dL/K · |DK |[L:K] ≤ NK dL/K · |DK |n .
+Applying Lemma 3.3 (ii) to L = K(α1 ) · · · K(αk ) yields
+                                   k
+                                   Y                     [L:K(αi)]
+(4.2)                   dL/K ⊇               dK(αi )/K                .
+                                       i=1
+
+Further, since αi is a root of f we have by Lemma 3.1,
+                                           [D(f )]
+                             dK(αi )/K ⊇             ,
+                                           [f ]2n−2
+and so
+                                                        
+                                                [D(f )]
+(4.3)                   NK dK(αi )/K ≤ NK                  .
+                                                [f ]2n−2
+By Lemma 3.7 we have
+                             Y                   Y            s(v) 2n−2
+         |NK (D(f ))| =            |D(f )|v ≤           n2n−1      |f |v
+                                 ∞
+                              v∈MK                        ∞
+                                                       v∈MK
+                                             Y
+                        ≤ n(2n−1)d                  |f |v2n−2
+                                                ∞
+                                             v∈MK
+
+where |f |v is the maximum of the v-adic absolute values of the coefficients
+of f ; moreover,                       Y
+                     NK ([f ]−2n+2 ) =        |f |v2n−2.
+                                                      ∞
+                                               v∈MK \MK
+
+Thus, we obtain
+                                      
+                            [D(f )]                                       d
+(4.4)              NK                      ≤ n2n−1 · e(2n−2)h(f )              .
+                            [f ]2n−2
+Together with (4.1), (4.3) this implies the sharper upper bound for |DL |
+in the case k = 1. For arbitrary k, combining (4.2), (4.3), (4.4) and the
+estimate [L : K(αi )] ≤ (n − 1)(n − 2) · · · (n − k + 1) gives
+                                       k(n−1)(n−2)···(n−k+1)d
+        NK dL/K ≤ n2n−1 · e(2n−2)h(f )
+                            k−1               k−1              2knk d
+                ≤ nk(2n−1)n d · ek(2n−2)n d·h(f ) ≤ n · eh(f )         .
+This in turn, together with (4.1) proves Lemma 4.1.                                    
+16                  A. BÉRCZES, J.-H. EVERTSE, AND K. GYŐRY
+
+
+     Let
+                    f = a0 X n + a1 X n−1 + · · · + an ∈ OS [X]
+be a polynomial of degree n ≥ 2 with discriminant D(f ) 6= 0. Let b be a
+non-zero element of OS , m an integer ≥ 2 and consider the equation
+(4.5)                     f (x) = by m         in x, y ∈ OS .
+Put
+                  b    1 X
+(4.6)             h :=       log max(1, |b|v , |a0 |v , . . . , |an |v ).
+                       d v∈M
+                               K
+
+
+Let G be the splitting field of f over K. Then
+              f = a0 (X − α1 ) · · · (X − αn ) with α1 , . . . , αn ∈ G.
+For i = 1, . . . , n, let Li = K(αi ) and denote by Ti the set of places of Li
+lying above the places of S. We denote by [β1 , . . . , βr ]Ti the fractional of
+OTi generated by β1 , . . . , βr . Then we have the following Lemma:
+
+Lemma 4.2. Let x, y ∈ OS be a solution of equation (4.5) with y 6= 0.
+Then for i = 1, . . . , n we have the following:
+(i) There are ideals Ci , Ai of OTi such that
+(4.7)             [a0 (x − αi )]Ti = Ci Am
+                                         i ,     Ci ⊇ [a0 bD(f )]m−1
+                                                                 Ti .
+
+(ii) There are γi , ξi with
+           
+            x − αi = γi ξim , γi ∈ L∗i , ξ ∈ OTi ,
+(4.8)                                                               
+            h(γi ) ≤ m(n3 d)nd e2ndbh |DK |n · 80(dn)dn+2 + 1 log QS .
+                                                             d
+
+
+Proof. It suffices to prove the Lemma for i = 1. We suppress the index 1
+and write α, T, L, γ, ξ for α1 , T1 , L1 , γ1 , ξ1. Let g := (X − α2 ) . . . (X − αn ).
+By [·] we denote fractional ideals in G with respect to the integral closure
+of OT in G. Clearly,
+                         [x − α] [x − αi ]      [α − αi ]
+                                 +          ⊇
+                          [1, α]   [1, αi ]   [1, α][1, αi ]
+for i = 2, . . . , n. This implies
+                                n              n
+                     [x − α] Y [x − αi ] Y [α − αi ]
+                             +              ⊇
+                      [1, α]   i=2
+                                   [1, αi ]   i=2
+                                                  [1, α][1, αi ]
+                   HYPER- AND SUPERELLIPTIC EQUATIONS                                      17
+
+                                                                Qn
+Noting that by Gauss’ Lemma we have [f ] = [a0 ]                     i=1 [1, αi ], we see that
+the right-hand side contains
+                         Yn Y
+                                    [αj − αi ]         [D(f )]
+                                                     =      2n−2
+                                                                 .
+                         j=1 i6=j
+                                  [1, α j ][1, α i ]   [f ]
+                   Qn
+Using also [g] =    i=2 [1, αi ] we obtain
+
+                          [x − α] [g(x)]   [D(f )]
+(4.9)                             +      ⊇          .
+                           [1, α]   [g]    [f ]2n−2
+Writing equation (4.5) as equation of ideals, we get
+                                            [x − α] [g(x)]
+(4.10)                   [b][f ]−1 [y]m =           ·      .
+                                             [1, α]   [g]
+Note that the ideals occurring in (4.9), (4.10) are all defined over L, so we
+may view them as ideals of OT . Henceforth, we use [·] to denote ideals of
+OT .
+  Now let P be a prime ideal of OT not dividing a0 bD(f ). Note that
+D(f ) ∈ [f ]2n−2 , hence P does not divide [f ] either. By (4.9), the prime
+ideal P divides at most one of the ideals [x−α  1]
+                                           [1,α1 ]
+                                                   and [g(x)]
+                                                         [g]
+                                                              , and we get
+                                [x − α]
+                         ordP           ≡ 0 (mod m).
+                                 [1, α]
+But [a0 ][1, α] is not divisible by P since it contains a0 . Hence
+                        ordP (a0 (x − α)) ≡ 0 (mod m).
+Applying division with remainder to the exponents of the prime ideals divid-
+ing a0 bD(f ) in the factorization of a0 (x−α), we obtain that there are ideals
+C, A of OT , with C dividing (ba0 D(f ))m−1 such that [a0 (x − α)] = CAm .
+This proves (i).
+  We prove (ii). The ideal A of OT may be written as A = A∗ OT with an
+ideal A∗ of OL composed of prime ideals outside T , and further, we may
+choose non-zero ξ1 ∈ A∗ with |NL/Q (ξ1 )| ≤ |DL |1/2 NL A∗ (see Lang [15,
+pp. 119/120]. This implies NT (ξ1 ) ≤ |DL |1/2 NT A, i.e., [ξ1 ] = BA where
+B is an ideal of OT with NT B ≤ |DL |1/2 . Similarly, there exists γ1 ∈ L
+with [γ1 ] = DC, where D is an ideal of OT with NT D ≤ |DL |1/2 . As a
+consequence, we have
+                                       γ1
+                           a0 (x − α) = ξ1m ,
+                                       γ2
+18                A. BÉRCZES, J.-H. EVERTSE, AND K. GYŐRY
+
+
+where γ1 , γ2 ∈ OT , and
+                                  [γ2 ] = DBm .
+Using (i) and the choice of B, D, we get
+(4.11)     NT (γ1 ) ≤ |DL |1/2 NT (a0 bD(f ))m−1 ,      NT (γ2 ) ≤ |DL |(m+1)/2 .
+According to Lemma 3.8 we can find T -units η1 , η2 ∈ OT∗ such that
+                                                       
+           m      −1                         hL
+     h(γi ηi ) ≤ dL log NT (γi ) + m · cRL +     log QT    for i = 1, 2
+                                             dL
+                                             Q
+where dL = [L : Q], c := 39ddLL +2 and QT :=       NL P. Putting
+                                                    P∈T
+                                                   P finite
+
+
+                   γ := a−1    −1     −1 m
+                         0 γ1 γ2 (η1 η2 ) ,        ξ = η2 η1−1 ξ1 ,
+and invoking (4.11) we obtain x − α = γξ m , with ξ ∈ OT , γ ∈ L∗ and
+                           m + 1                                  
+(4.12) h(γ) ≤ h(a0 ) + d−1
+                         L         log |D L | + m log NT (abD(f ))   +
+                               2
+                                  hL          
+                    +2m · cRL +        log QT .
+                                   dL
+  It remains to estimate from above the right-hand side of (4.12). First, we
+have by (3.4) and Lemma 3.7,
+(4.13) d−1
+        L log NT (a0 bD(f )) = d
+                                 −1
+                                    log NS (a0 bD(f )) ≤ h(a0 bD(f ))
+                             ≤ (2n − 1) log n + 2nb h.
+Together with Lemma 4.1 this implies
+                           m + 1                                 
+(4.14)        h(a0 ) + d−1
+                        L         log |D L | + m log NT (abD(f ))
+                              2
+                   ≤ m(4n log n + 4nb h + log |DK |).
+Next, by Lemma 3.5, Lemma 4.1 and dL ≤ nd we have
+(4.15)    max(hL , RL ) ≤ 5|DL |1/2 (log∗ |DL |)nd−1 ≤ (nd)nd |DL |
+                                               b
+                           ≤ (n3 d)nd e(2n−2)dh |DK |n .
+By inserting the bounds (4.14), (4.15), together with (3.5) and the estimate
+c ≤ 39(nd)nd+2 into (4.12), one easily obtains the upper bound for h(γ)
+given by (ii).                                                            
+
+   Let f , b, m be as above, and let x, y ∈ OS be a solution of (4.5) with
+y 6= 0. Let γ1 , . . . , γn , ξ1 , . . . , ξn be as in Lemma 4.2.
+                   HYPER- AND SUPERELLIPTIC EQUATIONS                                              19
+
+                                             p
+Lemma 4.3. (i) Let m ≥ 3 and M = K(α1 , α2 , m γ1 /γ2 , ρ), where ρ is a
+primitive m-th root of unity. Then
+                              3 2         2 3         2 2           2 2           2 3   b
+(4.16)        |DM | ≤ 10m n d n4m n d |DK |m n Qm
+                                                S
+                                                  n 4m n dh
+                                                    e       .
+                                       p        p
+(ii) Let m = 2 and M = K(α1 , α2 , α3 , γ1 /γ2 , γ1 /γ3). Then
+                                          4     3           3        4    b
+(4.17)                 |DM | ≤ n40n d Q8n
+                                       S |DK |
+                                               4n 25n dh
+                                                 e       .
+                                                                     p
+Proof. We start with (i). Define the fields L = K(α1 , α2 ), M1 = L( m γ1 /γ2 ),
+M2 = L(ρ). Then M = M1 M2 . By Lemma 3.3 (i) we have
+(4.18)                     |DM | = NL dM/L |DL |[M :L] .
+By Lemma 3.1, we have dM2 /L ⊇ [m]m , where [m] = mOL . Together with
+Lemma 3.3 (ii), this implies
+                                    [M :M ] [M :M ]             2
+                     dM/L ⊇ dM1 /L1 dM2 /L2 ⊇ mm dm
+                                                  M1 /L .
+
+Inserting this into (4.18), noting that [L : Q] ≤ n2 d, [M : L] ≤ m2 , we
+obtain
+                                       2 2                                    2
+(4.19)               |DM | ≤ mm n d (NL dM1 /L )m |DL |m .
+
+  We estimate NL dM1 /L . Let P be a prime ideal of OL not dividing a prime
+ideal from S and not dividing ma0 bD(f ). Then by Lemma 4.2,
+                                                
+                       −1           a0 (x − α1 )
+             ordP (γ1 γ2 ) ≡ ordP                  ≡ 0 (mod m),
+                                    a0 (x − α2 )
+and so by Lemma 3.4, M1 /L is unramified at P. Consequently, dM1 /L is
+composed of prime ideals from U, where U is the set of prime ideals of OL
+that divide the prime ideals from S or ma0 bD(f ). Using Lemma 3.2, it
+follows that
+                     Y
+(4.20)     dM1 /L ⊇      Pm(1+ordP (u(m))
+                        P∈U
+                        Y            Y                                             Y
+                   ⊇          Pm          Pm ordP (u(m)) ⊇ u(m)m                            Pm .
+                        P∈U           P                                           P∈U
+
+First, by prime number theory, u(m) ≤ mπ(m) ≤ 4m (see Rosser and Schoen-
+                                                     2 2
+feld [20, Corollary 1]). Hence |NL/Q (u(m)m )| ≤ 4m n d . Second, by an ar-
+gument similar to the proof of (3.5), defining V to be the set of prime ideals
+20                  A. BÉRCZES, J.-H. EVERTSE, AND K. GYŐRY
+
+
+of OL which are contained in S or divide ma0 bD(f ),
+            Y               Y                 Y     2
+       NL (    P) ≤ NK (       p)[L:K] ≤ NK (   p)n
+             P∈U                    p∈V                          p∈V
+                                                            n2                                   2
+                        ≤ (QS NS (ma0 bD(f ))                    ≤ (QS ed·h(ma0 bD(f )) )n
+                                2     2        3            b                2       2   3   3   b
+                        ≤ QnS mn d e2n d(log n+h) ≤ QnS mn d n2n d e2n dh
+where in the last estimate we have used Lemma 3.7. By combining this
+estimate and that for |NL/Q (u(m)m )| with (4.20), we obtain
+                                          2 2           3            2           3   b
+(4.21)                 NL dM1 /L ≤ 6m n d n2mn d Qmn
+                                                  S  e2mn dh .
+Finally, by inserting this estimate and the one arising from Lemma 4.1,
+                                           2        2   b                    2
+(4.22)                      |DL | ≤ n4n d · e4n dh · |DK |n
+into (4.19), after some computations, we obtain (4.16).
+                                                                         p
+  We nowp prove (ii). Let m = 2. Take L  = K(α  1 , α 2 , α 3 ), M1 = L(   γ1 /γ2 ),
+M2 = L( γ1 /γ3 ), so that M = M1 M2 . Completely similarly to (4.21), but
+now using [L : K] ≤ n3 instead of ≤ n2 , we get
+                                                3   4            3           4   b
+                         NL dM1 /L ≤ 64n d n4n d QS2n e4n dh .
+For NL dM2 /L we have the same estimate. So by Lemma 3.3 (ii),
+                                                                         3           4   3   4   b
+         NL dM/L ≤ (NL dM1 /L )2 (NL dM2 /L )2 ≤ 616n d n16n d Q8n
+                                                                S e
+                                                                   16n dh
+                                                                          .
+By inserting this inequality and the one arising from Lemma 4.1,
+                                           3        3   b                    3
+                            |DL | ≤ n6n d · e6n dh · |DK |n
+into |DM | = NL dM/L |DL |[M :K], after some computations we obtain (4.17).
+                                                                         
+
+Proof of Theorem 2.1. Let m ≥ 3 and let x, y ∈ OS be a solution to by m =
+                                                 m
+f (x) with y 6= 0. We have x − αi = γp        i ξi (i = 1, . . . , n) with the γi , ξi
+as in Lemma 4.2. Let M := K(α1 , α2 , γ1 /γ2 , ρ), where ρ is a primitive
+                                             m
+
+
+m-th root of unity, and let T be the set of places of M lying above the
+places from S. Let p1 , . . . , pt be the prime ideals (finite places) in S, and
+P1 , . . . , Pt′ the prime ideals in T . Then t′ ≤ [M : K]t ≤ m2 n2 t. Further,
+                                     Q′
+let PT := maxti=1 NM Pi , QT := ti=1 NM Pi .
+                   ′
+
+
+
+     We clearly have
+(4.23)                 γ1 ξ1m − γ2 ξ2m = α2 − α1 , ξ1 , ξ2 ∈ OT ,
+                         HYPER- AND SUPERELLIPTIC EQUATIONS                            21
+
+
+and the left-hand side is a binary form of non-zero discriminant which splits
+into linear factors over M. By Proposition 3.11, we have
+                                     log∗ RT 
+                       ′  6
+(4.24)       h(ξ1 ) ≤ c1 m PT RT 1 +            ×
+                                      log∗ PT
+                              
+                            × RM + hM · d−1 M log QT + mdM A + B),
+
+where A = max(h(γ1 ), h(γ2), B = h(α1 − α2 ), dM = [M : Q] and c′1 is
+the constant c1 from Proposition 3.11, but with s, d replaced by the upper
+bounds m2 n2 s, m2 n2 d for the cardinality of T and [M : Q], respectively,
+and RT is the T -regulator.
+  Using d ≤ 2s we can estimate c′1 by the larger but less complicated bound,
+                                                         2 2
+(4.25)                           c′1 ≤ 250 (4m2 n2 s)7m n s .
+Next, by (3.5),
+                                              [M :K]           2 2
+(4.26)                        PT ≤ QT ≤ QS             ≤ Qm
+                                                          S
+                                                            n
+                                                              .
+Let C be the upper bound for |DM | from (4.16). Thus, by Lemma 3.5 and
+(3.9),
+                                               2 2
+                  max(hM , RM ) ≤ 5C(log∗ C)m n d−1 .
+Further, A can be estimated from above by the bound from (4.8), and B by
+         h(α1 ) + h(α2 ) + log 2 ≤ h(f ) + (n + 1) log 2 ≤ b
+                                                           h + (n + 1) log 2
+in view of Lemma 3.6. Together with (4.26), this implies
+(4.27)        RM + hM · d−1
+                         M log QT + mdM A + B
+                                       2 2                                     2 2
+                    ≤ 7C(log∗ C)m n d−1 · d−1 log QS ≤ 7C(log∗ C)m n d .
+Next, by (3.9), the inequality d + t ≤ 2s, and (4.26), we have
+                                             2 2                     ′
+                 RT ≤ C 1/2 (log∗ C)m n d−1 (log∗ PT )t
+                                             2 2                         2 2
+                         ≤ C 1/2 (log∗ C)m n d−1 (m2 n2 log∗ QS )m n t
+                                       2 2                     2 2
+                         ≤ (m2 n2 )m n s C 1/2 (log∗ C)2m n s−1
+and
+                                   log∗ RT
+                              1+           ≤ 4m2 n2 s log∗ C,
+                                   log∗ PT
+hence
+                          log∗ RT              2 2     2 n2                 2 2
+(4.28)      PT RT       1+    ∗      ≤ (4m2 n2 )m n s Qm
+                                                       S      C 1/2 (log∗ C)2m n s .
+                           log PT
+22                 A. BÉRCZES, J.-H. EVERTSE, AND K. GYŐRY
+
+
+Combining (4.27), (4.28) with (4.24) gives
+                                           2 2      2 2             2 2
+             h(ξ1 ) ≤ 7m6 c′1 (4m2 n2 )m n s Qm
+                                              S
+                                                n
+                                                  C(log∗ C)4m n s
+                                           2 2      2 2
+                    ≤ 250 (4m2 n2 s)13m n s Qm
+                                             S
+                                               n
+                                                 C 2.
+
+Using
+
+h(x) ≤ log 2 + h(α1 ) + h(γ1 ) + mh(ξ1 ),        h(y) ≤ m−1 (h(b) + h(f ) + nh(x)),
+
+and the upper bound for h(γ1 ) from (4.8), we get
+                                                      2 2    2 2
+(4.29)          h(x), h(y) ≤ 251 mn(4m2 n2 s)13m n s Qm
+                                                      S
+                                                        n
+                                                          C 2.
+
+Now substituting C, i.e., the upper bound for |DM | from (4.16), and some
+algebra gives the upper bound (2.4) from Theorem 2.1.                   
+
+Proof of Theorem 2.2. Let x, y ∈ OS be a solution to by 2 = f (x) with y 6= 0.
+We have x − αi = γi ξim (i = 1, . . . , n) with the γi , ξi as in Lemma 4.2. Let
+                                           p        p
+                 M := K(α1 , α2 , α3 , γ1 /γ3 , γ2 /γ3 ),
+
+and let T be the set of places of M lying above the places from S. Notice
+that [M : K] ≤ 4n3 . Then
+
+(4.30)    γ1 ξ12 − γ2 ξ22 = α2 − α1 ,   γ1 ξ12 − γ3 ξ32 = α3 − α1 , ξ1 , ξ2 ∈ OT .
+
+By applying Proposition 3.12 to (4.30), and doing the same computations
+as above, we obtain the same bound as in (4.29), but with m = 2 and m2 n2
+replaced by 4n3 , and with C the upper bound for |DM | from (4.17). After
+some computation, we obtain the bound (2.6) from Theorem 2.2.          
+
+
+                         5. Proof of Theorem 2.3
+
+  We assume that in some finite extension G of K, the polynomial f fac-
+torizes as a0 (X − α1 ) · · · (X − αn ). For i = 1, . . . , n, let Li = Q(αi ), let
+dLi , hLi , RLi denote the degree, class number and regulator of Li , and let
+Ti be the set of places of Li lying above the places in S. Further, denote
+by RTi the Ti -regulator of Li , and denote by ti the cardinality of Ti . Let
+          Q
+QTi := P∈Ti NLi P, where the product is over all prime ideals in Ti . The
+group of Ti -units OTi∗ is finitely generated and by Lemma 2 of [14] (see also
+                      HYPER- AND SUPERELLIPTIC EQUATIONS                          23
+
+
+[8], [9] and [7]) we may choose a fundamental system of Ti -units, i.e., basis
+of OT∗i modulo torsion ηi1 , . . . , ηi,ti −1 such that
+                          t −1
+                         
+                             Yi
+                                    h(ηij ) ≤ c1i RTi ,
+(5.1)                          j=1
+                         
+                         
+                          max h(ηij ) ≤ c2i RTi ,
+                                  1≤j≤ti −1
+
+where
+                 ((ti − 1)!)2               √
+            c1i =         t  −1 , c 2i = 29e  ti − 2dtLii−1 log∗ dLi ci1 .
+                  2ti −2 dLi
+
+
+We estimate these upper bounds from above. First noting ti ≤ [Li : K]s ≤
+ns we have the generous estimate
+(5.2)                      ci1 , ci2 ≤ 1200t2t
+                                            i ≤ 1200(ns)
+                                              i          2ns
+                                                             .
+For the class number and regulator hLi , RLi , we have similarly to (4.15):
+(5.3)        max(hLi , RLi , hLi RLi ) ≤ 5|DLi |1/2 (log∗ |DLi |)nd−1
+                                                                  b
+                                              ≤ (n3 d)nd e(2n−2)dh |DK |n .
+Further, from (3.9), d ≤ 2s, we deduce
+                                                b
+(5.4)              RTi ≤ (n3 d)nd e(2n−2)dh |DK |n (log∗ PTi )ns−1
+                                                b
+                          ≤ (n3 d)nd e(2n−2)dh |DK |n (n log∗ PS )ns−1
+                                                    b
+                          ≤ (4n7 s2 )ns e(2n−2)dh |DK |n (log∗ PS )ns−1 .
+By inserting this and (5.2) into (5.1), we obtain
+           tY
+            i −1
+                                                           b
+(5.5)              h(ηij ) ≤ C1 := 1200(4n9s4 )ns e2ndh |DK |n (log∗ PS )ns−1 ,
+            j=1
+
+(5.6)        max h(ηij ) ≤ C1 .
+           1≤j≤ti −1
+
+  Now let x, y and m satisfy
+(5.7)    by m = f (x), m ∈ Z≥3 , x, y ∈ OS , y 6= 0, y not a root of unity,
+Lemma 5.1. For i = 1, 2 there are γi , ξi ∈ L∗i , and integers bi1 · · · bi,ti of
+absolute value at most m/2, such that
+            
+             (x − αi )hL1 hL2 = η bi1 · · · η bi,ti −1 γi ξ m,
+                                  i1          i,ti −1       i
+(5.8)
+             h(γ ) ≤ C := (2n3 s)6ns |D |2n e4ndbh (b          h + log∗ P ).
+                      i       2                     K                    S
+24                 A. BÉRCZES, J.-H. EVERTSE, AND K. GYŐRY
+
+
+Proof. For convenience, we put r := hL1 hL2 . By symmetry, it suffices to
+prove the lemma for i = 1. For notational convenience, in the proof of this
+lemma only, we suppress the index i = 1 (so L = L1 , T = T1 , t = t1 , etc.).
+We use the same notation as in the proof of Lemma 4.2. Similar to (4.9),
+(4.10), we have
+        [x − α] [g(x)]   [D(f )]                               [x − α] [g(x)]
+                +      ⊇          ,         [b][f ]−1 [y]m =           ·      ,
+         [1, α]   [g]    [f ]2n−2                               [1, α]   [g]
+where [·] denote fractional ideals with respect to OT . From these relations,
+it follows that there are integral ideals B1 , B2 of OT and a fractional ideal
+A of OT , such that
+                               [x − α]
+                                        = B1 B−1
+                                              2 A ,
+                                                   m
+                                [1, α]
+where
+                                 [D(f )]                [D(f )]
+                    B1 ⊇ [b] · 2n−2 , B2 ⊇ [f ] · 2n−2 .
+                                 [f ]                  [f ]
+Since
+                                        Yn
+                     [a0 ][1, α] ⊆ [a0 ] [1, αj ] ⊆ [f ] ⊆ [1],
+                                         j=1
+                     −1
+it follows that [1, α]     ⊇ [a0 ]. Hence
+                                [x − α] = C1 C−1 m
+                                              2 A ,
+
+where C1 , C2 are ideals of OT such that
+                                 C1 , C2 ⊇ [a0 bD(f )].
+Raising to the power r, we get
+(5.9)                           (x − α)r = γ1 γ2−1 λm ,
+for some non-zero γ1 , γ2 ∈ OT and λ ∈ L∗ with
+                           [γk ] ⊇ [a0 bD(f )]r for k = 1, 2.
+By Lemma 3.8, there exist ε1 , ε2 ∈ OT∗ such that for k = 1, 2,
+                            r                            hL
+             h(εk γk ) ≤      log NT (a0 bD(f )) + cRL +    log QT ,
+                           dL                            dL
+where c ≤ 39ddLL +2 ≤ 39(2ns)2ns+2. There are ε ∈ OT∗ , a root of unity ζ of
+L, and integers b1 , . . . , bt−1 of absolute value at most m/2, such that
+                                        m b1         b
+                              ε2 ε−1                t−1
+                                  1 = ζε η1 · · · ηt−1 .
+                    HYPER- AND SUPERELLIPTIC EQUATIONS                                25
+
+
+Writing
+                                      ε1 γ 1
+                             γ := ζ −1        , ξ := ελ
+                                      ε2 γ 2
+where η1 , . . . , ηt−1 are the fundamental units of OT∗ satisfying (5.5), (5.6),
+we get
+                                                  bt−1
+                              x − α = η1b1 · · · ηt−1  γξ m ,
+where
+                       2r                              hL
+(5.10)        h(γ) ≤      log NT (a0 bD(f )) + 2cRL + 2 log QT .
+                       dL                              dL
+By (5.3), d ≤ 2s, (4.13), (3.5) we have
+                                b                                        b
+       hL , RL ≤ (2n3 s)2ns e2ndh |DK |n , r = hL1 hL2 ≤ (2n3 s)4ns e4ndh |DK |2n ,
+       d−1 log NT (a0 bD(f )) ≤ (2n − 1) log n + 2nb
+        L                                            h,
+       d−1
+        L log QT ≤ d
+                     −1
+                        log QS ≤ s log∗ PS .
+By inserting these bounds into (5.10) and using n ≥ 2, after some algebra
+we obtain the upper bound C2 .                                         
+
+Completion of the proof of Theorem 2.3. In what follows, let L := K(α1 , α2 ),
+dL := [L : Q], T the set of places of L lying above the places from S, and
+t the cardinality of T . Let again x, y ∈ OS and m an integer ≥ 3 with
+by m = f (x), y 6= 0 and y not a root of unity. Put
+                              X := max h(x − αi ).
+                                     i=1,...,n
+
+Without loss of generality we assume
+                                                     2     b
+(5.11)                  m ≥ (10n2 s)38ns |DK |6n PSn e11ndh .
+Then
+(5.12)              X ≥ max(C3 , m(4d)−1 (log 3d)−3 ),
+                                                                2   b
+                         with C3 := (10n2 s)37ns |DK |6n PSn e11ndh .
+Indeed, by Lemma 3.9 we have
+                   n · X + h(a0 ) + h(b)
+             m≤                          ≤ (2d(log(3d))3(nX + 2b
+                                                               h).
+                           h(y)
+If X < C3 this contradicts (5.11). If X ≥ C3 the other lower bound for X
+in the maximum easily follows.
+26                  A. BÉRCZES, J.-H. EVERTSE, AND K. GYŐRY
+
+
+     We assume without loss of generality, that
+                                    X = h(x − α2 ).
+If |x − α2 |v ≤ 1 for v ∈ T , then using x ∈ OS we have
+                                               !
+               1      Y
+       X≤        log       max(1, |x − α2 |v )
+              dL      v6∈T
+                                          !
+               1      Y                               log∗ (n + 1)
+         ≤       log       max(1, |α2 |v ) ≤ h(α2 ) ≤              + h(f ),
+              dL      v6∈T
+                                                            2
+
+which is impossible by (5.12). Hence maxv∈T |x − α2 |v > 1. Choose v0 ∈ T
+such that
+(5.13)                        |x − α2 |v0 = max |x − α2 |v .
+                                            v∈T
+
+Then we have
+                                                                              !!
+                     1                          Y
+               X≤            log |x − α2 |tv0          max(1, |x − α2 |v )
+                    dL                          v6∈T
+                                                                         !!
+                    1                           Y
+                 ≤           log |x − α2 |tv0          max(1, |α2 |v )        .
+                   dL                           v6∈T
+
+which gives
+                                                eXdL /t
+                          |x − α2 |v0 ≥ Q                      1/t
+                                                                   .
+                                          v6∈T max(1, |α2 |v )
+Thus we have
+                                                                   Q                        1/t
+             x − α1      |α2 − α1 |v0               |α2 − α1 |v0    v6∈T max(1, |α2 |v )
+(5.14)    1−           =                        ≤                                                 .
+             x − α2 v0    |x − α2 |v0                               eXdL /t
+Put s(v0 ) = 1 if v0 is real, s(v0 ) = 2 if v is complex, and s(v0 ) = 0 if v0 is
+finite. Since by Lemma 3.6 we have
+                    Y
+       |α2 − α1 |v0   max(1, |α2|v )1/t
+                   v6∈T
+                                                                    Y
+                   ≤ 2s(v0 ) max(1, |α2|v0 ) max(1, |α1 |v0 )              max(1, |α2|v )
+                                                                    v6∈T
+
+                   ≤ 2s(v0 ) exp(dL (h(α1 ) + h(α2 )))
+                   ≤ 2(n+1)s(v0 ) exp((dL h(f )),
+                        HYPER- AND SUPERELLIPTIC EQUATIONS                           27
+
+
+(5.14) gives us
+
+                   x − α1                                                
+(5.15)      1−               ≤ exp (n + 1)s(v0 ) log 2 + dL h(f ) − XdL /t .
+                   x − α2 v0
+
+Notice that by (5.12) we have
+
+                                              x − α1
+(5.16)                                  1−              < 1.
+                                              x − α2 v0
+
+In general, we have for y ∈ L with |1 − y|v0 < 1 and any positive integer r,
+
+                                  |1 − y r |v0 ≤ 2r·s(v0 ) |1 − y|v0 .
+
+Hence
+                 hL1 hL2                                                        
+         x − α1
+1−                                ≤ exp (hL1 hL2 +n+1)s(v0 ) log 2 +dL h(f )−XdL /t .
+         x − α2
+                             v0
+
+
+Using (5.12) and the estimates (5.3), h(f ) ≤ b
+                                              h, dL ≤ nd, s ≤ t ≤ ns, this
+can be simplified to
+
+                                          hL1 hL2
+                                  x − α1
+(5.17)                1−                                   ≤ exp(−XdL /2t).
+                                  x − α2
+                                                      v0
+
+
+
+  On the other hand using Proposition 3.10 and Lemma 5.1 we get a Baker
+type lower bound
+
+                                  hL1 hL2
+                        x − α1
+             1−
+                        x − α2
+                                              v0
+                                                                            m
+(5.18)                    γ1 b11          b1,t1 −1   −b21      −b2,t2 −1    ξ1
+                    = 1−     · η11 · · · η1,t1 −1 · η21 · · · η2,t2 −1 ·
+                          γ2                                                ξ2  v0
+                                                    N(v0 )              
+                    ≥ exp − c1 (t1 + t2 , dL ) ·              Θ log B
+                                                   log N(v0 )
+28                        A. BÉRCZES, J.-H. EVERTSE, AND K. GYŐRY
+
+
+where
+                                                                          tY
+                                                                           1 −1               tY
+                                                                                               2 −1
+
+     Θ := max(h(ξ1 /ξ2 ), m(d)) · max(h(γ1 /γ2 ), m(d)) ·                         h(η1j ) ·           h(η2j ),
+                                                                           j=1                j=1
+
+     B := max{3, m, |b11 |, . . . , |b1,t1 −1 |, |b21 |, . . . , |b2,t2 −1 |),
+               (
+                2      if v0 is infinite
+     N(v0 ) :=
+                NL P if v0 = P is a prime ideal P,
+     c1 (t1 + t2 , dL ) := 12(16edL )3t1 +3t2 +2 (log∗ dL )2 .
+
+   We estimate the above parameters. First, by (5.8), we have h(γi ) ≤ C2
+for i = 1, 2. Moreover, the exponents bij in (5.8) have absolute values at
+most m/2. Together with (5.6) and (5.12), these imply
+(5.19) h(ξ1 /ξ2 ) ≤ max h(ξ1 ) + h(ξ2 )
+                      2                                   3
+                  ≤     (X + C2 ) + 21 (t1 + t2 − 2)C1 ≤    · X + 2nsC1
+                      m                                  m
+                                                  X              X
+                  ≤ (3 + 4d(log 3d)3 · 2nsC1 ) ·     ≤ 4ns+2C1 · ,
+                                                  m              m
+where we have used t1 , t2 ≤ ns, d ≤ 2s, n ≥ 2. Further, using (5.5) and
+h(γ1 /γ2 ) ≤ 2C2 , we get
+                                                       X             X
+(5.20)                      Θ ≤ C12 · 4ns+2 C1 ·         · 2C2 ≤ C4 · ,
+                                                       m             m
+where
+                                             ns                 b
+            C4 := 2 × 107 410 n45 s18              |DK |5n e10ndh (b
+                                                                   h + 1)(log∗ PS )3ns−2 .
+Next, using dL ≤ n(n − 1)d ≤ 2n(n − 1)s, t1 , t2 ≤ ns, we have
+(5.21)                       c1 (t1 + t2 , dL ) ≤ C5 := (32en2 s)6ns+3 .
+Finally, by (3.5), (5.11) we have
+                                                        [L:K]        n(n−1)
+                                 N(v0 ) ≤ PT ≤ PS               ≤ PS
+and B = m since the exponents bij in (5.8) have absolute values at most
+m/2. Inserting these and (5.20), (5.21) into (5.18), we arrive at the lower
+bound
+                     h h                                     
+               x − α1 L1 L2                       n(n−1) X
+        1−                      ≥ exp − C4 C5 PS           log m .
+               x − α2                                    m
+                                             v0
+                    HYPER- AND SUPERELLIPTIC EQUATIONS                               29
+
+
+A comparison with the upper bound (5.17) gives
+                                       
+                          n(n−1) X
+           exp − C4 C5 PS          log m ≤ exp(−dL X/2t).
+                                 m
+By dividing out X and inserting t ≤ n2 s, d ≤ 2s, we arrive at
+        m                   n(n−1)
+            ≤ 2n2 sC4 C5 PS
+      log m
+                                        b             n(n−1)
+            < (10n2 s)35ns |DK |5n e10ndh (b
+                                           h + 1) · P     S  (log∗ PS )3ns−1 .
+
+Applying the inequalities (log X)B ≤ (B/2ǫ)B X ǫ for X > 1, B > 0, ǫ > 0
+and X + 1 ≤ (ec−1 /c)ecX for X > 0, c ≥ 1, we arrive at our final estimate
+                                                      2       b
+                        m < (10n2 s)40ns |DK |6n PSn e11ndh .
+This completes our proof of Theorem 2.3.                                             
+
+
+                                   References
+ [1] A. Baker, Bounds for the solutions of the hyperelliptic equation, Proc. Cambridge
+     Philos. Soc., 65 (1969), 439–444.
+ [2] Y. F. Bilu, Quantitative Siegel’s theorem for Galois coverings, Compositio Math.,
+     106 (1997), 125–158.
+ [3] B. J. Birch and J. R. Merriman, Finiteness theorems for binary forms with given
+     discriminant, Proc. London Math. Soc. (3), 24 (1972), 385–394.
+ [4] E. Bombieri and W. Gubler, Heights in Diophantine geometry, Cambridge Uni-
+     versity Press, Cambridge, 2006.
+ [5] B. Brindza, On S-integral solutions of the equation y m = f (x), Acta Math. Hun-
+     gar., 44 (1984), 133–139.
+ [6] Y. Bugeaud, Bounds for the solutions of superelliptic equations, Compositio Math.,
+     107 (1997), 187–219.
+ [7] Y. Bugeaud, Bornes effectives pour les solutions des équations en S-unités et des
+     équations de Thue-Mahler, J. Number Theory, 71 (1998), 227–244.
+ [8] Y. Bugeaud and K. Győry, Bounds for the solutions of Thue-Mahler equations
+     and norm form equations, Acta Arith., 74 (1996), 273–292.
+ [9] Y. Bugeaud and K. Győry, Bounds for the solutions of unit equations, Acta
+     Arith., 74 (1996), 67–80.
+[10] E. Friedman, Analytic formulas for the regulator of a number field., Invent. Math.,
+     98 (1989), 599–622.
+[11] H. R. Gallegos-Ruiz, S-Integral points on Hyperelliptic Curves, Int. J. Number
+     Theory, 7 (2011), 803–824.
+[12] K. Győry, Bounds for the solutions of decomposable form equations., Publ. Math.
+     Debrecen, 52 (1998), 1–31.
+30                  A. BÉRCZES, J.-H. EVERTSE, AND K. GYŐRY
+
+
+[13] K. Győry and Á. Pintér, Polynomial powers and a common generalization of
+     binomial Thue-Mahler equations and S-unit equations, in: Diophantine equations,
+     Tata Inst. Fund. Res., Mumbai, 2008, vol. 20 of Tata Inst. Fund. Res. Stud. Math.,
+     pp. 103–119.
+[14] K. Győry and K. Yu, Bounds for the solutions of S-unit equations and decom-
+     posable form equations, Acta Arith., 123 (2006), 9–41.
+[15] S. Lang, Algebraic Number Theory, Addison Wesley, Reading, Mass., 1970, 1st
+     edn.
+[16] D. J. Lewis and K. Mahler, On the representation of integers by binary forms,
+     Acta Arith., 6 (1960/1961), 333–363.
+[17] S. Louboutin, Explicit bounds for residues of Dedekind zeta functions, values of
+     L-functions at s = 1, and relative class numbers, J. Number Theorey, 85 (2000),
+     263–282.
+[18] E. M. Matveev, An explicit lower bound for a homogeneous rational linear form
+     in logarithms of algebraic numbers. II (translated from Russian), Izv. Math., 64
+     (2000), 1217–1269.
+[19] J. Neukirch, Algebraische Zahlentheorie, Springer-Verlag, Berlin, Heidelberg,
+     1992.
+[20] J. B. Rosser and L. Schoenfeld, Approximate formulas for some functions of
+     prime numbers, Illinois J. Math., 6 (1962), 64–94.
+[21] A. Schinzel and R. Tijdeman, On the equation y m = P (x), Acta Arith., 31
+     (1976), 199–204.
+[22] T. N. Shorey and R. Tijdeman, Exponential Diophantine equations, Cambridge
+     University Press, 1986.
+[23] T. N. Shorey and R. Tijdeman, Exponential Diophantine equations, Cambridge
+     Univ. Press, Cambridge–New York, 1986.
+[24] C. L. Siegel, The integer solutions of the equation y 2 = axn + bxn−1 + · · · + k, J.
+     London Math. Soc., 1 (1926), 66–68.
+[25] C. L. Siegel, Über einige Anwendungen diophantischer Approximationen, Preuss.
+     Akad. Wiss., Phys.-math. Kl., 1 (1929), 70 pages.
+[26] H. M. Stark, Some effective cases of the Brauer-Siegel theorem, Invent. Math., 23
+     (1974), 135–152.
+[27] L. A. Trelina, S-integral solutions of Diophantine equations of hyperbolic type
+     (in Russian), Dokl. Akad. Nauk. BSSR, 22 (1978), 881–884;955.
+[28] P. Voutier, An effective lower bound for the height of algebraic numbers, Acta
+     Arith., 74 (1996), 81–95.
+[29] M. Waldschmidt, Diophantine approximation on linear algebraic groups, Springer-
+     Verlag, 2000.
+[30] K. Yu, P -adic logarithmic forms and group varieties. III, Forum Math., 19 (2007),
+     187–280.
+               HYPER- AND SUPERELLIPTIC EQUATIONS   31
+
+
+A. Bérczes
+Institute of Mathematics, University of Debrecen
+H-4010 Debrecen, P.O. Box 12, Hungary
+E-mail address: berczesa@science.unideb.hu
+
+J.-H. Evertse
+Universiteit Leiden, Mathematisch Instituut,
+Postbus 9512, 2300 RA Leiden, The Netherlands
+E-mail address: evertse@math.leidenuniv.nl
+
+K. Győry
+Institute of Mathematics, University of Debrecen
+H-4010 Debrecen, P.O. Box 12, Hungary
+E-mail address: gyory@science.unideb.hu
+

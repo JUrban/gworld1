@@ -681,3 +681,22 @@ Fresh N8 searches again located Roman'kov2016/class-two and Miasnikov2016
 slides, no precise match for the new two-exception assembly; this does not
 establish novelty. FP10/11/12, G6 and H15 screening added no candidate or
 full-proof audit. No new mathematical conclusion is drawn from search snippets.
+
+
+## 2026-09-29T15:24:41.390301+00:00 — N8 effective curve lead and M0 convention recheck
+
+Archived Berczes--Evertse--Gyory, Effective results for hyper- and
+superelliptic equations over number fields, arXiv:1301.7168v1,
+https://arxiv.org/pdf/1301.7168. PDF333857 bytes; SHA256
+6f0c3522bec1af5548ddd4fcb3bd7fc3bc02a2e4294276abc6219289ee94334c.
+Read introduction, notation and theorem statements through printedp4;
+actually viewedp4. Theorem2.2 supplies an effective S-integral height
+bound in the squarefree degree>=3 case. Full31-page proof not audited.
+The proposed application remains unverified and uncounted; see
+research/notes/N8-hyperelliptic-lead.md. Located arXiv:2310.09704 but
+did not read its theorem/proof; not used.
+
+M0: reread GGR1992 opening two pages and actually viewed printedp517;
+checked full square Fox-Jacobian convention against the candidate and
+made its right/left conversion explicit. No new gap found, no scope or
+novelty change. Details: research/notes/M0-29sep-convention-recheck.md.

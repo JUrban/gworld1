@@ -1,0 +1,779 @@
+{
+  "created_utc": "2026-09-29T15:25:13.858954+00:00",
+  "purpose": "Fourteen-final-layer/class24 N8(b) candidate; finite group/Lie/arithmetic audit and all sixteen terminal runs. Hyperelliptic note/source included solely as an unverified, uncounted follow-up.",
+  "provenance": [
+    "Generic Lie helpers copied from the earlier boundary checker at30e9e7b; see script header.",
+    "Executed constructors/checkers superseded during this audit are retained beside their run logs.",
+    "The boundary25 constructor used the Group version preserved in results/n8-polynomial-group-tail-c21-v2/executed-constructor.py; it does not call collection, and its tensor multiplication is unchanged.",
+    "Final class24 Python constructor is scripts/check_n8_polynomial_group_tail.py ataf1b060; independent final GAP source also preserved beside its final run.",
+    "Earlier manifests are immutable historical records; this manifest binds current dependencies.",
+    "No imported Kourovka proof or code in this extension."
+  ],
+  "files": [
+    {
+      "path": "literature/figures/N8-hyperelliptic-theorem22.png",
+      "bytes": 167948,
+      "sha256": "d0c1d76809bc19d8d8827a267c6abf9e1deccfe68914fceaa7b6516e72b5cdb8"
+    },
+    {
+      "path": "literature/raw/N8-Berczes-Evertse-Gyory-hyperelliptic-2013.json",
+      "bytes": 381,
+      "sha256": "de15cf1c33cb529e12dc501930c136487ad5034f4148cf86765ceb2f9ac90d6f"
+    },
+    {
+      "path": "literature/raw/N8-Berczes-Evertse-Gyory-hyperelliptic-2013.pdf",
+      "bytes": 333857,
+      "sha256": "6f0c3522bec1af5548ddd4fcb3bd7fc3bc02a2e4294276abc6219289ee94334c"
+    },
+    {
+      "path": "literature/raw/N8-Berczes-Evertse-Gyory-hyperelliptic-2013.txt",
+      "bytes": 76756,
+      "sha256": "2425920e49fc504be5bca6db8de1964ec244fb12864327e40b5fc8d9d22ecd67"
+    },
+    {
+      "path": "problems/N8/central-target-proof.md",
+      "bytes": 9547,
+      "sha256": "8d7dff41a2faccc5e4fa4b836312b88a80ce01a5ddd32d7c2916585800771cdd"
+    },
+    {
+      "path": "problems/N8/class10-audit.md",
+      "bytes": 7828,
+      "sha256": "97a997300e4e7a63a18c3c861b4599022282bec56b5ed701801a3ca67f6dfcf0"
+    },
+    {
+      "path": "problems/N8/class10-nonlinear-audit.md",
+      "bytes": 5881,
+      "sha256": "989bc170030dba1522c1f9ca1608c8a84179068d8f8ee7ed00a4ae6f25a7b9a8"
+    },
+    {
+      "path": "problems/N8/class10-nonlinear-proof.md",
+      "bytes": 10235,
+      "sha256": "bbf3e918821617ffd8024b905b7906eb16ba2350f3ddab08524b5430186760e3"
+    },
+    {
+      "path": "problems/N8/class10-proof.md",
+      "bytes": 13330,
+      "sha256": "eb4ef88263e0df8f920161fbf899d4b462f93e97731a4e1d1da18b700fd26340"
+    },
+    {
+      "path": "problems/N8/class10-third-audit.md",
+      "bytes": 8027,
+      "sha256": "fec4d599d03448d4e24820c631de95506d4bcabaf9c18686c52a951850255620"
+    },
+    {
+      "path": "problems/N8/class10-third-proof.md",
+      "bytes": 12954,
+      "sha256": "1f2fb60aea9d838c7bc98664e89ef070cb1f16fcfb4636273a6ddcb589fd7478"
+    },
+    {
+      "path": "problems/N8/class3-proof.md",
+      "bytes": 10561,
+      "sha256": "a851e9357bde7b20e0eeb0ef619f19098d6b445158d42e4ffa8ab6d263e0a34d"
+    },
+    {
+      "path": "problems/N8/class4-proof.md",
+      "bytes": 7731,
+      "sha256": "801f70f8a53d444b7521cd4784b673900054fe195f7c38c5dc928f19b9660c19"
+    },
+    {
+      "path": "problems/N8/class5-proof.md",
+      "bytes": 15350,
+      "sha256": "5d9e217e73e2e7c86c4dbb5548ee3acfa197012b98303e88de47b4b59bf3e1de"
+    },
+    {
+      "path": "problems/N8/class6-audit.md",
+      "bytes": 4200,
+      "sha256": "5e6a1222347563cb7313f71a421233859f40fdff3965779475809bbf38c9fc8d"
+    },
+    {
+      "path": "problems/N8/class6-proof.md",
+      "bytes": 9284,
+      "sha256": "72036587a8fa675071e98770789abf0c41ef0ad3f9ccb1e0aa9d6c3d60cc06d2"
+    },
+    {
+      "path": "problems/N8/class7-audit.md",
+      "bytes": 9627,
+      "sha256": "edfcb748ada538ee7c70e627557918432f3e0cade773d65c747120bd326dee62"
+    },
+    {
+      "path": "problems/N8/class7-proof.md",
+      "bytes": 9476,
+      "sha256": "621dbda94c92e102a55ab44826cb70b1386bb43e2b5a7574d1a6d62522a8e404"
+    },
+    {
+      "path": "problems/N8/class7-rank2-audit.md",
+      "bytes": 6890,
+      "sha256": "3581500f3a705e0cd6fea377a8072c342804b0c3647ec26f65ec4eebf1bb5a7a"
+    },
+    {
+      "path": "problems/N8/class7-rank2-proof.md",
+      "bytes": 9397,
+      "sha256": "da8ff612f846a9bc87fb2df18339c88651de4ea6a851e4feb2c2e639c054ba06"
+    },
+    {
+      "path": "problems/N8/class8-audit.md",
+      "bytes": 20629,
+      "sha256": "6b459aed26360b3b28b1791d8d8d57920a5add82b57fb1e8a08b2ee54955469a"
+    },
+    {
+      "path": "problems/N8/class8-proof.md",
+      "bytes": 15476,
+      "sha256": "b56d1e4e9dc644c1e00ad4bbe99694529d2be2d8482d9e0f5d1a27ff30febb77"
+    },
+    {
+      "path": "problems/N8/class9-audit.md",
+      "bytes": 12401,
+      "sha256": "f2cac97a2fbf925251601e15c05f52a371f94385a62b988b506e475ee4943b92"
+    },
+    {
+      "path": "problems/N8/class9-proof.md",
+      "bytes": 14953,
+      "sha256": "8a5fd3a3a09486cf2418895df76e67cca54661fc0ba6ae128379ae359b89f14a"
+    },
+    {
+      "path": "problems/N8/degree2-iterated-audit.md",
+      "bytes": 6341,
+      "sha256": "d074c676b457baea2c62232c1b4aec086b52bfd1a99d787cfe4a52f7da809495"
+    },
+    {
+      "path": "problems/N8/degree2-iterated-proof.md",
+      "bytes": 11643,
+      "sha256": "4db1c23c056ad745f28768c4d39e472dd2b5bacddf295be4b4b9b4ebd7abdd7f"
+    },
+    {
+      "path": "problems/N8/exceptional-boundary-proof.md",
+      "bytes": 7486,
+      "sha256": "0f8698db614444f97c5c0656d8e565826ce37270656a55e2241f3a29e236b208"
+    },
+    {
+      "path": "problems/N8/fifth-sixth-layer-audit.md",
+      "bytes": 7821,
+      "sha256": "47ce33923e52d5d9cae5537333631785567d7b213692e93b69185c11ef919db7"
+    },
+    {
+      "path": "problems/N8/fifth-sixth-layer-proof.md",
+      "bytes": 9852,
+      "sha256": "b9f5124bedfb3353ac556fe6b6882a5c44ee5bd0c78ad6c33825fb143e9ad2d4"
+    },
+    {
+      "path": "problems/N8/fourteen-layer-audit.md",
+      "bytes": 11500,
+      "sha256": "83db9a8a6fd6b84139d6f6e66216af43518a06d0b850b2b583c84ae963b97baf"
+    },
+    {
+      "path": "problems/N8/fourteen-layer-proof.md",
+      "bytes": 7664,
+      "sha256": "57ad182aa74cc627129dc3ec1a4fec134d683276d9253b7ac018bbdf8fbaffe2"
+    },
+    {
+      "path": "problems/N8/fourth-layer-audit.md",
+      "bytes": 8048,
+      "sha256": "dfa75e6adab065522588df8140546b99d27a46709257b987adb72d0c629f2f58"
+    },
+    {
+      "path": "problems/N8/fourth-layer-proof.md",
+      "bytes": 5502,
+      "sha256": "c81a3dcbd8fd496f929a1b89b7264f41eaa2558670f24e877f163b46b1355f0f"
+    },
+    {
+      "path": "problems/N8/independent-abelianization-proof.md",
+      "bytes": 12007,
+      "sha256": "33981c153ed171c4c980e67bacda93ee436bdfbe95e5e97c92faf026aa03c11f"
+    },
+    {
+      "path": "problems/N8/iterated-adjoint-audit.md",
+      "bytes": 7842,
+      "sha256": "a28d1be3dc55becc1c2157edc34304eb3d60d90e98d2954d00196fa5c380ea88"
+    },
+    {
+      "path": "problems/N8/iterated-adjoint-proof.md",
+      "bytes": 10243,
+      "sha256": "fafba37f3d87427a09b9146b4b2987e31a5f2a0f602831dfcea7db4653edf921"
+    },
+    {
+      "path": "problems/N8/odd-adjoint-audit.md",
+      "bytes": 7873,
+      "sha256": "6072b87769ef99814bfac1461b6b81ab5b51c40cb153a0a1bdf1d5f8824933e1"
+    },
+    {
+      "path": "problems/N8/odd-adjoint-proof.md",
+      "bytes": 12839,
+      "sha256": "bbb474f4b1ddea8e4987e0c64ea4459a332eaf2fca6ac258e36408837f9176d1"
+    },
+    {
+      "path": "problems/N8/parametric-integer-audit.md",
+      "bytes": 5704,
+      "sha256": "95e1356c80417e1b8ed760da34f8deb597c5f1dc28615d8ba34e7daaa39a7ff2"
+    },
+    {
+      "path": "problems/N8/parametric-integer-proof.md",
+      "bytes": 7420,
+      "sha256": "3dfdb92fbbfded4154486e0a9510e2dc90844c0cdb2804a5f8b4cdcc78b6ca3f"
+    },
+    {
+      "path": "problems/N8/parametric-tail-audit.md",
+      "bytes": 14316,
+      "sha256": "cb6fad0932cf94569475d22a5deccf30089790b7569c7e367396307ace80e98b"
+    },
+    {
+      "path": "problems/N8/parametric-tail-proof.md",
+      "bytes": 9390,
+      "sha256": "17c2628d316e0199b07aef835062b6734b4bcba64bfd019329449e554aaa5b53"
+    },
+    {
+      "path": "problems/N8/penultimate-audit.md",
+      "bytes": 5387,
+      "sha256": "53586425567917194a0bb1d6d2b0c86f045dddd2abef6a44336ed3b41fe7c9b2"
+    },
+    {
+      "path": "problems/N8/penultimate-target-proof.md",
+      "bytes": 6703,
+      "sha256": "bc207ec6b1754b3322307ff1008091ac2649b89a0ce2ad94b730b551d905e9a0"
+    },
+    {
+      "path": "problems/N8/projective-factor-audit.md",
+      "bytes": 9477,
+      "sha256": "9ac9af810d7ea6bfd65259d5a637b1d191a16e8f62318b95ed8f2910c24a98cd"
+    },
+    {
+      "path": "problems/N8/source-fragment.html",
+      "bytes": 369,
+      "sha256": "c85079d7a323f039f8619adf7ddf8b5509ec973f0f1e27dfc6fbbbed2937473e"
+    },
+    {
+      "path": "problems/N8/statement.html",
+      "bytes": 666,
+      "sha256": "3d31dddfb522fb48984bf4b651a1e634e2e6422f5d6c942b697c7dec78845ea4"
+    },
+    {
+      "path": "problems/N8/third-layer-audit.md",
+      "bytes": 9291,
+      "sha256": "5e14b942caf6a640b56f2bfa18cc6d3045aa2e1d04da10c774de8a2624ead6c5"
+    },
+    {
+      "path": "problems/N8/third-layer-proof.md",
+      "bytes": 8708,
+      "sha256": "ba91e039c9df99fcb416bd80c9520c23105b9bd9bd830cd7f91393592305632d"
+    },
+    {
+      "path": "problems/N8/two-exception-audit.md",
+      "bytes": 7507,
+      "sha256": "20d2185f2d4c300e7ca3f125e76b2bdae8f71eb272d32f4a0f93e6035c6362f8"
+    },
+    {
+      "path": "problems/N8/two-exception-proof.md",
+      "bytes": 12123,
+      "sha256": "57fcbef162e8d8a9b9fb70af45eca79ad4debc2d6c0311fa0c0bf7eaf4829a35"
+    },
+    {
+      "path": "problems/N8/type1-third-audit.md",
+      "bytes": 9151,
+      "sha256": "38550843564cb7f16c72d5dd9872169f377d67da7566409c642e8976a14bed96"
+    },
+    {
+      "path": "problems/N8/type1-third-proof.md",
+      "bytes": 10527,
+      "sha256": "53fbe8cb8f691c1d75ccdb3b462d5cb4c98517d9663bfd7795b5169cc0208e0f"
+    },
+    {
+      "path": "problems/N8/type12-third-audit.md",
+      "bytes": 6671,
+      "sha256": "4759a72eeefc335947d4ccdc9a5067902547e519d8c5f028dca63ee6626e4b63"
+    },
+    {
+      "path": "problems/N8/type12-third-proof.md",
+      "bytes": 6330,
+      "sha256": "b54cd5bbd006310eaf17a511896a68ec6159841a52c05dab99f8085ded23375c"
+    },
+    {
+      "path": "problems/N8/universal-gauge-audit.md",
+      "bytes": 9973,
+      "sha256": "b8b11aed33a470e20d873a2f8b9355f1494eb3476e2dcca407200267ae22233c"
+    },
+    {
+      "path": "problems/N8/universal-gauge-proof.md",
+      "bytes": 14635,
+      "sha256": "0e1ca49c36b252027b9ef4ddcc566d126fbb87af6e00a0128c024d447233547b"
+    },
+    {
+      "path": "problems/N8/weighted-orbit-audit.md",
+      "bytes": 8096,
+      "sha256": "f07f71536e30ad1b06780efe70a7ff93bf0e895c95df5572342561cc231b2f65"
+    },
+    {
+      "path": "problems/N8/weighted-orbit-proof.md",
+      "bytes": 11018,
+      "sha256": "4156af3e96b7b0c7684326ffc428bb06c0079f020495ca6a456b97eca7290d35"
+    },
+    {
+      "path": "research/certificates/N8-parametric-tail/manifest.json",
+      "bytes": 23839,
+      "sha256": "16e109f40423dd8a54f5bb694d14236340ac6eed5a64d9778e837e685df13773"
+    },
+    {
+      "path": "research/certificates/N8-polynomial-group-tail/boundary25/checks.json",
+      "bytes": 28780,
+      "sha256": "e9c718d173c29fa546bcba2224ea25599f36ecfddce8f51b0c4366c482124d69"
+    },
+    {
+      "path": "research/certificates/N8-polynomial-group-tail/boundary25/fixtures.g",
+      "bytes": 7717,
+      "sha256": "0066810d9b568b03c2648888d93314d615c5ad3fd01ee1d50fbbcf3b10526dfc"
+    },
+    {
+      "path": "research/certificates/N8-polynomial-group-tail/c21-v2/checks.json",
+      "bytes": 5305375,
+      "sha256": "c6bb9aae8fb17fe5b2fcc20097cece103236e9a1f6ad9bfb5813a8eb10e26382"
+    },
+    {
+      "path": "research/certificates/N8-polynomial-group-tail/c21-v2/diagnostic-stacks.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "research/certificates/N8-polynomial-group-tail/c21-v2/fixtures.g",
+      "bytes": 497503,
+      "sha256": "6bf0bd8938ee4ae00e577affa6acc2fa80cb24437061b1572a24ba74502a706f"
+    },
+    {
+      "path": "research/certificates/N8-polynomial-group-tail/c24-v1/diagnostic-stacks.log",
+      "bytes": 2591,
+      "sha256": "c5872ba4ed7dba7c21dfadb4c4c8a4caef83d83a9c6754f1440e1b9f4531cb47"
+    },
+    {
+      "path": "research/certificates/N8-polynomial-group-tail/c24-v2/diagnostic-stacks.log",
+      "bytes": 3355,
+      "sha256": "676f24b2de706fee6fef814a1f7b1ab26f2776a6726a4ccd46e5788601478c74"
+    },
+    {
+      "path": "research/certificates/N8-polynomial-group-tail/c24-v3/checks.json",
+      "bytes": 40136372,
+      "sha256": "c6da7fbec860e8ac515ad383291b037d6cb361cd4e2c72e8b193b4b104f20a92"
+    },
+    {
+      "path": "research/certificates/N8-polynomial-group-tail/c24-v3/diagnostic-stacks.log",
+      "bytes": 2786,
+      "sha256": "417c7e61cbcc74ecde4cfe944a4a186650c5c71f69c326e85241538b2d652b5a"
+    },
+    {
+      "path": "research/certificates/N8-polynomial-group-tail/c24-v3/fixtures.g",
+      "bytes": 3731727,
+      "sha256": "598ec2cc77f1fd5398cf3eb46892bbde07c7f4fc8b6d4c93c6e72a0908312e69"
+    },
+    {
+      "path": "research/certificates/N8-polynomial-group-tail/c24-v3/polynomial-input.json",
+      "bytes": 7555783,
+      "sha256": "558c43903edf8889950a1914303d142c7eb7512c554d5b65d35deda98eef8a0a"
+    },
+    {
+      "path": "research/certificates/N8-three-exception-range/checks.json",
+      "bytes": 3112,
+      "sha256": "8cbdf1c31af8afdb5773c9524b2d3f7f05571f17c59bf2d40797793f29d3016a"
+    },
+    {
+      "path": "research/certificates/N8-three-exception-range/fixtures.g",
+      "bytes": 528,
+      "sha256": "a980c505acf92da6ec07b66a2091c15b9fae4278acb0516cea7a6fee428241e2"
+    },
+    {
+      "path": "research/certificates/N8-two-exception-block/manifest.json",
+      "bytes": 18498,
+      "sha256": "14b26dd7a22750907a30a5673212994d900d6c576515b2019d80235ce07724ca"
+    },
+    {
+      "path": "research/notes/M0-29sep-convention-recheck.md",
+      "bytes": 3120,
+      "sha256": "be84ed661e125c8ef2f798d2a6d5fdb39d2bb30ca40296adf7a83f19c54cb068"
+    },
+    {
+      "path": "research/notes/N8-compatible-deformation-probe.md",
+      "bytes": 2663,
+      "sha256": "8967d44bb7566dad5b47659ac7a37323def8e0d0aeecfd14022c775bc0e3c40a"
+    },
+    {
+      "path": "research/notes/N8-hyperelliptic-lead.md",
+      "bytes": 7314,
+      "sha256": "3a02c22ecc21c5009a18f1321d9274e40eee1ab695be8015f2febdd9a2cf7238"
+    },
+    {
+      "path": "research/statement-audits/N8/original-page.pdf",
+      "bytes": 22390,
+      "sha256": "9703d760cd47a49a150f827067f65074e29b77a6c99ad01f1285b520d18b468e"
+    },
+    {
+      "path": "research/statement-audits/N8/render.json",
+      "bytes": 1105,
+      "sha256": "8bcf3f1a38ac381a5d5e6166acf96179a0011ae952575eccaf6f6702cbb4f0a8"
+    },
+    {
+      "path": "research/statement-audits/N8/statement.png",
+      "bytes": 12654,
+      "sha256": "e49df9e6b6a0737f57c3740c71a42c41007597b33269b637a28bf0c1ccf598e6"
+    },
+    {
+      "path": "results/n8-compatible-absorption-probe-v1/process.json",
+      "bytes": 728,
+      "sha256": "d5d27952068a17e7f75045969de702dcc0d263d8d73eecb0acd48edc2f82e123"
+    },
+    {
+      "path": "results/n8-compatible-absorption-probe-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/n8-compatible-absorption-probe-v1/stdout.log",
+      "bytes": 171,
+      "sha256": "c6f702f78d1518315767c5ed37c9d1df63d02016ac6753f80f65c962b0607802"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c21-v1/executed-constructor.py",
+      "bytes": 6965,
+      "sha256": "4a619297d78448f8a429db4d763ab5814c5463ac97269863bf6aa8376ab78caa"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c21-v1/process.json",
+      "bytes": 822,
+      "sha256": "0d8ed88239e6b66b79af849b1768c84aed1722a54c6d11cdb4241e8eacd7b9e3"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c21-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c21-v1/stdout.log",
+      "bytes": 155,
+      "sha256": "22bfef6fcd9186e4bb96f1b5beb6c776cabd03b679f852ba5c3841ce7a88a20c"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c21-v2/executed-constructor.py",
+      "bytes": 8490,
+      "sha256": "f7c35ec5c919273de64c5d38a09a7e45fcf3cb08ffc9f657b99f4fec8171c8da"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c21-v2/process.json",
+      "bytes": 821,
+      "sha256": "2178fe060b298a5d7c375e3d7a62d7fa9b290ed0c4d204528fb5908e343a8c94"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c21-v2/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c21-v2/stdout.log",
+      "bytes": 594,
+      "sha256": "c6ff5f657d14d07790ce390c5dcf64257948ee03f018b7540ea6008dc6db1a55"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c24-v1/executed-constructor.py",
+      "bytes": 8490,
+      "sha256": "f7c35ec5c919273de64c5d38a09a7e45fcf3cb08ffc9f657b99f4fec8171c8da"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c24-v1/process.json",
+      "bytes": 823,
+      "sha256": "a5ac16ab0bcefef94a3ad65eccf4634e2243aaed77b3fad6a7aeb006dab14631"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c24-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c24-v1/stdout.log",
+      "bytes": 311,
+      "sha256": "0405aa3b952ddc12906c7793f5cad816d8b63bd0a1a9f4f21e309674bbd72194"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c24-v2/executed-constructor.py",
+      "bytes": 9286,
+      "sha256": "7a1f063b9f995c08939a8069d6372a6a9f1fccf6d49475ce10ce0f2983057fd5"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c24-v2/process.json",
+      "bytes": 823,
+      "sha256": "55f9fcc968196e1d978a8980f0ca24b1eeec8601c81e55765ece7d408238f4d8"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c24-v2/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c24-v2/stdout.log",
+      "bytes": 556,
+      "sha256": "a24417d79a4da65e8188680236c2d3eb98dd64477bfc45c4c41a1989b83d5ddb"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c24-v3/process.json",
+      "bytes": 822,
+      "sha256": "7c1f0a044a6c04d57aea7c0ef75b055c1b34083c709608048f03eaa53d6ebe40"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c24-v3/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-c24-v3/stdout.log",
+      "bytes": 793,
+      "sha256": "36dadcd7386b00692eb0cd1865e49679ea4a2b6b714f6abccd69575021b3c20a"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c21-v1/executed-verifier.g",
+      "bytes": 10565,
+      "sha256": "cfbcc811764742b09a65a9fa5114927c7c700ee39db902fa97b4c33707e593ca"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c21-v1/process.json",
+      "bytes": 851,
+      "sha256": "8e14de9ff14ca0b675add673f85544758cc89ce114c642a44eb371e23e366cfd"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c21-v1/stderr.log",
+      "bytes": 878,
+      "sha256": "e2554105f51d562f78392c8abaaabdb2116f425367befd990e6b7b76b7b7f878"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c21-v1/stdout.log",
+      "bytes": 19,
+      "sha256": "4b8173e129294128b7ed482164512ff09a7e5e1c1f7e36d83a5d4e184a0a2111"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c21-v2/executed-verifier.g",
+      "bytes": 10778,
+      "sha256": "9d1907cc01cdb016ce7ab7a8033534a2ec20e750f2cca496a7b46273f70a47a2"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c21-v2/process.json",
+      "bytes": 851,
+      "sha256": "b3725147ddc87ea6f4a3cf92b5511f7666121961817146b5d76b95f614d9d66c"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c21-v2/stderr.log",
+      "bytes": 343,
+      "sha256": "0093b10f45dc621cbc24ed43bd0a8591ed90fb57ffd3f6a647ba33ab8c7ae51f"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c21-v2/stdout.log",
+      "bytes": 204,
+      "sha256": "c8233ea01ac1832e878c3b2ba31504d440a2075de586652b60c3b9497409f7d7"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c21-v3/executed-verifier.g",
+      "bytes": 10910,
+      "sha256": "10197d34fe523d87f3dc3318390432b9a854f05f7799b2453917e034a839aaa6"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c21-v3/process.json",
+      "bytes": 850,
+      "sha256": "5da66229b0d5e5622949eb3bda8ce90a4f3b727bb70e985705ccda11ff6c0c73"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c21-v3/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c21-v3/stdout.log",
+      "bytes": 792,
+      "sha256": "d240e9752057a5b821c93bc1bb11e734351cee91446fcfce0b0737a823788017"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c24-v1/executed-verifier.g",
+      "bytes": 11286,
+      "sha256": "3b5ce22abf50847a71f866a15cebdf0b4b765db26b9c447895f0e9a42719b1e0"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c24-v1/process.json",
+      "bytes": 852,
+      "sha256": "189369d98be009fe4ee1ce9e1010c6e88ad62471b1ac575763a83dec75eb0bc4"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c24-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c24-v1/stdout.log",
+      "bytes": 541,
+      "sha256": "ae022afc8877b768cc7a42d1f47d87b2ac9a9e3d399bda5b3c8c58bde7c43ad2"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c24-v2/executed-verifier.g",
+      "bytes": 11678,
+      "sha256": "1c07aa86504f0ca2bf897d3e10fc64948b3986cddf47d1d488c38001c38d1f99"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c24-v2/process.json",
+      "bytes": 850,
+      "sha256": "0a20f3f4072b8316c65abd5f2538dea39e3e480339437cc54ea727258c426a67"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c24-v2/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/n8-polynomial-group-tail-gap-c24-v2/stdout.log",
+      "bytes": 938,
+      "sha256": "b1a4dfa98708353d520cc6a36b1ff993f11d565817647e8ed92350853763c745"
+    },
+    {
+      "path": "results/n8-polynomial-tail-boundary-gap-v1/process.json",
+      "bytes": 736,
+      "sha256": "de208e727cf33b1df0742504c9cfb90a6b4604b83a4527d454b2ac39cf7e2208"
+    },
+    {
+      "path": "results/n8-polynomial-tail-boundary-gap-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/n8-polynomial-tail-boundary-gap-v1/stdout.log",
+      "bytes": 97,
+      "sha256": "09dce44045e7dcdab8dbceb5b6f9562f665cae7b6d05d7830b72684009f865f6"
+    },
+    {
+      "path": "results/n8-polynomial-tail-boundary-v1/process.json",
+      "bytes": 719,
+      "sha256": "6ad8d551c4db911133034d96732feb94017bd678b443aafeff409abf33fdf64e"
+    },
+    {
+      "path": "results/n8-polynomial-tail-boundary-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/n8-polynomial-tail-boundary-v1/stdout.log",
+      "bytes": 142,
+      "sha256": "23573fd9a9961bf6a39e7820e20d227aa6f9976eff56a41dde470cdd85553a9c"
+    },
+    {
+      "path": "results/n8-three-exception-range-gap-v1/process.json",
+      "bytes": 742,
+      "sha256": "62d37204233ff3ffb5b5c6157b132d232dc168d43bd527ba1c8630776abe233a"
+    },
+    {
+      "path": "results/n8-three-exception-range-gap-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/n8-three-exception-range-gap-v1/stdout.log",
+      "bytes": 101,
+      "sha256": "c09956502fffd792fb9847073eaa80d2182c1dcdc6816e4d1cc06061156a00e1"
+    },
+    {
+      "path": "results/n8-three-exception-range-v1/process.json",
+      "bytes": 714,
+      "sha256": "5154122e7969ccfc2157f6a1699d6d3eec6ce76546d578136b6a46e39d07900a"
+    },
+    {
+      "path": "results/n8-three-exception-range-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/n8-three-exception-range-v1/stdout.log",
+      "bytes": 239,
+      "sha256": "c22cc3a2bba26651e29f8cab5230fbd3e0485f57640b63ab2f565a5141c31c0c"
+    },
+    {
+      "path": "results/n8-weighted-quotient-c24-v1/process.json",
+      "bytes": 725,
+      "sha256": "c3391bc3b0d04b5550c86e42d4864a3438b7c3b91c481a7a030b9ad1e0fbc9ee"
+    },
+    {
+      "path": "results/n8-weighted-quotient-c24-v1/stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/n8-weighted-quotient-c24-v1/stdout.log",
+      "bytes": 162,
+      "sha256": "c7159590b1850dd36b91702142ffbe826b06c9c111c804865b88da031db08d00"
+    },
+    {
+      "path": "scripts/check_n8_parametric_tail.py",
+      "bytes": 10409,
+      "sha256": "ec66295c82ab1c687e790ed6f67622e0ff78d4d133d25b5b0192bad0a46fc41a"
+    },
+    {
+      "path": "scripts/check_n8_polynomial_group_tail.py",
+      "bytes": 9847,
+      "sha256": "c244360b240db4b9da05b26fae7d18614344eb3880b4db288e200585878a9c51"
+    },
+    {
+      "path": "scripts/check_n8_polynomial_group_tail_gap.g",
+      "bytes": 11678,
+      "sha256": "1c07aa86504f0ca2bf897d3e10fc64948b3986cddf47d1d488c38001c38d1f99"
+    },
+    {
+      "path": "scripts/check_n8_polynomial_tail_boundary.py",
+      "bytes": 1694,
+      "sha256": "03e63712fde82054d666c58016d20c84e3a87108e7b5a9034a8aa46d6b62f2b5"
+    },
+    {
+      "path": "scripts/check_n8_polynomial_tail_boundary_gap.g",
+      "bytes": 1050,
+      "sha256": "b86f55e9f286bb3b2ec6cc59d48b6f053a7f9e3708d274ba281402f8ce4ddb35"
+    },
+    {
+      "path": "scripts/check_n8_three_exception_range.py",
+      "bytes": 2688,
+      "sha256": "b132ffa88996270555f608f7d729779fea3075236ccba68e7eecd46ecad182a3"
+    },
+    {
+      "path": "scripts/check_n8_three_exception_range_gap.g",
+      "bytes": 2834,
+      "sha256": "86e3244462453c9c8abf0a77dfc02b0962611919583f197db5ce502e725e86a0"
+    },
+    {
+      "path": "scripts/n8_component_hnf.py",
+      "bytes": 2068,
+      "sha256": "3e583212ef86e0b4baf90a43d2dd8fb254788ac48fadc740fa2ee24dd15043af"
+    },
+    {
+      "path": "scripts/n8_component_linear.py",
+      "bytes": 1304,
+      "sha256": "d09f9813f24f878168f444beaac69b89acdf2cfd40076cc4bf887e682672bde0"
+    },
+    {
+      "path": "scripts/n8_universal_gauges.py",
+      "bytes": 9052,
+      "sha256": "8f252907f9ecc90dcf52f6865ac8f9ca6366b23c72b337a5f5fcf455a494e2d0"
+    },
+    {
+      "path": "scripts/n8_weighted_automorphisms.py",
+      "bytes": 13497,
+      "sha256": "163deef1e8e6e238a199b560f30193be95ab63fc1ed5a6ddb98b50798649c8ab"
+    },
+    {
+      "path": "scripts/parametric_integer_linear.py",
+      "bytes": 6872,
+      "sha256": "16499f557f129b1fee0c348677b7a094783e73a14ce6cefaea649598e285f4f0"
+    },
+    {
+      "path": "scripts/probe_n8_compatible_absorption.g",
+      "bytes": 2412,
+      "sha256": "230f1b92c8444be0f1dada985d14c87fcf197ff000bbc5cc4ae61811ab5f6008"
+    },
+    {
+      "path": "scripts/probe_n8_weighted_quotient.g",
+      "bytes": 1543,
+      "sha256": "4f940cc0340a043a6a02ee628d7a8aa8982ff7ea8f5ff7ffa575f647031fb32f"
+    },
+    {
+      "path": "scripts/run_recorded.py",
+      "bytes": 6051,
+      "sha256": "bdbf0e326deb10ec4812d0b77ca30307e72c6cc7cdae91f3671718f2c7da4800"
+    },
+    {
+      "path": "sources/raw/probnil.html",
+      "bytes": 2503,
+      "sha256": "3234a31c066e5ad4c8ad5a5e712f076cb34a8e67aa50d9e3785ba3e915e02506"
+    }
+  ]
+}

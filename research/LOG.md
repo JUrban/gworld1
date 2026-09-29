@@ -1541,3 +1541,33 @@ new gap or changing scope; `research/notes/M0-29sep-convention-recheck.md`.
 Counts8 whole/2 partial/0 established novel; at most2 cores/16GB reserved.
 No subagents, pushes, contacts, parent or preparation-repository changes.
 The original30 September10:04:49UTC deadline is unchanged.
+
+
+## N8 fourteen-final-layer audit completed (2026-09-29T15:24:41.390301+00:00)
+
+The candidate partial scope now covers c-d<=13 and, with the previous
+leading-degree-ten theorem, all targets through class24. General N8 is
+unresolved. The class24 constructor passes in534.781437 seconds; its
+independent native GAP replay passes in169.786400 seconds, checking2457
+polynomial columns,18 joint controls,3 complete homogeneous kernels,
+one complete integer fiber of dimension3 and2 actual group witnesses.
+The separate quotient preflight confirms Hirsch length389 and no torsion.
+Together with class21 and the strict class25 boundary, the audit retains
+16 terminal runs:10 successful and6 failed or intentionally interrupted.
+The largest new certificate is40,136,372 bytes, below the90,000,000 limit.
+See problems/N8/fourteen-layer-audit.md for exact evidence and limits.
+
+The actual polynomial examples are not surviving unbounded absorbed
+branches. The general proof keeps those branches, all integer residues
+and all later kernels; its structural dependencies need specialist review.
+The all-rank branch algorithm is not implemented end to end. Counts remain
+8 whole-entry candidates,2 partial candidates,0 established novel results.
+
+A separate hyperelliptic arithmetic route is saved as an unverified,
+uncounted lead. Berczes--Evertse--Gyory2013 Theorem2.2 provides a prior
+effective bound; only the introduction/notation/statements through page4
+were read, and actual page4 viewed, not the full proof. The group-family
+reduction and low-degree arithmetic cases still need a full argument.
+All jobs terminal; at most2 cores/16GB reserved in this work period. No
+pushes, contacts, subagents or parent/preparation changes. Original
+30 September10:04:49UTC deadline unchanged.

@@ -632,3 +632,18 @@ pass and should not be repeated without a new concern. Current candidate
 scope/counts remain unchanged. The compatible-deformation probe is a
 failed unbounded branch, not a positive example; its general obstruction
 question is only a lead. Original deadline unchanged.
+
+
+## Next step after fourteen final layers (2026-09-29T15:24:41.390301+00:00)
+
+The class24 constructor, quotient preflight and full independent GAP
+replay have passed; do not repeat completed suites without a new issue.
+Candidate N8 scope is c-d<=13/all classes<=24, with the previous
+leading-degree<=10 theorem retained. General N8 remains unresolved.
+The next bounded lead is research/notes/N8-hyperelliptic-lead.md: write
+the complete constant-leading-quadratic integer-curve decision lemma,
+then audit whether the group reduction really introduces only fixed
+congruences and the claimed number of parameters. No class25/26 or
+three-exception arbitrary-class extension is adopted. Alternate with
+a concrete portfolio route or a candidate dependency review. All jobs
+terminal;8 whole/2 partial/0 established novel; original deadline.
