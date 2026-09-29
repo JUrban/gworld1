@@ -526,3 +526,16 @@ and relevant discussion read in archived publisherHTML. Used withA5 to
 construct finite presentations of metabelianizations of finitely
 presented solvable groups. Does not decide M3; proofs and limits in
 research/notes/M3-effective-metabelian-quotient.md. No new count.
+
+
+## 2026-09-29T08:23:41.895156+00:00 — N3 construction repair revisited
+
+Re-read GSW2003 Definition3.1, Lemma3.2, Proposition3.5/3.6 and Corollary3.7.
+The coordinate retraction remains valid independently of the false
+torsion-freeness proposition. Bounded searches for locally nilpotent
+torsion-free covers, Plotkin's question, pseudo-free corrections and
+countable/periodic cases did not locate a corrected construction. No
+exhaustive openness or novelty claim follows. The new locally certified
+obstructions to the pair-bound enlargement and uniform+1 enlargement are
+in `research/notes/N3-profile-repair-obstruction.md`; no prior-source claim
+is upgraded to a solution of N3.

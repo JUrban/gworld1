@@ -244,3 +244,13 @@ The original N3 HTML and actual rendering were checked again. N3 remains
 unresolved here; these observations only narrow the attempted repair.
 They do not turn the false construction lemma into a counterexample to
 the original problem, and add no candidate or novelty claim.
+
+
+## 29 September follow-up: enlarging every bound by one also fails
+
+The exact cover criterion and new integer/GAP-certified examples are in
+[N3-profile-repair-obstruction.md](N3-profile-repair-obstruction.md).
+For the three-generator profile with singleton/pair/full bounds1/2/6,
+torsion survives the canonical map even after increasing all bounds by
+one. Factoring out that torsion would destroy the proposed surjection.
+This narrows another repair route; it does not answer N3 or add a candidate.

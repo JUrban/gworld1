@@ -1072,3 +1072,40 @@ Broader source revisits found no further full resolution; already recorded
 F15/F42 results remain prior. Frozen input hashes and actual log hashes
 verified. All jobs ended. Counts6 whole,3 partial,0 established novel;
 original48hour clock and195-entry objective retained; no agents or push.
+
+
+## 2026-09-29T08:23:41.895156+00:00 — N3 profile-repair obstructions certified
+
+The immediately preceding preparation-only turn made no progress toward
+the active solving goal. Revalidated the original active clock and clean
+research worktree and resumed here. Preparation export and parent Kourovka
+checkout were not modified.
+
+Derived an exact equivalent criterion for a torsion-free cover: a coherent
+enlarged pseudo-free profile must kill all its torsion in the canonical
+map to the target. Rechecked the original full HTML and actual rendering.
+The arbitrary-cardinality requirement remains explicit.
+
+A class-six profile probe found surviving torsion when pair bounds rise
+from2 to3. Extracted a538-letter/11-factor central order-two witness and
+a three-factor square identity. A mod-two additive envelope failed; an
+exact multiplicative echelon certificate instead proves nonmembership,
+checking180 rows,15 central commutators,1080 signed conjugates and240
+relator differences. Standard Python and independent GAP both pass.
+
+The separate uniform increment, including full bound6 to7, also fails.
+A GAP preimage had277662 letters; attempted shortening hit its preset
+memory limit (actual exit0, missing success marker, correctly failed).
+The old compact prefix alone has infinite order there. Constructed an
+independent central correction via the full480-generator integer normal
+lattice: cube the prefix and append56 central Hall factors. The resulting
+word has an explicit24-factor square identity and a nontrivial target
+image. Final standalone5.989s/GAP13.413s, both exit0 and empty stderr.
+
+The first broader probe timed out after180s at class8; no class8 result
+or pair-bound4 result is inferred. Earlier syntax-warning versions and
+failed constructor sources are retained. All jobs have terminated.
+Maximum two cores/18GB combined reservations; no agents, contact or push.
+Counts remain6 whole/3 partial candidates,0 established novel. Neither
+profile example is a counterexample to N3, whose finite target has an
+obvious free nilpotent cover. Original48hour deadline unchanged.

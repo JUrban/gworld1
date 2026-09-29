@@ -442,3 +442,22 @@ prevents a false positive. Retain the full unresolved portfolio and
 return to a concrete discovery lead; do not spend time rediscovering
 the already indexed F15/F42 answers. No jobs remain. The original
 deadline and6 whole/3 partial candidate counts are unchanged.
+
+
+## Working focus after N3 profile-repair checkpoint (2026-09-29T08:23:41.895156+00:00)
+
+N3 now has an exact torsion-killing profile criterion and two independently
+certified obstructions, including the uniform rule d(U)=c(U)+1. Do not
+repeat the finished class6/7 checks or treat these as counterexamples to
+N3: the finite target has a free nilpotent cover. The larger class8 sweep
+timed out, and pair-bound4 cases were not reached. The huge-preimage
+shortening and uncorrected-prefix routes failed; the integral central
+correction completed the needed proof.
+
+Any further N3 repair must construct a single compatible profile over
+arbitrary generator sets and preserve the target under torsion removal.
+Larger changes of profile remain possible; none is established here.
+Return also to concrete unresolved leads across the frozen195-entry
+portfolio, rather than growing this auxiliary example indefinitely.
+Preserve6 whole/3 partial candidates,0 established novel and the original
+48hour clock. No jobs remain after this checkpoint.
