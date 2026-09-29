@@ -1386,3 +1386,25 @@ recorded; this classical ingredient is not claimed as new. All jobs are
 terminal, all evidence is local, and no subagents/pushes/contacts occurred.
 Counts remain8 whole-entry coverage candidates,2 partial,0 established novel.
 The original deadline remains30September10:04:49UTC.
+
+
+## N8 exceptional weight boundary (2026-09-29T12:29:35.464647+00:00)
+
+A nonzero pre-Nielsen kernel now has the proved bound t<=q-3p. The
+separation criterion therefore covers every leading gap<=6, giving all
+leading degrees<=8 in arbitrary class and all targets in classes<=14.
+All later exceptional directions lie in the first direction's two-generator
+Lie algebra, but explicit offsets3,5 show that overlap is real. Python/FLINT
+and independent GAP verify19 complete kernel dimensions and5 identities
+in0.120 and1.975seconds, respectively, with empty stderr. No failed run.
+
+Proof/audit: `problems/N8/exceptional-boundary-proof.md`. This is a scope
+refinement of the existing partial candidate; full end-to-end group branch
+implementation, specialist review and novelty remain outstanding. A new
+univariate parametric lattice route is saved in
+`research/notes/N8-parametric-tail-lead.md`; it is not yet implemented,
+audited or counted. Broader portfolio searches are recorded separately
+in `research/notes/portfolio-29sep-noon.md` and added no candidate.
+
+All jobs terminal;8 whole/2 partial/0 established novel; no subagents,
+pushes, contacts or imported Kourovka arguments. Original clock unchanged.

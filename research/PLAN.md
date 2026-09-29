@@ -2,7 +2,7 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately 11:47 UTC on 29 September: eight whole-entry
+Latest checkpoint, approximately 12:30 UTC on 29 September: eight whole-entry
 candidates (F28,N5,M0,H4,F41,GA3,F38,F34), two partial candidates
 (N8,G9), zero established novel results. All ten await
 specialist review and novelty assessment. F34 was reclassified to make
@@ -573,3 +573,18 @@ needs a specific argument controlling their interaction. Return also to
 concrete unresolved portfolio problems and proof dependencies of existing
 whole-entry candidates. All jobs terminal;8 whole/2 partial/0 established
 novel, original deadline unchanged.
+
+
+## Next concrete step after the exceptional boundary (2026-09-29T12:29:35.464647+00:00)
+
+N8's counted partial scope is now leading degrees<=8 in arbitrary class
+and all targets in classes<=14. Do not repeat the completed19-kernel suite.
+The new `research/notes/N8-parametric-tail-lead.md` proposes a complete
+univariate polynomial-matrix lattice decision, followed by a joint tail
+algorithm through n<=2t+3. Its prospective ten-final-layer/class18 scope
+is explicitly unverified and not counted. Next audit and implement that
+integer decision lemma with full Smith transformations, rank-drop values,
+finite bounds and periodic residues; independently replay complete positive
+and negative certificates. Then test actual group correction branches with
+the overlapping offsets3,5 before any further scope promotion. Preserve
+the full portfolio and the original deadline; all current jobs terminal.

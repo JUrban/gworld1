@@ -16,7 +16,7 @@ Current counts: **2 partial candidates**, **8 whole-entry candidate solutions**,
 - F42: derived the exact extremal formula and a covering-graph construction, then found Koch-Hyde–Olive's September 2026 preprint already proving the same answer. Preserved as a rediscovery, excluded from new-solution count.
 - F11: derived a cyclic-retract/index-three counterexample, then found the same mechanism in Snopce–Tanushevski–Zalesskii (2019). Also excluded. Original HTML screenshots for F11/F42 have now been inspected.
 - Primary sources also report prior resolutions of F15, F30, F31 and F40. B11 has a 2025 primary seminar announcement; full proof not yet located. Scope checks are recorded in `research/triage.csv` and `literature/LEDGER.md`.
-- N8(b): the latest candidate covers all leading target degrees through seven in arbitrary class, all separated exceptional-offset branches, and all targets through class thirteen when combined with the previous six-final-layer theorem. Exact commutator-preserving substitutions apply even to decomposable heavier leading terms. GAP independently verifies22 universal automorphisms and32 substitutions on8 such pairs, with216 inverse equalities and6 wrong-Nielsen controls. The full new branch algorithm is proved but not implemented end to end. See `problems/N8/universal-gauge-proof.md` and `universal-gauge-audit.md`; previous weighted-orbit and implemented fifth/sixth-layer audits are retained. N8 remains one partial candidate; overlapping exceptional offsets, specialist review and novelty are unresolved.
+- N8(b): the latest candidate covers all leading target degrees through eight in arbitrary class, all separated exceptional-offset branches, and all targets through class fourteen when combined with the previous six-final-layer theorem. Exact commutator-preserving substitutions apply even to decomposable heavier leading terms. GAP independently verifies22 universal automorphisms and32 substitutions on8 such pairs, with216 inverse equalities and6 wrong-Nielsen controls. The full new branch algorithm is proved but not implemented end to end. See `problems/N8/exceptional-boundary-proof.md` for the weight refinement and19 independently checked kernels, and `universal-gauge-proof.md` / `universal-gauge-audit.md` for the branch algorithm; previous weighted-orbit and implemented fifth/sixth-layer audits are retained. N8 remains one partial candidate; overlapping exceptional offsets, specialist review and novelty are unresolved.
 - H4: candidate negative answer to polynomial-time conversion into an explicit Dehn presentation. Short presentations of finite metacyclic groups have doubly exponential order; a forbidden-factor automaton bounds the order of any finite group in terms of every Dehn presentation's size. Thus every explicit output is superpolynomial, even with changed generators. Proof: `problems/H4/proof.md`. GAP verified four finite models and independently computed three presentation orders. Related finite-group lower-bound ideas from2012 are credited; novelty and specialist review remain outstanding. Compressed output is a different specification. The strengthened bound in `problems/H4/infinite-input-proof.md` also covers infinite non-elementary virtually free inputs. GAP independently checked three conjugacy-class partitions and two free-kernel presentations (ranks6 and60); this remains the same candidate.
 - F28: explicit negative answer using a rational matrix conjugation on an index-two subgroup of F2. The image also has index two, and the bounded-orbit argument excludes every nontrivial invariant subgroup. Candidate proof: `problems/F28/proof.md`. Exact matrix/word checks covered 13,120 words; GAP independently checked subgroup indices/ranks and defining identities. Related arithmetic constructions in the literature establish weaker normal-subgroup statements; a matching prior full answer has not yet been found.
 - F34: whole-entry coverage combines candidate (a) with known (b); this is a counting reconciliation, not an additional solved subpart. See `research/notes/F34-coverage-reconciliation.md`. Part (a): candidate uniform decision algorithm for potential positivity in every finite rank. A positive image under an injection pulls back through a spanning-tree basis; a nonzero-determinant test on the full EDT0L solution relation decides existence. GAP independently verified270 explicit positive automorphism witnesses in ranks2--4 and3 scope controls. Rank2 and part(b) are prior; potentially new scope is rank>=3. Full recompression is imported, not implemented. Proof and audit: `problems/F34/part-a-proof.md`, `part-a-audit.md`.
@@ -385,3 +385,25 @@ recorded; this classical ingredient is not claimed as new. All jobs are
 terminal, all evidence is local, and no subagents/pushes/contacts occurred.
 Counts remain8 whole-entry coverage candidates,2 partial,0 established novel.
 The original deadline remains30September10:04:49UTC.
+
+
+## N8 exceptional weight boundary (2026-09-29T12:29:35.464647+00:00)
+
+A nonzero pre-Nielsen kernel now has the proved bound t<=q-3p. The
+separation criterion therefore covers every leading gap<=6, giving all
+leading degrees<=8 in arbitrary class and all targets in classes<=14.
+All later exceptional directions lie in the first direction's two-generator
+Lie algebra, but explicit offsets3,5 show that overlap is real. Python/FLINT
+and independent GAP verify19 complete kernel dimensions and5 identities
+in0.120 and1.975seconds, respectively, with empty stderr. No failed run.
+
+Proof/audit: `problems/N8/exceptional-boundary-proof.md`. This is a scope
+refinement of the existing partial candidate; full end-to-end group branch
+implementation, specialist review and novelty remain outstanding. A new
+univariate parametric lattice route is saved in
+`research/notes/N8-parametric-tail-lead.md`; it is not yet implemented,
+audited or counted. Broader portfolio searches are recorded separately
+in `research/notes/portfolio-29sep-noon.md` and added no candidate.
+
+All jobs terminal;8 whole/2 partial/0 established novel; no subagents,
+pushes, contacts or imported Kourovka arguments. Original clock unchanged.
