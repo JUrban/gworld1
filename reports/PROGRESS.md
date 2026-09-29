@@ -858,3 +858,8 @@ coefficients retain the polynomial multipliers required in the proof.
 The group/Lie realization and complete algorithm are still written
 arguments. One failed and one successful run are retained; no tally
 or deadline change and no independent specialist review is implied.
+
+
+## F20 finite-image checkpoint (2026-09-29T23:31:56.543036+00:00)
+
+[F20 finite-image probe](../research/notes/F20-finite-images.md): complete pair tests in S6,S7 and five PSL2 groups find no counterexample. Python and GAP agree. This remains inconclusive for F20; ten whole/two partial/zero established novel unchanged.

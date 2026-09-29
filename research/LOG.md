@@ -2076,3 +2076,8 @@ passes in8.15seconds with empty stderr and the restricted axiom audit.
 Both1CPU/8GB, sequential, terminal. No finite Lie/group fixture repeated,
 no source/count/deadline change and no push. The new audit is
 problems/N8/block-separation-lean-audit.md.
+
+
+## F20 finite-image checkpoint (2026-09-29T23:31:56.543036+00:00)
+
+Completed a distinct F20 finite-image probe: 167604 pairs after first-generator conjugacy reduction in seven nonnilpotent ambient groups. All accepted pairs kill every weight-seven target. Python and native GAP agree pair-by-pair. Three terminal1CPU/4GB runs; first GAP serialization invalid JSON and retained, v2 corrected. No mathematical failure or counterexample; no tally change.
