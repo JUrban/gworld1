@@ -261,3 +261,17 @@ tuning or enlargement of finite samples into the research objective.
 ## Working focus after the N5 integrality audit
 
 N5 passes the targeted composite-congruence and relator-defect audit without correction. Its general rational decomposition remains imported machinery, not an end-to-end implementation. F6 has a full prior Out(F3) theorem, but its Aut(F_n) scope is not retired. Do not repeat these small audits for volume. Resume a concrete unresolved mathematical lead, maintaining statement and novelty checks and the original deadline. Current tally:4 whole-entry candidates,4 partial candidates,0 established novel results.
+
+
+## Immediate lead after the 00:07 UTC checkpoint
+
+`research/notes/N8-odd-adjoint-family-lead.md` contains a new uncounted
+family for classes11,15,19,... . Structural identities and the first
+rank-two class11 kernel/obstruction passed Python and GAP. The complete
+proof argument is saved, but the integral group decision constructor
+and separate recognition audit remain. Next implement the h=3 case,
+using complete integral solution lattices and independent replay of
+linear/polynomial certificates. The first GAP timeout is preserved;
+recursive Hall evaluation fixes its representation cost. Do not rerun
+the expanded-word method or increase formal samples merely for volume.
+Tally remains4 whole,4 partial,0 established novel, original deadline.

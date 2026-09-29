@@ -131,3 +131,12 @@ N8(b) now has a candidate decision procedure for all targets in class ten, in al
 
 
 N5 integrality follow-up: ten targeted splitting controls and eight central relator systems passed. Independent GAP replay verifies four positive projections and all eight direct lift decisions, including four negative systems. The audit rejects arbitrary modular idempotents with incompatible local ranks; no correction was needed. See `problems/N5/integrality-audit.md`. F6 remains distinct from the prior Out(F3) theorem; the exact Aut/Out scope is recorded in `research/notes/F6-outer-versus-automorphism-scope.md`. Counts are unchanged.
+
+
+Uncounted N8 lead: an odd-adjoint construction proposes another family
+in classes11,15,19,... . Formal identities and the rank-two class11
+kernel/obstruction passed structural checks, including a GAP replay.
+The first GAP attempt timed out and remains recorded. Group-level
+construction and a separate proof audit are outstanding; the current
+candidate scope and counts have not been enlarged. See
+`research/notes/N8-odd-adjoint-family-lead.md`.
