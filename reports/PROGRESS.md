@@ -156,3 +156,6 @@ count increase or established novelty is claimed.
 The torsion-conjugacy bound gives m log_2(2m)>2^n-n-1 for every explicit Dehn output of the short metacyclic family and its free product with Z. This extends H4 to infinite non-elementary virtually free inputs and strengthens the output bound. Eight exact formula checks, four explicit orbit partitions, three independent GAP class partitions and two GAP free-kernel presentations passed. The short torsion representative lemma is prior Batty/Papasoglu material, explicitly credited. No torsion-free or compressed-output result is claimed.
 
 F37’s proposed determinant shortcut remains unproved for products of primitives; the precise reflection and encoding gaps are saved in research/notes/F37-embedding-reflection-gap.md. Counts remain4 whole,4 partial,0 established novel.
+
+
+Wider portfolio checkpoint,29September: the locally free construction route for MA4 is ruled out by a finite-normal-generation obstruction, with a perfect locally free linear control preserving the distinction. Recent compressed-primitivity and four-strand hyperbolic-quotient theorems do not settle C2 or B12. Proof/scope notes and source audits are saved; no candidate count changes.

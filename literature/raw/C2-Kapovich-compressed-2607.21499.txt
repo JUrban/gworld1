@@ -1,0 +1,1281 @@
+                                                            COMPRESSED PRIMITIVITY PROBLEM IN FREE GROUPS
+
+
+
+                                                                                                ILYA KAPOVICH
+
+                                                         Department of Mathematics and Statistics, Hunter College of CUNY
+                                                                695 Park Ave, New York, NY 10065, U.S.A.
+                                                                    e-mail ik535@hunter.cuny.edu
+                                                                                 ORCID 0000-0002-7694-6236
+
+                                                    Abstract. For a fixed integer r ≥ 2, we prove that the compressed primitivity problem in the free group
+                                                    Fr = F (x1 , . . . , xr ) is decidable in non-deterministic polynomial time. That is, for a straight-line program
+                                                    A over {x1 , . . . , xr }±1 representing an element g ∈ Fr , the problem of deciding whether g is primitive in Fr
+                                                    belongs to NP, with input measured by the size of A. For r = 2, we prove that this problem is decidable
+                                                    in deterministic polynomial time. We also show that, in every fixed rank r ≥ 2, automorphic minimality of
+arXiv:2607.21499v1 [math.GR] 23 Jul 2026
+
+
+
+
+                                                    the conjugacy class of a compressed word in Fr is decidable in deterministic polynomial time.
+
+
+
+
+                                                                                                     Contents
+                                              1. Introduction                                                                                                            1
+                                              2. Straight-line programs and compressed words in free groups                                                              4
+                                              3. Compressed substitutions and Whitehead minimality                                                                       8
+                                              3.1. Compressed images under fixed and iterated endomorphisms                                                              8
+                                              3.2. Whitehead automorphisms and weighted Whitehead graphs                                                                10
+                                              3.3. Computing the graph and testing minimality                                                                           12
+                                              4. Core graphs and immediate quotients                                                                                    13
+                                              5. The prefix-difference certificate                                                                                      15
+                                              6. Polynomial-time verification                                                                                           17
+                                              7. Further remarks on the certificate                                                                                     19
+                                              8. Deterministic polynomial time in rank two                                                                              19
+                                              9. Disclosure of AI use                                                                                                   24
+                                              References                                                                                                                24
+
+
+
+                                                                                                 1. Introduction
+                                              Straight-line programs, a data-compression tool from computer science, are useful for algorithmic problems
+                                           in group theory whose inputs may grow exponentially under algebraic operations. The word problem for
+                                           Aut(Fr ), where Fr = F (x1 , . . . , xr ) has finite rank r ≥ 2, is typical: a product φn of n generators may send
+                                           a basis letter xi to a word of exponential length, even when that word freely reduces to xi . Naive successive
+                                           substitution may therefore require exponential time and space.
+                                              Schleimer [17] instead represented φn (xi ) by a polynomial-size compressed word over Σr = {x1 , . . . , xr }±1
+                                           and performed free reduction directly in compressed form. This gave deterministic polynomial-time algo-
+                                           rithms for the word problems in Aut(Fr ), Out(Fr ), and Fr ⋊φ Z with φ ∈ Aut(Fr ). Briefly, a straight-line
+                                           program (SLP) A over a fixed terminal alphabet Σ is an acyclic grammar with nonterminals A1 , . . . , Am and
+                                           productions Ai → Wi , where Wi uses only terminals and earlier nonterminals. Its root Am produces a word
+
+                                             2020 Mathematics Subject Classification. Primary 20F10, Secondary 20E05, 68Q25, 68Q45.
+                                             Key words and phrases. free group, primitive element, straight-line program, compressed word, Whitehead automorphism,
+                                           Whitehead minimization, Stallings folding, computational complexity.
+                                                                                                           1
+wA . We write ∥A∥ for the number of nonterminals plus the total length of all right-hand sides. A canonical
+encoded length β(A) differs by at most a logarithmic factor; see Proposition 2.3. An SLP of size n may
+produce a word of exponential length.
+   Schleimer’s work initiated an active study of compressed group-theoretic problems; see Lohrey’s survey [10]
+and the account of Lohrey–Schleimer [11]. Polynomial-time algorithms are known for compressed word,
+conjugacy, simultaneous-conjugacy, and centralizer problems in hyperbolic groups [3]; the same work proves
+NP-completeness of compressed knapsack in every infinite hyperbolic group. Polynomial-time algorithms are
+also known for the compressed word and conjugacy problems in groups hyperbolic relative to free abelian
+subgroups [4, 5], and for several compressed problems in finitely generated nilpotent groups [12]. For free
+groups, Linton’s polynomial-time fully compressed subgroup-membership algorithm [9], with a fixed number
+of compressed generators, is a key ingredient in our NP verifier.
+   Strong hardness results are also known. Bartholdi, Figelius, Lohrey, and Weiß proved that the compressed
+word problem is PSPACE-complete for several natural groups, including Thompson’s groups, the Grigorchuk
+and Gupta–Sidki groups, and wreath products G ≀ Z with G finite non-solvable or free of rank at least
+two [1]. Wächter and Weiß constructed an automaton group whose compressed word problem is EXPSPACE-
+complete [19].
+   We study compressed primitivity in Fr = F (Xr ), where Xr = {x1 , . . . , xr } and Σr = Xr ⊔ Xr−1 . An
+element is primitive if it belongs to a free basis. For g ̸= 1, this is equivalent to ⟨g⟩ being a rank-one free
+factor, or to g = φ(x1 ) for some φ ∈ Aut(Fr ). For an SLP A over Σr , let wA ∈ Σ∗r be its output and gA ∈ Fr
+the represented element. The compressed primitivity problem asks whether gA is primitive.
+   To place the problem in standard complexity classes, Definition 2.2 gives a canonical injective encoding
+encr over a fixed alphabet Ωr . Put β(A) = | encr (A)|. Proposition 2.3 shows that
+                              ∥A∥ ≤ β(A),        β(A) = O(∥A∥ log(∥A∥ + 2)) .
+Thus the two size measures are polynomially equivalent. Complexity classes are measured using β(A), while
+grammar-growth estimates use ∥A∥. Identifying an SLP with its code, define
+                CPrimr = {encr (A) : A is an SLP over Σr and gA is primitive in Fr } ⊆ Ω∗r .
+Invalid encodings are rejected.
+   As usual, NP denotes the set of languages decidable in nondeterministic polynomial time, and P denotes
+the set of languages decidable in deterministic polynomial time.
+   Our main result, restated as Theorem 6.4, is:
+Theorem 1.1. For every fixed integer r ≥ 2, the language CPrimr belongs to NP. Equivalently, the com-
+pressed primitivity problem in Fr is decidable in nondeterministic polynomial time.
+  For F2 = F (a, b), Theorem 8.7 gives the stronger conclusion:
+Theorem 1.2. The compressed primitivity problem for F2 = F (a, b) is decidable in deterministic polynomial
+time. Equivalently, CPrim2 ∈ P.
+   The proof of Theorem 1.1 combines three ingredients: Schleimer’s compressed cyclic reduction [17],
+Puder’s immediate-quotient criterion [14, 15], and Linton’s subgroup-membership algorithm for a fixed num-
+ber of compressed generators [9]. In particular, Theorem 5.3 sharpens Puder’s primitivity criterion: instead
+of a sequence of immediate quotients, it specifies pairs of vertices in the original cycle Sw labelled by a
+cyclically reduced word w.
+   We also prove that, for fixed r, Whitehead minimality—equivalently, automorphic minimality—of a com-
+pressed conjugacy class is decidable in deterministic polynomial time (Theorem 3.9). The algorithm computes
+the weighted Whitehead graph directly from the grammar.
+   After the preliminaries in Section 2, Sections 4–6 prove Theorem 1.1. Section 3 is independent of that
+proof, and Section 8 treats rank two.
+   We also record a quantitative layered-substitution result, essentially due to Schleimer [17]. If both an
+SLP A and a length-m sequence from a fixed finite family of endomorphisms are inputs, Proposition 3.2
+constructs an SLP B for the iterated image satisfying
+                                  ∥B∥ = O(∥A∥ + m + 1) ,
+                                                                                                          (1)
+                                 β(B) = O((∥A∥ + m + 1) log(∥A∥ + m + 2)) .
+                                                       2
+The latter bound also controls the bit operations needed to write the canonical code of B. This is the compres-
+sion mechanism underlying the polynomial-time treatment of automorphism words by Lohrey–Schleimer [11]
+and Schleimer [17]: a prescribed sequence of Nielsen automorphisms can be evaluated without expanding
+any of the intermediate words.
+   The bound in (1) is polynomial in the supplied sequence length m, but does not make classical Whitehead
+minimization polynomial on compressed input. The cyclic length of wA may be exponential in ∥A∥, and
+Whitehead’s theorem guarantees only strict decrease. There is no constant 0 < δ < 1, depending only on r,
+such that every nonminimal class [w] has a reducing Whitehead move τ with
+                                        ∥τ ([w])∥Xr ≤ (1 − δ)∥[w]∥Xr .
+Thus a strictly decreasing elementary Whitehead descent may require exponentially many stages. The
+minimality test recognizes a minimal class, and layered substitution evaluates a supplied sequence, but
+neither bounds the number of descent stages.
+   The following simple rank-two family makes the obstruction visible.
+Example 1.3. Let n ≥ 1, and consider the SLP
+                         B0 → b,      Bi → Bi−1 Bi−1           (1 ≤ i ≤ n),          C → aBn .
+After an order-preserving relabeling of its nonterminals, this is an SLP with size O(n) and encoded length
+O(n log(n + 2)) whose output is
+                                                          n
+                                                 wn = ab2 .
+Let τ ∈ Aut(F (a, b)) be the Whitehead automorphism
+                                          τ (a) = ab−1 ,           τ (b) = b.
+          n
+For N = 2 one has
+                                     τ k (abN ) = abN −k           (0 ≤ k ≤ N ).
+For N ≥ 2, the only nonzero edges of the weighted Whitehead graph of abN are
+                                     {a, b−1 },       {a−1 , b},        {b, b−1 },
+with respective weights 1, 1, N − 1. Inspecting the characteristic pairs in Whitehead’s length-change formula,
+the only pairs with negative length change are
+                                     ({a−1 , b}, b)   and      ({a, b−1 }, b−1 ).
+Each pair has length change −1, and its image cyclically reduces to [abN −1 ]. For N = 1, one further reducing
+                                                                                                        n
+move reaches a one-letter minimal class. Thus every strictly decreasing Whitehead descent from [ab2 ] has
+2n stages, exponential in the grammar depth and superpolynomial in both input size measures.
+   The rank-two primitivity algorithm of Theorem 1.2 overcomes this difficulty by batching such chains of
+elementary moves. In the preceding example, the single shear
+                                        τN (a) = ab−N ,            τN (b) = b
+is the composite τ N and sends abN directly to a; under the size convention of Definition 2.1, the power bN
+has an SLP of size O(log(N + 1)) and encoded length O(log(N + 1) log log(N + 2)). More generally, the
+Nielsen–Osborne–Zieschang classification of primitive elements in F2 [13] says that a primitive conjugacy
+class is uniquely determined by its coprime exponent-sum pair and supplies a Christoffel representative.
+(A related, somewhat less precise structural description of bases in F2 was obtained by Cohen–Metzler–
+Zimmermann [2].) If Q = mP + R, the automorphism
+                                        τm (a) = ab−m ,            τm (b) = b
+represents m elementary shears at once and changes the cyclic length from P + Q to P + R, where
+                                                    2
+                                          P + R < (P + Q).
+                                                    3
+Hence there are only logarithmically many batched stages, even when the Euclidean quotients are exponen-
+tially large. The shear powers have polynomial-size compressed descriptions, and a final cyclic-length test
+                                                           3
+decides primitivity. Section 8 gives the proof. This uniform shortening uses special rank-two combinatorics;
+layered substitution alone does not yield an analogous accelerated descent for r ≥ 3.
+   Remark 8.8 shows that the Euclidean part adds at most a cubic preprocessing term and, apart from that
+term, preserves, up to logarithmic factors, the polynomial degree of compressed cyclic reduction. Schleimer’s
+proof gives an absolute polynomial degree but does not state or optimize it.
+   For Theorem 1.1, Linton’s bound is M O(k) for k ≤ r compressed generators. Thus the verifier has a bound
+   O(r)
+M       , with the hidden constant inherited from Linton’s analysis; we do not extract an explicit degree in r.
+   For fixed r ≥ 3, applying the standard Whitehead algorithm to the uncompressed word gives a determin-
+istic exponential-time algorithm.
+   The results of this paper naturally raise the following questions:
+Open problem 1.4. Let r ≥ 3 be a fixed integer. Does CPrimr belong to P? As an a priori easier question,
+does CPrimr belong to coNP?
+   Theorem 1.1 gives CPrimr ∈ NP. Membership in coNP would strengthen this, but is weaker than mem-
+bership in P.
+   Roig, Ventura, and Weil [16] solve Whitehead minimization for uncompressed words in polynomial time,
+even when r is part of the input. For fixed r, the compressed version asks, given an SLP A, for an SLP B pro-
+ducing a freely and cyclically reduced word minimal in the automorphic orbit of wA . Decompression followed
+by Whitehead minimization gives a deterministic exponential-time solution; its optimality is unknown:
+Open problem 1.5. Let r ≥ 2 be a fixed integer. What can be said about the complexity of the Whitehead
+minimization problem for compressed words in Fr ?
+   To the author’s knowledge, Problem 1.5 remains open even for F2 . Our deterministic polynomial time
+primitivity algorithm in Theorem 1.2 uses combinatorics specific to primitive elements in F2 and does not
+extend to other Aut(F2 )-orbits.
+
+                2. Straight-line programs and compressed words in free groups
+    For a word w ∈ Y ∗ , write |w| for its number of letters. Throughout this section, r and Σr = Xr ⊔ Xr−1 are
+fixed and are not part of the input. We first recall free-group conventions and then specify an SLP encoding.
+    For a word u = z1 · · · zN ∈ Σ∗r , put
+                                                         −1
+                                                u−1 = zN    · · · z1−1 .
+The natural monoid map Σ∗r → Fr sends a terminal word to the group element that it represents. A word is
+freely reduced if it has no factor zz −1 with z ∈ Σr . Every word u has a unique freely reduced form, denoted
+red(u), representing the same element of Fr . A freely reduced word is cyclically reduced if it is empty or
+if its first and last letters are not mutually inverse. Starting with red(u) and repeatedly deleting mutually
+inverse first and last letters gives a uniquely determined factor cycred(u) and a freely reduced word c such
+that, as a literal word,
+                                             red(u) = c cycred(u) c−1 .
+We call cycred(u) the cyclically reduced form of u and write
+                                            ∥u∥cyc = | cycred(u)|
+for the cyclic length of the represented conjugacy class. The empty word is denoted by ε.
+Definition 2.1 (straight-line programs and their size). An straight-line program, abbreviated SLP, over Σr
+is a tuple
+                                A = (Σr , V, Am , P),   V = {A1 , . . . , Am },
+where m ≥ 1, Am is the root nonterminal, and
+                                        P = {Ai −→ Wi : 1 ≤ i ≤ m}
+contains exactly one production for each nonterminal, with
+                                                                      ∗
+                                        Wi ∈ Σr ⊔ {A1 , . . . , Ai−1 } .
+The empty right-hand side is allowed. The index condition makes the dependency graph acyclic.
+                                                       4
+   For each nonterminal, define its terminal expansion recursively by substituting the already defined expan-
+sions of the earlier nonterminals. We write wAi ∈ Σ∗r for the word produced by Ai and
+                                                 wA := wAm
+for the uncompressed terminal word produced by the program. Equivalently, wA = val(A) in the notation
+used elsewhere in the paper.
+   The size of A is the structural grammar size
+                                                            m
+                                                            X
+                                            ∥A∥ = m +             |Wi |.                                   (2)
+                                                            i=1
+
+Thus every nonterminal and right-hand-side symbol has unit cost.
+  For a nonnegative integer t, let
+                                                   
+                                        bl(t) = max 1, ⌈log2 (t + 1)⌉ ,
+the number of bits in the ordinary binary representation, with 0 assigned one bit.
+Definition 2.2 (canonical string encoding and associated languages). Let bin(t) ∈ {0, 1}∗ be the ordinary
+binary expansion of a nonnegative integer t, with no leading zeroes and with bin(0) = 0. Fix the finite
+encoding alphabet
+                                    Ωr = Σr ⊔ {0, 1, N, L, R, B, P, Q, E},
+where the displayed meta-symbols are all distinct from one another and from the terminal letters in Σr . The
+letters L, R delimit the whole program, B terminates the initial binary encoding of the number of nonterminals,
+P separates the left- and right-hand sides of a production, Q terminates a nonterminal reference on a right-
+hand side, and E terminates a production.
+   For a right-hand-side symbol C, define
+                             code(z) = z   (z ∈ Σr ),       code(Aj ) = N bin(j) Q.
+If W = C1 · · · Ct , let code(W ) = code(C1 ) · · · code(Ct ), with the empty word used when t = 0. Encode the
+production Ai → Wi by
+                                    pcode(Ai → Wi ) = N bin(i) P code(Wi ) E,
+and encode the whole program by the word
+                   encr (A) = L bin(m) B pcode(A1 → W1 ) · · · pcode(Am → Wm ) R ∈ Ω∗r .                   (3)
+Put
+                                              β(A) = | encr (A)|.
+The delimiters make this code uniquely decodable. In particular, from a string one can parse m, the
+productions in their prescribed order, and every terminal or nonterminal occurrence, and then check the
+conditions j < i on the right-hand side of the ith production. Thus validity of an SLP code can be checked
+in deterministic time polynomial in β(A).
+   The set
+                               SLPr = {encr (A) : A is an SLP over Σr } ⊆ Ω∗r
+is a formal language, and every collection of SLPs over Σr is identified with a sublanguage of SLPr . In
+particular, CPrimr is a language over the fixed alphabet Ωr .
+Proposition 2.3 (structural size and encoded length). For every SLP A over Σr ,
+                                                                    
+                                 ∥A∥ ≤ β(A) ≤ (∥A∥ + 1) bl(∥A∥) + 3 .                                      (4)
+In particular,
+                                        β(A) = O(∥A∥ log(∥A∥ + 2)) ,
+with a constant independent of A.
+                                                        5
+Proof. Put s = ∥A∥ and let m be the number of nonterminals. Every production contributes at least one
+symbol to its code, and the code of every right-hand-side symbol has positive length. Since s is the number
+of nonterminals plus the number of right-hand-side symbols, this gives s ≤ β(A).
+   For the upper bound, every nonterminal index is at most m ≤ s and hence has at most bl(s) bits. The
+three outer delimiters together with the initial binary encoding of m contribute at most 3 + bl(s). Each of
+the m productions contributes at most bl(s) + 3 symbols apart from its right-hand side, and the code of each
+right-hand-side symbol has length at most bl(s) + 2. Since there are s − m right-hand-side symbols,
+                             β(A) ≤ 3 + bl(s) + m(bl(s) + 3) + (s − m)(bl(s) + 2)
+                                   ≤ (s + 1)(bl(s) + 3).
+This proves (4). The asymptotic statement follows from bl(s) = O(log(s + 2)).                               □
+  All algorithms below take the canonical code as input. By Proposition 2.3, polynomial running-time,
+output-size, and certificate-size bounds may use either size measure. Explicit bit-operation bounds refer to
+encoded length and may retain its logarithmic factor. Since Ωr is fixed, conversion to a binary alphabet
+changes length only by a constant factor.
+  An SLP is in Chomsky normal form if every production has one of the forms
+                               Ai −→ z     (z ∈ Σr ),      Ai −→ Aj Ak        (j, k < i),
+with the additional exceptional rule Am → ε permitted when the output word is empty. First replace every
+terminal occurring in a right-hand side of length greater than one by a shared terminal nonterminal. Since
+Σr is fixed, this adds only Or (1) new productions and right-hand-side symbols, while leaving the lengths of
+the original right-hand sides unchanged. Long right-hand sides can then be binarized by introducing binary
+trees of dummy nonterminals. Empty references can be deleted recursively, and unit productions can be
+eliminated by redirecting references in the acyclic dependency order, without copying terminal expansions.
+If the root expansion is empty, replace the program by the one-rule program A1 → ε; otherwise, discard
+all empty and root-unreachable nonterminals. Relabel the remaining variables in dependency order. Thus
+the total number of nonterminals and right-hand-side symbol occurrences grows by at most a linear factor.
+Consequently every SLP of size n can be converted in polynomial time to an equivalent SLP in Chomsky
+normal form of size O(n). This is the normal form used by Schleimer [17]. An SLP with m nonterminals in
+this form has size O(m) and encoded length O(m log(m + 2)) by Proposition 2.3.
+   For example, the productions
+                                  A1 → x1 ,      Ai → Ai−1 Ai−1           (2 ≤ i ≤ m)
+                 m−1
+produce wAm = x21    with size O(m) and encoded length O(m log(m + 2)).
+   A composition system is defined similarly, except that a right-hand side may contain a truncated nonter-
+minal B[i : j], representing the factor of wB beginning at position i and ending immediately before position
+j. The indices satisfy 0 ≤ i ≤ j ≤ |wB |, are written in binary, and their binary lengths are included in the
+input size. Hagenah’s conversion algorithm, presented as Theorem 7.1 in [17], converts a composition system
+to an equivalent SLP in polynomial time.
+   We use positions numbered from 0. Thus, for a word u = u1 · · · uN and 0 ≤ i ≤ j ≤ N , the factor
+                                               u[i : j] = ui+1 · · · uj
+has length j − i. In particular, u[0 : t] is the prefix of length t, and u[0 : 0] = ε.
+Lemma 2.4 (standard compressed-word operations). Let A be an SLP of size n over the fixed alphabet Σr .
+  (a) One can convert A to Chomsky normal form in polynomial time. The lengths |wAi | of all nonterminal
+      expansions, and in particular |wA |, can be computed as binary integers in polynomial time. Moreover,
+                                                   |wA | ≤ 2O(n) ,
+       so every such length has O(n) bits.
+   (b) Given binary integers i, j with 0 ≤ i ≤ j ≤ |wA |, one can construct, in time polynomial in n + bl(i) +
+       bl(j), an SLP producing the factor wA [i : j].
+   (c) Given SLPs for words u and v, one can construct in polynomial time SLPs for uv and u−1 . In
+                                                    −1
+       particular, one can construct an SLP for wA     .
+                                                           6
+   (d) The support
+                                 suppXr (wA ) = {j : x±1  j   occurs in wA }
+       and the exponent-sum vector
+                                      σx1 (wA ), . . . , σxr (wA ) ∈ Zr
+                                                                  
+
+       can be computed in polynomial time.
+Proof. For (a), use the normalization described above. Since the number of nonterminals and right-hand-side
+symbols in the input is O(n), the normalized program has size O(n) and encoded length O(n log(n + 2)) by
+Proposition 2.3. In Chomsky normal form, a nonterminal of height h has output length at most 2h , while
+the height is O(n). Hence |wA | ≤ 2O(n) . Applying the same argument to the subprogram rooted at each
+original nonterminal Ai gives |wAi | ≤ 2O(n) uniformly in i.
+   The lengths of the original nonterminal expansions are then computed directly in dependency order.
+Each terminal occurrence contributes one, each occurrence of Aj contributes the already computed integer
+|wAj |, and an empty right-hand side contributes zero. Since there are O(n) right-hand-side symbols and
+every integer involved has O(n) bits, the computation takes polynomial time. Compare Lemmas 2.5 and 2.6
+of [17].
+   For (b), adjoin to A a new root production
+                                              Pi,j −→ Am [i : j].
+This is a composition system whose encoding length is polynomial in n+bl(i)+bl(j). Apply the composition-
+system-to-SLP conversion of Theorem 7.1 in [17].
+   For (c), first normalize the input programs as in (a) and rename their nonterminals so that the variable
+sets are disjoint. For concatenation, take their disjoint union and add a new root whose production is the
+product of the two old roots. For inversion, take a disjoint inverse copy of the nonterminals. If Ai → Aj Ak ,
+put A−1
+      i   → A−1     −1
+               k Aj , and if Ai → z ∈ Σr , put Ai
+                                                  −1
+                                                      → z −1 ; the empty word is fixed. The resulting programs
+have size polynomial in the total input size; their encoded lengths are polynomial as well by Proposition 2.3.
+   For (d), normalize as in (a), and associate to every nonterminal its support subset and exponent-sum
+vector. At a terminal production these data are immediate, and at a concatenation production one takes the
+union of supports and adds vectors. Since r is fixed, the supports have constant size, while every exponent
+sum has O(n) bits by (a).                                                                                    □
+   The following more detailed form of Schleimer’s compressed-reduction result is the preprocessing theorem
+used throughout the paper.
+Proposition 2.5 (Schleimer: compressed free and cyclic reduction). Let A be an SLP over Σr .
+  (a) There is a deterministic polynomial-time algorithm that constructs an SLP Bfr satisfying
+                                               wBfr = red(wA ).
+       The size ∥Bfr ∥ is bounded by a polynomial in ∥A∥, and the integer | red(wA )| = |wBfr | can be computed
+       in binary in polynomial time.
+   (b) There is a deterministic polynomial-time algorithm that constructs SLPs Bcyc and C satisfying
+                                             wBcyc = cycred(wA )
+       and
+                                         red(wA ) = wC wBcyc wC−1
+       as terminal words. In particular, wBcyc is freely and cyclically reduced and represents a conjugate of
+       gA . The sizes of both output programs are bounded by a polynomial in ∥A∥, and the cyclic length
+       ∥wA ∥cyc = |wBcyc | can be computed in binary in polynomial time.
+Proof. Put the input in Chomsky normal form. Theorem 3.3 of [17] constructs, in polynomial time, a
+composition system producing the free reduction of wA . Hagenah’s conversion theorem, Theorem 7.1 of [17],
+converts it to the SLP Bfr with polynomial overhead. This proves (a), including the polynomial size bound;
+the length is then computed by Lemma 2.4(a).
+   Starting with the freely reduced compressed word, Corollary 3.6 of [17] constructs a compressed cyclic
+reduction together with a compressed conjugating word. A second application of Theorem 7.1 converts
+                                                       7
+the resulting composition systems to the SLPs Bcyc and C. The description in Corollary 3.6 removes the
+maximal mutually inverse prefix and suffix, so its output is precisely the word cycred(wA ) defined above.
+The polynomial size and length claims follow as in (a).                                                 □
+    In particular, the compressed word problem in Fr is decidable in polynomial time: gA = 1 if and only
+if | red(wA )| = 0. Since conjugation is an automorphism of Fr , gA is primitive if and only if the cyclically
+reduced element represented by Bcyc is primitive. The empty output represents the identity and is not
+primitive.
+
+                       3. Compressed substitutions and Whitehead minimality
+   For a conjugacy class [g] in Fr , let
+           ∥[g]∥Xr = min{|u| : u ∈ Σ∗r is freely reduced and represents an element conjugate to g}.
+Equivalently, if u is any word representing g, then ∥[g]∥Xr = | cycred(u)|. The automorphism group acts on
+conjugacy classes by φ([g]) = [φ(g)]. We say that [g] is automorphically minimal if
+                                ∥φ([g])∥Xr ≥ ∥[g]∥Xr             for every φ ∈ Aut(Fr ).
+For fixed r, we test automorphic minimality in deterministic polynomial time by computing the weighted
+Whitehead graph of the cyclically reduced compressed word and applying Whitehead’s length-change for-
+mula.
+
+3.1. Compressed images under fixed and iterated endomorphisms. We first record substitution
+facts that will also be useful later. Literal replacement of every terminal occurrence can give a poor size
+estimate. A shared image layer avoids this duplication for a single fixed endomorphism, and one shared
+layer for each stage gives the appropriate iterated construction. This is the basic compression mechanism
+used by Lohrey–Schleimer [11] and by Schleimer in his polynomial-time algorithm for the word problem in
+Aut(Fr ) [17, Theorem 5.2 and Remark 5.3].
+   The following one-layer construction shares the fixed image of each terminal letter throughout the gram-
+mar.
+Proposition 3.1 (a fixed endomorphism applied to an SLP). Fix an endomorphism φ ∈ End(Fr ). For
+every z ∈ Σr , fix once and for all a terminal word Uz ∈ Σ∗r representing φ(z), with Uz−1 = Uz−1 , and put
+                                                        X
+                                             Cφ = 2r +       |Uz |.
+                                                                 z∈Σr
+
+   (a) Given an arbitrary SLP A over Σr , one can construct an SLP B over Σr such that
+                                                    wB = φ# (wA ),
+        where φ# : Σ∗r → Σ∗r is the monoid homomorphism z 7→ Uz , and
+                                                   ∥B∥ = ∥A∥ + Cφ .                                        (5)
+        Moreover,
+                                           β(B) = Oφ (∥A∥ log(∥A∥ + 2)) ,
+       and the canonical code of B can be written within this bit-operation bound.
+   (b) In deterministic time polynomial in ∥A∥, one can also construct SLPs producing
+                                                                       
+                                 red φ# (wA ) and cycred φ# (wA ) ,
+        and compute their lengths in binary. In particular, the freely reduced length and cyclically reduced
+        length of φ(gA ) are polynomial-time computable.
+Proof. Write Σr = {z1 , . . . , z2r }. First introduce nonterminals Dz1 , . . . , Dz2r with productions
+                                                      Dz −→ Uz .
+Suppose
+                                 A = (Σr , {A1 , . . . , An }, An , P),     Ai −→ Wi .
+                                                             8
+After the variables Dz , create variables Ab1 , . . . , A
+                                                        bn in the original order. In Wi , replace each terminal z by
+Dz and each nonterminal Aj by A    bj ; use the resulting word as the production for A       bi , and designate A
+                                                                                                                bn as
+the root. Induction on i gives
+                                                   wAbi = φ# (wAi ),
+so the resulting program B has the required output.
+   The transformed copies of the original productions containP         exactly as many right-hand-side symbols as
+before. The new image layer contributes 2r nonterminals and z |Uz | right-hand-side symbols. This proves
+(5). Proposition 2.3 gives the encoded-length bound. The construction scans the input once and writes the
+output code, so it has the same asymptotic bit cost.
+   Part (b) follows by applying Proposition 2.5 to the program constructed in (a).                                 □
+  For a fixed finite family, a sequence of m endomorphisms has encoding length Θ(m).
+Proposition 3.2 (iterated endomorphisms from a fixed finite family). Fix a finite set Q ⊆ End(Fr ). For
+                                                                                −1
+each ψ ∈ Q and z ∈ Σr , fix a word Uψ,z ∈ Σ∗r representing ψ(z), with Uψ,z−1 = Uψ,z , and let ψ# : Σ∗r → Σ∗r
+be the monoid homomorphism z 7→ Uψ,z . Put
+                                              LQ =     max       |Uψ,z |.
+                                                     ψ∈Q, z∈Σr
+
+Given an SLP A over Σr and a sequence φ = (φ1 , . . . , φm ) ∈ Qm , put
+                            Φφ = φm ◦ · · · ◦ φ1 ,     (Φφ )# = (φm )# ◦ · · · ◦ (φ1 )# ,
+with both maps equal to the identity when m = 0. There is a deterministic algorithm with the following
+properties.
+   (a) It constructs an SLP B satisfying
+                                                wB = (Φφ )# (wA ).
+   (b) If M = ∥A∥, then
+                                            ∥B∥ ≤ M + 2r(LQ + 1)m.                                               (6)
+   (c) The encoded length satisfies
+                                  β(B) = Or,Q ((M + m + 1) log(M + m + 2)) ,                                     (7)
+       and B can be constructed within the same bit-operation bound.
+   (d) In time polynomial in M + m, one can also construct SLPs for
+                                                                    
+                             red (Φφ )# (wA ) and cycred (Φφ )# (wA ) ,
+        and compute their lengths.
+Proof. Let d = |Σr | = 2r. If m = 0, take B = A. Suppose that m ≥ 1. For every z ∈ Σr , first introduce a
+nonterminal Ym,z with production
+                                                Ym,z −→ Uφm ,z .
+For p = m − 1, m − 2, . . . , 1, write
+                                                Uφp ,z = z1 · · · zℓ
+and add the production
+                                          Yp,z −→ Yp+1,z1 · · · Yp+1,zℓ .                                  (8)
+If Uφp ,z = ε, the right-hand side is empty. The layers are created in the order m, m − 1, . . . , 1, so every
+variable on the right of (8) was created earlier. Downward induction on p gives
+                                                                      
+                                       wYp,z = (φm )# ◦ · · · ◦ (φp )# (z).                                (9)
+  Now suppose that
+                               A = (Σr , {A1 , . . . , An }, An , P),      Ai −→ Wi .
+After all layered variables, create variables A1 , . . . , An in the original order. In the right-hand side Wi ,
+                                                 b          b
+replace each terminal z by Y1,z and each nonterminal Aj by A          bj . Use the resulting word as the production
+for A
+    bi , and designate A
+                       bn as the root. Induction on i, together with (9), gives
+                                               wAbi = (Φφ )# (wAi ),
+                                                          9
+             Pn program B has the required output.
+so the resulting
+   Let s =     i=1 |Wi |. The transformed copy of A has the same n nonterminals and the same s right-
+hand-side symbols. The layered part has dm nonterminals and at most dLQ m right-hand-side symbols.
+Thus
+                              ∥B∥ ≤ n + s + d(LQ + 1)m = M + 2r(LQ + 1)m,
+which proves (6). The comparison in Proposition 2.3 gives (7). There are Or,Q (M +m+1) grammar symbols
+to process, and every index in the output has O(log(M +m+2)) bits, giving the same bound for construction
+time.
+   Finally, apply Proposition 2.5 once, after the entire layered program has been constructed. There is
+no need to expand or freely reduce any intermediate image, even though its uncompressed length may be
+exponential in m.                                                                                       □
+
+Corollary 3.3 (Schleimer). For fixed r ≥ 2, the word problem in Aut(Fr ) is decidable in deterministic
+polynomial time with respect to any fixed finite generating set.
+Proof. Let Q be the chosen finite generating set together with formal inverses, regarded as a finite subset of
+Aut(Fr ). Given a word φ ∈ Qm , apply Proposition 3.2 to the one-letter SLP for each basis element xj . For
+every j, use Lemma 2.4(c) to construct a compressed word representing
+                                                 Φφ (xj )x−1
+                                                          j ,
+
+and use Proposition 2.5(a) to test whether its freely reduced length is zero. The represented automorphism
+is the identity if and only if all r tests succeed. Since r is fixed, the total running time is polynomial in
+m.                                                                                                         □
+
+Remark 3.4 (relation with Schleimer’s construction). The proof of Corollary 3.3, and in particular the layered
+part of Proposition 3.2, is the same idea that drives Schleimer’s proof of Theorem 5.2 in [17]. For a word of
+length m in a fixed set of Nielsen generators, Schleimer uses one nonterminal Ai,p for each basis element xi
+and each stage p. The initial variables produce the basis letters, and the production at stage p is obtained
+by writing the image under the pth Nielsen generator in terms of the variables from the adjacent layer. Since
+a Nielsen generator has basis images of uniformly bounded length, every stage adds only Or (1) productions
+and right-hand-side symbols. He then applies his compressed free-reduction algorithm [17, Theorem 3.3]
+and checks whether every final basis image is the corresponding one-letter word. This proves that the
+word problem in Aut(Fr ) is decidable in polynomial time. Schleimer further observes that the same layered
+programs allow both a free-group word and an automorphism word to be treated as inputs in his free-by-cyclic
+algorithm, with running time polynomial in the two input lengths [17, Remark 5.3].
+   Under the size convention of Definition 2.1, the program in Schleimer’s proof has size O(rm). Proposi-
+tion 2.3 therefore gives encoded length
+                                                               
+                                             O rm log(rm + 2) ,
+and hence O(m log(m + 2)) for fixed r. Proposition 3.2 isolates this grammar construction, allows an
+arbitrary initial compressed word wA , and extends it from Nielsen automorphisms to any fixed finite family
+of endomorphisms.
+   For every fixed Whitehead automorphism τ , Proposition 3.1 applies with |Uz | ≤ 3 for every z ∈ Σr , and
+hence one may take Cτ ≤ 8r. More generally, since Wr is finite for fixed r, Proposition 3.2 applies to an input
+sequence of Whitehead automorphisms. For the minimality test below, however, the weighted Whitehead
+graph gives a more direct route and avoids constructing any of the individual images.
+
+3.2. Whitehead automorphisms and weighted Whitehead graphs. A Whitehead automorphism of
+the first kind is a relabeling automorphism: its restriction to Σr is a permutation commuting with inversion.
+Such an automorphism preserves cyclic length. A Whitehead automorphism of the second kind is specified
+by a characteristic pair (A, a), where
+                                      A ⊆ Σr ,     a ∈ A,       a−1 ∈
+                                                                    / A.
+                                                      10
+It fixes a±1 and, for x ∈ Σr \ {a, a−1 }, is given by
+
+                                                           / A and x−1 ∈
+                                                
+                                                
+                                                 x,     x∈            / A,
+                                                                    −1
+                                                
+                                                xa,     x ∈ A and x ∈ / A,
+                                  τ(A,a) (x) =     −1               −1
+                                                                                                           (10)
+                                                
+                                                
+                                                 a   x, x ∈
+                                                           / A and x   ∈ A,
+                                                 −1                −1
+                                                  a xa, x ∈ A and x ∈ A.
+These two kinds form the finite set Wr of Whitehead automorphisms relative to the basis Xr . There are at
+most 2r 4r−1 characteristic pairs of the second kind, a constant when r is fixed.
+  A conjugacy class is Whitehead minimal if no automorphism in Wr decreases its cyclic length. Since
+automorphisms of the first kind preserve cyclic length, it is enough to consider the characteristic pairs above.
+Proposition 3.5 (Whitehead’s length-reduction theorem). A conjugacy class in Fr is automorphically
+minimal if and only if it is Whitehead minimal. More precisely, if a nontrivial cyclically reduced word w
+does not represent an automorphically minimal conjugacy class, then there is a Whitehead automorphism τ
+of the second kind such that
+                                           ∥τ ([w])∥Xr < |w|.
+Proof. The forward implication is immediate. The reverse implication is the length-reduction part of White-
+head’s theorem; see Whitehead [20] and Kapovich–Schupp–Shpilrain [7, Proposition 1.2(1)]. The trivial
+conjugacy class, of cyclic length zero, is minimal under every automorphism.                             □
+
+   Let w = z1 · · · zN be a nontrivial cyclically reduced word. For u, v ∈ Σr , define the number of cyclic
+occurrences of the length-two word uv by
+                                 n◦w (uv) = #{i ∈ Z/N Z : zi = u, zi+1 = v},
+where subscripts are read modulo N . Thus the pair formed by the last and first letters is included.
+Definition 3.6 (weighted Whitehead graph). The weighted Whitehead graph Ww has vertex set Σr . For
+every unordered pair {p, q} of distinct vertices, it has one undirected edge of weight
+                                     ωw ({p, q}) = n◦w (p−1 q) + n◦w (q −1 p).                           (11)
+Edges of weight zero are retained. Hence Ww has 2r
+                                                           
+                                                         2   = r(2r − 1) edges. Cyclic permutation of w, and
+replacement of w by w−1 , do not change the graph, so Ww depends only on the unoriented cyclic word, and
+in particular only on the represented conjugacy class together with the basis Xr .
+   For disjoint subsets P, Q ⊆ Σr , write
+                                                     X
+                                         P ·w Q =            ωw ({p, q}),
+                                                  p∈P, q∈Q
+
+and put
+                                         degw (a) = {a} ·w (Σr \ {a}).
+Thus degw (a) is the weighted degree of the vertex a; equivalently, it is the total number of occurrences of
+a±1 in w.
+  This is the convention of Section 4 of Kapovich–Schupp–Shpilrain [7], expressed using cyclic two-letter
+counts rather than appending the first letter to w.
+Proposition 3.7 (Whitehead’s length-change formula). Let w be a nontrivial cyclically reduced word, and
+let τ = τ(A,a) be a Whitehead automorphism of the second kind. Put Ac = Σr \ A. Then
+                                   ∥τ ([w])∥Xr − |w| = A ·w Ac − degw (a).                                 (12)
+Proof. This is Whitehead’s classical length formula; in the present graph convention it is Lemma 4.7 of
+Kapovich–Schupp–Shpilrain [7]. See also the cut-capacity formulation of Roig–Ventura–Weil [16, Proposi-
+tion 2.4].                                                                                           □
+                                                       11
+3.3. Computing the graph and testing minimality.
+Proposition 3.8 (compressed computation of the weighted Whitehead graph). Given an SLP A over Σr ,
+a deterministic polynomial-time algorithm has the following properties.
+   (a) It constructs an SLP B with
+                                              wB = cycred(wA )
+       and, when this word is nonempty, computes the complete weighted Whitehead graph WwB with binary
+       edge weights.
+   (b) If wB ̸= ε, first delete all nonterminals not reachable from the root and relabel the remainder in
+       dependency order. If the resulting Chomsky-normal-form program has m nonterminals and size M ,
+       then, with L = bl(|wB |), all cyclic two-letter counts and graph weights are computed using Or (mL),
+       hence Or (M 2 ), bit operations with schoolbook addition. Every weight has at most L bits.
+Proof. Construct B by Proposition 2.5(b), and normalize it. If necessary, delete all nonterminals that are
+not reachable from the root, relabel the remaining variables in dependency order, and continue to denote the
+resulting program by B. This does not change the output and has linear cost in the grammar size. Process
+the remaining nonterminals in dependency order. For every nonterminal D, store the following data about
+its expansion wD :
+    (a) its length ℓD in binary;
+    (b) when ℓD > 0, its first and last terminal letters;
+    (c) for every ordered pair (u, v) ∈ Σ2r , the number cD (u, v) of ordinary, noncyclic occurrences of uv in
+        wD .
+The data are immediate for a terminal production and for the exceptional empty root. If D → EF , then
+                                                  ℓD = ℓE + ℓF ,
+the first and last letters are inherited from the first and last nonempty factors, and
+                                                    (
+                                                      1, ℓE , ℓF > 0, last(wE ) = u, first(wF ) = v,
+                cD (u, v) = cE (u, v) + cF (u, v) +                                                      (13)
+                                                     0, otherwise.
+Put N = |wB |. Since every remaining nonterminal D is reachable from the root, one occurrence of its
+expansion appears as a factor of the root expansion. Thus there are words PD , QD ∈ Σ∗r such that, as literal
+words, wB = PD wD QD . Consequently, for every (u, v) ∈ Σ2r ,
+                             0 ≤ ℓD ≤ N,       0 ≤ cD (u, v) ≤ max{ℓD − 1, 0} ≤ N.
+Since r is fixed, only constantly many counters are stored per nonterminal. Each counter has at most
+L = bl(N ) bits, so the total bit cost is Or (mL).
+   If wB is nonempty, then at the root add one to the count corresponding to the ordered pair formed
+by the last and first letters. This gives every cyclic count n◦wB (uv). For distinct p, q ∈ Σr , the ordered
+pairs p−1 q and q −1 p are distinct, so their occurrence sets among the N cyclic positions are disjoint. Hence
+0 ≤ ωwB ({p, q}) ≤ N by Formula (11), and every graph weight also has at most L bits. The root correction
+and all edge-weight computations use only Or (L) additional bit operations. Since m, L = O(M ), the stated
+Or (M 2 ) bound follows. The initial cyclic-reduction and normalization stages have polynomial cost in ∥A∥
+by Section 2.                                                                                               □
+Theorem 3.9 (compressed Whitehead-minimality test). For every fixed r ≥ 2, there is a deterministic
+polynomial-time algorithm which, given an SLP A over Σr , decides whether the conjugacy class represented
+by cycred(wA ) is Whitehead minimal. Equivalently, it decides whether this conjugacy class is automorphically
+minimal in Fr .
+   Once a Chomsky-normal-form SLP B of size M for cycred(wA ) has been produced, the graph construction
+and the minimality test together use Or (M 2 ) bit operations.
+Proof. Use Proposition 3.8. If wB = ε, accept, since the trivial conjugacy class is automorphically minimal.
+Otherwise compute WwB and enumerate all characteristic pairs (A, a) of Whitehead automorphisms of the
+second kind. For each pair, compute the binary integer
+                                        ∆(A, a) = A ·wB Ac − degwB (a).
+                                                        12
+By Proposition 3.7, ∆(A, a) is exactly the change in cyclic length under τ(A,a) . Accept if and only if
+∆(A, a) ≥ 0 for every characteristic pair. Automorphisms of the first kind need not be checked because they
+preserve cyclic length.
+   For fixed r, the number of characteristic pairs and the number of edges summed for each pair are constants.
+The arithmetic after the graph is constructed is therefore linear in the bit-length of its weights and is
+dominated by the Or (M 2 ) graph computation. Correctness follows from Proposition 3.5.                     □
+
+   The proof deliberately avoids constructing τ (wB ) for any Whitehead automorphism. When the rank is
+allowed to vary, enumerating all characteristic pairs is exponential in r. Roig–Ventura–Weil [16] reinterpret
+A ·w Ac as a cut capacity and use minimum-cut algorithms to find an optimal Whitehead move in time
+polynomial in both the ordinary word length and the rank. For the fixed-rank compressed problem considered
+here, the constant-size enumeration above is sufficient.
+
+                                4. Core graphs and immediate quotients
+  Let X be a finite basis, ΣX = X ⊔ X −1 , and F (X) the free group on X. We recall Stallings’ finite-graph
+construction; see [18, 6, 14].
+Definition 4.1 (X-graphs, folding, and pointed cores). A finite X-graph Γ consists of a finite vertex set
+V Γ, a finite set EΓ of oriented edges, a fixed-point-free involution e 7→ ē on EΓ, initial and terminal maps
+o, t : EΓ → V Γ, and a label map
+                                                µ : EΓ −→ ΣX ,
+such that
+                                o(ē) = t(e),    t(ē) = o(e),      µ(ē) = µ(e)−1 .
+The pair {e, ē} is one geometric edge. Loops and multiple geometric edges are allowed. An edge is outgoing
+at v when o(e) = v, and the degree of v is the number of outgoing oriented edge germs at v; thus a loop
+contributes two to the degree.
+   An edge path p = e1 · · · en has label µ(p) = µ(e1 ) · · · µ(en ) ∈ Σ∗X and is reduced if ei+1 ̸= ēi for every
+i. A pointed X-graph is a pair (Γ, ∗) with a distinguished base vertex. A morphism of pointed X-graphs
+preserves the basepoint, incidence, the edge involution, and labels.
+   The graph Γ is folded if, for every vertex v and every z ∈ ΣX , there is at most one outgoing edge at
+v labeled z. Equivalently, the canonical label map Γ → RX to the X-rose is an immersion. A Stallings
+fold identifies two distinct outgoing edges with the same label, together with their terminal vertices and
+inverse edges. Repeated folding terminates and produces a folded quotient, unique up to label-preserving
+isomorphism.
+   For a connected pointed X-graph (Γ, ∗), its pointed core is the union of the basepoint and all edges
+traversed by reduced closed paths based at ∗. A finite connected pointed folded X-graph is called a pointed
+core graph when it equals its pointed core. Equivalently, every geometric edge occurs in some reduced based
+loop. Such a graph has no vertex of degree one except possibly the basepoint. The subgroup represented by
+(Γ, ∗) is
+                           H(Γ, ∗) = {µ(p) ∈ F (X) : p is a closed path based at ∗},
+where the bar denotes the group element represented by the path label. For a folded graph the label map
+induces an injection π1 (Γ, ∗) ,→ F (X) with image H(Γ, ∗).
+   For every finitely generated subgroup H ≤ F (X) there is, up to pointed label-preserving isomorphism, a
+unique finite pointed core graph representing H; it is denoted ΓX (H). One may construct it from a bouquet
+of based loops spelling a finite generating set for H, then perform Stallings folds and pass to the pointed
+core. The |X|-rose, with one geometric loop for each x ∈ X, is denoted RX , so
+                                                ΓX (F (X)) = RX .
+For a finite connected graph,
+                                     rk(Γ) = rk π1 (Γ) = |E + Γ| − |V Γ| + 1,
+where E + Γ contains one orientation of each geometric edge.
+                                                        13
+  If H ≤ J ≤ F (X), foldedness gives a unique pointed label-preserving morphism
+                                          ηH→J : ΓX (H) −→ ΓX (J).
+Following Puder and Parzanchevski, write H ≤X J when this morphism is surjective on vertices and edges.
+In this situation ΓX (J) is called an X-quotient of ΓX (H).
+   Ordinary X-graphs have one letter of ΣX on each oriented edge. Linton’s compressed analogue [9] stores
+a finite directed graph together with one shared acyclic grammar (or, during the algorithm, a composition
+system), and labels each directed transition by a nonterminal of that grammar, equivalently by the SLP
+rooted at that nonterminal. A transition
+                                                      Ai
+                                                    p −→ q
+therefore has the expanded word label wAi ∈ Σ∗X . In the involutive deterministic version used for free groups,
+                                                                  −1
+it is paired with a reverse transition whose expanded label is wA   i
+                                                                      . In this setting the transition labels are
+nonempty and freely reduced, and two distinct outgoing transitions cannot have expanded labels beginning
+with the same terminal letter. Subdividing every compressed transition into a path spelling its expanded
+word yields an ordinary folded X-graph, but that subdivision may have exponentially many edges. In
+Linton’s terminology, the resulting finite compressed object is an involutive compressed deterministic finite-
+state automaton; a compressed Stallings automaton is a minimal such automaton whose accepted words,
+after free reduction, give exactly the reduced representatives of the subgroup. Thus the relevant input size
+is the size of the finite state graph plus the shared grammar, not the length of the fully decompressed graph.
+Definition 4.2 (immediate quotient). Let Γ be a finite pointed core graph over X. An immediate quotient
+of Γ is obtained by choosing two distinct vertices of Γ, identifying them, and then performing all forced
+Stallings folds and passing to the resulting core graph. We write
+                                                  Γ ↠imm ∆
+when ∆ is an immediate quotient of Γ.
+  For H ≤X J, let ρX (H, J) be the minimum length of a chain of immediate quotients from ΓX (H) to
+ΓX (J).
+Lemma 4.3 (persistence of the no-leaves property). Let Γ be a finite connected X-graph such that every
+vertex has at least two outgoing oriented edges with distinct labels in ΣX . Identify any two vertices and
+perform all forced Stallings folds. Then the resulting folded quotient has the same property. Consequently it
+has no vertex of degree one, passage to its pointed core deletes nothing, and the core graph produced by an
+immediate quotient again has the same property. The conclusion persists through any sequence of immediate
+quotients.
+Proof. Let q : Γ → ∆ be the quotient map obtained from the vertex identification and all subsequent folds,
+before any core pruning. For a vertex z ∈ V ∆, choose a vertex v ∈ V Γ with q(v) = z. By hypothesis there
+are outgoing edges e, f at v with µ(e) ̸= µ(f ). A Stallings fold can identify only edges having the same label.
+Hence q(e) and q(f ) remain distinct outgoing edges at z, with their original distinct labels. Thus every
+vertex of ∆ has degree at least two. The pointed core is obtained by pruning hanging degree-one vertices
+away from the basepoint, so no pruning occurs. Iteration proves the last assertion.                          □
+
+   Write H ≤∗ J when H is a free factor of J. The next proposition is the part of Puder’s criterion needed
+here. The formulation below is Theorem 1.1 of [14]; see also Definition 3.6, Claim 3.7, and Theorem 3.8
+of [15].
+Proposition 4.4 (Puder). Let H ≤X J be finitely generated subgroups of F (X). Then
+                                 H ≤∗ J    ⇐⇒      ρX (H, J) = rk(J) − rk(H).
+Moreover,
+                                          ρX (H, J) ≥ rk(J) − rk(H).
+  The last inequality follows directly from the fact that one immediate quotient can increase subgroup rank
+by at most one. We record the algebraic form of a vertex identification.
+                                                       14
+Lemma 4.5 (algebraic effect of an identification). Let H ≤ F (X) be finitely generated, let Γ = ΓX (H), and
+let u, v be vertices of Γ. Choose paths from the basepoint to u and v with labels bu , bv ∈ F (X). Let ∆ be
+obtained by identifying u and v, performing all forced Stallings folds, and passing to the pointed core. Then
+                                           ∆ = ΓX ⟨H, bu b−1
+                                                                
+                                                             v ⟩ .
+
+In particular, if K is represented by the current graph in a sequence of quotients, identifying the images of
+two vertices reached by words bu and bv replaces K by ⟨K, bu b−1
+                                                               v ⟩.
+
+Proof. Before folding, the quotient map that identifies u and v adds to the image of the fundamental group
+one loop obtained by traveling from the basepoint to u, crossing the identified point, and returning from v
+to the basepoint. Its label is bu b−1                                                              −1
+                                     v . Hence the subgroup represented by the quotient is ⟨H, bu bv ⟩. This
+                                                                                          −1
+subgroup is independent of the chosen paths: replacing the two path labels replaces bu bv by an element
+of the form h1 (bu b−1
+                    v )h2 , with h1 , h2 ∈ H, which does not change the subgroup generated together with H.
+Stallings folds do not change the represented subgroup, and passage to the pointed core gives its core graph.
+This is also the algebraic description immediately following Definition 3.5 in [15].                       □
+
+  We will also use a standard support reduction.
+Lemma 4.6 (support reduction). Let 1 ̸= w ∈ Fr , and let
+                 I = suppXr (w) = {j ∈ {1, . . . , r} : x±1
+                                                         j  occurs in the reduced word for w}.
+Put XI = {xj : j ∈ I} and FI = F (XI ) ≤ Fr . Then
+                               w is primitive in Fr   ⇐⇒       w is primitive in FI .
+  The “if” implication of the above lemma is obvious, while the “only if” implication is Lemma 10.7 of [6].
+
+                                   5. The prefix-difference certificate
+Convention 5.1. For this section, let
+                                               w = y1 · · · yN ∈ Σ∗r
+be nonempty, freely reduced, and cyclically reduced. Let
+                                          I = suppXr (w),          s = |I|,
+and work over the basis XI . The pointed core graph of ⟨w⟩ is the directed cyclic graph Sw spelling w.
+Number its vertices
+                                          v0 , v1 , . . . , vN −1
+so that the directed edge from vt−1 to vt has label yt , with indices modulo N . Put
+                                    a0 = 1,     at = y1 · · · yt   (1 ≤ t ≤ N ).
+Thus the directed path in Sw from the basepoint v0 to vt has label at for 0 ≤ t < N .
+                                                                      −1
+   At v0 the two outgoing oriented edge germs have labels y1 and yN      . For 1 ≤ t < N , the two outgoing
+                            −1                                −1
+labels at vt are yt+1 and yt . Free reduction gives yt+1 ̸= yt for 1 ≤ t < N , and cyclic reduction gives
+       −1
+y1 ̸= yN   at the cyclic junction. Thus Sw is folded and every vertex has two outgoing edges with distinct
+labels. Lemma 4.3 therefore implies that every graph occurring in any sequence of immediate quotients
+beginning at Sw has no degree-one vertices; in these sequences the instruction to pass to the core does not
+delete any further edges.
+   Since every xj with j ∈ I occurs in w with one of its two signs, the canonical morphism
+                                      Sw = ΓXI (⟨w⟩) −→ RXI = ΓXI (FI )
+is surjective. Therefore
+                                                  ⟨w⟩ ≤XI FI ,
+and Proposition 4.4 applies.
+                                                        15
+Lemma 5.2. Choose pairs
+                                      (p1 , q1 ), . . . , (pm , qm ),   0 ≤ pi , qi < N,
+and define
+                            ui = api a−1
+                                      qi ,    Ki = ⟨w, u1 , . . . , ui ⟩, K0 = ⟨w⟩.
+Starting with Sw , at stage i identify the images of vpi and vqi in the current graph and perform all forced
+Stallings folds. Then the graph obtained after stage i is ΓXI (Ki ).
+Proof. The assertion is clear for i = 0. Suppose it holds through stage i − 1. In ΓXI (Ki−1 ), the images of
+the paths from v0 to vpi and vqi still have labels api and aqi . Lemma 4.5 says that identifying their terminal
+vertices and folding changes the represented subgroup from Ki−1 to
+                                                    ⟨Ki−1 , api a−1
+                                                                 qi ⟩ = Ki .
+
+Induction completes the proof.                                                                                        □
+   The following theorem is the exact form of Puder’s criterion suitable for compressed verification.
+Theorem 5.3 (prefix-difference certificate). Let w = y1 · · · yN be a nonempty freely and cyclically reduced
+word over Σr . Let I, s, FI , and the prefixes at be as in Convention 5.1 above. Then the following are
+equivalent.
+   (a) The element represented by w is primitive in Fr .
+   (b) There exist s − 1 pairs of integers
+                                  (p1 , q1 ), . . . , (ps−1 , qs−1 ),   0 ≤ pi < qi < N,
+        such that                             D                                E
+                                          FI = w, ap1 a−1
+                                                       q1 , . . . , a     a−1
+                                                                      ps−1 qs−1 .                                  (14)
+When these conditions hold, the pairs may be chosen so that sequentially identifying the images of vpi and
+vqi produces a chain of exactly s − 1 immediate quotients from Sw to RXI .
+Proof. The restriction pi < qi is only a normalization. Indeed, if pi = qi in (14), then the right-hand side
+is generated by at most s − 1 elements and cannot equal the rank-s group FI ; interchanging pi and qi only
+inverts the corresponding generator.
+   By Lemma 4.6, condition (a) is equivalent to ⟨w⟩ ≤∗ FI . Since ⟨w⟩ ≤XI FI , Proposition 4.4 gives
+                          ⟨w⟩ ≤∗ FI       ⇐⇒        ρXI (⟨w⟩, FI ) = rk(FI ) − rk(⟨w⟩) = s − 1.                    (15)
+   Suppose first that (a) holds. By (15), there is a chain
+                                 Sw = Γ0 ↠imm Γ1 ↠imm · · · ↠imm Γs−1 = RXI .                                      (16)
+At the i-th step, let ūi , v̄i be the two distinct vertices of Γi−1 that are identified. The composite quotient
+map
+                                                     Sw −→ Γi−1
+is surjective on vertices. Choose one preimage of each. They are distinct, and after relabeling them we may
+write them as vpi , vqi with 0 ≤ pi < qi < N . Lemma 5.2, applied inductively along (16), shows that
+                                        Γi = ΓXI w, ap1 a−1                   −1
+                                                                                 
+                                                            q1 , . . . , api aqi   .
+At i = s − 1 the graph is RXI , so the represented subgroup is FI . Thus (14) holds, and the final assertion
+about the chain follows from the construction.
+   Conversely, suppose that (b) holds, and put ui = api a−1           qi . Fix an ordering XI = (xj1 , . . . , xjs ) and
+define θ ∈ End(FI ) by θ(xj1 ) = w and θ(xji+1 ) = ui for 1 ≤ i ≤ s − 1. Equation (14) gives θ(FI ) =
+⟨w, u1 , . . . , us−1 ⟩ = FI , so θ is surjective. Finitely generated free groups are Hopfian, hence θ is an automor-
+phism. Therefore (w, u1 , . . . , us−1 ) is a free basis of FI , and in particular w is primitive in FI . Lemma 4.6
+implies that w is primitive in Fr .
+   It remains to justify the asserted sequential interpretation. Apply the indicated s − 1 vertex-pair identi-
+fications in order. By Lemma 5.2, the final graph is
+                                                       ΓXI (FI ) = RXI .
+                                                                  16
+If the two selected vertices already have the same image at some stage, that stage is a no-op rather than an
+immediate quotient. Deleting all no-op stages gives a chain of immediate quotients of length at most s − 1.
+The rank lower bound in Proposition 4.4 gives
+                                  ρXI (⟨w⟩, FI ) ≥ rk(FI ) − rk(⟨w⟩) = s − 1.
+Consequently no stage is a no-op, and the original sequence is a chain of exactly s − 1 immediate quotients.
+   For completeness, the ranks of the intermediate subgroups are forced as well. Since Ki is generated by
+i + 1 elements, rk(Ki ) ≤ i + 1. On the other hand,
+                                           FI = ⟨Ki , ui+1 , . . . , us−1 ⟩
+shows that
+                                      s = rk(FI ) ≤ rk(Ki ) + (s − 1 − i),
+so rk(Ki ) ≥ i + 1. Thus
+                                      rk(Ki ) = i + 1         (0 ≤ i ≤ s − 1).
+                                                                                                              □
+
+Corollary 5.4 (full-support form). Suppose that w involves every generator x1 , . . . , xr . Then w is primitive
+in Fr if and only if there exist r − 1 pairs of vertices of Sw such that sequentially identifying their images
+and folding produces the rose RXr after exactly r − 1 immediate quotients. Equivalently, there are positions
+(pi , qi )r−1
+          i=1 with 0 ≤ pi < qi < N such that
+                                             D                               E
+                                       Fr = w, ap1 a−1                   −1
+                                                     q1 , . . . , apr−1 aqr−1 .
+
+  The case s = 1 is included. There are no guessed pairs, and the certificate condition is simply ⟨w⟩ = FI ,
+which is equivalent to w = x±1
+                            j  for the unique j ∈ I.
+
+                                    6. Polynomial-time verification
+  We now convert Theorem 5.3 into an NP verifier, with r ≥ 2 fixed.
+  We use the following consequence of Linton’s main algorithm.
+Proposition 6.1 (Linton). Fix k ≥ 1. There is a deterministic polynomial-time algorithm with the following
+input and output. The input consists of SLPs W, W1 , . . . , Wk over Σr . The algorithm decides whether the
+element represented by W belongs to
+                                      H = ⟨val(W1 ), . . . , val(Wk )⟩ ≤ Fr .
+More precisely, Theorem 5.8 of [9] gives a bound of the form nO(k) in its input-size notation. If B denotes the
+total encoded input length in our canonical encoding, the same estimate is B O(k) after the standard change of
+encoding. If M is the total structural size of the input SLPs, Proposition 2.3 then gives B = O(M log(M +2)),
+and hence also a bound M O(k) after absorbing the logarithmic factor into the constant hidden in O(k).
+Corollary 5.9 of [9] gives polynomial time for fixed k.
+   In the graph language of Section 4, the subgroup generators may be placed on compressed loops at one base
+state, together with inverse loops, producing an involutive compressed nondeterministic automaton. Linton’s
+algorithm performs compressed analogues of subdivision and Stallings folding and converts this object to a
+compressed deterministic automaton representing the same subgroup. Membership of the compressed query
+word is then tested without expanding any transition label. The proposition accepts arbitrary SLP words
+over the involutive alphabet; if desired, each input word may first be freely reduced by Proposition 2.5(a),
+without affecting the polynomial bound.
+Lemma 6.2 (certificate size). Let B be an SLP of size m whose nonempty output w has length N . For fixed
+r, a list of at most r − 1 pairs
+                                      (pi , qi ), 0 ≤ pi < qi < N,
+has bit-size polynomial in m.
+                                                         17
+Proof. After polynomial-time normalization, Lemma 2.4(a) gives N ≤ 2O(m) . Hence every position has
+O(m) bits. The list contains at most 2(r − 1) positions, and r is fixed. Since m ≤ β(B), the same conclusion
+holds with respect to the encoded length of B.                                                             □
+Proposition 6.3 (the verifier). For fixed r, there is a deterministic polynomial-time verifier Vr with the
+following property. Given an SLP A and a certificate consisting of pairs of binary positions, Vr accepts some
+certificate if and only if gA is primitive in Fr .
+Proof. Let n = ∥A∥. The verifier performs the following steps.
+Step 1: cyclic reduction. Using Proposition 2.5(b), construct in deterministic polynomial time an SLP B
+whose output
+                                                 w = val(B)
+is freely and cyclically reduced and represents a conjugate of gA . Let m = ∥B∥ and compute N = |w| in
+binary. Since m is polynomially bounded in n, all later polynomial bounds in m are polynomial bounds in
+n. If N = 0, reject.
+Step 2: support. Compute
+                                        I = suppXr (w),       s = |I|
+using Lemma 2.4(d). The verifier requires the certificate to contain exactly s − 1 pairs
+                                          (p1 , q1 ), . . . , (ps−1 , qs−1 )
+and checks that 0 ≤ pi < qi < N for every i. By Lemma 6.2, a valid certificate has polynomial size.
+Step 3: compressed prefix differences.
+For every position t occurring in the certificate, use Lemma 2.4(b) to construct an SLP Pt satisfying
+                                           val(Pt ) = at = w[0 : t].
+Use Lemma 2.4(c) and one new concatenation production to construct an SLP Ui with
+                                              val(Ui ) = api a−1
+                                                              qi .
+
+There are at most 2(r − 1) prefix programs and r − 1 difference programs. Their total size and the time
+needed to construct them are polynomial in m.
+Step 4: endpoint subgroup. Let
+                                      K = ⟨w, val(U1 ), . . . , val(Us−1 )⟩ .
+This subgroup is given by exactly s ≤ r SLP generators of total size polynomial in m. For every j ∈ I, use
+the one-letter SLP for xj as the query in Proposition 6.1 and decide whether xj ∈ K. Accept precisely when
+all these membership tests return yes.
+   Every generator displayed for K is a word over XI±1 , so K ≤ FI . Therefore
+                                   xj ∈ K for all j ∈ I         ⇐⇒        K = FI .
+The number of subgroup generators is s ≤ r. By Proposition 6.1, each membership test has running time
+M O(s) , where M is the total structural size of that membership instance and is polynomial in m. Since r
+is fixed, this is a polynomial bound with a constant exponent; there are at most r tests. Thus Vr runs in
+deterministic polynomial time.
+    It remains to prove correctness. Suppose first that gA is primitive. Its cyclic reduction w is primitive,
+and Theorem 5.3 supplies s − 1 pairs for which K = FI . The corresponding certificate is accepted.
+    Conversely, if a certificate is accepted, the basis-membership tests show that K = FI . Equation (14)
+therefore holds, so Theorem 5.3 implies that w is primitive in Fr . Since w is conjugate to gA , the element
+gA is primitive as well.                                                                                   □
+  We can now prove the first main result of this paper, Theorem 1.1 from the Introduction.
+Theorem 6.4. For every fixed integer r ≥ 2, the language CPrimr belongs to NP.
+Proof. First parse the input according to Definition 2.2 and reject it if it is not a valid SLP encoding. For
+a valid encoding, Proposition 6.3 gives a certificate of polynomial bit-size for every yes-instance, and a
+deterministic polynomial-time algorithm checks the certificate. Hence CPrimr ∈ NP.                         □
+                                                         18
+                                7. Further remarks on the certificate
+Remark 7.1 (endpoint verification and the sequential interpretation). The verifier checks only the endpoint
+equality K = FI and does not explicitly construct the intermediate core graphs. Nevertheless, if
+                                    Ki = ⟨w, u1 , . . . , ui ⟩,   ui = api a−1
+                                                                            qi ,
+
+then Lemma 5.2 identifies ΓXI (Ki ) with the graph obtained after the first i prescribed vertex identifications.
+For an accepted certificate, the same two-sided rank estimate used in the proof of Theorem 5.3 gives rk(Ki ) =
+i + 1 for every i. Hence no stage is a no-op, and
+                     Sw = ΓXI (K0 ) ↠imm ΓXI (K1 ) ↠imm · · · ↠imm ΓXI (Ks−1 ) = RXI
+is a chain of exactly s − 1 immediate rank-increasing quotients. Thus there is no need to construct the
+intermediate graphs or to run Linton’s algorithm separately on each Ki : verifying the endpoint certifies the
+entire chain.
+Remark 7.2 (bounded rank does not bound graph size). The rank bound alone is not a sufficient complexity
+argument. The initial graph Sw has rank one but N vertices, where N may be exponential in the input SLP
+size. The prefix-difference formulation avoids ever listing these vertices or edges. A vertex is named by an
+O(log N )-bit position, and its path from the basepoint is represented by a polynomial-size prefix SLP.
+Remark 7.3 (dependence on the ambient rank). The proof establishes an NP upper bound for each fixed r.
+Linton’s quantitative bound is M O(k) , where M is the total structural size of the membership instance and
+the subgroup is given by k compressed generators. Here k = s ≤ r, so the verifier has a bound of the form
+M O(r) , and the exponent is constant once r is fixed. The constant hidden in this exponent is inherited from
+Linton’s analysis and is not made explicit here. If r is included as part of the input, the same argument does
+not give a verifier whose running-time exponent is independent of r.
+
+                           8. Deterministic polynomial time in rank two
+  We now specialize to
+                                                    F2 = F (a, b).
+In rank two the compressed primitivity problem admits a deterministic polynomial-time algorithm. The
+extra ingredient is the classical fact that two primitive elements of F2 with the same image in abelianization
+are conjugate.
+   For g ∈ F2 , write
+                                           ab(g) = σa (g), σb (g) ∈ Z2 ,
+                                                                 
+
+where σa and σb are the exponent sums in a and b, respectively.
+  We use the following form of the Nielsen–Osborne–Zieschang classification; see [13].
+Proposition 8.1 (Nielsen–Osborne–Zieschang). Let g ∈ F2 .
+  (a) If g is primitive, then                              
+                                     gcd |σa (g)|, |σb (g)| = 1.
+   (b) For every (p, q) ∈ Z2 with gcd(|p|, |q|) = 1, there is a primitive element with exponent-sum pair (p, q).
+    (c) If g, h ∈ F2 are primitive and ab(g) = ab(h), then g and h are conjugate.
+Thus the map induced by abelianization gives a bijection from primitive conjugacy classes in F2 to primitive
+vectors in Z2 .
+Proof. The classification of primitive elements and bases in rank two is due to Nielsen and is given in the
+precise form used here by Osborne–Zieschang [13]. A related, somewhat less precise structural description of
+bases in F2 appears in Cohen–Metzler–Zimmermann [2]; see also the Christoffel-word treatment of Kassel–
+Reutenauer [8]. We recall the short deductions needed below. Nielsen’s rank-two theorem identifies
+                                                     ∼ GL(2, Z);
+                                            Out(F2 ) =
+equivalently, the homomorphism Aut(F2 ) → GL(2, Z) induced by abelianization is surjective and has kernel
+Inn(F2 ).
+                                                           19
+   If g is primitive, extend it to an ordered basis (g, g2 ). The two abelianization vectors form a basis of Z2 ,
+so the coordinates of ab(g) are coprime. This proves (a). Conversely, a primitive vector v ∈ Z2 is the first
+column of a matrix in GL(2, Z). Lift that matrix to an automorphism of F2 ; the image of a is primitive and
+has abelianization v. This proves (b).
+   For (c), let g, h be primitive with the same abelianization vector v. Extend them to ordered bases (g, g2 )
+and (h, h2 ), and put
+                                          u = ab(g2 ),      u′ = ab(h2 ).
+After replacing h2 by h−1         ′        ′                                             ′
+                        2 and u by −u , if necessary, assume det(v, u) = det(v, u ). Then det(v, u − u ) = 0,
+                                                                                                              ′
+                                                              ′                                             k
+and primitivity of the integral vector v gives u − u = kv for some k ∈ Z. Replace h2 by h h2 and
+continue to denote the modified second basis element by h2 . This elementary Nielsen transformation gives
+ab(h2 ) = kv + u′ = u.
+   Let α, β ∈ Aut(F2 ) carry (a, b) to (g, g2 ) and (h, h2 ), respectively. Their induced matrices on abelianization
+are equal, so βα−1 ∈ ker(Aut(F2 ) → GL(2, Z)) = Inn(F2 ). Hence, for some c ∈ F2 , h = β(a) = (βα−1 )(g) =
+cgc−1 . This proves (c) and the stated bijection.                                                                  □
+  We will use the following immediate consequence.
+Corollary 8.2. If g ∈ F2 is primitive and
+                                                  ab(g) = (1, 0),
+then g is conjugate to a.
+Proof. Both g and a are primitive and have the same exponent-sum pair. Apply Proposition 8.1(c).                  □
+   We next record the Euclidean shortening behind the algorithm. This subsection is not needed for the final
+correctness test, but it explains why the required automorphism can be assembled in only logarithmically
+many batched stages.
+Proposition 8.3 (one Christoffel–Euclidean step). For integers P ≥ 1, Q ≥ 0, put
+                                                       
+                                          iQ     (i − 1)Q
+                             di (P, Q) =     −              ,    1 ≤ i ≤ P,
+                                           P         P
+          QP
+and CP,Q = i=1 abdi (P,Q) . Assume 0 < P ≤ Q and gcd(P, Q) = 1, write
+                                   Q = mP + R,         m ≥ 1,       0 ≤ R < P,
+and define τm ∈ Aut(F2 ) by τm (a) = ab−m and τm (b) = b. Then:
+   (a) CP,Q is cyclically reduced and primitive, has exponent-sum pair (P, Q), and represents the unique
+       primitive conjugacy class with that pair;
+   (b) τm (CP,Q ) = CP,R ;
+   (c) The cyclic lengths satisfy
+                                                        2          2
+                                ∥CP,R ∥cyc = P + R <      (P + Q) = ∥CP,Q ∥cyc .
+                                                        3          3
+Proof. Part (a) is the Christoffel-word form of Proposition 8.1; see [13, 8]. For (b),
+                                                                    
+                                                     iR       (i − 1)R
+                                   di (P, Q) = m +        −                 .
+                                                     P            P
+Thus di (P, Q) − m = di (P, R). The terminal word obtained by applying the substitution defining τm freely
+reduces as follows:                                !
+                                  P
+                                  Y                    P
+                                                       Y
+                                       −m di (P,Q)
+                             red     ab b            =   abdi (P,Q)−m = CP,R .
+                                    i=1                       i=1
+In particular, τm (CP,Q ) = CP,R in F2 . For (c), the positive words have cyclic lengths P + Q and P + R, and
+                                  2(P + Q) − 3(P + R) = (2m − 1)P − R > 0,
+because m ≥ 1 and R < P .                                                                                         □
+                                                         20
+  Thus, after possibly inverting or interchanging the basis elements, one Euclidean division step deletes the
+common power bm from every b-block of the Christoffel representative. The remaining exponents are 0 or 1,
+and after interchanging a and b the same operation can be repeated. In particular, the number of batched
+Euclidean stages is O(log(P + Q)).
+  We now give the compressed implementation. The next elementary lemma is used repeatedly.
+Lemma 8.4 (compressed substitution). Let G be an SLP over a fixed alphabet Σ, and suppose that an SLP
+Hz is given for every z ∈ Σ. There is an SLP producing the image of wG under the homomorphism z 7→ wHz .
+If
+                                                      X
+                                           S = ∥G∥ +      ∥Hz ∥,
+                                                        z∈Σ
+
+then the output has size O(S) and encoded length O(S log(S + 2)), and it can be constructed in polynomial
+time.
+Proof. First rename all input nonterminals so that the programs have disjoint variable sets and put each
+program in Chomsky normal form. By the linear structural-overhead normalization described in Section 2,
+the total number of normalized nonterminals and right-hand-side symbol occurrences is O(S). If the nor-
+malized program G has the exceptional empty root production, return the one-rule program producing ε.
+If its root production is A∗ → z, return a renamed copy of Hz . Otherwise the root production is binary.
+Process the nonterminals of G from bottom to top and associate to each nonterminal A a root θ(A) in the
+new program. If A → z is terminal, set θ(A) equal to the root of Hz ; no unit production is introduced. If
+A → BC, create one new nonterminal with production
+                                              θ(A) −→ θ(B)θ(C).
+Because A∗ is processed last and its production is binary, θ(A∗ ) is the final nonterminal and may be desig-
+nated as the root. Thus each image program is shared rather than copied at every terminal occurrence.
+   The construction includes each normalized image program once and creates at most one new binary
+production for each binary production of the normalized program G. Its size is therefore O(S). The encoded-
+length bound follows from Proposition 2.3.                                                                □
+
+Lemma 8.5 (compressed powers). Given m ≥ 0 in binary, one can construct SLPs for a±m and b±m of size
+                                                   
+                                           O bl(m)
+and encoded length
+                                                                 
+                                           O bl(m) log(bl(m) + 2) ,
+in time polynomial in the bit-size of m.
+Proof. For m = 0, use the one-rule program whose root produces ε. For m > 0, construct the powers with
+exponents 1, 2, 4, . . . by repeated squaring and concatenate those corresponding to the nonzero binary digits
+of m. This uses O(bl(m)) nonterminals and right-hand-side symbols, proving the structural-size bound.
+Proposition 2.3 gives the stated encoded-length bound. The inverse powers are obtained by Lemma 2.4(c),
+or by carrying out the same construction with the inverse terminal.                                         □
+
+Lemma 8.6 (compressed Euclidean automorphism). Let A be an SLP over {a, b}±1 of size n, and put
+                                           g = gA ,    ab(g) = (p, q).
+If gcd(|p|, |q|) = 1, then one can construct, in deterministic polynomial time, an SLP G and a description of
+an automorphism Φ ∈ Aut(F2 ) such that
+                              val(G) represents Φ(g)    and   ab(Φ(g)) = (1, 0).
+The automorphism is recorded as a sequence of sign changes, interchanges, and shears with binary parameters.
+This record has bit-size polynomial in n, while G has structural size, and hence encoded length, polynomial
+in n.
+                                                       21
+Proof. The exponent sums are computed by Lemma 2.4(d). Since |p|+|q| ≤ |wA | ≤ 2O(n) , these integers have
+O(n) bits. Normalize A once at the outset. By the linear structural-overhead normalization in Section 2,
+the normalized program has size O(n) and encoded length O(n log(n + 2)).
+   First apply, when necessary, the automorphisms
+                                a 7→ a−1 , b 7→ b,         and   a 7→ a, b 7→ b−1 ,
+so that the current exponent-sum pair is (P, Q) = (|p|, |q|). If P = 0, then Q = 1, and we interchange a and
+b. Hence we may assume P > 0.
+   While Q ̸= 0, proceed as follows. If P > Q, apply the interchange automorphism a ↔ b and interchange
+P, Q. We then have 0 < P ≤ Q. Compute
+                                              
+                                               Q
+                                        m=         ,    R = Q − mP,
+                                               P
+and apply
+                                        τm (a) = ab−m ,      τm (b) = b.
+On abelianization this sends (P, Q) to (P, Q − mP ) = (P, R). Continue with this new pair. Since the gcd is
+unchanged, the process terminates at (1, 0).
+   Each sign change or interchange has constant-size terminal images. To apply τm , use
+                          a 7→ ab−m ,       a−1 7→ bm a−1 ,      b 7→ b,    b−1 7→ b−1 .
+By Lemmas 8.4 and 8.5, the substitution is performed in polynomial time. Choose the image programs
+in Chomsky normal form. Since every sign change, interchange, and shear used here is non-erasing, the
+construction in Lemma 8.4 preserves Chomsky normal form: it recreates each existing binary production
+once and adds only the shared image programs. Thus a shear with parameter m increases the size by only
+O(log(m + 1)); a sign change or interchange adds only constant size.
+   Let S = P + Q immediately before a division stage, after any interchange. The new sum is P + R. Since
+Q = mP + R, with m ≥ 1 and 0 ≤ R < P ,
+                                 2(P + Q) − 3(P + R) = (2m − 1)P − R > 0,
+and therefore
+                                                  2             2
+                                            P +R<   (P + Q) = S.
+                                                  3             3
+Consequently there are O(log(|p| + |q| + 1)) = O(n) division stages. Every quotient m is at most |p| + |q|, so
+                                          X
+                                                 log(m + 1) = O(n2 ).
+                                        division stages
+
+The normalized initial program has size O(n), and the preceding substitutions increase it by
+                                                          
+                                         X
+                                 O              log(m + 1) = O(n2 ).
+                                         division stages
+
+Thus every intermediate program has polynomial size. Its encoded length is polynomial in n by Proposi-
+tion 2.3. The sequence describing Φ has O(n) stages and O(n)-bit parameters, hence polynomial bit-size
+as well. The integer arithmetic uses O(n)-bit integers, and there are only O(n) substitutions, each on a
+polynomial-size program. The total construction time is therefore polynomial.                         □
+  We can now prove the rank-two complexity result (cf. Theorem 1.2):
+Theorem 8.7. The compressed primitivity problem in F2 is decidable in deterministic polynomial time.
+Equivalently,
+                                          CPrim2 ∈ P.
+Proof. Let A be the input SLP, let g = gA , and compute
+                                                    ab(g) = (p, q)
+as in the proof of Lemma 8.6. If (p, q) = (0, 0), reject. Otherwise compute gcd(|p|, |q|) and reject if it is not
+equal to 1. This is correct for every primitive input by Proposition 8.1(a).
+                                                           22
+   Suppose now that gcd(|p|, |q|) = 1. Apply Lemma 8.6 to construct a polynomial-size SLP G representing
+Φ(g), where
+                                              ab(Φ(g)) = (1, 0).
+Use Proposition 2.5(b) to construct an SLP for a freely and cyclically reduced conjugate u of Φ(g), and
+compute |u| in binary. Accept if and only if
+                                                   |u| = 1.
+All these operations take deterministic polynomial time.
+   For soundness, suppose that the algorithm accepts. A cyclically reduced word of length one is one of
+a±1 , b±1 . Conjugation does not change exponent sums, and ab(u) = (1, 0); hence u = a. Therefore Φ(g) is
+conjugate to a, so Φ(g) is primitive. Since Φ is an automorphism, g is primitive.
+   For completeness, suppose that g is primitive. Then Φ(g) is primitive and has exponent-sum pair (1, 0).
+By Corollary 8.2, Φ(g) is conjugate to a. Its cyclically reduced length is therefore one, and the algorithm
+accepts.                                                                                                  □
+Remark 8.8 (quantitative complexity in rank two). For N ≥ 1, let Tcyc (N ) denote the worst-case number
+of bit operations used by a fixed deterministic implementation of Proposition 2.5(b), on inputs D with
+β(D) ≤ N , to construct an SLP for the cyclically reduced form and to compute its length. Suppose that
+                                                  Tcyc (N ) = O(N d )
+for some constant d ≥ 1.
+   Let n = ∥A∥. In the Euclidean construction of Lemma 8.6, let m1 , . . . , mk be the nonzero Euclidean
+quotients, and let Si be the sum of the two nonnegative coordinates immediately before the ith division. If
+                                          Qi = mi Pi + Ri ,         0 ≤ Ri < Pi ,
+then, up to an interchange of coordinates,
+                                          Si = Pi + Qi ,         Si+1 = Pi + Ri .
+Moreover,
+                            2Si − (mi + 1)Si+1 = (mi + 1)Pi − (mi − 1)Ri > 0,
+and hence
+                                                                   Si
+                                                   mi + 1 < 2          .
+                                                                  Si+1
+Taking logarithms and summing gives
+                                    k
+                                    X                                  S1
+                                          log2 (mi + 1) < k + log2         = O(n),
+                                    i=1
+                                                                      Sk+1
+                          O(n)
+because k = O(n), S1 ≤ 2         , and the final pair is (1, 0), so Sk+1 = 1. Consequently,
+                                                 k
+                                                 X
+                                                        bl(mi ) = O(n).
+                                                  i=1
+   It follows that the record of the automorphism Φ has bit-size O(n) and that the program G representing
+Φ(gA ) may be chosen with                                                    
+                                   ∥G∥ = O(n),         β(G) = O n log(n + 2) ,
+where the second estimate follows from Proposition 2.3. The sequential substitution construction above
+uses O(n2 log(n + 2)) grammar bit operations: there are O(n) stages, and each stage rewrites an O(n)-size
+grammar whose indices have O(log(n + 2)) bits. The Euclidean algorithm performs O(n) divisions and
+associated operations on O(n)-bit integers. With conservative schoolbook arithmetic, these use O(n3 ) bit
+operations, so all steps preceding the final cyclic reduction have the same bound. Consequently, the algorithm
+in Theorem 8.7 runs in
+                                          O n3 + Tcyc Cn log(n + 2)
+                                                                       
+
+bit operations for some constant C. In particular, if Tcyc (N ) = O(N d ), then the running time is
+                                                                 
+                                         O n3 + nd logd (n + 2) .
+                                                            23
+   Schleimer’s compressed cyclic-reduction result supplies some absolute polynomial degree d for which the
+displayed conditional estimate applies. The published proof does not state or optimize the numerical value
+of d, and its precise value for a concrete implementation remains to be computed.
+Remark 8.9 (literal shortening). On a positive primitive conjugacy class with exponent-sum pair (P, Q),
+Proposition 8.3 shows that the automorphism a 7→ ab−m performs exactly the proposed simultaneous can-
+cellation of the common power bm . The b-block exponents are m or m + 1, but their cyclic order is the
+additional arithmetic information supplied by the Christoffel formula. After the shear, the residual expo-
+nents are 0 or 1, and the roles of a and b may be interchanged. Thus the Euclidean process does shorten a
+primitive word by a uniform multiplicative factor at each batched stage. The algorithm above does not need
+to recover the exponentially long block decomposition: it performs the same shears directly on the input
+SLP and makes a single cyclic-length test at the end.
+
+                                              9. Disclosure of AI use
+   ChatGPT was used during the preparation of this manuscript. The author independently checked and
+edited all mathematical arguments and takes full responsibility for the final content.
+
+                                                       References
+ [1] L. Bartholdi, M. Figelius, M. Lohrey, and A. Weiß, Groups with ALOGTIME-hard word problems and PSPACE-complete
+     compressed word problems. ACM Trans. Comput. Theory 14 (2022), nos. 3–4, Art. 11, 41 pp. doi:10.1145/3569708
+ [2] M. Cohen, W. Metzler, and A. Zimmermann, What does a basis of F (a, b) look like? Math. Ann. 257 (1981), 435–445.
+     doi:10.1007/BF01465865
+ [3] D. F. Holt, M. Lohrey, and S. Schleimer, Compressed decision problems in hyperbolic groups. Groups Geom. Dyn. 18
+     (2024), no. 4, 1233–1273. doi:10.4171/GGD/809
+ [4] D. F. Holt and S. Rees, The compressed word problem in relatively hyperbolic groups. J. Algebra 607 (2022), part B,
+     305–343. doi:10.1016/j.jalgebra.2022.01.001
+ [5] D. F. Holt and S. Rees, The compressed conjugacy problem in relatively hyperbolic groups. J. Algebra 649 (2024), 302–318.
+     doi:10.1016/j.jalgebra.2024.03.009
+ [6] I. Kapovich and A. Myasnikov, Stallings foldings and subgroups of free groups. J. Algebra 248 (2002), no. 2, 608–668.
+     doi:10.1006/jabr.2001.9033
+ [7] I. Kapovich, P. Schupp, and V. Shpilrain, Generic properties of Whitehead’s algorithm and isomorphism rigidity of random
+     one-relator groups. Pacific J. Math. 223 (2006), no. 1, 113–140. doi:10.2140/pjm.2006.223.113
+ [8] C. Kassel and C. Reutenauer, Sturmian morphisms, the braid group B4 , Christoffel words and bases of F2 . Ann. Mat.
+     Pura Appl. (4) 186 (2007), no. 2, 317–339. doi:10.1007/s10231-006-0008-z
+ [9] M. Linton, The fully compressed subgroup membership problem. J. Algebra 628 (2023), 562–583. doi:10.1016/j.jalgebra.
+     2023.03.026
+[10] M. Lohrey, Algorithmics on SLP-compressed strings: a survey. Groups Complex. Cryptol. 4 (2012), no. 2, 241–299.
+     doi:10.1515/gcc-2012-0016
+[11] M. Lohrey and S. Schleimer, Efficient computation in groups via compression. In: Computer Science–Theory and Appli-
+     cations, Lecture Notes in Comput. Sci. 4649, Springer, 2007, 249–258. doi:10.1007/978-3-540-74510-5_26
+[12] J. Macdonald, A. Myasnikov, A. Nikolaev, and S. Vassileva, Logspace and compressed-word computations in nilpotent
+     groups. Trans. Amer. Math. Soc. 375 (2022), no. 8, 5425–5459. doi:10.1090/tran/8623
+[13] R. P. Osborne and H. Zieschang, Primitives in the free group on two generators. Invent. Math. 63 (1981), 17–24. doi:
+     10.1007/BF01389191
+[14] D. Puder, Primitive words, free factors and measure preservation. Israel J. Math. 201 (2014), no. 1, 25–73. doi:10.1007/
+     s11856-013-0055-2
+[15] D. Puder and O. Parzanchevski, Measure preserving words are primitive. J. Amer. Math. Soc. 28 (2015), no. 1, 63–97.
+     doi:10.1090/S0894-0347-2014-00796-7
+[16] A. Roig, E. Ventura, and P. Weil, On the complexity of the Whitehead minimization problem. Internat. J. Algebra Comput.
+     17 (2007), no. 8, 1611–1634. doi:10.1142/S0218196707004244
+[17] S. Schleimer, Polynomial-time word problems. Comment. Math. Helv. 83 (2008), no. 4, 741–765. doi:10.4171/CMH/142
+[18] J. R. Stallings, Topology of finite graphs. Invent. Math. 71 (1983), no. 3, 551–565. doi:10.1007/BF02095993
+[19] J. P. Wächter and A. Weiß, An automaton group with PSPACE-complete word problem. Theory Comput. Syst. 67 (2023),
+     178–218. doi:10.1007/s00224-021-10064-7
+[20] J. H. C. Whitehead, On equivalent sets of elements in a free group. Ann. of Math. (2) 37 (1936), no. 4, 782–800. doi:
+     10.2307/1968618
+
+
+
+
+                                                             24
+

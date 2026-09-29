@@ -1,0 +1,2329 @@
+    CUSPED SPACES FOR HIERARCHICALLY HYPERBOLIC GROUPS, AND
+             APPLICATIONS TO DEHN FILLING QUOTIENTS
+
+
+                                GIORGIO MANGIONI AND ALESSANDRO SISTO
+
+
+        Abstract. We introduce a construction that simultaneously yields cusped spaces of relatively hyper-
+        bolic groups, and spaces quasi-isometric to Teichmüller metrics. We use this to study Dehn-filling-like
+        quotients of various groups, among which mapping class groups MCGpSn q of n-punctured spheres.
+        In particular, we show that MCGpS5 q (resp. the braid group on four strands) has infinite hyperbolic
+        quotients (strongly) not isomorphic to hyperbolic quotients of any other given MCGpSn q (resp. any
+        other braid group). These quotients are obtained from MCGpS5 q by modding out suitable large pow-
+        ers of Dehn twists, and we further argue that the corresponding quotients of the extended mapping
+        class group have trivial outer automorphism groups. We obtain these results by studying torsion
+        elements in the relevant quotients.
+
+
+
+
+                                                                        To bake a cake in the eye of a storm; to
+                                                                        feed yourself sugar on the cusp of danger.
+
+                                                                                                      Ocean Vuong,
+                                                                                 On Earth We’re Briefly Gorgeous,
+                                                                             about Patricia Polacco’s Thunder Cake
+
+                                                  Introduction
+   Cusped spaces, as introduced in [GM08, Bow12], are fundamental tools in the study of relatively
+hyperbolic groups. For instance, relevantly to this paper, their interplay with algebraic Dehn fillings has
+produced countless applications; a non-exhaustive list of references includes [GM08, AGM09, Ago13,
+DG18, GM18, DT19, GMS19, GM21, Wan21]. Cusped spaces share similarities with Teichmüller
+space, regarded as a coarse geometric object when endowed with the Teichmüller metric, in that
+its thin part, where the mapping class group action is not cocompact, can be described in terms of
+products of horoballs [Min96, Dur16]. We unify these perspectives by introducing a construction of
+cusped spaces for relatively hierarchically hyperbolic groups (HHGs), as defined in [BHS17b, BHS19],
+that simultaneously yields cusped spaces and Teichmüller spaces.
+   The starting point is a relatively HHG admitting a combinatorial model analogous to Masur-
+Minsky’s marking complexes [MM00], for instance a relatively hyperbolic group or a mapping class
+group. The precise requirements on the group, which we defer to Definition 2.3, are not very restrictive
+in view of results from [HMS26], see discussion below. The construction of the cusped space is then es-
+sentially a generalisation of Durham’s augmented marking complex for the Teichmüller metric [Dur16],
+as we explain in more detail in Remark 3.8. For the reader familiar with hierarchical hyperbolicity, we
+roughly replace every hyperbolic space at the bottom of the hierarchy with the combinatorial horoball
+over it; this is described in more detail below, and implemented in Definition 2.9. With this in mind,
+the first properties of our construction are:
+Theorem A. Let G be a relative HHG satisfying Definition 2.3, and let Z be its cusped space as in
+Definition 2.9. Then:
+    (1) Z is a hierarchically hyperbolic space;
+    (2) G acts on Z and the orbit maps are coarse embeddings;
+    (3) for G relatively hyperbolic, Z is G-equivariantly quasi-isometric to the cusped space of G;
+    (4) for G a mapping class group of a finite-type surface, Z is G-equivariantly quasi-isometric to
+        the corresponding Teichmüller metric.
+                                                           1
+2                                       G. MANGIONI AND A. SISTO
+
+
+We expect our cusped spaces to serve as a general-purpose tool in the future. For instance, it might be
+possible to use them to prove the Farrell-Jones Conjecture for a large class of relative HHGs, combining
+techniques from [Bar17] and [DMS25] (which in turn relies on the criterion from [BB19]). In this
+paper we focus on applications to the study of “Dehn filling like” quotients, of the type considered in
+[DHS21, BHMS24, MS26]. In particular, we prove the following, where Sn denotes the n-punctured
+sphere and Bn is the braid group on n strands.
+Theorem B.       (1) Let n ě 5 be an integer. Then there exists a non-elementary hyperbolic quotient
+      Q of B4 such that any homomorphism ϕ : Bn Ñ Q has virtually cyclic image.
+  (2) Let n ě 6 be an integer. Then there exists a non-elementary hyperbolic quotient Q of MCGpS5 q
+      such that any homomorphism ϕ : MCGpSn q Ñ Q has finite image.
+Theorem B gives a strong way to distinguish B4 (resp. MCGpS5 q) among all other braid groups (resp.
+mapping class groups of spheres) using infinite hyperbolic quotients; this is in analogy with profinite
+rigidity results, where finite quotients are used instead. We emphasise that Theorem B is extremely
+delicate: for instance, a finite-index subgroup of Bn for n ě 5 surjects onto B4 (by forgetting strands),
+whence onto any quotient of it. This subtlety is reflected in the proof of Theorem 6.1, which implies
+both statements of Theorem B and crucially uses properties of finite subgroups of MCGpSn q.
+   The quotients Q arising in Theorem B are in fact all virtually of the form MCG ˘ pS5 q{DTN , where
+DTN is the normal subgroup generated by all N -th powers of Dehn twists. For suitable N , these were
+shown to be hyperbolic in [DHS21]. Understanding torsion in these groups is the key to proving the
+theorem above, and we can also exploit this knowledge to control their automorphism groups.
+Theorem C. There exists N0 ą 0 such that, for all multiples N of N0 , the group GN “ MCG ˘ pS5 q{DTN
+satisfies Aut pGN q – GN .
+   In [MS25], we proved an analogue of Theorem C for MCG ˘ pSn q{DTN where n ě 7, but the
+proof there is completely different in nature (it first establishes quasi-isometric rigidity, relying on a
+sufficiently rich pattern of quasiflats and results from [BHS21], and then uses that automorphisms
+give quasi-isometries). Though the remaining case n “ 6 cannot be tackled with the tools from
+[MS25], one can likely use methods similar to the ones we use here to settle it, provided that a certain
+technical improvement on [BHMS24] can be achieved. We believe it can, and we explain this further
+in Remark F.
+   We also point out that, by combining existing results in the literature and using completely different
+tools, one could already deduce that the outer automorphism group of GN is finite (see Remark 5.23).
+Roughly, property (FA) for MCG ˘ pS5 q implies that the GN are rigid in the sense of JSJ theory, but
+this type of argument cannot prove that outer automorphism groups are trivial rather than finite.
+   In the case of relatively hyperbolic groups, sequences of peripheral quotients can be studied via the
+corresponding quotients of cusped spaces, which turn out to be uniformly hyperbolic; this is exploited
+for instance in [DG18]. Inspired by this, we consider sequences of Dehn filling quotients of short HHGs,
+a particularly simple class of HHG introduced in [Man24]. Notably, MCG ˘ pS5 q is a short HHG, and
+the quotients GN from Theorem C are examples of Dehn filling quotients (see Notation 5.5). The
+following result, which is the starting point towards all the aforementioned applications, establishes that
+the corresponding quotients of cusped spaces are “uniform”, in analogy with the relatively hyperbolic
+case. We refer to Remark 1.10 for details of the notion of “uniformly HHS”.
+Theorem D. Let G be a short HHG, with cusped space Z. There exists N0 ą 0, such that the spaces
+Z{DTN for all multiples N of N0 are uniformly HHS.
+It was proven in [HHP23], using injective spaces, that all HHGs have bounded torsion. The proofs in
+fact give a bound depending on the underlying hierarchical data, so if a family of groups acts uniformly
+properly on a uniform family of HHS (such as the collection Z{DTN from Theorem D) then the bound
+on torsion will be uniform. Because of this, we are able to show the following, which we state for
+MCGpS5 q only for simplicity even though an analogue holds for all short HHGs.
+                                        CUSPED SPACES FOR HHG                                            3
+
+
+Corollary E. There exists N0 ą 0 such that, for all multiples N of N0 , any finite-order element of
+MCGpS5 q{DTN is the image of an element of MCGpS5 q which is either finite-order, stabilises a curve,
+or swaps two disjoint curves.
+
+We expect that a similar result can be obtained for all quotients of mapping class groups by suitable
+powers of Dehn twists, as well as the further quotients constructed in [BHMS24]. We explain the
+currently missing technical statement in Remark F below.
+
+Outline and strategies. In Section 1 we recall necessary background, in particular about the com-
+binatorial approach to hierarchical hyperbolicity from [BHMS24]. Very roughly, one can extract a
+hierarchical structure from hyperbolic simplicial complexes where all links are also hyperbolic. In-
+spired by [HMS26], we consider simplicial complexes obtained via the following “blowup” procedure:
+                                                                        p0q
+starting from a “supporting” simplicial complex X, every vertex v P X is replaced by the cone over a
+certain graph Lv , thus ensuring that Lv appears as a link in the blown-up graph. This is a fairly broad
+setting, as a lot of naturally occurring HHSs admit a combinatorial structure of this type by results
+from [HMS26]. The associated hierarchically hyperbolic space (HHS) is then a graph whose vertices
+are maximal simplices of the blown-up graph. For mapping class groups, the supporting complex is
+the curve complex and the Lv ’s are annular curve graphs, so that maximal simplices of the blown-up
+complex correspond to markings.
+    In Section 2 we describe the (relative) combinatorial HHSs that we will consider, which we call
+(relative) squid HHS and as mentioned above are blow-ups. See Figure 3 to visualise where this notion
+fits among other version of hierarchical hyperbolicity. Section 2 also contains the construction of cusped
+spaces, which is done by replacing each Lv with the combinatorial horoball over it. Theorem 2.12
+summarises the main properties of this construction, and in particular proves the first two items of
+Theorem A. It is possible to extend the construction beyond (relative) squid HHGs, but this requires
+different techniques and will be done in [HPZ].
+    In Section 3 we verify that our construction indeed applies to many (relative) HHSs, and that
+it yields cusped spaces of relatively hyperbolic groups and Teichmüller space (the last two items of
+Theorem A). There we also prove Proposition 3.4, which is of independent interest and could prove
+useful elsewhere as well. Roughly, the Proposition says that, when starting from a HHS structure and
+passing to a combinatorial version of it, as in [HMS26], the associated projections between domains
+remain coarsely the same.
+    In Section 4 we establish Theorem 4.2, which allows us to control torsion elements in quotients of
+(relative) HHGs with controlled geometry. As mentioned above, this uses arguments from [HHP23],
+applied to the action on our cusped spaces.
+    We leverage our control on torsion in Section 5, where we study automorphisms of quotients of
+short HHGs. Towards this, we firstly show Theorem D(=Corollary 5.10); the latter, combined with
+Theorem 4.2, immediately yields Corollary 5.11, which is a more general version of Corollary E about
+finite subgroups in quotients.
+    Having established this, the goal of Theorem 5.19 is to extract a simplicial automorphism of a
+certain graph from a group automorphism; for MCGpS5 q{DTN , this graph is the quotient of the curve
+graph by DTN . To this extent, the strategy (for MCGpS5 q) is roughly to characterise images of Dehn
+twists in MCGpS5 q{DTN as those elements that have a sufficiently large finite order, and a sufficiently
+large centraliser (we need the latter to rule out images of multi-twists).
+    In turn, every automorphism of the quotient of the curve graph is induced by a mapping class, by
+an analogue of Ivanov’s theorem we proved in [MS25], so Theorem C(=Corollary 5.22) follows from
+Theorem 5.19.
+    In Section 6 we prove Theorem 6.1 and both parts of Theorem B as corollaries, again exploiting
+knowledge about torsion, and in particular using that torsion elements have “very large” normal closure
+in mapping class groups of spheres. This should be compared to several results in the literature where
+torsion is used to constrain homomorphisms between mapping class groups [HK05, CL24].
+4                                      G. MANGIONI AND A. SISTO
+
+
+Remark F (Squid structures for Dehn twist quotients). Let S be any finite-type surface, and let
+MCGpSq be its mapping class group. It is shown in [BHMS24] that MCGpSq{DTN , for N deep
+enough, is a combinatorial HHG. However, the structure found there is not a squid HHG structure,
+meaning a structure as in Section 2: this is because the underlying graph X, which is the corresponding
+quotient of the curve complex, is not a blowup. Nonetheless, one can blow up each vertex of X to
+a cone over a quotient of an annular curve graph. We expect this should yield a relative squid
+HHG structure with uniform constants over all N large enough; this would almost immediately give
+generalisations of Theorem D (on cusped spaces being uniformly HHS) and Corollary E (about torsion
+elements in quotients). Most likely, this would also allow one to extend Theorem C (on automorphisms
+of quotients) to the six-punctured sphere; recall that the cases with more punctures are covered by
+[MS25]. Finally, it would also be a starting point for more general versions of Theorem B (on different
+mapping class groups having different hyperbolic quotients); however, since quotients by large powers
+of Dehn twists are in general not hyperbolic, a one-to-one analogue of Theorem B would probably
+require uniform relative squid HHG structures also for the further quotients studied in [BHMS24].
+
+Acknowledgements. We thank Arthur Bartels and Rémi Coulon for suggesting possible future ap-
+plications of cusped spaces, Alex Wright for several insightful questions, and Matt Durham for many
+useful suggestions. We are also grateful to Mark Hagen, Harry Petyt, and Abdul Zalloum for discus-
+sions on the generalisation of cusped spaces beyond combinatorial HHG.
+
+
+                                           1. Background
+   In this Section, we gather all definitions and tools from the world of (combinatorial hierarchical)
+hyperbolicity that we shall need. We first recall here a construction of Groves-Manning [GM08], see
+also [Bow12], inspired by horoballs in real hyperbolic spaces.
+
+Definition 1.1. Let Γ be a simplicial graph. The combinatorial horoball Hor pΓq with base Γ is the
+simplicial graph whose vertex set is Γp0q ˆ N, and with the following two types of edges:
+     ‚ For every p P Γp0q and n P N, pp, nq is adjacent to pp, n ` 1q;
+     ‚ For every p, q P Γp0q and n P N, if dΓ pp, qq ď 2n then pp, nq is adjacent to pq, nq.
+We often denote pp, nq P Γp0q ˆ N simply by pn .
+
+The base Γ is naturally contained in the corresponding combinatorial horoball, but it is not quasi-
+isometrically embedded into it. Rather, it is coarsely embedded, in the sense of the following definition:
+
+Definition 1.2 (Coarse embedding). Given two metric spaces pX, dX q and pY, dY q and positive real
+functions m, M – Rě0 Ñ Rě0 such that mptq ÝÝÝÝÑ `8, a map f : X Ñ Y is a coarse embedding if
+                                                 tÑ`8
+for every x, x1 P X,
+                           `           ˘                         `           ˘
+                          m dX px, x1 q ď dY pf pxq, f px1 qq ď M dX px, x1 q .
+M and m are called the coarse embedding functions of f .
+
+In real hyperbolic spaces every horosphere is a coarsely embedded copy of the Euclidean space inside
+the corresponding horoball. Analogously, combinatorial horoballs satisfy the following:
+
+Lemma 1.3 (See proof of [GM08, Lemma 3.10]). The inclusion Γ ãÑ Hor pΓq is a uniform coarse
+embedding. More precisely, for every x, y P Γp0q , dHorpΓq px, yq ě 32 log2 pdΓ px, yqq ` 1.
+
+Geodesics in combinatorial horoballs admit a similar description as those in real horoballs, and one
+can use this to show:
+
+Theorem 1.4 ([GM08]). There exists δ0 ą 0 such that, for every Γ, Hor pΓq is δ0 -hyperbolic.
+
+To summarise, combinatorial horoballs give a way to coarsely embed any graph into a hyperbolic space.
+                                       CUSPED SPACES FOR HHG                                           5
+
+
+1.1. Pills of combinatorial hierarchical hyperbolicity. We recall here the notion of a combinato-
+                                                                                              p0q
+rial HHS from [BHMS24]. For the whole section, let X be a simplicial graph, with vertex set X , and
+let W be an X-graph, that is, a simplicial graph whose vertex set is the set of all maximal simplices
+of X. We conflate X with the flag simplicial complex that has X as the 1-skeleton, and in particular
+often refer to cliques in X as simplices of X. The main theorem of [BHMS24] describes conditions
+on a pair pX, Wq to ensure that W is a hierarchically hyperbolic space. We now gather the required
+terminology to phrase these conditions.
+   Given two subgraphs A, B of X (by which we always mean full subgraphs), if B Ď LinkX pAq
+we write A ‹ B to denote the full subgraph spanned by Ap0q Y B p0q . Moreover, we set Star pAq –
+LinkX pAq ‹ A.
+   Links of simplices will correspond to hyperbolic spaces of an HHS structure. Because of this, we
+are interested in simplices that have the same link.
+Definition 1.5 (Saturation). For ∆, ∆1 simplices of X, we write ∆ „ ∆1 to mean LinkX p∆q “
+LinkX p∆1 q. Let r∆s be the „–equivalence class of ∆, and let
+                                               ¨           ˛p0q
+                                                   ď
+                                     Satp∆q “ ˝         ∆1 ‚ .
+                                                   ∆1 Pr∆s
+
+Let S the set of „–classes of non-maximal simplices in X.
+  The hyperbolic spaces of the HHS structures we will be interested in are not exactly links in X (in
+most cases there are discrete links), but rather we have to add certain edges, as specified below.
+Definition 1.6 (Augmented links). Let X `W be the simplicial graph such that:
+      ‚ the 0–skeleton of X `W is X p0q ;
+      ‚ if v, w P X p0q are adjacent in X, then they are adjacent in X `W ;
+      ‚ if two vertices in W are adjacent, then we consider σ, ρ, the associated maximal simplices of
+        X, and in X `W we connect each vertex of σ to each vertex of ρ.
+For each simplex ∆ of X, let Y∆ be the subgraph of X `W spanned by pX `W qp0q ´ Satp∆q. The
+                                                                                p0q
+augmented link of ∆ is the induced subgraph Cp∆q of Y∆ spanned by LinkX p∆q (we emphasise that
+                                      `W
+we are taking links in X, not in X       , and then considering the subgraphs of Y∆ induced by those
+links). Note that, if ∆ „ ∆1 , then Y∆ “ Y∆1 and Cp∆q “ Cp∆1 q .
+  We are ready to define combinatorial HHS.
+Definition 1.7 (Combinatorial HHS). A combinatorial hierarchically hyperbolic space is the data of
+a simplicial graph X, an X-graph W, and two constants n, δ ě 0, satisfying the following:
+    (1) Any chain LinkX p∆1 q Ĺ ¨ ¨ ¨ Ĺ LinkX p∆k q has length at most n, which is called the complexity
+        of pX, Wq.
+    (2) For each rΣs P S, CpΣq is δ–hyperbolic.
+    (3) For each rΣs P S, CpΣq is δ–quasi-isometrically embedded in YΣ .
+    (4) For every r∆s, rΣs P S for which there exists rΓs P S such that LinkX pΓq Ď LinkX p∆q X
+        LinkX pΣq and diampCpΓqq ě δ, there exists a non-maximal simplex Π containing Σ such that
+        LinkX pΠq Ď LinkX p∆q, and all Γ as above satisfy LinkX pΓq Ď LinkX pΠq.
+    (5) For each r∆s P S and v ‰ w P LinkX p∆q, if v, w are adjacent in Cp∆q but not in LinkX p∆q,
+        then there exist W-adjacent maximal simplices Πv , Πw such that ∆ ‹ tvu Ď Πv and ∆ ‹ twu Ď
+        Πw .
+[BHMS24, Theorem 1.18] states that, if pX, W, n, δq is a combinatorial HHS, then W is a hierarchically
+hyperbolic space, in the sense of [BHS19, Definition 1.1]. More precisely, the structure on W has S as
+domain set and augmented links as coordinate spaces, while relations and projections between domains
+are encoded by the following additional definitions.
+Definition 1.8 (Relations between domains). Let r∆s, r∆1 s P S. Then:
+6                                       G. MANGIONI AND A. SISTO
+
+
+      ‚ r∆s Ď r∆1 s if LinkX p∆q Ď LinkX p∆1 q;
+      ‚ r∆sKr∆1 s if LinkX p∆1 q Ď LinkX pLinkX p∆qq.
+If r∆s and r∆1 s are neither K–related nor Ď–related, we write r∆s&r∆1 s.
+Definition 1.9 (Projections). Fix r∆s P S and define a map πr∆s : W Ñ 2Cp∆q as follows. Let
+p : Y∆ Ñ 2Cp∆q be the coarse closest point projection, i.e.
+                            ppxq “ ty P Cp∆q : dY∆ px, yq ď dY∆ px, Cp∆qq ` 1u.
+If w is a maximal simplex of X, the intersection w X Y∆ is non-empty and has diameter at most 1 by
+[BHMS24, Lemma 1.15]. Hence set
+                                        πr∆s pwq “ ppw X Y∆ q,
+and for every w, w1 P W set
+                                                   `                    ˘
+                              dr∆s pw, w1 q – dCp∆q πr∆s pwq, πr∆s pw1 q .
+If r∆s, r∆1 s P S satisfy r∆s&r∆1 s or r∆1 s Ĺ r∆s, set
+                                          r∆1 s
+                                         ρr∆s “ ppSatp∆1 q X Y∆ q.
+                    r∆1 s
+If r∆s Ĺ r∆1 s, let ρr∆s : Cp∆1 q Ñ Cp∆q be defined as follows. On Cp∆1 q X Y∆ , it is the restriction of p;
+otherwise, it takes the value H.
+Remark 1.10 (Uniform combinatorial HHSs). It can be extracted from the proof of [BHMS24, The-
+orem 1.18] that, for a combinatorial HHS pX, W, n, δq, all constants and functions involved in the
+hierarchically hyperbolic structure depend only on n and δ (in particular, the function appearing in
+the Uniqueness axiom is explicitly constructed at [BHMS24, page 50]). This is relevant as every coarse
+object naturally associated to a hierarchically hyperbolic space, such as its coarse median structure
+[BHS19] or its coarsely injective structure [HHP23], ultimately only depends on these constants and
+functions. With this in mind, we say that a family of combinatorial HHSs is uniform if they satisfy
+Definition 1.7 with respect to uniform constants n and δ.
+1.2. Blowup graphs. All the combinatorial HHSs that we consider in this paper will be blowups, in
+a sense that we now describe. We note that the combinatorial HHSs constructed in [HMS26], where a
+combinatorial structure is given for many HHSs, are also all blowups: this will be explored further in
+Section 3.2 below.
+                                                                          p0q
+Definition 1.11. Given a simplicial graph X and, for every v P X , a set Lv , the blowup of X
+                                                                               p0q
+with respect to tLv uvPX p0q is the graph X defined as follows. For every v P X , X contains the cone
+                                           p0q
+Cone pvq – tvu ‹ tLv u. Given v, w P X , Cone pvq and Cone pwq span a join in X if their apices v
+and w are adjacent in X, and are disjoint otherwise. See Figure 1.
+                                                                   p0q
+   We call X the support graph, Lv the base of the cone below v P X , and the pair pX, tLv uvPX p0q q
+the blowup data. When the blowup data is not relevant or clear from context, we say that X is a
+blowup graph.
+
+Notation 1.12. If X is the blowup of pX, tLv uvPX p0q q, we identify X with the subgraph of X spanned
+by the apices of the cones. Let p : X Ñ X be the 1-Lipschitz retraction mapping every cone to its
+apex. If Σ is a simplex of X, we denote ppΣq by Σ, which is the support of Σ.
+                                                                          p0q
+   Given a simplex Θ of X, together with a point p P Lv for every v P Θ , we denote the X-simplex
+                                                                                             p
+spanned by tv, puvPΘ by Θ – pv, pqvPΘ . If Θ is maximal in X then Θ is maximal in X, and all maximal
+simplices of X are of this form.
+                   p0q
+   For every v P X we denote by ∆v any simplex of X whose link is Lv . Notice that Lv is discrete,
+so r∆v s is Ď-minimal.
+   Links in a blowup admit a natural decomposition in terms of blowups of links and parts of cones,
+as described in the following lemma.
+                                       CUSPED SPACES FOR HHG                                          7
+
+
+
+
+                            Cone                                    Cone
+
+
+
+
+                        Figure 1. The blowup of two adjacent vertices of X.
+
+Lemma 1.13 (Decomposition of links [HMS26, Lemma 4.3]). Let Σ be a simplex of X. Then
+                            `        ` ˘˘ ´                                ¯
+            LinkX pΣq “ p´1 LinkX Σ ‹ ‹vPΣp0q LinkConepvq pΣ X Cone pvqq .
+
+Corollary 1.14. Any X-simplex Σ is of one of the following types:
+    ‚ Bounded type: LinkX pΣq is either a single vertex or a non-trivial join.
+                                     p0q
+     ‚ Blowup type: for each v P Σ         , we have that Σ X Cone pvq is an edge.
+                                               p0q
+     ‚ Cone type: Σ “ ∆v for some v P X              .
+The following feature of intersections of links is a common property for combinatorial HHSs (for
+example, it holds for curve graphs of surfaces, as explained in [BHMS24, Remark 6.6]).
+Definition 1.15. A simplicial graph Γ has cleanish intersections if, for every two simplices Σ, Φ of Γ,
+there exist two simplices Π, Ψ such that Σ Ď Π and
+                               LinkΓ pΣq X LinkΓ pΦq “ LinkΓ pΠq ‹ Ψ.
+We conclude this section with a technical lemma saying that blowups preserve cleanish intersections.
+Lemma 1.16. Let X be a blowup of a graph X. If X has cleanish intersections then X has cleanish
+intersections.
+Proof. Let Σ, Φ be simplices of X. We want to find two simplices Π, Ψ such that Σ Ď Π and LinkX pΣqX
+LinkX pΦq “ LinkX pΠq ‹ Ψ. Since
+                LinkX pΣq X LinkX pΦq “ LinkX pΣ ‹ pΦ X LinkX pΣqqq X LinkX pΦq ,
+we first´ replace
+             ¯    Σ by Σ1 – Σ ‹ pΦ X LinkX pΣqq. Now let Ψ be a (possibly trivial) X-simplex inside
+           1          ` ˘
+LinkX Σ X LinkX Φ such that
+                                      ´ 1¯         ` ˘        ` ˘
+                                LinkX Σ X LinkX Φ Ď Star Ψ ,
+and which is maximal with this property. Then
+                         ´ 1¯           ` ˘ ´          ´ 1     ¯         ` ˘¯
+                  LinkX Σ X LinkX Φ “ LinkX Σ ‹ Ψ X LinkX Φ ‹ Ψ.
+                                                                  1
+                                                                           ´ 1  ¯
+Since X has cleanish intersections, there exist two simplices Θ, Ψ Ď LinkX Σ ‹ Ψ such that
+                             ´ 1     ¯           ` ˘          ´ 1       ¯    1
+                      LinkX Σ ‹ Ψ X LinkX Φ “ LinkX Σ ‹ Ψ ‹ Θ ‹ Ψ ,
+
+and by maximality of Ψ we must have that Ψ1 “ H. Summing up, we proved that
+                            ´ 1¯          ` ˘        ´ 1        ¯
+(1)                    LinkX Σ X LinkX Φ “ LinkX Σ ‹ Ψ ‹ Θ ‹ Ψ.
+
+We now construct the simplices Π and Ψ that we need. Let Ψ “ Ψ, seen as a simplex of X. Let
+     1
+Π “ Σ ‹ Ψ ‹ Θ, and define a simplex Π with support Π as follows:
+8                                             G. MANGIONI AND A. SISTO
+
+               1      ` ˘
+     ‚ If v P Σ ´Star Φ , let ΠXCone pvq be an edge containing Σ1 XCone pvq, so that LinkConepvq pΠ X Cone pvqq “
+       H;
+               1       ` ˘
+     ‚ If v P Σ X Star Φ , let Π X Cone pvq “ Σ1 X Cone pvq. In particular, LinkConepvq pΠ X Cone pvqq
+       and Cone pvq X LinkX pΣ1 q X LinkX pΦq coincide;
+     ‚ If v P Θ, let Π X Cone pvq be an edge;
+     ‚ If v P Ψ, let Π X Cone pvq “ tvu, so that LinkConepvq pΠ X Cone pvqq “ Lv .
+
+                                                    1
+                                                                                ´ 1¯
+         Π X Cone pvq                           Σ                          LinkX Σ
+               Φ                         Σ1 X Cone pvq                          /
+                ` ˘                       1
+          LinkX Φ                        Σ X Cone pvq                    v whenever v P Ψ
+                 ` ˘
+         X ´ Star Φ         complete Σ1 X Cone pvq to an edge choose an edge whenever v P Θ
+
+        Figure 2. Schematic representation of Π. Each cell describes how Π X Cone pvq is
+                                   p0q
+        defined whenever v P X     belongs to the area given by the intersection between the
+                                                             1
+        row label and the column label: for example, if v P Σ XΦ we have that ΠXCone pvq “
+          1
+        Σ X Cone pvq.
+
+It is clear by the first two bullets that Π extends Σ1 , so we are left to show that
+                                                    ` ˘
+                                LinkX pΦq X LinkX Σ1 “ LinkX pΠq ‹ Ψ.
+Firstly Ψ Ď LinkX pΦq X LinkX pΣ1 q by construction. Next, let u P LinkX pΠq Ď LinkX pΣ1 q, and
+                                                                                                  1
+we claim that u ´P LinkX¯ pΦq. By inspection of Lemma 1.13, we must have that either ppuq P Σ ,
+                    1
+or ppuq P LinkX Σ ‹ Θ . In the first case, a careful inspection of how we defined Π shows that
+                                                   1       ` ˘                           ´ 1    ¯
+u P LinkX pΦq, and moreover u P LinkX pΨq since Σ P LinkX Ψ . Otherwise ppuq P LinkX Σ ‹ Θ Ă
+       ` ˘                                                             ´ 1¯         ` ˘        ` ˘
+LinkX Φ , and therefore u P LinkX pΦq; this also shows that u P LinkX Σ X LinkX Φ Ď Star Ψ ,
+so that again u P LinkX pΨq. We just showed that LinkX pΠq and Ψ span a join, and moreover that
+LinkX pΦq X LinkX pΣ1 q Ě LinkX pΠq ‹ Ψ.                                                     ´ 1¯
+   For the converse inclusion, let u P LinkX pΦq X LinkX pΣ1 q, so that ppuq belongs to Star Σ X
+     ` ˘
+Star Φ . There are two possible cases to consider:
+                        1
+     ‚ If ppuq P Σ then LinkConepvq pΠ X Cone pvqq “ Cone pvq X LinkX pΣ1 q X LinkX pΦq by how we
+       constructed Π, so u P Link
+                                ´ Π1pΨq.
+                                    ¯        ` ˘           ` ˘                       ` ˘
+     ‚ Otherwise ppuq P LinkX Σ X LinkX Φ “ LinkX Π ‹ Ψ. If ppuq P LinkX Π then u P
+        LinkX pΠq. Otherwise ppuq P Ψ, so either u P Ψ “ Ψ, or u P Lppuq , which coincides with
+        LinkConepppuqq pΠ X Cone pppuqqq by construction. In both cases u P LinkX pΠq ‹ Ψ, as required.
+                                                                                                     □
+
+                                  2. Cusped spaces for squid HHSs
+  We will be able to construct a cusped space for any relative HHS with a nice combinatorial structure.
+We make this precise in the next definition.
+2.1. Squid HHS.
+Definition 2.1. A squid HHS is a combinatorial HHS pX, W, n, δq, where X is a blowup of a graph X
+with cleanish intersections. A relative squid HHS is defined analogously, except that Definition 1.7.(2)
+is replaced by:
+    (2’) For each non-maximal simplex Σ, either CpΣq is δ-hyperbolic, or Σ is of the form ∆v for some
+              p0q
+        vPX         .
+                                      CUSPED SPACES FOR HHG                                                9
+
+
+We often drop the constants n and δ when they are not relevant, and refer to a (relative) squid HHS
+simply by pX, Wq.
+Remark 2.2. Notice that, for every simplex Σ of X, there exists a simplex Θ of X such that
+LinkX pΘq “ Σ. This shows that the dimension of X is bounded above by the constant n, since
+every chain of inclusions of simplices in X induces a chain of inclusions of links of simplices of X.
+There is a natural notion of action on a squid HHS, leading to the definition of a squid HHG:
+Definition 2.3. Let pX, Wq be a (relative) squid HHS, with support graph X, and let G be a finitely
+generated group. A G-action on pX, Wq is a simplicial action of G on X such that:
+     ‚ The action preserves X;
+     ‚ There are finitely many G-orbits of simplices in X;
+     ‚ The action on X induces a simplicial action on W.
+If moreover G acts geometrically on W, then we say G is a (relative) squid HHG.
+   The figure below summarises the relations among the various versions of hierarchical hyperbolicity
+relevant for this paper.
+
+
+
+
+        Figure 3. The various notions of hierarchical hyperbolicity at play in this paper, with
+        arrows representing inclusions. Objects from the right column belong to the world
+        of coarse geometry, while those in the middle and left columns are combinatorial in
+        nature. At present, a robust definition of a relative combinatorial HHG has not been
+        devised yet (hence we put this notion in a dashed box). Any reasonable notion should
+        include both relative squid HHGs and combinatorial HHGs, and provide examples of
+        relative HHGs.
+
+Lemma 2.4. Let pX, Wq be a relative squid HHS. If G acts on pX, Wq then there are finitely many
+G-orbits of links of simplices in X.
+Proof. Recall that, by Lemma 1.13, the link of a simplex Σ is given by
+                               `        ` ˘˘ ´                              ¯
+                LinkX pΣq “ p´1 LinkX Σ ‹ ‹vPΣp0q LinkConepvq pΣ X Cone pvqq ;
+
+hence LinkX pΣq is uniquely determined by the support simplex Σ, of which there are finitely many
+                                                                            p0q
+G-orbits, and by the choice of LinkConepvq pΣ X Cone pvqq for every v P Σ         , which can either be:
+     ‚ Lv if Σ X Cone pvq “ tvu;
+10                                     G. MANGIONI AND A. SISTO
+
+
+      ‚ tvu if Σ X Cone pvq P Lv ;
+      ‚ empty if Σ X Cone pvq is an edge.
+                                                             p0q
+Therefore there are three possible choices for every v P Σ         , and this concludes the proof that G ö X
+has finitely many orbits of links.                                                                         □
+As a special case of [BHMS24, Theorem 1.18], we get:
+Corollary 2.5. A squid HHG is a hierarchically hyperbolic group.
+2.2. Cusped space: the underlying graph. We construct cusped spaces by modifying squid HHSs
+in a natural way; the idea is simply to replace each minimal coordinate space Cp∆v q with the combi-
+natorial horoball over it. We now describe this procedure, starting with the combinatorial aspects.
+Notation 2.6. Let pX, Wq be a relative squid HHS, with blowup data pX, tLv uvPX p0q q. Define X  p as
+the blowup of pX, tLv ˆ Nu p0q q. We identify X with the blowup of pX, tLv ˆ t0uu
+                            vPX
+                                                                                      p0q q inside X.
+                                                                                           vPX
+                                                                                                   p
+With a small abuse of notation, we still denote by p : X  p Ñ X the retraction mapping every cone to its
+             Ó p                          p0q
+apex. Let p¨q : X Ñ X map every v P X to itself, and every pn – pp, nq P Lv ˆ N to p P Lv .
+   For every maximal simplex Θ “ pv, pmv qvPΘ of X,       p let Depth pΘq “ max
+                                                                                    vPΘ mv . We also set
+  `        mv
+Θ “ pv, p qvPΘ|mv ą0 , which might be non-maximal.
+                                                                                                   ` ˘
+Lemma 2.7. If ∆ is a X-simplex
+                         p         and x P X  p p0q , then x P Link x p∆q if and only if xÓ P LinkX ∆Ó .
+                                                                   X
+                       Ó          ` Ó˘
+In particular LinkX
+                  x p∆q “ LinkX ∆ .
+
+Proof. By construction, two vertices x, y P X p p0q are X-adjacent
+                                                        p          if and only if either ppxq “ ppyq and
+one of x and y coincides with ppxq, or ppxq and ppyq are X-adjacent. The same characterisation holds
+for X; therefore, since ppxÓ q “ ppxq, and similarly for y, we get that x P LinkX    x pyq if and only if
+            ` ˘
+xÓ P LinkX y Ó . Lemma 2.7 now follows by taking the intersections over all y P ∆p0q .                 □
+                                                                                                 ` Ó˘
+Corollary
+       ` Ó ˘ 2.8. Let ∆, Σ be simplices of X. Then LinkX
+                                           p             x p∆q Ď LinkX x pΣq if and only if LinkX ∆    Ď
+LinkX Σ .
+Proof. If LinkX
+              x p∆q Ď LinkX
+                          x pΣq then
+                          ` ˘              Ó             Ó       ` Ó˘
+                    LinkX ∆Ó “ pLinkX              x pΣqq “ LinkX Σ
+                                     x p∆qq Ď pLinkX                  ,
+                                                                                              ` Ó˘
+where we
+      ` Óinvoked
+          ˘      Lemma 2.7 for the equalities. For the converse inclusion, assume
+                                                                             `   ˘ that Link`X ∆
+                                                                                               ˘ Ď
+                                                         Ó                     Ó
+LinkX Σ , and let x be any point in LinkXx p∆q. Then x belongs to LinkX ∆          Ď LinkX ΣÓ , and
+              x pΣq by Lemma 2.7.
+again x P LinkX                                                                                    □
+2.3. Cusped space: edges between maximal simplices. Our goal is now to describe the graph
+W              p Wq
+x that makes pX,  x into a combinatorial HHS. Roughly, W
+                                                       x “contains” the combinatorial horoballs
+over the Ď-minimal domains of W.
+Definition 2.9 (Cusped space). In the setting of Notation 2.6, let W x be the X-graph
+                                                                                p     where two
+maximal simplices Θ, Ξ Ď X span a W-edge if and only if one of the following happens:
+                         p        x
+                                                 p0q
+     (a) Edge of cusp-type: There exist v P Θ         and pn , q m P Lv ˆ N such that Θ ´ Ξ “ tpn u,
+                   m                        n m
+         Ξ ´ Θ “ tq u, and dHorpCp∆v Ó qq pp , q q “ 1;
+    (b) Edge of W-type: Θ` “ Ξ` , and ΘÓ is W-adjacent to ΞÓ .
+The cusped space for pX, Wq is the pair pX,
+                                         p Wq.
+                                            x To avoid ambiguity, we denote augmented links in
+ p Wq
+pX,  x by Cp¨q.
+           p
+
+Remark 2.10. Edges of cusp-type will make sure a copy of the combinatorial horoball on every
+minimal domain embeds inside W.x The purpose of the edges of W-type is twofold. On the one
+hand, they shall ensure W embeds as a subspace of W;
+                                                  x on the other hand, the horoballs will be “well
+                                          CUSPED SPACES FOR HHG                                               11
+
+
+separated”, meaning that if a point of W
+                                       x projects deep in some horoball then it must project to the
+base of any horoball on a transverse domain.
+                       xp0q are W-adjacent,
+Remark 2.11. If Θ, Ξ P W        x           then | Depth pΘq ´ Depth pΞq | ď 1 by construction.
+2.4. Properties of the cusped space. We summarise the crucial properties of cusped spaces in
+the following theorem, most importantly that cusped spaces of relative squid HHSs are squid HHSs
+themselves.
+Theorem 2.12. Let pX, W, n, δq be a relative squid HHS, and let pX,       p Wq
+                                                                             x be its cusped space. Then
+the following hold:
+   (A) The inclusion X ãÑ X   p induces an injective coarse embedding i : W ãÑ W. x Moreover, the coarse
+         embedding functions do not depend on any of the data.
+   (B) There exists δ 1 , only depending on δ, such that pX,  x n, δ 1 q is a squid HHS.
+                                                           p W,
+   (C) Any action of a group G on pX, Wq extends to a G-action on pX,        p Wq.
+                                                                                x
+   (D) W is a hierarchically hyperbolic space relative to tCp∆v quvPX p0q .
+Item (D), combined with Definition 2.3, readily implies the following:
+Corollary 2.13. A relative squid HHG is a relative hierarchically hyperbolic group.
+We break the proof of Theorem 2.12 into a series of propositions. Firstly, we prove a quantitative
+version of Theorem 2.12.(A):
+Proposition 2.14. (A) Let pX, Wq be a relative squid HHS. The inclusion X ãÑ X      p induces an
+injective coarse embedding W ãÑ W. More precisely, for every two maximal simplices Θ, Ξ P W p0q ,
+                                x
+                                  mpdW pΘ, Ξqq ď dW
+                                                  x pΘ, Ξq ď dW pΘ, Ξq,
+                        1
+where m is the inverse of the function n Ñ n2n .
+Proof. Let Θ be a maximal simplex of X, which we can also see as a maximal simplex of X            p with
+  `               Ó
+Θ “ H and Θ “ Θ. Thus there is an injection W ãÑ W,            x which maps W-edges to W-edges x        of
+W-type. Since W is an induced subgraph of W, the inclusion W ãÑ W is 1-Lipschitz.
+                                                x                      x
+                                                                                     D
+   We are left to prove that, if Θ, Ξ P W p0q and D “ dWx pΘ, Ξq, then dW pΘ, Ξq ď D2 . To this extent,
+let tΣ0 “ Θ, Σ1 , . . . , ΣD “ Ξu be a W-geodesic,
+                                       x                                      Ó
+                                                   and consider the path tΣ0 “ Θ, Σ1 Ó , . . . , ΣD Ó “ Ξu
+in W.
+Claim 2.15. For every i “ 0, . . . , D ´ 1, dW pΣi Ó , Σi`1 Ó q ď 2D .
+Proof of Claim 2.15. If Σi and Σi`1 span an edge of W-type then Σi Ó and Σi`1 Ó are W-adjacent,
+and therefore dW pΣi Ó , Σi`1 Ó q ď 1. Thus suppose
+                                               ´    that
+                                                       ¯ Σi and Σi`1 are joined by an edge of cusp-
+                                    p0q
+type, so that there exist v P X         and Hor Cp∆v Ó q -adjacent points pn , q m P Lv ˆ N such that
+Σi ´ Σi`1 “ tpn u and Σi`1 ´ Σi “ tq m u. By inspection of Definition 1.1 there are two sub-cases to
+analyse. If q m “ pn`1 then Σi Ó “ Σi`1 Ó , and we are done. Otherwise we must have that m “ n and
+dCp∆v q pp, qq ď 2n , so there is a Cp∆v q-geodesic with vertices p0 “ p, p1 , . . . , pk “ q for some k ď 2n .
+Since Lv ˆ N “ LinkX pΣi X Σi`1 q, Item (5) for pX, Wq then implies that Σi and Σi`1 are at distance
+at most k ď 2n in W. But now n ď Depth pΣi q, which by Remark 2.11 is at most D ` Depth pΣ0 q “ D,
+as required.                                                                                                ■
+Proposition 2.14 now follows from the Claim, since
+                                                D´1
+                                                ÿ
+                                  dW pΘ, Ξq ď         dW pΣi , Σi`1 q ď D2D .                                 □
+                                                i`0
+
+   1This function is known as the Lambert W             function, and      diverges   at   infinity.   See   e.g.
+https://mathworld.wolfram.com/LambertW-Function.html for more details.
+12                                      G. MANGIONI AND A. SISTO
+
+
+Before proceeding with the proof of Theorem 2.12, we point out the following:
+
+Lemma 2.16. The inclusion X ãÑ X                             p `W .
+                               p induces an embedding X `W Ñ X                 x
+
+
+Proof. Firstly, as mentioned at the beginning of the proof of Proposition 2.14, maximal simplices of X
+                               p Moreover, if p, q P X belong to W-adjacent maximal simplices Φ, Ψ of
+are also maximal simplices of X.
+X, then Φ and Ψ are joined by an edge of W-type when seen as simplices of X  p (recall Definition 2.9.(b)).
+This proves that the inclusion X ãÑ X induces a simplicial map X
+                                        p                             `W
+                                                                           ÑX p `W
+                                                                                 x
+                                                                                   , which is injective at
+the level of vertices.
+   To prove that the above map is an embedding, we are left to show that, if two vertices p, q belong to
+W-adjacent
+x            maximal simplices Σ, Θ of X, p respectively, then there exist W-adjacent maximal simplices
+of X containing p and q, respectively.
+   If Σ and Θ are joined by an edge of cusp-type, then Σ´Θ “ tpu, Θ´Σ “ tqu, and dHorpCp∆pppq qq pp, qq “
+1. Since both p and q belong to X, this means that dCp∆pppq q pp, qq “ 1, so p and q belong to W-adjacent
+maximal simplices of X.
+   Otherwise Σ and Θ are joined by an edge of W-type, which means that ΣÓ and ΘÓ are W-adjacent.
+Notice moreover that p P ΣÓ and q P ΘÓ because they lied in X, and we are done.                        □
+
+We now prove that the cusped space is a squid HHS:
+Proposition 2.17. (B) Let pX, Wq be a relative squid HHS. There exists δ 1 , only depending on δ,
+              x n, δ 1 q is a squid HHS.
+           p W,
+such that pX,
+Proof. In what follows, we say that a constant is uniform if it only depends on n and δ. We check that
+each axiom from Definition 1.7 holds for some uniform constant δi , and we shall then set δ 1 “ maxi δi .
+   Item (1) follows from Corollary 2.8 and the corresponding axiom for pX, Wq, with the same constant
+n. Regarding Item (2), by the description of links in a blowup from Corollary 1.14, it is enough to
+restrict to simplices of either blowup type or cone type. We analyse the two cases separately in
+Claim 2.18 and Claim 2.19 below.
+Claim 2.18 (Blowup type). Let Σ be a simplex of blowup type. There exists a 2-quasi-isometry
+CpΣÓ q Ñ CpΣq.
+           p     In particular, CpΣq
+                                p    is δ1 -hyperbolic for some δ1 only depending on δ.
+                                  ` ˘`W                                            ` ˘
+Proof of Claim 2.18. Let LinkX Σ            be the graph obtained from LinkX Σ by connecting two
+                                                                               ` ˘` W
+                                                                                    x
+vertices whenever they belong to W-adjacent simplices, and define LinkX Σ              analogously. By how
+                                                                                ` ˘
+we defined W-edges in Definition 2.9, we see that two vertices in LinkX Σ are W-adjacent if and
+             x
+                                         ` ˘`W               ` ˘`W  x
+only if they are W-adjacent,
+                  x            so LinkX Σ         and LinkX Σ          coincide. Now, since X is a blowup
+                                                                                               ` ˘`W
+of X and Σ is of blowup type, the retraction p induces a quasi-isometry CpΣÓ q Ñ LinkX Σ              , and
+                               ` ˘`W
+similarly the inclusion LinkX Σ        Ñ CpΣq
+                                           p    is an isometric, 2-surjective embedding. By keeping track
+of the quasi-isometry constants, one sees that the composition CpΣÓ q Ñ CpΣq  p    is a 2-quasi-isometry, as
+required.                                                                                                 ■
+                                                                                      p0q
+Claim
+   ´ 2.19¯(Cone type). Let ∆v be a simplex of cone type, for some v P X                     . Then Cp∆
+                                                                                                   p vq –
+Hor Cp∆v Ó q , and is therefore δ0 hyperbolic by Theorem 1.4.
+
+Proof of Claim 2.19. The vertex set of Cp∆p v q is Lv ˆ N. By inspection of Definition 2.9, two distinct
+                                                ´         ¯
+vertices p , q P Lv ˆ N are adjacent in Hor Cp∆v Ó q if and only if they are connected in Cp∆
+          n m                                                                                    p v q by
+
+an edge of cusp-type. Hence we are left to prove that, if pn P Θ, q n P Ξ, where Θ, Ξ P W  x span an edge
+of W-type, then pn and q n were already joined by an edge of cusp-type. Indeed, since Θ` “ Ξ` and
+pn is not equal to q m , we must have that n “ m “ 0. But then p0 P ΘÓ and q 0 P ΞÓ are W-adjacent,
+meaning that dCp∆v Ó q pp, qq “ 1 and therefore p0 , q 0 were already joined by an edge of cusp-type.   ■
+                                            CUSPED SPACES FOR HHG                                        13
+
+
+Item (3) is also proven by considering two cases, according to Corollary 1.14:
+Claim 2.20 (Blowup type). There exists δ2 , only depending on δ, such that, if Σ is a simplex of
+blowup type, then CpΣq
+                  p    δ2 -quasi-isometrically embeds inside YΣ .
+
+Proof of Claim 2.20. Notice first that every X-simplex
+                                             p         with the same link as Σ must itself be of edge
+type. This implies that YΣ is the p-preimage of ppYΣ q in X, p so p restricts to a 2-quasi-isometry
+                                               Ó
+YΣ Ñ ppYΣ q. The same arguments apply to Σ inside X, and notice that ppYΣ q “ ppYΣÓ q. Then the
+δ-quasi-isometric embedding CpΣÓ q Ñ YΣÓ induces a uniform quasi-isometric embedding
+                                ` ˘` W
+                                     x        ` ˘`W
+                           LinkX Σ     “ LinkX Σ    Ñ ppYΣÓ q “ ppYΣ q,
+
+with constants only depending on δ, and in turn this induces a δ2 -quasi-isometric embedding CpΣq
+                                                                                             p    Ñ YΣ
+for some δ2 only depending on δ.                                                                     ■
+
+Claim 2.21 (Cone type). There exists δ3 , only depending on δ, such that, if ∆v is a simplex of cone
+                    p0q
+type, for some v P X , then Cp∆
+                            p v q δ3 -quasi-isometrically embeds inside Y∆ .
+                                                                                               v
+
+
+Proof of Claim 2.21. The fact that ∆v is of cone type implies that Y∆v is spanned by
+                                               ď
+                               pLv ˆ Nq Y            twu ‹ pLw ˆ Nq.
+                                                    wPX´Starpvq
+
+                                                              p `W
+Y∆v uniformly retracts onto Y ∆v , defined as the subgraph of X
+                                                                 x
+                                                                   spanned by
+                                          pLv ˆ Nq Y pX ´ Star pvqq.
+                                             p `W
+Let Y ∆v Ó be the subgraph of X `W (hence of X
+                                                x
+                                                  by Lemma 2.16) spanned by
+                                          Lv ˆ t0u Y pX ´ Star pvqq.
+Notice that, if pn P Lv ˆ N and w P X ´ Star pvq are W-adjacent,
+                                                     x           then n “ 0, by how we defined
+W-edges in Definition 2.9. Hence
+x
+
+(2)                                      Y ∆v “ Cp∆
+                                                p v q YCp∆ Ó q Y ∆ Ó .
+                                                          v       v
+
+
+We shall now prove that Cp∆p v q is uniformly quasi-isometrically embedded in Y ∆ , and therefore in
+                                                                                       v
+Y∆v . Fix any Y ∆v -geodesic γ connecting two points a, b P Lv ˆ N, and we shall prove that its length
+ℓpγq is bounded below by a linear function of dCp∆ p v q pa, bq. By Equation (2), γ can be decomposed as
+
+a concatenation η1 ˚ λ1 ˚ . . . ˚ ηk , where each ηi is a geodesic in Cp∆
+                                                                       p v q and each λj is a geodesic in
+Y ∆v Ó with endpoints x0j , yj0 P Cp∆v Ó q. Furthermore, by Item (3) applied to pX, Wq, there is a constant
+D “ Dpδq such that Cp∆v Ó q is D-quasi-isometrically embedded in Y ∆v Ó . Then
+                                     0 0                    0 0
+                            dCp∆
+                             p v q pxj , yj q ď dCp∆v Ó q pxj , yj q ď Dℓpλi q ` D.
+
+In turn, this means that
+                                        k
+                                        ÿ                k´1
+                                                         ÿ
+                                                                        0 0
+                      dCp∆
+                       p v q pa, bq ď         ℓpηi q `         dCp∆
+                                                                p v q pxj , yj q
+                                        i“1              i“1
+                                        k
+                                        ÿ                  k´1
+                                                           ÿ
+                                   ď          ℓpηi q ` D         ℓpλi q ` pk ´ 1qD
+                                        i“1                i“1
+                                          ˜                                   ¸
+                                               k
+                                               ÿ               k´1
+                                                               ÿ
+                                   ďD               ℓpηi q `         ℓpλi q       ` ℓpγqD “ 2Dℓpγq.      ■
+                                              i“1              i“1
+14                                        G. MANGIONI AND A. SISTO
+
+
+Moving to the remaining items of Definition 1.7, the fact that X  p has cleanish intersections, which
+follows from Lemma 1.16, implies Item (4) as in the proof of [BHMS24, Theorem 6.4] (more precisely,
+at the beginning of the paragraph named “pX, W q is a combinatorial HHS ”).
+   We finally address Item (5). Let Θ be an X-simplex
+                                            p         and x, y P LinkXx pΘq be distinct vertices which
+belong to W-adjacent maximal simplices Σx and Σy . If the latter span an edge of cusp-type then there
+             p0q
+                                                                                   x pΘq, we must have
+exists v P X such that x, y P Lv ˆ N and dHorpCp∆v qq px, yq “ 1. Since x, y P LinkX
+              ` ˘
+that v P Star Θ , so Θ can be completed to two maximal simplices connected by an edge of cusp-type
+and containing x and y, respectively. Suppose instead that Σx and Σy span an edge     ˘ W-type. Then
+                                                                                   ` Óof
+Σ`       `
+  x “ Σy , and since x, y are distinct we must have that x, y P X, so x, y P LinkX Θ     by Lemma 2.7.
+By Item (5) applied to pX, Wq, there exist two W-adjacent X-maximal simplices Πx Ě x ‹ ΘÓ and
+                                                                                 Ó
+Πy Ě x ‹ ΘÓ . If we call Ψx the X-maximal
+                                  p          simplex such that Ψ`        `
+                                                                  x “ Θ ad Ψx “ Πx , and we define
+Ψy analogously, then Ψx Ě x ‹ Θ, Ψy Ě y ‹ Θ, and Ψx , Ψy span an edge of W-type. This concludes
+the proof of Item (5), and in turn of Proposition 2.17.                                             □
+Remark 2.22. If pX, Wq was a genuine squid HHS, not just a relative one, another approach to
+proving Claim 2.21 would be to use that Y ∆v Ó is hyperbolic by [BHMS24, Proposition 3.3] (which is
+the key step in the proof that a combinatorial HHS is indeed a HHS). This would give a closest-point
+projection from Y ∆v Ó to its quasiconvex subset Cp∆v Ó q. For a relative squid HHS we cannot use
+[BHMS24]; however, if Y ∆v Ó was hyperbolic relative to Cp∆v Ó q, we could still use that closest-point
+projections to peripheral subsets of relatively hyperbolic spaces are coarsely Lipschitz (see [Sis13] for
+general results about these projections).
+   It can in fact be extracted a posteriori from our arguments and [BHMS24, Proposition 3.3] that
+relative hyperbolicity indeed holds. Indeed, Y∆v is quasi-isometric to Y ∆v Ó with a combinatorial
+horoball glued onto Cp∆v Ó q, and via [BHMS24, Proposition 3.3] we know that Y∆v is hyperbolic. This
+implies that Y ∆v Ó is hyperbolic relative to Cp∆v Ó q, as this is one of the characterisations of relative
+hyperbolicity.
+Proposition 2.23. (C) Let G be a group acting on a relative squid HHS pX, Wq. Then the action
+                          p Wq.
+extends to a G-action on pX, x
+                                    p0q
+Proof. For every g P G, v P X , and pn P Lv ˆ N, set g ¨ pn – pg ¨ pqn P Lg¨v ˆ N, where g ¨ v is
+the image of v under the action on X, seen as a subgraph of X. By inspection of Definition 2.9, this
+induces an action on W;x furthermore, G still acts on X with finitely many orbits of simplices, and
+                                         p Wq.
+therefore we just defined a G-action on pX, x                                                     □
+Proposition 2.24. (D) Let pX, Wq be a relative squid HHS. Then W is a hierarchically hyperbolic
+space relative to tCp∆v quvPX p0q .
+Proof. As in Definition 1.5, let S be the collection of „-equivalence classes of non-maximal simplices
+of X, with the relations Ď and K as in Definition 1.8. It follows from Lemma 2.7 that the relations „,
+Ď, and K are the same if we consider links in X or in X.p For every rΣs P S let CpΣq and CpΣq
+                                                                                           p    be the
+associated augmented links in pX, Wq and in pX, Wq, respectively.
+                                                p  x
+   For every rΣs P S, let πrΣs : Wx Ñ CpΣq
+                                         p     be the projection from Definition 1.9. If Σ “ ∆v for
+             p0q
+some v P X , then Equation (2) shows that Cp∆v q separates Cp∆      p v q from the rest of Y∆ . As a
+                                                                                              v
+consequence, given w P W, its projection πr∆v s pwq must intersect Cp∆v q, since it is defined as the
+                                                p v q. We then define π Ó : W Ñ Cp∆v q by setting
+coarse closest point projection of w X Y∆v to Cp∆                         r∆v s
+ Ó
+πr∆ vs
+       pwq “ πr∆v s pwq X Cp∆v q.
+   If instead Σ is of edge-type, CpΣq
+                                 p    and CpΣq are uniformly quasi-isometric, so we can always replace
+one with the other (in the presence of a group action, we can also choose the quasi-isometry to be
+                                              Ó
+StabG pΣq-equivariant). Therefore we define πrΣs : W Ñ CpΣq as the composition of πrΣs , restricted to
+W, with the fixed identification CpΣq
+                                   p   Ñ CpΣq.
+                                        CUSPED SPACES FOR HHG                                                 15
+
+
+   We now prove that the data pW, S, Cp¨q, π Ó q make W a relative hierarchically hyperbolic space,
+by checking the axioms of [Rus20, Definition 2.8] (which is equivalent to the original formulation
+from [BHS19]). We shall often use without reference that, since pX,    p Wq
+                                                                         x is a combinatorial HHS by
+Proposition 2.17, then pW, S, Cp¨q, πq is a hierarchically hyperbolic space by [BHMS24, Theorem 1.18],
+                         x      p
+and therefore satisfies all axioms.
+   All requirements only involving Ď and K, which only depend on X, follow exactly as in the proof
+of [BHMS24, Theorem 1.18], so we focus on those involving projections and coordinate spaces.
+
+                                                         Ó
+   (1) (Projections.) For every rΣs P S, the coarse map πrΣs : W Ñ CpΣq is surjective since every
+       vertex of CpΣq can be completed to a maximal simplex of X. If Σ is not of the form ∆v for
+                    p0q    Ó
+       any v P X   , then πrΣs is uniformly coarsely Lipschitz, as it is the composition of the coarsely
+       Lipschitz map πrΣs : W Ñ CpΣqp    with the quasi-isometry CpΣq
+                                                                    p        Ñ CpΣq. If instead Σ “ ∆v
+       and w, w1 P W are W-adjacent, then dCp∆      pπ
+                                              p v q r∆v s pwq, πr∆v s pw 1
+                                                                           qq is uniformly bounded; hence
+                 Ó           Ó
+       dCp∆v q pπr∆ vs
+                       pwq, πr∆ vs
+                                   pw1 qq is uniformly bounded as well, since Cp∆v q is uniformly coarsely
+       embedded in Cp∆   p v q by Lemma 1.3.
+   (2) (Nesting and transversality.) Whenever rΣs, rΘs P S are such that rΣs Ĺ rΘs, there
+                                                   rΣs
+       exists a uniformly bounded subset ρrΘs P CpΘq,   p    defined as in Definition 1.9. Since rΘs is not
+                                                                 rΣs
+       Ď-minimal, CpΘq and CpΘq are quasi-isometric, so ρ
+                       p
+                                                               rΘs   is uniformly bounded in CpΘq as well.
+                                                                                          p0q           rΣs
+          Similarly, if rΣs&rΘs P S and Θ is not of the form ∆v for any v P X                   , then ρrΘs is
+                                                                          rΣs
+       uniformly bounded in CpΘq as well. If instead Θ “ ∆v then ρr∆v s P Cp∆v q, as it was defined
+                                                      p v q. Hence ρrΣs is uniformly bounded in
+       using the coarse closest point projection Y∆ Ñ Cp∆
+                                                      v                      r∆v s
+       Cp∆v q, as the latter is uniformly coarsely embedded in Cp∆
+                                                               p v q.
+   (3) (Consistency.) The consistency inequalities for pX,  p Wq
+                                                               x impose uniform bounds involving
+       certain π-projections in Cp¨q
+                                 p and the relative projections between domains. As above, one can
+       deduce analogous uniform bounds involving the corresponding π Ó -projections in Cp¨q, using the
+       uniform coarse embeddings Cp¨q Ñ Cp¨q.
+                                            p
+                                                                                                  p0q
+   (4) (Hyperbolicity of non-minimal domains) Whenever Σ ‰ ∆v for any v P X , CpΣq is
+       uniformly quasi-isometric to the δ 1 -hyperbolic space CpΣq.
+                                                                  p
+                                                   1
+   (5) (Bounded geodesic image.) Let w, w P W and rΣs, rΘs P S be such that rΣs Ĺ rΘs. Since
+       CpΣq is uniformly coarsely embedded in CpΣq,  p      there exists a constant B “ Bpδ 1 q such that,
+                  Ó         Ó     1
+       if dCpΣq pπrΣs pwq, πrΣs pw qq ą B, then dCpΣq
+                                                 p    pπrΣs pwq, πrΣs pw1 qq ą δ 1 . By the bounded geodesic
+       image axiom for pX,   p Wq,
+                                 x every CpΘq–geodesic
+                                            p               from πrΘs pwq to πrΘs pwq must therefore pass
+                      rΣs
+       δ 1 -close to ρrΘs .
+                                                Ó            Ó
+          Now let γ be a CpΘq-geodesic from πrΘs   pwq to πrΘs pwq, and let γ
+                                                                            p be its image under the
+       quasi-isometry CpΘq Ñ CpΘq (here we are using that rΘs is not Ď-minimal). Then γ
+                        p                                                                      p is a
+       uniform quality quasi-geodesic, which is within uniform Hausdorff distance from a geodesic
+       by the Morse lemma for hyperbolic spaces Morse lemma (see, e.g., [BH99, III.H.1.7]). Hence
+                                         rΣs
+       γ must pass uniformly close to ρrΘs , thus proving the bounded geodesic image property for
+       pX, Wq.
+   (6) (Partial realization.) Let trΣi su be a finite collection of pairwise orthogonal domains, to-
+       gether with a choice of points pi P CpΣi qp0q . Since LinkX pΣi q Ď LinkX pLinkX pΣj qq for all
+       i ‰ j, the points pi span a simplex in X, so they belong to a maximal simplex w P W p0q . As
+       argued in the proof of [BHMS24, Theorem 1.18] (see [BHMS24, page 43]), w is a realisation
+                                    p Wq,
+       point for the collection in pX, x and therefore in pX, Wq since all coordinates pi were taken
+       in CpΣi q.
+16                                         G. MANGIONI AND A. SISTO
+
+
+     (7) (Large links.) By the arguments from [Dur23, Section 4.8], it is enough to check the passing
+         up axiom, as defined in e.g. [ABM` 25, Definition 4.1.(12’)]. The passing up axiom for pX,       p Wq
+                                                                                                            x
+         provides the existence of a function P : Rě0 Ñ Rě0 with the following property. Let t ě 0,
+                                                                                             P ptq
+         rΣs P S, and w, w1 P W. If dCpΘ          1     1
+                                       p i q pw, w q ą δ for a collection of domains trΘi sui“1 Ď S nested
+
+         in rΣs, then there exists a non-maximal simplex Ξ of X       p such that rΞs Ď rΣs, rΞs properly
+                                                                                   ` Ó˘
+                                               1
+         contains some rΘi s, and dCpΞq
+                                     p  pw, w q ě t. Since LinkX   x pΞq “ LinkX x Ξ , up to replacing Ξ
+         by ΞÓ we can assume that Ξ Ď X.
+            Now let E ě 0 be such that, for every rΘs P S, if dCpΘq pw, w1 q ą E, then dCpΘqp     pw, w1 q ą δ 1 ,
+         which exists as CpΘq is uniformly coarsely embedded in CpΘq. p      Hence, if dCpΘ q pw, w1 q ą E for
+                                                                                               i
+                              P ptq                                             p Wq
+         a collection trΘi sui“1 as above, then the passing up axiom for pX,      x produces a simplex Ξ
+         as above, such that dCpΞq pw, w1 q ě dCpΞq
+                                                p   pw, w 1
+                                                            q ě t. This proves that the passing up axiom is
+                                                                        1
+         satisfied by pX, Wq, with the same function P and with δ replaced by E.
+     (8) (Uniqueness.) If w, w1 P W p0q and r P Rě0 are such that dCpΣq pw, w1 q ď r for every rΣs P S,
+         then dCpΣq
+                 p   pw, w1 q ď dCpΣq pw, w1 q ď r. Then the uniqueness axiom for pX,     p Wq
+                                                                                             x yields that
+                   1
+         dWx pw, w q ď θprq for some function θ : Rě0 Ñ Rě0 . In turn, since W ãÑ W is a coarse
+         embedding by Item (A), dW pw, w1 q is also bounded in terms of r.                               □
+
+                                              3. Some examples
+   We now present some constructions of relative squid HHSs and HHGs, and describe the associated
+cusped spaces; further examples (namely short HHG) will be discussed in Section 5.1 below.
+3.1. Relatively hyperbolic groups. Here we first construct a relative squid HHG structure for
+relatively hyperbolic groups (subject to natural finiteness conditions); then we recognise the associated
+cusped space as the augmented space, in the sense of e.g. [Hru10, Definition 4.3].
+Lemma 3.1. A finitely generated group G, which is hyperbolic relative to a finite collection P of
+finitely generated subgroups, is a relative squid HHG.
+Proof. Let S be a finite generating set for G, such that S X P generates P for all P P P, and let dS be
+the associated word metric on G. We shall prove that G has a relative squid HHG structure pX, Wq,
+where:
+       ‚ X is the discrete graph whose vertices are cosets of the subgroups in P;
+       ‚ for every g P G and P P P, LgP “ gP p0q ;
+       ‚ For every g, g 1 P G, P, P 1 P P, x P gP and x1 P g 1 P 1 , the maximal simplices pgP, xq and
+         pg 1 P 1 , x1 q span a W-edge if and only if dS px, x1 q ď 1.
+It is clear that X has cleanish intersections. We now check the axioms from Definition 1.7. Item (1)
+follows from Lemma 1.13 and the fact that X is discrete. For Item (2), CpHq “ X `W is isometric to
+the coned-off graph, which is obtained from the Cayley graph Cay pG, Sq by adding a cone over each
+coset of the peripherals, and is hyperbolic by e.g. [Hru10, Theorem 5.1]. We also notice that, for every
+gP P G{P , Cp∆gP q – g Cay pP, S X P q.
+   Moving to Item (3), Y∆gP “ X ´ tgP u retracts onto Cp∆gP q since there is a coarse closest point
+projection G Ñ gP , which map other cosets of the peripherals to uniformly bounded sets (see e.g.
+[Sis13, Theorem 2.14] and the arguments therein). Item (4) again follows from the fact that X has
+cleanish intersections. Finally, if x, y P X belong to the link of a simplex Σ, then Σ “ tgP u for some
+P P P and g P G, and Item (5) follows.
+   We are left to check that the above defines a relative squid HHG structure for G. This is because G
+acts cofinitely on the collection of cosets of peripherals; moreover, the action on X naturally extends
+to an action on W, and the latter is isometric to Cay pG, Sq by construction.                         □
+Recall from e.g. [Hru10, Definition 4.3] that the augmented space for pG, Pq is the graph obtained
+from Cay pG, Sq by gluing a combinatorial horoball on gP whenever g P G and p P P.
+                                        CUSPED SPACES FOR HHG                                           17
+
+
+Lemma 3.2. In the setting of Lemma 3.1, the cusped space W
+                                                         x is G-equivariantly isometric to the
+augmented space.
+Proof. This readily follows by how we constructed W-edges
+                                                  x       in Definition 2.9.                            □
+3.2. Most HHSs are squid. In [HMS26], together with Mark Hagen, we roughly proved that com-
+binatorial HHSs are abundant among all HHSs: given a hierarchically hyperbolic space Z, whose
+hierarchical structure S is subject to certain natural requirements, there is a combinatorial HHS
+pX, Wq such that Z and W are quasi-isometric (see [HMS26, Theorem 3.15] for the statement and
+[HMS26, Sections 3.1 to 3.4] for the requirements). Notably, from the description of the combinatorial
+structure in [HMS26, Section 4], one can extract that pX, Wq is a squid HHS, where:
+      ‚ the support graph X is the so-called minimal orthogonality graph, whose vertices correspond
+        to minimal domains in the structure and edges correspond to orthogonality;
+      ‚ for a minimal domain V P S, seen as a vertex of X, the augmented link of ∆V is quasi-isometric
+        to the coordinate space CV .
+In particular, if G acts on Z geometrically, and there is a “compatible” action on S with finitely many
+orbits of collections of pairwise orthogonal domains, then G is a squid HHG.
+Remark 3.3. As pointed out in [HMS26, Remark 3.17], in the proof of [HMS26, Theorem 3.15],
+hyperbolicity of coordinate spaces for minimal domains in S is only ever used to show that certain
+minimal augmented links are hyperbolic. In particular, the arguments there run verbatim to show
+that a relative hierarchically hyperbolic space (resp. group), subject to the same assumptions on S
+(and on the group action on it), is a relative squid HHS (resp. HHG).
+3.2.1. Mapping class group and Teichmüller space. Here we specialise the above construction to the
+mapping class group MCGpSq of a finite-type surface S, and recognise the associated cusped space as
+the Teichmüller space of S. To do so, we must first delve into the various HHG structures for MCGpSq,
+including the combinatorial one obtained from applying [HMS26, Theorem 3.15].
+   By a surface we mean a connected, compact, oriented 2-manifold S with finitely many points
+removed. Given a subsurface U of S which is not a pair of pants, the associated curve graph CpU q
+is the simplicial graph whose vertices are isotopy classes of simple closed curves on U , and adjacency
+corresponds to having disjoint representatives. There are two exceptions to this definition: if U is a
+sphere with four punctures or a torus with a puncture, we define two curves to be adjacent if they
+have the minimal intersection number, which is two on the sphere and one on the torus; if instead
+U “ Av is an annulus with core curve v P CpSqp0q , we define its annular curve graph as the quasiline
+from [MM00, Section 2.4].
+   As explained in [BHS17b, Theorem G], the mapping class group MCGpSq admits a HHG structure
+S where domains correspond to subsurfaces (up to isotopy), and where the coordinate space for a
+subsurface is its curve graph (resp. annular curve graph if the subsurface is an annulus). Further-
+more, [HMS26, Theorem 9.8] equips MCGpSq with a squid HHG structure pX, Wq with blowup data
+pX “ CpSq, tCpAv quvPCpSqp0q q. By how W-edges are defined in [HMS26, Definition 4.10], unbounded
+coordinate spaces correspond to (annular) curve graphs:
+      ‚ Let v P CpSqp0q be a curve. Then Cp∆v q and the annular curve graph CpAv q have the same
+         vertices, and the identity map is a quasi-isometry ϕ∆v : Cp∆v q Ñ CpAv q with uniform constants.
+      ‚ Let Σ be a non-maximal simplex of CpSq, and let Σ Ď X be a simplex of blowup type whose
+         support is Σ. If we see Σ as a collection of disjoint curves on S, its complement minus the pants
+         components is an open subsurface UΣ . Then there is a StabMCGpSq prΣsq-equivariant quasi-
+                                                                                                   ` ˘
+         isometry ϕΣ : CpΣq Ñ CpUΣ q with uniform constants, mapping each curve w P LinkCpSq Σ to
+         its subsurface projection ρAUΣ .
+                                      w
+
+
+To make notation compatible between the two bullets, for v P CpSqp0q we also denote Av by U∆v .
+  Though we state them for mapping class groups for clarity of exposition, both Proposition 3.4
+and Corollary 3.6 below hold in general for any combinatorial HHS structure obtained from [HMS26,
+Theorem 3.15], as their proofs shall use no specific properties of mapping class groups. For the ease of
+18                                       G. MANGIONI AND A. SISTO
+
+
+notation, given a simplex Σ of X and two subsets A, B of either CpΣq or CpUΣ q, we shall write A „ B
+to denote that diampA Y Bq is bounded independently on Σ.
+Proposition 3.4. Let Σ be a simplex not of bounded type, and let v P pCpSq ´ SatpΣqqp0q . Then
+                                                 ´      ¯
+                                                     Av
+                                      ppvq „ ϕ´1
+                                               Σ   ρ UΣ ,
+
+where p : YΣ Ñ CpΣq is the coarse closest point projection in pX, Wq, while ρA
+                                                                             UΣ is the subsurface
+                                                                               v
+
+
+projection in S.
+Proof. We split the proof in two cases, depending on whether Σ is of blowup type or of cusp type.
+    Blowup type. Suppose first that Σ is of blowup
+                                                 ` ˘    type. Let Π Ă CpSq be a (possibly empty)
+simplex whose link contains both v and LinkX Σ , let Π be a simplex of blowup type supported
+on Π, and let γ “ tv “ w0 , w1 , . . . , wn “ wu be a CpΠq-geodesic connecting v to a closest point
+            Av
+w P ϕ´1
+      Σ pρUΣ q Ď LinkX pΣq. Since Π and Σ are both of blowup type, we can assume that the geodesic
+lies entirely in CpSq. We proceed by induction on n “ dimpCpSqq ´ |Π|.
+   Base case n “ 1. We first suppose
+                                 ` ˘ that Π is almost-maximal. Therefore γ does not`intersect
+                                                                                        ˘     the
+saturation of Σ, because LinkCpSq Π is discrete while every point in SatpΣq X LinkCpSq Π would be
+CpSq-adjacent to w. Then the bounded geodesic image for the combinatorial HHS structure (see e.g.
+[Man24, Lemma 1.26]) shows that ppvq „ w. We now bound the projection of v and w to CpUΣ q.
+Claim 3.5. ρA     Aw
+            UΣ „ ρUΣ .
+             v
+
+
+                                                          A
+Proof of Claim 3.5. The path γ 1 – ϕΠ pγq “ tρA           w1         Aw
+                                                   UΠ , ρUΠ . . . , ρUΠ u is a quasi-geodesic in CpUΠ q with
+                                                    v
+
+
+uniform constants. Let η be a geodesic in CpUΠ q with the same endpoints, which by the Morse lemma
+(see, e.g., [BH99, III.H.1.7]) must lie in a uniform neighbourhood of γ 1 . The bounded geodesic image
+axiom in S implies that one of the following is true:
+           Av
+      ‚ ρU  Σ
+              „ ρA
+                 UΣ , and we are done;
+                  w
+
+                                                                                                Aw        Aw
+      ‚ or η intersects a uniform neighbourhood of ρU                                1                        j
+                                                         UΠ , and therefore so does γ . Let tρUΠ , . . . , ρUΠ u
+                                                           Σ                                    i
+
+
+        be the subsegment of γ 1 contained in this uniform neighbourhood. Since γ 1 is a quasigeodesic
+        with uniform constants, the difference j ´ i is uniformly bounded. Furthermore, for every
+                                          Aw
+        k “ i, . . . , j, the projection ρUΣ k is well-defined, since the curve wi does not belong to the
+        saturation of Σ and must therefore intersect UΣ . By how W-edges for the combinatorial
+                                                                                Aw      Aw
+        structure are defined in [HMS26, Definition 4.10], we have that ρUΣ k „ ρUΣ k`1 for every k “
+                                                                                                  Aw
+         i, . . . , j´1. Finally, again the bounded geodesic image theorem yields that ρAUΣ „ ρUΣ , because
+                                                                                          v      i
+
+                              1
+         the segment of γ between these two points does not intersect the uniform neighbourhood of
+                                                      Awj
+         ρU                                                   Aw                                 Av
+           UΠ ; the same argument shows that ρUΣ „ ρUΣ . Summing up, we again get that ρUΣ „ ρUΣ ,
+             Σ                                                                                          Aw
+
+         as required. See Figure 4 to understand the situation.                                          ■
+                                   ´      ¯
+Finally, notice that w „ ϕ´1    Σ    ρA
+                                      UΣ
+                                        w
+                                            since the quasi-isometry ϕΣ maps w to ρA
+                                                                                   UΣ . Summing everything
+                                                                                    w
+
+
+up, we proved that                                      ´     ¯       ´   ¯
+                                   ppvq „ w „ ϕ´1
+                                               Σ  ρAw
+                                                   UΣ „ ϕ´1
+                                                         Σ  ρA
+                                                             UΣ .
+                                                               v
+
+
+
+Inductive step. Suppose now that Π is not almost maximal. If γ does not intersect the saturation of
+Σ we conclude exactly as above; otherwise let γ X SatpΣq contain some curve x, which must be unique
+because γ is a geodesic and w P LinkX pΣq Ď LinkX pxq. Let v 1 be the last vertex of γ before x. Since
+the subsegment of γ between v and v 1 does not intersect the saturation of Σ, the arguments in the
+                                                   Av 1
+base case imply that ppvq „ ppv 1 q and ρAUΣ „ ρUΣ .
+                                            v
+
+                                              `         ˘                             A      A
+   We now produce a vertex v 2 P LinkCpSq Π ‹ txu such that ppv 1 q „ ppv 2 q and ρUΣv1 „ ρUΣv2 . To this
+                                                 1
+extent, notice that the edge` of γ connecting
+                                     ˘          v and x must either comes from CpSq or is a W-edge. In
+the first case v 1 P LinkCpSq Π ‹ txu , so we set v 2 “ v 1 and we are done. In the second case, there are
+                                           CUSPED SPACES FOR HHG                                                19
+
+
+
+
+                           lk
+
+
+
+                 lk
+
+
+
+         Figure 4. On the left, the situation in LinkX pΠq. The geodesic γ (the dashed
+                                                                    ` ˘`W               ` ˘
+         line) only consists of W-edges, because it lies in LinkCpSq Π      and LinkCpSq Π is
+         discrete. Furthermore, no point wi on γ belongs to the saturation of Σ.
+         On the right, the image of γ under the quasi-isometry ϕΠ is a quasi-geodesic γ 1 ,
+         which fellow-travels a geodesic η (here, the continuous line). The bounded geodesic
+         image theorem implies that all segments of γ 1 outside a uniform neighbourhood of ρUΣ
+                                                                                            UΠ
+         (here, the dotted circle) have uniformly bounded projections to CpUΣ q. Furthermore,
+         a uniformly bounded segment of γ 1 can intersect said neighbourhood, and any two
+         points in this segment have close projections to CpUΣ q by how W-edges are defined in
+         the combinatorial structure.
+
+two W-adjacent maximal simplices Ψ, Ψ1 of X such that x `P Ψ                     1     1
+                                                                        ˘ and v P Ψ . By Item (5) we can assume
+                 1
+that Ψ and Ψ both extend Π. Notice that Ψ X LinkCpSq Π is not entirely contained inside SatpΣq,
+                                                             ` ˘                        `              ` ˘˘
+since otherwise we would have that H ‰ LinkCpSq Σ Ď LinkLinkCpSq pΠq Ψ X LinkCpSq Π , and the
+                                                                                             ` ˘
+latter is empty because Ψ is maximal. Hence there exists v 2 P pΨ X LinkCpSq Π q ´ SatpΣq. Since v 1
+and v 2 are adjacent in CpΠq and none of them belongs to SatpΣq, the above arguments, applied to the
+                                                        A        A
+geodesic tv 1 , v 2 u, show that ppv 1 q „ ppv 2 q and ρUΣv1 „ ρUΣv2 .
+   Finally, since by construction v 2 and LinkX pΣq are both contained in the link of             ´ any¯blowup-type
+                                                                                                    A
+simplex supported on Π ‹ txu, the inductive hypothesis gives that ppv 2 q „ ϕ´1                Σ   ρUΣv2 . Summing
+everything up, we proved that
+                                                       ´       ¯        ´       ¯         ´     ¯
+                                                          Av 2             Av 1              Av
+                        ppvq „ ppv 1 q „ ppv 2 q „ ϕ´1
+                                                    Σ   ρ UΣ     „ ϕ ´1
+                                                                     Σ    ρUΣ      „ ϕ ´1
+                                                                                       Σ   ρ UΣ .
+
+Cusp type. The case where Σ “ ∆u for some u P CpSqp0q is dealt with similarly, so we focus on
+highlighting the differences. As above, let Π be a simplex of blowup type whose link contains both v
+                                                                                 Av
+and LinkX p∆u q, and let γ be a CpΠq-geodesic connecting v to a point y P ϕ´1
+                                                                           ∆u pρAu q. We can assume
+that every vertex of γ belongs to CpSq, excluding y which lies in LinkX p∆u q. Suppose first that
+γ X Satp∆u q “ H, which means that γ does not intersect LinkCpSq puq. Let v 1 be the last vertex of γ
+before y. The bounded geodesic image theorem in pX, Wq yields that ppvq „ ppv 1 q. Furthermore, since
+v 1 and y are joined by a W-edge, we have that ppv 1 q „ y. Hence
+                                                                   Av
+                                        ppvq „ ppv 1 q „ y „ ϕ´1
+                                                              ∆u pρAu q.
+
+   Thus suppose that γ X LinkCpSq puq “ txu. Let v 1 be the last point on γ before x, and let v 2 P
+LinkCpSq pxq which is W-adjacent to v 1 and does not belong to LinkCpSq puq (again, v 2 can be found in
+any maximal simplex containing x which is W-adjacent to a simplex containing v 1 ). Applying twice
+the bounded geodesic image theorem in pX, Wq yields that ppvq „ ppv 1 q „ ppv 2 q; on the other hand,
+                                                              Av           Av 1          Av2
+the bounded geodesic image theorem in S implies that ϕ´1              ´1           ´1
+                                                         ∆u pρAu q „ ϕ∆u pρAu q „ ϕ∆u pρAu q. We then
+20                                       G. MANGIONI AND A. SISTO
+
+
+repeat the whole argument for v 2 inside the link of any blowup type simplex supported on Π ‹ txu,
+and we conclude by induction.                                                                   □
+
+The following corollary of Proposition 3.4 roughly states that relative projections between domains in
+the combinatorial structure, as defined in Definition 1.9, coarsely agree with relative projections in the
+original structure S, which are defined using subsurface projections.
+Corollary 3.6. Let Σ, Θ Ď X be simplices not of bounded type.
+   (1) If rΘs&rΣs or rΘs Ĺ rΣs, then
+                                                  ´     ¯
+                                       rΘs
+                                      ρrΣs „ ϕ´1
+                                               Σ    ρU
+                                                     UΣ ,
+                                                      Θ
+
+
+
+                 rΘs
+         where ρrΣs is the projection in pX, Wq while ρU UΣ is the subsurface projection in S.
+                                                           Θ
+
+
+     (2) If rΘs Ľ rΣs and x P CpΘq, then
+                                                     ´               ¯
+                                       rΘs              UΘ
+                                      ρrΣs pxq „ ϕ´1
+                                                  Σ   ρ UΣ pϕ Θ pxqq   ,
+                 rΘs
+         where ρrΣs : CpΘq Ñ CpΣq is the projection in pX, Wq while ρU
+                                                                     UΣ : CpUΘ q Ñ CpUΣ q is the
+                                                                      Θ
+
+
+         subsurface projection in S.
+                             rΘs
+Proof. (1) Recall that ρrΣs “ ppSatpΘqXYΣ q. If Θ “ ∆v for some v P CpSqp0q , then v P SatpΘqXYΣ , and
+                                                                                                ´     ¯
+        rΘs                                                                                        Av
+since ρrΣs is uniformly bounded it must uniformly coarsely coincide with ppvq; then ppvq „ ϕ´1
+                                                                                             Σ   ρ UΣ
+by Proposition 3.4, and we are done since Av “ U∆v .
+   If instead Θ is of blowup type, let v P Θ be such that the projection ρA UΣ is well-defined: such a
+                                                                              v
+
+
+vertex exists since every subsurface in S which is disjoint from Aw for all
+                                                                          ´ w P¯ Θ must be nested in
+                                                         rΘs
+UΘ . Then, since w P SatpΘq X YΣ , we again have that ρrΣs „ ppvq „ ϕΣ ρA
+                                                                       ´1
+                                                                              UΣ . On the other hand,
+                                                                                v
+
+
+                                     Av
+since Av and UΘ are not orthogonal, ρUΣ
+                                        „ ρU
+                                           UΣ by e.g. [DHS17, Lemma 1.5].
+                                            Θ
+
+
+                                   rΘs
+   (2) If one of ρU
+                  UΣ pϕΘ pxqq and ρrΣs pxq is empty, then then the diameter of their union is the maximum
+                   Θ
+
+
+of the diameters, which is uniformly bounded, and there is nothing to prove. We therefore assume
+                                                      rΘs
+that both subsets are non-empty. Recall that ρrΣs pxq is non-empty precisely when x P CpΘq X YΣ ,
+                       rΘs
+and in this case ρrΣs pxq “ ppxq. Furthermore, let v P CpSqp0q be such that x P Cone pvq. Then
+ρU
+ UΣ pϕΘ pxqq is non-empty precisely when Av intersects UΣ , or equivalently if v P YΣ , and in this
+  Θ
+                                                                                                    case
+                                                                                                  ´    ¯
+ρUΣ pϕΘ pxqq „ ρUΣ . Finally, ppxq „ ppvq, as v and x are adjacent in YΣ , and in turn ppvq „ ϕΣ ρA
+ UΘ              Av                                                                            ´1    v
+                                                                                                    UΣ
+by Proposition 3.4. Combining the above yields that
+                                                    ´     ¯       ´             ¯
+                        rΘs
+                       ρrΣs pxq “ ppxq „ ppvq „ ϕ´1
+                                                  Σ   ρA
+                                                       UΣ „ ϕΣ
+                                                        v      ´1
+                                                                    ρU
+                                                                     UΣ pϕΘ pxqq .
+                                                                      Θ
+                                                                                                      □
+
+We are now ready to prove that the cusped space for a mapping class group coincides with its Te-
+ichmüller space. The core idea is that, since the two spaces admit HHS structures with the same
+domains and coordinate spaces, and since relative projections between domains in the two structure
+coarsely coincide by Corollary 3.6, the two spaces must essentially coincide, and indeed the Realization
+theorem [BHS19, Theorem 3.1] produces an explicit quasi-isometry.
+Proposition 3.7. Let S be a finite-type surface, and let MCGpSq be its mapping class group. The
+cusped space for MCGpSq is MCGpSq-equivariantly quasi-isometric to the corresponding Teichmüller
+space, equipped with the Teichmüller metric.
+Proof. By [BHS17b, Theorem G], the HHS structure for Teich pSq with the Teichmüller metric has
+the same domains and coordinate spaces as that for MCGpSq, except that each annular curve graph is
+replaced by the combinatorial horoball over it. Relative projections are again defined using subsurface
+projections, so they are the same as for MCGpSq.
+                                       CUSPED SPACES FOR HHG                                           21
+
+
+   Now let pX, Wq be the combinatorial HHG structure for MCGpSq, and let pX,    p Wq
+                                                                                   x be the associated
+cusped space. All projections between domains in W are defined using the coarse closest point pro-
+                                                      x
+jections YΣ Ñ CpΣq,
+                p      which away from CpΣq
+                                         p    restrict to the projections YΣÓ Ñ CpΣÓ q, as explained in
+the proof of Proposition 2.24. In particular, relative projections between domains in pX, p Wqx coincide
+with the corresponding relative projections in pX, Wq when restricted to X.
+   We now define an equivariant quasi-isometry W x Ñ Teich pSq. For every w P W x , let bw – pπrΣs pwqq P
+śp
+   CpΣq be the tuple of its coordinates, where rΣs varies among all simplices not of bounded type.
+The tuple bw is consistent, which roughly means that it satisfies certain inequalities relating co-
+ordinates in bw and relative projections between domains (see [BHS19, Definition 1.17]). Now let
+                            śp
+ϕpbw q – pϕpΣ pπrΣs pwqqq P    CpUΣ q, where CpU
+                                             p Σ q is the coordinate space for UΣ in the structure for
+Teich pSq and ϕΣ : CpΣq Ñ CpUΣ q is the quasi-isometry induced by ϕΣ : CpΣq Ñ CpUΣ q. Notice that
+                p    p        p
+ϕpΣ is StabMCGpSq prΣsq-equivariant since ϕΣ is; hence the whole map ϕ is equivariant with respect
+to the action of MCGpSq. Now Corollary 3.6 implies that ϕpbw q is again consistent, because relative
+projections in the combinatorial structure and in the original structure coarsely coincide. In turn, the
+Realization Theorem for consistent tuples [BHS19, Theorem 3.1] produces a point f pwq P Teich pSq
+whose coordinates roughly coincide with ϕpbw q; furthermore f pwq is coarsely unique, meaning that
+every point with the same properties is within uniformly bounded Teichmüller distance from f pwq.
+   We just defined a MCGpSq-equivariant coarse map f : W   x Ñ Teich pSq, and we claim that is coarsely
+                                1
+Lipschitz. To see this, let w, w P W span an edge. Since coordinate projections are coarsely Lipschitz,
+                                   x
+and since each ϕpΣ is a quasi-isometry, we have that ϕpΣ pπrΣs pwqq „ ϕpΣ pπrΣs pw1 qq for all rΣs. Then
+the uniqueness axiom [BHS19, Definition 1.1.(9)] implies that f pwq „ f pw1 q, as their coordinates are
+uniformly close.
+   The same arguments yield a coarsely Lipschitz, coarse map g : Teich pSq Ñ W  x , defined by mapping
+                                                                 ´1           śp
+each point x P Teich pSq to a realisation point for the tuple ϕΣ pπUΣ pxqq P      CpΣq. It is then clear
+that f and g are quasi-inverses, thus proving that f is a quasi-isometry.                              □
+
+Remark 3.8 (Comparison to the augmented marking complex). In the case of the mapping class
+group of a surface S, our cusped space is nearly identical to the augmented marking complex AM pSq,
+which is a simplicial complex quasi-isometric to the Teichmüller space of S constructed by Durham in
+[Dur16, Section 3.2]. A vertex a of AM pSq is a complete clean marking, as in [MM00], together with
+a choice of a non-negative integer for every curve of the base, which roughly records how short the
+curve is in the hyperbolic metric associated to a. This data roughly corresponds to a maximal simplex
+        x whose underlying simplex ΣpaqÓ is the marking and whose depths are given by the length
+Σpaq P W,
+data. Furthermore, edges of AM pSq come in two types: those coming from flip and twist moves of
+the underlying markings, analogous to the elementary moves in the marking complex for the mapping
+class group; and those corresponding to increasing the length data of a curve by one, thus moving
+deeper in the associated horoball. This reflects the same dichotomy from Definition 2.9 between edges
+of W-type and of cusp-type.
+   Therefore, to show that our cusped space is quasi-isometric to the Teichmüller space, we could
+have made the above analogy precise by proving that the coarse map Σp¨q : AM pSq Ñ W      x is a quasi-
+isometry. However, we preferred to argue as above, both to avoid the technicalities arising for the fact
+that vertices of W
+                 x also include non-clean markings, and in order to develop the far more general tool
+of Proposition 3.4.
+
+
+                                      4. Controlling torsion
+   The main result of this Section is Theorem 4.2, which roughly states that, if a group G has a
+quotient G r which is a relative squid HHG, then every finite subgroup Fr ď G
+                                                                            r either comes from a finite
+subgroup of G or permutes a collection of orthogonal minimal domains. Crucially, this dichotomy
+will follow from the fact that the Fr-action on the cusped space for Gr has a uniformly bounded orbit,
+22                                      G. MANGIONI AND A. SISTO
+
+
+which either lies in a coarsely embedded copy of G
+                                                 r or inside a product of horoballs. We first recall a
+definition.
+Definition 4.1. Let G be a group and S a generating set. The injectivity radius of a quotient
+π: G ↠ G r with respect to S, denoted injS π, is the maximum radius of a ball in Cay pG, Sq around
+                                     ´       ¯
+the identity which injects inside Cay G,
+                                       r πpSq .
+
+Theorem 4.2. For every n, δ, K ě 0 there exists ρ “ ρpn, δ, Kq ě 0 such that the following holds. Let
+G be a group, S a finite generating set for G, π : G ↠ Gr a quotient, and Fr ď G r a finite subgroup.
+Suppose that:
+   (1) Gr has a relative squid HHG structure pX, W, n, δq;
+                             ´       ¯
+   (2) Some orbit map Cay G,   r πpSq Ñ W is a K-quasi-isometry;
+    (3) injS π ě ρ.
+Then either Fr fixes a non-empty simplex of X setwise, or is the isomorphic image under π of a finite
+subgroup F ď G of order at most |S|ρ`1 .
+Setting G “ G
+            r in the above Theorem yields:
+Corollary 4.3. For every n, δ, K ě 0 there exists N ě 0 such that the following happens. Let G have
+a relative squid HHG structure pX, W, n, δq. Suppose that, for some finite generating set S of G, some
+orbit map Cay pG, Sq Ñ W is a K-quasi-isometry. Then every finite subgroup of G of order greater
+than |S|N must fix a non-empty simplex of X setwise.
+Proof of Theorem 4.2. We shall progressively define constants E0 , . . . , E4 , all depending on n, δ, and
+K only, and eventually set ρ “ 2E4 .
+         p Wq
+   Let pX,   x be the cusped space for pX, Wq, which is a squid HHS with constants n, δ 1 “ δ 1 pδq by
+Proposition 2.17. By [HHP23, Theorem A], there exists E0 ě 0 such that W         x is E0 -coarsely injective.
+We will not need the full definition of this property; it will suffice to know that, by combining [HHP23,
+Proposition 1.1] and [Lan13, Theorem 1.2], every finite group acting by isometries on an E0 -coarsely
+injective space has an orbit of diameter at most E1 , where E1 only depends on E0 . We stress that
+the construction in [HHP23] ultimately depends only on the constants and functions appearing in
+the definition of a hierarchically hyperbolic space [BHS19, Definition 1.1]; in turn, for the squid HHS
+     x n, δ 1 q, the latter are defined in terms of n and δ 1 , as we pointed out in Remark 1.10. This
+  p W,
+pX,
+proves that E0 , and in turn E1 , only depend on n and δ.
+   Now let Fr ď G   r be a finite subgroup, which has an orbit of diameter at most E1 in W     x by coarse
+injectivity. The idea we shall expand upon below is that either this orbit is far from W, and therefore
+has “deep” projections to some cusps supported on a simplex of X, or Fr has a uniformly bounded
+orbit in W, hence in G, and therefore its cardinality is uniformly bounded.
+   Let Θ “ pv, pmv qvPΘ P W  xp0q be a maximal simplex such that diam x pFr ¨ Θq ď E1 . Since projections
+                                                                           W
+to coordinate spaces in W   x are uniformly coarsely Lipschitz, there exists E2 , depending on n, δ, and
+E1 , such that for every simplex Σ of X, p
+(3)                                       diamCpΣq
+                                              p    pFr ¨ Θq ď E2 .
+Now let
+                                                       p0q
+                                    V “ Fr ¨ tv P Θ | mv ě E2 ` 1u,
+that is, the orbit of the supports where the depth of Θ is greater than E2 . We claim that any two
+                                                                                 p0q           p0q
+u, v P V are adjacent in X. Indeed, up to the action of Fr, assume that v P Θ and u P fr ¨ Θ for
+some fr P Fr. If u and v were not adjacent, then the projection of fr ¨ Θ to Cp∆
+                                                                             p v q would be contained
+in Cp∆v q, and therefore
+                         dp   pfr ¨ Θ, Θq “ d p
+                          Cp∆v q                   pCp∆v q, pmv q “ mv ě E2 ` 1,
+                                              Cp∆v q
+
+contradicting the definition of E2 in Equation (3).
+                                           CUSPED SPACES FOR HHG                                               23
+
+
+   The above shows that V spans a simplex of X, which is preserved by Fr. If V ‰ H we are done, so
+suppose otherwise. We will prove ´
+                                 that Fr has
+                                          ¯ uniformly bounded cardinality, by showing that it has
+a uniformly bounded orbit in Cay G, πpSq . To see this, first notice that the cardinality of Θ is at
+                                   r
+
+most the dimension of X, which is bounded by n by Remark 2.2. Hence, by how we defined W-edges
+                                                                                           x
+in Definition 2.9, we see that                  ÿ
+                                          Ó
+                                  dW
+                                   x pΘ, Θ q ď      mv ď nE2 ,
+                                                           p0q
+                                                       vPΘ
+
+where we used that each mv is at most E2 since V is trivial. This proves that the Fr-orbit of ΘÓ has
+diameter at most E1 ` 2nE2 in W;x in turn, by Proposition 2.14 the diameter of the same orbit in W is
+                                                               ´       ¯
+at most E3 – pE1 `2nE2 q2E1 `2nE2 . Since some orbit map Cay G,  r πpSq Ñ W is a K-quasi-isometry,
+there exists a constant E4 depending on K and E3 (and so ultimately on K, n, and δ) and some r  hPGr
+such that
+                                    diamCaypG,πpSq
+                                             r    q pF ¨ hq ď E4 .
+                                                     r r
+      r acts by isometries on its Cayley graph, this implies that the conjugate Fr1 – r
+Since G                                                                                     h´1 Frrh is contained
+in the ball of radius E4 around the identity of G.   r
+   Now let ρ “ 2E4 , so that the ball B of radius 2E4 around the identity of G injects inside G;            r in
+particular, πpBq contains Fr1 . Let F 1 – π ´1 pFr1 qXB, so that π restricts to a bijection between F 1 and Fr1 .
+Notice that F 1 is contained in the ball B 1 of radius E4 around the identity, so |F 1 | ď |B 1 | ď |B| ď |S|ρ`1 .
+Moreover F 1 is a subgroup: for every f, g P F 1 , the product f g still belongs to B, since
+                      dCaypG,Sq pf g, 1q ď dCaypG,Sq pf, 1q ` dCaypG,Sq pg, 1q ď 2E4 “ ρ.
+Hence f g is the unique preimage of πpf qπpgq P Fr1 inside B, and must therefore belong to F 1 . Summing
+up, we proved that Fr1 is the isomorphic image under π of a subgroup of G of order at most |S|ρ`1 ;
+in turn, since Fr1 “ r
+                     h´1 Frr
+                           h, for any h P G such that πphq “ r   h the subgroup F – hF 1 h´1 projects
+                                           ρ`1
+bijectively to F and has order at most |S| , as required.
+               r                                                                                      □
+We record an immediate application of Theorem 4.2 to relatively hyperbolic groups, which recovers
+[DG18, Lemma 4.3].
+Corollary 4.4. Let G be a finitely generated group which is hyperbolic relative to a finite collection
+P “ tP1 , . . . , Pk u of finitely generated peripheral subgroups. For every i “ 1 . . . , k let Hi  Pi be a
+normal subgroup, and let N “ xxHi yyi“1,...,k . There exist a finite subset F Ă G and a constant M ě 0,
+both depending only on G and P, such that, if each Hi intersects F trivially, then any finite subgroup
+of G{N is either:
+      ‚ the isomorphic image of a subgroup of G of order at most M ;
+      ‚ or is conjugated inside the image of a peripheral.
+Proof. Let S be a finite generating set for G, and let δ0 ě 0 be a hyperbolicity constant for the graph
+obtained from Cay pG, Sq by adding a cone over each coset of the Pi . Let ρ “ ρpδ0 , n “ 3, K “ 1q
+be the constant given by Theorem 4.2. The relative Dehn filling theorem [Osi07, GM08] states that
+there exists a finite subset F Ă G such that, if each Hi misses F, then G{N is hyperbolic relative
+to πpPq “ tPi {Hi ui“1,...,k , and the injectivity radius of π : G Ñ G{N is at least ρ. Now, Lemma 3.1
+endows G{N with a relative squid structure pX, Wq, where:
+      ‚ W “ Cay pG{N , πpSqq;
+      ‚ X is the discrete graph whose vertices are cosets of the Pi {Hi ;
+      ‚ X `W is the graph obtained from Cay pG{N , πpSqq by adding a cone over each coset of the
+        Pi {Hi .
+In particular, pX, W, n, δq is a relative squid HHS, where n “ 3 and δ is the hyperbolicity constant of
+X `W . In turn, up to enlarging F, we can ensure that the latter is bounded in terms of δ0 . This can
+be deduced from [Osi07, Lemma 5.3], which gives a bound on the relative isoperimetric inequality for
+24                                           G. MANGIONI AND A. SISTO
+
+
+the quotient coned-off graph. Finally, notice that there is an isometry Cay pG{N , πpSqq Ñ W, which
+in particular is a K-quasi-isometry with K “ 1. Hence Theorem 4.2 implies that any finite subgroup
+of G{N of order greater than M – |S|ρ must fix a point of X, and is therefore conjugated inside a
+peripheral.                                                                                      □
+
+                5. Automorphisms of Dehn filling quotients of short HHGs
+   In this Section we leverage Theorem 4.2 to control the automorphism groups of certain quotients
+of short HHGs. These groups, introduced by the first author in [Man24], are a broad family of squid
+HHGs including Artin groups of large and hyperbolic type, RAAGs on triangle- and square-free graphs,
+graph manifold groups, and the mapping class group of a sphere with five punctures.
+
+5.1. Background on short HHGs. We first recall the definition and some properties of short HHGs.
+Definition 5.1. A short HHG is a group G admitting a combinatorial HHG structure pX, Wq such
+that:
+     (1) X is the blowup of a triangle- and square-free graph X, such that every connected component
+         of X is not a point.
+     (2) G acts on X with finitely many orbits of edges;
+                             p0q                                           vp
+     (3) For every v P X , there is an extension 0 Ñ Zv Ñ StabG pvq ÝÑ        Hv Ñ 0, where Hv is a
+         hyperbolic group and Zv is a cyclic subgroup of StabG pvq acting trivially on LinkX pvq.
+                            p0q
+     (4) For every v P X           and g P G, Zgv “ gZv g ´1 .
+                             p0q
+     (5) For every v P X , Zv acts geometrically on Cp∆v q and with uniformly bounded orbits on
+         Cp∆w q for every w P LinkX pvq.
+                                                        p0q
+X is called the support graph. For every v P X , we call Zv the cyclic direction for v. Moreover,
+Item 5 implies that Cp∆v q is a quasiline if Zv is infinite, and is uniformly bounded otherwise.
+Remark 5.2. Notice that short HHGs are squid HHGs by construction: X is a blowup of X, and the
+latter has cleanish intersections simply because it does not contain triangles nor squares.
+                                  p0q
+Remark 5.3. If v, w P X        span an edge, and if Zv is infinite, then Zv and Zw commute. Indeed,
+every g P Zw normalises Zv , so it acts on Zv as either the identity or the inversion swapping a generator
+of Zv with its inverse. However the second possibility does not happen, since Zv acts loxodromically
+on Cp∆v q while Zw acts with uniformly bounded orbits, and therefore cannot “flip” a quasiaxis for Zw .
+Definition 5.4. A short HHG G, with support graph X, is colourable if there exists a partition of the
+vertices of X into finitely many colours, such that no two adjacent vertices share the same colour, and
+the G-action on X preserves the partition. This property, which is a special case of the general notion
+of a colourable HHG (see e.g. [HP22, Section 3]), is satisfied by most known short HHGs, including
+all the examples mentioned at the beginning of this section.
+5.2. Dehn filling quotients. We now clarify which quotients of short HHGs we are interested in.
+Notation 5.5. Let G be a colourable short HHG with support graph X, as in Definition 5.1. Suppose
+that all cyclic directions tZv uvPX p0q are infinite.
+   For every N P Ną0 let DTN “ xN Zv yvPX p0q , which is a normal subgroup of G, and let GN –
+G{DTN the associated Dehn Filling quotient, with quotient map πN : G Ñ GN . Set X N – X{DTN ,
+                      p0q
+and for every v P X      let vN be its image in X N . Let ZvN – Zv {pDTN X Zv q, and let HvN –
+StabGN pvN q {ZvN . Given any short HHG structure pX, Wq with support graph X, set XN – X{DTN
+and WN – W{DTN .
+   We say that a property P holds if N is deep enough if there exists N0 such that, whenever N is a
+non-trivial multiple of N0 , GN satisfies P .
+                                       CUSPED SPACES FOR HHG                                           25
+
+
+For the whole Section, we always work under Notation 5.5. We now collect and expand results from
+[MS26], our main goal being to show that deep enough Dehn filling quotients fit the framework of
+Theorem 4.2.
+Lemma 5.6 ([MS26, Corollary 3.40]). The injectivity radius of πN : G Ñ GN (with respect to any
+finite generating set for G) goes to infinity for N deep enough and N Ñ 8.
+The following proposition summarises the structure of deep enough Dehn filling quotients of a short
+HHG, and it is essentially contained in [MS26]. The last item is the most subtle one; while it describes
+bounded coordinate spaces in the HHS structure, we will need to keep track of these (and especially of
+their diameters as a function of N ) to obtain uniformity results for sequences of deep enough quotients.
+Proposition 5.7. There exists a short HHG structure pX, Wq for G, with support graph X, such that
+the following hold if N is deep enough:
+     (i) GN has a short HHG structure pXN , WN q.
+                         p0q
+   (ii) For every v P X , ZvN acts trivially on LinkX N pvN q, it is normal in StabGN pvN q, and the
+        quotient HvN – StabGN pvN q {ZvN is hyperbolic.
+                        p0q
+  (iii) For every v P X , Cp∆vN q is quasi-isometric to Cp∆v q{N Zv , and the quasi-isometry constant
+        does not depend on N .
+Proof. Let pX 1 , W 1 q be any short HHG structure for G, with support graph X. Arguing exactly as
+in [MS26, Section 4.1], one can find a natural number N0 and a new short HHG structure pX, Wq
+                           p0q
+such that, for every v P X , the subgroup xN0 Zw ywPLinkX pvq acts on Cp∆v q with uniformly bounded
+orbits. This shows that, if N is deep enough (and in particular a multiple of the above N0 ), then
+xN Zw ywPLinkX pvq acts on Cp∆v q with uniformly bounded orbits, and the bound is independent on N .
+   Next, [MS26, Theorem 4.1] proves that pXN , WN q is a short HHG structure for GN , thus yielding
+Item (i). Furthermore, Item (ii) is [MS26, Lemma 3.42].
+   Finally, [MS26, Lemma 4.15] identifies Cp∆vN q with Cp∆v q{pDTN X StabG pvqq (which is denoted
+by Lrvs there). In turn, since we modified the structure in such a way that xN Zw ywPLinkX pvq acts on
+Cp∆v q with uniformly bounded orbits, the space Cp∆v q{pDTN XStabG pvqq is uniformly quasi-isometric
+to Cp∆v q{N Zv , and this proves Item (iii).                                                         □
+The quotients GN are all hyperbolic, and non-elementary unless G was either virtually cyclic or a
+product:
+                                                                                                  `W
+Lemma 5.8. The following holds if N is deep enough. If G is not virtually cyclic and X                 is
+unbounded, then GN is non-elementary hyperbolic.
+Proof. This is simply [MS26, Corollary 4.22]. We stress that, with the notation from the proof of
+Proposition 5.7, it does not matter if we consider the augmented graph in the original structure
+pX 1 , W 1 q or in the new one pX, Wq, since by [BHS17a, Corollary 2.9] both spaces are quasi-isometric
+to the space obtained from a Cayley graph of G after coning off all cosets of X-vertex stabilisers. □
+On the one hand, the hyperbolicity constant of GN (meaning, of a Cayley graph with a fixed generating
+set coming from G) must grow as N goes to infinity, as Lemma 5.15 below shows that GN contains
+larger and larger cyclic subgroups. However, the HHG structures for the quotients are actually uniform,
+except for the minimal coordinate spaces:
+Lemma 5.9. There exist n, δ ě 0 such that, if N is deep enough, then pXN , WN , n, δq is a relative
+squid HHS.
+Proof. This is [MS26, Remark 4.8]. Roughly, the only coordinate spaces for the quotient whose hy-
+perbolicity constants depend on N are the quotients Cp∆v q{N Zv , which look like circles of diameter
+growing linearly in N .                                                                            □
+As an immediate consequence, we get:
+26                                      G. MANGIONI AND A. SISTO
+
+
+                                                                                        pN , W
+Corollary 5.10. Let G be as in Notation 5.5. For all deep enough N , the cusped spaces pX    xN q
+are uniform squid HHSs, in the sense of Remark 1.10.
+We can sum the previous results up to get the following control on torsion elements in deep enough
+Dehn filling quotients:
+Corollary 5.11. Let G be as in Notation 5.5. If N is deep enough, then every finite subgroup Fr ď GN
+satisfies one of the following:
+       ‚ Fr fixes a vertex of X N , or a pair of adjacent edges;
+       ‚ There exists a finite subgroup F ď G such that πN : G Ñ GN restricts to an isomorphism
+         F Ñ Fr.
+Proof. It is enough to check that the quotient πN : G Ñ GN satisfies the assumptions of Theorem 4.2
+whenever N is deep enough. Fix a finite generating set S for G, and let pX, Wq be the short HHG
+structure given by Proposition 5.7. Fix w P W p0q , and let K ě 0 be such that the orbit map
+ϕ : Cay pG, Sq Ñ W sending g to g ¨ w is a K-quasi-isometry. Since ϕ is G-equivariant, the orbit
+map Cay pGN , πN pSqq Ñ WN sending πN pgq to πN pgq ¨ wN is also a K-quasi-isometry (here wN is
+the image of w in WN ). Furthermore, by Lemma 5.9 there exist constants δ and n, not depending on
+N , such that pXN , WN , n, δq is a relative squid HHS whenever N is deep enough. Finally, Lemma 5.6
+states that the injectivity radius of G Ñ GN diverges as N Ñ 8.                                   □
+We can also control torsion elements in HvN , as the following results recognise HvN as a quotient of
+Hv satisfying the requirements of Corollary 4.4:
+                                                        p0q
+Lemma 5.12 ([Man24, Lemma 2.17]). Let v P X , and let U Ď LinkX pvq be any collection of
+StabG pvq-orbit representatives. Then Hv is hyperbolic relative to the collection tEpZu quuPW , where
+EpZu q is the maximal virtually cyclic subgroup containing qpZu q.
+                                                                                                p0q
+Lemma 5.13 ([MS26, Lemma 3.42]). The following holds if N is deep enough. Let v P X , and let
+q : StabG pvq Ñ Hv be the quotient map. Then HvN is the quotient of Hv by xN qpZu qyuPLinkX pvq .
+Combining Lemma 5.13 with Corollary 4.4 we get:
+                                                                                 p0q
+Corollary 5.14. The following holds if N is deep enough. For every v P X , every finite subgroup
+of HvN either comes from a finite subgroup of Hv , or belongs to the image of EpZw q for some w P
+LinkX pvq, and therefore fixes wN .
+5.2.1. Cyclic directions for the quotient. For later purposes, we gather here a few more lemmas about
+Dehn filling quotients, again working in the setting of Notation 5.5. The first lemma describes the
+image of cyclic directions in the quotient.
+                                                                                 p0q
+Lemma 5.15. The following holds if N is deep enough. For every v P X                   , DTN X StabG pvq “
+xN Zw ywPStarpvq and DTN X Zv “ N Zv . In particular, ZvN – Z{N Z.
+Proof. The first conclusion is [MS26, Corollary 3.36]. For the second equality let g P DTN X Zv . Since
+Zv ď StabG pvq, by the first conclusion g P xN Zw ywPStarpvq ; moreover N Zv is normal in StabG pvq, so
+we can write g “ hg 1 where h P N Zv and g 1 P xN Zw ywPLinkX pvq X Zv . If g 1 is trivial we are done, so
+suppose otherwise towards a contradiction. By [MS26, Corollary 3.37] we have
+                                      xN Zw ywPLinkX pvq “ ˚ N Zu ,
+                                                              uPJ
+where J is a certain (possibly infinite) subset of LinkX pvq. If J consists of a single vertex w then
+g 1 P N Zw X Zv , and therefore this intersection is non-trivial. This is a contradiction, because the two
+cyclic directions have different actions on the quasiline Cp∆v q by Definition 5.1.(5). Thus suppose that
+J contains more than a vertex, and therefore xN Zw ywPLinkX pvq is a non-abelian free group. Since Zv
+is normal in StabG pvq, the square power of g 1 lies in the centre of xN Zw ywPLinkX pvq , which is trivial;
+in turn, since a non-abelian free group has no torsion, g 1 itself must be trivial, against our initial
+assumption.                                                                                               □
+                                            CUSPED SPACES FOR HHG                                                  27
+
+
+5.2.2. Commuting elements. Next, we prove that commuting elements of GN cannot have large dis-
+placements on transverse lines: this is an instance of a more general principle that holds for all HHG.
+For the following statement, the minimum displacement of an isometry g of a metric space S is defined
+as inf xPS dS px, gxq.
+
+Lemma 5.16. There exists E     r ą 0, only depending on G, such that the following holds if N is deep
+                           i     p0q                ` i ˘
+enough. For i “ 1, 2 let vN P X N and gi P StabGN vN      . Suppose that the minimum displacement of
+                                                                 ` ˘
+gi on Cp∆i q is at least E.
+                         r If g1 and g2 commute then v 1 P Star v 2 .
+                                                       N           N
+                                             1      2
+Proof. Towards a contradiction, assume that vN and vN are not adjacent, so that they yield transverse
+                                                 r∆v1 s                                r∆v2 s
+                                  1                          2
+           1 s and r∆v 2 s. Let r
+domains r∆vN                     2 – ρr∆ 2 s Ă Cp∆vN
+                                                   2 q and r
+                                                            1 – ρr∆ 1 s Ă Cp∆vN
+                                                                              1 q be the relative
+                                         N                          N
+                      N                            v                                     v
+                                                       N                                     N
+projections between these two transverse domains. Since pXN , WN , n, δq is a relative squid HHS, there
+exists a constant E “ Epn, δq ą 0, not depending on N , such that the following hold:
+      ‚ Both r21 and r12 have diameter
+                                !      at most E (this is [BHS19,
+                                                             ) Definition 1.14.(1)]).
+      ‚ For every q P WN , min dCp∆v1 q pq, r12 q, dCp∆v1 q pq, r21 q ď E (this is the Behrstock inequality,
+                                            N                      N
+        [BHS19, Definition 1.14.(4)]).   !                                      )
+      ‚ There exists p P WN such that max dCp∆v1 q pp, r12 q, dCp∆v1 q pp, r21 q ď E (this follows from
+                                                                   N               N
+                                                                                                  2
+        the partial realisation axiom [BHS19, Definition 1.14.(8)], applied to the pair pr∆vN
+                                                                                            1 s, r q).
+                                                                                                  1
+
+Now set E
+        r “ 4E, and let g1 , g2 P GN be as in the statement. Notice first that, for p as in the third
+bullet,
+         dCp∆v1 q pr12 , g1 pq ě dCp∆v1 q pp, g1 pq ´ dCp∆v1 q pp, r12 q ´ diampr12 q ě 4E ´ E ´ E “ 2E,
+               N                      N                        N
+
+
+so the Behrstock inequality yields that dCp∆v2 q pr21 , g1 pq ď E.             If we now consider the action of g2 on
+                                                           N
+Cp∆vN
+    2 q, the same reasoning yields
+
+
+
+             dCp∆v2 q pr21 , g2 g1 pq ě dCp∆v2 q pg1 p, g2 g1 pq ´ dCp∆v2 q pg1 p, r21 q ´ diampr21 q ě 2E.
+                   N                         N                             N
+
+                                                                                        1      2
+However g2 g1 p “ g1 g2 p, so if in the above argument we swap the roles of vN            and vN , and of g1 and
+g2 , we get that
+                              dCp∆v1 q pr12 , g2 g1 pq “ dCp∆v1 q pr12 , g1 g2 pq ě 2E,
+                                      N                                N
+
+contradicting the Behrstock inequality for q “ g2 g1 p.                                                            □
+
+Corollary 5.17. The following hold if N is deep enough. For i “ 1, 2 let tv i , wi u be edges of X.
+                                                                                 1
+                                                                                         ` 2˘
+   (1) If there exist commuting elements g1 P ZvN       1 and g2 P Zv 2 , then v
+                                                                       N         N P Star vN .
+   (2) If there exist commuting elements g1 P xZvN        1 , Zw 1 y ´ pZv 1 Y Zw 1 q and g2 P xZv 2 , Zw 2 y ´
+                                                                N         N        N              N      N
+           2 Y Zw 2 q, then tv
+                               1     1        2     2
+       pZvN        N           N , wN  u “ tv N , wN  u.
+                            p0q
+Proof. For every u P X , Zu acts Ru -coboundedly on Cp∆u q for some Ru ě 0, and since there
+are finitely many G-orbits of vertices in X there is a uniform bound R on all Ru . Furthermore, by
+Proposition 5.7.(iii), each Cp∆uN q is uniformly quasi-isometric to Cp∆u q{N Zu , so ZuN acts on Cp∆uN q
+R1 -coboundedly for some constant R1 depending on R but not on N . The same Proposition 5.7.(iii)
+implies that the diameter of Cp∆uN q grows linearly in N . Since neither R1 nor the constant E    r from
+Lemma 5.16 depend on N , we can find a constant M , again not depending on N , such that if g P ZuN
+has minimum displacement less than E     r on Cp∆u q, then g “ πN pz k q for some |k| ď M , where zu
+                                                    N                  u
+generates Zu .
+   Now, if N ą 4M , every g P ZuN has a power outside tπN pzuk quk“´M,...,M . This shows that, for N
+deep enough, any two elements g1 , g2 as in Item 1 admit powers with minimum displacement at least
+Er on the corresponding coordinate spaces, and now we can conclude by Lemma 5.16.
+28                                         G. MANGIONI AND A. SISTO
+
+
+    The argument for Item 2 is similar: given v i , wi , and gi as in the statement, it is enough to show that,
+for i “ 1, 2, gi has a power acting with minimum displacement at least E        r on both Cp∆vi q and Cp∆wi q,
+                                                                                                 N               N
+                                                      3
+provided that N is deep enough that N ą 4M . For ease of notation we drop the indices and denote
+v 1 “ v, w1 “ w, and g1 “ g (the argument for i “ 2 is identical). Suppose that g “ πN pzvr zw       s
+                                                                                                        q, for some
+                                                                            k h
+´N {2 ă r, s ă N {2 and r, s ‰ 0. If g already lies outside tπN pzv zw quk,h“´M,...,M then it acts with
+minimum displacement at least E      r on both Cp∆v q and Cp∆w q, and we conclude as above. Otherwise
+                                                        N             N
+suppose that |r| ď M , and look at g M “ πN pzvrM zw       sM
+                                                              q, so that M ă |rM mod N | ď M 2 . There are
+now three sub-cases to consider. If |sM mod N | ą M we are done. If 0 ă |sM mod N | ď M then
+    2             2
+                     sM 2
+g M “ πN pzvrM zw         q lies outside tπN pzvk zw
+                                                   h
+                                                     quk,h“´M,...,M by our choice of N . Finally, if sM “ 0
+                           2           M `1           rpM `1q s
+mod N then |s| ě 4M ą M , so g              “ πN pzv         zw q lies outside tπN pzvk zw
+                                                                                         h
+                                                                                           quk,h“´M,...,M .        □
+
+From Corollary 5.17 we can also extract that cyclic directions can be algebraically distinguished from
+products of adjacent cyclic directions:
+Corollary 5.18. The following holds if N is deep enough. Let v, w be X-adjacent vertices of valence
+greater than one, and let x P xZvN , ZwN y. Then x P ZvN Y ZwN if and only if its centraliser CGN pxq
+is infinite.
+Proof. We first notice that, under the above assumption, Hv is non-elementary hyperbolic. To see this,
+let u P LinkX pvq ´ twu, which exists as v has valence greater than one. If Hv was virtually cyclic then
+Zu would intersect xZv , Zw y non-trivially. This is impossible since xZv , Zw y fixes w while no element
+in Zu does: indeed, every element in Zu acts loxodromically on Cp∆u q, and therefore cannot fix the
+projection of w to Cp∆u q.
+   Moving to the proof of the Lemma, we first suppose without loss of generality that x P ZvN . Then
+CGN pxq contains the index-two subgroup of StabGN pvN q centralising ZvN , so it is enough to prove
+that StabGN pvN q is infinite. In turn, the latter fits into an extension
+                                    0 Ñ ZvN Ñ StabGN pvN q Ñ HvN Ñ 0,
+so we are left to prove that HvN is infinite. Lemma 5.13 describes HvN as a relative hyperbolic Dehn
+filling of the non-elementary hyperbolic group Hv ; hence, by [Osi07, Corollary 1.6], if N is deep enough
+then HvN is non-elementary hyperbolic, and in particular infinite.
+    For the converse implication, let x P xZvN , ZwN y ´ pZvN Y ZwN q, and let g P CGN pxq. Then
+x “ gxg ´1 P xZgpvN q , ZgpwN q y ´ pZgpvN q Y ZgpwN q q, by how cyclic directions behave under conjugation;
+thus Corollary 5.17.(2) implies that g fixes tvN , wN u setwise. This proves that CGN pxq is virtually
+contained in StabGN pvN q X StabGN pwN q, which in turn virtually coincides with the finite subgroup
+xZvN , ZwN y – ZvN ˆ ZwN by [MS26, Corollary 2.17].                                                       □
+
+5.3. Extracting combinatorial data from automorphisms. We now prove that group automor-
+phisms of GN induce simplicial automorphisms of X N :
+Theorem 5.19. Let G be a colourable short HHG as in Notation 5.5. Suppose further that X has no
+valence-one vertices. There exists an integer M , only depending on G, such that the following holds
+if N is deep enough. Every group automorphism ϕ P Aut pGN q induces a simplicial automorphism
+         `    ˘                           p0q
+ϕ# P Aut X N such that, for every v P X , ϕ# pvN q is the unique vertex of X N satisfying
+                                            ϕpM ZvN q “ M Zϕ# pvN q .
+                                                                    p0q
+Proof. Let ϕ be an automorphism of GN . For every v P X , ZvN – Zv {pDTN X Zv q is isomorphic
+to Z{N Z by Lemma 5.15, and therefore ϕpZvN q – Z{N Z since ϕ is an automorphism. Let g generate
+ϕpZvN q. Our next goal is to invoke Corollary 5.11 to show that a uniform power of g fixes an edge of
+X N ; later we will choose ϕ# pvN q as one of the endpoints of such edge.
+Claim 5.20. There exists M P N, only depending on G, such that the following holds for deep enough
+N . There exist X-adjacent vertices v 1 , w1 such that g M P xZvN
+                                                                1 , Zw 1 y.
+                                                                      N
+                                               CUSPED SPACES FOR HHG                                       29
+
+
+Proof of Claim 5.20. Firstly, recall that a hierarchically hyperbolic group contains finitely many conju-
+gacy classes of finite subgroups, by [HHP23, Theorem G]. In particular, we can choose N deep enough
+that G contains no subgroup isomorphic to Z{N Z. Hence, by Corollary 5.11 there exists a non-empty
+simplex Σ of X which is preserved by ϕpZvN q. Notice that X N is triangle-free, and therefore Σ is
+                                                                          p0q
+either a single vertex or an edge; either way, there exists v 1 P X such that g 2 P StabGN pvN     1
+                                                                                                     q.
+                          1                        1
+   Now let q : StabGN pvN q Ñ HvN   1 – StabGN pvN q {ZvN 1 be the quotient map. By Corollary 5.14 there
+
+exists a constant M 1 such that either qpg 2 q has order at most M 1 , or qpg 2 q P EpZw1 q{N Zw1 for some
+                                           1
+w1 P LinkX pv 1 q. In the former case g 2M P ZvN                       1
+                                                 1 ; in turn, since M only depends on the isomorphism
+
+type of Hv1 , of which there are finitely many since G acts cofinitely on the vertices of X, there exists a
+power of g, only depending on G, which belongs to ZvN     1 . In the latter case, since Zw 1 has finite-index
+
+in EpZw1 q, a uniform power of qpg 2 q must belong to qpZw1 q, and again we can choose this power to not
+depend on either v 1 or w1 as there are finitely many G-orbits of edges in X.                              ■
+Now, since X has no valence-one vertices, Corollary 5.18 yields that the centraliser of any element in
+ZvN is infinite, and the same must be true for ϕpZvN q as ϕ is an isomorphism. In particular g M has
+infinite centraliser, and again Corollary 5.18 implies that g M P Zϕ# pvN q where ϕ# pvN q is either vN 1
+     1
+or wN . Notice moreover that, since M does not depend on N , we can choose N to be a multiple of
+M . Then xg M y “ ϕpM Zv q is a subgroup of Zϕ# pvN q – Z{N Z of order N {M , and it must therefore
+coincide with M Zϕ# pvN q .
+   We also point out that ϕ# pvN q is unique. Indeed, suppose towards a contradiction that g M P ZvN     2
+           2
+for some vN ‰ ϕ# pvN q, so that Zϕ# pvN q X ZvN2 have a non-trivial intersection. Corollary 5.17.(1) would
+                    2                                   2 would act geometrically on Cp∆v 2 q and with
+then imply that vN     P LinkX N pϕ# pvN qq; but then ZvN                                     N
+uniformly bounded orbits on Cp∆ϕ# pvN q q, contradicting the existence of a non-trivial intersection.
+   We are left to prove the following:
+Claim 5.21. Whenever N is deep enough, ϕ# : X Ñ X is a graph isomorphism.
+Proof of Claim 5.21. It is enough to prove that ϕ# maps edges to edges, since then the same argument
+applied to ϕ´1 will produce an inverse fof ϕ# . Hence let vN , wN be X N -adjacent. By Remark 5.3, the
+subgroups M ZvN and M ZwN commute, and therefore M Zϕ# pvN q and M Zϕ# pwN q must commute as
+well. Now Corollary 5.17 shows that ϕ# pvN q P Star pϕ# pwN qq; moreover, since cyclic directions have
+trivial intersection, we get that ϕ# pvN q, ϕ# pwN q are X N -adjacent, as required.                ■
+The proof of Theorem 5.19 is now complete.                                                                 □
+We now apply the above theorem to the extended mapping class group of a five-punctured sphere
+(where we allow orientation-reversing mapping classes) to prove an analogue of a celebrated theorem
+of Ivanov [Iva97]:
+Corollary 5.22. Let G “ MCG ˘ pS5 q be the extended mapping class group of a five-holed sphere. If
+N is deep enough, then Aut pGN q “ GN .
+Proof. We first check that G fits the framework of Theorem 5.19. Indeed, in [Man24, Section 2.3.1]
+the first author argued that G admits a colourable short HHG structure, where:
+       ‚ the support graph X is the curve graph, which has no valence-one vertices;
+       ‚ cyclic directions are the infinite subgroups generated by half Dehn twists.
+Now let GN Ñ Aut pGN q be the natural map, sending every element to the corresponding inner
+automorphism, and we want to show that this map      `    ˘is an isomorphism. For surjectivity, let ϕ P
+Aut pGN q be an automorphism, and let ϕ# P Aut X N be the associated graph automorphism from
+Theorem 5.19. By [MS25, Theorem 5.11], the map GN Ñ Aut pXN q induced by the action is an
+isomorphism. In particular there exists g P GN such that ϕ# coincides with the action of g on X N .
+                                     p0q
+This implies that, for every v P X         ,
+                                                ϕpM ZvN q “ M ZgpvN q .
+30                                      G. MANGIONI AND A. SISTO
+
+
+Arguing as in [Iva97, Section 3], we will now show that ϕ coincides with the conjugation by g. Indeed,
+for every f P G,
+                             ϕpM f ZvN f ´1 q “ ϕpM Zf pvN q q “ M Zgf pvN q ,
+where we used that f ZvN f ´1 “ Zf pvN q by how half Dehn twists behave under conjugation. However
+                        ϕpM f ZvN f ´1 q “ ϕpf qϕpM ZvN qϕpf q´1 “ M Zϕpf qgpvN q .
+Since the cyclic directions of two distinct vertices of X N intersect trivially, the above computation
+                                                p0q
+shows that gf pvN q “ ϕpf qgpvN q for all v P X , or in other words ϕpf q “ gf g ´1 as automorphisms
+of X N . Then again [MS25, Theorem 5.11] shows that ϕpf q must coincide with gf g ´1 for all f P GN ,
+thus proving that ϕ is the conjugation by g.
+   We are left to prove injectivity of the map GN Ñ Aut pGN q, or equivalently that GN has no centre.
+To see this, notice that, if g P GN and the image of any half Dehn twist commute, then the above
+arguments show that g acts trivially on X N , and again [MS25, Theorem 5.11] implies that g must be
+trivial.                                                                                             □
+Remark 5.23. We can rephrase the above Theorem by saying that the outer automorphism group
+of GN is trivial. However, the fact that OutpGN q is finite could already be extracted from results in
+the literature. Indeed, by [DHS21, Theorem 5.8.(2)], GN is non-elementary hyperbolic, so classical
+work of Paulin and Bestvina-Feighn, among others [Pau91, BF95], proves that GN has finite outer
+automorphism group unless it admits a splitting over virtually cyclic subgroups. The latter does not
+happen because mapping class groups have Serre’s property (FA) by [CV96], and this property passes
+to quotients.
+
+                            6. Distinguishing braid group and spheres
+   We conclude the paper by proving that the four strand braid group (resp. the mapping class group
+of a sphere with five punctures) can be recognised from the braid groups on more strands (resp. the
+mapping class groups of spheres with more punctures) by its non-elementary hyperbolic quotients.
+This will prove the two parts of Theorem B.
+   We first set up some notation and recall some well-known facts, referring to [FM12] for all the
+details.
+   The groups. For n ě 4, let Sn be a sphere with k punctures, let MCGpSn q be its usual mapping
+class group (so we do not allow orientation-reversing homeomorphisms), and let MCGpSn , ˚q be the
+finite-index subgroup of MCGpSn q fixing a given puncture. Also, let Bn be the braid group on n
+strands, which is the mapping class group of a n-punctured disk Dn . The two mapping class groups
+are related via the capping homomorphism, giving a short exact sequence
+(4)                               0 Ñ xT y Ñ Bn Ñ MCGpSn`1 , ˚q Ñ 0
+where T is the Dehn twist around the boundary of Dn ; in turn, forgetting the puncture gives a
+surjection MCGpSn`1 , ˚q Ñ MCGpSn q, called the forgetful map.
+    Generators. Bn is generated by the half Dehn twists τ “ τ1 , . . . τn´1 “ τ 1 on the curves
+γ1 , . . . , γn´1 from the left of Figure 5. Furthermore, a (slightly redundant) generating set for the
+pure braid group P Bn , which is the finite-index subgroup of Bn fixing all punctures, is given by the
+                                      ˘                                                        `        ´
+Dehn twists around the curves tηi,j     u1ďiăjďn from the right of Figure 5 (notice that γi “ ηi,i`1 “ ηi,i`1
+for all i “ 1, . . . , n ´ 1). Any two half Dehn twists are conjugate inside Bn .
+    Abelian quotients. The abelianisation of Bn is infinite cyclic, generated by the image of τ , and T
+maps to npn´1q inside the abelianisation. As a consequence, the abelianisations of both MCGpSn`1 , ˚q
+and MCGpSn q are finite cyclic.
+    Torsion. Finite-order elements in MCGpS5 q are topologically conjugate to rotations, fixing at most
+two punctures and cyclically permuting the others, and therefore have order at most 5 (see e.g. [FM12,
+Section 7.1.1]). Furthermore, the subgroup fixing a pair of disjoint curves is generated by the half Dehn
+twists around those two curves.
+    The following is the main technical statement of the section:
+                                      CUSPED SPACES FOR HHG                                          31
+
+
+
+
+        Figure 5. On the left, the half Dehn twists around the curves γi generate the braid
+        group. On the right, the pure braid group is generated by the Dehn twists around
+                    ˘                                                    `
+        the curves ηi,j for 1 ď i ă j ď n (here we only drew some). ηi,j   passes above the
+                                                      ´
+        punctures between the ith and the jth, while ηi,j passes below them.
+
+Theorem 6.1. Let n ě 6 (resp. n “ 5). Then there exists a non-elementary hyperbolic quotient Q of
+MCGpS5 q (resp. MCGpS5 , ˚q) such that any homomorphism Bn Ñ Q has virtually cyclic image.
+Before proving Theorem 6.1, we show that it implies both parts of Theorem B.
+Corollary 6.2. For every n ě 5, there exists a non-elementary hyperbolic quotient Q1 of B4 such that
+any homomorphism Bn Ñ Q1 has virtually cyclic image.
+Proof. Let Q be the quotient of MCGpS5 q from Theorem 6.1 (resp. of MCGpS5 , ˚q if n “ 5), and let
+Q1 be the image of MCGpS5 , ˚q inside Q (resp. let Q1 “ Q if n “ 5). Since Q1 has finite index in Q,
+it is also non-elementary hyperbolic, and it is a quotient of MCGpS5 , ˚q, hence of B4 via the capping
+homomorphism. Furthermore, every map Bn Ñ Q1 is in particular a map Bn Ñ Q, and must therefore
+have virtually cyclic image.                                                                        □
+Corollary 6.3. For every n ě 6, there exists a non-elementary hyperbolic quotient Q of MCGpS5 q
+such that any homomorphism MCGpSn q Ñ Q has finite image.
+Proof. Let Q be the quotient of MCGpS5 q such that any homomorphism Bn Ñ Q has virtually cyclic
+image, and let ϕ : MCGpSn q Ñ Q be any homomorphism. Composing the capping homomorphism
+Bn Ñ MCGpSn`1 , ˚q, the forgetful map MCGpSn`1 , ˚q Ñ MCGpSn q, and ϕ yields a homomorphism
+Bn Ñ Q, so ϕ must have virtually cyclic image.
+   By [Mac96, Lemma 3.2], an infinite virtually cyclic group surjects onto either Z or the infinite
+dihedral group D8 – Z{2 ˚ Z{2, so it is enough to exclude that MCGpSn q surjects onto these. Towards
+this, recall that the abelianisation of MCGpSn q is finite cyclic; therefore MCGpSn q does not surject
+neither onto Z nor onto D8 (which maps onto the non-cyclic Abelian group Z{2 ˆ Z{2).                □
+We will prove both statements of Theorem 6.1 at the same time, highlighting the adjustments needed
+for the case n “ 5 in parentheses. For the sake of light notation, let H “ Bn , let G “ MCGpS5 q (resp.
+MCGpS5 , ˚q if n “ 5), and let X be the curve graph of S5 . The arguments from [Man24, Section 2.3.1]
+show that G admits a colourable short HHG structure, with support graph X and cyclic directions
+generated by half Dehn twists. Fix a positive integer M , and let
+(5)                             N 1 “ M ppn ´ 1q2 q! and N “ N 1 p5nq!
+We require that M is deep enough that the quotients GN , GN 1 , and GM all satisfy the properties from
+Section 5.2.
+  We will argue that Q “ GN , which is non-elementary hyperbolic by Lemma 5.8, is the desired
+quotient. Consider a homomorphism ϕ : H Ñ GN . We shall consider various cases depending on the
+image of τ , each case corresponding to one of the lemmas below.
+32                                         G. MANGIONI AND A. SISTO
+
+
+Lemma 6.4. If ϕpτ q has infinite order then ϕpHq is virtually cyclic.
+Proof. Let E ď GN be the maximal virtually cyclic subgroup containing ϕpτ q, which exists by e.g.
+[DGO17, Lemma 6.5]. E contains the centraliser of ϕpτ q by [DGO17, Corollary 6.6]; therefore ϕpτi q P E
+for all i “ 3, . . . , n´1, since γ1 and γi are disjoint for i in this range. Notice also that ϕpτ 1 q is conjugated
+to ϕpτ q, so it must have infinite order as well; in particular, E is also the maximal virtually cyclic
+subgroup containing ϕpτ 1 q, and therefore its centraliser. Finally, since there are at least 5 punctures,
+τ 1 “ τn´1 and τ2 commute, and the same argument shows that ϕpτ2 q P E. We thus proved that ϕ maps
+the generating set tτ1 , . . . , τn´1 u inside the virtually cyclic group E, and therefore ϕpHq is virtually
+cyclic.                                                                                                            □
+
+Remark 6.5. In the argument above we only used that GN is hyperbolic, so in fact any homomorphism
+from H to a hyperbolic group has virtually cyclic image provided that τ has infinite order.
+From now on, we assume that ϕpτ q has finite order. Towards applying Corollary 5.11, we look at the
+fixed point set of ϕpτ q inside X N .
+Lemma 6.6. If ϕpτ q does not fix any simplex of X N setwise, then ϕpHq is finite.
+Proof. For every 1 ď i ă j ď n ´ 1 such that j ´ 1 ą 1, let Fij – xϕpτi q, ϕpτj qy, which is a finite
+Abelian subgroup of GN . Since ϕpτ q, hence any of its conjugate, does not preserve any simplex of X N ,
+Corollary 5.11 yields that each Fij is the isomorphic image under ϕN of a finite subgroup Fij1 ď G,
+which must therefore be Abelian. By [Stu04, Theorem 3], each Fij1 is isomorphic to a subgroup of
+either Z{4 or one of the Dihedral groups D3 – Z{3 ¸ Z{2 and D5 – Z{5 ¸ Z{2. Notice that Abelian
+subgroups of these three finite groups are cyclic, so Fij “ xϕpτi qy “ xϕpτj qy (here we are using that
+ϕpτi q and ϕpτj q have the same order as they are conjugate). Hence ϕpHq “ xFij y1ďiăjďn´1 “ xϕpτ qy
+is finite, as required.                                                                              □
+
+In view of Lemma 6.6, we henceforth assume that ϕpτ q is an element of the setwise stabiliser of a
+simplex of X setwise. We now describe such an element:
+Lemma 6.7. Let g P GN be a finite order element.
+  (1) If g fixes an edge tvN , wN u of X N setwise, then g 2 P xZvN , ZwN y.
+  (2) If g fixes a vertex vN of X N , but does not preserve any edge setwise, then g q P ZvN for some
+      2 ď q ď 3; furthermore, g fixes no vertex of X N other than vN .
+Proof. (1) As a consequence of [MS26, Corollary 3.18], the setwise stabiliser of tvN , wN u is the πN -
+image of the setwise stabiliser in G of any edge tv, wu Ă X lifting tvN , wN u. This is generated by the
+half Dehn twists around v and w and by any involution swapping v and w, so g 2 is the image of a
+multitwist.
+                   p0q
+   (2) Let v P X       be a representative for vN . Since g does not fix any wN P LinkX N pvN q, Corol-
+lary 5.14 yields that the image of g inside HvN comes from a finite-order element r of Hv . By inspection
+of [FM12, Section 7.1.1], r is either a rotation of angle π fixing two punctures, or a rotation of angle
+2π{3 fixing one puncture. In turn, depending on the rotation angle, r admits a lift R P StabG pvq
+which is a square root of the Dehn twist T around v, or a cubic root of T or T 2 , respectively. Thus
+g “ πN phs Rq, where h is the half Dehn twist around v, whose square is T , and s P Z. This immediately
+shows that g q P ZvN , where 2 ď q ď 3 is the order of r. For later purposes we also notice that, since
+g “ πN phs Rq and R is a root of a small power of T , some power of g 2 acts on Cp∆vN q with minimum
+displacement greater than the constant E   r from Lemma 5.16.
+   We now prove that vN is the only fixed point of g in X N . Indeed, by assumption g does not fix any
+wN P LinkX N pvN q. Moreover, if g fixes some uN R Star pvN q, then gZuN g ´1 “ ZgpuN q “ ZuN ; hence
+the square power of g commutes with ZuN , contradicting Lemma 5.16.                                     □
+
+We momentarily leave the case where ϕpτ q lies in a cyclic direction for later, and deal with the others
+in Lemma 6.8 and Lemma 6.9 below.
+                                          CUSPED SPACES FOR HHG                                              33
+
+
+Lemma 6.8. Suppose that ϕpτ q fixes an edge tvN , wN u of X N setwise, but does not belong to either
+ZvN or ZwN . Then ϕpHq is finite.
+Proof. By inspection of Lemma 6.7.(1), the square ϕpτ q2 belongs to xZvN , ZwN y. If ϕpτ 2 q is trivial
+then all its conjugates are also trivial. In this case ϕ vanishes on the pure braid group, which has finite
+index in H, and therefore ϕpHq is finite.
+    Suppose now that ϕpτ 2 q “ zvrN zws
+                                        N
+                                           is non-trivial, and notice that both r and s must be non-zero
+since we are assuming that ϕpτ q R ZvN Y ZwN . Let σ be the half Dehn twist around any of the curves
+ ˘
+ηi,j from Figure 5 for 3 ď i ă j ď n; the choice of i and j in this range ensures that σ and τ commute.
+Since τ and σ are conjugate in H, there exists g P GN such that
+                                    ϕpσq2 “ gϕpτ q2 g ´1 “ zgpv
+                                                            r
+                                                                   zs
+                                                                N q gpwN q
+                                                                           .
+By Corollary 5.17.(2), g must permute tvN , wN u, so ϕpσq2 P xZvN , ZwN y. Now let σ 1 be the half Dehn
+twist around any of the curves ηi˘1 ,j 1 from Figure 5, for 1 ď i1 ď 2 and i1 ă j 1 ď n. Since n ě 5,
+σ 1 commutes with some curve σ as above, so the same argument yields that ϕpσ 1 q2 P xZvN , ZwN y.
+Summarising, we proved that ϕ maps the Dehn twists on the curves from Figure 5, which generate the
+pure braid group, inside the finite subgroup xZvN , ZwN y, and again this implies that ϕpHq is finite. □
+Lemma 6.9. Suppose that ϕpτ q fixes a vertex vN of X N , but does not preserve any edge setwise. Then
+ϕpHq is finite.
+Proof. The proof in this setting is a mixture of the arguments from Lemma 6.6 and Lemma 6.8, as we
+now explain.
+    Firstly, Lemma 6.7.(2) gives that vN is the only vertex of X N fixed by ϕpτ q. Now, for all i “
+3, . . . , n ´ 1, ϕpτi q is a conjugate of ϕpτ q, so it must fix a single vertex of X N as well. Moreover, since
+it commutes with ϕpτ q, it acts on its fixed set in X N , and therefore the unique fixed point of ϕpτi q is
+vN . Hence we can look at the images of ϕpτ q and ϕpτi q inside the hyperbolic group HvN , call them y
+and yi , which are conjugate and commute.
+    We now argue as in Lemma 6.6. The subgroup xy, yi y does not fix any vertex wN P LinkX N pvN q,
+so by Corollary 5.14 it must be the projection of a finite Abelian subgroup F ď Hv . In turn, every
+finite-order element in Hv permutes at least two punctures, so F injects inside the symmetric group
+S3 , and all Abelian subgroups of the latter are cyclic. This shows that yi P xyy, and therefore ϕpτi q
+belongs to the finite group generated by zv and any preimage x of y in StabGN pvN q. We can now
+apply the same argument to the commuting pair ϕpτ2 q and ϕpτn´1 q to get that ϕpHq “ xϕpτi qy1ďiďn´1
+is contained inside xzv , xy, and the latter is finite as it is a finite cyclic extension of a finite cyclic
+group.                                                                                                        □
+The following Lemma is the last case of Theorem 6.1.
+Lemma 6.10. Suppose that ϕpτ q P ZvN , for some vertex vN of X N . Then ϕpHq is virtually cyclic.
+Proof. This is the most involved case. Firstly, we consider what happens if ϕpT q has large order.
+Claim 6.11. If ϕpT q has order greater than 5, then ϕpHq is virtually cyclic.
+Proof of Claim 6.11. If ϕpT q has infinite order, then ϕpHq lies in the centraliser of ϕpT q, which is
+virtually cyclic as GN is hyperbolic.
+   Now assume the order of ϕpT q is finite and greater than 5. Again, torsion elements in MCGpS5 q
+have order at most 5, so Corollary 5.11 implies that ϕpT q fixes a simplex of X setwise. In turn, by
+Lemma 6.7, we find some 1 ď k ď 3 such that ϕpT k q is the image of either a multitwist or a power of
+a half Dehn twist. In the former situation, ϕpHq, which centralises ϕpT k q, must lie in the centraliser
+of the image of a multitwist, which is finite by Corollary 5.18.
+                                                             p0q
+   Suppose instead that ϕpT k q P ZwN for some wN P X N , so that ϕpHq ď StabGN pwN q. Since
+                     k
+ϕpτ q P ZvN and ϕpT q P ZwN commute, the arguments from Claim 5.21 show that wN P Star pvN q.
+Now recall that, for every i “ 1, . . . , n ´ 1, ϕpτi q is conjugated to ϕpτ q by an element gi inside
+ϕpHq ď StabGN pwN q, so that ϕpτi q P Zgi vN .
+34                                     G. MANGIONI AND A. SISTO
+
+
+   If vN “ wN , then gi vN “ wN for all i, because each gi fixes wN . This implies that ϕpHq ď ZwN ,
+which is finite. Suppose instead that vN ‰ wN , so that gi vN P LinkX N pwN q for all i, and we shall
+derive a contradiction. Notice that at least two gi vN must be distinct, as otherwise ϕpHq ď ZvN
+while ϕpT k q P ZwN . This also implies that there exist i, j with |i ´ j| ą 1 and gi vN ‰ gj vN , for
+otherwise, using that there are at least 5 indices, we readily see that all gi vN would coincide. Since
+|i ´ j| ą 1, ϕpτi q and ϕpτj q commute, so gi vN and gj vN , which do not coincide, must be X N -adjacent
+by Corollary 5.17.(1). However this would violate the fact that X N has no triangles, as gi vN and gj vN
+belong to LinkX N pwN q.                                                                               ■
+
+     In view of Claim 6.11, we now assume that ϕ vanishes on T c for some c ď 5. Now recall that we
+                                                                                      ϕ       π1
+set N 1 “ N {p5nq! in Equation (5). The next Claim shows that the composition H Ý
+                                                                                Ñ GN ÝÑ GN 1 has
+finite image, where π 1 : GN Ñ GN 1 is the natural projection:
+
+Claim 6.12. Let K ď GN be the subgroup generated by the image of all N 1 -th powers of half Dehn
+Twists. Then ϕpHq X K has index at most pn ´ 1q2 in ϕpHq.
+
+Proof of Claim 6.12. Let x P H be an n-th root of T which cyclically permutes all punctures. By
+[CKM19, Lemma 6.2], for every 1 ď i ď n ´ 1 the subgroup normally generated by xk contains the
+commutator subgroup; furthermore, since x is an nth root of T , it maps to n´1 inside the abelianisation
+of H, so the index of xxxk yy inside H is at most pn ´ 1q2 .
+    Now let t “ ϕpxq, which has order at most 5n by Claim 6.11. If tk is trivial for some 1 ď i ď n ´ 1
+then ϕ vanishes on the finite-index subgroup xxtk yy, and therefore ϕpHq is finite. Otherwise, suppose
+that the order of t is at least n, and in particular t is not the image of any finite-order element of G
+(if n “ 5 we use that a finite-order element of MCGpS5 , ˚q has order at most 4). Hence t preserves a
+simplex of X N by Corollary 5.11, and by Lemma 6.7 there exist 1 ď q ď 3 and an edge tuN , wN u of
+X N such that tq P xZuN , ZwN y.
+    Since t has order at most 5n, while ZuN – ZwN – Z{N Z by Lemma 5.15, we must have that
+tq P xN 1 ZuN , N 1 ZwN y. This shows that K contains the normal closure xxtq yy, and since q ď 3 ă n ´ 1
+the latter has index at most pn ´ 1q2 inside ϕpHq.                                                     ■
+
+   Now, recall that we are working under the assumption that ϕpτ q P ZvN , and we want to show that
+                                                    2
+ϕpHq is virtually cyclic. By Claim 6.12, ϕpτ qppn´1q q! P K X ZvN , and the latter coincides with N 1 ZvN
+by Lemma 5.15. Hence ϕpτ q P M ZvN , where M was defined as N 1 {ppn ´ 1q2 q! in Equation (5). Since
+all generators of H are conjugate, we therefore get that ϕpHq ď xM ZvN yv PX p0q .
+                                                                            N    N
+   From here, we will show that indeed ϕpHq P M ZvN , concluding the proof. Towards this, the
+arguments from [MS26, Section 3] describe xM ZvN yv PX p0q as the subgroup generated by a composite
+                                                       N   N
+rotating family, a notion introduced by Dahmani in [Dah18]. We do not need the full power of this
+machinery: for our purposes, it is enough to know that, for every countable ordinal α, there exists a
+subgroup Nα ď GN with the following properties:
+       ‚ If α “ 0 then Nα “ M ZvN .
+       ‚ If α “ β ` 1 for some ordinal β, then
+                                           Ť Nα splits as a graph of groups over Nβ ;
+       ‚ If α is a limit ordinal, then Nα “ βăα Nβ .
+         Ť
+       ‚ α Nα “ xM ZvN yv PX p0q .
+                            N   N
+
+Let α be the first Ť ordinal such that ϕpHq ď Nα . Notice that α is not a limit ordinal: indeed, if
+ϕpHq ď Nα “ βăα Nβ , then each ϕpτi q belongs to Nβi for some βi ă α, and therefore ϕpHq ď
+Nmaxi“1,...,n´2 βi ň Nα , against the definition of α.
+   Notice also that α cannot be a successor ordinal either. Indeed, if there is β such that α “ β `1, then
+ϕpHq is contained inside Nβ`1 but not Nβ , and therefore splits as a graph of groups over ϕpHq X Nβ .
+However, ϕpHq is a quotient of H with finite abelianisation, since we are assuming that ϕ vanishes on
+a power of T ; hence ϕpHq has Serre’s property (FA), which forbids any non-trivial splitting (see e.g.
+[CV96, page 6] and the arguments therein).
+                                            CUSPED SPACES FOR HHG                                                  35
+
+
+   We must therefore have that α “ 0, so that ϕpHq ď M ZvN , as promised. This concludes the proof
+of Lemma 6.10, and in turn that of Theorem 6.1.                                                 □
+
+                                                   References
+[ABM` 25]Carolyn Abbott, Daniel Berlyne, Giorgio Mangioni, Thomas Ng, and Alexander J. Rasmussen. Random
+         quotients preserve acylindrical and hierarchical hyperbolicity, 2025.
+[AGM09] Ian Agol, Daniel Groves, and Jason Fox Manning. Residual finiteness, QCERF and fillings of hyperbolic
+         groups. Geom. Topol., 13(2):1043–1073, 2009.
+[Ago13]  Ian Agol. The virtual Haken conjecture. Doc. Math., 18:1045–1087, 2013. With an appendix by Agol, Daniel
+         Groves, and Jason Manning.
+[Bar17]  A. Bartels. Coarse flow spaces for relatively hyperbolic groups. Compos. Math., 153(4):745–779, 2017.
+[BB19]   Arthur Bartels and Mladen Bestvina. The Farrell-Jones conjecture for mapping class groups. Invent. Math.,
+         215(2):651–712, 2019.
+[BF95]   Mladen Bestvina and Mark Feighn. Stable actions of groups on real trees. Invent. Math., 121(2):287–321,
+         1995.
+[BH99]   Martin R. Bridson and André Haefliger. Metric spaces of non-positive curvature, volume 319 of Grundlehren
+         der Mathematischen Wissenschaften [Fundamental Principles of Mathematical Sciences]. Springer-Verlag,
+         Berlin, 1999.
+[BHMS24] Jason Behrstock, Mark Hagen, Alexandre Martin, and Alessandro Sisto. A combinatorial take on hierarchical
+         hyperbolicity and applications to quotients of mapping class groups. J. Topol., 17(3):94, 2024. Id/No e12351.
+[BHS17a] Jason Behrstock, Mark F. Hagen, and Alessandro Sisto. Asymptotic dimension and small-cancellation for
+         hierarchically hyperbolic spaces and groups. Proc. Lond. Math. Soc. (3), 114(5):890–926, 2017.
+[BHS17b] Jason Behrstock, Mark F. Hagen, and Alessandro Sisto. Hierarchically hyperbolic spaces, I: Curve complexes
+         for cubical groups. Geom. Topol., 21(3):1731–1804, 2017.
+[BHS19]  Jason Behrstock, Mark Hagen, and Alessandro Sisto. Hierarchically hyperbolic spaces II: Combination the-
+         orems and the distance formula. Pacific J. Math., 299(2):257–338, 2019.
+[BHS21]  Jason Behrstock, Mark F. Hagen, and Alessandro Sisto. Quasiflats in hierarchically hyperbolic spaces. Duke
+         Math. J., 170(5):909–996, 2021.
+[Bow12]  B. H. Bowditch. Relatively hyperbolic groups. Internat. J. Algebra Comput., 22(3):1250016, 66, 2012.
+[CKM19] Lei Chen, Kevin Kordek, and Dan Margalit. Homomorphisms between braid groups. Preprint,
+         arXiv:1910.00712 [math.GT] (2019), 2019.
+[CL24]   Lei Chen and Justin Lanier. Constraining mapping class group homomorphisms using finite subgroups.
+         Geom. Dedicata, 218(5):Paper No. 100, 17, 2024.
+[CV96]   Marc Culler and Karen Vogtmann. A group-theoretic criterion for property FA. Proc. Amer. Math. Soc.,
+         124(3):677–683, 1996.
+[Dah18]  François Dahmani. The normal closure of big Dehn twists and plate spinning with rotating families. Geom.
+         Topol., 22(7):4113–4144, 2018.
+[DG18]   François Dahmani and Vincent Guirardel. Recognizing a relatively hyperbolic group by its Dehn fillings.
+         Duke Math. J., 167(12):2189–2241, 2018.
+[DGO17] F. Dahmani, V. Guirardel, and D. Osin. Hyperbolically embedded subgroups and rotating families in groups
+         acting on hyperbolic spaces. Mem. Amer. Math. Soc., 245(1156):v+152, 2017.
+[DHS17]  Matthew Gentry Durham, Mark F. Hagen, and Alessandro Sisto. Boundaries and automorphisms of hierar-
+         chically hyperbolic spaces. Geom. Topol., 21(6):3659–3758, 2017.
+[DHS21]  François Dahmani, Mark Hagen, and Alessandro Sisto. Dehn filling Dehn twists. Proc. Roy. Soc. Edinburgh
+         Sect. A, 151(1):28–51, 2021.
+[DMS25] Matthew Gentry Durham, Yair Minsky, and Alessandro Sisto. Asymptotically CAT(0) metrics, Z-structures,
+         and the Farrell-Jones Conjecture, 2025.
+[DT19]   Fran¸cois Dahmani and Nicholas Touikan. Deciding isomorphy using Dehn fillings, the splitting case. Invent.
+         Math., 215(1):81–169, 2019.
+[Dur16]  Matthew Gentry Durham. The augmented marking complex of a surface. J. Lond. Math. Soc. (2), 94(3):933–
+         969, 2016.
+[Dur23]  Matthew Gentry Durham. Cubulating Infinity in Hierarchically Hyperbolic Spaces. Preprint,
+         arXiv:2308.13689 [math.GR], 2023.
+[FM12]   Benson Farb and Dan Margalit. A primer on mapping class groups, volume 49 of Princeton Mathematical
+         Series. Princeton University Press, Princeton, NJ, 2012.
+[GM08]   Daniel Groves and Jason Fox Manning. Dehn filling in relatively hyperbolic groups. Israel Journal of Math-
+         ematics, 168(1):317–429, Nov 2008.
+[GM18]   Daniel Groves and Jason Fox Manning. Dehn fillings and elementary splittings. Trans. Amer. Math. Soc.,
+         370(5):3017–3051, 2018.
+[GM21]   Daniel Groves and Jason Fox Manning. Quasiconvexity and Dehn filling. Amer. J. Math., 143(1):95–124,
+         2021.
+36                                         G. MANGIONI AND A. SISTO
+
+
+[GMS19]   Daniel Groves, Jason Fox Manning, and Alessandro Sisto. Boundaries of Dehn fillings. Geom. Topol.,
+          23(6):2929–3002, 2019.
+[HHP23]   Thomas Haettel, Nima Hoda, and Harry Petyt. Coarse injectivity, hierarchical hyperbolicity and semihyper-
+          bolicity. Geom. Topol., 27(4):1587–1633, 2023.
+[HK05]    William J. Harvey and Mustafa Korkmaz. Homomorphisms from mapping class groups. Bull. London Math.
+          Soc., 37(2):275–284, 2005.
+[HMS26]   Mark Hagen, Giorgio Mangioni, and Alessandro Sisto. A combinatorial structure for many hierarchically
+          hyperbolic spaces. Pacific J. Math., 341(2):305–377, 2026.
+[HP22]    Mark F. Hagen and Harry Petyt. Projection complexes and quasimedian maps. Algebr. Geom. Topol.,
+          22(7):3277–3304, 2022.
+[HPZ]     Mark Hagen, Harry Petyt, and Abdul Zalloum. Walls and metric reconstruction. In preparation.
+[Hru10]   G. Christopher Hruska. Relative hyperbolicity and relative quasiconvexity for countable groups. Algebr.
+          Geom. Topol., 10(3):1807–1856, 2010.
+[Iva97]   Nikolai V. Ivanov. Automorphisms of complexes of curves and of Teichmüller spaces. In Progress in knot
+          theory and related topics, volume 56 of Travaux en Cours, pages 113–120. Hermann, Paris, 1997.
+[Lan13]   Urs Lang. Injective hulls of certain discrete metric spaces and groups. J. Topol. Anal., 5(3):297–331, 2013.
+[Mac96]   Dugald Macpherson. Permutation groups whose subgroups have just finitely many orbits. In Ordered groups
+          and infinite permutation groups, volume 354 of Math. Appl., pages 221–229. Kluwer Acad. Publ., Dordrecht,
+          1996.
+[Man24]   Giorgio Mangioni. Short hierarchically hyperbolic groups I: uncountably many coarse median structures.
+          arXiv preprint arXiv:2410.09232, 2024.
+[Min96]   Yair N. Minsky. Extremal length estimates and product regions in Teichmüller space. Duke Math. J.,
+          83(2):249–286, 1996.
+[MM00]    H. A. Masur and Y. N. Minsky. Geometry of the complex of curves. II. Hierarchical structure. Geom. Funct.
+          Anal., 10(4):902–974, 2000.
+[MS25]    Giorgio Mangioni and Alessandro Sisto. Rigidity of mapping class groups mod powers of twists. Proceedings
+          of the Royal Society of Edinburgh: Section A Mathematics, pages 1–71, 2025.
+[MS26]    G. Mangioni and A. Sisto. Short hierarchically hyperbolic groups II: Quotients and the Hopf property for
+          Artin groups. Advances in Mathematics, 486:110736, 2026.
+[Osi07]   Denis V. Osin. Peripheral fillings of relatively hyperbolic groups. Invent. Math., 167(2):295–326, 2007.
+[Pau91]   Frédéric Paulin. Outer automorphisms of hyperbolic groups and small actions on R-trees. In Arboreal group
+          theory (Berkeley, CA, 1988), volume 19 of Math. Sci. Res. Inst. Publ., pages 331–343. Springer, New York,
+          1991.
+[Rus20]   Jacob Russell. From hierarchical to relative hyperbolicity. International Mathematics Research Notices, 2020.
+[Sis13]   Alessandro Sisto. Projections and relative hyperbolicity. Enseign. Math. (2), 59(1-2):165–181, 2013.
+[Stu04]   Michal Stukow. Conjugacy classes of finite subgroups of certain mapping class groups. Turkish J. Math.,
+          28(2):101–110, 2004.
+[Wan21]   Oliver H. Wang. A spectral sequence for Dehn fillings. Algebr. Geom. Topol., 21(5):2257–2272, 2021.
+
+   (Giorgio Mangioni) Maxwell Institute and Department of Mathematics, Heriot-Watt University, Edin-
+burgh, UK
+   Email address: gm2070@hw.ac.uk
+
+   (Alessandro Sisto) Maxwell Institute and Department of Mathematics, Heriot-Watt University, Edin-
+burgh, UK
+   Email address: a.sisto@hw.ac.uk
+

@@ -375,3 +375,8 @@ Archived Michael Batty, after Panagiotis Papasoglu, Notes On Hyperbolic and Auto
 ## 2026-09-29T00:58:28.060374+00:00 — F41 definability and generic-type sources
 
 Archived Kharlampovich--Myasnikov arXiv1111.0577v5, Pillay arXiv0812.1692 and Myasnikov--Roman'kov2015 doi10.1134/S1995080215040113. Read the exact KM Definitions5-6/Theorem13 and local proof plus negligible-set discussion; viewed pages3,9. Read Pillay's generic-element definition, Fact1.10 and Theorem2.1/proof; viewed pages6,7. Read the four-page verbal-set paper as extracted text only. Deep NTQ/stability/free-factor results are imported, not independently established. Source failures, hashes, exact novelty queries and reading limits are recorded in problems/F41/multipattern-audit.md. The elementary signed-piece count is combined with these published results; no novelty certification follows from the bounded searches.
+
+
+## 2026-09-29T01:27:14.020908+00:00 — C2 and B12 scope checks
+
+Kapovich arXiv2607.21499v1: read introduction and Sections5-6; viewed pp2,16. The fixed-rank compressed primitivity certificate and minimality test do not supply arbitrary-word orbit comparison. Mangioni--Sisto arXiv2602.23275, author-hosted PDF: read introduction/TheoremB/RemarkF; viewed p2. Selected B4 hyperbolic quotients differ from the B_n,n>4 existence question. Both full PDFs and hashes archived; underlying long algorithmic/geometric proofs not independently audited. See the C2 and B12 scope notes. Bounded MA4 searches yielded no matching general resolution; the elementary local-residual obstruction is not asserted novel.
