@@ -148,3 +148,10 @@ queries found no matching general stratum theorem; that does not certify
 novelty. The cyclic/support argument, leading-factor theorem and full scope
 still need independent specialist review. Counts remain six whole-entry
 and three partial candidates, zero established novel results.
+
+Bibliographic follow-up in the next work period: the support lemma is a
+direct consequence of the prior Remeslennikov--Stöhr2007 inner-solution
+theorem, read in Altassan2013 Theorem3.3. Section7 of the supporting note
+gives the exact Lazard-embedding reduction. This supplies an alternative
+prior proof and corrects any suggestion that the support lemma itself is
+new; it does not resolve the group-stratum novelty question.

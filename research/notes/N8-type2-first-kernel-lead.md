@@ -75,3 +75,10 @@ class11; this is an exceptional type(2,7) branch outside the type-one
 solver. Verify its complete leading types, primitive affine line, nonzero
 final cokernel and perturbed negative cases independently in GAP before
 promoting scope. No computation for this lead has yet been run.
+
+
+Follow-up: the proposed reduction, integer algorithm and group audit are now
+complete in `problems/N8/type12-third-proof.md` and `type12-third-audit.md`.
+The original unpromoted lead above is retained as chronology. Lazard and
+inner-solution prior sources are now credited explicitly. This promotes
+only the stated combined stratum within the existing partial candidate.

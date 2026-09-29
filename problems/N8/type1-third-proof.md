@@ -189,3 +189,10 @@ exclusions. It does not independently re-enumerate all possible leading
 factor directions; that completeness remains a mathematical dependency.
 See the separate audit for actual runs, the preserved timeout, exact scope,
 and limits. No new result or code from Kourovka is imported.
+
+Bibliographic follow-up,29September: the support conclusion in Section2
+also follows directly from Remeslennikov--Stöhr's2007 inner-solution theorem
+via a Lazard embedding. Altassan2013 Theorem3.3 supplies an accessible full
+proof. The reduction and exact source-reading limits are in Section7 of
+`research/notes/N8-general-first-kernel.md`. The coefficient proof is retained
+as an alternative, with no novelty asserted for the support lemma.

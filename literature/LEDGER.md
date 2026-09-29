@@ -429,3 +429,23 @@ Archived Guirardel math/0306306, Rybak2605.14159v3, BMR Discriminating and co-di
 Calegari–Walker2011, https://nyjm.albany.edu/j/2011/17-31v.pdf , archived with hash/retrieval metadata. Introduction and selected Sections2/4 statements read as extracted text, not a full or visual PDF proof audit. Lower-rank factorizations in the inspected examples have zero abelianization determinant when made self-embeddings; the paper concerns commutator invariants, not primitive length. It neither supplies nor refutes the required F37 reflection lemma. Exact source-reading limits are appended to research/notes/F37-embedding-reflection-gap.md. The original F37 paragraph was newly rendered and viewed.
 
 Bounded queries also covered free-solvable commutator width, abelian-by-polycyclic conjugacy, derived-length-three embeddings into finitely presented solvable groups, maximum-normal-subgroup conditions, and free-pro-p equations. Primary results inspected only at abstract/indexed-excerpt level included Roman’kov2016 DOI10.1134/S0037446616040108 and the 2021 survey DOI10.17223/20710410/52/2 (https://www.mathnet.ru/php/getFT.phtml?jrnid=pdm&paperid=736&what=fullt). Search dates were not treated as publication dates; the latter PDF explicitly dates to2021. No new theorem dependency, exhaustive openness assertion or candidate follows from this scan.
+
+## 2026-09-29 — N8 free-Lie elimination and prior support theorem
+
+Archived Alaa Altassan's2013 Manchester thesis, *Linear equations over free
+Lie algebras*, from https://pure.manchester.ac.uk/ws/portalfiles/portal/54536063/FULL_TEXT.PDF
+as `raw/N8-Altassan-2013.pdf`, with retrieval metadata/hash. Read introduction
+pp.9--10, elimination theorem p.19, Theorem3.3 and complete proof pp.24--25,
+Theorem3.5 and proof pp.26--27, and relevant bibliography; not the whole thesis.
+Actually viewed pages19 and24; images retained. The Lazard theorem is credited
+to Bourbaki II.2 Proposition10. The two-generator inner-solution theorem is
+credited to Remeslennikov--Stöhr2007; Altassan--Stöhr2012 generalizes it.
+Repository pages https://eprints.maths.manchester.ac.uk/994/ and
+https://eprints.maths.manchester.ac.uk/1654/ confirm publication metadata but
+restrict the article PDFs. No access to their full articles is claimed.
+
+The support lemma used in the N8 extension is a direct consequence via a
+Lazard embedding; exact reduction in N8-general-first-kernel.md Section7.
+Do not claim this lemma as new. The full integral group-stratum algorithm's
+novelty remains provisional. Search-engine crawl labels suggesting2026 dates
+are not publication dates for these2007/2012/2013 works.

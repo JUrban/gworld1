@@ -2,7 +2,7 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately 05:05 UTC on 29 September: six whole-entry
+Latest checkpoint, approximately 05:14 UTC on 29 September: six whole-entry
 candidates (F28,N5,M0,H4,F41,GA3), three partial candidates
 (N8,F38(a),F34(a)), zero established novel results. All nine await
 specialist review and novelty assessment.
@@ -358,3 +358,8 @@ The double-primitive question above is now proved by the cyclic-word argument in
 ## Working focus after general N8 type-one extension (2026-09-29T05:05:34.330407+00:00)
 
 The general type-one third-from-last solver and independent GAP audit are complete. Do not repeat these samples. The next concrete lead uses Lazard elimination of a weight-two generator to reduce type(2,q), q>3, to the same free differential-chain support/cyclic argument; see `research/notes/N8-type2-first-kernel-lead.md`. Check the complete leading types and exceptional type(2,7) group branch, then independently replay its full integral/quadratic certificates before any scope promotion. The lead is not yet a candidate extension. Retain broader portfolio work and the original clock. Counts6 whole,3 partial,0 established novel.
+
+
+## Working focus after N8 type-two checkpoint (2026-09-29T05:13:43.813896+00:00)
+
+The combined p<=2 third-from-last scope is audited and implemented. Retain the new Remeslennikov--Stohr support credit; do not claim that lemma as novel or repeat its bounded probes. Other leading types still require control of decomposable correction directions. Return to the wider unresolved portfolio or pursue a specific proof concern. Counts6 whole,3 partial,0 established novel; original deadline unchanged.
