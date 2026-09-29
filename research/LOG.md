@@ -848,3 +848,10 @@ Archived and checked Kapovich2026 compressed primitivity (C2) and Mangioni--Sist
 Developed a finite-projective-fibre argument from Shirshov-Witt and a terminating rational-point enumeration via quotient-algebra multiplication matrices. It gives another central-target decision proof, without the original Klyachko rotation lemma or its two-direction bound. The new exact solver passed13 Lie cases and2 affine controls; independent GAP/nq verified16 positive group lifts. A first rational-type conversion failure was preserved before the explicit conversion fix. Final Python and GAP runs passed with empty stderr in2.026s and2.126s.
 
 Re-read/viewed original N8 and the exact primary Shirshov-Witt statement. The finite scheme proof and integral scaling argument were internally rechecked; no outside review or new novelty/scope claim. All jobs terminal; original clock and inputs unchanged. No agents/contact/push or new Kourovka transfer.
+
+
+## 2026-09-29T02:00:26.125130+00:00 — F20 integral cover probe and N9 obstruction
+
+Resumed the original active run with its unchanged clock and empty job ledger. Tested143 selected weight-six covers and75 known weight-five controls using integral lifted-relator lattices; no weight-seven target survives. Independent Python/FLINT replay agrees on all218 covers, with three exact boundary/torsion controls. The first GAP run failed on an immutable generating tuple; its source and partial JSON are retained. The initial SymPy replay timed out after152 completed records; its source and prefix remain explicitly incomplete. Corrected GAP runs and the final38.048-second Python replay have empty stderr.
+
+Proved that any retract of the class-two coproduct containing the entire base and the new commutator equals the whole coproduct. This blocks a broader attempted N9 fixed-ambient encoding; it does not settle N9(a). Re-read original F20/N9 statements and viewed both actual renderings. Updated working notes, ledger and triage. Counts remain5 whole,3 partial,0 established novel. Original inputs verified unchanged; no agents, contacts, push or new Kourovka transfer.

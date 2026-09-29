@@ -168,3 +168,34 @@ The finite checks support the presentation distinction and examples.
 They do not prove undecidability or settle a fixed ambient group.
 Novelty is not claimed for the repair or the elementary equation
 reflection lemma. No external specialist review has occurred.
+
+## 29 September follow-up: no proper retract containing the base and the new commutator
+
+A broader obstruction eliminates one attempted way of varying the subgroup
+inside a fixed ambient coproduct. Let G be finitely generated of class at
+most two, let N be the free class-two group on x,y, and let
+C=G coproduct_2 N. Put z=[x,y]. If a retract H of C contains both G and z,
+then H=C. This statement does not require G to be torsion-free.
+
+To prove it, let r:C->H be a retraction, regarded as an idempotent
+endomorphism of C. The normal closure K of G in C is r-invariant because
+r fixes G. Thus r induces an idempotent endomorphism s of C/K=N.
+Since r fixes z, s fixes the nontrivial central generator [x,y] of N.
+If A is the integer 2-by-2 matrix induced by s on N/N', then
+A^2=A and det(A)=1: the determinant is the exponent by which s acts on
+[x,y]. Consequently A=I. Write s(x)=x z^u and s(y)=y z^v. The equations
+s^2=s and s(z)=z imply u=v=0. Hence s is the identity.
+
+It follows that H surjects onto N=C/K. Since it also contains G,
+its image in C/C'=G/G' direct-sum Z^2 is the whole abelianization.
+Therefore C=H C'. Because C has class at most two,
+C'=[H C',H C']=[H,H] is contained in H. Thus C=H, as asserted.
+
+In particular, replacing <G,z w^-1> by a larger **proper** subgroup
+containing the same generators cannot repair the earlier construction:
+w belongs to G, so every such subgroup contains z as well. The proof
+rules out all retractions of those subgroups, not just a chosen map.
+It does not cover embeddings that change the copy of G or omit part of
+it; no reduction for those alternatives has been obtained. The original
+fixed-ambient question remains unresolved here. No novelty or candidate
+count is asserted for this elementary obstruction.

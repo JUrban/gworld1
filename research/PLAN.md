@@ -302,3 +302,8 @@ H4 now has a stronger torsion-class counting proof, valid even for infinite non-
 ## Working focus after the full F41 candidate checkpoint
 
 F41 has a complete intended-scope candidate, with imported definability and generic-type theorems and a new quantitative piece-cover argument. Its counting checks are complete. Do not spend further cycles increasing those samples; a useful audit must target the exact source theorem, parameter-free separation or a counterexample to the general counting lemma. Resume the wider unresolved portfolio alongside such audits. Original deadline retained;5 whole,3 partial,0 established novel.
+
+
+## Working focus after the F20/N9 checkpoint (2026-09-29T02:00:26.125130+00:00)
+
+F20 finite-cover homology is inconclusive after218 exactly replayed covers; neither larger rewriting budgets nor a blind enlargement of finite covers is a priority. A useful next step needs a structural kernel argument or a different quotient. N9 cannot be encoded by enlarging a proper subgroup containing the fixed base and the new commutator in a class-two coproduct; that obstruction is now proved. Return to a new unresolved lead or a specific candidate proof concern. Do not infer N9 undecidability from the varying-ambient theorem. Counts5 whole,3 partial,0 established novel; original clock retained.

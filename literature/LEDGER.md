@@ -385,3 +385,8 @@ Kapovich arXiv2607.21499v1: read introduction and Sections5-6; viewed pp2,16. Th
 ## 2026-09-29T01:35:30.157324+00:00 — N8 alternative factor finiteness
 
 Reused archived Bryant--Kovacs--Stohr2005; read and viewed printedp147/PDFp5, which states the ordinary Shirshov-Witt theorem over a field. The positive-characteristic restricted-Lie theorem is not used. A projective linear-projection argument then supplies finite unequal-weight factor fibres; no novelty asserted. Exact proof, rational algorithm, conversion failure and limited checks are in problems/N8/projective-factor-audit.md.
+
+
+## 2026-09-29T02:00:26.125130+00:00 — F20 finite-cover background
+
+Reused the archived Moravec--Morse2010 paper; prior weight-five scope unchanged. Targeted queries: "basic commutators" "weight six" normal closure; "basic commutators" "Sims" nilpotence 2025 2026; "basic commutators" "normal closure" "six"; Jackson Gaglione Spellman "Basic commutators as relators" pdf. Found the author-uploaded extracted text of Jackson--Gaglione--Spellman2002, DOI10.1515/jgth.2002.008, https://www.researchgate.net/publication/243106291_Basic_commutators_as_relators . Checked its introduction and Theorem3.8: metabelian and [[x,y,z],[u,v]]=1 varieties are prior positive cases. Full original PDF not obtained or viewed; this source is background only, not a dependency of the cover test. Search found no later full solution, not a certification of openness. Original F20 and N9 renderings were viewed again; no new claim based on an unaudited statement.

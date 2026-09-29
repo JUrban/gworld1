@@ -162,3 +162,6 @@ Wider portfolio checkpoint,29September: the locally free construction route for 
 
 
 N8 central-factor audit,29September: an alternative finite-projective-fibre proof and Groebner/multiplication-matrix implementation supplies the same all-class central-target decision result without the Klyachko rotation lemma. Thirteen Lie cases and two affine controls passed; independent GAP checked16 positive group witnesses. The first conversion failure is retained. See `problems/N8/projective-factor-audit.md`. This strengthens verification of the existing partial candidate; counts remain5 whole,3 partial,0 established novel.
+
+
+F20 follow-up:143 selected weight-six finite covers show no surviving weight-seven commutator in integral first homology. GAP and Python/FLINT agree on these and75 known weight-five controls. The bounded result is inconclusive; failed runs are retained. See `research/notes/F20-finite-cover-homology.md`. A broader fixed-coproduct retraction obstruction is added to the N9 note, without answering its fixed-ambient problem. Counts remain5 whole,3 partial,0 established novel.
