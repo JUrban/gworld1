@@ -725,3 +725,13 @@ arbitrary fixed components and later exceptions would require a new proof;
 finite rank agreement alone is insufficient. Keep broader discovery active,
 then reserve the final eight hours for overlapping discovery and verification.
 Counts8 whole/2 partial/0 established novel; original deadline unchanged.
+
+
+## Working focus after the 2026-09-29T17:27:31.759755+00:00 portfolio checkpoint
+
+The new N3 negative probes and N9 orbit obstruction do not close their
+remaining gaps. Do not infer finite Aut(G)-orbit enumeration for general
+retracts, nor a valid profile enlargement from empty final-layer torsion.
+All jobs are terminal. Next pursue a specific structural route or a new
+candidate concern, without repeating passed finite suites. The last-eight-
+hours verification reserve and original deadline remain unchanged.

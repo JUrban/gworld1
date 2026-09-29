@@ -684,3 +684,25 @@ branch algorithm is not implemented end to end, and inherited structural
 arguments and novelty still need specialist review. Counts remain8 whole-entry
 candidates,2 partial candidates,0 established novel results. No push, contacts,
 subagents or parent/preparation changes. Original deadline unchanged.
+
+
+## Wider nilpotent portfolio checkpoint (2026-09-29T17:27:31.759755+00:00)
+
+N9 has an elementary obstruction to a finite-automorphism-orbit shortcut:
+one fixed product of two integral Heisenberg groups has infinitely many
+automorphism orbits of cyclic retracts. Four actual retractions and three
+nonlifting abelianization shears pass GAP. This is not a fixed-ambient
+decision result; see research/notes/N9-cyclic-retract-orbits.md.
+
+N3's new pair-bound-four probe finds torsion-free final layers of ranks177
+and423 in classes7 and8. It does not test all source torsion or prove a
+profile enlargement. The first collector-flag failure and both direct/fast
+class8 records are retained. See N3-pair-four-central-probe.md. All jobs
+are terminal; maximum reservation was one core/12GB.
+
+Reread the current F28,N5,M0,F38(c),F41 candidate proofs; no new gap was
+identified in this pass, which is internal review only. Targeted searches
+on several wider entries returned previously distinguished partial scopes;
+no additional full solution was inferred. Counts remain8 whole-entry
+candidates,2 partial candidates,0 established novel results. No pushes,
+contacts, subagents or parent/preparation changes. Original deadline unchanged.

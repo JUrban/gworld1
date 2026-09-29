@@ -739,3 +739,19 @@ remark and local proof on printedpages1448--1449; actually viewed the saved
 image of page1448. Reread Rybak2026 Lemmas2.6/2.9 and intervening action
 classification. No new full-paper audit; detailed scope and conclusions in
 research/notes/GA3-29sep-collapse-recheck.md. Candidate and novelty unchanged.
+
+
+## 2026-09-29T17:27:31.759755+00:00 — bounded wider searches and N9 restricted source
+
+Queries revisited free-solvable commutator width, abelian-by-polycyclic
+conjugacy, solvable embeddings, H15 malnormality, H17 free normal kernels,
+infinite projective Laurent modules, and fixed-ambient nilpotent retracts.
+Results did not remove the previously recorded scope gaps; no exhaustive
+current-openness claim is made. For most results only indexed text was
+read, not a fresh full-paper audit.
+
+Archived [Konyrkhanova et al., KazNU Bulletin3(91)(2016)](https://elibrary.kaznu.kz/wp-content/uploads/2021/06/vestnik-kaznu.-seriya-matematikamehanikainformatia_2016-91-3.pdf).
+Reading limits, boundary qualification and the restricted UT3 scope are
+in research/notes/N9-cyclic-retract-orbits.md. This source is not used in
+the new orbit-obstruction proof. Roman'kov2016's original article PDF
+remains unobtained; the earlier source limitation is unchanged.
