@@ -735,3 +735,17 @@ retracts, nor a valid profile enlargement from empty final-layer torsion.
 All jobs are terminal. Next pursue a specific structural route or a new
 candidate concern, without repeating passed finite suites. The last-eight-
 hours verification reserve and original deadline remain unchanged.
+
+
+## Next checks after diagonal separation (2026-09-29T18:16:54.901693+00:00)
+
+General N8 now has a specific unadopted route; read
+research/notes/N8-diagonal-separation-lead.md Sections7--8. The first-exception
+block can retain its full integer lattice: separation would make the first
+parameter finite without any block quotient or curve arithmetic. All new
+finite checks pass and are terminal. Do not repeat them without a concern.
+Next test leading D with multiple E letters and a nonzero fixed lower X
+prefix, then adversarially audit the whole leading-pair/exception/universal-
+tail assembly. Only then decide whether to promote the same N8 candidate.
+Keep wider discovery active and the last-eight-hours verification reserve;
+original deadline30 September10:04:49UTC, counts8 whole/2 partial/0 novel.

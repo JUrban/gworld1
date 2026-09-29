@@ -1705,3 +1705,23 @@ on several wider entries returned previously distinguished partial scopes;
 no additional full solution was inferred. Counts remain8 whole-entry
 candidates,2 partial candidates,0 established novel results. No pushes,
 contacts, subagents or parent/preparation changes. Original deadline unchanged.
+
+
+## Diagonal separation lead (2026-09-29T18:16:54.901693+00:00)
+
+An elementary polynomial averaging argument now proposes a separating
+functional for the first exceptional quadratic in arbitrary N8 blocks.
+The written coordinate audit covers fixed-prefix normalization, affine
+Malcev coordinates, the full correction image and all later columns.
+General N8 scope is still unadopted; adopted counts stay8 whole/2 partial/0
+established novel. See N8-diagonal-separation-lead.md and its finite audit.
+
+Independent Python and GAP reconstruct44 complete Lie spaces with identical
+ranks. A new actual class17 group fixture has59 Hall coordinates, a full
+24-by-22 integer block, first parameter step2, and obstruction ranks11,12,13.
+Thus its later column is nonzero but does not absorb the first quadratic.
+Native GAP verifies all group columns, the entire lattice, all quadratic
+coefficients (seven samples of rank-six interpolation), and two witnesses.
+Separate arithmetic and family replays pass. Nine runs are terminal: seven
+pass, two fail before mathematics; the missing-source and obsolete-option
+failures are retained. Peak reservation2cores/8GB. No push or contacts.
