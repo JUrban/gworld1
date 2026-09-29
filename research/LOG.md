@@ -1232,3 +1232,29 @@ produce wrong recovered flows on31/12 fixtures, respectively. Four jobs
 terminal, one core/8GB each, all under5seconds. Prior source theorem and
 reading limits are in the proof/audit; old G9 manifests remain unchanged.
 Counts6 whole/4 partial/0 established novel; original deadline unchanged.
+
+
+## N8 weighted-orbit extension (2026-09-29T10:29:07.089788+00:00)
+
+Returned from the broader portfolio scan to an earlier weighted-free
+subgroup lead. Equal leading factors, and unequal factors whose heavier
+term survives the graded-tail abelianization, can be included in a
+homogeneous free Lie basis. Rational unipotent substitutions acquire
+integral powers on the full subgroup lattice. This supplies finite
+integral pair-orbit representatives and an arbitrary-class branch
+decision argument. In particular, every degree-three target is covered.
+General arbitrary-class targets remain unresolved.
+
+Exact rational exponential-series tests construct46 automorphisms; GAP
+independently checks the actual subgroup homomorphisms,2412 inverse-image
+equalities and92 commutator witnesses. A dependent-generator substitution
+is rejected independently. Initial nonprimitive case reached the8! bound
+and returned inconclusive; source and partial evidence retained,12! bound
+succeeds with maximal selected power9!. Full finite-union algorithm is
+proved but not implemented. Homogeneous Shirshov source and original N8
+rendering were re-viewed. Novelty and specialist review remain pending.
+
+All9 jobs terminal, maximum simultaneous5cores/40GB, longest44.065seconds.
+The main GAP run has five retained parser warnings and no runtime error.
+No imported Kourovka material, subagents, pushes or contacts. Original
+48hour clock unchanged; counts6 whole/4 partial/0 established novel.

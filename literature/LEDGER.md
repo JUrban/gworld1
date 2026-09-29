@@ -619,3 +619,16 @@ proves noncommutative flow decoding with a uniform approximation modulus.
 Searches for free-solvable growth plus computable/computability and
 Hammersley--Welsh did not locate an exact prior match. Novelty remains
 unverified; no additional literature download or full-proof audit claimed.
+
+
+### N8 weighted-orbit construction (2026-09-29T10:29:07.089788+00:00)
+
+Re-viewed Bryant--Kovacs--Stohr2005 printedp147, ordinary homogeneous
+Shirshov lemma, and the original N8 rendering; reread the full linked
+background paragraph. Targeted searches for free-nilpotent commutator
+equations, same-weight factors and homogeneous free bases locate the
+known class-two results and the same structural Lie theorem. No precise
+matching higher-class branch theorem located; novelty remains unverified.
+The new proof gives its own integral-power and finite-orbit arguments;
+classical Hall/Malcev coordinates remain credited background. Details
+and computational reading limits in weighted-orbit-proof.md and audit.

@@ -523,3 +523,16 @@ open, and the tally stays6 whole/4 partial/0 established novel.
 Resume the broader unresolved portfolio. Avoid spending remaining time
 solely on sharpening the already certified numerical interval. All jobs
 are terminal and the original30September10:04:49UTC deadline is unchanged.
+
+
+## Working focus after the weighted-orbit extension (2026-09-29T10:29:07.089788+00:00)
+
+N8 now additionally covers all degree-three targets and the equal-weight
+and free-generator branches in arbitrary class. The denominator-clearing
+construction passes independent subgroup-automorphism checks; retain the
+explicit limit that the full finite-union algorithm is not implemented.
+The remaining unequal branches have decomposable heavier leading terms.
+Next examine whether the F38(c) necessary stabilizer condition can be
+strengthened to a linear length bound via relative splittings or tree
+actions; it is currently only an exponential envelope. Keep novelty and
+proof-dependency audits of the whole-entry candidates in the schedule.

@@ -1,0 +1,2 @@
+N8WeightedFiles := ["research/certificates/N8-weighted-case0-v1/fixtures.g", "research/certificates/N8-weighted-case1-v2/fixtures.g", "research/certificates/N8-weighted-case2-v1/fixtures.g", "research/certificates/N8-weighted-case3-v1/fixtures.g", "research/certificates/N8-weighted-case4-v1/fixtures.g", "research/certificates/N8-weighted-case5-v1/fixtures.g"];
+Read("scripts/check_n8_weighted_gap.g");
