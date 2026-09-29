@@ -880,3 +880,14 @@ application boundary. Do not repeat this check or enlarge finite Lie fixtures
 without a new concern. The positional-polynomial identities and full-block
 normalization remain useful substantive review targets; alternatively pursue
 a different unresolved scope. Preserve all original deadline/counting rules.
+
+
+## After the F39 unimodular obstruction (2026-09-29T22:48:31.363014+00:00)
+
+Do not try to repair the injection relaxation for F39 using determinant±1
+or surjectivity on all nilpotent quotients: the new explicit image defeats
+these requirements in every rank. The bounded-orbit extension is a deduction
+from prior F40, not a new problem resolution. F37's primitive-length
+reflection remains a different unanswered question. All GAP jobs terminal.
+Return to a distinct unresolved structural route or a concrete candidate
+concern; preserve final-eight-hours audit reserve and original deadline.

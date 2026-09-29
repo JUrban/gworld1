@@ -924,3 +924,19 @@ equivalence and Proposition5.6 constant sequence. Viewed existing printed
 page89/90 images again. No new source downloaded. Exact scope and limits
 are in research/notes/F38-rigid-solid-source-check.md; no full JSJ proof
 reverification or novelty claim.
+
+
+## F39 source scope and blocking deduction (2026-09-29T22:48:31.363014+00:00)
+
+Archived Silva-Weil0809.4386v3, https://arxiv.org/pdf/0809.4386v3 . Read
+Section2.1 with Theorem2.2 proof/Cor2.3/2.4/Remark2.5, tuple extension,
+Theorem2.8 proof and Theorem2.9 statement; actual printed page7 viewed.
+Rank-two(a) and credited all-rank(b) are prior; later combinatorial
+machinery not audited. ArchivedPDF sha256
+01543270aebb028aae3f14612d467a66c7b2860922c51eb5639b00afb39730d0.
+
+Reread already archived Koch-Hyde/OConnor/Olive/Shpilrain2505.00477v2
+Sections2–3 through Lemma3.2 and Section6 including Theorem6.1 proof;
+actual pages2/8/9 viewed. Used the prior theorem only in the stronger
+F39 obstruction. No new F40 claim, full novelty search or specialist
+validation. Exact inference and computation boundaries are in the note.

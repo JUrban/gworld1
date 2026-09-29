@@ -1984,3 +1984,28 @@ its source and sorryAx rejection remain. Second run passed all four declarations
 and the restricted transitive axiom audit in6.24seconds, empty stderr. Both jobs
 used1CPU/8GB and are terminal. No new finite Lie samples, no scope or tally
 change, no push or deadline change.
+
+
+## F39 stronger obstruction after wider matrix scan (2026-09-29T22:48:31.363014+00:00)
+
+Revalidated the active launch, deadline and clean worktree; the preceding
+turn made progress in two commits and left no live jobs. The MA5/MA3/MA4
+source scan recovered the connected-group finite-basis theorem, its missing
+finite-extension step and existing membership limitations, without a fresh
+solution route. Drensky2602.18805v1 was consulted on the web as background,
+not imported as a new theorem or exhaustively read.
+
+Testing whether F34/F38's injection reduction could be repaired for F39 by
+requiring determinant one led to an explicit obstruction in every rank.
+Protected blocking words give an IA embedding whose entire image avoids
+primitives yet surjects to every nilpotent quotient. A stronger version
+using the prior2025 F40 theorem avoids every orbit with a bounded-length
+representative. This is a deduction/strategy obstruction, not another solution.
+
+Archived and read Silva-Weil's rank-two mixed orbit proof; viewed page7,
+the original F39 paragraph and existing blocking-source pages2/8/9.
+Recorded exact prior coverage in triage. The first GAP run failed on an
+unsorted set and unavailable name, retained despite exitzero. Corrected
+GAP passes188 junctions, eight nilpotent automorphisms and an A5 separator;
+three stronger-family fixtures also pass. All jobs terminal, no count change,
+no push or clock change. The complete note is F39-unimodular-obstruction.md.

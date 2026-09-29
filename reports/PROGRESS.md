@@ -823,3 +823,14 @@ and the compact harmonic maximum principle. The transfer construction and
 polynomial/Lie bridge remain written proofs, as does the full general algorithm.
 One initial proof-script failure is retained. Tally unchanged at10whole/
 2partial/0established-novel; no additional novelty claim.
+
+
+## F39 injection shortcut ruled out more strongly (2026-09-29T22:48:31.363014+00:00)
+
+An [explicit all-rank construction](../research/notes/F39-unimodular-obstruction.md)
+shows that neither determinant one nor automorphisms on every free nilpotent
+quotient can replace an ambient automorphism in the proposed F39 reduction.
+Its image avoids primitive elements, and a variant avoids all short automorphic
+orbits using the prior F40 theorem. Exact GAP word/nilpotent controls and a
+finite A5 separator pass; one initial script failure is preserved. This is an
+uncounted obstruction, not a new F39 algorithm. Tally10whole/2partial/0novel.

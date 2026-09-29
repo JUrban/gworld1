@@ -1,0 +1,1574 @@
+                                             Automorphic orbits in free groups: words versus
+arXiv:0809.4386v3 [math.GR] 31 May 2010
+
+
+
+
+                                                              subgroups ∗
+                                                               Pedro V. Silva, pvsilva@fc.up.pt
+                                                            Centro de Matemática, Universidade do Porto†
+                                                                Pascal Weil, pascal.weil@labri.fr
+                                                              LaBRI, Université de Bordeaux and CNRS‡
+
+                                                                          31th March 2010
+
+
+
+
+                                                                              ABSTRACT
+
+                                           We show that the following problems are decidable in a rank 2 free group F2 : does a
+                                          given finitely generated subgroup H contain primitive elements? and does H meet
+                                          the orbit of a given word u under the action of G, the group of automorphisms
+                                          of F2 ? Moreover, decidability subsists if we allow H to be a rational subset of
+                                          F2 , or alternatively if we restrict G to be a rational subset of the set of invertible
+                                          substitutions (a.k.a. positive automorphisms). In higher rank, the following weaker
+                                          problem is decidable: given a finitely generated subgroup H, a word u and an integer
+                                          k, does H contain the image of u by some k-almost bounded automorphism? An
+                                          automorphism is k-almost bounded if at most one of the letters has an image of
+                                          length greater than k.
+
+
+                                                           2000 Mathematics Subject Classification: 20E05
+
+
+                                             ∗
+                                               The first author acknowledges support from Project ASA (PTDC/MAT/65481/2006)
+                                          and C.M.U.P., financed by F.C.T. (Portugal) through the programmes POCTI and POSI,
+                                          with national and European Community structural funds. This paper was prepared while
+                                          the second author was a visiting professor in the CSE Department, IIT Delhi. Both
+                                          authors acknowledge support from the ESF project AutoMathA.
+                                             †
+                                               Centro de Matemática, Faculdade de Ciências, Universidade do Porto, R. Campo
+                                          Alegre 687, 4169-007 Porto, Portugal
+                                             ‡
+                                               LaBRI, Université Bordeaux-1, 351 cours de la Libération, 33405 Talence Cedex,
+                                          France
+
+
+                                                                                    1
+    Orbit problems in general concern the orbit of an element u or a sub-
+group H of a group F , under the action of a subset G of Aut F . Conjugacy
+problems are a special instance of such problems, where G consists of the
+inner automorphisms of F . In this paper, we restrict our attention to the
+case where F is the free group FA with finite basis A.
+    In this context, orbit problems were maybe first considered by Whitehead
+[26], who proved that membership in the orbit of u under the action of
+Aut FA is decidable. The analogous result regarding the orbit of a finitely
+generated subgroup H was established by Gersten [7]. Much literature has
+been devoted as well to the case where G = hϕi is a cyclic subgroup of
+Aut FA , e.g. Myasnikov and Shpilrain’s work [15] on finite orbits of the form
+hϕi · u and Brinkmann’s recent proof [3] of the decidability of membership
+in hϕi · u.
+    The orbit problems considered in this paper are of the following form:
+given an element u ∈ FA , a finitely generated subgroup H of FA and a subset
+G of Aut FA , does H meet the orbit of u under the action of G; that is: does
+H contain ϕ(u) for some automorphism ϕ ∈ G? A particular instance of this
+problem, when G = Aut FA , is the question whether H contains a primitive
+element, since the set of primitive elements of FA is the automorphic orbit
+of each letter a ∈ A. The latter problem was recently solved by Clifford and
+Goldstein in full generality [4]. These problems were posed to the second
+author by O. Bogopolski, and they appear as Problem F39 in the list of
+open problems on grouptheory.info.
+    Our main results state that these problems are decidable in the rank 2
+free group F2 , if G = Aut F2 (Theorem 2.3) or if G belongs to a certain family
+of rational subsets of Aut F2 , which includes the rational subsets of invertible
+substitutions (a.k.a. positive automorphisms, which map each letter to a
+positive word) or of inverses of invertible substitutions, see Sections 5.1
+and 5.2. For these rational values of G, we also show the decidability of
+subgroup orbit problems: given two finitely generated subgroups H, K of
+F2 , does there exist µ ∈ G such that K is contained in (resp. equal to)
+µ(H).
+    In free groups with larger rank, we are only able to decide a weaker
+problem. Say that an automorphism ϕ of FA is k-almost bounded if |ϕ(a)| >
+k for at most one letter a ∈ A. We show that given k > 0, u ∈ FA and H
+a finitely generated subgroup of FA , one can decide whether there exists a
+k-almost bounded automorphism µ such that µ(u) ∈ H.
+    Some of our results hold also if we replace the subgroup H by a rational
+subset of FA .
+    We use two main methods. Some of our main results can be derived from
+
+                                       2
+general results on the decidability of the solvability of equations with rational
+constraints in free groups (Diekert, Gutiérrez and Hagenah [6], building on
+Makanin’s famous result [14]). This is an interesting application of equations
+in free groups.
+    For other results, we give a direct combinatorial proof. We use a partic-
+ular factorization of the automorphism group Aut F2 (Theorem 3.4) and a
+detailed combinatorial analysis of the effect of certain simple automorphisms
+on the graphical representation of the subgroup H (the representation by
+means of so-called Stallings foldings [24, 10], see Section 1.2). The set of
+these automorphisms is Σ = {ϕa,ba , ϕb−1 ,a−1 , ϕb,a } (ϕx,y maps generator a
+to x and generator b to y).
+    This combinatorial analysis leads to the definition of a (large but finite)
+automaton whose vertices are finite automata associated with the Stallings
+automata of the subgroups in the Σ∗ -orbit of H. The construction of this au-
+tomaton exploits the fact that a certain combinatorial parameter of Stallings
+automata (which we call the number of singularities) is preserved under the
+action of automorphisms in Σ. And it is the possibility of reading these
+actions on this finite automaton which yields our decidability results for the
+cases where G is a rational subset of Σ∗ . Invertible substitutions form a
+particular rational submonoid of Σ∗ .
+    Interesting intermediary results state that the set of primitive elements
+in F2 is a context-sensitive language (Proposition 3.8) and that if |A| = m
+and v1 , . . . , vm−1 ∈ FA , then the set of elements x such that v1 , . . . , vm−1 , x
+form a basis of FA is a constructible rational set (Proposition 2.11).
+
+
+1     Preliminaries
+1.1    Free groups
+Let A denote a finite alphabet. The free monoid on A, written A∗ , is the
+set of all finite sequences of elements of A (including the empty sequence,
+written 1), under the operation of concatenation. We also write A+ for the
+set of non-empty sequences of elements of A.
+    Let A−1 be a disjoint set of formal inverses of A and let Ã = A ∪ A−1 .
+The operation u 7→ u−1 is extended to Ã∗ as usual, by letting (a−1 )−1 = a
+and (ua)−1 = a−1 u−1 for all a ∈ A and u ∈ Ã∗ .
+    The free group on A is the quotient FA of Ã∗ by the congruence generated
+by the pairs (aa−1 , 1), a ∈ Ã, and we write π : Ã∗ → FA for the canonical
+projection. A word u ∈ Ã∗ is reduced if it does not contain a factor aa−1
+(a ∈ Ã) and we denote by RA the set of reduced words. We also say that
+
+                                          3
+u ∈ RA is cyclically reduced if uu is reduced as well. And we denote by
+cc(u) the cyclic core of u, that is, the unique word such that u is of the form
+u = v −1 cc(u)v in Ã∗ .
+    We write u 7→ ū the reduction map, where ū is the (uniquely defined)
+word obtained from u by iteratively deleting factors of the form aa−1 (a ∈ Ã)
+until none is left. It is well-known that the reduction map is well defined,
+and that the restriction π : RA → FA is a bijection. To simplify notation, if
+g ∈ FA , we also write ḡ for the reduced word such that π(ḡ) = g, and we let
+the length of g be |g| = |ḡ|.
+    Given X ⊆ FA , we denote by hXi the subgroup of FA generated by X.
+We also let Aut FA denote the automorphism group of FA . If ϕ ∈ Aut FA and
+no confusion arises, we shall denote also by ϕ the corresponding bijection of
+RA .
+    Given B ⊆ FA , we say that B is a basis of FA if the homomorphism
+from FB to FA induced by the inclusion map B → FA is an isomorphism.
+Equivalently, B is a basis of FA if and only if B = ϕ(A) for some ϕ ∈ Aut FA .
+The primitive elements of FA are those that sit in some basis of FA . It follows
+that the set of primitive elements of FA is the orbit of each letter a ∈ A
+under the action of Aut FA .
+    In much of this paper, we shall be discussing the free group on 2 gen-
+erators. We fix the alphabet A2 = {a, b} and use the notation F2 = FA2 ,
+R2 = RA2 .
+
+1.2   Automata and rational subsets
+The product of two subsets K, L of a monoid M is the subset KLS= {xy |
+x ∈ K, y ∈ L}. The star operator on subsets is defined by L∗ = n≥0 Ln ,
+where L0 = {1}. A subset L of a monoid is said to be rational if L can be
+obtained from finite subsets using finitely many times the operators union,
+product and star. We denote by Rat M the set of rational subsets of M . If
+M is the free monoid A∗ on a finite alphabet A, subsets of A∗ are called
+languages, and elements of Rat A∗ are called rational languages.
+    Note that if ϕ : A∗ → M is an onto morphism, then Rat M is the set of
+all ϕ(L) where L ∈ Rat A∗ . For instance, every finitely generated subgroup
+of FA is rational.
+    It is well-known that rational languages can be characterized by means of
+finite automata. A (finite) A-automaton is a tuple A = (Q, q0 , T, E) where
+Q is a (finite) set, q0 ∈ Q, T ⊆ Q and E ⊆ Q × A × Q. It can be viewed as a
+graph with vertex set Q (the states), with a designated vertex q0 (the initial
+state) and a set of designated vertices T (the terminal states), whose edges
+
+
+                                       4
+are labeled by letters in A, and are given by the set E (the transitions).
+    A nontrivial path in A is a sequence
+                                    a
+                                    1     2a       a
+                                                   n
+                                p0 −→p 1 −→ . . . −→pn
+
+with n ≥ 1, (pi−1 , ai , pi ) ∈ E for i = 1, . . . , n. Its label is the word a1 . . . an ∈
+                                                   1
+A+ . We consider also the trivial path p0 −→p0 for each p0 ∈ Q, whose label
+is the empty word. A path is said to be successful if p0 = q0 and pn ∈ T .
+The language L(A) recognized by A is the set of all labels of successful paths
+in A.
+    The automaton A = (Q, q0 , T, E) is said to be deterministic if, for all
+p ∈ Q and a ∈ A, there is at most one edge of the form (p, a, q). In that
+case, we write q = p · a. We say that A is trim if every q ∈ Q lies in some
+successful path.
+    Kleene’s theorem states that a language is rational if and only if it is
+accepted by a finite automaton, which can be required to be deterministic
+and trim, see [9]. In the context of a particular result or claim, we say that
+a rational language L is effectively constructible if there exists an algorithm
+to produce a finite automaton recognizing L from the concrete structures
+containing the input. More generally, if ϕ : A∗ → M is an onto morphism,
+we say that a rational subset of M is effectively constructible (with respect
+to A) if it is the image of an effectively constructible rational language over
+A.
+
+Remark 1.1 A subset L ⊆ FA is rational if L = π(K) for some rational
+subset K of Ã∗ . Benois’ theorem [1] states that this is the case if and only
+if K (= π −1 (π(K)) ∩ RA , in bijection with L via π) is a rational subset of
+Ã∗ . In the sequel we sometimes confuse the notions of a rational subset of
+FA and a rational language in Ã∗ that consists only of reduced words.
+
+1.3    Automata and subgroups of FA
+To discuss subgroups of free groups, we use inverse automata. In an Ã-
+automaton A = (Q, q0 , T, E), the dual of an edge (p, a, q) ∈ E is (q, a−1 , p).
+Then A is said to be dual if E contains the duals of all edges, and inverse
+if it is dual, deterministic, trim (equivalent to connected in this case) and
+|T | = 1.
+     Given a finitely generated subgroup H of FA (we write H ≤fg FA ), we
+denote by A(H) the Stallings automaton associated to H by the construction
+often referred to as Stallings foldings. This construction, that can be traced
+
+
+                                               5
+                                  @@ q
+                          a
+
+                      p           // r       p        // q ∼ r
+                              a                   a
+
+
+                     Figure 1: A folding step, with a ∈ Ã
+
+
+back to the early part of the twentieth century [19, Chapter 11], was made
+explicit by Serre [20] and Stallings [24] (see also [10]).
+    A brief description is as follows. If h1 , . . . , hr ∈ RA is a set of genera-
+tors of the subgroup H (that is, H = hπ(h1 ), . . . , π(hr )i), one constructs a
+dual automaton in the form of r subdivided circles around a common distin-
+guished vertex 1 (both initial and terminal), each labeled by one of the hi .
+Then we iteratively identify identically labeled pairs of edges starting (resp.
+ending) at the same vertex (this is called the folding process, see Figure 1),
+until no further folding is possible.
+    The following proposition summarizes important properties, see [10].
+
+Proposition 1.2 Let H ≤fg FA . Then:
+
+    (i) A(H) is a finite inverse automaton, which does not depend on the
+        finite reduced generating set nor on the sequence of foldings chosen;
+            u                                u
+ (ii) if p−→q is a path in A(H), so is p−→q;
+
+(iii) for every u ∈ RA , u ∈ L(A(H)) if and only if π(u) ∈ H; in particular,
+      L(A(H)) ⊆ π −1 (H);
+
+ (iv) for every cyclically reduced u ∈ FA , wuw−1 ∈ H for some w ∈ FA if
+      and only if u labels some loop in A(H).
+
+
+2      The mixed orbit problem as an equation prob-
+       lem
+Our original motivation on writing this paper was solving the mixed orbit
+problem ϕ(u) ∈ H for given u ∈ F and H ≤fg F . We managed to solve it
+in rank 2, see Section 2.1 below. We also solve it in arbitrary rank, if we
+impose a restriction on the class of automorphisms, see Section 2.2 below.
+    Our initial proof in rank 2 was purely combinatorial, and is presented
+in Section 5.3 below, whereas our result in higher ranks made use of a
+
+                                         6
+result of Diekert, Gutiérrez and Hagenah [6] on equations with rational
+constraints which we will discuss below. Upon reading a first version of this
+paper1 , Dahmani and Girardel, and independently Enric Ventura (recalling
+a foregone conversation with Alexei Miasnikov), called our attention to the
+fact that Diekert, Gutiérrez and Hagenah’s result could also be used to prove
+our result in rank 2.
+
+2.1      Equations with rational constraints and automorphisms
+         of F2
+A system of equations in a free group FA , with set of unknowns X (disjoint
+from A), is a tuple E = (e1 , . . . , ek ) of elements of FA∪X . A solution of E
+is a morphism from FA∪X to FA which maps each letter of A to itself and
+every element of E to 1.
+    A rational constraint on a system of equations with unknowns in X is a
+collection L = (Lx )x∈X of rational subsets of FA and we say that a morphism
+ϕ : FA∪X → FA is a solution of the system E with rational constraints L if
+ϕ is a solution of E and ϕ(x) ∈ Lx for each x ∈ X. Diekert, Gutiérrez and
+Hagenah [6] showed the following result.
+
+Theorem 2.1 The satisfiability problem for systems of equations with ra-
+tional constraints in a free group is decidable.
+
+      This leads to a quick solution of the mixed orbit problem in F2 .
+
+Theorem 2.2 Given u ∈ F2 and a rational subset L of F2 , it is decidable
+whether or not ϕ(u) ∈ L for some ϕ ∈ Aut F2 .
+
+Proof. By a result attributed to Dehn, Magnus and Nielsen (see [22]), {x, y}
+is a basis of F2 if and only if there exists some g ∈ F2 such that g−1 [x, y]g =
+[a, b]±1 .
+     Now observe that if u ∈ F2 , then ϕ(u) ∈ H for some ϕ ∈ Aut F2 if and
+only if u(x, y) ∈ H for some basis {x, y} — where u(x, y) denotes the word
+u in which each occurrence of a has been replaced by x and each occurrence
+of b by y.
+     Thus there exists an automorphism ϕ such that ϕ(u) ∈ H if and only
+if one of the following systems (in the unknowns x, y, v, g, and for ε = ±1)
+admits a solution             −1
+                                 g [x, y]g = [a, b]ε
+                                 u(x, y) = v
+  1
+      arXiv:0809.4386v1 [math.GR]
+
+
+                                        7
+with the rational constraint that v ∈ L. This is decidable by Theorem 2.1.
+
+
+    Since a finitely generated subgroup is rational (it is the star of its gen-
+erators and their inverses), Theorem 2.2 yields the following corollary.
+
+Corollary 2.3 Given u ∈ F2 and H ≤fg F2 , it is decidable whether or not
+ϕ(u) ∈ H for some ϕ ∈ Aut F2 .
+
+   Since the primitive elements of F2 are the orbit of each letter a ∈ A
+under Aut F2 , we also note the following result.
+
+Corollary 2.4 Given a rational subset L of F2 (e.g. a finitely generated
+subgroup), it is decidable whether or not L contains a primitive element.
+
+Remark 2.5 Clifford and Goldstein also proved a comparable result for
+primitive elements, by completely different methods: they show that it is
+decidable whether a finitely generated subgroup H of FA (for any finite
+alphabet A) contains a primitive element [4].
+
+    One can also consider, in the statement of Theorem 2.2, the rational
+subset of positive elements of F2 (namely, the submonoid A∗ ). Then our
+result shows that it is decidable whether an element u ∈ F2 is potentially
+positive, that is, whether it has a positive automorphic image. Different
+proofs of this result already appear in Goldstein [8] and Lee [11].
+    Another idea is to consider a tuple of elements of F2 rather than a single
+element u, or equivalently a subgroup K ≤fg F2 .
+
+Theorem 2.6 Let u1 , . . . , uk ∈ F2 , L1 , . . . , Lk ∈ Rat F2 and H, K ≤fg F2 .
+The following problems are decidable:
+
+ (1) whether ϕ(u1 ) ∈ L1 , . . . , ϕ(uk ) ∈ Lk , for some ϕ ∈ Aut F2 ;
+
+ (2) whether conjugates of ϕ(u1 ), . . . , ϕ(uk ) sit in L1 , . . . , Lk , respectively,
+     for some ϕ ∈ Aut F2 ;
+
+ (3) whether ϕ(K) ⊆ H, for some ϕ ∈ Aut F2 .
+
+Proof. These statements are proved like Theorem 2.2, by reduction to a
+system of equations with rational constraints.
+
+
+
+
+                                          8
+    For (1), we consider the system
+                            −1
+                           
+                             g [x, y]g = [a, b]ε
+                              u1 (x, y) = v1
+                           
+                           
+                                 ...
+                              uk (x, y) = vk
+                           
+
+in the unknowns x, y, g, v1 , . . . , vk with the rational constraints v1 ∈ L1 , . . . , vk ∈
+Lk .
+     For (2), we consider the system
+                              −1
+                                  g [x, y]g = [a, b]ε
+                              −1
+                             
+                                   h1 u1 (x, y)h1 = v1
+                                      ...
+                              −1
+                             
+                                   hk uk (x, y)hk = vk
+
+in the unknowns x, y, g, h1 , . . . , hk , v1 , . . . , vk with the rational constraints
+v1 ∈ L1 , . . . , vk ∈ Lk .
+    Statement (3) is a particular case of (1), when u1 , . . . , uk is a generating
+set of K and L1 = . . . = Lk = H. 
+
+
+Remark 2.7 Instead of asking whether there exists an automorphism in
+Aut F2 mapping u into L, one may want to exhibit such an automorphism,
+if it exists.
+     The existence question reduces to the satisfiability of equations with
+rational constraints, and Diekert, Gutiérrez and Hagenah showed that this
+can be done in PSPACE [6]. One can extract from that paper a description
+of such a solution (an automorphism) as an exponential length product of
+simple automorphisms: the images of the letters may therefore have double
+exponential length.
+
+2.2    Beyond rank 2
+We do not know how to extend Theorem 2.2 or Corollary 2.3 to arbitrary
+finite alphabets, but we can get decidability for weakened versions of the
+problem. The first such result involves a restriction on the subgroups con-
+sidered.
+
+Theorem 2.8 Let u ∈ FA and let H ≤fg FA . If H is cyclic or a free factor
+of FA , it is decidable whether or not ϕ(u) ∈ H for some ϕ ∈ Aut FA .
+
+
+                                           9
+Proof. Let us first assume that H is a free factor of FA , with rank k. It
+is easily verified that ϕ(u) ∈ H for some automorphism ϕ if and only if u
+sits in some rank k free factor of FA . This is known to be decidable: it
+suffices to compute a minimum length element v in the automorphic orbit
+of u (the so-called easy part of Whitehead’s algorithm, see [13, 18]) and to
+verify whether v uses at least k letters (Shenitzer [21], see also [13, Prop.
+I.5.4]).
+     Let us now assume that H = hvi. Without loss of generality, we may
+assume that u and v are cyclically reduced. Say that a word x is root-free if
+it is not equal to a non-trivial power of a shorter word. Then u = xk for some
+uniquely determined integer k ≥ 1 and root-free word x, and similarly, v =
+y ℓ for some uniquely determined ℓ ≥ 1 and root-free y. It is an elementary
+verification that the image of a root-free word by an automorphism is also
+root-free. Thus, an automorphism maps u into H if and only if it maps x to
+y or y −1 , and k is a multiple of ℓ. Decidability follows from the fact that we
+can decide whether two given words are in each other’s automorphic orbit,
+using Whitehead’s algorithm [13]. 
+
+   The second result on a weakened version of our orbit problem involves
+almost bounded automorphisms. Given a finite alphabet A and k ∈ N, we
+say that an automorphism ϕ of FA is k-almost bounded if |ϕ(a)| > k for at
+most one letter a ∈ A. We let AlmBk FA denote the set of k-almost bounded
+automorphisms of FA .
+
+Theorem 2.9 Given u ∈ FA , L ∈ Rat FA and k ∈ N, it is decidable whether
+or not ϕ(u) ∈ L for some ϕ ∈ AlmBk FA .
+
+    The proof of this theorem relies on Diekert, Gutiérrez and Hagenah’s re-
+sult on the satisfiability of equations with rational constraints in free groups
+discussed in Section 2.1. We also require two technical results.
+
+Lemma 2.10 Let A = {a1 , . . . , am } and u ∈ RA . Then {a1 , . . . , am−1 , u}
+is a basis of FA if and only if u = vaεm w for some v, w ∈ R{a1 ,...,am−1 } and
+ε ∈ {1, −1}.
+
+Proof. It is immediate that if u = vaεm w with v, w ∈ R{a1 ,...,am−1 } , then
+{a1 , ..., am−1 , u} generates FA , and by the Hopfian property of free groups
+(see [13, Prop. I.3.5]), {a1 , ..., am−1 , u} is a basis of FA .
+    Conversely, let u ∈ RA contain at least an occurrence of am or a−1     m , and
+let u = vzw be the factorization with v, w ∈ R{a1 ,...,am−1} of maximal length.
+It is immediate that if H = ha1 , ..., am−1 , ui, then H = ha1 , ..., am−1 , zi and
+
+                                        10
+A(H) is equal to A(hzi) with loops labelled a1 , ..., am−1 attached at the
+origin. Thus, if {a1 , ..., am−1 , u} is a basis of FA , then A(hzi) must consist
+of a single loop labeled am , and hence z must be equal to am or a−1   m . 
+
+   This leads to the following generalization.
+
+Proposition 2.11 Let m = |A| and v1 , . . . , vm−1 ∈ RA . Then
+
+              X = {x ∈ RA | (v1 , . . . , vm−1 , x) is a basis of FA }
+
+is rational and effectively constructible.
+
+Proof. First note that X is nonempty if and only if (v1 , ..., vm−1 ) is a basis
+of a free factor of FA . This is well-known to be decidable. Moreover, if
+X 6= ∅, then we can effectively construct an element z of X: it is verified in
+[23] that if K = hv1 , ..., vm−1 i, then K is a free factor of FA if and only if
+there are vertices p and q of A(K) whose identification leads (via foldings)
+to the bouquet of circles A(FA ), and in that case, if up and uq are the labels
+of geodesic paths of A(K) from the origin to p and q, then z = up u−1    q ∈ X.
+    Let ϕ ∈ Aut FA be defined by ϕ(ai ) = vi (i = 1, . . . , m − 1) and ϕ(am ) =
+z. Then x ∈ X if and only if (a1 , . . . , am−1 , ϕ−1 (x)) is a basis of FA . By
+Lemma 2.10, this is equivalent to say that ϕ−1 (x) ∈ R(am ∪ a−1      m )R, where
+R = ha1 , . . . , am−1 i, and therefore
+
+                    X = ϕ(R(am ∪ a−1              −1
+                                  m )R) = V (z ∪ z )V
+
+for V = hv1 , . . . , vm−1 i.
+    In particular, X is rational and the formula X = V (z ∪ z −1 )V provides
+an effective construction for it. 
+
+Proof of Theorem 2.9. Write A = {a1 , . . . , am }. Without loss of gener-
+ality, we may restrict ourselves to the case |ϕ(ai )| ≤ k for i = 1, . . . , m − 1.
+Since there are only finitely many choices for these ϕ(ai ), we may as well
+assume them to be fixed, say ϕ(ai ) = vi for i = 1, . . . , m − 1. Let then
+X = {x ∈ RA | (v1 , . . . , vm−1 , x) is a basis of FA }: then X is rational by
+Proposition 2.11.
+    Write u = u0 aεm1 u1 . . . aεmn un with n ≥ 0, ui ∈ F{a1 ,...,am−1 } and εi = ±1
+for every i. Then we must decide whether there exists some y ∈ X such that
+
+                             u′0 y ε1 u′1 . . . y εn u′n ∈ L,
+
+
+                                           11
+where u′i = ui (v1 , . . . , vm−1 ) is the word obtained from ui by replacing each
+aj by vj . This is equivalent to deciding whether the equation
+
+                             u′0 y ε1 u′1 . . . y εn u′n = z                  (1)
+
+on the variables y, z has a solution in FA with the rational constraints y ∈ X
+and z ∈ L. This is decidable by Theorem 2.1. 
+
+   As in Section 2.1, Theorem 2.9 yields a decidability result for finitely
+generated subgroups.
+
+Corollary 2.12 Given u ∈ FA , H ≤fg FA and k ∈ N, it is decidable whether
+or not ϕ(u) ∈ H for some ϕ ∈ AlmBk FA .
+
+   And as in Theorem 2.6, we use the same ideas to prove the following
+theorem. If w ∈ F2 , λw denotes the inner automorphism u 7→ w−1 uw.
+
+Theorem 2.13 Let u1 , . . . , um ∈ FA , L ∈ Rat FA , H, K ≤fg FA and k ∈ N.
+The following problems are decidable:
+
+ (1) whether ϕ(u1 ), . . . , ϕ(um ) ∈ L, for some ϕ ∈ AlmBk FA ;
+
+ (2) whether λw ϕ(u1 ), . . . , λw ϕ(um ) ∈ L, for some w ∈ FA and ϕ ∈ AlmBk FA ;
+
+ (3) whether conjugates of ϕ(u1 ), . . . , ϕ(um ) sit in L, for some ϕ ∈ AlmBk FA ;
+
+ (4) whether ϕ(K) ⊆ H, for some ϕ ∈ AlmBk FA ;
+
+ (5) whether λw ϕ(K) ⊆ H, for some w ∈ FA and ϕ ∈ AlmBk FA .
+
+Proof. These statements are proved like Theorem 2.9, by reduction to a
+system of equations with rational constraints.
+    For the first statement, we consider a system of equations of the form of
+equation (1) in the proof of Theorem 2.9, one for which uj , 1 ≤ j ≤ m (the
+unknowns are y, z1 , . . . , zm ).
+    For the second (resp. third) statement, we consider the same system,
+with each equation conjugated by a new unknown v (resp. by distinct new
+unknowns vj , 1 ≤ j ≤ m).
+    The fourth and fifth statements are applications of the first and second
+when the rational subset L is the subgroup H. 
+
+
+
+
+                                          12
+Remark 2.14 Following-up with the discussion in Remark 2.7, we note
+that the complexity upper bounds for the decision problems described in
+this section are PSPACE again: we need to (attempt to) solve, successively,
+systems of equations for the different values of v1 , . . . , vm−1 (with the nota-
+tion of the proof of Theorem 2.9. These (m − 1)-tuples of words of length
+at most k are exponentially many (in the variable k) but they can be listed
+in polynomial space.
+
+
+3    Combinatorial approach: the role of Σ
+We now restrict our attention to F2 . If x, y ∈ F2 , we denote by ϕx,y the
+endomorphism mapping a to x and b to y. In this section, we discuss some
+properties of the following sets of automorphisms of F2 :
+                                          
+     Σ0 = ϕa,ba , ϕb−1 ,a−1 and Σ = Σ0 ∪ ϕb,a ;
+           
+     Φ = ϕa,ba , ϕab,b , ϕa,ab , ϕba,b ;
+           
+     ∆ = ϕa,am bε an | m, n ∈ Z, ε ∈ {1, −1} ;
+                                                     
+     Ψ = ϕ ∈ Aut F2 : |ϕ(a)| = |ϕ(b)| = 1 and Λ = λw | w ∈ RA .
+
+    The following will be useful in the sequel.
+
+Proposition 3.1         (i) XΛ = ΛX for every X ⊆ Aut F2 ;
+
+ (ii) ΛΨΦ∗ ⊆ ΛΨ(Σ−1 ∗
+                 0 ) ϕa−1 ,b ;
+
+(iii) ∆ ⊆ Λ(ϕ∗a,ba ∪ ϕa−1 ,b ϕ∗a,ba ϕa−1 ,b )(1 ∪ ϕa,b−1 ).
+
+Proof. (i) follows from the fact that θλw = λθ(w) θ for each w ∈ F2 and
+θ ∈ Aut F2 .
+   (ii) Notice that ϕab,b = ϕb,a ϕa,ba ϕb,a , ϕa,ab = λa−1 ϕa,ba and ϕba,b =
+λb−1 ϕab,b . It follows that ΛΨΦ∗ ⊆ ΛΨ{ϕa,ba , ϕb,a }∗ .
+   Observe also that ϕa,ba = ϕa−1 ,b ϕ−1                             −1
+                                      a,ba ϕa−1 ,b , ϕb,a = ϕa−1 ,b ϕb−1 ,a−1 ϕa−1 ,b
+and ϕ2a−1 ,b = 1. So we have
+
+    {ϕa,ba , ϕb,a }∗ = ϕa−1 ,b {ϕ−1      −1        ∗                    −1 ∗
+                                 a,ba , ϕb−1 ,a−1 } ϕa−1 ,b = ϕa−1 ,b (Σ0 ) ϕa−1 ,b .
+
+Therefore ΛΨΦ∗ ⊆ ΛΨϕa−1 ,b (Σ−1 ∗              −1 ∗
+                             0 ) ϕa−1 ,b = ΛΨ(Σ0 ) ϕa−1 ,b .
+
+
+
+
+                                           13
+   (iii) Observe that if m, n ∈ Z, then ϕa,am ban = λa−m ϕa,bam+n = λa−m ϕm+n
+                                                                          a,ba ,
+                              ∗         −1 ∗                           −1
+so that ϕa,a ba ∈ Λ(ϕa,ba ∪ (ϕa,ba ) ). We already noted that ϕa,ba =
+               m    n
+
+ϕa−1 ,b ϕa,ba ϕa−1 ,b and ϕ2a−1 ,b = 1, so
+
+                    ϕa,am ban ∈ Λ(ϕ∗a,ba ∪ ϕa−1 ,b ϕ∗a,ba ϕa−1 ,b ).
+
+                                −(m+n)
+Similarly, ϕa,am b−1 an = λan ϕa,ba      ϕa,b−1 and hence
+
+               ϕa,am b−1 an ∈ Λ(ϕ∗a,ba ∪ ϕa−1 ,b ϕ∗a,ba ϕa−1 ,b )ϕa,b−1 ,
+
+which concludes the proof. 
+
+
+3.1    Primitive words and a factorization of Aut F2
+Let us first consider a particular automorphic orbit in FA , namely the set
+PA of primitive words. Recall that a word is primitive if it belongs to some
+basis of FA . In particular, PA is the automorphic orbit of each letter from
+A. We shall often view PA as a subset of RA . We denote by P2 the set of
+all primitive words in F2 .
+    We use a known characterization of the words in P2 to derive a technical
+factorization of the group Aut F2 of automorphisms of F2 , that will be used
+in Section 5. We further exploit this characterization to point out certain
+language-theoretic properties of P2 .
+    Proposition 3.2 reports two results: the first is due to Nielsen [16] (see
+also [5, 2.2] and [17]) and the second is due to Wen and Wen [25]. An
+interesting perspective on either is offered in [12, Chapter 2] and [2, Chapter
+I-5].
+
+Proposition 3.2 (i) Up to conjugation, every primitive element u ∈ P2
+    is either a letter, or of the form u = an1 bm1 ...ank bmk where
+
+         - either n1 = ... = nk ∈ {1, −1} and {m1 , ..., mk } ⊆ {n, n + 1} for
+           some integer n,
+         - or m1 = ... = mk ∈ {1, −1} and {n1 , ..., nk } ⊆ {n, n + 1} for
+           some integer n.
+
+ (ii) The set of positive primitive words P2 ∩{a, b}+ is equal to Φ∗ ({a, b}) =
+      b ∪ Φ∗ (a).
+
+Corollary 3.3 P2 = ΛΨΦ∗ (a).
+
+                                          14
+Proof. By Proposition 3.2 (i), every primitive element of F2 is a conjugate
+of ψ(abm1 ...abmk ), where {m1 , ..., mk } ⊆ {n, n + 1} for some integer n ≥ 0
+and ψ ∈ Ψ. That is, P2 = ΛΨ(P2 ∩ {a, b}+ ). By Proposition 3.2 (ii), it
+follows that P2 = ΛΨ(b ∪ Φ∗ (a)) = ΛΨΦ∗ (a). 
+
+      We can now prove a useful decomposition result for Aut F2 .
+
+Theorem 3.4 Aut F2 = ΛΨΦ∗ ∆ = Ψ(Σ−1 ∗  ∗
+                                 0 ) Λϕa,ba (ϕa−1 ,b ∪ ϕa−1 ,b−1 ).
+
+Proof. To establish the first equality, we consider θ ∈ Aut F2 . Then θ(a) ∈
+P2 and so θ(a) = σ(a) for some σ ∈ ΛΨΦ∗ by Corollary 3.3. Corollary 2.10
+then shows that σ −1 θ = ϕa,am bε an for some m, n ∈ Z and ε ∈ {1, −1}. So
+σ −1 θ ∈ ∆ and θ ∈ ΛΨΦ∗ ∆. It follows that
+
+ Aut F2 ⊆ ΛΨΦ∗ (ϕ∗a,ba ∪ ϕa−1 ,b ϕ∗a,ba ϕa−1 ,b )(1 ∪ ϕa,b−1 ) by Proposition 3.1
+            ⊆ ΛΨΦ∗ (1 ∪ ϕa−1 ,b ϕ∗a,ba ϕa−1 ,b )(1 ∪ ϕa,b−1 ) since ϕa,ba ∈ Φ
+            ⊆ ΛΨΦ∗ (ϕa−1 ,b ϕ∗a,ba ϕa−1 ,b )(1 ∪ ϕa,b−1 ) since ϕ2a−1 ,b = 1
+            ⊆ ΛΨ(Σ−1 ∗ ∗
+                  0 ) ϕa,ba ϕa−1 ,b (1 ∪ ϕa,b−1 ) by Proposition 3.1 (ii)
+            ⊆ Ψ(Σ−1 ∗  ∗
+                 0 ) Λϕa,ba (ϕa−1 ,b ∪ ϕa−1 ,b−1 ).
+
+The converse inclusion is of course trivial. 
+
+
+3.2      Invertible substitutions
+A substitution2 of FA is an endomorphism ϕ such that ϕ(a) ∈ A∗ for every
+a ∈ A. If ϕ is an automorphism, it is said to be an invertible substitution.
+We denote by IS(F2 ) the monoid of all invertible substitutions of F2 , and by
+IS−1 (F2 ) the monoid of their inverses. Note that the inverse of an invertible
+substitution is not necessarily a substitution: indeed ϕ−1
+                                                         a,ba = ϕa,ba−1 .
+
+Lemma 3.5 IS(F2 ) is a rational submonoid of Σ∗ . Moreover, there exists
+a rational submonoid S of Σ∗ such that IS−1 (F2 ) = ϕa,b−1 S ϕa,b−1 .
+    In addition, every rational subset R ∈ Rat IS(F2 ) is also in Rat Σ∗ , and
+every rational subset R ∈ Rat IS−1 (F2 ) is of the form ϕa,b−1 R′ ϕa,b−1 for
+some R′ ∈ Rat S ⊆ Rat Σ∗ .
+  2
+      also called a positive endomorphism
+
+
+
+
+                                            15
+Proof. It is known [25] that the monoid IS(F2 ) is generated by ϕb,a , ϕa,ba
+and ϕa,ab (see also [2, Chapter I.5], [12, Sec. 2.3.5]). But ϕb,a , ϕa,ba ∈ Σ and
+
+                   ϕa,ab = ϕb,a ϕb−1 ,a−1 ϕa,ba ϕb−1 ,a−1 ϕb,a ∈ Σ∗ ,
+
+so IS(F2 ) = {ϕb,a , ϕa,ba , ϕa,ab }∗ ∈ Rat Σ∗ .
+    Next we observe that
+
+                         ϕ−1
+                          b,a = ϕb,a = ϕa,b−1 ϕb−1 ,a−1 ϕa,b−1
+                        ϕ−1
+                         a,ba = ϕa,ba−1 = ϕa,b−1 ϕa,ab ϕa,b−1
+                        ϕ−1
+                         a,ab = ϕa,a−1 b = ϕa,b−1 ϕa,ba ϕa,b−1
+
+Since ϕa,b−1 has order 2, it follows that IS(F2 )−1 = ϕa,b−1 Rϕa,b−1 with
+R = {ϕb−1 ,a−1 , ϕa,ab , ϕa,ba }∗ ∈ Rat Σ∗ . 
+
+
+3.3    Primitive words form a context-sensitive language
+Digressing from our main topic, we use Corollary 3.3 to establish a language-
+theoretic property of primitive words.
+   Recall that a context-sensitive A-grammar is a triple G = (V, P, S) where
+V is a finite set containing A, S is an element of V that is not in A and P is
+the set of rules of the grammar: a finite set of pairs (ℓ, r) ∈ V + × V + such
+that
+                             ℓ 6∈ A+ and |ℓ| ≤ |r|.
+For all x, y ∈ V + , we write x ⇒ y if there exist u, v ∈ V ∗ and (ℓ, r) ∈ P such
+                                                 ∗
+that x = uℓv and y = urv. We denote by ⇒ the transitive and reflexive
+closure of ⇒. The language generated by G is
+                                                      ∗
+                            L(G) = {w ∈ A+ | S ⇒ w}.
+
+A language L ⊆ A+ is said to be context-sensitive if it is generated by
+some context-sensitive A-grammar. As usual, a language L ⊆ A∗ is called
+context-sensitive if L ∩ A+ is context-sensitive.
+   The right and left quotients of a language L by a word u are defined by
+
+            u\L = {x ∈ A∗ | ux ∈ L},            L/u = {x ∈ A∗ | xu ∈ L}.
+
+Lemma 3.6 The class of context-sensitive languages is closed under union,
+intersection, concatenation, right and left quotient by a word, 1-free substi-
+tutions and inverse morphisms.
+
+                                           16
+Proof. Closure under union, intersection, concatenation, 1-free substitu-
+tions, and inverse homomorphisms is well-known [9, Exercise 9.10]. In par-
+ticular, the family of context-sensitive languages forms a trio [9, Section
+11.1] and as such, it is closed under limited erasing [9, Lemma 11.2]. By
+definition, this means that if k ≥ 1, L is context-sensitive and ϕ is a mor-
+phism such that ϕ(v) 6= 1 for each u ∈ L and each factor v of u of length
+greater than k, then ϕ(L) is context-sensitive as well.
+    For the quotients, it suffices to consider letters, hence let L ⊆ A∗ , a ∈ A
+and $ 6∈ A. Let σ be the substitution that maps a to σ(a) = {a, $} and which
+fixes every other letter of A. Let also ϕ : (A ∪ {$})∗ → A∗ be the morphism
+which fixes every letter of A and erases $. Then a\L = ϕ(σ(L) ∩ $A∗ ) and
+L/a = ϕ(σ(L) ∩ A∗ $). Since the σ-images of the letters are finite, and hence
+context-sensitive, the languages σ(L) ∩ $A∗ and σ(L) ∩ A∗ $ are context-
+sensitive; moreover ϕ exhibits limited erasing on these languages, so a\L
+and L/a are context-sensitive as well. 
+
+
+Proposition 3.7 Let A be a finite alphabet and let Γ be a finite set of
+endomorphisms of A+ . For every u ∈ A+ , Γ∗ (u) is a context-sensitive
+language.
+
+Proof. Take b ∈ / A. We define a context-sensitive (A ∪ {b})-grammar G =
+(V, P, S) by V = A ∪ {R, S, T } ∪ {Fϕ | ϕ ∈ Γ} and
+        P = {S → bFϕ uR, S → bub2 , Fϕ a → ϕ(a)Fϕ , Fϕ R → T R,
+               Fϕ R → b2 , aT → T a, bT → bFϕ ; a ∈ A, ϕ ∈ Γ }.
+We show that L(G) = bΓ∗ (u)b2 .
+                ∗
+  Clearly, Fϕ v ⇒ ϕ(v)Fϕ for all ϕ ∈ Γ and v ∈ A∗ and so
+                   ∗                    ∗
+            bvT R ⇒ bT vR ⇒ bFϕ vR ⇒ bϕ(v)Fϕ R ⇒ bϕ(v)T R.
+                    ∗
+Since S ⇒ bFϕ uR ⇒ bϕ(u)Fϕ R ⇒ bϕ(u)T R for every ϕ ∈ Γ, it follows that
+   ∗
+S ⇒ bθ(u)Fϕ R ⇒ bθ(u)b2 for every θ ∈ Γ+ . Together with S ⇒ bub2 , this
+yields bΓ∗ (u)b2 ⊆ L(G).
+    To prove the opposite inclusion, let
+            Z = S ∪ bxyb2 , bxT yR, bϕ(x)Fϕ yR | xy ∈ Γ∗ (u) .
+                      
+
+Then Z is closed under ⇒. That is: if X ∈ Z and X ⇒ Y , then Y ∈ Z.
+    Since S ∈ Z, it follows that L(G) ⊆ Z ∩ A∗ = bΓ∗ (u)b2 and so L(G) =
+bΓ (u)b2 . Thus bΓ∗ (u)b2 is context-sensitive and by Lemma 3.6, Γ∗ (u) =
+  ∗
+
+b\(bΓ∗ (u)b2 )/b2 is context-sensitive as well. 
+
+                                      17
+Theorem 3.8 P2 is a context-sensitive language.
+
+Proof. Since the class of context-sensitive languages is closed under union
+(Lemma 3.6), it follows from Proposition 3.2(ii) and Proposition 3.7 that
+P2 ∩ {a, b}+ = P2 ∩ {a, b}+ is context-sensitive. Moreover, Proposition 3.2(i)
+shows that P2 = ΛΨ(P2 ∩ {a, b}+ ) = ΨΛ(P2 ∩ {a, b}+ ). Since Ψ is finite, we
+need only prove that each ψΛ(P2 ∩ {a, b}+ ), ψ ∈ Ψ, is context-sensitive.
+    Notice that, for each ψ ∈ Ψ and each word w, ψ(w) = ψ(w). By
+Lemma 3.6 again, we need only to prove that Λ(P2 ∩ {a, b}+ ) is context-
+sensitive.
+    Let w ∈ R2 and p ∈ P2 ∩ {a, b}+ . If wpw−1 is not reduced, then one of
+wp and pw−1 is not reduced. In the first case, let q be the longest prefix
+of p such that q −1 is a suffix of w, say p = qr and w = vq −1 . Then
+wpw−1 = vq −1 qrqv −1 = vrqv −1 . The second case (if wp is reduced but
+pw−1 is not) is treated similarly. Iterating this reasoning, we find that
+wpw−1 = vp′ v −1 , where v is a prefix of w and p′ is a cyclic shift of the word
+p – that is, there are words q, r such that p = qr and p′ = rq.
+    Since P2 ∩ {a, b}+ is closed under taking cyclic shifts, it follows that
+Λ(P2 ∩ {a, b}+ ) is the set of reduced words of the form vpv −1 with p ∈
+P2 ∩ {a, b}+ .
+    Thus, if G = (V, P, S) is a context-sensitive A-grammar generating P2 ∩
+{a, b}+ , then Λ(P2 ∩ {a, b}+ ) = L(G ′ ) ∩ R2 , where G ′ = (V ′ , P ′ , S ′ ) is the
+context-sensitive A-grammar given by S ′ 6∈ V , V ′ = {S ′ } ∪ V and P ′ =
+P ∪ {S ′ → S} ∪ {S ′ → cS ′ c−1 ; c ∈ A2 ∪ A−1    2 }. In view of the closure
+                                          +
+properties in Lemma 3.6, Λ(P2 ∩ {a, b} ) is context-sensitive, and hence so
+is P2 . 
+
+    This result cannot be improved to the next level of Chomsky’s hierarchy:
+
+Proposition 3.9 P2 is not a context-free language.
+
+Proof. We show that P2 ∩ ab+ ab+ ab+ is not a context-free language. Since
+the class of context-free languages is closed under intersection with rational
+languages, it shows that P2 is not context-free either.
+    It follows easily from Proposition 3.2(i) that P2 ∩ ab∗ ab∗ ab∗ is equal to
+        n                                                             o
+          abm abn abk | m, n, k ∈ N, max(m, n, k) = min(m, n, k) + 1 .       (2)
+
+It is now a classical exercise to show that P2 ∩ ab+ ab+ ab+ is not context-free
+since it fails the Pumping Lemma for context-free languages [9, Section 6.1].
+
+
+
+                                         18
+4     Singularities, bridges and automorphisms in Σ
+We now discuss the evolution of the Stallings automaton of a subgroup H
+under the iterated action of the automorphisms in Σ. It is well-known that
+the automata A(ϕ(H)) may grow unboundedly as the length of ϕ (as a
+product of elements of Σ) grows. But in the context of the mixed orbit
+problem with respect to the automorphisms in Σ∗ , we are only interested
+in the possibility of reading a u-labeled loop (where u is a fixed word) in
+A(ϕ(H)): if the growth of the automata results in long stretches without
+branchpoints, then this growth does not affect the membership of u in ϕ(H)
+after a certain point.
+    Indeed, we show that the fragments of the A(ϕ(H)) (ϕ ∈ Σ∗ ) that could
+conceivably allow the reading of a u-loop take only finitely many values –
+and these fragments (which we call truncated automata) can be organised
+as the states of an automaton on alphabet Σ. The mixed orbit problem with
+respect to Σ∗ then reduces to deciding whether this automaton accepts a
+non-empty language.
+    We now get into the technical considerations that give substance to this
+overview of our method. Given H ≤fg F2 , we say that a state q of A(H) is
+                                               a       b
+    • a source if q · a, q · b 6= ∅,           ←−q −→
+                                                   a       b
+    • a sink if q · a−1 , q · b−1 6= ∅.            −→q ←−
+Note that a source may have incoming edges and a sink may have outgoing
+edges. We use the general term singularities to refer to both sources and
+sinks and we denote by Sing(H) the set of all singularities of A(H) plus the
+origin.
+    If we emphasize the vertices of Sing(H) in A(H), it is immediate that
+A(H) can be described as the union of positive paths, i.e. paths with label
+in (a ∪ b)+ , between the vertices of Sing(H), and these positive paths do not
+intersect each other except at Sing(H). We call such paths bridges. Note
+that every positive path whose internal states are not singularities can be
+extended into a uniquely determined bridge.
+
+4.1    Bridges in A(H)
+The next two results are easily verified.
+
+Fact 4.1 The automaton A(ϕb−1 ,a−1 (H)) has the same vertex set as A(H),
+edges are reverted and labels changed. In particular, sources and sinks are
+                                                w
+exchanged. If β is a bridge in A(H), β = p−→q, then there is a bridge
+
+                                          19
+of equal length q−→p in A(ϕb−1 ,a−1 (H)), labeled ϕb−1 ,a−1 (w−1 ), which we
+denote by ϕb−1 ,a−1 (β).
+
+Fact 4.2 The automaton A(ϕb,a (H)) has the same vertex set as A(H) and
+labels are exchanged. Sources and sinks remain the same. If β is a bridge in
+               w
+A(H), β = p−→q, then there is a bridge of equal length p−→q in A(ϕb,a (H)),
+labeled ϕb,a (w), which we denote by ϕb,a (β).
+
+Dealing with ϕa,ba is naturally a little more complex. However, as we will see
+in the next two statements, the foldings implied in computing A(ϕa,ba (H))
+are very local: they can be performed in a single round of independent
+foldings. Moreover, sources in A(ϕa,ba (H)) were already sources in A(H)
+and sinks in A(ϕa,ba (H)) are at distance 1 of sinks in A(H).
+
+Fact 4.3 The automaton A(ϕa,ba (H)) is obtained from A(H) by the follow-
+ing 3 steps:
+           b
+(S1) If p−→q is an edge of A(H) and q is not a sink, we replace that edge
+                 b    a
+     by a path p−→ • −→q, adding a new intermediate vertex for each such
+     edge.
+           b    a
+(S2) If p−→q ←−r is a sink in A(H), we replace this configuration by
+
+                                          b
+                                 p        q hh       ** r
+                                                 a
+
+
+(S3) We iteratively remove all the vertices of degree 1 different from the
+     origin.
+
+Proof. Following [18, Subsection 1.2], the automaton A(ϕ(H)) may be ob-
+tained from A(H) in three steps:
+ (1) We replace each edge labelled by b by a path labelled ba (introduc-
+     ing a new intermediate vertex for each such edge), producing a dual
+     automaton B.
+
+ (2) We execute the complete folding of B.
+
+ (3) We successively remove all the vertices of degree 1 different from the
+     origin.
+How much folding is involved in the process? Let us consider the first level
+of folding, i.e. those pairs of edges that can be immediately identified in B.
+
+                                     20
+   • There are no b-edges involved in the first level of folding: indeed, the
+     b-edges keep their origin when we go from A(H) to B, and their target
+     is always a new vertex where folding cannot take place.
+                          b    a
+   • If we have a sink p−→q ←−r in A(H), we get
+                                       b         a         a
+                                   p−→ • −→q ←−r
+
+     in B and therefore an instance of first level folding, yielding
+                                                b
+                                   p            q hh           ** r
+                                                       a
+
+
+   • These are the only instances of first level folding: we cannot fold two
+                     a    a
+     “new” a-edges −→q ←− in B since that would imply the existence of
+                  b    b
+     two b-edges −→q ←− in A(H).
+Let C denote the automaton obtained by performing all the instances of first
+level folding in B. It follows from the above remarks that C can be obtained
+from A(H) by application of (S1) and (S2).
+    We actually need no second level of folding because C is already deter-
+ministic. Indeed, it is clear from (S1) and (S2) that configurations such as
+  a    a       b    b
+←−q −→ or ←−q −→ cannot occur in C.
+                      b    b
+    Suppose that −→q ←− does occur. Then both edges must have been
+obtained through (S2) and the origin of these edges is the vertex q · (ab−1 )
+in A(H), a contradiction.
+                              a   a
+    Finally, suppose that −→q ←− does occur. At least one of these edges
+must have been obtained through (S1), but not both, otherwise we would
+                        b    b
+have a configuration −→q ←− in A(H). But then we would have a configura-
+       a    b
+tion −→q ←− in A(H) and q would be a sink, contradicting the application
+of (S1). Thus C is deterministic and so A(ϕ(H)) is obtained from A(H) by
+successive application of (S1), (S2) and (S3). 
+
+
+Fact 4.4 (i) When applying ϕa,ba , a state of A(H) is trimmed in step
+     (S3) if and only if it is a sink of A(H) without outgoing edges. More-
+     over, no consecutive states can be trimmed.
+ (ii) The sources of A(ϕa,ba (H)) are precisely the sources p of A(H) such
+      that p · a is not a sink or has outgoing edges in A(H).
+(iii) The sinks of A(ϕa,ba (H)) are precisely the states p of A(H) with in-
+      coming edges such that p · a is a sink of A(H).
+
+                                           21
+Proof. (i) The origin cannot be trimmed and the number of outgoing edges
+never decreases, so the only possible candidates to (S3) are the states that
+see a decrease in their number of incoming edges, which are precisely the
+sinks of A(H). Their fate will then depend on the previous existence of
+some outgoing edge. Note that A(H) cannot possess two consecutive sinks
+with no outgoing edges, hence the trimming of a vertex will not be followed
+by the trimming of any of its neighbours.
+    (ii) Since outgoing edges can be at most redirected through (S1) and
+(S2), it is clear that every source p of A(ϕa,ba (H)) must be a source of
+A(H). Thus everything will depend on p · a being trimmed or not, and part
+(i) yields the claim.
+    (iii) No new intermediate vertex obtained through (S1) can become a
+sink, and any sink of A(H) will not remain such after application of (S2).
+Thus the only remaining candidates are the non-sinks of A(H) that see an
+increase of their number of incoming edges, which are precisely those of
+the form q · a−1 , where q is a sink of A(H). Clearly, to have two distinct
+incoming edges in A(ϕa,ba (H)), p = q · a−1 must have at least one incoming
+edge in A(H). In such a case, it is easy to check that after (S1)/(S2), p has
+indeed become a sink of A(ϕa,ba (H)). We remark also that the subsequent
+trimming by (S3) does not affect the presence of singularities. 
+
+                       w
+Fact 4.5 Let β = p−→q be a bridge in A(H) of length at least 2, and let
+w = w′ cd where c, d ∈ A.
+                                         ϕa,ba (w ′ c)
+  (i) A(ϕa,ba (H)) has a positive path p −−−−→s, which extends to a uniquely
+      determined bridge, denoted by ϕa,ba (β).
+
+ (ii) |ϕa,ba (β)| ≥ |β| − 1, and we have |ϕa,ba (β)| = |β| − 1 exactly if w ∈ a+ ,
+      p is a source or the origin in A(H), and q is a sink in A(H).
+                      w′    c    d
+Proof. Write β = p−→r −→s−→q.
+                                              ϕa,ba (w ′ c)
+    (i) By Fact 4.4, no state of the path p −−−−→s risks trimming. Hence it
+suffices to check that no internal state of this path can become a singularity.
+This follows easily from Fact 4.4 (ii) and (iii).
+    (ii) The inequality |ϕa,ba (β)| ≥ |β| − 1 follows at once from part (i).
+It follows also that |ϕa,ba (β)| = |β| − 1 if and only if w′ c ∈ a+ (otherwise
+|ϕa,ba (β)| ≥ |ϕa,ba (w′ c)| > |w′ c| = |β| − 1) and p, s ∈ Sing(ϕa,ba (H)). Thus
+we assume that w′ c ∈ a+ .
+    Clearly, if p is the origin, it must remain so. If p is a source, it follows
+from Fact 4.4 (ii) that p remains a source (since p · a is not a sink in A(H)).
+
+                                       22
+Finally, if p is a sink, it will no longer be a singularity in A(ϕa,ba (H)) by
+Fact 4.4 (iii). Therefore p ∈ Sing(ϕa,ba (H)) if and only if it is a source or
+the origin in A(H).
+   Similarly, q can never become the origin or a source. Since q has in-
+coming edges in A(H), it follows from Fact 4.4(iii) that s becomes a sink in
+A(ϕa,ba (H)) if and only if s · a is a sink in A(H). Since the unique outgoing
+edge of s in A(H) has label d, then s ∈ Sing(ϕa,ba (H)) if and only if d = a
+and q is a sink in A(H). 
+
+
+4.2   Homogeneous cycles and cycle-free paths
+Let σ(H) = max(1, source(H) + sink(H)), where source(H) (resp. sink(H))
+is the number of sources (resp. sinks) of A(H). We call σ(H) the number of
+singularities of A(H). Note that a vertex may be a source and a sink, and
+in that case, it contributes twice to σ(H).
+                           w
+    We say that a path p−→r is homogeneous if w ∈ Ra ∪Rb , and it is special
+homogeneous if, in addition, it starts at a source or the origin, and it ends at
+a sink or the origin. Let hc(A) (resp. hcfp(A), shcfp(A)) be the maximum
+length of a homogeneous cycle (resp. homogeneous cycle-free path, special
+homogeneous cycle-free path) in automaton A.
+    Given H ≤f.g. F2 , we define
+
+                     δ0 (H) = max(σ(H), hc(A(H)),
+                      δ(H) = max(δ0 (H), hcfp(A(H)),
+                      ζ(H) = max(δ0 (H), shcfp(A(H)).
+
+We record the following inequalities.
+
+Lemma 4.6 Let H ≤f.g. F2 . Every cycle or a cycle-free path labeled bk in
+A(ϕa,ba (H)) satisfies k ≤ σ(H).
+                                             bk
+Proof. Let us first assume that α = p−→q is a cycle-free path, say
+                                b     b           b
+                        p = q0 −→q1 −→ . . . −→qk = q.
+
+Since any b-edge obtained through (S1) must be followed only by an a-edge
+                                         b
+(see Fact 4.3), only the last edge qk−1 −→qk may be obtained through (S1),
+and the other edges arise from applications of (S2). Thus there exist edges
+
+
+
+
+                                        23
+in A(H) (represented through discontinuous lines) of the form
+
+                       p   1          p   2                   pk−2            p
+                                                                              k−1
+                  }>> OO       }>> OO                          OO       v;; OO
+              b }         a b } a                              a bv v           a
+              }            }                                   
+                                                                   v
+                                                                     v             
+            }                }
+         q0        / / q1        // q2             ...        qn−2       // qk−1            // qk
+                 b              b                                       b               b
+
+In particular, the vertices p1 , . . . , pk−1 are distinct sinks in A(H), and the
+vertices q1 , . . . , qk−1 are distinct sources in A(H). Therefore 2k − 2 ≤ σ(H)
+and hence k ≤ σ(H).
+    If α is a cycle, then not even the last edge of α arises from an application
+of (S1), and the same reasoning shows that 2k ≤ σ(H), so k ≤ σ(H). 
+
+
+Lemma 4.7 Let H ≤f.g. F2 and ϕ ∈ Σ. Then
+
+                                              σ(ϕ(H)) ≤ σ(H),
+                                              δ0 (ϕ(H)) ≤ δ0 (H),
+                                              ζ(ϕ(H)) ≤ ζ(H).
+
+Proof. The first inequality is a direct consequence of Facts 4.1, 4.2 and 4.4.
+    By Facts 4.1 and 4.2, the other inequalities are trivial if ϕ = ϕb,a or
+ϕb−1 ,a−1 . We now assume that ϕ = ϕa,ba . Since σ(ϕ(H)) ≤ σ(H), we only
+need to show that the maximum length of a homogeneous cycle (resp. cycle-
+free special homogeneous) path α = p−→q in A(ϕ(H)) (p = q in the case of
+a cycle) is at most equal to δ0 (H) (resp. ζ(H)).
+    If the label of α is bk , then Lemma 4.6 shows that k ≤ σ(H), so k ≤
+δ0 (H) ≤ ζ(H).
+    Suppose now that the label of α is ak . In view of Fact 4.3, none of its
+                                                             b    a
+edges was obtained trough (S1): indeed the a-edge in •−→ • −→• produced
+by (S1) cannot occur in a homogeneous cycle, nor in a homogeneous path
+unless it is its first edge. But its initial vertex is not a singularity, so this
+edge cannot occur in a special homogeneous path. Hence the path α already
+existed in A(H). If α is a cycle, then k ≤ δ0 (H).
+    If instead α is a special homogeneous cycle-free path, then Fact 4.4 (ii)
+shows that p is either the origin or a source in A(H). If q is the origin, we
+immediately get k ≤ ζ(H). If instead q is a sink in A(ϕ(H)), then s = q · a
+is a sink of A(H) by Fact 4.4 (iii), and we have a path
+                                                         ak     a
+                                        α′ = p−−−→q −−→s
+
+
+                                                      24
+in A(H). If α′ is cycle-free, then k < k + 1 ≤ ζ(H). If, on the contrary,
+α′ is not cycle-free, then s is the only repetition since the length k prefix of
+α′ , namely α, is cycle-free. If s 6= p, then q would also be a repetition since
+A(H) is an inverse automaton. Therefore s = p, so α′ is a homogeneous
+cycle in A(H) and hence k < k + 1 ≤ δ0 (H) ≤ ζ(H). This concludes the
+proof. 
+
+
+Remark 4.8 Note that it is not the case that δ(ϕ(H)) ≤ δ(H) always holds
+when ϕ ∈ Σ: see the case where H = hbai and ϕ = ϕa,ba .
+
+4.3   Truncated automata
+Given H ≤f.g. F2 , we consider the geodesic metric d defined on the vertex set
+of A(H) by taking d(u, v) to be the length of the shortest path connecting
+u and v. Since A(H) is inverse, it is irrelevant to consider directed or
+undirected paths. As usual, we have
+
+                d(u, Sing(H)) = min{d(u, v) | v ∈ Sing(H)}.
+
+Given t > 0, the t-truncation of A(H), denoted by At (H), is the automaton
+obtained by removing from A(H) all vertices u such that d(u, Sing(H)) > t
+and their adjacent edges. Note that this automaton does not need to be
+connected.
+    We first observe that if β is a bridge which is long enough to be affected
+by the t-truncation of A(H), then for each ϕ ∈ Σ, ϕ(β) is affected by the
+t-truncation of A(ϕ(H)) as well.
+
+Proposition 4.9 Let ϕ ∈ Σ, H ≤f.g. F2 and K ∈ Σ∗ (H). If β is a bridge
+in A(K) and |β| > ζ(H), then |ϕ(β)| ≥ |β|.
+
+Proof. The result is trivial if ϕ = ϕb−1 ,a−1 or ϕ = ϕb,a since in those cases,
+|ϕ(β)| = |β| (Facts 4.1 and 4.2). We now assume     that ϕ = ϕa,ba .
+                                                ak
+   By Fact 4.5, if |ϕ(β)| < |β|, then β = p−→q, where k > ζ(H), p is a
+source or the origin in A(K), and q is a sink of A(K). In particular, β is a
+special homogeneous cycle-free path, so that |β| ≤ ζ(K).
+   Since K ∈ Σ∗ H, Lemma 4.7 shows that ζ(K) ≤ ζ(H), a contradiction.
+
+
+
+
+
+                                      25
+Theorem 4.10 Let ϕ ∈ Σ, H ≤f.g. F2 , t > 12 ζ(H) and K, K ′ ∈ Σ∗ (H).
+Then
+          At (K) = At (K ′ ) =⇒ At (ϕ(K)) = At (ϕ(K ′ )).
+
+Proof. As in several previous proofs, the result is trivial if ϕ = ϕb,a or
+ϕb−1 ,a−1 , and we may assume that ϕ = ϕa,ba .
+     By Proposition 4.9, we know that, once the length of a bridge reaches
+the threshold ζ(H)+1, it can only get longer. Since t > 12 ζ(H), t-truncation
+affects only bridges of length at least ζ(H) + 1. We must therefore discuss
+the truncation mechanism for such long bridges.
+                            w
+     Assume that β = p−→q is a bridge in A(µ(H)) (µ ∈ Σ∗ ) with |w| ≥
+2t + 1. Then we may write w = uzv with |u| = |v| = t. By Proposition 4.9,
+the label of ϕ(β) is of the form u′ z ′ v ′ with |u′ | = |v ′ | = t and |z ′ | ≥ |z|. We
+only need to prove that u′ and v ′ depend only on At (µ(H)) and are therefore
+independent from z.
+     In view of Fact 4.4, it is clear that u′ depends only on At (µ(H)) (remem-
+ber that w = uzv is a positive word and singularities cannot move forward
+along a positive path). The nontrivial case is of course the case of q being a
+sink in A(µ(H)), since by Fact 4.4 (iii) a sink can actually be transferred to
+the preceding state along a positive path. We claim that even in this case
+v ′ is independent from z.
+     Indeed, assume first that b occurs in v. Then |ϕ(v)| > |v| provides
+enough compensation for the sink moving backwards one position. Hence
+we may assume that v = at . We claim that v ′ = at as well, independently
+from z. Suppose not. Since we are assuming that the sink has moved from
+q to its predecessor, and ϕ(at−1 ) = at−1 , it follows that v ′ = bat−1 . Hence
+b occurs in w. Write w = xbam . Since ϕ(bam ) = bam+1 , and taking into
+account the mobile sink, we obtain by comparison bam = bat−1 and so
+m = t − 1, a contradiction, since at is a suffix of w. Therefore v ′ = at and
+so is independent from z as required. 
+
+
+Corollary 4.11 Let H ≤f.g. F2 and t > 12 ζ(H). Then the set
+
+                        X (t, H) = {At (K) | K ∈ Σ∗ (H)}
+
+is finite and effectively constructible.
+
+Proof. By Lemma 4.7, every automaton A(K), K ∈ Σ∗ (H), has at most
+σ(H) singularities. By definition of a t-truncation, every state in At (K)
+
+
+                                          26
+is at distance at most t from a singularity, and hence the size of At (K) is
+bounded. Thus X (t, H) is finite.
+    The proof of Theorem 4.10 provides a straighforward algorithm to com-
+pute all its elements. Indeed, all we need is to compute the finite sets
+
+                     Xn (t, H) = {At (K) | K ∈ Σn (H)}
+
+until reaching
+                                         n
+                                         [
+                         Xn+1 (t, H) ⊆         Xi (t, H),                          (3)
+                                         i=0
+
+which must occur eventually since X (t, H) = ∪i≥0 Xi (t, H) is finite. Why
+does (3) imply X (t, H) = ∪ni≥0 Xi (t, H)? Suppose that B ∈ Xm (t, H) \
+(∪ni≥0 Xi (t, H)) with m minimal, say B = At (ϕ(K)) with K ∈ Σm−1 (H)
+and ϕ ∈ Σ. By minimality of m, we have At (K) ∈ ∪ni≥0 Xi (t, H). Thus
+At (K) = At (K ′ ) for some K ′ ∈ ∪ni=0 Σi (H). Now Theorem 4.10 yields
+                                            n+1
+                                            [                   n
+                                                                [
+                                   ′
+         B = At (ϕ(K)) = At (ϕ(K )) ∈             Xi (t, H) =         Xi (t, H),
+                                            i=0                 i=0
+
+a contradiction. Therefore X (t, H) = ∪ni≥0 Xi (H) as claimed. 
+
+
+
+5     Back to orbit problems in F2
+We saw in Section 2 that it is decidable whether a given element u ∈ F2
+has an automorphic image in a given rational subset of F2 , and in particular
+in a given finitely generated subgroup of F2 (Corollary 2.3 above). We use
+truncated automata to give a different proof of this result in the finitely
+generated subgroup case. We also prove the decidability of mixed orbit
+problems under the action of certain rational subsets of Σ∗ .
+
+5.1   Some mixed orbit problems
+The archetypal result in this section is the solution of the following mixed
+orbit problem.
+
+Proposition 5.1 Let u ∈ F2 an H ≤fg F2 . The set of automorphisms
+ϕ ∈ Σ∗ such that u ∈ ϕ(H) (resp. a conjugate of u lies in ϕ(H)), is an
+effectively constructible rational subset of Σ∗ .
+
+
+                                       27
+Proof. Let t > max( 12 ζ(H), 12 |u|): if ϕ ∈ Σ∗ , then u ∈ ϕ(H) if and only if
+u labels a loop at the origin in A(ϕ(H)). Note that this is the case if and
+only if u labels a loop at the origin in At (ϕ(H)).
+    We now view Σ as a finite alphabet (besides being a subset of Aut F2 )
+and we consider the Σ-transition system Bt (H) defined as follows. (A Σ-
+transition system is defined like a Σ-automaton, omitting the specification
+of the initial and terminal states.) The state set of Bt (H) is X (t, H) (see
+                                                                 ϕ
+Corollary 4.11) and its transitions are the triples At (K)−→At (ϕ(K)), for
+each At (K) ∈ X (t, H) and ϕ ∈ Σ. Note that X (t, H) is finite and effectively
+constructible by Corollary 4.11 and the transitions of Bt (H) are well-defined
+by Theorem 4.10. Moreover, this transition system is complete and deter-
+ministic by construction (and so defines recognizable subsets of Σ∗ as a
+submonoid of Aut F2 ). It is immediate that if the word (ϕ1 , . . . , ϕn ) ∈ Σ∗
+labels a path from At (K) to At (K ′ ) in Bt (H) (K, K ′ ∈ Σ∗ (H)), then
+At (K ′ ) = At (ϕn . . . ϕ1 (K)).
+    Now consider the automaton formed by the transition system Bt (H)
+with initial state At (H) and terminal states the elements At (K) of X (t, H)
+such that u labels a loop at the origin in At (K) (i.e. u ∈ K). The above
+discussion shows that the language accepted by this automaton is the set
+of words (ϕ1 , . . . , ϕn ) ∈ Σ∗ such that u ∈ ϕn · · · ϕ1 (H). Thus the set of all
+ϕ ∈ Σ∗ such that u ∈ ϕ(H) is rational and effectively constructible.
+    Observe that a conjugate of u lies in ϕ(H) (ϕ ∈ Aut F2 ), if and only
+if u labels a loop at the origin in A(λw ϕ(H)) for some w ∈ F2 , if and
+only if cc(u) labels a loop somewhere in A(ϕ(H)). We now consider the
+Σ-transition system Bt (H) as above, with the same initial state, and we
+take as terminal states the elements At (K) of X (t, H) such that cc(u) labels
+a loop anywhere in At (K). The language in Σ∗ accepted by the resulting
+automaton is the set of ϕ ∈ Σ∗ such that ϕ(H) contains a conjugate of u.
+
+
+    The same idea — and the same transition system— can be used to
+algorithmically solve a number of other orbit problems.
+
+Theorem 5.2 Let H, K ≤fg F2 , u, u1 , . . . , uk ∈ F2 and R ∈ Rat Σ∗ . Then
+the following problems are decidable:
+ (1) whether u ∈ µ(H) for some µ ∈ R;
+ (1′ ) whether a conjugate of u lies in µ(H) for some µ ∈ R; that is, whether
+       u ∈ µ(H) for some µ ∈ ΛR;
+ (2) whether K ⊆ µ(H) for some µ ∈ R;
+
+                                        28
+ (2′ ) whether a conjugate of K is contained in µ(H) for some µ ∈ R; that
+       is, whether K ⊆ µ(H) for some µ ∈ ΛR;
+
+ (3) whether K = µ(H) for some µ ∈ R;
+
+ (3′ ) whether a conjugate of K is equal to µ(H) for some µ ∈ R; that is,
+       whether K = µ(H) for some µ ∈ ΛR;
+
+ (4) whether there exist w1 , . . . , wk ∈ F2 such that λw1 (u1 ), . . . , λwk (uk ) ∈
+     µ(H) for some µ ∈ R.
+
+In addition, for each of these problems, the set of morphisms µ ∈ Σ∗ that it
+defines is rational and effectively constructible.
+
+Proof. The solutions of Problems (1) and (1′ ) follow from Proposition 5.1:
+the set X of automorphisms ϕ ∈ Σ∗ such that ϕ(H) contains u (resp. a
+conjugate of u) is rational and we can compute a Σ-automaton recognizing
+that set. Since Bt (H) is deterministic and complete, we only have to decide
+whether X has a non-empty intersection with the given rational set R, a
+classical decidable result from automata theory.
+    The other proofs follow the same pattern, and correspond to variants of
+Proposition 5.1. Let us consider Problem (2) and let u1 , . . . , uk be generators
+of K. Then we need to consider the Σ-transition system Bt (H) with t >
+max( 21 ζ(H), 12 |u1 |, . . . , 21 |uk |), and to choose as terminal states the elements
+A ∈ X (t, H) such that ū1 , . . . , ūk label loops at the origin in A.
+    For Problem (2′ ), we consider a cyclically reduced conjugate K ′ of K,
+that is, one such that the origin in A(K ′ ) has degree at least 2 (if the origin
+in A(K) has degree 1, choose any vertex v with degree at least 2 as the
+new origin and let K ′ be the corresponding conjugate). Let u1 , . . . , uk be
+generators of K ′ . Then a conjugate of K lies in µ(H) if and only if the ūi
+label loops around the same vertex of A(µ(H)). Thus it suffices to choose
+t > max( 12 ζ(H), 21 |u1 |, . . . , 12 |uk |), and to take as terminal states the elements
+A ∈ X (t, H) such that ū1 , . . . , ūk label loops around the same vertex of A.
+    For Problem (3), we choose again t > max( 12 ζ(H), 12 |u1 |, . . . , 21 |uk |),
+where u1 , . . . , uk are generators of K. In particular, t is large enough to
+have At (K) = A(K), and we choose a single terminal state, At (K) (if
+At (K) ∈ X (t, H); if that is not the case, then Problem (3) is decidable, in
+the negative). Then we have an automaton which recognizes the set L(t, K)
+of all µ ∈ Σ∗ such that At (µ(H)) = At (K) = A(K). Observe now that trun-
+cation creates (pairs of) degree 1 vertices: the automorphisms µ ∈ L(t, K)
+are such that At (µ(H)) has at most one degree 1 vertex (the origin), and
+
+
+                                           29
+hence At (µ(H)) = A(µ(H)). Thus our automaton recognizes the set of all
+µ ∈ Σ∗ such that A(µ(H)) = A(K), that is, such that µ(H) = K.
+   For Problem (3′ ), we consider a cyclically reduced conjugate K ′ of K
+and an integer t as in Problem (2′ ). Again, we have At (K ′ ) = A(K ′ ). We
+choose as terminal states the elements of X (t, H) of the form At (λw (K))
+(w ∈ F2 ). These automata are of one of the following types:
+
+                      x                                z            x
+    A(K ′ )                   A(K ′ )                                      A(K ′ )
+
+   form (a)                form (b)                             form (c)
+
+with |x| ≤ t and |z| = t. As in the discussion of Problem (3), the existence
+of a µ-labeled path in Bt (H) from At (H) to an automaton of type (a) or
+(b) shows that µ(H) is a conjugate of K ′ , and hence of K. If the path in
+Bt (H) ends in an automaton of type (c), then µ(H) is a conjugate of K ′ of
+the form zyxwK ′ (zyxw)−1 or z −1 yxwK ′ (z −1 yxw)−1 for some y, w such that
+zyxw or z −1 yxw is reduced. We then conclude the proof of the decidability
+of Problem (3′ ) as usual.
+    Finally, for Problem (4), we choose t > max( 12 ζ(H), 12 |cc(u1 )|, . . . , 21 |cc(uk )|)
+and we choose as terminal states the elements A ∈ X (t, H) such that each
+cc(ui ) (i = 1, . . . , k) labels a loop at some vertex in A. 
+
+    We can also consider finitely many subgroups Hi in (4) and many other
+variations.
+    A simple rewriting of Theorem 5.2 in terms of orbit problems (see the
+introduction) yields the following corollary.
+
+Corollary 5.3 Let H ≤fg F2 , u ∈ F2 and R ∈ Rat Σ∗ . Then it is decidable
+whether the orbit of u under the action of R−1 (resp. ΛR−1 ) meets H.
+   If in addition K ≤fg F2 , then it is decidable whether H contains an
+element of the orbit of K under the action of R−1 or ΛR−1 ; whether H is
+contained in an element of the orbit of K under the action of R or ΛR; and
+whether K is an element of the orbit of H under the action of R, R−1 , ΛR
+or ΛR−1 .
+
+    Applying Corollary 5.3 to the case where u is a letter in A, we get a
+statement about primitive elements.
+
+Corollary 5.4 Let H ≤fg F2 and R ∈ Rat Σ∗ . Then it is decidable whether
+H contains a primitive element of the form µ(a), µ−1 ∈ R (resp. µ−1 ∈ ΛR).
+
+                                           30
+Remark 5.5 Let S be a subset of R2 such that, for each rational set S ′ ,
+one can decide whether S ∩ S ′ is empty or not. Then Problems (1′ ), (2′ ) and
+(3′ ) in Theorem 5.2 are decidable even if we restrict the conjugating factors
+to be in S, that is, if we replace Λ by {λs | s ∈ S} in the statement of these
+problems. The same restriction can be imposed to Λ in the statements of
+Corollaries 5.3 and 5.4.
+     Similarly, Problem (4) in Theorem 5.2 remains decidable even if we re-
+quire the wi to be in fixed subsets Si (i = 1, . . . , k) such that, for each
+rational set S ′ , one can decide whether Si ∩ S ′ is empty or not. 
+
+
+5.2   Orbits under invertible substitutions
+Invertible substitutions are an interesting special case of the rational subsets
+of Aut F2 discussed in Section 5.1. This leads to the following statement.
+
+Corollary 5.6 The problems discussed in Theorem 5.2 and Corollaries 5.3
+and 5.4 are decidable also if R is assumed to be a rational subset of IS(F2 )
+or IS(F2 )−1 .
+
+Proof. If R ∈ Rat IS(F2 ), then R ∈ Rat Σ∗ by Lemma 3.5, and we simply
+apply Theorem 5.2 and Corollaries 5.3 and 5.4.
+   If R ∈ IS−1 (F2 ), then R = ϕa,b−1 R′ ϕa,b−1 for some R′ ∈ Rat Σ∗ by
+Lemma 3.5 (R′ is the set of inverses of the elements of R). Problem (1)
+in Theorem 5.2 on instance u, H and R, for example, is equivalent to the
+same problem on instances ϕa,b−1 (u), ϕa,b−1 (H) and R′ , which we know to
+be decidable. The other problems are handled in the same fashion. 
+
+
+5.3   Another solution of the mixed orbit problem for Aut F2
+Our proof relies on truncated automata and Theorem 3.4. The key is to
+bound the powers of ϕa,ba that we need to consider, and is achieved in view
+of our previous bound for the length of homogeneous cycles.
+    Let u ∈ F2 and H ≤f.g. F2 . We want to show that it is decidable whether
+µ(u) ∈ H for some µ ∈ Aut F2 . By Theorem 3.4, and since Ψ−1 = Ψ, it
+suffices to decide whether there exist w ∈ F2 and n ≥ 0 such that one of the
+following conditions hold:
+
+   • λw ϕna,ba ϕa−1 ,b (u) ∈ Σ∗0 Ψ(H);
+
+   • λw ϕna,ba ϕa−1 ,b−1 (u) ∈ Σ∗0 Ψ(H).
+
+                                           31
+Since Ψ is finite, it suffices to be able to decide whether
+
+  there exist w ∈ F2 , n ≥ 0 and µ ∈ Σ∗0 such that λw ϕna,ba (u) ∈ µ(H).     (4)
+
+    We start by considering the case n = 0. By Proposition 3.1 (i), we may
+replace λw ϕna,ba by ϕna,ba λw , so we may assume that u is cyclically reduced.
+And by Proposition 1.2 (iv), our problem further reduces to asking if one
+can decide whether
+
+                u labels a loop in A(µ(H)) for some µ ∈ Σ∗0 .                (5)
+
+We note that every loop contains either the origin or a singularity: if it does
+not contain the origin, then there is a path from the origin to a state in the
+loop, and the first contact between that path and the loop is a source or a
+sink. Now let us fix t > max( 12 ζ(H), 12 |u|): then u labels a loop in A(µ(H))
+if and only if u labels a loop in At (µ(H)). By the appropriate variant of
+Corollary 4.11 (where Σ is replaced with Σ∗0 ) we can effectively compute the
+finite set
+                       X0 (H) = {At (K) | K ∈ Σ∗0 (H)}.
+Thus (5) is decidable, and hence (4) is decidable for n = 0. It is also
+decidable for any fixed n (applying the case n = 0 to ϕna,ba (u) instead of u).
+    We now consider (4) in its full generality. If u ∈ Ra , then we are reduced
+to the case n = 0 since ϕa,ba (u) = u. So we assume that b or b−1 occurs in
+u, and by conjugation again, we may assume that u starts with b or ends
+with b−1 (and not both since u is cyclically reduced).
+    Let M be the least common multiple of 1, 2, . . . , δ0 (H). In order to prove
+(4), it suffices to show that
+
+      if there exist w ∈ F2 , n ≥ 0 and µ ∈ Σ∗0 such that λw ϕna,ba (u) ∈
+      µ(H), then there exists such a triple (w, n, µ) with n < |u| +
+      max(M, δ(H)).
+
+Since we have proved (4) for bounded n, the latter property is decidable,
+and hence (4) is decidable in general.
+   So we are left with the task of proving this reduced claim. Let (w, n, µ)
+be such that λw ϕna,ba (u) ∈ µ(H), with n minimal, and let us suppose that
+n ≥ |u| + max(M, δ(H)).
+   Write u = ai0 bε1 ai1 . . . bεk aik with k ≥ 1 and εℓ = ±1 for every ℓ. If
+m ≥ 0, then
+                 ϕm                           j0 ε1 j1   εk jk
+                   a,ba (u) = ϕa,bam (u) = a b a . . . b a
+
+
+
+
+                                       32
+with            
+                iℓ + m
+                                if εℓ = εℓ+1 = 1, or ℓ = k and εk = 1
+            jℓ = iℓ − m          if εℓ = εℓ+1 = −1, or ℓ = 0 and ε1 = −1
+                
+                  iℓ             in all other cases.
+                
+
+Recall that u is cyclically reduced, and that it starts with b (i0 = 0 and
+ε1 = 1) or ends with b−1 (ik = 0 and εk = −1). It follows that ϕa,bam (u) is
+cyclically reduced and that it too starts with b or ends with b−1 .
+    By Proposition 1.2 (iv), ϕna,ba (u) labels a loop α in A(µ(H)). Moreover,
+we have
+                                                    n−M
+       ϕna,ba (u) = ar0 bε1 ar1 . . . bεk ark ,    ϕa,ba (u) = as0 bε1 as1 . . . bεk ask ,
+
+with
+   
+   rℓ = iℓ + n, sℓ = rℓ − M
+                                         if εℓ = εℓ+1 = 1, or ℓ = k and εk = 1
+     rℓ = iℓ − n, sℓ = rℓ + M             if εℓ = εℓ+1 = −1, or ℓ = 0 and ε1 = −1
+   
+     sℓ = rℓ = iℓ                         in all other cases.
+   
+
+In the first and second cases, |rℓ | > n − |u| ≥ max(M, δ(H)); and in the last
+case, |rℓ | < |u|. Thus, for the indices ℓ such that rℓ 6= sℓ , we have rℓ > δ(H).
+We now show that the fragments of the loop α labeled by the factors arℓ
+such that rℓ 6= sℓ , fail to be cycle-free in A(µ(H)).
+    Recall that µ ∈ Σ∗0 . If µ = id or ϕb−1 ,a−1 , the result is immediate
+since rℓ > δ(H) = δ(µ(H)). If µ = ϕa,ba ν with ν ∈ Σ∗0 , then we can use
+Proposition 3.1 (i) to reduce n, a contradiction. Hence we may assume that
+µ = ϕb−1 ,a−1 ν with ν ∈ Σ∗0 , ν 6= id. Since ϕ2b−1 ,a−1 = id, we may further
+assume that µ = ϕb−1 ,a−1 ϕa,ba ν ′ with ν ′ ∈ Σ∗0 . Then the vertices involved
+in the arℓ -labeled fragment of α form a path in A(ϕa,ba ν ′ (H)) labeled brℓ .
+Since rℓ > δ(H), we also have rℓ > σ(H) ≥ σ(ν ′ (H)) (Lemma 4.7), and
+hence this path is not cycle-free by Lemma 4.6.
+    So, for each ℓ such that rℓ 6= sℓ , the fragment of α labeled by the factor
+arℓ of ϕna,ba (u) fails to be cycle-free, and must be read along a cycle of
+A(µ(H)) (in an inverse automaton, if a homogeneous path contains a cycle,
+then it reads entirely along that cycle).
+    By definition, M is a multiple of the length cℓ of that cycle. Now compare
+  n−M
+ϕa,ba (u) and ϕna,ba (u): wherever the a-factors arℓ and asℓ are different, their
+difference is either aM or a−M , and hence it consists of a whole number of
+                                                        n−M
+passages around the length cℓ cycle. Therefore ϕa,ba          (u) labels a path in
+A(µ(H)) as well. This contradicts the minimality of n and completes the
+proof.
+
+                                                  33
+Remark 5.7 The a priori complexity of the algorithms discussed in Sec-
+tion 5 is very high: if u has length at most n and A(H) has at most n states,
+then σ(H), ζ(H) ≤ n and the truncated automata can have exponentially
+many states. There can therefore be super-exponentially many truncated
+automata, forming the states of the transition system Bt (H) – in which we
+must solve a reachability problem (polynomial in the number of states of
+the transition system).
+
+
+References
+ [1] M. Benois, Parties rationnelles du groupe libre, C. R. Acad. Sci. Paris 269
+     (1969), 1188–1190.
+ [2] J. Berstel, A. Lauve, C. Reutenauer and F. Saliola. Combinatorics on words:
+     Christoffel words and repetitions in words, CRM monograph series 27, AMS,
+     2009.
+ [3] P. Brinkmann,     Detecting      automorphic     orbits   in   free   groups,
+     arXiv:0806.2889v1.
+ [4] A. Clifford and R. Goldstein, Subgroups of free groups and primitive elements,
+     J. Group Theory, to appear.
+ [5] M. Cohen, W. Metzler and A. Zimmermann. What does a basis of F (a, b) look
+     like?, Math. Ann. 257 (1981), 435–445.
+ [6] V. Diekert, C. Gutiérrez and C. Hagenah, The existential theory of equations
+     with rational constraints in free groups is PSPACE-complete, Information and
+     Computation 202 (2005), 105–140.
+ [7] S. Gersten, On Whitehead’s algorithm, Bull. Am. Math. Soc. 10 (1984) 281–
+     284.
+ [8] , R. Goldstein, An algorithm for potentially positive words in F2 , In Com-
+     binatorial group theory, discrete groups, and number theory, volume 421 of
+     Contemp. Math., pages 157-168. Amer. Math. Soc., 2006.
+ [9] J. E. Hopcroft and J. D. Ullman, Introduction to Automata Theory, Languages
+     and Computation, Addison-Wesley, 1979.
+[10] I. Kapovich and A. Myasnikov, Stallings foldings and subgroups of free groups,
+     J. Algebra 248 (2002), 608–668.
+[11] D. Lee, On several problems about automorphisms of the free group of rank
+     two, J. Algebra 321(1) (2009), 167-193.
+[12] M. Lothaire. Algebraic combinatorics on words, Encyclopedia of Mathematics
+     and its Applications, vol. 90, Cambridge University Press, 2002.
+
+
+
+                                        34
+[13] R. C. Lyndon and P. E. Schupp, Combinatorial Group Theory, Springer-Verlag
+     1977.
+[14] G. S. Makanin, Equations in a free group (Russian), Izv. Akad. Nauk. SSSR
+     Ser. Mat. 46 (1983), 1199–1273; English translation in Math. USSR Izv. 21
+     (1983).
+[15] A. Miasnikov, E. Ventura and P. Weil, Algebraic extensions in free groups,
+     in Algebra and Geometry in Geneva and Barcelona (G.N. Arzhantseva, L.
+     Bartholdi, J. Burillo and E. Ventura eds.), Trends in Mathematics, Birkhaüser
+     (2007), pp. 225–253.
+[16] J. Nielsen. Die Isomorphismen der allgemeinen unendlichen Gruppe mit zwei
+     Erzeugenden, Math. Ann. 78 (1918), 385–397.
+[17] R. P. Osborne and H. Zieschang. Primitives in the free group on two generators,
+     Invent. Math. 63 (1981), 17–24.
+[18] A. Roig, E. Ventura and P. Weil, On the complexity of the Whitehead mini-
+     mization problem, Int. J. Alg. Comput. 17 (2007), 1611-1634.
+[19] J. Rotman. An introduction to the theory of groups, 4th edition, Springer, 1995.
+[20] J.-P. Serre. Arbres, amalgames, SL2 , Astérisque 46, Soc. Math. France, 1977.
+     English translation: Trees, Springer Monographs in Mathematics, Springer,
+     2003.
+[21] A. Shenitzer, Decomposition of a group with a single defining relation into a
+     free product, Proc. Amer. Math. Soc. 6 (1955), 273-279.
+[22] V. Shpilrain. Recognizing automorphisms of the free groups, Arch. Math. 62
+     (1994), 385-392.
+[23] P. V. Silva and P. Weil. On an algorithm to decide whether a free group is
+     a free factor of another, RAIRO Theoretical Informatics and Applications 42
+     (2008), 395–414.
+[24] J. Stallings. Topology of finite graphs, Invent. Math. 71 (1983), 551–565.
+[25] Z. X. Wen and Z. Y. Wen. Local isomorphisms of invertible substitutions, C.
+     R. Acad. Sci. Paris Sér. I Math. 318 (1994), 299–304.
+[26] J.H.C. Whitehead, On equivalent sets of elements in a free group, Annals of
+     Mathematics 37 (1936) 782–800.
+
+
+
+
+                                         35
+
