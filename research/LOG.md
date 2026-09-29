@@ -1334,3 +1334,16 @@ remaining classification gap and the website's unstated comparison class.
 Neither adds a candidate:7 whole,3 partial,0 established novel. No active
 jobs, subagents, pushes, contacts or imported Kourovka mathematics.
 The parent/preparation repositories and original deadline are unchanged.
+
+
+## F34 coverage reconciliation (2026-09-29T11:42:39.555127+00:00)
+
+F34 is reclassified as whole-entry candidate coverage: candidate(a) plus
+prior(b), using the same convention as F38. This is a bookkeeping
+correction and adds no mathematical result or solved subpart. Current
+tally8 whole/2 partial/0 established novel still concerns the same ten
+entries. The known stability implication is explicitly recovered from
+the existing graph lemma; the 2025 primary paper's precise use of it
+was read and actual PDFp20 viewed. The original2005 paper remains
+unavailable. See `research/notes/F34-coverage-reconciliation.md`. No
+mathematical reruns; old proof/audit/manifests retained.

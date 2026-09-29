@@ -6,7 +6,7 @@ Source begins at line 241; byte range [12158, 13022). The raw fragment is stored
 
 Heading star: False. Starred subparts: b. Hall of Fame entries: 1. Linked background sections indexed: 1.
 
-Current openness and exact scope require review. No solving has started. The machine-readable source evidence is in `data/problems.json`; the extracted text below is a search aid, not an authoritative transcription.
+Current status: **whole-entry candidate coverage**. Part (a) has a candidate uniform decision procedure; part (b) is the prior Clark–Goldstein stability theorem. The potentially new scope is only part (a) in rank at least three, with correctness and novelty awaiting independent review. See [proof](part-a-proof.md), [audit](part-a-audit.md) and [coverage reconciliation](../../research/notes/F34-coverage-reconciliation.md). The machine-readable source evidence is in `data/problems.json`; the extracted text below is a search aid, not an authoritative transcription.
 
 ```text
 (F34) (A.Miasnikov, V.Shpilrain) Let F_n be the free group of

@@ -2,10 +2,12 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately 11:40 UTC on 29 September: seven whole-entry
-candidates (F28,N5,M0,H4,F41,GA3,F38), three partial candidates
-(N8,F34(a),G9), zero established novel results. All ten await
-specialist review and novelty assessment.
+Latest checkpoint, approximately 11:47 UTC on 29 September: eight whole-entry
+candidates (F28,N5,M0,H4,F41,GA3,F38,F34), two partial candidates
+(N8,G9), zero established novel results. All ten await
+specialist review and novelty assessment. F34 was reclassified to make
+coverage accounting consistent with F38: candidate (a) plus known (b).
+No additional mathematical result was obtained in this correction.
 
 G9 now has a complete candidate proof of effective approximation in every
 finite rank and independently checked numerical rank-two bounds. The
