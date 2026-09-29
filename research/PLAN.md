@@ -938,3 +938,15 @@ The seven-group F20 finite-image search is finished and inconclusive. Do not rep
 ## N8 concrete transfer sequence (2026-09-29T23:43:16.841041+00:00)
 
 N8 now has a concrete convergent sequence of permitted half-transfer words verified in Lean, not merely an abstract contraction inequality. See sweep-convergence-lean-audit.md. Do not repeat these passed checks or label the separate formal ingredients a fully formal algorithm. Return to a distinct unresolved route or a concrete imported dependency concern; preserve final-eight-hours verification/reporting reserve. All jobs terminal; original deadline unchanged.
+
+
+## After concrete N8 sweep check (2026-09-29T23:46:08.633786+00:00)
+
+N8 progress committed at8dce224; nineteen universal transfer declarations
+accepted, with full application boundary in its audit. A targeted S1/S2
+source check found no new solution. Archived Linton2407.09272v2 and kept
+rational/ordinary and infinite-intersection/finite-term distinctions;
+see S1-S2-late-scope-check.md. No further mathematical job, no push, no
+count or deadline change. All jobs terminal. Continue a distinct lead
+or substantive dependency audit; keep the original final-eight-hours
+verification/reporting reserve.

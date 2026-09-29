@@ -2086,3 +2086,15 @@ Completed a distinct F20 finite-image probe: 167604 pairs after first-generator 
 ## N8 concrete transfer sequence (2026-09-29T23:43:16.841041+00:00)
 
 Completed F20 finite-image probe at f146fef. A subsequent local B9 structural reread supplied no new restriction; no further bounded braid search was run. For N8 found a simpler explicit sweep convergence proof avoiding the positive-cycle matrix construction. Nineteen universal Lean declarations now verify the permitted adjacent half-transfer words, invariant zero-sum l1 ball and convergence in every finite list length. Six terminal sequential1CPU jobs, four unsuccessful (all retained), two passes. The final12GB-cap run passes in10.00s with one harmless linter warning. Formal assembly with the separate positional and maximum-principle files remains a written bridge. No count/deadline change or push.
+
+
+## After concrete N8 sweep check (2026-09-29T23:46:08.633786+00:00)
+
+N8 progress committed at8dce224; nineteen universal transfer declarations
+accepted, with full application boundary in its audit. A targeted S1/S2
+source check found no new solution. Archived Linton2407.09272v2 and kept
+rational/ordinary and infinite-intersection/finite-term distinctions;
+see S1-S2-late-scope-check.md. No further mathematical job, no push, no
+count or deadline change. All jobs terminal. Continue a distinct lead
+or substantive dependency audit; keep the original final-eight-hours
+verification/reporting reserve.
