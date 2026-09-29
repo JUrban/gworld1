@@ -43,3 +43,31 @@ the simultaneous primitive-factor constraints. Neither is supplied.
 The previously recorded rank-two reduction via Nielsen's commutator
 criterion and Makanin remains prior. No higher-rank algorithm, new
 partial result, mathematical computation or novelty claim is recorded.
+
+## 29 September follow-up: commutator length does not fill the gap
+
+Archived Danny Calegari and Alden Walker, *Isometric endomorphisms of
+free groups*, New York J. Math. 17 (2011), 713–743:
+https://nyjm.albany.edu/j/2011/17-31v.pdf . The PDF SHA-256 is
+`6311674abf5f8a7255ee27777e94c42d2b7a046feeda116a393e1db565e235ac`.
+The introduction, Question2.1/Example2.2, Examples2.3–2.7 and the
+rank-two conjecture discussion were inspected as extracted text.
+No full proof audit or visual inspection of that PDF is claimed.
+
+Example2.2 constructs a rank-four self-embedding decreasing commutator
+length, by factoring through a rank-three free group. Example2.7 uses
+proper finite-index inclusions and subsequent embeddings. For the
+resulting self-embeddings, this lower-rank factorization makes the
+abelianization determinant zero. Thus these examples do not establish
+failure of reflection under the nonzero-determinant hypothesis needed
+above. This determinant observation is our direct inference from the
+factorizations, not a theorem attributed to the paper.
+
+These invariants are commutator length and stable commutator length,
+not primitive length. The paper's rank-two injective isometry assertion
+is Conjecture4.1, not a general proved theorem there; its current status
+has not been checked in this pass. No F37 algorithm or counterexample
+follows. The original full F37 HTML/background was reread and the actual
+publisher paragraph was rendered and viewed in
+`research/statement-audits/F37/`. Its fixed-basis conjugate-length
+background result is also distinct from primitive length.

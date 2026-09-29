@@ -192,3 +192,6 @@ S5 is retired as a prior affirmative result by Achyuth Jayadevan. The public Lea
 ## 2026-09-29T04:05:15.277767+00:00 — F28 formal matrix verification
 
 F28 now has a simpler integral proof and a Lean verification of the entire matrix-orbit obstruction: every infinite integral sequence X_(n+1)Q=QX_n with det X_0=1 starts at ±I. An invariant positive energy and odd recurrence replace the real norm and algebraic-integer arguments. The free-group/ping-pong bridge remains written mathematics. Successful final compilation and transitive axiom audit passed in8.848s; three failed versions and one warning-bearing intermediate success are preserved. See `problems/F28/matrix-lean-audit.md`. Counts remain6 whole,3 partial,0 established novel, with independent review outstanding.
+
+
+F37/N3 route checks: the inspected commutator-length embeddings do not meet the determinant condition needed by the F37 lead. N3’s existing torsion example already defeats strict-monotone and disjoint-superadditive profile repairs; a nested finite-subset construction cannot cover arbitrary cardinalities. Details are appended to the existing notes. Neither problem has gained a solution here.

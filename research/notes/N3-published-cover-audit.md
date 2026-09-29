@@ -216,3 +216,31 @@ Keep N3 under bibliographic/proof review, with this explicit obstruction
 attached. This adds no whole-entry or partial solution count. There has
 been no author contact, no external review, and no use of a Kourovka-run
 argument or code.
+
+## 29 September follow-up: two proposed repairs still do not suffice
+
+The same three-generator torsion example has a strictly increasing
+profile on nonempty coordinate subsets, with c(U)>=|U|. It is also
+superadditive on disjoint nonempty coordinate subsets: for two
+singletons, 2=1+1; for a pair and the remaining singleton, 5>=2+1.
+These are all possibilities on three generators. Consequently adding
+strict inclusion monotonicity, the cardinality lower bound, or this
+superadditivity condition to Proposition3.5 would not repair it.
+No new computation is needed: the previously verified exact example
+already satisfies all these conditions. This does not address stronger,
+different compatibility requirements on a profile.
+
+A different possible repair would impose nilpotency bounds only along
+a cofinal nested family of finite generator subsets. Such a family
+can cover at most countably many generators: two distinct comparable
+finite sets have different cardinalities, so the family has at most
+one distinct member of each finite cardinality. Its union is countable.
+Thus this particular finite-chain strategy cannot answer N3's arbitrary
+cardinality question. It is not an obstruction to more general directed
+constructions, and no claim about the mechanism of the prior countable
+cover theorem is made here.
+
+The original N3 HTML and actual rendering were checked again. N3 remains
+unresolved here; these observations only narrow the attempted repair.
+They do not turn the false construction lemma into a counterexample to
+the original problem, and add no candidate or novelty claim.
