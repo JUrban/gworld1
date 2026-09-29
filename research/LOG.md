@@ -2098,3 +2098,8 @@ see S1-S2-late-scope-check.md. No further mathematical job, no push, no
 count or deadline change. All jobs terminal. Continue a distinct lead
 or substantive dependency audit; keep the original final-eight-hours
 verification/reporting reserve.
+
+
+## M0 constructive dependency check (2026-09-29T23:56:51.515894+00:00)
+
+Previous turn made concrete progress at f146fef and8dce224, with source-scope note801e885. Revalidated active state, unchanged deadline, clean worktree and empty registry. Audited M0 square Jacobian dependency: reread primary lemma and viewed p517, wrote the exact derivative-convention conversion and a direct integral-flow proof with inverse-word construction. Python and two GAP runs pass. GAP checks16 maps,84 two-sided generator compositions,3 disconnected signed-flow fixtures,84 derivative identities, and an S4 separator showing one displayed free lift is not surjective despite inducing a metabelian automorphism. Three sequential1CPU/6GB jobs terminal. No count, novelty or deadline change; no push.

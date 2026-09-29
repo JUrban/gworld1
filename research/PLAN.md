@@ -950,3 +950,8 @@ see S1-S2-late-scope-check.md. No further mathematical job, no push, no
 count or deadline change. All jobs terminal. Continue a distinct lead
 or substantive dependency audit; keep the original final-eight-hours
 verification/reporting reserve.
+
+
+## M0 constructive dependency check (2026-09-29T23:56:51.515894+00:00)
+
+M0 square-Jacobian dependency now has a direct constructive flow proof and exact inverse-word replay; no need to repeat its finite field or inverse suites without a new concern. Continue a distinct unresolved lead or a concrete dependency issue in another candidate, preserving the final-eight-hours audit/reporting reserve. All jobs terminal; original deadline remains30September10:04:49UTC.

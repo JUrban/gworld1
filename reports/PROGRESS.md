@@ -868,3 +868,8 @@ or deadline change and no independent specialist review is implied.
 ## N8 concrete transfer sequence (2026-09-29T23:43:16.841041+00:00)
 
 [N8 concrete transfer convergence](../problems/N8/sweep-convergence-lean-audit.md) now has an explicit simpler proof and nineteen accepted universal Lean declarations. It supplies the actual finite reachable sequence needed by the averaging argument, including norm/sum preservation. Full N8 formalization and specialist review remain outstanding. Ten whole/two partial/zero established novel unchanged.
+
+
+## M0 constructive dependency check (2026-09-29T23:56:51.515894+00:00)
+
+[M0 constructive Jacobian audit](../problems/M0/flow-inverse-audit.md) now supplies the exact source-convention conversion and an explicit integral-flow construction of inverse words. Independent GAP replay checks the finite certificates and a free/metabelian boundary example. The criterion remains credited prior work; no new result count. Tally10whole/2partial/0established-novel unchanged.
