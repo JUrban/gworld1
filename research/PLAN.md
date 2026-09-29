@@ -905,3 +905,13 @@ convolution, and the remaining other candidates' deep imported inputs.
 Wider discovery remains authorized within the original deadline, with
 the final-eight-hours verification/reporting reserve unchanged.
 All jobs terminal; ten whole/two partial/zero established novel.
+
+
+2026-09-29T23:09:41.981280+00:00: The subsequent B9/MA5 scope scan supplied no new structural route.
+Do not repeat those searches or increase existing finite braid bounds
+without a new hypothesis. The N8 full-block convolution and rational
+prefix normalization, or a different candidate's precise imported theorem
+hypothesis, remain concrete audit targets. Twenty positional/transfer
+Lean declarations are accepted at48721c0; they do not formalize the
+full N8 group algorithm. Keep broader discovery and the original
+final-eight-hours reporting reserve; no FINAL_REPORT yet.

@@ -2030,3 +2030,28 @@ Four sequential1CPU/8GB jobs: two failed sources preserved, two passes.
 The final extended source passes in10.30seconds with empty stderr and
 no warnings. No repeated finite Lie/group fixtures. No scope/count change,
 no push, no clock change; all jobs terminal.
+
+
+## Bounded late-scope scan after the N8 formal commit (2026-09-29T23:09:41.981280+00:00)
+
+B9: reread the four-strand parameter reductions, the infinite family and
+Dehornoy's archived Section5.3--5.4 discussion. Targeted web searches
+returned the same survey and unrelated uses of special braids; they
+provided no new exhaustion theorem. Do not mistake the other positive
+braid definition in the Carlucci--Dehornoy--Weiermann paper for this shelf.
+No source was newly imported as a mathematical dependency and no finite
+search was repeated or enlarged. The high-strand cancellation gap remains.
+
+MA5: a bounded follow-up search for finite-extension and Specht results
+recovered the existing nilpotent-derived/connected theorem. Results about
+semigroup identities, Lie rings, group representations and equational
+Noetherianity are different assertions; none was accepted as a proof for
+arbitrary linear groups. Only indexed primary excerpts were consulted
+for the additional results, not their complete proofs. A6's known
+finite-presentation/self-reference obstruction and the remaining solvable
+and hyperbolic scopes were reviewed locally; no new proof was obtained.
+This scan changes no count or prior-status classification.
+
+Current authoritative progress in this work period is commit48721c0's
+new universal N8 positional bridge. All jobs terminal and original
+deadline unchanged; no push or external contact.
