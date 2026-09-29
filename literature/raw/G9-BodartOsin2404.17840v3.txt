@@ -1,0 +1,766 @@
+                                                               FINITELY PRESENTED GROUPS WITH
+                                                               TRANSCENDENTAL SPECTRAL RADIUS
+
+                                                                        Corentin Bodart and Denis Osin
+arXiv:2404.17840v3 [math.GR] 23 Apr 2026
+
+
+
+
+                                                                                    April 24, 2026
+
+                                                                                         Abstract
+
+                                                   We provide examples of groups with transcendental spectral radius:
+                                                    • We first construct finitely presented examples, using links between decidability
+                                                      of the Word Problem and semi-computability of the spectral radius. This
+                                                      argument extends to the exponential growth rate and the asymptotic entropy.
+                                                    • We also construct a finitely generated example with decidable Word Problem,
+                                                      using classical small-cancellation theory.
+                                                   Along the way, we prove that C ′ (1/6) groups satisfy the Rapid Decay property,
+                                                   and deduce some properties on their spectral radii of independent interest.
+
+                                           Throughout the paper, we consider marked groups, that is, pairs (G, S) with G a group
+                                           and S a finite symmetric generating multiset (i.e., S = S −1 ). We consider the simple
+                                           random walk (Xn )n⩾0 on Cay(G, S), starting at X0 = eG , and define
+
+                                                                                 pG,S (g; n) = P[Xn = g].
+
+                                           Equivalently pG,S (g; n) = |S|1 n #{w ∈ S n | w̄ = g}1 , where w̄ is the evaluation of the
+                                           word w as an element of G. The spectral radius is defined as
+                                                                                            q
+                                                                         ρ(G, S) = lim sup n pG,S (e; n).
+                                                                                          n→∞
+
+                                           This quantity depends on the global geometry of Cay(G, S), and is usually hard to
+                                           compute. Computations of exact values are limited to virtually free groups, and some
+                                           groups constructed from them (direct product, extension by an amenable group). In all
+                                           these cases, the value ρ(G, S) turns out to be algebraic (combining [MS83] and [Kes59]).
+                                           This changed recently when Kassabov and Pak proved that some marked groups have
+                                           transcendental spectral radius [KP24]. However, their proof is non-constructive.
+                                             1
+                                                 Most of the time, G and S are clear from the context and g = eG , hence we only write p(n)
+
+
+
+
+                                                                                              1
+Our main result is the following:
+Theorem A. There exists a finitely presented group G such that the spectral radius
+ρ(G, S) is transcendental for all finite symmetric generating sets S.
+
+This answers Question 7.2 of [KP24]. In Section 3, Theorem A is extended to the
+exponential growth rate and the asymptotic entropy.
+
+Since the proof of Theorem A uses crucially that G has undecidable Word Problem, we
+propose another result of the same flavor:
+Theorem B. There exists a finitely generated group G with decidable Word Problem
+such that the spectral radius ρ(G, S) is transcendental for a specific generating set S.
+
+The construction uses classical C ′ (1/6) small-cancellation theory. As a key ingredient,
+we use that these groups satisfy the Rapid Decay property (uniformly):
+Theorem C. If G = ⟨S | R⟩ is a C ′ ( 61 ) presentation (with R possibly infinite), then
+(G, dS ) has the Rapid Decay property with P (r) = (10r + 1)3 (see Definition 4.1).
+
+Arzhantseva and Drut, u have already proven that C ′ (1/10) groups have the Rapid Decay
+property [AD12]. Our proof is a simplification of their, and gives a single polynomial
+P (r). A version of this proof, due to the second author, was first circulated in 2014.
+
+As a byproduct, we prove the continuity of the spectral radius on subset of C ′ (1/6)
+presentations in the space of marked groups:
+Corollary D. Let Gi = ⟨S | Ri ⟩ be a sequence of C ′ (1/6) presentations such that
+(Gi , S) → (G, S) in the space of marked groups, then ρ(Gi , S) → ρ(G, S).
+
+This means that, even though the spectral radius is a global invariant, it is determined
+by the local geometry of the Cayley graph, among C ′ (1/6) groups. Of course, the same
+statement is not true in the entire space of marked groups, since free groups (with
+ρ < 1) are residually finite and therefore limits of finite groups (with ρ = 1).
+
+Acknowledgments. We are grateful to Anna Erschler, Tatiana Nagnibeda and Igor
+Pak for comments and encouragements, and to Carl-Fredrik Nyberg-Brodda for sparing
+a few generators and relators in the last construction of §2. We thank the anonymous
+referees for their careful reading and useful explanations on entropy. The first author
+was supported by the Swiss NSF grant 200020-200400.
+
+
+
+
+                                           2
+                           1. Semi-computable numbers
+
+The first ingredient in our proof is the following definition:
+Definition 1.1. A number x ∈ R is lower (resp. upper ) semi-computable if there
+exists an algorithm enumerating an increasing (resp. decreasing) sequence (xk ) of real
+algebraic numbers such that xk → x.
+
+(Real algebraic numbers xk can be specified as triplets (Pk (X), ak , bk ) ∈ Q[X] × Q × Q
+such that xk is the only root of Pk (X) in the interval [ak , bk ].)
+
+1.1. Lower bounds. We first observe that spectral radius are lower semi-computable
+in a very general setting, namely for all recursively presented groups:
+Lemma 1.2. Let G be a recursively presented group, then ρ(G, S) is lower semi-
+computable. Moreover, the result is effective: there exists an algorithm with
+ Input:   A recursively presented marked group (G, S), specified via a finite set S and
+          an algorithm enumerating a set of defining relations.
+Output: An algorithm enumerating an increasing sequence of real algebraic numbers
+        (xk ) such that xk → ρ(G, S).
+
+Proof. Note that p(m + n) ⩾ p(m) · p(n), therefore Fekete’s lemma ensures that
+                                              p
+                              ρ(G, S) = sup n p(n).
+                                              n⩾1
+
+
+As G is recursively presented, its Word Problem (i.e., the set of words w ∈ S ∗ such
+that w̄ = eG ) is recursively enumerable. Let (vi )i⩾1 ⊆ S ∗ be a computable enumeration
+of the Word Problem, and let us define
+                                1
+                    pk (n) =        · #{vi : ℓ(vi ) = n and 1 ⩽ i ⩽ k}.
+                               |S|n
+
+Observe that pk (n) ↗ p(n) pointwise as k → ∞. In particular
+                                           p
+                                 xk = max n pk (n)
+                                          1⩽n⩽k
+
+
+is a computable increasing sequence such that xk → ρ(G, S), as promised.
+Remark 1.3. The analogous result for “upper semi-computable” does not hold, even
+under the additional assumption that the Word Problem is decidable (with a Word
+Problem algorithm as part of the input). Indeed, this would imply that amenability is
+a co-semi-decidable property, contradicting [Rau25, Theorem 10.6].
+As will become clear in the proof of Theorem A, there exist finitely presented groups
+(with undecidable Word Problem) whose spectral radius is not upper semi-computable.
+
+                                             3
+                              2. Proof of Theorem A
+
+2.1. From semi-computability to the Word Problem. The main observation is
+Theorem 2.1. Let (G, S) be a recursively presented group such that the spectral radius
+ρ(G, S) is upper semi-computable. Consider a subset W ⊆ S ∗ such that, for each
+w ∈ W , either w̄ = eG or the normal subgroup ⟨⟨w̄⟩⟩G is non-amenable. Then there
+exists an algorithm which, given a word w ∈ W , decides whether w̄ = eG or not.
+
+(In particular, if W = S ∗ , then G has decidable word problem.) This theorem relies
+crucially on a classical result due to Kesten.
+Theorem 2.2 ([Kes59]). Let (G, S) be a marked group and N ⊴ G a non-amenable
+normal subgroup, then we have ρ(G, S) < ρ(G/N, S).
+
+Proof of Theorem 2.1. Suppose that G is presented as ⟨S | R⟩. Take w ∈ W , we run
+two parallel processes to decide whether w̄ = eG or not.
+  • As G is recursively presented, we can enumerate all words v ∈ S ∗ such that v̄ = eG .
+    If at any point v = w, we stop the algorithm and conclude that w̄ = eG .
+  • The group Gw = G/ ⟨⟨w̄⟩⟩G = ⟨S | R, w⟩ is recursively presented, hence ρ(Gw , S) is
+    lower semi-computable. We can compute two sequences (xk ) and (yk ) such that
+
+                            xk ↘ ρ(G, S) and yk ↗ ρ(Gw , S).
+
+    As xk and yk are real algebraic, we can compare them. If at any point xk < yk , we
+    stop the algorithm and conclude that w̄ ̸= eG . It should be noted that, if w̄ ̸= eG ,
+    then the inequality xk < yk will hold eventually as ⟨⟨w̄⟩⟩G is non-amenable and
+    therefore ρ(G, S) < ρ(G/⟨⟨w̄⟩⟩G , S) = ρ(Gw , S).
+In both cases, the algorithm finishes and decides correctly if w̄ = eG or not.
+
+
+2.2. Finitely presented examples. We give two constructions using Theorem 2.1.
+(a) We recall a family of groups introduced by Higman [Hig61]: for each I ⊆ Z,
+
+                       HI := a, b, c, d | ai ba−i = ci dc−i (i ∈ I) .
+
+This is an amalgamated free product A ∗C B with A = F (a, b), B = F (c, d) and
+C = F ({gi }i∈I ) (with injections gi 7→ ai ba−i and gi 7→ ci dc−i respectively). We define
+
+                                  wi = ai ba−i ci d−1 c−i .
+Lemma 2.3. If i ∈
+                / I, then ⟨⟨w̄i ⟩⟩HI contains a non-abelian free group.
+Proof. The subgroup ⟨wi , bwi b−1 ⟩ is non-abelian free. This follows directly from the
+Normal Form Theorem for amalgamated free products, see eg. [LS77, p. 186-187].
+
+                                             4
+Consider I ⊂ Z which is recursively enumerable (hence HI is recursively presented),
+but not recursive. Using Higman’s embedding theorem [Hig61], we can embed HI into
+a finitely presented group G (as Higman did). For any finite symmetric generating
+set S of G, we consider a monoid homomorphism φ : {a± , b± , c± , d± }∗ → S ∗ such that
+φ(v) = v̄ for all v ∈ {a± , b± , c± , d± }, and let W = {φ(wi ) : i ∈ Z} ⊂ S ∗ .
+  • Using the lemma, either w̄i = eG or ⟨⟨w̄i ⟩⟩G ⩾ ⟨⟨w̄i ⟩⟩HI is non-amenable.
+  • As I is not recursive, there does not exist any algorithm which, given φ(wi ) ∈ W
+    (equivalently i ∈ Z) decides whether w̄i = eG or not (equivalently i ∈ I or not).
+Therefore ρ(G, S) cannot be upper semi-computable, hence cannot be algebraic.            □
+
+Remark 2.4. Using Karrass-Solitar theorem on amalgamated free products [KS70], one
+should be able to prove that ⟨⟨g⟩⟩HI contains a non-abelian free group for all g ∈ HI \{e}.
+
+(b) Start with H = ⟨S0 | R⟩ a finitely presented group with undecidable Word Problem,
+first constructed in [Boo58; Nov55]. We consider G = H ∗ ⟨t⟩ and W = S0∗ . For each
+w ∈ W , either w̄ is trivial, or the normal subgroup it generates satisfy
+
+                   ⟨⟨w̄⟩⟩G ⩾ w̄, tw̄t−1 , t2 w̄t−2 ≃ Cn ∗ Cn ∗ Cn ⩾ F2
+
+where n ∈ {2, 3, . . .} ∪ {∞} is the order of w̄. Again, Theorem 2.1 implies that ρ(G, S)
+cannot be upper semi-computable, hence is transcendental.
+Note that, combining the main result of [Bor69] with [HNN49, Theorem IV], we can
+find a group H with undecidable Word Problem defined by 2 generators and 12 relators,
+and therefore G defined by as little as 3 generators and 12 relators.
+
+                       3. Extension to other parameters
+
+Similarly to [KP24], the same ideas can be used to provide finitely presented groups
+for which the value of various parameters f : M → R (where M is the space of marked
+groups) are not computable. The key ingredients are the following:
+  • A recursively presented group (G, S) and a subset W ⊆ S ∗ such that
+    – the Word Problem restricted to W is undecidable, and
+    – f (G, S) < f (G/⟨⟨w̄⟩⟩G , S) for all w ∈ W such that w̄ ̸= eG .
+  • For every recursively presented group (Q, S), the value f (Q, S) is lower semi-
+    computable, and the result is effective in the sense of Lemma 1.2.
+Under these conditions, we may conclude f (G, S) is not upper semi-computable. In the
+following subsections, we check both conditions for the growth rate and the asymptotic
+entropy (up to a change of sign). In both cases, we may take G = H ∗ Z where H is
+any finitely presented group with undecidable Word Problem.
+
+                                            5
+3.1. Growth rates. Let dS be the word metric on G, and βG,S (n) = |BG,S (e, n)| the
+volume of the ball of radius n. The growth rate of (G, S) is defined as
+                                               q
+                             ω(G, S) = lim sup n βG,S (n).
+                                            n→∞
+
+Anna Erschler constructed a continuum of (infinitely presented) marked groups with
+distinct growth rates [Ers04], in particular containing transcendental values. Once
+again, our recipe provides finitely presented examples of the form G = H ∗ Z.
+Theorem 3.1 ([Sam02]). Let H be a non-trivial group, then G = H ∗ Z is growth
+tight, that is, for every generating set S and every N ⊴ G with N ̸= 1, we have
+
+                                 ω(G/N, S) < ω(G, S).
+
+Lemma 3.2. Let (G, S) be a recursively presented group, then the growth rate ω(G, S)
+is upper semi-computable. Moreover, the result is effective.
+
+Proof. The sequence βG,S (n) is sub-multiplicative, so Fekete’s lemma implies that
+                                             q
+                               ω(G, S) = inf n βG,S (n).
+                                             n⩾1
+
+
+Consider {(vi , wi )}i⩾1 a computable enumeration of
+
+                         ∆(G, S) = {(v, w) ∈ S ∗ × S ∗ | v̄ = w̄}.
+
+At time k, we define an equivalence relation ∼k on S ∗ , declaring vi ∼k wi for all
+1 ⩽ i ⩽ k (and then considering the reflexive, transitive closure). We define
+                                  ⩽n
+                        Pk⩽n = S ⧸∼k and βk (n) = Pk⩽n
+                      p
+Finally, let yk = min n βk (n). We have βk (n) ↘ βG,S (n) hence yk ↘ ω(G, S).
+                 1⩽n⩽k
+
+
+3.2. Asymptotic entropy. Let (G, S) be a marked group. We consider the simple
+random walk (Xn )n on Cay(G, S). Recall that the Shannon entropy of Xn is given by
+                                        X                            
+                         H(Xn ) = −               p(g; n) log p(g; n) .
+                                      g∈supp Xn
+
+
+The asymptotic entropy of (G, S) is defined as
+                                                 1
+                                h(G, S) = lim      H(Xn ).
+                                             n→∞ n
+
+
+Once again, both conditions are satisfied (for either construction of §2):
+
+                                              6
+Theorem 3.3. Let (G, S) be a group and N ⊴ G non-amenable, then
+
+                                 h(G/N, S) < h(G, S).
+
+This follows from results of Kaimanovich and Vershik. We recall some notations: for
+general probability measures µ on G, we denote by Γ(G, µ) and h(G, µ) the Poisson
+boundary and the asymptotic entropy of the µ-random walk on G, respectively.
+
+Proof. Consider a measure µ of a finite entropy on G (eg. the uniform measure on S),
+and let π : G ↠ G/N be the quotient map. [KV83, Theorem 3.2] states that
+                                                
+                         E(G,µ) Γ(G/N, π∗ µ), ν ⩽ h(G, µ)
+
+with equality if and only if Γ(G/N, π∗ µ) ≃ Γ(G, µ), where E(G,µ) denotes the differential
+entropy of a measure G-space and ν is the harmonic measure on Γ(G/N, π∗ µ). Moreover,
+                                              Z                  
+                                   X                   dν
+         E(G,µ) Γ(G/N, π∗ µ), ν :=       µ(g) log         −1 ν
+                                                               (γ) · dν(γ)
+                                    g∈G
+                                                      d g
+                                                  Z                   
+                                      X                        dν
+                                  =        π∗ µ(h) log              (γ) · dν(γ)
+                                                            d h−1 ν
+                                     h∈G/N
+                                                                  
+                                  = E(G/N,π∗ µ) Γ(G/N, π∗ µ), ν = h(G/N, π∗ µ)
+
+using [KV83, Theorem 3.1] for this last equality. Finally, the main result of [Kai02]
+states that, if N is non-amenable, then Γ(G, µ) and Γ(G/N, π∗ µ) are not isomorphic.
+We conclude that h(G/N, π∗ µ) = E Γ(G/N, π∗ µ), ν < h(G, µ).
+
+Lemma 3.4. Let (G, S) be a recursively presented group, then the asymptotic entropy
+h(G, S) is upper semi-computable. Moreover, the result is effective.
+
+Proof. As the sequence H(Xn ) is sub-additive, Fekete’s lemma gives
+                                                 1
+                                h(G, S) = inf      H(Xn ).
+                                             n⩾1 n
+
+                                                         n
+Reusing the notations from Lemma 3.2, we define Pkn = S ⧸∼k and
+                                  X |A|               
+                            n                     |A|
+                          Hk = −            log          .
+                                 A∈P n
+                                       |S|n       |S|n
+                                         k
+
+
+
+Observe that Hkn ↘ H(Xn ) as k → ∞. Finally, the sequence xk = min1⩽n⩽k n1 Hkn
+provides upper approximations for h(G, S).
+
+
+
+                                             7
+                     4. Property (RD) for C ′ (1/6) groups
+
+4.1. (RD) and (CR). Recall the definition of the Rapid Decay property of [Jol90]:
+Definition 4.1 (Property (RD)). Let G be a group with a word metric dS . We say
+that G has the Rapid Decay property if there exists a polynomial P ∈ R[X] such that
+
+                                  ∥f ∥op ⩽ P (r) · ∥f ∥2
+
+for all f ∈ CG supported on the ball BS (e, r).
+Remark 4.2. The polynomial depends on choice of a word metric dS , but the fact that
+G satisfies the property does not.
+
+Throughout the years, many sufficient conditions for the (RD) property have been
+developed (see [Sap15]). We will use a condition due to Chatterji and Ruane [CR03].
+We state it in the restricted setting of groups acting on themselves:
+Definition 4.3 (Property (CR)). A marked group (G, dS ) has the (CR) property if
+there exists a G-equivariant map C : G × G → P(G) (the powerset of G) such that
+(a) For all x, y ∈ G, we have x ∈ C(x, y).
+(b) For all x, y, z ∈ G, we have C(x, y) ∩ C(y, z) ∩ C(z, x) ̸= ∅.
+(c) There exists a polynomial Q(r) such that, for all x, y ∈ G and all r ⩾ 0,
+
+                                |C(x, y) ∩ BS (x, r)| ⩽ Q(r).
+
+(d) There exists a polynomial R(r) such that, for all x, y ∈ G satisfying dS (x, y) ⩽ r,
+    the diameter of C(x, y) is bounded by R(r).
+Remark 4.4. Once again, the specific polynomials Q(r) and R(r) depends on the
+choice of the word metric dS , but their mere existence does not.
+
+The link is made through the following result:
+Proposition 4.5 ([CR03, Proposition 1.7]). If (G, S) has the (CR) property for Q(r)
+                                                                         3
+and R(r), then it satisfies the Rapid Decay property for P (r) = Q(R(r)) 2 .
+
+
+4.2. Strebel’s description of geodesics in C ′ (1/6) groups. Let us recall some
+geometric properties of Cayley graphs of C ′ (1/6) presentations:
+
+Lemma 4.6 ([Str90, Lemma 41]). Consider a path labeled by u with uv ∈ R.
+  • If |u| < |v|, then u is the unique geodesic between its endpoints.
+  • If |u| = |v|, then u and v are the only two geodesics between their endpoints.
+
+
+                                             8
+Corollary 4.7. Let α be a geodesic segment in Cay(G, S), and let β be a cycle labeled
+by a relation r ∈ R. Then α ∩ β is either empty or connected.
+Proof. Consider p, q ∈ α ∩ β. Using Lemma 4.6, any geodesic between p and q has to be
+one of the two arcs of β delimited by p and q. In particular, this holds for the segment
+of α between p and q.
+Theorem 4.8 ([Str90, Theorem 43]). If T is a simple2 geodesic triangle, then any
+reduced van Kampen diagram it spans is of one of the following forms:
+
+
+                                                                                 ..
+                                                                                  .
+
+                      ...                     ...
+                                                           ...
+                                                                                        ...
+                                                                         ...
+
+                       Type I2                      Type I3                    Type II
+
+                            ..                        ..                         ..
+                             .                         .                          .
+
+                                 ...                        ...                         ...
+                ...                         ...                          ...
+
+                      Type III1                   Type IV                      Type V
+
+A recurring observation is that every interior (resp. exterior) consolidated3 edge of a
+face labeled by r ∈ R has length < 61 |r| (resp. ⩽ 12 |r|).
+
+
+4.3. Proof of property (CR). For each x, y ∈ G, we pick [x, y] a geodesic between
+x and y. (In a G-equivariant way: pick the geodesic with ShortLex labelling.)
+
+We define C(x, y) as the union of [x, y] with all loops γ labeled by relations such that
+|γ ∩ [x, y]| ⩾ 16 |γ| (meaning the number of common edges). We consider C(x, y) as a
+subgraph, formed by all vertices and edges of this geodesic and these cycles.
+
+We now check that this construction satisfies Property (CR).
+(a) This is obvious.
+  2
+      meaning the sides are disjoint
+  3
+      i.e. concatenation of edges seen as a single segment on the previous diagrams, eg. the red segment
+
+
+
+                                                      9
+(b) Fix x, y, z ∈ G. Let px be the point on [x, y] ∩ [z, x] furthest from x, and similarly
+    for py , pz . It follows that [px , py ], [py , pz ], [pz , px ] form a simple geodesic triangle.
+    In each of the 6 types above, any cycle γ around a face has a most 6 sides, hence
+    one of its exterior edges γ ∩[pa , pb ] has length ⩾ 16 |γ| (for a, b ∈ {x, y, z}). It follows
+    that γ ⊆ C(a, b). An easy case-by-case analysis now implies that
+
+                                    C(x, y) ∩ C(y, z) ∩ C(z, x) ̸= ∅.
+
+(c) Claim. For every p ∈ C(x, y), we have dS (x, p) ⩾ dC(x,y) ([x, y], p).
+    Proof of the claim. If p ∈ [x, y], the statement is obvious. Suppose p ∈ γ. We
+    consider [x, p] a geodesic between x and p. Let p′ be the point on [x, p] ∩ γ furthest
+    from p, and x′ be the point on [x, p] ∩ [x, y] furthest from x (see Figure 1). Observe
+    that dS (x′ , p′ ) ⩾ dC(x′ ,y) ([x′ , y], p′ ) implies the desired inequality, hence we may
+    suppose w.l.o.g. p = p′ and x = x′ .
+                               p′     p                                           p
+                                          γ                                           γ
+                                                                                      r
+              x    x   ′
+                                                 y                  x                     q
+                  Figure 1: p, p′ , x and x′ .             Figure 2: A relation in the q corner.
+
+    We pick q an endpoint of γ ∩ [x, y] such that |[p, q]| ⩽ 12 |γ| where [p, q] is the
+    corresponding arc of γ. If both endpoints satisfy this condition, we pick q closer to
+    x. We consider the simple geodesic triangle formed by [x, q], [x, p], [p, q].
+    Observe that the corner q cannot be filled by a triangle relation (Figure 2). Indeed
+    |r ∩ [x, p]| ⩽ 21 |r|, |r ∩ [p, q]| < 61 |r| and the interior edges (at most two of them in
+    Type V ) have length < 16 |r|. The same is true for the corner p. It follows that the
+    diagram spanned has to be of type I2 (see Figure 3).
+                                                            p
+                                                                γ
+                                                     ...   r
+                                          x                         q
+                                 Figure 3: The true configuration.
+    Note that, if r = γ, then |r ∩ [x, p]| = 0 and the interior edge has length < 16 |r|,
+    and the second arc from p to [x, y] has length ⩽ 21 |γ| and is closer to x, which
+    contradicts the definition of q. We conclude that r ̸= γ, hence |r ∩ [x, q]| ⩽ 12 |r|,
+    |[p, q]| = |r ∩ [p, q]| < 61 |r| and the interior edge is < 61 |r|. This forces
+
+                                                                        1
+                                     dS (x, p) ⩾ |[x, p] ∩ r| ⩾           |r| .
+                                                                        6
+
+                                                     10
+    In particular, we get dC(x,y) (x, y) ⩽ |[p, q]| < 61 |r| ⩽ dS (x, p).
+
+    Hence, for every p ∈ BS (e, r) ∩ C(x, y), there exists a relation γ and an endpoint
+    q of γ ∩ [x, y] such that dC(x,y) (p, q) ⩽ r. In particular, dS (x, q) ⩽ 2r. Note that
+    each point q ∈ [x, y] is the endpoint of at most two segments γ ∩ [x, y]. Indeed we
+    cannot have γ1 ∩ [x, y] ⊆ γ2 ∩ [x, y] by the C ′ (1/6) condition. It follows that
+
+                            |BS (e, r) ∩ C(x, y)| ⩽ (2r + 1)2 =: Q(r).
+
+(d) Fix x, y ∈ G. Let p, q ∈ C(x, y). We first suppose that p ∈ γ1 and q ∈ γ2 , with
+    γ1 ∩ γ2 ∩ [x, y] ̸= ∅. Then
+                                                            p
+     dS (p, q) ⩽ min{ℓ1 + a + ℓ2 ; r1 + c + r2 }
+                 1                                  ℓ1     γ1     r1
+               ⩽ (ℓ1 + r1 + ℓ2 + r2 + a + c)
+                 2
+                 1                               x    a      b       c         y
+               ⩽ 5(a + b) + 5(b + c) + a + c                      γ2     r
+                 2                                        ℓ 2             2
+
+              ⩽ 5(a + b + c) ⩽ 5 dS (x, y).                                 q
+    In the other cases (p or q on [x, y]; γ1 , γ2 disjoints), we have dS (p, q) ⩽ 3dS (x, y).
+    In conclusion, we have diamS (C(x, y)) ⩽ 5 dS (x, y), so R(r) = 5r satisfies.
+This finishes the proof of the (CR) property. Combining this with Proposition 4.5, we
+deduce the Rapid Decay property in a uniform and effective way:
+Theorem 4.9. Let G = ⟨S | R⟩ be a C ′ (1/6) presentation (with R possibly infinite),
+then (G, S) has the Rapid Decay property with P (r) = (10r + 1)3 .
+
+                                5. Proof of Theorem B
+
+5.1. Upper semi-computability. We find upper approximations for ρ(G, S). This
+                                                   p
+requires control on the speed of convergence of 2n p(2n) → ρ(G, S) (and some way
+to compute p(2n)). This control is given to us by the Rapid Decay property, via the
+following observation (taking f (x) = p(x; n) in Definition 4.1):
+Theorem 5.1 (Chatterji, Pittet, Saloff-Coste, see [Cha17, Theorem 1.3]). If (G, dS )
+has the Rapid Decay property for a given polynomial P , then
+
+                                 ρ(G, S)2n ⩽ P (n)2 · p(2n).
+
+Corollary 5.2. Let Gi = ⟨S | Ri ⟩ be a sequence of C ′ (1/6) presentations such that
+(Gi , S) → (G, S) in the space of marked groups, then ρ(Gi , S) → ρ(G, S).
+
+Proof. Combining the previous results, we have
+                             p           q
+                             n          2n
+                   ρ(Gi , S)/ P (n) ⩽      pGi ,S (2n) ⩽ ρ(Gi , S),                      (∗)
+
+                                               11
+               p
+in particular 2n pGi ,S (2n) → ρ(Gi , S) uniformly. It follows that
+                                      q
+           lim ρ(Gi , S) = lim lim 2n pGi ,S (2n)
+          i→∞               i→∞ n→∞
+                                      q                    q
+                          !
+                         = lim lim 2n pGi ,S (2n) = lim 2n pG,S (2n) = ρ(G, S).
+                           n→∞ i→∞                     n→∞
+
+
+Corollary 5.3. If G = ⟨S | R⟩ is a recursive C ′ ( 61 ) presentation, then ρ(G, S) is upper
+semi-computable (hence computable). Moreover, the result is effective.
+
+Proof. Rewriting the equation (∗), we get that
+                        p
+                       2n
+                                             p      p
+                          p(2n) ⩽ ρ(G, S) ⩽ n P (n) 2n p(2n).
+
+Moreover, the Word Problem is decidable (using Dehn’s algorithm), hence p(2n) is
+computable. This provides both upper and lower bounds.
+
+5.2. Construction. More precisely, we prove the following result:
+Theorem 5.4. Let X = {xn }n⩾1 be recursively enumerable set of computable reals, i.e.,
+such that there exists an algorithm with specifications
+ Input:    An index n.
+Output: Two algorithms providing two monotonous sequences of rational numbers
+        (am,n )m⩾1 and (bm,n )m⩾1 such that am,n ↗ xn and bm,n ↘ xn as m → ∞.
+Then there exists a marked group (G, S) with decidable Word Problem s.t. ρ(G, S) ∈
+                                                                                 / X.
+
+We combines small-cancellation theory and a diagonal argument. This combination of
+ideas already appears in [Ers04]. The main additional difficulty is computability.
+
+Proof. Fix an alphabet S, and consider an infinite sequence of cyclically reduced words
+(ri )i∈N ⊂ S ∗ satisfying the C ′ (1/6) condition. For instance, we can take S = {a, b} and
+ri = (ai bi )7 as in [Ers04]. For I ⊆ N, we define HI = ⟨S | {ri }i∈I ⟩.
+We define two sequences (ik ) ⊂ N and (εi ) ⊂ Q>0 , with (ik ) increasing, such that
+
+                            ∀1 ⩽ j ⩽ k,     |ρ(HIk , S) − xj | > εj ,
+
+where Ik = {i1 , . . . , ik }. Suppose that (ij )j⩽k and (εj )j⩽k are fixed. Observe that
+(1) HI = ⟨S | {ri }i∈I ⟩ is acylindrically hyperbolic [GS18, Theorem 1.3], hence every
+    infinite normal subgroup is acylindrically hyperbolic [Osi16, Corollary 1.5]. This
+                           / I. (rℓn does not contain half of a relation ri , hence ⟨rℓ ⟩ is
+    covers ⟨⟨rℓ ⟩⟩HI for ℓ ∈
+    infinite by Greendlinger’s lemma.) It follows that ⟨⟨rℓ ⟩⟩HI is not amenable hence
+
+                               ∀ℓ ∈
+                                  / I,    ρ(HI , S) < ρ(HI∪{ℓ} , S).
+
+                                              12
+(2) Greendlinger’s lemma implies that the Cayley graphs Cay(HI , S) and Cay(HJ , S)
+    coincide up to radius 12 mini∈I△J |ri |. In particular, we have (HI∪{ℓ} , S) → (HI , S)
+    in the space of marked groups. Corollary 5.2 now implies that
+
+                                 lim ρ(HIk ∪{ℓ} , S) = ρ(HIk , S).
+                                ℓ→∞
+
+
+This implies that, for ℓ large enough, we have
+
+          ∀1 ⩽ j ⩽ k,     ρ(HIk ∪{ℓ} , S) − xj > εj   and ρ(HIk ∪{ℓ} , S) ̸= xi+1 .
+
+Therefore, we can estimate in parallel (dovetailing) all values xj for 1 ⩽ j ⩽ k + 1 and
+ρ(HIk ∪{ℓ} , S) for ℓ > ik (Corollary 5.3), until we find a certificate that some ℓ satisfies
+the previous conditions. We take ik+1 = ℓ and 0 < εk+1 < ρ(HIk ∪{ℓ} , S) − xk+1 .
+
+Finally, we consider G = H{i1 ,i2 ,...} . By construction, we have |ρ(G, S) − xj | ⩾ εj for
+                     / X. Moreover, G is given by a recursive C ′ (1/6) presentation and
+all j, hence ρ(G, S) ∈
+therefore has decidable Word Problem (using Dehn’s algorithm).
+Remark 5.5. Observations (1) and (2) prove that the family (HI )I⊆N satisfies the
+conclusions of [KP24, Lemma 1.11]. In particular, this provides a family of 2-generated
+groups for which the spectral radius ρ(HI , S) (or any other strictly monotone parameter)
+takes a continuum of values. Another family satisfying these conditions is Higman’s
+family (HI¯)I⊆Z used in Section 2. We should note, however, that none of these families
+allows to reprove [KP24, Theorem 1.2] (“no isolated points”).
+Remark 5.6. We could replace the use of Corollary 5.2 by [Oll05, Theorem 2], which
+implies that ρ(G/⟨⟨wℓ ⟩⟩ , S) → ρ(G, S) in probability, where G is a fixed non-elementary
+torsion free hyperbolic group and wℓ ∈ S ∗ is a random word of length ℓ.
+
+                                 6. Further remarks
+
+6.1. An explicit example. The most natural question is the following:
+Question 6.1. Does there exist a finitely presented group (G, S) with decidable Word
+Problem and transcendental spectral radius ρ(G, S)?
+
+Sarnak asked if the spectral radius is transcendental for G = π1 (Σ2 ) the surface group
+[GH97], and lots of effort has been done to approximate this value [Nag99; Gou13]. Of
+course, we expect ρ(G, S) to be transcendental even in this case. However, we suggest
+looking at G = Zd ∗ Zd (with d ⩾ 5) might be a better try for transcendence.
+We consider the cubical set Scube = {±1}d , which generates a group isomorphic to Zd .
+Recall that the Green series is defined as
+                                   X              X 2nd  z 2n
+                                               n
+                   ΓZd ,cube (z) =     p(n) · z =                 .
+                                   n⩾0            n⩾0
+                                                      n     2d
+
+                                             13
+This function is a generalized hypergeometric function, specifically
+                                                                           
+                                               1          1
+                      ΓZd ,cube (z) = d+1 Fd     , . . . , ; 1, . . . , 1; z .
+                                               2          2
+                                              1
+For d ⩾ 5, Woess proves that ρ(G, S) = 1 − 2θ   where θ = ΓZd ,cube (1) [Woe00, p.108].
+(Note that θ is the expected number of returns at 0 of the simple random walk.) We
+are reduced to prove that the value of a G-function at z = 1 is transcendental. Even
+though the transcendence of these values is wide open, we fall into the realm of things
+mathematicians have thought about, and developed some machinery for. [FR24; Riv24]
+
+6.2. Computability of ρ(G, S). Note that we cannot take X = {computable reals}
+in Theorem 5.4. (Actually, by construction/Corollary 5.3, the spectral radius will be
+computable for our examples.) This begs the following question:
+Question 6.2. Does there exist a marked group (G, S) with decidable Word Problem
+such that ρ(G, S) is not computable? (Equivalently, not upper semi-computable.)
+
+If we denote p(2m) = ρ2m /f (m) (with f (m) ⩾ 1 the sub-exponential correction). This
+would imply that there exists no computable function N : N → N such that
+                                                1           1
+                              ∀m ⩾ N (n),         log f (m) ⩽ ,
+                                                m            n
+despite m1 log f (m) → 0. An approach in the spirit of Theorem A could pass by a
+                    
+
+positive answer to the following question:
+Question 6.3. Does there exist a finitely generated group G with decidable Word
+Problem such that, given as input a finite subset T ⊂ G, it is undecidable whether the
+normal subgroup generated ⟨⟨T ⟩⟩G is amenable or not?
+
+Equivalently, let R(G) be the amenable radical of G, i.e., the largest amenable normal
+subgroup. Does there exists a finitely generated group G with decidable Word Problem
+such that the quotient G/R(G) has undecidable Word Problem?
+
+6.3. Continuity of ρ(G, S). We have proven that the restriction of ρ : M → (0, 1] to
+the subset of C ′ (1/6) presentations is continuous. It is natural to wonder if this can be
+extended to other natural subsets of the space of marked groups M, such as
+                     Hne := {(G, S) | G is non-elementary hyperbolic},
+                     Htf := {(G, S) | G is torsion free hyperbolic}.
+We prove that ρ is not continuous on Hne . We denote F (X) the free group over X, and
+Nc,q (X) the free nilpotent group of class c and exponent q over X. Note that Nc,q (X)
+is finite as soon as X is finite. Given a prime p, we define
+                               Gn = Nn,pn (Nn,pn (s, t)) ⋊ F (s, t),
+
+                                                 14
+where F (s, t) acts by left-multiplication, using that F (s, t) ↠ Nn,pn (s, t). This is an
+instance of “permutational verbal wreath product”. Gn is generated by s, t and the
+“lamp at e ∈ Nn,pn (s, t)”, which we denote a. Free groups being residually p, we have
+                       n→∞                                                         
+        Gn , {a, s, t} −→ F (F (s, t)) ⋊ F (s, t), {a, s, t} = F (a, s, t), {a, s, t} .
+
+Meanwhile, since Nn,pn (Nn,pn (s, t)) is finite (hence amenable) and F (F (s, t)) is non-
+amenable, we can apply Kesten’s theorem twice to get
+
+          ∀n ⩾ 0,      ρ(Gn , S) = ρ(F (s, t), {e, s, t}) > ρ(F (a, s, t), {a, s, t}).
+
+This leaves the following question open:
+Question 6.4. Is the restriction of the map ρ : M → (0, 1] to Htf continuous? How
+about the restriction to hyperbolic groups with trivial finite radical?
+
+                                       References
+
+[AD12]     Goulnara Arzhantseva and Cornelia Drutu. Geometry of infinitely presented small
+           cancellation groups, Rapid Decay and quasi-homomorphisms. Preprint available at
+           https://arxiv.org/abs/1212.5280. 2012.
+[Boo58]    William W. Boone. “THE WORD PROBLEM”. In: Proceedings of the National
+           Academy of Sciences 44.10 (1958), pp. 1061–1065.
+[Bor69]    Viktor V. Borisov. “Simple examples of groups with unsolvable word problem”.
+           In: Math. notes of the Academy of Sciences of the USSR 6 (1969), pp. 768–775.
+[Cha17]    Indira Chatterji. “Introduction to the Rapid Decay property”. In: Contemporary
+           Mathematics 691 (2017).
+[CR03]     Indira Chatterji and Kim Ruane. “Some geometric groups with Rapid Decay”.
+           In: Geometric & Functional Analysis GAFA 15 (2003), pp. 311–339.
+[Ers04]    Anna Erschler. “Growth rates of small cancellation groups”. In: Random Walks
+           and Geometry. Ed. by Vadim A. Kaimanovich. Berlin, New York: De Gruyter,
+           2004, pp. 421–430.
+[FR24]     Stéphane Fischler and Tanguy Rivoal. “Relations between values of arithmetic
+           Gevrey series, and applications to values of the Gamma function”. In: Journal of
+           Number Theory 261 (2024), pp. 36–54.
+[Gou13]    Sébastien Gouëzel. “A Numerical Lower Bound for the Spectral Radius of Ran-
+           dom Walks on Surface Groups”. In: Combinatorics, Probability and Computing
+           24 (2013), pp. 838–856.
+[GH97]     Rostislav I. Grigorchuk and Pierre de la Harpe. “On problems related to growth,
+           entropy, and spectrum in group theory”. In: Journal of Dynamical and Control
+           Systems 3 (1997), pp. 51–89.
+[GS18]     Dominik Gruber and Alessandro Sisto. “Infinitely presented graphical small can-
+           cellation groups are acylindrically hyperbolic”. In: Annales de l’Institut Fourier
+           68 (2018), pp. 2501–2552.
+
+                                             15
+[Hig61]   Graham Higman. “Subgroups of finitely presented groups”. In: Proceedings of the
+          Royal Society of London. Series A. 262.1311 (1961), pp. 455–475.
+[HNN49]   Graham Higman, B. H. Neumann, and Hanna Neumann. “Embedding Theorems
+          for Groups”. In: Journal of the London Math. Society s1-24.4 (1949), pp. 247–254.
+[Jol90]   Paul Jolissaint. “Rapidly Decreasing Functions in Reduced C*-Algebras of Groups”.
+          In: Transactions of the American Mathematical Society 317.1 (1990), pp. 167–196.
+[Kai02]   Vadim A. Kaimanovich. “The Poisson Boundary of Amenable Extensions”. In:
+          Monatshefte für Mathematik 136 (2002), pp. 9–15.
+[KV83]    Vadim A. Kaimanovich and Anatoli M. Vershik. “Random Walks on Discrete
+          Groups: Boundary and Entropy”. In: The Annals of Probability 11.3 (1983),
+          pp. 457–490.
+[KS70]    Abraham Karrass and Donald Solitar. “The Subgroups of a Free Product of Two
+          Groups with an Amalgamated Subgroup”. In: Transactions of the American Math-
+          ematical Society 150.1 (1970), pp. 227–255.
+[KP24]    Martin Kassabov and Igor Pak. Monotone parameters on Cayley graphs of finitely
+          generated groups. Preprint at https://arxiv.org/abs/2404.10870. (2024).
+[Kes59]   Harry Kesten. “Symmetric Random Walks on Groups”. In: Transactions of the
+          American Mathematical Society 92.2 (1959), pp. 336–354.
+[LS77]    Roger C. Lyndon and Paul E. Schupp. Combinatorial Group Theory. Classics in
+          Mathematics. Springer Berlin Heidelberg, (1977).
+[MS83]    David E. Muller and Paul E. Schupp. “Groups, the Theory of ends, and context-
+          free languages”. In: Journal of Computer and System Sciences 26.3 (1983), pp. 295–
+          310.
+[Nag99]   Tatiana Nagnibeda. “An estimate from above of spectral radii of random walks on
+          surface groups”. In: Journal of Mathematical Sciences 96 (1999), pp. 3542–3549.
+[Nov55]   Petr S. Novikov. “On the algorithmic unsolvability of the word problem in group
+          theory”. In: Trudy Mat. Inst. Steklov. 44 (1955), pp. 3–143.
+[Oll05]   Yann Ollivier. “Cogrowth and spectral gap of generic groups”. In: Annales de
+          l’institut Fourier 55.1 (2005), pp. 289–317.
+[Osi16]   Denis V. Osin. “Acylindrically hyperbolic groups”. In: Transactions of the Amer-
+          ican Mathematical Society 368.2 (2016), pp. 851–888.
+[Rau25]   Emmanuel Rauzy. “Computable analysis on the space of marked groups”. In:
+          Internation Journal of Algebra and Computation 35.7 (2025).
+[Riv24]   Tanguy Rivoal. “E-fonctions et G-fonctions de Siegel”. In: Actes des Journées X-
+          UPS 2019 : Périodes et transcendance. Editions de l’Ecole Polytechnique, 2024,
+          pp. 189–284.
+[Sam02]   Andrea Sambusetti. “Growth tightness of free and amalgamated products”. In:
+          Annales scientifiques de l’École Normale Supérieure 35.4 (2002), pp. 477–488.
+[Sap15]   Mark V. Sapir. “The Rapid Decay property and centroids in groups”. In: Journal
+          of Topology and Analysis 07.03 (2015), pp. 513–541.
+
+                                           16
+[Str90]   Ralph Strebel. “Small cancellation groups”. In: Sur les groupes hyperboliques
+          d’apres Mikhael Gromov. Ed. by Etienne Ghys and Pierre de la Harpe. Vol. 83.
+          Springer Science & Business Media, 1990.
+[Woe00]   Wolfgang Woess. Random Walks on Infinite Graphs and Groups. Cambridge Tracts
+          in Mathematics. Cambridge University Press, 2000.
+
+
+Mathematical Institute, University of Oxford, United Kingdom
+E-mail address: corentin.bodart@maths.ox.ac.uk
+URL: https://sites.google.com/view/corentin-bodart
+Department of Mathematics, Vanderbilt University, Nashville 37240, U.S.A.
+E-mail address: denis.v.osin@vanderbilt.edu
+
+
+
+
+                                         17
+

@@ -1,0 +1,2831 @@
+           BOUNDING THE NUMBER OF SELF-AVOIDING WALKS:
+            HAMMERSLEY-WELSH WITH POLYGON INSERTION
+
+ HUGO DUMINIL-COPIN, SHIRSHENDU GANGULY, ALAN HAMMOND, AND IOAN MANOLESCU
+
+
+
+
+       Abstract. Let cn = cn (d) denote the number of self-avoiding walks of length n starting
+                                                                                       1/n
+       at the origin in the Euclidean nearest-neighbour lattice Zd . Let µ = limn cn denote the
+                                   d
+       connective constant of Z . In 1962, Hammersley and Welsh [HW62] proved that, for each
+       d ≥ 2, there exists a constant C > 0 such that cn ≤ exp(Cn1/2 )µn for all n ∈ N. While
+       it is anticipated that cn µ−n has a power-law growth in n, the best known upper bound in
+       dimension two has remained of the form n1/2 inside the exponential.
+           The natural first improvement to demand for a given planar lattice is a bound of the form
+       cn ≤ exp(Cn1/2−ε )µn , where µ denotes the connective constant of the lattice in question.
+       We derive a bound of this form for two such lattices, for an explicit choice of ε > 0 in each
+       case. For the hexagonal lattice H, the bound is proved for all n ∈ N; while for the Euclidean
+       lattice Z2 , it is proved for a set of n ∈ N of limit supremum density equal to one.
+           A power-law upper bound on cn µ−n for H is also proved, contingent on a non-quantitative
+       assertion concerning this lattice’s connective constant.
+
+
+  1. Introduction                                                                                       1
+  2. The Hammersley-Welsh argument and its prospective modification                                     6
+  3. Self-avoiding polygons: counting and joining                                                      13
+  4. Hammersley-Welsh with polygon insertion: reducing to a key estimate                               20
+  5. Proving the key bound on confined walks with many branches                                        25
+  6. Abundance of polygons for the hexagonal lattice                                                   35
+  7. The proof of Theorem 1.4                                                                          41
+  Appendix A. Polygon insertion for the hexagonal lattice                                              53
+  References                                                                                           55
+Contents
+
+
+                                          1. Introduction
+
+1.1. Definitions and results. We will denote by N the set of positive integers. For u ∈ R2 ,
+let kuk denote the Euclidean norm of u. The two-dimensional nearest-neighbour Euclidean
+lattice Z2 = (Z2 , E(Z2 )) has origin O = (0, 0).
+A walk of length n ∈ N ∪ {0} is a map γ : {0, . . . , n} → Z2 such that kγi+1 − γi k = 1 for each
+i ∈ {0, . . . , n − 1}. An injective walk is called self-avoiding. Write SAWn for the set of all
+
+  Date: June 13, 2019.
+  2010 Mathematics Subject Classification. Primary: 60K35. Secondary: 60D05.
+                                                    1
+2               H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+self-avoiding walks of length n with γ0 = O. The book [MS13] and lecture notes [BDCGS12]
+offer introductions to the topic of self-avoiding walk.
+It follows from a simple sub-multiplicativity result that there exists a constant µ, called the
+connective constant, such that
+                                  µn ≤ |SAWn | ≤ exp(o(n)) µn .
+The question that we address here concerns the upper bound. Until recently, the best known
+upper bound on |SAWn | was given by the celebrated work of Hammersley and Welsh [HW62].
+Theorem 1.1 (Hammersley-Welsh bound). For d ≥ 2, there exists C > 0 such that, for all
+n ∈ N,
+                                    |SAWn | ≤ exp(Cn1/2 ) µn .                               (1.1)
+
+Our definition of SAWn is made for d = 2 because this article’s results concern this dimen-
+sion, but the model’s definition in higher dimensions is no different. Theorem 1.1’s proof
+depends on unfolding self-avoiding walks so that certain special self-avoiding walks known as
+bridges result. Kesten substantially improved Theorem 1.1 for dimensions d ≥ 3 in [Kes64].
+Recently, [Hut18] has observed that, in any dimension at least two, the sub-ballisticity of
+self-avoiding walk [DCH13] entails that the constant C > 0 in Theorem 1.1 may be chosen
+arbitrarily. In sufficiently high dimension d, Slade [Sla89] has proved the far stronger inference
+that |SAWn | ∼ cd µn for some cd > 0; when d ≥ 5, this result is due to Hara and Slade [HS92].
+Our aim is to improve the exponent 1/2 in the power of n in the exponential in Theorem 1.1
+in the two-dimensional case. We mention first that it is expected that
+                                    |SAWn | = n11/32+o(1) µn ,
+where the exponent 11/32 is predicted [Nie82] for any planar lattice, in contrast to the lattice-
+dependent value of µ. See [LSW04] for discussions of this prediction and the conjectural
+SLE8/3 scaling limit of planar self-avoiding walk.
+The improved bound that we present requires a power-law lower bound on the correction to
+exponential growth for self-avoiding polygons of a given length, where such polygons are in
+essence self-avoiding walks that return to their starting points. This bound is available only
+subsequentially for Z2 . Here then is the first of our main results.
+                                                             1
+Theorem 1.2 (Improved Hammersley-Welsh on Z2 ). For any ε < 466 , there exist infinitely
+many values of n ∈ N such that
+                                   |SAWn | ≤ exp(n1/2−ε ) µn .                               (1.2)
+Indeed, there are infinitely many j ∈ N for which all n ∈ N ∩ [j, j 4/3 ] satisfy (1.2).
+
+The technique of proof of Theorem 1.2 is rather robust, and it is plausible that a similar
+result may be obtained for many planar lattices. For a particular lattice, special structure
+permits the derivation of a stronger result. This lattice is the hexagonal lattice H, which is
+dual to the triangular lattice T = Z + eiπ/3 Z: see the later Figure 8 for a depiction. On H,
+an analysis of a discretely holomorphic observable, which was exploited in [DCS12] and is
+discussed in Section 6, leads to a bound of the form (1.2) for all n. Let SAWn (H) denote
+                      BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                             3
+
+
+
+
+                Figure 1. A finite section of some U∞                 3
+                                                    k is embedded in R .
+
+
+the set of self-avoiding walks of length n starting from p
+                                                         a given vertex in H. The hexagonal
+                                                               √
+lattice’s connective constant µ(H) was proved to equal 2 + 2 in [DCS12].
+                                                          1
+Theorem 1.3 (Improved Hammersley-Welsh on H). Let ε ∈ (0, 42 ). Then, for any n ∈ N
+high enough,
+                                 |SAWn (H)| ≤ exp(n1/2−ε ) µ(H)n .                       (1.3)
+
+Beyond these two bounds, we present a third theorem, in which a polynomial upper bound
+on the hexagonal lattice’s normalized walk count µ(H)−n |SAWn (H)| is obtained subject to
+a qualitative conjecture concerning numbers of self-avoiding walks. In order to pose the
+conjecture, consider the universal cover U∞ of H with singularity at the origin; this informal
+description will be made precise in Section 7.1. Let π∞ be the canonical projection of U∞
+to H. For k ≥ 0, let Λk be the ball of radius k for the graph distance on T, centred at the
+origin; we will view Λk as a set of faces of H; note that Λ0 contains one face, whose centre
+is the origin. Let U∞       ∞     −1
+                    k := U \ π∞ (Λk ), this being the universal cover of H \ Λk ; note that
+  ∞
+U ⊂ U0 . ∞
+
+
+Let k ∈ N. For v ∈ U∞                    ∞
+                         k , set SAWn (Uk , v) equal to the set of self-avoiding walks in Uk
+                                                                                            ∞
+
+of length n that start at v; absence of translation invariance entails the specification of v
+in this notation since it is the cardinality of these sets that will concern us. When a
+self-avoiding walk is split into two, the pieces are also self-avoiding. Thus, the sequence
+  supv∈U∞ SAWn (U∞
+
+         k          k , v) : n ∈ N is submultiplicative, so that Fekete’s lemma permits us
+to define
+                                                                1/n
+                           µ(U∞                           ∞
+                               k ) := lim sup SAWn (Uk , v)         .                    (1.4)
+                                        n→∞ v∈U∞
+                                                k
+
+Conjecture 1. There exists k ∈ N ∪ {0} for which µ(U∞
+                                                    k ) is equal to µ(H).
+
+The conjecture is in our view likely to be valid even when k = 0. In principle, however, a
+typical self-avoiding walk on U∞
+                               k may wind continually around the axis of the universal cover,
+resulting in µ(U∞k ) > µ(H).
+Here is our third main result.
+4               H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+Theorem 1.4. Assume Conjecture 1. There exist positive constants C0 and C such that, for
+n ∈ N,
+                            SAWn (H) ≤ C0 nC µ(H)n .                              (1.5)
+
+Although this theorem is a conditional result, it is plausible that it considerably simplifies
+the task of proving (1.5). Indeed, the task of deriving a power-law upper bound for µ(H)−n cn
+has been reduced to proving that the number of self-avoiding walks on Uk is bounded above
+by µ(H)n+o(n) with a non-quantitative o(n) bound.
+The introduction continues by presenting some fundamental notation and concepts. It ends
+by explaining the paper’s structure.
+
+1.2. Notation. For a < b, write Ja, bK := [a, b] ∩ Z.
+Let (e1 , e2 ) denote the standard unit vectors that generate Z2 . For a point z ∈ Z2 , we write
+x(z) and y(z) for its first and second coordinates. For a finite set of points A ⊂ Z2 , write
+ymax (A) = max{y(a) : a ∈ A} and ymin (A) = min{y(a) : a ∈ A}; the same applies to the
+x-coordinate. For walks γ, ymax (γ) and ymin (γ) refer to the definitions above, with γ being
+the set of points visited by γ. Then h(γ) = ymax (γ) − ymin (γ) is called the height of γ. (The
+word ‘height’ will also refer to the y-coordinate of a point in Z2 .)
+For a walk γ ∈ SAWn and 0 ≤ a ≤ b ≤ n, γ[a,b] is the walk (γa , γa+1 , . . . , γb ). We define the
+concatenation γ ◦ γ 0 of two walks γ and γ 0 starting from O of respective lengths n and m by
+the formula                                (
+                                             γk          for k ≤ n
+                             (γ ◦ γ 0 )k =         0
+                                             γn + γk−n for k ≥ n.
+The length of a self-avoiding walk γ will be denoted by |γ|.
+
+1.3. Multi-valued maps. Our main arguments will be presented using a simple combina-
+torial inequality.
+Let A and B be finite sets, and let P(B) denote the power set of B. A multi-valued map from
+A to B is a function Φ : A → P(B). An arrow is a pair (a, b) ∈ A × B for which b ∈ Φ(a);
+such an arrow is said to be outgoing from a and incoming to b. We consider multi-valued
+maps in order to find upper bounds on |A|, and for this, we need the next lemma, which gives
+upper (and lower) bounds on the number of incoming (and outgoing) arrows.
+Lemma 1.5. Let Φ : A → P(B). Set m0 to be the minimum over a ∈ A of the number of
+arrows outgoing from a, and M0 to be the maximum over b ∈ B of the number of arrows
+incoming to b. Then |B| ≥ m0 M0−1 |A|.
+
+Proof. The quantities M0 |B| and m0 |A| are upper and lower bounds on the total number of
+arrows.                                                                                
+When there is merely one outgoing arrow from each element of A, we call the multi-valued
+map Φ degenerate; in this case, we may instead view Φ as a function from A to B.
+                       BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                                  5
+
+
+1.4. Self-avoiding bridges and polygons. A self-avoiding walk in Z2 of length n that
+starts at O and satisfies 0 < y(γk ) ≤ y(γn ) for 1 ≤ k ≤ n is called a bridge. Let SABn denote
+the set of self-avoiding bridges of length n.
+
+When bridges are concatenated, the outcome is also a bridge. The resulting supermultiplica-
+tivity leads to
+                                          |SABn | ≤ µnb ,
+where µb = limn |SABn |1/n ≤ µ.
+
+Self-avoiding polygons play an essential role in the proofs of the strengthened Hammersley-
+Welsh bounds, Theorems 1.2 and 1.3.
+
+A self-avoiding walk γ : {0, . . . , n} → Z2 is called closing if kγn − γ0 k = 1. A closing walk has
+odd length. A self-avoiding polygon is formed from such a closing walk γ by taking the union
+of the set of nearest-neighbour edges that interpolate consecutive endpoints of γ with the
+further edge {γn , γ0 }. This polygon has length n + 1, which is even. A self-avoiding polygon
+of length four is called a plaquette; it consists of the four edges that border a certain unit
+square.
+
+Let SAPn denote the set of equivalence classes of self-avoiding polygons of length n ∈ 2N,
+where two such polygons are identified if there exists a vector in Z2 that translates one to the
+other.
+
+An element of SAPn corresponds to 2n closing walks of length n − 1 that start at the origin:
+any one of n edges may be removed from a length n polygon, and a choice of two orientations
+then made for the resulting closing walk.
+
+The next lemma follows from an argument of Kesten [Kes63].
+
+Lemma 1.6. For any n ∈ N,
+                                                            2
+                                                SABn
+                                SAP2n+2 ≥                    .
+                                          4(2n + 1)n(n + 1)3
+
+Proof. The final inequality of the proof of [BDCGS12, Theorem 2.9] asserts, when d = 2,
+that the number of closing walks in Z2 of length 2n + 1 that begin at the origin is at least
+n−1 (n + 1)−2 (2n + 1)−1 |SABn |2 . The number of elements of SAP2n+2 is thus seen to be at
+least the product of 2−1 (2n + 2)−1 and the latter quantity.                              
+
+Two remarks: 1. We study self-avoiding walks, but walks in which the constraint of self-
+avoidance is violated play a vital role in the proofs of Theorems 1.2 and 1.3. Walks, bridges
+and polygons are understood to be self-avoiding: the violation of this constraint will be noted
+with emphasis.
+
+2. We will make such assertions as ‘a walk and a polygon are disjoint’ and ‘a polygon intersects
+a given set of vertices’. These assertions are abuses of notation, but their meaning is, we hope,
+clear.
+6               H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+1.5. Structure of the paper. The celebrated Hammersley-Welsh unfolding argument proves
+Theorem 1.1. Our first two principal results depend on developing this argument, and we
+begin Section 2 by reviewing it. We then explain roughly how we will modify the argument
+with the use of polygon insertion.
+This heuristic discussion will make clear that certain basic tools are needed: polygon abun-
+dance, and Madras’ join technique for polygons in Z2 . These tools are reviewed or developed
+in Section 3. By polygon abundance, we mean a power-law lower bound on the normalized
+number of certain useful polygons of given length n. This bound is obtained subsequentially
+in n for Z2 . A stronger bound valid for the hexagonal lattice and for all lengths has a proof
+that involves the parafermionic observable. Section 6 contains this derivation.
+Sections 4 and 5 offer the rigorous counterpart to the heuristics of Section 2: assertions of
+polygon abundance will be used to prove the square lattice Theorem 1.2. Section 4 begins by
+explaining how the task will be carried out over the two sections. Section 5 ends with some
+brief comments concerning the prospect for obtaining improvements to Theorem 1.2 by mak-
+ing changes to this theorem’s proof. Certain perturbations of the argument for Theorem 1.2
+are needed alongside the stronger polygon abundance estimate available for the hexagonal
+lattice to yield Theorem 1.3. The construction and changes are described in Appendix A.
+The main part of the paper ends with two sections treating the hexagonal lattice, the first of
+which we have mentioned. The final Section 7 contains the proof of the strong but conditional
+Theorem 1.4.
+
+Acknowledgments. The first author is supported by the ERC grant CriBLaM, an IDEX
+grant from Paris-Saclay and the NCCR SwissMAP, the second by a Miller Research Fellow-
+ship, the third by NSF grant DMS-1512908 and the fourth by the the NCCR SwissMAP.
+The authors thank Alexander Glazman and Matan Harel for several valuable conversations.
+The first author thanks Tony Guttmann, Nick Beaton and Iwan Jensen for useful discussions
+regarding Conjecture 1.
+Finally, we thank a referee who read the manuscript meticulously and offered many useful
+comments.
+
+
+     2. The Hammersley-Welsh argument and its prospective modification
+
+In two subsections, we recount this argument and, in a third, we lay out a plan to modify it.
+
+
+2.1. Bridge lists. We define the bridge-product space BΠ`,j , for `, j ∈ N, to be the set of
+ordered lists b1 , . . . , bj of length j whose elements are bridges whose respective lengths `k
+satisfy jk=1 `k = ` and whose respective heights hk form a strictly decreasing sequence.
+       P
+
+Lemma 2.1. We have the following two properties.
+               1/2
+  (1) If j ≤ 2`     , then BΠ`,j ≤ `j µ` , and if j > 2`1/2 , then BΠ`,j = ∅.
+                        BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                                   7
+
+
+   (2) There exists C > 0 such that, for ` ∈ N,
+                                    `
+                                    [
+                                          BΠ`,j ≤ exp(C`1/2 )µ` .
+                                    j=1
+
+
+Remark. The proofs demonstrate the statements with the change µ → µb . However, the
+results under review leading to Theorem 1.1 demonstate that µb = µ. We will thus make no
+further reference to µb .
+Proof of Lemma 2.1. (1). Fix j and `. If j > (2`)1/2 , the sum of heights of any element
+  b1 , . . . , bj ∈ BΠ`,j is greater than 1 + 2 + · · · + j > `, which proves that no such bridge-list
+exists. Assume now that j ≤ (2`)1/2 .
+                                                        
+The concatenation map C that sends b1 , . . . , bj to b1 ◦ · · · ◦ bj maps BΠ`,j to SAB` . Treating
+this operation as a multi-valued map, though it is a degenerate one, we apply Lemma 1.5 with
+A = BΠ`,j and B = SAB` . Clearly, m0 = 1, while the fact noted early in Section 1.4 implies
+that |B| ≤ µ` . The map C is not injective, because of the ambiguity in how several bridges are
+concatenated to form a given output bridge. We gauge distance from injectivity by asserting
+that the quantity M0 in Lemma 1.5 is at most `j . The assertion is valid because, for given
+b ∈ SAB` , the identity of an element in C −1 (b) may be inferred from the j concatenation
+points of consecutive bridges along b, and each of these points lies in a set of cardinality `.
+(2). Fix `. When the concatenation map is extended to act on `j=1 BΠ`,j , its range again
+                                                                          S
+
+lies in SAB` . Applying Lemma 1.5 once more, it is enough to argue that M0 ≤ exp(C`1/2 )
+for a suitable positive constant C. To boundM0 , note that for given b ∈ SAB` , it suffices
+to determine the strictly decreasing sequence hi : i ≥ 1 of heights of b1 , . . . , bj in order to
+determine b1 , . . . , bj . This sequence is a decreasing partition of the height of b, which is at
+most `.
+In view of a much finer result of Hardy and Ramanujan [HR17], there exists a positive constant
+C such that the number of decreasing partitions of a given integer k ≥ 1 is bounded above
+by exp(Ck 1/2 ). Taking k to equal the height of b, we verify that Lemma 1.5’s M0 is at most
+exp(C`1/2 ).                                                                                
+
+2.2. The Hammersley-Welsh argument. Although the proof of Theorem 1.1 that we are
+reviewing is valid in any dimension d ≥ 2, our development of this argument requires that
+d = 2. We thus take d = 2 throughout the article; even if in this section it is purely as a
+matter of notational convenience.
+A half-space self-avoiding walk (which, in accordance with our convention, we will call simply
+a half-space walk) of length n is a self-avoiding walk γ of length n starting at O with 0 < y(γk )
+for all 0 < k ≤ n. Write HSWn for the set of such walks.
+Decomposing any self-avoiding walk of length n at its final lowest point, we find that
+                                            n
+                                            X
+                               |SAWn | ≤          |HSWk+1 | |HSWn−k | .                         (2.1)
+                                            k=0
+8               H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+The second term of the product accounts for the segment of the walk after its final lowest
+point; it is the translation of a half-space self-avoiding walk. The segment of the walk before
+its final lowest point, with a downward vertical edge added at the end, is the translation and
+reversal of a half-space self-avoiding walk, and contributes to the first term of the product.
+The +1 in the index of the first term is due to the added downward step.
+Lemma 2.2. There exists C > 0 such that, for n ∈ N,
+                                       |HSWn | ≤ exp(Cn1/2 ) µn .
+
+Proof of Theorem 1.1. This is immediate from the two preceding bounds.                             
+Proof of Lemma 2.2. LetSn ∈ N. In light of Lemma 2.1(2), it is enough to construct an
+injective map Ψ : HSWn → nj=1 BΠn,j from length-n half space walks to bridge-lists of sum
+length n.
+Let γ ∈ HSWn . Define the record points of γ recursively as follows. Let a0 = 0. For k ≥ 1
+odd, let ak be the last time that γ[ak−1 ,n] reaches its highest y-coordinate. For k ≥ 2 even, let
+ak be the last time that γ[ak−1 ,n] reaches its lowest y-coordinate. Formally,
+                      (
+                         max{t > ak : y(γt ) = ymax (γ[ak−1 ,n] )}    if k is odd,
+                ak :=                                                                       (2.2)
+                         max{t > ak : y(γt ) = ymin (γ[ak−1 ,n] )}    if k is even.
+Stop this procedure on the first occasion that ak = n.
+We call the walks γ[ak ,ak+1 ] , 0 ≤ k < r, the branches of γ. In this way, we associate to γ its
+branch decomposition
+                                    (γ[0,a1 ] , γ[a1 ,a2 ] , . . . , γ[ar−1 ,ar ] ) ,       (2.3)
+with r = r(γ) the number of branches of γ. The branch heights form a strictly decreasing
+sequence.
+When k is even, γ[ak ,ak+1 ] is a bridge after a suitable translation. When this index is odd, it is
+the vertical reflection of γ[ak ,ak+1 ] that is the translate of a bridge. More formally, write τ for
+the reflection with respect to the horizontal axis. The bridge decomposition of γ is formed by
+applying τ to every second component of γ’s branch decomposition and suitably translating
+each resulting component so that it is a bridge: that is, the new decomposition is
+                           (γ[0,a1 ] , τ (γ[a1 ,a2 ] − γa2 ), γ[a2 ,a3 ] − γa2 , . . . ) .     (2.4)
+We define Ψ(γ) to be the bridge decomposition of γ. Since the transformation that specifies
+this map is invertible, Ψ is injective, and Lemma 2.2 is proved.                         
+
+2.3. A rough guide to how polygon insertion will modify the Hammersley-Welsh
+argument. The injective map Ψ constructed in Lemma 2.2 sends a half-space walk to its
+bridge decomposition. Since this map is so vital to the proof of Theorem 1.1, we call Ψ
+the Hammersley-Welsh map. It will be by perturbing the construction of Ψ that we prove
+Theorems 1.2 and 1.3, and thus we emphasise its role. Note, however, that the proof of
+Theorem 1.1 amounts to considering the composition C ◦ Ψ : HSWn → SABn , where C is the
+concatenation map from Lemma 2.1’s proof, and noting that the number of arrows incoming
+                      BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                                 9
+
+
+to any point in the range of this map is bounded above by exp(Cn1/2 ). (We have called
+Hammersley-Welsh’s proof an unfolding argument because C ◦ Ψ unfolds walks into bridges.)
+Here, we outline the improvement of the Hammersley-Welsh bound. Fix ε > 0 to be the
+desired reduction of the 1/2 exponent of (1.2); we will see below that the improvement is
+limited, as ε needs to be smaller than some threshold.
+A simple argument will permit us to restrict the domain of Ψ to a special class of half-space
+walks. This set will be denoted (for a reason that we explain shortly) by HSWn . In essence,
+a member γ ∈ HSWn is an element of HSWn that
+   (1) has many branches: the branch, and thus also the bridge, decomposition of γ has at
+       least an order of n1/2−ε terms;
+   (2) and is horizontally confined: γ is contained in a vertical strip of width of order n1/2+ε .
+Our goal will be achieved if we prove that | HSWn |µ−n ≤ exp(Cn1/2−ε ) for some constant C.
+Indeed, the bound |HSWn \ HSWn |µ−n ≤ exp(Cn1/2−ε ) is straightforward: see Lemmas 4.2
+and 4.3. These two bounds will then imply Theorem 1.2.
+In fact, and as we will now explain heuristically, we are able to obtain a bound on | HSWn |µ−n
+that is stronger than needed, namely
+                           | HSWn | · µ−n ≤ exp − Cn1/2−ε log n .
+                                                   
+                                                                                          (2.5)
+To begin explaining how we will reach this inference, fix r ∈ N to be a given value whose
+order is at least n1/2−ε . Set HSWn (r) = {γ ∈ HSWn : γ has r branches}. We will
+explain how to derive the counterpart to (2.5) on whose left-hand side HSWn is replaced by
+  HSWn (r). The actual bound (2.5) may then be obtained by summing over the concerned
+values r, provided that the positive constant C is reduced suitably.
+Consider the restriction of Ψ to HSWn (r); its image is a subset of BΠn,r . How may we
+seek to improve Ψ for our purpose, when this map is already injective? The answer lies in
+modifying Ψ into a multi-valued map with a large number of outgoing arrows from each point
+of HSWn (r), without significantly compromising the map’s injectivity.
+To survey options for introducing outgoing arrows from a given domain point, denote such a
+point by γ ∈ HSWn (r). Due to the high number of branches of γ, it is in essence true that
+at least one-half of them have height exceeding n1/2−ε . These will be called the tall branches.
+Since the vertical intervals occupied by consecutive branches form a decreasing sequence under
+containment, we see that γ’s tall branches all cross a given vertical interval of length n1/2−ε .
+Moreover, as γ is horizontally confined, every tall branch crosses between its upper and its
+lower side some given translate R of the rectangle [−n1/2+ε , n1/2+ε ] × [−n1/2−ε , n1/2−ε ], all
+the while remaining in R.
+Thus, γ is necessarily a rather dense object: the notation     is intended to evoke γ’s repeated
+up-down movement at close quarters.
+In particular, the tall branches of γ often pass close to each other inside R. Say that a point
+of γ in R is a near self-touch if it is the rightmost point of a tall branch at a given height
+among the y-coordinates assumed by R, and if the horizontal interval of length n2ε to its right
+10               H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+intersects another tall branch of γ. Each of the at least r/2 tall branches of γ contains one
+rightmost point for each of the n1/2−ε heights of R. Due to the limited volume of R, most of
+these rightmost points may be shown to be near self-touches. In conclusion, γ has of order
+r n1/2−ε near self-touches.
+We will alter the definition of Ψ in a way that seeks to exploit the abundance of near self-
+touches among elements in its domain. Our alteration of Ψ, which we will call Φ, entails
+the insertion of certain self-avoiding polygons around near self-touches. The polygons to be
+inserted will be drawn from a certain class WSAPum of wide polygons; here, u and m are
+parameters. The set WSAPum is a collection of self-avoiding polygons of length m each of
+which has, roughly expressed, width at least u. A choice of u will be made of order nδ ,
+where δ > 0 is a parameter chosen so that the resulting choice equals or slightly exceeds the
+horizontal near self-touch distance n2ε ; while m will be a given value that is at most n2δ . The
+value δ should be at least 2ε and, in this overview, we in fact set δ = 2ε.
+In a first attempt to modify the definition of Ψ, suppose that we attempt to insert a single
+polygon onto a half-space walk in the domain of Ψ, and then take the bridge decomposition
+of this modified walk. That is, suppose that we define Φ to be a multi-valued map whose
+domain is the product space HSWn (r) × WSAPum .
+Fix a domain point (γ, P ) ∈ HSWn (r) × WSAPum and consider the decomposition b1 , . . . , br
+of γ into branches. In this paragraph, we will abusively treat each bi as if it were bridge, even
+though alternate vertical reflection is in fact needed to ensure this. The set Ψ(γ, P ) of bridge-
+lists associated with (γ, P ) will be obtained by inserting P onto a given tall branch of γ. Let
+bj denote this branch; we choose the index j so that the cardinality of the collection of near
+self-touches of γ along bj has the typical order of n1/2−ε . Let γt denote a generic element in
+this collection of near self-touches. Define b̃j to be the bridge obtained by gluing the polygon
+P to the right of bj , at the level of the point γt . The procedure used to glue a polygon to a
+bridge is called the Madras join and will be reviewed in the next section. By definition of the
+Madras join, the result b̃j has length |bj | + m + 16 and, excepting a few marginal examples, is
+a bridge with the same height as bj . Consider now the list (b1 , . . . , b̃j , . . . , br ) which is given
+by Ψ(γ) except that bj is replaced by b̃j ; this is a bridge-list of total length n + m + 16. Then
+Φ(γ, P ) is the set of all bridge-lists obtained in this manner, as γt ranges over points of near
+self-touch for γ that lie in bj . Thus, Φ is a multi-valued map from HSWn (r) × WSAPum to
+BΠn+m+16,r .
+We now evaluate how successful this modification Φ of the Hammersley-Welsh map Ψ is in
+finding an improved upper bound on | HSWn (r)|. Lemma 1.5 and Lemma 2.1(1) imply that
+                                               M0              M0
+                | HSWn (r)| · |WSAPum | ≤         |BΠn+m,r | ≤    · (n + m)r µn+m ,                  (2.6)
+                                               m0              m0
+where M0 is the maximum number of arrows incoming to a given range point; and m0 , the
+minimum number of arrows outgoing from any domain point, is, in light of the preceding
+paragraph, at least n1/2−ε up to a constant factor which we here neglect.
+For Φ to produce a meaningful result, the constant M0 associated with it needs to be bounded
+from above. We next explain how this is done.
+                       BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                                 11
+
+
+
+
+                           ≤ n2ǫ
+               Θ(n1=2−ǫ)
+
+
+
+
+        Figure 2. By means of a local deformation on its left, a square-shaped poly-
+        gon P is inserted into a branch walk γ at a height where this branch nearly
+        touches the branch to its right. The implanted copy of P intersects the branch
+        on the right. The edges introduced into the walk are shown in bold in the
+        right sketch.
+
+                        
+Let b̄ = b1 , . . . , br ∈ BΠn+m+16,r be a point in the image set of Φ. Consider the walk
+resulting from the concatenation of the elements b1 , . . . , br after vertical reflection of every
+other bridge in this sequence. Vitally, this result is not self-avoiding: the choice of P and
+of the point γt of near self-touch have been made so that the branch to which P was added
+intersects its right-adjacent counterpart. We may thus infer the branch to which P was
+added (though in the present case, we know it: it is bj ); and, in view of the fixed length
+of P , we further in essence infer the location of the joining of P to that branch. Only a
+finite number C of pre-images of b̄ are then possible, where the value C accounts for possible
+microscopic variations in the surgery used to join P to the branch of γ. Thus, (2.6) becomes
+                                                                                −1
+               | HSWn (r)| · µ−n ≤ Cn−(1/2−ε) · (n + m)r · |WSAPum | · µ−m           .         (2.7)
+
+This should be compared to the naive bound involving the original map Ψ, which yields
+
+                                    | HSWn (r)| · µ−n ≤ nr .                                  (2.8)
+
+The difference between the right-hand factors of the last two inequalities represents the change
+in the outcome due to the insertion of a single polygon. The order n−(1/2−ε)  1 benefit
+due to polygon placement entropy is possibly compromised by the polygon scarcity cost
+(|WSAPum |µ−m )−1 (it will transpire that the loss due to nr being replaced by (n + m)r is
+insignificant). To understand the role of the term (|WSAPum |µ−m )−1 , note that, since WSAPum
+is a collection of polygons of length m, we have |WSAPum | ≤ |SAPm | ≤ µm : see [MS93,
+(3.2.5)]. Insofar as this inequality on |WSAPum | fails to be sharp, the resulting polygon scarcity
+constitutes an opposing force that undoes some of the benefit achieved by modifying Ψ to Φ.
+Thus, it is an upcoming challenge to demonstrate a lower bound on the number of wide
+polygons. If we posit that, for some constant α > 0, there exist u of order n2ε and m ≤ u2
+12              H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+for which |WSAPum |µ−m ≥ u−α , then (2.7) would become
+
+                       | HSWn (r)| · µ−n ≤ Cn−(1/2−ε)+2αε · (n + m)r ,                      (2.9)
+
+where the influence of the modified argument is transmitted again through the first term on
+the right-hand side, namely Cnε(1+2α)−1/2 . Given the information that suitable wide polygons
+are plentiful in the sense of the parameter α, the modification is seen to return a benefit when
+ε(2α + 1) < 1/2. Even when this condition is met, the improvement of nε(1+2α)−1/2 of (2.9)
+compared to (2.8) is only very modest: after all, r has order at least n1/2−ε .
+
+To obtain a greater improvement, we have little choice but to iterate our procedure: instead
+of adding one polygon, we will add as many as needed to reduce the right-hand side of (2.7)
+below exp(n1/2−ε ). Suppose that we add K = κr polygons independently and uniformly into
+admissible near-touch slots; note that κ > 0 is a parameter indicating the order of the number
+of polygons inserted per tall branch. Adding a polygon to a near-touch slot may block nearby
+near self-touches from receiving polygons. However, only at most order n2ε other near self-
+touches are thus affected. Indeed, since there is at least an order of n1−2ε near self-touches in
+total, the assumption that K = o(n1−4ε ), which in practice certainly permits κ to be chosen
+to be of unit order, entails that there are of order nK(1−2ε) sets of near self-touches for the K
+polygons to be added.
+
+In this light, we reconsider Φ to be a multi-valued map from HSWn (r) × (WSAPum )K to
+BΠn+K(m+16),r obtained by adding K polygons drawn from WSAPum to the tall branches of
+γ ∈ HSWn (r). The reasoning offered for the case of the insertion of a single polygon now
+shows that m0 ≥ nK(1−2ε) and M0 ≤ C K . Assuming again that |WSAPum |µ−m ≥ u−α , we
+find that
+                                            K
+         | HSWn (r)| · µ−n ≤ Cn−(1/2−ε)+2αε · (n + Km)r
+                             
+                                                                             
+                                                                              κ
+                                                       
+                           ≤ exp    − κ 1/2 − ε(1 + 2α) + 1 r log n + r log(2C ) ,
+
+where the latter bound depends on the practically harmless replacement of (n + Km)r by nr .
+The choice of ε > 0 so that ε(1 + 2α) < 1/2, and the further choice of κ to be a unit-order
+                                       −1
+quantity satisfying κ > 1/2 − ε(1 + 2α) , ensures that the factor multiplying r log n in the
+above may be treated as a negative constant. That r is of order n1/2−ε yields the inference
+
+                         | HSWn (r)| · µ−n ≤ exp − Cn1/2−ε log n .
+                                                
+
+
+As already mentioned, (2.5) follows from the above by summing over r.
+
+These heuristic considerations offer a road map for the rigorous argument for Theorem 1.2
+which will be presented in Sections 4 and 5 (with the variation needed for Theorem 1.3
+explained in Appendix A). The proof hinges on the abundance of polygons, which is to say,
+on a power-law lower bound on |WSAPum |µ−m . Such bounds will be studied in Section 3; they
+are proved to hold subsequentially for the square lattice and for all u (and well-chosen values
+of m) for the hexagonal lattice.
+                      BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                               13
+
+
+                  3. Self-avoiding polygons: counting and joining
+
+In this section, we present two tools which are needed to rigorously implement the plan that
+has just been sketched. In the preceding discussion, we invoked an assertion of polygon
+abundance, namely |WSAPum | µ−m ≥ u−α . In Section 3.1, we will present a precise definition
+of the wide polygon set WSAPum . Propositions 3.1 and 3.2 are our rigorous assertions of
+polygon plenitude. We also review in Section 3.2 Madras’ joining technique which allows
+polygons to be attached to the branches of γ.
+
+3.1. Wide polygons. For a polygon p ∈ SAPm , the width of p is
+                                 w(p) := xmax (P ) − xmin (P ) ,
+where P is any representative of the equivalence class p. The line-width of p is
+         Lw(p) := max{ xmax (P ∩ `y ) − xmin (P ∩ `y ) : y ∈ Z for which P ∩ `y 6= ∅ } ,
+where `y is the horizontal line Z × {y}. Note that w(p) ≥ Lw(p); the former quantity may
+much exceed the latter.
+Let m ∈ 2N and u ∈ N. We define the wide polygon set
+                      WSAPum = { p ∈ SAPm : Lw(p) ≥ u , h(p) ≤ 16u } ,
+where the height notation h from Section 1.2 has been extended to polygons.
+For practical purposes, we will choose one particular rooting for wide polygons. Indeed, the
+walk P corresponding to any p ∈ WSAPum is such that
+     • the line-width of p is realized by P at height 0, and this is the lowest level where it is
+       so realized:
+                  Lw(p) = xmax (P ∩ `0 ) − xmin (P ∩ `0 )
+                        > max{xmax (P ∩ `y ) − xmin (P ∩ `y ) : y < 0}     and
+                                                                              
+     • the origin is the leftmost point of P at height 0, i.e. 0 = xmin P ∩ `0 .
+By convention, the walk that represents p begins and ends at the origin, and traverses the
+edges that comprise P in a counterclockwise manner, so that the interior of P is on the left
+during the walk. The correspondence between polygon and walk offered by this convention
+is a bijection, because it specifies a representative of the equivalence class in question, which
+amounts to distinguishing a vertex on the polygon; and it then selects one of the two possible
+orientations of the resulting walk.
+The abundance of wide polygons is important for our application. We verify this abundance
+by two different means, one for Z2 and the other for H. The latter inference is stronger. It
+is in deriving this inference that the parafermionic observable available for H is used during
+the proof of Theorem 1.3.
+Proposition 3.1 (Subsequential abundance of polygons for Z2 ). For any α > 29, there exists
+an infinite set A ⊂ N such that, for all u ∈ A there exists m ∈ J4u + 4, 4u2 + 4K for which
+                                      WSAPum ≥ u−α µm .
+14              H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+Write WSAPum (H) for the set of self-avoiding polygons on H, with the same properties as
+those defining wide polygons on Z2 .
+Proposition 3.2 (Abundance of polygons for H). There exist positive constants C and c0
+such that, for all u ∈ N, we may find m ≤ c0 u2 for which
+                                |WSAPum (H)| ≥ C u−10 µ(H)m .
+
+Proposition 3.2 is a principal element of the variation of the proof of Theorem 1.2 that is
+needed to obtain Theorem 1.3. Its proof appears after the derivation of Theorem 1.2 is
+completed, in Section 6.
+The rest of Section 3.1 is dedicated to proving Proposition 3.1. We start with a lemma that
+bounds the number of wide polygons in terms of the number of bridges.
+Lemma 3.3. For any m ∈ N, there exists u ∈ N ∩ [m1/2 , m] such that
+                                                    −2             4
+               WSAPu4m+4 ≥ (log 2)2 3−3 2−14 log u u−21 SABm .
+
+Proof. Let m ∈ N. Specifying the diameter diam(p) of a polygon p ∈ SAP2m+2 to be
+max{h(p), w(p)}, it is easily seen that m1/2 ≤ diam(p) ≤ m. Let u ∈ [m1/2 , m] be a number
+of the form 2−j m such that the set
+                             { p ∈ SAP2m+2 : u/2 ≤ diam(p) ≤ u }
+has maximal cardinality among such sets. Note that, for now, we permit the parameter u
+to be real, although it is a natural number in the lemma’s statement; we will resolve the
+discrepancy at the end of the proof.
+At least half of the polygons in the just displayed set are at least as wide as they are high;
+(indeed, any polygon that does not satisfy this condition is the right-angled rotation of one
+                           u
+that does). Writing WSAP2m+2 for the set of polygons p ∈ SAP2m+2 with w(p) ≥ u/2 and
+h(p) ≤ u, we thus see that
+                                    u            1
+                             WSAP2m+2 ≥               |SAP2m+2 | .                       (3.1)
+                                             2 log2 m
+                 u
+When p ∈ WSAP2m+2 is depicted as a walk, we may specify the west-south vertex of p, WS(p),
+(and its east-north vertex EN(p)) to be the lowest among the leftmost (and the highest among
+                                                                           u
+the rightmost) elements of Z2 visited by the walk p. Clearly
+                                                            each p ∈ WSAP2m+2 has a unique
+representation such that WS(p) = 0. Then x EN(p) = w(p).
+                  u
+Let p, q ∈ WSAP
+               2m+2 be represented by walks such that WS(p) = WS(q) = 0 and be such
+that y EN(p) = y EN(q)      . We will join the polygon p to a reflection τ (q) of q to form a
+new polygon J p, τ (q) about which we will claim that J(p, q) ∈ WSAPu4m+4 . The joining
+                       
+operation J does the same job as the Madras join which we will    review in Section 3.2, but
+the special geometry arising from the assumption that y EN(p) = y EN(q) permits the use
+of a simpler technique in the present case. Figure 3 illustrates the operation J.
+The polygon q may be reflected in the vertical axis, via the reflection τ , and then horizontally
+translated to such a position that its vertex in correspondence with EN(q) is to be found
+one unit directly to the right of EN(p). The union of the edges that comprise p and this
+                      BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                               15
+
+
+
+
+                                               τ (q)
+                   EN(p)
+         p
+                     +                                 ⇒
+O                                                           O
+
+
+
+
+                                               u                            
+       Figure 3. Two elements    p, q in WSAP 2m+2 with y EN(p) = y EN(q) are
+       joined to form J p, τ (q) ∈ WSAPu4m+4 . The dot at O and the curved arrows
+       show the root and orientation of the joined polygon that is dictated by our
+       convention.
+
+translation of τ (q) intersects the four edges of the plaquette whose north-west corner is EN(p)
+along the west and east sides of the plaquette. By replacing these two edges in the union by
+the plaquette’s
+                north and south sides, a polygon of length 2(2m + 2) results. This polygon is
+J p, τ (q) .
+                                                    u
+                                
+We now show that J p, τ (q) belongs to WSAP     4m+4 . The height of this polygon
+                                                                                     is at most
+h(p) + h(q) ≤ 2u. Moreover, WS(J p, τ (q) ) = WS(p) = 0 and J p, τ (q) realizes its line-
+width Lw(J p, τ (q) ) = w(p) + w(q) + 1 >u at height zero. Finally, O is the leftmost point
+of J p, τ (q) at height 0; hence J p, τ (q) is rooted according to our convention for wide
+polygons. The claim that J p, τ (q) ∈ WSAPu4m+4 has been confirmed.
+
+Note that J p, τ (q) determines (p, q) ∈ WSAPu2m+2 . Indeed, there is a unique
+                      
+                                                                                   vertical line
+whose coordinate has the form k + 1/2 for some k ∈ Z that cuts J p, τ (q) through a consec-
+utive pair of horizontal edges, and for which the replacement in J p, τ (q) of the horizontal
+with the vertical sides of the associated plaquette results in two polygons, of which the one
+whose vertex set contains the origin has 2m + 2 edges (and, as it happens, so does the other).
+The plaquette in question was used in the surgical formation of J p, τ (q) , and the operation
+just described undoes this surgery so that p and τ (q) are recovered. This injectivity on the
+part of J implies that
+                                    buc
+                                    X                   u                    2
+                  WSAPu4m+4 ≥
+                                           
+                                               p ∈ WSAP2m+2 : y(ne(p)) = j       ,
+                                  j=−due
+
+where it is since u may not be an integer that use is made of rounding. This right-hand side
+                                        u     2
+is seen to be at least (2u + 1)−1 WSAP2m+2 by means of the Cauchy-Schwarz inequality.
+Applying (3.1) and Lemma 1.6 with n = m, we see that
+                                                             2         2
+                        u               −1             SABm
+                  WSAP4m+4 ≥ (2u + 1)                                      .
+                                             8(2m + 1)m(m + 1)3 log2 m
+16              H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+Since u2 ≥ m ≥ 1, a short algebraic manipulation leads to
+                                                       −2     4
+                  WSAPu4m+4 ≥ (log 2)2 3−3 2−14 log u u−21 SABm .                            (3.2)
+This is precisely the bound asserted by Lemma 3.3. To complete the lemma’s proof, it remains
+merely to argue that our parameter u ∈ [m1/2 , m] may in fact be chosen to satisfy u ∈ N.
+For this purpose, we consider due ∈ [m1/2 , m], and note that, by the definition of the wide
+                                   due
+polygon set, WSAPu4m+4 ⊆ WSAP4m+4 . Thus, (3.2) holds when the replacement u → due is
+made.                                                                                     
+Proof of Proposition 3.1. As [MS13, Corollary 3.1.8] reviews, a variation of the Hammersley-
+Welsh argument for Theorem 1.1 establishes that the partition function for bridges diverges
+at its radius of convergence µ−1 :
+                                     ∞
+                                     X
+                                           µ−m |SABm | = ∞ .
+                                     m=1
+
+Let ε > 0. There are thus infinitely many values of m ∈ N such that |SABm | ≥ m−1−ε µm .
+Inserting this bound into Lemma 3.3, we obtain infinitely many pairs (m, u) with u ∈ N ∩
+[m1/2 , m] such that
+           WSAPu4m+4 ≥ c0 u−21 (log u)−2 m−4−4ε µ4m ≥ c0 u−29−8ε (log u)−2 µ4m ,
+where c0 = (log 2)2 3−3 2−14 . Since ε > 0 is arbitrary, the proposition follows by relabelling m.
+                                                                                                
+
+3.2. Madras joining. In [Mad95], Madras introduced a technique by which a pair of poly-
+gons may be joined to form a new polygon. We will be using his technique in order to attach
+polygons to the side of bridges or their vertical reflections. We begin by briefly reviewing his
+procedure. Then we state and prove Lemma 3.4. This result gathers together all properties of
+the Madras join which we will use. This section’s hexagonal lattice counterpart is postponed
+to Appendix A.
+The eight parts of Lemma 3.4 are all needed in this article. However, the reader may lose
+little by perusing the lemma briefly and omitting its proof; the core of the argument may
+even be followed by merely interpreting the Madras join as a procedure that inserts a polygon
+at a given height on the right of a walk while effecting a bounded change of length near a
+distinguished plaquette, called the junction plaquette, about which the join is made.
+The reader who wishes to follow details precisely is encouraged, in reading the lemma and its
+proof, to consult either [Mad95] or the article [Ham18] which has also made use of Madras’
+technique. Section 4.1 of the latter article contains a detailed review of the technique, includ-
+ing a depiction in Figure 1 of the various cases of local deformation used in the operation.
+
+3.2.1. An overview of Madras’ joining technique. For any given polygon P , the integer interval
+Jymin (P ), ymax (P )K comprises the vertical coordinates of vertices in Z2 visited by the polygon.
+Suppose given a pair of polygons P and Q such that
+                Jymin (P ) − 1, ymax (P ) + 1K ∩ Jymin (Q) − 1, ymax (Q) + 1K 6= ∅ .         (3.3)
+                       BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                               17
+
+
+Let n, m ∈ 2N denote the respective lengths of P and Q. The Madras join of P and Q
+is a polygon, which we will denote by M (P, Q), formed by attaching Q after horizontal
+displacement to the right side of P . The procedure for joining begins by shifting Q far to the
+right of P , and bringing it back, step by step, until there is a vertex in P and a vertex in the
+translate of Q that are either equal or whose displacement is a vector of vertical orientation
+and of Euclidean norm at most two. We then       define the vertex Y to be the vertex z of
+maximal y-coordinate among those for which z − e2 , z, z + e2 intersects P and the translate
+of Q. A local surgery is performed on the two polygons in the neighbourhood of Y . The local
+geometry of P determines the form of the surgery on P according to a division into several
+cases; and similarly for the translate of Q. The two local surgeries are performed in such a
+way that the modified translate of Q may be translated a certain few steps to right into such
+a position that there is a plaquette whose intersection with the locally modified copy of P
+consists of its left vertical edge, and whose intersection with the locally modified translate of
+Q consists of its right vertical edge.
+
+With Q indeed relocated in this way, these two vertical edges are replaced in the collection
+of edges in P and the new translate of Q by the two horizontal edges in the plaquette. The
+Madras join polygon M (P, Q) is defined to be the resulting polygon. The plaquette involved
+in the final step of this procedure will be called the junction plaquette associated with the
+joining of P and Q.
+
+The local surgeries performed are such that the length of M (P, Q) equals n + m + 16, so
+there is always a net gain of sixteen in the number of edges involved as a result of the joining
+operation. The collection of edges in the symmetric difference of the edge collections of
+M (P, Q) and of the union of P with the surgically determined translate of Q may be viewed
+as an error set arising in surgery. This error set contains a bounded number of edges (there
+are at most twenty of them), all these in the locale of the junction plaquette associated with P
+and Q.
+
+
+3.2.2. Our application of Madras joining, with bridges and polygons. In the present paper,
+we will not be joining pairs of polygons, but rather pairs (γ, P ) where γ is a bridge, or the
+vertical reflection of one, and P is a polygon. In a natural extension of notation, the walk
+resulting from the join, in which a horizontal translate of P is in essence incorporated into
+the range of γ, will be denoted by M (γ, P ).
+
+In our applications, this outcome M (γ, P ) will be a bridge, or the reflection of one: indeed,
+the first part of the next result ensures this property. Note that the condition (3.4) on vertical
+alignment of γ and P is slightly stronger than that (3.3) which ensures that Madras joining
+for a pair of polygons may occur.
+
+Lemma 3.4. Let γ be a bridge and let P be a polygon. Suppose that
+
+                       Jymin (P ) − 3, ymax (P ) + 3K ⊆ Jymin (γ), ymax (γ)K .               (3.4)
+
+   (1) The Madras join M (γ, P ) is well-defined and is a bridge whose endpoints are shared
+       with γ.
+18               H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+     (2) Write n ∈ N for the length of γ and m ∈ 2N for the length of P . The endpoints of the
+         right vertical edge in the junction plaquette of M (γ, P ) belong to M (γ, P ). The graph
+         distance between them in M (γ, P ) (henceforth the “chemical distance”) equals m + 7.
+     (3) Denote the junction plaquette of M (γ, P ) by J, and by M (γ, P )∆J the modification
+         formed from M (γ, P ) by the removal of the horizontal edges in J and the insertion of
+         the vertical ones. Then M (γ, P )∆J comprises a walk γ 0 and a polygon Q. No right
+         translation of Q, including Q itself, intersects γ 0 .
+     (4) Suppose that P 0 is a polygon that also satisfies (3.4) and for which
+               Jymin (P ) − 2, ymax (P ) + 2K ∩ Jymin (P 0 ) − 2, ymax (P 0 ) + 2K = ∅ .
+         Then M M (γ, P ), P 0 = M M (γ, P 0 ), P .
+                                                   
+
+     (5) Let P + (i, 0) denote the horizontal translate of P which is locally modified to form
+         M (γ, P ). Let SE (or NE) denote the rightmost among the lowest (or the highest)
+         vertices in P + (i, 0). The right-side of P + (i, 0) is the collection of vertices in
+         P + (i, 0) encountered on a counterclockwise journey between SE and NE, including
+         the journey’s endpoints. Every element of the right-side of P + (i, 0) lies in M (γ, P ).
+     (6) All but at most two edges in γ lie in M (γ, P ).
+     (7) The walk M (γ, P ) is the concatenation of three subwalks. The first is an initial subwalk
+         of γ; the second has length either m + 17 or m + 18; and the third is a final subwalk
+         of γ.
+     (8) There are at most four bridge-polygon pairs (γ0 , P0 ) whose elements’ respective lengths
+         are shared by (γ, P ) and for which M (γ0 , P0 ) = M (γ, P ), with the junction plaquette
+         for (γ0 , P0 ) equalling that for (γ, P ).
+If γ is instead supposed to be the vertical reflection of a bridge, then the same statements hold,
+except that M (γ, P ) is a vertically reflected bridge, as is γ0 in the eighth part.
+
+Proof: (1). The y-coordinate of the vertex Y in Madras’ construction belongs to Jymin (P ) −
+1, ymax (P ) + 1K. Any endpoint of an edge that is added or removed during surgery has y-
+coordinate equal to y(Y ) − 1, y(Y ) or y(Y ) + 1. Thus the y-coordinates of affected endpoints
+are seen to lie in the interval Jymin (P ) − 2, ymax (P ) + 2K. By hypothesis, such coordinates lie
+in Jymin (γ) + 1, ymax (γ) − 1K. Since modifications are not made at y-coordinate values that
+are extremal for γ, the status of γ as a bridge or a vertical reflection of one is unaffected by
+the change γ → M (γ, P ).
+(2). Because [Ham18, Figure 1] presents the left, rather than the right, of the two local
+deformations made during surgery, it is helpful, in regard to the first assertion, to argue the
+claim in which γ is a polygon of length n and P is a walk (the choice of notation is incongruous
+but it is adopted only temporarily); and where it is instead claimed that the chemical distance
+along M (γ, P ) between the two endpoints of the left vertical edge in the junction plaquette
+equals n + 7. In each of the seven cases depicted in [Ham18, Figure 1], consider the two
+endpoints of the union of the dotted line segments. The vertices so denoted are elements of
+γ whose longer chemical distance around γ equals n − r where r ∈ {1, 2} is the number of
+dotted line segments in the case in question. In each case, the sketch in the third column
+                       BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                                  19
+
+
+has two consecutive vertical solid edges in the rightmost coordinate. It is the higher of these
+two edges that is the left vertical edge in the junction plaquette. The combined length of the
+journeys that do not use this edge between the endpoints of this edge and the endpoints of the
+union of the dotted line segments is seen by inspection to equal 7 + r. Thus the post-surgical
+chemical distance around γ between these two vertices of the junction plaquette is n + 7.
+We want to establish a similar assertion concerning the journey around P . The Madras join
+operation involves the half-circle rotation of the right element P about Y ; the identical surgery
+on the resulting polygon; and then a further half-circle rotation about Y of the post-surgical
+polygon. Since the form of surgery is the same, the preceding analysis is applicable, and we
+obtain Lemma 3.4(2).
+(3). The polygonal component Q of M (γ, P )∆J lies in the union C1 ∪ C2 , where C1 is the
+part of the strip R × [y(Y ) − 1, y(Y ) + 1] on or to the right of the right vertical edge in the
+junction plaquette J, and C2 is the translate of P used in the Madras join. As such, no
+translation of Q to the right may intersect γ. The walk component γ 0 of M (γ, P )∆J lies in
+the union of γ and certain edges in R × [y(Y ) − 1, y(Y ) + 1] on or to the left of the left vertical
+edge in the junction plaquette. Thus, nor may a translation of Q to the right intersect γ 0 .
+(4). Any deformation to γ under the surgery γ → M (γ, P ) occurs in the strip R × [ymin (P ) −
+2, ymax (P ) + 2]. Thus the joining of P and P 0 to γ is a commutative operation.
+(5). Similarly to the derivation of Lemma 3.4(2), [Ham18, Figure 1] makes it convenient to
+argue for a symmetric statement. Suppose instead that the polygon P is on the left, and
+another polygon is being joined to its right. Introduce the vertices SW(P ) and NW(P ) in
+accordance with Lemma 3.4(5)’s notation, and specify the left-side of P as the collection of
+vertices in P encountered on a clockwise journey between this pair of vertices. It is enough to
+demonstrate that the left-side of P enters the joined output without modification by surgery,
+because Lemma 3.4(5) is an assertion symmetrical to this. Consult [Ham18, Figure 1]. A
+moment’s thought shows that no black edge depicted in the second column may abut a vertex
+in P ’s left side. Since the edges removed in surgery, which are the dotted edges in the third
+column, are a subset of such edges, the sought assertion is demonstrated.
+(6). The edges removed from γ in the formation of M (γ, P ) are the dotted edges in the third
+column of [Ham18, Figure 1]. There are at most two such edges in each case.
+(7). The walk M (γ, P ) is formed by the removal of either one edge, or two consecutive edges
+from γ, and the insertion of a new walk that connects the two endpoints that arise from this
+removal. The inserted piece has length either m + 17 or m + 18 because M (γ, P ) has length
+n + m + 16.
+(8). It is perhaps helpful to begin with an example of how the presurgical data (γ 0 , P 0 ) is
+not uniquely specified given the output M (γ, P ) and the location of the junction plaquette.
+Suppose that γ in a certain locale makes a sequence of down moves until a vertex z; then
+makes one left move; and then continues with down moves. As [Ham18, Figure 1] indicates,
+right-attachment of a polygon P with Y = z in Case Ib, or of a polygon P 0 with Y = z − e2
+in Case IIb, leads to outcomes in the third column of the figure that are indistinguishable up
+to affine shift. In this example, M (γ, P ) = M (γ, P 0 ) and the junction plaquette is the same
+in the two cases.
+20               H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+More generally, inspection of cases shows that there are never more than two inputs on the
+left compatible with any given output data. The same considerations apply on the right, so
+that Lemma 3.4(8) is obtained.                                                          
+
+3.2.3. Notation for the Madras join in applications. Let γ ∈ SAWn and p ∈ SAPm . Recall
+from Section 3.1 that the polygon p is depicted as containing the origin as the leftmost point
+whose vertical coordinate attains p’s line-width. In our application, we will wire p into γ after
+translating p vertically; after all, it is the entropic benefit among those translations that we
+seek to exploit. We now set up the notation to be used for the Madras join in this application.
+Fix j ∈ Z with
+                          ymin (γ) + h(p) + 3 ≤ j ≤ ymax (γ) − h(p) − 3 .
+We write MJj (γ, p) ∈ SAWn+m+16 for the Madras join M (γ, p + je2 ) of γ with the copy of p
+vertically translated by j units. The condition on j ensures that the hypothesis (3.4) is met.
+
+     4. Hammersley-Welsh with polygon insertion: reducing to a key estimate
+
+We begin to implement the plan laid out in Section 2.3 to prove Theorem 1.2. The present
+section states but does not prove Proposition 4.4, an upper bound on the number of hori-
+zontally confined half-space walks with many branches. This estimate is at the heart of the
+proposed plan. The section contains the proof of Theorem 1.2 that invokes this proposition.
+In the next Section 5, we give the proof of this key estimate.
+We start the rigorous implementation by recalling from the overview the cast of characters
+(ε, δ, α, u, m), the roles of this quintet’s members and the conditions that it is necessary to
+impose on them.
+       • The sought improvement in the exponent of the Hammersley-Welsh bound is ε, so
+         that n1/2−ε will replace n1/2 ;
+       • the line-width of inserted polygons will be at least u, a quantity of order nδ ;
+       • a lower bound on the number of wide polygons, suitable for insertion, is expressed for
+         Z2 in terms of the exponent α in Proposition 3.1;
+       • and all inserted polygons have a common length, namely m.
+Of these five positive parameters, the first three are exponents on which we impose the
+conditions that
+                                   2ε ≤ δ < 1/2 − ε       and                               (4.1)
+                                   ε + αδ < 1/2 .                                           (4.2)
+
+The polygon line-width nδ is chosen, in the lower bound of (4.1), to be at least the horizontal
+near self-touch distance n2ε between consecutive crossings. There is no use in strict inequality,
+and so we choose δ = 2, as we did in the plan in Section 2.3. The upper bound of (4.1)
+is a non-degeneracy condition, which is not restrictive. The vital condition (4.2) coincides
+with the upper bound on ε, noted after (2.9): it ensures that a given polygon insertion is
+                       BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                              21
+
+
+helpful, with the entropic gain in the resulting outgoing arrows being larger than the cost of
+purchasing the polygon.
+By imposing (4.1) and (4.2), we are developing rather directly the suggestion prompted by
+the heuristic discussion of Section 2.3. In fact, such a choice for (ε, δ, α) as these conditions
+impose will permit the derivation of an upper bound on the number |HSWn | of length n
+half-space walks. In order to use this information to obtain Theorem 1.2, namely a similar
+bound on |SAWn |, we will invoke (2.1). To be able to do so, we will need control on |HSWn |
+not merely for infinitely many n, but for infinitely many long ranges of consecutive n. To
+achieve such a bound, we will need to strengthen the conditions (4.1) and (4.2) on the triple
+(ε, δ, α).
+Reflecting these considerations, the next proposition has two parts. The first part articulates
+the notion that polygon abundance, which limits the cost of polygon purchase to which we
+alluded a few moments ago, secures an improvement in the Hammersley-Welsh bound for
+half-space walks. The second part shows that such an improvement is also secured for all self-
+avoiding walks. As such, it is in this second part that a strengthening of the conditions (4.1)
+and (4.2) is hypothesised.
+We encourage the reader to focus on the elaboration of the heuristic guide and thus on a choice
+of parameters satisfying (4.1) and (4.2). In this regard, note that, when n ∈ N satisfies (4.3),
+we formally specify the final two members (u, m) of the parameter quintet given the first
+three (ε, δ, α).
+Proposition 4.1. (1) Fix a triple (ε, δ, α) of positive exponents satisfying (4.1) and (4.2).
+There exists a constant C = C(ε) > 0 such that, whenever n ∈ N satisfies the condition
+          there exist u ∈ [nδ , 2nδ ] and m ≤ 4−1 u2 , for which |WSAPum | ≥ n−αδ µm ,      (4.3)
+we have that
+                             |HSWn | ≤ C exp(21n1/2−ε log n) · µn .                         (4.4)
+
+(2) Fix a triplet (ε, δ, α) of positive exponents satisfying the stronger conditions
+                           4ε ≤ δ < 1/2 − ε     and    ε + 2αδ < 1/2.                       (4.5)
+Then there exists a constant C = C(ε) > 0 such that, whenever n ∈ N satisfies (4.3), any
+` ∈ Jn3/2 , n2 K satisfies
+                               |SAW` | ≤ exp(C`1/2−ε log `) · µ` .
+
+Proposition 4.1(1) only has value if α, δ and ε are such that there are infinitely many values
+n satisfying (4.3). Since WSAPum ⊂ SAPm , and it is expected that |SAPm | = m−5/2+o(1) µm
+for m even (see [Nie82]), the best upper bound on |HSWn | that the present implementation
+of our method may achieve is with ε smaller than, but arbitrarily close to 1/12. Indeed, 1/12
+is the value of ε in (4.2) consistent with α = 5/2. That said, aspects of the method other
+than the α-value could be varied: see Section 5.5.
+Our main result for Z2 follows readily from Proposition 4.1(2) and the demonstration of
+polygon abundance in Section 3.
+22              H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+                                             1
+Proof of Theorem 1.2. Fix ε0 < ε < 466         . We will prove the theorem for ε0 . With a view
+to choosing the triple (ε, δ, α) to satisfy the hypotheses of Proposition 4.1(2), we set δ = 4ε.
+A value of α may then be selected so that the hypothesis α > 29 of Proposition 3.1 holds,
+while the bound ε(1 + 8α) < 1/2 of (4.5) is also met.
+Proposition 3.1 ensures that there are infinitely many values of (u, m) satisfying WSAPum ≥
+u−α µm . For any such value of u, choose n such that u/2 ≤ nδ ≤ u. Then Proposition 4.1(2)
+implies that |SAW` | ≤ exp(C`1/2−ε log `) · µ` whenever ` ∈ Jn3/2 , n2 K. This in turn implies
+that |SAW` | ≤ exp(`1/2−ε0 ) · µ` for such ` when n is supposed to be high enough. Taking
+j = n3/2 , we obtain the second, stronger, assertion of Theorem 1.2.                        
+We now prepare to give the proof of Proposition 4.1, which is to say, to rigorously implement
+the plan from Section 2.3. To that end,
+         fix a triple (ε, δ, α) of positive exponents satisfying (4.1) and (4.2).
+The plan began by roughly explaining why the walks in the domain of the Hammersley-Welsh
+map Ψ might be chosen to be a certain subset of HSWn . This subset was called HSWn .
+As we turn to precise specification, we mention that we will be working with a more general
+object, HSWnk .
+Here, we are fixing parameters k, n ∈ N with k ≤ n, and specify HSWnk to be a subset of
+the space HSWk of length-k half-space walks. Elements of HSWnk will adhere nonetheless to
+the informal description offered at the start of Section 2.3 of members of HSWn : they are
+horizontally confined walks with many branches.
+By horizontally confined walks, we mean the elements of a set HorConfHSWnk defined to be
+the subset of HSWk whose elements are contained in the vertical strip [−n1/2+ε , n1/2+ε ] × Z.
+The set FewBranchHSWnk of length-k half-space walks with few branches consists of those
+members of HSWk with fewer than 7n1/2−ε elements in their branch decomposition. We then
+define HSWnk to be HorConfHSWnk \ FewBranchHSWnk .
+The implementation of our plan comprises three tasks: the first short, the second substantial,
+and the third again short. The first task ascertains that, for the purpose of bounding |HSWn |,
+attention may indeed by focussed on the sets HSWnk ; the second provides an upper bound
+on the cardinality of these sets, with which the proof of Proposition 4.1(1) may easily be
+presented; and the third proves Proposition 4.1(2).
+The next two lemmas carry out the first task. The following Proposition 4.4 states the
+outcome of the second. After these statements, we prove Proposition 4.1(1) by invoking the
+three results. Proofs of the two lemmas then follow. The second task, namely the proof
+of Proposition 4.4, appears in Section 5; naturally, it is there that that the central ideas in
+our plan are enacted. The present Section 4 ends with the third task, namely the proof of
+Proposition 4.1(2).
+Lemma 4.2 (Restricting to horizontally confined walks). For n ≥ 4, we have that
+                                                   n
+                                                  X                      2
+                     −n
+         |HSWn | · µ    ≤ 3µ exp(2n  1/2−ε
+                                           log n)    |HorConfHSWnk | · µ−k .
+                                                      k=0
+                              BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                                 23
+
+                  γa1
+                               γa3
+n1/2+
+
+
+
+
+                                                                                                   +
+                                        γs
+                              γn
+                                         =            +         +        +
+                        γa2
+
+         γ0 = O
+                                                                                               confined
+                                                      bridges                   γ[a` ,n]   half-space walks
+
+          Figure 4. A half-space walk is decomposed into three bridges of height larger
+          than n1/2+ε and a final piece of height smaller than n1/2+ε . The latter is
+          decomposed into two (rotated) confined half-space walks.
+
+Lemma 4.3 (Dispatching walks with few branches). For n high enough and for k ≤ n,
+                                                                    1
+                                     FewBranchHSWnk ≤ exp(8n 2 −ε log n) µk .                         (4.6)
+Proposition 4.4 (The key bound). For some positive constant C, for n ∈ N satisfying (4.3)
+and any k ≤ n,
+                                                  HSWnk ≤ Cµk .                                       (4.7)
+
+Proof of Proposition 4.1(1). Since HorConfHSWnk ⊆ FewBranchHSWnk ∪ HSWnk , Lemma 4.3
+and Proposition 4.4 imply that, when n ∈ N satisfying (4.3) is high enough, and k ≤ n,
+                                                                                1
+            |HorConfHSWnk | ≤ |FewBranchHSWnk | + | HSWnk | ≤ exp(9n 2 −ε log n) µk .
+Using Lemma 4.2, we deduce that, for such n,
+                                                                1
+                                       |HSWn | µ−n ≤ exp(21n 2 −ε log n) .
+Multiplying this right-hand side by a suitable constant C(ε) > 0 permits us to discard the
+condition that n ∈ N satisfying (4.3) is supposed to be high enough. We have obtained
+Proposition 4.1(1).                                                                     
+Proof of Lemma 4.2. Let γ ∈ HSWn . Let ` denote the number of elements in the branch
+decomposition of γ whose heights exceed n1/2+ε , and note that ` ≤ n1/2−ε . We may consider
+the injective map Ξ defined on HSWn and specified by
+                                                                              
+                           Ξ : γ 7→ γ[0,a1 ] , . . . , γ[a`−1 ,a` ] , γ[a` ,n] ,
+where γ[0,a1 ] , . . . , γ[a`−1 ,a` ] are the first ` branches of γ. See Figure 4 for an illustration of the
+decomposition of γ under Ξ.
+The final component, γ[a` ,n] , is a half-space walk, contained in a horizontal strip of height
+n1/2+ε . Let s denote the highest index of a point of maximal x-coordinate of γ[a` ,n] . After
+right-angled rotation and translation, γ[s,n] becomes an element of HorConfHSWnn−s , while a
+suitable such operation on γ[a` ,s] may be followed by the prefixing of a vertically oriented edge
+24              H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+so that an element of HorConfHSWns−a` +1 results. The range of Ξ is thus seen to be a subset
+of a set in bijection with
+                       [
+                           BΠa,` × HorConfHSWns−a+1 × HorConfHSWnn−s ,
+                        `,a,s
+
+where the union is over 0 ≤ ` ≤ n1/2−ε and 0 ≤ a ≤ s ≤ n. By Lemma 2.1(1), the displayed
+set has cardinality at most
+                bn1/2−ε c n s
+                  X XX
+                                      µa a` · HorConfHSWns−a+1 · HorConfHSWnn−s
+                  `=0      s=0 a=0
+                            1/2−ε n+1
+           ≤     n1/2−ε + 1 nn    µ
+                     n
+                    XX   s
+                  ×        µ−(s−a+1) HorConfHSWns−a+1 · µ−(n−s) HorConfHSWnn−s
+                       s=0 a=0
+                                       n
+                                      X                       2
+                       1/2−ε
+           ≤ 3n2n              µn+1         µ−k HorConfHSWnk        .
+                                      k=0
+The final inequality is due to HorConfHSWnk+1 ≤ 3 HorConfHSWnk , a bound seen by the
+removal of the last edge from each element of HorConfHSWnk+1 ; to x + 1 ≤ ex with x = n1/2−ε ;
+and to n ≥ 4 in the guise ex ≤ nx . Since Ξ is injective, we obtain Lemma 4.2.             
+Proof of Lemma 4.3. The Hammersley-Welsh map Ψ from Lemma 2.2 injectively maps
+                   Sb7n1/2−ε c
+FewBranchHSWnk to j=1          BΠk,j , the set of bridge-lists with at most 7n1/2−ε terms, which
+terms have combined length k. By Lemma 2.1(1), the latter set has cardinality at most
+   Pb7n1/2−ε c j                     1/2−ε
+µk j=1        k ≤ µk · 7n1/2−ε · n7n       . By supposing n ∈ N to be high enough, we obtain
+the bound in Lemma 4.3.                                                                       
+Next we prove Proposition 4.1(2). For η, β > 0, n ∈ N is said to satisfy Assertion A(η, β)
+when
+               A(η, β) :         there exist u ∈ [nη , 2nη ] and m ∈ N with m ≤ 4−1 u2
+                                 for which |WSAPum | ≥ n−βη µm .
+Note that n ∈ N satisfies Assertion A(δ, α) precisely when n satisfies (4.3).
+Lemma 4.5 (Stability of polygon abundance under changes in length). Suppose that n ∈ N
+satisfies Assertion A(δ, α). Then any ` ∈ Jn, n2 K satisfies Assertion A(δ 0 , 2α) for some δ 0 =
+δ 0 (`) ∈ [δ/2, δ].
+
+Proof. Pick ` ∈ Jn, n2 K. Assertion A(δ, α) for n entails the existence of u and m ≤ 4−1 u2
+such that u ∈ [nδ , 2nδ ] and |WSAPum | ≥ n−αδ µm . The first condition can be rewritten as
+       0     0
+u ∈ [`δ , 2`δ ] with δ 0 = δ log n                                0
+                             log ` ∈ [δ/2, δ]. Since ` ≥ n and 2αδ ≥ αδ, the second implies
+                   0
+|WSAPum | ≥ `−α2δ µm . Overall, ` satisfies Assertion A(δ 0 , 2α).                             
+Proof of Proposition 4.1(2). Assume the fixed values ε, δ, α satisfy the stronger condition
+(4.5) rather than merely (4.1) and (4.2). Fix n ∈ N that satisfies (4.3) and consider n3/2 ≤
+` < n2 ; the case where ` = n2 follows from |SAWn2 | ≤ 4|SAWn2 −1 |.
+                        BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                                     25
+
+
+Applying (2.1) and then the Cauchy-Schwarz inequality gives
+                                    `
+                                    X                             `+1
+                                                                  X
+                        |SAW` | ≤         |HSWk+1 | |HSW`−k | ≤         |HSWk |2 .                  (4.8)
+                                    k=0                           k=0
+The classical Hammersley-Welsh bound Theorem 1.1 implies that, for all k ≤ n,
+                                      |HSWk | ≤ exp(Ck 1/2 )µk ,                                    (4.9)
+for some constant C independent of k and n. Furthermore, by Lemma 4.5, any k ∈ Jn, n2 K
+satisfies Assertion A(δ 0 , 2α) for some δ 0 ∈ [δ/2, δ]. The strengthened hypothesis (4.5) on
+(ε, δ, α) ensures that the triple (ε, δ 0 , 2α) satisfies the conditions (4.1) and (4.2). Thus, Propo-
+sition 4.1(1) gives
+                                 |HSWk | ≤ exp(Ck 1/2−ε log k)µk ,                               (4.10)
+                  2
+for all k ∈ Jn, n K, where C = C(ε) > 0 is some constant (which we can assume to be larger
+than the constant in (4.9)).
+Applying (4.9) for k ≤ n and (4.10) for n < k ≤ ` + 1 to (4.8), we obtain
+                               |SAW` | ≤ (` + 2) exp(2C`1/2−ε log `)µ`
+since n1/2 ≤ `1/3 ≤ `1/2−ε , where ε < 1/6 is imposed by (4.5). The desired bound is thus
+obtained for ` ∈ Jn3/2 , n2 − 1K by a suitable adjustment of the constant C.           
+
+        5. Proving the key bound on confined walks with many branches
+
+Here we prove Proposition 4.4, implementing the essential aspects of the polygon insertion
+plan. For the whole section, the triple (ε, δ, α) satisfying (4.1) and (4.2) is fixed.
+Recall from the conclusion of the heuristically presented plan that we will endeavour to alter
+a horizontally confined walk γ that has a high number r = r(γ) of branches by the surgical
+insertion of κr polygons. Here, the parameter κ > 0 will be of unit order, chosen so that
+κr ∈ N. (This membership of N will be straightforward to arrange: recall that r ≥ 7n1/2−ε
+when γ ∈ HSWnk .) The value of κ > 0 will be fixed when needed; the consideration that
+determines its value has been explained at the end of the guide in Section 2.3, though the
+precise condition will be slightly modified, for a rather inconsequential reason.
+
+5.1. Locations for polygon insertion. Let γ ∈ HSWnk . In this subsection, we specify
+a counterpart Rect of the rectangle R through which, as we argued in Section 2.3, so many
+vertical crossings would be made by such walks as γ; we specify a set Join(γ) of indices for
+join locations at the side of these vertical crossings at which a polygon may be inserted so
+as to overlap the adjacent crossing; and we record the set JoinLocLists(γ) of length-κr lists
+of such sites. Section 5.1 ends with a lower bound, Lemma 5.2, on the prospective forward
+arrow number, JoinLocLists(γ) , of the multi-valued map Φ that we aim to construct.
+                                                                                      
+Let (n, u, m) satisfy (4.3). We denote by γ[0,a1 ] , γ[a1 ,a2 ] , . . . , γ[ar−1 ,ar ] the branch decompo-
+sition of γ. Let γ[at−1 ,at ] be the last branch in the decomposition of γ whose height exceeds
+n1/2−ε . Since the branch heights form a strictly decreasing sequence, we have t ≥ r − n1/2−ε ;
+and, since r ≥ 7n1/2−ε , we see that t has the same order as r.
+26              H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+Write jmax = ymax (γ[at−1 ,at ] ) and jmin = ymin (γ[at−1 ,at ] ), so that jmax − jmin > n1/2−ε . The
+branches γ[0,a1 ] , . . . , γ[at−1 ,at ] traverse vertically the rectangle
+                             Rect := [−n1/2+ε , n1/2+ε ] × [jmin , jmax ] ,
+which permits us to order them from left to right. More precisely, a given such branch may
+traverse this rectangle several times, and these traversals may be ordered from left to right.
+The leftmost traversals of the t branches are themselves ordered from left to right, and it is
+in this order that we record the branches φ(1) , . . . , φ(t) . It is these objects that we call the
+tall branches of γ.
+For l ∈ J1, tK, denote by zl,j the rightmost among the vertices of φ(l) whose y-coordinate
+equals j. Now let (`, j) ∈ J1, t − 1K × Z. The pair (`, j) is called a viable join index if
+     • jmin + 16u + 3 ≤ j ≤ jmax − 16u − 3,
+     • and x(z`+1,j ) − x(z`,j ) ≤ u.
+Let Join(γ) be the set of viable join indices of γ. The next lemma indicates why we call
+such pairs (`, j) viable: when a wide polygon is inserted on the right of φ(`) at height j, it
+will overlap the right-adjacent tall branch φ(`+1) of γ. Recall from Subsection 3.2.3 that the
+subscript in the notation MJj indicates the vertical displacement to which the right polygon
+is subjected before Madras joining is undertaken.
+Lemma 5.1. Suppose that n ≥ 91/(1−ε) . Let (`, j) be a viable join location for γ. Then, for
+any p ∈ WSAPum , there exists a vertex of Z2 that belongs to both MJj φ(`) , p and φ(`+1) , but
+not to φ(`) .
+
+Proof. By assumption on (p, j), the polygon P := p + (0, j) is contained in the region
+Strip := R×[jmin +3, jmax −3]. The pair φ(`) , P is thus seen to satisfy (3.4), so Lemma 3.4(1)
+permits the construction of MJj φ(`) , p = M φ(`) , P .
+                                                     
+
+In the Madras join of γ and P , let (i, 0) denote the vector of horizontal translation which
+relocates P before surgery takes place. Any vertex of P + (i, 0) at height j lies to the right of
+any vertex in φ(`) at the same height. Thus, the x-coordinate of any such vertex in P + (i, 0)
+exceeds x(z`,j ). In particular, i > x(z`,j ). The polygon p is wide, and thus P + (i, 0) attains
+its line-width of at least u at height j. Denoting by w the rightmost point at height j in this
+polygon, we thus see that w lies on the semi-infinite line z`,j + [u, ∞) × {0}. Since z`+1,j lies
+at a distance of at most u directly to the right of z`,j , the point w lies directly to the right
+of z`+1,j .
+The branch φ(`+1) separates Strip into several regions, of which two are infinite. Call these two
+the left and right regions of Strip. By definition, the half line z`+1,j + (0, ∞) × {0} is contained
+in the right region of Strip. The point w lies on the right-side      of P + (i, 0) in the sense of
+Lemma 3.4(5); this result thus implies that MJj φ(`) , p contains w, which is a point in the
+                                                            
+
+right region of Strip. However, φ(`) ∩ Strip is contained in the left region of Strip. Note that
+MJj φ(`) , p has non-empty intersection with φ(`) ∩Strip, since, by Lemma 3.4(6), MJj φ(`) , p
+contains all but at most two edges in φ(`) , while φ(`) contains at least jmax − jmin − 6 ≥
+n1−ε − 6 ≥ 3 edges in view of the assumption that n ≥ 91/(1−ε) . We see then that MJj φ(`) , p
+                        BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                                    27
+
+
+intersects φ(`+1) inside Strip. Any vertex in that intersection satisfies the assertion made
+by Lemma 5.1, because such a vertex cannot lie in φ(`) in view of the disjointness of φ(`)
+and φ(`+1) .                                                                              
+A join location list for γ is a set list ⊂ Join of cardinality κr with the property that if
+(`1 , j) ∈ list and (`2 , j 0 ) ∈ list are two viable join indices whose first components satisfy
+|`1 − `2 | ≤ 1, then |j − j 0 | ≥ 32u + 5. (The term ‘list’ is used because we prefer to think of
+inserting polygons one at a time; note, however, that a join location list is an unordered set.
+Note also that the term ‘join location list’ is a misnomer: the elements of list merely index
+physical locations in Z2 .) Let JoinLocLists(γ) denote the set of join location lists for γ.
+Set HSWnk (r) = γ ∈ HSWnk : γ has r branches .
+                   
+
+Lemma 5.2. If n is large enough, then for every r and every γ ∈              HSWnk (r),
+                                       |Join(γ)| ≥ 41 r n1/2−ε .                                  (5.1)
+By further increasing n if need be, we have that
+                                                                          
+                  |JoinLocLists(γ)| ≥ exp κ(1/2 − ε) r log n − κ log(8κ) r .                      (5.2)
+
+Proof. We start by proving (5.1). Recall that t denotes the number of γ’s branches whose
+height exceeds
+              n1/2−ε . There are (t − 1)(j
+                                          max − jmin − 32u − 5) pairs (`, j) with 1 ≤ ` < t and
+j ∈ Z ∩ jmin + 16u + 3, jmax − 16u − 3 . If such a pair fails to be a viable join index, it is
+because the second condition in the definition of such an index is not met.
+Fix such a pair (`, j), so that indeed the second condition fails. Let L denote the elements of Z2
+that are encountered strictly and directly to the right of z`,j , up to and including z`,j + (u, 0).
+No vertex of the form z`0 ,j lies in L. For this reason,        we say that (`, j) blocks
+                                                                                        the u elements
+of L. Observe that if (`, j), (`0 , j 0 ) ∈ [1, t − 1] × jmin + 16u + 3, jmax − 16u − 3 are two distinct
+                                                        
+pairs that are not viable join indices,          then the sets of points
+                                                                        that they block are disjoint.
+Moreover, all blocked points lie in − n1/2+ε , n1/2+ε + u × jmin + 16u + 3, jmax − 16u − 3 .
+                                                                                                     
+
+It follows that there are at most u−1 2n1/2+ε + u + 1 jmax − jmin − 32u − 5 pairs that are
+                                                                                        
+not viable join indices. Thus, we may bound from below the number of viable join indices:
+             Join(γ) ≥ t − 1 − 2u−1 n1/2+ε − 1 − u−1 jmax − jmin − 32u − 5
+                                                                                          
+
+                         ≥ r − 3n1/2−ε − 3 jmax − jmin − 32u − 5 ,
+                                                                             
+
+where the latter inequality is due to u ≥ n2ε ≥ 1 and r − t ≤ n1/2−ε . Since r ≥ 7n1/2−ε ,
+the first term in the latter product is bounded below by r/2 when n is high enough. Since
+u ≤ 2nδ , while δ < 1/2 − ε by (4.1), the second term in this product is bounded below by
+2−1 n1/2−ε , provided that n is supposed high enough. This proves (5.1).
+Suppose now that n is indeed large enough for (5.1) to hold. In order to count join location
+lists list ⊂ Join(γ), we record such an element list, one item at a time. In view of Lemma 3.4(4),
+each choice of a viable join index disallows the prospect of later inclusion in the growing list
+for at most 3(32u + 5) other elements of Join(γ), where the factor of three is contributed
+because the relevant disjointness condition concerns pairs of indices whose first components
+28              H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+differ by at most one from each other. Thus, we find that
+                                      κr−1
+                                   1 Y                         
+         |JoinLocLists(γ)| ≥           |Join(γ)| − 3(32u + 5)i
+                                 (κr)!
+                                       i=0
+                                 1                 κr    1                      κr
+                            ≥         8−1 r n1/2−ε     ≥ √ eκr 8−1 κ−1 n1/2−ε
+                               (κr)!                    2e κr
+                                  √ −1                                
+                            ≥ (2e κr) exp (1/2 − ε)κr log n − Cr ,
+where C = κ log(8κ) − 1 . The second inequality is due to (5.1), and, since u ≤ 2nδ ,
+                           
+
+holds when n is high enough that 3(64nδ + 5)κ ≤ 8−1 n1/2−ε . The third makes use of h! ≤
+2e hh+1/2 e−h with h = κr. Replacing C by κ log(8κ) and invoking again that n is high enough,
+we obtain Lemma 5.2.                                                                       
+
+5.2. Key properties of the multi-valued map Φ. Henceforth, we let r ∈ N denote any
+given value satisfying r ≥ 7n1/2−ε . In order to bound above the number of elements of HSWnk
+with r branches, we construct a multi-valued map
+                                                   κr
+                       Φ : HSWnk (r) × WSAPum          → BΠk+κr(m+16),r ,
+where the bridge-list set that is the range was specified in Section 2.1.
+An element in the domain of Φ will be recorded in the form (γ ; p1 , . . . , pκr ). The arrows
+under Φ outgoing from this element will be indexed by the set JoinLocLists(γ) of length-κr
+join location lists.
+Next we state a key property that Φ will be constructed to satisfy. We then use this property
+to close out the proof of Proposition 4.4. In two further subsections, Φ is constructed, and
+the key property is proved.
+Lemma 5.3 (The multi-valued map Φ is close to injective). When m ≥ 17,
+     • the minimum number
+                            m0 of arrows of Φoutgoing from any element of its domain is
+       at least exp κr (1/2 − ε) log n − log(8κ) ;
+     • and the maximum number M0 of arrows incoming to any element in its range is at
+       most Lκr , where L = 12.
+
+Proof of Proposition 4.4. It suffices to prove the statement for n large enough, since
+smaller values may be incorporated by adjusting the value of the constant C. Fix n satisfying
+(4.3). By the multi-valued map Lemma 1.5, (4.3) and Lemma 5.3,
+                        L                                       κr
+          HSWnk (r) ≤            exp  − ( 1
+                                          2 − ε) log n + log(8κ)      |BΠk+κr(m+16),r | .
+                         n−δα µm
+(The hypothesis in Lemma 5.3 that m ≥ 17 is satisfied because m, being the length of a
+polygon whose line-width is at least u, must satisfy m ≥ u; while u ≥ n2ε ; and n ≥ 171/(2ε) ,
+since we are permitted to suppose that n is sufficiently high.) Using Lemma 2.1(1) to bound
+the right-hand side and the crude bound k + κr(m + 16) ≤ n1+4ε , we find that
+                                                                              
+              HSWnk (r) µ−k ≤ exp − r κ( 12 − ε − δα) − (1 + 4ε) log n + rC 0 ,
+                                                                   
+                                                                                       (5.3)
+                       BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                                  29
+
+
+where C 0 = κ log(8κ) + κ log L + 16κ log µ = κ log 96κµ16 , since L = 12 for Z2 . By (4.2),
+                                                                
+                                                                                       1+4ε
+the coefficient of κ on the right-hand side of (5.3) is strictly positive. Set κ = d 1/2−ε−δα + 1e;
+the rounding up is a device that ensures that κr ∈ N in view of r ∈ N. Then (5.3) reads
+                           HSWnk (r) µ−k ≤ exp(−r log n + rC 0 ) ≤ n−1 ,
+the latter by assuming that n is large enough. Then
+                                              n
+                                              X
+                         HSWnk µ−k =                     HSWnk (r) µ−k ≤ 1 ,
+                                          r=d7n1/2−ε e
+
+and Proposition 4.4 is proved.                                                                     
+
+5.3. Construction of Φ. An element in the domain of Φ may be recorded in the form
+(γ ; p1 , . . . , pκr ), and an arrow under Φ outgoing from this element may be recorded as
+(γ ; p1 , . . . , pκr ; list), where list ∈ JoinLocLists(γ). In a notational device that is intended
+to draw attention to the proposed surgical locations of the polygons,        we instead denote the
+respective polygons p1 , . . . , pκr in the form p(`,j) : (`, j) ∈ list , where the elements of list
+are ordered by the value of `, and by the value of j when the value of ` is shared between
+elements.
+Recall from Section 5.1 that γ’s tall branches φ(1) , . . . , φ(t) are ordered according to the left-
+right order of the leftmost crossings of Rect that they make.
+For ` ∈ {1, . . . , t − 1}, define φ̃(`) to be the Madras join of φ(`) with all polygons of the form
+p`,j with (`, j) ∈ list at the corresponding heights j. Formally, if the pairs (`, j) ∈ list are
+those with values j1 , · · · , jJ , where J = J(`), then
+                                                                                            
+                     φ̃(`) = MJjJ · · · MJj2 MJj1 (φ(`) , p(`,j1 ) ), p(`,j2 ) · · · , p(`,jJ ) .
+
+Although this specification of the iterated Madras joins is perhaps notationally cumbersome,
+the joins are commutative in view of the condition imposed on list by its membership of
+JoinLocLists. Indeed, since distinct j-values for given ` differ by at least 32u + 5, while
+the intervals of y-coordinates adopted by the translations used in surgery of the polygons
+{p(`,ji ) : 1 ≤ i ≤ J} each have length at most 16u, Lemma 3.4(3) ensures this commutativity.
+Moreover, all of these j-values are contained in [jmin + 3, jmax − 3], so that (3.4) holds for each
+proposed join. Hence, Lemma 3.4(1), or its counterpart concerning vertical reflection, implies
+that φ̃(`) inherits from φ(`) the status of bridge or vertical reflection of one. The length of φ̃(`)
+is the sum of that of φ(`) and the quantity J(m + 16), since each insertion contributes m + 16
+edges, with m due to the polygon’s length and a net gain of sixteen arising from surgery.
+Figure 5 illustrates the several surgical attachments that a given tall branch may endure.
+The arrow under Φ that we index by (γ ; p1 , . . . , pκr ; list) is incoming to a certain range
+point in BΠk+(m+16)κr,r . We now specify this point precisely, so that Φ is indeed constructed.
+The half-space walk γ has a branch decomposition (2.3) in which appear each of the tall
+branches φ(`) , 1 ≤ ` ≤ t, (though they may not do so in increasing order). Replace each of
+these terms by its post-surgical counterpart φ̃(`) . Then apply the operation, mapping (2.3)
+to (2.4), that replaces any given branch decomposition by its bridge counterpart. The outcome
+30                H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+
+
+          z`,j3
+
+
+
+
+                   z`,j2
+
+
+
+
+                   z`,j1
+
+
+
+
+        Figure 5. A toy depiction of the Madras join of a branch φ(`) and three
+        polygons p(`,j1 ) , p(`,j2 ) and p(`,j3 ) at respective heights j1 , j2 and j3 . The edges
+        introduced in surgery have been represented merely by two thick edges in each
+        case.
+
+reported by this operation is an element of BΠk+(m+16)κr,r . The arrow under Φ that we
+consider points to this element. We have constructed Φ.
+
+5.4. The near injectivity of Φ: Proof of Lemma 5.3. That
+                                                             
+                        m0 ≥ exp κr (1/2 − ε) log n − log(8κ)
+for Φ follows directly from its construction and (5.2). We turn to the upper bound on M0 .
+Let (b1 , . . . , br ) be an element of BΠk+κr(m+16),r to which an arrow under Φ is incoming. We
+wish to show that the domain point (γ ; p1 , . . . , pκr ) from which the arrow is outgoing may
+be determined from (b1 , . . . , br ) provided that κr choices, each from among at most twelve
+options, are made successively. We will establish the stronger assertion in which the data list
+is also accurately determined by these successful choices.
+Let χ be the concatenation of suitable translations of b1 , τ (b2 ), b3 , . . . . Then χ is a post-
+surgical walk, whose branches are the translations of the just listed terms. Incorporated in
+these branches are local deformations of the polygons p1 , . . . , pκr which have been attached
+by the Madras join operation. Violations of self-avoidance on the part of χ are the residues
+of surgery and they will permit a very accurate inference to be made by an observer of χ as
+to the form of the κr surgeries by which this walk has been formed.
+Recall from the start of Section 5.1 that the tall branches φ(1) , . . . , φ(t) of γ are those among
+γ’s branches whose heights exceed n1/2−ε . It is only onto these branches that polygons are
+grafted in the formation of χ, and any insertion of a polygon onto a branch leaves the height
+of the branch unchanged. Thus it is that a record of the branches of χ whose heights exceed
+n1/2−ε is given by the first t terms in the sequence b1 , τ (b2 ), b3 , . . . .
+                         BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                                     31
+
+
+We have recalled that the tall branches φ(1) , . . . , φ(t) of γ are recorded in the left-to-right order
+of their leftmost crossings of Rect. The insertion of polygons into these branches does not
+produce new crossings, and nor does it affect the intersections of crossings with the horizontal
+sides of Rect, at heights jmin and jmax . The leftmost crossing made by a given branch of either
+γ or χ occupies the leftmost coordinates at height jmin (and also at height jmax ) among all
+crossings made by this branch. For this reason, inspection of the first t terms of the sequence
+b1 , τ (b2 ), b3 , . . . permits a permutation to be recorded in the form ψ (1) , . . . , ψ (t) so that the
+terms correspond to the list φ(1) , . . . , φ(t) of the tall branches of γ.
+
+The branch decompositions of γ and χ coincide beyond the first t terms. This is also true for
+the tth term, because no polygon insertion is attempted in this, the rightmost, case. Regarding
+the earlier terms, let ` ∈ {1, . . . , t − 1}. The branch ψ (`) is the Madras join φ(`) with a certain
+number of polygons which we label p(`,j1 ) , . . . , p(`,jJ ) , where j1 < · · · < jJ are the height
+parameters j in the Madras join operations.
+
+We aim to retrieve each φ(`) and the polygons p(`,j1 ) , . . . , p(`,jJ ) by interpreting intersections
+between ψ (`) and ψ (`+1) as signposts that mark where these polygons have been inserted
+into φ(`) .
+
+First we set ` = 1. Several polygon insertions modify φ(1) into ψ (1) . Any such insertion alters
+the present walk by removing or adding edges whose endpoints have heights that occupy an
+integer interval. These intervals are disjoint for distinct polygon insertions, and so they may
+be ordered, from bottom to top. The first polygon insertion that we seek to undo is the lowest,
+in which p(1,j1 ) is inserted into φ(1) . Lemma 5.1 indicates that a vertex in φ(2) exists that
+lies in the outcome MJj1 (φ(1) , p(1,j1 ) ) of this insertion but does not lie in the input walk φ(1) .
+For definiteness, we select the leftmost of the lowest among such vertices, and call it v: this
+vertex is supposed to offer a clue as to the location of the junction         plaquette used in this
+surgery. Naturally, the observer of Φ’s range point b1 , · · · , br should be able to find v. This
+observer computes ψ (1) and ψ (2) , and identifies v as the lowest point of intersection between
+these walks, choosing the leftmost among such points if need be.
+
+The vertex v is correctly identified by this means because, in view of the disjointness con-
+ditions placed on join location lists in Section 5.1, the form of ψ (1) within the horizontal
+strip whose vertical coordinate   interval is that in which perturbations occur in the surgery
+φ(1) → MJj1 φ(1) , p(1,j1 ) coincides with the form of MJj1 (φ(1) , p(1,j1 ) ) within this strip; and
+                           
+
+likewise the form of ψ (2) within this strip coincides with the form of φ(2) therein (indeed, the
+properties of join location lists prevent any polygon from being attached to φ(2) within this
+strip). That is, the observer is able to infer the location of v because the essential attributes
+of the first polygon insertion are not disrupted by later insertions.
+
+The next definition and lemma are needed alongside Lemma 3.4(2) and (3) to locate the
+junction plaquette given the value of v.
+
+Definition 5.4. Let ` ∈ N and ρ ∈ SAW` . An index pair (j, k), 0 ≤ j < k ≤ `, is called a
+right-detachable ρ-adjacency of gap k − j if
+        
+      • ρj , ρk is the endpoint pair of a vertically oriented unit edge;
+32               H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+      • the horizontal edges in the plaquette P whose right border is this edge belong to ρ and
+        the vertical edges do not;
+      • the modification ρ ∆ P formed from ρ by the removal of the horizontal edges in P and
+        the insertion of the vertical ones is a disjoint union of a walk ρ0 and a polygon Q;
+      • and any translation of Q directly to the right is disjoint from ρ0 .
+Lemma 5.5. Let ` ∈ N and let ρ ∈ SAW` attain its minimal height at ρ0 and its maximal
+height at ρ` . For h ∈ N, two right-detachable ρ-adjacencies (j1 , k1 ) and (j2 , k2 ) of gap h
+satisfy |k2 − k1 | ≥ h.
+
+Lemma 5.5 depends on planarity, so this tool has a certain importance. However, we defer
+its slightly irksome proof until the derivation of Lemma 5.3 is finished.
+Set ρ = MJj1 φ(1) , p(1,j1 ) . To find the junction plaquette used in the surgery φ(1) → ρ, let
+                            
+
+i ∈ N satisfy v = ρi . Since v does not belong to φ(1) , Lemma 3.4(7) implies that v lies in ρ’s
+surgically implanted middle section, which has length at most m + 18. The upper-right vertex
+of the junction plaquette also lies in this section, and thus this vertex’s index in M (γ, P ) lies
+in the interval I := [i − m − 18, i + m + 18]. By Lemma 3.4(2) and (3), the indices in M (γ, P )
+of the lower-right and upper-right corners of the junction plaquette are the elements of a
+right-detachable ρ-adjacency of gap m + 7. By Lemma 5.5, the distance between the higher
+indices in a pair of such adjacencies is at least m + 7. Since the condition m ≥ 17 ensures
+that 2m + 37 < 3(m + 7), the interval I may contain the higher index of at most three such
+adjacencies.
+In this way, the junction plaquette in χ associated with the lowest polygon insertion among
+those that construct ψ (1) may be detected by correctly choosing an element from a set of
+size at most three. (With further analysis of the Madras join, the junction plaquette may
+perhaps be detected uniquely, but we will not attempt this detection.) This choice made, the
+walk and polygon used in this surgery may be determined via Lemma 3.4(8). There are at
+most four forms for the presurgical walk-polygon pair given the surgical outcome alongside
+the identity of the junction plaquette.
+Thus, the data p(1,j1 ) , j1 and the form of the deformation to φ(1) as a result of the lowest
+                            
+insertion onto this branch may be recovered by correctly choosing an element in a set of size
+at most twelve.
+The counterpart recovery should be accomplished for the second lowest polygon insertion for
+the leftmost tall branch; and then the third; and then all higher such; and then we may
+increase the value of ` so that it equals two; and recover all polygons attached to this branch,
+from the lowest to the highest; and likewise for all tall branches; and so we remove all inserted
+polygons. Each of the κr removals introduces a factor of at most twelve to our estimate
+of incoming arrow       number to the given range point of Φ. At the end, we have identified
+ φ(1) , . . . , φ(t−1) , the form of each polygon, and the order of the polygons. Since the higher
+indexed φ(i) are already determined, γ is recovered as the concatenation φ(1) ◦ · · · ◦ φ(r) . That
+is, (γ ; p1 , . . . , pκr ) is known; and so is list, though this is incidental. This completes the proof
+of Lemma 5.3.                                                                                          
+                       BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                                 33
+
+                                                                           k
+
+                                                                j1
+                                                                                          3:
+                                      1:                    0
+                                                                      j          k2
+                             i                               k1
+                                                                                 j2
+                                                                 j1                       4:
+                                 j1        L                0
+
+                                 k1
+                                                                            k2
+                                                                                      j
+
+                         0                                       k1        j2
+                                            2:
+                                                                      j1                  5:
+                                                                 0
+
+        Figure 6. Claims and cases in the proof of Lemma 5.5. Each sketch depicts
+        a walk ρ. Each label refers to the chemical distance i along ρ of the vertex ρi
+        indicated by the nearby dot.
+
+Proof of Lemma 5.5. Let P denote the plaquette whose right border has endpoints ρj1
+and ρk1 , and let Q denote the polygonal component of ρ ∆ P . Note that the vertices of Q
+are those of ρ[j1 ,k1 ] . The rightmost vertex of maximal height in Q, NE(Q), will be denoted by
+ρj , where note that the index j lies in Jj1 , k1 K. Let ρ0 denote the walk component of ρ ∆ P .
+Figure 6(1) depicts the vertex pair, such as {ρj1 , ρk1 }, corresponding to a right-detachable
+ρ-adjacency as a pair of dots along the walk ρ.
+First we show two claims.
+Claim 1. The vertex ρk1 lies one unit upwards from ρj1 .
+Proof. In the opposing case, ρk1 is located one unit downwards from ρj1 . Let ρi denote a
+vertex of maximal height on ρ[0,k1 ] : see Figure 6(2). Let L denote a semi-infinite horizontal
+line segment whose left endpoint is a vertex of maximal x-coordinate on ρ[j1 ,k1 ] ; and note
+that this vertex lies in Q. By our assumption on ρk1 and planarity, ρk1 lies in a component of
+the upper half-plane after the removal of the union of ρ[0,k1 ] \ {ρk1 } and L which contains no
+point of height greater than or equal to that of ρi . Since ρ terminates at such a height, the
+path along ρ from ρk1 must cross L. Since the left endpoint of L lies in Q, we see that some
+right translation of Q intersects ρ[k1 +1,`] and thus also intersects ρ0 . However, this is contrary
+to the hypothesis that (j1 , k1 ) is a right-detachable ρ-adjacency.                              
+Claim 2. The journey along ρ[j1 ,k1 ] from ρj1 to ρk1 first encounters a vertex of maximum
+height at ρj = NE(Q).
+Proof. After this journey first reaches this height, at ρk say, a rightward turn on the part of
+the walk would, as Figure 6(3) depicts, leave the walk in a different component of the strip
+34               H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+R × [y(ρ0 ), y(ρk )] than the point that is one unit above ρj1 . By Claim 1, the latter location
+is the endpoint of the journey, ρk1 . Thus such a rightward turn is impossible, and Claim 2 is
+proved.                                                                                        
+Recall that (j2 , k2 ) is also a right-detachable ρ-adjacency, and that we seek to show that k2 −k1
+is at least the shared value k1 − j1 = k2 − j2 . It is thus enough to argue that the intervals
+[j1 , k1 ] and [j2 , k2 ] are disjoint, except possibly for some coincidence between endpoints. To
+establish this, suppose that the contrary holds; and, without loss of generality, that j2 ≥ j1 .
+Note then that j2 < k1 .
+We will analyse three cases: j2 < j; j2 = j; and j > j2 .
+Case 1. Suppose that j2 < j, and see Figure 6(4). Claim 2 implies that, in this case, when
+the journey along ρ from ρj1 to ρj passes through ρj2 , it does so at a strictly lower height
+than is achieved at its ending point. That is, y(ρj2 ) < y(ρj ). Recall that ρk2 is supposed to
+be adjacent to ρj2 . The path ρ[k1 ,k2 ] is not permitted to visit heights less than that of ρ0 . In
+order to reach its endpoint ρk2 , this path must, by planarity, intersect, at a point other than
+ρk1 , the union of ρ[0,j] ∪ ρ[j2 ,k1 ] = ρ[0,k1 ] and the horizontal half-line whose left endpoint is
+NE(Q) = ρj . Since self-avoidance prevents such crossing of ρ[0,k1 ] , we see that such crossing
+occurs on the semi-infinite line. Thus, some translation of Q to the right intersects ρ[k1 +1,k2 ] .
+But the latter is a subpath of ρ0 , the walk component of ρ ∆ P , so this inference is contrary
+to assumption.
+Case 2. Suppose that j2 = j. The vertex ρj2 −1 lies directly to the left of ρj2 , because j2 is
+an element in a right-detachable ρ-adjacency. However, ρj−1 lies directly downwards from ρj ,
+by Claim 2. Case 2 is thus impossible.
+Case 3. Suppose instead that j < j2 < k1 , and see Figure 6(5). Write P for the plaquette
+whose right border has endpoints ρj2 and ρk2 , and write ρ̄0 and Q for the walk and polygon
+of which ρ ∆ P is comprised.
+By Claim 2, the walk ρ turns left after reaching ρj . It does not reach a higher y-coordinate
+until at least index k1 , because ρ[j,k1 ] describes part of the polygon Q. Thus, ρ[0,j] disconnects
+every point in ρ[j+1,k1 ] from points arbitrarily far to the right within the horizontal strip of
+boundary heights y(ρ0 ) and y(ρj ). In Case 3, ρ[j2 ,k1 ] is a subwalk of ρ[j+1,k1 ] . Since ρ[j2 ,k1 ] is
+a subwalk of Q, we see that, if Q is moved out to the right, it will encounter ρ[0,j] at some
+point. The walk ρ̄0 contains ρ[0,j2 −1] and thus also ρ[0,j] . Thus, the rightward movement of
+Q will encounter ρ̄0 . This is contrary to the assumption that (j2 , k2 ) is a right-detachable
+ρ-adjacency.                                                                                            
+
+
+5.5. Prospects for polygon insertion. As we remarked after Proposition 4.1, and since
+the parameter α in (4.3) is predicted to be at least 5/2, it seems unlikely that the present
+method may improve Theorem 1.2 beyond values of ε that are smaller than, but arbitrarily
+close to 1/12. Indeed, our method of polygon insertion has been presented in an effort to
+communicate how an improvement of some ε > 0 may be achieved, and we have not been
+concerned with the explicit value of ε so obtained. Here we make two comments about how
+further progress could be made by varying the method’s implementation.
+                       BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                               35
+
+
+Obtaining suitably wide polygons more efficiently. Elements of WSAPu4m+4 were produced
+in the proof of Lemma 3.3 by joining, under a suitable circumstance, pairs of elements
+          u
+of WSAP2m+2 . Since the latter elements were formed of two bridges in Kesten’s proof
+of Lemma 1.6, four bridges are needed to build an element of WSAPu4m+4 . However, we
+might replace the use of the set WSAPum in the proof of Theorem 1.2 by a set such as
+            u
+{p ∈ WSAPm : y(NE(p)) = j}, for any given value of j. The new polygons, each formed of
+merely two bridges, may not have sufficient line-width, but they may have significant width
+when oriented suitably. A potential improvement in Proposition 4.1(1) and Theorem 1.2 may
+arise from this approach, due to an improvement on the polygon abundance lower bound
+α > 29 in Proposition 3.1.
+Making inserted polygons of variable length. Every polygon that is inserted in the proof of
+the key estimate, Proposition 4.4, is drawn from WSAPum . As such, each of these polygons
+has given length m. One could attempt polygon insertion by permitting this length to vary,
+say between m and 2m. There would seem to be a gain in outgoing arrow entropy in the
+construction of the multi-valued map Φ which leads to an effective drop of one in the value
+of the parameter α. In principle, then, the limit of this variant of the method takes α equal
+to 3/2, rather than 5/2. The challenge for this variant is that incoming arrow number may
+increase because, in the counterpart to the proof of Lemma 5.3, the value of polygon length on
+the interval [m, 2m] must be surmised as each polygon insertion is undone. The post-surgical
+walk crosses the lower side of the junction plaquette used in surgery, journeys over the inserted
+polygon, and travels back across this plaquette’s upper side. As such the plaquette’s location
+can be roughly surmised, unless the inserted polygon has many locations at which chemically
+distant vertices are neighbours. The rarity of such locations may be gauged by [Ham18,
+Proposition 4.5].
+
+               6. Abundance of polygons for the hexagonal lattice
+
+Two remaining sections treat self-avoiding walks on the hexagonal lattice. In the present
+section, we prove the polygon abundance estimate for this lattice, Proposition 3.2, which in
+its exponent and its validity for all lengths improves on Proposition 3.1. Theorem 1.4 will
+be proved in Section 7. Both results depend vitally on a very specific integrability enjoyed
+by self-avoiding walk on H, expressed in terms of the parafermionic observable. Use of the
+observable entails some changes in model definition that we present in a first subsection. In a
+second, we offer a quick introduction to the observable. In a third, we prove Proposition 3.2.
+
+6.1. Definitions for the hexagonal lattice. Recall that H denotes the hexagonal lattice
+dual to the triangular lattice T = Z + eiπ/3 Z. The vertices of H are in the centres of faces of T
+and the edges of H are perpendicular to those of T. In particular, O = (0, 0) is the centre of
+a face of H. See Figure 8 for an illustration.
+A union Ω of faces in H is called a domain if there exists a self-avoiding polygon P on T such
+that Ω is the set of faces fully contained in the finite connected component of R2 \ P . Let ∂Ω
+be the intersection of P with the edges of H. Note that the elements of ∂Ω are the midpoints
+of those edges of H that have exactly one endpoint in the interior of P . A triangular domain
+is depicted in the upcoming Figure 8.
+36             H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+An internal edge in Ω is an edge in H that is contained in Ω. The midpoint of an edge in Ω
+refers either to the midpoint of an internal edge or to an element of ∂Ω. A vertex in Ω is a
+vertex in H that lies in Ω.
+We now specify notation for self-avoiding walks and polygons on H and on graphs useful for
+their analysis. The definitions are at variance with our earlier usage.
+Let Ω be a domain. Two midpoints of edges in Ω are said to be adjacent if the edges share
+an endpoint. A self-avoiding walk on Ω is a sequence of adjacent edge midpoints in Ω in
+which there are no repetitions among the list of vertices in Ω that are the shared endpoints
+of consecutive members of the sequence. This formulation permits the possibility that the
+first and final elements in a self-avoiding walk are equal; in this case, the walk is called a
+self-avoiding polygon. As such, polygons are rooted, and have orientation. When the root
+and the orientation are forgotten, we recover a counterpart to the definition of polygon used
+for Z2 ; here, we will call this object a polygon trace.
+The length of a self-avoiding walk is one less than the number of sequence elements; namely,
+the number of vertices of Ω visited by the walk. A length zero walk thus refers to one that
+begins and ends at the same edge midpoint without passing through any domain vertex.
+Let SAWn (Ω) denote the set of self-avoiding walks of length n on Ω; the usage is at variance
+with that of Section 1.4, because the starting point of the walks is not fixed. When the
+subscript n is absent, the set of such walks of arbitrary length is designated. The notation
+SAP refers to polygons in place of walks. Omission of Ω is understood to imply H.
+Henceforth x denotes µ(H)−1 . Let z0 and z be midpoints of edges of Ω. The partition function
+of walks from z0 to z, also known as the critical two point function, is defined by
+                                                      X
+                             GΩ (z) = GΩ (z0 , z) =         x|γ| ,                      (6.1)
+                                                    γ∈SAW(Ω)
+                                                     γ:z0 →z
+where γ : z0 → z indicates that the starting and ending points of γ are z0 and z, and where G’s
+first argument z0 may be omitted when this value is understood. When z = z0 , a normalized
+count of polygons is being made.
+                                                                                      p    √
+6.2. A quick introduction to the parafermionic observable. That µ = µ(H) = 2 + 2
+is a consequence [DCS12] of analysis of the observable. Applications also include [BBMdG+ 14].
+Given σ ∈ R, a domain Ω and z0 ∈ ∂Ω, define the parafermionic observable at any midpoint z
+of an edge in Ω to be
+                                             X
+                      F (z) = FΩ (z0 , z) :=        e−iσwind(γ) x|γ| ,               (6.2)
+                                              γ∈SAW(Ω)
+                                               γ:z0 →z
+
+where wind(γ) is the total rotation of γ from z0 to z.
+It is by now classical (see [Smi10, Lemma 4]) that F satisfies the following relations when σ
+is set equal to 5/8 in addition to setting x = µ(H)−1 . For the midpoints p, q, r of the three
+edges incident to a vertex v ∈ Ω,
+                        (p − v)F (p) + (q − v)F (q) + (r − v)F (r) = 0 ,                  (6.3)
+                      BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                               37
+
+
+where p − v, q − v or r − v are interpreted as complex numbers.
+A simple and important observation is that, for z ∈ ∂Ω and x > 0, the observable can be
+related to the generating function G(z) = GΩ (z0 , z) of walks from z0 to z staying in Ω. Indeed,
+since z lies on the boundary of Ω, the winding of all paths going from z0 to z is the same, so
+that
+                                   F (z) = e−iσ wind(z) G(z) ,                              (6.4)
+where wind(z) is a deterministic constant. Here it is crucial that Ω be simply connected, as
+is the case here by Ω’s definition.
+We set σ = 5/8 henceforth.
+
+
+6.3. An improved lower bound for WSAP: deriving Proposition 3.2. It is proved
+in [DCS12, Remark 2] that there exists c > 0 such that, for u ≥ 1,
+                        X                         √
+                 Bu :=       {γ ∈ SABn : h(γ) = 23 u} · µ−n ≥ c u−1 .    (6.5)
+                                    n≥1
+
+This bound does not directly yield a lower bound on bn µ−n , but Lemma 3.3 may perhaps
+be adapted to express a lower bound on |WSAPum | in terms of Bu , so that some form of
+Proposition 3.2 would follow from (6.5). Here, we apply (6.5) in a different fashion in order
+to obtain this proposition. A similar argument has appeared in [GM17].
+Recall from the introduction that, for k ∈ N, Λk is the set of faces in H whose distance from
+the face containing the origin is at most k, in the sense of distance on the triangular lattice;
+and note that Λk is a domain of H. Let RSAP(k) be the set of round self-avoiding polygons:
+those polygons that are included in Λ8k ; begin and end at (k + 1/2, 0); surround, but do not
+intersect, the planar line segment that interpolates (0, 0) and (k, 0); and which intersect the
+positive x-axis only at (k + 1/2, 0). There is no demand that the polygons’ length be given.
+Round polygons are readily available:
+Proposition 6.1. There exists a constant c > 0 such that, for k ∈ N,
+                                  X
+                                        x|γ| ≥ c k −1 B8k
+                                                       6
+                                                          .
+                                              γ∈RSAP(k)
+
+
+This proposition will be used in the proof of Theorem 1.4. We now use it to prove Proposi-
+tion 3.2 and then give its proof.
+Proof of Proposition 3.2. This result offers a lower bound on the cardinality of WSAPum .
+We mention that, in our present notation, this is a set of polygon traces, rather than polygons.
+Due to Proposition 6.1,
+                                          |Λ8u |
+                 X                        X
+                              |γ|
+                          x         =              {γ ∈ RSAP(u) : |γ| = m} µ−m ≥ c u−1 B8u
+                                                                                        6
+                                                                                           .
+              γ∈RSAP(u)                   m=u
+38              H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+
+
+       Figure 7. A polygon trace. Dots mark certain starting points for which
+       the polygon is in RSAP(u) . The square marks the starting point used in the
+       parameterization of elements of WSAPum .
+
+The equality is due to each γ ∈ RSAP(u) having length between u and |Λ8u |. The number of
+terms in the sum is bounded by c0 u2 for some constant c0 . Thus, there exists at least one
+value for m such that
+                         {γ ∈ RSAP(u) : |γ| = m} µ−m ≥ c1 u−3 B8u
+                                                               6
+                                                                  .
+for some universal c1 > 0. Finally, notice that, for any γ in the set above, the trace of γ is an
+element of WSAPum . Indeed, the line-width of γ is at least u, since γ surrounds the segment
+[0, u] × {0}; and its height is bounded by 16u because it is contained in Λ8u .
+The passage {γ ∈ RSAP(u) : |γ| = m} → WSAPum from polygon to trace is not injective.
+Any γ ∈ RSAP(u) is rooted at the rightmost point of its intersection with the horizontal line
+containing its root: see Figure 7. Since γ visits at most 16u different heights, any given trace
+corresponds to at most 16u polygons of RSAP(u) . As such, using (6.5), we find that
+                                              c1
+                          WSAPum µ−m ≥             B8u (xc )6 ≥ c2 u−10 ,
+                                            16u4
+for some constant c2 > 0.                                                                     
+In the rest of this subsection, Proposition 6.1 is proved. We start with a lemma.
+Fix k ∈ N. Let the strip Sk of height k and the equilateral triangle Tk of side length 2k + 1 be
+defined as the domains whose internal edges are precisely those edges of H that are respectively
+contained in
+                                              √
+                     (x, y) such that 0 < y < 23 k ⊂ R2
+                   
+                                                                  and
+                                             √
+                     (x, y) such that 0 < y < 3(k + 21 − |x − k − 21 |) ⊂ R2 ;
+                   
+
+                             √
+see Figure 8. The factor 3/2 above accounts for the height of horizontal layers of H, that
+is the vertical difference between the centres of faces of two successive layers. In an evident
+notation, let Bottom and Topk partition ∂Sk ; and let Bottomk , Leftk and Rightk do so for ∂Tk .
+Note that Bk is the partition function of walks contained in Sk that start at some fixed point
+on Bottom and end on Topk .
+                       BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                                39
+
+
+                                                              Tk
+
+
+
+
+                                                                    Rig
+                                       tk
+                                    Lef
+
+
+
+
+                                                                     ht k
+                                                  z
+
+                                                        z0
+                                0
+                                                   Bottomk
+
+       Figure 8. The domain Ω = Tk : the polygon P around it is depicted in
+       bold; the edges of Tk are all those with at least one endpoint in P ; and the
+       boundary edges are those with exactly one endpoint inside P . The centres
+       of the boundary edges, marked with dots, form ∂Tk . The three sides of ∂Tk
+       are denoted by Bottomk , Leftk , Rightk ; z0 is the midpoint of the edge in Tk
+       emanating from a. The depicted path starts at z0 and ends at the midpoint z
+       of an edge inside Tk , as in the definition of the parafermionic observable. This
+       path has winding 2π at z.
+
+Lemma 6.2. For every k ∈ N even,
+                                            X
+                                                       x|γ| ≥ x B2k ,
+                                       γ∈SAW(Tk )
+                                       γ:z0 →Leftk
+                     
+where z0 = k + 1/2, 0 is in the middle of Bottomk .
+
+Proof. Consider the observable F = FTk defined in (6.2). Summing (6.3) over all vertices
+v ∈ Tk , we find that the contributions of each internal edge to the relations around its
+endpoints cancel each other out; whence
+                  X                   X                X
+            eπi/3      F (z) + e−πi/3      F (z) −             F (z) = F (z0 ) .    (6.6)
+                  z∈Leftk                   z∈Rightk            z∈Bottomk \{z0 }
+
+Now, F (z0 ) = 1, since only the walk of length zero contributes. Note also that wind(z), as
+defined in (6.4), is equal to π/3 on Leftk ; to −π/3 on Rightk ; and to ±π on Bottomk , the
+choice of sign depending on whether z is on the left or on the right of z0 . In particular, (6.4)
+enables us to transform (6.6) into
+                              X                          X
+             2 cos π3 (1 − σ)
+                  
+                                   GTk (z) + cos[π(1 − σ)            GTk (z) = 1 ,          (6.7)
+                             z∈Leftk                                z∈Bottomk \{z0 }
+
+where we used the symmetry of Tk with respect to the vertical line running through z0 .
+Proceeding for S2k as we did for Tk , we obtain
+                   X                                              X
+                         GS2k (z) + cos[π(1 − σ)                              GS2k (z) = 1.   (6.8)
+                   z∈Top2k                                   z∈Bottom\{z0 }
+40                H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+                                                                                   < µ(H) = x−1 ,
+                                                                                 
+Here, it may seem problematic that S2k is infinite.     However,   since µ  S2k
+the summation in (6.8) is permitted. That µ S2k < µ(H) may be shown using the approach
+of [HW85, Sec. 6], which implies that [µ(S2k )]k is a strictly increasing sequence that converges
+to µ(H); in [HW85] the corresponding result is obtained for self-avoiding walks on Zd .
+
+                           Tk ⊂ S2k, for any z ∈ Bottomk , GTk (z) ≤ GS2k (z). Moreover, the
+Finally, observe that, since
+coefficients cos[π(1 − σ) and 2 cos π3 (1 − σ) = 1/x are both positive. Thus, by subtract-
+ing (6.8) from (6.7), we obtain that, for every k ∈ N,
+                    X                       1         X
+                          GTk (z) ≥      π               GS2k (z) = x B2k .             (6.9)
+                   z∈Left
+                                    2 cos 3 (1 − σ) z∈Top
+                          k                                              2k
+
+                                                                                                                   
+                 (6.8) also applies to strips S2k+1 of odd height. Thus, writing (6.8) for Sk ,
+Remark. Equation P
+we find that Bk = z∈Topk GSk (z) is decreasing in k.
+
+Aside. Equation (6.8) also shows that
+                                                                                                  
+                                                 X                  cos[π(1−σ)                        2
+          Bk − Bk+1 = cos[π(1 − σ)           [GSk+1 (z) − GSk (z)] ≤       x                          Bk+1 ,
+                                   z∈Bottom\{z0 }
+
+since any walk contributing to GSk+1 (z) − GSk (z) is what may be called an arc from z0 to z:
+a walk that visits Sk+1 \ Sk ; and hence such a walk decomposes into two bridges of height
+k + 1 (after a small alteration). The above was used in [DCS12] to prove (6.5).
+We now present the proof of Proposition 6.1. A similar strategy was used in [DCGPS17] for
+loop O(n) models.
+Proof of Proposition 6.1. For every k 0 , k 00 ≥ 0, define the quantity
+                    G(k 0 , k 00 ) := GTk0 ( 21 + k 0 , 0) , ( 12 + k 00 , 0)eiπ/3 ,
+                                                                                  
+
+and note that G(k 0 , k 00 ) = 0 if k 00 > 2k 0 . Let Λ+8k denote the intersection of Λ8k and the
+upper half-plane. Concatenating suitable rotations of three walks that contribute to G(k, k1 ),
+G(k1 , k2 ) and G(k2 , k 0 ), we obtain a walk in Λ+          1              1    0
+                                                    8k from ( 2 + k, 0) to ( 2 − k , 0): see Figure 9.
+
+Thus,
+                         8k
+                         X
+                                GΛ+ z0 , ( 12 − k 0 , 0)
+                                                        
+                                                                                                               (6.10)
+                                    8k
+                        k0 =0
+                                     X      X       X
+                                ≥                            G(k, k1 )G(k1 , k2 )G(k2 , k 0 ) ,
+                                    k1 ≤2k k2 ≤2k1 k0 ≤2k2
+
+whose right-hand side is at least x3 B8k
+                                      3 in view of (6.9) and the monotonicity of B on which
+
+we remarked before the proof.
+Consider two walks that contribute to the same summand in the preceding left-hand side.
+The concatenation of one with the vertical reflection of the other is a polygon of RSAP(k) .
+                      BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                               41
+
+
+
+
+                                                     0     (k + 12 , 0)
+
+       Figure 9. The concatenation of three walks rotations of which contribute to
+       G(k, k1 ), G(k1 , k2 ) and G(k2 , k 0 ) produces a walk contained in the upper half
+       of Λ8k , from ( 12 + k, 0) to ( 12 − k 0 , 0).
+
+Thus, and by the Cauchy-Schwarz inequality,
+                                  X            x6 6
+                                          xk ≥   B .
+                                      (k)
+                                               8k 8k
+                                    γ∈RSAP
+
+                                                                                               
+
+                              7. The proof of Theorem 1.4
+
+The three arenas in which the proof of Theorem 1.4 will unfurl are the lattice H; its uni-
+versal cover U∞ ; and its eight-fold cover, which we will call U8 . Our description of U∞ in
+the introduction was informal. We first precisely specify U∞ and U8 and some pertinent
+subgraphs.
+
+7.1. The universal and eight-fold covers of the hexagonal lattice. The positive x-
+axis intersects those edges in H that are vertical, symmetric about this axis and whose x-
+coordinates have the form k + 1/2 with k ∈ N ∪ {0}. When this semi-infinite line is removed
+from the plane, each of these edges is cut into two half-edges at its midpoint. The endpoints
+of the resulting half-edges that lie on the x-axis may be labelled with the terms ‘lower’
+and ‘upper’, according to whether the argument values of these points, when specified via
+continuity, are equal to zero or to 2π. The branch-cut hexagonal lattice is the graph so formed:
+its vertices are the midpoints of edges in H, with the exception of those on the positive x-axis,
+for which there are two copies, labelled ‘upper’ and ‘lower’.
+The universal cover U∞ of H is formed from a Z-indexed collection of branch-cut hexagonal
+lattices; any upper vertex on the positive x-axis in one lattice is identified with its lower
+counterpart in the lattice whose index is one greater.
+Let j ∈ N. The j-fold cover Uj of H is formed from a collection of j such lattices. The
+collection is cyclically ordered, and the cover results when the same identifications are made
+using this ordering of the lattice copies.
+42              H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+The canonical projection from U∞ to H has been denoted by π∞ . The counterpart map from
+U8 to H will be called π8 .
+At the centre of each face of H is a vertex of the triangular lattice T. The distance between
+a pair of these faces is equal to the graph distance in T between the corresponding vertices.
+Let k ∈ N ∪ {0}. Recall Λk , the set of faces in H whose distance from the face containing the
+origin is at most k. The union of the six planar line segments that interpolate the consecutive
+rotations of the point (k + 1, 0) about the origin by the sixth roots of unity is a planar
+polygon Pk . When Pk is removed from the plane, the lattice H fragments into the bounded
+domain Λk and an unbounded piece Uk . (Reuse of the symbol U is intentional: note that
+ −1 (U ) equals U∞ from Conjecture 1. In fact, the specification of U∞ in the introduction
+π∞     k           k                                                     k
+was rather informal, and we may define it to be π∞   −1 (U ).) The two pieces Λ and U share
+                                                          k                     k       k
+a common set ∂Λk of boundary edge-midpoints, whose elements lie in the intersection of Pk
+with the edges in H and are midpoints of such edges.
+
+
+7.2. The road map for proving Theorem 1.4. The expression (6.1) is a weighted count
+of walks. Upper bounds on such counts are a close surrogate for bounds on the cardinality of
+the elements of SAWn (H) with a given starting point. Indeed, we begin deriving Theorem 1.4
+by reducing it to the next result.
+
+Proposition 7.1. There exists C > 0 such that, for any n, k ∈ N with n ≥ k and µ(U∞
+                                                                                  k ) =
+µ(H), any z0 ∈ ∂Λn and any midpoint z of an internal edge in Λn−k ,
+
+                               GΛn (z, z0 ) ≤ C(k) n2C(6k+7)+103 ,
+                                                         1/3
+where C(k) : k ∈ N is a sequence with supk k −1 log C(k)
+     
+                                                              < ∞.
+
+Remark. The constant C > 0 in the exponent in this result arises from the upcoming
+Lemma 7.5. We have not expanded effort on optimizing exponents in our bounds. We
+mention, however, that C = 32 is obtained in the proof of Lemma 7.5, with corresponding
+explicit values for exponents resulting in Proposition 7.1 and in Theorem 1.4, the latter shown
+in the proof which we now give.
+Proof of Theorem 1.4. First, we note that the definition of self-avoiding walk implied in
+the introduction, in which such walks begin and end at vertices in H, is at variance with our
+actual usage, in which it is the midpoints of edges in H which accommodate these endpoints.
+It is a trivial matter, however, to interpolate between the two forms of Theorem 1.4.
+Let o denote the midpoint of the vertical edge in H that borders the right side of the face
+containing the origin. Since we are assuming Conjecture 1, fix k ≥ 1 for which µ(U∞  k ) = µ(H).
+                                                                     
+Let γ be a walk in H of length n that starts at o. Write m = min r ∈ N : γ ⊆ Λr ; call m the
+radius of γ. Let γ` be the first point of γ adjacent to ∂Λm , and let z0 ∈ ∂Λm be adjacent to γ` .
+Then γ[0,`] may be extended by one step to form a walk that contributes to GΛm (o, z0 ), while
+γ[`,n] may be reversed and then so extended to form a walk that contributes to GΛm (γn , z0 ).
+Suppose for now that the edge midpoint γn lies in Λm−k . We may apply Proposition 7.1 with
+                          BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                              43
+
+
+n = m twice to find that
+             X                      X
+                     x|γ| ≤              GΛm (o, z0 )GΛm (z0 , z) ≤ c0 C(k)2 m4C(6k+7)+209 ,
+          γ of radius m        z0 ∈∂Λm
+            γn ∈Λm−k           z∈Λm−k
+
+where the first sum is over self-avoiding walks γ starting at o and c0 is a universal constant
+accounting for |∂Λm |m−1 and |∂Λm−k |m−2 .
+It remains to treat the case where γn lies in Λm \Λm−k . The reversal of γ[`,n] may be extended
+from its endpoint γ` by 2k steps so that its new starting point z1 is on ∂Λm+k . Thus,
+                      X                  X
+                              x|γ| ≤             GΛm (o, z0 )GΛm+k (z1 , z)x−2k .
+                    γ of radius m           z0 ∈∂Λm
+                   γn ∈Λm \Λm−k            z1 ∈∂Λm+k
+                                          z∈Λm \Λm−k
+
+As before, by two applications of Proposition 7.1 with n = m and n = m + k, respectively, the
+above may be bounded by c1 (k)C(k)2 m4C(6k+7)+209 , where c1 (k) is a k-dependent constant.
+Restricting the sums in the above displays to walks of length n and summing over all possible
+values of m ≤ n, we find that the normalized count of walks of length n that start at o satisfies
+                                    µ−n cn (H) ≤ C 0 (k) n4C(6k+7)+210 .
+                                                                                                  
+When z = o is taken in Proposition 7.1, the proof of the result coincides with the general
+case’s except for the elimination of some mildly distracting notation. There are four principal
+steps in the proof of the proposition.
+In the next subsection, we state four results, attached to these steps, in the special case when
+z = o, and give the proof of Proposition 7.1 for z = o. Four ensuing subsections present the
+proofs of the four upcoming results. In a final subsection, the notational changes needed to
+obtain Proposition 7.1 in its general form are explained. Our proof of Theorem 1.4 in fact
+succeeds under a slightly weaker hypothesis than Conjecture 1. The present Section 7 ends
+with a remark in this regard.
+
+7.3. The four steps to Proposition 7.1. Lemma 7.2 is the first step to Proposition 7.1
+with z = o. It is this step which dictates the use of the eight-fold cover. Set Λ8n = π8−1 (Λn ),
+U8n = π8−1 (Un ), and note that ∂Λ8n = π8−1 (∂Λn ). A walk in the eight-fold cover U8 that begins
+and ends in ∂Λ8n is called ‘inner’ if every vertex in U8 that it visits lies in Λ8n ; and ‘outer’ if
+every such vertex lies in U8n . Such definitions may equally be made for the universal cover,
+with the change 8 → ∞.
+Walks in H from o to ∂Λn , as measured by GΛn (o, z0 ), are shown to be no more numerous
+than those walks in the eight-fold cover that begin and end in ∂Λ8n and that are inner.
+Lemma 7.2. Let n ∈ N. For z0 ∈ ∂Λn , let z 0 ∈ ∂Λ8n satisfy π8 (z 0 ) = z0 . Then
+                                         8       X                 
+                     GΛn (o, z0 ) ≤                    GΛ8n z 0 , z .                          (7.1)
+                                    cos(3π/16)       8    z∈∂Λn
+44             H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+The second principal step provides a lower bound on the
+                                                      number of walks in the universal
+        ∞                                     −1
+cover U between given suitable elements in π∞ ∂Λn that are outer and have lengths of
+order roughly Cn2 .
+We extend the notation (6.1), writing GΩ,` (z0 , z) when the sum is indexed by walks whose
+length is at most `; we also use it in cases such as Ω = U∞
+                                                          n which are not domains, as specified
+in Section 6.1, but for which associated definitions have clear counterparts.
+Lemma 7.3. There exist c, C > 0 such that, for n ∈ N,
+                                                        −103
+                                 GU∞    2 (z0 , z) ≥ c n     ,                            (7.2)
+                                   n ,Cn
+
+                   −1 (∂Λ ) are at distance in U∞ of at most 48n.
+whenever z0 , z ∈ π∞     n
+
+
+Any eight-fold cover inner walk that contributes to the sum on the right-hand side of (7.1)
+may be lifted to the universal cover U∞ . An outer walk that shares the endpoints of this lift
+is furnished by Lemma 7.3. The concatenation at both endpoints of inner and outer walk is
+a polygon in the universal cover. Thus it is that, for roughly the price of a walk in H from
+the origin to distance n, we obtain a polygon in U∞ of length of order at most n2 that runs
+through a given vertex in ∂Λ∞  n . Our purpose will be served, however, only if we succeed in
+obtaining a polygon in U∞  k , rather than one merely in the superset U∞ . To this end, the
+polygon in U will be broken into several polygons so that each avoids Λ∞
+              ∞
+                                                                           k . Our third step
+thus asserts that, for the given price, we may obtain possibly several such polygons in U∞
+                                                                                         k .
+
+Corollary 7.4. For n, k ∈ N with n ≥ k, and z0 ∈ ∂Λn ,
+                                                                6k+7
+                   GΛn o, z0 ≤ C(k) n103 max
+                            
+                                               ∞
+                                                 G U∞ ,cn2 (z, z)
+                                                    k
+                                                                       ,                  (7.3)
+                                               z∈Uk
+                                                         1/3
+where C(k) : k ∈ N is a sequence with supk k −1 log C(k)
+      
+                                                              < ∞ and c is a positive
+constant independent of n, k and z0 .
+
+Our goal is the walk rarity bound GΛn (o, z0 ) ≤ nC . The first three steps have shown that
+polygons in U∞                        2
+              k of length at most Cn are as readily available as are walks contributing
+to this G-count. To reach our goal of a polynomial bound on GΛn (o, z0 ), our fourth step
+demonstrates that such polygons are rare in a sense suitable for this purpose. It is at this
+moment in the proof of Theorem 1.4 that Conjecture 1 is needed.
+Lemma 7.5. There exist positive constants C0 and C such that, whenever k ∈ N satisfies
+µ(U∞                                           ∞
+   k ) = µ(H), n ∈ N satisfies n ≥ k, and z ∈ Uk ,
+
+                                    GU∞
+                                      k ,n
+                                           (z, z) ≤ C0 nC .
+
+Proof of Proposition 7.1 with z = o. By Corollary 7.4 and Lemma 7.5,
+                     GΛn o, z0 ≤ (c C0 )6k+7 C(k) n2C(6k+7)+103 .
+                              
+
+The relabelling of C(k) so that it denotes (c C0 )6k+7 C(k) does not affect the growth rate
+of this sequence as the corollary describes it. Thus is the special case of Proposition 7.1
+obtained.                                                                                
+                          BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                                   45
+
+
+7.4. Proof of Lemma 7.2. Recall that n ∈ N; that z0 ∈ ∂Λn ; that z 0 ∈ ∂Λ8n projects to z0
+under π8 ; and that o is the midpoint of a particular edge that borders the face in H containing
+the origin. Eight points in Λ8n project to o under π8 . Let v be one among these. The edge in
+U8 of which v is the midpoint will be denoted by e. A domain to be called Λ8n (v) is formed
+from Λ8n by cutting e in two half-edges. These two half-edges may be labelled ‘plus’ and
+‘minus’ in an arbitrary fashion.
+The domain Λ8n (v) contains, in place of v, two vertices v + and v − , which are endpoints of
+the new half-edges, and where v + is the endpoint of the plus half-edge. Note then that
+∂Λ8n (v) = ∂Λ8n ∪ {v − , v + }.
+In Λ8n (v), self-avoiding walks may end at v + , their journey ending via the plus half-edge
+generated by the cut at v; and they may end at v − , if they finish by moving towards this
+vertex via the minus half-edge; they may not, however, traverse the edge e.
+We define the observable in Λ8n (v) as we did before, in (6.2):
+                                                  X
+                   F (z) = FΛ8 (v) (z 0 , z) :=            e−iσ wind(γ) x|γ| .                      (7.4)
+                                                       γ ∈ SAW(Λ8n (v))
+                                                           γ:z 0 →z
+
+Since z 0 ∈ ∂Λ8n and v+ is the endpoint of a half-edge bordering the singular face of H,
+the difference of value for wind(γ) between any two walks γ : z 0 → v+ in Λ8n is an integer
+multiple of 16π. Since σ = 5/8, the σ-multiple of this difference is divisible by 2π, and the
+phase factor in (7.4) of all walks contributing to F (v+ ) is a constant e−iσwind(v+ ) . The same
+applies to walks contributing to F (v− ), for which the phase factor is e−iσ(wind(v+ )−π) . (It is
+this consideration that determines our use of the eight-fold cover.)
+The local relation (6.3) is obtained in the same way as it is in the planar case. Using the
+equivalent for Λ8n (v) of (6.6), we deduce that
+                                       X                         X             
+               F (v+ ) − F (v− ) ≤             GΛ8n (v) z 0 , z ≤   GΛ8n z 0 , z .    (7.5)
+                                      z∈∂Λ8n (v)\{v+ ,v− }                    z∈∂Λ8n
+
+Now, keeping in mind the phase difference eiσπ = −e−i3π/8 between F (v+ ) and F (v− ), after
+multiplication by eiσwind(v+ )+i3π/16 , we find that
+               F (v+ ) − F (v− ) = GΛ8n (v) (z 0 , v+ )ei3π/16 + GΛ8n (v) (z 0 , v− )e−i3π/16 .
+
+For a ∈ C, |a| ≥ (a + ā)/2; thus is the last right-hand side at least
+                                                                  
+                  3                                                        3
+             cos( 16 π) GΛ8n (v) (z 0 , v+ ) + GΛ8n (v) (z 0 , v− ) = cos( 16 π) GΛ8n (z 0 , v) .
+
+Any self-avoiding walk in Λn is the projection of at least one in Λ8n ; whence
+                                              X
+                             GΛn (o, z0 ) ≤         GΛ8n (z 0 , v) .
+                                                     v: π8 (v)=o
+
+Since there are eight such v,
+                                                              X
+                                                    8
+                                GΛn (o, z0 ) ≤ cos(3π/16)             GΛ8n (z 0 , z),
+                                                             z∈∂Λ8n
+46                  H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+by (7.5) and the bound that is derived after it. This completes the proof of Lemma 7.2.         
+
+7.5. Deriving Lemma 7.3. Two estimates for partition functions in the half-plane hexago-
+nal lattice H+ = (R × [0, +∞)) ∩ H will be needed in this derivation. Recall the triangle Tk of
+Figure 8; translate it so that o is the centre of Bottomk . Due to (6.9) and (6.5), there exists
+a constant c > 0 such that, for k ∈ N,
+                                      X
+                                           GTk (o, z) ≥ c k −1 .                           (7.6)
+                                     z∈Leftk
+
+Our second estimate refers to walks from o to arbitrary edge midpoints on the positive x-axis.
+It states that there exists c > 0 such that, for k ∈ N,
+                               GΛ4k ∩H+ o, (k + 1/2, 0) ≥ c k −7 .
+                                                        
+                                                                                         (7.7)
+We now prove (7.7). Consider the rectangle Rk illustrated   √ in Figure 10. Its base, Basek , is
+centred at o and has width 2k + 1; the height of Rk is 4 3 k. Write Left0k , Top08k and Right0k
+for its left, top and right sides. Writing (6.7) for Rk and subtracting (6.9) for S8k , we find
+that
+                2 cos (3±1)π
+            X                                          X                 X
+                                                  3π
+                             
+                        16     G Rk
+                                    (o, z) ≥ cos(  8 )   G S 8k
+                                                                (o, z) +   GS8k (o, z).
+         z∈Left0k                               z∈Bottom\Basek     z∈Top8k \Top08k
+
+The inequality comes from the terms omitted from the right-hand side, namely those corre-
+sponding to arcs ending on Basek and bridges ending on Top08k , which are contained in S8k
+but not in Rk . These have prefactors cos( 3π 8 ) and 1, respectively, hence would contribute
+positively to the right-hand side. The angle in the sum on the left-hand side depends on the
+orientation of z; it alternates between π/8 = (1 − σ) π3 and π/4 = (1 − σ) 2π 3 . Both values lead
+to prefactors that are strictly positive. Thus, there exist constants c1 , c2 > 0 such that
+                  X                      X
+                        GRk (o, z) ≥ c1      GS8k (o, z) ≥ 2c1 x3 B8k
+                                                                   3
+                                                                      ≥ c2 k −3 .
+                    z∈Left0k         z∈Bottom\Basek
+
+The second inequality is due to (6.10) and the phrase following it; the last is implied by the
+lower bound (6.5) on B8k .
+Next, observe that, for any z ∈ Left0k , two walks contributing to GRk (o, z) may be combined,
+after one of them is reflected horizontally and translated, to form a walk from o to (−2k −
+3/2, 0); see again Figure 10. Moreover, this walk is contained in the upper half-plane H+ and
+in Λ8k . Thus, there exists c3 > 0 such that
+                                                  X
+                  GΛ8k ∩H+ o, (−2k − 23 , 0) ≥         x GRk (o, z)2 ≥ c3 k −7 .
+                                            
+
+                                                  z∈Left0k
+
+(The factor x is due to the red piece in Figure 10.) A similar construction,with a slightly
+altered shape for Rk , yields the same lower bound for GΛ8k ∩H+ o, (−2k − 21 , 0) .By relabelling
+2k → k, monotonicity of G in the domain, and symmetry, (7.7) is proved.
+Proof of Lemma 7.3. Recall that n ∈ N and that the distance in U∞ between z0 , z ∈
+π∞−1 (∂Λ ) is at most 48n. The elements of π −1 (∂Λ ) may be labelled by Z, with increas-
+        n                                    ∞     n
+ing index corresponding to counterclockwise movement along the copy of ∂Λn obtained by
+projection via π∞ . The index set Z is partitioned into countably many intervals, each of
+                       BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                            47
+
+
+
+                                                                         `2
+                                  Rk
+                                                                          z2
+
+
+
+
+                                                                 x2       x1       z1
+                                                                                           `1
+                                                                              z0
+                                  o                            z
+              k + 12     k + 12
+
+       Figure 10. Left: The domain Rk and a translate of it. Two walks contribut-
+       ing to GRk (o, z) for some z ∈ Left0k (one is reflected and translated) may be
+       used to create an arc of between o and (−2k − 12 , 0). The red edges are added
+       in the concatenation Right: To connect z0 to z we use (7.6) to arrive to some
+       point zi on the same line as z, then use (7.7) to connect zi to z.
+
+length n, according to the segment in the planar polygon Pn on which the π∞ -image of the
+indexed element lies. Indeed, an unending counterclockwise journey along this polygon may
+be lifted via π∞ so that the elements of π∞−1 (∂Λ ) are visited in order; in fact, in order for
+                                                  n
+this to make sense, π∞ should be extended, compatibly with the present definition, to be a
+projection from the universal cover of C without the origin to this base space. Any point on
+this journey whose projection under π∞ is the endpoint of one of the segments comprising
+the polygon Pn is called a corner. Corners naturally carry half-integral indices, and each
+partition interval is bookended by the indices of a pair of corners.
+It is without loss of generality that we may suppose that z is higher than z0 in this ordering
+of π∞−1 (∂Λ ). Let x , x , . . . denote the corners encountered on the journey from z to z
+            n         1 2                                                                0
+along π∞ −1 (∂Λ ) dictated by the ordering. This sequence may be empty, and may have at
+               n
+most forty-eight terms. Write `i for the half-line that emanates from π∞ (xi ) in the direction
+opposite to π∞ (xi+1 ) − π∞ (xi ). See Figure 10 for an illustration.
+Let c > 0 be such that (7.6) and (7.7) are valid. If there is no corner between z and z0 , then
+(7.7) shows that
+                                                              −7
+                                      GU∞     2 (z0 , z) ≥ c n   ;
+                                        n ,3Cn
+
+since the number of edge midpoints in Λ4n ∩ H is at most 3 · 3/2 · (4n)2 = 72n2 , this bound
+holds provided that C ≥ 24.
+Suppose now that the sequence x1 , x2 , . . . has i ∈ N terms. Thus, π∞ (z) lies on the planar
+line segment that contains π∞ (xi ) and π∞ (xi+1 ). Applying (7.6) with k = n after a suitable
+translation, and using |Leftn | = n, we find that there exists a point z1 on `1 such that
+48               H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+GT (z0 ) (z0 , z1 ) ≥ c n−2 , where T (z0 ) is the equilateral triangle the centre of whose base is z0
+and whose left corner is x1 . (More accurately, the image under π∞ of T (z0 ) is an equilateral
+triangle with corresponding data; we abuse notation in a moment by disregarding a similar
+nicety.) The distance between π∞ (x2 ) and π∞ (z1 ) is at most 3n. Applying (7.6) again, there
+exists a point z2 on `2 such that GT (z1 ) (z1 , z2 ) ≥ c (3n)−2 , where T (z1 ) is the equilateral
+triangle whose base is centred at z1 and whose left corner is x2 . This process may be repeated
+until a point zi on `i is reached. There are at most forty-eight steps and the size of each triangle
+is at most three times the preceding one’s. When walks that respectively contribute to the
+terms GT (z0 ) (z0 , z1 ), GT (z1 ) (z1 , z2 ), . . . are concatenated, an outer walk between z0 and zi is
+obtained. Thus, we find that
+                                                             0 −96
+                                     GU ∞    2 (z0 , zi ) ≥ c n    ,
+                                        n ,Cn
+                                                                2
+where C = 32·47 · 9/8 and c0 = c · 3−2(1+2+···+47) ≥ c 3−(47) . Finally, we apply (7.7) to connect
+zi to z. By relabelling C and c, we obtain Lemma 7.3.                                           
+
+7.6. Proof of Corollary
+                   P 7.4. Recall that      n ∈ N and z0 ∈ ∂Λn . In view of Lemma 7.2, we
+wish to bound above z∈∂Λ8n GΛ8n z 0 , z , where z 0 ∈ ∂Λ8n satisfies π8 (z 0 ) = z0 .
+                                       
+
+Let γ be a walk contributing to this sum; γ is an inner walk in Λ8n , moving from ∂Λ8n to itself.
+Suppose that γ visits Λ8k . We may decompose γ’s lifetime between its first and last visits to
+Λ8k+1 into outer excursions γs from ∂Λ8k+1 to itself; and intervening journeys ψs within Λ8k+1 .
+That is, for some S = S(γ) ≤ |∂Λ8k+1 |, we may write γ = φstart ◦ψ1 ◦γ1 ◦ψ1 ◦· · ·◦γS−1 ◦ψS ◦φend ,
+where φstart : z 0 → ∂Λ8k+1 and φend : ∂Λ8k+1 → z lie in Λ8n \ Λ8k+1 ; for 1 ≤ i ≤ S, ψi : ∂Λ8k+1 →
+∂Λ8k+1 lies in Λ8k+1 ; and, for 1 ≤ i ≤ S − 1, γi : ∂Λ8k+1 → ∂Λ8k+1 lies in Λ8n \ Λ8k+1 . In this
+description, and later in this proof, ‘φ lies in Ω’ means ‘excepting φ’s endpoints, every φi is
+the midpoint of an internal edge in Ω’.
+The endpoints of φstart and φend on ∂Λ8k+1 may be joined by a walk γ 0 that lies in Λ8k+1 \ Λ8k .
+For 1 ≤ i ≤ S − 1, the endpoints of γi may be joined by a walk that lies in Λ8k+1 \ Λ8k so
+that a polygon pi in U8k results. The ordering of the endpoints of γi used to produce the walk
+may be selected so that pi does not disconnect the origin from infinity in U8 . Intersections
+between the walk γ 0 and the polygons so produced are possible and do not concern us.
+The topological property of the produced polygons permits that they be lifted to the universal
+cover, where they are contained in U∞k ; we redesignate pi to denote the polygon so lifted.
+
+When γ does not visit       8        0
+       0
+                          Λk , set γ = γ and S = 1. Any point in the range of the application
+γ → γ , p1 , . . . , pS−1 has at most C0 preimages, where C0 is a certain constant that depends
+on k. Indeed, γ may be inferred from the image point by the reconstruction of the walks ψi ,
+of which there are at most |∂Λ8k+1 | ≤ 6(k + 1). Since each ψi lies in Λ8k+1 , we may choose
+                 3        8
+C0 = 2432(k+1) ≥ 2|Λk+1 |·6(k+1) ; here, and later in this proof, |Λ8` | abusively denotes the
+number of internal edges in Λ8` . Each polygon pi has length at most Λ8n ≤ 72n2 . Moreover,
+there are at most 12(k + 1) edges added to each γi to form pi . Finally, the number of polygons
+                                                                   2
+satisfies S − 1 ≤ 6(k + 1). Thus, by setting C1 = C0 x−72(k+1) , we find that
+                                                            6(k+1)                 
+               GΛ8n z 0 , z ≤ C1   max∞ GU∞  k ,72n
+                                                   2 (z  ,
+                                                        1 1z )        GΛ8n \Λ8 z 0 , z .   (7.8)
+                                    z1 ∈∂Λk+1                                   k
+                          BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                                         49
+
+
+Next, we bound GΛ8n \Λ8 z 0 , z . Every walk contributing to this sum is an inner walk in Λ8n ,
+                                    
+                            k
+moving from ∂Λ8n to itself. The lattice Λ8n is a fusion of eight copies of branch cuts of Λn ;
+by applying the map x → x1/8 before fusing these copies, Λ8n may be embedded in the plane.
+This embedding easily demonstrates that the lift γ : z 0 → z to U∞ of any contributing walk
+has |wind(γ)| ≤ 16π. (By an abuse of notation, we continue to denote the endpoints of γ
+by z 0 and z.) Recall the constant C provided by Lemma 7.3. Any path γ 0 contributing to
+GU∞ n ,Cn
+         2 (z 0 , z) may be concatenated at both its endpoints to the lift γ, so that a polygon
+
+p : z0 → z0 in U∞                                                          8
+                     k results. This polygon has length at most |Λn | + 1 + Cn ≤ C2 n for some
+                                                                                              2       2
+
+constant C2 . The application (γ, γ 0 ) → p is injective, because p crosses π∞                  −1 (∂Λ ) exactly
+                                                                                                      n
+twice, at z 0 and z. In conclusion
+                        X
+                              GΛ8n \Λ8 (z 0 , z)GU∞    2 (z 0 , z) ≤ GU∞ ,C n2 (z 0 , z 0 ) ,              (7.9)
+                                     k            n ,Cn                k   2
+                      z∈∂Λ8n
+
+where our notational abuse permits z 0 and z to refer both to certain points in the eight-
+fold cover and to their counterparts in the universal cover. In the latter case however, z 0
+and z are at distance at most 48n from each other due to the limited winding of the lift
+                                                               −103 , for all z in the sum above. By
+γ. Thus, Lemma 7.3 implies that GU∞           2 (z 0 , z) ≥ c n
+                                         n ,Cn
+summing (7.8) over z and using the above, we find that
+                  X                                                             6k+7
+                       GΛ8n (z 0 , z) ≤ n103 c−1 C1 max    ∞
+                                                              G  ∞
+                                                                Uk ,C3 n2 (z, z)       ,
+                                                           z∈Uk
+                     z∈∂Λ8n
+
+where C3 = max{72, C2 } is a universal constant, and both the maximum of (7.8) and the
+right-hand side of (7.9) were incorporated in the maximum above. Finally, Lemma 7.2 yields
+                                                                −1
+the desired inequality (7.3) with C(k) = c−1 C1 · 8 cos(3π/16) . The condition on the
+                                                               2         3
+growth of C(k) may be verified by recalling that C1 = x−72(k+1) 2432(k+1) .             
+
+
+7.7. Proof of Lemma 7.5. Our presentation will be fairly detailed but inexplicit regarding
+certain more minor aspects.
+It is straightforward that µ(U∞l ), defined in (1.4), decreases in l to a limit that is at least
+µ(H). We suppose that k ∈ N ∪ {0} satisfies µ(U∞     k ) = µ(H); and we may thus harmlessly
+suppose that k is even.
+                                                                                    √
+The positive y-axis meets edge midpoints
+                                     √      in H at y-coordinates of the form 2−1 3(1 + 2l),
+where l ∈ N ∪ {0}. Note that 0, 2−1 3(1 + k) is the only element in this set of points that
+lies in ∂Λk .
+                  √
+Set z0 = 0, 2−1 3(1 + k), 0 . We embed U∞              3
+                             
+                                               k in R so that the vertical coordinate of any
+point z ∈ Uk is the winding around the singularity of any path γ : z0 → z in U∞
+              ∞
+                                                                                  k .
+
+The cover U∞                                                                                 ∞
+             k lacks the translation invariance of H, so that two self-avoiding polygons in Uk
+cannot in general be concatenated; thus, the standard method which permits an upper bound
+on the number of polygons on H is not directly available. However, U∞     k has a rotational Z-
+invariance, and thus pairs among a certain class of polygons can be joined. We are about to
+make a definition in this regard, but first we mention that, in the present proof, we abuse the
+50               H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+notation of Section 6 and interpret polygons as unrooted objects: a polygon here can be said
+to be a polygon trace as understood elsewhere in Sections 6 and 7.
+A polygon
+    √          in U∞
+                    k is (i, j)-good if it has a unique lowest edge, and this edge is centred on
+2−1    3 0, i, 0 ; and it has a unique highest edge, which is the rotation of the edge centred
+         √
+at 2−1 3 0, j, 0 by an angle in π/3 · N. Here, and later, highest and lowest refer to the
+                    
+
+third coordinate in R3 ; note that i and j must be odd for such a polygon to exist. Let
+gn (i, j) = gn (i, j; k) be the number of (i, j)-good polygons of length n. Then, for every i, j, n, l,
+we have that gn+l−2 (i, i) ≥ gn (i, j)gl (j, i). It is a simple consequence of the Z-invariance of
+U∞                                                                              0
+  k that gn (i, j) = gn (j, i). By Fekete’s lemma applied to the sequence gn (i, i) = gn+2 (i, i),
+we deduce that, for every odd i and j,
+                                gn+2 (i, j)1/n ≤ lim sup gN (i, i)1/N .                         (7.10)
+                                                    N
+
+Recall the specification of µ(U∞ k ) in (1.4). Each polygon is a walk and thus gN (i, i) ≤
+supv∈U∞ SAWN (U∞   k , v) . Thus  is the right-hand side of (7.10) seen to be at most µ(U∞
+                                                                                         k ).
+       k
+         ∞
+Since µ(Uk ) = µ(H), we obtain that, for n ∈ N, and i, j ∈ N odd,
+                                       gn+2 (i, j)1/n ≤ µ(H) .                                  (7.11)
+
+Now that we have bounded the number of good polygons, we wish to bound GU∞     k ,n
+                                                                                    (z, z) for
+every z ∈ U∞
+           k . The idea will be to transform a polygon containing z into a good polygon    by
+concatenating polygons at its ends.
+The trace of a walk γ : z → z that contributes to the sum GU∞   k ,n
+                                                                     (z, z) is a polygon p containing
+z, of length at most n. We may index contributions by such polygons, there being two walks
+γ in correspondence to each polygon p. Those p that contain a point at graph distance greater
+than n/2 from the centre of the singular hexagonal face are planar polygons, as they are too
+short to wind around the singularity. Using supermultiplicativity, it is standard to derive
+that the number of (unrooted) polygons of length n on H is bounded above by µ(H)n (see
+for instance [MS93]). When accounting for the choice of the root and the varying length,
+we conclude that the contribution to GU∞  k ,n
+                                               (z, z) of planar polygons, in particular those who
+venture outside Λ∞n/2 , is at most 2n 2.
+
+
+Thus, we may limit the rest of our study to contributing polygons which are not planar, and
+thus contained in Λ∞ n/2 . Fix such a polygon p and assume it is rotated so that its lowest point
+has height between zero and π/3. Write ` for the line (0, y, 0) : y ≥ 0 and write `0 for
+the line at height π/3 given by a counterclockwise rotation of ` by π/3 about the centre of
+the singular hexagon. Let u = (u1 , u2 , π/3) denote the point on `0 ∩ p whose distance from
+this centre is the greatest. Note that |u1 | is the planar distance, measured using the first two
+coordinates, between u and the line `.
+Suppose for now that |u1 | ≥ 3k/2. A polygon in H is called useful (for the values n and
+|u1 | above) if its width is at least n and, when e denotes the most northerly among the
+rightmost (and thus vertical) edges in the polygon, there exists a vertex in the polygon whose
+x-coordinate is |u1 | − 3k/2 less than e’s and whose y-coordinate is at most that of the lower
+of e’s endpoints. A convenient class of useful polygons is offered by the set RSAP(n) from
+                       BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                               51
+
+
+
+
+                                                                  q0
+
+       q
+                                      k/2
+
+
+
+                                         k/2                                             Λk
+                                                                        p
+
+
+       Figure 11. Left: Construct q 0 by joining to the rightmost edge of q the blue
+       polygon shaped as an arrow. Right: The polygon q 0 is manoeuvred along ` into
+       a position whereby it may be joined to p via the indicated hexagon. In this
+       instance, the join occurs by the removal of the two red edges and the addition
+       of the four blue ones.
+
+Section 6.3: any given element of this set is either useful or its vertical reflection is (recall
+that |u1 | ≤ n/2).
+Let q denote a useful polygon. We now join to the rightmost edge e of q the blue arrow-shaped
+polygon that is depicted in Figure 11. The result will be called q 0 . Embed q 0 in U∞   k so that
+its rightmost edge coincides with the lowest vertical edge of `. This is indeed possible: the
+underside of the added blue polygon fits the contour that runs along the boundary of Λk from
+its intersection with ` to the intersection with `0 , then along `0 until the contour recovers its
+original y-coordinate; the part of q 0 coinciding with q lies to the left of the singularity.
+                                                                                               √
+Next q 0 is translated away from the singularity in the direction of the line `, in steps of 3.
+In doing so, there will be a moment when q 0 will contain the point u, and thus intersect p.
+Further translate q 0 until the last time that q 0 and p are within graph distance two of each
+other.
+At this stage, a hexagon h may be found that borders both p and the translate of q 0 , with
+contact with any given one of these polygons occurring along consecutive edges in h. Using
+the exclusive-or operation on h, we join p and the translate of q 0 and denote by p the result.
+In fact, the same circumstance will arise when |u1 | < 3k/2, whatever the definition of a useful
+polygon that is adopted in this case, because the underside of the blue polygon added on the
+right will contact u when q 0 is translated in the direction `. Again, we denote by p the result
+of the joining of p with the appropriate translate of q 0 .
+The polygon p has a length that differs from the sum of the constituents’ by −2, 0 or 2.
+This polygon enjoys one of the two defining features of a good polygon, in that its least
+height is attained by a unique edge at height zero. In order to produce a good polygon, a
+similar circumstance should be effected at the greatest height. This is ensured by a symmetric
+construction, where ` and `0 are now specified so that the sector between these line segments
+52                H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+includes the highest point in p, and with the useful polygon and its enhancement called q̄
+and q̄ 0 .
+The polygon that results from this double surgery has length at most |p|+|q 0 |+|q̄ 0 |+8 ≤ C 0 n2 ,
+where C 0 may be chosen independently of n and k (provided that n ≥ k). Given the result of
+such a procedure, the values of p, q and q̄ may be retrieved given the join locations and the
+starting points of these three polygons. Thus, the map sending γ, q, q̄ to the resulting good
+polygon is C0 n9 -to-one for some constant C0 . We deduce that
+                                     X          2          X
+                                             |q|
+              1
+                G   ∞  (z
+              2 Uk ,n 0 0 , z ) ·   1
+                                    2      x        ≤ C0 n 9        gm (i, j) xm ,
+                                      q∈FSAP(n)                         i,j,m≤C 0 n2
+
+where recall that x = µ(H)−1 , and where the bar over G on the left-hand side is used to
+indicate that contributing p are contained in Λ∞
+                                               n+3k/2 .
+
+Applying (6.5) and Proposition 6.1, we obtain
+                                                            X
+                            GU∞
+                              k ,n
+                                   (z0 , z0 ) ≤ C0 n23                  gm (i, j) xm
+                                                         i,j,m≤C 0 n2
+
+after a suitable k-independent increase in the value of C0 . By (7.11), we see that, with a
+further such increase, GU∞   k ,n
+                                  (z0 , z0 ) ≤ C0 n32 . Recalling, as noted earlier, that GU∞
+                                                                                            k ,n
+                                                                                                 (z0 , z0 )−
+GU∞                    2
+        (z0 , z0 ) ≤ 2n , we obtain Lemma 7.5.                                                             
+   k ,n
+
+Remark. The proof of Lemma 7.5 succeeds under the hypothesis that, for some k ∈ N, the
+number gN (i, i; k) of (i, i)-good polygons of length N on U∞
+                                                            k satisfies lim supN gN (i, i; k)
+                                                                                              1/N ≤
+
+µ(H) for every odd i. Thus, Theorem 1.4 is valid when Conjecture 1, which concerns walks,
+is replaced by the last condition, which merely concerns polygons.
+
+7.8. Proof of Proposition 7.1 in the general case. Fix n ≥ k ≥ 1 such that µ(U∞        k ) =
+µ(H). In addition, let y be the midpoint of an internal edge of Λn−k , which may be supposed
+vertical with no loss of generality. Write Λn (y) for the translate of Λn by y. Then the
+conclusion of Proposition 7.1 for z = −y may be rewritten as
+                     GΛn (y) (o, z0 ) ≤ C(k) n2C(6k+7)+103         for all z0 ∈ ∂Λn (y),             (7.12)
+where C and C(k) satisfy the conditions of the proposition. Below, we adapt the steps in the
+proof of Proposition 7.1 for z = o to show (7.12).
+Fix z0 ∈ ∂Λn (y). Write Λ8n (y) for the lift of Λn (y) to U8 . A straightforward adaptation of
+the proof of Lemma 7.2 yields the altered conclusion that
+                                            8         X                    
+                   GΛn (y) (o, z0 ) ≤                      GΛ8n (y) z 0 , z .           (7.13)
+                                      cos(3π/16)        8  z∈∂Λn (y)
+
+Lemma 7.3 requires no alteration. Corollary 7.4 may be adapted to yield
+                                                                  6k+7
+                  GΛn (y) o, z0 ≤ C(k) n103 max
+                               
+                                                 ∞
+                                                   G  ∞
+                                                     Uk ,cn2 (z, z)      ,                           (7.14)
+                                                         z∈Uk
+
+Indeed, it suffices to replace Λ8n with Λ8n (y) in the original proof and decompose walks con-
+tributing to the right-hand side of (7.13) in terms of their visits to Λ8k ⊂ Λ8n (y). In doing
+                      BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                               53
+
+
+
+
+                                                               P
+                         γ        f0
+                                       f1 f2   f3   f4
+
+
+
+
+       Figure 12. The join M (γ, P ) is emboldened. The grey faces are part of F (γ)
+       and F (P ); the bad faces of γ are marked. The choice of f0 and f4 may be
+       such that both are good. The polygon Q is dotted.
+
+so, and when following the construction of the previous proof, we obtain a family of at most
+6(k + 1) polygons and one walk between points z0 , z ∈ ∂Λ8n (y), all contained in Λ8n (y) \ Λ8k .
+The latter walk is completed into a polygon of U∞                             2
+                                                    k of length at most Ck using a walk
+     ∞     −1                                                                ∞
+on U \ π∞ (Λn (y)) between z0 and z (or rather between their lifts to U ). Notice that
+U∞ \ π ∞
+       −1 (Λ (y)) and U∞ are identical, and that the unaltered estimate of Lemma 7.3 may
+            n            n
+be used to prove (7.14).
+Finally, Lemma 7.5 allows us to deduce (7.12) from (7.14).                                     
+
+
+            Appendix A. Polygon insertion for the hexagonal lattice
+
+Our goal is to prove Theorem 1.3 by means of Proposition 3.2. To do this, we will introduce a
+join procedure on H; record its pertinent properties; and explain perturbations needed to the
+proof in Sections 4 and 5 of Theorem 1.2. Three subsections perform these respective tasks.
+
+A.1. A counterpart for H of Madras’ join procedure. Here, we present an H-version
+of the procedure reviewed in Section 3.2.
+We continue to adopt the notation ymin and ymax . Let γ be a self-avoiding bridge and P be
+a polygon on H such that
+                       Jymin (P ) − 3, ymax (P ) + 3K ⊆ Jymin (γ), ymax (γ)K .             (A.1)
+Let F (γ) and F (P ) be the faces of H adjacent to at least one edge in γ and P respectively.
+Call a face of F (γ) good if there are at most two edges of γ adjacent to it and, in the case
+where there are two such edges, these two are also adjacent to each other. The same applies
+to F (P ).
+Slide P horizontally to its rightmost position such that F (γ) and F (P ) are at distance four
+in the dual graph: that is, the shortest path of adjacent faces from F (γ) to F (P ) contains
+five faces. This may be done because moving P one unit horizontally changes the distance
+between F (γ) and F (P ) by at most one.
+54                    H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+Let f0 , . . . , f4 be a path of adjacent faces with f0 ∈ F (γ) and f4 ∈ F (P ). Notice that f0
+and f4 may be chosen to be good. Indeed, given f1 , f2 , f3 , there is always a good neighbour
+of f1 in F (γ); and similarly for f3 . Moreover, by the minimality of the distance, all faces
+neighbouring f2 are adjacent to neither γ nor P .
+Let kγ be the number of edges of γ adjacent to f0 , and let kP be the number of edges of P
+adjacent to f4 . Set K = kγ +kP . The join of γ and P is then defined by using the exclusive-or
+operation xor:
+                                  M (γ, P ) := γ xor f0 xor Q xor f4 xor P ,
+where, in an abuse of notation, f0 and f4 denote the polygons of length six that respectively
+surround the faces actually denoted by f0 and f4 ; and where Q is a polygon whose interior
+contains f2 and whose form depends on the position of f0 and of f4 relative to f2 , as well as
+on K, in a manner that is indicated in Figure 13. An example appears in Figure 12.
+
+     Position of f0 and f4
+     with respect to f2                K=2                      K=3                      K=4
+
+          f0     f2        f4
+
+
+
+                        f4
+          f0     f2
+
+
+
+                        f4
+                 f2
+            f0
+
+
+                      f4
+
+
+          f0     f2
+
+
+
+
+          Figure 13. The choice of Q, which is depicted in bold, is determined by K
+          and by the position of f0 and f4 relative to f2 .
+
+
+A.2. Pertinent properties of the join on H. Lemma 3.4 records all required features of
+the Madras join. We need a counterpart for H, but it would be unduly repetitive to explicitly
+state the analogous lemma.
+Rather, we focus on essentials. First note that, in view of the choice of f0 , . . . , f4 and of Q,
+the join M (γ, P ) is a bridge of length
+                      |M (γ, P )| = |γ| + |P | + |Q| + 12 − 2K − 4 = |γ| + |P | + 18 ;
+                         BOUNDING THE NUMBER OF SELF-AVOIDING WALKS                                       55
+
+
+so the change 16 → 18 is made from Z2 to H. The role of the junction plaquette is now
+assumed by a junction hexagon, which we may set equal to f3 . The two adjacent vertices
+of f3 whose intervening edge borders the grey hexagon in F (P ) indicated in Figure 13 have
+chemical distance along M (γ, P ) equal to |P | + 3.
+
+A.3. Perturbations to proofs. Assisted by fairly clear definitional changes, the H-course
+of the proof of Theorem 1.3 offered by Sections 4 and 5 runs rather unruffled in its Z2 -tracks.
+The change 29 → 10 occurs in the lower bound on α due to the use of Proposition 3.2 in place
+of Proposition 3.1. Since Proposition 3.2 holds for all u ∈ N, every n ∈ N satisfies (4.3); or
+rather the variant of (4.3) obtained by the change 4−1 → c0 . The H-counterpart to Proposi-
+tion 4.1(1) thus offers an upper bound on |HSWn | for all n. This permits the counterpart to
+Proposition 4.1(2) in which conditions (4.1) and (4.2) are used, rather than the strengthened
+conditions needed in the Z2 case. The H-Proposition 4.1(2) follows directly from (2.1). The
+bound ε < (42)−1 in Theorem 1.3 arises by choosing α = α(ε) > 10 small enough that (4.2)
+with δ = 2ε holds.
+In regard to the near injectivity of Φ, the value L = L(H) in Lemma 5.3 equals three, whereas
+L(Z2 ) = 12. Indeed, it may be argued by examining the cases that, when M (γ, P ) and the
+junction hexagon are known, there is only one compatible choice of (γ, P ), whereas before
+there were possibly as many as four.
+
+                                              References
+[BBMdG+ 14] Nicholas R. Beaton, Mireille Bousquet-Mélou, Jan de Gier, Hugo Duminil-Copin, and An-
+            thony J. Guttmann. The√critical fugacity for surface adsorption of self-avoiding walks on the
+            honeycomb lattice is 1 + 2. Comm. Math. Phys., 326(3):727–754, 2014.
+[BDCGS12] Roland Bauerschmidt, Hugo Duminil-Copin, Jesse Goodman, and Gordon Slade. Lectures on
+            self-avoiding walks. In Probability and statistical physics in two and more dimensions, volume 15
+            of Clay Math. Proc., pages 395–467. Amer. Math. Soc., Providence, RI, 2012.
+[DCGPS17] H. Duminil-Copin, A. Glazman, R. Peled, and Y. Spinka. Macroscopic loops in the loop O(n)
+            model at Nienhuis’ critical point. arXiv:1707.09335, 2017.
+[DCH13]     H. Duminil-Copin and A. Hammond. Self-avoiding walk is sub-ballistic. Commun. Math. Phys.,
+            324(2):401–423, 2013.
+[DCS12]     Hugo Duminil-Copin      and Stanislav Smirnov. The connective constant of the honeycomb lattice
+                    p     √
+            equals 2 + 2. Ann. Math. (2), 175(3):1653–1665, 2012.
+[GM17]      Alexander Glazman and Ioan Manolescu. Self-avoiding walk on Z2 with Yang-Baxter weights:
+            universality of critical fugacity and 2-point function. arXiv:1708.00395, 2017.
+[Ham18]     Alan Hammond. An upper bound on the number of self-avoiding polygons via joining. Ann.
+            Probab., 46(1):175–206, 01 2018.
+[HR17]      Godfrey Harold Hardy and Srinivasa Ramanujan. Asymptotic formul for the distribution of
+            integers of various types. Proc. London Math. Soc., 2(1):112–132, 1917.
+[HS92]      Takashi Hara and Gordon Slade. Self-avoiding walk in five or more dimensions. I. The critical
+            behaviour. Comm. Math. Phys., 147(1):101–136, 1992.
+[Hut18]     Tom Hutchcroft. The Hammersley-Welsh bound for self-avoiding walk revisited. Electron. Com-
+            mun. Probab., 23:8 pp., 2018.
+[HW62]      J. M. Hammersley and D. J. A. Welsh. Further results on the rate of convergence to the con-
+            nective constant of the hypercubical lattice. Quart. J. Math. Oxford Ser. (2), 13:108–110, 1962.
+[HW85]      J. M. Hammersley and S. G. Whittington Self-avoiding walks in wedges J. Phys. A: Math. Gen.,
+            18:101–111, 1985.
+[Kes63]     Harry Kesten. On the number of self-avoiding walks. J. Math. Phys., 4:960–969, 1963.
+56              H. DUMINIL-COPIN, S. GANGULY, A. HAMMOND, AND I. MANOLESCU
+
+
+[Kes64]      Harry Kesten. On the number of self-avoiding walks. II. J. Math. Phys., 5:1128–1137, 1964.
+[LSW04]      Gregory F. Lawler, Oded Schramm, and Wendelin Werner. On the scaling limit of planar self-
+             avoiding walk. In Fractal geometry and applications: a jubilee of Benoı̂t Mandelbrot, Part 2,
+             volume 72 of Proc. Sympos. Pure Math., pages 339–364. Amer. Math. Soc., Providence, RI,
+             2004.
+[Mad95]      Neal Madras. A rigorous bound on the critical exponent for the number of lattice trees, animals,
+             and polygons. J. Stat. Phys, 78:681–699, 1995
+[MS93]       Neal Madras and Gordon Slade. The self-avoiding walk. Probability and its Applications.
+             Birkhäuser Boston Inc., Boston, MA, 1993.
+[MS13]       Neal Madras and Gordon Slade. The self-avoiding walk. Modern Birkhäuser Classics.
+             Birkhäuser/Springer, New York, 2013. Reprint of the 1993 original.
+[Nie82]      Bernard Nienhuis. Exact Critical Point and Critical Exponents of O(n) Models in Two Dimen-
+             sions. Physical Review Letters, 49(15):1062–1065, 1982.
+[Sla89]      Gordon Slade. The scaling limit of self-avoiding random walk in high dimensions. Ann. Probab.,
+             17(1):91–107, 1989.
+[Smi10]      Stanislav Smirnov. Discrete complex analysis and probability. In Proceedings of the Interna-
+             tional Congress of Mathematicians. Volume I, pages 595–621, New Delhi, 2010. Hindustan Book
+             Agency.
+
+
+Institut des Hautes Études Scientifiques and University of Geneva, Le Bois-Marie 35 route de
+Chartres, 91440 Bures-sur-Yvette, France. Member of SwissMAP.
+E-mail address: duminil@ihes.ch, hugo.duminil@unige.ch
+
+Department of Statistics, U.C. Berkeley, Berkeley, CA, 94720-3840, U.S.A.
+E-mail address: sganguly@berkeley.edu
+
+Departments of Mathematics and Statistics, U.C. Berkeley, Berkeley, CA, 94720-3840, U.S.A.
+E-mail address: alanmh@stat.berkeley.edu
+
+Département de mathématiques, Université de Fribourg, Chemin du Musée 23, CH-1700 Fribourg,
+Switzerland. Member of SwissMAP.
+E-mail address: ioan.manolescu@unifr.ch
+

@@ -1173,3 +1173,39 @@ Source snapshots and manifests accompany both new proof packages.
 Targeted primitive/power literature searches found no explicit match;
 novelty remains unverified. Counts stay6 whole/3 partial/0 established
 novel. No subagents, external contact, push, or imported Kourovka argument.
+
+
+## G9 effective approximation and finite growth bounds (2026-09-29T09:50:38.335166+00:00)
+
+After a broader unsolved-portfolio scan, developed a bridge unfolding
+argument that is injective at the level of metabelian flows once its
+strictly decreasing span list is retained. This yields an explicit
+all-rank effective modulus for approximating the standard growth constant.
+The proof does not claim efficiency or an exact closed value. Ordinary
+ball counts were independently reproduced in GAP through the first genuine
+metabelian collisions. Python checked17121 unfolding recoveries; GAP
+checked243 samples/controls and native Laurent representations.
+
+Fixed-height codes through18 letters give only2.622033. A new atom alphabet
+with arbitrary heights yields2.658596558: C++ and Python counts agree,
+and GAP independently verifies every one of21483 words and its distinct
+native Magnus representation. A separate648-relation avoidance automaton
+with1968 states supplies upper2.943737759. GAP reconstructs all7872
+transitions and verifies1968 exact comparison inequalities.
+
+The full statement and background were read, actual original paragraph
+viewed, and prior flow/unfolding sources credited. The site's quoted
+2.63815853034 is only a comparison: the cited Guttmann--Conway preprint
+Section5.3 discusses estimates, not a rigorously enclosed decimal.
+Loh and Bodart--Osin general upper semicomputability does not alone give
+our two-sided approximation. Novelty remains unverified.
+
+Two early GAP language errors are preserved with their exact source
+versions; the runner correctly rejected both despite zero exit status.
+All successful checks have empty stderr and required markers (compilation
+jobs use actual exit status). Jobs were sequential, one core each,
+maximum16GB reservation and70.855seconds runtime. No jobs remain.
+
+Count now6 whole candidates,4 partial candidates,0 established novel.
+The separate preparation checkout and parent Kourovka repository remain
+untouched. Original48hour clock retained, no subagents, push or contact.

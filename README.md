@@ -4,11 +4,12 @@
 
 [Current progress](reports/PROGRESS.md) · [Research plan](research/PLAN.md) · [Research log](research/LOG.md). The initial preparation snapshot is preserved in Git. The generated catalogue and problem READMEs retain their preparation status; current assessments are in [the working triage](research/triage.csv) and [dated claim ledger](research/claims.jsonl).
 
-Current working tally: **six whole-entry candidates and three partial
+Current working tally: **six whole-entry candidates and four partial
 candidates**, all awaiting independent review and novelty assessment.
-The latest is [GA3](problems/GA3/proof.md), in its intended nonabelian
-scope. The [audit](problems/GA3/audit.md) distinguishes the general
-argument from its bounded computational controls.
+The latest partial candidate is [G9](problems/G9/flow-growth-proof.md):
+effective approximation of free-metabelian growth in every finite rank,
+and certified rank-two bounds `2.658596558 <= lambda_2 <= 2.943737759`.
+The exact constant remains undetermined; see the [audit](problems/G9/flow-growth-audit.md).
 
 This is a fresh repository for the collection of [open problems in combinatorial group theory](https://shpilrain.ccny.cuny.edu/gworld/problems/oproblems.html) selected by G. Baumslag, A. G. Myasnikov and V. Shpilrain, together with its [Hall of Fame](https://shpilrain.ccny.cuny.edu/gworld/problems/Halloffame.html). The snapshot was downloaded on 28 September 2026.
 

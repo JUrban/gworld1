@@ -1,0 +1,769 @@
+Séminaire BOURBAKI                                                                                                              Avril 2023
+75e année, 2022–2023, no 1206
+
+
+
+    EXPONENTIAL GROWTH RATES IN HYPERBOLIC GROUPS
+               [after Koji Fujiwara and Zlil Sela]
+
+                                                         by Clara Löh
+
+
+
+   A classical result of Jørgensen and Thurston shows that the set of volumes of finite
+volume complete hyperbolic 3-manifolds is a well-ordered subset of the real numbers of
+order type ω ω ; moreover, each volume can only be attained by finitely many isometry
+types of hyperbolic 3-manifolds.
+   Fujiwara and Sela (2020) established a group-theoretic companion of this result: If Γ
+is a non-elementary hyperbolic group, then the set of exponential growth rates of Γ is
+well-ordered, the order type is at least ω ω , and each growth rate can only be attained
+by finitely many finite generating sets (up to automorphisms).
+   In this talk, we outline this work of Fujiwara and Sela and discuss related results.
+
+                                                             Contents
+     1. Main results. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
+     2. Context: Volumes of manifolds and hyperbolicity. . . . . . . . . . . . . . . . . . . 3
+     3. Proof technique. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6
+     4. Applications and extensions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+     Appendix A. Terminology. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
+     Appendix B. Right-computability of exponential growth rates . . . . . . . . . 14
+     References. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15
+
+
+
+1. MAIN RESULTS
+
+   Geometric group theory provides a rich interaction between the Riemannian geometry
+of manifolds and the large-scale geometry of finitely generated groups. This bond is
+particularly strong in the presence of negative curvature and explains a variety of
+rigidity phenomena. The group-theoretic analogues of closed hyperbolic manifolds
+are hyperbolic groups; more generally, the group-theoretic analogues of finite volume
+complete hyperbolic manifolds are relatively hyperbolic groups.
+   The volume growth behaviour of Riemannian balls in the universal covering of a
+compact Riemannian manifold is the same as the growth behaviour of balls in Cayley
+graphs of the fundamental group. By definition, the exponential growth rates of finitely
+generated groups measure the exponential expansion rate of balls in Cayley graphs and
+                                         1206–02
+
+
+thus are entropy-like invariants. While there is no direct connection between the volume
+of a hyperbolic manifold M and the exponential growth rates of π1 (M ), the results
+of Fujiwara and Sela (2020) show that certain sets of such values share fundamental
+structural similarities.
+   To state these results, for a finitely generated group Γ, we write Exp(Γ) ⊂ R for the
+(countable) set of all exponential growth rates e(Γ, S) with respect to finite generating
+sets S of Γ. The automorphism group Aut(Γ) acts on the set FG(Γ) of all finite
+generating sets of Γ and e(Γ, f (S)) = e(Γ, S) holds for all S ∈ FG(Γ) and all f ∈ Aut(Γ).
+More details on terminology and notation can be found in Appendix A.
+Theorem 1.1 (well-orderedness; Fujiwara and Sela, 2020, Theorem 2.2)
+   If Γ is a hyperbolic group, then Exp(Γ) is well-ordered (with respect to the standard
+order on R).
+Theorem 1.2 (finite ambiguity; Fujiwara and Sela, 2020, Theorem 3.1)
+   The set {S ∈ FG(Γ) | e(Γ, S) = r}/ Aut(Γ) is finite for every non-elementary
+hyperbolic group Γ and every r ∈ R.
+Theorem 1.3 (growth ordinals; Fujiwara and Sela, 2020, Proposition 4.3)
+    Let Γ be a non-elementary hyperbolic group. Then the ordinal number ordExp (Γ)
+associated with Exp(Γ) satisfies ordExp (Γ) ≥ ω ω .
+  Moreover, Fujiwara and Sela (2020, Proposition 4.3) show that ordExp (Γ) = ω ω if
+epi-limit groups over Γ have a Krull dimension. In analogy with the case of hyperbolic 3-
+manifolds, they conjecture that ordExp (Γ) = ω ω holds for all non-elementary hyperbolic
+groups Γ (Fujiwara and Sela, 2020, Section 4) .
+Example 1.4. — If F is a finitely generated free group of rank at least 2, then limit groups
+over F have a Krull dimension (Louder, 2012). Hence, Theorems 1.1–1.3 show that
+ordExp (F ) = ω ω and each value in Exp(F ) is realised by only finitely many generating
+sets (up to automorphisms of F ).
+  The key idea for the proofs of Theorems 1.1–1.3 is inspired by the proofs by Thurston
+and Jørgensen for the set of volumes of hyperbolic 3-manifolds and model theory: One
+passes from sequences of generating sets (of bounded size) of the given hyperbolic
+group Γ to a limit group over Γ with an associated finite generating set; i.e., limit
+groups play the role of cusped manifolds. The main challenge is then to compute the
+exponential growth rate of this limiting object in terms of the exponential growth rates
+appearing in the original sequence.
+
+Overview
+  Basics on hyperbolic groups, exponential growth rates, and well-ordered countable
+sets are recalled in Appendix A. We briefly explain the manifold context of the results
+above in Section 2, with a focus on hyperbolic and simplicial volume. Section 3 gives
+a proof outline of the main results. Finally, in Section 4, we mention applications and
+extensions of the main results.
+                                          1206–03
+
+
+2. CONTEXT: VOLUMES OF MANIFOLDS AND HYPERBOLICITY
+
+   The results of Fujiwara and Sela (2020) are analogues of the behaviour of volumes of
+finite volume complete hyperbolic 3-manifolds. We recall this background in Section 2.1.
+The situation for simplicial volume is discussed in Section 2.2. In addition, we mention
+right-computability as a further structural property of “volume” sets (Section 2.3).
+
+2.1. Hyperbolic volume
+  The structure and volumes of hyperbolic 3-manifolds was analysed in the breakthrough
+work of Jørgensen and Thurston.
+Theorem 2.1 (volumes of hyperbolic 3-manifolds; Thurston, 1979, Chapter 6)
+  The set
+            {vol(M ) | M is a finite volume complete hyperbolic 3-manifold}
+is well-ordered (with respect to the standard order on R) and the associated ordinal is ω ω .
+Moreover, every value arises only from finitely many isometry classes of finite volume
+hyperbolic 3-manifolds.
+  We briefly summarise the main steps of the proof (Gromov, 1981); the key is to study
+the convergence of sequences of hyperbolic manifolds and to understand the role of
+hyperbolic manifolds with cusps as limits of such sequences:
+  1. Every sequence (Mn )n∈N of complete hyperbolic 3-manifolds with uniformly
+     bounded volume contains a subsequence that converges in a strong geo-
+     metric sense to a finite volume complete hyperbolic 3-manifold M and
+     limn→∞ vol(Mn ) = vol(M ). Furthermore, for “non-trivial” such sequences, one
+     can show that vol(M ) > vol(Mn ) holds for all members Mn of the subsequence.
+        This can be used to show that the set of hyperbolic volumes is well-ordered and
+     that every value can only be obtained in finitely many ways.
+  2. Every finite volume complete hyperbolic 3-manifold with k ∈ N cusps can be
+     obtained for each p ∈ {0, . . . , k} as the limit of a sequence of finite volume complete
+     hyperbolic 3-manifolds with exactly p cusps.
+        This can be used to show that the volume ordinal is at least ω k . Constructing
+     hyperbolic 3-manifolds with arbitrarily large numbers of cusps thus shows that the
+     volume ordinal is at least ω ω . In combination with the first part, one can derive
+     that the volume ordinal equals ω ω .
+  In contrast, in higher dimensions, the set of volumes of finite volume complete hyper-
+bolic manifolds leads to the ordinal ω. This follows from Wang’s finiteness theorem and
+the unboundedness of hyperbolic volumes.
+Theorem 2.2 (Wang’s finiteness theorem; Wang, 1972). — Let n ∈ N≥4 and v ∈ R≥0 .
+Then there exist only finitely many isometry classes of finite volume complete hyperbolic
+n-manifolds M with vol(M ) ≤ v.
+                                                 1206–04
+
+
+2.2. Simplicial volume
+   Simplicial volume is a homotopy invariant of closed manifolds. For several geometri-
+cally relevant classes of Riemannian manifolds, the simplicial volume encodes topological
+rigidity properties of the Riemannian volume.
+
+Definition 2.3 (simplicial volume; Gromov, 1982). — The simplicial volume of an ori-
+ented closed connected manifold M is the ℓ1 -semi-norm of its (singular) R-fundamental
+class:
+                             k
+                            nX            k
+                                          X                                                      o
+ ∥M ∥ := ∥[M ]R ∥1 := inf         |aj |         aj · σj is a singular R-fundamental cycle of M
+                            j=1           j=1
+
+
+  For genuine hyperbolic manifolds, the simplicial volume leads to the same ordering
+and finiteness behaviour as the hyperbolic volume (Section 2.1):
+
+Example 2.4 (hyperbolic manifolds). — If M is an oriented closed connected hyperbolic
+manifold of dimension n, then
+                                           vol(M )
+                                   ∥M ∥ =          ,
+                                              vn
+where vn ∈ R>0 is the hyperbolic volume of ideal regular geodesic n-simplices in hyper-
+bolic n-space (Thurston, 1979; Benedetti and Petronio, 1992). A similar relationship also
+holds in the complete finite volume case (Thurston, 1979; Fujiwara and Manning, 2011,
+Appendix A). In particular, this proportionality can be used to prove mapping degree
+estimates in terms of the hyperbolic volume for continuous maps between hyperbolic
+manifolds (Gromov, 1982).
+
+  Passing to the setting of fixed hyperbolic fundamental groups, we obtain:
+
+Example 2.5 (hyperbolic fundamental group). — Let Γ be a finitely presented group
+and let n ∈ N. Then the set
+
+ SVΓ (n) := {∥M ∥ | M is an oriented closed connected n-manifold with π1 (M ) ∼
+                                                                              = Γ}
+
+is a subset of {∥α∥1 | α ∈ Hn (Γ; R) is integral}, where a class in Hn (Γ; R) is integral if
+it lies in the image of the change of coefficients map Hn (Γ; Z) → Hn (Γ; R) (Löh, 2023,
+Section 3.1).
+  If Γ is hyperbolic and n ≥ 2, then ∥ · ∥1 is a norm on Hn (Γ; R) (by the results of
+Mineyev (2001) on bounded cohomology and the duality principle). In particular: The
+set SVΓ (n) ⊂ R is well-ordered and the ordinal associated with SVΓ (n) is
+  – either 0 (if Hn (Γ; R) ∼
+                           = 0);
+                        ∼
+  – or ω (if Hn (Γ; R) ̸= 0): In this case, normed Thom realisation shows that indeed
+    infinitely many different values are realised (Löh, 2023, Section 3.1).
+                                        1206–05
+
+
+   For n ≥ 4, finite ambiguity breaks down in this general topological setting: If M is
+an oriented closed connected n-manifold, then for each k ∈ N, the manifold M and the
+iterated connected sums Mk := M #(S 2 ×S n−2 )#k have the same simplicial volume (Gro-
+mov, 1982) and isomorphic fundamental groups. However, the manifolds M0 , M1 , . . .
+all have different homotopy types (as can be seen from the homology in degree 2).
+
+
+2.3. Right-computability
+  In the previous discussion, we focussed on the order structure of volumes and ex-
+ponential growth rates. Many real-valued invariants in geometric group theory and
+geometric topology also carry another, complementary, structure: They tend to have
+an intrinsic limit on their computational complexity. In particular, such a limit gives
+additional constraints on the possible sets of values.
+
+Definition 2.6 (right-computable). — A real number α is right-computable if the
+set {x ∈ Q | x > α} is recursively enumerable.
+
+  For example, simplicial volumes of oriented closed connected manifolds are right-
+computable real numbers (Heuer and Löh, 2023). On the group-theoretic side, right-
+computability naturally arises for stable commutator length of recursively presented
+groups (Heuer, 2019) or L2 -Betti numbers of groups with controlled word problem (Löh
+and Uschold, 2022). Concerning exponential growth rates, we have the follwing:
+
+Proposition 2.7 (right-computability of exponential growth rates)
+  There exists a Turing machine that
+
+  – given a finite presentation ⟨S | R⟩ and a finite set S ′ of words over S ⊔ S −1 ,
+  – does
+        • not terminate if S ′ does not represent a generating set of the group Γ described
+          by ⟨S | R⟩;
+        • terminate and return an enumeration of {x ∈ Q | x > e(Γ, S ′ )} if S ′ repre-
+          sents a generating set of Γ.
+
+Corollary 2.8. — Let Γ be a finitely presented group.
+
+  1. For every S ∈ FG(Γ), the real number e(Γ, S) is right-computable.
+  2. For every r ∈ Q, the truncated set {S ∈ FG(Γ) | e(Γ, S) < r} is recursively
+     enumerable.
+
+  Proofs of these observations are provided in Appendix B. In particular, such results
+could be used to give a crude a priori upper bound for ordExp (Γ) by a “large” countable
+ordinal for all finitely presented groups Γ with well-ordered set Exp(Γ).
+                                         1206–06
+
+
+3. PROOF TECHNIQUE
+
+   We outline the proofs of Theorem 1.1–1.3 by Fujiwara and Sela (2020). These proofs
+roughly follow the blueprint of the case of hyperbolic 3-manifolds (Section 2.1), where
+limit groups will play the role of cusped manifolds:
+
+   – A compactness phenomenon turns convergence of exponential growth rates into
+     convergence of actions (of subsequences) to the action of a limit group.
+   – The main challenge is then to compute the exponential growth rates of these limit
+     groups as the limit of the given exponential growth rates.
+
+Before going into these arguments, we first recall basic notions on limit groups.
+
+
+3.1. Limit groups
+
+  Limit groups are groups that arise as “limits” – in various senses – of groups. These
+groups are convenient tools in the model theory of groups and in geometric group theory
+(Kharlampovich and Myasnikov, 1998a,b; Sela, 2006; Groves and Wilton, 2018). In anal-
+ogy with 3-manifolds, limit groups over hyperbolic groups admit a JSJ-decomposition
+(Sela, 2009; Weidmann and Reinfeldt, 2019, Section 4). Limit groups over a given
+group Γ are the finitely generated subgroups of non-principal ultraproducts of Γ. More
+explicitly:
+
+Definition 3.1 (limit group). — Let Γ be a group.
+
+   – A stable homomorphism from a group Λ to Γ is a sequence (fn : Λ → Γ)n∈N of
+     homomorphisms with the property
+
+               ∀x∈Λ ∃N ∈N (∀n∈N≥N fn (x) = 1) ∨ (∀n∈N≥N fn (x) ̸= 1).
+
+     The stable kernel of a stable homomorphism f∗ : Λ → Γ is defined as
+                            n                                    o
+                   ker f∗ := x ∈ Λ ∃N ∈N ∀n∈N≥N fn (x) = 1 ⊂ Λ.
+
+   – A limit group over Γ is a group of the form Λ/ ker f∗ , where Λ is a finitely generated
+     group and f∗ : Λ → Γ is a stable homomorphism. The canonical projection f : Λ →
+     Λ/ ker f∗ is the limit homomorphism and we say that f∗ converges to f . A limit
+     group over Γ is an epi-limit group over Γ if the fn can be chosen to be epimorphisms.
+   – A limit group is a limit group over a finitely generated free group.
+
+Example 3.2. — If Γ is a group, then every finitely generated subgroup of Γ can be
+viewed as a limit group over Γ (via the inclusion homomorphisms). In particular, Γ is
+an epi-limit group over Γ if Γ is finitely generated.
+                                           1206–07
+
+
+3.2. Limits and their exponential growth rate
+Theorem 3.3 (compactness; Fujiwara and Sela, 2020, proof of Theorem 2.2)
+   Let Γ be a hyperbolic group, let (X, d) be a Cayley graph of Γ, and let (Sn )n∈N be a
+sequence of finite generating sets of Γ such that the sequence (e(Γ, Sn ))n∈N is bounded.
+Then there exists a subsequence (again denoted by (Sn )n∈N ) with the following properties:
+   – All Sn have the same size. Let S be a set of this cardinality and let F be the free
+     group freely generated by S.
+   – There exist epimorphisms fn : F → Γ for all n ∈ N such that fn (S) is conjugate
+     to Sn . Moreover, f∗ is a stable homomorphism F → Γ. Let L denote the associated
+     limit group.
+   – The sequence
+                                              1          
+                           F ↷fn X,
+                                        maxs∈S d(1, fn (s)) n∈N
+     of actions (induced by fn : F → Γ and the translation action of Γ on X) converges
+     in the F -Gromov–Hausdorff distance to a faithful action of L on a real tree.
+
+Proof. — The boundedness of the exponential growth rates allows us to fix the size of
+the generating set because the exponential growth rate grows at least linearly in the
+size of the generating set by an estimate of Arzhantseva and Lysenok (2006).
+   One can then apply the Bestvina–Paulin method after conjugating and rescaling
+appropriately (Fujiwara and Sela, 2020, proof of Theorem 2.2; Weidmann and Reinfeldt,
+2019, Section 2).
+
+Theorem 3.4 (limits of exponential growth rates; Fujiwara and Sela, 2020, Proposi-
+tion 2.3)
+    Let Γ be a hyperbolic group, let Λ be a finitely generated group with finite generating
+set S, and let (fn : Λ → Γ)n∈N be a stable homomorphism consisting of epimorphisms
+that converges to a limit group f : Λ → L over Γ with a faithful action on a real tree.
+Then e(Γ, fn (S)) ≤ e(L, f (S)) holds for all large enough n ∈ N and
+                               lim e(Γ, fn (S)) = e(L, f (S))
+                              n→∞
+
+Sketch of proof. — By precomposition, without loss of generality we may assume that
+Λ is free and that S a free generating set.
+  We first explain why “≤” holds (provided the limit exists): Because Γ is hyperbolic,
+for all large enough n ∈ N, there exists a homomorphism hn : L → Γ with fn = hn ◦ f
+(Weidmann and Reinfeldt, 2019, Lemma 6.5, Corollary 7.13):
+
+                                  (Λ, S)
+                                              fn
+                                    f
+                                                     &
+                                (L, f (S))         / (Γ, fn (S))
+                                             hn
+                                             1206–08
+
+
+Therefore, monotonicity of the exponential growth rates (Remark A.5) implies that
+e(Γ, fn (S)) ≤ e(L, f (S)) for all large enough n ∈ N.
+  The hard work lies in proving convergence and “≥”: Given ε ∈ R>0 , the goal is to
+show that for all large enough n ∈ N, we have
+                           log e(Γ, fn (S)) ≥ log e(L, f (S)) − ε.
+
+  Matters would be simple if, given N ∈ N, the multiplication-projection map
+                             BN (L, f (S))q → Bq·N (Γ, fn (S))
+                              (w1 , . . . , wq ) 7→ hn (w1 · · · · · wq )
+were injective for all large enough n ∈ N and all q ∈ N. However, this will not happen in
+general. Using the faithful limit action of L on a real tree, Fujiwara and Sela (2020, proof
+of Proposition 2.3) find enough freeness inside L to show through delicate estimates that
+there exists a b ∈ N, a four-element subset U ⊂ Bb (L, f (S)), and a constant C ∈ R>0
+with:
+     For all q ∈ N, there is a map φq : Lq → L of the form
+                           (w1 , . . . , wq ) 7→ w1 · u1 · · · · · wq · uq ,
+     where the “separators” u1 , . . . , uq ∈ U may depend on w1 , . . . , wq and satisfy a
+     “small cancellation condition” that ensures the following: Given N ∈ N, for all
+     large enough n ∈ N and all q ∈ N, the map hn ◦ φq : Lq → Γ is injective on at least
+     a subset AN,n,q of size (1/C · βN (L, f (S)))q of BN (L, f (S))q . In particular,
+                                                           1                  q
+                  βq·(N +b) (Γ, fn (S)) ≥ #AN,n,q ≥             · βN (L, f (S)) .
+                                                      C
+     More specifically, this works for all n ∈ N that are large enough so that hn is
+     injective on B2·N (L, f (S)); such n exist in view of the convergence of actions.
+Given ε ∈ R>0 , we choose N ∈ N large enough to have
+                1                                  1
+                   · (log βN (L, f (S)) − log C) ≥   · log βN (L, f (S)) − ε.
+              N +b                                 N
+Then, we obtain for all large enough n ∈ N that
+                                               1
+                log e(Γ, fn (S)) = lim                · log βq·(N +b) (Γ, fn (S))
+                                   q→∞ q · (N + b)
+
+                                      1          βN (L, f (S))
+                                 ≥         · log
+                                   N +b                C
+                                    1
+                                 ≥    · log βN (L, f (S)) − ε
+                                   N
+                                 ≥ log e(L, f (S)) − ε,
+as desired.
+                                           1206–09
+
+
+Remark 3.5. — The proof of Theorem 3.4 is mainly based on properties of the limit
+action on the real tree. In fact, the theorem also holds under the following weaker
+assumptions on Γ (Fujiwara, 2021, Proposition 3.2): The group Γ is finitely generated,
+equationally Noetherian, and admits a non-elementary isometric action on a hyperbolic
+graph X that satisfies a uniform weak proper discontinuity condition (Fujiwara, 2021,
+Definition 2.1) and that admits a constant N such that for every S ∈ FG(Γ), the set
+S N contains an element that acts hyperbolically on X.
+
+3.3. Well-orderedness
+Sketch of proof of Theorem 1.1. — If the given hyperbolic group Γ is virtually cyclic,
+then Exp(Γ) = {1}, which clearly is well-ordered.
+   In the following, we consider the case when Γ is non-elementary hyperbolic. We
+assume for a contradiction that there exists a sequence (Sn )n∈N of finite generating
+sets of Γ such that (e(Γ, Sn ))n∈N is strictly monotonically decreasing. In particular, the
+sequence (e(Γ, Sn ))n∈N is bounded. In view of the compactness theorem (Theorem 3.3)
+and the invariance of the exponential growth rates under conjugation, we may assume
+without loss of generality that there exists a free group F with free generating set S
+and epimorphisms (fn : F → Γ)n∈N with fn (S) = Sn and such that f∗ converges to a
+limit group f : F → L over Γ with a faithful action on a real tree.
+  We therefore obtain from Theorem 3.4 that
+     lim e(Γ, Sn ) = n→∞
+    n→∞
+                      lim e(Γ, fn (S))
+                  = e(L, f (S))                                         (Theorem 3.4)
+                  ≥ e(Γ, SN ) > e(Γ, SN +1 ) > . . . ,   (for all N ≫ 0; Theorem 3.4)
+which is impossible. This contradiction shows that no such strictly decreasing sequence
+exists and hence Exp(Γ) is well-ordered.
+
+3.4. Finite ambiguity
+Sketch of proof of Theorem 1.2. — Let r ∈ R>1 and let us assume for a contradiction
+that there exists a sequence (Sn )n∈N of finite generating sets that all represent different
+Aut(Γ)-orbits and that satisfy e(Γ, Sn ) = r for all n ∈ N.
+   Proceeding as before, by the compactness theorem (Theorem 3.3), we may assume
+without loss of generality that there exists a free group F with free generating set S
+and epimorphism (fn : F → Γ)n∈N with fn (S) = Sn and such that f∗ converges to a
+limit group f : F → L over Γ with a faithful action on a real tree. Hence, Theorem 3.4
+shows that
+                           e(L, f (S)) = lim e(Γ, fn (S)) = r
+                                            n→∞
+   On the other hand, by passing to a subsequence, we may furthermore assume that
+for all n ∈ N, there exists a homomorphism hn : L → Γ with fn = hn ◦ f (as in the proof
+of Theorem 3.4), that at most one of the epimorphisms hn is an isomorphism (because
+                                         1206–10
+
+
+the Sn lie in different Aut(Γ)-orbits), and that the kernels of the hn contain no torsion.
+Then a careful refinement of the proof of Theorem 3.4 shows that the strict inequality
+                              e(L, f (S)) > e(Γ, fn (S)) = r
+holds for all n ∈ N (Fujiwara and Sela, 2020, Proposition 3.2). This contradicts the
+previous computation that e(L, f (S)) = r.
+
+
+3.5. Growth ordinals
+Sketch of proof of Theorem 1.3. — It suffices to show that ordExp (Γ) ≥ ω m for ev-
+ery m ∈ N. Let m ∈ N. We consider the sequence
+         L1 := Γ ∗ Fm → L2 := Γ ∗ Fm−1 → · · · → Lm := Γ ∗ Z → Lm+1 := Γ
+of epimorphisms, where Fj is a free group of rank j and where the epimorphisms
+successively kill free generators and keep the Γ-factor intact. It helps to think of j as
+the number of cusps.
+  Let us first focus on a single step: If Λ is a non-elementary hyperbolic group, then
+there exists a stable homomorphism (fn : Λ ∗ Z → Λ)n∈N consisting of epimorphisms
+that converges to Λ ∗ Z. Let S be a finite generating set of Λ and let Se ⊂ Λ ∗ Z be a
+generating set of Λ ∗ Z, e.g., obtained by adding a free generator of Z. By passing to
+subsequences of f∗ , one can achieve the following strict monotonicity:
+   – The sequence (e(Λ, fn (S)))n∈N is increasing and converges to e(Γ ∗ Z, S); this uses
+                             e                                              e
+     Theorem 3.3 and Theorem 3.4, as before.
+   – The values in the sequence are all different; this uses a finite ambiguity theorem
+     for finitely generated subgroups of limit groups over Λ (Fujiwara and Sela, 2020,
+     Theorem 5.8).
+   For notational simplicity, we now restrict to the case m = 2. We choose a finite
+generating set S of Γ and take the extended finite generating set Se of L1 = Γ ∗ F2 .
+Applying the single step to L1 → L2 leads to a stable homomorphism f∗1 with strict
+monotonicity. Let f∗2 be a stable homomorphism for L2 → L3 . For each n1 ∈ N, we
+apply the single step to L2 → L3 and the generating set fn1 (S)   e to select a subsequence
+of f∗2 with strict monotonicity. By composing with fn1 , we obtain a sequence fn1 ,∗
+from L1 to L3 = Γ such that (e(Γ, fn1 ,n (S)))e
+                                                  n∈N is strictly increasing and converges
+to e(L2 , fn1 (S)). By varying n1 , we thus see that ordExp (Γ) ≥ ω 2 .
+               e
+
+   For higher values of m, one iterates these considerations appropriately.
+
+  To prove ordExp (Γ) ≤ ω ω under additional hypotheses, Fujiwara and Sela (2020,
+proof of Theorem 4.2) construct proper epimorphism chains of limit groups over Γ from
+convergent sequences of convergent sequences of etc. . . of exponential growth rates of Γ;
+the Krull dimension property then gives control on the maximal lengths of such chains,
+whence on the maximal powers of ω that appear below a given threshold.
+                                        1206–11
+
+
+4. APPLICATIONS AND EXTENSIONS
+
+  The well-orderedness of exponential growth rates (Theorem 1.1) in particular contains
+the fact that all non-elementary hyperbolic groups have uniformly exponential growth.
+
+4.1. Hyperbolic groups are Hopfian
+  A group Γ is Hopfian if every self-epimorphism Γ → Γ is an automorphism. This
+property has applications in the context of degrees of self-maps of closed manifolds.
+Hyperbolic groups are known to be Hopfian (Sela, 1999; Weidmann and Reinfeldt,
+2019). Using that the exponential growth rates of hyperbolic groups are well-ordered,
+Fujiwara and Sela (2020, Corollary 2.9) complete an approach to proving that hyperbolic
+groups are Hopfian outlined by de la Harpe (2002); this is not an independent alternative
+proof because the current proof of Theorem 1.1 uses the very results on limit groups
+that go into the previous proofs that hyperbolic groups are Hopfian.
+
+Corollary 4.1. — Every hyperbolic group is Hopfian.
+
+Proof. — Elementary hyperbolic groups are Hopfian because they are virtually cyclic
+(whence finitely generated and residually finite).
+   Let Γ be a non-elementary hyperbolic group and let f : Γ → Γ be an epimorphism.
+Because Exp(Γ) is well-ordered (Theorem 1.1), there exists a finite generating set S
+of Γ with e(Γ) = e(Γ, S). Assume for a contradiction that the kernel of f is non-trivial.
+Then, Arzhantseva and Lysenok (2002) show that there is a strict monotonicity
+                                  e(Γ, S) > e(Γ, f (S)).
+However, this contradicts the minimality property of S. Thus, f is an automorphism.
+
+   All finitely generated residually finite groups are Hopfian. While fundamental groups
+of closed hyperbolic manifolds are residually finite and hyperbolic, it is a long-standing
+open problem whether all hyperbolic groups are residually finite.
+
+4.2. Generalisations
+  The methods discussed in Section 3 by Fujiwara and Sela (2020) extend to cover also
+the following generalisations:
+   – If Γ is a hyperbolic group, then the set
+        {e(H, S) | H < Γ finitely generated and non-elementary, S ∈ FG(H)}
+     is well-ordered (Fujiwara and Sela, 2020, Theorem 5.1). This can be viewed as an
+     addition to the Tits alternative for hyperbolic groups.
+   – Moreover, in this subgroup setting, there is a corresponding finite ambiguity state-
+     ment for non-elementary hyperbolic groups (Fujiwara and Sela, 2020, Theorem 5.3).
+                                        1206–12
+
+
+As a consequence, they also obtain analogous results for limit groups over non-elementary
+hyperbolic groups (Fujiwara and Sela, 2020, Corollary 5.6–5.10). Furthermore, the
+approach is robust enough to admit an extension to the case of sub-semigroups (Fujiwara
+and Sela, 2020, Section 6).
+   Fujiwara (2021) adapted the method to obtain well-orderedness of exponential growth
+rates sets for other classes of groups, including certain groups acting acylindrically on
+hyperbolic spaces, rank-1 lattices, fundamental groups of strictly negatively curved
+Riemannian manifolds, and certain relatively hyperbolic groups. These results can,
+for instance, be applied to certain subgroups of right-angled Artin groups (Kerr, 2021,
+Corollary 1.0.11).
+
+
+
+
+APPENDIX A. TERMINOLOGY
+
+  For the sake of completeness, we recall the basic terminology appearing in the main
+results (Section 1).
+
+
+A.1. Hyperbolic groups
+   Finitely generated groups are hyperbolic if their Cayley graphs are “negatively curved”
+in the sense that geodesic triangles in are uniformly slim (Gromov, 1987; Bridson and
+Haefliger, 1999):
+
+Definition A.1 (hyperbolic group). — A finitely generated group Γ is hyperbolic if
+the Cayley graph of Γ with respect to one (whence every (Bridson and Haefliger, 1999,
+Theorem III.H.1.9)) finite generating set is a hyperbolic metric space. A hyperbolic group
+is non-elementary if it is not virtually cyclic.
+
+Example A.2 (hyperbolic groups). — Fundamental groups of closed smooth manifolds
+that admit a Riemannian metric of negative sectional curvature are hyperbolic in view of
+the Švarc–Milnor lemma and the fact that CAT(−1)-spaces are hyperbolic metric spaces.
+In particular, this includes the fundamental groups of closed hyperbolic manifolds. Such
+fundamental groups are virtually cyclic if and only if the dimension is at most 1.
+  Finitely generated free groups are hyperbolic. The class of hyperbolic groups is closed
+under quasi-isometries (Bridson and Haefliger, 1999, Theorem III.H.1.9) and under
+certain amalgamations (Bestvina and Feighn, 1996).
+
+  The group Z2 is not hyperbolic. More generally, all finitely generated groups that
+contain a subgroup isomorphic to Z2 are not hyperbolic (Bridson and Haefliger, 1999,
+Corollary III.Γ.3.10). In general, subgroups of hyperbolic groups need not be hyperbolic.
+                                         1206–13
+
+
+A.2. Exponential growth rates of groups
+  The exponential growth rate of groups measures the exponential expansion rate of
+the size of balls in Cayley graphs (de la Harpe, 2000, Chapter VII.B):
+
+Remark A.3. — Let Γ be a finitely generated group and let S ⊂ Γ be a finite generating
+set of Γ. We write βn (Γ, S) for the number of elements in the n-ball Bn (Γ, S) of
+the Cayley graph of Γ with respect to S. Then βn+m (Γ, S) ≤ βn (Γ, S) · βm (Γ, S) for
+all n, m ∈ N. Therefore, the Fekete lemma shows that the limit of (βn (Γ, S)1/n )n∈N
+exists and that
+                        lim βn (Γ, S)1/n = inf βn (Γ, S)1/n .
+                         n→∞                  n∈N>0
+
+Definition A.4 (exponential growth rate). — Let Γ be a finitely generated group.
+  – Let S ⊂ Γ be a finite generating set of Γ. The exponential growth rate of Γ with
+    respect to S is defined as
+                               e(Γ, S) := lim βn (Γ, S)1/n .
+                                          n→∞
+
+  – We write Exp(Γ) := {e(Γ, S) | S ∈ FG(Γ)} for the (countable) set of all exponential
+    growth rates of Γ, where FG(Γ) denotes the set of finite generating sets of Γ.
+  – The exponential growth rate of Γ is the infimum
+                                   e(Γ) := inf Exp(Γ).
+  – The group Γ has exponential growth if there exists an S ∈ FG(Γ) with e(Γ, S) > 1.
+    The group Γ has uniform exponential growth if e(Γ) > 1.
+
+Remark A.5 (monotonicity of exponential growth rates). — Let Γ and Λ be finitely
+generated groups.
+  1. If f : Γ → Λ is an epimorphism, and S ∈ FG(Γ), then e(Γ, S) ≥ e(Λ, f (S)).
+  2. If Λ is a subgroup of Γ and Λ has exponential growth, then also Γ has exponential
+     growth.
+
+Example A.6 (exponential growth). — Finitely generated free groups have exponential
+growth if and only if they are of rank at least 2. More precisely (de la Harpe, 2000,
+Proposition VII.13): If F is a free group and S ∈ FG(F ), then
+                                e(F, S) ≥ 2 · rk(F ) − 1.
+  Because non-elementary hyperbolic groups [uniformly] contain free groups of rank 2,
+monotonicity shows that they have [uniform] exponential growth (Koubi, 1998).
+  There exist finitely generated groups that have exponential growth but do not have
+uniform exponential growth (Wilson, 2004). In particular, for such groups Γ, the
+set Exp(Γ) is not well-ordered.
+
+  Exponential growth rates seem to be fragile under quasi-isometries: It is an open prob-
+lem to determine whether uniform exponential growth is stable under quasi-isometries.
+                                          1206–14
+
+
+                    ω:
+
+                   ω2 :
+
+                                 ω                    ω     ω    ω    ω    ω    ω    ω
+
+
+
+
+                   ω3 :          ω2                  ω2     ω2   ω2   ω2   ω2   ω2   ω2
+
+
+
+
+                     ..
+                      .
+
+                   ωω :          ω1                  ω2     ω3   ω4   ω5   ω6   ω7 ω8     ...
+
+
+                  Figure 1. The ordinals ω, ω 2 , . . . , ω ω , schematically
+
+
+A.3. Well-ordered countable sets and ordinals
+  Well-orderings are orderings that allow for induction principles. Moreover, well-
+orderings admit an arithmetic, the ordinal arithmetic.
+
+Definition A.7 (well-ordered sets, ordinals). — An ordered set (A, <) is well-ordered
+if every non-empty subset of A contains a <-minimal element. An ordinal is an iso-
+morphism class of well-ordered ordered sets. An ordinal is countable if the underlying
+set is countable.
+
+  In the context of Section 1, the following ordinals are important (Figure 1):
+
+Example A.8 (ω ω ). — The natural numbers N are well-ordered with respect to the
+standard order. The corresponding ordinal is denoted ω. For k ∈ N, we write ω k
+for the ordinal represented by Nk with the lexicographic order. Equipping the finite
+support functions N → N with the lexicographic order leads to a well-ordered set; its
+ordinal number is denoted by ω ω . The ordinal ω ω can alternatively also be described
+as supk∈N ω k .
+
+Example A.9. — The subsets A := {1 − 1/n | n ∈ N>0 } and B := n∈N (n + A) of R
+                                                                                                S
+
+are well-ordered with respect to the standard order on R. The set A represents the
+ordinal ω and B represents the ordinal ω 2 . The subset Q≥0 ⊂ R is not well-ordered.
+
+
+
+APPENDIX B. RIGHT-COMPUTABILITY OF EXPONENTIAL
+            GROWTH RATES
+
+  We provide proofs for the right-computability claims in Section 2.3.
+                                         1206–15
+
+
+Proof of Proposition 2.7. — Let F (S) be the set of reduced words over S ⊔ S −1 . In
+particular, F (S) is a free group, freely generated by S, with respect to the composition
+given by concatenation and reduction. It is well known that we can Turing-enumerate
+all finite subsets of F (S) that represent generating sets of Γ under the canonical projec-
+tion F (S) → ⟨S | R⟩ = Γ (by Turing-enumerating the normal closure of R in F (S)).
+   Therefore it suffices to show that there exists a Turing machine that given a finite
+generating set S ′ ⊂ F (S) of Γ enumerates the set A(S ′ ) := {x ∈ Q | x > e(Γ, S ′ )}. By
+the Fekete lemma (Remark A.3), for all generating sets S ′ , we have
+                                n                                o
+                       A(S ′ ) = x ∈ Q ∃n∈N>0 xn > βn (Γ, S ′ ) .
+The numbers βn (Γ, S ′ ) are not necessarily computable in terms of n and S ′ (as the word
+problem might not be solvable in Γ), but recursively enumerating the normal closure
+of R in F (S) shows that there exists a Turing machine that given a finite generating
+set S ′ ⊂ F (S) of Γ enumerates {(n, m) | n, m ∈ N, m ≥ βn (Γ, S ′ )}; hence, there is also
+a Turing machine for A( · ).
+Proof of Corollary 2.8. — The first part is a direct consequence of Proposition 2.7.
+  For the second part, let r ∈ Q. For all S ∈ FG(Γ), we have
+                     e(Γ, S) < r ⇐⇒ ∃x∈Q (r > x ∧ x > e(Γ, S)).
+Let ⟨S | R⟩ be a finite presentation of Γ. Using a Turing machine as provided by
+Proposition 2.7, we can thus construct a Turing machine that enumerates all finite
+sets S ′ of words over S ⊔ S −1 such that S ′ represents a generating set of Γ and such
+that e(Γ, S ′ ) < r.
+  For simplicity, we restricted the discussion to finitely presented groups. Similar
+arguments also apply to finitely generated recursively presented groups. Conversely,
+one might wonder whether every right-computable real number ≥ 1 can be realised as
+the exponential growth rate of some finite generating set of some finitely/recursively
+presented group.
+
+Acknowledgements
+  This work was supported by the CRC 1085 Higher Invariants (Universität Regensburg,
+funded by the DFG).
+
+
+REFERENCES
+
+Goulnara N. Arzhantseva and Igor G. Lysenok (2002). “Growth tightness for word
+  hyperbolic groups”, Math. Z. 241 (3), pp. 597–611.
+        (2006). “A lower bound on the growth of word hyperbolic groups”, J. London
+  Math. Soc. 73 (1), pp. 109–125.
+Riccardo Benedetti and Carlo Petronio (1992). Lectures on hyperbolic geometry. Univer-
+  sitext. Springer.
+                                         1206–16
+
+
+Mladen Bestvina and Mark Feighn (1996). “Addendum and correction to: “A combi-
+  nation theorem for negatively curved groups” [J. Differential Geom., 35(1), 85–101,
+  1992]”, J. Differential Geom. 43 (4), pp. 783–788.
+Martin R. Bridson and André Haefliger (1999). Metric spaces of non-positive curvature.
+  Vol. 319. Grundlehren der mathematischen Wissenschaften. Springer.
+Pierre de la Harpe (2000). Topics in geometric group theory. Chicago Lectures in Math-
+  ematics. University of Chicago Press.
+        (2002). “Uniform growth in groups of exponential growth”. In: Proceedings of
+  the Conference on Geometric and Combinatorial Group Theory, Part II (Haifa, 2000).
+  Vol. 95, pp. 1–17.
+Koji Fujiwara (2021). “The rates of growth in an acylindrically hyperbolic group”.
+  preprint, arXiv:2103.01430.
+Koji Fujiwara and Jason Fox Manning (2011). “Simplicial volume and fillings of hyper-
+  bolic manifolds”, Algebr. Geom. Topol. 11 (4), pp. 2237–2264.
+Koji Fujiwara and Zlil Sela (2020). “The rates of growth in a hyperbolic group”. preprint,
+  arXiv:2002.10278.
+Mikhael Gromov (1981). “Hyperbolic manifolds (according to Thurston and Jørgensen)”,
+  in: Bourbaki Seminar, Vol. 1979/80. Vol. 842. Lecture Notes in Math. Springer, pp. 40–
+  53.
+        (1982). “Volume and bounded cohomology”, Inst. Hautes Études Sci. Publ. Math.
+  56, 5–99 (1983).
+        (1987). “Hyperbolic groups”, in: Essays in group theory. Vol. 8. Math. Sci. Res.
+  Inst. Publ. Springer, pp. 75–263.
+Daniel Groves and Henry Wilton (2018). “The structure of limit groups over hyperbolic
+  groups”, Israel J. Math. 226 (1), pp. 119–176.
+Nicolaus Heuer (2019). “The full spectrum of scl on recursively presented groups”.
+  preprint, arXiv:1909.01309.
+Nicolaus Heuer and Clara Löh (2023). “Transcendental simplicial volumes”, Annales de
+  l’Institut Fourier. To appear.
+Alice Kerr (2021). “Product set growth in mapping class groups”. preprint,
+  arXiv:2103.12643.
+Olga Kharlampovich and Alexei Myasnikov (1998a). “Irreducible affine varieties over
+  a free group. I. Irreducibility of quadratic equations and Nullstellensatz”, J. Algebra
+  200 (2), pp. 472–516.
+        (1998b). “Irreducible affine varieties over a free group. II. Systems in triangular
+  quasi-quadratic form and description of residually free groups”, J. Algebra 200 (2),
+  pp. 517–570.
+Malik Koubi (1998). “Croissance uniforme dans les groupes hyperboliques”, Ann. Inst.
+  Fourier (Grenoble) 48 (5), pp. 1441–1453.
+Clara Löh (2023). “The spectrum of simplicial volume with fixed fundamental group”,
+  Geom. Dedicata 217 (2), Paper No. 16.
+                                       1206–17
+
+
+Clara Löh and Matthias Uschold (2022). “L2 -Betti numbers and computability of reals”.
+   preprint, arXiv:2202.03159.
+Larsen Louder (2012). “Krull dimension for limit groups”, Geom. Topol. 16 (1), pp. 219–
+  299.
+Igor Mineyev (2001). “Straightening and bounded cohomology of hyperbolic groups”,
+  Geom. Funct. Anal. 11 (4), pp. 807–839.
+Zlil Sela (1999). “Endomorphisms of hyperbolic groups. I. The Hopf property”, Topology
+  38 (2), pp. 301–321.
+         (2006). “Diophantine geometry over groups. VI. The elementary theory of a free
+   group”, Geom. Funct. Anal. 16 (3), pp. 707–730.
+         (2009). “Diophantine geometry over groups. VII. The elementary theory of a
+   hyperbolic group”, Proc. Lond. Math. Soc. 99 (1), pp. 217–273.
+William P. Thurston (1979). The geometry and topology of 3-manifolds. mimeographed
+   notes. Princeton.
+Hsien Chung Wang (1972). “Topics on totally discontinuous groups”, in: Symmetric
+  spaces (Short Courses, Washington Univ., St. Louis, Mo., 1969–1970). Pure and
+  Appl. Math., Vol. 8. Dekker, pp. 459–487.
+Richard Weidmann and Cornelius Reinfeldt (2019). “Makanin–Razborov diagrams for
+   hyperbolic groups”, Ann. Math. Blaise Pascal 26 (2), pp. 119–208.
+John S. Wilson (2004). “On exponential growth and uniformly exponential growth for
+   groups”, Invent. Math. 155 (2), pp. 287–303.
+
+
+
+                                         Clara Löh
+                                         Fakultät für Mathematik
+                                         Universität Regensburg
+                                         93040 Regensburg
+                                         Germany
+                                         E-mail : clara.loeh@ur.de
+

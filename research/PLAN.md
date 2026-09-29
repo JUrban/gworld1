@@ -2,10 +2,15 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately 06:39 UTC on 29 September: six whole-entry
-candidates (F28,N5,M0,H4,F41,GA3), three partial candidates
-(N8,F38(a),F34(a)), zero established novel results. All nine await
+Latest checkpoint, approximately 09:50 UTC on 29 September: six whole-entry
+candidates (F28,N5,M0,H4,F41,GA3), four partial candidates
+(N8,F38(a),F34(a),G9), zero established novel results. All ten await
 specialist review and novelty assessment.
+
+G9 now has a complete candidate proof of effective approximation in every
+finite rank and independently checked numerical rank-two bounds. The
+exact constant remains unknown. Preserve the distinction between a
+mathematical terminating algorithm and practical fine-precision execution.
 
 GA3 now has a complete intended nonabelian argument. A controlled
 collapse gives a real-tree action with abelian arc fixators and trivial
@@ -492,3 +497,15 @@ support theorem or implementation has been claimed here. Broader F38(c)
 stabilizer-passing cases still need a route to linear bounds. Return to
 other unresolved portfolio leads as appropriate; preserve the original
 48hour clock and6 whole/3 partial/0 established-novel counts. No jobs remain.
+
+
+## Working focus after G9 (2026-09-29T09:50:38.335166+00:00)
+
+The all-rank effective approximation argument and both numerical finite
+certificates are now complete as a partial candidate. Do not rerun passed
+checks. The numerical interval is coarse; no fine-precision execution or
+best-known claim has been made. Possible later numerical improvement would
+need new atom alphabets/forbidden words, but avoid spending the remaining
+run only on incremental digits. Return to another unresolved portfolio
+entry with a concrete proof route, and retain time for auditing the ten
+current candidates. All jobs are terminal; original deadline unchanged.

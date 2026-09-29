@@ -577,3 +577,36 @@ all-tree comparisons, but no explicit matching primitive-power theorem.
 Absence of a search match is not a novelty determination. No new
 literature download or full-paper audit is claimed in this checkpoint.
 The rank>=3 theorem and finite-envelope reduction remain for review.
+
+
+## G9 flow-growth sources (2026-09-29T09:50:38.335166+00:00)
+
+Archived six primary PDFs and retrieval/hash metadata under`literature/raw/G9-*`.
+Guba math/0508422 Lemma3 (page5) supplies the classical Droms--Lewin--
+Servatius flow criterion; it was read and its actual page viewed. Do not
+import the subsequent shortest-word efficiency assertion. Duminil-Copin,
+Ganguly,Hammond,Manolescu, *Bounding the number of self-avoiding walks:
+Hammersley--Welsh with polygon insertion*, Section2 Lemmas2.1--2.2 supplies
+the classical walk unfolding, read with the proof page viewed. Our proof
+separately establishes recovery from total flows, which is required to
+count group elements rather than walks.
+
+Arzhantseva--Guba--Guyot math/0406013 introduction, main lower bounds and
+free-soluble corollaries were read for prior context. Loh Bourbaki1206
+Proposition2.7/AppendixB and Bodart--Osin2404.17840v3 Section3.1 Lemma3.2
+were read in text for general upper semicomputability, which does not
+itself prove effective lower approximation. No full-paper audits claimed.
+
+Guttmann--Conway *Square lattice self-avoiding walks and polygons*,
+September2001 preprint, pages16--17 were viewed; text extraction is garbled.
+Section5.3 gives estimates near2.6381585, partly biased by a conjectured
+exponent. The website's description of2.63815853034 as a rigorous lower
+bound is not endorsed. The new certificates do not assume that number.
+Source URLs and reading limits are in problems/G9/flow-growth-audit.md.
+
+Searches included free-metabelian growth with computable/computability,
+bridge, unfolding, Hammersley--Welsh, algorithm, and the endpoint2.658596.
+No exact prior match located; this is not a novelty or optimality proof.
+Broader scan also read Knudson0808.1239v2's introduction: its corrected
+version explicitly leaves elementary generation in MA1 open and records
+an earlier error. No MA1 candidate or downloaded/full-proof audit claimed.
