@@ -755,3 +755,32 @@ Reading limits, boundary qualification and the restricted UT3 scope are
 in research/notes/N9-cyclic-retract-orbits.md. This source is not used in
 the new orbit-obstruction proof. Roman'kov2016's original article PDF
 remains unobtained; the earlier source limitation is unchanged.
+
+
+## N8 general candidate dependency and status review (2026-09-29T18:38:37.117720+00:00)
+
+Reread the complete frozen nilpotent HTML and exact N8 background; actually
+viewed the archived statement rendering. Reread Altassan2013 Theorem2.1,
+Lemma3.2, Theorem3.3 and its complete proof pp24--25; viewed printedp24.
+Re-viewed Bryant--Kovacs--Stoehr2005 printedp147's ordinary homogeneous
+free-Lie statements. The new group argument constructs genuine free-basis
+coefficients in graded tail subalgebras before using the inner-solution theorem.
+The general proof now uses the earlier projective-fibre leading-factor route,
+so Klyachko's stronger rotation lemma and constrained-curve arithmetic are
+not needed for this assembly. Universal exact substitutions retain their
+previous Massuyeau/Kuno credit and precise source-reading limits.
+
+Fresh queries for "free nilpotent" "commutator equation" decidable and
+"single commutator" decidability found no matching all-class decision theorem.
+This limited search cannot establish novelty. The Manchester institutional
+record again confirms Remeslennikov--Stoehr2007, with original PDF restricted;
+no full-article access is claimed. The arXiv1711.01964 abstract was read only
+as another application of that existing Lie-equation theorem, not a group
+commutator decision result.
+
+An additional prior notice is Kenneth W. Weston, AMS Notices January1978,
+abstract752-20-34, pA-75, on class2/rank2. The publisher's indexed abstract
+announces a single-commutator algorithm and distinguishes systems. Direct
+PDF open returned403; the full issue/proof was not read. It adds earlier
+restricted prior credit, not a new solution count or a full N8(b) theorem.
+See literature/N8-Weston-1978-notice.json and problems/N8/general-audit.md.

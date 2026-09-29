@@ -763,3 +763,15 @@ statement/novelty independently of finite tests. The simpler recursion keeps
 the entire integer block and needs no curve arithmetic or universal quotient
 inside the first-exception block. Scope/counts remain unchanged for now.
 Original deadline and last-eight-hours verification reserve still apply.
+
+
+## After general N8 candidate (2026-09-29T18:40:27.581634+00:00)
+
+General N8(b) is now an internally audited whole-entry coverage candidate;
+novelty and specialist review remain pending. All jobs are terminal. Do not
+expand or repeat passed N8 fixtures without a new mathematical concern.
+Return to the wider unresolved portfolio or strengthen a different candidate
+with a concrete dependency concern. Keep proof/statement/novelty statuses
+separate, and reserve the final eight hours for overlapping verification and
+final reporting. Current counts9 whole/1 partial(G9)/0 established novel;
+original deadline30 September10:04:49UTC.

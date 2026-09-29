@@ -4,13 +4,13 @@
 
 [Current progress](reports/PROGRESS.md) · [Research plan](research/PLAN.md) · [Research log](research/LOG.md). The initial preparation snapshot is preserved in Git. The generated catalogue and problem READMEs retain their preparation status; current assessments are in [the working triage](research/triage.csv) and [dated claim ledger](research/claims.jsonl).
 
-Current working tally: **seven whole-entry candidates and three partial
-candidates**, all awaiting independent review and novelty assessment.
-The latest whole-entry upgrade is [F38](problems/F38/README.md): a
-graded-shortening argument makes the finite stabilizer test sufficient
-for bounded translation equivalence. See its [proof](problems/F38/bounded-proof.md)
-and [audit](problems/F38/bounded-audit.md); the deep theorem application
-and novelty require specialist review.
+Current working tally: **nine whole-entry candidates and one partial
+candidate**, all awaiting independent review and novelty assessment.
+The latest whole-entry upgrade is [N8](problems/N8/README.md): a candidate
+algorithm for single commutator equations in every finite-rank free
+nilpotent group. See its [general proof](problems/N8/general-proof.md)
+and [audit](problems/N8/general-audit.md). The full all-rank implementation
+is not complete; the theorem argument and novelty require specialist review.
 The latest partial candidate is [G9](problems/G9/flow-growth-proof.md):
 effective approximation of free-metabelian growth in every finite rank,
 and certified rank-two bounds `2.658596558 <= lambda_2 <= 2.943737759`.

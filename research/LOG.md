@@ -1742,3 +1742,28 @@ The exact failed source and logs remain; corrected selection and unimodularity
 are independently checked. Maximum overlap3cores/16GB. General N8 remains
 unadopted pending a fresh assembly/dependency audit. Counts unchanged;
 see research/notes/N8-diagonal-extra-fixtures-audit.md. No clock change/push.
+
+
+## General N8(b) candidate adopted (2026-09-29T18:40:27.581634+00:00)
+
+The fresh assembly/dependency audit identified no new gap. The consolidated
+proof in problems/N8/general-proof.md covers every finite rank and class.
+The first exceptional quadratic is separated from ALL later columns using
+the polynomial averaging lemma and full-block convolution. The recursion
+retains the complete integer block, fixes only the necessary finite prefix,
+and needs neither a block quotient nor curve arithmetic. Universal exact
+periods finish the tail. Finite leading pairs use the projective-fibre route,
+so the stronger Klyachko rotation lemma is not required.
+
+Source HTML/background and actual rendering were rechecked; exact free-basis
+hypotheses in the credited primary Lie sources were reread. Further searches
+found the earlier Weston1978 class2/rank2 notice, not a matching general-class
+algorithm. Novelty remains unverified. No new computation was needed for this
+textual audit: the18 new fixture jobs are terminal,15 pass/3 fail, with failures
+retained. All bytes in both new evidence manifests revalidated. No all-rank
+end-to-end implementation or outside review is claimed.
+
+Counts9 whole-entry candidates/1 partial(G9)/0 established novel. N8 is the
+same promoted entry, with prior part(a) explicit; total candidate entries
+remain10. README, problem landing page, triage and report now agree. Original
+deadline unchanged; no push/contacts/subagents. See general-audit.md.
