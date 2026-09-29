@@ -854,3 +854,14 @@ audited. It gives no small-strand exhaustion used here. Targeted special-
 braid/infinitude/B5/height searches did not locate this family; novelty
 unverified. The positive ordinal-descent family of a different paper is
 not this shelf. See problems/B9/infinite-family-audit.md.
+
+
+B9 small-strand follow-up (2026-09-29T20:54:32.070772+00:00): Dehornoy Dgb author copy,
+Section2.1, Lemma4.3, Sections5.2--5.3 read further; actual printedp26
+viewed and saved. Proposition5.9 already supplies the proposed right-power
+condition. Prior support and equality criteria yield the small-strand
+deductions; no novelty asserted. Explicit shifted-permutation and
+right-power indices avoid intermediate printed slips. Full paper not
+audited. B3/B4 searches and a modular-representation detour located no
+additional imported theorem; matrix-kernel source not used. See
+problems/B9/small-strand-audit.md.

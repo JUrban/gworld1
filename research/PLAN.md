@@ -818,3 +818,16 @@ within five steps. Park this bounded route; do not merely enlarge its
 seed set. The certified height6/B5 result is preserved at6bb0c76.
 Return to a distinct unresolved scope or a concrete candidate dependency
 concern, retaining final-eight-hours audit/reporting reserve.
+
+
+## B9 remaining sector after small-strand deduction (2026-09-29T20:54:32.070772+00:00)
+
+B9 now has exact counts for every N except4, subject to candidate review
+for the N>=5 infinite family. In B4 only exponent sum2 remains: count
+right cosets A B2 in B3 admitting A=a S(c) with a,c special. Four prior
+examples give the known total lower bound10. No exhaustion yet; a
+bounded-height search or the square-root equation alone cannot prove it.
+Do not repeat passed right-power tests. The one-parameter B3 matrix
+root family includes nonspecial sigma2, so that route is not a criterion.
+Consider this structural coset problem or return to wider discovery,
+keeping the last-eight-hours audit/report reserve and original deadline.

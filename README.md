@@ -18,7 +18,9 @@ and [audit](problems/N8/general-audit.md). The full all-rank implementation
 is not complete; the theorem argument and novelty require specialist review.
 The new [B9 partial candidate](problems/B9/infinite-family-proof.md) constructs
 infinitely many special braids on five strands, giving countably infinitely
-many in every B_N with N>=5; the small-strand counts remain separate.
+many in every B_N with N>=5. The [small-strand supplement](problems/B9/small-strand-proof.md)
+deduces the counts 1, 2 and 4 for B1, B2 and B3 from prior structural
+results; only the exponent-two sector in B4 remains unclassified.
 [G9](problems/G9/flow-growth-proof.md) provides
 effective approximation of free-metabelian growth in every finite rank,
 and certified rank-two bounds `2.658596558 <= lambda_2 <= 2.943737759`.

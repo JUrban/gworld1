@@ -10,7 +10,12 @@ A [candidate infinite family](infinite-family-proof.md) gives countably
 infinitely many special braids in every B_N with N>=5. Its
 [audit](infinite-family-audit.md) includes symbolic integer matrices and
 independent faithful-action checks. This is one partial candidate; the
-small-strand counts and external review remain outstanding. The earlier
+four-strand count and external review remain outstanding. The
+[small-strand supplement](small-strand-proof.md) deduces the exact counts
+1, 2 and 4 in B1, B2 and B3 from Dehornoy's prior results and isolates
+the remaining B4 sector of exponent sum two. Its
+[audit](small-strand-audit.md) credits these dependencies and records
+the new right-power checks. The earlier
 [height-bound counterexample](height-counterexample.md) and
 [bounded counts](../../research/notes/B9-bounded-enumeration.md) remain
 development records and are not additional candidates.

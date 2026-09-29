@@ -1891,3 +1891,20 @@ comparison failure; exact failed source and logs retained. Full proof
 and audit are in problems/B9/infinite-family-proof.md and audit.md.
 Small-strand exhaustion and external review remain open. Counts10whole/
 2partial/0established-novel. All jobs terminal; no push or clock change.
+
+
+## B9 small-strand exhaustion and remaining sector (2026-09-29T20:54:32.070772+00:00)
+
+Further reading found the fixed-strand right-power equation already in
+Dehornoy Proposition5.9; credit corrected before making any new claim.
+Its support lemma plus the exponent bound gives exact counts1,2,4 in
+B1,B2,B3, and exhausts all B4 sectors except exponent2. The remaining
+question is a precise special-pair right-coset problem in B3/B2. These
+are deductions from prior structure, with no novelty assertion.
+
+Independent GAP checks the new right-power relation on52 fixtures, six
+infinite-family instances and fourteen nonspecial-root controls. An
+initial GAP syntax failure is preserved; the corrected run passes with
+empty stderr. A separate symbolic matrix probe is retained as an unused
+necessary-condition detour. All jobs terminal, counts unchanged at
+10whole/2partial/0established-novel. No push or clock change.
