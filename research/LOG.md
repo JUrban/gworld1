@@ -924,3 +924,10 @@ Derived a degree-uniform support lemma in free differential Lie algebras: [T,D]=
 ## 2026-09-29T04:44:08.394406+00:00 — N8 uniform quadratic obstruction lead
 
 The double-primitive gap in the preceding note is now resolved algebraically: compare first-letter components in [z,V]=[t,D], [z,W]=[t,V]. All three polynomials become cyclically invariant, which forces their Lie components of length>=2 to vanish. The explicit differential-chain embedding and highest-bracket-length projection give a nonzero final quadratic obstruction for every first exceptional type(1,q), q>2. Wrote the proposed finite integral branch algorithm. Group implementation/scope audit remain outstanding, so no candidate scope is promoted. The initial support-only note is retained as a version. Original deadline/inputs unchanged; no new process, agents, contacts or push.
+
+
+## 2026-09-29T05:05:34.330407+00:00 — general N8 type-one third-layer extension
+
+The preceding uniform-obstruction turn made mathematical progress. Revalidated the original clock, frozen inputs and job ledger. Implemented the complete type(1,c-3) third-from-last branch algorithm, with every signed leading scale and explicit unsupported other types. Internal support/cyclic/weight audit completed. Python checked21 target records; independent GAP checked7 witnesses,27 linear decisions(10 negative),5 quadratic certificates(2 empty),25 samples,13 first nullities and15 metabelian scope tests. All final jobs passed with empty stderr. The first class12 Python attempt timed out and is retained; equivalent Hall coordinates fixed the bottleneck, with24 full old/new pair-list comparisons.
+
+Reread the full original N8 page/background and viewed the actual statement. Promoted only this recognizable arbitrary-class stratum within the existing partial N8 candidate. Counts6 whole,3 partial,0 established novel; outside specialist review and novelty remain outstanding. Saved a separate unpromoted type(2,q) structural lead. No agents/contact/push/Kourovka transfer; original deadline unchanged.

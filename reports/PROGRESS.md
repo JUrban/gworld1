@@ -204,3 +204,6 @@ N8 structural advance: a new coefficient/Lyndon argument proves that every first
 
 
 N8 follow-up in the same work period: the uniform next obstruction is now proved using cyclic rotation of associative words and the fact that non-linear Lie polynomials have zero cyclic coefficient sums. The proposed integral branch algorithm is written, but group implementation and scope checks are pending; no candidate scope/count has yet been enlarged. Section6 of the same note supersedes its earlier open-obstacle discussion.
+
+
+N8 general type-one extension: the candidate now decides every third-from-last target whose complete integral leading-pair list has only type(1,c-3), in every finite rank and class c>=6. Nonzero metabelian image of its leading term is sufficient. A coefficient/support lemma bounds the first kernel by one; a cyclic-word argument forces a nonzero final quadratic obstruction. Seven independent GAP witnesses,27 linear decisions and5 quadratic certificates passed, with negative and unsupported controls. The initial class12 timeout is preserved. See `problems/N8/type1-third-proof.md` and `type1-third-audit.md`. This broadens the same partial candidate; counts remain6 whole,3 partial,0 established novel.
