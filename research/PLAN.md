@@ -399,3 +399,15 @@ length reflection theorem for F37 nor a general automorphism/tree quantifier
 replacement was obtained. Resume a concrete unresolved mathematical lead,
 including the retained N8 fifth/sixth-layer scheme if useful, while preserving
 the full195-entry objective and the original48hour clock.
+
+
+## Working focus after fifth/sixth-layer extension (2026-09-29T07:03:56.815798+00:00)
+
+N8 now covers gamma_(c-5), c>=9, with the exact implementation/proof/audit
+complete. Do not repeat the finished bounded suites. Further layers require
+a proof controlling multiple nonconsecutive exceptional kernels; successive
+quadratic filtering alone is not justified. Return to another concrete open
+portfolio problem rather than merely adding more N8 test sizes. O6
+Linton reduction retains the primitive-extension hypothesis and supplies no
+full answer. Preserve the six whole/three partial candidate counts and the
+original48hour clock. No mathematical jobs remain after this checkpoint.

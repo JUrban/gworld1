@@ -994,3 +994,26 @@ positive example correctly remains unresolved by this test. Archived/read/
 viewed the exact prior fringe theorem. No new candidate, specialist review,
 agents/contact/push or Kourovka transfer;6 whole,3 partial,0 established
 novel and the original deadline retained.
+
+
+## 2026-09-29T07:03:56.815798+00:00 — fifth/sixth-layer N8 lifting completed
+
+Implemented the retained general-offset scheme with complete integral affine
+lines, isolated coupled points and joint final tails. Wrote the uniform proof
+and audited the d>=4 boundary. Five final suites/ten mathematical jobs pass,
+including independent GAP replay of44 witnesses,424 integer decisions,227
+nullities,40 Nielsen periods,25 coupled systems and27 quadratic certificates.
+The targeted derivative correction gives three independently verified step6
+lines, with two empty quadratics and one positive branch. Rank-three first
+suite failed only its negative-fixture coverage assertion; retained its full
+sources/results and added a metabelian-image negative control. No guessed
+negative was forced and no valid positive was discarded. Actual exit codes,
+empty successful stderr and raw output hashes checked.
+
+Also read the original O6 HTML/background and Linton publisher Theorem5.6,
+its proof and Corollary5.7: a reduction, not a full solution. Fresh Chromium
+capture failed from missing libatk; an attempt to download the dependencies
+also failed because the local apt package lists are absent. O6 visual audit
+is explicitly pending; no solution/scope count follows from that check.
+The whole195-entry objective, original clock and local-only commit policy
+remain active. Counts6 whole,3 partial,0 established novel.

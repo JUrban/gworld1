@@ -180,3 +180,12 @@ step. Fixed first corrections and varying third corrections contribute
 only linearly at this degree. These observations sharpen the proposed
 algorithm, but its group implementation and independent replay remain
 outstanding. No fifth/sixth-layer decision scope is counted here.
+
+
+## Completed group extension, 2026-09-29T07:03:56.815798+00:00
+
+The proposed fifth/sixth-layer scheme above is now implemented and independently
+replayed. The complete candidate proof and its exact scope are in
+`problems/N8/fifth-sixth-layer-proof.md`; the audit records all successful
+and failed runs. This supersedes the earlier implementation-pending status,
+without extending the claim to arbitrary deeper layers.

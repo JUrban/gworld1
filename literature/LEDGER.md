@@ -481,3 +481,13 @@ dependency and no full-paper/density claim is made. No arbitrary-tree
 replacement of the automorphism quantifier is inferred. An initial local
 PDF rendering command lacked PyMuPDF; pdftoppm succeeded and the outputs
 were viewed. No mathematical run failed; no new solution count.
+
+
+### O6 — Linton primitive-extension reduction, 2026-09-29T07:03:56.815798+00:00
+
+Publisher full HTML archived as `raw/O6-Linton-hyperbolic-publisher.html`
+with retrieval/hash metadata. Read Theorem5.6, its proof and Corollary5.7,
+plus the introduction describing remaining cases. Canadian Journal of
+Mathematics78(1)(2026),35--61; online2024. The result reduces Gersten’s
+conjecture to primitive extension groups; it does not remove that hypothesis.
+See `research/notes/O6-Linton-reduction-scope.md`. No discovery count.
