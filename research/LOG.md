@@ -1314,3 +1314,23 @@ hash manifest. Failed alglog TLS retrievals are noted; the editor's
 Manchester PDF was obtained instead. No imported Kourovka mathematics,
 subagents, pushes or contacts; original deadline unchanged. Counts
 remain7 whole/3 partial/0 established novel.
+
+
+## M4 and N6 scope controls (2026-09-29T11:39:51.555754+00:00)
+
+M4 now has an explicit retraction with diagonal abelianization for which
+closing any nontrivial image under coordinate supports forces an infinite
+chain. Its image is free metabelian, so this obstructs a proposed reduction
+and does not answer M4. One GAP job passed in1.925seconds at1core/4GB,
+with empty stderr; its finite boundary and symbolic infinite proof are
+clearly separated in `research/notes/M4-support-chain.md`.
+
+N6: Segal's May2026 primary preprint decides profinite comparison but
+explicitly does not supply genus cardinality computation. Introduction
+and beginning of Section2 read; actual PDF p2 and frozen N6 rendering
+viewed. `research/notes/N6-profinite-comparison-scope.md` records the
+remaining classification gap and the website's unstated comparison class.
+
+Neither adds a candidate:7 whole,3 partial,0 established novel. No active
+jobs, subagents, pushes, contacts or imported Kourovka mathematics.
+The parent/preparation repositories and original deadline are unchanged.

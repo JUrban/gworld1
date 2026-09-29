@@ -2,7 +2,7 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately 11:26 UTC on 29 September: seven whole-entry
+Latest checkpoint, approximately 11:40 UTC on 29 September: seven whole-entry
 candidates (F28,N5,M0,H4,F41,GA3,F38), three partial candidates
 (N8,F34(a),G9), zero established novel results. All ten await
 specialist review and novelty assessment.
@@ -31,6 +31,10 @@ N3 now has a restricted nested-cover construction for countable ascending
 nilpotent exhaustions, with the countable case explicitly credited to
 Romanovskii1969. The general cardinality problem remains unresolved.
 No candidate count is added; see `research/notes/N3-nested-cover.md`.
+
+M4's finite-coordinate reduction now has an explicit obstruction, and
+N6's profinite-comparison source does not compute genus cardinality.
+Both remain unresolved; see the two dated scope notes.
 
 Next: return to an unresolved mathematical lead in the wider portfolio,
 while retaining GA3's bibliographic and specialist-review caveats. Do

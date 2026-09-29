@@ -1,0 +1,1152 @@
+                                               Polycyclic groups and profinite isomorphism
+                                                                             Dan Segal
+arXiv:2605.28310v2 [math.GR] 28 May 2026
+
+
+
+
+                                                                           May 29, 2026
+
+
+                                           1            Introduction
+
+                                           There is no algorithm to decide whether an arbitrary finitely presented group
+                                           has nontrivial profinite completion, or equivalently, a nontrivial finite image
+                                           [BW]. Within the universe of residually finite groups, however, the opposite is
+                                           true: given that the finitely presented group G is residually finite, we note that
+                                           G has a nontrivial finite image if and only if some generator of G is not the
+                                           identity; and this is decidable by the naive routine of simultaneously listing (a)
+                                           finite images and (b) consequences of the relations. Thus we can decide whether
+                                           or not the profinite completion G  b is the trivial group.
+                                               The profinite isomorphism problem asks: given two finitely presented groups,
+                                           do they have isomorphic profinite completions? This is of course more demand-
+                                           ing than the ‘profinite triviality problem’, and is undecidable even within the
+                                           class of residually finite groups [BW2].
+                                               It has long been known that among finitely presented residually finite groups,
+                                           the polycyclic groups are particularly tractable. Around 40 years ago two major
+                                           results were established:
+
+                                           Theorem 1 [S2] The isomorphism problem for virtually polycyclic groups is
+                                           decidable.
+
+                                           Theorem 2 [GPS] The (relative) profinite genus of a virtually polycyclic group
+                                           is finite.
+
+                                               The former means that there exists a uniform algorithm that decides, given
+                                           two finite presentations of virtually polycyclic groups, whether the two groups
+                                           are isomorphic. (The fact that the presented groups are virtually polycyclic has
+                                           to be given: it is in principle undecidable, by the Adian-Rabin Theorem, [LS]
+                                           Chap. 4, §4.)
+                                               Theorem 2 asserts that the class of all virtually polycyclic groups having a
+                                           given profinite completion consists of finitely many isomorphism classes. In fact
+                                           we can remove the word “relative”: the class of all finitely generated residually
+                                           finite groups having the same profinite completion as a given virtually polycyclic
+                                           group (consists of virtually polycyclic groups and) contains only finitely many
+
+
+                                                                                   1
+non-isomorphic groups. This follows from the theorem together with the main
+result of [SW], §4.
+   The point of this note is to fill an obvious gap by establishing
+
+Theorem 3 The profinite isomorphism problem for virtually polycyclic groups
+is decidable.
+
+    That is, there exists a uniform algorithm that decides, given two finite pre-
+sentations of virtually polycyclic groups, whether the two groups have isomor-
+phic profinite completions.
+    Two groups have isomorphic profinite completions if and only if they have
+the same finite images (‘isomorphism’ of profinite completions is supposed to
+be topological isomorphism; for virtually polycyclic groups this is the same as
+abstract isomorphism, cf. [S1] Chap. 10, Prop. 4). Thus there is a trivial
+procedure that will determine the negation of profinite isomorphism: if G  b≇H   b
+                                            m          m
+we eventually find m ∈ N such that G/G ≇ H/H . However to establish a
+positive result is harder. This is the opposite of the situation with the original
+isomorphism problem, where an isomorphism, if one exists, will eventually be
+found, while non-isomorphism is much harder to establish.
+    Even given Theorems 1 and 3, there is no known procedure to determine
+the class number of a polycyclic group, that is the cardinality of its profinite
+genus. This number is related, in a messy way, to the class number of a certain
+algebraic group (cf. [S1] Chapters 9, 10 and [PR] Chapter 8, where the authors
+write “... computation of class number is a difficult, even hopeless, problem
+in its most general formulation” ). It is tempting to guess that at least one of
+the three algorithmic problems – ‘isomorphism’, ‘profinite isomorphism’, ‘class
+number’ – should be reducible to the conjunction of the other two; but I don’t
+see it.
+    A guiding principle in number theory is that ‘local’ problems are supposed to
+be easier than ‘global’ problems. To prove Theorem 3, we use the methodology
+of Theorems 1 and 2 to reduce the question to a Diophantine problem; the result
+then follows by the following very general result of James Ax. Let us call a finite
+family of polynomial equations in finitely many variables with coefficients in Z
+a Diophantine system. The system is locally solvable if it is solvable over Zp for
+every prime p.
+
+Theorem 4 [A] The local solvability of a given Diophantine system is algorith-
+mically decidable.
+
+    Ax remarks on the contrast between this fact and the (now known) unsolv-
+ability of Hilbert’s 10th problem. The possibility of proving Theorem 1 rested
+on the reduction of that question not to any old Diophantine problem, but to
+one of a very special kind: namely an orbit problem for an arithmetic group
+(see [S1] Chapter 8, §D). From this point of view, Theorem 3 should be seen as
+the ‘easy cousin’ of Theorem 1: apart from the group theory (and, to be fair,
+some nontrivial number theory coming from the proof of Theorem 2), it only
+needs Theorem 4.
+
+
+                                        2
+    The special case of all three theorems 1 - 3 relating to T -groups – torsion-
+free finitely generated nilpotent groups – is discussed in Section 1 of [GS3]; in
+that context, the group theory question translates quickly to a corresponding
+arithmetical question via the Lie algebra. The analogous reduction in the general
+polycyclic case is harder; but much of the hard work has essentially been done,
+in the course of establishing Theorems 1 and 2.
+    Both of those theorems proceed by first embedding a virtually polycyclic
+group into GLn (Z) in a particularly rigid way: the question of isomorphism
+between abstract groups is thereby translated into one of conjugacy between
+subgroups of a linear group. The same method could be adapted to prove
+Theorem 3, but the flexibility provided by Theorem 4 allows us to specify an
+isomorphism more directly.
+
+
+2     Strategy of the proof
+In general, I use the conventions of [S2]: a group G is said to be given if a finite
+presentation of G is given; an element of G is given if it is given as a word in
+the given generators, and a subgroup is given if it is specified by finitely many
+generators, each of which is given.
+    For some frequently used notation see the end of this section.
+    Certain polycyclic groups are particularly easy to specify; they are called
+splittable, and defined in [S1] Chapter 7, §B. Details will be recalled in §4.2. The
+splittable group G is called lattice-splittable if its Fitting subgroup N = Fit(G)
+is a lattice T -group, that is, the subset log N in the Lie algebra associated to
+N is closed under addition (cf. [S1] Chapter 10, §D).
+    The first result is a mild variation on material in [S1] Chapter 10, §E.
+
+Proposition 2.1 There is an effective procedure that does the following: given
+virtually polycyclic groups G and G† , it finds lattice-splittable characteristic sub-
+groups G0 ≤ G, G†0 ≤ G† of finite index such that every isomorphism G        b→G   c†
+sends G0 onto G†0 .
+
+    Most of the work will go into proving
+
+Proposition 2.2 Let G0 ≤ G, G†0 ≤ G† be as in Proposition 2.1, and put
+N = Fit(G0 ), N † = Fit(G†0 ). Suppose that θ : Gb→G c† an isomorphism. Then
+there exists v ∈ G0 such that Θ := v ∗ ◦ θ satisfies
+
+                                 (N G)Θ = N † G† .                                (1)
+
+    This key result is established in §4.3. As we shall see, it is a manifestation
+of the ‘rigidity of algebraic tori’. The point is that it allows us to replace
+‘exponential’ Diophantine equations, involving the entries of matrices like αx (α
+a matrix over Z,b x an unknown from Z), b with polynomial equations involving
+
+
+
+                                          3
+the entries of matrices like αz with z ∈ Z; for each fixed choice of z we obtain
+an ordinary Diophantine equation with unknowns from Z.   b
+
+    Keeping the above notation, set θ1 = Θ|N , so θ1 : N → N † is an isomorphism
+(see §3). Let θ2 : G/N → G† /N † be induced from Θ via
+
+                            = N G/N → N † G† /N † ∼
+                        G/N ∼                     = G† /N †
+
+(noting that G ∩ N = N etc.). Let ⟨g1 , . . . gd ; R⟩ be a finite presentation for G,
+so R is a finite set of words w such that w(g1 , . . . , gd ) = 1. Say
+
+                                N gi θ2 = N † hi (i = 1, . . . , d)                        (2)
+
+where each hi ∈ G† . For w ∈ R we then have
+
+                                 bw := w(h1 , . . . , hd ) ∈ N † .
+
+There exist vi ∈ N † such that
+
+                                  gi Θ = vi hi (i = 1, . . . , d).
+
+Now for any word w,
+
+                 w(v1 h1 , . . . , vd hd ) = wh′ (v1 , . . . , vd ).w(h1 , . . . , hd ),
+
+where the ‘derived word’ wh′ is a ‘twisted word’, in which each occurrence of vi
+in w is replaced by a term of the form vix where x is a product of some of the
+h±1
+  j ([S3] §1.1). As Θ is a homomorphism we see that
+
+                             w ∈ R =⇒ wh′ (v1 , . . . , vd )bw = 1.                        (3)
+
+     Let {a1 , . . . , as } be a generating set for N . Then ai = ui (g) for certain
+words ui . Set ci = ui (h1 , . . . , hd ), an element of N † , so we have ai Θ =
+u′ih (v1 , . . . , vd ).ci . Thus
+
+                       ai θ1 = u′ih (v1 , . . . , vd ).ci    (i = 1, . . . , d).           (4)
+
+    Conversely, suppose we are given isomorphisms θ2 : G/N → G† /N † , θ1 :
+N → N † . Choose the hi to satisfy (2). Now ⟨g1 , . . . gd ; R⟩ is a presentation
+for Gb in the category of profinite groups; so if (3) holds then the mapping
+gi 7−→ vi hi (i = 1, . . . , d) extends to a homomorphism Θ : G        b → G     c† , which
+                         †     †
+induces θ2 : G/N → G /N .
+    If in addition (4) holds, then ai Θ = ai θ1 for each i. As {a1 , . . . , as } generates
+N topologically it follows that Θ restricts to θ1 on N . As θ2 and θ1 are both
+isomorphisms it then follows that Θ : G   b→G   c† is both surjective and injective.
+
+   We have established
+
+Proposition 2.3 The following are equivalent:
+
+
+                                                   4
+    b∼
+(i) G  c†
+      =G
+
+(ii) There exist isomorphisms θ2 : G/N → G† /N † , θ1 : N → N † and elements
+      v1 , . . . , vd ∈ N † such that given (2), both (3) and (4) are satisfied.
+
+   Now isomorphisms between T -groups, or their profinite completions, corre-
+spond to isomorphisms between their associated Lie algebras. This means that
+condition (ii) can be expressed in terms of linear algebra, and doing this in an
+explicit manner gives
+
+Proposition 2.4 There is an algorithm that does the following: given
+
+   • virtually polycyclic groups G, G†
+
+   • T -subgroups N ◁ G, N † ◁ G† such that every isomorphism G   c†
+                                                              b → G
+     sends N onto N †
+
+
+   • an isomorphism θ : G/N → G† /N †
+
+    it constructs a Diophantine system F(θ) that is locally solvable if and only
+if condition (ii) is satisfied with θ2 = θ.
+
+   For details of the proof see §5.
+
+   Proof of Theorem 3
+                                                   b∼
+   Given G and G† we have to decide whether or not G  c† . Two procedures
+                                                     =G
+are run simultaneously:
+
+   Procedure 1 : Enumerate the finite quotients G/Gm , G† /G†m (cf. [BCRS],
+Proposition 2.10). For each m decide whether or not G/Gm ∼ = G† /G†m . When
+the answer is ‘no’, stop.
+   Procedure 2: Enumerate isomorphisms θ : G/N → G† /N † (cf. [BCRS],
+Proposition 2.2, Lemma 3.8). For each one, construct the system F (θ) by
+Proposition 2.4 and decide (by Theorem 4) whether the Diophantine system
+F(θ) is locally solvable. When the answer is ‘yes’, stop.
+
+    The first procedure stops if and only if G c† ; the second stops if and only
+                                             b≇G
+   b∼
+if G =Gc† . Thus the profinite isomorphism of G and G† is decidable.
+
+   Some Notation
+
+   X      closure of subset X in a topological group
+   A ≤f G      A is a subgroup of finite index in G
+   x∗    inner automorphism induced by x
+   Un     Group of upper unitriangular n × n matrices
+   un    Lie algebra of upper zero-triangular n × n matrices
+
+
+                                         5
+   Dn       Group of diagonal n × n matrices
+   Sym(n)       Symmetric group of degree n, also group of n × n permutation
+matrices
+   Hol(G) = G ⋊ Aut(G)          Holomorph of the group G
+   Fit(G)      Fitting subgroup of G (maximal nilpotent normal subgroup)
+   GL∞
+                       Q
+      n = GLn (Z) =      p prime GLn (Zp )
+                  b
+   ok      Ring of integers of number field k
+   πp : GLn (ok ) → GLn (ok /p)     natural homomorphism reduction modulo p,
+an ideal in ok
+
+
+3     Technicalities
+3.1    Profinite completions
+The passage from a virtually polycyclic group G to its profinite completion G
+                                                                            b
+is very well behaved. Write X to denote the closure in Gb of a subset X. For
+a subgroup A and a normal subgroup N of G denote by π : G           [ and
+                                                               b → G/N
+    b→ G
+i : A     b the morphisms induced by the quotient map G → G/N and the
+inclusion A ,→ G. Let B ≤ G. Then
+
+              G/N
+              b   ∼ [ induced by π
+                  = G/N
+                b∼
+                A = A induced by i
+             A∩G=A
+            A ∩ B = A ∩ B, CB (A) = CB (A), NB (A) = NB (A)                   (5)
+            Fit(G)
+                b = Fit(G)                                                    (6)
+               G
+               d   bm
+                m =G       (m ∈ N)                                            (7)
+               G
+               b           G
+            A ∼ B ⇐⇒ A ∼ B                                                    (8)
+       G
+where ∼ means ‘is conjugate in G to’. Fit(G) denotes the Fitting subgroup of
+G.
+    The first claim is a general fact. For the second claim see [S1] Chap. 10, §B,
+and for the third loc. cit. Chap 1, Ex. 11. (5) is established in [RSZ], Props.
+3.3, 3.5. For (6) (Pickel’s theorem) see [S1] Chap. 10, §C; (7) is [S1] Chap. 10,
+Lemma 3, and (8) is [S1] Chap. 4, Theorem 7.
+    Recall that
+                                                   Y
+                   GLn (Z) < GL∞   n = GLn (Z) =
+                                              b       GLn (Zp ).
+                                                  p
+
+GL∞
+  n   is endowed with the congruence topology. If G < GLn (Z) is virtually
+polycyclic, the embedding G → G induces an isomorphism Gb → G ([S1] Chap.
+10, Prop. 5). This is a consequence of [S1] Chap. 4, Thm. 5, which says
+that the profinite topology on G is induced by the congruence topology on
+
+
+                                        6
+GLn (Z), and that G is closed in the latter topology (Formanek’s Theorem). As
+group homomorphisms are continuous in the profinite topology, it follows that
+any homomorphism G → H, for polycyclic groups G, H ≤ GLn (Z), extends
+uniquely to a continuous homomorphism G → H.
+    We shall often use these facts without special mention. Many more or less
+elementary algorithms for working with virtually polycyclic groups are described
+in [BCRS]; these will also sometimes be used implicitly.
+
+3.2    T -groups
+
+Let N be a T -group. The ‘canonical embedding’ βN of a N , described in
+Chapter 5 of [S1], identifies N with a subgroup of Un (Z) in such a way that
+every automorphism of N is induced by conjugation with a matrix in GLn (Z),
+n = n(N ). Specifically, βN gives the action of N on a module
+
+                             V (N ) = ZN/IN ∼
+                                            = Zn
+
+for a certain characteristic ideal IN of the group ring ZN , where N acts by right
+multiplication on ZN . Here n = n(N ) is an invariant of N, in principle easily
+determined from the structure of N ([S1] Chapter 5 §B). We often identify N
+with N βN .
+    We extend βN to Hol(N ) by making automorphisms of N act in the natural
+way on V (N ).
+
+
+Lemma 3.1 Let Γ = Aut(N )βN and write Γ
+                                      e for the Zariski closure of Γ in
+GLn . Then CΓe (N βN ) = 1.
+
+Proof. The action of Aut(N ) on V (N ) fixes the element 1♯ = 1 + IN , so Γ    e is
+contained in the stabilizer of 1 . The result follows since the N -translates of 1♯
+                                ♯
+
+span V (N ).
+
+   There are mutually inverse polynomial mapppings
+
+                              log : Un (Q) → un (Q)
+                             exp : un (Q) → Un (Q),
+
+and
+                               LQ (N ) := Q log N
+is a Lie subalgebra of un (Q). The Mal’cev completion N Q of N may be identified
+with exp LQ (N ). Of course the Lie algebra and the mappings log and exp may
+be defined intrinsically, using the Campbell-Hausdorff formula: the embedding
+β is merely a convenience.
+    The subset log N ⊆ LQ (N ) is not necessarily closed under addition; if it
+happens to be so, N is said to be a lattice group, and then log N is indeed a full
+lattice in LQ (N ).
+
+
+                                        7
+   An automorphism α of N induces a Lie algebra automorphism, also denoted
+α, of LQ (N ). This has a multiplicative Jordan decomposition
+
+                              α = αu · αs = αs · αu
+
+where αu is unipotent and αs is semisimple (see e.g. [S1] Chapter 7). Then αu
+and αs correspond to automorphisms (with the same names) of N Q ; these may
+or may not fix N. The automorphism α of N is said to be semisimple if α = αs .
+
+
+Lemma 3.2 Let α be an automorphism of N . Then
+
+                       (αβN )u = αu βN , (αβN )s = αs βN .
+
+Proof. Write β = βN and L = Q log(N β) ⊆ un (Q). Let Γ       e be as in Lemma 3.1;
+this is contained in the stabilizer of L in the conjugation action of GLn (Q). Now
+αβ ∈ Γ e so also (αβ)s , (αβ)u ∈ Γe (the Jordan components of αβ as an element of
+GLn (Q) ). As the conjugation action on L is rational, it follows that (αβ)s and
+(αβ)u act on L as they should, i.e. semisimply, unipotently respectively ([W]
+Chap. 7, and Theorem 14.20). On the other hand, αs β and αu β act semisimply,
+unipotently respectively on L by definition. The four matrices all commute and
+
+                        (αβ)s (αβ)u = αβ = (αs β)(αu β),
+
+so (αs β)−1 (αβ)s = (αu β)(αβ)−1
+                               u acts both semisimply and unipotently, hence
+trivially, on L. The result now follows by Lemma 3.1.
+
+    The same considerations apply with Qp in place of Q. For a lattice group N ,
+the pro-p completion N bp may be identified with exp(Zp log N ) ⊆ exp LQ (N ).
+                                                                          p
+
+The embedding β extends to an isomorphism from N    bp to the closure of N β in
+Un (Zp ), and then to an isomorphism
+                            Y      ∼
+                                   =
+                    β:N b=     Nbp →            b < GL∞ .
+                                     N β ≤ Un (Z)        n
+                              p
+
+
+    An automorphism α of N     b fixes each Nbp , and has a multiplicative Jordan
+decomposition defined by its action on the indvidual factors. Moreover, the
+action of α on N β is induced by conjugation with an element of GL∞     n .
+    More generally, if N † is another T -group and θ : N
+                                                       b →N c† is an isomorphism,
+then n(N ) = n(N † ) and there exists y ∈ GL∞     n making the following diagram
+commute:
+                                       βN
+                                 Nb −→       N βN
+                                 θ↓           ↓ y∗ ;
+                                      βN †
+                                 c† −→ N † β †
+                                 N             N
+
+                                           b → V (N † ) ⊗ Z
+here y represents the isomorphism V (N ) ⊗ Z              b induced by θ (see
+[S1], Chapter 10, Lemma 1).
+
+
+                                        8
+Lemma 3.3 Let N be a virtually polycyclic group.
+   (i) N is a T -group if and only if Nb is torsion-free and nilpotent.
+   (ii) If N is a T -group, then N is a lattice group if and only if log N
+                                                                         b is closed
+under addition.
+             b is identified with log N β ⊆ un (Z)
+    Here log N                                   b where β = βN . Part (i) is
+a simple application of the ‘Profinite technicalities’. Part (ii), which will not
+actually be used, is left as an exercise.
+   If N is a normal subgroup of a group G, we can embed G canonically into a
+bigger group N Q G, so that N Q ∩ G = N and the following diagram of inclusions
+commutes:
+                                N −→ N Q
+                                 ↓         ↓ .
+                                G −→ N Q G
+In what follows we consider G as a subgroup of N Q G. For each m ∈ N, G then
+normalizes the subgroup N 1/m of N Q , and N 1/m G : G = N 1/m : N < ∞ (cf.
+[GPS], Lemmas 2.10, 2.7).
+   Mal’cev completion is a right-exact functor on T -groups; in particular if
+M ◁ N and N/M is torsion free there is a natural surjection N Q → (N/M )Q .
+
+
+4     Semisimple splitting
+4.1    Nilpotent supplements
+For convenience, let us that that a virtually polycyclic group G is nice if Fit(G)
+is a T -group and G/FitG) is free abelian. Basic results ([S1] Chapter 1) imply
+that every virtually polycyclic group G1 has a nice characteristic subgroup G of
+finite index. It follows from [S1] Chapter 3, Theorem 3, that G has a nilpotent
+subgroup C such that Fit(G)C has finite index in G. Such a C is called a
+nilpotent supplement to Fit(G) in Fit(G)C.
+    For any group G and N ◁ G, we denote by
+
+                                     X (G, N )
+
+the set of maximal nilpotent supplements to N in G. This set is obviously
+invariant under conjugation by G, and if C ∈ X (G, N ) and g = cv (v ∈ N, c ∈
+C) then C g = C v , so the G-orbits are the same as the N -orbits. FInally, if G is
+profinite it is clear that X (G, N ) consists of closed subgroups. I shall use these
+obsevations without special mention.
+
+
+
+
+                                         9
+Lemma 4.1 Let G = N C where G is polycyclic, N ◁ G and N , C are nilpo-
+tent. Then the following are equivalent for C ≤ G:
+
+                                 C ∈ X (G, N )
+                                 C = NG (C)
+                                 C = NGb (C)
+                                 C ∈ X (G,
+                                        b N ).
+
+Proof. Put D = NN (C). Then DC is nilpotent, so C is maximal nilpotent if
+and only if D ≤ C. This implies the first equivalence since NG (C) = DC. The
+                                                      b = N C. The middle one
+last equivalence follows similarly from the fact that G
+follows by (5).
+
+   The next result, together with its proof, is essentially a translation into the
+profinite realm of [S1] Chap. 3, Thm. 4.
+
+Proposition 4.2 Let G be a polycyclic group, N a normal T -subgroup of G,
+and C ∈ X (G, N ). Then there is a finite subset X of N Q such that
+                                   [
+                      X (G, N ) =       {C xy | y ∈ N } ,              (9)
+                                    x∈X
+                                     [ n xy   o
+                        X (G,
+                           b N) =       C |y∈N .                             (10)
+                                    x∈X
+
+Proof. I give the argument for (10); (9) will follow in the same way, just
+ignoring ‘bars’ and ‘hats’.
+   Consider first the special case where N is abelian, and rationally irreducible
+and non-trivial as a C-module. This implies that N ∩ Z(C) = N ∩ Z(G) = 1,
+which implies that N ∩ C = 1. So G = N.C is a semidirect product. Put
+K = CC (N ) and choose b ∈ C ∖ K so that [b, C] ⊆ K.
+   Write N additively for the moment. Then N (b − 1) ≥ mN for some m ∈ N.
+Let X0 be a transversal to the cosets of mN in N ; then X1 := m−1 X0 is
+a transversal to the cosets of N in m−1 N , and also to the cosets of N in
+m−1 N = N + m−1 N . Let
+
+                        X = {x ∈ X1 | C x ∈ X (G, N )}.
+
+    Suppose that Gb = N E, where E is closed and nilpotent. Then N ∩ E = 1,
+so in fact E ∈ X (G,
+                   b N ). Now Gb = N .C is semidirect and N ∩ Z(G)
+                                                                 b = 1. If
+E ∩ N ̸= 1 then N ∩ Z(G) ≥ Z(E) ∩ N ̸= 1; so G = N .E is also semidirect.
+                          b                      b
+Define the 1-cocycle δ : C → N by
+
+                               a.aδ ∈ E (a ∈ C).
+
+Note that then
+                              E = {a.aδ | a ∈ C}.                            (11)
+
+
+                                       10
+    Now K ∩ ker δ ◁ C, so if Kδ ̸= 0 there exists a ∈ K with aδ ̸= 0 and
+[a, C] ⊆ ker δ. Then for c ∈ C we have (ac)δ = (ca)δ which gives
+                      aδc = (ac)δ − cδ = (ca)δ − cδ = aδ
+whence aδ ∈ CN (C) = 0, contradiction. It follows that Kδ = 0, and as [b, C] ⊆
+K we have (ab)δ = (ba)δ for all a ∈ C.
+   Now mbδ ∈ mN ≤ N (b − 1) so bδ = (v − x)(b − 1) for some v ∈ N and
+x ∈ X1 .
+   Let a ∈ C. Then (ab)δ = (ba)δ implies
+                aδ(b − 1) = bδ(a − 1) = (v − x)(b − 1)(a − 1).
+As [a, b] ∈ K and CN (b) = 0 it follows that aδ = (v − x)(a − 1). Reverting to
+multiplicative notation we see that
+                     a.aδ = a.(vx−1 )a (vx−1 )−1 = vax v −1 ;
+                                    x
+with (11) this implies that E v = C .
+   It remains to show that x ∈ X. Put G1 = N 1/m G, so X ⊂ G1 . We have
+                      C x ≤ G1 ∩ (N E v ) ≤ G1 ∩ G = G,
+so C x ∈ X (G, N ) by Lemma 4.1.
+    For the general case we argue by induction on h(N ). Of course if N = 1 the
+result is trivial: G (resp. G) is the unique maximal nilpotent subgroup of G
+        b and we take X = {1}.
+(resp. G),
+    Suppose first that Q := N ∩ Z(G) ̸= 1. Note that N/Q is again torsion-free.
+We apply the inductive hypothesis to G/Q, noting that C ≥ Q , Q is centralized
+by N Q , and Q is contained in every maximal closed nilpotent subgroup of G.  b
+A preimage in N Q of a suitable finite subset of (N/Q)Q clearly does what is
+required for the set X.
+    Assume henceforth that N ∩ Z(G) = 1 < N .
+    Let T /N ′ be the torsion subgroup of N/N ′ and let Z/T be biggest G-
+submodule of N/T on which G acts nilpotently. Then Z < N by [S1] Chap. 3,
+Prop. 3, and N/Z is torsion-free. Choose M ◁ G with Z ≤ M < N maximal
+subject to A := N/M being torsion free. Then A is rationally irreducible as a
+C-module, and it is nontrivial in view of [S1] Chap. 3 §A, Cor. 1 (which asserts
+that CN/Z (C) = 0 implies CA (C) = 0 ). Write ˜ : G → G/M for the quotient
+map, and also for the induced maps G   b → G/M
+                                             b      and N Q ↠ AQ . Then Ge = ACe
+satisfies the conditions for the ‘special case’, with A = N in place of N and C
+                                                           e                   e
+               †
+for C. Let X ⊂ A be the resulting finite set, and pick a finite subset X of
+                      Q
+
+N Q so that X † = X.e
+    Now suppose again that G   b = N E, where E is closed and nilpotent. Then
+there exist x ∈ X and v ∈ N such that
+                                  N
+                                  eCfx = G
+                                         e
+                                         fx
+                                    fv = C
+                                    E       .
+
+
+                                        11
+Thus N C x = G and
+                                             x
+                             M Ev = M C = M C x.
+I claim that the original hypotheses are now satisfied with M C x for G, M for
+N and C x for C. Accepting this for now, we identify M C x with M    \ C x , and
+                                                                    Q
+infer by inductive hypothesis that there is a finite subset Y of M such that
+(a) M C xy = M C x for each y ∈ Y , and (b) every member E of X (M C x , M ) is
+conjugate to C xy for some y ∈ Y . In particular, there exist y ∈ Y and w ∈ M
+such that E vw = C xy .
+    Evidently the set XY ⊆ N Q fulfils our requirements.
+    It remains to verify that C x is maximal nilpotent in M C x . To see this,
+suppose that C x < D ≤ G and D is nilpotent. Then D = (N ∩ D)C x so
+N ∩ D ̸= 1 and then N ∩ Z(D) ̸= 1. Hence 1 ̸= Z(N ) ∩ Z(D) ≤ N ∩ Z(G),
+contradicting hypothesis.
+   Write X (G, N )/G for the set of G-conjugacy classes of subgroups in X (G, N ).
+
+Corollary 4.3 With G and N as above, suppose that X (G, N ) is nonempty.
+Then the mappings
+
+                        u : C 7−→ C (C ∈ X (G, N ) )
+                        d : E 7−→ E ∩ G (E ∈ X (G,
+                                                 b N) )
+
+induce mutually inverse bijections X (G, N )/G → X (G,    b → X (G, N )/G;
+                                                    b N )/G
+these sets are finite.
+
+Proof. It is obvious that u respects conjugacy. Lemma 4.1 shows that u maps
+X (G, N ) into X (G,b N ). If E ∈ X (G,b N ) then E is conjugate to C x for some
+C ∈ X (G, N ) and x ∈ N , and then C x ∈ X (G, N ) by the same corollary, so
+                            Q
+
+E w ∈ X (G, N )u for some w ∈ G. b Thus u is surjective on conjugacy classes, and
+it is injective on conjugacy classes in view of (8). From first principles ud is the
+identity on the set of all subgroups of G, and the first claim follows. The second
+claim is immediate from Prop. 4.2.
+
+4.2    Splittings
+In [GPS], §7 we introduced a construction known as ‘semisimple splitting’ (a
+variation of an original construction due to L. Auslander). This assigns to a
+(‘splittable’) polycyclic group a larger group of the form M ⋊ T, where M is a
+T -group and T is an abelian subgroup of Aut(M ). This is explained again in
+[S1] Chap. 7, Section B, which may be consulted for details of some proofs.
+    In this subsection, we fix a nice polycyclic group G with Fitting subgroup
+N . Recall that X (G, N ) denotes the set of maximal nilpotent supplements to
+N in G (which may of course be empty in general). We set
+
+               X ∗ (G, N ) = {C ∈ X (G, N ) | c∗s fixes N (∀c ∈ C)},
+
+
+
+                                        12
+where as usual c∗ denotes the action of c by conjugation, and c∗s its semisimple
+component as an automorphism of N Q . As G = N C for each C ∈ X (G, N )
+and X ∗ (G, N ) is clearly invariant under N ∗ , we see that X ∗ (G, N ) is invariant
+under conjugation by G.
+     The group G is said to be splittable if G is nice and X ∗ (G, N ) is nonempty;
+G is lattice-splittable if, in addition, N = Fit(G) is a lattice T -group (cf. [S1]
+Chapter 10, §D).
+     The set X ∗ (G,
+                  b N ) is defined analogously: for each prime p the p-component
+(c∗ )p,s is supposed to fix Zp log N inside Qp log N .
+Lemma 4.4 Provided X (G, N ) ̸= ∅, the map D 7−→ D induces a bijection
+X ∗ (G, N )/G → X ∗ (G,
+                     b N )/G.
+                           b
+
+Proof. The proof of [S1] Chapter 10, Proposition 8 (cf. [GPS] §6, Proposition
+2) shows that for D ∈ X (G, N ), we have D ∈ X ∗ (G, N ) if and only if D ∈
+X ∗ (G,
+     b N ). The claim now follows from Corollary 4.3.
+
+
+   We assume for the rest of this subsection that G is lattice-splittable.
+   Fix C ∈ X ∗ (G, N ). For c ∈ C we extend the automorphism c∗s of N to an
+automorphism τ (c) of G that centralizes C, and define u(c) ∈ Hol(G) as follows:
+                                 u(c) = c.τ (c)−1 .
+   Then u : C → Hol(G) and τ : C → Aut(G) are homomorphisms.
+                         M := MC := N.u(C) ≤ Hol(G)
+is a T -group and
+                           T := TC := τ (C) ≤ Aut(G)
+is a free abelian group, acting trivially on both C and u(C), and acting as Cs∗
+on N . Note that ker τ = C ∩ N (because N is the Fitting subgroup of G), so
+T ∼= C/(C ∩ N ) ∼ = G/N .
+    As T centralizes u(C) it acts faithfully as a group of semisimple automor-
+phisms on M , and we consider M.T ∼   = M ⋊ T as a subgroup of Hol(M ). Clearly
+M = Fit(M T ).
+    We have
+
+                    G = N C ≤ N u(C)τ (C) = M T ≤ Hol(M ),                      (12)
+and
+                         M G = M C = M ⋊ T = G ⋊ T.                             (13)
+This group is the semisimple splitting of G associated to the chosen subgroup
+C ∈ X ∗ (G, N ).
+   Recall the embedding
+                             βM : Hol(M ) → GLn (Z)
+                                     M βM ≤ Un (Z)
+
+
+                                         13
+where n = n(M ). Restricting βM to M G gives an embedding
+
+                             βG,C : M G → GLn (Z),
+
+n = n(MC ) := n(G, C). In fact we have
+
+Lemma 4.5 n(MC ) is independent of C ∈ X ∗ (G, N )
+
+Proof. By Proposition 4.2 it suffices to check that n(MC ) = n(MC y ) if y ∈ N Q
+and C y ∈ X ∗ (G, N ). Say y ∈ N 1/m and put G1 = N 1/m G. Then MC ≤f M1 :=
+Fit(G1 TC ) and MC y ≤f M2 := Fit(G1 TC y ), while
+                                         ∗
+                      G1 TC y = (G1 TC )y ≤ G1 ⋊ Aut(G1 ).
+
+So M1 ∼= M2 , whence MC y and MC are abstractly commensurable groups. The
+claim now follows from [S1] Chapter 5, Theorem 3.
+
+   From now on, we accordingly write n0 (G) for n(MC ), where C ∈ X ∗ (G, N )
+can be arbitrary.
+
+
+Lemma 4.6 The group T βM is diagonalizable.
+
+Proof. Lemma 3.2 implies that T β consists of semisimple elements, and the
+result follows since T β is abelian.
+                                                                      x
+Lemma 4.7 Let T, T † be diagonalizable subgroups of GLn (Z). If T = T † with
+x ∈ GL∞
+      n then
+                                T x = T †.                              (14)
+
+Proof. There exist α, β ∈ GLn (k), k some algebraic number field, such that
+T α , T β ≤ Dn (ok ). The proof of [GS2], Lemma 5.4 shows that for some σ ∈
+Sym(n), the matrix
+                                   α−1 xβσ −1
+centralizes T α (this matrix sits in the finite adele group over k of GLn , which
+contains GL∞ n as well as α and β). Then for t ∈ T we have
+
+                        txβ = tασ ∈ Dn (ok ) ∩ T †β = T †β
+
+because T †β is closed in Dn (ok ): in the profinite topology because Dn (ok ) is a
+finitely generated abelian group, and in the congruence topology because this
+induces the former. Thus T x ≤ T † and (14) follows by symmetry.
+    (The first step of this argument depends on some serious number theory, the
+main result of [GS4].)
+
+    Remark Almost the same conclusion may be deduced from an apparently
+                         y
+weaker hypothesis M G = M † G† ; using the fact that for almost all primes p
+of ok , the images T α πp and T †β πp are Hall p-complements in the finite groups
+
+
+                                        14
+(M G)α πp , (M † G† )β πp , one finds x ≡ y (mod M ) that satisfies (14). Exercise
+for the reader! (cf. [S1] Chapter 9, Proposition 6).
+
+   From now on, suppose that G† is another lattice-splittable group, and N † =
+Fit(G† ).
+
+Proposition 4.8 Let C ∈ X ∗ (G, N ), C † ∈ X ∗ (G† , N † ) and set M = MC ≤
+Hol(G), M † = MC † ≤ Hol(G† ).
+   i) Suppose that n0 (G) = n0 (G† ) = n. Then βG,C and βG† ,C † extend to
+embeddings
+
+             β = βG,C : M
+                        d G → GL∞    †             \† †    ∞
+                                n , β = βG† ,C † : M G → GLn .
+
+                         b→G
+    ii) Suppose that θ : G   c† is an isomorphism such that Cθ = C † . Then
+n0 (G) = n0 (G† ) = n, say, θ extends to an isomorphism Md G → M\ † G† such
+
+that
+                           M θ = M † , TC θ = TC † ,                    (15)
+and there exists x ∈ GL∞
+                       n such that the following diagram commutes:
+
+                                             β
+                                  Md  G     −→       GL∞n
+                                   θ↓                ↓ x∗ .                        (16)
+                                  \
+                                  M † G†    −→       GL∞n
+                                             β†
+
+In particular,
+                                      (Gβ)x = G† β † .                             (17)
+
+Proof. (i) follows from general principles. For (ii): as θ maps N = Fit(G)  b to
+                                                        ∗
+N † = Fit(G
+          c† ) and C to C † , it will map the image of C in Aut(N ) to the image
+      ∗
+of C † in Aut(N † ), and this mapping will respect the Jordan decomposition (cf.
+[S1] Chapter 10, Proposition 8). We can then verify that for c ∈ C,
+
+                             τ (c)θ = τ (cθ), u(c)θ = u(cθ) ,
+
+where τ and u are extended in the natural way to C. This implies (15). The rest
+of (ii) now follows from the proof of [S1] Chapter 10, Lemma 7, or the argument
+in [GPS] §14.
+
+Lemma 4.9 Let {D1 , . . . , Dk }, {D1† , . . . , Dk† ′ } be complete sets of representa-
+tives for X ∗ (G, N )/G, respectively X ∗ (G† , N † )/G† . Suppose θ : G  b→G   c† is an
+                       ′
+isomorphism. Then k = k, and there exists ρ ∈ Sym(k) such that
+                                 xi    †
+                             (Di )θ = Diρ         (i = 1, . . . , k)               (18)
+
+for some x1 , . . . , xk ∈ N .
+
+
+                                            15
+Proof. Follows from Lemma 4.4, noting as before that if D ∈ X (G,
+                                                               b N ) and
+g∈Gb then Dg = Dx where x ∈ N and g ∈ Dx.
+
+
+                                  c† is an isomorphism. Then
+                                b→G
+Corollary 4.10 Suppose that θ : G
+
+                                  (N G)θ = N † G† .                           (19)
+
+Proof. By Proposition 4.9 there exist C ∈ X ∗ (G, N ), C † ∈ X ∗ (G† , N † ) and
+                   y
+y ∈ N such that C θ = C † . Write M = MC , T = TC etc. Then θ1 := y ∗ ◦ θ
+extends to an isomorphism M
+                          d G→M  \ † G† . Recall that M G = M T and M ∩G =
+
+N , whence N G = M G ∩ G = M T ∩ G. Now (16) and Lemma 4.7 give
+
+        (N G)θ1 = (M T )θ1 ∩ Gθ1 = M † T † ∩ G†
+                                   = M † G† ∩ G† = (M † ∩ G† )G† = N † G† .
+
+The result follows since (N G)y = N G.
+
+4.3     Proposition 2.2
+
+We have to generalize Corollary 4.10. Specifically, G and G† are virtually poly-
+cyclic groups, G0 ≤ G and G†0 ≤ G† are characterisitc lattice-splittable sub-
+                                b→G
+groups of finite index, and θ : G     c† is an isomorphism that maps G  c0 onto
+G0 . Also N = Fit(G0 ), N † = Fit(G†0 ).
+c†
+
+     The aim is to prove that there exists v ∈ G0 such that Θ := v ∗ ◦ θ satisfies
+
+                                 (N G)Θ = N † G† .                            (20)
+
+Proof. Proposition 4.10 shows that (N G0 )θ = N † G†0 . Put L = (N † G† )θ−1 .
+Then
+
+           (L ∩ G0 )θ = N † G† ∩ G†0 = N † (G† ∩ G†0 ) = N † G†0 = (N G0 )θ
+
+and
+                     Gθ c† = G† G† = G† .N † G† = G0 θ.Lθ.
+                     b =G
+                              0       0
+
+So
+                                   b G0 ∩ L = N G0 .
+                            G0 L = G,
+As both G0 and N are normal in G and N G0 ◁ G0 (since G0 /N is abelian),
+we see that N G0 ◁ G. Thus both N G/N G0 and L/N G0 are complements to
+G0 /N G0 in G/N G0 . Now G0 /N G0 ∼  = (Z/Z)
+                                        b     d
+                                                is a divisible abelian group (where
+G0 /N = Z ); consequently H (G/G0 , G0 /N G0 ) = 0 as G/G0 ∼
+       ∼   d                  1
+                                                                   = G/G0 is finite
+([B], Corollary 10.2). This implies that the two complements just indicated are
+conjugate, which translates directly to the claim.
+
+
+                                         16
+4.4    Finding lattice-splittable subgroups
+Now we prove Proposition 2.1. Given virtually polycyclic groups G and G† , by
+finite presentations, we have to construct characteristic lattice-splittable sub-
+groups G0 ◁ G and G†0 ◁ G† , of finite index, in such a way that every isomor-
+phism G b→G  c† maps G0 onto G† .
+                                   0
+    I will say that a property or invariant of a virtually polycyclic group G is
+P-invariant if it is preserved on passing from G to any other virtually polycyclic
+group G† satisfying G  c† ∼
+                          = G.b The assignment G 7−→ G0 that we are about to
+describe can in fact be made P-invariant, but this is much deeper than we need;
+as far as I know, it depends essentially on Theorem 2 (see [S1] Chapter 10, §E).
+It would be interesting if a direct, elementary, proof could be found: this would
+in turn significantly simplify the proof of Theorem 2.
+    Instead, I shall assume here that two specific groups G and G† are given, and
+that Gb∼=G c† . (To be strictly logical, If G c† we just carry out the procedure
+                                            b≇G
+twice, once for G and once for G† .)
+
+   Step 1. Set F = Fit(G). Let e be the least positive integer such that
+N1 := F e is torsion-free. Determine n(N1 ) (see [GS1], §8.3). According to [S1]
+Chapter 6, Theorem 5, there is a number α, depending only on n(N1 ), such
+that N := N1α is a lattice group. Let f be the least positive integer such that
+N Gf /N is is free abelian. Set G1 = N Gf .
+   According to [S2], Proposition 4.6, all of e, f, N, G1 can be found effectively.
+Note that
+                             Fit(G1 ) = F ∩ G1 = N
+since G1 /N is free abelian while F/N has finite exponent.
+    A straightforward application of the ‘Profinite technicalities’ shows that Fit
+and e are P-invariants, and n(N1 ) is P-invariant by [S1], Chapter 10, Lemma
+1. So N and f are also P-invariants of G. Setting F † = Fit(G† ), N † = (F †e )α
+and G†1 = N † G†f we have
+
+                       N † = Fit(G†1 ) is a lattice T -group
+                          G†1 /N † is free abelian,
+
+                            c† satisfies G1 Θ = G† , N Θ = N † .
+                          b→G
+and every isomorphism Θ : G                      1
+
+   Step 2. Let h be the least positive integer such that
+   • N Gh1 = N D for some maximal nilpotent subgroup D of G1 ,
+   • c∗s fixes N for each c ∈ D.
+
+  Define h† , D† likewise relative to G†1 , N † .
+  Again, [S2], Proposition 4.6, shows that all of these can be found effectively.
+Now set q = lcm(h, h† ),
+
+                          G0 = N Gq1 ,   G†0 = N † G†q
+                                                    1  .
+
+
+                                         17
+Let C be a maximal nilpotent subgroup of G0 containing Dq/q1 , and let C † be
+a maximal nilpotent subgroup of G†0 containing D†q/q2 . Then
+
+                                    G0 = N Dq/q1 = N C,
+so C = (N ∩ C)Dq/q1 , which implies that Cs∗ acts on N like a subset of Ds∗ , so
+it fixes N . Thus C ∈ X ∗ (G0 , N ). Similarly C † ∈ X ∗ (G†0 , N † ).
+     Thus G0 and G†0 are both lattice-splittable.
+
+    As before, we see that G0 Θ = G†0 for any isomorphism Θ : G c† .
+                                                              b→G
+
+
+5     Going Diophantine
+It remains to establish Proposition 2.4.
+
+    Data
+    • Virtually polycyclic groups
+                                     G† , G = ⟨g1 , . . . , gd ; R⟩
+      where R is a finite set of words.
+    • subgroups
+                   N † = ⟨a′1 , . . . , a′s′ ⟩ ◁ G† , N = ⟨a1 , . . . , as ⟩ ◁ G.
+
+    • an isomorphism θ : G/N → G† /N † .
+   It is assumed that N and N † are lattice T -groups, and that every isomor-
+phism G b→G  c† sends N onto N † .
+   We are given words ui such that
+                           ai = ui (g1 , . . . , gd )   (i = 1, . . . , s),
+and elements h1 , . . . , hd ∈ G† such that
+
+                              N gi θ = N † hi       (i = 1, . . . , d).
+                   †
+Define bw , ci ∈ N by
+                          bw := w(h1 , . . . , hd ) (w ∈ R),
+                           ci := ui (h1 , . . . , hd ) (i = 1, . . . , s).
+   The task is to construct a Diophantine system F that is locally solvable if
+and only if the following holds: there exist an isomorphism θ1 : N → N † and
+elements v1 , . . . , vd ∈ N † that satisfy
+                          w ∈ R =⇒ wh′ (v1 , . . . , vd )bw = 1                     (3)
+                       ai θ1 = u′ih (v1 , . . . , vd ).ci   (i = 1, . . . , d).     (4)
+
+
+                                                 18
+    Introducing co-ordinates
+
+   Algorithm E of [GS1] determines n := n(N ) and n′ := n(N † ), and provides
+explicit monomorphisms β = βN : N → Un (Z) and β ′ = βN † : N † → Un′ (Z).
+These have the following property (see [GPS] Lemma 3.3 or [S1] Chapter 10,
+                                            b∼
+Lemma 1, and [S1] Chapter 5, Theorem 2): if N =Nc† then n = n′ and for each
+                b → N † there exists y = y(φ) ∈ GL∞
+isomorphism φ : N     c
+                                                   n such that
+
+                                                β
+                                   N
+                                   b          −→            Nβ
+
+                                   φ↓                       ↓ y∗                         (21)
+
+                                   c†           β′
+                                   N          −→           N †β′
+
+commutes, where the horizontal maps are the natural extensions of β, β ′ . Con-
+versely, if n = n′ and N † β ′ is conjugate to N β in GL∞           b ∼ c†
+                                                           n then N = N .
+    Similarly, each automorphism α of N † corresponds via β ′ to the conjugation
+action of y(α) on N † β ′ for some y(α) ∈ GLn′ (Z) ([S1] Chapter 5, Theorem 2).
+If α is given the algorithm finds y(α) explicitly.
+    Since N and N † are lattice groups the sets L := log(N β) and L′ := log(N † β ′ )
+are full lattices in the Lie algebras LQ (N ), LQ (N † ). They have explicitly known
+generating sets {log(ai β) | i = 1, . . . , s}, {log(a′i β ′ ) | i = 1, . . . , s′ }, so by
+elementary algebra we may construct Z-bases {e1 , . . . , er } for L and {e′1 , . . . , e′r′ }
+for L′ (thus r, r′ are the dimensions of LQ (N ), LQ (N † ) ). Note that n!ei ∈
+un (Z), n′ !e′i ∈ un′ (Z).
+    If r = r′ , to a matrix y ∈ GL∞                                   † ′
+                                      n that conjugates N β to N β there corre-
+                                    ∞
+sponds a matrix z = z(y) ∈ GLr such that
+                                        r
+                                        X
+                          y−1 ei y =          zij e′j   (i = 1, . . . , r).              (22)
+                                        j=1
+
+
+    The unknown elements vi of N † will be represented by n′ × n′ matrices Ξ(i),
+setting
+                                Ξ(i) := vi β ′ .
+The unknown isomorphism θ1 : N → N † will be represented by an n×n′ matrix
+H; if θ1 exists then n = n′ and we will set
+
+                                         H:= y(θ1 ).
+
+    For any word w in d variables, wh′ (v1 , . . . , vd ) is a finite product of terms
+               w (h−1 ,...,h−1 )
+                  m  1
+of the form vl(m)          d
+                              , where each wm is a subword of w. Conjugation by
+      −1          −1
+wm (h1 , . . . , hd ) induces an automorphism αw,m on N † . If w is given we may
+compute a matrix
+                            Ym (w) := y(αw,m ) ∈ GLn′ (Z)
+
+
+                                                 19
+such that Ym (w)∗ acts on N † β ′ like wm (h−1               −1 ∗     †
+                                                1 , . . . , hd ) on N . (In the following,
+m will range from 1 to the length of w, so this varies from place to place).
+   Then for v1 , . . . , vd ∈ N † we have
+                                           Y
+               wh′ (v1 , . . . , vd )β ′ =   Ym (w)−1 · vl(m) β ′ · Ym (w).
+                                            m
+
+   Thus (3) is equivalent to
+                                                         !
+               Y
+                            −1
+                   Ym (w)        · Ξ(l(m)) · Ym (w)          · B(w) = 1        (w ∈ R)              (23)
+               m
+
+where B(w) = bw β ′ ∈ GLn′ (Z). If n = n′ and r = r′ then (4) is equivalent to
+
+                                                  !
+         Y
+                     −1
+   H·         Ym (w)      · Ξ(l(m)) · Ym (w)           · C(i) = A(i)H         (i = 1, . . . , s).   (24)
+          m
+
+where C(i) = ci β ′ ∈ GLn′ (Z) and A(i) = ai β ∈ GLn (Z).
+
+   The equations
+
+    Each equation involving matrix unknowns should be interpreted as a family
+of of n2 equations, one for each component of the indicated matrices. Some of
+the ‘constant’ matrices that appear, and the polynomial log, have non-integral
+coefficients: to get equations with Z-coefficients just multiply each side by n!.
+
+    The equations will only be interesting when n = n′ and r = r′ : I will call
+this the good case.
+
+    The unknowns: the entries of the matrices H and Ξ(1), . . . , Ξ(d); the entries
+ζij of an r × r′ matrix Z, which in the good case will stand for z(H) (as in (22));
+certain λ(i)j (i = 1, . . . , d, j = 1, . . . , r′ ), and single unknowns η0 , ζ0 .
+
+   If we are not in the good case, let det H, det Z denote the determinants of
+the biggest top-left minor (just to be specific).
+
+   Now F (θ) is the following system of equations, in addition to (23) and (24):
+
+                          n − n′ = 0, r − r′ = 0                                                    (25)
+                       η0 · det H = 1, ζ0 · det Z = 1                                               (26)
+                                         r
+                                         X
+                            ei · H = H ·    ζij e′j (i = 1, . . . , r)                              (27)
+                                            j=1
+                                        ′
+                                      r
+                                      X
+                         log Ξ(i) =         λ(i)j e′j        (i = 1, . . . , d).                    (28)
+                                      j=1
+
+
+
+                                                  20
+    The equations (25) have no unknowns, so are solvable if and only if we are
+in the good case. In that case, (26) says that H and Z are invertible matrices,
+and (27) asserts that conjugation by H effects the isomorphism represented by
+Z from L to L′ , and hence that it maps N β onto N † β ′ .
+    (28) says that Ξ(i) lies in N † β ′ .
+    It is clear that a local solution to F(θ) gives rise to an isomorphism θ1 :
+N → N † and elements v1 , . . . , vd ∈ N † having all the required properties, and
+conversely that such a system (θ1 ; v1 , . . . , vd ) gives rise to a local solution of
+F(θ).
+
+
+References
+[A]    J. Ax, Solving Diophantine problems modulo every prime, Annals of
+       Math. 85 (1967), 161-183.
+
+[BW] M. R. Bridson and H. Wilton, The triviality problem for profinite com-
+     pletions, Invent. Math. 202 (2015), 839-874.
+[BW2] M. R. Bridson and H. Wilton, The isomorphism problem for profinite
+      completions of finitely presented, residually finite groups, Groups Geom.
+      Dyn. 8 (2014), 733-745.
+
+[BCRS] G. Baumslag, F. Cannonito, D. J. S. Robinson and D. Segal, The al-
+     gorithmic theory of polycyclic-by-finite groups, J. Algebra 142 (1991),
+     118-149.
+[B]    K. S. Brown, Cohomology of Groups, Springer-Verlag, New York etc.,
+       1982.
+
+[GPS] F. J. Grunewald, P.F. Pickel and D. Segal, Polycyclic groups with iso-
+      morphic finite quotients, Annals of Math. 111 (1980), 155-195.
+[GS1] F. J. Grunewald and D. Segal, Some general algorithms II: Nilpotent
+      groups, Annals of Math. 112 (1980), 585-617.
+
+[GS2] F. J. Grunewald and D. Segal, Conjugacy of subgroups in arithmetic
+      groups, Proc. London Math. Soc. (3) 44 (1982), 47-70.
+[GS3] F.J. Grunewald and D. Segal, Reflections on the classification of torsion-
+      free nilpotent groups, in Group Theory: Essays for Philip Hall, ed. K.W.
+      Gruenberg and J. E. Roseblade, Academic Press, 1984, pp. 121-158.
+
+[GS4] F.J. Grunewald and D. Segal, On congruence topologies in number fields,
+      J. reine angew. Math. 311 (1979), 389-396.
+[LS]   R. C. Lyndon and P. Schupp, Combinatorial group theory, Ergebnisse
+       der Math. 89, Springer-Verlag, Berlin etc., 1977.
+
+
+
+                                          21
+[PR]   V. P. Platonov and A. S. Rapinchuk, Algebraic groups and number theory,
+       Academic Press, San Diego, 1994.
+[RSZ] L. Ribes, D. Segal and P. A. Zalesski, Conjugacy separability and free
+      products of groups with cyclic amalgamation, J. London Math. Soc, (2)
+      57 (1998), 609-628.
+
+[S1]   D. Segal, Polycyclic groups, Cambridge Tracts in Math. 82, CUP, Cam-
+       bridge, 1983.
+[S2]   D. Segal, Decidable properties of polycyclic groups, Proc. London Math.
+       Soc. (3) 61 (1990), 497-528.
+
+[S3]   D. Segal, Words: Notes on Verbal Width in Groups, London Math. Soc.
+       L.N.S. 361, C.U.P. Cambridge, 2009.
+[SW] G. Sabbagh and J. S. Wilson, Polycyclic groups, finite images and ele-
+     mentary equivalence, Archiv der Math. 57 (1991), 221-227.
+
+[W]    B. A. F. Wehrfritz, Infinite linear groups, Ergebnisse der Math. 76,
+       Springer-Verlag, Berlin etc., 1973.
+
+
+   All Souls College
+   Oxford
+
+
+
+
+                                     22
+
