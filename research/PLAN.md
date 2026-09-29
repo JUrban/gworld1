@@ -474,3 +474,21 @@ no such bound is proved. F41 fixed-word constants do not supply it.
 
 Return to a concrete unresolved portfolio lead under the original deadline.
 All jobs have ended;6 whole/3 partial candidates,0 established novel.
+
+
+## Working focus after F38 envelopes/primitive powers (2026-09-29T09:14:49.432439+00:00)
+
+The exact finite-envelope and primitive-power calculations have completed;
+do not rerun their successful suites. Arbitrary finite bounds and the
+explicit exponential estimate do not decide linear comparison. The
+rank>=3 primitive-power classification has an elementary proof and exact
+growth witnesses, but novelty is unverified and prior general tools
+already decide the family. Rank2 is excluded by Lee's example.
+
+A possible next mathematical lead is free-factor support: pointwise
+stabilizers of a proper free factor may force every finite-orbit conjugacy
+class into it. The Nielsen graph method suggests this, but no general
+support theorem or implementation has been claimed here. Broader F38(c)
+stabilizer-passing cases still need a route to linear bounds. Return to
+other unresolved portfolio leads as appropriate; preserve the original
+48hour clock and6 whole/3 partial/0 established-novel counts. No jobs remain.

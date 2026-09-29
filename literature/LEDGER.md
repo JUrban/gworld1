@@ -557,3 +557,23 @@ for Whitehead/equal-frequency/degree-sorting counterexamples located no
 matching source for our auxiliary12-cycle example, but do not establish
 novelty. The example rules out only our attempted deletion of Lee's
 hypothesis, not the published theorem or the original F25 bound.
+
+
+## F38 primitive powers and length envelopes (2026-09-29T09:14:49.432439+00:00)
+
+Reused the archived primary Lee0802.0584 and Lee--Ventura2010 rank-two
+example, and Lee0311410v3 Whitehead length formula, with exact scope
+credits in the new notes. The general envelope procedure additionally
+imports the earlier documented Whitehead peak-reduction factorization
+and Handel--Mosher level-three aperiodicity. The elementary primitive-power
+argument does not need aperiodicity or the full stabilizer theorem.
+
+Queries included `"boundedly translation equivalent" "primitive"`,
+`"bounded translation equivalence" "primitive" "three"`,
+`"bounded translation equivalence" "powers"`, and
+`"translation equivalence" "Nielsen" "bounded"`.
+They located the already credited rank-two Lee work and stronger
+all-tree comparisons, but no explicit matching primitive-power theorem.
+Absence of a search match is not a novelty determination. No new
+literature download or full-paper audit is claimed in this checkpoint.
+The rank>=3 theorem and finite-envelope reduction remain for review.

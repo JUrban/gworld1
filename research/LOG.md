@@ -1141,3 +1141,35 @@ Wrote the exact proof and limitations; this neither solves F25 nor refutes
 Lee under its actual hypotheses. No new candidate or novelty count. The
 original6 whole/3 partial/0 established-novel tally and48hour clock remain.
 No subagents, author contact or push.
+
+
+## 2026-09-29T09:14:49.432439+00:00 — F38 finite envelopes and primitive-power classification
+
+Returned to the unresolved portfolio. M4 countable-rank and S4 higher
+solvable-class leads still have gaps; no new claim was made for them.
+Read the original F38 statement/background and viewed its actual rendering.
+No frozen input or experiment clock changed.
+
+The finite stabilizer-orbit test now has an exact interpretation: it
+decides existence of any finite-valued one-way length envelope. A finite
+Whitehead pair graph computes prefixes and gives an explicit exponential
+bound. GAP reconstructs five graphs and checks9226 directed edges,
+23188 exact substitutions and two negative witnesses. No linear-bound
+conclusion is inferred from the exponential estimate or finite prefixes.
+
+Derived an elementary classification for primitive powers in rank>=3.
+An exact Nielsen-iteration formula and a product of three two-vertex
+graphs show that a fixed family of r twists detects every non-power.
+The transported negative witness fixes one input and gives linear
+unbounded growth of the other. Independent GAP checks7274 formulas,
+58192 substitutions,18 normalizations and the graph intersection.
+Rank2 is excluded by Lee's prior positive example. General part(c)
+remains unresolved. Existing broader tools already decide this family;
+the new result is its explicit elementary classification.
+
+All four jobs passed, actual exit0, empty stderr, marker present; each
+reserved one core/6GB and all finished in under3seconds. No jobs remain.
+Source snapshots and manifests accompany both new proof packages.
+Targeted primitive/power literature searches found no explicit match;
+novelty remains unverified. Counts stay6 whole/3 partial/0 established
+novel. No subagents, external contact, push, or imported Kourovka argument.
