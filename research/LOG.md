@@ -950,3 +950,26 @@ The preceding N8 turn made progress. Revalidated the original active clock and e
 A graded-tail subalgebra makes C and each first correction U free generators, allowing the prior inner-solution theorem for arbitrary leading weights. This yields the uniform kernel bound and quadratic obstruction; equal weights are injective and adjacent weights have exact finite Nielsen residues. Full original N8 HTML/background reread and actual statement viewed; exact Shirshov/inner-solution pages viewed again.
 
 Implemented every leading type and promoted this layer within the same partial candidate after audit. Final Python group suites cover34 targets; GAP independently verifies19 witnesses,101 linear decisions(45 negative),2 polynomials,10 samples,39 nullities,11 Nielsen periods. Separate native Python/GAP weighted-Lie checks verify7 kernels and4 composite-coefficient obstructions. All8 final jobs pass with empty stderr. Two initial fixture expectations were wrong: equal-weight perturbations had solutions. Preserved the failures and verified the corrected positive witnesses in GAP; solver unchanged. Counts6 whole,3 partial,0 established novel; no agents/contact/push/Kourovka transfer and original clock retained.
+
+
+## 2026-09-29T06:14:32.951506+00:00 — uniform N8 fourth-from-last layer
+
+The preceding third-layer turn made progress. Revalidated the original active
+clock and exact state. A finite first-parameter reduction followed by a
+joint integral tail gives every fourth-from-last leading type. The explicit
+class-eleven control demonstrates failure of the arbitrary-particular
+quotient-lift rule. Final Python suites cover41 targets; GAP independently
+checks18 witnesses,148 integer decisions(72 negative),18 polynomials(6 empty),
+90 samples,56 nullities and20 Nielsen periods. All six final jobs pass with
+empty stderr. Preserved two earlier successful rank-two runs and three
+rank-three180second timeouts; unchanged v4 completes under900second allowance.
+A diagnostic profile identifies Hermite reduction, correcting the tentative
+nearest-plane attribution; the exact shortening routine passes42 comparisons.
+
+General pre-Nielsen offset and consecutive-kernel lemmas are written, with
+six independent weighted-Lie kernel/successor checks and five quadratic
+obstructions. A post-Nielsen kernel-dimension-three control preserves the
+scope boundary. These suggest further layers but no further group scope
+is promoted. Full original N8 statement/background and rendering were
+checked during the derivation. Counts6 whole,3 partial,0 established novel;
+no agents/contact/push/Kourovka transfer; original deadline retained.

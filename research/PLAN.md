@@ -2,7 +2,7 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately 05:45 UTC on 29 September: six whole-entry
+Latest checkpoint, approximately 06:13 UTC on 29 September: six whole-entry
 candidates (F28,N5,M0,H4,F41,GA3), three partial candidates
 (N8,F38(a),F34(a)), zero established novel results. All nine await
 specialist review and novelty assessment.
@@ -373,3 +373,16 @@ GA5(c) existential rank2 scope is prior; do not spend discovery budget rediscove
 ## Working focus after uniform N8 third-layer extension (2026-09-29T05:44:55.353545+00:00)
 
 All third-from-last leading types are now implemented/audited. The graded-tail construction avoids the apparent decomposable-coefficient obstacle and subsumes the earlier p<=2 restriction. Do not repeat the completed samples. Lower leading layers need control of successive affine kernels; a plausible next structural question is whether the same construction handles offsets smaller than the first leading weight. No higher-layer conclusion follows yet. Keep broader unresolved-portfolio work active; F38 common filling subgroups would be prior positive scope only. Original deadline and counts6 whole,3 partial,0 established novel retained.
+
+
+## Working focus after N8 fourth-layer checkpoint (2026-09-29T06:14:32.951506+00:00)
+
+All fourth-from-last leading types are implemented and independently replayed.
+Do not repeat their finished suites or retry the same180second rank-three cap.
+The general-offset lead has a proposed complete fifth/sixth-layer scheme:
+retain the offset-two line, solve offset3 jointly with its parameter, then
+use the nonzero offset4 obstruction. The complete integral parameter step
+must be retained. It is not implemented or counted yet. Return also to a
+concrete unresolved problem in the wider portfolio; do not let incremental
+N8 layers displace the original195-entry goal. Counts6 whole,3 partial,
+0 established novel; original clock and review caveats retained.
