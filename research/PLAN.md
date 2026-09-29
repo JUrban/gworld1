@@ -749,3 +749,17 @@ prefix, then adversarially audit the whole leading-pair/exception/universal-
 tail assembly. Only then decide whether to promote the same N8 candidate.
 Keep wider discovery active and the last-eight-hours verification reserve;
 original deadline30 September10:04:49UTC, counts8 whole/2 partial/0 novel.
+
+
+## Diagonal-separation group tests complete (2026-09-29T18:25:39.745813+00:00)
+
+Both additional actual group checks pass, including the nonzero fixed lower
+first-factor prefix and the constant two-Y BCH term. All jobs are terminal.
+Do not repeat or enlarge passed fixtures. Next freshly audit the entire
+proposed general algorithm: finite leading pairs, polynomial averaging lemma,
+normalization and full-block convolution, finite first-parameter recursion,
+and universal tail. Recheck credited theorem hypotheses and original N8
+statement/novelty independently of finite tests. The simpler recursion keeps
+the entire integer block and needs no curve arithmetic or universal quotient
+inside the first-exception block. Scope/counts remain unchanged for now.
+Original deadline and last-eight-hours verification reserve still apply.

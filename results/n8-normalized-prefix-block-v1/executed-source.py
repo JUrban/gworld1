@@ -1,0 +1,180 @@
+#!/usr/bin/env python3
+"""Actual group block with a nonzero fixed lower first-factor prefix.
+
+Forked from check_n8_nonzero_column_block.py at 029e6ae. A rational
+filtered substitution sends a to log(AE), while all retained inputs and
+outputs are actual integral group elements. Full block coordinates stay.
+"""
+from pathlib import Path
+from fractions import Fraction as Q
+from math import lcm
+import argparse,json,time,faulthandler
+import sympy as S
+from flint import fmpz_mat
+from check_n8_polynomial_group_tail import Group
+from check_n8_delayed_gauges import description
+from check_n8_parametric_tail import terms,rat
+from n8_weighted_automorphisms import add,scale
+from n8_component_hnf import hermite
+from n8_polynomial_families import families,point_at
+from parametric_integer_linear import T,integer_solve,encode_matrix,gap_value
+
+def rank(A):
+    den=lcm(1,*(int(x.q) for x in A))
+    return fmpz_mat([[int(x*den) for x in row] for row in A.tolist()]).rank()
+
+def main(args):
+    begin=time.monotonic();ew=4;p,q,t=1,10,5;d=p+q;c=d+2*t
+    exceptions=[t,t+2,t+4];blockexceptions=[s for s in exceptions if s<2*t]
+    out=args.output;out.mkdir(parents=True,exist_ok=False)
+    diagnostic=(out/'diagnostic-stacks.log').open('w');faulthandler.dump_traceback_later(90,repeat=True,file=diagnostic)
+    m=Group(1,ew,c);a,e=m.letters;D=e
+    for _ in range(6):D=m.bracket(a,D)
+    E=[e]
+    for _ in range(6):E.append(m.bracket(a,E[-1]))
+    F=add(scale(m.bracket(E[0],E[3]),2),scale(m.bracket(E[1],E[2]),3))
+    VF=add(scale(m.bracket(E[0],m.bracket(E[0],E[2])),2),
+           m.bracket(E[1],m.bracket(E[0],E[1])),-1)
+    assert m.bracket(a,VF)==m.bracket(e,F)
+    Z=D;Y={};term=Z
+    # z/(1-exp(-z)) through degree 11; q=10 and c=21.
+    for coefficient in [Q(1),Q(1,2),Q(1,12),Q(0),Q(-1,720),Q(0),Q(1,30240),Q(0),Q(-1,1209600),Q(0),Q(1,47900160),Q(0)]:
+        Y=add(Y,term,coefficient);term=m.bracket(a,term)
+    xbase=m.mul(m.group_hall(0),m.group_hall(1));X=m.log(xbase)
+    Y=m.substitute(Y,[X,e]);Z=m.substitute(D,[X,e])
+    # Hall exponents of exp(kY) have degree <=floor(c/q)=2 and vanish at0.
+    vals=[dict(m.collect(m.exp(scale(Y,k)),q)) for k in (1,2)]
+    coeffs=[]
+    for i in range(len(m.hall)):
+        v1,v2=(v.get(i,Q(0)) for v in vals)
+        coeffs.extend([2*v1-v2/2,v2/2-v1])
+    den=lcm(1,*(z.denominator for z in coeffs))
+    base=(xbase,m.exp(scale(Y,den)))
+    assert all(v.denominator==1 for _,v in m.collect(base[1],q))
+    comm0=m.comm(*base)
+    # The first two-Y BCH term occurs exactly at class21 and is fixed.
+    fixed_two_y=scale(m.bracket(m.bracket(a,D),D),Q(den*den,2))
+    assert m.log(comm0)==add(scale(m.bracket(X,Z),den),fixed_two_y)
+    assert m.layer(X,4)==e and m.layer(X,5)==scale(m.bracket(a,e),Q(1,2))
+    print('Nonzero fixed X prefix and exact two-Y BCH term checked; scale',den,flush=True)
+    def axes(s):return [(side,i) for side,w in enumerate((p,q)) for i in m.layers[w+s][0]]
+    blockaxes=[a for s in range(t,2*t) for a in axes(s)];endaxes=axes(2*t)
+    lowrows=[i for i,h in enumerate(m.hall) if d+t<=h['weight']<c];endrows=m.layers[c][0]
+    def correct(pair,ax,vec):
+        pair=list(pair)
+        for (side,i),z in zip(ax,vec):
+            assert S.sympify(z).is_Integer
+            if z:pair[side]=m.mul(pair[side],m.power(m.group_hall(i),int(z)))
+        return pair
+    def coordinates(x,rows):
+        data=dict(m.collect(x,d+t));assert all(v.denominator==1 for v in data.values())
+        return S.Matrix([rat(data.get(i,Q(0))) for i in rows])
+    def relative(x,y):return m.mul(m.inv(x),y)
+    aa,bb=add(base[0],m.one,-1),add(base[1],m.one,-1)
+    ibase=add(comm0,m.one,-1);ix,iy=m.inv(base[0]),m.inv(base[1]);columns=[]
+    for side,i in blockaxes:
+        w=m.hall[i]['weight'];v=add(m.group_hall(i),m.one,-1)
+        assert 2*d+w>c and d+2*w>c
+        conjugation=m.bracket(ibase,v)
+        if side==0:
+            assert 2*w+q>c
+            change=m.mul(iy,m.bracket(v,bb));low=w+q
+        else:
+            assert p+2*w>c
+            change=m.mul(ix,m.bracket(aa,v));low=p+w
+            assert low+2*d>c
+            change=add(change,m.bracket(change,ibase))
+        assert 2*low>c
+        columns.append(coordinates(add(m.one,add(change,conjugation)),lowrows))
+    A=S.Matrix.hstack(*columns)
+    planted=[j%4-1 for j in range(len(blockaxes))]
+    known=correct(base,blockaxes,planted);target=m.comm(*known)
+    rhs=coordinates(relative(comm0,target),lowrows)
+    assert rhs==A*S.Matrix(planted)
+    control=[2-j%5 for j in range(len(blockaxes))]
+    assert coordinates(relative(comm0,m.comm(*correct(base,blockaxes,control))),lowrows)==A*S.Matrix(control)
+    point,K=integer_solve(A,rhs);r=K.cols
+    assert r==len(blockexceptions),('Unexpected surviving block rank',r,blockexceptions)
+    # Adapt an integral basis to successive first nonzero exceptional
+    # coordinates. Every elementary change is unimodular; steps stay.
+    change=S.eye(r);J=K;firstrows=[];steps=[]
+    for col,s in enumerate(blockexceptions):
+        row=next(j for j,(side,i) in enumerate(blockaxes) if side==0 and m.hall[i]['weight']==p+s)
+        for k in range(col+1,r):
+            aa,bb=J[row,col],J[row,k]
+            if not aa and not bb:continue
+            u,v,g=S.gcdex(aa,bb);assert g>0
+            H=S.eye(r);H[col,col]=u;H[k,col]=v;H[col,k]=-bb/g;H[k,k]=aa/g
+            change=change*H;J=J*H
+        if J[row,col]<0:
+            H=S.eye(r);H[col,col]=-1;change=change*H;J=J*H
+        assert J[row,col]>0 and all(not J[row,k] for k in range(col+1,r))
+        assert all(not J[j,col] for j,(side,i) in enumerate(blockaxes) if m.hall[i]['weight']<[p,q][side]+s)
+        firstrows.append(row);steps.append(int(J[row,col]))
+    assert abs(change.det())==1 and J==K*change
+    HH,UU=hermite(fmpz_mat([[int(x) for x in row] for row in A.T.tolist()]))
+    H,U=S.Matrix(HH.tolist()),S.Matrix(UU.tolist());arank=rank(A)
+    assert K==U[arank:,:].T
+    print('full block',ew,'class',c,'Hall rank',len(m.hall),'shape',A.shape,'free rank',r,'steps',steps,flush=True)
+    def pair_at(values):return correct(base,blockaxes,point+J*S.Matrix(values))
+    def residual(values):
+        full=relative(m.comm(*pair_at(values)),target)
+        assert not any(coordinates(full,lowrows))
+        return coordinates(full,endrows)
+    origin=[0]*r;v00=residual(origin)
+    v10=residual([1]+[0]*(r-1));v20=residual([2]+[0]*(r-1))
+    q2=(v20-2*v10+v00)/2;q1=v10-v00-q2;polynomial=(v00+q1*T+q2*T*T).applyfunc(S.expand)
+    later=[]
+    for k in range(1,r):
+        values=[0]*r;values[k]=1;later.append(residual(values)-v00)
+    samples=[origin]
+    for i in range(r):
+        for val in (1,2):samples.append([val if j==i else 0 for j in range(r)])
+    for i in range(r):
+        for j in range(i+1,r):samples.append([int(k in (i,j)) for k in range(r)])
+    samples.append([-2,3,-1][:r])
+    evaluation=[]
+    for row in samples:
+        evaluation.append([1]+row+[row[i]*row[j] for i in range(r) for j in range(i,r)])
+    assert fmpz_mat(evaluation).rank()==(r+1)*(r+2)//2
+    for values in samples:
+        expected=polynomial.subs(T,values[0])
+        for k,B in enumerate(later):expected+=values[k+1]*B
+        assert residual(values)==expected
+    C,DD=a,scale(D,den);basis=m.layers[c][1]
+    def lievec(poly):
+        data=basis.coordinates(poly);return S.Matrix(len(endrows),1,lambda i,j:rat(data.get(i,Q(0))))
+    Aend=S.Matrix.hstack(*(lievec(m.bracket(m.hall[i]['lie'],DD) if side==0 else m.bracket(C,m.hall[i]['lie'])) for side,i in endaxes))
+    assert rank(Aend.row_join(q2))==rank(Aend)+1
+    finalnullity=Aend.cols-rank(Aend);assert finalnullity==int(2*t in exceptions)
+    B=S.Matrix.hstack(*later)
+    ranks=[rank(Aend),rank(Aend.row_join(B)),rank(Aend.row_join(B).row_join(q2))]
+    assert ranks[1]==ranks[0] and ranks[2]==ranks[1]+1,('Separation ranks',ranks)
+    print('Normalized-prefix separation ranks:',ranks,flush=True)
+    P=Aend.row_join(-B);fam=families(P,polynomial)
+    assert fam['families'];tv=fam['families'][0].get('t',fam['families'][0].get('residue'))
+    chosen=point_at(fam,tv);values=[int(tv)]+[int(x) for x in chosen[Aend.cols:,0]]
+    found=correct(pair_at(values),endaxes,chosen[:Aend.cols,0]);assert m.comm(*found)==target
+    hall=description((1,ew),c+ew);kept=len(m.hall)
+    assert [(h['weight'],h['pair']) for h in hall[:kept]]==[(h['weight'],h['pair']) for h in m.hall]
+    boundaries=[i for i,h in enumerate(hall) if h['weight']>c and h['pair'] and all(j<kept for j in h['pair'])]
+    data=dict(quadratic_evaluation_matrix=evaluation,normalized_y_scale=den,separation_ranks=ranks,weights=[1,ew],p=p,q=q,t=t,class_bound=c,exceptions=exceptions,block_exceptions=blockexceptions,
+        retained=kept,hall=[[h['weight'],list(h['pair']) if h['pair'] else []] for h in hall],boundaries=boundaries,
+        base=[terms(m.collect(x)) for x in base],target=terms(m.collect(target)),known_pair=[terms(m.collect(x)) for x in known],
+        found_pair=[terms(m.collect(x)) for x in found],block_axes=blockaxes,end_axes=endaxes,low_rows=lowrows,end_rows=endrows,
+        A=encode_matrix(A),rhs=encode_matrix(rhs),H=encode_matrix(H),U=encode_matrix(U),point=[int(x) for x in point],
+        kernel=encode_matrix(K),change=encode_matrix(change),J=encode_matrix(J),first_rows=firstrows,steps=steps,
+        polynomial=encode_matrix(polynomial),later_columns=encode_matrix(S.Matrix.hstack(*later)),Aend=encode_matrix(Aend),
+        final_kernel_dimension=finalnullity,samples=samples,joint_vectors=[planted,control],families=fam,
+        witness=dict(parameters=values,corrections=[int(x) for x in chosen[:Aend.cols,0]]),
+        later_column_cokernel_rank=rank(Aend.row_join(S.Matrix.hstack(*later)))-rank(Aend),seconds=time.monotonic()-begin)
+    (out/'checks.json').write_text(json.dumps(data,indent=2)+'\n')
+    (out/'fixtures.g').write_text('N8NormalizedPrefixBlock := '+gap_value(data)+';\n')
+    (out/'families.g').write_text('N8PolynomialFamilies := '+gap_value([fam])+';\n')
+    (out/'arithmetic.g').write_text('ParametricIntegerFixtures := '+gap_value([dict(fam['certificate'],name='normalized_prefix_block',sample_parameters=list(range(-20,21)))])+';\n')
+    print('PASS N8 normalized-prefix group block: class',c,'block rank',r,'terminal kernel',finalnullity,'families',len(fam['families']),flush=True)
+    faulthandler.cancel_dump_traceback_later();diagnostic.close()
+
+if __name__=='__main__':
+    ap=argparse.ArgumentParser()
+    ap.add_argument('--output',type=Path,required=True);main(ap.parse_args())

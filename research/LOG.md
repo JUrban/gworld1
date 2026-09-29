@@ -1725,3 +1725,20 @@ coefficients (seven samples of rank-six interpolation), and two witnesses.
 Separate arithmetic and family replays pass. Nine runs are terminal: seven
 pass, two fail before mathematics; the missing-source and obsolete-option
 failures are retained. Peak reservation2cores/8GB. No push or contacts.
+
+
+## Two extra diagonal-separation group fixtures (2026-09-29T18:25:39.745813+00:00)
+
+The two-E leading class18 fixture passes in Python and native GAP: Hirsch76,
+full32-by-27 block, rank-one integer kernel of step12, obstruction ranks15,16.
+The class21 fixture has actual first factor AE, a nonzero fixed lower prefix,
+and a retained fixed two-Y BCH term. Its full95-by-80 block has steps2,2,1
+at offsets5,7,9 (9 is universal), with obstruction ranks33,34. Native GAP
+reconstructs all10 possible quadratic coefficients, the full integer lattice,
+all group columns and both witnesses. Separate arithmetic/family checks pass.
+
+Nine jobs are terminal: eight pass, one parameter-row selection failure.
+The exact failed source and logs remain; corrected selection and unimodularity
+are independently checked. Maximum overlap3cores/16GB. General N8 remains
+unadopted pending a fresh assembly/dependency audit. Counts unchanged;
+see research/notes/N8-diagonal-extra-fixtures-audit.md. No clock change/push.
