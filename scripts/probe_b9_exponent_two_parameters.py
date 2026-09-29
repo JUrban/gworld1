@@ -1,0 +1,116 @@
+#!/usr/bin/env python3
+"""Test the adjacent-strand necessary condition in the epsilon(A)=2 sector."""
+from collections import Counter
+from pathlib import Path
+import hashlib
+import json
+import subprocess
+
+from b9_special_braids import artin, inverse, reduce_word, shelf, shift, strand_number
+
+
+def main():
+    root = Path(__file__).resolve().parents[1]
+    source = root / 'research/certificates/B9/height4.json'
+    binary = root / 'large-artifacts/tools/b9_strands_cbraid'
+    outdir = root / 'research/certificates/B9-exponent-two-parameters'
+    outdir.mkdir(exist_ok=True)
+    output = outdir / 'probe-v2.json'
+    fixtures = outdir / 'fixtures-v2.g'
+    assert not output.exists() and not fixtures.exists()
+    old = json.loads(source.read_text())['records']
+    assert len(old) == 52
+    rank = 7
+    actions = [artin(tuple(r['word']), rank) for r in old]
+    print('Cached 52 source Artin actions', flush=True)
+    candidates = []
+    for i, u in enumerate(old):
+        for j, v in enumerate(old):
+            r, s = u['strands'], v['strands']
+            if not ((s == 1 and r <= 2) or (s >= 2 and r == s + 1)):
+                continue
+            a, c = shelf(tuple(u['word']), ()), shelf(tuple(v['word']), ())
+            # Necessary from A in B3: u^-1 c in B_s for s>=2.
+            # Hence u and c have the same image of the (s+1)-st generator.
+            ca = artin(c, rank)
+            record = {'u_index': i, 'v_index': j, 'u_strands': r,
+                      'v_strands': s, 'a': list(a), 'c': list(c)}
+            if s >= 2 and actions[i][s] != ca[s]:
+                record.update(reason='last_generator_obstruction',
+                              u_last_image=actions[i][s], c_last_image=ca[s])
+                candidates.append(record)
+                continue
+            if actions[i] == ca:
+                # I_1(c) S(c)=c sigma1, avoiding a huge unreduced action.
+                word = reduce_word(c + (1,))
+                record['reason'] = 'u_equals_c'
+            else:
+                word = reduce_word(a + shift(c))
+                record['reason'] = 'remaining_direct_check'
+                print('Direct check for', i, j, flush=True)
+            record['word'] = list(word)
+            candidates.append(record)
+    direct = [(i, r) for i, r in enumerate(candidates) if 'word' in r]
+    print('Candidates', len(candidates), 'direct support checks', len(direct), flush=True)
+    input_text = ''.join(' '.join(map(str, [i, rank, len(r['word']), *r['word']])) + '\n'
+                         for i, r in direct)
+    run = subprocess.run([str(binary)], input=input_text, text=True,
+                         capture_output=True, check=True)
+    assert not run.stderr, run.stderr
+    answers = [json.loads(line) for line in run.stdout.splitlines()]
+    assert len(answers) == len(direct)
+    bases = [(), (2,), (1, 2), (1, 1, -2)]
+    base_images = [artin(reduce_word(w + (2, 1) + inverse(shift(w))), rank) for w in bases]
+    hits = []
+    for (i, record), answer in zip(direct, answers):
+        assert answer['index'] == i and answer['ambient_rank'] == rank
+        action = artin(tuple(record['word']), rank)
+        assert artin(tuple(answer['word']), rank) == action
+        actual = strand_number(action)
+        assert actual == answer['minimum_strands'], (i, actual, answer)
+        record.update(minimum_strands=actual, reduced_parameter=answer['word'])
+        if actual <= 3:
+            w = tuple(record['word'])
+            image = artin(reduce_word(w + (2, 1) + inverse(shift(w))), rank)
+            known = [k for k, v in enumerate(base_images) if image == v]
+            record['known_cosets'] = known
+            hits.append(i)
+    # Boundary counterexample: permutation alone does not test support.
+    u = (2, 1)
+    v = (1,)
+    boundary = reduce_word(shelf(u, ()) + shift(shelf(v, ())))
+    explicit = (2, 1, 1, -2, -3, 2, 2, -3)
+    assert artin(boundary, rank) == artin(explicit, rank)
+    assert strand_number(artin(boundary, rank)) == 4
+    pos = list(range(1, 5))
+    crossings = Counter()
+    for letter in explicit:
+        k = abs(letter) - 1
+        pair = tuple(sorted(pos[k:k + 2]))
+        crossings[pair] += 1 if letter > 0 else -1
+        pos[k], pos[k + 1] = pos[k + 1], pos[k]
+    assert pos == [1, 2, 3, 4]
+    assert crossings[2, 4] == 2 and crossings[3, 4] == -2
+    output.write_text(json.dumps({
+        'scope': 'Only underlying special terms of height<=4; adjacent-strand filter; no all-strand exhaustion',
+        'source': str(source.relative_to(root)), 'source_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
+        'binary_sha256': hashlib.sha256(binary.read_bytes()).hexdigest(),
+        'ambient_rank': rank, 'candidate_count': len(candidates), 'hit_indices': hits,
+        'counts_by_reason': dict(Counter(r['reason'] for r in candidates)),
+        'direct_counts_by_minimum_strands': dict(Counter(r['minimum_strands'] for _, r in direct)),
+        'boundary_word': list(explicit), 'boundary_crossing_totals': [[*p, n] for p, n in sorted(crossings.items())],
+        'records': candidates,
+    }, indent=2) + '\n')
+    fixtures.write_text('B9ExponentTwoRecords := ' + json.dumps([
+        [r['u_index'] + 1, r['v_index'] + 1, r['reason'], r.get('word', []),
+         r.get('minimum_strands', 0), r.get('reduced_parameter', [])]
+        for r in candidates]) + ';\n')
+    print('Reason counts', dict(Counter(r['reason'] for r in candidates)))
+    print('Direct minimum strands', dict(Counter(r['minimum_strands'] for _, r in direct)))
+    print('Hits', [(candidates[i]['u_index'], candidates[i]['v_index'], candidates[i]['known_cosets']) for i in hits])
+    print('Boundary pure braid has linking(2,4)=1 and linking(3,4)=-1')
+    print('PASS B9 exponent-two parameter probe with independent Artin actions')
+
+
+if __name__ == '__main__':
+    main()

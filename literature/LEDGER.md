@@ -893,3 +893,13 @@ classification follows from exact identity-color flags and the Artin
 relation; no source claim that all four-strand parameters are positive
 is made. Original B9 paragraph and actual rendering checked again.
 See problems/B9/positive-parameter-reduction.md; no separate novelty count.
+
+
+### B9 exponent-two support follow-up
+
+No new external source. Deductions continue to import Dehornoy's
+unique special decomposition and division-closure facts, and standard
+braid parabolic intersections, with the exact scope recorded in
+problems/B9/exponent-two-parameter-reduction.md. The B2 coset rigidity
+argument is elementary; its proposed higher-strand extension is explicitly
+refuted. No separate novelty or complete B9 answer is asserted.

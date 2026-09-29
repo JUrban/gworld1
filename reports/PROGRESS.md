@@ -769,3 +769,14 @@ See problems/B9/positive-parameter-reduction.md. A ten-state finite
 automaton check and independent GAP reconstruction of all46 old endpoints
 passed; no search bound increased. Counts unchanged:10 whole candidates,
 2 partial,0 established novel. All jobs terminal; no push.
+
+
+Checkpoint 2026-09-29T21:48:55.467438+00:00: B9 least remaining parameter exponent narrowed
+by adjacent-strand and lower-parabolic restrictions. Underlying v in B2
+yields only known parameters; higher-strand cancellation remains. The
+268-case fixed-height probe finds no new coset; GAP independently checks
+all filter and direct-support branches. A compact pair of distinct
+special five-strand braids with a four-strand quotient disproves a
+proposed rigidity extension. See problems/B9/exponent-two-parameter-reduction.md.
+The first90-second timeout and GAP keyword failure are retained. All
+jobs terminal; counts10 whole/2 partial/0 established novel unchanged.

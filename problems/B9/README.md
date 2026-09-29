@@ -23,6 +23,10 @@ remain unresolved. The earlier
 [height-bound counterexample](height-counterexample.md) and
 [bounded counts](../../research/notes/B9-bounded-enumeration.md) remain
 development records and are not additional candidates.
+The [exponent-two parameter follow-up](exponent-two-parameter-reduction.md)
+gives an adjacent-strand restriction, rules out the smallest underlying
+strand cases, and records a counterexample to a proposed general rigidity
+lemma. Its 268-case filtered probe yields no new B4 example.
 The machine-readable source evidence is in `data/problems.json`; the
 extracted text below is a search aid, not an authoritative transcription.
 
