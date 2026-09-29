@@ -360,3 +360,8 @@ Bounded searches for free-nilpotent commutator algorithms and single-commutator 
 ### F6 scope, 28 September 2026
 
 Dahmani--Francaviglia--Martino--Touikan, *The conjugacy problem for Out(F3)*, Forum Math. Sigma13 (2025)e41, doi:10.1017/fms.2025.3. Archived primary arXiv2311.04010v1 (2023). Read Theorem1.1, Theorem3.9 and its rank-two proof/discussion, and Remark3.10; viewed printed pages2 and13. Published theorem numbering shifts the rank-two statement to3.10. This solves outer conjugacy in rank3, not the Aut(F_n) problem F6; Aut(F2) is credited prior. Long rank-three proof not independently audited. No new discovery counted.
+
+
+## 2026-09-29T00:18:10.005364+00:00 — odd-adjoint N8 family scope
+
+Re-read frozen N8 paragraph and viewed its rendered statement. Bounded queries used "free nilpotent" "commutator problem" algorithm 2026, "single commutator" "free nilpotent" class three, and "nilpotent" "commutator recognition". No matching family theorem located; novelty remains provisional. The indexed publisher abstract752-20-34 by Kenneth W. Weston, *Commutator equations over free nilpotent class 2 groups*, Notices AMS January1978, p.A-75, explicitly concerns F2 in the class-two variety; it does not settle the new scope. Its primary URL is https://www.ams.org/journals/notices/197801/197801FullIssue.pdf . Browser full-PDF access returned403; the local downloader reached its20MiB cap and saved no PDF. Only the indexed abstract was read, not a proof. Previously archived structural primary dependencies remain unchanged.

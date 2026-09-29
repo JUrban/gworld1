@@ -6,7 +6,7 @@ Source begins at line 42; byte range [1669, 2038). The raw fragment is stored in
 
 Heading star: False. Starred subparts: a. Hall of Fame entries: 1. Linked background sections indexed: 1.
 
-Current openness and exact scope require review. No solving has started. The machine-readable source evidence is in `data/problems.json`; the extracted text below is a search aid, not an authoritative transcription.
+Current research: one partial candidate, with all targets through class ten and additional families in unbounded classes. See [class-ten proof](class10-proof.md), [odd-adjoint family](odd-adjoint-proof.md), their audits and the claims ledger. General arbitrary-class targets, independent specialist review and novelty remain unresolved. The following is the original preparation source metadata. The machine-readable source evidence is in `data/problems.json`; the extracted text below is a search aid, not an authoritative transcription.
 
 ```text
 (N8) (A.Miasnikov) * (a) Is it true that equations of the form [x,y] = g (g \in

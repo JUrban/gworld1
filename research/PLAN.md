@@ -275,3 +275,16 @@ linear/polynomial certificates. The first GAP timeout is preserved;
 recursive Hall evaluation fixes its representation cost. Do not rerun
 the expanded-word method or increase formal samples merely for volume.
 Tally remains4 whole,4 partial,0 established novel, original deadline.
+
+
+## Working focus after the odd-adjoint candidate checkpoint
+
+The h=3 group implementation and certificate replay are complete. The
+unbounded family proof and tensor-recognition audit are now recorded in
+problems/N8/odd-adjoint-proof.md and odd-adjoint-audit.md. Higher classes
+have formal identity checks, not group benchmarks; rank3 has scope
+recognition, not group decisions. Do not enlarge those suites merely
+for volume. Return to unresolved problems and specific candidate proof
+concerns; a full-class11 result would require several additional kernel
+classifications beyond this family. Counts4 whole,4 partial,0 established
+novel; original deadline retained.
