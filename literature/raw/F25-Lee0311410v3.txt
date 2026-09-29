@@ -1,0 +1,2162 @@
+                                                                         COUNTING WORDS OF MINIMUM
+                                                                     LENGTH IN AN AUTOMORPHIC ORBIT
+arXiv:math/0311410v3 [math.GR] 7 Mar 2006
+
+
+
+
+                                                                                             Donghi Lee
+
+                                                 Abstract. Let u be a cyclic word in a free group Fn of finite rank n that has the minimum length
+                                                 over all cyclic words in its automorphic orbit, and let N (u) be the cardinality of the set {v : |v| = |u|
+                                                 and v = φ(u) for some φ ∈ AutFn }. In this paper, we prove that N (u) is bounded by a polynomial
+                                                 function with respect to |u| under the hypothesis that if two letters x, y with x 6= y ±1 occur in u, then
+                                                 the total number of occurrences of x±1 in u is not equal to the total number of occurrences of y ±1 in u.
+                                                 A complete proof without the hypothesis would yield the polynomial time complexity of Whitehead’s
+                                                 algorithm for Fn .
+
+
+
+
+                                                                                          1. Introduction
+
+
+                                              Let Fn be the free group of finite rank n on the set {x1 , x2 , . . . , xn }. We denote by Σ the set
+
+                                            of letters of Fn , that is, Σ = {x1 , x2 , . . . , xn }±1 . As in [1, 5], we define a cyclic word to be a
+
+                                            cyclically ordered set of letters with no pair of inverses adjacent. The length |w| of a cyclic word w
+
+                                            is the number of elements in the cyclically ordered set. For a cyclic word w in Fn , we denote the
+
+                                            automorphic orbit {ψ(w) : ψ ∈ AutFn } by OrbAutFn (w).
+
+                                              The purpose of this paper is to provide a partial solution of the following problem raised by
+
+                                            Myasnikov–Shpilrain [6]:
+
+                                            Problem. Let u be a cyclic word in Fn which has the minimum length over all cyclic words in its
+
+                                            automorphic orbit OrbAutFn (u), and let N (u) be the cardinality of the set {v ∈ OrbAutFn (u) : |v| =
+
+                                            |u|}. Then is N (u) bounded by a polynomial function with respect to |u|?
+
+                                              This problem was settled in the affirmative for F2 by Myasnikov–Shpilrain [6], and Khan [3]
+
+                                            improved their result by showing that N (u) has the sharp bound of 8|u| − 40 for F2 . The problem
+
+                                            was motivated by the complexity of Whitehead’s algorithm which decides whether, for given two
+
+                                              1991 Mathematics Subject Classification. Primary 20F05, 20F06, 20F32.
+
+                                                                                                                                          Typeset by AMS-TEX
+                                                                                                     1
+2                                            DONGHI LEE
+
+
+elements in Fn , there is an automorphism of Fn that takes one element to the other. Indeed,
+
+a complete positive solution to the problem would yield that Whitehead’s algorithm terminates
+
+in polynomial time with respect to the maximum length of the two words in question (see [6,
+
+Proposition 3.1]). Recently, Kapovich–Schupp–Shpilrain [2] proved that Whitehead’s algorithm
+
+has strongly linear time generic-case complexity. In the present paper, we prove for Fn with n ≥ 2
+
+that N (u) is bounded by a polynomial function with respect to |u| under the following
+
+
+Hypothesis 1.1. (i) A cyclic word u has the minimum length over all cyclic words in its auto-
+
+morphic orbit Orb AutFn (u).
+
+     (ii) If two letters xi (or x−1              −1
+                                 i ) and xj (or xj ) with i < j occur in u, then the total number of
+
+
+x±1
+ i  occurring in u is strictly less than the total number of x±1
+                                                              j  occurring in u.
+
+
+     Before we state our theorems, we would like to establish several notation and definitions. As in
+
+[1, 5], for A, B ⊆ Σ, we write A+B for A∪B if A∩B = ∅, and A−B for A∩B c if B ⊆ A, where B c
+
+is the complement of B in Σ. We define a Whitehead automorphism σ of Fn as an automorphism
+
+of one of the following two types (cf. [4, 7]):
+
+    (W1) σ permutes elements in Σ.
+
+    (W2) σ is defined by a set A ⊂ Σ and a multiplier a ∈ Σ with both a, a−1 ∈
+                                                                             / A in such a way that
+
+          if x ∈ Σ then (a) σ(x) = xa provided x ∈ A and x−1 ∈
+                                                             / A; (b) σ(x) = a−1 xa provided both
+
+          x, x−1 ∈ A; (c) σ(x) = x provided both x, x−1 ∈
+                                                        / A.
+
+If σ is of the second type, then we write σ = (A, a). By (Ā, a−1 ), we mean the Whitehead
+
+automorphism (Σ − A − a±1 , a−1 ). It is then easy to see that (A, a)(w) = (Ā, a−1 )(w) for any cyclic
+
+word w in Fn .
+
+     For a Whitehead automorphism σ of the second type, we define the degree of σ as follows:
+
+
+Definition 1.2. Let σ = (A, a) be a Whitehead automorphism of Fn of the second type. Put
+
+A′ = {i : either xi ∈ A or x−1
+                            i  ∈ A, but not both}. Then the degree of σ is defined to be max A′ . If
+               COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT                            3
+
+
+A′ = ∅, then the degree of σ is defined to be zero.
+
+
+  Let w be a fixed cyclic word in Fn that satisfies Hypothesis 1.1 (i). For two letters x, y ∈ Σ, we
+
+say that x depends on y with respect to w if, for every Whitehead automorphism (A, a) of Fn such
+
+that
+
+             / {x±1 , y ±1 }, {y ±1 } ∩ A 6= ∅, and ∃v ∈ OrbAutFn (w) : |(A, a)(v)| = |v| = |w|,
+            a∈
+
+
+we have {x±1 } ⊆ A. Then we have the following
+
+
+Claim. If x depends on y with respect to w, then y depends on x with respect to w.
+
+
+Proof. Suppose on the contrary that y does not depend on x. Then there exists a Whitehead
+
+                                      / {x±1 , y ±1 }, x±1 ∩ A 6= ∅, |(A, a)(v)| = |v| = |w| for some
+automorphism (A, a) of Fn such that a ∈
+
+v ∈ OrbAutFn (w), but such that y ±1 * A. Then |(Ā, a−1 )(v)| = |v| = |w| and y ±1 ∩ Ā 6= ∅. Since
+
+x depends on y, x±1 ⊆ Ā. This gives x±1 ∩ A = ∅, which is a contradiction.                        
+
+
+  We then construct the dependence graph Γw of w as follows: Take the vertex set as Σ, and
+
+connect two distinct vertices x, y ∈ Σ by a non-oriented edge if either y = x−1 or y depends on x
+
+with respect to w. Let Ci be the connected component of Γw containing xi . Here, we make the
+
+following
+
+
+Remark. (i) Γw = Γv for any v ∈ OrbAutFn (w) with |v| = |w|.
+
+  (ii) If xi depends on xj , then Ci = Cj .
+
+  (iii) If x±1
+            j ∈ Ci with i 6= j, then every Whitehead automorphism (A, a) such that either xi ∈ A
+
+
+or x−1
+    i  ∈ A but not both and such that |(A, a)(v)| = |v| = |w| for some v ∈ OrbAutFn (w) must have
+
+the multiplier a only in Ci , for otherwise x±1
+                                             j  ⊆ A but then x±1
+                                                              j  * Ā, which is a contradiction
+
+because x±1
+         i ∩ Ā 6= ∅.
+
+
+  Clearly there exists a unique factorization
+
+
+                                 w = v1 v2 · · · vk (without cancellation),
+4                                                DONGHI LEE
+
+
+where each vi is a non-empty (non-cyclic) word consisting of letters in Cji with Cji 6= Cji+1 (i mod
+
+k). The subword vi is called a Cji -syllable of w. By the Ci -syllable length of w denoted by |w|Ci ,
+
+we mean the total number of Ci -syllables of w.
+
+    For Theorem 1.4, we suppose further that a cyclic word u satisfies the following
+
+
+Hypothesis 1.3. (i) The Cn -syllable length |u|Cn of u is minimum over all cyclic words in the set
+
+{v ∈ OrbAutFn (u) : |v| = |u|}.
+
+    (ii) If the index j (1 ≤ j ≤ n − 1) is such that Cj 6= Ck for all k > j, then the Cj -syllable length
+
+|u|Cj of u is minimum over all cyclic words in the set {v ∈ OrbAutFn (u) : |v| = |u| and |v|Ck =
+
+|u|Ck for all k > j}.
+
+
+    For an easy example, consider the cyclic words u = x21 x32 x43 x54 and v = x1 x32 x1 x43 x54 in F4 . Clearly
+
+v is an automorphic image of u with |v| = |u|, so Γu = Γv . The dependence graph Γu = Γv has four
+
+distinct connected components, each Ci of which contains only x±1
+                                                               i . Then u satisfies Hypotheses
+
+
+1.1 and 1.3, whereas v satisfies Hypotheses 1.1 and 1.3 (i) but not Hypothesis 1.3 (ii), because the
+
+C1 -syllable length of v can be decreased without changing |v| and |v|Ci for all i > 1.
+
+    For another example, let u = x21 x32 x23 x4 x−1       3          2 2 3       −1       3
+                                                 3 x4 x3 x4 and v = x1 x3 x2 x4 x3 x4 x3 x4 be cyclic words
+
+
+in F4 . Then v is an automorphic image of u with |v| = |u|, so Γu = Γv . In the dependence
+
+graph Γu = Γv , there are three distinct connected components C1 , C2 , C3 = C4 . While u satisfies
+
+Hypotheses 1.1 and 1.3, v does not satisfy Hypothesis 1.3 (i), because the C4 -syllable length of v
+
+can be decreased without changing |v|.
+
+    Now we are ready to state our theorems, whose proofs will appear in Sections 3–4.
+
+
+Theorem 1.4. Let u be a cyclic word in Fn that satisfies Hypotheses 1.1 and 1.3. Let σi , i =
+
+1, . . . , ℓ, be Whitehead automorphisms of the second type such that |σi · · · σ1 (u)| = |u| for all i.
+
+Then there exist Whitehead automorphisms τ1 , τ2 , . . . , τs of the second type such that
+
+
+                                       σℓ · · · σ2 σ1 (u) = τs · · · τ2 τ1 (u),
+               COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT                                         5
+
+
+where max deg σi ≥ deg τs ≥ deg τs−1 ≥ · · · ≥ deg τ1 , and |τj · · · τ1 (u)| = |u| for all j = 1, . . . , s.
+       1≤i≤ℓ
+
+
+Theorem 1.5. Let u be a cyclic word in Fn that satisfies Hypothesis 1.1, and let N (u) be the
+
+cardinality of the set {v ∈ OrbAutFn (u) : |v| = |u|}. Then N (u) is bounded by a polynomial function
+
+of degree n(5n − 7)/2 with respect to |u|.
+
+
+   The main idea of the present paper is to prove that the action of an automorphism on an element
+
+which satisfies Hypotheses 1.1 and 1.3 can be factored into a composition of automorphisms of
+
+ascending degrees, which will be achieved through Lemmas 3.1, 3.2 and Theorem 1.4. The proof
+
+of Theorem 1.4 will proceed by double induction on ℓ and r, where ℓ is the length of the chain
+
+σℓ · · · σ2 σ1 and r = max deg σi , with Lemma 3.1 (the case for ℓ = 2 and any r) and Lemma 3.2
+                      1≤i≤ℓ
+
+(the case for r = 1 and any ℓ) as the base steps of the induction.
+
+   Let Nk (u) be the cardinality of the set {φ(u) : φ can be represented as a composition τs · · · τ1
+
+(s ∈ N) of Whitehead automorphisms τi of Fn of degree k such that |τi · · · τ1 (u)| = |u| for all
+
+i = 1, . . . , s}. Then bounding N (u) reduces to bounding each Nk (u), as will be shown in the proof
+
+of Theorem 1.5 using the result of Theorem 1.4. Lemma 4.1 will be devoted to bounding N0 (u),
+
+and Lemma 4.2 will show that Nk (u) for k ≥ 1 is at most N0 (Vu ), where Vu is a certain sequence
+
+of cyclic words constructed from u, thus bounding Nk (u) for k ≥ 1. Furthermore in Theorem 1.5
+
+we will specifically give a bound for the degree of a polynomial bounding N (u).
+
+
+                                            2. Preliminaries
+
+
+   We begin this section by setting some notation. Let w be a fixed cyclic word in Fn . As in [1],
+
+for x, y ∈ Σ, x. y denotes the total number of occurrences of the subwords xy −1 and yx−1 in w.
+
+For A, B ⊆ Σ, A. B means the sum of a. b for all a ∈ A, b ∈ B. Then obviously a.Σ is equal to the
+
+total number of a±1 occurring in w. For two automorphisms φ and ψ of Fn , by writing φ ≡ ψ we
+
+mean the equality of φ and ψ over all cyclic words in Fn , that is, φ(v) = ψ(v) for every cyclic word
+
+v in Fn .
+6                                              DONGHI LEE
+
+
+    We now establish two technical lemmas which will play a fundamental role in the proofs in
+
+Sections 3 and 4.
+
+Lemma 2.1. Let u be a cyclic word in Fn that satisfies Hypothesis 1.1 (i), and let σ = (A, a−1 )
+
+and τ = (B, b) be Whitehead automorphisms of Fn such that |σ(u)| = |τ (u)| = |u|. Put A = C + E
+
+and B = D + E, where E = A ∩ B. Then
+
+(i) if a−1 = b, then |(E, a−1 )(u)| = |u|;
+
+(ii) if a−1 6= b, a±1 ∈         / A, then |(C, a−1 )(u)| = |(D, b)(u)| = |u|.
+                      / B and b ∈
+
+Proof. It follows from [1, p.255] that
+
+                                 |σ(u)| − |u| = (A + a−1 ).(A + a−1 )′ − a.Σ;
+                             
+
+                                 |τ (u)| − |u| = (B + b).(B + b)′ − b.Σ,
+
+where (A + a−1 )′ = Σ − (A + a−1 ) and (B + b)′ = Σ − (B + b). Since |σ(u)| = |τ (u)| = |u|, we have
+
+(A + a−1 ).(A + a−1 )′ − a.Σ = (B + b).(B + b)′ − b.Σ = 0, so that
+
+
+                       (A + a−1 ).(A + a−1 )′ + (B + b).(B + b)′ − a.Σ − b.Σ = 0.
+
+
+    Following the notation in [1, p.257], we write A1 = A + a−1 , A2 = (A + a−1 )′ , B1 = B + b,
+
+B2 = (B + b)′ and Pij = Ai ∩ Bj . Then as in [1, p.257], we have
+
+                                            ′          ′
+                                      P11 .P11 + P22 .P22 − a.Σ − b.Σ = 0;
+                                  
+(2.1)                                       ′          ′
+                                      P12 .P12 + P21 .P21 − a.Σ − b.Σ = 0,
+
+where Pij′ = Σ − Pij .
+
+    For (i), assume that a−1 = b. Then we have a−1 ∈ P11 and a ∈ P22 . It follows from the first
+
+equality of (2.1) that
+
+              ′          ′                       ′                  ′
+        P11 .P11 + P22 .P22 − a.Σ − a.Σ = (P11 .P11 − a.Σ) + (P22 .P22 − a.Σ)
+
+                                         = |(P11 − a−1 , a−1 )(u)| − |u| + |(P22 − a, a)(u)| − |u| = 0.
+
+Since both |(P11 − a−1 , a−1 )(u)| − |u| ≥ 0 and |(P22 − a, a)(u)| − |u| ≥ 0 by Hypothesis 1.1 (i), we
+
+must have |(P11 − a−1 , a−1 )(u)| = |u|, that is, |(E, a−1 )(u)| = |u|, as required.
+             COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT                                   7
+
+
+  For (ii), assume that a−1 6= b, a±1 ∈         / A. Then we have a−1 ∈ P12 , a ∈
+                                      / B and b ∈                               / P12 , b ∈ P21
+
+and b−1 ∈
+        / P21 . Hence the second equality of (2.1) gives us that
+
+
+           ′          ′                       ′                  ′
+     P12 .P12 + P21 .P21 − a.Σ − b.Σ = (P12 .P12 − a.Σ) + (P21 .P21 − b.Σ)
+
+                                      = |(P12 − a−1 , a−1 )(u)| − |u| + |(P21 − b, b)(u)| − |u| = 0.
+
+As above, it follows from Hypothesis 1.1 (i) that |(P12 −a−1 , a−1 )(u)| = |u| and |(P21 −b, b)(u)| = |u|.
+
+Since P12 − a−1 = C and P21 − b = D, we have |(C, a−1 )(u)| = |(D, b)(u)| = |u|, as desired.            
+
+Lemma 2.2. Let u be a cyclic word in Fn that satisfies Hypothesis 1.1, and let σ = (A, a) be
+
+a Whitehead automorphism of Fn such that |σ(u)| = |u|. Then a.Σ > b.Σ for every b ∈ A with
+
+b−1 ∈
+    / A.
+
+Proof. In view of the assumption |σ(u)| = |u| and [1, p.255], we have 0 = |σ(u)| − |u| = (A +
+
+a).(A + a)′ − a.Σ, where (A + a)′ = Σ − (A + a), so that (A + a).(A + a)′ = a.Σ. Now let b ∈ A with
+
+b−1 ∈
+    / A. Then for the Whitehead automorphism τ = (A + a − b, b), we have 0 ≤ |τ (u)| − |u| =
+
+(A + a).(A + a)′ − b.Σ. Hence (A + a).(A + a)′ ≥ b.Σ; thus a.Σ ≥ b.Σ. Here, the equality a.Σ = b.Σ
+
+cannot occur by Hypothesis 1.1 (ii); therefore a.Σ > b.Σ.                                               
+
+Remark. By Lemma 2.2, if u is a cyclic word in Fn that satisfies Hypothesis 1.1 and σ = (A, a)
+
+is a Whitehead automorphism of Fn such that |σ(u)| = |u|, then deg σ is at most n − 1.
+
+
+                                     3. Proof of Theorem 1.4
+
+
+  The aim of this section is to prove Theorem 1.4. The proof of Theorem 1.4 will proceed by
+
+double induction on ℓ and r, where ℓ is the length of the chain σℓ · · · σ2 σ1 and r = max deg σi .
+                                                                                            1≤i≤ℓ
+
+Lemma 3.1 deals with the case for ℓ = 2 and any r as one of the base steps of the induction. As
+
+the other base step, Lemma 3.2 deals with the case for r = 1 and any ℓ.
+
+Lemma 3.1. Let u be a cyclic word in Fn that satisfies Hypothesis 1.1, and let σ1 = (A, a) and
+
+σ2 = (B, b) be Whitehead automorphisms of Fn such that |σ2 σ1 (u)| = |σ1 (u)| = |u|. Suppose that
+8                                                  DONGHI LEE
+
+
+deg σ1 > deg σ2 . Then there exist Whitehead automorphisms τ1 , . . . , τs of Fn of the second type
+
+such that
+
+                                                σ2 σ1 ≡ τ s · · · τ 2 τ 1 ,
+
+
+where deg σ1 = deg τs ≥ · · · ≥ deg τ1 and |τi · · · τ1 (u)| = |u| for all i = 1, . . . , s.
+
+
+Proof. It suffices to prove that there exist Whitehead automorphisms γ1 , . . . , γt of Fn such that
+
+
+                                               σ2 σ1 ≡ γt · · · γ2 γ1 ,
+
+
+where the index t is at most 3, |γi · · · γ1 (u)| = |u| for all i = 1, . . . , t, and either deg σ1 = deg γt >
+
+deg γj for all j = 1, . . . , t − 1 or otherwise deg σ1 = deg γi for all i = 1, . . . , t. Put u′ = σ1 (u); then
+
+|σ1−1 (u′ )| = |σ2 (u′ )| = |u|, that is,
+
+
+(3.1)                                  |(A, a−1 )(u′ )| = |(B, b)(u′ )| = |u|.
+
+
+Also put c = xdeg σ1 . Upon replacing (A, a), (B, b) by (Ā, a−1 ), (B̄, b−1 ), respectively, if necessary,
+
+where Ā = Σ − A − a±1 and B̄ = Σ − B − b±1 , we may assume that c ∈ A and c±1 ∈
+                                                                               / B (clearly
+
+c−1 ∈
+    / A). By Lemma 2.2, we have a.Σ > c.Σ; hence either a±1 ∈
+                                                            / B or a±1 ∈ B, for otherwise
+
+deg σ2 > deg σ1 , contrary to the hypothesis deg σ1 > deg σ2 .
+
+    We first treat four cases for a±1 ∈
+                                      / B and then four cases for a±1 ∈ B according to whether b or
+
+b−1 belongs to A. For convenience, we write A = C + E and B = D + E, where E = A ∩ B.
+
+
+Case 1. a±1 ∈
+            / B and b±1 ∈
+                        / A.
+
+
+    We consider two cases corresponding to whether or not E is the empty set.
+
+
+Case 1.1. E = ∅.
+
+
+Case 1.1.1. a = b.
+
+
+    It follows from [5, relation R2] that σ2 σ1 ≡ (A + B, a).
+            COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT                                   9
+
+
+Case 1.1.2. a 6= b.
+
+  By [5, relation R3], we have σ2 σ1 ≡ (A, a)(B, b).
+
+Case 1.2. E 6= ∅.
+
+Case 1.2.1. a = b.
+
+  In view of (3.1) and Lemma 2.1 (ii), we have |(C, a−1 )(u′ )| = |u|. Since (C, a−1 )(u′ ) = (E, a)(u),
+
+we have |(E, a)(u)| = |u|; hence
+
+
+                         σ2 σ1 ≡ (B, a)[(C, a)(E, a)] ≡ [(B, a)(C, a)](E, a)
+
+                               ≡ (C + B, a)(E, a)       by Case 1.1.1,
+
+where deg σ1 = deg(C + B, a) > deg(E, a).
+
+Case 1.2.2. a−1 = b.
+
+  Lemma 2.1 (i) together with (3.1) gives us that |(E, a−1 )(u′ )| = |u|, so that |(C, a)(u)| = |u|;
+
+thus
+
+
+              σ2 σ1 ≡ (B, a−1 )[(E, a)(C, a)] ≡ [(B, a−1 )(E, a)](C, a) ≡ (D, a−1 )(C, a)
+
+                    ≡ (C, a)(D, a−1 ) by Case 1.1.2,
+
+where deg σ1 = deg(C, a) > deg(D, a−1 ).
+
+Case 1.2.3. a±1 6= b.
+
+  As in Case 1.2.1, we have |(E, a)(u)| = |u|; hence
+
+
+                          σ2 σ1 ≡ (B, b)[(C, a)(E, a)] ≡ [(B, b)(C, a)](E, a)
+
+                               ≡ [(C, a)(B, b)](E, a)     by Case 1.1.2,
+
+where deg σ1 = deg(C, a) > deg(B, b), deg(E, a).
+
+Case 2. a±1 ∈      / A and b−1 ∈ A.
+            / B, b ∈
+
+  We consider this case dividing into two cases according to whether or not E is the empty set.
+10                                             DONGHI LEE
+
+
+Case 2.1. E = ∅.
+
+     It follows from [5, relation R4] that σ2 σ1 ≡ (A + B, a)(B, b), where deg σ1 = deg(A + B, a) >
+
+deg(B, b).
+
+Case 2.2. E 6= ∅.
+
+     As in Case 1.2.1, we have |(E, a)(u)| = |u|; then
+
+
+                            σ2 σ1 ≡ (B, b)[(C, a)(E, a)] ≡ [(B, b)(C, a)](E, a)
+
+                                  ≡ [(C + B, a)(B, b)](E, a)     by Case 2.1,
+
+where deg σ1 = deg(C + B, a) > deg(B, b), deg(E, a).
+
+Case 3. a±1 ∈
+            / B, b ∈ A and b−1 ∈
+                               / A.
+
+     Since σ2 σ1 ≡ (B, b)(Ā, a−1 ), we can apply Case 2.2 to get
+
+
+                    σ2 σ1 ≡ (B, b)(Ā, a−1 ) ≡ ((Ā \ B) + B, a−1 )(B, b)(Ā ∩ B, a−1 ).
+
+
+Here, since (Ā \ B) + B = Σ − C − a±1 and Ā ∩ B = D, we have
+
+
+                   σ2 σ1 ≡ (Σ − C − a±1 , a−1 )(B, b)(D, a−1 ) ≡ (C, a)(B, b)(D, a−1 ),
+
+
+where deg σ1 = deg(C, a) > deg(B, b), deg(D, a−1 ).
+
+Case 4. a±1 ∈
+            / B and b±1 ∈ A.
+
+     By Case 1.2.3 applied to σ2 σ1 ≡ (B, b)(Ā, a−1 ), we have
+
+
+                        σ2 σ1 ≡ (B, b)(Ā, a−1 ) ≡ (Ā \ B, a−1 )(B, b)(Ā ∩ B, a−1 ).
+
+
+From the observation that Ā \ B = Σ − (C + B) − a±1 and Ā ∩ B = D, it follows that
+
+
+             σ2 σ1 ≡ (Σ − (C + B) − a±1 , a−1 )(B, b)(D, a−1 ) ≡ (C + B, a)(B, b)(D, a−1 ),
+
+
+where deg σ1 = deg(C + B, a) > deg(B, b), deg(D, a−1 ).
+              COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT                                          11
+
+
+Case 5. a±1 ∈ B and b±1 ∈
+                        / A.
+
+   Since σ2 σ1 ≡ (B̄, b−1 )(A, a), we have |(A, a−1 )(u′ )| = |(B̄, b−1 )(u′ )| = |u|. This implies by
+
+Lemma 2.1 (ii) that |(B̄ \ A, b−1 )(u′ )| = |u|, so that
+
+
+                        σ2 σ1 ≡ (B̄, b−1 )(A, a) ≡ [(A ∩ B̄, b−1 )(B̄ \ A, b−1 )](A, a).
+
+
+Here, by Case 1.1.2, we have (B̄ \ A, b−1 )(A, a) ≡ (A, a)(B̄ \ A, b−1 ); thus
+
+
+                                   σ2 σ1 ≡ (A ∩ B̄, b−1 )(A, a)(B̄ \ A, b−1 ).
+
+
+Since A ∩ B̄ = C and B̄ \ A = Σ − (C + B) − b±1 , we finally have
+
+
+                                      σ2 σ1 ≡ (C, b−1 )(A, a)(C + B, b),
+
+
+where deg σ1 = deg(C, b−1 ) = deg(A, a) = deg(C + B, b).
+
+Case 6. a±1 ∈ B, b ∈
+                   / A and b−1 ∈ A.
+
+Case 6.1. c = b−1 .
+
+   By Case 3 applied to σ2 σ1 ≡ (B̄, b−1 )(A, a), we get
+
+
+                         σ2 σ1 ≡ (B̄, b−1 )(A, a) ≡ (A \ B̄, a)(B̄, b−1 )(B̄ \ A, a−1 ).
+
+
+Here, we see that A \ B̄ = E + b−1 and B̄ \ A = Σ − (C + B + b), so that
+
+
+                              σ2 σ1 ≡ (E + b−1 , a)(B, b)(C + B + b − a±1 , a),
+
+
+where deg σ1 = deg(E + b−1 , a) > deg(B, b), deg(C + B + b − a±1 , a).
+
+Case 6.2. c 6= b−1 .
+
+   In this case, c.Σ > b.Σ, since deg σ1 is determined by c. Apply Lemma 2.1 (ii) to the equalities
+
+|(Ā, a−1 )−1 (u′ )| = |(B̄, b−1 )(u′ )| = |u|, that is, |(Ā, a)(u′ )| = |(B̄, b−1 )(u′ )| = |u|, to obtain |(B̄ \
+
+Ā, b−1 )(u′ )| = |u|. But since c ∈ B̄ \ Ā and c−1 ∈
+                                                     / B̄ \ Ā, we have b.Σ > c.Σ by Lemma 2.2, which
+
+contradicts c.Σ > b.Σ. Hence this case cannot occur.
+12                                                 DONGHI LEE
+
+
+Case 7. a±1 ∈ B, b ∈ A and b−1 ∈
+                               / A.
+
+Case 7.1. c = b.
+
+     Applying Case 2.2 to σ2 σ1 ≡ (B̄, b−1 )(A, a), we get
+
+                        σ2 σ1 ≡ (B̄, b−1 )(A, a) ≡ ((A \ B̄) + B̄, a)(B̄, b−1 )(A ∩ B̄, a).
+
+From the observation that (A \ B̄) + B̄ = Σ − (D + b−1 ) and A ∩ B̄ = C − b, it follows that
+
+                                 σ2 σ1 ≡ (D + b−1 − a±1 , a−1 )(B, b)(C − b, a),
+
+where deg σ1 = deg(D + b−1 − a±1 , a−1 ) > deg(B, b), deg(C − b, a).
+
+Case 7.2. c 6= b.
+
+     As in Case 6.2, c.Σ > b.Σ. By Lemma 2.1 (ii) applied to the equalities |(A, a−1 )(u′ )| =
+
+|(B̄, b−1 )(u′ )| = |u|, we get |(B̄ \ A, b−1 )(u′ )| = |u|. But since c−1 ∈ B̄ \ A and c ∈
+                                                                                          / B̄ \ A, we
+
+must have b.Σ > c.Σ by Lemma 2.2, contrary to the fact c.Σ > b.Σ. Hence this case cannot
+
+happen.
+
+Case 8. a±1 ∈ B and b±1 ∈ A.
+
+     Apply Lemma 2.1 (ii) to the equalities |(Ā, a−1 )−1 (u′ )| = |(B̄, b−1 )(u′ )| = |u|, that is, |(Ā, a)(u′ )| =
+
+|(B̄, b−1 )(u′ )| = |u|, to obtain |(B̄ \ Ā, b−1 )(u′ )| = |u|; then
+
+                       σ2 σ1 ≡ (B̄, b−1 )(Ā, a−1 ) ≡ [(Ā ∩ B̄, b−1 )(B̄ \ Ā, b−1 )](Ā, a−1 ).
+
+Since (B̄ \ Ā, b−1 )(Ā, a−1 ) = (Ā, a−1 )(B̄ \ Ā, b−1 ) by Case 1.1.2, we have
+
+                                   σ2 σ1 ≡ (Ā ∩ B̄, b−1 )(Ā, a−1 )(B̄ \ Ā, b−1 ).
+
+It follows from Ā ∩ B̄ = Σ − (C + B) and B̄ \ Ā = C − b±1 that
+
+                                 σ2 σ1 ≡ (C + B − b±1 , b)(A, a)(C − b±1 , b−1 ),
+
+where deg σ1 = deg(C + B − b±1 , b) = deg(A, a) = deg(C − b±1 , b−1 ).
+
+     The proof of the lemma is now completed.                                                                    
+               COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT                                           13
+
+
+Remark. The proof of Lemma 3.1 can be applied without further change if we replace consideration
+
+of a single cyclic word u, the length |u| of u, and the total number of occurrences of x±1
+                                                                                        i  in u with
+                                                                                        m
+                                                                                        P
+consideration of a finite sequence (u1 , . . . , um ) of cyclic words, the sum                |ui | of the lengths of
+                                                                                        i=1
+
+u1 , . . . , um , and the total number of occurrences of x±1
+                                                          i  in (u1 , . . . , um ), respectively.
+
+
+Lemma 3.2. Let u be a cyclic word in Fn that satisfies Hypotheses 1.1 and 1.3. Let σi , i = 1, . . . , ℓ,
+
+be Whitehead automorphisms of the second type such that |σi · · · σ1 (u)| = |u| for all i. Suppose that
+
+max deg σi = 1. Then there exist Whitehead automorphisms τ1 , τ2 , . . . , τs of the second type such
+1≤i≤ℓ
+
+that
+
+                                        σℓ · · · σ2 σ1 (u) = τs · · · τ2 τ1 (u),
+
+
+where 1 ≥ deg τs ≥ deg τs−1 ≥ · · · ≥ deg τ1 , and |τj · · · τ1 (u)| = |u| for all j = 1, . . . , s.
+
+
+Proof. We proceed by induction on ℓ. The case for ℓ = 2 is already proved in Lemma 3.1. Now
+
+let σi , i = 1, . . . , ℓ + 1, be Whitehead automorphisms of Fn such that |σi · · · σ1 (u)| = |u| for all
+
+i and such that         max deg σi = 1. Then by the induction hypothesis, there exist Whitehead
+                      1≤i≤ℓ+1
+
+automorphisms τ1 , τ2 , . . . , τs of Fn such that
+
+
+(3.2)                              σℓ+1 σℓ · · · σ2 σ1 (u) = σℓ+1 τs · · · τ2 τ1 (u),
+
+
+where 1 ≥ deg τs ≥ deg τs−1 ≥ · · · ≥ deg τ1 , and |τj · · · τ1 (u)| = |u| for all j = 1, . . . , s.
+
+   Put τj = (Aj , aj ) for j = 1, . . . , s, and put σℓ+1 = (B, b). If deg σℓ+1 = 1 or deg τj = 0 for
+
+all j, then there is nothing to prove. So let deg σℓ+1 = 0, and let t (1 ≤ t ≤ s) be such that
+
+deg τs = deg τs−1 = · · · = deg τt = 1 and deg τt−1 = · · · = deg τ2 = deg τ1 = 0. Upon replacing
+
+τi and σℓ+1 by (Āi , a−1
+                       i ) and (B̄, b
+                                      −1
+                                         ), respectively, if necessary, we may assume that x1 ∈ Ai
+
+for all t ≤ i ≤ s and that x±1
+                            1  ∈
+                               / B. We may also assume without loss of generality that (B, b)
+
+cannot be decomposed into (B2 , b)(B1 , b), where B = B1 + B2 , deg(B1 , b) = deg(B2 , b) = 0 and
+
+|(B1 , b)τs · · · τ1 (u)| = |u|.
+14                                                    DONGHI LEE
+
+
+Claim 1. We may further assume that τs = (As , as ) cannot be decomposed into (As2 , as )(As1 , as ),
+
+where As = As1 + As2 , deg(As1 , as ) = 0, deg(As2 , as ) = 1, |(As1 , as )τs−1 · · · τ1 (u)| = |u|, and
+
+a±1
+ i  ∈
+    / As1 for all i with t ≤ i < s.
+
+Proof of Claim 1. Suppose that τs can be decomposed in the same way as in the statement of the
+
+claim. Then continuously applying Case 1 or Case 4 of Lemma 3.1 to (As1 , as )τs−1 · · · τt at most
+
+1 + 2 + 22 + · · · + 2s−t−1 times (here, note that if s = t, we do not need to apply Lemma 3.1), we
+
+get
+                                                                ′
+                                    (As1 , aj )τs−1 · · · τt = τs−1 · · · τt′ εp · · · ε1 ,
+
+       ′
+where τs−1 , . . . , τt′ are Whitehead automorphisms of degree 1 and εp , . . . , ε1 are Whitehead auto-
+
+morphisms of degree 0, so that
+
+                                                                   ′
+(3.3)           (B, b)τs · · · τt · · · τ1 (u) = (B, b)(As2 , as )τs−1 · · · τt′ εp · · · ε1 τt−1 · · · τ1 (u),
+
+
+where the length of u is constant throughout both chains. We then replace the chain on the right-
+
+hand side of (3.2) with that of (3.3).                                                                            
+
+     We consider three cases corresponding to whether or not b = x±1
+                                                                  1 .
+
+
+Case 1. b 6= x±1
+              1 .
+
+
+     For all i with t ≤ i ≤ s, either b±1 ∈ Ai or b±1 ∈
+                                                      / Ai , since deg τi = 1. If a±1
+                                                                                   s  ∈ B, then the
+
+required result follows immediately from Case 5 or Case 8 of Lemma 3.1 applied to (B, b)τs . So let
+
+a±1
+ s ∈/ B. If b±1 ∈
+                / As and As ∩ B = ∅, then by Case 1.1.2 of Lemma 3.1 we have (B, b)τs ≡ τs (B, b).
+
+Also if b±1 ∈ As and B ⊂ As , then Case 4 of Lemma 3.1 yields that (B, b)τs ≡ τs (B, b). Hence, in
+
+either case, we have
+
+
+                            (B, b)τs · · · τt · · · τ1 (u) = τs (B, b)τs−1 · · · τt · · · τ1 (u);
+
+
+then the desired result follows by induction on s − t. Now suppose that either both b±1 ∈
+                                                                                        / As and
+
+As ∩ B 6= ∅ or both b±1 ∈ As and B * As . We argue two cases separately.
+             COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT                                                   15
+
+
+Case 1.1. a±1
+           s ∈/ B, b±1 ∈
+                       / As and As ∩ B 6= ∅.
+
+  By Case 1.2.3 of Lemma 3.1, we have (B, b)τs ≡ (As \ B, as )(B, b)(As ∩ B, as ); thus
+
+              (B, b)τs · · · τt · · · τ1 (u) = (As \ B, as )(B, b)(As ∩ B, as )τs−1 · · · τt · · · τ1 (u).
+
+By Claim 1, there is j with t ≤ j < s such that a±1
+                                                 j ∈ As ∩ B. Let r be the largest such index.
+
+
+  First suppose that there exists a chain ηm · · · η1 of Whitehead automorphisms ηi = (Gi , gi ) of
+
+degree 1 with gi±1 ∈
+                   / B, Gi ⊂ As and Gi ∩ B = ∅ such that |ηi · · · η1 τs · · · τ1 (u)| = |u| for all
+
+i = 1, . . . , m and such that |(H, a−1
+                                     r )ηm · · · η1 τs · · · τ1 (u)| = |u| for some Whitehead automorphism
+
+
+(H, a−1
+     r ) of degree 1 with H ⊂ As . Then
+
+
+      (B, b)τs · · · τ1 (u) = (B, b)η1−1 · · · ηm
+                                                −1
+                                                   ηm · · · η1 τs · · · τ1 (u)
+
+                            = η1−1 · · · ηm
+                                          −1
+                                             (B, b)ηm · · · η1 τs · · · τ1 (u)   by Case 1.1.2 of Lemma 3.1.
+Put v = ηm · · · η1 τs · · · τ1 (u). By Lemma 2.1 (ii) applied to |(B̄, b−1 )(v)| = |(H, a−1
+                                                                                          r )(v)| = |u|, we
+
+
+have |(B̄ \ H, b−1 )(v)| = |u|. It follows from B̄ \ H = Σ − (B ∪ H) − b±1 that |(B ∪ H, b)(v)| = |u|,
+
+so that
+
+              (B, b)τs · · · τ1 (u) = η1−1 · · · ηm
+                                                  −1
+                                                     (H \ B, b−1 )(B ∪ H, b)ηm · · · η1 τs · · · τ1 (u),
+
+where deg ηi−1 = deg(H \ B, b−1 ) = deg(B ∪ H, b) = deg ηi = 1, as required.
+
+  Next suppose that there does not exist such a chain ηm · · · η1 as above. Considering all the
+
+assumptions and the situations above, we can observe that this can possibly happen only in the
+
+case where all of as and a−1
+                          s  that are lost in passing from τs−1 · · · τ1 (u) to τs · · · τ1 (u) were newly
+
+introduced in passing from τq−1 · · · τ1 (u) to τq · · · τ1 (u) for some r < q < s, and where for such
+
+τq = (Aq , a−1                        −1
+            s ) (here note that aq = as ),
+
+
+  (B, b)τs · · · τt · · · τ1 (u) = (B, b)(As \ B, as )τs−1 · · · τq+1 (Aq \ (As ∩ B), a−1
+                                                                                       s )τq−1 · · · τt · · · τ1 (u),
+
+
+where the length of u is constant throughout the chain on the right-hand side. It then follows from
+
+Case 1.1.2 of Lemma 3.1 applied to (B, b)(As \ B, as ) that
+
+  (B, b)τs · · · τt · · · τ1 (u) = (As \ B, as )(B, b)τs−1 · · · τq+1 (Aq \ (As ∩ B), a−1
+                                                                                       s )τq−1 · · · τt · · · τ1 (u).
+16                                                DONGHI LEE
+
+
+Then induction on s − t yields the desired result, which completes the proof of Case 1.1.
+
+Case 1.2. a±1
+           s ∈/ B, b±1 ∈ As and B * As .
+
+     In this case, replace τi by (Āi , a−1
+                                         i ) for all t ≤ i ≤ s and then follow the arguments of Case 1.1.
+
+
+Case 2. b = x1 .
+
+     We divide this case into two cases according to whether a±1
+                                                              s ∈ B or not.
+
+
+Case 2.1. a±1
+           s ∈ B.
+
+
+     In this case, we have by Case 7.1 of Lemma 3.1 applied to (B, x1 )τs that
+
+
+(3.4)       (B, x1 )τs · · · τ1 (u) = (B \ As + x−1   ±1 −1
+                                                 1 − as , as )(B, x1 )(As \ B − x1 , as )τs−1 · · · τ1 (u).
+
+
+
+Here if As \ B − x1 = ∅, then
+
+
+            (B, x1 )τs · · · τt · · · τ1 (u) = (B − As + x−1   ±1 −1
+                                                          1 − as , as )(B, x1 )τs−1 · · · τt · · · τ1 (u);
+
+
+
+hence the desired result follows by induction on s − t.
+
+     So let As \ B − x1 6= ∅. By Claim 1, there is j with t ≤ j < s such that a±1
+                                                                               j ∈ As \ B − x1 . Let
+
+
+r be the largest such index. The following Claims 2–4 show that we may assume that ar , as and
+
+x1 belong to distinct connected components of the dependence graph Γu of u.
+
+Claim 2. ar and x1 belong to distinct connected components of Γu .
+
+Proof of Claim 2. Suppose on the contrary that ar and x1 belong to the same connected component
+
+C1 . Put W = {α : α is a Whitehead automorphism of degree 0 such that |α(v)| = |v| = |u| for some
+
+v ∈ Orb AutFn (u)}. Then by (3.4), (As \B − x1 , as ) ∈ W and (B, x1 ) ∈ W. Since x±1
+                                                                                   1 ∈/ As \B − x1
+
+and a±1
+     r  ∈ As \ B − x1 , we see from the construction of Γu that as also belongs to C1 and that
+                                   −1
+every path from ar or a−1                                  −1              ±1
+                       r to x1 or x1 passes through as or as . Also since ar ∈/ B and a±1
+                                                                                       s ∈ B,
+
+                                                           −1
+every path from as or a−1          −1
+                       s to ar or ar passes through x1 or x1 , which contradicts the above fact
+
+                                        −1
+that every path from ar or a−1                                  −1
+                            r to x1 or x1 passes through as or as .                                           
+               COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT                                                17
+
+
+Claim 3. We may assume that as and x1 belong to distinct connected components of Γu .
+
+Proof of Claim 3. Suppose that as and x1 belong to the same connected component C1 . First
+
+consider the case where there exists a chain ζk · · · ζ1 of Whitehead automorphisms ζi = (Ei , ei ) of
+
+degree 1 with e±1
+               i  ∈ B and Ei ⊂ (B + x1 ) such that |ζi · · · ζ1 τs · · · τ1 (u)| = |u| for all i = 1, . . . , k
+
+and such that |(H, a−1                                                                         −1
+                    r )ζk · · · ζ1 τs · · · τ1 (u)| = |u| for some Whitehead automorphism (H, ar ) of
+
+
+degree 1 with H ⊂ As . Then
+
+
+         (B, x1 )τs · · · τ1 (u) = (B, x1 )ζ1−1 · · · ζk−1 ζk · · · ζ1 τs · · · τ1 (u)
+
+                                 = ρk · · · ρ1 (B, x1 )ζk · · · ζ1 τs · · · τ1 (u) by Case 7.1 of Lemma 3.1,
+
+where ρi = (B \ Ek+1−i + x−1   ±1       −1
+                          1 − ek+1−i , ek+1−i ) for i = 1, . . . , k. Put v = ζk · · · ζ1 τs · · · τ1 (u). Then
+
+
+|(B, x1 )(v)| = |(H, a−1
+                      r )(v)| = |u|, that is, |(B, x1 )(v)| = |(H̄, ar )(v)| = |u|. By Lemma 2.1 (ii)
+
+
+applied to these equalities, we have |(H̄ \ B, ar )(v)| = |u|, so that
+
+
+                             |(H + (H̄ \ B), ar )(H, a−1
+                                                      r )ζk · · · ζ1 τs · · · τ1 (u)| = |u|.
+
+
+
+It then follows from H + (H̄ \ B) = Σ − (B \ H) − a±1
+                                                   r that
+
+
+
+                                 |(B \ H, a−1      −1
+                                           r )(H, ar )ζk · · · ζ1 τs · · · τ1 (u)| = |u|.
+
+
+
+This implies that (B \ H, a−1                                                          ±1
+                           r ) ∈ W, where W is defined in the proof of Claim 2. Since as ∈ B \ H
+
+
+and x±1
+     1 ∈/ B \ H, ar must also belong to C1 by the construction of Γu , which contradicts Claim 2.
+
+   Next consider the case where there does not exist such a chain ζk · · · ζ1 as above. Considering
+
+all the assumptions and the situations above, we can observe that this can possibly happen only
+
+in the case where all of as and a−1
+                                 s  that are lost in passing from τs−1 · · · τ1 (u) to τs · · · τ1 (u) were
+
+newly introduced in passing from τq−1 · · · τ1 (u) to τq · · · τ1 (u) for some r < q < s, and where for
+
+such τq = (Aq , a−1                        −1
+                 s ) (here note that aq = as ),
+
+
+
+ (B, x1 )τs · · · τt · · · τ1 (u) = (B, x1 )(As ∩ B, as )τs−1 · · · τq+1 (Aq \ (As \ B), a−1
+                                                                                          s )τq−1 · · · τt · · · τ1 (u),
+18                                                 DONGHI LEE
+
+
+where the length of u is constant throughout the chain on the right-hand side. It then follows from
+
+Case 7.1 of Lemma 3.1 applied to (B, x1 )(As ∩ B, as ) that
+
+
+     (B, x1 )τs · · · τt · · · τ1 (u)
+
+               = (B \ As + x−1   ±1 −1                                            −1
+                            1 − as , as )(B, x1 )τs−1 · · · τq+1 (Aq \ (As \ B), as )τq−1 · · · τt · · · τ1 (u).
+
+
+
+So in this case, apply induction on s − t to get the desired result of the lemma, which completes
+
+the proof of Claim 3.                                                                                              
+
+Claim 4. ar and as belong to distinct connected components of Γu .
+
+Proof of Claim 4. Suppose on the contrary that ar and as belong to the same connected component.
+
+Note that a±1
+           r ∈/ B, a±1
+                    s ∈ B and that (B, x1 ) ∈ W, where W is defined in the proof of Claim 2.
+
+
+It then follows from the construction of Γu that as and x1 must belong to the same connected
+
+component, which contradicts Claim 3.                                                                              
+
+     So let C1 , Cr′ and Cs′ be the distinct connected components of Γu containing x1 , ar , and as in
+
+that order. Here notice that C1 consists of only x±1
+                                                  1 , since there exists a Whitehead automorphism
+
+
+(As , as ) of degree 1 such that as ∈
+                                    / C1 and such that |(As , as )(v)| = |v| = |u| for some v ∈
+
+OrbAutFn (u) (see Remark (iii) in the Introduction).
+
+     Put u1 = τt−1 · · · τ1 (u).
+
+Claim 5. We may assume that τi τj ≡ τj τi for all 1 ≤ i 6= j ≤ t − 1.
+
+Proof of Claim 5. Put M = {v : v = φ(u) and |v|Ci = |u|Ci for all i = 1, . . . , n, where φ is a chain
+
+of Whitehead automorphisms of degree 0 throughout which the length of u is constant}. Taking an
+
+appropriate v ∈ M, we have Whitehead automorphisms δj = (Dj , dj ) of Fn of degree 0 such that
+
+
+(3.5)                                             u1 = δh · · · δ1 (v),
+
+
+where |δj · · · δ1 (v)| = |v| and |δj · · · δ1 (v)|Ckj > |v|Ckj for the connected component Ckj containing
+
+dj and for each j = 1, . . . , h. Then for any δi = (Di , di ) and δj = (Dj , dj ) with dj 6= d±1
+                                                                                               i , if we
+              COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT                                        19
+
+
+replace δi and δj with (D̄i , d−1              −1                                       ±1
+                               i ) and (D̄j , dj ), respectively, if necessary so that di  ∈
+                                                                                           / Dj and
+
+d±1
+ j ∈/ Di , then Di ∩ Dj = ∅. Hence by Case 1.1.2 of Lemma 3.1 that δj δi ≡ δi δj ; thus (3.5) can be
+
+re-written as
+
+                                            qpt         q         q            q11
+(3.6)                              u1 = δptpp · · · δp1p1 · · · δ1t1t11 · · · δ11  (v),
+
+                                                                                          qk′ t   q   qkt qk1
+where dki = dki′ and Dki 6= Dki′ provided i 6= i′ ; dk′ i 6= d±1             k′        k′ 1
+                                                              ki and (δk ′ tk′ · · · δk ′ 1 )(δktk · · · δk1 ) ≡
+                                                                                                  k
+
+
+
+  qkt         qk1 qk′ t     q
+(δktkk · · · δk1  )(δk′ tkk′ ′ · · · δkk′ 1′ 1 ) provided k 6= k′ . Here we may assume by Case 1.2.1 of Lemma 3.1
+
+that Dki ⊂ Dki′ if i < i′ . Then δki′ δki ≡ δki δki′ by Case 1.2.1 of Lemma 3.1; hence δk′ i′ δki ≡ δki δk′ i′
+
+for any δki and δk′ i′ in chain (3.6). Thus replace τt−1 · · · τ1 (u) with the right-hand side of (3.6) to
+
+get our desired result.                                                                                       
+
+
+   By Claim 5, we may write
+
+                                        u1 = τt−1 · · · τp τp−1 · · · τ1 (u),
+
+
+where τi has multiplier in Cr′ provided p ≤ i ≤ t − 1; τi has multiplier not in Cr′ provided
+
+1 ≤ i ≤ p − 1. Put
+
+                                               u2 = τp−1 · · · τ1 (u).
+
+
+Note that the the number of Cr′ -syllables of u remains unchanged throughout this chain.
+
+
+Claim 6. There exist Whitehead automorphisms εi = (Ei , ai ), t ≤ i ≤ s, such that |εi · · · εt (u2 )| =
+
+|u| for all i = t, . . . , s, where Ei = ∅ provided ai ∈ Cr′ ; Ei is one of the three forms Ai , Ai + Cr′
+
+and Ai − Cr′ , whichever is smallest possible with priority given to lower i, provided ai ∈
+                                                                                          / Cr ′ .
+
+
+Proof of Claim 6. Suppose the contrary. It can possibly happen only when the number of Cr′ -
+
+syllables of u2 is decreased by τj · · · τt τt−1 · · · τp (for some j ≥ t) followed by a chain of Whitehead
+
+automorphisms of degree 0 with multiplier in Cr′ , where the length of u2 is constant throughout the
+
+chain. Choosing the smallest such index j, put {j1 , . . . , jk } = {i : t ≤ i ≤ j and τi has multiplier
+
+in Cr′ }. Then we can observe that there is a chain ζm · · · ζ1 of Whitehead automorphisms of
+20                                                      DONGHI LEE
+
+
+degree 0 with multiplier in Cr′ such that |ζm · · · ζ1 τjk · · · τj1 τt−1 · · · τp (u2 )| = |u2 | and the number
+
+of Cr′ -syllables of ζm · · · ζ1 τjk · · · τj1 τt−1 · · · τp (u2 ) is less than that of u2 . This is a contradiction,
+
+because through the chain ζm · · · ζ1 τjk · · · τj1 τt−1 · · · τp only C1 -syllables and Cr′ -syllables can mix
+
+and increasing the number of C1 -syllables cannot reduce the number of Cr′ -syllables.                                  
+
+
+     For the chain εs · · · εt , we consider two cases separately.
+
+
+Case 2.1.1. |(B, x1 )εs · · · εt (u2 )| = |u|.
+
+
+     For the Whitehead automorphisms δi = (Di , di ) (p ≤ i < t), where Di = Ai \ B and di = ai
+
+provided x±1
+          1  / Ai ; Di = Āi \ B and di = a−1
+             ∈                             i  provided x±1
+                                                        1  ∈ Ai , and for the Whitehead
+
+automorphisms ωj = (Fj , a−1
+                          t+s−j ) and νj = (Hj , aj ) (t ≤ j ≤ s), where Fj = ∅ provided at+s−j ∈
+
+
+Cr′ + B; Fj = Et+s−j \ B provided at+s−j ∈
+                                         / Cr′ + B; Hj = ∅ provided aj ∈ B; Hj = Aj \ B
+
+provided aj ∈
+            / B, we have
+
+
+(3.7)          (B, x1 )τs · · · τ1 (u) = νs · · · νt δt−1 · · · δp ωs · · · ωt (B, x1 )εs · · · εt τp−1 · · · τ1 (u),
+
+
+where the length of u is constant throughout the chain on the right-hand side. By Case 1, it suffices
+
+to consider only the chain (B, x1 )εs · · · εt τp−1 · · · τ1 (u). Since for every j either deg εj = 1 or εj = 1
+
+and since εr = 1, the desired result follows by induction on s − t from (3.7).
+
+
+Case 2.1.2. |(B, x1 )εs · · · εt (u2 )| > |u|.
+
+
+     We see that this case can possibly happen only when the cyclic word εs · · · εt (u2 ) contains a
+
+subword of the form (x1 w1 w2 w3 )θ , where θ = ±1, w1 (w1 may be the empty word), w2 and w3
+
+are words in B, Cr′ and Cs′ , respectively, and not all of the letters in w3 were newly introduced in
+
+passing from u2 to εs · · · εt (u2 ).
+
+     By Claim 5, we may write
+
+                                              u1 = τt−1 · · · τq τq−1 · · · τ1 (u),
+              COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT                                                21
+
+
+where τi has multiplier in Cs′ provided q ≤ i ≤ t − 1; τi has multiplier not in Cs′ provided
+
+1 ≤ i ≤ q − 1. Put
+
+                                                  u3 = τq−1 · · · τ1 (u).
+
+Notice that the the number of Cs′ -syllables of u remains unchanged throughout this chain.
+
+Claim 7. There exist Whitehead automorphisms λi = (Ji , ai ), t ≤ i ≤ s, such that |λi · · · λt (u3 )| =
+
+|u| for all i = t, . . . , s, where Ji = ∅ provided ai ∈ Cs′ ; Ji is one of the three forms Ai , Ai + Cs′
+
+and Ai − Cs′ , whichever is largest possible with priority given to lower i, provided ai ∈
+                                                                                         / Cs′ .
+
+Proof of Claim 7. Suppose the contrary. In view of all the assumptions and the situations above,
+
+this can possibly happen only when the number of Cs′ -syllables of u3 is decreased by τj · · · τt τt−1 · · · τq
+
+(for some j ≥ t) followed by a chain of Whitehead automorphisms of degree 0 with multiplier in
+
+Cs′ , where the length of u3 is constant throughout the chain. Choosing the smallest such in-
+
+dex j, put {j1 , . . . , jk } = {i : t ≤ i ≤ j and τi has multiplier in Cs′ }. Then we can observe
+
+that there exists a chain δm · · · δ1 of Whitehead automorphisms of degree 0 with multiplier in Cs′
+
+such that |δm · · · δ1 τjk · · · τj1 τt−1 · · · τq (u3 )| = |u|, and such that the number of Cs′ -syllables of
+
+δm · · · δ1 τjk · · · τj1 τt−1 · · · τq (u3 ) is less than that of u3 . Reasoning as in Claim 6, we get a contra-
+
+diction, which completes the proof of Claim 7.                                                                        
+
+   We then see that |(B, x1 )λs · · · λt (u3 )| = |u|. Furthermore, for the Whitehead automorphisms
+
+δi = (Di , di ) (q ≤ i < t), where Di = Ai ∩ B and di = ai provided x±1
+                                                                     1  ∈
+                                                                        / Ai ; Di = Āi ∩ B
+
+and di = a−1
+          i  provided x±1
+                       1  ∈ Ai , and for the Whitehead automorphisms ωj = (Kj , at+s−j ) and
+
+νj = (Hj , a−1                                            / B −Cs′ ; Kj = B \Jt+s−j +x−1
+            j ) (t ≤ j ≤ s), where Kj = ∅ provided at+s−j ∈
+                                                                                          ±1
+                                                                                      1 −at+s−j
+
+
+                                               / B; Hj = B \ Aj + x−1
+provided at+s−j ∈ B − Cs′ ; Hj = ∅ provided aj ∈                        ±1
+                                                                   1 − aj  provided aj ∈ B,
+
+
+(3.8)        (B, x1 )τs · · · τ1 (u) = νs · · · νt δt−1 · · · δq ωs · · · ωt (B, x1 )λs · · · λt τq−1 · · · τ1 (u),
+
+
+where the length of u is constant throughout the chain on the right-hand side. By Case 1, it suffices
+
+to consider only the chain (B, x1 )λs · · · λt τq−1 · · · τ1 (u). Since for every j either deg λi = 1 or λi = 1
+22                                                    DONGHI LEE
+
+
+and since λs = 1, the desired result follows by induction on s − t from (3.8). This completes the
+
+proof of Case 2.1.2.
+
+
+Case 2.2. a±1
+           s ∈/ B.
+
+
+     In this case, replace (B, x1 ) and τi by (B̄, x−1              −1
+                                                    1 ) and (Āi , ai ) for all t ≤ i ≤ s, respectively, and
+
+
+then follow the arguments of Case 2.1.
+
+
+Case 3. b = x−1
+             1 .
+
+
+
+     Replace (B, x−1
+                  1 ) by (B̄, x1 ) and then repeat the arguments of Case 2.                                       
+
+
+Remark. The proof of Lemma 3.2 can be applied without further change if we replace consideration
+
+of a single cyclic word u, the length |u| of u, the total number of occurrences of x±1
+                                                                                    j  in u, and the
+
+Cj -syllable length |u|Cj with consideration of a finite sequence (u1 , . . . , um ) of cyclic words, the sum
+m
+      |ui | of the lengths of u1 , . . . , um , the total number of occurrences of x±1
+P
+                                                                                    j  in (u1 , . . . , um ), and the
+i=1
+        m
+        P
+sum          |ui |Cj of the Cj -syllable lengths of u1 , . . . , um , respectively.
+       i=1
+
+
+     We are now in a position to prove Theorem 1.4.
+
+
+Proof of Theorem 1.4.
+
+
+     The proof proceeds by double induction on ℓ and r, where ℓ is the length of the chain σℓ · · · σ2 σ1
+
+and r = max deg σi . The base steps were already proved in Lemma 3.1 (the case for ℓ = 2 and
+              1≤i≤ℓ
+
+any r) and Lemma 3.2 (the case for r = 1 and any ℓ).
+
+     Let σi , i = 1, . . . , ℓ + 1 (ℓ + 1 ≥ 3), be Whitehead automorphisms of Fn such that |σi · · · σ1 (u)| =
+
+|u| for all i = 1, . . . , ℓ + 1 and such that        max deg σi = r + 1 ≥ 2. By the induction hypothesis
+                                                    1≤i≤ℓ+1
+
+on ℓ, there exist Whitehead automorphisms τ1 , τ2 , . . . , τs of Fn such that
+
+
+                                      σℓ+1 σℓ · · · σ2 σ1 (u) = σℓ+1 τs · · · τ2 τ1 (u),
+
+
+where r + 1 ≥ deg τs ≥ deg τs−1 ≥ · · · ≥ deg τ1 , and |τj · · · τ1 (u)| = |u| for all j = 1, . . . , s.
+             COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT                                23
+
+
+   If either deg σℓ+1 = r + 1 or both deg τs ≤ r and deg σℓ+1 ≥ r, then there is nothing to prove.
+
+Also if deg τs ≤ r and deg σℓ+1 < r, then we are done by the induction hypothesis on r. So let t
+
+(1 ≤ t ≤ s) be such that deg τi = r + 1 provided t ≤ i ≤ s and deg τi ≤ r provided 1 ≤ i < t, and
+
+let deg σℓ+1 ≤ r.
+
+   Put τj = (Aj , aj ) for j = 1, . . . , s and σℓ+1 = (B, b). Upon replacing τi and σℓ+1 by (Āi , a−1
+                                                                                                     i )
+
+
+and (B̄, b−1 ), respectively, if necessary, we may assume that xr+1 ∈ Ai for all t ≤ i ≤ s and
+
+that x±1
+      r+1 ∈
+          / B. We may also assume without loss of generality that (B, b) cannot be decomposed
+
+to (B2 , b)(B1 , b), where B = B1 + B2 , deg(B1 , b) = deg(B2 , b) = 0 and |(B1 , b)τs · · · τ1 (u)| =
+
+|u|. We may further assume as in Claim 1 of Lemma 3.2 that τs = (As , as ) cannot be de-
+
+composed to (As2 , as )(As1 , as ), where As = As1 + As2 , deg(As1 , as ) ≤ r, deg(As2 , as ) = r + 1,
+
+|(As1 , as )τs−1 · · · τ1 (u)| = |u|, and a±1
+                                           i  ∈
+                                              / As1 for all i with t ≤ i < s.
+
+   There are three cases to consider.
+
+
+Case 1. b = x1 .
+
+
+   If ai ±1 ∈
+            / B for all t ≤ i ≤ s, then continuous application of Cases 1–4 of Lemma 3.1 to
+
+(B, x1 )τs · · · τt at most 1 + 2 + 22 + · · · + 2s−t times together with the induction hypothesis on r
+
+yields the desired result. The following Claim shows that it is indeed true that ai ±1 ∈
+                                                                                       / B for all
+
+t ≤ i ≤ s.
+
+
+Claim. ai ±1 ∈
+             / B for all t ≤ i ≤ s.
+
+
+Proof of the Claim. Suppose on the contrary that ai ±1 ∈ B for some t ≤ i ≤ s. First let a±1
+                                                                                          s ∈ B.
+
+
+If either x1 ∈ As or x−1
+                      1 ∈ As but not both, then we have a contradiction by Cases 6.2 and 7.2 of
+
+
+Lemma 3.1, since deg τs = r + 1 ≥ 2. If x±1
+                                         1 ∈ As , then by Case 8 of Lemma 3.1,
+
+
+
+                    (B, x1 )(As , as ) ≡ (As ∪ B − x±1                           ±1   −1
+                                                    1 , x1 )(As , as )(As \ B − x1 , x1 ),
+
+
+
+but the existence of (As \ B − x±1   −1
+                                1 , x1 ) in this chain contradicts Lemma 2.2, because xr+1 ∈
+24                                                    DONGHI LEE
+
+
+As \ B − x±1     −1
+                     / As \ B − x±1
+          1 and xr+1 ∈
+                                         ±1
+                                 1 . If x1 ∈/ As , then by Case 5 of Lemma 3.1,
+
+
+                             (B, x1 )(As , as ) ≡ (As \ B, x−1
+                                                            1 )(As , as )(As ∪ B, x1 ),
+
+
+
+but the existence of (As ∪ B, x1 ) in this chain also contradicts Lemma 2.2, since xr+1 ∈ As ∪ B and
+
+x−1
+ r+1 ∈
+     / As ∪ B.
+
+     Next let a±1
+               s ∈/ B. Suppose that ai ±1 ∈ B for some t ≤ i < s. Let k be the largest such index.
+
+Put v = τk−1 · · · τ1 (u). If x1 ∈ Ak and x−1
+                                           1 ∈/ Ak , then we can observe based on all the assumptions
+
+and the situations above that there exists a Whitehead automorphism (F, x1 ) of degree r + 1 with
+
+(B ∪ Ak − x1 ) ⊆ F such that |(F, x1 )τk (v)| = |u|. But this yields a contradiction to Lemma 2.2,
+
+since xr+1 ∈ F and x−1
+                    r+1 ∈                                             / Ak and x−1
+                        / F . For a similar reason, the case where x1 ∈         1 ∈ Ak cannot
+
+
+happen, either. So Ak must contain either both of x±1            ±1
+                                                   1 or none of x1 .
+
+
+     If there exists a chain ζp · · · ζ1 of Whitehead automorphisms of degree less than or equal to
+
+r + 1 such that |(B, x1 )τk ζp · · · ζ1 (v)| = |τk ζp · · · ζ1 (v)| = |ζp · · · ζ1 (v)| = |u|, then as in the case
+
+where a±1
+       s ∈ B we reach a contradiction. Otherwise, choose chains ζp · · · ζ1 and ωq · · · ω1 of White-
+
+
+head automorphisms of degree less than or equal to r + 1 with q smallest possible such that
+
+|ωj · · · ω1 τk ζp · · · ζ1 (v)| = |τk ζp · · · ζ1 (v)| = |ζp · · · ζ1 (v)| = |u| for all j = 1, . . . , q, and such that
+
+|(B, x1 )ωq · · · ω1 τk ζp · · · ζ1 (v)| = |u|. Clearly q ≤ s − k.
+
+     Put ωj = (Gj , gj ) for j = 1, . . . , q. If x±1
+                                                   1  ∈
+                                                      / Ak , then we see from the choice of k and the
+
+chain ωq · · · ω1 that g1±1 ∈
+                            / Ak . We also see that for the Whitehead automorphisms γj = (Hj , gj ),
+
+j = 1, . . . , q, where Hj = Gj \ Ak provided a±1
+                                               k  / Gj ; Hj = Gj ∪ Ak provided a±1
+                                                  ∈                             k  ∈ Gj ,
+
+|(B, x1 )γq · · · γ1 τk ζp · · · ζ1 (v)| = |γj · · · γ1 τk ζp · · · ζ1 (v)| = |u| for all j = 1, . . . , q. Then by Case 1.1.2
+
+or Case 5 of Lemma 3.1, we have γ1 τk ≡ τk γ1 , which means the chain γq · · · γ2 of shorter length
+
+has the same property as ωq · · · ω1 does, contrary to the choice of the chain ωq · · · ω1 . If x±1
+                                                                                                 1 ∈ Ak ,
+
+
+replace τk by (Āk , a−1
+                      k ). Then we get a contradiction in the same way, which completes the proof
+
+
+of the claim.                                                                                                              
+                 COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT                                    25
+
+
+Case 2. b = x−1
+             1 .
+
+
+   Repeat similar arguments to those in Case 1.
+
+
+Case 3. b 6= x±1
+              1 .
+
+
+   Let p (1 ≤ p ≤ t) be such that deg τi = 0 provided 1 ≤ i < p; deg τi ≥ 1 provided p ≤ i ≤ s. As
+
+in Claim 5 of Lemma 3.2, we may assume that τi τj ≡ τj τi for all 1 ≤ i 6= j < p. So there exists q
+
+with 1 ≤ q ≤ p such that τi has multiplier in C1 provided 1 ≤ i < q; τi has multiplier not in C1
+
+provided q ≤ i < p.
+
+   Put w = τq−1 · · · τ1 (u). Notice that Ci -syllables remain unchanged throughout the chain τq−1 · · · τ1
+
+for all i ≥ 2. Write
+
+
+(3.9)                         w = y1 u1 y2 u2 · · · ym um     without cancellation,
+
+
+where for each i = 1, . . . , m, yi = x1 or yi = x−1
+                                                  1 , and ui is a (non-cyclic) subword in {x2 , . . . , xn }
+                                                                                                            ±1
+                                                                                                               .
+
+Let Fn+3 be the free group on the set
+
+
+                                      {x1 , . . . , xn , xn+1 , x2n+1 , x3n+1 }.
+
+
+From (3.9) we construct a sequence Vw = (v1 , v2 , . . . , vm ) of cyclic words v1 , v2 , . . . , vm in Fn+3
+        m
+              |vj | = 2|u|, where m is the total number of occurrences of x±1
+        P
+with                                                                       1 in u, as follows: for each
+        j=1
+
+j = 1, . . . , m,
+
+
+                         if yj = x1 and yj+1 = x1 , then vj = x1 uj x3n+1 u−1
+                                                                           j ;
+
+
+                         if yj = x−1                                         −1
+                                  1 and yj+1 = x1 , then vj = xn+1 uj x3n+1 uj ;
+
+
+                         if yj = x1 and yj+1 = x−1                         −1
+                                                1 , then vj = x1 uj x2n+1 uj ;
+
+
+                         if yj = x−1            −1                           −1
+                                  1 and yj+1 = x1 , then vj = xn+1 uj x2n+1 uj ,
+
+
+
+where ym+1 = y1 .
+26                                             DONGHI LEE
+
+
+     Put I = {x1 , xn+1 , x2n+1 , x3n+1 }±1 . From now on, when we say that (S, s) is a Whitehead
+
+automorphism of Fn+3 , the following restrictions are imposed on S and s:
+
+     (1) s ∈ {x2 , . . . , xn }±1 .
+
+     (2) S satisfies one of (i) I ⊆ S; (ii) I ∩ S = {x1 , x2n+1 }±1 ; (iii) I ∩ S = {xn+1 , x3n+1 }±1 ; (iv)
+
+           I ∩ S = ∅.
+
+Then we can prove the following
+
+Claim 1. For each Whitehead automorphism τ = (A, a) of Fn such that a 6= x±1
+                                                                          1 and |τ (w)| = |w|,
+                                                                      m
+                                                                      P                 m
+                                                                                        P
+there exists a Whitehead automorphism α of Fn+3 such that                  |α(vj )| =         |vj | and α(Vw ) =
+                                                                     j=1                j=1
+
+Vτ (w) .
+
+Proof of Claim 1. Given a Whitehead automorphism τ = (A, a), we define a Whitehead automor-
+
+phism α of Fn+3 as follows: If x±1                    ±1     ±1      ±1
+                                1 ∈ A, then α = (A + xn+1 + x2n+1 + x3n+1 , a); if only x1 ∈ A,
+
+
+then α = (A + x−1   ±1                  −1                    −1   ±1     ±1             ±1
+               1 + x2n+1 , a); if only x1 ∈ A, then α = (A − x1 + xn+1 + x3n+1 , a); if x1 ∈/ A,
+
+then α = (A, a).
+
+     Then each newly introduced letter x±1
+                                        r in passing from w to τ (w) that remains in τ (w) produces
+
+
+two newly introduced letters x±1
+                              r in passing from Vw to α(Vw ) that remain in α(Vw ), and vice versa.
+
+
+Also each letter x±1
+                  r  in w that is lost in passing from w to τ (w) produces two letters x±1
+                                                                                        r  in Vw
+                                                                                        m
+                                                                                        P                m
+                                                                                                         P
+that are lost in passing from Vw to α(Vw ), and vice versa. This yields that                |α(vj )| =         |vj |.
+                                                                                    j=1                  j=1
+
+     Moreover it is clear that α(Vw ) = Vτ (w) .                                                                        
+
+     The following claim is a converse of Claim 1.
+                                                                                        m
+                                                                                        P                  m
+                                                                                                           P
+Claim 2. For each Whitehead automorphism α = (S, s) of Fn+3 such that                         |α(vj )| =         |vj |,
+                                                                                        j=1                j=1
+
+there exists a Whitehead automorphism τ = (A, a) of Fn such that a 6= x±1
+                                                                       1 , |τ (w)| = |w| and such
+
+
+that α(Vw ) = Vτ (w) .
+
+Proof of Claim 2. Given a Whitehead automorphism α = (S, s) of Fn+3 , put T = S \ I. And define
+
+a Whitehead automorphism τ of Fn as follows: τ = (T + x±1
+                                                       1 , s) provided I ⊆ S; τ = (T + x1 , s)
+                 COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT                                                    27
+
+
+provided I ∩ S = {x1 , x2n+1 }±1 ; τ = (T + x−1
+                                             1 , s) provided I ∩ S = {xn+1 , x3n+1 }
+                                                                                    ±1
+                                                                                       ; τ = (T, s)
+
+provided I ∩ S = ∅. Then reasoning in the same way as in Claim 1, we get a desired result.                                   
+
+
+  For each τi = (Ai , ai ), q ≤ i ≤ s, define a Whitehead automorphism αi of Fn+3 as in Claim 1.
+
+Also as in Claim 1, define a Whitehead automorphism β of Fn+3 from σℓ+1 = (B, b). Then we have
+m
+P                              m
+                               P                             m
+                                                             P
+      |βαs · · · αq (vj )| =         |αi · · · αq (vj )| =         |vj | for all i = q, . . . , s. Moreover, by the construction
+j=1                            j=1                           j=1
+
+of αi and β, the Whitehead automorphisms αi and β of Fn+3 are of degree at most r + 1, and
+
+each of defining sets of αi and β contains either both of x±1            ±1
+                                                           1 or none of x1 . This yields the same
+
+
+situation as for a chain of Whitehead automorphisms of Fn+3 of maximum degree r.
+
+  Here we notice from Claims 1 and 2 that if Γu consists of g connected components, then either
+
+ΓVw consists of g + 1 connected components such that Ci equals Ci of Γu for all Ci ’s of ΓVw with
+
+Ci 6= C1 and Ci 6= Cn+1 , C1 equals C1 of Γu plus x±1
+                                                   2n+1 , and such that Cn+1 = {xn+1 , x3n+1 }
+                                                                                              ±1
+                                                                                                 ;
+
+or ΓVw consists of g connected components such that Ci equals Ci of Γu for all Ci ’s of ΓVw with
+
+Ci 6= C1 and such that C1 equals C1 of Γu plus {xn+1 , x2n+1 , x3n+1 }±1 .
+
+  The sequence Vw = (v1 , . . . , vm ) satisfies neither Hypothesis 1.1 nor Hypothesis 1.3. However,
+
+this fact does not affect the proof of the base steps of the induction (that is, Lemmas 3.1 and 3.2) for
+
+the following four reasons: first each of the Whitehead automorphisms αi and β has multiplier only
+
+in {x2 , . . . , xn }±1 ; second only the proof of Case 2.1 of Lemma 3.2 is concerned with the Ci -syllable
+
+length, but in the proof of Case 2.1 ar or as cannot belong to the connected component C1 of ΓVw
+
+(in fact, if ar or as belonged to C1 , such a situation as Case 2.1 could not occur); third Claim 5 holds
+
+for Vw by replacing M with the set {φ(Vw ) : φ is a chain of Whitehead automorphisms of degree
+
+0 throughout which the length of Vw is constant, |φ(Vw )|Ci = |Vw |Ci for all Ci with Ci 6= C1 , and
+
+|φ(Vw )|C1 ≤ |ψ(Vw )|C1 for every ψ which has the same property as φ}; finally the same arguments
+
+as used in Claims 6 and 7 in Case 2.1 of Lemma 3.2 are valid for Vw , since Hypothesis 1.3 holds
+
+for Vw if we only consider Ci ’s of Γvw such that x1 ∈
+                                                     / Ci and xn+1 ∈
+                                                                   / C1 .
+
+  This observation allows us to apply the induction hypothesis on r to βαs · · · αq (Vw ). Hence,
+28                                                            DONGHI LEE
+
+
+there exist Whitehead automorphisms γ1 , γ2 , . . . , γh of Fn+3 such that
+
+
+(3.10)                                           βαs · · · αq (Vw ) = γh · · · γ2 γ1 (Vw ),
+
+
+where r + 1 ≥ deg γh ≥ deg γh−1 ≥ · · · ≥ deg γ1 (here note that there is no γi of degree 1), and
+m
+P                             m
+                              P
+      |γi · · · γ1 (vj )| =         |vj | for all i = 1, . . . , h.
+j=1                           j=1
+
+     As in Claim 2, from each γi we define a Whitehead automorphism ζi of Fn . Let k be such that
+
+deg ζj ≤ 1 for 1 ≤ j < k and deg ζj ≥ 2 for k ≤ j ≤ h. Since βαs · · · αq (Vw ) = Vσℓ+1 τs ···τq (w) and
+
+γh · · · γ2 γ1 (Vw ) = Vζh ···ζ2 ζ1 (w) , we have by (3.10) that
+
+
+                                                 σℓ+1 τs · · · τq (w) = ζh · · · ζ2 ζ1 (w),
+
+
+where r + 1 ≥ deg ζh ≥ deg ζh−1 ≥ · · · ≥ deg ζk ≥ 2, and |ζi · · · ζ1 (w)| = |w| for i = 1, . . . , h.
+
+Applying the base step for r = 1 (that is, Lemma 3.2) to ζk−1 · · · ζ1 τq−1 · · · τ1 (u) completes the
+
+proof of Case 3 .                                                                                         
+
+
+                                                   4. Proof of Theorem 1.5
+
+
+     The aim of this section is to prove Theorem 1.5. For a cyclic word w in Fn , let Nk (w) denote
+
+the cardinality of the set Ωk (w) = {φ(w) : φ can be represented as a composition τs · · · τ1 (s ∈ N)
+
+of Whitehead automorphisms τi of Fn of degree k such that |τi · · · τ1 (w)| = |w| for all i = 1, . . . , s}.
+
+Then bounding N (u) reduces to bounding each Nk (u), which is shown in the proof of Theorem 1.5
+
+using the result of Theorem 1.4. In Lemma 4.1 we bound N0 (u). In Lemma 4.2 we show that
+
+Nk (u) for k ≥ 1 is at most N0 (Vu ), where Vu is a certain sequence of cyclic words constructed from
+
+u, thus bounding Nk (u) for k ≥ 1.
+
+Lemma 4.1. Let u be a cyclic word in Fn . Then N0 (u) is bounded by a polynomial function of
+
+degree n − 2 with respect to |u|.
+
+Proof. Let mi be the number of occurrences of x±1
+                                               i  in u for i = 1, . . . , n. Clearly
+
+
+                                                   N0 (u) ≤ N0 (xm 1 m2      mn
+                                                                 1 x2 · · · xn ).
+               COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT                                                29
+
+
+So it suffices to show that N0 (xm 1 m2      mn
+                                 1 x2 · · · xn ) is bounded by a polynomial function of degree n − 2
+
+
+with respect to |u|. For a cyclic word v in Fn , define |v|s as
+                                                               n
+                                                               X
+                                                     |v|s =          |v|Ci .
+                                                               i=1
+
+Noting that |xm 1 m2      mn                                           m1 m2       mn
+              1 x2 · · · xn |s = n, put M = {v : |v|s = n and v = Ω0 (x1 x2 · · · xn )}, and
+
+
+L = {v : |v|s > n and v = Ω0 (xm 1 m2      mn
+                               1 x2 · · · xn )}. Obviously the cardinality of M is (n − 1)!.
+
+
+   For the cardinality of L, let v ∈ L. Taking an appropriate u′ ∈ M (note that u′ can be chosen
+
+as follows: Write v = xk1 w1 xk2 w2 · · · xkn wn (without cancellation), where wi is a (non-cyclic) word
+                                    m      m           m
+in {xk1 , . . . , xki }; then u′ = xk1k1 xk2k2 · · · xknkn ), we have Whitehead automorphisms τj = (Aj , aj )
+
+of Fn of degree 0 such that
+
+
+(4.1)                                                v = τs · · · τ1 (u′ ),
+
+
+where |τj · · · τ1 (u′ )| = |u′ | and |τj · · · τ1 (u′ )|s ≥ |τj−1 · · · τ1 (u′ )|s for all j = 1, . . . , s. Then for any
+
+τi = (Ai , ai ) and τj = (Aj , aj ) with aj 6= a±1                                     −1              −1
+                                                i , if we replace τi and τj by (Āi , ai ) and (Āj , aj ),
+
+
+respectively, if necessary so that a±1
+                                    i  / Aj and a±1
+                                       ∈         j  ∈
+                                                    / Ai , then Ai ∩ Aj = ∅. Hence by Case 1.1.2
+
+of Lemma 3.1 that τj τi ≡ τi τj ; thus (4.1) can be re-written as
+
+                                               qpt         q          q            q11
+(4.2)                                 v = τptp p · · · τp1p1 · · · τ1t1t1 1 · · · τ11  (u′ ),
+
+                                                                                                qk′ t   q   qkt
+                                                                                                          qk1
+where aki = aki′ and Aki 6= Aki′ provided i 6= i′ ; ak′ i 6= a±1
+                                                              ki and (τk ′ tk′ · · · τk ′ 1 )(τktk · · · τk1 ) ≡
+                                                                             k′         k′ 1      k
+
+
+
+  qkt         qk1   qk′ t       q
+(τktkk · · · τk1  )(τk′ tk′k′ · · · τk′k1′ 1 ) provided k 6= k′ . Here we may assume by Case 1.2.1 of Lemma 3.1
+
+that Aki ⊂ Aki′ if i < i′ . Then τki′ τki ≡ τki τki′ by Case 1.2.1 of Lemma 3.1; hence τk′ i′ τki ≡ τki τk′ i′
+
+for any τki and τk′ i′ in chain (4.2).
+
+Claim. The length of the chain of Whitehead automorphisms on the right-hand side of (4.2) is at
+                                                                  p
+                                                                  P
+most n − 2 without counting multiplicity, that is,                        ti ≤ n − 2.
+                                                                  i=1
+
+Proof of the Claim. The proof proceeds by induction on the number of subwords of u′ of the form
+
+xm
+ i
+   i
+     which are fixed throughout chain (4.2). For the base step, suppose that u′ has two such
+30                                                DONGHI LEE
+
+               m         m
+subwords xr1r1 and xr2r2 (note that u′ must have at least two such subwords). The cyclic word u′
+                             m
+can be written as u′ = xr1r1 w (without cancellation), where w is a non-cyclic word that contains
+
+xm
+ i
+   i
+     for all i 6= r1 . Upon replacing τij by (Āij , a−1                                     ±1
+                                                      ij ) if necessary, we may assume that xr1 ∈
+                                                                                                / Aij for
+
+all τij in chain (4.2). Then the length of w is constant throughout the chain and only the subword
+ m                                               qpt        q       q             q11
+xr2r2 of w is fixed in passing from w to τptp p · · · τp1p1 · · · τ1t1t1 1 · · · τ11  (w). It follows that the length
+
+of this chain is precisely (n − 1) − 1 = n − 2 without counting multiplicity. So the base step is done.
+
+     Now for the inductive step, suppose that u′ has k subwords of the form xm
+                                                                             i
+                                                                               i
+                                                                                 which are fixed
+                                     m          mr                                                    m
+throughout chain (4.2), say xr1r1 , . . . , xrk k .     Write the cyclic word u′ as u′ = xr1r1 w (with-
+
+out cancellation), where w is a non-cyclic word that contains xm
+                                                               i
+                                                                 i
+                                                                   for all i 6= r1 . As above,
+
+upon replacing τij by (Āij , a−1                                     ±1
+                               ij ) if necessary, we may assume that xr1 ∈
+                                                                         / Aij for all τij in chain
+                                                        m           mr
+(4.2). We then have that only the subwords xr2r2 , . . . , xrk k of w are fixed in passing from w to
+ qpt       q        q                    q11
+τptp p · · · τp1p1 · · · τ1t1t1 1 · · · τ11  (w), where the length of w is constant throughout the chain.
+
+     Let (w) be the cyclic word associated with w. If none of τij in chain (4.2) is of the form either
+
+(Σ − x±1    ±1                ±1    ±1   −1
+      r1 − xg , xg ) or (Σ − xr1 − xg , xg ), then chain (4.2) can be applied to (w) with τij 6= 1 on
+
+
+(w) for every τij in the chain. Then by the induction hypothesis applied to (w), the length of the
+
+chain is at most (n − 1) − 2 = n − 3 without counting multiplicity, as desired. If one of τij in chain
+
+(4.2) is of the form either (Σ − x±1    ±1                ±1    ±1   −1
+                                  r1 − xg , xg ) or (Σ − xr1 − xg , xg ), then we see that there can
+
+
+be only one of τij of such a form, so that chain (4.2) can be applied to (w) with only one τij = 1
+
+on (w). This together with the induction hypothesis applied to (w) yields that the length of chain
+
+(4.2) is at most (n − 1) − 2 + 1 = n − 2 without counting multiplicity, as required.                              
+
+
+
+     Obviously each multiplicity qij is less than the number of a±1
+                                                                 ij occurring in u, so less than |u|.
+
+
+This together with the Claim yields that the total number of chains of Whitehead automorphisms
+                                                             r     n−2
+                                                                
+with the same properties as in (4.2) is less than           n−2 |u|    , where r is the number of Whitehead
+                                                                                  r
+                                                                                     n−2
+automorphisms of Fn of degree 0. Thus the cardinality of L is less than (n − 1)! n−2 |u|  , and
+                COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT                                                        31
+
+
+therefore
+                                                                                                     
+                                                                                                   r
+                  N0 (xm 1 m2      mn
+                       1 x2 · · · xn ) = #M + #L ≤ (n − 1)! + (n − 1)!                                  |u|n−2 ,
+                                                                                                  n−2
+
+which completes the proof the lemma.                                                                                            
+
+Remark. The proof of Lemma 4.1 can be applied without further change if we replace consideration
+
+of a single cyclic word u, the length |u| of u, and the total number of occurrences of x±1
+                                                                                        j  in u with
+                                                                                                     m
+                                                                                                     P
+consideration of a finite sequence (u1 , . . . , um ) of cyclic words, the sum                             |ui | of the lengths of
+                                                                                                     i=1
+
+u1 , . . . , um , and the total number of occurrences of x±1
+                                                          j  in (u1 , . . . , um ), respectively.
+
+Lemma 4.2. Let u be a cyclic word in Fn that satisfies Hypothesis 1.1. Then for each k =
+
+1, . . . , n − 1, Nk (u) is bounded by a polynomial function of degree n + 3k − 2 with respect to |u|
+
+(note that k is at most n − 1 by the Remark after Lemma 2.2).
+                                                                                                                       k
+Proof. Let mi be the number of occurrences of x±1
+                                                                                                                       P
+                                               i  in u for i = 1, . . . , n, and let ℓk =                                   mj for
+                                                                                                                      j=1
+
+k = 1, . . . , n − 1. Write
+
+
+(4.3)                             u = y1 u1 y2 u2 · · · yℓk uℓk       without cancellation,
+
+
+where for each i = 1, . . . , ℓk , yi = xj or yi = x−1
+                                                    j  for some 1 ≤ j ≤ k, and ui is a (non-cyclic)
+
+subword in {xk+1 , . . . , xn }±1 . Let Fn+3k be the free group on the set
+
+
+                       {x1 , . . . , xn , xn+1 , . . . xn+k , x2n+1 , . . . , x2n+k , x3n+1 , . . . , x3n+k }.
+
+
+From (4.3) we construct a sequence Vu = (v1 , . . . , vℓk ) of cyclic words v1 , . . . , vℓk in Fn+3k with
+ℓk
+P
+      |vi | = 2|u| as follows: for each i = 1, . . . , ℓk ,
+i=1
+
+                            if yi = xj and yi+1 = xj ′ , then vi = xj ui x3n+j ′ u−1
+                                                                                  i ;
+
+
+                            if yi = x−1
+                                     j  and yi+1 = xj ′ , then vi = xn+j ui x3n+j ′ u−1
+                                                                                     i ;
+
+
+                            if yi = xj and yi+1 = x−1                             −1
+                                                   j ′ , then vi = xj ui x2n+j ′ ui ;
+
+
+                            if yi = x−1
+                                     j  and yi+1 = x−1                               −1
+                                                    j ′ , then vi = xn+j ui x2n+j ′ ui ,
+
+where yℓk +1 = y1 .
+32                                                  DONGHI LEE
+
+
+Claim. For each Whitehead automorphism σ of Fn of degree k such that |σ(u)| = |u|, there exists
+                                                                             ℓk
+                                                                             P                   ℓk
+                                                                                                 P
+a Whitehead automorphism τ of Fn+3k of degree 0 such that                          |τ (vi )| =         |vi | and τ (Vu ) = Vσ(u) .
+                                                                             i=1                 i=1
+
+
+Proof of the Claim. Let σ = (S, a) be a Whitehead automorphism of Fn of degree k such that
+
+|σ(u)| = |u|. Upon replacing σ by (S̄, a−1 ), we may assume that σ = (S, xr ). Note by Lemma 2.2
+
+that the index r is bigger than k, since deg σ = k. Put S = T + P + Q, where T = S ∩
+
+{xk+1 , . . . , xn }±1 , P = S ∩ {x1 , . . . , xk } and Q = S ∩ {x1 , . . . , xk }−1 (here note that T = T −1 , since
+
+deg σ = k).
+
+     Then we consider the Whitehead automorphism τ = (T +P1 +Q1 , xr ) of Fn+3k of degree 0, where
+
+P1 = {x±1   ±1                        ±1     ±1     −1
+       i , x2n+i |xi ∈ P } and Q1 = {xn+i , x3n+i |xi  ∈ Q}. If the sequence Vu = (v1 , . . . , vℓk ) of
+
+cyclic words v1 , . . . , vℓk in Fn+3k is constructed as above, then each newly introduced letter x±1
+                                                                                                   r in
+
+
+passing from u to σ(u) that remains in σ(u) produces two newly introduced letters x±1
+                                                                                   r in passing
+
+
+from Vu to τ (Vu ) that remain in τ (Vu ), and vice versa. Also each letter x±1
+                                                                             r  in u that is lost in
+
+passing from u to σ(u) produces two letters x±1
+                                             r  in Vu that are lost in passing from Vu to τ (Vu ),
+                                      ℓk
+                                      P                   ℓk
+                                                          P
+and vice versa. This yields that            |τ (vi )| =         |vi |. Moreover it is clear that τ (Vu ) = Vσ(u) .             
+                                      i=1                 i=1
+
+
+     It is easy to see that if u′ ∈ Ωk (u) with u′ 6= u, then Vu′ 6= Vu . This together with the Claim
+
+gives us that Nk (u) ≤ N0 ((v1 , v2 , . . . , vℓk )). By the Remark after Lemma 4.1, N0 ((v1 , v2 , . . . , vℓk ))
+
+is bounded by a polynomial function of degree n + 3k − 2 with respect to 2|u|, which completes the
+
+proof of the lemma.                                                                                                            
+
+
+     Finally we give a proof of Theorem 1.5.
+
+
+Proof of Theorem 1.5.
+
+
+     Without loss of generality we may assume that u was chosen from the set {v ∈ OrbAutFn (u) :
+
+|v| = |u|} so that u satisfies Hypothesis 1.3. Let v ∈ OrbAutFn (u) be such that |v| = |u|. By
+
+Whitehead’s Theorem, there exist Whitehead automorphisms π of the first type and σ1 , . . . , σℓ of
+
+the second type such that v = πσℓ · · · σ1 (u), where |σi · · · σ1 (u)| = |u| for all i = 1, . . . , ℓ. Then by
+             COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT                                        33
+
+
+Theorem 1.4, there exist Whitehead automorphisms τ1 , . . . , τs such that v = πτs · · · τ1 (u), where
+
+n − 1 ≥ deg τs ≥ deg τs−1 ≥ · · · ≥ deg τ1 , and |τj · · · τ1 (u)| = |u| for all j = 1, . . . , s (here, note by
+
+the Remark after Lemma 2.2 that deg τs ≤ n − 1). This implies that
+
+                                    N (u) ≤ CN0 (u)N1 (u) · · · Nn−1 (u),
+
+where C is the number of Whitehead automorphisms of the first type of Fn (which depends only
+
+on n). For each k = 0, 1, . . . , n − 1, Nk (u) is bounded by a polynomial function of degree n + 3k − 2
+
+with respect to |u| by Lemmas 4.1 and 4.2. Therefore, N (u) is bounded by a polynomial function
+
+of degree n(5n − 7)/2 with respect to |u|, as required.                                                      
+
+
+                                              5. Limitations
+
+
+   We close this paper with a brief explanation why the presented technique is incapable of covering
+
+the entire problem domain (e.g. for u = x21 x22 x33 x44 the presented arguments cannot be applied).
+
+This amounts to explaining why condition (ii) of Hypothesis 1.1 cannot be dropped. As a matter
+
+of fact, in the presented arguments, condition (ii) of Hypothesis 1.1 played a most essential role,
+
+without which all of our arguments except Lemmas 2.1 and 4.1 would have broke down. Owing to
+
+Lemma 2.2 where we first used Hypothesis 1.1 (ii), we were able to assume throughout the paper
+
+that
+
+(5.1)          j > i when considering Whitehead automorphisms (A, x±1
+                                                                   j ) of degree i.
+
+
+This allowed us to exclude the worst case such as a ∈ B, a−1 ∈
+                                                             / B, b ∈ A and b−1 ∈
+                                                                                / A in
+
+Lemma 3.1, for which case there does not exist a composition of Whitehead automorphisms of
+
+ascending degrees that equals (B, b)(A, a). Also we proceeded with the proofs of Lemma 3.2 and
+
+Theorem 1.4 based on (5.1). For instance, Claim 1 in the proof of Lemma 3.2 yielded the existence
+
+r such that a±1
+             r  ∈ As ∩ B in Case 1.1, where we did not have to worry about the case where
+
+ar ∈ As ∩ B but a−1
+                 r ∈/ As ∩ B. Furthermore, the equality in the Claim in the proof of Lemma 4.2
+
+would not have hold without (5.1).
+34                                          DONGHI LEE
+
+
+                                       Acknowledgements
+
+     The author would like to express her deep appreciation to Professors S. V. Ivanov, I. Kapovich,
+
+A. G. Myasnikov, V. Shpilrain for their comments and interests in this paper. The author is
+
+also thankful to the referee for many valuable suggestions which led to an improvement of this
+
+paper. The author was partially supported by Research Institute for Basic Sciences, Pusan National
+
+University (2005).
+
+
+                                            References
+
+
+      1. P. J. Higgins and R. C. Lyndon, Equivalence of elements under automorphisms of a free
+
+         group, J. London Math. Soc. 8 (1974), 254–258.
+
+      2. I. Kapovich, P. E. Schupp and V. Shpilrain, Generic properties of Whitehead’s Algorithm
+
+         and isomorphism rigidity of random one-relator groups, Pacific J. Math. 223 (2006), 113–
+
+         140.
+
+      3. B. Khan, The structure of automorphic conjugacy in the free group of rank two, Computa-
+
+         tional and experimental group theory, 115–196, Contemp. Math., 349, Amer. Math. Soc.,
+
+         Providence, RI, 2004.
+
+      4. R. C. Lyndon and P. E. Schupp, “Combinatorial Group Theory”, Springer-Verlag, New
+
+         York/Berlin, 1977.
+
+      5. J. McCool, A presentation for the automorphism group of a free group of finite rank, J.
+
+         London Math. Soc. 8 (1974), 259–266.
+
+      6. A. G. Myasnikov and V. Shpilrain, Automorphic orbits in free groups, J. Algebra 269
+
+         (2003), 18–27.
+
+      7. J. H. C. Whitehead, Equivalent sets of elements in a free group, Ann. of Math. 37 (1936),
+
+         782–800.
+
+  Department of Mathematics, Pusan National University, San-30 Jangjeon-Dong, Geumjung-Gu,
+Pusan, 609-735, Korea
+          COUNTING WORDS OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT   35
+
+
+E-mail address: donghi@pusan.ac.kr
+

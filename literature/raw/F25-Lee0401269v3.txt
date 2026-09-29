@@ -1,0 +1,742 @@
+                                                           A TIGHTER BOUND FOR THE NUMBER OF WORDS
+                                                          OF MINIMUM LENGTH IN AN AUTOMORPHIC ORBIT
+arXiv:math/0401269v3 [math.GR] 7 Mar 2006
+
+
+
+
+                                                                                              Donghi Lee
+
+                                                  Abstract. Let u be a cyclic word in a free group Fn of finite rank n that has the minimum length
+                                                  over all cyclic words in its automorphic orbit, and let N (u) be the cardinality of the set {v : |v| = |u|
+                                                  and v = φ(u) for some φ ∈ AutFn }. In this paper, we prove that N (u) is bounded by a polynomial
+                                                  function of degree 2n − 3 in |u| under the hypothesis that if two letters x, y with x 6= y ±1 occur in u,
+                                                  then the total number of x±1 occurring in u is not equal to the total number of y ±1 occurring in u. We
+                                                  also prove that 2n − 3 is the sharp bound for the degree of polynomials bounding N (u). As a special
+                                                  case, we deal with N (u) in F2 under the same hypothesis.
+
+
+
+
+                                                                                           1. Introduction
+
+
+                                               Let Fn be the free group of a finite rank n on the set {x1 , x2 , . . . , xn }. We denote by Σ the
+
+                                            set of letters of Fn , that is, Σ = {x1 , x2 , . . . , xn }±1 . As in [1, 6], we define a cyclic word to be a
+
+                                            cyclically ordered set of letters with no pair of inverses adjacent. The length |w| of a cyclic word w
+
+                                            is the number of elements in the cyclically ordered set. For a cyclic word w in Fn , we denote the
+
+                                            automorphic orbit {ψ(w) : ψ ∈ AutFn } by OrbAutFn (w).
+
+                                               The purpose of this paper is to present a partial solution of the following conjecture proposed
+
+                                            by Myasnikov–Shpilrain [7]:
+
+                                            Conjecture. Let u be a cyclic word in Fn which has the minimum length over all cyclic words in
+
+                                            its automorphic orbit OrbAutFn (u), and let N (u) be the cardinality of the set {v ∈ OrbAutFn (u) :
+
+                                            |v| = |u|}. Then N (u) is bounded by a polynomial function of degree 2n − 3 in |u|.
+
+                                               This conjecture was motivated by the complexity of Whitehead’s algorithm which decides whether,
+
+                                            for given two elements in Fn , there is an automorphism of Fn that takes one element to the other.
+
+                                            Indeed, proving that N (u) is bounded by a polynomial function in |u| would yield that Whitehead’s
+
+                                               1991 Mathematics Subject Classification. Primary 20E05, 20E36, 20F10.
+
+                                                                                                                                           Typeset by AMS-TEX
+                                                                                                      1
+2                                           DONGHI LEE
+
+
+algorithm terminates in polynomial time with respect to the maximum length of the two words in
+
+question (see [7, Proposition 3.1]).
+
+    Proposing this conjecture, Myasnikov–Shpilrain [7] proved that N (u) is bounded by a polynomial
+
+in |u| in F2 . Later, Khan [3] improved their result by showing that N (u) has the sharp bound of
+
+8|u| − 40 for |u| ≥ 9 in F2 , by which the conjecture was settled in the affirmative for F2 . For a free
+
+group of bigger rank, Kapovich–Schupp–Shpilrain [2] showed that N (u) is bounded by a constant
+
+depending only on n for u contained in an exponentially generic subset of Fn , and the author [4]
+
+recently proved that N (u) is bounded by a polynomial function of degree n(5n − 7)/2 in |u| under
+
+the following
+
+Hypothesis 1.1. (i) A cyclic word u has the minimum length over all cyclic words in its auto-
+
+morphic orbit OrbAutFn (u).
+
+    (ii) If two letters xi (or x−1              −1
+                                i ) and xj (or xj ) with i < j occur in u, then the total number of
+
+
+x±1
+ i  occurring in u is strictly less than the total number of x±1
+                                                              j  occurring in u.
+
+    In the present paper, we prove under the same hypothesis that N (u) is bounded by a polynomial
+
+function of degree 2n − 3 in |u|, and that 2n − 3 is the sharp bound for the degree of polynomials
+
+bounding N (u):
+
+Theorem 1.2. Let u be a cyclic word in Fn that satisfies Hypothesis 1.1. Then N (u) is bounded
+
+by a polynomial function of degree 2n − 3 in |u|.
+
+Theorem 1.3. Let n ≥ 2 be arbitrary. Then there exist a polynomial pn (t) of degree exactly 2n − 3
+
+in t and a sequence (ul ) of cyclic words in Fn satisfying Hypothesis 1.1 such that |ul | → ∞ as
+
+l → ∞ and such that N (ul ) ≥ pn (|ul |). Thus 2n − 3 is a sharp bound for the degree of a polynomial
+
+in |u| bounding N (u) from above, provided u is a cyclic word in Fn that satisfies Hypothesis 1.1.
+
+    As a special case, we deal with N (u) in F2 :
+
+Theorem 1.4. Let u be a cyclic word in F2 that satisfies Hypothesis 1.1. Then N (u) ≤ 8|u| − 40.
+                A TIGHTER BOUND FOR THE NUMBER OF WORDS OF MINIMUM LENGTH                              3
+
+
+Moreover there exists a sequence (ul ) of cyclic words in F2 satisfying Hypothesis 1.1 such that
+
+|ul | ≥ 9, |ul | → ∞ as l → ∞ and such that N (ul ) = 8|ul | − 40. Thus N (u) has the sharp bound of
+
+8|u| − 40 for |u| ≥ 9.
+
+
+   The same technique as used in [4] is applied to the proofs of these theorems. The proofs will
+
+appear in Sections 3–5. In Section 2, we will establish a couple of technical lemmas which play an
+
+important role in the proof of Theorem 1.2.
+
+   Now we would like to recall several definitions. As in [4], a Whitehead automorphism σ of Fn is
+
+defined to be an automorphism of one of the following two types (cf. [5, 8]):
+
+ (W1) σ permutes elements in Σ.
+
+ (W2) σ is defined by a set A ⊂ Σ and a letter a ∈ Σ with both a, a−1 ∈
+                                                                      / A in such a way that if
+
+        x ∈ Σ then (a) σ(x) = xa provided x ∈ A and x−1 ∈
+                                                        / A; (b) σ(x) = a−1 xa provided both
+
+        x, x−1 ∈ A; (c) σ(x) = x provided both x, x−1 ∈
+                                                      / A.
+
+If σ is of type (W2), we write σ = (A, a). By (Ā, a−1 ), we mean a Whitehead automorphism
+
+(Σ − A − a±1 , a−1 ). It is then easy to see that (A, a)(w) = (Ā, a−1 )(w) for any cyclic word w in Fn .
+
+   We also recall the definition of the degree of a Whitehead automorphism of the second type
+
+(see [4]):
+
+
+Definition 1.5. Let σ = (A, a) be a Whitehead automorphism of Fn of the second type. Put
+
+A′ = {i : either xi ∈ A or x−1
+                            i  ∈ A, but not both}. Then the degree of σ is defined to be max A′ . If
+
+A′ = ∅, then the degree of σ is defined to be zero.
+
+
+   Let w be a fixed cyclic word in Fn that satisfies Hypothesis 1.1 (i). For two letters x, y ∈ Σ, we
+
+say that x depends on y with respect to w if, for every Whitehead automorphism (A, a) of Fn such
+
+that
+
+              / {x±1 , y ±1 }, {y ±1 } ∩ A 6= ∅, and ∃v ∈ OrbAutFn (w) : |(A, a)(v)| = |v| = |w|,
+             a∈
+
+
+we have {x±1 } ⊆ A. Then, as shown in [4], if x depends on y with respect to w, then y depends
+4                                            DONGHI LEE
+
+
+on x with respect to w.
+
+    We then construct the dependence graph Γw of w as follows: Take the vertex set as Σ, and
+
+connect two distinct vertices x, y ∈ Σ by a non-oriented edge if either y = x−1 or y depends on x
+
+with respect to w. Let Ci be the connected component of Γw containing xi . Clearly there exists a
+
+unique factorization
+
+                                w = v1 v2 · · · vt (without cancellation),
+
+where each vi is a non-empty (non-cyclic) word consisting of letters in Cji with Cji 6= Cji+1 (i mod
+
+t). The subword vi is called a Cji -syllable of w. By the Ck -syllable length of w denoted by |w|Ck ,
+                                                                                    Pn
+we mean the total number of Ck -syllables of w. We also define |w|s as |w|s =         k=1 |w|Ck .
+
+
+Example 1.6. Consider the cyclic word u = x21 x32 x43 x54 in F4 . Letting v = ({x±1
+                                                                                 2 }, x1 )(u) =
+
+
+x1 x32 x1 x43 x54 , v is an automorphic image of u with |v| = |u| (hence Γu = Γv ). This implies that both
+
+x±1     ±1                  ±1                ′     ±1    −1                ′
+ 3 and x4 do not depend on x2 . Also putting v = ({x2 }, x3 )(u), we have |v | = |u|, so that
+
+
+x±1                    ±1
+ 1 does not depend on x2 . Hence the connected component C2 of Γu containing x2 consists of
+
+
+only x±1
+      2 . This way we can show that the dependence graph Γu = Γv has four distinct connected
+
+
+components, each Ci of which contains only x±1
+                                            i . Thus |u|Ci = 1 for each 1 ≤ i ≤ 4 and so |u|s = 4,
+
+
+whereas |v|C1 = 2, |v|Cj = 1 for each 2 ≤ j ≤ 4 and so |v|s = 5.
+
+Example 1.7. Consider the cyclic word u = x21 x32 x23 x4 x−1       3
+                                                          3 x4 x3 x4 in F4 , of which the dependence
+
+
+graph Γu has three distinct connected components C1 , C2 , C3 = C4 . Putting v = ({x±1    −1 2
+                                                                                    2 }, x3 ) (u) =
+
+
+x21 x23 x32 x4 x−1       3
+                3 x4 x3 x4 , v is an automorphic image of u with |v| = |u|, so Γu = Γv . While |u|Ci = 1
+
+
+for each 1 ≤ i ≤ 4 and so |u|s = 4, |v|C1 = |v|C2 = 1, |v|C3 = |v|C4 = 2 and so |v|s = 6.
+
+
+                                      2. Preliminary Lemmas
+
+
+    Throughout this section, when we say that σ = (A, a) is a Whitehead automorphism of Fn of
+
+degree i, the following restriction is additionally imposed:
+
+
+                                          a = x±1
+                                               j  with j > i.
+                     A TIGHTER BOUND FOR THE NUMBER OF WORDS OF MINIMUM LENGTH                              5
+
+
+For two automorphisms φ and ψ of Fn , by writing φ ≡ ψ we mean the equality of φ and ψ over
+
+all cyclic words in Fn , that is, φ(v) = ψ(v) for any cyclic word v in Fn . For a cyclic word v in
+
+Fn , we define Mk (v), for k = 0, 1, . . . , n − 1, to be the cardinality of the set Ωk (v) = {φ(v) : φ
+
+can be represented as a composition φ = αt · · · α1 (t ∈ N) of Whitehead automorphisms αi of Fn
+
+of the second type such that k = deg αt ≥ deg αt−1 ≥ · · · ≥ deg α1 and |αi · · · α1 (v)| = |v| for all
+
+i = 1, . . . , t}.
+
+Lemma 2.1. Under the foregoing notation, M1 (v) is bounded by a polynomial function of degree
+
+n − 1 in |v|.
+
+Proof. Let ℓi be the number of occurrences of x±1
+                                               i  in v for i = 1, . . . , n. Clearly
+
+                                                                          ℓ
+                                        M1 (v) ≤ M1 (x21 xℓ22 · · · xn−1
+                                                                      n−1 ℓn +ℓ1 −2
+                                                                         xn         ).
+
+                                                               ℓ
+So it is enough to prove that M1 (x21 xℓ22 · · · xn−1
+                                                   n−1 ℓn +ℓ1 −2
+                                                      xn         ) is bounded by a polynomial function in
+                                                           ℓ
+|v| of degree n − 1. Noting that |x21 xℓ22 · · · xn−1
+                                                   n−1 ℓn +ℓ1 −2
+                                                      xn         |s = n, put
+
+                                                                                       ℓ
+                           Λ = {v ′ : |v ′ |s = n and v ′ ∈ Ω0 (x21 xℓ22 · · · xn−1
+                                                                                 n−1 ℓn +ℓ1 −2
+                                                                                    xn         )}.
+
+
+Obviously the cardinality of the set Λ is (n − 1)!.
+                                 ℓ
+   Let w ∈ Ω1 (x21 xℓ22 · · · xn−1
+                                n−1 ℓn +ℓ1 −2
+                                   xn         ). Then for an appropriate v ′ ∈ Λ, there exist Whitehead
+
+automorphisms σi of degree 0 and τj of degree 1 such that
+
+
+(2.1)                                            w = τq · · · τ1 σp · · · σ1 (v ′ ),
+
+
+where |σi · · · σ1 (v ′ )| = |v ′ | and |σi · · · σ1 (v ′ )|s ≥ |σi−1 · · · σ1 (v ′ )|s for all 1 ≤ i ≤ p, and
+
+|τj · · · τ1 σp · · · σ1 (v ′ )| = |v ′ | for all 1 ≤ j ≤ q. Here, the same reasoning as in [4, Lemma 4.1]
+
+shows that σi σi′ ≡ σi′ σi for all 1 ≤ i, i′ ≤ p. Furthermore, the chain τq · · · τ1 in (2.1) can be chosen
+
+so that, for τij = (Aij , aij ),
+
+
+(2.2)                          τq · · · τ1 = (τrqr · · · τr1 ) · · · (τ2q2 · · · τ21 )(τ1q1 · · · τ11 ),
+6                                                     DONGHI LEE
+
+
+where Aij = Aij ′ for all 1 ≤ j, j ′ ≤ qi , and x1 ∈ Ai1 ( Ai+11 .
+
+    We may assume without loss of generality that the index r in (2.2) is minimum over all chains
+
+satisfying (2.1) and (2.2). Clearly in (2.1)–(2.2) the element v ′ in Λ, the Whitehead automorphisms
+
+σ1 , . . . , σp , and the index r are determined by w; so we put
+
+
+                                      ′
+                                     vw = v′ ,    ψw = σp · · · σ1 ,      and rw = r.
+
+
+It is easy to see that rw is at most n − 1.
+
+    For s = 1, . . . , n − 1, put
+
+
+                                                                                     ℓ
+                                              ′
+        Ls = the cardinality of the set {ψw (vw ) : w ∈ Ω1 (x21 xℓ22 · · · xn−1
+                                                                             n−1 ℓn +ℓ1 −2
+                                                                                xn         ) with rw = s}.
+
+
+Then in view of (2.1)–(2.2), we have
+
+
+                          ℓ                                                                            2
+         M1 (x21 xℓ22 · · · xn−1
+                              n−1 ℓn +ℓ1 −2
+                                 xn         ) ≤ 2(n−1) |v|L1 + 22(n−1) |v|2 L2 + · · · + 2(n−1) |v|n−1 Ln−1 ,
+
+
+since the number of possible Aij ’s and the indices qi ’s in (2.2) are less than or equal to 2n−1 and
+
+|v|, respectively. Hence it is enough to prove that each Ls is bounded by a polynomial function in
+
+|v| of degree n − s − 1. Due to the result of [4, Lemma 4.1], there is nothing to prove for s = 1.
+
+So let s ≥ 2 and put Ei = Ai1 − Ai−11 for i = 2, . . . , s. This can possibly happen only when
+
+ψw = σp · · · σ1 in (2.1) can be re-arranged so that, for σj = (Bj , bj ),
+
+
+(2.3)                                 ψw = (σts+1 · · · σts +1 ) · · · (σt2 · · · σ2 )σ1 ,
+
+
+where b1 ∈ {x±1    ±1
+             1 }, bj  ∈ Ei and either Bj ⊆ Ei or Bj ∩ Ei = ∅ provided ti−1 < j ≤ ti (t1 = 1),
+                S
+                s                                           S
+                                                            s                                S
+                                                                                             s
+and bj±1 ∈
+         / (          Ei + x±1
+                            1 ) and either Bj ⊆ (                Ei + x±1
+                                                                       1 ) or Bj ∩ (               Ei + x±1
+                                                                                                         1 ) = ∅ provided
+                i=2                                        i=2                               i=2
+
+ts < j ≤ ts+1 .
+
+    Now, for i = 2, . . . , s, let
+
+
+                                hi be the half of the cardinality of the set Ei .
+                 A TIGHTER BOUND FOR THE NUMBER OF WORDS OF MINIMUM LENGTH                                             7
+
+            P
+            s
+Put h =          hi . It then follows from the result of [4, Lemma 4.1] that the number of cyclic words
+           i=2
+                                                                                          ′
+obtained by σtj+1 · · · σtj +1 applied to (σtj · · · σtj−1 +1 ) · · · (σt2 · · · σ2 )σ1 (vw ) is bounded by |v|hj+1 −1
+
+provided j = 1, . . . , s − 1 and by |v|n−(h+1)−1 provided j = s. Moreover the number of cyclic words
+
+                            ′
+derived from σ1 applied to vw is bounded by n − 2. Therefore we have from (2.3) that
+
+
+                 Ls ≤ (n − 1)! (n − 2)|v|h2 −1 · · · |v|hs −1 |v|n−h−2 = (n − 1)! (n − 2)|v|n−s−1 ,
+
+
+which is a polynomial function in |v| of degree n − s − 1, as required.                                                
+
+Remark. The proof of Lemma 2.1 can be applied without further change if we replace consideration
+
+of a single cyclic word v, the length |v| of v, and the total number of occurrences of x±1
+                                                                                        j  in v by
+                                                                                             P
+                                                                                             m
+consideration of a finite sequence (v1 , . . . , vm ) of cyclic words, the sum                    |vi | of the lengths of
+                                                                                            i=1
+
+v1 , . . . , vm , and the total number of occurrences of x±1
+                                                          j  in (v1 , . . . , vm ), respectively.
+
+Lemma 2.2. Under the foregoing notation, for each k = 2, . . . , n − 1, Mk (v) is bounded by a
+
+polynomial function of degree n + k − 2 in |v|.
+
+Proof. Let ℓi be the number of occurrences of x±1
+                                               i  in v for i = 1, . . . , n. Since
+
+                                                            ℓ           ℓ
+                             Mk (v) ≤ Mk (x21 · · · x2k xk+1
+                                                          k+1         n−1 ℓn +ℓ1 +···+ℓk −2k
+                                                              · · · xn−1 xn                  ),
+
+                                                   ℓ            ℓ
+it suffices to show that Mk (x21 · · · x2k xk+1
+                                             k+1         n−1 ℓn +ℓ1 +···+ℓk −2k
+                                                 · · · xn−1 xn                  ) is bounded by a polynomial
+
+function in |v| of degree n + k − 2. As in the proof of Lemma 2.1, put Λ = {v ′ : |v ′ |s = n and
+                       ℓ           ℓ
+v ′ ∈ Ω0 (x21 · · · x2k xk+1
+                          k+1         n−1 ℓn +ℓ1 +···+ℓk −2k
+                              · · · xn−1 xn                  )}.
+                               ℓ           ℓ
+   Let w ∈ Ωk (x21 · · · x2k xk+1
+                               k+1         n−1 ℓn +ℓ1 +···+ℓk −2k
+                                   · · · xn−1 xn                  ). Then for an appropriate v ′ ∈ Λ, there exist
+
+Whitehead automorphisms γi of Fn such that
+
+
+(2.4)                                          w = γq · · · γp+1 γp · · · γ1 (v ′ ),
+
+
+where the length of v ′ is constant throughout the chain on the right-hand side, deg γi = 0 provided
+
+1 ≤ i ≤ p, deg γi > 0 provided p < i ≤ q, and |γj · · · γ1 (v ′ )|s ≥ |γj−1 · · · γ1 (v ′ )|s for all 1 ≤ j ≤ p.
+8                                                    DONGHI LEE
+
+
+Here, since γi γi′ ≡ γi′ γi for all 1 ≤ i, i′ ≤ p by the same reasoning as in [4, Lemma 4.1], we may
+
+assume that either none of γi for 1 ≤ i ≤ p has multiplier x1 or x−1
+                                                                  1 or only γ1 has multiplier x1 or
+
+
+x−1
+ 1 . So (2.4) can be re-written as
+
+
+
+                                           w = γq · · · γp+1 γp · · · γ1 γ0 (v ′ ),
+
+
+where γ0 is either the identity or a Whitehead automorphism of Fn of degree 0 with multiplier x1
+
+or x−1                                                     −1
+    1 , and none of γj for 1 ≤ j ≤ q has multiplier x1 or x1 .
+
+
+    Write
+
+
+(2.5)                              γ0 (v ′ ) = x1 u1 x1 u2     without cancellation.
+
+
+(Note that u1 and u2 are non-cyclic subwords in {x2 , . . . , xn }±1 .) Let Fn+1 be the free group on
+
+the set {x1 , . . . , xn+1 }. From (2.5) we construct a pair (v1 , v2 ) of cyclic words v1 , v2 in Fn+1 with
+
+|v1 | + |v2 | = 2|v| as follows:
+
+
+                              v1 = x1 u1 xn+1 u−1
+                                               1             and    v2 = x1 u2 xn+1 u−1
+                                                                                     2 .
+
+
+
+    For each γj = (Dj , dj ) for 1 ≤ j ≤ q, define a Whitehead automorphism εj of Fn+1 as follows:
+
+
+                           if x±1                        ±1
+                               1 ∈ Dj , then εj = (Dj + xn+1 , dj );
+
+
+                           if only x1 ∈ Dj , then εj = (Dj + x−1
+                                                              1 , dj );
+
+
+                           if only x−1                        −1   ±1
+                                    1 ∈ Dj , then εj = (Dj − x1 + xn+1 , dj );
+
+
+                           if x±1
+                               1 ∈/ Dj , then εj = (Dj , dj ).
+
+
+Then arguing as in the proof of [4, Lemma 4.2], we have |εj · · · ε1 (v1 )| + |εj · · · ε1 (v2 )| = 2|v|
+
+for all 1 ≤ j ≤ q. Moreover, by the construction of εj , εj is a Whitehead automorphism of
+
+Fn+1 of degree at most k, and the defining set of εj contains either both of x±1
+                                                                              1  or none of x±1
+                                                                                             1 .
+
+
+This yields the same situation as for a chain of Whitehead automorphisms of Fn+1 of maximum
+               A TIGHTER BOUND FOR THE NUMBER OF WORDS OF MINIMUM LENGTH                                   9
+
+
+degree k − 1. Hence by the induction hypothesis together with the Remark after Lemma 2.1,
+               ℓ        ℓ
+Mk (x21 · · · x2k xk+1
+                    k+1         n−1 ℓn +ℓ1 +···+ℓk −2k
+                        · · · xn−1 xn                  ) is bounded by (n − 2) times a polynomial function in
+
+2|v| of degree (n + 1) + (k − 1) − 2 = n + k − 2, as required.                                             
+
+
+                                      3. Proof of Theorem 1.2
+
+
+   Without loss of generality we may assume that u satisfies further
+
+    (i) The Cn -syllable length |u|Cn of u is minimum over all cyclic words in the set {v ∈ OrbAutFn (u) :
+
+        |v| = |u|}.
+
+   (ii) If the index j (1 ≤ j ≤ n − 1) is such that Cj 6= Ck for all k > j, then the Cj -syllable
+
+        length |u|Cj of u is minimum over all cyclic words in the set {v ∈ OrbAutFn (u) : |v| =
+
+        |u| and |v|Ck = |u|Ck for all k > j}.
+
+(Namely, we may assume that u satisfies further the conditions in [4, Hypothesis 1.3].) Let u′ ∈
+
+OrbAutFn (u) be such that |u′ | = |u|. Due to the result of [4, Theorem 1.4], there exist Whitehead
+
+automorphisms π of the first type and τ1 , . . . , τs of the second type such that
+
+
+                                            u′ = πτs · · · τ1 (u),
+
+
+where n − 1 ≥ deg τs ≥ deg τs−1 ≥ · · · ≥ deg τ1 , and |τi · · · τ1 (u)| = |u| for all i = 1, . . . , s. This
+
+implies that
+
+
+(3.1)                        N (u) ≤ C(M0 (u) + M1 (u) + · · · + Mn−1 (u)),
+
+
+where C is the number of Whitehead automorphisms of Fn of the first type (which depends only
+
+on n), and Mk (u) is as defined in Section 2. The result of [4, Lemma 4.1] shows that M0 (u) is
+
+bounded by a polynomial function in |u| of degree n − 2. Also by Lemmas 2.1 and 2.2, Mk (u) for
+
+each k = 1, . . . , n − 1 is bounded by a polynomial function in |u| of degree n + k − 2. Then the
+
+required result follows from (3.1).                                                                        
+10                                              DONGHI LEE
+
+
+                                       4. Proof of Theorem 1.3
+
+
+     In [7], Myasnikov–Shpilrain pointed out that experimental data provided by C. Sims show that
+
+the maximum value of N (u) in F3 is 48|u|3 − 480|u|2 + 1140|u| − 672 if |u| ≥ 11 and this maximum
+
+value is attained at u = x21 x22 x3 x−1       ℓ
+                                     2 x3 x2 x3 with ℓ ≥ 3. Inspired by this observation, we let
+
+
+
+           u = x21 x2 (x2 xn x−1                  −1    2                        −1
+                              2 xn )x2 x3 (x3 xn x3 xn ) x3 · · · xn−1 (xn−1 xn xn−1 xn )
+                                                                                         n−2
+                                                                                             xn−1 xℓn
+
+
+with ℓ ≫ 1 in Fn . Note that u satisfies Hypothesis 1.1. For this u, we will prove that N (u) cannot
+
+be bounded by a polynomial function in |u| of degree less than 2n − 3. For each i = 2, . . . , n − 1
+
+and j = 1, . . . , n − 1, let
+
+
+                  σi = ({x±1           ±1    −1                   ±1             ±1      −1
+                          i , . . . , xn }, xn ) and τj = ({xj , xj+1 , . . . , xn−1 }, xn );
+
+
+
+then σi and τj are Whitehead automorphisms of Fn of degree 0 and degree j, respectively. Then the
+                                                                                     m              k
+                                                                             n−1
+total number of cyclic words derived from automorphisms of Fn of the form τn−1   · · · τ1m1 σn−1
+                                                                                              n−1
+                                                                                                  · · · σ2k2 ,
+
+                  ℓ                        ℓ
+where ki , mj ≤ 2n−3 , applied to u is ( 2n−3                                     ℓ
+                                              )2n−3 . Hence N (u) is at least ( 2n−3 )2n−3 , which com-
+
+pletes the proof.                                                                                         
+
+
+                                       5. Proof of Theorem 1.4
+
+
+     Let us assume that u satisfies further
+
+      (i) The C2 -syllable length |u|C2 of u is minimum over all cyclic words in the set {v ∈ OrbAutFn (u) :
+
+         |v| = |u|}.
+
+     (ii) If C1 6= C2 , then the C1 -syllable length |u|C1 of u is minimum over all cyclic words in the
+
+         set {v ∈ OrbAutFn (u) : |v| = |u| and |v|C2 = |u|C2 }.
+
+(Namely, assume that u satisfies further the conditions in [4, Hypothesis 1.3].) Note that M0 (u) = 1
+
+in F2 , where M0 (u) is as defined in Section 2. Also every Whitehead automorphism of F2 of
+
+degree 1 is equal to either ({x1 }, x2 ) or ({x1 }, x−1
+                                                     2 ) over all cyclic words in F2 . Hence, in view of
+                A TIGHTER BOUND FOR THE NUMBER OF WORDS OF MINIMUM LENGTH                                 11
+
+
+[4, Theorem 1.4], N (u) is the same as the cardinality of the set {v : v = πτ k (u) (k ≥ 0), where
+
+π is a permutation on Σ and τ is either ({x1 }, x2 ) or ({x1 }, x−1              i
+                                                                 2 ) such that |τ (u)| = |u| for all
+
+
+i = 1, . . . , k}. Let
+
+                         Λ(u) = {v : v = τ k (u) (k ≥ 0), where τ is as above}.
+
+
+   Let m be the number of occurrences of x±1
+                                          1 in u. First consider the maximum value N (u) over
+
+
+all u with m = 2. If m = 2, then u is of the form either x1 xℓ21 x−1 ℓ2    2 ℓ
+                                                                  1 x2 or x1 x2 . Then the cardinality
+
+
+of Λ(x1 xℓ21 x−1 ℓ2                          2 ℓ
+              1 x2 ) equals 1 and that of Λ(x1 x2 ) equals |u| − 1. Hence N (u) has the maximum value
+
+
+at u = x21 xℓ2 . For u = x21 xℓ2 with ℓ ≥ 3, N (u) = 4(|u| − 1), since there are 8 permutations on Σ and
+
+τ j (x21 xℓ2 ) = πτ ℓ−j (x21 xℓ2 ) for j ≥ ℓ/2, where τ = ({x1 }, x−1
+                                                                   2 ) and π is the permutation that fixes x1
+
+
+and maps x2 to x−1
+                2 .
+
+
+   Next consider the maximum value of N (u) over all u with m = 4. (Here note that if m is odd,
+
+then any Whitehead automorphism of degree 1 cannot be applied to u without increasing |u|; hence
+
+the cardinality of Λ(u) equals 1.) It is not hard to see that Λ(u) has the maximum cardinality
+
+|u| − 5 at u = x21 x2 x−1       ℓ            2     −1       ℓ
+                       1 x2 x1 x2 . For u = x1 x2 x1 x2 x1 x2 with ℓ ≥ 3, N (u) = 8(|u| − 5), since 8
+
+
+permutations on Σ applied to the elements of Λ(x21 x2 x−1       ℓ
+                                                       1 x2 x1 x2 ) induce all different cyclic words.
+
+
+Obviously this is the maximum value of N (u) over all u with m = 4.
+
+   Finally note that the cardinality of Λ(u) cannot be greater than nor equal to |u| − 5 for any u
+
+with m > 4. This means that N (u) < 8(|u| − 5) for every u with m > 4. Therefore, the maximum
+
+value of N (u) over all u is 8(|u| − 5), which is attained at u = x21 x2 x−1       ℓ
+                                                                          1 x2 x1 x2 with ℓ ≥ 3.           
+
+
+                                         Acknowledgements
+
+
+   The author is grateful to the referee for many helpful comments and suggestions. This work was
+
+supported by Pusan National University Research Grant, 2004.
+
+
+                                               References
+12                                        DONGHI LEE
+
+
+     1. P. J. Higgins and R. C. Lyndon, Equivalence of elements under automorphisms of a free
+
+       group, J. London Math. Soc. 8 (1974), 254–258.
+
+     2. I. Kapovich, P. E. Schupp and V. Shpilrain, Generic properties of Whitehead’s Algorithm
+
+       and isomorphism rigidity of random one-relator groups, Pacific J. Math. 223 (2006), 113–
+
+       140.
+
+     3. B. Khan, The structure of automorphic conjugacy in the free group of rank two, Computa-
+
+       tional and experimental group theory, 115–196, Contemp. Math., 349, Amer. Math. Soc.,
+
+       Providence, RI, 2004.
+
+     4. D. Lee, Counting words of minimum length in an automorphic orbit, preprint;
+
+       http://www.arxiv.org/math.GR/0311410
+
+     5. R. C. Lyndon and P. E. Schupp, “Combinatorial Group Theory”, Springer-Verlag, New
+
+       York/Berlin, 1977.
+
+     6. J. McCool, A presentation for the automorphism group of a free group of finite rank, J.
+
+       London Math. Soc. 8 (1974), 259–266.
+
+     7. A. G. Myasnikov and V. Shpilrain, Automorphic orbits in free groups, J. Algebra 269
+
+       (2003), 18–27.
+
+     8. J. H. C. Whitehead, Equivalent sets of elements in a free group, Ann. of Math. 37 (1936),
+
+       782–800.
+
+   Department of Mathematics, Pusan National University, Jangjeon-Dong, Geumjung-Gu, Pusan
+609-735, Korea
+   E-mail address: donghi@pusan.ac.kr
+

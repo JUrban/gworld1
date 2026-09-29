@@ -1109,3 +1109,35 @@ Maximum two cores/18GB combined reservations; no agents, contact or push.
 Counts remain6 whole/3 partial candidates,0 established novel. Neither
 profile example is a counterexample to N3, whose finite target has an
 obvious free nilpotent cover. Original48hour deadline unchanged.
+
+
+## 2026-09-29T08:45:47.947218+00:00 — F25 equal-frequency degree-sorting obstruction
+
+The preceding preparation-only turn did not advance the active solving
+goal. Revalidated the existing run, original deadline and current worktree;
+continued in gworld1 without changing the preparation export or parent.
+The previously downloaded Lee0311410v3 source was retained and inspected.
+
+Read the original F25 statement/background and actual screenshot; archived
+Lee0401269v3, separated cyclic/ordinary counting and checked the frequency
+hypotheses. A bounded exact probe completed35 records:26 complete plateaux,
+9 nonminimal words with shortening moves, no truncation. Distinct-frequency
+control has112 vertices reached by degree-sorted chains.
+
+Extracted a12-letter balanced-frequency word whose type-II plateau is a
+12-cycle with alternating degrees2,3. No basepoint or generator order
+permits sorted chains to reach more than4 vertices. A two-move3,2 path
+supplies an explicit failure of the proposed extension of Lee Lemma3.1.
+The full signed-permutation closure has144 cyclic words. A power argument
+gives arbitrarily long examples, still with constant cyclic orbit size.
+
+Independent GAP checked all96 moves at12 vertices,1152 exact substitutions,
+48 nonloop directed move representatives,72 start/order reachability sets,
+the cycle and signed-permutation closure. Final run1.974s, empty stderr,
+exit0, marker present. Earlier passing versions and sources retained; v2
+adds structural checks. All five jobs terminal,1 core/4GB each.
+
+Wrote the exact proof and limitations; this neither solves F25 nor refutes
+Lee under its actual hypotheses. No new candidate or novelty count. The
+original6 whole/3 partial/0 established-novel tally and48hour clock remain.
+No subagents, author contact or push.

@@ -539,3 +539,21 @@ exhaustive openness or novelty claim follows. The new locally certified
 obstructions to the pair-bound enlargement and uniform+1 enlargement are
 in `research/notes/N3-profile-repair-obstruction.md`; no prior-source claim
 is upgraded to a solution of N3.
+
+
+## F25 equal-frequency scope check (2026-09-29T08:45:47.947218+00:00)
+
+Archived [Lee0311410v3](https://arxiv.org/pdf/math/0311410v3) and
+[Lee0401269v3](https://arxiv.org/pdf/math/0401269v3). The first paper's
+Hypothesis1.1, definitions, Theorems1.4/1.5 and Lemmas2.2/3.1 were read;
+pages2,7,8 visually inspected. The second introduction/Hypothesis1.1 and
+Theorems1.2--1.4 were read as text. Both retain distinct positive unsigned
+frequencies. The second gives degree2n-3 for cyclic words, not an identical
+degree for ordinary words. The full proofs were not audited.
+
+Rechecked the already archived Shpilrain2510.00889 survey Section3; the
+general polynomial question is still formulated there. Targeted searches
+for Whitehead/equal-frequency/degree-sorting counterexamples located no
+matching source for our auxiliary12-cycle example, but do not establish
+novelty. The example rules out only our attempted deletion of Lee's
+hypothesis, not the published theorem or the original F25 bound.

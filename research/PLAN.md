@@ -461,3 +461,16 @@ Return also to concrete unresolved leads across the frozen195-entry
 portfolio, rather than growing this auxiliary example indefinitely.
 Preserve6 whole/3 partial candidates,0 established novel and the original
 48hour clock. No jobs remain after this checkpoint.
+
+
+## Working focus after F25 checkpoint (2026-09-29T08:45:47.947218+00:00)
+
+The direct extension of Lee degree sorting to equal frequencies is false,
+even after changing minimum representative or ordering the generators.
+The12-cycle obstruction and all powers are certified; do not repeat these
+finished finite checks or infer a negative answer to F25. A possible block
+approach would require a new bound on entire equal-frequency move blocks;
+no such bound is proved. F41 fixed-word constants do not supply it.
+
+Return to a concrete unresolved portfolio lead under the original deadline.
+All jobs have ended;6 whole/3 partial candidates,0 established novel.
