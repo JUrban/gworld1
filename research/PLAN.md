@@ -2,7 +2,7 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately 06:13 UTC on 29 September: six whole-entry
+Latest checkpoint, approximately 06:39 UTC on 29 September: six whole-entry
 candidates (F28,N5,M0,H4,F41,GA3), three partial candidates
 (N8,F38(a),F34(a)), zero established novel results. All nine await
 specialist review and novelty assessment.
@@ -386,3 +386,16 @@ must be retained. It is not implemented or counted yet. Return also to a
 concrete unresolved problem in the wider portfolio; do not let incremental
 N8 layers displace the original195-entry goal. Counts6 whole,3 partial,
 0 established novel; original clock and review caveats retained.
+
+
+## Working focus after common-filling-carrier implementation (2026-09-29T06:39:06.744044+00:00)
+
+The finite common-filling-carrier search is implemented and audited as a
+prior positive branch for F38(c). Do not repeat the completed sample suites
+or count this as a new solution. The remaining non-filling, commensurable-
+stabilizer cases need a linear comparison argument; Lee's rank-two pair
+shows carrier existence is not necessary. Neither a same-rank primitive-
+length reflection theorem for F37 nor a general automorphism/tree quantifier
+replacement was obtained. Resume a concrete unresolved mathematical lead,
+including the retained N8 fifth/sixth-layer scheme if useful, while preserving
+the full195-entry objective and the original48hour clock.

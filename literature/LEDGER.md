@@ -459,3 +459,25 @@ Archived Nekrashevych book manuscript, Arzhantseva--Cherix metric-profile paper 
 ## 2026-09-29T05:44:55.353545+00:00 — uniform third-layer N8 dependencies
 
 Re-viewed the archived Bryant--Kovacs--Stohr2005 p147 homogeneous Shirshov statement and Altassan2013 p24 inner-solution theorem. Reread the latter general-coefficient discussion pp26--27; the new proof uses a graded subalgebra with actual free-basis coefficients, not an unjustified arbitrary-coefficient extension. Targeted current searches located the same prior Lie theorem in a post-Lie article and the known2016 class-two commutator sources, but no matching uniform group-stratum theorem. No exhaustive novelty claim. Exact proof, computational scope and source-reading limits in problems/N8/third-layer-audit.md.
+
+
+## 2026-09-29T06:39:06.744044+00:00 — F38(c) common-filling carriers
+
+Archived Miasnikov--Ventura--Weil, arXiv:math/0610880, with retrieval metadata.
+Read Section2.2, Theorem2.6 and Proposition3.7(i)--(ii); actually viewed PDF
+pages9 and13. Their finite principal fringe contains every algebraic
+extension, so it contains every possible filling carrier of a fixed word.
+Combined with the already credited Gupta--Kapovich and Kapovich--Lustig
+results this gives a finite sufficient-property decision, not full F38(c).
+Exact proof, checks and reading limits: F38-common-filling-carrier.md.
+The original F38 HTML/background and rendering were read/viewed again.
+
+Broader queries revisited F5, G6, S4/S7, M3, H15/H16, F37 and N9 without
+a new full solution. F5's own frozen background already credits the low-rank
+non-rigidity results. The located automaticity paper still assumes biautomaticity.
+Guirardel2000's primary abstract was read at
+https://numdam.org/item/10.1016/s0012-9593%2800%2900117-8.pdf ; it is not a
+dependency and no full-paper/density claim is made. No arbitrary-tree
+replacement of the automorphism quantifier is inferred. An initial local
+PDF rendering command lacked PyMuPDF; pdftoppm succeeded and the outputs
+were viewed. No mathematical run failed; no new solution count.

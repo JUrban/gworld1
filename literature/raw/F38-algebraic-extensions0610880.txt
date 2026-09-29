@@ -1,0 +1,1550 @@
+arXiv:math/0610880v1 [math.GR] 28 Oct 2006
+
+
+
+
+                                                        Algebraic extensions in free groups
+                                                             Alexei Miasnikov (alexeim@math.mcgill.ca)∗
+                                                        Dept of Mathematics and Statistics, McGill University and
+                                                Dept of Mathematics and Computer Science, City University of New York
+
+
+                                                               Enric Ventura (enric.ventura@upc.edu)†
+                                                 Universitat Politècnica de Catalunya and Centre de Recerca Matemàtica
+
+
+                                                                  Pascal Weil (pascal.weil@labri.fr)‡
+                                                                 LaBRI (CNRS and Université Bordeaux-1)
+
+
+
+
+                                                                                   Abstract
+                                                       The aim of this paper is to unify the points of view of three re-
+                                                   cent and independent papers (Ventura 1997, Margolis, Sapir and Weil
+                                                   2001 and Kapovich and Miasnikov 2002), where similar modern ver-
+                                                   sions of a 1951 theorem of Takahasi were given. We develop a theory
+                                                   of algebraic extensions for free groups, highlighting the analogies and
+                                                   differences with respect to the corresponding classical field-theoretic
+                                                   notions, and we discuss in detail the notion of algebraic closure. We
+                                                   apply that theory to the study and the computation of certain al-
+                                                   gebraic properties of subgroups (e.g. being malnormal, pure, inert or
+                                                   compressed, being closed in certain profinite topologies) and the corre-
+                                                   sponding closure operators. We also analyze the closure of a subgroup
+                                                   under the addition of solutions of certain sets of equations.
+                                                ∗
+                                                  Dept of Mathematics and Statistics – McGill University – Burnside Hall, room 915 –
+                                             805 Sherbrooke West – Montréal, Quebec, Canada, H3A 2K6
+                                                †
+                                                  EPSEM, Universitat Politècnica de Catalunya – Av. Bases de Manresa 61 – 73 08242
+                                             Manresa, Barcelona – Spain
+                                                ‡
+                                                  LaBRI – 351 cours de la Libération – 33405 Talence Cedex – France
+
+
+
+
+                                                                                       1
+Algebraic extensions in free groups                                          2
+
+
+1     Introduction
+A well-known result by Nielsen and Schreier states that all subgroups of a
+free group F are free. A non-specialist in group theory could be tempted to
+guess from this pleasant result that the lattice of subgroups of F is simple,
+and easy to understand. This is however far from being the case, and a
+closer look quickly reveals the classical fact that inclusions do not respect
+rank. In fact, the free group of countably infinite rank appears many times
+as a subgroup of the free group of rank 2. There are also many examples of
+subgroups H, K of F such that the rank of H ∩ K is greater than the ranks
+of H and K. These are just a few indications that the lattice of subgroups
+of F is not easy.
+    Although the lattice of subgroups of free groups was already studied by
+earlier authors, Serre and Stallings in their seminal 1977 and 1983 papers [14,
+16], introduced a powerful new technique, that has since turned out to be
+extremely useful in this line of research. It consists in thinking of F as
+the fundamental group of a bouquet of circles R, and of subgroups of F
+as covering spaces of R, i.e. some special types of graphs. With this idea
+in mind, one can understand and prove many properties of the lattice of
+subgroups of F using graph theory. These techniques are also very useful to
+solve algorithmic problems and to effectively compute invariants concerning
+subgroups of F .
+    The present paper offers a contribution in this direction, by analyzing a
+tool (an invariant associated to a given subgroup H ≤ F ) which is suggested
+by a 1951 theorem of Takahasi [17] (see Section 2.3). The algorithmic con-
+structions involved in the computation of this invariant actually appeared in
+recent years, in three completely independent papers [20], [11] and [7], where
+the same notion was invented in independent ways. In chronological order,
+we refer:
+
+    • to the fringe of a subgroup, constructed in 1997 by Ventura (see [20]),
+      and applied to the study of maximal rank fixed subgroups of automor-
+      phisms of free groups;
+
+    • to the overgroups of a subgroup, constructed in 2001 by Margolis, Sapir
+      and Weil (see [11]), and applied to improve an algorithm of Ribes-
+      Zaleskii for computing the pro-p topological closure of a finitely gener-
+      ated subgroup of a free group, among other applications; and
+
+    • to the algebraic extensions constructed in 2002 by Kapovich and Mias-
+      nikov (see [7]), in the context of a paper where the authors surveyed,
+      clarified and extended the list of Stallings graphical techniques.
+Algebraic extensions in free groups                                           3
+
+
+    Turner also used the same notion, restricted to the case of cyclic sub-
+groups, in his paper [18] (again, independently) when trying to find examples
+of test elements for the free group.
+    The terminology and the notation used in the above mentioned papers are
+different, but the basic concept – that of algebraic extension for free groups
+– is the same. Although aimed at different applications, the underlying
+basic result in these three papers is a modern version of an old theorem
+by Takahasi [17]. It states that, for every finitely generated subgroup H of
+a free group F , there exist finitely many subgroups H0 , . . . , Hn canonically
+associated to H, such that every subgroup of F containing H is a free multiple
+of Hi for some i = 0, . . . , n. The original proof was combinatorial, while the
+proof provided in [20], [11] and [7] (which is the same up to technical details)
+is graphical, algorithmic, simpler and more natural.
+    The aim of this paper is to unify the points of view in [20], [11] and [7],
+and to systematize the study of the concept of algebraic extensions in free
+groups. We show how algebraic extensions intervene in the computation of
+certain abstract closure properties for subgroups, sometimes making these
+properties decidable. This was the idea behind the application of algebraic
+extensions to the study of profinite topological closures in [11], but it can
+be applied in other contexts. In particular, we extend the discussion of the
+notions of pure closure, malnormal closure, inert closure, etc (a discussion
+that was initiated in [7]).
+    A particularly interesting application concerns the property of being clo-
+sed under the addition of the solutions of certain sets of equations. In this
+case, new results are obtained, and in particular one can show that the rank
+of the closure of a subgroup H is at most equal to rk(H).
+    The paper is organized as follows.
+    In section 2, we remind the readers of the fundamentals of the representa-
+tion of finitely generated subgroups of a free group F by finite labeled graphs.
+This method, which was initiated by Serre and Stallings at the end of the
+1970s, quickly became one of the major tools of the combinatorial theory
+of free groups. This leads us to the short, algorithmic proof of Takahasi’s
+theorem discussed above (see Section 2.3).
+    Section 3 introduces algebraic extensions, essentially as follows: the alge-
+braic extensions of a finitely generated subgroup H are the minimum family
+that can be associated to H by Takahasi’s theorem. We also discuss the
+analogies that arise between this notion of algebraic extensions and classical
+field-theoretic notions, and we discuss in detail the corresponding notion of
+algebraic closure.
+    Section 4 is devoted to the applications of algebraic extensions. We show
+that whenever an abstract property of subgroups of free groups is closed
+Algebraic extensions in free groups                                             4
+
+
+under free products and finite intersections, then every finitely generated
+subgroup H admits a unique closure with respect to this property, which
+is finitely generated and is one of the algebraic extensions of H. Examples
+of such properties include malnormality, purity or inertness, as well as the
+property of being closed for certain profinite topologies. In a number of
+interesting situations, this leads to simple decidability results. Equations
+over a subgroup, or rather the property of being closed under the addition
+of solutions of certain sets of equations, provide another interesting example
+of such an abstract property of subgroups, which we discuss in Section 4.4.
+     Finally, in section 5, we collect the open questions and conjectures sug-
+gested by previous sections.
+
+
+2     Preliminaries
+Throughout this paper, A is a finite non-empty set and F (A) (or simply F
+if no confusion may arise) is the free group on A.
+    In the algorithmic or computational statements on subgroups of free
+groups, we tacitly assume that the free group F is given together with a
+basis A, that the elements of F are expressed as words over A, and that
+finitely generated subgroups of F are given to us by finite sets of generators,
+and hence by finite sets of words.
+
+2.1    Representation of subgroups of free groups
+In his 1983 paper [16], Stallings showed how many of the algorithmic con-
+structions introduced in the first half of the 20th century to handle finitely
+generated subgroups of free groups, can be clarified and simplified by adopt-
+ing a graph-theoretic language. This method has been used since then in a
+vast array of articles, including work by the co-authors of this paper.
+    The fundamental notion is the existence of a natural, algorithmically
+simple one-to-one correspondence between subgroups of the free group F with
+basis A, and certain A-labeled graphs – mapping finitely generated subgroups
+to finite graphs and vice versa. This is nothing else than a particular case
+of the more general covering theory for topological spaces, particularized to
+graphs and free groups. We briefly describe this correspondence in the rest
+of this subsection. More detailed expositions can be found in the literature:
+see Stallings [16] or [20, 7] for a graph-oriented version, and see one of [4, 22,
+11, 15] for a more combinatorial-oriented version, written in the language of
+automata theory.
+Algebraic extensions in free groups                                          5
+
+
+    By an A-labeled graph Γ we understand a directed graph (allowing loops
+and multiple edges) with a designated vertex written 1, and in which each
+edge is labeled by a letter of A. We say that Γ is reduced if it is connected
+(more precisely, the underlying undirected graph is connected), if distinct
+edges with the same origin (resp. with the same end vertex) have distinct
+labels, and if every vertex v 6= 1 is adjacent to at least two different edges.
+    In an A-labeled graph, we consider paths, where we are allowed to travel
+backwards along edges. The label of such a path p is the word obtained
+by reading consecutively the labels of the edges crossed by p, reading a−1
+whenever an edge labeled a ∈ A is crossed backwards. The path p is called
+reduced if it does not cross twice consecutively the same edge, once in one
+direction and then in the other. Note that if Γ is reduced then every reduced
+path labels a reduced word in F (A).
+    The subgroup of F (A) associated with a reduced A-labeled graph Γ is the
+set of (reduced) words, which label reduced paths in Γ from the designated
+vertex 1 back to itself. One can show that every subgroup of F (A) arises in
+this fashion, in a unique way. That is, for each subgroup H of F (A), there
+exists a unique reduced A-labeled graph, written ΓA (H), whose set of labels
+of reduced closed paths at 1 is exactly H.
+    Moreover, if the subgroup H is given together with a finite set of gen-
+erators {h1 , . . . , hr } (where the hi are non-empty reduced words over the
+alphabet A ⊔ A−1 ), then one can effectively construct ΓA (H), proceeding as
+follows. First, one constructs r subdivided circles around a common dis-
+tinguished vertex 1, each labeled by one of the hi (and following the above
+convention: an inverse letter, say a−1 with a ∈ A, in a word hi gives rise to
+an a-labeled edge in the reverse direction on the corresponding circle). If hi
+has length ni , then the corresponding circle has ni edges and ni − 1 vertices,
+in addition to the vertex 1. Then, we iteratively identify identically labeled
+pairs of edges starting (resp. ending) at the same vertex. One shows that
+this process terminates, that it does not matter in which order identifications
+take place, and that the resulting A-labeled graph is reduced and equal to
+ΓA (H). In particular, it does not depend on the choice of a set of genera-
+tors of H. Also, this shows that ΓA (H) is finite if and only if H is finitely
+generated (see one of [16, 20, 4, 22, 11, 7, 15] for more details).
+
+Example 2.1 Let A = {a, b, c}. The above procedure applied to the sub-
+group H = haba−1 , aca−1 i of F (A) is represented in Figure 1, where the last
+graph is ΓA (H).                                                            ⊔
+                                                                            ⊓
+
+   Let Γ and ∆ be reduced A-labeled graphs as above. A mapping ϕ from
+the vertex set of Γ to the vertex set of ∆ (we write ϕ : Γ → ∆) is a morphism
+Algebraic extensions in free groups                                           6
+
+                                             c                            b
+            a            a
+   c              1               b                  a             a
+                                                             1
+            a            a
+                                                 b
+
+                                       a                 c
+                              1
+
+
+       Figure 1: Computing the representation of H = haba−1 , aca−1 i
+
+of reduced (A-)labeled graphs if it maps the designated vertex of Γ to the
+designated vertex of ∆ and if, for each a ∈ A, whenever Γ has an a-labeled
+edge e from vertex u to vertex v, then ∆ has an a-labeled edge f from vertex
+ϕ(u) to vertex ϕ(v). The edge f is uniquely defined since ∆ is reduced. We
+then extend the domain and range of ϕ to the edge sets of the two graphs,
+by letting ϕ(e) = f .
+    Note that such a morphism of reduced A-labeled graphs is necessarily
+locally injective (an immersion in [16]), in the following sense: for each
+vertex v of Γ, distinct edges starting (resp. ending) at v have distinct images.
+Further following [16], we say that the morphism ϕ : Γ → ∆ is a cover if it is
+locally bijective, that is, if the following holds: for each vertex v of Γ, each
+edge of ∆ starting (resp. ending) at ϕ(v) is the image under ϕ of an edge of
+Γ starting (resp. ending) at v.
+    The graph with a single vertex, called 1, and with one a-labeled loop for
+each a ∈ A is called the bouquet of A circles. It is a reduced graph, equal
+to ΓA (F (A)), and every reduced graph admits a trivial morphism into it.
+One can show that a subgroup H of F (A) has finite index if and only if this
+natural morphism from ΓA (H) to the bouquet of A circles is a cover, and
+in that case, the index of H in F (A) is the number of vertices of ΓA (H).
+In particular, it is easily decidable whether a finitely generated subgroup of
+F (A) has finite index.
+    This graph-theoretic representation of subgroups of free groups leads to
+many more algorithmic results, some of which are discussed at length in
+this paper. We will use some well-known facts (see [16]). If H is a finitely
+generated subgroup of F (A), then the rank of H is given by the formula
+                             rk(H) = E − V + 1,
+where E (resp. V ) is the number of edges (resp. vertices) in ΓA (H). A
+Algebraic extensions in free groups                                             7
+
+
+more precise result shows how each spanning tree in ΓA (H) (a subtree of the
+graph ΓA (H) which contains every vertex) determines a basis of H. It is also
+interesting to note that if H and K are finitely generated subgroups of F (A),
+then ΓA (H ∩ K) can be easily constructed from ΓA (H) and ΓA (K): one first
+considers the A-labeled graph whose vertices are pairs (u, v) consisting of a
+vertex u of ΓA (H) and a vertex v of ΓA (K), with an a-labeled edge from (u, v)
+to (u′ , v ′) if and only if there are a-labeled edges from u to u′ in ΓA (H) and
+from v to v ′ in ΓA (K). Finally, one considers the connected component of
+vertex (1, 1) in this product, and we repeatedly remove the vertices of valence
+1, other than the distinguished vertex (1, 1) itself, to make it a reduced A-
+labeled graph.
+    To conclude this section, it is very important to observe that if we change
+the ambient basis of F from A to B, we may radically modify the labeled
+graph associated with a subgroup H of F , see Example 2.2 below. In fact,
+a clearer understanding of the transformation from ΓA (H) to ΓB (H) (put
+otherwise: of the action of the automorphism group of F (A) on the A-labeled
+reduced graphs) is one of the challenges of the field.
+
+Example 2.2 Let F be the free group with basis A = {a, b, c}, and let
+H = hab, acbai. Note that B = {a′ , b′ , c′ } is also a basis of F , where a′ = a,
+b′ = ab and c′ = acba. The graphs ΓA (H) and ΓB (H) are depicted in
+Figure 2.                                                                       ⊔
+                                                                                ⊓
+
+                         a
+                1
+                         b                      b′                 c′
+               a                   c
+                                                          1
+
+                         b
+
+                    Figure 2: The graphs ΓA (H) and ΓB (H)
+
+
+
+2.2    Subgroups of subgroups
+A pair of free groups H ≤ K is called an extension of free groups. If H ≤
+M ≤ K are free groups then H ≤ M will be referred to as a sub-extension
+of H ≤ K.
+   If H ≤ K is an extension of free groups, we use the following shorthand
+notation: H ≤fg K means that H is finitely generated; H ≤fi K means that
+H has finite index in K; and H ≤ff K means that H is a free factor of K.
+Algebraic extensions in free groups                                             8
+
+
+    Extensions can be characterized by means of the labeled graphs associated
+with subgroups as in Section 2.1. We first note the following simple result
+(see [11, Proposition 2.4] or [7, Section 4]).
+
+Lemma 2.3 Let H, K be subgroups of a free group F with basis A. Then
+H ≤ K if and only if there exists a morphism of labeled graphs ϕH,K from
+ΓA (H) to ΓA (K). If it exists, this morphism is unique.
+
+    Given an extension H ≤ K between subgroups of the free group with
+basis A, certain properties of the resulting morphism ϕH,K have a natural
+translation on the relation between H and K. For instance, it is not difficult
+to verify that ϕH,K is a covering if and only if H has finite index in K (and the
+index is the cardinality of each fibre). This generalizes the characterization
+of finite index subgroups of F (A) given in the previous section.
+    If ϕH,K is one-to-one (and that is, if and only if it is one-to-one on ver-
+tices), then H is a free factor of K. Unfortunately, the converse is far from
+holding since each non-cyclic free group has infinitely many free factors. Fur-
+thermore, given K, the particular collection of free factors H ≤ff K such that
+ϕH,K is one-to-one heavily depends on the ambient basis.
+    We recall here, for further reference, the following well-known properties
+of free factors (see [8] or [9]).
+
+Lemma 2.4 Let H, K, L, (Hi )i∈I and (Ki )i∈I be subgroups of a free group
+F.
+
+  (i) If H ≤ff K ≤ff L, then H ≤ff L.
+                                          T              T
+ (ii) If Hi ≤ff Ki for each i ∈ I, then       i Hi ≤ff       i Ki .
+
+In particular, if H is a free factor of each Ki , then H is a free factor of their
+intersection; and an intersection of free factors of K is again a free factor of
+K.
+
+    Finally, in the situation H ≤ K, we say that K is an A-principal overgroup
+of H if ϕH,K is onto (both on vertices and on edges). We refer to the set of all
+A-principal overgroups of H as the A-fringe of H, denoted OA (H). As seen
+later, this set strongly depends on A. The A-fringe of H is finite whenever
+H is finitely generated.
+    Principal overgroups were first considered under the name of overgroups
+in [11] (see [22] as well). They also appeared later as principal quotients
+in [7], and their first introduction is in the earlier [20], where OA (H) was
+called the fringe of H, its orla in catalan. We shall use the phrase principal
+Algebraic extensions in free groups                                            9
+
+
+overgroup (to stress the fact that not every K containing H is a principal
+overgroup of H) and fringe, omitting the reference to the basis A when there
+is no risk of confusion. Both orla and overgroup justify the notation OA (H).
+    Given a finitely generated subgroup H ≤ F (A), the fringe OA (H) is
+computable: it suffices to compute ΓA (H), and to consider each equivalence
+relation ∼ on the set of vertices of ΓA (H). Say that such an equivalence
+relation ∼ is a congruence (with respect to the labeled graph structure of
+ΓA (H)) if, whenever p ∼ q and there are a-labeled edges from p to p′ and
+from q to q ′ (resp. from p′ to p and from q ′ to q), then p′ ∼ q ′ . Then each
+congruence gives rise to a surjective morphism from ΓA (H) onto ΓA (H)/ ∼,
+and hence to a principal overgroup K of H such that ΓA (K) = ΓA (H)/ ∼.
+Moreover, each principal overgroup K ∈ OA (H) arises in this fashion. At
+the time of writing, a computer program is being developed with the pur-
+pose, among others, of efficiently computing the fringe of a finitely generated
+subgroup of a free group (see [13]).
+
+Example 2.5 Let F be the free group with basis A = {a, b, c}, and let
+H = hab, acbai ≤ F (the graph ΓA (H) was constructed in Example 2.2).
+Successively identifying pairs of vertices of ΓA (H) and reducing the result-
+ing A-labeled graph in all possible ways, one concludes that ΓA (H) has six
+congruences, whose corresponding quotient graphs are depicted in Figure 3.
+    Thus the A-fringe of H consists on OA (H) = {H0 , H1, H2 , H3 , H4 , H5 },
+where H0 = H, H1 = hab, ac, bai, H2 = hba, ba−1 , cbi, H3 = hab, ac, ab−1 , a2 i,
+H4 = hab, aca, acbai and H5 = ha, b, ci = F (A).
+    However, with respect to the basis B = {a, ab, acba} of F , the graph
+ΓB (H) has a single vertex, and hence the B-fringe of H is much simpler,
+OB (H) = {H}.                                                                  ⊔
+                                                                               ⊓
+
+    Finally we observe that, if H ≤fi F (A), then OA (H) consists of all the
+extensions of H. Indeed, suppose that H ≤ K ≤ F (A) and H ≤fi F (A).
+Since ΓA (H) is a cover of the bouquet of A circles (that is, each vertex of
+ΓA (H) is the origin and the end of an a-labeled edge for each a ∈ A), the
+range of ϕH,K is also a cover of the bouquet of A circles. It follows that
+ϕH,K is onto, since ΓA (K) is connected, and so K ∈ OA (H). In particular,
+if H ≤fi F (A), then OA (H) does not depend on A, in contrast with what
+happens in general.
+
+2.3    Takahasi’s theorem
+Of particular interest to our discussion is the following 1951 result by Taka-
+hasi (see [9, Section 2.4, Exercise 8], [17, Theorem 2] or [20, Theorem 1.7]).
+Algebraic extensions in free groups                                          10
+
+                 a
+       1                   2
+                 b                                  a             a
+      a                     c               4            1,3           2
+                                                    b             b
+       4                   3                                      c
+                 b
+                                                                  b
+                 a                      c                         a
+       1                  2,4                   3        1,3          2,4
+                 b                                                a
+                                        b
+                 a                                                b
+                                                                  c
+                      a
+                                                          b
+             1                      2
+                      b
+                 a              c                   a   1,2,3,4   c
+                     3,4            b
+
+                 Figure 3: The six quotients of ΓA (hab, acbai)
+
+Theorem 2.6 (Takahasi) Let F (A) be the free group on A and H ≤ F (A)
+a finitely generated subgroup. Then, there exists a finite computable collec-
+tion of extensions of H, say H = H0 , H1 , . . . , Hn ≤ F (A) such that every
+extension K of H, H ≤ K ≤ F (A), is a free multiple of one of the Hi .
+
+   The original proof, due to M. Takahasi was combinatorial, using words
+and their lengths with respect to different sets of generators. The geometrical
+apparatus described in this section leads to a clear, concise and natural proof,
+which was discovered independently by Ventura in [20] and by Kapovich and
+Miasnikov in [7]. Margolis, Sapir and Weil, also independently considered the
+same construction in [11] for a slightly different purpose. Finally, we note
+that Turner considered a similar construction in the case of cyclic subgroups,
+in his work about test words [18]. We now give this proof of Takahasi’s
+theorem.
+
+Proof. Let K be an extension of H, and let ϕH,K : ΓA (H) → ΓA (K) be the
+resulting graph morphism. Note that the image of ϕH,K is a reduced subgraph
+of ΓA (K), and let LH,K be the subgroup of F (A) such that ΓA (LH,K ) =
+ϕH,K (ΓA (H)). By definition, LH,K is an A-principal overgroup of H and, by
+construction, ΓA (LH,K ) is a subgraph of ΓA (K), which implies LH,K ≤ff K
+Algebraic extensions in free groups                                              11
+
+
+(see Section 2.2). It follows immediately that the A-fringe of H, OA (H),
+satisfies the required conditions.                                     ⊔
+                                                                       ⊓
+
+    Thus, for a given H ≤fg F (A), the A-principal overgroups of H form one
+possible collection of extensions that satisfy the requirements of Takahasi’s
+theorem, let us say, a Takahasi family for H. This is certainly not the only
+one: firstly, we may add arbitrary subgroups to a Takahasi family; secondly,
+we observe that the statement of the theorem does not depend on the ambient
+basis, so if B is another basis of F (A), then OB (H) forms a Takahasi family
+for H as well. There does however exist a minimum Takahasi family for
+H (see Proposition 3.7 below), which in particular does not depend on the
+ambient basis. The main object of this paper is a discussion of this family,
+which is introduced in the next section.
+
+
+3     Algebraic extensions
+The notion of algebraic extension discussed in this paper was first introduced
+by Kapovich and Miasnikov [7]. It seems to be mostly of interest for finitely
+generated subgroups, but many definitions and results hold in general and we
+avoid restricting ourselves to finitely generated subgroups until that becomes
+necessary.
+
+3.1    Definitions
+Let H ≤ K be an extension of free groups and let x ∈ K. We say that x
+is K-algebraic over H if every free factor of K containing H, H ≤ L ≤ff K,
+satisfies x ∈ L. Otherwise (i.e. if there exists H ≤ L ≤ff K such that x 6∈ L)
+we say that x is K-transcendental over H.
+
+Example 3.1 If H ≤ K, then every element x ∈ H is obviously K-algebraic
+over H.
+    Every element x ∈ K is K-algebraic over hxn i, for each integer n 6= 0. In
+fact, it is straightforward to verify that if xn lies in a free factor L of K, then
+so does x.
+    If x is primitive in K (that is, if hxi ≤ff K), then every element of K \ hxi
+is K-transcendental over the subgroup hxi.
+    The notion of algebraicity over H is relative to K. For example, in F =
+F (a, b), a2 is ha2 , b2 i-transcendental over H = ha2 b2 i since a2 b2 is primitive
+in ha2 , b2 i. However, a2 is F -algebraic over H because no proper free factor
+of F contains a2 b2 .                                                              ⊔
+                                                                                   ⊓
+Algebraic extensions in free groups                                       12
+
+
+   The following is a trivial but useful observation.
+
+Fact 3.2 Let H ≤ K be an extension of free groups, and let x, y ∈ K.
+
+  (i) If x, y are K-algebraic over H then so are x−1 and xy.
+
+ (ii) If x, y are K-transcendental over H then so is x−1 (but not in general
+      xy).
+
+    We say that an extension of free groups H ≤ K is algebraic, and we write
+H ≤alg K, if every element of K is K-algebraic over H. It is called purely
+transcendental if every element of K is either in H or is K-transcendental
+over H. Naturally, there are extensions that are neither algebraic nor purely
+transcendental. These concepts were originally introduced in [7], and the
+following propositions further describe their properties.
+
+Proposition 3.3 Let H ≤ K be an extension of free groups. The following
+are equivalent:
+
+ (a) H is contained in no proper free factor of K;
+
+ (b) H ≤alg K, that is, every x ∈ K is K-algebraic over H;
+
+ (c) there exists X ⊆ K such that K = hH ∪ Xi and every x ∈ X is
+     K-algebraic over H (furthermore, if K is finitely generated, one may
+     choose X to be finite).
+
+Proof. (b) follows from (a) by definition. If (b) holds, then (c) holds with
+X any system of generators for K. Finally, (a) follows from (c) in view of
+Fact 3.2 (i).                                                              ⊔
+                                                                           ⊓
+
+Proposition 3.4 Let H ≤ K be an extension of free groups. The following
+are equivalent:
+
+ (a) H is a free factor of K,
+
+ (b) H ≤ K is purely transcendental, that is, every x ∈ K \ H is K-
+     transcendental over H.
+
+Proof. (a) implies (b) by definition. To prove the converse, let M be the
+intersection of all the free factors of K containing H. By Lemma 2.4, M is
+a free factor of K containing H, and (b) implies that M = H.            ⊔
+                                                                        ⊓
+Algebraic extensions in free groups                                          13
+
+
+Example 3.5 It is easily verified (say, using Example 3.1) that if 1 6= x ∈ F
+and n 6= 0, we have hxn i ≤alg hxi.
+   By Proposition 3.4, an extension of the form hxi ≤ F is purely transcen-
+dental if and only if x is a primitive element of F . Moreover, if F has rank
+two, then hxi ≤ F is algebraic if and only if x is not a power of a primitive
+element of F .
+   Assuming again that F has rank two, H ≤alg F for every non-cyclic
+subgroup H. Indeed, every proper free factor of F is cyclic and hence cannot
+contain H.                                                                  ⊔
+                                                                            ⊓
+
+   We denote by AE(H) the set of algebraic extensions of H, and we observe
+that, in contrast with the definition of principal overgroups, this set does not
+dependent on the choice of an ambient basis. This same observation can be
+expressed as follows.
+
+Fact 3.6 Let H ≤ K ≤ F be extensions of free groups and let ϕ ∈ Aut(F ).
+Then H ≤alg K if and only if ϕ(H) ≤alg ϕ(K).
+
+   We can now express the connection between algebraic extensions and
+Takahasi’s theorem.
+
+Proposition 3.7 Let H ≤fg F (A) be an extension of free groups. Then we
+have:
+
+  (i) AE(H) ⊆ OA (H);
+
+ (ii) AE(H) is finite (i.e., H admits only a finite number of algebraic exten-
+      sions);
+
+(iii) AE(H) is the set of ≤ff -minimal elements of every Takahasi family for
+      H (see Section 2.3);
+
+ (iv) AE(H) is the minimum Takahasi family for H.
+
+Proof. Let K be an algebraic extension of H. The proof of Takahasi’s
+theorem shows that K is a free multiple of some principal overgroup L ∈
+OA (H). Then, Proposition 3.3 implies that L = K proving (i). Statement
+(ii) follows immediately.
+     Let L be a Takahasi family for H and let K ∈ AE(H). By definition of L,
+there exists a subgroup L ∈ L such that H ≤ L ≤ff K. By Proposition 3.3,
+it follows that L = K, so K ∈ L. Thus AE(H) is contained in every Takahasi
+family for H. For the same reason, K is ≤ff -minimal in L.
+Algebraic extensions in free groups                                             14
+
+
+    Now suppose that K ∈ L is ≤ff -minimal in L, and let M be an extension
+of H such that H ≤ M ≤ff K. By definition of a Takahasi family, there
+exists L ∈ L such that H ≤ L ≤ff M, so L ≤ff K. Since K is ≤ff -minimal in
+L, it follows that L = K, so M = K. Hence, H ≤alg K concluding the proof
+of (iii).
+    Finally, it is immediate that the ≤ff -minimal elements of a Takahasi family
+for H again form a Takahasi family. Statement (iv) follows directly.          ⊔
+                                                                              ⊓
+
+Example 3.8 If H ≤fi K, then H ≤alg K. This follows immediately from
+the observation that a proper free factor of K has infinite index.
+    It follows that, if H ≤fi F (A), then AE(H) = OA (H) is equal to the
+set of all extensions of H. Indeed, we have already observed at the end of
+Section 2.2 that every extension of H is an A-principal overgroup of H, and
+since H has finite index in each of its extensions, it is algebraic in each. ⊔
+                                                                             ⊓
+
+    Proposition 3.7 shows that AE(H) is contained in OA (H) for each ambient
+basis A. We conjecture that AE(H) is in fact equal to the intersection of the
+sets OA (H), when A runs over all the bases of F . Example 3.8 shows that
+the conjecture holds if H has finite index. It also holds if H ≤ff F , since in
+that case, AE(H) = {H}, and F admits a basis B relative to which ΓB (H)
+is a graph with a single vertex.
+    We conclude with a simple but important statement.
+
+Proposition 3.9 Let F (A) be the free group on A and H ≤fg F (A). The
+set AE(H) is computable.
+
+Proof. Since every algebraic extension of H is in OA (H), it suffices to com-
+pute OA (H) and then, for each pair of distinct elements K, L ∈ OA (H), to
+decide whether L ≤ff K: AE(H) consists of the principal overgroups of H
+that do not contain another principal overgroup as a free factor.
+   In order to conclude, we observe that deciding whether L ≤ff K can be
+done, for example, using the first part the classical Whitehead’s algorithm.
+More precisely, Whitehead’s algorithm (see [8, Proposition 4.25]) shows how
+to decide whether a tuple of elements, say u = (u1 , . . . , ur ), of a free group
+K can be mapped to another tuple v = (v1 , . . . , vr ) by some automorphism
+of K. The first part of this algorithm reduces the sum of the length of
+the images of the ui to its minimal possible value. And it is easy to verify
+that this minimal total length is exactly r if and only if {u1, . . . , ur } freely
+generates a free factor of K. We point out here that an alternative algorithm
+was recently proposed by Silva and Weil [15]. That algorithm is faster, and
+completely based on graphical tools.                                             ⊔
+                                                                                 ⊓
+Algebraic extensions in free groups                                               15
+
+
+   The efficiency of the algorithm to compute AE(H) sketched in the proof
+of Proposition 3.9, is far from optimal. An upcoming paper by A. Roig,
+E. Ventura and P. Weil discusses better computation techniques for that
+purpose [13].
+
+Remark 3.10 The terminology adopted for the concepts developed in this
+section is motivated by an analogy with the theory of field extensions. More
+precisely, if an element x ∈ K is K-transcendental over H, then H is a free
+factor of hH, xi and hH, xi = H ∗ hxi (see Proposition 3.13 below). This is
+similar to the field-theoretic definition of transcendental elements: an element
+x is transcendental over H if and only if the field extension of H generated
+by x is isomorphic to the field of rational fractions H(X).
+    However, the analogy is not perfect and in particular, the converse does
+not hold. For instance, a2 is ha, bi-algebraic over ha2 b2 i (see Example 3.1),
+but ha2 b2 , a2 i = ha2 b2 i ∗ ha2 i. This stems from the fact, noticed earlier, that
+the notion of an element x being K-algebraic over H, depends on K and not
+just on x.
+    It is natural to ask whether the analogy also extends to the definition of
+algebraic elements: in other words, is there a natural analogue in this context
+for the notion of roots of a polynomial with coefficients in H? The discussion
+of equations in Section 4.4 offers some insight into this question.                ⊔
+                                                                                   ⊓
+
+
+3.2     Composition of extensions
+We now consider compositions of extensions. Some of the results in the
+following proposition come from [7]. We restate and extend them here with
+simpler proofs. We also include in the statement well-known facts (the primed
+statements), in order to emphasize the dual properties of algebraic and purely
+transcendental extensions.
+
+Proposition 3.11 Let H ≤ K be an extension of free groups, and let H ≤
+Ki ≤ K be two sub-extensions, i = 1, 2.
+
+  (i) If H ≤alg K1 ≤alg K then H ≤alg K.
+
+ (i’) If H ≤ff K1 ≤ff K then H ≤ff K.
+
+ (ii) If H ≤alg K then K1 ≤alg K, while H ≤ K1 need not be algebraic.
+
+(ii’) If H ≤ff K then H ≤ff K1 , while K1 ≤ K need not be purely transcen-
+      dental.
+Algebraic extensions in free groups                                                16
+
+
+(iii) If H ≤alg K1 and H ≤alg K2 then H ≤alg hK1 ∪K2 i, while H ≤ K1 ∩K2
+      need not be algebraic.
+
+(iii’) If H ≤ff K1 and H ≤ff K2 then H ≤ff K1 ∩ K2 , while H ≤ hK1 ∪ K2 i
+       need not be purely transcendental.
+
+Proof. Statement (i’) and the positive parts of statements (ii’) and (iii’)
+can be found in Lemma 2.4. The free group F on {a, b} already contains
+counterexamples for the converse statements in (ii’) and (iii’): for the first
+one, we have hai ≤ff F while hai ≤ff ha, b2 i ≤alg F (see Example 3.5). And
+for the second one, we have h[a, b]i ≤ff ha, [a, b]i and h[a, b]i ≤ff hb, [a, b]i,
+whereas h[a, b]i ≤alg ha, [a, b], bi = F .
+    Now assume that H ≤alg K1 ≤alg K and let L be a free factor of K
+containing H. Then, L∩K1 is a free factor of K1 containing H by Lemma 2.4.
+Since H ≤ K1 is algebraic, we deduce that L ∩ K1 = K1 , and hence K1 ≤ L.
+But K1 ≤alg K, so L = K. Thus, the extension H ≤ K is algebraic, which
+proves (i).
+    The first part of (ii) is clear. A counterexample for the second part in
+F = F (a, b) is as follows: we have h[a, b]i ≤ff ha, [a, b]i ≤ F , while h[a, b]i ≤alg
+F by Example 3.5.
+    Suppose now that H ≤alg K1 and H ≤alg K2 , and let L be a free factor
+of hK1 ∪ K2 i containing H. Then Lemma 2.4 shows that, for i = 1, 2,
+L ∩ Ki ≤ff Ki containing H. Since H ≤alg Ki , we deduce that L ∩ Ki = Ki
+and hence, Ki ≤ L. Thus, L = hK1 ∪ K2 i, and the extension H ≤ hK1 ∪ K2 i
+is algebraic, thus proving the positive part of (iii).
+    Finally, to conclude the proof of (iii), it suffices to exhibit subgroups
+H, K1 , K2 such that H ≤alg Ki (i = 1, 2) but H ≤ff K1 ∩ K2 . Again in
+F (a, b) take, for example, K1 = ha2 , bi and K2 = ha3 , bi, whose intersection
+is K1 ∩K2 = ha6 , bi. Letting H = ha6 bi, we have H ≤ff K1 ∩K2 but H ≤alg K1
+and H ≤alg K2 .                                                                     ⊔
+                                                                                    ⊓
+
+   To close this section, let us note another natural property of algebraic
+extensions, which slightly generalizes a result of Kapovich and Miasnikov [7].
+
+Proposition
+ S             3.12 Let F be a free group. IfSHi ≤alg Ki ≤ F (i ∈ I), then
+               S
+h i Hi i ≤alg h i Ki i. The converse holds if h i Ki i = ∗i Ki .
+                      S                S
+Proof. Suppose thatSh i Hi i ≤ L ≤ff h i Ki i. Let j ∈ I. By Lemma 2.4,
+we have L ∩ Kj ≤ff h i Ki i ∩ Kj = Kj . Moreover, Hj ≤ L ∩ Kj , so Kj =
+L ∩ KS
+     j since Hj ≤alg Kj , and hence KS
+                                     j ⊆ L. This S holds for each j ∈ I, so
+L = h i Ki i and we have shown that h i Hi i ≤alg h i Ki i.
+Algebraic extensions in free groups                                          17
+
+                                     S                                 S
+    For the converse, suppose that h i Ki i = ∗i Ki . It follows that h i Hi i =
+∗i Hi . Now we assume that ∗i Hi ≤alg ∗i Ki . Let j ∈ I. If Hj ≤ L ≤ff Kj ,
+then ∗i Hi ≤ L ∗ ∗i6=j Ki ≤ff ∗i Ki and hence L ∗ ∗i6=j Ki = ∗i Ki . Taking
+the projection onto Kj , it follows that L = Kj . Thus Hj ≤alg Kj for each
+j ∈ I.                                                                         ⊔
+                                                                               ⊓
+
+     Note that the converse of Proposition 3.12 does not hold in general, as can
+be seen from the counterexample provided in the proof of Proposition 3.11
+(iii′ ).
+
+3.3    Elementary extensions
+We say that an extension of free groups H ≤ K is elementary if K = hH, xi
+for some x ∈ K. Elementary extensions turn out to be either algebraic or
+purely transcendental, as we now see.
+
+Proposition 3.13 Let H ≤ F be an extension of free groups and let x ∈ F .
+Let also X be a new letter, not in F . The following are equivalent:
+
+ (a) the morphism H ∗ hXi → F acting as the identity over H and sending
+     X to x is injective;
+
+ (b) H is a proper free factor of hH, xi;
+
+ (c) H is contained in a proper free factor of hH, xi.
+
+If, in addition, H is finitely generated, then these are further equivalent to:
+
+ (d) rk(hH, xi) = rk(H) + 1;
+
+ (e) rk(hH, xi) > rk(H).
+
+Proof. It is immediately clear that statement (a) implies (b), and that (b)
+implies (c).
+    At this point, let us assume that H has finite rank. It is immediate that
+rk(hH, xi) ≤ rk(H) + 1, so (b) implies (d) and (d) and (e) are equivalent.
+Now consider the morphism from H ∗ hXi to hH, xi mapping H identically
+to itself, and X to x. This morphism is surjective by construction, and if
+rk(hH, xi) = rk(H ∗ hXi), then it is injective by the hopfian property of
+finitely generated free groups. That is, (d) implies (a). Thus we have shown
+that if H has finite rank, then statements (a), (b), (d) and (e) are equivalent.
+It only remains to prove that (c) implies (a).
+Algebraic extensions in free groups                                        18
+
+
+    We now return to the general case, where H may have infinite rank, and
+we assume that (c) holds, that is, hH, xi = K ∗L for some L 6= 1 and H ≤ K.
+We have hH, xi ≤ hK, xi, and hence hK, xi = hH, xi = K ∗ L. Moreover,
+x 6∈ K and we let x = k0 ℓ1 k1 · · · ℓr kr be the normal form of x in the free
+product K ∗ L.
+    Let M be a finitely generated free factor of K containing the ki , and let
+N be such that K = M ∗ N. First we observe that
+
+       hM, xi ≤ M ∗ L ≤ff K ∗ L = M ∗ N ∗ L = hK, xi = hM, N, xi.
+
+It follows that N is a free complement of hM, xi in hK, xi, that is, hK, xi =
+hM, xi ∗ N.
+    Next we note that M ≤ff K ≤ff hK, xi, so M ≤ff hK, xi and hence
+M ≤ff hM, xi. Since x 6∈ K, M is a finitely generated, proper free factor
+of hM, xi, and we already know that this implies that the morphism from
+M ∗hXi to F mapping M identically to itself and mapping X to x, is injective.
+Since N is a free complement of the range of this morphism in hH, xi, and
+also a free complement of M in K, it follows that the natural mapping from
+K ∗ hXi to F mapping X to x is injective. Its restriction to H ∗ hXi is
+therefore injective, and statement (a) holds, which completes the proof. ⊔  ⊓
+
+   Proposition 3.13 immediately translates into the following.
+
+Corollary 3.14 Let F be a free group and H ≤ K be an elementary exten-
+sion of subgroups of F . Then, either H ≤alg K or H ≤ff K. Furthermore,
+if H is finitely generated then rk(K) ≤ rk(H) + 1 with equality if and only if
+H ≤ff K.
+
+    Let us say that an extension H ≤ K is e-algebraic, written H ≤ealg K, if
+it splits as a finite composition of algebraic, elementary extensions, H ≤alg
+H1 ≤alg · · · ≤alg Hk = K. Then Proposition 3.13 yields the following.
+
+Corollary 3.15 Let H be a finitely generated subgroup of a free group F and
+let H ≤ealg K be an e-algebraic extension. Then rk(K) ≤ rk(H).
+
+    Obviously, every extension H ≤ K with K finitely generated, splits into a
+composition of elementary extensions, but an algebraic extension H ≤alg K
+cannot always be split into a composition of algebraic elementary exten-
+sions. In view of Corollary 3.15, this is the case for the algebraic extension
+h[a, b]i ≤alg F (a, b). Thus, H ≤alg K does not imply H ≤ealg K.
+Algebraic extensions in free groups                                         19
+
+
+3.4    Algebraic closure of a subgroup
+If H ≤ K is an extension of free groups, there exists a greatest algebraic
+extension of H inside K. This can be deduced from Proposition 3.12, but
+the following theorem is a more precise statement.
+Theorem 3.16 Let H ≤ L ≤ K be extensions of free groups. The following
+are equivalent.
+ (a) H ≤alg L ≤ff K.
+ (b) L is the intersection of the free factors of K containing H.
+ (c) L is the set of elements of K that are K-algebraic over H.
+ (d) L is the greatest algebraic extension of H contained in K.
+In this case, the subgroup L is uniquely determined by H and K.
+Proof. Let x ∈ K. By definition, x is K-algebraic over H if and only if x
+sits in every free factor of K containing H. This is exactly the equivalence of
+statements (b) and (c). The equivalence of (c) and (d) is a direct consequence
+of the fact that the elements that are K-algebraic over H form a subgroup
+(Fact 3.2). Thus statements (b), (c) and (d) are equivalent.
+    Now let L be defined as in (b): by (d), H ≤alg L. Now let x ∈ K \L. Since
+x is not algebraic over H, there exists a free factor M ≤ff K containing H
+and missing x. But L ≤ M, so x is not K-algebraic over L either. It follows
+that the extension L ≤ K is purely transcendental, and hence L ≤ff K by
+Proposition 3.4. This proves (b) implies (a).
+    Finally, let us assume that H ≤alg L ≤ff K for some L. Let M be such
+that H ≤ M ≤ff K. Then L ∩ M ≤ff L by Lemma 2.4 (ii). But we also have
+H ≤ L ∩ M ≤ L and H ≤alg L. It follows that L ∩ M = L, that is L ≤ M,
+and (b) follows. This concludes the proof.                                   ⊔
+                                                                             ⊓
+
+Remark 3.17 It is interesting to compare Theorem 3.16 with M. Hall’s The-
+orem, stating that every finitely generated subgroup H ≤ F is a free factor of
+a subgroup M of finite index in F . In other words, one can split the extension
+H ≤ F in two parts, H ≤ff M ≤fi F , the first being purely transcendental,
+and the second being finite index (and hence, algebraic). Note that the inter-
+mediate subgroup M is not unique in general. Theorem 3.16 yields a “dual”
+splitting of the extension H ≤ F , where the order between the transcen-
+dental and the algebraic parts is switched around, and with the additional
+nice property that the intermediate extension is now uniquely determined by
+H ≤ F.                                                                        ⊔
+                                                                              ⊓
+Algebraic extensions in free groups                                        20
+
+
+    Let H ≤ K be an extension of free groups. The subgroup L characterized
+in Theorem 3.16 is called the K-algebraic closure of H, denoted clK (H). It
+is natural to consider the extremal situations, where clK (H) = H (we say
+that H is K-algebraically closed ) and where clK (H) = K (we say that H
+is K-algebraically dense). Of course, these situations coincide with H ≤ K
+being purely transcendental and algebraic, respectively.
+
+Fact 3.18 Let H ≤ K be an extension of free groups. Then,
+
+  (i) H is K-algebraically closed if and only if H ≤ff K,
+
+ (ii) H is K-algebraically dense if and only if H ≤alg K.
+
+     As established in the following proposition, maximal proper retracts of
+a finitely generated free group K are good examples of extremal subgroups,
+i.e. subgroups of K that are either K-algebraically closed or K-algebraically
+dense. Recall that a subgroup H ≤ K is a retract of K if the identity
+id : H → H extends to a homomorphism K → H, called a retraction (see [9]
+for a general description of retracts of finitely generated free groups); in
+particular, free factors of K are retracts of K. Note that if H is a retract
+of K then rk(H) ≤ rk(K). Moreover, if K is finitely generated, the hopfian
+property of finitely generated free groups shows that K is the unique retract
+of K with rank equal to rk(K). So, if H is a proper retract of K then
+rk(H) < rk(K).
+     We also say that H is compressed in K (see [5]) if rk(H) ≤ rk(L) for each
+H ≤ L ≤ K. By restricting a retraction to L, it is clear that every retract
+of K (and, in particular, every free factor of K) is compressed in K.
+
+Proposition 3.19 Let K be a finitely generated free group. A maximal
+proper compressed subgroup (resp. a maximal proper retract) H of K is
+either K-algebraically dense, or K-algebraically closed. In the latter case, H
+is in fact a free factor of K, of rank rk(K) − 1.
+
+Proof. The algebraic closure clK (H) is a free factor of K, and hence it
+is also a retract and a compressed subgroup. By definition of H, either
+clK (H) = K, and H is K-algebraically dense; or clK (H) = H and H is K-
+algebraically closed and a free factor. Maximality then implies the announced
+rank property.                                                              ⊔
+                                                                            ⊓
+
+   We now discuss the behavior of the algebraic closure operator.
+Algebraic extensions in free groups                                            21
+
+
+Proposition 3.20 Let Hi ≤ K, i = 1, 2, be two extensions of free groups.
+Then, clK (H1 ∩ H2 ) ≤ff clK (H1 ) ∩ clK (H2 ), and the equality is not true in
+general.
+
+Proof. By Theorem 3.16, clK (Hi ) is a free factor of K containing Hi , so
+clK (H1 ) ∩ clK (H2 ) is a free factor of K containing H1 ∩ H2 (Lemma 2.4).
+Again by Theorem 3.16, clK (H1 ∩ H2 ) is a free factor of clK (H1 ) ∩ clK (H2 ).
+    A counterexample for the reverse inclusion is as follows: let K = F (a, b),
+H1 = h[a, b]i and H2 = h[a, b−1 ]i. Both these subgroups are K-algebraically
+dense (see Example 3.5) and their intersection is trivial.                     ⊔
+                                                                               ⊓
+
+Proposition 3.21 Let Ki ≤ K, i = 1, 2, be two extensions of free groups
+and let H ≤ K1 ∩ K2 . Then, clK1 ∩K2 (H) ≤ff clK1 (H) ∩ clK2 (H), and the
+equality is not true in general.
+
+Proof. By Theorem 3.16, clKi (H) is a free factor of Ki containing H, so
+clK1 (H) ∩ clK2 (H) is a free factor of K1 ∩ K2 containing H (Lemma 2.4).
+Again by Theorem 3.16, clK1 ∩K2 (H) is a free factor of clK1 (H) ∩ clK2 (H).
+    The following is a counter-example for the converse inclusion. Let K =
+ha, b, ci be a free group of rank 3, let H = h[a, b], [a, c]i, K1 = ha, b, [a, c]i
+and K2 = ha, c, [a, b]i. One can verify that K1 ∩ K2 = ha, [a, b], [a, c]i, so
+clK1 ∩K2 (H) = H. On the other hand, H ≤alg Ki by Example 3.5 and Proposi-
+tion 3.12, so clKi (H) = Ki and clK1 (H)∩clK2 (H) = K1 ∩K2 6= clK1 ∩K2 (H). ⊔   ⊓
+
+Remark 3.22 If H ≤ K1 ≤ K2 , Proposition 3.21 shows that clK1 (H) ≤
+clK2 (H). If in addition K1 ≤ff K2 , Proposition 3.16 shows that clK1 (H) =
+clK2 (H). However, in general, even the inclusion clK1 (H) ≤ K1 ∩ clK2 (H)
+may be strict, as the following counterexample shows.
+    Let K2 = ha, bi be a free group of rank 2, and let H = h[a, b]i and
+K1 = ha, [a, b]i. Then H ≤ff K1 ≤alg F and H ≤alg F . So, clK1 (H) = H is
+properly contained in K1 ∩ clF (H) = K1 ∩ F = K1 .                        ⊔
+                                                                          ⊓
+
+    Finally, let us consider e-algebraic extensions. There too, there exists a
+greatest e-algebraic extension, at least for finitely generated subgroups. We
+first prove the following technical lemma.
+
+Lemma 3.23 Let H ≤ K ≤ F be extensions of free groups and let x ∈ F .
+If H ≤alg hH, xi, then K ≤alg hK, xi.
+Algebraic extensions in free groups                                            22
+
+
+Proof. Assume H ≤alg hH, xi. If K ≤ hK, xi is not algebraic, then x 6∈ K
+and K ≤ff hK, xi by Proposition 3.13. It follows that H ≤ hH, xi ∩ K ≤ff
+hH, xi ∩ hK, xi = hH, xi, which forces either hH, xi ∩ K = H or hH, xi ∩ K =
+hH, xi. The first possibility implies H = hH, xi ∩ K ≤ff hH, xi contradicting
+the hypothesis, while the second possibility contradicts x 6∈ K.            ⊔
+                                                                            ⊓
+
+Corollary 3.24 Let H ≤ F be an extension of free groups and let H ≤ealg
+Ki (i = 1,S . . . , n) be a finite family of e-algebraic extensions of H. Then
+Ki ≤ealg h j Kj i for each i.
+    In particular, if H is finitely generated, then H admits a greatest e-
+algebraic extension in F .
+
+Proof. It suffices to prove the first statement for n = 2. Let us assume
+that H = H0 ≤alg H1 ≤alg · · · ≤alg Hp = K1 and that x1 , . . . , xp are such
+that Hi = hHi−1 , xi i for each 1 ≤ i ≤ p. Then a repeated application of
+Lemma 3.23 shows that K2 ≤ealg hK2 , x1 , . . . , xp i = hK1 ∪ K2 i.
+    If H ≤fg F , H has finitely many algebraic extensions, and among them
+finitely many e-algebraic extensions. The join of these extensions is again an
+e-algebraic extension and this concludes the proof.                          ⊔
+                                                                             ⊓
+
+    The greatest e-algebraic extension of a subgroup H ≤ F , whose existence
+is asserted in Corollary 3.24, is called its e-algebraic closure. We say that H is
+e-algebraically closed if it is equal to its e-algebraic closure. Proposition 3.13
+immediately implies the following characterization.
+
+Corollary 3.25 Let H ≤ F be an extension of free groups. Then H is
+e-algebraically closed if and only if hH, xi = H ∗ hxi for each x 6∈ H.
+
+Example 3.26 Let x ∈ F be an element of a free group not being a proper
+power. Then, for every y ∈ F , either hxi = hx, yi or rk(hx, yi) = 2. In other
+words, maximal cyclic subgroups of free groups are e-algebraically closed.
+    A subgroup H ≤ F is said to be strictly compressed if rk(H) < rk(K) for
+each proper extension H < K ≤ F . It is immediate that strictly compressed
+subgroups form a natural class of e-algebraically closed subgroups.
+    By Example 3.5, we know that if F has rank two, then hxi ≤ F is algebraic
+if and only if x is not a power of a primitive element of F . Hence, situations
+like H = h[a, b]i < ha, bi are examples of algebraic extensions where the base
+group H is e-algebraically closed. This is a behavior significantly different
+from what happens in field theory.                                            ⊔
+                                                                              ⊓
+Algebraic extensions in free groups                                          23
+
+
+Corollary 3.27 Let H ≤ F (A) be an extension of free groups. If H is
+finitely generated, it is decidable whether H is e-algebraically closed.
+
+Proof. Let x 6∈ H, viewed as a reduced word on the alphabet A, let p be
+the longest prefix of x labeling a path starting at the designated vertex 1 in
+ΓA (H), and let s be the longest suffix of x labeling a path to 1 in ΓA (H).
+We denote by 1 · p and 1 · s−1 the end vertices of these two paths.
+    First assume that the sum of the length of p and s is less than the length
+of x, that is, if x = pys for some non-empty word y. Then ΓA (hH, xi) is
+obtained from ΓA (H) by gluing a path (made of new vertices and new edges)
+from 1 · p to 1 · s−1 , labeled y. In particular, rk(hH, xi) = rk(H) + 1.
+    We now assume that the sum of the lengths of p and s is greater than or
+equal to the length of x, and we let t be the longest suffix of p which is also
+a prefix of s. That is, p = p′ t, s = ts′ and x = p′ ts′ . Let 1 · p′ be the end
+vertex of the path starting at 1 and labeled p′ in ΓA (H). If 1 · p′ = 1 · s−1 ,
+then x = p′ s labels in fact a loop at 1, that is, x ∈ H, a contradiction. So
+the labeled graph ΓA (hH, xi) is the quotient of ΓA (H) by the congruence
+generated by the pair (1 · p′ , 1 · s−1 ) (see the end of Section 2.2).
+    Thus, in view of Corollary 3.25, H is e-algebraically closed if and only
+if the following holds: for each pair of distinct vertices (v, w) in ΓA (H), the
+subgroup represented by the quotient of ΓA (H) by the congruence generated
+by (v, w) has rank at most rk(H). This is decidable, and concludes the
+proof.                                                                         ⊔
+                                                                               ⊓
+
+
+4     Abstract properties of subgroups
+Let F be a free group. An abstract property of subgroups of F is a set P of
+subgroups of F containing at least the total group F itself. For simplicity, if
+H ∈ P, we will say that the subgroup H satisfies property P.
+    We say that the property P is (finite) intersection closed if the intersec-
+tion of any (finite) family of subgroups of F satisfying P also satisfies P, and
+that it is free factor closed if every free factor of a subgroup of F satisfying
+P also satisfies P. Finally, we say that the property P is decidable if there
+exists an algorithm to decide whether a given finitely generated subgroup
+H ≤ F (A) satisfies P.
+
+4.1    P-closure of a subgroup
+Let F be a free group, P be an abstract property of subgroups of F , and
+let H ≤ F . If there exists a unique minimal subgroup of F satisfying P
+Algebraic extensions in free groups                                             24
+
+
+and containing H, it is called the P-closure of H, denoted by clP (H); in this
+situation, we say that H admits a well defined P-closure.
+
+Proposition 4.1 Let F be a free group and let P be an abstract property of
+subgroups of F .
+  (i) If P is intersection closed, then every subgroup H ≤ F admits a well
+      defined P-closure.
+ (ii) If P is finite intersection closed and free factor closed then every finitely
+      generated subgroup H ≤fg F admits a well defined P-closure.
+(iii) If P-closures are well defined and P is free factor closed, then for every
+      subgroup H ≤ F , we have H ≤alg clP (H). In particular, if H is finitely
+      generated, then so is clP (H).
+
+Proof. Statement (i) is immediate: it suffices to consider the intersection of
+all the extensions of H satisfying P (there is at least one, namely F itself).
+    If P is only finite intersection closed, but is also free factor closed, we use
+Theorem 3.16: since every extension of a finitely generated subgroup H is a
+free multiple of an algebraic extension of H, then every extension of H in P
+contains an algebraic extension of H in P. It follows that the intersection of
+all extensions of H in P is equal to the intersection of the algebraic extensions
+of H in P. But the latter intersection is finite, and hence it satisfies P as
+well, which concludes the proof of (ii).
+    Finally, if P is free factor closed, then H is not contained in any proper
+free factor of its P-closure, that is, H ≤alg clP (H).                           ⊔
+                                                                                 ⊓
+
+    It would be interesting to produce an example of an abstract property
+P that is closed under free factors and finite intersections, not closed under
+intersections, and non-trivial for finitely generated subgroups (note that the
+property to be finitely generated satisfies the required closure and non-closure
+properties, but it is trivial for finitely generated subgroups).
+
+Remark 4.2 It is well known that the property of being normal in F is
+closed under intersections and not under free factors, and that given a sub-
+group H ≤ F , the normal closure of H is well-defined, and is not in general
+finitely generated, even if H is.                                         ⊔
+                                                                          ⊓
+
+Proposition 4.3 Let P be an abstract property for subgroups of F (A) for
+which P-closures are well defined. If P-closures of finitely generated sub-
+groups of F (A) are computable, then P is decidable. The converse holds if,
+additionally, P is free factor closed.
+Algebraic extensions in free groups                                           25
+
+
+Proof. Let us assume that P-closures are computable. Then, in order to
+decide whether a given H ≤fg F (A) satisfies P, it suffices to compute clP (H),
+and to verify whether H = clP (H).
+    Conversely, suppose that P is free factor closed and decidable. Then,
+given H ≤fg F (A), one can compute the set AE(H), check which algebraic
+extensions of H satisfy P and identify the minimal one(s). By Proposi-
+tion 4.1, only one of them is minimal, and that one must be clP (H).         ⊔
+                                                                             ⊓
+
+Remark 4.4 Proposition 4.1 states that every property of subgroups that is
+closed under (finite) intersections and under free factors yields a well-defined
+closure operator for (finitely generated) subgroups of F , that can be obtained
+by looking exclusively at algebraic extensions.
+    A form of converse holds too: if K ≤fg F , let PK be the following property.
+A subgroup L satisfies PK if and only if L is a free factor of an extension of K.
+Clearly, F satisfies this property, and one can verify that PK is intersection
+and free factor closed. Moreover, one can use Proposition 3.16 to verify that
+the PK -closure of a subgroup H ≤ K is exactly the K-algebraic closure of
+H. In particular, for every algebraic extension H ≤alg K, K is the P-closure
+of H for some well-chosen property P.                                           ⊔
+                                                                                ⊓
+
+
+4.2    Some algebraic properties
+Let us recall the definition of certain properties of subgroups, that have been
+discussed in the literature. Let H ≤ F be an extension of free groups. We
+say that H is
+   • malnormal if H g ∩ H = 1 for all g ∈ F \ H;
+
+   • pure if xn ∈ H, n 6= 0 implies x ∈ H (this property is also called being
+     closed under radical, or being isolated);
+
+   • p-pure (for a prime p) if xn ∈ H, (n, p) = 1 implies x ∈ H;
+    The following results on malnormal and pure closure were first shown in
+[7, Section 13]. The proof given here, while not fundamentally different, is
+simpler and more general. Corollary 4.14 below gives further properties of
+these closures.
+
+Proposition 4.5 Let F (A) be a free group. The properties (of subgroups)
+defined by malnormal, pure, p-pure (p a prime), retract and e-algebraically
+closed subgroups are intersection and free factor closed, and decidable for
+finitely generated subgroups.
+Algebraic extensions in free groups                                                26
+
+
+    For each of these properties P, each subgroup H ≤ F (A) admits a well-
+defined P-closure clP (H), which is an algebraic extension of H. Finally, if
+H ≤fg F (A), the P-closure of H has finite rank and is computable.
+
+Proof. The closure under intersections and free factors of malnormality is
+immediate from the definition. The decidability of malnormality was estab-
+lished in [1], with a simple algorithm given in [7, Corollary 9.11].
+    The closure under intersections of the properties of purity and p-purity
+is immediate. Now, assume that K is pure, H ≤ff K, and let x be such that
+xn ∈ H with n 6= 0. Since K is pure, we have x ∈ K, and we simply need
+to show that a free factor of a free group F is pure, which was established in
+Example 3.1 above. Thus purity is free factor closed. The proof of the same
+property for p-purity is identical. The decidability of purity and p-purity was
+proved in [3, 4].
+    It is shown in [2, Lemma 18] that an arbitrary intersection of retracts of
+F is again a retract of F . Moreover, it follows from the definition of retracts
+that a retract of a retract is a retract, and that a free factor is a retract. Thus
+the property of being a retract of F is free factor closed. The decidability of
+this property was established by Turner, but as no proof seems to have been
+published, we give his in Proposition 4.6 below.
+    Suppose that H ≤ff K ≤ F , K is e-algebraically closed and x 6∈ H. If
+x 6∈ K, then hK, xi = K ∗ hxi, so hH, xi = H ∗ hxi. If x ∈ K \ H, then
+we have that H is a free factor of hH, xi ≤ K and so, by Proposition 3.13,
+we also conclude that hH, xi = H ∗ hxi. Thus the property of being e-
+algebraically closed is closed under free factors.TNext, let (Hi )i∈I be a family
+of e-algebraically closed subgroups, let H = i Hi , and let x 6∈ H. There
+exists i ∈ I such that x 6∈ Hi , so hHi , xi = Hi ∗ hxi. Using Lemma 3.23, we
+conclude that hH, xi = H ∗ hxi. Thus the property of being e-algebraically
+closed is also closed under intersections. Finally, this property is decidable
+by Corollary 3.27.
+    The last part of the statement follows from Proposition 4.1.                  ⊔
+                                                                                  ⊓
+
+    As announced in the proof of Proposition 4.5, we prove the decidability
+of retracts, that was established by Turner [19].
+
+Proposition 4.6 Let H ≤ F (A) be an extension of finitely generated free
+groups. It is decidable whether H is a retract of F (A).
+
+Proof. (Turner) Suppose that A = {a1 , . . . , an } and let u1 , . . . , ur be a basis
+of H. Then H is a retract of F (A) if and only if there exist x1 , . . . , xn ∈ H
+such that the endomorphism ϕ of F (A) defined by ϕ(ai ) = xi maps H
+Algebraic extensions in free groups                                                   27
+
+
+identically to itself. That is, if ui (x1 , . . . , xn ) = ui for i = 1, . . . , r. This
+can be expressed in terms of systems of equations.
+    Let ei be the word on alphabet {X1 , . . . , Xn } obtained from the word ui
+(on alphabet A) by substituting Xj for aj for each j. Then H is a retract
+of F if and only if the system of equations ei (X1 , . . . , Xn ) = ui , i = 1, . . . , r
+(where ui are viewed as constants in H) admits a solution in H. This is
+decidable by Makanin’s algorithm [10] (note that the form of the system (i.e.
+the words ei ) depends on the way H is embedded in F , but once this form is
+established, the system itself is entirely set within H, so Makanin’s algorithm
+works, applied to this system over H).                                                 ⊔
+                                                                                       ⊓
+
+    Let H ≤ F be an extension of free groups. Recall that H is compressed if
+rk(H) ≤ rk(K) for every K ≤ F containing H (see Section 3.4), and say that
+H is inert if rk(H ∩K) ≤ rk(K) for every K ≤ F . Both these properties were
+introduced by Dicks and Ventura [5] in the context of the study of subgroups
+of free groups that are fixed by sets of endomorphisms or automorphisms
+(see also [21]).
+    It is clear that an inert or compressed subgroup is finitely generated, with
+rank at most rk(F ). It is also clear that inert subgroups (and retracts) of F
+are compressed. On the other hand, we do not know whether all compressed
+subgroups are inert, nor whether retracts are inert (both these facts are
+conjectured in [21] and related to other conjectures about fixed subgroups in
+free groups).
+Proposition 4.7 Let F be a free group. The properties of inertness and
+compressedness are closed under free factors. In addition, inertness is closed
+under intersections.
+    Each subgroup H ≤ F admits an inert closure, which is an algebraic
+extension of H.
+Proof. The closure of inertness under intersections is shown in [5, Corol-
+lary I.4.13]. Free factors of F are trivially inert. Moreover, if H ≤ K ≤ F ,
+H is inert in K and K is inert in F , then H is inert in F . So inertness is
+also closed under free factors.
+    Now suppose that H = L ∗ M ≤ F is compressed, and let L ≤ K ≤ F .
+Since H ≤ hK, Mi, we have
+           rk(L) + rk(M) = rk(H) ≤ rk(hK, Mi) ≤ rk(K) + rk(M).
+It follows that rk(L) ≤ rk(K), and hence L is compressed. Thus, compressed-
+ness is closed under free factors. The last statement is a direct application
+of Proposition 4.1.                                                         ⊔
+                                                                            ⊓
+Algebraic extensions in free groups                                           28
+
+
+    Note that, even though a finitely generated subgroup H admits an inert
+closure, which is one of its (finitely many) algebraic extensions of H, we do
+not know how to compute this closure, nor how to decide whether a subgroup
+is inert.
+    It is not known either whether compressedness is closed under intersec-
+tions, or even finite intersections, so we don’t know whether each subgroup
+admits a compressed closure. However it is decidable whether a finitely
+generated subgroup of F is compressed [20]. Indeed if H ≤fg F , then H
+is compressed if and only if rk(H) ≤ rk(K) for every algebraic extension
+H ≤alg K ≤ F , which reduces the verification to a finite number of rank
+comparisons.
+
+4.3    On certain topological closures
+Let T be a topology on a free group F . The abstract property of subgroups
+consisting of the subgroups that are closed in T is trivially closed under
+intersections. This property becomes more interesting when the topology
+is related to the algebraic structure of F . This is the case of the pro-V
+topologies that we analyze now.
+     A pseudovariety of groups V is a class of finite groups that is closed under
+taking subgroups, quotients and finite direct products. V is called non-trivial
+if it contains some non-trivial finite group. Additionally, if for every short
+exact sequence of finite groups, 1 → G1 → G2 → G3 → 1, with G1 and G3
+in V, one always has G2 ∈ V, we say that V is extension-closed.
+     For every non-trivial pseudovariety of groups V, the pro-V topology on a
+free group F is the initial topology of the collection of morphisms from F into
+groups in V, or equivalently, the topology for which the normal subgroups
+N such that F/N ∈ V form a basis of neighborhoods of the unit. We refer
+the readers to [11, 22] for a survey of results concerning these topologies with
+regard to finitely generated subgroups of free groups. In particular, Ribes
+and Zalesskiı̆ showed that if V is extension-closed then every free factor of a
+closed subgroup is closed [12]. The following observation then follows from
+Proposition 4.1.
+
+Fact 4.8 Let V be a non-trivial extension-closed pseudovariety of groups.
+Then the pro-V closure of a finitely generated subgroup H is finitely gener-
+ated, and an algebraic extension of H.
+
+    In the case of the pro-p topology (p is a prime and the pseudovariety V is
+that of finite p-groups, which is closed under extensions), Ribes and Zalesskiı̆
+[12] showed that one can compute the closure of a given finitely generated
+Algebraic extensions in free groups                                           29
+
+
+subgroup of F (A). A polynomial time algorithm was later given by Margo-
+lis, Sapir and Weil [11], based on the finiteness of the number of principal
+overgroups of H, that is, essentially on the spirit of Fact 4.8. Moreover, they
+showed that one can simultaneously compute the pro-p closures of H, for
+all primes p, using the fact that they are all algebraic extensions, and hence
+that they take only finitely many values. This was also used to show the
+computability of the pro-nilpotent closure of a finitely generated subgroup:
+even though the pseudovariety of finite nilpotent groups is not closed under
+extensions, it still holds that the pro-nilpotent closure of a finitely generated
+subgroup is finitely generated and computable.
+     At this point, several remarks are in order. First, Ribes and Zalesskiı̆
+[12] proved that if V is extension-closed and if H̄ is the pro-V closure of
+H, then rk(H̄) ≤ rk(H). The proof of this fact can be reduced to dimen-
+sion considerations in appropriate vector spaces. This proof does not seem
+related with the idea of e-algebraic extensions, which also lowers the rank
+(Corollary 3.15).
+     Next, not every algebraic extension arises as a pro-V closure for some
+V. This is clear if H ≤alg K and rk(K) > rk(H) by the result of Ribes and
+Zalesskiı̆ cited above, but rank is not the only obstacle. Consider indeed
+H = ha, bab−1 i ≤ F (a, b). Then H ≤alg F (Example 3.5) and AE(H) =
+OA (H) = {H, F }. We now verify that H is V-closed for each non-trivial
+extension-closed pseudovariety V, so F is never the V-closure of H. Since
+V is non-trivial, the cyclic p-element group Cp = hc | cp i sits in V for some
+prime p. Let ϕp : F → Cp be the morphism defined by ϕp (a) = 1 and
+ϕp (b) = c, and let Np = ker ϕp . Then H ≤ Np and Np is V-closed, so H is
+not topologically dense in F . Since the V-closure of H is in AE(H), it follows
+that H is closed in the pro-V topology.
+     Solvable groups form an extension-closed pseudovariety, so the above re-
+sults apply to it: in particular, given an extension H ≤fg F (A), we can
+compute a finite list of candidates for being the pro-solvable closure of H,
+namely AE(H) (or even this list, restricted to the extensions of rank at most
+rk(H)). However, it is a wide open problem to compute this closure.
+     Finally, let us consider the (uncountable) collection of extension-closed
+pseudovarieties of finite groups V as above. For each finitely generated sub-
+group H ≤ F , the pro-V closures of H are among the (finitely many) alge-
+braic extensions of H, so each finitely generated subgroup H naturally in-
+duces a finite index equivalence relation on the collection of the V’s. It would
+be interesting to investigate the properties of these equivalence relations. In
+particular, the intersection of these equivalence relations, as H runs over all
+the (countably many) finitely generated subgroups of F (a, b), has countably
+many classes, so there are pseudovarieties V that are indistinguishable in
+Algebraic extensions in free groups                                                      30
+
+
+this way.
+
+4.4     Equations over a subgroup
+In this section we use equations over free groups to define abstract properties
+of subgroups. Let H ≤ F be an extension of free groups. A (one variable)
+H-equation (or equation over H) is an element e = e(X) of the free group
+H ∗hXi, where X is a new free letter, called the variable. An element x ∈ F is
+a solution of e(X) if e(x) = 1 in F (technically: if the morphism H ∗hXi → F
+mapping H identically to itself and X to x, maps e to 1).
+Example 4.9 If H = ha2 i, the H-equation e(X) = Xa2 X −1 a−2 admits a as
+a solution. So does the H-equation X 2 a−2 .
+    If e does not involve X, that is, e ∈ H, then e has no solution unless it is
+the trivial equation e = 1, in which case every element of F is a solution. ⊔ ⊓
+
+    We immediately observe the following.
+Lemma 4.10 Let H ≤ F be an extension of free groups and let x ∈ F .
+The element x is a solution of some non-trivial H-equation if and only if the
+elementary extension H ≤ hH, xi is algebraic.
+Proof. Let X be a new free generator and let ϕ : H ∗ hXi → F be the
+morphism that maps H identically to itself and X to x. By definition, x
+is a solution of some non-trivial equation over H if and only if ϕ is not
+injective, and we conclude by Proposition 3.13 and Corollary 3.14 that this
+is equivalent to H ≤alg hH, xi.                                          ⊔
+                                                                         ⊓
+
+     In order to make this natural definition of equations independent on the
+choice of the subgroup H, we consider a countable set X, Y1 , Y2 , . . . of vari-
+ables and we call equation any element e of the free group on these variables.
+If H ≤ F is an extension of free groups, a particularization of e over H is the
+H-equation e(X, h1 , h2 , . . .) obtained by substituting elements h1 , h2 , . . . ∈ H
+for the variables Y1 , Y2, . . . (and having X as variable).
+     A solution of the equation e over H is a solution of some non-trivial
+particularization of e over H, that is, an element x ∈ F such that, for some
+h1 , h2 . . . ∈ H, e(X, h1 , h2 , . . .) 6= 1 but e(x, h1 , h2 , . . .) = 1. (Note that even
+when X occurs in e, some particularizations of e over H can be trivial).
+     Let E be an arbitrary set of equations. We say that a subgroup H ≤ F
+is E-closed if H contains every solution over H of every equation in E. Note
+that, when looking for solutions, the set E is not considered as a system of
+equations, but as a set of mutually unrelated equations. In particular, a
+larger set E yields a larger set of solutions.
+Algebraic extensions in free groups                                             31
+
+
+Proposition 4.11 Let F be a free group and let E be a set of equations.
+Then the property of being E-closed is closed under intersections and under
+free factors.
+
+Proof. The closure under intersections follows directly from the definition.
+Now assume that K ≤ F is E-closed and let H ≤ff K. Let x be a solution of
+an equation of E over H. Then x is also a solution over K, and hence x ∈ K.
+Now, by Lemma 4.10, H ≤alg hH, xi ≤ K. This contradicts H ≤ff K unless
+H = hH, xi, and hence x ∈ H.                                              ⊔
+                                                                          ⊓
+
+Corollary 4.12 Let H ≤ F and let E be a set of equations. There exists a
+least E-closed extension of H, denoted by clE (H) and called the E-closure of
+H. Moreover, H ≤alg clE (H).
+    If in addition H is finitely generated, then H ≤ealg clE (H), rk(clE (H)) ≤
+rk(H) and there exists a finite subset E0 of E such that clE0 (H) = clE (H).
+
+Proof. Propositions 4.1 and 4.11 directly prove the first part of the state-
+ment.
+    We now suppose that H ≤fg F and we let H0 = H and suppose that
+we have constructed distinct extensions H0 ≤ealg H1 ≤ealg · · · ≤ealg Hn (n ≥
+0), elements x1 , . . . , xn ∈ F , and equations e1 , . . . , en ∈ E such that Hi =
+hHi−1 , xi i and xi is a solution of ei over Hi−1 . If Hn is not E-closed, then
+there exists an equation en+1 ∈ E, and an element xn+1 6∈ Hn such that xn+1
+is a solution of a non-trivial particularization of en+1 over Hn . Then Hn+1 =
+hHn , xn+1 i is a proper elementary algebraic extension of Hn by Lemma 4.10.
+Since H has only a finite number of algebraic extensions, this construction
+must stop, that is, for some n, Hn is E-closed. It follows easily that Hn is
+the E-closure of H, whose existence was already established. In particular
+H ≤ealg clE (H), and rk(clE (H)) ≤ rk(H) by Corollary 3.15.
+    Finally, let E0 = {e1 , . . . , en }. Any E-closed subgroup is also E0 -closed,
+and the E0 -closure of H must contain H1 , . . . , Hn . Thus clE (H) = clE0 (H). ⊔⊓
+
+   We conclude with the observation that some of the properties discussed in
+Section 4.2 can be expressed in terms of equations. Let p be a prime number
+and let
+
+                      Emal = {X −1 Y1 XY2 },
+                        Ep = {X n Y1 | (n, p) = 1},
+                                                 [
+                       EZ = {X n Y1 | n 6= 0} =     Ep ,
+                                                      p
+                      Ecom = {X −1 Y1−1 XY1 }.
+Algebraic extensions in free groups                                             32
+
+
+Proposition 4.13 Let H ≤ F be an extension of free groups. The subgroup
+H is
+    (i) malnormal if and only if it is Emal -closed;
+ (ii) p-pure if and only if it is Ep -closed;
+(iii) pure if and only if it is EZ -closed, and if and only if it is Ecom -closed.
+
+Proof. H is Emal -closed if and only if, for all h1 , h2 ∈ H, not simultaneously
+trivial, every solution of the equation X −1 h1 Xh2 = 1 belongs to H. That
+is, if and only if x−1 Hx ∩ H 6= 1 implies x ∈ H. This is precisely the
+malnormality property for H. This proves (i).
+    H is Ep -closed if and only if H contains the n-th roots of every one of its
+elements, for all n such that (n, p) = 1. Again, this is exactly the definition
+of p-purity, showing (ii).
+    Similarly, H is EZ -closed if and only if H is pure. Finally, we recall that
+two elements x and y in F commute if and only if they are powers of a
+common z ∈ F . Thus the subgroup generated by H and all the roots of its
+elements is exactly the Ecom -closure of H.                                    ⊔
+                                                                               ⊓
+
+     Corollary 4.12 immediately implies the following.
+
+Corollary 4.14 Let H ≤fg F and let K be the malnormal (resp. pure, p-
+pure) closure of H. Then H ≤ealg K and rk(K) ≤ rk(H).
+
+
+5      Some open questions
+To conclude this paper, we would like to draw the readers’ attention to a few
+of the questions it raises.
+ (1) We believe that the algebraic extensions of a finitely generated sub-
+     group H ≤fg F are precisely the extensions which occur as principal
+     overgroups of H for every
+                             T choice of an ambient basis. That is, we con-
+     jecture that AE(H) = A OA (H), where A runs over all the bases of
+     F . As noticed in section 3.1, this is the case when H ≤fi F or H ≤ff F ,
+     but nothing is known in general.
+ (2) With reference to Corollary 3.15, we would like to find an algebraic
+     extension H ≤alg K of finitely generated groups, where rk(K) ≤ rk(H),
+     yet the extension is not e-algebraic. It would be appropriate to look
+     for such an extension where H is e-algebraically closed in K, that is,
+     hH, xi = H ∗ hxi for each x ∈ K \ H (Corollary 3.25).
+Algebraic extensions in free groups                                          33
+
+
+ (3) Even though a finitely generated subgroup H admits an inert closure,
+     which is one of the finitely many (computable) algebraic extensions
+     of H, we do not know how to compute this closure. Equivalently, it
+     would be interesting to find an algorithm to decide whether a subgroup
+     is inert (see section 4.2).
+
+ (4) It is not known whether an intersection, even a finite intersection, of
+     (strictly) compressed subgroups is again (strictly) compressed. In other
+     words, does a finitely generated subgroup admit a (strictly) compressed
+     closure? If the answer was affirmative, then these closures would be
+     computable, as indicated in section 4.2.
+
+ (5) As pointed out in section 4.3, we know that if V is a non-trivial
+     extension-closed pseudovariety of groups and H ≤fg F , then H̄, the
+     pro-V closure of H, is an algebraic extension of H with rank at most
+     rk(H). However the known proof of this fact does not rely on the notion
+     of e-algebraic extensions. We would like to find an example of such a
+     subgroup H and a pseudovariety V such that the extension H ≤ H̄
+     is not e-algebraic – or alternately to give a new proof of Ribes and
+     Zalesskiı̆’s result (that in this situation, rk(H̄) ≤ rk(H)), by showing
+     that H ≤ealg H̄.
+
+ (6) As indicated at the end of section 4.3, it would be interesting to find
+     and investigate explicit examples of pseudovarieties V1 and V2 , such
+     that the pro-V1 and pro-V2 closures of H do coincide, for every H ≤fg
+     F . As argued above, there are uncountably many such pairs being
+     indistinguishable by means of closures of finitely generated subgroups.
+
+ (7) Finally, Corollary 4.12 shows that for every set of equations E and every
+     H ≤fg F , there exists a finite subset E0 ⊆ E such that clE0 (H) = clE (H).
+     Is it true that such a finite set always exists satisfying the previous
+     equality for all finitely generated subgroups of F at the same time
+     (showing a kind of noetherian behavior)?
+
+
+Acknowledgements
+E. Ventura thanks the support received from DGI (Spanish government)
+through grant BFM2003-06613, and from the Generalitat de Catalunya through
+grant ACI-013. P. Weil acknowledges support from the European Science
+Foundation program AutomathA. E. Ventura and P. Weil wish to thank
+the Mathematics Department of the University of Nebraska (Lincoln), where
+Algebraic extensions in free groups                                              34
+
+
+they were invited Professors when part of this work was developped. All
+three authors gratefully acknowledge the support of the Centre de Recerca
+Matemàtica (Barcelona) for their warm hospitality during different periods
+of the academic year 2004-2005, while part of this paper was written.
+
+
+References
+ [1] G. Baumslag, A. Miasnikov and V. Remeslennikov, Malnormality is decidable
+     in free groups, Internat. J. Algebra Comput., 9 (1999), no. 6, 687–692.
+
+ [2] G.M. Bergman, Supports of derivarions, free factorizations and ranks of fixed
+     subgroups in free groups, Trans. Amer. Math. Soc., 351 (1999), 1531-1550.
+
+ [3] J.-C. Birget, S. Margolis, J. Meakin, P. Weil. PSPACE-completeness of certain
+     algorithmic problems on the subgroups of free groups, in ICALP 94 (S. Abite-
+     boul, E. Shamir éd.), Lecture Notes in Computer Science 820 (Springer, 1994)
+     274–285.
+
+ [4] J.-C. Birget, S. Margolis, J. Meakin, P. Weil. PSPACE-completeness of certain
+     algorithmic problems on the subgroups of free groups, Theoretical Computer
+     Science 242 (2000) 247–281.
+
+ [5] W. Dicks, E. Ventura, The group fixed by a family of injective endomorphism
+     of a free group, Contemp. Math., 195 (1996), 1-81.
+
+ [6] S. Gersten, On Whitehead’s algorithm, Bull. Am. Math. Soc., 10 (1984),
+     281-284.
+
+ [7] I. Kapovich and A. Miasnikov, Stallings Foldings and Subgroups of Free
+     Groups, J. Algebra, 248, 2 (2002), 608-668.
+
+ [8] R. Lyndon and P. Schupp, Combinatorial group theory, Springer, (1977,
+     reprinted 2001).
+
+ [9] W. Magnus, A. Karras and D. Solitar, Combinatorial group theory, Dover
+     Publications, New York, (1976).
+
+[10] G.S. Makanin. Equations in a free group, Izvestiya Akad. Nauk SSSR 46
+     (1982), 1199-1273 (in Russian). (English translation: Math. USSR Izvestiya
+     21 (1983), 483-546.)
+
+[11] S. Margolis, M. Sapir and P. Weil, Closed subgroups in pro-V topologies and
+     the extension problems for inverse automata, Internat. J. Algebra Comput.
+     11, 4 (2001), 405-445.
+
+[12] L. Ribes and P. A. Zalesskiı̆, The pro-p topology of a free group and algorith-
+     mic problems in semigroups, Internat. J. Algebra Comput. 4 (1994) 359-374.
+Algebraic extensions in free groups                                             35
+
+
+[13] A. Roig, E. Ventura, P. Weil, A software to compute the algebraic extensions
+     of a finitely generated subgroup of a free group, in preparation.
+
+[14] J.-P. Serre, Arbres, amalgames, SL2 , Astérisque 46, Soc. Math. France,
+     (1977). English translation: Trees, Springer Monographs in Mathematics,
+     Springer, (2003).
+
+[15] P. Silva and P. Weil, On an algorithm to decide whether a free group is a free
+     factor of another, preprint.
+
+[16] J. R. Stallings, Topology of finite graphs, Inventiones Math. 71 (1983), 551–
+     565.
+
+[17] M. Takahasi, Note on chain conditions in free groups, Osaka Math. Journal
+     3, 2 (1951), 221-225.
+
+[18] E.C. Turner, Test words for automorphisms of free groups, Bull. London Math.
+     Soc., 28 (1996), 255-263.
+
+[19] E.C. Turner, private communication, 2005.
+
+[20] E. Ventura, On fixed subgroups of maximal rank, Comm. Algebra, 25 (1997),
+     3361-3375.
+
+[21] E. Ventura, Fixed subgroups in free groups: a survey, Contemp. Math., 296
+     (2002), 231-255.
+
+[22] P. Weil. Computing closures of finitely generated subgroups of the free group,
+     in Algorithmic problems in groups and semigroups (J.-C. Birget, S. Margolis,
+     J. Meakin, M. Sapir éds.), Birkhaüser, 2000, 289–307.
+

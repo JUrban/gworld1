@@ -245,3 +245,14 @@ This promotes gamma_(c-3), c>=7, within the same partial candidate.
 Further general-offset lemmas have bounded independent checks but no
 fifth/sixth-layer group solver is claimed. Counts remain6 whole,3 partial,
 0 established novel; specialist review and the original deadline remain.
+
+
+F38(c) research-tool update: a complete finite search for a common subgroup
+in which both conjugacy classes are filling now supplies another prior
+positive branch. It recognizes proper-free-factor and non-free-factor
+cyclic-HNN vertex examples. GAP checks29 quotient graphs,7 positive carrier
+identities and the supporting orbit certificates. The integrated classifier
+retains negative witnesses and an explicit unresolved outcome; Lee's known
+rank-two positive pair correctly survives as unresolved by this sufficient
+test. See `research/notes/F38-common-filling-carrier.md`. This is prior
+mathematical scope made effective, with no candidate or novelty count added.

@@ -973,3 +973,24 @@ scope boundary. These suggest further layers but no further group scope
 is promoted. Full original N8 statement/background and rendering were
 checked during the derivation. Counts6 whole,3 partial,0 established novel;
 no agents/contact/push/Kourovka transfer; original deadline retained.
+
+
+## 2026-09-29T06:39:06.744044+00:00 — F38(c) finite common-filling-carrier implementation
+
+The preceding N8 turn made progress; revalidated its committed state and
+original active clock. Wider portfolio searches left the stated scope gaps
+open. Implemented a complete finite principal-fringe search for a common
+filling carrier, including independently conjugated input classes. Integrated
+it as a positive prior-theorem branch after the negative stabilizer and
+ambient-filling tests. Failure of this sufficient test remains unresolved.
+
+Four mathematical jobs passed with empty stderr. Python checks29 quotient
+graphs against all partitions of five small cycles,9 carrier pairs and5
+integrated cases. GAP independently checks graph ranks/edge-loop subgroups,
+7 positive carrier identities,48 finite invariant orbits,7 infinite-orbit
+witnesses,462 inverse pairs and464 transitions across the two replays.
+The cyclic-HNN vertex examples are ambient non-filling, and Lee's rank-two
+positive example correctly remains unresolved by this test. Archived/read/
+viewed the exact prior fringe theorem. No new candidate, specialist review,
+agents/contact/push or Kourovka transfer;6 whole,3 partial,0 established
+novel and the original deadline retained.

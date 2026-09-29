@@ -54,13 +54,7 @@ def bounded_comparison(rank, u, v):
     finiteness = finite_outer_group(rank, first['generators'])
     # The two stabilizers are commensurable after the necessary condition
     # passed; if the first is finite, then the second is finite too.
-    if finiteness['finite']:
-        return dict(status='boundedly_equivalent_prior_filling_case',
-                    obstruction=obstruction, first_outer_group=finiteness)
-    # Import locally: the carrier module uses the single-word filling test.
-    from f38_common_filling import common_filling_carrier
-    carrier = common_filling_carrier(rank, u, v)
-    status = (carrier['status'] if 'basis' in carrier
+    status = ('boundedly_equivalent_prior_filling_case' if finiteness['finite']
               else 'unresolved_nonfilling_stabilizers_commensurable')
     return dict(status=status, obstruction=obstruction,
-                first_outer_group=finiteness, common_carrier=carrier)
+                first_outer_group=finiteness)
