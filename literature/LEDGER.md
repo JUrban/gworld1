@@ -799,3 +799,14 @@ questions without establishing a further resolution. No novelty inference
 is made from search failure. E was obtained from its primary upstream repo
 at the exact pin in F20-equational/eprover-build.json; its README supplied
 installation and invocation options. All resulting searches remain bounded.
+
+
+## 29 September2026, approximately19:15 UTC — G11 scope
+
+Archived Freden--Knudson--Schofield2011 (DOI10.1112/S146115700900028X)
+and Freden's2017 StAndrews slides. Read introductory geometry, Section3
+solvable-case convolution and start of Section4; viewed printedp41. Read
+the slides and viewedslide21. No full proof audit of the later horocyclic
+algorithms. The nondividing whole-group/coset-growth comparison is not
+established by these sources; see G11-horocyclic-scope.md. No new solution
+or present-openness certification follows.

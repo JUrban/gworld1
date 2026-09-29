@@ -716,3 +716,14 @@ All failed searches are retained; see research/notes/F20-equational-probe.md.
 F23's higher-rank chain and S4's derived-length-three prior result were
 rechecked without closing their full questions. Counts remain9 whole-entry
 candidates/1 partial/0 established novel; specialist review outstanding.
+
+
+### 29 September, approximately 19:22 UTC: explicit-commutator search
+
+The changed F20 encoding was semantically checked in GAP but proved no
+additional target. Twelve jobs are terminal; the failed known control is
+retained alongside the nine other E attempts. G11's horocyclic/coset scope
+check likewise yields no new answer. The evening internal proof readthrough
+found no new gap, with all imported-theorem and implementation limits retained.
+Current tally remains nine whole-entry candidates, one partial candidate and
+zero established novel results. No external review or publication occurred.

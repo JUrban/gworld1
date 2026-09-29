@@ -1,0 +1,275 @@
+Aspects of Growth in Baumslag-Solitar
+               Groups
+
+      Groups St Andrews in Birmingham
+                7 August 2017
+
+
+                   Eric Freden
+         with undergraduate research assistant
+              Courtney Cleveland
+    Prelude: what are the obstructions to understanding
+                Baumslag-Solitar groups?
+First issue for group theorists is the mix of positive and
+   negative curvature.
+
+
+
+Second issue is number theory. In BS(p, q) the relationship
+  between p and q matters. For p = 1 the group is solvable. For
+  p = q the group is automatic. When p divides q, there is still a
+  semblance of order. Chaos reigns when 𝒑𝒑 ∤ 𝒒𝒒.
+This is a (partial) Cayley 2-complex for the 2,6 Baumslag-
+ Solitar group. Topologically it is a tree cross a line. The
+        main line is called the horocyclic subgroup.
+ The growth series for a group G with respect to a specific
+   finite generating set is a formal generating function
+
+Summing over n ≥ 0, let S(z) = ∑σ(n) zn
+where σ(n) denotes the number of group elements whose
+  word metric length is n.
+The exponent of growth is ωS = 𝒍𝒍𝒍𝒍𝒍𝒍 𝒏𝒏 σ(n) , where the limit
+                               𝒏𝒏→∞
+  exists by Fekete’s Lemma.
+
+
+ωS is the reciprocal of the radius of convergence for S(z).
+   If a group G is the direct product of finitely generated
+   subgroups T, B then in terms of generating functions:
+
+                   S(z) = ∑σ(n) zn = T(z)B(z)
+
+
+          the usual product of generating functions
+      where σ(n) can be written as the convolution sum
+                        σ(n)= ∑ τ(k)b(n-k)
+            with the sum index going from 0 to n.
+
+
+And evidently (barring miraculous cancellations) the exponent
+  of growth ωS coincides with the that of the larger of the two
+                            factors.
+  Although topologically the 2-complex is tree ✕ line, the
+group is not an algebraic product T ✕ Z as evidenced by the
+             distortion of the horocyclic cosets*
+
+
+
+
+  *growth of the horocyclic subgroup was the topic of my GSA 2005 presentation
+So the growth function of the group is not a product of two
+subgroup growth functions. But it can be viewed as a
+modified convolution product….
+Project the Cayley graph so the line components vanish.
+ This gives a rooted tree (the Bass-Serre tree) with edge
+weights. If we know all the weights, we can compute the
+                   growth of the tree.
+The growth series for the Bass-Serre tree is another formal
+                   generating function*
+
+Summing over n ≥ 0, let T(z) = ∑τ(n) zn
+where τ(n) denotes the number of tree nodes whose
+  (weighted) distance from the root is n. Note that sequence
+  τ(n) is increasing, so by Pringsheim’s Theorem, the
+  dominant singularity for T(z) is positive and equals its
+  radius of convergence.
+The exponent of growth for the tree is ωT = 𝒍𝒍𝒍𝒍𝒍𝒍𝒍𝒍𝒍𝒍𝒍𝒍 𝒏𝒏 τ(n)
+                                                                𝒏𝒏>𝟎𝟎
+which is the reciprocal of the radius of convergence for T(z).
+
+
+
+
+  * the growth series for the tree was the topic of my GSA 2013 presentation
+  At GSA 2005, we conjectured the equality ωS = ωT
+          for all Baumslag-Solitar groups
+
+Already true in the solvable and automatic cases, which have
+  rational growth series with readily apparent tree factor in
+  the overall generating function.
+
+
+Numerical estimates suggested the conjecture holds in
+  BS(2,3), BS(2,4), and BS(3,6).
+
+
+But in the course of proving the conjecture for BS(2,4) we saw
+  it was false in general….
+           Levels in the Bass-Serre tree of BS(p, q)
+
+Our earlier picture showed distortion in horocyclic cosets.
+
+Quasi-isometry arguments show a horizontal dilation in such
+                      𝒒𝒒
+cosets by a factor of    for each downward tree edge.
+                      𝒑𝒑
+
+Combinatorial arguments verify this for relative growth on each
+particular horocyclic coset. However, combinatorial
+compression ceases after a certain relative height in the tree.
+
+Partition the tree into equivalence classes based on these
+distortions. Label such classes as levels.
+           Levels in the Bass-Serre tree of BS(2, 4)
+If level n > 0, then moving up, down changes to level n-1, n+1.
+
+If level n = 0, then moving up, down changes to level 0, 1.
+     Using levels in a modified convolution for BS(2, 4)
+
+Define the horocyclic subgroup growth series by
+
+                           B(z) = ∑b(n) zn
+
+Then a level l coset has growth series
+
+                         2lB(z) = ∑2l b(n) zn
+                         𝒒𝒒
+where in this case 2 =      . Define χ(n,l ) as the number of level l
+                         𝒑𝒑
+  nodes in the tree whose distance to the root is n. Evidently
+
+                           τ(n)= ∑ χ(n,l )
+
+         where the sum is over all levels from 0 to n.
+     Using levels in a modified convolution for BS(2, 4)
+
+So instead of a direct product convolution
+
+                σ(n)= ∑ τ(k)b(n-k) , where 0 ≤ k ≤ n
+
+we break the sum into levels and magnify the horocyclic count
+
+                    σ(n) = ∑ ∑ χ(n,l ) 2l b(n-k) .
+
+The left sum has index 0 ≤ k ≤ n while the right sum is over
+  levels 0 ≤ l ≤ n . Let’s rewrite that formula as a convolution.
+                             𝟏𝟏
+               σ(n) = ∑ (       ∑ χ(n,l ) 2l ) τ(n)b(n-k)
+                            τ(n)
+            The modified convolution for BS(2, 4)
+
+In the modified convolution
+                             𝟏𝟏
+               σ(n) = ∑ (       ∑ χ(n,l ) 2l ) τ(n)b(n-k)
+                            τ(n)
+
+call the middle parenthetical term φ(n), and note that it is a
+  positive correction factor > 1 for almost all n.
+
+In terms of growth series we obtain
+
+                 S(z) = ∑σ(n) zn = (Φ(z)○T(z))B(z)
+
+where Φ(z) = ∑φ(n) zn and “○” is the Hadamard product.
+                The growth rate for BS(2, 4)
+
+From the product relationship
+
+               S(z) = ∑σ(n) zn = (Φ(z)○T(z))B(z)
+
+we can examine dominant singularities to see that the radius
+  of convergence for the group satisfies
+                     𝟏𝟏         𝟏𝟏   𝟏𝟏   𝟏𝟏
+                          = min{ �   , }
+                    ωS          ωΦ ωT ωB
+or in terms of exponents of growth
+
+                    ωS = max{ωΦωT , ωB}
+               The growth rate for BS(2, 4)
+
+
+We have bounds for the constituents of
+                    ωS = max{ωΦωT , ωB}
+
+namely,
+                       ωB = 1.30216…
+
+                        ωT > 2.4784
+
+                           ωΦ ≥ 1
+
+therefore,            ωS = ωΦωT
+                     The growth rate for BS(2, 4)
+
+
+In the equality                ωS = ωΦωT
+can we sharpen our bound ωΦ ≥ 1 ?
+
+Recall our correction factor
+                                       𝟏𝟏
+                     φ(n) =     ∑ χ(n,l ) 2l
+                           τ(n)
+where we sum over levels 0 ≤ l ≤ n .
+
+Evidently χ(n,l ) cannot grow strictly faster than τ(n) but
+
+we know* χ(n,l ) = Θ(ξn-l-1) for some fixed base 2 < ξ ≤ ωT
+
+*derived via long, involved estimates using recursions
+                The growth rate for BS(2, 4)
+Thus our correction factor becomes
+                             𝟏𝟏
+                    φ(n) =      ∑ Θ(ξn-l-1) 2l
+                            τ(n)
+and we can compute ωΦ by ignoring sub-exponential terms:
+
+                                       𝒏𝒏    𝟏𝟏
+                ωΦ =𝒍𝒍𝒍𝒍𝒍𝒍𝒍𝒍𝒍𝒍𝒍𝒍                   ∑l𝒏𝒏=𝟎𝟎 ξn−1−l 2l
+                          𝒏𝒏>𝟎𝟎             τ(n)
+
+                                 𝒏𝒏    ξ𝒏𝒏 𝒏𝒏 𝟏𝟏 𝒏𝒏 𝒏𝒏 2l
+                = 𝒍𝒍𝒍𝒍𝒍𝒍𝒍𝒍𝒍𝒍𝒍𝒍             �    � ∑l=𝟎𝟎 l
+                      𝒏𝒏>𝟎𝟎           τ(n)    ξ        ξ
+
+                   ξ
+               =      � 1�1 ≤ 1, but a priori, ωΦ ≥ 1
+                   ωT
+
+                   so     ωS = ωΦωT = 1 � ωT
+
+the growth rates of the tree and group are the same
+           Generalizations to BS(p, q) where p|q
+Our methods extend, with a few modifications, to BS(n, 2n). In
+  particular the modified convolution
+                             𝟏𝟏
+               σ(n) = ∑ (       ∑ χ(n,l ) 2l ) τ(n)b(n-k)
+                            τ(n)
+
+remains valid, and our asymptotic estimates easily generalize.
+  The group and Bass-Serre tree grow at the same rate.
+
+On the other hand, for BS(n, kn) with k ≥ 3, the horocyclic
+  dilation factor of k exceeds the growth rate of BS(n, kn).
+
+Our earlier computation shows that the nth root of
+                            𝟏𝟏
+                         (     ∑ χ(n,l ) kl )
+                           τ(n)
+                𝒌𝒌
+tends towards      > 1. So the group grows faster than the tree.
+               ωS
+           Generalizations to BS(p, q) where p∤q
+
+What works when p fails to divide q? Levels and the dilation of
+               𝒒𝒒
+ horocycles by    based on level remains valid, being a
+                  𝒑𝒑
+  result of quasi-isometry. So a modified convolution idea
+  appears valid.
+
+But nothing else works! There are apparently no verifiable
+  recursions for counting or estimating χ(n,l ) . The number-
+  theoretic difficulties seem insurmountable.
+
+Nevertheless, we conjecture that
+
+                           ωS = ωT
+remains valid for BS(p, q) whenever q < 2p .
+Aspects of Growth in Baumslag-Solitar
+               Groups
+
+
+
+
+           Thank you!
+

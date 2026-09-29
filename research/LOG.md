@@ -1788,3 +1788,23 @@ source and the N8/M0/H4/F28 written arguments without identifying a new gap;
 this is internal reading, not independent acceptance. PLAN's stale header now
 agrees with the current9 whole/1 partial/0 established novel tally. All work
 local; no push/contact/subagent or change to the original deadline.
+
+
+## Commutator encoding and evening readthrough (2026-09-29T19:23:30.122583+00:00)
+
+A changed F20 representation adds explicit commutator/conjugation functions
+and 21 universal identities, including Hall--Witt. GAP independently checked
+all 29 actual files/1389 clauses and two negative nilpotent models. Ten bounded
+E searches recovered one already known target; all eight missing targets and
+a known weight-five positive control remained unproved at this budget.
+All 12 jobs terminal;3 process successes/9 unsuccessful searches, no external
+timeouts. Peak reservation4CPU/12GB. Exact inputs, frozen sources, raw logs,
+one extracted proof and a hash manifest are retained. No E inference replay.
+
+G11's full three-part statement and primary horocyclic sources were read and
+viewed with explicit scope limits. The elementary affine upper bound for
+the cyclic subgroup leaves the whole-group coset sum uncontrolled. No
+new G11 candidate. Reread N8/N5/F28/GA3/F41 candidate proofs and the existing
+F34/F38 shared-foundation audit; no new gap found, no independent review.
+G9's stale preparation sentence now links its existing partial candidate.
+Counts9whole/1partial/0established novel. Deadline unchanged; local work only.

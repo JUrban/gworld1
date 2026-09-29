@@ -21,6 +21,12 @@ models; E's unsuccessful attempts are retained. See F20-equational-probe.md.
 Do not merely enlarge these budgets. F23's higher-rank prior construction
 and S4's derived-length-three prior case do not resolve their full questions.
 
+A second F20 encoding with independently checked commutator identities also
+proved no new target. G11's cyclic-subgroup estimates leave its whole-group
+coset contribution uncontrolled. Both follow-ups are saved with their limits;
+neither changes the candidate count. The 19:22 internal proof readthrough
+found no new gap and is not external validation.
+
 G9 now has a complete candidate proof of effective approximation in every
 finite rank and independently checked numerical rank-two bounds. The
 exact constant remains unknown. Preserve the distinction between a
