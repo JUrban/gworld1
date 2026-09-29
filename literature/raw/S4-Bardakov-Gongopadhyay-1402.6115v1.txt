@@ -1,0 +1,659 @@
+                                            PALINDROMIC WIDTH OF FINITELY GENERATED SOLVABLE
+                                                                GROUPS
+arXiv:1402.6115v1 [math.GR] 25 Feb 2014
+
+
+
+
+                                                        VALERIY G. BARDAKOV AND KRISHNENDU GONGOPADHYAY
+
+
+                                                   Abstract. We investigate the palindromic width of finitely generated solvable
+                                                   groups. We prove that every finitely generated 3-step solvable group has finite
+                                                   palindromic width. More generally, we show the finiteness of palindromic width for
+                                                   finitely generated abelian-by-nilpotent-by-nilpotent groups. For arbitrary solvable
+                                                   groups of step ≥ 3, we prove that if G is a finitely generated solvable group that is
+                                                   an extension of an abelian group by a group satisfying the maximal condition for
+                                                   normal subgroups, then the palindromic width of G is finite. We also prove that
+                                                   the palindromic width of Z ≀ Z with respect to the set of standard generators is 3.
+
+
+
+
+                                                                                  1. Introduction
+                                             Let G be a group with a set of generators X. A reduced word in the alphabet
+                                          X ±1 is a palindrome if it reads the same forwards and backwards. The palindromic
+                                          length lP (g) of an element g in G is the minimum number k such that g can be
+                                          expressed as a product of k palindromes. The palindromic width of G with respect
+                                          to X is defined to be pw(G, X) = sup lP (g). When there is no confusion about the
+                                                                                    g∈G
+                                          underlying generating set X, we simply denote the palindromic width with respect to
+                                          X by pw(G). Palindromes in groups have already proved useful in studying various
+                                          aspects of combinatorial group theory and geometry, for example see [9]–[13], [15]–[19],
+                                          [21].
+                                             For g, h in G, the commutator of g and h is defined as [g, h] = g −1 h−1 gh. If C is the
+                                          set of commutators in some group G then the commutator subgroup G′ is generated
+                                          by C. The commutator length lC (g) of an element g ∈ G′ is the minimal number k
+                                          such that g can be expressed as a product of k commutators. The commutator width
+                                          of G is defined by sup lC (g) and is denoted by cw(G). It is well known [22] that
+                                                                 g∈G
+                                          the commutator width of a free non-abelian group is infinite, but the commutator
+                                          width of a finitely generated nilpotent group is finite (see [3, 4]). An algorithm of the
+                                          computation of the commutator length in free non-abelian groups can be found in [5].
+
+                                             Date: July 30, 2021.
+                                             2000 Mathematics Subject Classification. Primary 20F16; Secondary 20F65, 20F19, 20E22.
+                                             Key words and phrases. palindromic width, solvable groups, metabelian groups, wreathe products.
+                                             The authors gratefully acknowledge the support of the Indo-Russian DST-RFBR project grant
+                                          DST/INT/RFBR/P-137.
+                                             Bardakov is partially supported by Laboratory of Quantum Topology of Chelyabinsk State Uni-
+                                          versity(Russian Federation government grant 14.Z50.31.0020) .
+                                                                                            1
+2               VALERIY G. BARDAKOV AND KRISHNENDU GONGOPADHYAY
+
+
+   In [7], we initiated the investigation of finding the palindromic width of a finitely
+generated group that is free in some variety of groups. We proved that the palindromic
+width of a finitely generated free nilpotent group is finite. Further using a result of
+Akhavan-Malayeri and Rhemtulla [2], we proved that pw(Fn (UN ), X) ≤ 5n, where U is
+the variety of abelian groups, N is the variety of nilpotent groups and X = {x1 , . . . , xn }
+is a basis of the group Fn (UN ) that is free in UN . In our work we also observed that
+there is a surprising analogy between commutator widths and palindromic widths in
+groups, though we did not have a clear picture about the relationship. We asked [7,
+Problem 2] a question to obtain a connection between the two widths. In this paper
+we also investigated this question and obtained further results in this direction, see
+Section 2.
+   The main aim of this paper is to investigate the palindromic width of some solvable
+groups and the wreath product of cyclic groups. We found a striking analogy of the
+palindromic widths and commutator widths of solvable groups. Rhemtulla [23, Theo-
+rem 1] proved that if A is a normal abelian subgroup of a solvable group G such that
+G/A satisfies the maximal condition for normal subgroups, then cw(G) < ∞. The
+following is an analogous theorem for palindromes.
+Theorem 1.1. Let A be a normal abelian subgroup of a finitely generated solvable
+group G = hXi such that G/A satisfies the maximal condition for normal subgroups.
+Then pw(G, X) < ∞.
+   We recall that a group G is said to satisfy the maximal condition for normal sub-
+groups if every normal subgroup of G is the normal closure of a finite subset of G. Our
+proof of the above theorem is based on the approach of Rhemtulla [23] where he studied
+commutator width in finitely generated solvable groups. Essentially, we have been able
+to transfer the language of commutator width into that of palindromes. Rhemtulla [23]
+also obtained finiteness of the commutator width of free 3-step solvable groups. In this
+paper, we obtain analogous results for palindromic width of free 3-step solvable groups.
+We further investigated the palindromic width of free abelian-by-nilpotent-by-nilpotent
+groups. We prove the following theorem in Section 4.
+Theorem 1.2. Let G be a finitely generated group in the variety UN N . Then the
+palindromic width of G is finite.
+    As a corollary we have:
+Corollary 1.3. Every finitely generated 3-step solvable group has finite palindromic
+width.
+   We do not know whether the palindromic width of an arbitrary finitely generated
+solvable group (of step > 3) is finite. Note, that an answer on the similar question on
+the commutator width also unknown.
+   In [8], we have proved that the palindromic width of a finitely generated free
+metabelian group of rank n is at most 4n − 1. It would be interesting to obtain
+an exact value for the palindromic width of a finitely generated metabelian group. It is
+indeed possible to obtain a precise value of the palindromic widths for some metabelian
+groups. In this paper, we consider the special case of the metabelian group G = Z ≀ Z.
+If a and b are the generators of the first and the second cyclic group in the above
+            PALINDROMIC WIDTH OF FINITELY GENERATED SOLVABLE GROUPS                     3
+
+
+wreath product, then we prove that pw(Z ≀ Z, {a, b}) = 3, see Section 5. Along the way
+we also show that the commutator width of Z ≀ Z is 1.
+    After finishing this work, we learned that Riley and Sale [24] have also studied
+palindromic width of solvable and metableian groups using different techniques. They
+have proved the special case of Theorem 1.1 when A is the trivial subgroup, that
+is, their result states that the palindromic width of a finitely generated solvable group
+that satisfies the maximal condition for normal subgroups has finite palindromic width.
+They have proved this using a result of Akhavan-Malayeri [1]. Riley and Sale have also
+proved that the palindromic width of Z≀Z is 3. Their proof is based on their estimate of
+pw(G ≀ Z r ), where G is a finitely generated group. On the other hand, our proof relies
+on the fact (proved in Section 5) that any element in the commutator subgroup of Z ≀ Z
+is a commutator. Palindromic width in wreathe products has also been investigated by
+Fink [14] who has also obtained an estimate of pw(G ≀ Zr ). Fink has also obtained the
+finiteness of palindromic widths of wreathe products of some more classes of groups.
+Acknowledgements. We are thankful to Andrew Sale and Tim Riley for informing
+us about their work and for their comments on our work. Thanks are also due to
+Elisabeth Fink for her comments and interest on our work.
+
+                  2. Commutator Width and Palindromic Width
+   In this paper we shall use the following result by Rhemtulla [23, Lemma 2].
+Lemma 2.1. Let G = hA, x1 , x2 , . . . , xn i where A is an abelian normal subgroup of G.
+Then the subgroup [A, G] is precisely the following set
+                       [A, G] = {[a1 , x1 ][a2 , x2 ] . . . [an , xn ] | ai ∈ A}.
+  We shall also use the following theorem by Rhemtulla and Akhavan-Malayeri [2] to
+obtain a better bound for the metabelian groups.
+Theorem 2.2. Let G = hx1 , . . . , xn i is a non-abelian free abelian-by-nilpotent group
+of rank n. Let A be an abelian normal subgroup of G such that G/A is nilpotent. Then
+every element g ∈ G′ can be expressed as:
+                             g = [u1 , x1 ]a1 [u2 , x2 ]a2 . . . [un , xn ]an
+for u1 , . . . , un ∈ G and a1 , . . . , an ∈ A, where ub = b−1 ub.
+   Also, we note the following lemma that is often useful to estimate palindromic width.
+Lemma 2.3. [7] Let G = hXi and H = hY i be two groups, P(X) is the set of
+palindromes in the alphabet X ±1 , P(Y ) is the set of palindromes in the alphabet Y ±1 .
+If ϕ : G −→ H be an epimorphism such that ϕ(X) = Y , then
+                                         pw(H) ≤ pw(G).
+   In [7] we also prove the following lemma.
+Lemma 2.4. Let G = hXi be a group generated by a set X. Then the following hold.
+   (1) If p is a palindrome, then for any integer m the element pm is also a palindrome.
+  (2) Any element in G which is conjugate to a product of n palindromes, n ≥ 1, is
+       a product of n palindromes if n is even, and of n + 1 palindromes if n is odd.
+4               VALERIY G. BARDAKOV AND KRISHNENDU GONGOPADHYAY
+
+
+     (3) Any commutator of the type [u, p], where p is a palindrome is a product of
+         3 palindromes. Any element [u, xα ]xβ , x ∈ X, α, β ∈ Z, is a product of 3
+         palindromes.
+     (4) Any commutator of the type [u, pq], where p, q are palindromes is a product of
+         4 palindromes. Any element [u, pxα ]xβ , x ∈ X, α, β ∈ Z, is a product of 4
+         palindromes.
+    The following is a generalization of (1) and (4) in the above lemma.
+Lemma 2.5. Let G = hXi and p1 , . . . , pk are palindromes in G and u ∈ G. Then
+     (1) If q = p1 p2 is a product of two palindromes, then for any integer m the element
+         q m is also a product of two palindromes.
+     (2)
+                                                            
+                                                              0 if k is even,
+               lP ([u, p1 p2 . . . pk ]) ≤ 2k + ε where ε =
+                                                              1 if k is odd.
+
+Proof. (1) Let m ≥ 1. Then q m = q m−1 p1 · p2 is a product of two palindromes. If
+m ≤ −1, then the assertion follows from the fact that the inverse to a palindrome is a
+palindrome.
+   (2) We see that
+                 w = [u, p1 p2 . . . pk ] = u−1 (p−1       −1 −1
+                                                  k . . . p2 p1 )u p1 p2 . . . pk .
+
+By Lemma 2.4(2) the element u−1 (p−1          −1 −1
+                                     k . . . p2 p1 )u is a product of k palindromes if
+k is even and is a product of k + 1 palindromes if k is odd. Hence w is a product of
+2k + ε palindromes.                                                                
+
+   Let G = hXi be a group. Let Ḡ = hX̄i, where X̄ is the image of X under some
+epimorphism of G. It follows from Lemma 2.3 that pw(Ḡ, X̄) ≤ pw(G, X). We now
+aim to find some upper bound for pw(G, X).
+   Let H be a normal subgroup of G such that G/H = Ḡ. Then H is generated by
+some elements h1 , h2 , . . .. The number of these elements may be infinite. However,
+any element h ∈ H can be represented by some word in the alphabet X ±1 . Denote by
+pw(H, X) the palindromic width of the subgroup H in the alphabet X ±1 .
+Lemma 2.6. Let G = hXi be a group generated by X. Let H be a normal subgroup
+of G and Ḡ = G/H = hX̄i. Then
+                    pw(Ḡ, X̄) ≤ pw(G, X) ≤ pw(Ḡ, X̄) + pw(H, X).
+Proof. It follows from Lemma 2.3 that pw(Ḡ, X̄) ≤ pw(G, X). To prove that pw(G, X) ≤
+pw(Ḡ, X̄) + pw(H, X), suppose that pw(Ḡ, X̄) = k and pw(H, X) = l. Any g ∈ G
+is a product g = hḡ, where h ∈ H and ḡ is the coset representative of G by H, i.e.
+g ∈ H ḡ. Since h is a product of at most k palindromes and ḡ is a product of at most
+l palindromes, hence g is a product of at most k + l palindromes. This proves the
+lemma.                                                                              
+
+Corollary 2.7. Let H = hY i be a group such that pw(H, Y ) < ∞. Let G = hX ∪ Y i
+be a finite extension of H. Then pw(G, X ∪ Y ) < ∞.
+            PALINDROMIC WIDTH OF FINITELY GENERATED SOLVABLE GROUPS                              5
+
+
+   Note that Lemma 2.6 is a palindromic version of [23, Lemma 1] where Rhemtulla
+proved similar inequalities for commutator widths. However, we do not know whether
+analogue of the above corollary holds for commutator widths. If G = hXi is a finitely
+generated group and G belongs to some variety M of groups, then to prove that
+pw(G, X) finite, it follows from Lemma 2.3 that it is enough to prove pw(Fn (M)) is
+finite.
+   In [7, Problem 2] we asked a question on the connection of the palindromic width and
+the commutator width of a group. The following proposition gives us this connection
+for some groups.
+Proposition 2.8. Let G = hXi be a finitely generated group with a set of generators
+X = {x1 , . . . , xn } of cardinality n. Suppose G has a non-trivial center Z = Z(G). Let
+Ḡ = G/Z = hX̄i. Let cw(G) = l and pw(Ḡ, X̄) = k. Then
+                                pw(G, X) ≤ n + l(2k + ε), where
+                                       
+                                          0 if k is even,
+                                    ε=
+                                          1 if k is odd.
+Proof. We have the following exact sequence
+                                                           π
+                                       1→Z →G−
+                                             → Ḡ → 1.
+Let s : Ḡ → G be a section. Then any element g ∈ G has the form g = zg̃, where
+z ∈ Z and g̃ = s(ḡ) for some ḡ ∈ Ḡ. Since cw(G) = l, any element u ∈ G′ = [G, G] has
+the form
+                  u = [h1 , g1 ][h2 , g2 ] . . . [hl , gl ], hi , gi ∈ G for i = 1, 2, . . . , l.
+For i = 1, 2, . . . , l, write any element gi in the form gi = zi g̃i , zi ∈ Z, g̃i = s(ḡi ). Then
+                            u     = [h1 , z1 g̃1 ][h2 , z2 g̃2 ] . . . [hl , zl g̃l ]
+                                  = [h1 , g̃1 ][h2 , g̃2 ] . . . [hl , g̃l ].
+Note that arbitrary element g ∈ G has the form
+                           g = xα        αn
+                                1 . . . xn [h1 , g̃1 ][h2 , g̃2 ] . . . [hl , g̃l ],
+                                 1
+
+
+
+for some integers α1 , . . . , αn . By hypothesis, any element g̃i is a product of at most k
+palindromes and by Lemma 2.5(2), [hi , g̃i ] is a product of at most 2k + ε palindromes.
+Hence u is a product of at most l(2k + ε) palindromes. Hence g is a product of at most
+n + l(2k + ε) palindromes. This proves the proposition.                                   
+
+     3. Palindromic Width of Solvable Groups: Proof of Theorem 1.1
+Lemma 3.1. Let G = hx1 , . . . , xn i be a finitely generated group and H = hhy1 , . . . , yk ii
+be the normal closure of elements y1 , . . . , yk in G. Then pw(G/H ′ ) < ∞ if and only if
+pw(G/H ′′ ) < ∞.
+Proof. Since G/H ′ is a homomorphic image of G/H ′′ , by Lemma 2.3, pw(G/H ′ ) < ∞
+if pw(G/H ′′ ) < ∞.
+    Suppose that pw(G/H ′ ) < ∞. We must prove that pw(G/H ′′ ) < ∞. We may
+assume H ′′ = 1. Then by Lemma 2.6,
+                           pw(G) ≤ pw(G/[H ′ , G]) + pw([H ′ , G]).
+6                VALERIY G. BARDAKOV AND KRISHNENDU GONGOPADHYAY
+
+
+By Lemma 2.1
+                 [H ′ , G] = {[h1 , x1 ][h2 , x2 ] . . . [hn , xn ] | hi ∈ H ′ }.
+By Lemma 2.4(3) pw([H ′ , G]) ≤ 3n. Hence
+                                  pw(G) ≤ pw(G/[H ′ , G]) + 3n.
+We need to show only that pw(G/[H ′ , G]) < ∞.
+   We may now assume that [H ′ , G] = 1. Thus H ′ ≤ Z(G) and H is a 2-step nilpotent
+group. Hence the map h 7→ [h, yi ], h ∈ H is a homomorphism. Let
+                                       Hi = {[h, yi ] | h ∈ H}.
+                 ′
+Then Hi ≤ H ≤ Z(G) and Hi is normal in G. So, K = H1 H2 . . . Hk is a normal
+subgroup of G. Thus the centralizer in H of H/K:
+                               ZH (H/K) = {h ∈ H | [h, H] ⊂ K}
+is also normal in G. However, yi ∈ ZH (H/K) for all i = 1, 2, . . . , k. Hence H/K is
+abelian and H ′ ≤ K. Also, we have K ≤ H ′ . This implies, K = H ′ .
+   Every element of K can be written in the form
+                                [h1 , y1 ][h2 , y2 ] . . . [hk , yk ], hi ∈ H.
+Any yi is a word in the alphabet X ±1 . Let m be the maximal length lX (yi ) of yi in the
+alphabet X ±1 for all i = 1, 2, . . . , k then by Lemma 2.5(2) we have lP ([hi , yi ]) ≤ 2m+1.
+Hence pw(H ′ , X) ≤ k(2m + 1) and
+                               pw(G) ≤ pw(G/H ′ ) + k(2m + 1).
+This proves the lemma.                                                                      
+3.1. Proof of Theorem 1.1.
+Proof. Let X = {x1 , x2 , . . . , xn }. Take a minimal subset Z ⊆ X such that G = hA, Zi.
+Without loss of generality, assume that Z = {x1 , x2 , . . . , xm }, m ≤ n. Let M = hZi so
+that G = AM . By Lemma 2.6,
+(3.1)                   pw(G, X) ≤ pw(G/[A, G], X̄) + pw([A, G], X),
+where X̄ is the image of X in G/[A, G]. It follows from Lemma 2.1 and Lemma 2.6
+that
+                                 pw([A, G], X) ≤ 3n.
+Further, since we are considering G/[A, G] in (3.1), without loss of generality we may
+further assume that A ≤ Z(G). Thus we have
+                                G′ = [AM, AM ] = [M, M ] = M ′ .
+It is therefore sufficient to show that pw(M, Z) is finite. Note that M/M ∩ A is
+isomorphic to G/A and it satisfies the maximal condition for normal subgroups. Also
+A ∩ M ≤ Z(M ).
+    We will now complete the proof by using induction on the solvability length of M .
+If M ∈ U, i.e. M is abelian, then it follows from [7, Theorem 1] that pw(M, Z) ≤ m.
+Suppose the result holds true for M ∈ U r . Consider the case when M ∈ U r+1 . Let L =
+M ∩ A. Since M/L satisfies the maximal condition for normal subgroups, there exists
+a subgroup N = hhy1 , y2 , . . . , yk ii of M such that N is the normal closure of elements
+y1 , . . . , yk of M and LN = LM (r−1). By induction M (r+1) = 1, so (LN )′ = N ′ =
+           PALINDROMIC WIDTH OF FINITELY GENERATED SOLVABLE GROUPS                         7
+
+
+M (r) is abelian. Now by Lemma 3.1, pw(M/N ′ ) < ∞ implies that pw(M/N ′′ ) < ∞.
+However, N (2) = M (r+1) = 1 and M/N ′ ∈ U r and by hypothesis M/N ′ has a finite
+palindromic width. Hence the theorem follows.                                  
+
+                              4. Proof of Theorem 1.2
+   Let M be some class of groups and Nc be the variety of nilpotent groups of nilpo-
+tency class ≤ c. Clearly, for c = 1, N1 = U. Let Ln be the class of groups generated
+by n elements. Denote by Ln ∩ Nc M the class of groups that belong to both Ln and
+Nc M.
+Lemma 4.1. For any class M of groups and any n, every group in Ln ∩ N2 M has
+finite palindromic width if and only if every group in Ln ∩ Nc M has finite palindromic
+width for c ≥ 2.
+Proof. If every group in Ln ∩ Nc M, c ≥ 2, has finite palindromic width, then evidently
+every group in Ln ∩ N2 M has finite palindromic width. We will use induction on c to
+prove the converse. If c = 2 then there is nothing to prove. Assume the result holds for
+c = m − 1. Let G ∈ Ln ∩ Nm M. Hence there is a normal subgroup N of G such that
+G/N ∈ M and N ∈ Nm . Thus γm+1 (N ) = 1. Since m > 2, γm (N ) = [γm−1 (N ), G] is
+abelian and hence by Lemma 2.6
+                           pw(G) ≤ pw(G/[γm−1 (N ), G]) + n.
+Since G/[γm−1 (N ), G] ∈ Ln ∩Nm−1 M, hence pw(G) < ∞. This proves the lemma. 
+4.1. Proof of Theorem 1.2.
+Proof. Let G be a finitely generated group in UN N . Then for some integers m, l,
+γm (γl (G)) = A is abelian and normal in G. Thus by Lemma 2.6 and Lemma 2.1,
+                              pw(G) ≤ pw(G/[A, G]) + 3n,
+where n is the number of generators of G. Now
+                           γm+1 (γl (G)) = [A, γl (G)] ⊂ [A, G],
+so that G/[A, G] ∈ Ln ∩ Nm Nl−1 . It is sufficient to show that any finitely generated
+group in N N has finite palindromic width. By Lemma 4.1, it is enough to show that
+any group in the class Ln ∩ N2 N has finite palindromic width.
+   We may now suppose that G ∈ Ln ∩ N2 N so that G contains a normal subgroup
+M ∈ N2 and G/M ∈ N . Now G/M ′ is finitely generated group in the class UN . We
+know from [7, Proposition 3.7] that the palindromic width of these groups is bounded
+above by 5n. Furthermore M ′ is abelian and normal in G and consequently has finite
+palindromic width. Hence G has finite palindromic width.                            
+
+   5. Palindromic and Commutator Widths of Wreath Products Z ≀ Z
+   We have proven that if Fn (U 2 ) is a free metabelian group of rank n, then pw(Fn (U 2 )) ≤
+4n − 1. We think that this boundary is rough. For some metabelian groups we can find
+the faithful value of palindromic width. For example, if
+                      BS(1, n) = ha, t || t−1 at = an i, n ∈ Z \ {0}
+is a metabelian Baumslag-Solitar group, then we can prove
+8              VALERIY G. BARDAKOV AND KRISHNENDU GONGOPADHYAY
+
+
+Proposition 5.1. pw(BS(1, n), {a, t}) = 2.
+Proof. It is not difficult to prove (see for example [6, Lemma 11]) that every element
+g ∈ BS(1, n) can be presented in the form g = tk al t−m for some non-negative integers
+k, m and some integer l. Then
+                                         g = tk al tk · t−m−k
+is the product of 2 palindromes. On the other side it is not difficult to prove, that
+element ta is not a palindrome.                                                    
+   In this section, we aim to obtain palindromic width of G = Z ≀ Z where the palin-
+dromes are considered with respect to the generating set {a±1 , b±1 }, where a is the
+generator of the first cyclic group in the product and b is the generator of the second
+cyclic group. Let A = hai ∼ = Z, B = hbi ∼
+                                         = Z. Then
+                                         G = Z ≀ Z = A ≀ B.
+Let a0 = a and A0 = A = ha0 i. Define the infinite
+                                                 Q set of groups Ai = hai i which are
+isomorphic copies of A and i ∈ Z. Let C = i∈Z Ai be the direct products of the
+Ai ’s. We can identify the group C as a subgroup of the group F (B, A) of functions
+from B to A, where any function sends the element bi onto some element in Ai . If
+f ∈ C ⊂ F (B, A), then we will write
+                           Y
+                       f=     ani i , ni ∈ Z, f (bi ) = f (i) = ani i ,
+                                  i∈Z
+where only finitely many numbers ni are non-zero. The group B acts on C by the rule
+                                        Y
+                                  fb =     ani+1
+                                              i
+                                                 .
+                                                     i∈Z
+This action induces an automorphism of C. Then G = A ≀ B = C ⋉ B, where ⋉ denotes
+the semi-direct product.
+   For any f ∈ C, define supp(f ) to be the set of indices i such that ni 6= 0. For
+any f ∈ C, supp(f ) is a finite set. Also we have the following conjugation rules for
+arbitrary integers k and l:
+                                   b−k Al bk = Al+k .
+5.1. Commutator Subgroup of G.
+Lemma 5.2. The commutator subgroup G′ = [G, G] is equal to the group [C, B], where
+[C, B] is a subgroup of G generated by the commutators [c, bl ] for c ∈ C, l ∈ Z.
+Proof. The inclusion [C, B] ⊂ [G, G] is evident. To prove the reverse inclusion, consider
+any arbitrary commutator [cbk , c′ bl ] in [G, G], where c, c′ ∈ C, k, l ∈ Z. Then
+               [cbk , c′ bl ] =     b−k c−1 b−l (c′ )−1 cbk c′ bl
+                                           k                             l
+                            =       (c−1 )b b−k b−l (c′ )−1 cbk bl (c′ )b
+                                               k+l    k+l       l
+                            =       c−1  ′ −b
+                                     k (c )          cb     (c′ )b , where ck = b−k cbk
+                            =       c−1  ′
+                                     k (ck+l )
+                                              −1
+                                                 ck+1 c′l
+                            =       c−1       ′
+                                     k ck+1 (ck+l )
+                                                   −1 ′
+                                                     cl = [ck , b][c′k+l , b−k ].
+Hence [G, G] ⊂ [C, B]. This proves the lemma.                                             
+           PALINDROMIC WIDTH OF FINITELY GENERATED SOLVABLE GROUPS                              9
+
+
+  We represent c ∈ G as a product
+                                           Y
+(5.1)                                 c=         ani i , ni ∈ Z,
+                                           i∈Z
+
+or as function c : Z → Z given by c(i) = ni . Define a function log : C → Z as
+                                             X
+                                    log c =     ni .
+                                                     i∈Z
+
+From Lemma 5.2 we have the following.
+Corollary 5.3. The commutator subgroup G′ is contained in C. An element c ∈ C
+belongs to G′ if and only if log c = 0.
+Lemma 5.4. Any element in the commutator subgroup G′ is a commutator.
+Proof. Let c ∈ G′ . We want to find an element f ∈ C be such that [f, b] = c. To do
+this denote by m the minimal integer m such that nm 6= 0 in the representation of (5.1)
+and by M the maximal integer M such that nM 6= 0 in (5.1). Hence the element c has
+the form
+                                    nm+1        nm+s−1 nm+s
+                          c = anmm am+1  . . . am+s−1 am+s ,
+where M = m + s and by Corollary 5.3,
+(5.2)                       nm + nm+1 + . . . + nm+s−1 + nm+s = 0.
+We will find the element f in the form
+                                             x             x
+                                   f = axmm am+1
+                                              m+1         m+s−1
+                                                  . . . am+s−1
+with unknowns xm , xm+1 , . . ., xm+s−1 . Then the commutator
+                                    −x            −x        xm          x         x      x
+    [f, b] = f −1 f b   =    a−x
+                              m
+                                 m    m+1
+                                   am+1            m+s−1
+                                          . . . am+s−1   · am+1   m+1
+                                                                am+2          m+s−2
+                                                                      . . . am+s−1    m+s−1
+                                                                                    am+s
+                                    x −x         x     −xm+2        x          −xm+s−1 xm+s−1
+                        =    a−x
+                              m
+                                 m   m
+                                   am+1 m+1   m+1
+                                            am+2                       m+s−2
+                                                               . . . am+s−1           am+s .
+Note that the equation [f, b] = c gives us the following system of equations:
+                                            −xm            =   nm
+                                      −xm+1 + xm           =   nm+1
+                                   −xm+2 + xm+1 =              nm+2
+                                              ..
+                                               .
+                               −xm+s−1 + xm+s−2            =   nm+s−1
+                                         xm+s−1            =   nm+s .
+From the first s equations we find
+                  xm    = −nm
+               xm+1     = xm − nm+1 = −nm − nm+1 ,
+               xm+2     = xm+1 − nm+2 = −nm − nm+1 − nm+2 ,
+                          ..
+                           .
+             xm+s−1     = xm+s−2 − nm+2 = −nm − nm+1 − · · · − nm+s−1 .
+10               VALERIY G. BARDAKOV AND KRISHNENDU GONGOPADHYAY
+
+
+Inserting this value of xm+s−1 in the last equation we have
+                             −nm − nm+1 − · · · − nm+s−1 = nm+s ,
+or
+                       nm + nm+1 + · · · + nm+s−1 + nm+s = 0.
+             ′
+Since c ∈ G we see in (5.2) that this equality holds. So, we have a well-defined solution
+to the above system of equations and f exists in C such that [f, b] = c. This proves
+the theorem.                                                                            
+Corollary 5.5. pw(G, {a, b}) ≤ 3.
+Proof. Every element in G can be represented in the form
+                                    g = ak bl d, d ∈ G′ , k, l ∈ Z.
+By Theorem 5.4, there exists an element f ∈ C such that d = [f, b]. Hence
+                                    g = ak bl [f, b] = ak [f b , b]bl .
+                                                                       −l
+
+
+
+Since elements in C are commute then
+                                                                          −l
+      g = ak [f b , b]bl = ak f −b b−1 f b bl+1 = ak f −b b−1 f −b−l f b−l f b bl+1 =
+                 −l               −l      −l             −l
+
+
+
+
+                         = f −b b−1 f −b−l · f b−l ak f b                        · bl+1 .
+                                      −l                                    −l
+
+
+
+Hence g is a product of at most 3 palindromes.                                                                      
+5.2. Palindromes in G. The following proposition describes palindromes in G.
+Proposition 5.6. The palindromes in G have one of the following forms:
+                                al−k f f b       b2k orf f b bl , k, l ∈ Z.
+                                           −2k                   −l
+
+
+
+
+Proof. Since any element in G has the form f bk , f ∈ C, k ∈ Z, then any palindrome
+has one of the following forms
+                                           f b k al f b k , f b k b l f b k .
+Since C is an abelian group, it follows that f bk = bk f . Hence
+         f bk al f bk = f bk al bk f = f (al )b        b2k f = f al−k f b              b2k = al−k f f b     b2k ,
+                                                  −k                             −2k                  −2k
+
+
+
+and
+                             f bk bl f bk = f b2k+l f = f f b                     b2k+l .
+                                                                        −(2k+l)
+
+
+
+This proves the lemma.                                                                                              
+   We will call palindromes of the first type by a-palindromes and the palindromes of
+the second kind by b-palindromes. We see that we can find elements in G that are not a
+product of a-palindromes, nor b-palindromes. It would be interesting to verify whether
+every element of G is a product of an a-palindrome and a product of a b-palindrome.
+Theorem 5.7. pw(G, {a, b}) = 3.
+   The theorem will follow from the following proposition, Lemma 2.3 and Corol-
+lary 5.5.
+Proposition 5.8. There is a homomorphism of the group Z ≀ Z onto N2,2 .
+           PALINDROMIC WIDTH OF FINITELY GENERATED SOLVABLE GROUPS                            11
+
+
+Proof. The group N2,2 has the following presentation:
+(5.1)                      N2,2 = hx, y | [y, x, x] = [y, x, y] = 1i.
+Consider the quotient G/γ3 (G). We use the same letters a and b for the images of a
+and b in G/γ3 (G). Hence we have the following relations in G/γ3 (G):
+(5.2)                              [b, a, a] = 1, [b, a, b] = 1.
+                   −1 −1
+   Since [b, a] = b a      ba = a−1     −1                           −1
+                                 1 a = a1 a0 , we have [b, a, a] = [a1 a0 , a0 ] = 1, which
+is the first relation in (5.2). The second relation has the form
+                                                                    −1 2 −1
+          [b, a, b] = [a−1           −1     −1        −1    −1
+                        1 a0 , b] = a0 a1 ba1 a0 b = a0 a1 a2 a1 = a0 a1 a2 = 1,
+i.e.
+                                            2 −1
+(5.3)                                   a−1
+                                         0 a1 a2 = 1.
+We can write a2 in the form
+                                    a2 = a0−1 a21 .
+Conjugating this relation by b we have
+                                     2    −1 −1 2 2     −2 3
+                            a3 = a−1
+                                  1 a2 = a1 (a0 a1 ) = a0 a1 .
+Conjugating this relation by b we have
+                                     3    −2 −1 2 3     −3 4
+                            a4 = a−2
+                                  1 a2 = a1 (a0 a1 ) = a0 a1 .
+Continuing this process we can remove all generators a2 , a3 , . . . , ak , . . . in the image of
+the group C in G/γ3 (G). On the other hand, conjugating the relation (5.3) by b−1
+gives
+                       a−2 = a2−1 a−1      2 −1 2 −1       3 −2
+                                   0 = (a0 a1 ) a0 = a0 a1 .
+Continuing this process we can remove all generators a−1 , a−2 , . . . , a−k , . . . in the image
+of C in G/γ3 (G). Hence, any element g in G/γ3 (G) has the form
+            g = ak0 al1 bm = ak b−1 al bbm = ak al (a−l b−1 al b)bm = ak+l [al , b]bm .
+Since in G/γ3 (G), commutator [al , b] = [a, b]l commutes with bl , thus
+                                      g = ak+l bm [b, a]−l .
+This shows that G/γ3 (G) is isomorphic to N2,2 . This proves the proposition.                 
+
+                                    6. Open Questions
+    We proved that for group G in Theorems 1.1 and 1.2 the palindromic width pw(G)
+is finite.
+Question 1. Let G be a group in Theorems 1.1 and 1.2. Find the lower and upper
+bounds on the palindromic width pw(G).
+   In the last section we proved that the palindromic width of a solvable Baumslag-
+Solitar group is equal 2. For the non solvable groups we can formulate the following.
+Question 2. Let
+                    BS(m, n) = ha, t || t−1 am t = an i, m, n ∈ Z \ {0}
+be a non solvable Baumslag-Solitar group. Is it true that pw(BS(m, n), {a, t}) is infi-
+nite?
+12               VALERIY G. BARDAKOV AND KRISHNENDU GONGOPADHYAY
+
+
+   Also, we can formulate the general question on the palindromic width of HNN-
+extensions.
+Question 3. Let G = hXi be a group and A and B are proper isomorphic subgroups
+of G and ϕ : A → B be an isomorphism. Is it true that the HNN-extension
+                                  G∗ = hG, t || t−1 At = B, ϕi
+of G with associated subgroups A and B has infinite palindromic width with respect to
+the generating set X ∪ {t}?
+   In [10] palindromic widths of free products were investigated. For the generalized
+free products we can formulate:
+Question 4. Let G = A ∗C B be a free product of A and B with amalgamated subgroup
+C and |A : C| ≥ 3, |B : C| ≥ 2. Is it true that pw(G, {A, B}) is infinite?
+  It would be interesting to understand palindromic width of wreath products. In
+particular, one can ask the following.
+Question 5. Let G = A ≀ B be a wreath product of group A = hXi and B = hY i such
+that pw(A, X) < ∞ and pw(B, Y ) < ∞. Is it true that pw(G, X ∪ Y ) < ∞?
+   Riley and Sale [24] have proved that if B is a finitely generated abelian group then
+the answer is positive. Fink [14] has also proved the finiteness of palindromic width of
+wreath product in for some more cases. However, the general case when B is a finitely
+generated non-abelian group is still open.
+
+                                          References
+ [1] M. Akhavan-Malayeri, Commutator length of solvable groups satisfying max-n. Bull. Korean
+     Math. Soc., 43, no. 4 (2006), 805–812.
+ [2] M. Akhavan-Malayeri, A. Rhemtulla, Commutator length of abelian-by-nilpotent groups. Glasg.
+     Math. J. 40 (1998), no.1, 117–121.
+ [3] Kh. S. Allambergenov, V. A. Roman’kov, Products of commutators in groups, (Russian) Dokl.
+     Akad. Nauk UzSSR, 1984, no. 4, 14–15.
+ [4] Kh. S. Allambergenov, V. A. Roman’kov, On products of commutators in groups, (Russian)
+     Depon. VINITI, 1985, no. 4566-85, 20 pp.
+ [5] V. Bardakov, Computation of commutator length in free groups (Russian), Algebra i Logika 39
+     (2000), no. 4, 395–440; translation in Algebra and Logic 39 (2000), no. 4, 224–251.
+ [6] V. Bardakov, On the width of verbal subgroups of some free constructions (Russian), Algebra i
+     Logika 36 (1997), no. 5, 494–517; translation in Algebra and Logic 36 (1997), no. 5, 288–301
+ [7] V. G. Bardakov and K. Gongopadhyay, Palindromic width of free nilpotent groups, J. Algebra
+     402 (2014), 379–391.
+ [8] V. G. Bardakov and K. Gongopadhyay, On palindromic width of certain extensions and quotients
+     of free nilpotent groups, Preprint.
+ [9] V. Bardakov, V. Shpilrain, V. Tolstykh, On the palindromic and primitive widths of a free group,
+     J. Algebra, 285 (2005), 574–585.
+[10] V. Bardakov, V. Tolstykh, The palindromic width of a free product of groups, J. Aust. Math.
+     Soc., 81 (2006), no. 2, 199–208.
+[11] D. Collins, Palindromic automorphism of free groups, in: Combinatorial and Geometric Group
+     Theory, London Math. Soc. Lecture Note Ser., vol. 204, Cambridge Univ. Press, Cambridge, 1995,
+     63 – 72.
+[12] F. Deloup. Palindromes and orderings in artin groups. J. Knot Theory Ramifications, 19, no. 2
+     (2010), 145–162.
+            PALINDROMIC WIDTH OF FINITELY GENERATED SOLVABLE GROUPS                                 13
+
+
+[13] F. Deloup, D. Garber, S. Kaplan and M. Teicher, Palindromic braids, Asian J. Math. 12, No. 1
+     (2008), 65-71.
+[14] E. Fink, Palindromic width of wreathe products, arXiv 1402.4345.
+[15] J. Gilman, L. Keen, Enumerating palindromes and primitives in rank two free groups, J. Algebra
+     332 (2011), 1–13.
+[16] J. Gilman, L. Keen, Discreteness criteria and the hyperbolic geometry of palindromes, Conform.
+     Geom. Dyn. 13 (2009), 76–90.
+[17] J. Gilman, L. Keen, Cutting sequences and palindromes, in Geometry of Riemann surfaces. Pro-
+     ceedings of the Anogia conference to celebrate the 65th birthday of William J. Harvey, Anogia,
+     Crete, Greece, JuneJuly 2007. Cambridge: Cambridge University Press, London Mathematical
+     Society Lecture Note Series 368 (2010), 194-216.
+[18] H. Glover, C. Jensen, Geometry for palindromic automorphisms of free groups, Comment. Math.
+     Helv. 75 (2000), 644–667.
+[19] H. Helling, A note on the automorphism group of the rank two free group, J. Algebra 223 (2000),
+     610–614.
+[20] W. Magnus, A. Karrass, D. Solitar, Combinatorial group theory: Presentations of Groups in
+     Terms of Generators and Relations, Interscience Publishers, New York, 1996.
+[21] A. Piggott, Palindromic primitives and palindromic bases in the free group of rank two, J. Algebra
+     304 (2006), 359–366.
+[22] A. H. Rhemtulla, A problem of bounded expressibility in free groups, Math. Proc. Cambridge
+     Philos. Soc., 64 (1969), 573–584.
+[23] A. H. Rhemtulla, Commutators of certain finitely generated soluble groups, Can. J. Math. 21
+     (1969), 1160–1164.
+[24] T. R. Riley and A. W. Sale, Palindromic width of wreathe products, metabelian groups and max-n
+     solvable groups, arXiv:1307.4861.
+
+  Sobolev Institute of Mathematics, Novosibirsk State University, Novisibirsk 630090,
+Russia
+
+   and
+
+   Laboratory of Quantum Topology, Chelyabinsk State University, BratevKashirinykh
+street 129, Chelyabinsk 454001, Russia
+   E-mail address: bardakov@math.nsc.ru
+
+   Department of Mathematical Sciences, Indian Institute of Science Education and Re-
+search (IISER) Mohali, Knowledge City, Sector 81, S.A.S. Nagar, P.O. Manauli 140306,
+India
+   E-mail address: krishnendu@iisermohali.ac.in, krishnendug@gmail.com
+

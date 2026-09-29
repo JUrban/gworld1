@@ -706,3 +706,13 @@ on several wider entries returned previously distinguished partial scopes;
 no additional full solution was inferred. Counts remain8 whole-entry
 candidates,2 partial candidates,0 established novel results. No pushes,
 contacts, subagents or parent/preparation changes. Original deadline unchanged.
+
+
+F20 follow-up,29 September approximately19:00 UTC: direct equational proof
+search also remains inconclusive. GAP independently verifies58 inputs and
+two negative models, but all eight previously unresolved weight-seven
+targets still lack proofs. The three successful E proofs give no new scope.
+All failed searches are retained; see research/notes/F20-equational-probe.md.
+F23's higher-rank chain and S4's derived-length-three prior result were
+rechecked without closing their full questions. Counts remain9 whole-entry
+candidates/1 partial/0 established novel; specialist review outstanding.

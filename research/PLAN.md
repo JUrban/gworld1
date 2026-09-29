@@ -2,18 +2,24 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately 17:00 UTC on 29 September: eight whole-entry
-candidates (F28,N5,M0,H4,F41,GA3,F38,F34), two partial candidates
-(N8,G9), zero established novel results. All ten await
-specialist review and novelty assessment. F34 was reclassified to make
-coverage accounting consistent with F38: candidate (a) plus known (b).
-No additional mathematical result was obtained in this correction.
+Latest checkpoint, approximately 19:00 UTC on 29 September: nine whole-entry
+candidates (F28,N5,M0,H4,F41,GA3,F38,F34,N8), one partial candidate
+(G9), zero established novel results. All ten await specialist review and
+novelty assessment. Whole-entry coverage may combine candidate new subparts
+with explicitly credited prior subparts; it is not a count of ten new theorems.
 
-N8's latest candidate range is all targets through class26, leading degrees
-through12 in arbitrary class and at most three remaining exceptional offsets,
-with the fourteen-final-layer and earlier families retained. The complete
-finite audit is in problems/N8/three-exception-audit.md. All current jobs are
-terminal; no passed suite needs repetition without a new concern.
+N8 now has a general candidate decision algorithm in every finite rank and
+class. Its consolidated proof and audit are problems/N8/general-proof.md and
+general-audit.md. The full arbitrary-rank algorithm is not implemented end
+to end. Earlier bounded checks retain their original scope; no passed suite
+needs repetition without a new concern.
+
+A bounded direct equational-proving attempt for F20 obtained no new target:
+the eight weight-seven consequences missed by rewriting remain unproved.
+Its 58 input files have an independent GAP semantic audit and negative
+models; E's unsuccessful attempts are retained. See F20-equational-probe.md.
+Do not merely enlarge these budgets. F23's higher-rank prior construction
+and S4's derived-length-three prior case do not resolve their full questions.
 
 G9 now has a complete candidate proof of effective approximation in every
 finite rank and independently checked numerical rank-two bounds. The

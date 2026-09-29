@@ -784,3 +784,18 @@ announces a single-commutator algorithm and distinguishes systems. Direct
 PDF open returned403; the full issue/proof was not read. It adds earlier
 restricted prior credit, not a new solution count or a full N8(b) theorem.
 See literature/N8-Weston-1978-notice.json and problems/N8/general-audit.md.
+
+
+## 29 September2026, approximately19:00 UTC — wider portfolio scope
+
+Kleiman, Math.USSR-Izv.22(1984),33--65, Cor8.11/intro: higher-rank
+principal fully invariant chains, rank89 and reported73, not F23 rank2.
+PDF archived; relevant text and printed pp36,64 viewed, full proof not audited.
+Bardakov--Gongopadhyay arXiv1402.6115v1: exact introduction/theorem scopes
+read and p2 viewed; Rhemtulla's derived-length-three commutator-width result
+is prior, higher derived lengths not supplied. See F23-S4-prior-scope.md.
+Additional searches revisited F13,F25,F37,MA1,M4,N9 and automatic-group
+questions without establishing a further resolution. No novelty inference
+is made from search failure. E was obtained from its primary upstream repo
+at the exact pin in F20-equational/eprover-build.json; its README supplied
+installation and invocation options. All resulting searches remain bounded.

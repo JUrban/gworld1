@@ -1,0 +1,99 @@
+% Preprocessing class: FSMSSMSMSSSNFFN.
+% Configuration: G-E--_207_C18_F1_SE_CS_SP_PI_PS_S2SI
+% (lift_lambdas = 1, lambda_to_forall = 1,unroll_only_formulas = 1, sine = Auto)
+% No SInE strategy applied
+% Search class: FUUPM-FFSM21-MFFFFFNN
+% partial match(1): FUUPM-FFSF21-MFFFFFNN
+% Configuration: SubtermCWHack
+% Initializing proof state
+% Scanning for AC axioms
+% mul is associative
+%
+%cnf(i_0_29, plain, (inv(one)=one)).
+%
+%cnf(i_0_27, plain, (inv(inv(X1))=X1)).
+%
+%cnf(i_0_24, plain, (mul(X1,one)=X1)).
+%
+%cnf(i_0_23, plain, (mul(one,X1)=X1)).
+%
+%cnf(i_0_26, plain, (mul(X1,inv(X1))=one)).
+%
+%cnf(i_0_25, plain, (mul(inv(X1),X1)=one)).
+%%
+%cnf(i_0_36, plain, (mul(c004,c003)=mul(c003,c004))).
+%
+%cnf(i_0_37, plain, (mul(c005,c003)=mul(c003,c005))).
+%
+%cnf(i_0_39, plain, (mul(c006,c002)=mul(c002,c006))).
+%
+%cnf(i_0_38, plain, (mul(c006,c001)=mul(c001,c006))).
+%
+%cnf(i_0_40, plain, (mul(c007,c002)=mul(c002,c007))).
+%
+%cnf(i_0_41, plain, (mul(c008,c002)=mul(c002,c008))).
+%
+%cnf(i_0_30, plain, (mul(mul(c001,c002),c003)=mul(c002,c001))).
+%
+%cnf(i_0_32, plain, (mul(mul(c002,c003),c005)=mul(c003,c002))).
+%
+%cnf(i_0_31, plain, (mul(mul(c001,c003),c004)=mul(c003,c001))).
+%
+%cnf(i_0_34, plain, (mul(mul(c002,c004),c007)=mul(c004,c002))).
+%
+%cnf(i_0_33, plain, (mul(mul(c001,c004),c006)=mul(c004,c001))).
+%
+%cnf(i_0_35, plain, (mul(mul(c002,c005),c008)=mul(c005,c002))).
+%
+%cnf(i_0_28, plain, (mul(inv(X2),inv(X1))=inv(mul(X1,X2)))).
+%
+%cnf(i_0_52, plain, (inv(mul(inv(X2),X1))=mul(inv(X1),X2))).
+%
+%cnf(i_0_22, plain, (mul(mul(X1,X2),X3)=mul(X1,mul(X2,X3)))).
+%
+%cnf(i_0_78, plain, (mul(inv(X1),mul(X1,X2))=X2)).
+%
+%cnf(i_0_80, plain, (mul(X1,mul(inv(X1),X2))=X2)).
+%
+%cnf(i_0_85, plain, (mul(inv(c008),mul(c002,c008))=c002)).
+%
+%cnf(i_0_86, plain, (mul(inv(c007),mul(c002,c007))=c002)).
+%
+%cnf(i_0_87, plain, (mul(inv(c006),mul(c001,c006))=c001)).
+%
+%cnf(i_0_88, plain, (mul(inv(c006),mul(c002,c006))=c002)).
+%
+%cnf(i_0_89, plain, (mul(inv(c005),mul(c003,c005))=c003)).
+%
+%cnf(i_0_90, plain, (mul(inv(c004),mul(c003,c004))=c003)).
+%%
+%cnf(i_0_30, plain, (mul(c001,mul(c002,c003))=mul(c002,c001))).
+%
+% Proof found!
+% SZS status Unsatisfiable
+% SZS output start CNFRefutation
+cnf(goal, negated_conjecture, (mul(mul(mul(inv(c008),inv(c002)),mul(c008,c002)),c002)!=mul(c002,mul(mul(inv(c008),inv(c002)),mul(c008,c002)))), file('research/certificates/F20-equational/inputs-v1/w5-collect-target-09.p', goal)).
+cnf(inv_prod, axiom, (inv(mul(X1,X2))=mul(inv(X2),inv(X1))), file('research/certificates/F20-equational/inputs-v1/w5-collect-target-09.p', inv_prod)).
+cnf(rel_014, axiom, (mul(c008,c002)=mul(c002,c008)), file('research/certificates/F20-equational/inputs-v1/w5-collect-target-09.p', rel_014)).
+cnf(left_inv, axiom, (mul(inv(X1),X1)=one), file('research/certificates/F20-equational/inputs-v1/w5-collect-target-09.p', left_inv)).
+cnf(left_id, axiom, (mul(one,X1)=X1), file('research/certificates/F20-equational/inputs-v1/w5-collect-target-09.p', left_id)).
+cnf(right_id, axiom, (mul(X1,one)=X1), file('research/certificates/F20-equational/inputs-v1/w5-collect-target-09.p', right_id)).
+cnf(c_0_6, negated_conjecture, (mul(mul(mul(inv(c008),inv(c002)),mul(c008,c002)),c002)!=mul(c002,mul(mul(inv(c008),inv(c002)),mul(c008,c002)))), inference(fof_simplification,[status(thm)],[goal])).
+cnf(c_0_7, negated_conjecture, (mul(mul(mul(inv(c008),inv(c002)),mul(c008,c002)),c002)!=mul(c002,mul(mul(inv(c008),inv(c002)),mul(c008,c002)))), c_0_6).
+cnf(c_0_8, axiom, (inv(mul(X1,X2))=mul(inv(X2),inv(X1))), inv_prod).
+cnf(c_0_9, axiom, (mul(c008,c002)=mul(c002,c008)), rel_014).
+cnf(c_0_10, axiom, (mul(inv(X1),X1)=one), left_inv).
+cnf(c_0_11, axiom, (mul(one,X1)=X1), left_id).
+cnf(c_0_12, axiom, (mul(X1,one)=X1), right_id).
+cnf(c_0_13, negated_conjecture, ($false), inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[c_0_7, c_0_8]), c_0_9]), c_0_10]), c_0_11]), c_0_8]), c_0_9]), c_0_10]), c_0_12])]), ['proof']).
+% SZS output end CNFRefutation
+
+% -------------------------------------------------
+% Total SizeMalloc()ed memory: 41171088 Bytes (87391 requests)
+% Total SizeFree()ed   memory: 41171088 Bytes (87391 requests)
+% New requests:   4802 (  4606 by SecureMalloc(),    196 by SecureRealloc())
+% Total SecureMalloc()ed memory: 882902 Bytes
+% Returned:      4802 (  4802 by FREE(),              0 by SecureRealloc())
+% SecureRealloc(ptr):    209 (   196 Allocs,      0 Frees,     13 Reallocs)
+% -------------------------------------------------
+

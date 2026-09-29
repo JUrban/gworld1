@@ -1,0 +1,33 @@
+% F20, rank two; [u,v]=u^-1 v^-1 u v.
+% Constants cNNN name Hall commutators; they are not variables.
+% No relation of weight greater than the requested weight is assumed.
+cnf(assoc,axiom,(mul(mul(X,Y),Z)=mul(X,mul(Y,Z)))).
+cnf(left_id,axiom,(mul(one,X)=X)).
+cnf(right_id,axiom,(mul(X,one)=X)).
+cnf(left_inv,axiom,(mul(inv(X),X)=one)).
+cnf(right_inv,axiom,(mul(X,inv(X))=one)).
+cnf(inv_inv,axiom,(inv(inv(X))=X)).
+cnf(inv_prod,axiom,(inv(mul(X,Y))=mul(inv(Y),inv(X)))).
+cnf(inv_one,axiom,(inv(one)=one)).
+cnf(def_003,axiom,(c003=mul(mul(inv(c002),inv(c001)),mul(c002,c001)))).
+cnf(def_004,axiom,(c004=mul(mul(inv(c003),inv(c001)),mul(c003,c001)))).
+cnf(def_005,axiom,(c005=mul(mul(inv(c003),inv(c002)),mul(c003,c002)))).
+cnf(def_006,axiom,(c006=mul(mul(inv(c004),inv(c001)),mul(c004,c001)))).
+cnf(def_007,axiom,(c007=mul(mul(inv(c004),inv(c002)),mul(c004,c002)))).
+cnf(def_008,axiom,(c008=mul(mul(inv(c005),inv(c002)),mul(c005,c002)))).
+cnf(def_009,axiom,(c009=mul(mul(inv(c004),inv(c003)),mul(c004,c003)))).
+cnf(def_010,axiom,(c010=mul(mul(inv(c005),inv(c003)),mul(c005,c003)))).
+cnf(def_011,axiom,(c011=mul(mul(inv(c006),inv(c001)),mul(c006,c001)))).
+cnf(def_012,axiom,(c012=mul(mul(inv(c006),inv(c002)),mul(c006,c002)))).
+cnf(def_013,axiom,(c013=mul(mul(inv(c007),inv(c002)),mul(c007,c002)))).
+cnf(def_014,axiom,(c014=mul(mul(inv(c008),inv(c002)),mul(c008,c002)))).
+cnf(rel_015,axiom,(mul(mul(inv(c005),inv(c004)),mul(c005,c004))=one)).
+cnf(rel_016,axiom,(mul(mul(inv(c006),inv(c003)),mul(c006,c003))=one)).
+cnf(rel_017,axiom,(mul(mul(inv(c007),inv(c003)),mul(c007,c003))=one)).
+cnf(rel_018,axiom,(mul(mul(inv(c008),inv(c003)),mul(c008,c003))=one)).
+cnf(rel_019,axiom,(mul(mul(inv(c011),inv(c001)),mul(c011,c001))=one)).
+cnf(rel_020,axiom,(mul(mul(inv(c011),inv(c002)),mul(c011,c002))=one)).
+cnf(rel_021,axiom,(mul(mul(inv(c012),inv(c002)),mul(c012,c002))=one)).
+cnf(rel_022,axiom,(mul(mul(inv(c013),inv(c002)),mul(c013,c002))=one)).
+cnf(rel_023,axiom,(mul(mul(inv(c014),inv(c002)),mul(c014,c002))=one)).
+cnf(goal,negated_conjecture,(mul(mul(inv(c007),inv(c004)),mul(c007,c004))!=one)).

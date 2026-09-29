@@ -1767,3 +1767,24 @@ Counts9 whole-entry candidates/1 partial(G9)/0 established novel. N8 is the
 same promoted entry, with prior part(a) explicit; total candidate entries
 remain10. README, problem landing page, triage and report now agree. Original
 deadline unchanged; no push/contacts/subagents. See general-audit.md.
+
+
+## Wider portfolio and F20 equational attempt (2026-09-29T19:05:51.670814+00:00)
+
+A different F20 method obtained no new consequence. Pinned E was built locally;
+58 complete TPTP files represent only the exact weight-c presentation. GAP
+independently parsed and checked1560 clauses and two negative nilpotent models.
+Three E proofs cover prior/control consequences; eleven bounded searches
+failed, including every one of the eight unresolved weight-seven targets.
+All18 jobs terminal,7 process successes/11 unsuccessful searches. One successful
+GAP run had syntax warnings; its exact source is retained and the corrected
+checker passes with empty stderr. Peak reservation5cores/16GB. Evidence hashes
+were verified; no additional candidate. See F20-equational-probe.md.
+
+F23's Kleiman1984 higher-rank chain and S4's restricted commutator-width sources
+were archived/read with exact scope limits; actual statements and cited pages
+were viewed. Neither question is settled. Revisited F38's graded-shortening
+source and the N8/M0/H4/F28 written arguments without identifying a new gap;
+this is internal reading, not independent acceptance. PLAN's stale header now
+agrees with the current9 whole/1 partial/0 established novel tally. All work
+local; no push/contact/subagent or change to the original deadline.
