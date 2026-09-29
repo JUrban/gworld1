@@ -1258,3 +1258,33 @@ All9 jobs terminal, maximum simultaneous5cores/40GB, longest44.065seconds.
 The main GAP run has five retained parser warnings and no runtime error.
 No imported Kourovka material, subagents, pushes or contacts. Original
 48hour clock unchanged; counts6 whole/4 partial/0 established novel.
+
+
+## F38(c) full candidate from graded shortening (2026-09-29T11:00:34.010172+00:00)
+
+The earlier finite-stabilizer necessary condition is now sufficient by a
+quantitative relative-shortening argument. For a word in no proper free
+factor, adjoin z and grade by <u,z>. Minimizing under the pointwise
+parameter fixer and assuming superlinear size would yield a flexible
+graded sequence. Its explicit tripod and injectivity make its limiting
+quotient faithful, contradicting Sela Lemma 10.4. Proper free factors and
+the exceptional rank-two primitive case are handled separately.
+
+The exact primary definitions, local lemma proof and printed pages 89--90
+were read/viewed; the inequality uses 2^m. The bounded-parameter relative
+shortening result was not substituted for the graded theorem. Novelty
+and independent specialist correctness review remain pending.
+
+Python checks ten two-sided and five directed cases, including rank and
+quantifier controls. Independent GAP now reconstructs 12 complete minimum
+Whitehead graphs, 148 vertices, 20948 edges and 1058 loop maps; it checks 15 finite
+orbits, 1150 loop/orbit transitions and 6 negative level-three witnesses.
+Both languages also check 2376 factor-twist records and 234 rank-two bounds.
+The two jobs pass with empty stderr in 1.223s and 8.447s, sequentially at
+one core / 8 GB. Finite checks do not verify the deep shortening theorem.
+
+Proof, audit, implementation and immutable certificate are under F38.
+F38 moves from partial to whole-entry candidate: 7 whole / 3 partial / 0
+established novel. Part (b) and rank-two decisions retain their prior
+credits. No subagents, imported Kourovka mathematics, pushes or contacts;
+parent/preparation repositories untouched and original clock retained.

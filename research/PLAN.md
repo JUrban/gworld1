@@ -2,9 +2,9 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately 09:50 UTC on 29 September: six whole-entry
-candidates (F28,N5,M0,H4,F41,GA3), four partial candidates
-(N8,F38(a),F34(a),G9), zero established novel results. All ten await
+Latest checkpoint, approximately 11:00 UTC on 29 September: seven whole-entry
+candidates (F28,N5,M0,H4,F41,GA3,F38), three partial candidates
+(N8,F34(a),G9), zero established novel results. All ten await
 specialist review and novelty assessment.
 
 G9 now has a complete candidate proof of effective approximation in every
@@ -21,9 +21,10 @@ explicitly credited. The finite free-group controls passed in Python
 and GAP after one preserved GAP variable-name failure. They do not
 verify the general tree argument.
 
-The preceding F38(c) work gives a decidable necessary stabilizer
-condition and an effective exponential comparison after it passes;
-the linear bound remains unresolved. F20's cover probe was inconclusive,
+F38(c) now has a full candidate: graded shortening upgrades the finite
+stabilizer condition to a linear comparison. Its structural theorem
+application and novelty need specialist review; finite implementations
+pass independent complete-graph checks. F20's cover probe was inconclusive,
 and N9's fixed-ambient encoding remains obstructed.
 
 Next: return to an unresolved mathematical lead in the wider portfolio,
@@ -536,3 +537,15 @@ Next examine whether the F38(c) necessary stabilizer condition can be
 strengthened to a linear length bound via relative splittings or tree
 actions; it is currently only an exponential envelope. Keep novelty and
 proof-dependency audits of the whole-entry candidates in the schedule.
+
+
+## Working focus after the full F38(c) candidate (2026-09-29T11:00:34.010172+00:00)
+
+The candidate proof and finite decision implementation are complete for
+F38(c); independent complete Whitehead-graph checks pass. Preserve its
+explicit dependency on graded shortening and the separate specialist and
+novelty caveats. Do not repeat finite controls merely to increase volume.
+Return to the wider unresolved portfolio or a specific mathematical
+proof concern. N8's remaining unequal weighted branches, the F20/F25
+obstructions, and fixed-ambient questions remain unresolved. Maintain
+all 195-entry scope and original deadline; 7 whole / 3 partial / 0 established novel.

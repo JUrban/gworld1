@@ -4,8 +4,13 @@
 
 [Current progress](reports/PROGRESS.md) · [Research plan](research/PLAN.md) · [Research log](research/LOG.md). The initial preparation snapshot is preserved in Git. The generated catalogue and problem READMEs retain their preparation status; current assessments are in [the working triage](research/triage.csv) and [dated claim ledger](research/claims.jsonl).
 
-Current working tally: **six whole-entry candidates and four partial
+Current working tally: **seven whole-entry candidates and three partial
 candidates**, all awaiting independent review and novelty assessment.
+The latest whole-entry upgrade is [F38](problems/F38/README.md): a
+graded-shortening argument makes the finite stabilizer test sufficient
+for bounded translation equivalence. See its [proof](problems/F38/bounded-proof.md)
+and [audit](problems/F38/bounded-audit.md); the deep theorem application
+and novelty require specialist review.
 The latest partial candidate is [G9](problems/G9/flow-growth-proof.md):
 effective approximation of free-metabelian growth in every finite rank,
 and certified rank-two bounds `2.658596558 <= lambda_2 <= 2.943737759`.

@@ -2,11 +2,11 @@
 
 Active experiment: 28 September 2026 10:04:49 UTC to 30 September 2026 10:04:49 UTC.
 
-Current counts: **4 partial candidates**, **6 whole-entry candidate solutions**, **0 established novel results**. All ten candidates await independent review; novelty remains provisional.
+Current counts: **3 partial candidates**, **7 whole-entry candidate solutions**, **0 established novel results**. All ten candidates await independent review; novelty remains provisional.
 
 - G9: a new partial candidate supplies an effective two-sided approximation algorithm for the standard growth constant in every finite rank. A flow-recoverable unfolding proof gives an explicit error bound. Separate finite certificates give `2.658596558 <= lambda_2 <= 2.943737759`: GAP independently verifies all 21,483 bridge atoms for the lower bound, and all 648 relations, 7,872 transitions and 1,968 integer inequalities for the upper bound. The exact constant, fine-precision computation and novelty remain unresolved. See `problems/G9/flow-growth-proof.md` and its audit. The extension in `problems/G9/solvable-extension-proof.md` gives the same modulus for every free solvable rank and derived length. Independent GAP checks68 noncommutative-deck recoveries; this does not add another candidate. The website's quoted decimal is used only for comparison; its cited self-avoiding-walk paper discusses numerical estimates.
 
-- F38(c): an elementary classification now covers primitive-power inputs in ambient rank at least three: bounded equivalence holds exactly for powers of the same primitive cyclic subgroup, up to conjugacy. Explicit Nielsen automorphisms certify the negative cases; GAP independently checks 7,274 growth formulas and 18 normalizations. Rank two is excluded and novelty is unverified. See `problems/F38/primitive-power-proof.md` and its audit. Separately, `research/notes/F38-length-envelopes.md` computes exact finite envelope prefixes and an exponential bound when the stabilizer test passes; it does not decide the linear comparison required in general. No new entry is counted.
+- F38 is now a whole-entry candidate: the new `problems/F38/bounded-proof.md` answers part (c) in every finite rank, alongside the existing part (a) candidate and prior part (b). Bounded translation equivalence is characterized by commensurable conjugacy stabilizers. The key sufficiency argument imports Sela's graded shortening theorem, with explicit free-factor, shortness and limiting-kernel checks. Independent GAP reconstructs 12 complete Whitehead graphs and 20,948 edges, checks 15 finite orbits and six negative witnesses, and replays 2,376 factor-twist records and 234 rank-two bounds. These checks do not prove the structural theorem application. Specialist review and novelty remain pending; see `bounded-audit.md`. Earlier restricted-case and exponential-envelope notes are preserved as historical stages.
 - F25: an exact12-cycle shows why Lee's degree-sorting argument cannot simply drop its distinct-frequency hypothesis. Every basepoint and generator order fails; independent GAP verifies the complete finite graph. This is a proof-strategy obstruction, not a solution or counterexample to the polynomial bound. See `research/notes/F25-equal-frequency-obstruction.md`.
 - The independent repository, frozen corpus, clock, recorded computation runner and research plan are in place.
 - N3 follow-up: an exact torsion-killing criterion identifies what a replacement cover construction must prove. Explicit witnesses show that enlarging every local bound by one still fails for a three-generator profile. Standalone integer arithmetic checks the full normal-subgroup certificate and corrected word; GAP independently verifies both quotient orders and free-group identities. Failed additive, large-preimage and uncorrected-prefix routes are retained. This is supplementary progress, not a solution to N3; see `research/notes/N3-profile-repair-obstruction.md`.
@@ -290,3 +290,16 @@ for fixed n=3, but supplies no commutative-ring result or established
 novelty. See `problems/MA7/exterior-ring-proof.md` and its audit. No entry
 is added to the candidate tally. O6's pending visual statement check is
 also complete after restoring the existing browser-library path.
+
+
+## 2026-09-29T11:00:34.010172+00:00 — F38 whole-entry candidate
+
+The new full part (c) proof upgrades F38 from partial to whole-entry
+candidate. One-sided linear comparison is equivalent to a finite
+conjugacy-stabilizer orbit; two-sided comparison is equivalent to
+commensurable stabilizers. The proof imports Sela's graded shortening,
+while the terminating decision uses the existing Whitehead/mod-three
+procedure. Independent GAP reconstructs all 12 tested minimum graphs
+and 20948 edges. See `problems/F38/bounded-proof.md` and `bounded-audit.md`.
+Earlier unresolved F38(c) entries above are historical. Counts now
+7 whole, 3 partial, 0 established novel; specialist and novelty review pending.
