@@ -1571,3 +1571,30 @@ reduction and low-degree arithmetic cases still need a full argument.
 All jobs terminal; at most2 cores/16GB reserved in this work period. No
 pushes, contacts, subagents or parent/preparation changes. Original
 30 September10:04:49UTC deadline unchanged.
+
+
+## N8 constrained-curve arithmetic checkpoint (2026-09-29T15:41:40.504278+00:00)
+
+A complete arithmetic lemma now reduces a quadratic with fixed nonzero
+leading coefficient to a square-root curve, retaining all extra polynomial
+conditions and fixed-modulus congruences. The degree>=3 stopping bound
+is imported from Berczes--Evertse--Gyory2013; its enormous enumeration
+is not implemented. Low-degree cases have explicit finite/periodic
+arguments. See research/notes/N8-constrained-curve-lemma.md and its audit.
+
+The finite audit independently agrees on244 complete Pell decisions
+(49 positive,195 negative),706 complete seeds,463 residue states,
+11 polynomial records,1137 congruence controls and7 conic-intersection
+cases with10 points. A real curve point rejects the tempting incorrect
+congruence modulus. A GAP polynomial-matrix determinant representation
+failure and its exact source are retained; the final exact Sylvester
+replay passes. All5 runs are terminal,4 successful and1 failed.
+
+The group reduction in research/notes/N8-three-exception-curve-reduction.md
+is an unadopted draft. Its early-truncation argument explicitly requires
+affine dependence of the initial constraints on the second parameter.
+No arbitrary-class three-exception, leading-degree12 or class26 extension
+is counted. Current N8 scope remains c-d<=13/all targets through class24,
+with the previous arbitrary-class families. Counts8 whole/2 partial/
+0 established novel unchanged. One core/4GB reserved for this arithmetic
+work; no push/contact/subagent/parent changes. Original deadline unchanged.

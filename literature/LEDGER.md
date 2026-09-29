@@ -700,3 +700,18 @@ M0: reread GGR1992 opening two pages and actually viewed printedp517;
 checked full square Fox-Jacobian convention against the candidate and
 made its right/left conversion explicit. No new gap found, no scope or
 novelty change. Details: research/notes/M0-29sep-convention-recheck.md.
+
+
+## 2026-09-29T15:41:40.504278+00:00 — Complete constrained-curve arithmetic and Pell source
+
+Archived Keith Conrad, Pell's equation, II, from
+https://kconrad.math.uconn.edu/blurbs/ugradnumthy/pelleqn2.pdf.
+309829 bytes; SHA2569b434917be414d647f537428721118ee783602e216aa93daec36713365b539e6.
+Read Sections1--3 through the proof of Theorem3.3 on printedp6; actually
+viewedp5. Lagrange existence and the finite norm-equation seed argument
+are credited prior arithmetic; the new note uses a looser integral box.
+Later examples not audited. Berczes--Evertse--Gyory2013 printedp4 re-viewed
+and the common squarefree/degree hypotheses and logarithmic-height
+convention rechecked; full proof remains imported. The constrained-curve
+assembly has finite independent controls, but its N8 group application
+is still an unadopted draft. No arithmetic novelty claim.

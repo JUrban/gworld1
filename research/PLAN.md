@@ -647,3 +647,20 @@ congruences and the claimed number of parameters. No class25/26 or
 three-exception arbitrary-class extension is adopted. Alternate with
 a concrete portfolio route or a candidate dependency review. All jobs
 terminal;8 whole/2 partial/0 established novel; original deadline.
+
+
+## Next step after the curve-arithmetic audit (2026-09-29T15:41:40.504278+00:00)
+
+The complete constrained-curve lemma and finite Pell/resultant controls
+are recorded; do not repeat their passed suites without a new issue.
+Next audit research/notes/N8-three-exception-curve-reduction.md, especially
+the full integer rank-one block quotient, its constant leading second
+parameter, the affine initial constraints in early truncation, and every
+universal residue after the delayed quadratic. Construct an actual group
+family reaching that quadratic (the old class24 tests stop before it),
+including nonprimitive scales and later residue conditions. Do not present
+the older failed Lie perturbations as surviving absorbed branches.
+The proposed at-most-three-exception/class26 scope remains unadopted.
+Alternate with broader-portfolio work or a whole-entry dependency audit.
+All jobs terminal; current counts8 whole/2 partial/0 established novel;
+original deadline30 September10:04:49UTC.
