@@ -509,3 +509,17 @@ need new atom alphabets/forbidden words, but avoid spending the remaining
 run only on incremental digits. Return to another unresolved portfolio
 entry with a concrete proof route, and retain time for auditing the ten
 current candidates. All jobs are terminal; original deadline unchanged.
+
+
+## After the G9 noncommutative extension (2026-09-29T10:02:45.925478+00:00)
+
+The flow-recovery theorem now covers all free-solvable derived lengths
+with the same explicit approximation modulus. Independent noncommutative
+controls pass; wrong-order controls expose the distinction from lattice
+arithmetic. No further G9 suite needs repeating. The exact constants,
+fine-precision execution and external novelty/proof assessment remain
+open, and the tally stays6 whole/4 partial/0 established novel.
+
+Resume the broader unresolved portfolio. Avoid spending remaining time
+solely on sharpening the already certified numerical interval. All jobs
+are terminal and the original30September10:04:49UTC deadline is unchanged.

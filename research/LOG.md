@@ -1209,3 +1209,26 @@ maximum16GB reservation and70.855seconds runtime. No jobs remain.
 Count now6 whole candidates,4 partial candidates,0 established novel.
 The separate preparation checkout and parent Kourovka repository remain
 untouched. Original48hour clock retained, no subagents, push or contact.
+
+
+## G9 extension to all free solvable derived lengths (2026-09-29T10:02:45.925478+00:00)
+
+The reflection/unfolding proof extends to flows on nonabelian quotient
+Cayley graphs, provided R lies in the first-generator height kernel and
+is invariant under its inversion. Explicitly retaining left translations
+and ordered relative endpoints gives the same modulus for F/R-prime.
+For R=F^(d-1), recursive flow equality supplies a uniform word-problem
+algorithm; the growth constant is therefore computable uniformly in rank
+and derived length. This is a candidate supplementary theorem, with no
+new entry count or established novelty.
+
+Python checks1998 recoveries in ranks2/3 and derived lengths2--4,
+including controls of lengths4,20,84 distinguishing successive quotients.
+Independent GAP uses native Laurent Magnus rows for the noncommutative
+deck group and verifies68 outer flow recoveries plus3 derived controls.
+One unsupported symbolic-ordering failure is retained; equality-based
+comparison passes. Deliberately reversed translation/reflection orders
+produce wrong recovered flows on31/12 fixtures, respectively. Four jobs
+terminal, one core/8GB each, all under5seconds. Prior source theorem and
+reading limits are in the proof/audit; old G9 manifests remain unchanged.
+Counts6 whole/4 partial/0 established novel; original deadline unchanged.

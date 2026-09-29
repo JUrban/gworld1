@@ -610,3 +610,12 @@ No exact prior match located; this is not a novelty or optimality proof.
 Broader scan also read Knudson0808.1239v2's introduction: its corrected
 version explicitly leaves elementary generation in MA1 open and records
 an earlier error. No MA1 candidate or downloaded/full-proof audit claimed.
+
+
+G9 extension, 2026-09-29T10:02:45.925478+00:00: reread Guba0508422 Lemma3 in its
+arbitrary-normal-subgroup formulation and AGG0406013 Theorem1's existing
+F/R-prime lower bound. The new proof retains their credits and separately
+proves noncommutative flow decoding with a uniform approximation modulus.
+Searches for free-solvable growth plus computable/computability and
+Hammersley--Welsh did not locate an exact prior match. Novelty remains
+unverified; no additional literature download or full-proof audit claimed.
