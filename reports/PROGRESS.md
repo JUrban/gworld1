@@ -739,3 +739,12 @@ Neumann. Wilton's TheoremD gives OR15 for infinite nonfree groups, with
 the website's omitted free/finite conventions kept explicit. Recent small
 undecidable presentations do not settle FP1 or A1. See
 `research/notes/AUX2-OR15-FP1-scope.md`; no candidate-count change.
+
+
+Checkpoint 2026-09-29T21:09:47.972454+00:00: B9's direct coloring-coset probe finds no new
+coset in1891 states through depth12; independent GAP disproves a proposed
+two-cone simplification. This is a failed strategy, not another result.
+B12 now has credited prior coverage for5<=n<=12 from McMullen's lattice
+representations plus Osin's filling theorem; n>=13 remains unresolved
+here. See research/notes/B9-coloring-cosets.md and
+research/notes/B12-lattice-quotients-prior-scope.md. Counts unchanged.

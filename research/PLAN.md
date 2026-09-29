@@ -831,3 +831,15 @@ Do not repeat passed right-power tests. The one-parameter B3 matrix
 root family includes nonspecial sigma2, so that route is not a criterion.
 Consider this structural coset problem or return to wider discovery,
 keeping the last-eight-hours audit/report reserve and original deadline.
+
+
+## After coloring probe and lattice scope check (2026-09-29T21:09:47.972454+00:00)
+
+Do not enlarge the completed depth12 B9 coloring search without a new
+structural hypothesis. Its two-cone shortcut has an exact counterexample;
+the B4 exponent-two coset problem remains. B12 has prior affirmative
+coverage for5<=n<=12 via full braid-group lattice images and peripheral
+fillings, so restrict any new B12 work to n>=13. Do not infer this covers
+that remaining range or that B_n is fully residually hyperbolic.
+Return to a genuinely different unresolved scope or a concrete candidate
+proof concern. Original deadline and final-eight-hours audit reserve hold.

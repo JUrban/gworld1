@@ -865,3 +865,15 @@ right-power indices avoid intermediate printed slips. Full paper not
 audited. B3/B4 searches and a modular-representation detour located no
 additional imported theorem; matrix-kernel source not used. See
 problems/B9/small-strand-audit.md.
+
+
+B12 lattice/filling scope audit (2026-09-29T21:09:47.972454+00:00): McMullen, Braid groups
+and Hodge theory, author2009 copy archived; introduction, Table9 and
+Section10 through10.7 read, actualp32/p46 viewed. Osin math/0510195v3
+archived; Theorem1.1, Cor1.2/1.6/1.7 and proof of1.6 read, actualp5
+viewed. These give prior affirmative B12 coverage5<=n<=12, no new
+candidate and no n>=13 inference. Full64-page and31-page proofs not
+independently audited. Standard lattice/cusp geometry imported.
+The B9 coloring follow-up uses the already archived Dehornoy
+Lemma2.1 and exact division formula; new searches returned no additional
+classification theorem. See the two new research notes.

@@ -1,0 +1,2945 @@
+           Braid groups and Hodge theory
+
+
+                               Curtis T. McMullen
+
+                                   25 April, 2009
+
+
+                                      Abstract
+            This paper gives an account of the unitary representations of the
+        braid group that arise via the Hodge theory of cyclic branched cover-
+        ings of P1 , highlighting their connections with ergodic theory, complex
+        reflection groups, moduli spaces of 1-forms and open problems in sur-
+        face topology.
+
+
+Contents
+   1       Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . .     1
+   2       Topological preliminaries . . . . . . . . . . . . . . . . . . . . .      8
+   3       From Hodge theory to topology . . . . . . . . . . . . . . . . .         13
+   4       Action of the braid group . . . . . . . . . . . . . . . . . . . .       17
+   5       Complex reflection groups . . . . . . . . . . . . . . . . . . . .       21
+   6       The period map . . . . . . . . . . . . . . . . . . . . . . . . . .      26
+   7       Arithmetic groups . . . . . . . . . . . . . . . . . . . . . . . .       31
+   8       Factors of the Jacobian . . . . . . . . . . . . . . . . . . . . .       35
+   9       Definite integrals . . . . . . . . . . . . . . . . . . . . . . . . .    39
+   10      Complex hyperbolic geometry . . . . . . . . . . . . . . . . . .         44
+   11      Lifting homological symmetries . . . . . . . . . . . . . . . . .        49
+   12      The hyperelliptic case . . . . . . . . . . . . . . . . . . . . . .      51
+   13      Polygons and Teichmüller curves . . . . . . . . . . . . . . . .        54
+
+
+
+
+Research supported in part by the NSF.
+1    Introduction
+Every configuration of distinct points (b1 , . . . , bn ) in C determines a compact
+Riemann surface X by the equation
+
+                       y d = (x − b1 )(x − b2 ) · · · (x − bn ).             (1.1)
+
+This paper gives an account of the unitary representations of the braid group,
+and the geometric structures on moduli space, that arise via this branched-
+covering construction. It also develops new connections with arithmetic
+groups, Teichmüller curves and ergodic theory, and highlights open problems
+in surface topology and complex reflection groups.
+     The general approach presented here pivots on the classification of cer-
+tain arithmetic subgroups of U(r, s) which envelop the image of the braid
+group (§7). The case U(0, s) yields metrics of positive curvature on moduli
+space, finite representations of the braid group, algebraic definite integrals
+and rigid factors of the Jacobian of X. The case U(1, s) leads to the complex
+hyperbolic metrics on moduli space considered by Picard, Deligne–Mostow
+and Thurston. Other unitary groups U(r, s) provide moduli space with
+natural indefinite metrics. In particular, the hyperelliptic case (§12) yields
+an action of the braid group which, together with results of Ratner and
+Kapovich, illuminates the topology and ergodic theory of the period map
+and its connection with the foliation of M∗0,n by Teichmüller geodesics.
+     This section presents a overview of the discussion.
+Action of the braid group. We begin with topological considerations.
+Let ζd = e2πi/d .
+     The braid group Bn is the fundamental group of the space Chni of finite
+sets B ⊂ C with |B| = n. Each point configuration B determines, via
+equation (1.1), a compact Riemann surface X, whose cohomology group
+H 1 (X) forms the fiber of a flat, complex vector bundle over Chni . The
+natural monodromy representation
+
+                    ρ : Bn ∼
+                           = π1 (Chni , B) → Aut(H 1 (X))
+                                   √        R
+preserves the interesection form ( −1/2) α ∧ β, and commutes with the
+action of the deck group Z/d of X/C;  b thus it also preserves the eigenspace
+decomposition
+                             M
+                  H 1 (X) =      H 1 (X)q = Ker(T ∗ − qI),
+                               q d =1
+
+where T (x, y) = (x, ζd y).
+
+                                          1
+     As we will see in §3, the signature (r, s) of the Hermitian vector space
+H 1 (X)q can be determined by drawing a line through 1 and q in C; then
+r is the number of nth roots of unity strictly below the line, and s is the
+number strictly above. The signature changes from definite to hyperbolic to
+higher rank, and then back again, as q moves around the circle (Figure 1).
+
+                                                     (3,1)          (4,0)
+             (3,2)
+
+                     q                 s
+                                               (2,2)                        (0,0)
+                               1
+                                   r
+                                                       (1,3)        (0,4)
+
+                Figure 1. The signature of H 1 (X)q for n = 6.
+
+
+   Restricting attention to a single eigenspace, we obtain an irreducible
+unitary representation
+
+                         ρq : Bn → U(H 1 (X)q ) ∼
+                                                = U(r, s).
+
+In fact, Bn acts by a complex reflection group of type An−1 (q) (see §5); there
+is a spanning set (ei )1n−1 for H 1 (X)q adapted to the standard generators τi
+of the braid group, such that
+                                                               
+                               q−q 1−q          0    ...     0
+                                                               
+                        √ q − 1 q − q 1 − q . . .           0  
+            hei , ej i = −1 
+                                                                ,
+                                                                
+                                             . . .             
+                                 0      ...     0   q−1 q−q
+
+and
+                                                    hx, ei i
+                           τei∗ (x) = x − (q + 1)              ei
+                                                    hei , ei i
+(for q 6= ±1). In particular, the generating twists τi of Bn act with finite
+order on H 1 (X)q .
+    Although purely topological, these results are conveniently established
+using particular algebraic models such as y d = xn − 1 for X. We also use
+consistency of ρq under restriction to Bi × Bn−i ; geometrically, this amounts
+to letting X degenerate to a stable curve where a given Dehn twist becomes a
+holomorphic automorphism. (For a more algebraic approach to homological
+representations of Bn , see e.g. [KT].)
+
+                                           2
+The period map. Now fix q = ζd−k with 1/n < k/d < 1, let T0,n     ∗ denote
+                                                          r,s
+the Teichmüller space of n points in the plane, and let H denote the space
+of positive lines in PH 1 (X)q ∼
+                               = PCr,s . The period map
+                                       ∗
+                                fq : T0,n → Hr,s
+
+sends a point (C, B) in Teichmüller space to the positive line spanned by
+the holomorphic form [dx/y k ] ∈ H 1,0 (X) ⊂ H 1 (X). Thus it records a part
+of the Hodge structure on X.
+    Using ideas familiar from polygonal billiards, in §6 we show that fq is a
+local homeomorphism when q n 6= 1. It is also equivariant with respect to the
+action of Bn via the mapping-class group on T0,n∗ and via the representation
+
+ρq on H . Thus the period map gives the moduli space M∗0,n the structure of
+         r,s
+
+a (G, X)-manifold, where G = U(r, s) and X = Hr,s . A similar construction
+applies to M0,n (the moduli space of n points in the sphere instead of in the
+plane), when q = ζn−2 . (For more on period mappings in general, see e.g.
+[CMP].)
+Arithmetic groups. It is a challenging problem to describe the image of
+the braid group under ρq . In particular, it is unknown when An−1 (q) ∼    =
+ρq (Bn ) is a lattice in U(r, s).
+    To study the image of ρq in more detail, we begin by observing that the
+action of Bn on H 1 (X)q preserves the module Λn,q = H 1 (X, Z[q])q . Thus
+ρq (Bn ) is contained in the countable subgroup
+
+                        U(Λn,q ) ⊂ U(H 1 (X)) ∼
+                                              = U(r, s)
+
+of unitary automorphisms of this module.
+    In §7 we determine all pairs (n, q) such that U(Λn,q ) is discrete (see
+Table 9). When discreteness holds, ρq (Bn ) is also discrete, and potentially
+arithmetic. There are infinitely many (n, q) such that U(Λn,q ) is discrete, but
+for n > 12 this only occurs when Z[q] is itself discrete (i.e. when d = 2, 3, 4
+or 6).
+Special cases. In §8—§13 we develop the interaction between fq , ρq (Bn )
+and U(Λq,n ) in more detail, in three special cases.
+1. The finite case. Let q be a primitive dth root of unity. In §8 we show
+that ρq (Bn ) is finite iff U(Λn,q ) is finite. Referring to Table 9, we find there
+are exactly 9 pairs (n, d) such that this finiteness holds. In each case H 1 (X)q
+has signature (0, s) or (s, 0), and the Hodge structure on the corresponding
+part of H 1 (X) is rigid; equivalently, we have an isogeny
+
+                              Jac(X) ∼ J(X) × A
+
+                                        3
+where A is independent of X. For example, when X is defined by
+                        y 10 = (x − b1 )(x − b2 )(x − b3 )
+its Jacobian has a rigid factor isomorphic to (C2 /Z[ζ5 ])2 . In the other 7
+cases, the rigid factor is a product of elliptic curves.
+    Certain instances of this rigidity can be seen in terms of conformal map-
+pings. For example, when all the (bi ) are real, the case (n, d) = (3, 4)
+is related to the fact that any (45,45,45,135)-degree quadrilateral can be
+mapped conformally onto the complement of a symmetric slit in a right-
+isosceles triangle (Figure 2). These polygons, when doubled, represent the
+sphere with the metrics |dx/y 3 | and |(x − a)dx/y 3 | respectively. Since the
+second polygon develops, under reflection through its sides, onto a periodic
+pattern in the plane, the form (x − a)dx/y    3 is pulled back from the square
+                                        √
+torus, giving Jac(X) a factor of C/Z[ −1].
+
+     b1                         b1
+
+
+
+                      b3
+                                               8
+              8
+
+
+
+
+                                       a
+                                               b3
+
+
+     b2                         b2
+
+                     Figure 2. Quadrilaterals and squares.
+
+
+   By similar considerations, in §9 we determine 17 values of (n, µ) such
+that the definite integral
+                                      Z b2
+                                                         dx
+           I(b1 , b2 , . . . , bn ) =                                         µ
+                                       b1 ((x − b1 )(x − b2 ) · · · (x − bn ))
+
+is an algebraic function of its parameters. The integral is evaluated explicitly
+for (n, µ) = (4, 3/4), as an example.
+2. The complex hyperbolic case. In §10 we turn the case where H 1 (X)q
+has signature (1, s). In this case the period map
+                                  ∗
+                           fq : T0,n → H1,s ∼
+                                            = CHs
+is a holomorphic map to the complex hyperbolic ball. Using the Schwarz
+lemma, we find ρq (Bn ) ⊂ U(1, s) is a lattice whenever it is discrete. Exam-
+ining Table 9, we obtain 24 cases where ρq (Bn ) is an arithmetic lattice. In
+
+                                           4
+particular we find that for n = 4, 5, 6, 8 and 12, the period map
+
+                         fq : M0,n → CHn−3 /ρq (Bn )
+
+at q = ζn−2 presents moduli space as the complement of a divisor in a finite-
+volume, arithmetic, complex-hyperbolic orbifold. These results are special
+cases of the work of Deligne–Mostow and Thurston, which we review in §10.
+We also develop parallels between non-arithmetic lattices in U(1, 2) and the
+known Teichmüller curves on Hilbert modular surfaces.
+    Next, consider the following purely topological problem. Let Sp(X)T ∼    =
+Sp2g (Z)T denote the centralizer of T ∗ in the automorphism group of H 1 (X, Z),
+and let
+                       Sp(X)Td = Sp(X)T | Ker Φd (T ∗ )
+where Φd (x) is the dth cyclotomic polynomial. We say a group homomor-
+phism is almost onto if the image has finite index in the target.
+
+      Problem: Is the natural map Bn → Sp(X)Td almost onto?
+
+    In §11 we connect this problem to arithmeticity of lattices. We show that
+for n = 3, the answer is yes iff the (2, 3, p) triangle group is arithmetic, where
+p is the order of d−2 in Z/2d. (There are 16 such cases.) More generally, the
+answer is yes whenever (d, n) appear in Table 9 with signature (0, s) or (1, s).
+On the other hand, using a non-arithmetic lattice in U(1, 2) constructed by
+Deligne and Mostow, we show the answer is no when (n, d) = (4, 18).
+3. The hyperelliptic case. In §12 we discuss the hyperelliptic case, where
+d = 2 and q = −1. In this case H 1 (X)q = H 1 (X), and ρq (Bn ) has finite
+index in U(Λn,q ) ∼
+                  = Sp2g (Z) by [A’C].
+   For convenience, assume n = 2g + 1 is odd and g ≥ 2. Then there is
+a natural Weierstrass foliation of Teichmüller space by complex geodesics,
+each of which is sent into a straight line under the period map
+                                       ∗
+                                fq : T0,n → Hg,g .
+
+In fact there is an equivariant action of SL2 (R) on suitable circle bundles
+over the domain and range of fq . Using this action we find:
+
+   1. The period map fq is an infinite-to-one local homeomorphism, but not
+      a covering map to its image;
+                                                   ∗ to an ergodic action on
+   2. It transports the discrete action of Bn on T0,n
+      Hg,g ; and
+
+                                        5
+                                        ∗ ) is contained in a countable
+   3. The complement of the image fq (T0,n
+      union of lines.
+
+The last assertion is deduced using Ratner’s theorem as in [Kap].
+    The Weierstrass foliation descends to a foliation W of M∗0,n . Although
+almost every leaf of W is dense, Veech showed the special leaf V passing
+through [(bi = ζni )] is a properly embedded algebraic curve. In §13 we
+discuss this Teichmüller curve V from the perspective of braid groups and
+flat metrics on the sphere. We first show that π1 (V ) is the (2, n, ∞) triangle
+group generated by the images of the braids
+
+                   α = τ1 τ3 . . . τ2g−1 and β = τ2 τ4 . . . τ2g .
+
+(Note that αβ is a lift of the Coxeter element for the An−1 diagram.) We
+then describe the abstract Euclidean polygons Q = (C,   b |ω|) associated to the
+two orbifold points of V : one is obtained from a regular n-gon by folding its
+vertices to a single point, while the other is the double of an immersed, right-
+angled disk whose edge lengths form an eigenvector for the An−1 adjacency
+matrix. These descriptions allow one to explicitly evaluate the period map
+at the orbifold points of V .
+
+
+
+
+        Figure 3. Line configuration associated to 5 points on a conic.
+
+
+Remark: Cyclic multiple planes. One can also associate to each point
+configuration (b1 , . . . , bn ) ∈ Chni the cyclic covering X of P2 defined by the
+equation
+                           z d = L1 (x, y) · · · Ln (x, y)Q(x, y),
+where Li (x, y) = y − 2bi x + b2i and Q(x, y) = y − x2 . This complex surface is
+branched over the conic Q, its tangent lines Li at Pi = (bi , b2i ), and (possibly)
+the line at infinity (Figure 3). After desingularizing X one obtains, for each
+eigenspace, a unitary action of Bn on H 2 (X)    e q . It would be interesting
+
+                                         6
+to study the associated period maps as Hodge-theoretic counterparts to
+the Lawrence–Krammer–Bigelow representations ξq of Bn [Law], [At], [Kr],
+[Bg2].
+RNotes
+   b2 Qn
+           and references. The hypergeometric functions of the form F =
+  b1    1 (x − bi )−µi dx have been studied since the time of Euler; the present
+ discussion is closely connected to works of Schwarz and Picard [Sch], [Pic].
+ For more on the classical theory of hypergeometric functions, see e.g. [Kl],
+ [SG] and [Yo]. Deligne and Mostow developed a modern perspective on hy-
+ pergeometric functions, and used their monodromy to exhibit non-arithmetic
+ lattices in U(1, s) for certain s ≥ 2 [Mos1], [DM1], [DM2]; see also [Sau]
+ and the surveys [Mos2] and [Par]. Thurston recast the work of Deligne
+ and Mostow in terms of shapes of convex polyhedra, by observing that the
+ integrand of F determines a flat metric on the sphere with cone-type singu-
+ larities. Convexity of the polyhedron corresponds to signature (1, s) for the
+ metric on moduli space [Th2]. For other perspectives, see [V3] and [Tr].
+      In this paper we have focused on the case where all µi assume a common
+ rational value k/d. This case leads directly to algebraic curves and their
+ Jacobians, and yields representations of the full braid group. At the same
+ time it allows for non-convex polyhedra (as in Figure 2) and non-hyperbolic
+ signatures (r, s), because |dx/y k | can be negatively curved at x = ∞.
+      Analogous Hodge-theory constructions have been used to study, instead
+ of finite sets in P1 , hypersurfaces of low degree in P1 × P1 or Pn , n ≤ 4; see
+ e.g. [DK], [Ko], [ACT1], [ACT2], [Al2], [Lo2]. The action of the mapping-
+ class group of a closed surface on the homology of its finite abelian covers is
+ studied in [Lo1].
+      We note that ρq is essentially a specialization of the Burau representa-
+ tion (§5); as a representation of the Hecke algebra Hn (q), it corresponds to
+the partition n = 1 + (n − 1) [J], [KT]. The Lawrence–Krammer–Bigelow
+ representations ξq correspond to the next partition, n = 2 + (n − 2). Our
+ investigation began with the observation that ρq coincides with the quantum
+representations discussed in [AMU] when n = 3. It would be interesting to
+ understand more fully the connection between classical and quantum repre-
+ sentations.
+Acknowledgements. I would like to thank D. Allcock, J. Andersen, B.
+Gross, M. Kapovich, D. Margalit and J. Parker for useful conversations.
+Notation. We use ⌊x⌋ to denote the largest integer ≤ x, and ⌈x⌉ for the
+smallest integer ≥ x. We let U(V ) denote the unitary group of a Hermitian
+vector space V over C. The unitary group of the standard Hermitian form
+of signature (r, s) on Cr+s is denoted by U(r, s), and the corresponding
+
+
+                                       7
+projective group by PU(r, s) ∼= U(r, s)/ U(1). The automorphism group of
+a real symplectic vector space is denoted by Sp(V ) ∼
+                                                    = Sp2g (R).
+
+
+2    Topological preliminaries
+A basic reference for the algebraic structure of the braid groups and mapping-
+class groups is [Bi]; see also [BZ], [KT] and [FM].
+Moduli spaces and point configurations. Given n ≥ 2, let Chni denote
+the space of unordered subsets B ⊂ C with |B| = n, and similarly for C     b hni .
+    Each of these spaces is naturally a connected complex manifold; for
+example, Chni can be identified with the space of monic complex polynomials
+of degree n with nonvanishing discriminant.
+    The quotient of Chni by the group of affine automorphisms z 7→ az + b
+yields the moduli space of n-tuples of points in the plane, M∗0,n = Chni / Aut C.
+Similarly M0,n = C b hni / Aut C
+                               b is the moduli space of n-tuples of points on
+the Riemann sphere C   b = C ∪ {∞}. Since some point configurations have
+extra symmetries, these moduli space are orbifolds. The natural maps
+
+                     Chni → M∗0,n and M∗0,n → M0,n                         (2.1)
+
+                                                        b − B)/ Aut(C,
+are both fibrations, with fibers Aut(C)/ Aut(C, B) and (C           b B)
+respectively.
+
+                       τ1   τ2   τ3           τ1           τ4
+
+
+
+                                              τ2           τ3
+
+              Figure 4. Right twists generating the braid group.
+
+
+The braid group. The braid group Bn is the fundamental group of Chni .
+The motion of B around any loop in Chni can be extended to a motion of
+C with compact support (fixing a neighborhood of ∞); this gives an isomor-
+phism
+                    Bn ∼= π1 (Chni , B) ∼
+                                        = Modc (C, B)
+between the braid group and the compactly-supported mapping-class group
+of the pair (C, B).
+
+
+                                       8
+      Standard generators τ1 , . . . , τn−1 for the braid group are given, for the
+configuration B = {1, 2, . . . , n} ⊂ C, by right Dehn half-twists around loops
+enclosing [i, i + 1] as in Figure 4. This means τi rotates the disk enclosing
+[i, i + 1] counter-clockwise by 180◦ . These n − 1 generators satisfy the braid
+relation
+                                τi τi+1 τi = τi+1 τi τi+1                    (2.2)
+for i = 1, . . . , n − 2, as well as the commutation relation τi τj = τj τi for
+|i − j| > 1; and these generators and relations give a presentation for Bn .
+    Alternatively, for the more symmetric configuration
+
+                 B = {1, ζn , ζn2 , . . . , ζnn−1 },   ζn = exp(2πi/n)
+
+shown at the right in Figure 4, we can take τi to be the right half-twist
+interchanging ζni and ζni+1 . Then a rotation of B by 2π/n is given by
+
+                                   σ = τ1 τ2 · · · τn−1 ,
+
+and we have
+                                     τi+1 = στi σ −1 .
+In particular, we obtain an additional twist τn = στn−1 σ −1 . For n ≥ 3, the
+center of Bn is generated by σ n .
+Mapping-class groups. Like the braid group, the mapping-class groups
+of n-tuples of points in the plane and on the sphere can be defined by
+
+                        Mod∗0,n ∼
+                                = π1 (M∗0,n ) ∼
+                                              = Mod(C, B)
+
+and
+                              = π1 (M0,n ) ∼
+                       Mod0,n ∼                  b B).
+                                           = Mod(C,
+The groups at the right consist of the orientation-preserving diffeomorphisms
+f : (C, B) → (C, B) (resp. f : (C, b B) → (C, b B)), up to isotopy. From (2.1)
+we have natural surjective maps Bn → Mod∗0,n → Mod0,n . The kernel of
+the first is the center of Bn ; the kernel of the second is the smallest normal
+subgroup containing (τ2 · · · τn−1 )n−1 .
+    The braid relation (2.2) can also be written as
+
+                               (τi τi+1 )3 = (τi τi+1 τi )2 ;
+
+in particular, B3 is a central extension of the (2, 3, ∞) triangle group
+
+                  ha, b : a2 = b3 = 1i ∼
+                                       = PSL2 (Z) ∼
+                                                  = Mod∗0,3 .
+
+                                              9
+Cyclic covers. Fix an integer       Q d > 0 and a point configuration B =
+{b1 , . . . , bn } ⊂ C. Let p(z) = n1 (z − bi ). There is a unique homomor-
+phism w : π1 (C − B) → Z/d sending a loop to the sum of its winding
+numbers around the points of B; concretely, it is given by
+                                     Z ′
+                                   1    p (z) dz
+                          w(α) =                  mod d.
+                                  2πi α p(z)
+
+                b denote the corresponding covering of C − B, completed
+    Let π : X → C
+                          b Let T : X → X be the generator of the deck
+to a branched covering of C.
+group corresponding to 1 ∈ Z/d, and let f
+                                        ∞ and B e denote the preimages of
+                                         e
+∞ and B under π. It is easy to see that |B| = |B| and
+
+                            e = |f
+                                 ∞| = gcd(d, n);
+
+in particular, X is unramified over infinity iff d divides n. By the Riemann-
+Hurwitz formula, the genus g of X is given by
+
+                             (n − 1)(d − 1) + 1 − e
+                        g=                          ·
+                                       2
+
+Eigenspaces. Recall that H 1 (X, C) = √    H 1 (X) carries
+                                                   R       a natural intersec-
+tion form of signature (g, g), defined by ( −1/2) α ∧ β. Any orientation-
+preserving diffeomorphism of X preserves this form, so the map
+
+                             f 7→ (f −1 )∗ |H 1 (X)                      (2.3)
+
+gives a natural unitary representation of the mapping-class group
+
+                     Mod(X) → U(H 1 (X)) ∼
+                                         = U(g, g).
+
+    Since [T ] ∈ Mod(X) has order d, we also have an eigenspace decomposi-
+tion                                 M
+                          H 1 (X) =      H 1 (X)q
+                                      q d =1
+
+where H 1 (X)q = Ker(T ∗ − qI). Let (r, s) denote the signature of the inter-
+section form on H 1 (X)q . The mapping-classes Mod(X)T commuting with
+T also preserve these eigenspaces, so we have a natural representation
+
+                     Mod(X)T → U(H 1 (X)q ) ∼
+                                            = U(r, s)
+
+for each q.
+
+                                      10
+     Clearly the invariant cohomology satisfies H 1 (X)1 ∼      b ∼
+                                                         = H 1 (C) = 0. For
+                         d
+the sequel, we assume q = 1 but q 6= 1.
+Lifting braids. To bring the braid group into the picture, observe that
+any compactly supported diffeomorphism φ : (C, B) → (C, B) has a unique
+lift φe : X → X which is the identity on a neighborhood of f∞. This lifting
+gives a natural map
+
+                      Bn ∼
+                         = Modc (C, B) → Mod(X)T .                        (2.4)
+
+Passing to cohomology, we obtain a natural representation
+
+                      ρq : Bn → U(H 1 (X)q ) ∼
+                                             = U(r, s).
+
+Our goal is to understand this representation.
+Lifting mapping classes. Note that any ψ ∈ Mod(C, B) has a lift ψe to X
+which is well-defined up to a power of T ; we pass to the braid group only to
+make the lift unique. Since T |H 1 (X)q = qI, the representation ρq descends
+to a map Mod(C, B) → PU(r, s). On the other hand, if X is unramified
+over infinity (i.e. if d|n), then ψe is uniquely determined by the condition
+that it fixes f
+              ∞ pointwise, so ρq factors through Mod(C, B). Similarly, if
+X is unramified over ∞ then any ψ ∈ Mod(C,      b B) has a lift to X which is
+well-defined up to the action of T . Thus we have a commutative diagram:
+                                         ρq
+                              Bn              // U(r, s)
+                                                 99
+
+                                                   
+                            Mod∗0,n           // PU(r, s)                 (2.5)
+                                                  99
+
+                               
+                            Mod0,n
+
+whose diagonal arrows exist when d|n.
+Invariant subsurfaces. To describe ρq , we first choose standard generators
+τ1 , . . . , τn for Bn ∼
+                       = Modc (C, B). Each τi is a half Dehn twist supported in
+an open disk Di ⊂ C with Di ∩ B = {bi , bi+1 } (or {bn , b1 } when i = n). Let
+
+                             Xi = π −1 (Di ) ⊂ X.
+
+This is an open, connected, incompressible subsurface of X of genus
+⌊(d − 1)/2⌋, with one or two boundary components (depending on the parity
+of d; see Figure 5).
+
+                                         11
+                                                         bi           b i+1
+
+
+
+
+                                                8
+ Figure 5. The surface Xi is built from the Z/d-covering space of a pair of
+         b shown above, by capping off the inner and outer circles at the left
+pants in C
+                                 with disks.
+
+
+      Let Yi be the closed subsurface X − Xi . Since τi is supported on Di and
+τei fixes f
+          ∞ ⊂ Yi , the lift τei is supported on Xi . In particular, both Xi and
+Yi are invariant under T and τei .
+Action on cohomology. For n ≥ 3, Yi is connected. In this case, by
+Mayer-Vietoris, we have an equivariant exact sequence
+
+                   0 → Hc1 (Xi ) → H 1 (X) → H 1 (Yi ) → 0,
+
+where Hc1 (Xi ) denotes cohomology with compact supports. We denote the
+corresponding exact sequence of eigenspaces of T by
+
+                 0 → Hc1 (Xi )q → H 1 (X)q → H 1 (Yi )q → 0.              (2.6)
+
+    The same sequences are exact for n = 2, except when d is even. If d
+is even then Yi is disconnected (it is a pair of disjoint disks), and we have
+instead the exact sequence
+
+               H 1 (∂Xi ) → Hc1 (Xi ) → H 1 (X) → H 1 (Yi ) = 0.          (2.7)
+
+   In any case, since τei is supported in Xi , we have
+
+                               τei∗ |H 1 (Yi ) = I.                       (2.8)
+
+In the next section we will show that τei∗ |Hc1 (Xi ) = −qI.
+Remark: stabilization. Note that if d divides d′ , then the correspond-
+ing branched covering X ′ factors through X, and we obtain an equivariant
+isomorphism
+                           ι : H 1 (X)q ∼
+                                        = H 1 (X ′ )q .
+
+                                       12
+Thus the representation ρq of Bn depends only on q, not on d. The isomor-
+phism ι is not, however, unitary; it multiplies the intersection      ′
+                                                           p form by d /d.
+To obtain a unitary isomorphism, one must rescale ι by d/d′ .
+
+
+3    From Hodge theory to topology
+In this section we analyze the action of the braid group further, by using
+holomorphic 1-forms to represent the cohomology of X.
+Hodge structure. A given point configuration B ⊂ C determines a com-
+plex structure on the genus g cyclic covering space π : X → C  b branched
+over B ∪ {∞}. The complex structure in turn determines the g-dimensional
+space of holomorphic 1-forms Ω(X) on X, and the Hodge decomposition
+
+              H 1 (X) = H 1,0 (X) ⊕ H 0,1 (X) ∼
+                                              = Ω(X) ⊕ Ω(X).
+
+The intersection form
+                                    √     Z
+                                     −1
+                         hα, βi =                 α∧β                 (3.1)
+                                     2        X
+
+is positive-definite on H 1,0 (X) and negative-definite on H 0,1 (X).
+Symmetric curves. Now assume B coincides with the nth roots of unity.
+Then X is isomorphic to the smooth algebraic curve given by
+
+                               y d = xn − 1,
+
+with the projection to Cb given by π(x, y) = x and with the generating deck
+                      b
+transformation of X/C given by
+
+                            T (x, y) = (x, ζd y).
+
+We then have an additional symmetry R : X → X given by
+
+                            R(x, y) = (ζn x, y).
+
+Eigenforms. Since the abelian group hR, T i preserves the intersection form
+and the Hodge structure, we have a decomposition
+                                   M
+                         H 1 (X) =    H 1 (X)jk
+
+of the cohomology of X into orthogonal eigenspaces
+
+              H 1 (X)jk = Ker(R∗ − ζnj I) ∩ Ker(T ∗ − ζd−k I),
+
+                                     13
+                                        1,0
+                                    H
+
+                   5
+
+                   4
+
+               k   3                                        H 0,1
+                   2
+
+                   1
+
+
+                        1   2   3   4       5   6   7   8
+                                        j
+
+ Figure 6. Occupied eigenspaces H 1 (X)jk are shown in white. Those above
+        the diagonal span H 1,0 (X), and those below span H 0,1 (X).
+
+
+
+and a further refinement
+                                    1,0        0,1
+                       H 1 (X)jk = Hjk  (X) ⊕ Hjk  (X).
+
+We can assume 0 ≤ j/n, k/d < 1.
+    To populate these eigenspaces, we consider the meromorphic forms de-
+fined by
+                                    xj−1 dx
+                             ωjk =          .
+                                       yk
+The divisor (ωjk ) = (dx/x) + j(x) − k(y) is easily calculated using the
+                          b have multiplicity d/e over ∞, d over B, and
+fact that the fibers of X/C
+1 elsewhere, where e = gcd(d, n) = |f
+                                    ∞|. Letting B,e f∞ and e0 denote the
+preimages of B, 0 and ∞ on X, considered as divisors where each point has
+weight one, we obtain
+
+                                      ∞+e
+                          (x) = −(d/e)f    0,
+                          (y) = −(n/e)f
+                                      ∞ + B,e and
+                                 ∞−e
+                       (dx/x) = −f               e
+                                      0 + (d − 1)B,
+
+which yields
+
+                                ∞ + (j − 1)e
+      (ωjk ) = (kn/e − jd/e − 1)f                         e
+                                           0 + (d − 1 − k)B.         (3.2)
+
+
+                                        14
+Thus ωjk is holomorphic for all j, k such that 0 < j/n < k/d < 1, and hence
+in this range we have dim H 1,0 (X)jk ≥ 1. Similarly, by considering ω jk , we
+find dim H 0,1 (X)jk ≥ 1 for 0 < k/d < j/n < 1. But the total number of
+pairs (j, k) satisfying one condition or the other is exactly (n−1)(d−1)+(1−
+e) = 2g = dim H 1 (X). Thus ωjk and ω jk account for the full cohomology of
+X. In summary:
+
+Theorem 3.1 We have
+
+     dim H 1 (X)jk = dim H 1,0 (X)jk = 1 if 0 < j/n < k/d < 1, and
+     dim H 1 (X)jk = dim H 0,1 (X)jk = 1 if 0 < k/d < j/n < 1.
+
+The remaining eigenspaces are zero.
+
+The case of a degree d = 6 covering branched over n = 9 points (and infinity)
+is shown in Figure 6.
+
+Corollary 3.2 When q = ζd−k , the signature of the intersection form on
+H 1 (X, C)q is given by (r, s) = (⌈n(k/d) − 1⌉, ⌈n(1 − k/d) − 1⌉).
+
+Indeed, the signature (r, s) just counts
+                                     L the number of terms of type (1, 0) and
+(0, 1) in the expression H 1 (X)q = j H 1 (X)jk , or equivalently the number
+of terms above and below (but not on) the diagonal in the kth row of Figure
+6.
+
+Corollary 3.3 The eigenspace H 1 (X)q has dimension n − 2 if q n = 1, and
+dimension n − 1 otherwise.
+
+Genus zero quotients. We note that the Riemann surfaces X/hRi, X/hT i
+and X/hRT i all have genus zero. This provides another explanation for the
+vanishing of eigenspaces — any R, T or RT -invariant cohomology class
+                                 b = 0.
+descends to the sphere, and H 1 (C)
+Remark: Lefschetz formulas. The eigenspace decomposition of H 1 (X)
+shown in Figure 6 can be determined, alternatively, by applying the Lef-
+schetz formulas
+                       X                              X
+  Tr(g|H 1 (X)) = 2 −       1 and Tr(g|H 0,1 ) = 1 −      (1 − g′ (z))−1
+                       g(z)=z                           g(z)=z
+
+to compute the characters of G = hR, T i acting on H 1 (X) and H 0,1 (X).
+The Chevalley-Weil formula similarly gives the characters of G|H 1,0 (X) for
+general Galois coverings [ChW]; see also [Hu].
+
+                                      15
+              Figure 7. A model for the branched covering X.
+
+
+
+Remark: the hexagon model. Here is an explicit model for H 1 (X, Z) as
+a symplectic lattice equipped with the action of G = Z/n × Z/d = hR, T i.
+The proof will also provide a global topological model for G acting on X.
+    Let S = {(1, 0), (0, 1), (−1, −1)} ⊂ G. Define an alternating form on the
+standard basis of the group ring Z[G] ∼  = Znd by
+                                
+                                
+                                1     if g − h ∈ S,
+                       [g, h] = −1 if h − g ∈ S, and                    (3.3)
+                                
+                                
+                                   0   otherwise,
+
+and extend it by linearity to Z[G]. Let R ⊂ Z[G] denote the radical of this
+form (the set of elements x such that [x, y] = 0 for all y).
+
+Theorem 3.4 The space H1 (X, Z) is isomorphic to Z[G]/R as a symplectic
+Z[G]-module.
+
+Sketch of the proof. Let A and B be a pair of 2-disks, colored white
+and black respectively. Construct a surface Y0 from (A ⊔ B) × G by joining
+A × {g} to B × {g + s} with a band whenever s ∈ S (see Figure 7). The
+group G acts by deck transformations on Y0 , with quotient a surface Y0 /G
+of genus 1 with 1 boundary component.
+    Now put a half-twist in each band of Y0 (as in Figure 5), to obtain a new
+surface Y1 . Then Y1 /G has genus 0 and 3 boundary components. By filling
+in the boundary components of Y1 and Y1 /G with disks, we obtain closed
+surfaces Y and Z ∼= S 2 and a degree nd branched covering
+
+                                π : Y → S2
+
+with deck group G.
+
+                                     16
+     Let C ⊂ Y be the core curve of one of the hexagons appearing in Figure 7.
+It is then straightforward to check that the intersection number (gC) · (hC)
+in H1 (Y, Z) is given by (3.3). By comparing the rank of this form with the
+first Betti number of Y , we find the inclusion Z[G]/R → H 1 (Y, Z) is an
+isomorphism.
+     Now one can also regard Y /G as an orbifold with signature (n, d, nd/e),
+where e = gcd(d, n). The generators of G correspond loops around the
+points of orders n and d. Similarly, the map p : X → C b given by p(x, y) = xn
+presents X/hR, T i as a covering of the same orbifold, with singular points at
+0, 1, ∞. The proof is completed by identifying p : X → C   b with π : Y → S 2 .
+
+
+
+
+4    Action of the braid group
+In this section we determine the representation ρq : Bn → U(H 1 (X)q ).
+
+Theorem 4.1 There is a spanning set (ei )n1 for H 1 (X)q such that the in-
+tersection form is given by
+
+                        hei , ei i = 2 Im q,
+                                     √
+                     hei , ei+1 i =    −1(1 − q),           and
+                        hei , ej i = 0 if |i − j| > 1;
+
+and the action of the braid group is given by
+                                       √
+                           ∗             −1
+                         τei (x) = x −      hx, ei iei                    (4.1)
+                                        2
+if q = −1, and otherwise by
+
+                                                  hx, ei i
+                         τei∗ (x) = x − (q + 1)              ei .         (4.2)
+                                                  hei , ei i
+
+(Here the indices i, j ∈ Z/n and |i − j| > 1 means i − j 6= −1, 0 or 1 mod n.)
+Derivatives at infinity. Recall that e = |f      ∞| = gcd(d, n). Near infinity
+we have y d ∼ xn , and thus z = y d/e /xn/e maps f∞ to the eth roots of unity.
+It follows that the pointwise stabilizer of f∞ in hR, T i ∼
+                                                          = Z/n × Z/d is the
+cyclic group generated by RT . Similarly, a local coordinate near a point of
+∞ is provided by
+f
+                                t = 1/(xa y b ),
+
+                                       17
+where ad + bn = e. Computing in this coordinate, we find
+
+                           ∞) = ζn−a ζd−b = ζnd
+                   (RT )′ (f                 −ad−bn    −e
+                                                    = ζnd .               (4.3)
+
+Action of rotations. Now recall that σ = τ1 · · · τn−1 ∈ Modc (C, B) repre-
+sents a right 1/n Dehn twist around a loop enclosing B. The actions of R
+and T on H 1 (X) are given transparently by the eigenspace description just
+presented. To bring the braid group into play, we show:
+
+Proposition 4.2 We have [e
+                         σ ] = [RT ] in Mod(X).
+
+Proof. The mapping-class σ is represented by a homeomorphism which
+agrees with the rigid rotation R0 (x) = ζn x except on a small neighborhood
+of ∞. Thus σ e agrees with some lift RT i of R0 outside a small neighborhood
+of f
+   ∞. Now near infinity, σ twists by angle −2π/n back to the identity. Since
+d/e sheets of X come together at each point of f ∞, upon lifting this becomes
+of twist by angle (−2πe)/nd. It follows that
+                                       −e
+                       (RT i )′ (f
+                                 ∞) = ζnd = (RT )′ (f
+                                                    ∞)
+
+by (4.3), and thus i = 1.
+
+
+Corollary 4.3 The kernel of the lifting map Bn → Mod(X)T is the cyclic
+central subgroup generated by σ nd/e .
+
+Proof. The lifted map φe ∈ Mod(X)T determines [φ] ∈ Mod(C, B), so the
+kernel of lifting must be contained in the kernel of the map Bn → Mod(C, B)
+which is generated by σ n ; now apply the preceding Proposition.
+
+Action of twists. We can now determine the action of twists on H 1 (X).
+As in §2 we assume τi is supported in a disk with Di ∩ B = {bi , bi+1 }, and
+let Xi = π −1 (Di ).
+
+Theorem 4.4 For each i and q 6= 1, we can choose ei 6= 0 such that
+
+         Hc1 (Xi )q = Cei , τi∗ (ei ) = −qei , and hei , ei i = − Im q.
+
+Proof. Since the statement concerns only the covering Xi → Di , which is
+branched over 2 points, it suffices to treat the case where n = 2, i = 1 and X
+is defined by y d = x2 −1. In this case R∗ = −I on H 1 (X); indeed, y : X → Cb
+
+                                      18
+presents X as a hyperelliptic Riemann surface, with R(x, y) = (−x, y) its
+hyperelliptic involution. Moreover τ1 = σ, so we have
+
+                    τe1∗ = σ
+                           e∗ = (RT )∗ = −T ∗ on H 1 (X)                   (4.4)
+
+by Proposition 4.2.
+   Now recall from (2.7) that for each q we have an exact sequence
+
+                   H 1 (∂Xi )q → Hc1 (Xi )q → H 1 (X)q → 0.
+
+If q 6= −1, then the first term is zero and we get an equivariant isomorphism
+Hc1 (Xi )q ∼
+           = H 1 (X)q . By Theorem 3.1, the latter space has dimension one
+and satisfies H 1 (X)q = H 1,0 (X)q when Im q = Im ζd−k > 0 (i.e. 1/2 < k/d <
+1), and H 1 (X)q = H 0,1 (X)q when Im q < 0. Thus H 1 (Xi )q admits a basis
+vector with hei , ei i = Im q; and we have
+
+                           τe1∗ (ei ) = −T ∗ (ei ) = −qei
+
+by (4.4).
+    On the other hand, when q = −1 we have H 1 (X)q = 0, and by equation
+(2.6) we have an equivariant isomorphism
+
+                           H 1 (∂Xi )−1 ∼
+                                        = Hc1 (Xi )−1 .
+
+In this case d is even and ∂Xi has two components, which are preserved
+by τe1 but interchanged by T ; thus H 1 (∂Xi )−1 is a one-dimensional La-
+grangian subspace of Hc1 (Xi ), spanned by a vector ei fixed by τei∗ and satis-
+fying hei , ei i = Im q = 0.
+
+
+
+Corollary 4.5 The lifted twist satisfies τei∗ = −T ∗ on Hc1 (Xi ) ⊂ H 1 (X).
+
+Example of genus 1. Consider the case (n, d, q) = (4, 2, −1). Then
+the elliptic√curve y 2 = x4 − 1 can be identified
+                                                √    with the Riemann surface
+X = C/Z[ −1] in such a way that R(z) = −1z, X1 is a vertical annulus,
+and the lift of τ1 is the full right twist τe1 (z) = z + Im z. The other lifted
+twists are given (up to isotopy) by τei+1 = Ri τe1 R−i , i = 2, 3, 4. Noting that
+                                                 √
+                   ∗                               −1
+                 τe1 (dz) = dz + d Im z = dz −        (dz − dz),
+                                                   2
+
+
+                                        19
+we find the action of the braid group on
+
+                        H 1 (X)q = H 1 (X) = C[dz] ⊕ C[dz]
+
+is given by                                  √
+                                                −1
+                            τei∗ (x) = x −         hx, ei iei ,
+                                                2
+where e1 = dz − dz and ei+1 = (R−i )∗ e1 . Since Cei is the unique eigenspace
+for τei∗ |H 1 (X), it must coincide with Hc1 (Xi ). With these normalizations, we
+have hei , ei i = 0 and
+                                          √                         √
+               he1 , e2 i = hei , ei+1 i = −1 hdz − dz, dz + dzi = 2 −1
+
+for all i.
+Proof of Theorem 4.1. We can assume X is defined by y d = xn − 1 and
+the disks Di are chosen symmetrically with respect to rotation, as in Figure
+4; then R(Xi ) = Xi+1 . Using Theorem 4.4, we can choose ei ∈ H 1 (X)q such
+that
+           Hc1 (Xi )q = Cei , hei , ei i = 2 Im q and R∗ (ei+1 ) = ei .
+Then hei , ej i = 0 if |i − j| > 1, since Xi and Xj are disjoint up to isotopy.
+      If q = −1, √ then hei , ei i = 0 as well, and ei can be normalized so that
+hei , ei+1 i = 2 −1 and τei∗ acts by (4.1), by comparison with the case y 2 =
+x4 − 1 above. If q = 1 then H 1 (X)q = 0 and the theorem also holds.
+      Now suppose q 6= −1 (and q 6= 1, as usual). Since the value of A =
+hei , ei+1 i = he1 , e2 i is independent of n, to compute it we may assume n = d.
+Then by Theorem
+             Pn          3.1, 1 and q −1 do not occur as eigenvalues of R|H 1 (X)q ,
+                         P
+and thus 1 ei = n1 q −i ei = 0. Pairing these vectors with e1 , we find
+
+                A + 2 Im q + A = qA + 2 Im q + qA = 0,
+                √
+which gives A = −1(1 − q).
+   Once the inner product is known, we can also compute that
+               * n            +
+                X −ji
+                    ζd ei , e1 = ζdj A + 2 Im q + ζd−j A 6= 0
+                     i=1
+
+whenever ζdj 6= 1 or q −1 ; thus the eigenspaces of R|H 1 (X)q that do occur
+are all contained in the span of (ei )n1 . It follows that (ei )n1 spans H 1 (X)q .
+    The intersection form on Hc1 (Xi ) is nondegenerate, so we have an or-
+thogonal splitting
+
+              H 1 (X)q = Hc1 (Xi )q ⊕ Hc1 (Xi )⊥ ∼ 1            1
+                                               q = Hc (Xi )q ⊕ H (Yi )q
+
+
+                                         20
+preserved by τei∗ . Since τei∗ acts by −q on the first factor by the identity on the
+second (cf. (2.8)), its action on H 1 (X)q is given by the complex reflection
+formula (4.2).
+
+Remark: The cases q = ±1. When q = 1 we have H 1 (X)q = 0, and the
+formulas in Theorem 4.1 give hei , ej i = 0. On the other hand, if we rescale
+by (Im q)−1 as q → 1 in S 1 , then the inner product converges to the Coxeter
+matrix                                                    
+                                2 −1                    −1
+                                                          
+                              −1 2 −1                     
+                                                          
+                           ′                              
+                 hei , ej i =      −1 2 −1                
+                                                          
+                                             ···       −1
+                                                          
+                                −1                 −1 2
+
+for the affine diagram A en , and the action of Bn on H 1 (X)q converges to the
+action of Sn as a reflection group.
+                      1
+√ As q → −1 in S , no rescaling is necessary: we have (q + 1)/hei , ei i →
+  −1/2, and thus the transvection (4.1) arises as a limit of the complex
+reflections (4.2). In the case q = −1 we can also express the action of Bn by
+
+                              τi∗ (x) = x + [x, ei ]ei ,
+
+where [ei , ei+1 ] = 1 and [ei , ej ] = 0 for |i − j| > 1. This alternating form is
+a positive multiple of the usual intersection pairing on H 1 (X, R).
+
+
+5     Complex reflection groups
+In this section we put the action of the braid group on H 1 (X)q in context
+by relating it to Artin systems, complex reflection groups and the Burau
+representation.
+Artin systems. Let Γ be a finite graph with vertex set S. The associated
+Artin group A(Γ) is the group freely generated by S, modulo the following
+relations:
+
+    1. If s and t are joined by an edge of Γ, then sts = tst (we say s and t
+       braid);
+
+    2. Otherwise, s and t commute.
+
+
+
+                                         21
+                                                                 ~
+                                                                 An
+                                 A n−1
+                                                           *
+
+
+Figure 8. The braid groups of n points in C and C∗ correspond to the Coxeter
+                          diagrams An−1 and A  en .
+
+
+
+(For weighted graphs one allows longer relations of the form stst · · · s =
+tsts · · · t, but we will only need the simply-laced systems above.)
+Complex reflections. Let V be a finite-dimensional complex vector space,
+and suppose q ∈ S 1 , q 6= −1. A linear map T : V → V is a q-reflection if it
+acts by v 7→ −qv on a 1-dimensional subspace of V , and by the identity on
+a complementary subspace.
+    Every Artin group admits a finite-dimensional representation
+
+                            ρeq : A(Γ) → GL(CS )
+
+such that each s ∈ S acts by a q-reflection through es . One such represen-
+tation is given by the action
+
+                                              hx, es i
+                        s(x) = x − (q + 1)               es              (5.1)
+                                              hes , es i
+
+with respect to the (possibly degenerate) real-valued inner product satisfying
+                          
+                          
+                          2           if s = t,
+              hes , et i = 0           if s and t commute, and
+                          
+                          
+                            − sec(θ/2) if s and t braid.
+
+Here θ = arg q ∈ (−π, π). The value − sec(θ/2) is determined (up to sign)
+by the condition that the braid relation sts = tst holds in the subspace
+C{s,t} .
+Phase shift. More generally, we can modify this representation of A(Γ) by
+specifying a phase shift φ(s, t) ∈ S 1 whenever s and t braid (cf. [Mos1]), to
+obtain a new inner product
+
+                          hes , et i = φ(s, t) sec(θ/2).
+
+                                       22
+We assume φ(s, t) = φ(t, s), so this inner product is Hermitian. Then the
+action defined by (5.1) for the new inner product still respects the braiding
+and commutation relations.
+    The shifted representation of A(Γ) depends only on q and the cohomology
+class of φ in H 1 (D, S 1 ) (represented by the cochain sending the edge [s, t] to
+φ(s, t) ∈ S 1 .) In particular, if Γ is a tree, then the q-reflection representation
+is unique up to conjugacy, and we refer to its image as a complex reflection
+group of type Γ(q).
+Reduction. The quotient of CS by the subspace N = {x : hx, yi = 0 ∀y}
+yields the reduced complex reflection representation
+
+                             ρq : A(Γ) → U(CS /N ).
+
+Proposition 5.1 If Γ is connected, then ρq is irreducible for all q 6= −1.
+
+Proof. Let V ⊃ N be an invariant subspace of CS with V 6= N . Then
+hv, es i =
+         6 0 for some v ∈ V and s ∈ S. Therefore v −sv = (q +1)hv, es ies ∈ V
+and hence es ∈ V . Now if s and t braid, then hes , et i 6= 0 and thus et ∈ V
+as well. Connectivity of Γ then implies V = CS .
+
+Coxeter groups and Shephard groups. The Shephard group A(Γ, d) is
+the quotient of A(Γ) by the relations sd = 1 for all s ∈ S (cf. [KM]). Note
+that ρq factors through A(Γ, d) whenever (−q)d = 1. The quotient A(Γ, 2)
+is the usual Coxeter group associated to Γ, and ρ1 is its usual reflection
+representation.
+Braid groups. Recall that the Coxeter diagrams An and A        en are simply
+an interval and a circle, each with n vertices. The braid group Bn , with its
+standard generators, can be identified with the Artin group of type An−1 .
+Other spherical and affine Coxeter diagrams arise from braid groups for
+other orbifolds [Al1]. In particular, the Artin group of the type A   en can
+be identified with the braid group B en of n points in C moving with total
+                                                        ∗
+
+winding number (about z = 0) equal to zero (see Figure 8).
+
+Theorem 5.2 The braid group acts on H 1 (X)q as a reduced complex re-
+flection group of type An−1 (q) with generators si = τei∗ .
+
+Proof. The inner product on H 1 (X)q given in Theorem 4.1 satisfies
+
+                   |hei , ei+1 i|   |1 − q|       1     1   θ
+                                  =          =         = sec ,
+                     |hei , ei i|   2| Im q|   |1 + q|  2   2
+
+                                        23
+so it is proportional to the inner product for An−1 (q) up to phase factor;
+but this phase factor determines an equivalent representation, since An−1 is
+a tree.
+
+
+Corollary 5.3 The action of Bn on H 1 (X)q is irreducible.
+
+The lifted representation. If we declare that the vectors (ei )n1 are linearly
+independent, the formulas in Theorem 4.1 give a lifting of τei∗ to a matrix
+Ti ∈ GLn (C) for i = 1, . . . , n. It is given explicitly by
+                                               
+                                     1 0 0
+                                               
+                           T2 = 1 −q q 
+                                   
+                                                 ⊕ In−3
+                                    0   0       1
+
+and Ti = P i−2 T2 P 2−i , where P is a cyclic permutation of the coordinates
+(e1 , . . . , en ). The cyclically ordered braid relations are still satisfied, so we
+obtain a lifted representation
+                                     en → GLn (C);
+                               ρeq : B
+
+and the same inner product considerations show:
+
+Theorem 5.4 The lifted representation ρeq gives a complex reflection group
+                                                √
+        en (q), with phase shift φ(si , si+1 ) = −1(1 − q)/|1 − q|.
+of type A
+
+    Note however that ρeq does not in general factor through Bn , because the
+relation (τ1 · · · τn−1 )τn = τ1 (τ1 · · · τn−1 ) does not lift to a relation between
+the matrices Ti .
+The Burau representation. The classical Burau representation βe : Bn →
+GLn (Z[t, t−1 ]) is given by
+                                                    !
+                      e i ) = Ii−1 ⊕    1−t t
+                      β(τ                               ⊕ In−i−1 .
+                                            1       0
+
+These matrices preserve the vector (1, 1, 1, . . . , 1); taking the quotient yields
+the reduced Burau representation β.
+
+Theorem 5.5 For q n 6= 1, the representation ρq : Bn → U(H 1 (X)q ) is dual
+to the reduced Burau representation specialized to t = q.
+
+                                         24
+(When q n = 1, the reduced Burau representation has an extra trivial sum-
+mand of dimension one.)
+Proof. Let t = q. Then β(τ   e 1 ) is a q-reflection through v1 = (1, −q, 0, . . . , 0),
+                    e i ). When q n 6= 1 the vectors (v1 , . . . , vn−1 ) are linearly
+and similarly for β(τ
+independent modulo (1, 1, 1, . . . , 1), so the reduced Burau representation,
+like ρq , gives a complex reflection group of type An−1 (q). Note, however,
+that ρq (τi ) = (eτi∗ )−1 , because the braid group is acting on cohomology
+(see equation (2.3)). Thus ρq (τi ) is actually a q-reflection, and hence the
+representations ρq and β are dual.
+
+    One can also see this duality by noting that the reduced Burau represen-
+tation gives the action of Modc (C, B) on the first homology of the associated
+infinite cyclic covering of C − B.
+Examples: n = 3. For n = 3 and p > 6, the image of An−1 (−ζp )
+in PU(1, 1) is simply the (2, 3, p)-triangle group acting on the hyperbolic
+plane. It has the presentation
+
+                   Γ(2, 3, p) = {a, b : a2 = b3 = (a−1 b)p = e},
+
+where a is the image of τ1 τ2 τ1 and b is the image of τ1 τ2 . (Note that a2 = b3
+is the image of the central element (τ1 τ2 )3 ∈ B3 , so it is trivial by irre-
+ducibility.) This group arises as ρq (B3 ) when q = ζd−k and k/d = 1/2 ± 1/p.
+For p = 3, 4, 5, we obtain the Platonic symmetry groups A4 , S4 and A5 in
+PU(2); while for p = 6, the reduction of An−1 (−ζp ) lies in PU(1), so it is
+trivial.
+
+Question 5.6 For what values of n and q is the An (q) reflection group a
+lattice in U(r, s)?
+
+    This question is open even for An (ζ3 ) with n ≥ 7. For related questions,
+see §11.
+Notes. A Hermitian form preserved by the Burau representation is given in
+[Sq]; see also [Pe] and [KT, Ch.3]. It is known that the Burau representation
+is unfaithful for n ≥ 5 [Bg1].
+    The reflection groups An (q) are particular representations of the Hecke
+algebras Hn (q). For more on complex reflection groups, Coxeter diagrams
+and braids, see e.g. [Sh], [Cox], [Mos1], [Mos2], [Al1], [J] and [BMR].
+
+
+
+
+                                          25
+6    The period map
+In this section we introduce the period map
+                                     ∗
+                              fq : T0,n → Hr,s
+
+from the Teichmüller space of n points in the plane to the space Hr,s of
+positive lines in Cr,s . This map records, for each configuration B ⊂ C and
+for q = ζd−k , the line in H 1 (X)q ∼
+                                    = Cr,s spanned by the holomorphic 1-form
+      k
+[dx/y ]. It is defined so long as 1/n < k/d < 1.
+    We then show:
+
+Theorem 6.1 The period map is a holomorphic local diffeomorphism when
+q n 6= 1. Otherwise it is a submersion, with 1-dimensional fibers.
+
+Corollary 6.2 Provided q n 6= 1, the period map gives M∗0,n the structure
+of a (G, X)-manifold, where G = U(r, s) and X = Hr,s.
+
+Note: When q = −1, the structure group can be reduced from U(g, g) to
+Sp2g (R) (see §12).
+
+Corollary 6.3 The moduli space M∗0,n is endowed with a natural Kähler
+metric of constant negative curvature for each k/d ∈ (1/n, 2/n), and con-
+stant positive curvature for each k/d ∈ (1−1/n, 1).
+
+These metrics are modeled on the symmetric spaces CPn−2 and CHn−2
+respectively. (For more on the complex hyperbolic case, see §10 and [Th2].)
+
+Theorem 6.4 When q = ζn−2 , the period map descends to a holomorphic
+local diffeomorphism fq : T0,n → CHn−3 .
+
+Corollary 6.5 The period map for q = ζn−2 gives M0,n the structure of a
+complex hyperbolic orbifold.
+
+Positive lines. Given (r, s) with r > 0, we let
+
+                     Hr,s ∼
+                          = U(r, s)/ U(r−1, s) × U(1)
+
+denote the space of positive lines in the Hermitian vector space Cr,s . Thus
+     = CPr−1 and H1,s ∼
+Hr,0 ∼                  = CHs . In general, Hr,s carries an invariant Her-
+mitian metric of signature (r − 1, s). (It should not be confused with the
+
+
+                                    26
+bounded symmetric domain U(r, s)/(U(r) × U(s)), whose natural metric is
+always Riemannian [Sat, Appendix, §3].)
+Holomorphic 1-forms. Let Ω(X) denote the g-dimensional vector space
+of holomorphic 1-forms ω on X ∈ Mg . Assume ω 6= 0, and let Z ⊂ X
+denote its zero set.                        R
+    The absolute periods of ω are given by C ω, where C ranges all closed
+loops on X. The relative periods include, more generally, integrals along
+paths joining the zeros of ω. The relative periods are recorded by the coho-
+mology class
+                     [ω] ∈ H 1 (X, Z) = Hom(H1 (X, Z), C),
+and the absolute periods by its image in H 1 (X).
+Moduli spaces, Teichmüller spaces and periods. We will regard the
+moduli spaces
+
+                M∗0,n = T0,n
+                          ∗
+                             / Mod∗0,n    and Mg = Tg / Modg
+
+as quotients of the associated Teichmüller spaces of marked Riemann sur-
+faces. Any two different markings of the same surface are related by the
+action of the mapping-class group.
+    The set of pairs (X, ω) with ω 6= 0 forms the moduli space of 1-forms
+
+                                  ΩMg → Mg .
+
+This moduli space is a union of strata ΩMg (p1 , . . . , ps ) labeled by partitions
+of 2g − 2; a form (X, ω) lies in a given stratum iff the zero set of ω consists
+of s distinct points with multiplicities (p1 , . . . , ps ).
+    The bundle ΩMg → Mg pulls back to a bundle ΩTg → Tg which is
+stratified in the same way. The cohomology groups H 1 (X) form a trivial
+bundle over Tg ; thus if we fix a basepoint (X0 , ω0 ) ∈ ΩTg , we have a natural
+absolute period map
+                               α : ΩTg → H 1 (X0 )
+given by α(X, ω) = [ω] ∈ H 1 (X) ∼
+                                 = H 1 (X0 ).
+    Similarly, the cohomology groups H 1 (X, Z) form a locally trivial bundle
+over any stratum, so we have a locally defined relative period map
+
+                          π : ΩTg (pi ) → H 1 (X0 , Z0 ).
+
+By [V2] and [MS, Lemma 1.1], these relative period maps are holomorphic
+local homeomorphisms.
+
+
+                                         27
+Point configurations. Now fix an integer n ≥ 2, a degree d > 1 and a
+level k with 1/n < k/d < 1. Set q = ζd−k and e = gcd(d, n). As usual,
+we associate to a point configuration B = (b1 , . . . , bn ) ∈ Chni the branched
+covering space
+                       X : y d = (x − b1 ) · · · (x − bn )
+with deck transformation T . The level k picks out a holomorphic eigenform
+ω = dx/y k ∈ H 1,0 (X)q , and F (B) = (X, ω) gives a holomorphic map
+
+                        F : Chni → ΩMg (p1 , . . . , ps ).
+
+Here the partition (pi ) depends only on (n, k, d); it can be read off from the
+formula
+                 (ω) = (kn/e − d/e − 1)f ∞ + (d − 1 − k)B,  e
+
+which is a special case of equation (3.2).
+    Note that X and the divisor (ω) depend only the pair (C, B) up to
+isomorphism, and (ω) determines ω up to scale. Thus F descends to a map
+M∗0,n → PΩMg . If d|n then X is unramified over infinity, so it only depends
+             b B); and if k/d = 2/n as well, then the same is true of the
+on the pair (C,
+                      e Summing up, we have a commutative diagram:
+divisor (ω) = (n − 3)B.
+
+                                           F
+                              Chni              // ΩMg                    (6.1)
+
+                                                     
+                              M∗0,n             // PΩMg
+                                                    ::
+
+                                                   
+                              M0,n               // Mg
+
+whose bottom arrow exists when d|n, and whose diagonal arrow exists when
+we also have k/d = 2/n.
+The period map. Lifting to the universal cover of the domain, we obtain
+a map
+                               g
+                          Fe : C hni → ΩT
+                                          g
+
+whose image we denote by (ΩTg )q . By construction, the absolute periods of
+any form in the image of Fe determine a positive vector
+
+                      [ω] ∈ H 1 (X)q ∼
+                                     = H 1 (X0 )q ∼
+                                                  = Cr,s ,
+
+
+
+                                           28
+because the trivialization of H 1 (X) over (ΩTg )q respects the action of T .
+The line [Cω] depends only the location of B in Teichmüller space, so α ◦ Fe
+descends to a function
+                                     ∗
+                              fq : T0,n → Hr,s
+which we call the period map.
+    Since Hr,s is constructed from the flat bundle H 1 (X)q over Chni with
+holonomy ρq : Bn → U(r, s), the map fq is equivariant with respect to the
+actions coming from Bn → Mod∗0,n and Bn → PU(r, s) (see equation (2.5)).
+
+Lemma 6.6 The map Fe covers a bijection
+                                ∗
+                              T0,n → (PΩTg )q ,
+
+except when d|n and k/d = 2/n, in which case it factors through a bijection
+on T0,n .
+
+Proof. For each (X, ω) ∈ (ΩTg )q there is a T ∈ Aut(X) which is in the same
+isotopy class as the deck transformation T0 at the basepoint X0 , and which
+satisfies T ∗ (ω) = qω. The data (X, ω, T ) generally allows us to reconstruct
+                            b B, ∞) ∈ T ∗ , by setting
+the original configuration (C,            0,n
+
+                          e∪f
+                          B ∞ = Z(ω) ∪ Fix(T e )                         (6.2)
+
+and passing to the quotient X/T ∼      b This reconstruction succeeds unless
+                                    = C.
+d|n and k/d = 2/n. In this special case, X is unramified over ∞ and
+(ω) = (d − 3)B,e so (6.2) does not hold. But then (X, ω) depends only on
+                                                               b B).
+the location of [B] in T0,n , and the same procedure recovers (C,
+
+
+Lemma 6.7 The relative period map from (ΩTg )q to H 1 (X0 , Z0 )q is a local
+homeomorphism.
+
+Proof. Recall that the relative period map gives a local homeomorphism
+ΩTg ⊃ U → H 1 (X0 , Z0 ). The points in H 1 (X0 , Z0 )q correspond to eigen-
+forms (X, ω, T ) with the same combinatorics as (X0 , ω0 , T0 ), so they come
+from branched coverings of the sphere.
+
+
+
+
+                                     29
+Corollary 6.8 The image of M∗0,n in PΩMg is locally a union of linear
+submanifolds with respect to period coordinates.
+
+Lemma 6.9 The map H 1 (X0 , Z0 )q → H 1 (X0 )q is surjective.
+
+Proof. The map H 1 (X0 , Z0 ) → H 1 (X0 ) is surjective, and T has finite order
+so its action is semisimple.
+
+Proof of Theorems 6.1 and 6.4. The three lemmas above show fq
+is a composition of submersions. By Corollary 3.3 we have dim Hr,s =
+n − 2 if q n 6= 1 and n − 3 otherwise. Since dim T0,n ∗ = n − 2, f is a local
+                                                                   q
+homeomorphism in the first case and fq has one-dimensional fibers in the
+second. When d|n and k/d = n/2 the map fq factors through T0,n by Lemma
+6.6, and (r, s) = (1, n − 3) by Corollary 3.2 so its target is CHn−3 .
+
+Proof of Corollaries 6.5 and 6.3. By Corollary 3.2 we have (r, s) =
+(n − 3, 0) or (1, n − 2) in these two cases, so fq gives an equivariant map
+to CPn−2 or CHn−2 . Pulling back the U (r, s)-invariant metric on the target
+gives the desired Mod∗0,n -invariant metric on the domain.
+
+Example: conformal mapping. For a concrete instance of the period
+map, suppose n = 3 and q = ζd−k with 1/3 < k/d ≤ 1. We can identify the
+moduli space M  f∗ of ordered triples of points in C with C − {0, 1}. Then
+                  0,3
+any t 6= 0, 1 determines a Riemann surface of the form
+
+                            y d = x(x − 1)(x − t),
+
+and the (multivalued) period map fq : M  f∗ → P1 is given by
+                                           0,3
+                                R1         R∞
+                      fq (t) = [ 0 dx/y k : 1 dx/y k ].
+
+This Schwarz triangle function is univalent on the upper halfplane, and
+T = fq (H) is an equilateral circular triangle with internal angles
+2π|k/d − 1/2|; compare [SG, §14, §16.6]. The triangle T is Euclidean for
+k/d = 2/3, spherical for k/d > 2/3, and hyperbolic for k/d < 2/3.
+Filtrations. We remark that differentials p(x) dx/y k with deg p < i deter-
+mine a filtration
+                      0 ⊂ F1 ⊂ F2 ⊂ · · · Fr ⊂ H 1 (X)q ,
+whose variation as a function of B could also be studied. We have focused
+our attention on the first term so that the period map becomes a local
+homeomorphism, providing a geometric structure on moduli space.
+
+                                      30
+Notes. An elegant characterization of those classes C ∈ H 1 (X) which lie
+in H 1,0 (X) for some complex structure on X is given in [Kap] (see also §12
+below). Another approach to Theorem 6.1 appears in [DM1, Prop. 3.9].
+
+
+7     Arithmetic groups
+We now turn to arithmetic constraints on the image of the braid group.
+  Consider the Z[q]-module
+
+                        Λn,q = H 1 (X, Z[q])q ⊂ H 1 (X)q .
+
+The unitary automorphisms preserving this module form a countable sub-
+group
+                   U(Λn,q ) ⊂ U(H 1 (X)q ) ∼
+                                           = U(r, s).
+Since our representation of the braid group preserves H 1 (X, Z[q]), it also
+preserves Λn,q , and hence it factors as:
+
+                          ρq : Bn → U(Λn,q ) ⊂ U(r, s).
+
+    In this section we will show:
+
+Theorem 7.1 The values of n ≥ 3 and q 6= 1 such that U(Λn,q ) is a discrete
+subgroup of U(H 1 (X)q ) ∼
+                         = U(r, s) are those given in table Table 9 and their
+complex conjugates. In these cases, either:
+
+    1. U(Λn,q ) is an arithmetic lattice in U(r, s), or
+
+    2. We have q = −1, and U(Λn,q ) ∼
+                                    = Sp2g (Z) is a lattice in Sp2g (R) ⊂
+       U(g, g).
+
+Corollary 7.2 The image of the braid group ρq (Bn ) is discrete in the cases
+appearing in Table 9.
+
+Table of arithmetic groups. In Table 9, p gives the order of ρq (τi ) in
+U(Λn,q ). Note that the values k/d = 1/6, 1/4, 1/3 and 1/2 occur for every
+n ≥ 3. These are exactly the cases where Z[q] is a discrete subring of C, and
+they account for all cases of discreteness when n > 12.
+    For the entries with n = 3, U(Λn,q ) is an arithmetic triangle group of
+signature (2, 3, p) (or its finite image in U(1), when p = 6). The complete list
+of arithmetic triangle groups can be found in [Tak]. Note that the (2, 3, 5)
+
+
+                                       31
+   n    k/d    (r, s)       p      n    k/d    (r, s)       p    n        k/d    (r, s)   p
+   3    1/6    (0,2)        3      5    1/6    (0,4)        3    9        1/6    (1,7)    3
+   3    1/4    (0,2)        4      5    1/4    (1,3)        4    9        1/4    (2,6)    4
+   3   1/10    (0,2)        5      5   3/10    (1,3)        5    9        3/10   (2,6)    5
+   3   3/10    (0,2)        5      5    1/3    (1,3)        6    9        1/3    (2,5)    6
+   3    1/3    (0,1)        6      5    3/8    (1,3)        8    9        5/12   (3,5)    12
+   3   5/14    (1,1)        7      5    2/5    (1,2)        10   9        1/2    (4,4)    ∞
+   3    3/8    (1,1)        8      5   5/12    (2,2)        12   10       1/6    (1,8)    3
+   3   7/18    (1,1)        9      5    1/2    (2,2)        ∞    10       1/4    (2,7)    4
+   3    2/5    (1,1)        10     6    1/6    (0,4)        3    10       3/10   (2,6)    5
+   3   9/22    (1,1)        11     6    1/4    (1,4)        4    10       1/3    (3,6)    6
+   3   5/12    (1,1)        12     6   3/10    (1,4)        5    10       5/12   (4,5)    12
+   3    3/7    (1,1)        14     6    1/3    (1,3)        6    10       1/2    (4,4)    ∞
+   3   7/16    (1,1)        16     6    3/8    (2,3)        8    11       1/6    (1,9)    3
+   3    4/9    (1,1)        18     6   5/12    (2,3)        12   11       1/4    (2,8)    4
+   3   11/24   (1,1)        24     6    1/2    (2,2)        ∞    11       1/3    (3,7)    6
+   3   7/15    (1,1)        30     7    1/6    (1,5)        3    11       5/12   (4,6)    12
+   3    1/2    (1,1)        ∞      7    1/4    (1,5)        4    11       1/2    (5,5)    ∞
+   4    1/6    (0,3)        3      7   3/10    (2,4)        5    12       1/6    (1,9)    3
+   4    1/4    (0,2)        4      7    1/3    (2,4)        6    12       1/4    (2,8)    4
+   4   3/10    (1,2)        5      7    3/8    (2,4)        8    12       1/3    (3,7)    6
+   4    1/3    (1,2)        6      7   5/12    (2,4)        12   12       5/12   (4,6)    12
+   4   5/14    (1,2)        7      7    1/2    (3,3)        ∞    12       1/2    (5,5)    ∞
+   4    3/8    (1,2)        8      8    1/6    (1,6)        3
+   4    2/5    (1,2)        10     8    1/4    (1,5)        4
+   4   5/12    (1,2)        12     8   3/10    (2,5)        5
+   4    4/9    (1,2)        18     8    1/3    (2,5)        6
+   4    1/2    (1,1)        ∞      8    3/8    (2,4)        8
+                                   8   5/12    (3,4)        12
+                                   8    1/2    (3,3)        ∞
+
+                        n        k/d               (r, s)             p
+                   n > 12        1/6   (⌈n/6 − 1⌉, ⌈5n/6 − 1⌉)        3
+                                 1/4   (⌈n/4 − 1⌉, ⌈3n/4 − 1⌉)        4
+                                 1/3   (⌈n/3 − 1⌉, ⌈2n/3 − 1⌉)        6
+                                 1/2   (⌈n/2 − 1⌉, ⌈n/2 − 1⌉)        ∞
+
+
+Table 9. For q = ζd−k above, the braid group maps into an arithmetic lattice
+                            U(Λn,q ) ⊂ U(r, s).
+
+                                              32
+triangle group occurs twice in our table, once for each complex place of Q(ζ5 ).
+In all other cases (including those with n > 3), we have 1/p + k/d = 1/2.
+Arithmetic perspectives. To establish Theorem 7.1, we will relate the
+group U(Λn,q ) to the full Q-algebraic group G ∼
+                                               = Sp2g (R)T of automorphisms
+    1
+of H (X) commuting with T and respecting the symplectic structure.
+
+  1. We first note that the real points of the centralizer factor as follows:
+
+                 G(R) ∼
+                      = Sp2g (R)T
+                                            Y
+                      ∼
+                      = Sp(H 1 (X, R)−1 ) ×   U(H1 (X)q ).
+                                                    Im q>0
+
+      There are ⌊(d − 1)/2⌋ terms in the second factor, one for each d-th
+      root of unity q in the upper halfplane. This factorization of G(R)
+      is obtained from the splitting of H 1 (X, R) into eigenspaces Vq+q of
+      T + T −1 |H 1 (X, R). We have also used the fact that for q 6= ±1, T
+      determines a complex structure on Vq+q which yields an isomorphism
+
+                             Sp(Vq+q )T ∼
+                                        = U(H1 (X)q ).
+
+  2. A fundamental result of Borel and Harish-Chandra then implies that
+
+           G(Z) ∼
+                = Sp2g (Z)T is a lattice in G(R) ∼
+                                                 = Sp2g (R)T .
+
+      Indeed, the real characters of the symplectic and unitary factors of
+      G(R) satisfy XR (Sp2h (R)) = XR (U(r, s)) = 0, and hence XQ (G) ⊂
+      XR (G) = 0 as well. By [BH, Thm. 9.4], this implies vol(G(R)/G(Z)) <
+      ∞.
+
+  3. Let Φe (x) denote the cyclotomic polynomial for the primitive e-th
+     roots of unity, and let Ge = G| Ker(Φe (T ∗ )) We then
+                                                         Q have a similar
+     factorization of Q-algebraic groups, namely G = e|d Ge . Note that
+     G1 is trivial, G2 is the symplectic group of Ker(T ∗ + I), and for e ≥ 3
+     we have                          Y
+                        Ge (R) ∼=             U(H1 (X)q ).
+                                  Φe (q)=0,Im q>0
+
+      Let Ge (Z) ⊂ Ge (R) denote the stabilizer of the                      ∗
+        1
+                                                     Qlattice Le = Ker(Φe (T ))∩
+      H (X, Z). Then G(Z) is commensurable to e|d Ge (Z), and as above
+      we find:
+
+           Ge (Z) is a lattice in Ge (R).
+
+                                      33
+   4. Now suppose q is a primitive d-th root of unity. Then:
+
+           The projection of Gd (Z) to U(H1 (X)q ) is commensurable to
+           U(Λn,q ) .
+
+      This comes from the fact that the Z[T ]-module Le projects orthogo-
+      nally to a Z[q]-module commensurable to Λn,q in H 1 (X)q . Clear G(Z)
+      preserves Λn,q , so we also find:
+
+           The group G(Z) projects to a subgroup of finite index in
+           U(Λn,q ).
+
+   5. The lattice property of Gd (Z) then implies:
+
+           U(Λn,q ) is a discrete, arithmetic subgroup of U(H1 (X)q ) iff
+           the other factors of Gd (R) are compact.
+
+   6. Suppose q = ζdk with 0 < k < d/2 and gcd(k, d) = 1. Using Corollary
+      3.2 to compute the signature (r ′ , s′ ) of H 1 (X)q′ for the other primitive
+      d-th roots of unity, we deduce:
+
+           U(Λn,q ) ⊂ U(H1 (X)q ) is a lattice ⇐⇒
+           Every k′ 6= k in the range 0 < k′ < d/2 with gcd(k′ , d) = 1
+           satisfies k′ ≤ d/n.
+
+Table 9 is now readily verified by applying the criterion above, completing
+the proof of Theorem 7.1.
+Notes and references. More generally, one can show that if T ∈ Sp2g (Q)
+is semisimple, then Sp2g (Z)T is a lattice in Sp2g (R)T iff the irreducible factors
+of det(xI−T ) are reciprocal polynomials (their roots are invariant under z 7→
+1/z). (In particular, Sp2g (Z)T is a lattice in Sp2g (R)T whenever det(xI − T )
+is irreducible.)
+     The pseudo-Anosov mapping in genus 3 studied in [AY] and [Ar] gives an
+interesting example where the centralizer Sp6 (Z)T is not a lattice in Sp6 (R)T .
+In this example, the reciprocal sextic polynomial det(xI − T ) factors as a
+product (x3 + x2 + x − 1)(x3 − x2 − x − 1) of two non-reciprocal cubics, and
+Sp6 (Z)T is commensurable to T Z in Sp6 (R)T ∼    = R∗ × C∗ .
+     For background on arithmetic and algebraic groups, see e.g. [BH], [Bor2,
+§23], [Bor1], [Mg, Ch. I]. More on centralizers and conjugacy classes can be
+found in [SS], [Re] and [Gr].
+
+
+
+
+                                        34
+8    Factors of the Jacobian
+In this section we elaborate some of the algebraic geometry underlying the
+cases where ρq (Bn ) is finite. In particular, we describe a basis of elliptic
+differentials for the representative examples (n, d) = (3, 4) and (3, 6).
+    We begin by showing:
+
+Theorem 8.1 The representation of the braid group ρq (Bn ) at a primitive
+dth root of unity is finite iff
+
+      n = 3 and d = 3, 4, 6 or 10; or
+      n = 4 and d = 4 or 6; or
+      n = 5, 6 and d = 6.
+
+Proof. In the 8 cases given we find, consulting Table 9, that H 1 (X)q is
+definite for all primitive dth roots of unity q; hence U (Λn,q ), and its subgroup
+ρq (Bn ), are both finite.
+    To see the list is complete for n = 3, note that if −q is a primitive
+pth root of unity and p > 6, then ρq (Bn ) maps onto the (2, 3, p) triangle
+group (see §5) and hence it is infinite. In particular, for q = −1 we have
+ρq (Bn ) ∼
+         = SL2 (Z).
+    To see the list is complete for n > 3, let
+
+                            g = τ1 τ2−1 τ3 τ4−1 · · · τn±1
+
+and let A = ρq (g). Observe that ρq (Bn ) contains a copy of ρq (Bn−1 ), so the
+list of d for which ρq (Bn ) is finite only gets shorter as n increases; and if
+ρq (Bn ) is finite, then the spectral radius r(A) must be 1.
+     For n = 4 we need only test d = 3, 4, 6 and 10. We have seen that d = 4
+and 6 give finite groups, and we can rule out d = 3 and 10 by checking that
+r(A) > 1 for q = ζ3 and q = ζ10  3 . Similarly, for n = 5 we can rule out d = 4
+
+by checking that r(A) > 1 at q = ζ4 ; and for n = 7 we can rule out d = 6
+by checking that r(A) > 1 at q = ζ6 . (Here we have used the fact that
+the representations ρq at different primitive dth roots of unity are all Galois
+conjugate.)
+
+
+Corollary 8.2 The image of the braid group ρq (Bn ) is finite iff U(Λn,q ) is
+finite.
+
+
+
+
+                                         35
+Jacobians. When ρq (Bn ) is finite, the Hodge structure on the correspond-
+ing part of the H 1 (X) is rigid; equivalently, we have an isogeny
+
+                             Jac(X) → J(X) × A
+
+where dim A > 0 and A is independent of X. We refer to A as a rigid factor
+of the Jacobian of X.
+
+Theorem 8.3 The Jacobian of the curve X defined by
+
+                          y d = (x − b1 ) · · · (x − bn )
+
+(for n distinct points) has a rigid factor in the 8 cases shown in Table 10.
+
+
+ n    d   g(X)    Factor of Jac(X)           n    d    g(X)      Factor of Jac(X)
+ 3    3     1          C/Z[ζ3 ]               4   4         3       (C/Z[ζ4 ])2
+ 3    4     3         (C/Z[ζ4 ])2             4   6         7       (C/Z[ζ3 ])3
+ 3    6     4         (C/Z[ζ3 ])2             5   6         10      (C/Z[ζ3 ])4
+ 3   10     9        (C2 /Z[ζ5 ])2            6   6         10      (C/Z[ζ3 ])4
+
+                   Table 10. Rigid factors of the Jacobian.
+
+
+     In Table L
+              10, g(X) indicates the genus of X, and the rigid factor listed
+comes from       H 1 (X)q over the primitive dth roots of unity.
+     The factor C2 /Z[ζ5 ], which occurs for (n, d) = (3, 10), denotes quotient
+of C2 by the image of Z[ζ5 ] under x 7→ (x, x′ ), where x 7→ x′ is the Galois
+automorphism satisfying ζ5′ = ζ52 . The other factors listed are elliptic curves
+with automorphisms of orders 4 or 6.
+     Note that the cases (n, d) = (3, 4) and (4, 4) yield the same set of curves
+X, as do the cases (5, 6) and (6, 6). Note also that curves of type (n, d) =
+(3, 6) cover curves of type (3, 3), so they also have a second rigid factor
+A′ ∼= C/Z[ζ3 ].
+                                      L 1
+Proof of Theorem 8.3. Let S =             H (X)q , where the sum is taken over
+the primitive dth roots of unity. This subspace is defined over Q, so it meets
+H 1 (X, Z) in a lattice SZ of the same rank as dimC S.
+     For the 8 cases listed, the induced Hodge structure on S is given by
+                                                                  
+                                 M                     M
+          S = S 1,0 ⊕ S 0,1 =        H 1 (X)q  ⊕         H 1 (X)q  ,
+                               Im q>0                   Im q<0
+
+
+                                        36
+where again the sum is over the primitive dth roots of unity (see Corollary
+3.2). That is, the Hodge structure is refined by the eigenspace decomposition
+of T |S, which is independent of the complex structure on X; and hence the
+complex torus A = S 1,0 /SZ is a rigid factor of Jac(X). The dimension of A
+is determined by Corollary 3.3, and the CM-type of the endomorphism T |A
+(see [Shi, §5.5A]) is determined by the condition Im q > 0. This information
+determines A itself, up to isogeny, yielding Table 10.
+
+Genus 3 curves branched over 4 points. For added perspective we
+describe some details in one of the simplest cases, namely genus 3 curves X
+of the form
+                       y 4 = (x − b1 )(x − b2 )(x − b3 ).
+
+1. √ Eigenspaces. The most interesting eigenspace here is H 1 (X)q for
+q = −1 = ζ4−3 . This eigenspace satisfies H 1 (X)q ∼
+                                                   = H 1,0 (X)q ; its signature
+is (2, 0), and it is spanned by the holomorphic 1-forms dx/y 3 and x dx/y 3 .
+2. Factors of Jac(X). By Theorem 8.3 we have an isogeny
+
+                           Jac(X) → E × A × A,                            (8.1)
+
+where A ∼
+        = C/Z[ζ4 ] is the square torus and E is an elliptic curve that depends
+on X. Composing with the inclusion X → Jac(X), we obtain a dominant
+map p0 : X → E and a pair of dominant maps pi : X → A, i = 1, 2.
+3. Elliptic differentials. These maps can be seen directly as follows.
+                                                                  b B ′) ∼
+First, observe that X is branched over B ′ = B ∪{∞}, and that Aut(C,     =
+                                                     ′
+Z/2 × Z/2. Applying a Möbius transformation to B , we can normalize so
+that its symmetry group is generated by x 7→ −x and x 7→ 1/x; then the
+defining equation for X takes the form
+
+                           X : y 4 = x4 + bx2 + 1.                        (8.2)
+
+   Now consider the elliptic curves and holomorphic 1-forms defined by
+
+                E : z 2 = x4 + bx2 + 1, ωE = dx/z,         and
+                A : y 4 = u2 + bu + 1,     ωA = du/y 3 .
+                                                  √
+Since A has an order 4 automorphism (u, y) 7→ (u, −1y), it is evidently
+a square torus. Setting z = y 2 and u = x2 , we obtain degree two maps
+p0 : X → E and p1 : X → A. Composing with an automorphism of X, we
+define p2 (x, y) = p1 (1/x, y/x).
+
+
+                                      37
+     We claim the triple of maps (p0 , p1 , p2 ) induces the desired isogeny (8.1).
+To see this, just note that the pullbacks of the forms (ωE , ωA , ωA ) under
+(p0 , p1 , p2 ) respectively yield a basis
+                          = (dx/y 2 , dx/y 3 , −x dx/y 3 )
+for Ω(X) consisting of elliptic differentials.
+4. Action of the braid group. The braid group acts on PH 1 (X)q as
+the octahedral group Γ ∼  = S4 ⊂ PU(2), preserving the spherical metric.
+The generating twists τ1 , τ2 act by rotations R1 , R2 ∈ Γ of order 4 about
+orthogonal axes, corresponding to a pair of elliptic differentials as above.
+5. The period map. The period map determines an embedding
+                          fq : M∗0,3 → (H2,0 ∼
+                                             = P1 )/S4
+whose image omits just one point. The domain is the (2, 3, ∞) orbifold
+and the target is the (2, 3, 4) orbifold; and fq sends the cusp to the cone
+point of order 4. These facts can be verified by showing the metric comple-
+tion of M0,4 in the induced spherical metric is an orbifold; or by explicitly
+computing the period map, using the elliptic forms above.
+Remark: Shimura–Teichmüller curves. Equation (8.2) determines a
+remarkable curve V ⊂ M3 (parameterized by b). Möller shows V is the only
+subvariety of any moduli space Mg , g ≥ 2 which is both a Shimura curve
+and a Teichmüller curve [Mo].
+Irregular covers of elliptic curves. The preceding example was partic-
+ularly simple because the maps pi : X → A were Galois coverings. To give
+the flavor of a more typical example, we describe a map p : X → A in the
+case (n, d) = (3, 6).
+                                                                  b branched
+    In this case X is a genus 4 curve, presented as a covering of C
+over 4 points. We can change the x-coordinate by a Möbius transformation
+so the defining equation for X becomes
+                        X : y 6 = (x3 − 3x − b)(x − 2)3
+for some b ∈ C (because the cross-ratio of the roots of the polynomial on the
+right takes on all possible values). Now consider the elliptic curve defined
+by
+                        A : z 6 = (b − 2)4 w(w − 1)3 .
+Because of its order 6 symmetry S(w, z) = (w, ζ6 z), we have A ∼  = C/Z[ζ3 ];
+and the formula                  3                   
+                                 x − 3x − b
+                       (w, z) =             , y(x + 1)                       (8.3)
+                                    2−b
+
+                                        38
+defines an irregular, degree 3 map p : X → A. This map shows A occurs as
+one of the rigid factors of Jac(X).
+    This calculation is motivated by the observation that the desired map
+p : X → A induces a map
+
+                                     p : X/hT i → A/hSi
+
+between a pair of orbifolds with signatures (2, 6, 6, 6) and (2, 3, 6) respec-
+tively. Since both orbifolds have genus zero, we can regard p as a rational
+map of the form w = p(x). The signatures of these orbifolds suggest there
+exists such a map with deg(p) = 3, sending the 3 points of order 6 in the
+domain to the unique point of order 6 in the range. Any such map would be
+totally ramified over the singular point of order 3, so in suitable coordinates
+it would be a cubic polynomial; and we are led to formula (8.3).
+Remark. In the case (n, d) = (3, 10), the projection to the rigid fac-
+tor Jac(X) → A ∼    = C2 /Z[ζ5 ] is not induced by a map p : X → Y with
+Jac(Y ) ∼= A. This can be established by showing there is no map from the
+(10, 10, 10, 10) orbifold to the (2, 5, 10) orbifold which lifts to the required
+Z/10 covering spaces. (It is, however, induced by a correspondence.)
+
+
+9     Definite integrals
+In this section we present another consequence of finiteness of the represen-
+tation of the braid group.
+
+Theorem 9.1 Suppose n ≥ 3 and 0 < µ < 1. Then
+                                         Z b2
+                                                               dx
+            I(b1 , b2 , . . . , bn ) =
+                                          b1    ((x − b1 )(x − b2 ) · · · (x − bn ))µ
+
+is an algebraic function of (b1 , . . . , bn ) iff ρq (Bn ) is finite for q = exp(−2πiµ),
+and µ 6= 1/n.
+
+    Here the integral is initially defined for distinct points bi ∈ R, and then
+extended to C by analytic continuation. Using Theorem 8.1 to check the
+finiteness of ρq (Bn ), we obtain:
+
+Corollary 9.2 The definite integral I(b1 , . . . , bn ) is algebraic exactly for the
+17 values of (n, µ) given in Table 11.
+
+
+
+                                                   39
+         n                                      3
+         µ     2/3   1/4       3/4   1/6   5/6       1/10    3/10   7/10    9/10
+
+         n            4                          5                     6
+         µ     3/4   1/6       5/6   1/4   3/4       1/6     5/6      5/6
+
+                      Table 11. Algebraic definite integrals.
+
+
+
+
+                                                     φ (D)
+
+
+
+
+                                                     ‘
+                                       D
+
+
+                           p                                  p
+                                           Cp
+
+
+             Figure 12. The cycle D is modified by a loop around p′ .
+
+
+
+   The integral for the case (n, µ) = (4, 3/4) will be evaluated explicitly at
+the end of this section.
+Meromorphic differentials. To set the stage for the proof, let ω be a
+meromorphic 1-form on a compact Riemann surface X with a finite set of
+poles P ⊂ X. Then ω determines a cohomology class [ω] ∈ H 1 (X − P ). If
+Res(ω, p) = 0 for every p ∈ P , then ω is traditionally called a differential of
+the second kind; it gives a well-defined cohomology class
+
+                               [ω] ∈ H 1 (X) ⊂ H 1 (X − P ).
+
+    Now let φ ∈ Mod(X, P ) be a mapping-class stabilizing P , and assume
+φ is isotopic to the identity on X (it is in the kernel of the natural map
+Mod(X, P ) → Mod(X)). Then in the course of the isotopy, each p ∈ P
+traces out a relative cycle Cp ∈ H 1 (X, P ) joining p to p′ = φ(p). It is then
+easy to compute the action of φ on H1 (X − P ): it satisfies (with suitable
+orientations)                          X
+                       [φ(D)] = [D] +     (Cp · D)[Up′ ],
+                                            p∈P
+
+where Up′ is a small loop around p′ (see Figure 12).
+
+
+
+                                            40
+    This computation facilitates the study of periods of general meromorphic
+1-forms (which may have residues); in particular, it shows that
+                Z            Z        X
+                   φ∗ (ω) =      ω+      (Cp · D) Res(ω, p′ ).         (9.1)
+                   D              D       P
+
+
+Proof of Theorem 9.1. The singularities of I(b) = I(b1 , . . . , bn ) along the
+loci bi = bj in Cn are algebraic iff µ is rational, so we may restrict attention
+to this case.
+    Consider a generic configuration of distinct points B = {b1 , . . . , bn }.
+Let µ = k/d in lowest terms, let q = ζd−k , let X be the curve defined by
+y d = (x − b1 ) · · · (x − bn ) as usual, and let ω = dx/y k . Then T ∗ (ω) = qω.
+The form ω potentially has poles on the set P = f      ∞.
+    Let L ⊂ X − P denote a lift of the segment [b1 , b2 ] to an arc connecting
+the corresponding points of B,     e chosen so that ω|L agrees with the chosen
+branch of the integrand I(b). Observe that D = L − T (L) is a cycle on
+X − P , and that
+                        Z                 Z                         Z
+                                      −1           ∗             −1
+          I(b) =          ω = (1 − q)       ω − T (ω) = (1 − q)        ω
+                       L                  L                        D
+                           −1
+               = (1 − q)        hD, ωi.
+
+Thus I(b) simply measures one of the periods of ω.
+    Now suppose b is allowed to vary, keeping its coordinates distinct. Then
+I(b) can be analytically continued, along many different paths, from b to
+any point in Sn · b (where the coordinates of b are permuted). The set of
+possible values for I(σ · b) so obtained are given, up to a factor of (1 − q), by
+                          e
+                 J(b) = {hφ(D), ωi : φ ∈ Mod(C, B) ∼
+                                                   = Bn }.                 (9.2)
+
+Since I(b) has algebraic singularities, it is a (multivalued) algebraic function
+of b iff J(b) is finite.
+    To evaluate |J(b)|, first assume k/d 6= 1/n. Then ω is a differential of
+the second kind. To see this, let e = gcd(n, d). Then T e fixes every p ∈ P ,
+and satisfies
+                    Res(ω, p) = Res((T e )∗ ω, p) = q e Res(ω, p);
+so the residues of ω vanish if e < d. On the other hand, if e = d then
+k/d ≥ 2/n, which implies ω is actually a holomorphic 1-form on the whole
+of X.
+
+
+
+                                          41
+   Since ω is of the second kind, it defines a cohomology class in H 1 (X).
+                                                       e
+Thus the pairing in (9.2) depends only on the class of φ(D) ∈ H1 (X), and
+therefore
+                          J(b) = hD, ρq (Bn ) · ωi.
+Clearly J(b) is finite if ρq (Bn ) is finite. We also note that
+                              0 6= [D] ∈ H 1 (X)∗q ,                      (9.3)
+because there exist configurations b such that I(b) 6= 0 (e.g. when all bi ∈
+R). So conversely, if J(b) is finite, then one of the ‘matrix entries’ of ρq :
+Bn → U(H 1 (X)q ) assumes only finitely many values; but ρq is irreducible
+(Corollary 5.3), so this implies ρq (Bn ) is finite as well.
+    It remains to show that J(b) is infinite when k/d = 1/n. In this case
+ω has simple poles along P and |P | = d. Write P = {p0 , . . . , pd−1 } with
+pi = T (p0 ). Since ω is an eigenform, it satisfies
+                        Res(ω, pi ) = q i Res(ω, p0 ) 6= 0.
+The idea is to show that I(b) can be made to take on infinitely many different
+values by pushing the path of integration repeatedly through infinity, so it
+picks up a residue of ω. Note that (9.3) continues to hold, e.g. by considering
+one of the Galois conjugates of q.
+    Choose a cycle C ∈ H1 (X, Z) such that
+                            d
+                            X
+                 0 6= E =         q i T i (C) ∈ H1 (X)q ∼
+                                                        = H 1 (X)∗q .     (9.4)
+                            i=1
+
+(Most cycles have this property). Represent C by a closed loop on X that
+                                                  e Then the projection of
+begins and ends at p0 , and otherwise avoids P ∪ B.
+      b                     b
+C to C gives a loop γ ∈ π1 (C − B, ∞).
+    Let φ ∈ Modc (C, B) be a mapping class that pushes ∞ once around γ,
+                                 b B). Then its canonical lift φe ∈ Mod(X −
+and maps to the identity in Mod(C,
+P ) pushes pi once around the cycle Ci , where C0 = C and Ci = T i (C0 ); and
+φe maps to the identity in Mod(X). In particular, by (9.1) we have
+                                               d
+                                               X
+                 e
+                hφ(D), ωi = hD, ωi +             (Ci · D) Res(ω, pi )
+                                                1
+                            = hD, ωi + Res(ω, p0 )(E · D).
+Similarly, we have
+                  hφek (D), ωi = hD, ωi + k Res(ω, p0 )(E · D).
+
+                                          42
+                                                                    e
+Thus J(b) is infinite provided E · D 6= 0, or more generally if E · ψ(D) 6= 0
+for some ψ ∈ Modc (C, B). But if these intersection numbers are all zero,
+then E = 0 or D = 0, since Bn acts irreducibly on H1 (X)q . This contradicts
+equations (9.3) and (9.4).
+
+Genus 3 revisited. Here is an explicit formula for one of the alge-
+braic integrals provided by Theorem 9.1. We have normalized so that
+(b1 , b2 , b3 , b4 ) = (0, 1, a, b).
+
+Theorem 9.3 For 1 < a < b < ∞, the definite integral
+                       Z 1
+                                       dx
+             I(a, b) =
+                        0  (x(x − 1)(x − a)(x − b))3/4
+satisfies
+                         16π 2 Γ(1/4)4          c(1 + c − 2ac)4
+            I(a, b)4 =                 ·                                ,
+                           Γ(3/4)4       a2 (a − 1)2 (a − b)3 (c2 − 1)4
+where c > 1 is the largest root of the quadratic equation
+
+                 (a − b)c2 + (4ab − 2a − 2b)c + (a − b) = 0.
+
+Eliminating c, we obtain the expression:
+                                      p                    p
+       4  π 2 Γ(1/4)4       ((2a − 1) b(b − 1) + (2b − 1) a(a − 1))4
+I(a, b) =             ·                                    p                   ,
+           Γ(3/4)4 a2 b2 (a − 1)2 (b − 1)2 (a + b − 2ab − 2 ab(a − 1)(b − 1))3
+
+which exhibits the solution’s symmetry in a and b.
+Proof of Theorem 9.3. As in §8, we use the fact that the configuration
+B = {0, 1, a, b} ⊂ C b has an order-two Möbius symmetry g(x) satisfying
+g(0) = 1 and g(a) = b. (The point c has a natural meaning: it is the unique
+fixed point of g between a and b.) Thus by changing coordinates so the
+fixed points of g become x = 0 and x = ∞, we can transform I(a, b) into an
+integral of the form:
+                        Z 1
+                                  (Ax + C) dx
+                                2      2    2 3/4
+                                                  ·
+                          −1 ((x − 1)(x − d ))
+
+The integrand is now a sum of elliptic differentials for the square torus, as
+discussed in §8. The term Ax can be ignored because it is odd; evaluating
+the remaining integral in terms of Γ-functions, we obtain the formula given
+in Theorem 9.3.
+
+
+                                        43
+Remark. If we change the exponent µ = 3/4 to 1/2, we essentially obtain
+the complete elliptic integral of the first kind,
+                                Z 1
+                                             dx
+                       K(k) =       √         √        .
+                                 0    1 − x 1 − k 2 x2
+                                            2
+
+This is a transcendental function of k, defined classically by the relation
+sn(K, k) = 1 [WW, §22.3].
+Notes and references. The values (α, β, γ) such that
+                            Z 1
+                    I(b) =      xα (x − 1)β (x − b)γ dx
+                              0
+
+is an algebraic function of b were determined by Schwarz in 1873 [Sch, §VI];
+see [CW2] for a generalization to multivariable hypergeometric integrals,
+which includes Theorem 9.1 as a special case. The failure of algebraicity
+when ω has nonzero residues (e.g. when µ = 1/n in Theorem 9.1) is discussed
+by Klein in [Kl, §49], which corrects a statement of Riemann.
+
+
+10    Complex hyperbolic geometry
+In this section we discuss the cases where moduli space acquires a complex
+hyperbolic metric of finite volume. For example, we will see:
+
+Theorem 10.1 For n = 4, 5, 6, 8 and 12, the period map
+
+                        fq : M0,n → CHn−3 /ρq (Bn )
+
+at q = ζn−2 presents moduli space as the complement of a divisor in a finite-
+volume, arithmetic, complex-hyperbolic orbifold.
+
+(This divisor corresponds to certain Dehn twists whose images under ρq have
+finite order.) Since M2 ∼
+                        = M0,6 we also have:
+
+Corollary 10.2 The moduli space M2 can be completed to a complex hy-
+perbolic orbifold of finite volume.
+
+Note that the complex hyperbolic structure on M2 comes from Hodge struc-
+                                                              b branched over
+tures on surfaces of genus four (obtained as triple covers of C
+six points).
+    These results are special cases of the work of Deligne–Mostow and Thurston,
+which we recall below. We will also give a self-contained proof of:
+
+                                     44
+Theorem 10.3 If ρq (Bn ) ⊂ U(1, s) is discrete, then it is a lattice.
+
+Corollary 10.4 Whenever U(Λn,q ) ⊂ U(1, s) is a lattice, so is ρq (Bn ).
+
+   Table 9 furnishes 24 values of (n, q) with n ≥ 4 where this Corollary
+applies, including the 5 cases covered by Theorem 10.1 above.
+Hypergeometric functions and shapes of polyhedra. Let M             f0,n de-
+                                           b (an Sn -covering space of M0,n ).
+note the moduli space of ordered points on C
+Let Pn denote the pure braid group of n points on the sphere. There is a
+natural surjective map
+                                        f0,n ).
+                               Pn → π1 (M
+    Following [DM1] and [DM2], let µ = (µ1 , . . . , µn ) be a sequence of ratio-
+nal weights satisfying
+                                        X
+                       0 < µi < 1 and         µi = 2.
+
+Given b = (b1 , . . . , bn ) ∈ Chni , consider the multivalued algebraic 1-form
+                                            dx
+                        ωb =                                   ·
+                               (x − b1 )µ1 · · · (x − bn )µn
+Note that                                      X
+                             K = (ωb ) = −         µ i bi
+                                                      b since deg(K) =
+can be regarded as a generalized canonical divisor on C,
+                 R bj
+−2. The periods bi ωb are multivariable hypergeometric functions, whose
+                                                     f0,n . These period
+ratios become well-defined on the universal cover of M
+                 f0,n a complex hyperbolic metric gµ , whose holonomy
+coordinates give M
+determines a representation
+
+                     ξµ : Pn → Isom(CHn−3 ) ∼
+                                            = PU(1, n).
+
+   Alternatively, following [Th2], one can consider |ωb | as a flat metric on
+b with cone angles 2π(1 − µi ) at each point bi . The space (C,
+C                                                             b |ωb |) is then
+                                                                R
+isometric to a convex polyhedron in R of total area A = C |ωb |2 . By
+                                        3
+
+considering A as a quadratic form, Thurston obtains the same complex
+hyperbolic metric gµ on M0,n as Deligne and Mostow.1
+The orbifold condition. The weights µ satisfy the orbifold condition if
+whenever s = µi + µj < 1, either
+  1
+   The work [Th2] grew out of a discussion of problem 3 of the 27th Mathematical
+Olympiad (July 9, 1986).
+
+
+                                         45
+   • (1 − s)−1 ∈ Z, or
+
+   • µi = µj and 2(1 − s)−1 ∈ Z.
+A list of the 94 different weights µ satisfying this condition, with n ≥ 4,
+is given in the Appendix to [Th2]. This condition allows us to formulate
+following two important results.
+
+Theorem 10.5 (Deligne–Mostow) If the weights (µi ) satisfy the orbifold
+condition, then the image ξµ (Pn ) of the pure braid group is a lattice in
+PU(1, n − 3).
+
+Theorem 10.6 (Thurston) The metric completion of (M         f0,n , gµ ) is a com-
+plex hyperbolic cone manifold of finite volume. It is an orbifold iff the weights
+(µi ) satisfy the orbifold condition.
+
+See [DM1], [Mos1], and [Th2, Thm. 0.2], as well as [Par, Lemma 3.5], which
+clarifies the relationship between the two results.
+Equal weights. It is straightforward to see that when µ1 = · · · = µn = 2/n,
+the constructions of Deligne–Mostow and Thurston give the same complex
+hyperbolic structure on
+                             M0,n ∼
+                                  =M f0,n /Sn
+
+as that furnished by the period mapping
+
+                              fq : T0,n → H1,n−3
+
+of §6 at q = ζn−2 (see Corollary 6.5). Similarly, if µ1 = · · · = µn−1 = k/d 6=
+µn , then k/d ∈ (1/(n − 1), 2/(n − 1)) and the complex hyperbolic metric on
+
+                            M∗0,n−1 ∼
+                                    =Mf0,n /Sn−1
+
+agrees with that furnished by the period mapping at q = ζd−k (see Corollary
+6.3). In particular, the images of the holonomy maps ξµ (Pn ) and ρq (Bn ) are
+commensurable, and hence Theorem 10.5 provides a criterion for ρq (Bn ) to
+be a lattice.
+Arithmetic lattices. To complement the results above, we present a short
+proof that ρq (Bn ) ⊂ U(1, s) is a lattice whenever it is discrete.
+Proof of Theorem 10.3. Assume ρq (Bn ) ⊂ U(1, s) is discrete. Let
+M = M∗0,n or M0,n depending on whether q = ζd−2 or not, and let Z =
+CHs /ρq (Bn ). As we have seen in §6, the period map defines an analytic
+local homeomorphism of orbifolds fq : M → Z. By the Schwarz lemma,
+
+                                       46
+fq is distance-decreasing from the Teichmüller metric on M to (a suitable
+multiple of) the complex hyperbolic metric on Z.
+    Let M be the Deligne-Mumford compactification of M by stable curves
+with marked points, and let ∂M = M − M . There is a unique maximal
+analytic continuation of fq to an open set M 0 with M ⊂ M 0 ⊂ M .
+    A local model (U, ∂U ) for (M, ∂M ) near any x ∈ M is given by a finite
+quotient of (∆a × (∆∗ )b , 0 × ∆b near (0, 0). Since the puncture of ∆∗ is a
+cusp, every element of π1 (U ) is represented by a short loop in M . Thus
+every element of H = f∗ (π1 (U )) ⊂ π1 (Z) is represented by a short loop in
+Z.
+    If H is finite, then fq lifts to a map feq from a finite cover of U into
+the bounded domain CHs , and hence fq itself extends analytically to a
+neighborhood of x. That is, x ∈ M 0 . Otherwise, there is an h ∈ H which
+has no fixed point in CHs but whose minimal translation distance is zero.
+Then by the Schwarz lemma, fq (U ) is contained in the thin part of Z, and
+hence fq tends to infinity at x.
+    It follows that fq : M 0 → Z is proper. In particular, fq (M 0 ) = Z and
+vol(Z) = vol(fq (M )) since dim ∂M < dim M = dim Z. Since fq is a contrac-
+tion, the volume of fq (M ) ⊂ Z is no more than a constant multiple of the
+volume of M in the Teichmüller metric, which is finite (see e.g. [Mc1][Thm.
+8.1]). Thus vol(Z) < ∞, and hence π1 (Z) = ρq (Bn ) is a lattice.
+
+    Note that Corollary 10.4 to Theorem 10.3 also follows from Theorem
+10.5 and the following observation regarding the 36 entries in Table 9 with
+hyperbolic signature:
+
+Proposition 10.7 Whenever U(Λn,q ) ⊂ U(1, s) is a complex hyperbolic lat-
+tice, the corresponding weights µ satisfy the orbifold condition.
+
+Proof of Theorem 10.1. For these values of n, the entry k/d = 2/n
+appears in Table 9, so we may apply Theorem 10.6.
+
+Arithmetic hyperbolic structures for n ≤ 12. An examination of Ta-
+ble 9 also shows there is at least one arithmetic complex hyperbolic structure
+on M∗0,n for every value of n with 3 ≤ n ≤ 11. (For n > 12, hyperbolic sig-
+nature no longer occurs.)
+    When n = 3, M∗0,3 can be completed to give the hyperbolic orbifold
+H/Γ(2, 3, p) for any p > 6; this completion is arithmetic for 12 values of
+p. There are 6 arithmetic hyperbolic structures on M∗0,4 besides the one
+induced from the covering map M∗0,4 → M0,5 ; the case n = 4, q = ζ3−1
+
+                                     47
+was considered by Picard in 1883 [Pic]. There are also several arithmetic
+hyperbolic structures on M∗0,n for n = 5, 6, 7, but only one for each n =
+8, 9, 10, 11, and none for M∗12 .
+Non-arithmetic examples. Non-arithmetic lattices in U(1, s), s > 1,
+were first discovered in [Mos1]. For the braid group, Theorem 10.6 shows
+there is a unique case where ρq (Bn ) is nonarithmetic but (M∗0,n , gµ ) is still
+a complex hyperbolic orbifold: namely n = 4 and µ = (7, 7, 7, 7, 8)/18. In
+                    −7
+this example q = ζ18    and ρq (Bn ) ⊂ U(1, 2).
+    Other values of µ giving non-arithmetic lattices are enumerated in [Th2,
+Appendix]. Only a finite number of non-arithmetic lattices in U(1, s) are
+presently known (up to commensurability).
+Modular embeddings. Let us consider the non-arithmetic lattice coming
+from n = 4 and d = 18 in more detail. In this case the equation y 18 =
+x(x − 1)(x − a)(x − b) determines a 2-dimensional family of curves X of
+genus g = 25. As in §7, we can regard ∆ = Sp2g (Z)T | Ker Φd (T ∗ ) as an
+irreducible, arithmetic lattice in the product of unitary groups
+                      Y
+                              U (H 1 (X)q ) ∼
+                                            = U (1, 2)2 × U (2)2 .
+                Φd (q)=0,Im q<0
+
+Because of the U(2) factor, ∆ has no unipotents, so it determines a compact,
+4-dimensional Shimura variety
+
+                             S = (CH2 × CH2 )/∆.
+                                              −7
+    Now let Γ = ρq (Bn ) ⊂ U(1, 2) where q = ζ18 . Then Γ is a non-arithmetic
+                                      −5
+lattice. Let Z = CH /Γ and let r = ζ18 (so H (X)q and H 1 (X)r both have
+                     2                         1
+
+signature (1, 2)). Using the period mappings at these two roots of unity, we
+obtain a holomorphic map F : Z → S making the diagram
+
+                         M∗0,4
+                            ❖_
+                              ❖❖❖
+                                 ❖❖(f❖q ,fr )
+                                      ❖❖❖
+                                         ❖❖''
+                          2     F //
+                        CH /Γ         (CH2 × CH2 )/∆
+
+commute. When suitably normalized on the universal covers of domain and
+range, F determines a modular embedding
+
+                            Fe : CH2 → CH2 × CH2
+
+of the form Fe(z) = (z, Fe2 (z)). The map Fe2 : CH2 → CH2 is a transcendental
+function which intertwines the action of Γ with its Galois conjugate Γ′ =
+
+                                       48
+ρr (Bn ). The locus F (Z) ⊂ S is a Kobayashi geodesic subvariety, reminiscent
+of the Teichmüller curves on Hilbert modular surfaces studied in [Mc2] and
+[Mc3].
+    For more details and further examples, see [CW3]. A similar construction
+can be carried out for nonarithmetic triangle groups [CW1].
+
+
+11     Lifting homological symmetries
+For brevity of notation, let Sp(X) = Sp(H 1 (X, Z)) ∼
+                                                    = Sp2g (Z), let Sp(X)T
+                           ∗
+denote the centralizer of T , and let
+                      Sp(X)Td = Sp(X)T | Ker Φd (T ∗ ),
+where Φd (x) is the dth cyclotomic polynomial. As in §7, we have natural
+maps
+                  Bn → Mod(X)T → Sp(X)T → Sp(X)Td .
+We say a group homomorphism φ : G1 → G2 almost onto if [G2 : φ(G1 )] is
+finite.
+    In this section we study the following purely topological question:
+Question 11.1 When is the natural map Bn → Sp(X)Td almost onto?
+For example, by [A’C] we have:
+Theorem 11.2 When d = 2, the natural map Bn → Sp(X)Td ∼
+                                                      = Sp(X) is
+almost onto for all n ≥ 3.
+    We will show that additional cases of Question 11.1 can be resolved using
+arithmeticity of lattices.
+Proposition 11.3 The following are equivalent:
+  1. The map Bn → Sp(X)Td is almost onto.
+  2. The map Mod(X)T → Sp(X)Td is almost onto.
+  3. There is a primitive dth root of unity q such that ρq (Bn ) has finite
+     index in U(Λn,q ).
+Proof. Up to isotopy, any mapping-class [φ] commuting with T can be
+represented by a homeomorphism commuting with T (e.g. we may assume
+T is conformal and take φ to be a Teichmüller mapping). This easily implies
+that Bn → Mod(X)T is almost onto and hence (1) and (2) are equivalent.
+We have also seen, in §7, that the projection of Sp(X)Td to U(Λn,q ) is almost
+onto, so (1) is equivalent to (3).
+
+
+                                     49
+Theorem 11.4 Suppose q is a primitive dth root of unity, and Γ = ρq (Bn ) ⊂
+U(1, s) is a lattice. Then Bn → Sp(X)Td is almost onto if and only if Γ is
+arithmetic.
+
+Proof. If Γ′ = U(Λn,q ) is discrete then the hypotheses imply both it and Γ
+are arithmetic lattices, by Theorem 10.3, and hence [Γ′ : Γ] < ∞. Otherwise
+Γ′ is indiscrete and [Γ′ : Γ] = ∞.
+
+
+Corollary 11.5 The map B3 → Sp(X)Td is almost onto if and only if the
+Fuchsian (2, 3, p) triangle group is finite or arithmetic, where p is the order
+of (d − 2) in Z/2d.
+
+    (Explicitly, using Table 9, we find B3 → Sp(X)Td is almost onto iff d =
+2, 3, 4, 5, 6, 7, 9, 10, 14, 15, 16, 18, 22 or 24.)
+Proof. We may assume d = 2 or d ≥ 7, since otherwise Sp(X)Td is finite.
+Let q be the primitive dth root of unity closest to −1 with Im q ≤ 0. Then
+ρq (B3 ) ⊂ U(1, 1) is a lattice, namely the discrete (2, 3, p) triangle group
+(with p = ∞ when d = 2), and we may apply the Theorem above.
+
+
+Corollary 11.6 The map Bn → Sp(X)Td is almost onto whenever d and n
+appear in Table 9 with associated signature (r, s) = (0, s) or (1, s).
+
+Proof. In these cases either Sp(X)Td is finite or ρq (Bn ) ⊂ U(1, s) is arith-
+metic by Corollary 10.4.
+
+
+
+Corollary 11.7 The map Bn → Sp(X)T is almost onto for d = 3 and
+n = 3, 4, 5, 6; d = 5 and n = 3, 4, 5; and d = 7, n = 3.
+
+Proof. These cases appear in Table 9 as required, and d is prime, so
+Sp(X)Td = Sp(X)T .
+
+   On the other hand, since ρq (B4 ) ⊂ U(1, 2) is a non-arithmetic lattice for
+     −7
+q = ζ18 (see §10), we find:
+
+Corollary 11.8 The image of B4 has infinite index in Sp(X)T18 .
+
+
+
+                                      50
+Notes and references. It is well-known that for any closed orientable
+surface Σg of genus g, the natural map
+
+                             Mod(Σg ) → Sp(Σg )
+
+is surjective [MKS, Thm. N13] (see also [Bu, §7], [FM, Thm. 7.3]). One
+can then ask, which subgroups H ⊂ Sp(Σg ) lift to Mod(Σg )? This is a
+homological form of the Nielsen realization problem; cf. [Ker]. Question
+11.1 is related to certain special cases of this question, where H is an abelian
+group of the form hS, T i.
+    A version of question 11.1 for finite abelian coverings of closed surfaces
+is addressed in [Lo1].
+
+
+12     The hyperelliptic case
+In this section we discuss the hyperelliptic case, where X takes the form
+
+                          y 2 = (x − b1 ) · · · (x − bn )                (12.1)
+
+and ω = dx/y. A special feature of this case is that the symmetry T ∗ ω = −ω
+is preserved by the Teichmüller geodesic flow. Consequently, the period map
+                                      ∗
+                               fq : T0,n → Hg,g
+
+is compatible with a natural action of SL2 (R). We will use this compatibility
+to analyze fq and its image, and (in the next section) to describe fq explicitly
+for the Teichmüller curves coming from regular polygons [V1].
+The period domain. In the hyperelliptic case we have d = 2, q = −1,
+and H 1 (X)q = H 1 (X). Thus the period domain
+
+                           Hg,g ⊂ PH 1 (X) ∼
+                                           = PCg,g
+
+coincides with the space of all positive lines in the cohomology of X (§6).
+The real points
+                                Rg ∼
+                                   = RP2g−1
+of its ambient projective space PH 1 (X) correspond to lines of the form [Cv],
+v ∈ H 1 (X, R). Since hv, vi = 0 for v ∈ H 1 (X, R), we have Rg ⊂ ∂Hg,g . By
+restricting our attention to automorphisms that preserve this real structure,
+we may regard the period domain as the homogeneous space
+
+                  Hg,g = Sp2g (R)/(SO(2, R) × Sp2g−2 (R)).               (12.2)
+
+                                        51
+Secant lines. We say a line L ⊂ PH 1 (X) is a secant if it joins a pair
+of real points p, q ∈ Rg . Every secant has the form L = PV , where V ⊂
+H 1 (X) is invariant under complex-conjugation and has signature (1, 1). The
+intersections S = L ∩ Hg,g form the leaves of the secant foliation S of Hg,g .
+Each leaf is a totally geodesic copy of CH1 (up to the sign of its metric).
+     The secant foliation can also be defined by observing that SL2 (R) acts
+C∼ = R2 , and hence on H 1 (X) = Hom(π1 (X), C); the orbits of this action
+project to the leaves of S.
+Weierstrass forms. Now assume n = 2g + 1 is odd. Let Hg denote the
+moduli space of hyperelliptic Riemann surfaces of genus g. Using (12.1),
+each point configuration [B] = [{b1 , . . . , bn }] in M∗0,n determines an X ∈ Hg
+and a line Cω ⊂ Ω(X), where ω = dx/y. We refer to ω as a Weierstrass
+form, since its divisor (ω) = (2g − 2)f ∞ is supported on a single Weierstrass
+point of X. The map [B] 7→ [(X, ω)] gives a bijection
+
+                       M∗0,2g+1 ∼
+                                = PΩHg (2g − 2) ∼
+                                                =Heg ,                    (12.3)
+
+where H e g is the degree (2g+2) covering space of Hg parameterizing Riemann
+surfaces with a chosen Weierstrass point.
+     Each Weierstrass form determines a quadratic differential ω 2 on C − B
+hence a complex Teichmüller geodesic W ∼      = H through ([C, B]). These
+                                                                 ∗
+geodesics form the leaves of the Weierstrass foliation W of T0,2g+1   . Under
+the isomorphism (12.3), the leaves of W correspond to the orbits of SL2 (R)
+on ΩHg (2g − 2) (see e.g. [KZ]). Since the actions of SL2 (R) on ΩHg and
+H 1 (X) are compatible, we find:
+
+Theorem 12.1 The period map fq : T0,2g+1 ∗      → Hg,g sends the Weierstrass
+foliation W to the secant foliation S. Its restriction to each leaf is an isom-
+etry.
+
+Ergodicity. For g = 1, fq simply gives the standard homeomorphism
+between T0,3∗ and H1,1 ∼ H.
+                        =
+    For g > 1 and n = 2g + 1, the period map is still an equivariant local
+homeomorphism (§6). But the braid group now acts very differently on
+its domain and its range: while the orbits of Bn in Teichmüller space are
+discrete, a typical orbit in the period domain is dense. In fact:
+
+Proposition 12.2 The action of ρq (Bn ) on Hg,g is ergodic for g > 1.
+
+Proof. Equation (12.2) gives Hg,g = G/F , where F is a closed subgroup of
+G = Sp2g (R); and Γ = ρq (Bn ) is a lattice in G by Theorem 11.2. But for
+
+                                       52
+g > 1, F is noncompact, so Γ acts ergodically on G/F by the Howe–Moore
+theorem [HM].
+
+   Thus the image of fq is an open set of full measure, and fq is not a
+covering map to its image (else ρq (Bn ) would have discrete orbits).
+                                                           ∗
+Proposition 12.3 The group Ker ρq has infinite orbits on T0,2g+1 , and
+hence the period map fq is infinite-to-one for g > 1.
+
+Proof. The square of a Dehn twist about a loop enclosing an odd number of
+points of B lifts to a Dehn twist in Mod(X) which acts trivially on homology.
+
+
+    For more on ‘isoperiodic forms’, see [Mc6, §9].
+The image of the period map. Although the period map has a compli-
+cated structure, its image is reasonably tame. Indeed, the results of [Kap]
+easily imply:
+
+Theorem 12.4 For g > 1, the complement of the image of the period map
+                                     ∗
+                              fq : T0,2g+1 → Hg,g
+
+is a nonempty, countable union of secant lines.
+
+Proof. Let G = Sp2g (R), H = Sp2 (R) × Sp2g−2 (R), Γ = ρq (B2g+1 ). By
+Theorem 11.2, Γ is a lattice in G. The image of the period map, modulo
+the secant foliation, is a nonempty, open, Γ-invariant subset U ⊂ Hg,g /S ∼   =
+G/H. By Ratner’s theorem, for any x ∈ G there is a connected Lie group
+J with H ⊂ J such that ΓxH = ΓxJ and Γ ∩ Jx is a lattice in Jx = xJx−1
+[Rat].
+    We will show G/H − U is countable. Suppose [xH] 6∈ U . Then ΓxH
+is not dense in G, and hence J 6= G. As shown in [Kap, §3], this implies
+J = H. Thus Γx = Γ ∩ Hx is a lattice Hx . There are only countably many
+possibilities for Γx , since it is a finitely-generated subgroup of Γ; and Hx is
+the Zariski closure of Γx , so there are only countably many possibilities for
+Hx . But NG (H)/H is finite (in fact trivial for g > 2), so Hx determines
+[xH] up to finitely many choices.
+    Thus the complement of the image of fq is a countable union of leaves of
+the secant foliation. The complement is nonempty by [Kap, §1]: a cohomol-
+ogy class p∗ : π1 (X) → Z[i] determined by a degree one map p : X → C/Z[i]
+can never be realized by a holomorphic 1-form.
+
+
+                                      53
+The case n = 2g + 2: relative periods and quadratic differentials.
+                                                 ∗
+Similar results hold for the period map fq : T0,2g+2   → Hg,g . In this case
+ω = dx/y has a pair of distinct zeros at the points {P, Q} lying over ∞
+in X, and fq is a submersion with 1-dimensional fibers. The fibers form
+                                                   ∗
+the leaves of the absolute period foliation A of T0,2g+2 . Along any fiber A,
+one can normalize ω so its absolute periods are constant; then the (locally
+well-defined) relative period function
+                                       Z Q
+                                  z=       ω
+                                        P
+
+determines a (globally well-defined) holomorphic quadratic differential q =
+dz 2 on A. The natural foliation of T0,2g+2
+                                      ∗     by complex Teichmüller geodesics
+(analogous to W) is transverse to A, so it gives rise to a homeomorphism
+map φ : A → A′ whenever fq (A) and fq (A′ ) are joined by a secant; and in
+fact φ is a Teichmüller mapping, with dilatation proportional to q/|q|. See
+[Mc6, §8] for a more detailed discussion, in the case of genus two.
+
+
+13     Polygons and Teichmüller curves
+Finally we describe certain totally geodesic Teichmüller curves in moduli
+space from the perspective of braid groups and polyhedra.
+Regular polygons. We continue in the hyperelliptic setting, with g > 0
+                                                ∗
+and n = 2g + 1. The Weierstrass foliation of T0,2g+1     descends to a foliation
+     ∗
+of M0,2g+1 , which we also denote by W.
+   Let
+                  α = τ1 τ3 . . . τ2g−1 and β = τ2 τ4 . . . τ2g           (13.1)
+be the elements of Bn obtained by grouping its even and odd generators
+together. The generators in each product commute, so their ordering is
+immaterial. Note that αβ is a natural lifting of the Coxeter element of
+Sn = W (An−1 ) to the corresponding Artin group Bn . Thus the subgroup
+hα, βi ⊂ Bn is a sort of halo of the Coxeter element.
+    Now let B ⊂ C be the vertices of a regular polygon with n sides, and let
+V ⊂ M∗0,n be the leaf of the Weierstrass foliation through [(C, B)]. Although
+most leaves of W are dense, Veech showed the special leaf V is closed [V1].
+More precisely, using [Lei] or [Mc4] for the statement on π1 , we have:
+
+Theorem 13.1 The leaf V is a rational, totally geodesic algebraic curve in
+moduli space; and the image of the inclusion
+                             π1 (V ) ֒→ π1 (M∗0,n )
+
+                                      54
+is the (2, n, ∞) triangle group generated by the mapping-classes [α] and [β].
+
+We remark that the triangle group relations follow from the identity
+
+                          (αβ)n = ((αβ)g α)2 = σ n
+
+in the braid group (recall that the mapping class [σ n ] is trivial).
+    As shown in [Loch] (see also [Mc5, §5]), the point configurations arising
+in V are given explicitly by
+
+                        B(t) = {ζ + tζ −1 : ζ n = 1},
+
+where t ∈ C and tn 6= 1. (Note that B(t), B(1/t) and B(ζn t) all represent
+the same point in moduli space.)
+
+
+
+
+   Figure 13. The sphere with the flat metric |dx|/|xn − 1|1/2 , n = 3, 5, 7.
+
+
+Polyhedra. Following [Th2], one can associate to each point configuration
+B ⊂ C the abstract Euclidean polyhedron Q = (C,   b |ω|) determined by the
+flat metric
+                      |ω| = |dx/y| = |p(x)|−1/2 |dx|,
+               Q
+where p(x) = B (x − b). This polyhedron has a cone angle of π at the
+points x ∈ B, and a cone angle of (n − 2)π at x = ∞.
+Folded polygons and immersed disks. As B(t) moves along V , one
+obtains a family of polyhedra related by Teichmüller mappings. These poly-
+hedra take on particularly simple shapes at the orbifold points of V , which
+come from t = 0 and t = −1.
+    At t = 0 we have p(x) = xn − 1, and Q can be obtained from a regular
+n-gon by folding its edges together at their midpoints, so that all n vertices
+are identified (see Figure 13). In the case g = 1 the result is a regular
+tetrahedron, but for g > 1 there is negative curvature at the Weierstrass
+point at infinity, so the polyhedron is no longer convex.
+
+
+                                      55
+                                            √
+   For t = −1, it is convenient to set B = ( −1/2)B(t); then
+                       Y             Y g               
+                                                     2πk
+               p(x) =     (x − b) =        x − sin
+                                                      n
+                        B            k=−g
+
+has real zeros x1 < x2 < · · · < xn . The Schwarz-Christoffel formula
+                                       Z z
+                                            dt
+                               f (z) =     p
+                                        0    p(t)
+yields a conformal immersion f : H → C, which bends the real axis by 90
+degrees at each point xi , and |ω| is nothing more than the pullback of the
+Euclidean metric on C under f .
+
+
+
+
+                  Figure 14. Immersed disks for 1 ≤ g ≤ 8.
+
+
+    Thus Q can be visualized as the double of the immersed disk D = f (H)
+across its boundary. The disk D is a square for g = 1, an L-shaped region
+for g = 2, and an immersed right-angled polygon for g ≥ 3 (see Figure 14.)
+The immersion f for g = 4 is shown in more detail in Figure 15, where it has
+been factored as the composition f (z) = h(z)2 of an embedding h : H → C
+with the squaring map.
+Periods and eigenvectors. The lengths of the edges of D are given
+explicitly by the absolute values of periods of ω, namely
+                               Z xi+1
+                          Li =        |p(x)|−1/2 dx.
+                                xi
+
+These lengths can also be determined algebraically.
+
+                                     56
+                                      z2
+                                     −→
+
+
+
+         Figure 15. The immersion f , factored through z 2 , for g = 4.
+
+
+Theorem 13.2 The lengths (L1 , . . . , Ln−1 ) form a positive eigenvector for
+the adjacency matrix (Cij ) of the An−1 Coxeter diagram.
+Here Cij = 1 if |i − j| = 1 and 0 otherwise.
+Proof. Let (hi ) be a positive eigenvector for Cij , and let X be the hyper-
+elliptic surface defined by y 2 = p(x). The generators [τi ] of Mod∗0,n lift to
+Dehn twists about simple closed curves on X satisfying Si · Sj = Cij . By
+a construction of Thurston, this implies there is a holomorphic quadratic
+differential q on X such that the loops (Si ) are represented by a cylinders
+of heights (hi ) on (X, |q|), and the lifts of α and β are realized by affine
+automorphisms [Th1]; cf. [Mc4, §4]. In the case at hand, it is easy to see
+that q is a multiple of ω 2 , and hence (hi ) is proportional to (Li ).
+
+Remark. The fact that the ratios Li /Lj are algebraic reflects the fact
+that the Jacobian of the curve y 2 = p(x) admits complex multiplication by
+Q(i, ζn + ζn−1 ).
+
+
+References
+[A’C]   N. A’Campo. Tresses, monodromie et le groupe symplectique. Com-
+        ment. Math. Helvetici 54(1979), 318–327.
+[Al1]   D. Allcock. Braid pictures for Artin groups. Trans. Amer. Math.
+        Soc. 354(2002), 3455–3474.
+[Al2]   D. Allcock. The moduli space of cubic threefolds. J. Algebraic
+        Geom. 12(2003), 201–223.
+[ACT1] D. Allcock, J. A. Carlson, and D. Toledo. The complex hyperbolic
+       geometry of the moduli space of cubic surfaces. J. Algebraic Geom.
+       11(2002), 659–724.
+
+                                      57
+[ACT2] D. Allcock, J. A. Carlson, and D. Toledo. The moduli space of cubic
+       threefolds as a ball quotient. Mem. Amer. Math. Soc., vol. 209, 2011.
+
+[AMU] J. E. Andersen, G. Masbaum, and K. Ueno. Topological quan-
+      tum field theory and the Nielsen-Thurston classification of M (0, 4).
+      Math. Proc. Cambridge Philos. Soc. 141(2006), 477–488.
+
+[Ar]     P. Arnoux. Un exemple de semi-conjugaison entre un échange
+         d’intervalles et une translation sur le tore. Bull. Soc. Math. France
+         116(1988), 489–500.
+
+[AY]     P. Arnoux and J.-C. Yoccoz. Construction de diffeomorphisme
+         pseudo-Anosov. C. R. Acad. Sci. Paris 292(1981), 75–78.
+
+[At]     M. F. Atiyah. Representations of braid groups. In Geometry of
+         low-dimensional manifolds, 2 (Durham, 1989), volume 151 of Lon-
+         don Math. Soc. Lecture Note Ser., pages 115–122. Cambridge Univ.
+         Press, Cambridge, 1990.
+
+[Bg1]    S. J. Bigelow. The Burau representation is not faithful for n = 5.
+         Geometry and Topology 3(1999), 397–404.
+
+[Bg2]    S. J. Bigelow. Braid groups are linear.       J. Amer. Math. Soc.
+         14(2001), 471–486.
+
+[Bi]     J. S. Birman. Braids, Links and Mapping-Class Groups, volume 82
+         of Annals of Math. Studies. Princeton University Press, 1974.
+
+[Bor1]   A. Borel. Introduction aux groups arithmétiques. Hermann, 1969.
+
+[Bor2]   A. Borel. Linear Algebraic Groups. Second Edition.         Springer–
+         Verlag, 1991.
+
+[BH]     A. Borel and Harish-Chandra. Arithmetic subgroups of algebraic
+         groups. Ann. of Math. 75(1962), 485–535.
+
+[BMR] M. Broué, G. Malle, and R. Rouqier. Complex reflection groups,
+      braid groups, Hecke algebras. J. reine angew. Math. 500(1998),
+      127–190.
+
+[BZ]     G. Burde and H. Zieschang. Knots. Walter de Gruyter & Co., 1985.
+
+[Bu]     H. Burkhardt. Grundzüge einer allgemeinen Systematik der hyper-
+         elliptischen Functionen I. Ordnung. Math. Ann. 35(1890), 198–296.
+
+
+                                     58
+[CMP] J. Carlson, S. Müller-Stach, and C. Peters. Period Mappings and
+      Period Domains. Cambridge University Press, 2003.
+
+[ChW] C. Chevalley and A. Weil. [1934a] Über das Verhalten der Integral
+      erster Gattung bei Automorphismen des Funktionenkörpers. In
+      A. Weil, Oeuvres Scient., volume I, pages 68–71. Springer-Verlag,
+      1980.
+
+[CW1] P. Cohen and J. Wolfart. Modular embeddings for some non-
+      arithmetic Fuchsian groups. Acta Arith. 56(1990), 93–110.
+
+[CW2] P. Cohen and J. Wolfart. Algebraic Appell-Lauricella functions.
+      Analysis 12(1992), 359–376.
+
+[CW3] P. Cohen and J. Wolfart. Fonctions hypergéométriques en plusieurs
+      variables et espaces des modules de variétés ab éliennes. Ann. Sci.
+      École Norm. Sup. 26(1993), 665–690.
+
+[Cox]   H. S. M. Coxeter. Finite groups generated by unitary reflections.
+        Abh. Math. Sem. Univ. Hamburg 31(1967), 125–135.
+
+[DM1]   P. Deligne and G. D. Mostow. Monodromy of hypergeometric
+        functions and non-lattice integral monodromy. Publ. Math. IHES
+        63(1986), 5–89.
+
+[DM2]   P. Deligne and G. D. Mostow. Commensurabilities among Lattices
+        in P U (1, n). Annals of Math. Studies. Princeton Univ. Press, 1993.
+
+[DK]    I. V. Dolgachev and S. Kondo. Moduli of K3 surfaces and complex
+        ball quotients. In Arithmetic and Geometry around Hypergeometric
+        Functions, Progr. Math., 260, pages 43–100. Birkhäuser, 2007.
+
+[FM]    B. Farb and D. Margalit. A Primer on Mapping Class Groups.
+        Princeton University Press, 2012.
+
+[Gr]    B. H. Gross. On the centralizer of a regular, semi-simple, stable
+        conjugacy class. Represent. Theory 9(2005), 287–296.
+
+[HM]    R. E. Howe and C. C. Moore. Asymptotic properties of unitary
+        representations. J. Functional Analysis 32(1979), 72–96.
+
+[Hu]    A. Hurwitz. Über algebraische Gebilde mit eindeutigen Transfor-
+        mationen in sich. Math. Ann. 41(1893), 403–442.
+
+
+
+                                    59
+[J]      V. F. R. Jones. Hecke algebra representations of braid groups and
+         link polynomials. Ann. of Math. 126(1987), 335–388.
+
+[Kap]    M. Kapovich.      Periods of abelian differentials and dynamics.
+         Preprint, 2000.
+
+[KM]     M. Kapovich and J. J. Millson. On representation varieties of Artin
+         groups, projective arrangements and the fundamental groups of
+         smooth complex algebraic varieties. Publ. Math. IHES 88(1998),
+         5–95.
+
+[KT]     C. Kassel and V. Turaev. Braid Groups. Springer, 2008.
+
+[Ker]    S. Kerckhoff. The Nielsen realization problem. Ann. of Math.
+         177(1983), 235–265.
+
+[Kl]     F. Klein.    Volesungen über die Hypergeometrische Funktion.
+         Springer, 1939.
+
+[Ko]     S. Kondo. A complex hyperbolic structure for the moduli space of
+         curves of genus three. J. reine angew. Math. 525(2000), 219–232.
+
+[KZ]     M. Kontsevich and A. Zorich. Connected components of the moduli
+         spaces of Abelian differentials with prescribed singularities. Invent.
+         math. 153(2003), 631–678.
+
+[Kr]     D. Krammer. Braid groups are linear. Ann. of Math. 155(2002),
+         131–156.
+
+[Law]    R. J. Lawrence. Homological representations of the Hecke algebra.
+         Comm. Math. Phys. 135(1990), 141–191.
+
+[Lei]    C. J. Leininger. On groups generated by two positive multi-twists:
+         Teichmüller curves and Lehmer’s number. Geom. Topol. 8(2004),
+         1301–1359.
+
+[Loch]   P. Lochak. On arithmetic curves in the moduli space of curves. J.
+         Inst. Math. Jussieu 4(2005), 443–508.
+
+[Lo1]    E. Looijenga. Prym representations of mapping class groups. Geom.
+         Dedicata 64(1997), 69–83.
+
+[Lo2]    E. Looijenga. Artin groups and the fundamental groups of some
+         moduli spaces. J. Topol. 1(2008), 187–216.
+
+
+                                      60
+[MKS] W. Magnus, A. Karrass, and D. Solitar. Combinatorial Group The-
+      ory: Presentations of Groups in Terms of Generators and Relations.
+      John Wiley & Sons, Inc., 1966.
+
+[Mg]    G. A. Margulis. Discrete Subgroups of Semisimple Lie Groups.
+        Springer-Verlag, 1991.
+
+[MS]    H. Masur and J. Smillie. Hausdorff dimension of sets of nonergodic
+        measured foliations. Annals of Math. 134(1991), 455–543.
+
+[Mc1]   C. McMullen. The moduli space of Riemann surfaces is Kähler
+        hyperbolic. Annals of Math. 151(2000), 327–357.
+
+[Mc2]   C. McMullen. Billiards and Teichmüller curves on Hilbert modular
+        surfaces. J. Amer. Math. Soc. 16(2003), 857–885.
+
+[Mc3]   C. McMullen. Teichmüller curves in genus two: Discriminant and
+        spin. Math. Ann. 333(2005), 87–130.
+
+[Mc4]   C. McMullen. Prym varieties and Teichmüller curves. Duke Math.
+        J. 133(2006), 569–590.
+
+[Mc5]   C. McMullen. Teichmüller curves in genus two: Torsion divisors
+        and ratios of sines. Invent. math. 165(2006), 651–672.
+
+[Mc6]   C. McMullen. Foliations of Hilbert modular surfaces. Amer. J.
+        Math. 129(2007), 183–215.
+
+[Mo]    M. Möller. Shimura and Teichmüller curves. J. Mod. Dyn. 5(2011),
+        1–32.
+
+[Mos1] G. D. Mostow. On a remarkable class of polyhedra in complex
+       hyperbolic space. Pacific J. Math. 86(1980), 171–276.
+
+[Mos2] G. D. Mostow. Braids, hypergeometric functions, and lattices. Bull.
+       Amer. Math. Soc. (N.S.) 16(1987), 225–246.
+
+[Par]   J. R. Parker. Complex hyperbolic lattices. In Discrete Groups and
+        Geometric Structures, pages 1–42. Amer. Math. Soc., 2009.
+
+[Pe]    B. Perron. A homotopic intersection theory on surfaces: applica-
+        tions to mapping class group and braids. Enseign. Math. 52(2006),
+        159–186.
+
+
+
+                                   61
+[Pic]   E. Picard. Sur des fonctions de deux variables indépendantes ana-
+        logues aux fonctions modulaires. Acta Math. 2(1883), 114–135.
+
+[Rat]   M. Ratner. Interactions between ergodic theory, Lie groups and
+        number theory. In Proceedings of the International Congress of
+        Mathematicians (Zürich, 1994), pages 156–182. Birkhaüser, Basel,
+        1995.
+
+[Re]    M. Reeder. Torsion automorphisms of simple Lie algebras. Enseign.
+        Math. 56(2010), 3–47.
+
+[SG]    G. Sansone and J. Gerretsen. Lectures on the Theory of Functions
+        of a Complex Variable. P. Noordhoff, 1960.
+
+[Sat]   I. Satake. Algebraic Structures of Symmetric Domains. Princeton
+        University Press, 1980.
+
+[Sau]   J. K. Sauter. Isomorphisms among monodromy groups and applica-
+        tions to lattices in PU(1, 2). Pacific J. Math. 146(1990), 331–384.
+
+[Sch]   H. A. Schwarz. Über diejenigen Fälle, in welchen die Gaußische hy-
+        pergeomtrische Reihe eine algebraische Funktion ihres vierten Ele-
+        ments darstellt. J. reine angew. Math. 75(1873), 292–335.
+
+[Sh]    G. C. Shephard and J. A. Todd. Finite unitary reflection groups.
+        Canadian J. Math. 6(1954), 274–304.
+
+[Shi]   G. Shimura. Introduction to the Arithmetic Theory of Automorphic
+        Functions. Princeton University Press, 1994.
+
+[SS]    T. A. Springer and R. Steinberg. Conjugacy classes. In Algebraic
+        Groups and Related Finite Groups, volume 131 of Lecture Notes in
+        Math., pages 167–266. Springer, 1970.
+
+[Sq]    C. Squier. The Burau representation is unitary. Proc. Amer. Math.
+        Soc. 90(1984), 199–202.
+
+[Tak]   K. Takeuchi. Arithmetic triangle groups. J. Math. Soc. Japan
+        29(1977), 91–106.
+
+[Th1]   W. P. Thurston. On the geometry and dynamics of diffeomorphisms
+        of surfaces. Bull. Amer. Math. Soc. 19(1988), 417–431.
+
+
+
+
+                                    62
+[Th2]   W. P. Thurston. Shapes of polyhedra and triangulations of the
+        sphere. In The Epstein Birthday Schrift, volume 1 of Geom. Topol.
+        Monogr., pages 511–549. Geom. Topol. Publ., 1998.
+
+[Tr]    M. Troyanov. On the moduli space of singular euclidean surfaces.
+        In A. Papadopoulos, editor, Handbook of Teichmüller Theory, vol-
+        ume I, pages 507–540. Eur. Math. Soc., 2007.
+
+[V1]    W. Veech. Teichmüller curves in moduli space, Eisenstein series
+        and an application to triangular billiards. Invent. math. 97(1989),
+        553–583.
+
+[V2]    W. Veech. Moduli spaces of quadratic differentials. J. Analyse
+        Math. 55(1990), 117–171.
+
+[V3]    W. Veech. Flat surfaces. Amer. J. Math. 115(1993), 589–689.
+
+[WW]    E. T Whittaker and G. N Watson. A Course of Modern Analysis.
+        Cambridge University Press, 1952.
+
+[Yo]    M. Yoshida. Hypergeometric Functions, My Love. Vieweg, 1997.
+
+
+
+
+                                    63
+

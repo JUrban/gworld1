@@ -1908,3 +1908,21 @@ initial GAP syntax failure is preserved; the corrected run passes with
 empty stderr. A separate symbolic matrix probe is retained as an unused
 necessary-condition detour. All jobs terminal, counts unchanged at
 10whole/2partial/0established-novel. No push or clock change.
+
+
+## B9 coloring graph and B12 prior coverage (2026-09-29T21:09:47.972454+00:00)
+
+The direct B3 coloring graph reaches1891 states through depth12, including
+46 endpoints in the four known B4 exponent-two cosets. No cap hit or new
+coset. A proposed two-positive-cone description fails already at the
+explicit braid s2 s1^2 s2^-1; independent GAP verifies its special
+decomposition and complete finite positive-word exclusions. All five
+recorded build/probe/check jobs pass. No B9 count or scope promotion.
+
+A structural B12 scan led to prior coverage for every5<=n<=12: McMullen
+Table9 and Cor10.4 give lattice images of the full B_n; Osin Cor1.6 turns
+these into non-elementary word-hyperbolic quotients. Sources and exact
+quantifiers audited; actual original statement and primary theorem/table
+pages viewed. This is credited prior consequence, not a new candidate;
+n>=13 remains unresolved here. Counts10whole/2partial/0established-novel,
+all jobs terminal, no push or deadline change.
