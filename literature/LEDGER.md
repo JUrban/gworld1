@@ -830,3 +830,16 @@ and finite conventions are explicit. FP1 remains open in the recent
 Kegel--Li--Ren2609.10461v1 introduction; its9-relator unsolvable-WP result
 also does not reach A1's2 relators. See AUX2-OR15-FP1-scope.md for exact
 reading limits and archived sources. No discovery count.
+
+
+## N9 fixed-group candidate source audit,29 September2026
+
+Jones1982 publisher extract archived/read; two equation-image fetches
+failed, full article not read. Larchey-Wendling--Forster arXiv2003.04604v5
+archived: introduction, Theorem8.3 parameterized DPRM and Section9
+four-square conversion read; actual printed35:21 viewed. Coq development
+not rebuilt. MathNet primary2017 Roman'kov--Khisamiev--Konyrkhanova
+abstract confirms prior free-nilpotent retract algorithm; full proof not
+audited. Fixed-group/Heisenberg/retract/undecidability searches returned
+prior uniform results without a matching fixed-group answer; not a novelty
+guarantee. Exact links and limitations: problems/N9/audit.md.

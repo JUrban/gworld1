@@ -6,7 +6,7 @@ Source begins at line 49; byte range [2038, 2487). The raw fragment is stored in
 
 Heading star: False. Starred subparts: b. Hall of Fame entries: 1. Linked background sections indexed: 1.
 
-Part (a) remains unresolved here. The [fixed-ambient note](../../research/notes/N9-fixed-ambient-and-coproduct.md) records the prior uniform theorem, a coproduct clarification and obstructions to attempted fixed-group encodings. Part (b) is prior. No candidate is counted. The machine-readable source evidence is in `data/problems.json`; the extracted text below is a search aid, not an authoritative transcription.
+Part (a) now has a [candidate negative answer](proof.md): the retract problem is undecidable in one fixed finitely generated torsion-free class-two group, already for two-generator nonabelian subgroups. The [audit](audit.md) records exact lattice and native GAP checks, a Lean normalization lemma, scope limits and pending novelty/specialist review. Part (b) is prior; together these give one whole-entry coverage candidate. The earlier [fixed-ambient note](../../research/notes/N9-fixed-ambient-and-coproduct.md) preserves failed encodings and the prior uniform theorem. The machine-readable source evidence is in `data/problems.json`; the extracted text below is a search aid, not an authoritative transcription.
 
 ```text
 (N9) (A.Miasnikov) Let G be a group. The retract problem in G is the following:

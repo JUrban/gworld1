@@ -1,0 +1,2241 @@
+                                         Logical Methods in Computer Science
+                                         Volume 18, Issue 1, 2022, pp. 35:1–35:41                                                    Submitted    Mar. 11, 2020
+                                         https://lmcs.episciences.org/                                                               Published    Mar. 01, 2022
+
+
+
+
+                                                                      HILBERT’S TENTH PROBLEM IN COQ
+                                                                            (EXTENDED VERSION ∗ )
+
+                                                              DOMINIQUE LARCHEY-WENDLING AND YANNICK FORSTER
+arXiv:2003.04604v5 [cs.LO] 28 Feb 2022
+
+
+
+
+                                            a
+                                                Université de Lorraine, CNRS, LORIA, Vandœuvre-lès-Nancy, France
+                                                e-mail address: dominique.larchey-wendling@loria.fr
+                                            b
+                                                Saarland University, Saarland Informatics Campus, Saarbrücken, Germany
+                                                e-mail address: forster@cs.uni-saarland.de
+
+
+                                                   Abstract. We formalise the undecidability of solvability of Diophantine equations, i.e.
+                                                   polynomial equations over natural numbers, in Coq’s constructive type theory. To do so,
+                                                   we give the first full mechanisation of the Davis-Putnam-Robinson-Matiyasevich theorem,
+                                                   stating that every recursively enumerable problem – in our case by a Minsky machine – is
+                                                   Diophantine. We obtain an elegant and comprehensible proof by using a synthetic approach
+                                                   to computability and by introducing Conway’s FRACTRAN language as intermediate layer.
+                                                   Additionally, we prove the reverse direction and show that every Diophantine relation
+                                                   is recognisable by µ-recursive functions and give a certified compiler from µ-recursive
+                                                   functions to Minsky machines.
+
+
+
+
+                                                                                         1. Introduction
+                                         Hilbert’s tenth problem (H10) was posed by David Hilbert in 1900 as part of his famous
+                                         23 problems [Hil02] and asked for the “determination of the solvability of a Diophantine
+                                         equation.” A Diophantine equation1 is a polynomial equation over natural numbers (or,
+                                         equivalently, integers) with constant exponents, e.g. x2 + 3z = yz + 2. When Hilbert asked
+                                         for “determination,” he meant, in modern terms, a decision procedure, but computability
+                                         theory was yet several decades short of being developed.
+                                              The first undecidable problems found by Church, Post and Turing were either native to
+                                         mathematical logic or dependent on a fixed model of computation. H10, to the contrary, can
+                                         be stated to every mathematician and its formulation is independent from a model of com-
+                                         putation. Emil Post stated in 1944 that H10 “begs for an unsolvability proof” [Pos44]. From
+                                         a computational perspective, it is clear that H10 is recursively enumerable (or recognisable),
+                                         meaning there is an algorithm that halts on a Diophantine equation iff it is solvable.
+                                              Post’s student Martin Davis conjectured that even the converse is true, i.e. that every
+                                         recognisable set is also Diophantine. More precisely, he conjectured that if A ⊆ Nk is
+
+                                            Key words and phrases: Hilbert’s tenth problem, Diophantine equations, undecidability, computability
+                                         theory, reduction, Minsky machines, Fractran, Coq, type theory.
+                                          ∗
+                                            extended version of [LWF19].
+                                            1
+                                              Named after the Greek mathematician Diophantus of Alexandria, who started the study of polynomial
+                                         equations in the third century.
+
+
+
+                                         l      LOGICAL METHODS
+                                                IN COMPUTER SCIENCE      DOI:10.46298/LMCS-18(1:35)2022
+                                                                                                          ©
+                                                                                                          CC
+                                                                                                               HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)
+                                                                                                                Creative Commons
+35:2              HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                      Vol. 18:1
+
+
+
+
+recognisable then (a1 , . . . , ak ) ∈ A ↔ ∃x1 . . . xn , P (a1 , . . . , ak , x1 , . . . , xn ) = 0 holds for some
+polynomial P in k + n variables. He soon improved on a result by Gödel [Göd31] and
+gave a proof of his conjecture, however requiring up to one bounded universal quantifica-
+tion [Dav53]: (a1 , . . . , ak ) ∈ A ↔ ∃z, ∀y < z, ∃x1 . . . xn , P (a1 , . . . , ak , x1 , . . . , xn , y, z) = 0.
+Davis and Putnam [DP59] further improved on this, and showed that, provided a certain
+number-theoretic assumption holds, every recognisable set is exponentially Diophantine,
+meaning variables are also allowed to appear in exponents. Julia Robinson then in 1961
+modified the original proof to circumvent the need for the assumption, resulting in the
+DPR theorem [DPR61], namely that every recognisable set is exponentially Diophantine.
+Due to another result from Robinson [Rob52], the gap now only consisted of proving that
+there is a Diophantine equation exhibiting exponential growth. In 1970, Yuri Matiyasevich
+showed that the Fibonacci sequence grows exponentially while being Diophantine, closing
+the gap and finishing the proof of the theorem nowadays called DPRM theorem, ultimately
+establishing that exponentiation is Diophantine itself [Mat70] (known as “Matiyasevich’s
+theorem”).
+     Even the most modern and simpler proofs of the DPRM theorem still require many
+preliminaries and complicated number-theoretic ideas, for an overview see [Mat16]. We
+formalise one such proof as part of our ongoing work on a library of undecidable prob-
+lems [FLW18, FLWD+ 20] in the proof assistant Coq [Tea21]. Since H10 is widely used as a
+seed [DR19, Gol81] for showing the undecidability of problems using many-one reductions,
+this will open further ways of extending the library. Given that our library already contains
+a formalisation of Minsky machines [FL19], we follow the approach of Jones and Matija-
+sevič [JM84], who use register machines, being very well-suited since they already work on
+numbers. They encode full computations of register machines as Diophantine equations in
+one single, monolithic step. To make the proof more tractable for both mechanisation and
+explanation, we factor out an intermediate language, John Conway’s FRACTRAN [Con87],
+which can simulate Minsky machines.
+     We first introduce three characterisations of Diophantine equations over natural num-
+bers, namely Diophantine logic DIO FORM (allowing to connect basic Diophantine equa-
+tions with conjunction, disjunction and existential quantification), elementary Diophantine
+constraints DIO ELEM (a finite set of constraints on variables, oftentimes used for reduc-
+tions [DR19, Gol81]) and single Diophantine equations DIO SINGLE, including parameters,
+as described above. H10 then asks about the solvability of single Diophantine equations
+with no parameters.
+     Technically, the reduction chain to establish the unsolvability of H10 starts at the halting
+problem for single-tape Turing machines Halt, reduced to the Post correspondence problem
+PCP in [FHS18]. In previous work [FL19] we have reduced PCP to a specialised halting
+problem for Minsky machines, which we use here in a slightly generalised form as MM.
+We then reduce Minsky machine halting to FRACTRAN termination. FRACTRAN is very
+natural to describe using polynomials, and the encoding does not rely on any complicated
+construction. The technical difficulty then only lies in the Diophantine encoding of the
+reflexive-transitive closure of a relation which follows from the direct elimination of bounded
+universal quantification, given that the proof in [Mat97] involves no detour via models
+of computation. In total, we obtain the following chain of reductions,2 establishing the
+
+   2A many-one reduction P  Q, later defined formally in this section, is a computable function from
+problem P to problem Q that maps instances of P into instances of Q, pereserving both validity and invalidity.
+Vol. 18:1           HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                        35:3
+
+
+
+
+PCP: Post correspondence problem, see e.g. [FL19]. (matching)
+MM: Given n : N, a Minsky machine P : L In with n registers, and ~v : Nn , does (1, P )
+      terminate from input state (1, ~v )? (termination)
+FRACTRAN: Given a regular FRACTRAN program Q : L (N × N) and an input state s, does
+      Q terminate from input state x? (termination)
+DIO FORM: Given a Diophantine logic formula A : Dform and a valuation ν : V → N, does
+      JAKν hold? (satisfaction)
+DIO ELEM: Given a list l : L Dcstr of elementary Diophantine constraints and a valuation
+      ν : V → N, does there exist ϕ : U → N such that ∀c ∈ l, JcKϕ             ν ? (simultaneous
+      satisfiability)
+DIO SINGLE: Given a single Diophantine equation p =        ˙ q : Dsingle (N, N) and a valuation
+      ν : N → N, does there exist ϕ : N → N s.t. JpKϕ ν =   JqKϕν ? (solvability)
+H10: Given a single Diophantine equation p =    ˙ q : Dsingle (Fn , F0 ) (over N with possibly n
+      variables but no parameters), does it have a solution in N? (solvability)
+µ-rec: Given n : N, an n-ary µ-recursive function f : An , and ~v : Nn , does ~v belong to the
+      domain of f ? (termination)
+H10Z : Given a single Diophantine equation p =   ˙ q : Dsingle (Fn , F0 ) (over Z with possibly n
+      variables but no parameters), does it have a solution in Z? (solvability)
+
+                Figure 1: Summary description of some decision problems.
+
+
+undecidability of H10 and it’s many-one interreducibility with several decision problems:
+ Halt  PCP  MM  FRACTRAN  DIO FORM  DIO ELEM  DIO SINGLE  H10  µ-rec  MM
+
+where Fig. 1 lists high-level descriptions of these problems. Furthermore, we prove that
+H10  H10Z via Lagrange’s theorem. In the present paper, we focus on explaining this
+factorisation of the proof and give some details for the different stages. While we contribute
+Coq mechanisations of Matiyasevich’s theorem and the elimination of bounded universal
+quantification, we treat them mainly as black-boxes and only elaborate on their challenging
+formalisation rather than the proofs themselves (see Section 2.3).
+     To the best of our knowledge, we are the first to give a full verification of the DPRM
+theorem and the undecidability of Hilbert’s tenth problem in a proof assistant. We base the
+notion of recognisability in the DPRM theorem on Minsky machines.
+     When giving undecidability proofs via many-one reductions, it is critical to show that
+all reduction functions are actually computable. We could in theory verify the computability
+of all functions involved using an explicit model of computation. In pen-and-paper proofs,
+this approach is however almost never used, because implementing high-level mathematical
+transformations as provably correct low-level programs is a daunting task. Instead, we rely
+on a synthetic approach [FHS18, FKS19, FL19] based on the computability of all functions
+definable in Coq’s constructive type theory, which is closer to the practice of pen-and-paper
+proofs. In this approach, a problem P is considered undecidable if there is a reduction from
+an obviously undecidable problem, e.g. Halt  P .
+     The axiom-free Coq formalisation of all the results in this paper is available on-
+line [FLWD+ 21] and the main lemmas and theorems in the pdf version of the paper are
+hyper-linked with the html version of the source code at
+  https://github.com/uds-psl/coq-library-undecidability/tree/H10-LMCS-v1.1
+35:4             HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                               Vol. 18:1
+
+
+
+
+Starting from our already existing library which included most of the Minsky machine
+code [FL19], the additional code for proving the undecidability of H10 and the DPRM
+theorem consists of about 8k loc including 3k loc for Matiyasevich’s results alone, together
+with a 4k loc addition to our shared libraries; see Appendix A for more details. The paper
+itself can be read without in-depth knowledge of Coq or type theory.
+
+
+
+1.1. Contribution. This paper is an extended journal version of a conference paper [LWF19]
+which, besides a full mechanisation of the DPRM theorem, contributed a novel refactoring
+of the proof via FRACTRAN improving the explainability of the DPRM theorem. Compared
+to the conference version, we contribute mechanised proofs showing that
+• H10 reduces to solvability of Diophantine equations over integers, reduction obtained via
+  a low-level implementation of Lagrange’s theorem (Section 9);
+• Diophantine relations are recognisable by µ-recursive algorithms (Section 10);
+• µ-recursively recognisable relations are MM-recognisable (Section 10), thereby proving
+  that all considered problems are in the same many-one reduction class;
+• µ-recursive algorithms can be simulated in the weak call-by-value λ-calculus (Section 11),
+  thereby proving that all considered problems are in the same many-one reduction class as
+  most problems in the Coq library of undecidable problems [FLWD+ 20].
+    Apart from the new results, we have simplified the account of Diophantine logic consid-
+erably and expanded various explanations of proofs.
+
+
+
+1.2. Preliminaries. For the text, while we cannot completely avoid it, we will try to
+minimize reliance on type theoretic language and notations. We write P for the (impredicative)
+type of propositions and Type for the (predicative hierachy of) types of Coq. When X and
+Y are types, we write X → Y for functions from X to Y .3 We write x × y or x · y for
+multiplication of natural numbers x, y : N and we will leave out the symbol where convenient.
+We write L X for the type of lists over X and l +    + l0 for the concatenation of two lists. We
+         n
+write X for vectors ~v over type X with length n, and Fn for the finite type with exactly n
+elements. For p : Fn , we write ~vp for the p-th component of ~v : X n . Notations for lists are
+overloaded for vectors.
+     We write O X for the type of options over X with elements bxc where x : X and ∅. We
+write X + Y for the type-theoretic sum of types X and Y , consisting of inl x for x : X and
+inr y for y : Y . For a list l : L X, ln : O X denotes the n-th value in l if it exists.
+     If P : X → P is a predicate (on X) and Q : Y → P is a predicate, we write P  Q if
+there is a function f : X → Y s.t. ∀x : X, P x ↔ Q(f x), i.e. a many-one reduction from P
+to Q. In the synthetic approach [FHS18, FKS19, FL19], the computability of the reduction f
+is automatically ensured because f is typeable in Coq without relying on any axiom.
+
+
+
+  3In the case where X and Y are moreover propositions, the type/proposition X → Y is understood as
+X implies Y , inhabited with functions mapping proofs of X into proofs of Y ; the type theory of Coq fully
+implements the Curry-Howard isomorphism.
+Vol. 18:1              HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                    35:5
+
+
+
+
+                                     2. Diophantine Relations
+Diophantine relations are composed of polynomials over natural numbers. There are
+several equivalent approaches to characterise these relations and oftentimes, the precise
+definition is omitted from papers. Basically, one can form equations between polyno-
+mial expressions and then combine these with conjunctions, disjunctions, and existential
+quantification.4 For instance, these operations are assumed as Diophantine producing opera-
+tors in e.g. [JM84, Mat70, Mat97, Mat00]. Sometimes Diophantine relations are restricted to
+a single polynomial equation. Sometimes the exponentiation function x, y 7→ xy is assumed
+as Diophantine [JM84]. To complicate the picture, Diophantine relations might equivalently
+range over Z (instead of N) but expressions like xy implicitly assume that y never gets a
+negative value.
+     Although seemingly diverging, these approaches are not contradictory because in the end,
+they characterise the same class of relations on natural numbers. However, mechanisation
+does not allow for such implicit assumptions. To give some mechanisable structure to some of
+these approaches, we propose three increasingly restricted characterisations of Diophantine
+relations: Diophantine logic, elementary Diophantine constraints and single Diophantine
+equations, between which we provide computable transformations in Sections 3 and 4. In
+Section 9, we also elaborate on the case of polynomials over Z, i.e. we give an undecidability
+proof for Hilbert tenth problem over integers. But before turning to formal definitions, we
+motivate our approach for the automated analysis and recognition of Diophantine shapes.
+
+2.1. Diophantine Shapes. We introduce the meta-level notion of Diophantine shape. On
+purpose, this notion does not have a precise formal definition because it is a dynamically
+evolving property of meta-level expressions that upgrades itself as more and more closure
+results are proved about those shapes.
+     Of course, we cannot rely on some blurry notion to formally prove theorems about
+Diophantine relations. So at some point, we have to choose one (or several) formal represen-
+tation(s) of Diophantine relations. Irrelevant to the actual syntax we finally pick up for the
+formal description of Diophantine relations, we call them object-level representations.
+     The problem we face is the following: how can we minimize the work we have to do
+to actually build an object-level witness corresponding to a given meta-level expression
+representing a Diophantine relation. Directly manipulating object-level syntax is far from
+the ideal way to proceed for a lazy Coq programmer,5 and indeed, this empirical lesson can
+be learned the painful way.
+     Let us illustrate this on the following complex example of meta-level expression
+                  x = z x+k ∧ ∀y, y < k → ∃u v, u ≡ 2v [p] ∧ p = 2y ∧ Cuz ≡ x [v].
+After a quick analysis of its structure, it appears that before being able to actually establish
+that this is a Diophantine relation, we would probably have to show that polynomials, iden-
+tities, arithmetic congruences, the exponential function, binomial coefficients, conjunction,
+existential quantification and bounded universal quantification are all Diophantine admissi-
+ble, hence to give procedures to derive object-level representations for all these meta-level
+constructions. This already amounts to significant work. But once this is done, we want to
+avoid both the hand-building of the object-level witness for the above expression, and the
+   4Universal quantification or negation are not accepted as is.
+   5being able to defer repetitive work to computers is critical to the successful completion of mechanizations.
+35:6              HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                       Vol. 18:1
+
+
+
+
+proofs that it correctly reflects its semantics. We essentially require our framework to be
+able to automatically combine those procedures and build a provably correct witness for us.
+     To summarise, we aspire at the formal definition of an object-level representation and
+at the same time, at avoiding its direct manipulation. This is where the dynamic notion of
+Diophantine shape plays a central role. At first, there are very few basic Diophantine shapes,
+typically constants, variables, addition, multiplication, equality. But at some point, we would
+e.g. have a result stating that if the expressions f and g have a Diophantine shape, then so
+does the expression f g , that is the Diophantine admissibility of the exponential function,
+nowadays called Matiyasevich’s theorem. Critically, shapes can be added dynamically as
+they are proved admissible as opposed to be carved in the stone of a given object-level
+syntax. We now describe how to do this in a successful way using some of the automation
+provided by Coq.
+
+2.2. Diophantine Logic. We define the type Dform of Diophantine formulæ for the abstract
+syntax of Diophantine logic. An atomic Diophantine logic formula is just expressing basic
+atomic identities between variables like xi = ˙ xj +̇ xk or xi =    ˙ xk and we combine those
+                                                               ˙ xj ×
+with binary disjunction, binary conjunction, and existential quantification.
+                         ˙ n | xi =
+     A, B : Dform ::= xi =        ˙ xj | xi =
+                                            ˙ xj +̇ xk | xi =    ˙ xk | A ∧˙ B | A ∨˙ B | ∃˙ A
+                                                            ˙ xj ×
+The letters A, B range over formulæ and n : N represents constant ranging over natural
+numbers. We use standard De Bruijn syntax with variables x0 , x1 , . . . of type V := N
+for better readability. If we have xi : V, we write x1+i for the next variable in V. As an
+example, the meta-level formula      ∃y, (y = 0 ∧ ∃z, y = z + k) would be represented as e.g.
+˙∃ x0 =      ˙
+                              
+          ˙
+      ˙ 0 ∧ ∃(x1 =˙ x0 +̇ x2 ) , i.e. the variable xi refers to the i-th binder in the context.
+Notice that there is no type or syntactic distinction between variables and parameters in
+Diophantine logic. However some variables are bound in their context and others are free.
+     We provide a semantics for Diophantine logic. Given a valuation for variables ν : V → N,
+we define the interpretation Jxi = ˙ . . .Kν : P of atomic formulæ by
+               Jxi =
+                   ˙ nKν := ν xi = n               Jxi =
+                                                       ˙ xj +̇ xk Kν := ν xi = ν xj + ν xk
+               Jxi =
+                   ˙ xj Kν := ν xi = ν xj              ˙ xj ×
+                                                   Jxi =     ˙ xk Kν := ν xi = ν xj × ν xk
+and JAKν : P for a compound formula A : Dform by the following recursive equations:
+    JA ∧˙ BKν := JAKν ∧ JBKν    JA ∨˙ BKν := JAKν ∨ JBKν     J∃˙ AKν := ∃n : N, JAKn·ν
+where n·ν : V → N is the standard De Bruijn extension6 of a valuation ν by n, defined by
+n·ν (x0 ) := n and n·ν (x1+i ) := ν xi .
+     We give a first object-level representation of Diophantine relations as members of type
+(V → N) → P mapping valuations of variables to propositions. Moreover, they must be
+identical to λν.JAKν for some Diophantine formula A, up to propositional extensionality.
+We give an informative content to this sub-type of (V → N) → P to be able to do some
+computations with the witness A : Dform of Diophantineness, typically when moving to
+another formal representation like elementary Diophantine constraints in Section 3.
+                                                                             
+Definition 2.1. The class of Diophantine relations Drel : (V → N) → P → Type is the
+informative sub-type defined for R : (V → N) → P by
+                                     X                             
+                          Drel R :=      A : Dform , ∀ν, JAKν ↔ R ν .
+   6The notation n·ν emphasizes that the value n is pushed ahead of the infinite sequence ν x ; ν x ; ν x ; . . .
+                                                                                                 0    1      2
+Vol. 18:1               HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                               35:7
+
+
+
+                P
+     Note that      denotes type-theoretic dependent pairs. Hence an inhabitant w of Drel R
+is a (dependent) pair (A, HA ) where A = π1 (w) is a Diophantine formula and HA = π2 (w)
+a proof that JAK(·) and R are extensionally equivalent.7 The informal notion of Diophantine
+shape will correspond to the dynamically growing collection of established closure properties
+of the class Drel of Diophantine relations. Definition 2.1 of the sub-type Drel already entails
+that Drel is closed under conjunction, disjunction, existential quantification and renaming.
+Proposition 2.2. Let R, S : (V → N) → P be relations, T : N → (V → N) → P be a
+relation with a singled out variable, and ρ : V → V be a renaming function. We have the
+maps:
+     1. Drel R → Drel S → Drel (λν.R ν ∧ S ν);      4. (∀ν, S ν ↔ R ν) → Drel R → Drel S;
+     2. Drel R → Drel S → Drel (λν.R ν ∨ S ν);      5. Drel R → Drel λν.R (ν ◦ ρ) .
+                                                           
+     3. Drel λν.T (ν x0 ) (λxi .ν x1+i ) → Drel λν.∃u, T u ν ;
+     Understood as Diophantine shapes, maps number 1–3 recognise the logical connectives
+of conjunction, disjunction and existential quantification as newly allowed shapes. Map
+number 5 allows renaming (free) variables hence Diophantine shapes are closed under
+renaming.8 Map number 4 provides a way to replace the goal Drel S with Drel R once a proof
+that they are logically equivalent is established. Hence, if S cannot be analysed because
+it does not currently have a Diophantine shape, it can still be replaced by an equivalent
+relation R, hopefully better behaved; see e.g. the proof of Proposition 2.4.
+     Working with Diophantine relations already gives a satisfying implementation of Dio-
+phantine shapes but it is sometimes more convenient to manipulate Diophantine functions
+instead of relations so we define the following specialization.
+                                                                             
+Definition 2.3. The class of Diophantine functions Dfun : (V → N) → N → Type is the          
+informative sub-type defined for f : (V → N) → N by Dfun f := Drel λν.ν x0 = f (λxi .ν x1+i ) .
+    We extend Diophantine shapes with polynomials expressions and equations between
+them. To illustrate the mechanics behind Diophantine shape recognition, for once we give a
+detailed account of the steps that are usually performed automatically in this framework.
+Proposition 2.4. Let xi : V, n : N, ρ : V → V and f, g : (V → N) → N. We have the maps:
+            1. Dfun (λν.ν xi );                   4. Dfun f → Dfun g → Dfun (λν.f ν + g ν);
+            2. Dfun (λν.n);                      5. Dfun f → Dfun g → Dfun (λν.f ν × g ν);
+            3. Dfun f → Dfun λν.f (ν ◦ ρ) ;       6. Dfun f → Dfun g → Drel (λν.f ν = g ν).
+Proof. Items 1, 2 and map 3 are for projections, constants and renaming functions respectively.
+The non-trivial cases are for +, × and =. We cover the cases of + and then = in details to
+illustrate how the representations of Diophantine relations/functions behave in proof scripts.
+In particular, we prove the results reasoning backwards (as is usually done in Coq), applying
+established theorems to convert a given proof goal into (hopefully) simpler proof goals.
+     For the goal Dfun (λν.f ν + g ν), unfolding the assumptions Dfun f and Dfun g we have
+                                                                                     
+           Drel λν.ν x0 = f (λxi .ν x1+i )    and     Drel λν.ν x0 = g (λxi .ν x1+i )    (2.1)
+and we want to establish Dfun (λν.f ν + g ν), i.e.
+                                                                             
+                           Drel λν.ν x0 = f (λxi .ν x1+i ) + g (λxi .ν x1+i ) .                       (2.2)
+   7For the efficiency of computations, we usually hide the purely logical part H into an opaque proof term.
+                                                                                 A
+   8ν ◦ ρ : V → N denotes the composition λx .ν x of the valuation ν : V → N with the renaming ρ : V → V.
+                                             i   ρi
+35:8           HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                            Vol. 18:1
+
+
+
+
+By map 4 of Proposition 2.2, we replace Eq. (2.2) with the (obviously) equivalent goal
+                                                                                   
+          Drel λν.∃a∃b, ν x0 = a + b ∧ a = f (λxi .ν x1+i ) ∧ b = g (λxi .ν x1+i )   (2.3)
+and we then apply map 3 of Proposition 2.2 twice to get the goal
+                                                                                       
+         Drel λν.ν x2 = ν x1 + ν x0 ∧ ν x1 = f (λxi .ν x3+i ) ∧ ν x0 = g (λxi .ν x3+i ) .
+We now apply twice map 1 of Proposition 2.2 and we get the three following sub-goals:
+                                                                                             
+Drel (λν.ν x2 = ν x1 + ν x0 ) Drel λν.ν x1 = f (λxi .ν x3+i ) Drel λν.ν x0 = g (λxi .ν x3+i )
+
+(1) For the first sub-goal, we use the formula x2 =  ˙ x1 +̇ x0 : Dform as object-level witness;
+(2) for the second sub-goal, we consider the renaming function ρ1 : V → V defined by
+    ρ1 (x0 ) := x1 and ρ1 (x1+i ) := x3+i and derive Drel λν.ν x1 = f (λxi .ν x3+i) by applying
+    map 5 of Proposition 2.2 to the hypothesis Drel λν.ν x0 = f (λxi .ν x1+i ) in Eqs. (2.1);
+(3) the third and last sub-goal Drel λν.ν x0 = g (λxi .ν x3+i ) is solved similarly with the
+    renaming function ρ0 : V → V defined by ρ0 (x0 ) := x0 and ρ0 (x1+i ) := x3+i .
+     We now deal with map 6, hence with the goal Drel (λν.f ν = g ν) under the same
+previous assumptions Dfun f and Dfun g, i.e. Eqs. (2.1). We proceed in a somewhat less
+detailed explanation. We replace the goal by Drel (λν.∃a∃b, a = b ∧ a = f ν ∧ b = g ν) which
+is equivalent and then, after applying the maps of Proposition 2.2, we get three sub-goals
+Drel (λν.ν x1 = ν x0 ), Drel λν.ν x1 = f (λxi .ν x2+i ) and Drel λν.ν x0 = g (λxi .ν x2+i ) . In
+turn, the first sub-goal corresponds to the witness x1 =     ˙ x0 : Dform , while the second
+and third sub-goals follow from Eqs. (2.1) respectively using straightforward renaming
+functions.
+
+    On paper these proofs look somehow complicated by the need to infer the renaming
+functions but from a mechanisation point of view, Coq’s unification algorithm automatically
+solves such goals. Provided we populate the hint database with enough admissible shapes,
+we can automate the analysis of the meta-level syntax to establish Diophatineness and reflect
+a meta-level expression of Diophantine shape into the corresponding object-level witness of
+type Dform together with the proof that it is an appropriate witness, hence packed into the
+types Drel R for relational expressions or Dfun f for functional expressions.
+    With Propositions 2.2 and 2.4, we populate the hint database for relations with the
+shapes conjunction, disjunction, existential quantification, renaming and identity between
+two functional expressions, and for functions, we add the shapes of projections, constants,
+addition, multiplication and renaming. In our implementation, the analysis of Diophantine
+shapes is performed by the automatic dio auto tactic. With such an automated approach,
+the remaining (and sometimes difficult) work occurs when we apply map 4 of Proposition 2.2,
+that is, we have to find an equivalent expression of Diophantine shape, like in Eq. (2.3) and
+to prove it is indeed equivalent to Eq. (2.2), which, unlike that specific example, might be
+non-trivial; see e.g. the discussion in Section 5.
+Proposition 2.5. Let f, g : (V → N) → N. We have the maps:
+            1. Drel (λν.True);            3. Dfun f → Dfun g → Drel (λν.f ν ≤ g ν);
+            2. Drel (λν.False);           4. Dfun f → Dfun g → Drel (λν.f ν < g ν);
+                                          5. Dfun f → Dfun g → Drel (λν.f ν 6= g ν).
+Vol. 18:1              HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                35:9
+
+
+
+
+Proof. For e.g. Drel (λν. f ν < g ν), we shift to the equivalent Drel (λν.∃a, 1 + a + f ν = g ν)
+using map 4 of Proposition 2.2 and finish the proof calling dio auto.9
+     Again, we populate the hint database with the new shapes of Proposition 2.5. We
+follow up with the slightly more complex example of the “does not divide” relation defined
+by u - v := ¬(∃k, v = k × u). At this point, this expression cannot be recognized as a
+Diophantine shape because it contains a negation.
+Proposition 2.6. ∀f g : (V → N) → N, Dfun f → Dfun g → Drel (λν.f ν - g ν).
+Proof. However, using Euclidean division, we (easily) prove the equivalence
+                    u - v ↔ (u = 0 ∧ v 6= 0 ∨ ∃a b, v = a × u + b ∧ 0 < b < u)
+and this new expression can now be recognised as a Diophantine shape. Using this equivalence
+in combination with map 4 of Proposition 2.2, we replace the goal Drel (λν.f ν - g ν) with
+             Drel (λν.f ν = 0 ∧ g ν 6= 0 ∨ ∃a b, g ν = a × f ν + b ∧ 0 < b ∧ b < f ν)
+and then let the magic of dio auto unfold.
+     Again, once established, we can add the map Dfun f → Dfun g → Drel (λν.f ν - g ν) in
+the Diophantine hint database so that later encountered proof goals Drel (λν.f ν - g ν) can
+be immediately solved by dio auto.
+     In this above described approach, the recovery of the object-level witness A of Def-
+inition 2.1 from meta-level syntax is automatic and hidden by the use of the dio auto
+tactic associated with the ever growing hint database. This allows us to proceed as in e.g.
+Matiyasevich papers where he usually transforms a relation into an equivalent Diophantine
+shape, accumulating more and more Diophantine shapes on the way. Instead of having to
+manipulate object-level witnesses by hand, obfuscating sometimes simple to understand
+proofs, we use Diophantine shapes as the cornerstone of the faithful implementation of
+existing pen and paper scripts.
+
+2.3. Exponentiation and Bounded Universal Quantification. For now, we introduce
+the elimination of the exponential relation and then of bounded universal quantification as
+black boxes expressed in the framework of Diophantine shapes, i.e. new closure properties of
+the classes Dfun /Drel .
+     While we do contribute implementations for both of these hard results, on purpose, we
+choose to avoid the detailed presentation of these mechanised proofs for several reasons:
+• first of all, there are already fully detailed pen and paper accounts of these results and we
+  implemented two of these somewhat faithfully;
+• then, in our modular approach, the proof of these admissibility results can be ignored
+  without hindering the understanding of the overall structure of the main results, e.g. H10;
+• finally, already the above cited pen and paper proofs assume some not so standard results
+  in arithmetic like e.g. Lucas’s theorem, and we favoured giving accounts of those assumed
+  theorems instead of simply reproducing the rest of the existing arguments.
+Hence, for the moment, we postpone remarks and discussions about the Diophantine-
+ness of the exponential function and the Diophantine admissibility of bounded universal
+quantification to Section 5.
+   9Notice that the actual implemented proofs might differ slightly because we sometimes optimize the shape
+of expressions for smaller witnesses, especially for these basic shapes which pop up over and over again.
+35:10          HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                      Vol. 18:1
+
+
+
+
+Theorem 2.7 (Exponential). ∀f g : (V → N) → N, Dfun f → Dfun g → Dfun λν.(f ν)g ν .
+                                                                                 
+
+    To prove it, one needs a meta-level Diophantine shape for the exponential relation, the
+proof of which is nothing short of extraordinary. This landmark result is due to Matiyase-
+vich [Mat70], but we have implemented the shorter and more up-to-date proof of [Mat00].
+Theorem 2.8 (Bounded Univ. Quantification). For f : (V → N) → N and T : N → (V →
+N) → P, we have Dfun f → Drel λν.T (ν x0 ) (λxi .ν x1+i ) → Drel λν.∀u, u < f ν → T u ν .
+    This map can be compared with map 3 of Proposition 2.2 and allows to recognise
+bounded universal quantification as a legitimate Diophantine shape. We have implemented
+the direct proof of Matiyasevich [Mat97] which does not involve a detour through a model
+of computation. Notice that the bound f ν in ∀u, u < f ν → . . . is not assumed constant
+otherwise the elimination of the quantifier would proceed as a simple reduction to a finitary
+conjunction.
+
+2.4. Reflexive-Transitive Closure is Diophantine. With these tools – elimination of
+the exponential relation and of bounded universal quantification – we can show that the
+reflexive and transitive closure of a Diophantine binary relation is itself Diophantine. We
+assume a binary relation R : N → N → P over natural numbers. The Diophantineness of R
+can be formalised by assuming that e.g. λν.R (ν x1 ) (ν x0 ) is a Diophantine relation. We
+show that the i-th iterate of R is Diophantine (where i is non-constant).
+Lemma 2.9. For any binary relation R : N → N → P and f, g, h : (V → N) → N, we have
+   Dfun f → Dfun g → Dfun h → Drel λν.R (ν x1 ) (ν x0 ) → Drel λν.Rh ν (f ν) (g ν) .
+                                                                                 
+
+Proof. Using Euclidean division, we define the is digit c q n d predicate stating that d is
+the n-th digit of the base q development of number c, as a Diophantine sentence:
+               is digit c q n d := d < q ∧ ∃a b, c = (aq + d)q n + b ∧ b < q n .
+The Diophantineness of this follows from previous Diophantine shapes, including the expo-
+nential (Theorem 2.7). Then we define the is seq R c q i predicate stating that the first
+i + 1 digits of c in base q form an R-chain,
+                                            again with a Diophantine shape, established using
+hypothesis Drel λν.R (ν x1 ) (ν x0 ) and the Diophantine admissibility of bounded universal
+quantification (Theorem 2.8):
+  is seq R c q i := ∀n, n < i → ∃u v, is digit c q n u ∧ is digit c q (1 + n) v ∧ R u v
+Then we encode Ri u v by stating that there exists a (large enough) q and a number c such
+that the first i + 1 digits of c in base q form an R-chain starting at u and ending at v:
+          Ri u v ↔ ∃q c, is seq R c q i ∧ is digit c q 0 u ∧ is digit c q i v
+and this expression is accepted as a Diophantine shape by dio auto. Then assuming
+Diophantineness of f , g and h, we easily derive that λν.Rh ν (f ν) (g ν) is Diophantine.
+     We fill in Lemma 2.9 in the Diophantine hint database and we derive the Diophantineness
+of the reflexive-transitive closure as a direct consequence of the equivalence R∗ u v ↔
+∃i, Ri u v.
+Theorem 2.10 (RT-closure). For any binary relation R : N → N → P, we have the map
+∀f g : (V → N) → N, Dfun f → Dfun g → Drel λν.R (ν x1 ) (ν x0 ) → Drel λν.R∗ (f ν) (g ν) .
+                                                                                       
+Vol. 18:1              HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                   35:11
+
+
+
+
+                           3. Elementary Diophantine Constraints
+We now shift to another, seemingly less expressive, object-level representation of Diophantine
+relations. Elementary Diophantine constraints are very simple equations where only one
+instance of either +̇ or ×   ˙ is allowed. Schematically, starting from Diophantine logic, we
+remove disjunction and existential quantification and encode conjunctions into the structure
+of a list. We give a direct proof that any Diophantine logic formula is semantically equivalent
+to the simultaneous satisfiability of a list of elementary Diophantine constraints.
+     Starting from two copies of N, one called U with u, v, w ranging over U for existentially
+quantified variables, and another one V = {x0 , x1 , . . .} for parameters, we define the type of
+elementary Diophantine constraints by:10
+                           ˙ n|u=
+           c : Dcstr ::= u =       ˙ v|u=  ˙ xi | u =
+                                                    ˙ v +̇ w | u =  ˙ w
+                                                                 ˙ v×       where n : N
+Notice that these constraints do not have a “real” inductive structure, they are flat and of
+size (number of symbols) either 3 or 5. Given two interpretations, ϕ : U → N for variables
+and ν : V → N for parameters, it is trivial to define the semantics JcKϕ  ν : P of a single
+constraint c of type Dcstr :
+      ˙ nKϕ
+   Ju =   ν := ϕ u = n             Ju =˙ vKϕν := ϕ u = ϕ v             ˙ v +̇ wKϕ
+                                                                    Ju =        ν := ϕ u = ϕ v + ϕ w
+                                  Ju =˙ xi Kϕ
+                                            ν := ϕ u = ν xi            ˙ v × wKϕ
+                                                                    Ju =    ˙   ν := ϕ u = ϕ v × ϕ w
+
+    Given a list l : L Dcstr of constraints, we write JlKϕ ν when all the constraints in l are
+simultaneously satisfied, i.e. JlKϕ
+                                  ν := ∀c, c ∈ l → JcKϕ
+                                                      ν . We show the following result:
+Theorem 3.1. For any Diophantine formula A : Dform one can compute a list of elementary
+Diophantine constraints l : L Dcstr such that ∀ν : V → N, JAKν ↔ ∃ϕ : U → N, JlKϕ
+                                                                                ν.
+
+    Put in other terms, for any given interpretation ν of parameters, JAKν holds if and
+only if the constraints in l are simultaneously satisfiable. Any Diophantine logic formula is
+equivalent to the satisfiability of the conjunction of finitely many elementary Diophantine
+constraints. The proof of Theorem 3.1 spans the rest of this section. We will strengthen the
+result a bit to be able to get an easy argument by induction on A.
+Definition 3.2. Given a relation R : (V → N) → P and an interval [ua , ua+n [ ⊆ U, an
+elementary representation of R in [ua , ua+n [ is given by:
+(1) a list E : L Dcstr of constraints and a reference variable r : U;
+(2) proofs that r and the (existentially quantified) variables of E belong to [ua , ua+n [;
+(3) a proof that the constraints in E are always (simultaneously) satisfiable, i.e. ∀ν∃ϕ JEKϕν;
+                                                                                            ϕ
+                             ˙ 0) :: E is equivalent to R, i.e. ∀ν, R ν ↔ ∃ϕ, ϕ r = 0 ∧ JEKν .
+(4) a proof that the list (r =
+    It is obvious that an elementary representation of λν.JAKν in any interval [ua , ua+n [ is
+enough to prove Theorem 3.1 because of item 4 of Definition 3.2. But actually, computing
+such a representation is simpler than proving Theorem 3.1 directly.11 Below, the size of a
+Diophantine formula A, denoted |A|, is defined as the number of nodes of its syntactic tree.
+Lemma 3.3. For any a : N and any A : Dform , one can compute n ≤ 8|A| and an elementary
+representation of the relation λν.JAKν in [ua , ua+n [.
+   10The equation u =  ˙ v is redundant because it could be replaced with z =˙ 0 ∧˙ u =
+                                                                                      ˙ z +̇ v, for some fresh z.
+However we keep u =   ˙ v in the syntax because this simplifies arguments when parameters xi are mapped to
+existential variables v in the proof of Lemma 3.3, the type Dcstr being thus closed under this transformation.
+   11Proving Theorem 3.1 directly involves renamings of existential variables and might produce exponential
+blow-up in the number of constraints when handled naively.
+35:12              HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                     Vol. 18:1
+
+
+
+
+Proof. We show the result by structural induction on A.
+• If A is e.g. xi =     ˙ xk , we get the representation with n := 8 and the pair (E, r) with
+                   ˙ xj ×
+                                                                             
+           ua+7 = ˙ ua +̇ ua+1 ; ua+6 = ˙ ua +̇ ua+2 ; ua+6 =˙ ua+1 +̇ ua+5 ;
+    E :=                  ˙ ua+4 ; ua+4 =                                        r := ua+7
+           ua+5 = ˙ ua+3 ×                ˙ xk ; ua+3 = ˙ xj ; ua+2 =
+                                                                    ˙ xi
+  Property (2) is obviously satisfied. Property (3), i.e. the satisfiability of E whatever the
+  values of xi , xj and xk , is simple to establish: indeed, the values of ua+2 = xi , ua+3 = xj ,
+  ua+4 = xk and ua+5 = xj xk are uniquely determined. Pick ua := xj xk and ua+1 := xi
+  and then again ua+6 = ua+7 = xi + xj xk are both uniquely determined. This assignment
+  of variables satisfies all the constraints in E.
+     For property (4), let us now add the extra constraint ua+7 =     ˙ 0 and consider a valuation
+  satisfying the constraints in (ua+7 =   ˙ 0) :: E. We must have ua+7 = ua + ua+1 = 0, hence
+  ua = ua+1 = 0 which entails ua+6 = ua+2 = ua+5 . But ua+2 = xi and ua+5 = ua+3 ua+4 =
+  xj xk . Hence xi =      ˙ xk is satisfied.
+                     ˙ xj ×
+     Conversely, parameter values satisfying xi =      ˙ xj × ˙ xk can be extended to a valua-
+  tion of variables satisfying (ua+7 =    ˙ 0) :: E in a unique way with ua+7 , ua , ua+1 := 0,
+  ua+6 , ua+5 , ua+2 := xi , ua+3 := xj and ua+4 := xk ;
+• We proceed similarly for the other atomic cases xi =     ˙ n, xi =˙ xj and xi =˙ xj +̇ xk ;
+• When A is B ∧˙ C, we get a representation in [ua , ua+nA [ by induction. Hence, let (EB , rB )
+  be the representation of B in [ua , ua+nB [. Then, inductively again, let (EC , rC ) be a
+  representation of C in [ua+nB , ua+nB +nC [. We define rA := ua+nA +nB and EA := (rA =         ˙
+                   + EC and then (EA , rA ) represents A = B ∧˙ C in [ua , ua+1+nB +nC [;12
+  rB +̇ rC ) :: EB +
+• The case of B ∨˙ C is similar: simply replace rA =    ˙ rB +̇ rC with rA =˙ rB ×˙ rC ;
+                                        ˙
+• We finish with the case when A is ∃ B. Let (EB , rB ) be a representation of B in [ua , ua+nB [.
+  Let σ be the substitution mapping parameters in V and defined by σ(x0 ) := ua+nB and
+  σ(x1+i ) :=xi ; existential variables in U are left unmodified by this substitution. Then
+   σ(EB ), rB is a representation of A = ∃˙ B in [ua , ua+1+nB [.
+This concludes the recursive construction of a representation of λν.JAKν .
+
+
+
+                                  4. Single Diophantine Equations
+We now give our last and most naive object-level representation of Diophantine relations as
+a single polynomial equation. In this section, we show how a list of elementary Diophantine
+constraints can be simulated by a single identity between two Diophantine polynomials. We
+use the following well known convexity identity to achieve the reduction.
+Proposition 4.1. Let (p1 , q1 ), . . . , (pn , qn ) be a sequence of pairs in N × N. Then
+                         n
+                         X                n
+                                          X
+                               2pi qi =         p2i + qi2 ↔ p1 = q1 ∧ · · · ∧ pn = qn .
+                         i=1              i=1
+
+   There are many possible justifications for this equivalence which, if ranging over Z, would
+more conventionally be written as i (pi − qi )2 = 0 ↔ ∀i, pi = qi . This form does not hold
+                                   P
+
+   12Since the intervals [u , u
+                         a   a+nB [ and [ua+nB , ua+nB +nC [ are built disjoint, there is no difficulty in merging
+valuations whereas this usually involves renamings when existential variables are not carefully chosen.
+Vol. 18:1            HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                        35:13
+
+
+
+
+directly for N however, hence the reformulation without using the minus/− operator.13 See
+Appendix D for an elementary justification of the result.
+     Similarly to elementary Diophantine constraints, we define Diophantine polynomials
+distinguishing the types of U of bound variables and V of parameters (or free variables) but
+the types U and V are not fixed copies of N anymore, but type parameters of arbitrary value.
+Definition 4.2. The type of Diophantine polynomials Dpoly (U, V) and the type of single
+Diophantine equations Dsingle (U, V) are defined by:
+                                                              ˙ q
+   p, q : Dpoly (U, V) ::= u : U | x : V | n : N | p +̇ q | p ×   E : Dsingle (U, V) ::= p =
+                                                                                           ˙ q.
+     For ϕ : U → N and ν : V → N we define the semantic interpretations of polynomials
+JpKϕ                                         ˙ qKϕ
+   ν : N and single Diophantine equations Jp =   ν : P in the obvious way.
+
+Theorem 4.3. For any list l : L Dcstr of elementary Diophantine constraints, one can
+compute a single Diophantine equation E : Dsingle (N, N) such that ∀ν∀ϕ, JEKϕ      ϕ
+                                                                            ν ↔ JlKν .
+
+Proof. We write l = [p1 =˙ q1 ; . . . ; pn =
+                                           ˙ qn ] and then use Proposition 4.1. In the code, we
+moreover show that the size of E is linear in the length of l. If needed, one could also show
+that the degree of the polynomial is less than 4.
+Corollary 4.4. Let R : (N → N) → P. Assuming Drel R, one can compute a single
+                       ˙ q : Dsingle (N, N) such that ∀ν, R ν ↔ ∃ϕ, JpKϕ
+Diophantine equation p =                                                      ϕ
+                                                                       ν = JqKν .
+
+Proof. Direct combination of Definition 2.1 and Theorems 3.1 and 4.3. In the formalisation,
+we also show that the size of the obtained single Diophantine equation is linearly bounded
+by the size of the witness formula contained in the proof of Drel R.
+    We have shown that the automation we designed to recognise relations of Diophantine
+shape entail that these relations are also definable by satisfiability of a single equation
+between Diophantine polynomials, so these tools are sound w.r.t. a formally restrictive
+characterisation of Diophantineness. One could argue that the above existential quantifier
+∃ϕ encodes infinitely many existential quantifiers but it can easily be replaced by finitely
+many existential quantifiers over the bound variables that actually occur in p or q.
+Proposition 4.5. For any single Diophantine equation p =     ˙ q : Dsingle (N, V), one can
+                                                      0
+compute n : N and a new single Diophantine equation p =    0
+                                                        ˙ q : Dsingle (Fn , V) such that for
+any ν : V → N, (∃ϕ : N → N, JpKϕ      ϕ                       0 ϕ      0 ϕ
+                               ν = JqKν ) ↔ (∃ϕ : Fn → N, Jp Kν = Jq Kν ).
+
+Proof. We pick n greater that the number of bound variables which occur in either p or
+q. This subset of N can be faithfully embedded into the finite type Fn and we use such a
+renaming to compute (p0 , q 0 ). Remark that the size of (p0 , q 0 ) is the same as that of (p, q).
+     By Corollary 4.4 and Proposition 4.5, we see that a Diophantine logic formula A : Dform
+potentially containing inner existential quantifiers and representing the Diophantine relation
+λν.JAKν can effectively be reduced to a single Diophantine equation p0 =   ˙ q 0 : Dsingle (Fn , V)
+                                    0 ϕ    0 ϕ
+such that JAKν ↔ ∃ϕ : Fn → N, Jp Kν = Jq Kν . Because Fn is the finite type of n elements, the
+(higher order) existential quantifier ∃ϕ simply encodes n successive (first order) existential
+quantifiers. The existential quantifiers that occur deep inside A are not erased by the
+reduction, they are moved at the outer level and to be ultimately understood as solvability
+for some polynomial equation of which the parameters match the free variables of A.
+
+   13Remember that 0 − 1 = 0 holds in N.
+35:14          HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                       Vol. 18:1
+
+
+
+
+        5. Remarks on the Implementation of Matiyasevich’s Theorems
+Matiyasevich’s theorem stating that there is a Diophantine description of the exponential
+relation x = y z is a masterpiece which concluded the line of work by Davis, Putnam and
+Robinson, starting at Davis’s conjecture in 1953. Already in 1952, Julia Robinson discovered
+that in order to show the exponential relation Diophantine, it suffices to find a single binary
+Diophantine relation exhibiting exponential growth [Rob52], a so-called Robinson predicate,
+i.e. a predicate J(u, v) in two variables s.t. J(u, v) implies v < uu and for every k there are
+u, v with J(u, v) and v > uk . Robinson’s insight meant the only thing missing to prove what
+is nowadays called the DPRM theorem, was a single polynomial equation capturing any
+freely chosen Robinson predicate. Similar to other famous hard problems of mathematics,
+the question is easy to state, but from the start of the study of Diophantine equations to
+the late 60s, no such relation was known, rendering the problem one of the most baffling
+questions for mathematicians and computer scientists alike.
+     In 1970, Yuri Matiyasevich [Mat70] discovered that v = fib2u is both a Robinson predicate
+and Diophantine. Here (fibn )n∈N is the well known Fibonacci sequence defined by the second
+order recurrence relation fib0 = 0, fib1 = 1 and fibn+2 = fibn+1 + fibn . Combined with
+previous results, this concluded the multi-decades effort to establish the Diophantineness of
+all recursively enumerable predicates, implying a negative solution to Hilbert’s tenth problem.
+That proof which included the original proof of Matiyasevich [Mat70] was later simplified.
+For instance, exploiting similar ideas but in the easier context of the solutions of another
+second order equation – namely Pell’s equations x2 − (a2 − 1)y 2 = 1 with parameter a > 1, –
+Martin Davis [Dav73] gave a standalone proof of the DPRM-theorem where recursively
+enumerable predicates are characterised by a variant of µ-recursive functions. In that paper,
+Davis also provided a proof of the admissibility of bounded universal quantification using
+the Chinese remainder theorem to encode finite sequences of numbers. There exists more
+recent and simpler proofs of this admissibility result as well, see e.g. [Mat97].
+     Before we discuss the mechanisation of the Diophantineness of both the exponential
+relation and of bounded universal quantification, we want to remark on the difficulty of
+mechanising the former proof. Both on its own and as a stepping stone towards the
+negative solution to Hilbert’s tenth problem, it is clear that Matiyasevich’s theorem was an
+extremely difficult question which required superior intellectual resources to be solved. The
+mechanisation of a modernised form of the proof, although not trivial, cannot be compared
+to the difficulty of finding a solution. In particular, the modern proof relies on very mature
+background theories, lowering the number of possible design choices for the mechanisation.
+Moreover, very detailed pen and paper accounts of the proof are available, which can be
+followed closely.
+     An aspect that is more challenging in mechanisation than on paper are proofs regarding
+the computability of certain functions. Since paper proofs oftentimes rely on a vague notion
+of algorithm, most of the reasoning about these algorithms is hand-waved away by computer
+scientists, relying on the implicit understanding of what is an algorithm. By using a synthetic
+approach to computability [FHS18, FKS19, FL19], we make the notion of an algorithm
+precise and thus enable mechanisation, at the same time circumventing the verification of
+low-level programs.
+
+
+5.1. Exponential is Diophantine (Theorem 2.7). For our mechanised proof, we rely
+on a more recent account of Matiyasevich’s theorem from [Mat00], which, among the many
+Vol. 18:1             HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                 35:15
+
+
+
+
+options we considered, seemed the shortest. The proof employs the equation x2 −bxy +y 2 = 1
+for b ≥ 2, also called Pell’s equation in [Dav73]. We use the second order recurrence relation
+αb (−1) = −1, αb (0) =0 and αb (n + 2) = bαb (n + 1) − αb (n) to describe the set of solutions
+of Pell’s equation by (αb (n), αb (n + 1)) | n ∈ N . The recurrence can be characterised by
+the following square 2 × 2 matrix equation:
+                                                                                  
+                       n                    αb (n + 1) −αb (n)                  b −1
+        Ab (n) = (Bb )    with Ab (n) :=                           and Bb :=
+                                              αb (n) −αb (n − 1)               1 0
+Then, studying the properties of the sequence n 7→ αb (n) in N or Z, one can show that
+α2 (n) = n for all n and n 7→ αb (n) grows exponentially for b ≥ 3. Studying the properties of
+the same sequence in Z/pZ (for varying values of the modulus p), one can for instance show
+that n = α2 (n) ≡ αb (n) [b − 2], which relates n and αb (n) modulo (b − 2). With various
+intricate but elementary results,14 such as e.g. αb (k) | αb (m) ↔ k | m and αb2 (k) | αb (m) ↔
+kαb (k) | m (both for b ≥ 2 and any k, m ∈ N), one can show that a, b, c 7→ 3 < b ∧ a = αb (c)
+has a Diophantine representation. In our formalisation, we get a Diophantine logic formula
+of size 1445 as a witness (see dio rel alpha size).
+     Once αb (n) is proven Diophantine, one can recover the exponential relation x, y, z 7→
+x = y z using the eigenvalue λ of the matrix Bb which satisfies λ2 − bλ − 1 = 0. By wisely
+choosing m := bq − q 2 − 1, one gets λ ≡ q [m] and thus, using the corresponding eigenvector,
+one derives qαb (n) − αb (n − 1) ≡ q n [m]. For a large enough value of m, hence a large
+enough value15 of b, this gives a Diophantine representation of q n . In our code, we get a
+Diophantine logic formula of size 4903 as a witness (see dio fun expo example size).
+     The main libraries which are needed to solve Pell’s equation and characterise its solutions
+are linear algebra (or at least square 2 × 2 matrices) over commutative rings such as Z and
+Z/pZ, a good library for modular algebra (Z/pZ), and the binomial theorem over rings.
+Without the help of the Coq ring tactic, such a development would be extremely painful.
+These libraries are then used again to derive the Diophantine encoding of the exponential.
+
+5.2. Admissibility of Bounded Universal Quantification (Theorem 2.8). As hinted
+earlier, we provide an implementation of the algorithm for the elimination of bounded
+universal quantification described in [Mat97]. It does not involve the use of a model of
+computation, hence does not create a chicken-and-egg problem when used for the proof
+of the DPRM theorem. The technique of [Mat97] uses the exponential function and thus
+Theorem 2.7 (a lot), and a combination of arithmetic and bitwise operations over N through
+base 2 and base 2q representations of natural numbers.
+      The Diophantine admissibility of bitwise operations over N is based on the relation
+stating that every bit of a is lower or equal than the corresponding bit in b and denoted a 4 b.
+The equation a 4 b ↔ Cba is odd16 gives a Diophantine representation for a 4 b and then
+bitwise operators are derived from 4 in combination with regular addition +, in particular,
+the digit by digit AND operation called “projection.” To obtain that a 4 b holds if and only
+if Cba ≡ 1 [2], we prove Lucas’s theorem [Luc78] which allows for the computation of the
+   14by elementary we certainly do not mean either simple or obvious, but we mean that they only involve
+standard tools from modular and linear algebra.
+   15the largeness of which is secured using α itself again, but with other input values. But this works only
+in the case where n > 0 and q > 0. The cases where n = 0 (and hence q n = 1) or q = 0 and n > 0 (and
+hence q n = 0) are trivial and treated separately.
+   16where C a denotes the binomial coefficient with the usual convention that C a = 0 when a > b.
+             b                                                                    b
+35:16            HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                            Vol. 18:1
+
+
+
+
+binomial coefficient in base p. It states that Cba ≡ Cbann × · · · × Cba00 [p] holds when p is prime
+and a = an pn + · · · + a0 and b = bn pn + · · · + b0 are the respective base p representations of
+a and b; see Appendix B for an elementary combinatorial proof of Lucas’s theorem.
+     A Diophantine representation of the binomial coefficient can be obtained            via e.g. the
+binomial theorem: Cnk is the k-th digit of the development of (1 + q)n = ni=0 Cni q i in base
+                                                                                   P
+q = 2n+1 . This gives a Diophantine representation using the is digit relation of Lemma 2.9.
+     The rest of the admissibility proof for bounded universal quantification ∀i, i < n → A is a
+very nice encoding of vectors of natural numbers of type Nn into natural numbers N such that
+regular addition + (resp. multiplication ×) somehow performs parallel/simultaneous additions
+(resp. multiplications) on the encoded vectors. More precisely, a vector (a1 , . . . , an ) ∈
+                                                                                                      n
+[0, 2q − 1]n of natural numbers is encoded as the “cipher” a1 r2 + a2 r4 + a3 r8 + · · · + an r2
+                                                                                 i
+with r = 24q . In these sparse ciphers, only the digits occurring at r2 are non-zero. We
+remark that none of the parameters, including n or q, are constant in the encoding.
+     Besides the low-level inductive proof of Lucas’s theorem presented in Appendix B, the
+essential library for the removal of bounded universal quantification consists of tools to
+manipulate the type N simultaneously and smoothly both as (a) usual natural numbers and
+(b) sparse base r = 24q encodings of vectors of natural numbers in [0, 2q − 1]. Notice that r
+is defined as r = 22q in [Mat97] but we favour the alternative choice r = 24q which allows
+for an easier soundness proof for vector multiplication because there is no need to manage
+for digit overflows (see Appendix C).
+     A significant step in the Diophantine encoding of + and × on Nn is the Diophantine
+                            i                  2i
+encoding of u = ni=1 r2 and u0 = n+1
+                    P                  P
+                                          i=2 r as the ciphers of the constant vectors [1; . . . ; 1] ∈
+                                                                                     P n+1
+Nn and [0; 1; . . . ; 1] ∈ Nn+1 respectively, obtained by masking u2 with w = 2i=0 ri and 2w.
+     Finally, it should be noted that prior to the elimination of the quantifier in ∀i, i < n → A,
+the Diophantine formula A is first normalised into a conjunction of elementary constraints
+using Theorem 3.1, and then the elimination is performed on that list of elementary
+constraints, encoding e.g. v0 =                     ˙ v1 ×
+                                  ˙ v1 +̇ v2 and v0 =     ˙ v2 with their respective sparse cipher
+counterparts.
+
+                      6. Minsky Machines Reduce to FRACTRAN
+In previous work, we have reduced the halting problem for Turing machines to PCP [FHS18]
+and on to a specialised halting problem for Minsky machines [FL19] in Coq. The specialised
+halting problem asked whether a machine on a given input halts in a configuration with all
+registers containing zeros. In order to define Minsky machine recognisability, we consider a
+general halting problem which allows any final configuration, final meaning that computation
+cannot further proceed. The adaptation of the formal proofs reducing PCP via binary stack
+machines to Minsky machines is quite straightforward and reuses the certified compiler for
+low-level languages defined in [FL19].
+     We first show that one can remove self loops from Minsky machines, i.e. instructions
+which jump to their own location, using the compositional reasoning techniques developed
+in [FL19]. We then formalise the FRACTRAN language [Con87] and show how the halting
+problem for Minsky machines can be encoded into the halting problem for FRACTRAN
+programs. While the verification of Minsky machines can be complex and needs preliminary
+thoughts on compositional reasoning, the translation from Minsky machines to FRACTRAN
+is elementary and needs no heavy machinery.
+Vol. 18:1              HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                 35:17
+
+
+
+
+6.1. Minsky Machines. We employ Minsky machines [Min67] with instructions ι : In ::=
+INC (α : Fn ) | DEC (α : Fn ) (p : N). A Minsky machine with n registers is a sequence
+of consecutively indexed instructions s : ι0 ; . . . s + k : ιk ; represented as a pair (s :
+N, [ι0 ; . . . ; ιk ] : L In ). Its state (i, ~v ) is a program counter (PC) value i : N and a vector
+of values for registers ~v : Nn . INC α increases the value of register α and the PC by one.
+DEC α p decreases the value of register α by one if that is possible and increases the PC, or,
+if the register is already 0, jumps to PC value p. Given a Minsky machine (s, P ), we write
+(s, P ) //M (i1 , ~v1 ) k (i2 , ~v2 ) when (s, P ) transforms state (i1 , ~v1 ) into (i2 , ~v2 ) in k steps of
+computation. For (s, P ) to do a step in state (i, ~v ) the instruction at label i in (s, P ) is
+considered. We define out i (s, P ) := i < s ∨ |P | + s ≤ i to characterize when label i is
+outside of the code of (s, P ). In that case (and only that case), no computation step can
+occur. We define the halting problem for Minsky Machines as
+                                 MM n : N, P : L In , ~v : Nn := (1, P ) //M (1, ~v ) ↓
+                                                               
+
+                                                   ~ := ∃k, (s, P ) //M (i, ~v ) k (j, w)
+                     
+                       (s, P ) //M (i, ~v )    (j, w)                                   ~ ∧ out j (s, P )
+        where
+                       (s, P ) //M (i, ~v ) ↓ := ∃j w,
+                                                    ~ (s, P ) //M (i, ~v )   (j, w)
+                                                                                 ~
+meaning that the machine (1, P ) has a terminating computation starting at state (1, ~v ),
+the value of the final state being irrelevant. Notice that since MM(n, P, ~v ) considers only
+Minsky machines starting at PC value 1, the PC value 0 is always outside of their code (i.e.
+out 0 (1, P ) holds), hence computations can be halted by jumping there. We refer to [FL19]
+for a more in-depth formal description of those counter       machines. Note that the halting
+problem defined there as MM0 n : N, P : L In , ~v : Nn := (1, P ) //M (1, ~v )      (0, ~0) is more
+                                                         
+specific than the problem MM above defined but both are proved undecidable in our library.
+      We say that a machine has a self loop if it contains an instruction of the form i : DEC α i,
+i.e. jumps to itself in case the register α has value 0, leading necessarily to non-termination
+(in case the PC reaches value i). For every machine P with self loops, we can construct an
+equivalent machine Q using one additional register α0 with constant value 0, which has the
+same behaviour but no self loops. Since the effect of a self loop i : DEC α i is either decrement
+and move to the next instruction at i + 1 if α > 0 or else enter in a forever loop at i, it is
+easily simulated by a jump to a length-2 cycle, i.e. replacing i : DEC α i with i : DEC α j and
+adding j : DEC α0 (j + 1); j + 1 : DEC α0 j somewhere near the end of the program.
+Theorem 6.1. Given a Minsky machine P with n registers one can compute a machine Q
+with 1 + n registers and no self loops s.t. for any ~v ,
+                             (1, P ) //M (1, ~v ) ↓ ↔ (1, Q) //M (1, 0 :: ~v ) ↓.
+Proof. We explain how any Minsky machine (1, P ) with n registers can be transformed into
+an equivalent one that uses an extra 0 valued spare register α0 = 0 ∈ F1+n and avoids self
+loops. Let k be the length of P and let P 0 be the Minsky machine with 1 + n registers
+defined by performing a 1-1 replacement of instructions of (1, P ):
+• instructions of the form i : INC α are replaced by i : INC (1 + α);
+• self loops i : DEC α i are replaced by i : DEC (1 + α) (2 + k);
+• proper inside jumps i : DEC α j for i 6= j and 1 ≤ j ≤ k are replaced by i : DEC (1 + α) j;
+• and outside jumps i : DEC α j for j = 0 ∨ k < j are replaced by i : DEC (1 + α) 0.
+Then we define Q := P 0 +   + [DEC α0 0; DEC α0 (3 + k); DEC α0 (2 + k)]. Notice that P 0 is
+immediately followed DEC α0 0, i.e. by an unconditional jump to 0 (because α0 has value
+0), and that (1, Q) ends with the length-2 cycle composed of 2 + k : DEC α0 (3 + k); 3 + k :
+35:18             HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                   Vol. 18:1
+
+
+
+
+DEC α0 (2 + k). We show that (1, Q) is a program without self loops (obvious) that satisfies
+the required simulation equivalence. Indeed, self loops are replaced by jumps to the length-2
+cycle that uses the unmodified register α0 to loop forever. One should just be careful that
+the outside jumps of (1, P ) do not accidentally fall into that cycle and this is why we redirect
+them all to PC value 0, which halts the computation because out 0 (1, Q) holds.
+     A predicate R : Nn → P is MM-recognisable if there exist m : N and a Minsky machine
+                                                                                          + ~0) ↓.
+P : L In+m of (n+m) registers such that for any ~v : Nn we have R ~v ↔ (1, P ) //M (1, ~v +
+The last m registers serve as spare registers during the computation. Notice that not allowing
+for spare registers would make e.g. the empty predicate un-recognisable.17 It is possible to
+limit the number of (spare) registers but that question is not essential in our development.
+
+6.2. The FRACTRAN language. We formalise the language FRACTRAN, introduced
+as a universal programming language for arithmetic by Conway [Con87]. A FRACTRAN
+program Q consists of a list of positive fractions [p1 /q1 ; . . . ; pn /qn ]. The current state of
+a FRACTRAN program is just a natural number s. The first fraction pi /qi in Q such that
+s · (pi /qi ) is still integral determines the successor state, which then is s · (pi /qi ). If there is
+no such fraction in Q, the program terminates.
+     We make this precise inductively for Q being a list of fractions p/q : N × N:
+                           q·y =p·x                       q -p·x      Q //F x  y
+                       (p/q :: Q) //F x  y                 (p/q :: Q) //F x  y
+i.e. at state x the first fraction p/q in Q where q divides p · x is used, and x is multiplied
+by p and divided by q. For instance, the FRACTRAN program [5/7; 2/1] runs forever when
+starting from state 7, producing the sequence 5 = 7 · (5/7), 10 = 5 · (2/1), 20 = 10 · (2/1) ...18
+     We say that a FRACTRAN program Q = [p1 /q1 ; . . . ; pn /qn ] is regular if none of its
+denominators is 0, i.e. if q1 6= 0, . . . , qn =
+                                               6 0. For a FRACTRAN program Q : L (N × N) and
+s : N, we define the decision problem as the question “does Q halt when starting from s”:
+   FRACTRAN(Q, s) := Q //F s ↓            with Q //F s ↓ := ∃x, Q //F s ∗ x ∧ ∀y, ¬ Q //F x  y
+Following [Con87], we now show how (regular) FRACTRAN halting can be used to simulate
+Minsky machines halting. The idea is to use a simple Gödel encoding of the states of
+a Minsky machine. We first fix two infinite sequences of prime numbers p0 , p1 , . . . and
+q0 , q1 , . . . all distinct from each other. We define the encoding of n-register Minsky machine
+                                      xn−1
+states as (i, ~v ) := pi qx0 0 · · · qn−1  where ~v = [x0 , . . . , xn−1 ]:
+• To simulate the step semantics of Minsky machines for i : INC α, we divide the encoded
+   state by pi and multiply by pi+1 for the change in PC value, and increment the register α
+   by multiplying with qα , hence we add the fraction pi+1 qα /pi ;
+• To simulate i : DEC α j when ~vα = 1 + n we divide by pi , multiply by pi+1 and decrease
+   register α by dividing by qα , hence we add the fraction pi+1 /pi qα ;
+• To simulate i : DEC α j when ~vα = 0 we divide by pi and multiply by pj . To make sure
+   that this is only executed when the previous rule does not apply, we add the fraction pj /pi
+  after the fraction pi+1 /pi qα .
+   17For any Minsky machine (1, P ), if it starts on large enough register values, for instance if they are all
+greater than the length of P , then no jump can occur and the machine terminates after its last instruction
+executes. Such unfortunate behavior can be circumvented with a 0-valued spare register.
+   18No FRACTRAN program can ever stop when it contains a fraction having an integer value like 2/1.
+Vol. 18:1               HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                        35:19
+
+
+
+
+In short, we define the encoding of labelled instructions and then programs as
+         (i, INC α) := [pi+1 qα /pi ]
+                                                                                         + ··· +
+                                                     (i, [ι0 ; . . . ; ιk ]) := (i, ι0 ) +     + (i + k, ιk ).
+       (i, DEC α j) := [pi+1 /pi qα ; pj /pi ]
+Notice that we only produce regular programs and that a self loop like i : DEC α i, jumping
+on itself when ~vα = 0, will generate the fraction pi /pi potentially capturing any state (j, ~v )
+even when j 6= i. So this encoding does not work on Minsky machines containing self loops
+because the corresponding FRACTRAN program would never terminate, even when the PC
+never reaches self loops.
+Lemma 6.2. If (1, P ) has no self loops then (1, P ) //M (1, ~v ) ↓ ↔ (1, P ) //F (1, ~v ) ↓.
+Proof. Let (i, P ) be a Minsky machine with no self loops. We show that the simulation of
+(i, P ) by (i, P ) is 1-1, i.e. each step is simulated by one step. We first show the forward
+simulation, i.e. that (i, P ) //M (i1 , ~v1 )  (i2 , ~v2 ) entails (i, P ) //F (i1 , ~v1 )  (i2 , ~v2 ), by case
+analysis. Conversely we show that if (i, P ) //F (i1 , ~v1 )  st holds then st = (i2 , ~v2 ) for some
+(i2 , ~v2 ) such that (i, P ) //M (i1 , ~v1 )  (i2 , ~v2 ). Backward simulation involves the totality of
+MM one step semantics and the determinism of regular FRACTRAN one step semantics
+combined with the forward simulation.
+        Using these two simulation results, the desired equivalence follows by induction on the
+length of terminating computations.
+Theorem 6.3. For any n-register Minsky machine P one can compute a regular FRACTRAN
+program Q s.t. (1, P ) //M (1, [x1 ; . . . ; xn ]) ↓ ↔ Q //F p1 qx1 1 · · · qxnn ↓ holds for any x1 , . . . , xn .
+Proof. Using Theorem 6.1, we first compute a Minsky machine (1, P1 ) equivalent to (1, P )
+but with one extra 0-valued spare register and no self loops. Then we apply Lemma 6.2 to
+(1, P1 ) and let Q := (1, P1 ). The program Q is obviously regular and given ~v = [x1 ; . . . ; xn ],
+the encoding of the starting state (1, 0 :: ~v ) for (1, P1 ) is p1 q00 qx1 1 · · · qxnn hence the result.
+    This gives us a formal constructive proof that (regular) FRACTRAN is Turing complete
+as a model of computation and is consequently undecidable.
+Corollary 6.4. Halt reduces to FRACTRAN.
+Proof. Theorem 6.3 gives us a reduction from MM to FRACTRAN which can be combined
+with the reduction of Halt to PCP from [FHS18] and a slight modification of PCP to MM
+from [FL19].
+
+
+                           7. Diophantine Encoding of FRACTRAN
+We show that a single step of FRACTRAN computation is a Diophantine relation.
+Lemma 7.1. For any FRACTRAN program Q : L (N × N), one can compute a map
+                ∀f g : (V → N) → N, Dfun f → Dfun g → Drel (λν. Q //F f ν  g ν).
+Proof. The map is built by induction on Q. If Q = [ ], then we show [ ] //F f ν  g ν ↔ False,
+and thus Drel (λν.Q //F f ν  g ν) by map 4 of Proposition 2.2 followed by dio auto. If Q is
+a composed list Q = p/q :: Q0 , then we show the equivalence
+                                                                                    
+   p/q :: Q0 //F f ν  g ν ↔ q · (g ν) = p · (f ν) ∨ q - p · (f ν) ∧ Q0 //F f ν  g ν
+            
+35:20            HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                            Vol. 18:1
+
+
+
+
+and we derive Drel (λν.Q //F f ν  g ν) by map 4 of Proposition 2.2 followed by dio auto,
+the induction hypothesis being used locally as a hint for the tactic.
+    In addition, the “Q has terminated at x” predicate is Diophantine for any FRACTRAN
+program Q. The proof is similar to the previous one:
+Lemma 7.2. For any FRACTRAN program Q : L (N × N), one can compute a map
+                  ∀f : (V → N) → N, Dfun f → Drel (λν.∀y, ¬ Q //F f ν  y).
+Proof. The map ∀f, Dfun f → Drel (λν.∀y, ¬ Q //F f ν  y) is built by induction on Q. If
+Q = [ ], then we show (∀y, ¬ [ ] //F f ν  y) ↔ True, and thus Drel (λν.∀y, ¬ Q //F f ν  y)
+by map 4 of Proposition 2.2 followed by dio auto. If Q = p/q :: Q0 , then we show the
+equivalence
+                                                                        
+              ∀y, ¬ Q //F f ν  y ↔ q - p · (f ν) ∧ ∀y, ¬ Q0 //F f ν  y
+and we get Drel (λν.∀y, ¬ Q //F f ν  y) by map 4 of Proposition 2.2 followed by dio auto,
+the induction hypothesis being used as a hint again.
+    We can now deduce a core result of the paper which states that FRACTRAN programs
+have Diophantine termination predicates.
+Theorem 7.3. If Q : L (N × N) is a FRACTRAN program then one can compute a map
+                       ∀f : (V → N) → N, Dfun f → Drel (λν. Q //F f ν ↓).
+Proof. By definition we have Q //F f ν ↓ ↔ ∃x (Q //F f ν ∗ x ∧ ∀y, ¬ Q //F x  y) and
+hence we obtain the claim using Theorem 2.10 together with Lemma 7.1 and Lemma 7.2.
+    We conclude with the undecidability of Hilbert’s tenth problem by a reduction chain
+starting from the Halting problem for single tape Turing machines:
+Theorem 7.4 (Hilbert’s tenth problem). We have the following reduction chain
+    Halt  PCP  MM  FRACTRAN  DIO FORM  DIO ELEM  DIO SINGLE  H10
+and as a consequence, H10 is undecidable.
+Proof. The proof combines previous results as Theorems 6.3 and 7.3 and Corollary 4.4.
+
+
+               8. The Davis-Putnam-Robinson-Matiyasevich Theorem
+We give a proof of an instance of the DPRM theorem stating that recursively enumer-
+able predicates are Diophantine.19 Here we assume that the informal notion of “recursive
+enumerability” (justified by Church’s thesis) can be characterised by Minsky machines
+recognisability as defined in Section 6.1.
+                                                                                              νx
+Proposition 8.1. The Gödel encoding is Diophantine, i.e. we have Dfun (λν.qν1 x0 · · · qn n−1 ).
+Proof. By induction on n : N using Proposition 2.4 and Theorem 2.7. Notice that the qi ’s
+are hard-coded in the Diophantine representation, which means we do not need to encode
+the algorithm that actually computes them, which would otherwise be very painful.
+   19By instance, we mean that the DPRM is an open theorem bound to be extended for any newly proposed
+Turing complete model of computation.
+Vol. 18:1               HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                     35:21
+
+
+
+                                                                              νx
+Lemma 8.2. For any FRACTRAN program Q we have Drel λν. Q //F p1 qν1 x0 · · · qn n−1 ↓ .
+                                                                                     
+
+                                                                                                    νx
+Proof. By Theorem 7.3, we only have to show Dfun f for f ν := p1 qν1 x0 · · · qn n−1 . This
+follows from Propositions 2.4 and 8.1.
+
+    To simplify the notation JpK~vw~ below, we abusively identify the vector ~v : Nn (resp.
+~ : Nm ) with the valuation λ(i : Fn ).~vi (resp. λ(j : Fm ).w
+w                                                            ~ j ) that accesses the components of
+the vector ~v (resp. w).
+                     ~
+Theorem 8.3 (DPRM). Any MM-recognisable relation R : Nn → P is Diophantine: one
+can compute a single Diophantine equation p =   ˙ q : Dsingle (Fm , Fn ) with n parameters and m
+                      n          ~ : N , JpK~v = JqK~vw~ .
+variables s.t. ∀~v : N , R ~v ↔ ∃w    m      w
+                                             ~
+
+
+Proof. By definition, R : Nn → P is recognised by some Minsky machine P with (n + m)
+registers, i.e. R ~v ↔ (1, P ) //M (1, ~v +   + ~0) ↓. By Theorem 6.3, we compute a FRACTRAN
+program Q s.t. (1, P ) //M (1, [v1 ; . . . ; vn ; w1 ; . . . ; wm ]) ↓ ↔ Q //F p1 qv11 · · · qvnn qw          wm
+                                                                                                   n+1 · · · qn+m ↓.
+                                                                                                     1
+
+                                                               v1      v
+    Hence we deduce R [v1 ; . . . ; vn ] ↔ Q //F p1 q1 · · · qn ↓. As a consequence, the relation
+                                                                         n
+
+λν.R [ν x0 ; . . . ; ν xn−1 ] is Diophantine by Lemma 8.2. By Corollary 4.4, there is a Diophantine
+equation p =  ˙ q : Dsingle (N, V) such that R [ν x0 ; . . . ; ν xn−1 ] ↔ ∃ϕ, JpKϕ                 ϕ
+                                                                                       ν = JqKν . Notice that
+the value ν xi of any parameter of p =        ˙ q greater than xn does not influence its solvability.
+    Now let m be an upper bound of the number of (existentially quantified) variables in
+p=˙ q. We injectively map those variables in Fm and we project the parameters of p =                        ˙ q onto
+Fn by replacing every parameter greater than xn with the 0 constant. We get a Diophantine
+equation p0 =  ˙ q 0 : Dsingle (Fm , Fn ) of which the solvability at ~v is equivalent to R ~v .
+
+
+
+
+                         9. Hilbert’s Tenth Problem Over Integers
+In our formalisation, polynomials are defined over natural numbers, that is both constants
+and solutions come from N. The standard way to extend the undecidability of H10 to a
+formalisation based on integers is via Lagrange’s theorem, stating that an integer is positive
+if and only if it is the sum of four squares.
+     Similar to Definition 4.2, we define define polynomials over integers:
+Definition 9.1. The type of Diophantine polynomials DZpoly (U, V) over Z is defined by:
+
+                                                                                   ˙ q.
+                       p, q : DZpoly (U, V) ::= u : U | x : V | z : Z | p +̇ q | p ×
+
+       The interpretation of a polynomial p : DZpoly (U, V) in Z given ϕ : U → Z, ν : V → Z and
+denoted JpKϕ                                                         Z
+               ν , is defined in the obvious way. Again, if p : Dpoly (Fm , Fn ) we abusively write
+JpK~vw~ when ~v : Nn and w  ~ : Nm . We can then define
+
+                                                             ~ : Nn , JpKw
+                                                                         ~
+                                                        
+                           H10Z n, p : DZpoly (Fn , F0 ) := ∃w           [] = 0
+
+that is “does the polynomial equation p(x1 , . . . , xn ) = 0 in (at most) n variables have a
+solution in Z.” We first outline a proof of Lagrange’s theorem and then reduce H10 to H10Z .
+35:22           HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                         Vol. 18:1
+
+
+
+
+9.1. Lagrange’s theorem. The proof we have implemented roughly follows the “classical
+proof” in Wikipedia’s account of the theorem. Their use of the “classical” qualifier should be
+understood as typical/standard, and certainly not as opposed to constructive/intuitionistic.
+The below proof perfectly fits in our constructive setting.
+Proposition 9.2 (Euler, 1748). Let us assume the two equations n = a21 + b21 + c21 + d21 and
+m = a22 + b22 + c22 + d22 hold in Z. Let us define the four relative intergers:
+             a := a1 a2 + b1 b2 + c1 c2 + d1 d2   b := a1 b2 − b1 a2 + d1 c2 − c1 d2
+             c := a1 c2 − c1 a2 + b1 d2 − d1 b2   d := a1 d2 − d1 a2 + c1 b2 − b1 c2 .
+Then the identity nm = a2 + b2 + c2 + d2 holds.
+Proof. This holds in any commutative ring and the proof just calls the ring tactic.
+   Because of Proposition 9.2, “being the sum of four squares” is a multiplicative property.
+Hence to show that it holds for every natural number, it is enough to establish it for primes.
+Theorem 9.3 (Prime induction). Let P : N → P be a predicate. To establish ∀n : N, P n,
+it is enough to prove these four induction steps:
+          P0      P1       ∀a b : N, P a → P b → P (ab)        ∀p : N, prime p → P p.
+Proof. This is one possible form of the fundamental theorem of arithmetic. For the proof,
+first show by strong induction on n : N that one can discriminate whether n < 2 or compute
+a prime factor of n, including the possibility that n itself is prime. Then, to prove the prime
+induction principle, proceed by strong induction again.
+Lemma 9.4. If p : N is prime then ∃n a b : N, np = 1 + a2 + b2 ∧ 0 < n < p.
+Proof. Let us first rule out the case p = 2 which has an obvious solution. So let us
+write p = 2m + 1 because all the other primes are odd. In the field Z/pZ, let us study the
+modular equation a2 ≡ −(1 + b2 ) [p]. Because Z/pZ has no zero divisor, the map a 7→ a2 from
+[0, m] → Z/pZ is injective. Asa consequence, so is the map b 7→ −(1+b2 ) from [0, m] → Z/pZ.
+Hence none of the two lists a2 : Z/pZ | a ∈ [0, m] and −(1 + b2 ) : Z/pZ | b ∈ [0, m]
+                                                                                             
+
+contain a duplicate. Since they have a combined length of 2(m + 1) > 2m + 1 and their
+concatenation is contained in a list of length p = 2m + 1 enumerating Z/pZ, by the pigeon
+hole principle, they must intersect and this gives a, b ∈ [0, m] such that a2 ≡ −(1 + b2 ) [p].
+This in turn gives n : N such that np = 1 + a2 + b2 . Given that 2a < p and 2b < p, we
+deduce 0 < n < p.
+    Lagrange’s theorem gives a Diophantine characterisation of those relative integers which
+are positive as the sum of four squares.
+Theorem 9.5 (Lagrange, 1770). For any relative integer z : Z, z is positive if and only if
+there exists a, b, c, d : Z such that z = a2 + b2 + c2 + d2 .
+Proof. It is enough to show that any natural number n : N is the sum of four squares, i.e.
+there exists a, b, c, d : Z such that n = a2 + b2 + c2 + d2 . By Euler’s four-square identity (see
+Proposition 9.2) and the principle of prime induction (see Theorem 9.3), we only need to
+show the property for prime numbers.
+    We fix a prime number p and define the predicate “mp is the sum of four squares” as
+                       P (m : N) := ∃a b c d : Z, mp = a2 + b2 + c2 + d2 .
+Vol. 18:1                 HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                            35:23
+
+
+
+
+We want to show that P 1 holds. By Lemma 9.4, we know that P n holds for some 0 < n < p.
+We are going to decrease this value of n until it reaches 1, i.e. to establish P 1, it is enough
+to give a proof of
+                         ∀m : N, 1 < m < p → P m → ∃r : N, 1 ≤ r < m ∧ P r
+and then finish the argument by strong induction (implementing “infinite descent” here).
+      So let us assume 1 < m < p and mp = x21 +x22 +x23 +x24 . For each i = 1, . . . , 4 we compute
+a “small” representative of xi in Z/mZ, i.e. yi : Z such that xi ≡ yi [m] and 4yi2 ≤ m2 . Then
+we have mp = x21 + x22 + x23 + x24 ≡ y12 + y22 + y32 + y42 [m] hence y12 + y22 + y32 + y42 ≡ 0 [m]
+and we get r : N such that y12 + y22 + y32 + y42 = rm. Because y12 + y22 + y32 + y42 ≤ m2 , we
+deduce r ≤ m. Now we rule out the cases r = 0 and r = m:
+• if r = 0 then y1 = · · · = y4 = 0 and thus x2i ≡ 0 [m2 ] for i = 1, . . . , 4. As a consequence,
+   mp = x21 + x22 + x23 + x24 ≡ 0 [m2 ] and thus m divides p, contradicting the primality of p;
+• if r = m then y12 + y22 + y32 + y42 = m2 and since 4yi2 ≤ m2 holds for i = 1, . . . , 4, we deduce
+  4y12 = · · · = 4y42 = m2 and thus m = 2q and yi = ±q for i = 1, . . . , 4. As a consequence
+   x2i ≡ q 2 [m2 ] and thus x21 + x22 + x23 + x24 ≡ 4q 2 [m2 ] hence mp ≡ 0 [m2 ], in contradiction
+  with the primality of p again.
+      So we have 1 ≤ r < m, rm = y12 + y22 + y32 + y42 and xi ≡ yi [m] for i = 1, . . . , 4. We
+also have mp = x21 + x22 + x23 + x24 and using Euler’s four squares identity we get a, b, c, d : Z
+such that (mp)(rm) = a2 + b2 + c2 + d2 . Using xi ≡ yi [m] and the values of a, b, c and d as
+defined in Proposition 9.2, we show that a ≡ 0 [m], b ≡ 0 [m], c ≡ 0 [m] and d ≡ 0 [m], i.e. m
+divides a, b, c and d. Hence rp = (a/m)2 + (b/m)2 + (c/m)2 + (d/m)2 which establishes P r
+for 1 ≤ r < m, as required.
+
+
+
+9.2. H10 reduces to H10Z . Let f : Dpoly (Fn , F0 ) → DZpoly (F4n , F0 ) be the function replac-
+ing every variable i : Fn in a polynomial by the polynomial expression
+                 ˙ (4i) +̇ (4i + 1) ×
+            (4i) ×                  ˙ (4i + 1) +̇ (4i + 2) ×
+                                                           ˙ (4i + 2) +̇ (4i + 3) ×
+                                                                                  ˙ (4i + 3).
+The function f can now be used to define the reduction from H10 to H10Z :
+Corollary 9.6. H10  H10Z .
+Proof. Given polynomials p, q : Dpoly (Fn , F0 ) the reduction function returns the polynomial
+f (p) +̇ (−1) ×   ˙ f (q) : DZpoly (F4n , F0 ).
+     If H10(n, p, q) holds, i.e. if JpK[w~] = JqKw      ~
+                                                        [ ] for w  ~ = [w1 ; . . . ; wn ] we know via Lagrange’s
+Theorem 9.5 that there exist a1 , b1 , c1 , d1 , . . . , an , bn , cn , dn s.t. wi = a2i + b2i + c2i + d2i and thus
+that Jf (p)K~v[ ] = JpKw ~       v : Z4n := [a1 ; b1 ; c1 ; d1 ; . . . ; an ; bn ; cn ; dn ] as well as Jf (q)K~v[ ] = JqKw
+                         [ ] for ~
+                                                                                                                          ~
+                                                                                                                          [ ].
+                            ˙ f (q)K~v[ ] = 0 and H10Z 4n, f (p) +̇ (−1) ×
+                                                                                              
+Thus, Jf (p) +̇ (−1) ×                                                               ˙ f (q) .
+     For the other direction, let ~v : Z4n be given s.t. Jf (p) +̇ (−1) ×
+                                                                        ˙ f (q)K~v[ ] = 0. We thus know
+that Jf (p)K~v[ ] = Jf (q)K~v[ ] . Because ~v : Z4n , it has the form ~v = [a1 ; b1 ; c1 ; d1 ; . . . ; an ; bn ; cn ; dn ].
+Then all elements of w    ~ := [a21 +b21 +c21 +d21 ; . . . ; a2n +b2n +c2n +d2n ] are natural numbers and the
+equations Jf (p)K~v[ ] = JpKw     ~              ~v       w
+                                                          ~                   w
+                                                                              ~        w
+                                                                                       ~
+                                  [ ] and Jf (q)K[ ] = JqK[ ] hold. Thus JpK[ ] = JqK[ ] , i.e. H10(n, p, q).
+35:24             HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                  Vol. 18:1
+
+
+
+
+                     Jcstn K ~v x ↔ n = x                JzeroK ~v x ↔ 0 = x
+                     JsuccK ~v x ↔ 1 + ~v0 = x           Jprjp K ~v x ↔ ~vp = x
+                Jcomp f ~g K ~v x ↔ ∃w,~ Jf K w ~ x ∧ ∀p, J~gp K ~v w~p
+            Jrec f gK (0 :: ~v ) x ↔ Jf K ~v x
+        Jrec f gK (1 + n :: ~v ) x ↔ ∃y, Jrec f gK (n :: ~v ) y ∧ JgK (n :: y :: ~v ) x
+                      Jµf K ~v x ↔ ∃w  ~ : Nx , Jf K (x :: ~v ) 0 ∧ ∀y : Fx , Jf K (y :: ~v ) (1 + w
+                                                                                                   ~y)
+
+                   Figure 2: Relational semantics for µ-recursive algorithms.
+
+
+                                   10. µ-Recursive Algorithms
+In order to show that MM, FRACTRAN, and H10 are in the same many-one reduction
+class (i.e. interreducible via many-one reductions), we introduce µ-recursive algorithms
+as intermediate layer. Programming in this well-known model of computation resembles
+functional programming (in a first-order language) and we will use it first for a reduction
+H10  µ-rec. Afterwards, we explain a compiler to Minsky machines, yielding a reduction
+from µ-rec to MM. The next section will then connect µ-recursive algorithms to the weak
+call-by-value λ-calculus.
+
+
+10.1. µ-Recursive Recognisability. We define a type Ak of µ-recursive algorithms repre-
+senting µ-recursive partial functions in Nk −+ N.
+              n:N                                                                       p : Fk
+            cstn : A0                zero : A1               succ : A1                prjp : Ak
+               f : Ak     g : Aki                f : Ak      g : A2+k               f : A1+k
+                 comp f g : Ai                      rec f g : A1+k                  µf : Ak
+We represent these µ-recursive partial functions using the standard relational semantics
+Jf K : Nk → N → P of the µ-recursive algorithm f : Ak , formalised in Figure 2 as a fixpoint
+definition. Intuitively, cstn represents the constant n of arity 0, zero is the constant
+0-function of arity 1, succ the successor function of arity 1, projection prjp returns the p-th
+argument, comp f g where g is a k-vector of functions of arity i first applies each element
+of g to the i inputs and then f to the resulting k numbers. rec f g is performing primitive
+recursion on the first argument. If the argument is 0, f is used. If the argument is 1 + n, g
+is applied to n, the recursive call and the rest of the arguments. Finally, minimisation µf
+performs unbounded search returning the smallest number x s.t. f on x returns 0 and f
+terminates on a non-zero value for every y < x.
+      Following [Lar17], in Fig. 3 we also formalise a cost aware big-step evaluation predicate
+[f ; v] −[ci x, where f : Ak , v : Nk , x : N, and where c : N denotes the cost of a computation,
+the cost being tailored toward the naive step-indexed evaluator to be defined in the next
+section.20 We can directly relate the relational semantics with the big-step semantics:
+Lemma 10.1. ∀ k (f : Ak ) (~v : Nk ) (x : N), Jf K ~v x ↔ ∃c, [f ; ~v ] −[ci x.
+
+   20In the Coq code, the predicate has one additional auxiliary argument to ease the correctness proof for
+the step-indexed interpreter which is only internal to the proof and thus omitted here.
+Vol. 18:1                  HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                       35:25
+
+
+
+
+       [cstn ; ~v ] −[1 + ci n               [zero; ~v ] −[1 + ci 0              [succ; x :: ~v ] −[1 + ci 1 + x
+
+                                                     ∀p : Fk , [~gp ; ~v ] −[c − pi w   ~p          ~ −[1 + ci x
+                                                                                               [f ; w]
+             [prjp ; ~v ] −[1 + ci ~vp                                 [comp f ~g ; ~v ] −[2 + ci x
+
+                   [f ; ~v ] −[ci x                      [rec f g; n :: ~v ] −[ci y    [g; n :: y :: ~v ] −[ci x
+            [rec f g; 0 :: ~v ] −[1 + ci x                      [rec f g; (1 + n) :: ~v ] −[1 + ci x
+
+                         [f ; x :: ~v ] −[c − xi 0        ∀p : Fx , [f ; p :: ~v ] −[c − pi 1 + w
+                                                                                                ~p
+                                                     [µf ; ~v ] −[1 + ci x
+
+                 Figure 3: Cost aware big-step semantics for µ-recursive algorithms.
+
+    With these characterizations of the semantics of µ-recursive algorithms, we can define
+µ-recursive halting as follows:
+                                   µ-rec(k : N, f : Ak , ~v : Nk ) := ∃x, Jf K ~v x
+A function f : Ak is called total if it terminates on any input, i.e. ∀~v : Nk ∃x, Jf K ~v x.
+Definition 10.2. We call a relation k-ary relation R over natural numbers µ-recursively
+recognisable if there is a µ-recursive algorithm f : Ak s.t. for any ~v : Nk the equivalence
+R ~v ↔ ∃x, Jf K ~v x holds.
+
+
+10.2. Compiling µ-recursive algorithms into Minsky machines. We describe how to
+compile a µ-recursive algorithm f : Ak into a Minsky machine. To avoid solving complicated
+inequality constraints over the bounded numbers in Fm ,21 we here work with Minsky machines
+where registers are indexed with N instead of Fm . Hence the number of registers is not
+bounded a priori but of course, for a given Minsky machine, the number of register that
+actually occur in the code is bounded. And indeed, in the end of the process in Theorem 10.5,
+we project to Minsky machines with registers in Fm (for some m) after the µ-recursive
+algorithm has been fully compiled. We will not enter into the details on how particular
+µ-recursive operators are implemented but instead focus on the global invariant of the
+compiler.
+    For a µ-recursive algorithm f : Ak with k inputs and one output, we produce a Minsky
+machine P : IN with the following structure for registers, described by the four extra
+parameters i, p, o and m, all of type N:
+i : is the PC-index of the first instruction of P ;
+p : the k inputs for f are to be read in the k registers {p, . . . , p + k − 1} of P ;
+o : the output of f is to be written in the register o of P ;
+   21Unlike N or Z, the inductive type F
+                                            m representing the numbers bounded by m is not equipped with
+powerful linear constraints solving tactics such as lia or omega. Working with bounded numbers here would
+require from us to manipulate embeddings of e.g. the disjoint sum Fi + Fj into Fk (for some large enough k),
+which would also impact types that depend on i, j and k. For those who experienced it, this should instantly
+trigger the bad memory of setoid hell. Using the above mentioned tools, it is much simpler to work with
+intervals of N instead.
+35:26            HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                            Vol. 18:1
+
+
+
+
+m : P can use spare registers above m and assume their initial value is 0.
+Moreover, we require that all registers except the output register o are returned to their
+initial value when the computation is terminated. In particular, spare registers return to
+their initial value 0.
+Definition 10.3. We say that P properly compiles f under the constraints i, p, o, m and
+we write ra compiled k (f : Ak ) (i p o m : N) (P : IN ) if for any ~v : Nk and ρ : N → N
+such that (1) ∀u ≥ m, ρu = 0 and (2) ∀q : Fk , ρq+p = ~vq , we have
+soundness: ∀x : N, Jf K ~v x → (i, P ) //M (i, ρ) ∗ (|P | + i, ρ{o ← x});
+completeness: (i, P ) //M (i, ρ) ↓ → ∃x, Jf K ~v x.
+      In these N-indexed register machines, the state of a machine cannot be described by a
+finite vector ~v : Nk but is instead represented by an environment ρ : N → N mapping register
+indices (in N) to the values they contain (in N also, but with a different meaning). The
+two conditions (1) and (2) state that ρ is null above register m and ρ contains ~v starting at
+register p. And under these conditions, (i, P ) should simulate a terminating computation of
+f on ~v outputting x (soundness), while conversely, whenever (i, P ) terminates starting from
+(i, ρ), this entails that f terminates on ~v (completeness).
+      We can now construct a certified compiler from µ-recursive algorithms to N-indexed
+Minsky machines. Literally, Theorem 10.4 below states that whenever the output register o
+does not belong to the input registers {p, . . . , p + k − 1} or the spare registers {m, m + 1, . . .}
+and that spare registers have indices above input registers, then one can properly compile f
+at PC value i.
+Theorem 10.4. Given a µ-recursive algorithm f : Ak , we can build a term:
+                                                   P
+ ∀ i p o m, o < m → ¬(p ≤ o < k + p) → k + p ≤ m → P, ra compiled k f i p o m P.
+    The proof proceeds by structural induction on f : Ak . The details are quite involved
+and not exposed in here: we just wanted to state the above invariant, which is closed
+under each µ-recursive constructor. The sub-Minsky machines are built and composed using
+the compositional techniques already presented in [FL19]. Notice that the statement of
+ra compiled takes the output value x in Jf K ~v x into account while in the below Theorem 10.5,
+we only care about termination. Because the termination of e.g. the µ-recursive composition
+comp f ~g depends not just on the termination of ~gp (for all p : Fk ) but on the actual output
+values w~ p of J~gp K ~v w
+                         ~ p , it is necessary to be more precise in the stated invariant used in the
+inductive construction of the compiler.
+Theorem 10.5. Given a µ-recursive algorithm f : Ak , one can compute n : N and a list of
+Minsky machine instructions P : IFk+1+n such that for any ~v : Nk ,
+                                                                  + ~0) ↓.
+                             (∃x, Jf K ~v x) ↔ (1, P ) //M (1, ~v +
+Proof. By Theorem 10.4, we compile f into P 0 : IN under the constraints i := 1, p := 0,
+o := k and m := 1 + k. Then we compute n such that k + 1 + n is a strict upper bound
+of all the register indices that occur in P 0 . Now we can map P 0 : IN to P : IFk+1+n while
+preserving its semantics. Notice that contrary to Theorem 10.4, the resulting output value
+of f or (1, P ) can now be disregarded since we only care about termination.
+Corollary 10.6. µ-rec  MM.
+Vol. 18:1           HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                      35:27
+
+
+
+
+10.3. Diophantine relations are µ-recursively recognisable. We encode n-ary Dio-
+phantine relations using µ-recursive algorithms. Following the DPRM Theorem 8.3, we
+consider a n-ary relation R : Nn → P to be Diophantine if there is a single Diophantine
+equation p =
+           ˙ q : Dsingle (Fm , Fn ) with n parameters and m (existential) variables such that
+
+                           ∀~v : Nn , R ~v ↔ ∃w
+                                              ~ : Nm , JpK~vw~ = JqK~vw~ .
+
+Again we abusively confuse vectors with maps using the equivalence X n ≃ Fn → X. We
+will prove that every Diophantine relation in this sense is µ-recursively recognisable (see
+Definition 10.2). The proof idea is relatively straightforward.
+     First, we implement eval : Dpoly (Fm , Fn ) → Am+n evaluating any polynomial:
+
+Lemma 10.7. Given any Diophantine polynomial p : Dpoly (Fm , Fn ), one can compute a
+µ-recursive algorithm evalp : Am+n s.t. Jevalp K (w
+                                                  ~++ ~v ) JpK~vw~ .
+
+Proof. The implementation relies on implementations of addition and multiplication on
+natural numbers, which are relatively straightforward for µ-recursive algorithms.
+
+     Secondly, we implement a bijection between N and Nm for any m:
+
+ Lemma 10.8. There are functions prm : N → Nm and injm : Nm → N s.t. prm (injm ~v ) =
+~v . Furthermore, given i : Fm , one can compute a µ-recursive algorithm projecti : A1 s.t.
+ Jprojecti K (x :: [ ]) (prm x)i , i.e. all the m components of prm are µ-recursive.
+
+                                 ˙ q, we compute a test algorithm testp,q : A1+n , always
+    Thirdly, given an equation p =
+terminating and returning 0 iff p =
+                                  ˙ q is satisfied when decoding the first argument as a
+vector w
+       ~ using prm :
+
+Lemma 10.9. Given any p =     ˙ q : Dsingle (Fm , Fn ), one can compute a µ-recursive algorithm
+testp,q : A1+n s.t. Jtestp,q K (x :: ~v ) 0 ↔ JpK~vw~ = JqK~vw~ where w
+                                                                      ~ := prm (x). Furthermore,
+testp,q is primitive recursive hence total.
+
+    To finish, given a vector ~v : Nn describing the values of parameters, we use minimisation
+µ to search for a number x such that w   ~ := prm (x) is a solution for p =
+                                                                          ˙ q:
+
+Theorem 10.10. Given p =       ˙ q : Dsingle (Fm , Fn ), one can compute a µ-recursive algorithm
+findp,q : An s.t. for any ~v : Nn , we have the equivalence
+
+                                                  ~ : Nm , JpK~vw~ = JqK~vw~ .
+                     (∃x : N, Jfindp,q K ~v x) ↔ ∃w
+
+    Notice that while findp,q cannot be primitive recursive (it does not terminate when the
+equation p =˙ q is unsolvable), it is however implemented as a single unbounded minimization
+applied to an otherwise primitive recursive algorithm.
+
+Corollary 10.11. H10  µ-rec.
+
+Proof. Direct application of Theorem 10.10 with no parameters, i.e. n := 0.
+35:28           HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                        Vol. 18:1
+
+
+
+
+                     11. The Weak Call-by-Value λ-Calculus L
+Until now, we have shown that the problems MM, FRACTRAN, H10, and µ-rec are all
+interreducible w.r.t. many-one reductions. We contribute our proofs to the Coq library of
+undecidability proofs [FLWD+ 20], which contains several other well-known reduction proofs.
+Amongst them is a chain of reductions published in related work and discussed in Section 12,
+establishing that the halting problem of Turing machines reduces to MM and thus to all
+other problems we consider.
+     It is also possible to prove that all considered problems are in fact interreducible to
+the halting problem of Turing machines. We demonstrate one technique to do so, based on
+the weak call-by-value λ-calculus L, which is already shown interreducible with the halting
+problem of Turing machines in [FKSW21].
+     We briefly introduce L in this section and then reduce µ-rec to halting in L. Syntactically,
+L is just the untyped λ-calculus, De Bruijn style:
+                           s, t, u : L ::= n | st | λs    where n : N
+We define a weak call-by-value evaluation predicate s . t, coinciding with other definitions of
+reduction for closed terms, where s[t/0] means “replace De Bruijn variable 0 in s by t”.
+                                             s . λs0     t . t0     s0 [t0/0] . u
+                     λs . λs                               st . u
+The halting problem for L can then be defined as WCBV(s : L) := ∃t, s . t.
+    It is possible to encode natural numbers, vectors over natural numbers, and other data
+types into L using Scott’s encoding. We will denote with · such encoding functions. For
+further details on encodings and L we refer to [FS17], since they do not actually matter to
+understand the reduction.
+    In general, a predicate reduces to the L-halting problem WCBV if it is L-recognisable:
+Definition 11.1. We say that a function f : X1 → · · · → Xn → Y is L-computable if there
+exists a closed term t s.t. ∀x1 : X1 . . . . ∀xn : Xn . t x1 . . . xn . f x1 . . . xn .
+     Given a type X encodable in L and a predicate P over X we say that P is L-recognisable
+if there is an L-computable function f : X → N → B s.t. P x ↔ ∃n, f x n = true.
+Theorem 11.2. Let X be encodable in L. For a predicate P over X we have that P  WCBV
+if and only if P is L-recognisable.
+       To instantiate the theorem to µ-rec one would like to give a step-indexed evaluation
+function for µ-recursive algorithms, i.e. for f : Ak a function Jf K : N → Nk → O N s.t.
+[f ; ~v ] −[ci x ↔ Jf Kc ~v = bxc and then show that it is computable in L. The second step,
+i.e. proving that this function is L-computable, is in principle fully automatic using the
+certifying extraction framework from Forster and Kunze [FK19], which is implemented
+using tools from the MetaCoq projet [SAB+ 20]. The framework supports extracting non-
+dependent, non-mutual, non-nested, simply-typed Coq functions to L automatically, and
+also generates a proof of correctness of the extract. However, recall that the type Ak of
+µ-recursive functions is both heavily dependent and used nested constructions: It has a type
+index in k, makes use of finite types Fk , and has a nested use of the dependent vector type,
+i.e. contains subterms of type (Ak )i . Thus, a direct step-indexed interpreter will not be
+extractable. Instead, we use a general technique and implement a step-indexed interpreter
+working on the syntactic skeleton of µ-recursive functions.
+ Vol. 18:1              HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                  35:29
+
+
+
+
+      A syntactic skeleton for a type I mirrors the constructors of I, but without any dependent
+ types. If I furthermore has nested applications of types N1 , . . . , Nn , the syntactic skeleton
+ also contains the constructors of N1 , . . . , Nn . That is, if I has i constructors and N1 , . . . , Nn
+ have m1 , . . . , mn constructors respectively, the syntactic skeleton of I has i + m1 + · · · + mn
+ constructors. The syntactic skeleton A0 of the type A is defined as follows:
+           n:N                                                       j:N
+         cstn : A0          zero : A   0
+                                                succ : A   0
+                                                                   prjj : A0              nil : A0
+             f : A0     g : A0         f : A0     g : A0            f : A0           f : A0     g : A0
+               comp f g : A0             rec f g : A0              µf : A0             cons f g : A0
+
+      Note that we re-use constructor names. In the syntactic skeleton we have j : N instead
+ of j : Fk for prjj , g : A0 instead of G : (Ak )i for comp f g, and the constructors cons and
+ nil as the constructors of the vector type are added.
+      It is straightforward to implement mutually recursive functions erase : Ak → A0 and
+ erase0 : (Ak )i → A0 which are essentially the identity. We call a skeleton s : A0 valid if it
+ corresponds to a µ-recursive function or a vector, i.e. if ∃k : N, (∃f : Ak , s = erase f ) ∨ (∃i :
+ N, ∃l : (Ak )i , s = erase0 l).
+      For A0 we can now define a step-indexed evaluation function
+                                 J·K : A0 → N → N → L N → O (N + L N).
+A call Jf Km
+           c l uses c as step-index, m as auxiliary counter to implement unbounded search,
+and l as input. If Jf Km                                                            m           0
+                       c l = binl vc, then v is the value of the evaluation. If Jf Kc l = binr l c,
+then f encoded a list of functions via cons and nil which pointwise evaluated to l : L N.  0
+
+If Jf Km
+       c l = ∅ either if usual the step-index c was not big enough, the function f does not
+terminate on input l, or f is not a valid skeleton.
+
+              Jcstn Km
+                     1+c l := binl nc
+              JzeroKm1+c l := binl 0c
+        JsuccKm1+c  (x :: l) := binl (1 + x)c
+              Jprjp Km
+                     1+c l := binl xc         for lp = bxc
+                     m                                             0           m 0
+           Jcomp f gK1+c l := binl xc         for JgKmc l = binr l c and Jf Kc l = binl xc
+               m                                      m
+      Jrec f gK1+c (0 :: l) := binl xc       for Jf Kc l = binl xc
+Jrec f gKm
+         1+c (1 + n) :: l := binl xc          for Jrec f gKm                             m
+                                                             c (n :: l) = binl yc and JgKc (n :: y :: l) = binl xc
+                     m
+               JnilK1+c l := binr [ ]c
+                                          0                                               0
+          Jcons f gKm                                  m                      m
+                     1+c l := binr (x :: l )c for Jf Kc l = binl xc and JgKc l = binr l c
+                     m                                 0
+                Jµf K1+c l := binl mc         for Jf Kc (m :: l) = binl 0c
+                Jµf Km
+                     1+c l := binl xc         for Jf K0c (m :: l) = binl (1 + y)c and Jµf K1+m
+                                                                                            c   l = binl xc
+                       m
+                   Jf Kc l := ∅               in all other cases
+
+
+ Lemma 11.3. For all f : Ak , ~v : Nk , c : N, and n : N we have
+                                  [f ; ~v ] −[ci n ↔ Jf K0c (v2l ~v ) = binl nc
+    Note that on the right hand side of this equivalence, the vector ~v is just mapped to its
+ underlying list v2l ~v .
+Theorem 11.4. µ-rec  WCBV.
+35:30           HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                         Vol. 18:1
+
+
+
+
+Proof. We use Theorem 11.2 and have to provide a function F s.t. µ-rec(k : N, f : Ak , ~v :
+Nk ) ↔ ∃c, F c (k, f, ~v ) = true.
+     We define F (k : N, f : Ak , ~v : Nk ) c := true if Jf K0c (v2l ~v ) = binl nc for some n and
+F (k, f, v) c := false otherwise.
+     Now F is part of the Coq fragment supported by the extraction framework in [FK19],
+since the step-indexed evaluator J·K does not use any dependent, nested, mutual, or non-
+simple types. Thus F is L-computable.
+     Furthermore we have as wanted that
+                        µ-rec(k, f, ~v ) ↔ ∃n, Jf K ~v n
+                                       ↔ ∃n c, [f ; ~v ] −[ci n
+                                       ↔ ∃n c, Jf K0c (v2l ~v ) = binl nc
+                                       ↔ ∃c, F (k, f, ~v ) c = true
+
+
+
+                                     12. Related Work
+Regarding formalisations of Hilbert’s tenth problem, there are various unfinished and
+preliminary results in different proof assistants: Carneiro [Car18] formalises Matiyasevich’s
+theorem (Diophantineness of exponentiation) in Lean, but does not consider computational
+models or the DPRM theorem. Pak formalises results regarding Pell’s equation [Pak17] and
+proves that Diophantine sets are closed under union and intersection [Pak18], both as parts
+of the Mizar Mathematical Library. Stock et al. [S+ 18, BDP+ 19] report on an unfinished
+formalisation of the DPRM theorem in Isabelle based on [Mat00]. They cover some parts of
+the proof, but acknowledge for important missing results like Lucas’s or “Kummer’s theorem”
+and a “formalisation of a register machine.” Moreover, none of the cited reports considers
+the computability of the reductions involved or the verification of a universal machine in the
+chosen model of computation yet, one of them being a necessary proof goal for an actual
+undecidability result in the classical meta-theories of Isabelle/HOL and Mizar.
+     Regarding undecidability proofs in type theory, Forster, Heiter, and Smolka [FHS18]
+reduce the halting problem of Turing machines to PCP. Forster and Larchey-Wendling [FL19]
+reduce PCP to provability in linear logic via the halting problem of Minsky machines, which
+we build on. Forster, Kirst and Smolka develop the notion of synthetic undecidability in
+Coq and prove the undecidability of various notions in first-order logic [FKS19]. Spies and
+Forster mechanise the undecidability proof of second-order unification by reduction from
+H10 [SF20] originally shown by Goldfarb [Gol81]. Forster, Kunze, and Wuttke reduce the
+halting problem of multi-tape Turing machines to single-tape Turing machines [FKW20].
+Dudenhefner and Rehof [DR19] mechanise a recently simplified undecidability proof for
+System F inhabitation.
+     Regarding formalisations of µ-recursive functions, Larchey-Wendling [Lar17] shows that
+every total µ-recursive function can directly be computed in Coq and Carneiro [Car19]
+mechanises standard computability theory based on µ-recursive functions. Xu, Zhang, and
+Urban [XZU13] mechanise µ-recursive functions and Turing machines in Isabelle and prove
+their computational equivalence. Their proof uses Abacus machines as intermediate layer,
+which are similar to our Minsky machines.
+Vol. 18:1          HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                    35:31
+
+
+
+
+                                  Acknowledgements
+We would like to thank Gert Smolka, Dominik Kirst, and Simon Spies for helpful discussion
+regarding the presentation. The first author was partially supported by the TICAMORE
+project (ANR grant 16-CE91-0002).
+
+
+                                       References
+  [BDP+ 19] Jonas Bayer, Marco David, Abhik Pal, Benedikt Stock, and Dierk Schleicher.
+              The DPRM Theorem in Isabelle (Short Paper). In 10th International Conference
+              on Interactive Theorem Proving (ITP 2019), volume 141 of Leibniz International
+              Proceedings in Informatics (LIPIcs), pages 33:1–33:7, Dagstuhl, Germany, 2019.
+              Schloss Dagstuhl–Leibniz-Zentrum fuer Informatik. doi:10.4230/LIPIcs.ITP.
+              2019.33.
+      [Car18] Mario Carneiro. A Lean formalization of Matiyasevič’s theorem, 2018. arXiv:
+              1802.01795.
+      [Car19] Mario Carneiro. Formalizing Computability Theory via Partial Recursive
+              Functions. In 10th International Conference on Interactive Theorem Proving
+              (ITP 2019), volume 141 of Leibniz International Proceedings in Informatics
+              (LIPIcs), pages 12:1–12:17, Dagstuhl, Germany, 2019. Schloss Dagstuhl–Leibniz-
+              Zentrum fuer Informatik. doi:10.4230/LIPIcs.ITP.2019.12.
+     [Con87] John H. Conway. FRACTRAN: A Simple Universal Programming Language
+              for Arithmetic, pages 4–26. Springer New York, New York, NY, 1987. doi:
+              10.1007/978-1-4612-4808-8_2.
+     [Dav53] Martin Davis. Arithmetical problems and recursively enumerable predicates 1.
+              The Journal of Symbolic Logic, 18(1):33–41, 1953. doi:10.2307/2266325.
+     [Dav73] Martin Davis. Hilbert’s Tenth Problem is Unsolvable. The American Mathemat-
+              ical Monthly, 80(3):233–269, 1973. URL: 10.1080/00029890.1973.11993265.
+       [DP59] Martin Davis and Hilary Putnam. A computational proof procedure; Axioms
+              for number theory; Research on Hilbert’s Tenth Problem. Air Force Office of
+              Scientific Research, Air Research and Development, 1959.
+   [DPR61] Martin Davis, Hilary Putnam, and Julia Robinson. The decision problem for
+              exponential Diophantine equations. Annals of Mathematics, pages 425–436,
+              1961. doi:10.2307/1970289.
+      [DR19] Andrej Dudenhefner and Jakob Rehof. A Simpler Undecidability Proof for
+              System F Inhabitation. In Peter Dybjer, José Espı́rito Santo, and Luı́s Pinto,
+              editors, 24th International Conference on Types for Proofs and Programs
+              (TYPES 2018), volume 130 of Leibniz International Proceedings in Informatics
+              (LIPIcs), pages 2:1–2:11, Dagstuhl, Germany, 2019. Schloss Dagstuhl–Leibniz-
+              Zentrum fuer Informatik. doi:10.4230/LIPIcs.TYPES.2018.2.
+    [FHS18] Yannick Forster, Edith Heiter, and Gert Smolka. Verification of PCP-Related
+              Computational Reductions in Coq. In ITP 2018, pages 253–269. Springer, 2018.
+              doi:10.1007/978-3-319-94821-8_15.
+       [FK19] Yannick Forster and Fabian Kunze. A Certifying Extraction with Time Bounds
+              from Coq to Call-By-Value Lambda Calculus. In 10th International Conference
+              on Interactive Theorem Proving (ITP 2019), volume 141 of Leibniz International
+              Proceedings in Informatics (LIPIcs), pages 17:1–17:19, Dagstuhl, Germany, 2019.
+35:32          HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                     Vol. 18:1
+
+
+
+
+               Schloss Dagstuhl–Leibniz-Zentrum fuer Informatik. doi:10.4230/LIPIcs.ITP.
+               2019.17.
+    [FKS19] Yannick Forster, Dominik Kirst, and Gert Smolka. On synthetic undecidability
+               in coq, with an application to the entscheidungsproblem. In Proceedings of
+               the 8th ACM SIGPLAN International Conference on Certified Programs and
+               Proofs, CPP 2019, page 38–51, New York, NY, USA, 2019. Association for
+               Computing Machinery. doi:10.1145/3293880.3294091.
+ [FKSW21] Yannick Forster, Fabian Kunze, Gert Smolka, and Maximilian Wuttke. A
+               Mechanised Proof of the Time Invariance Thesis for the Weak Call-By-Value
+               λ-Calculus. 193:19:1–19:20, 2021. doi:10.4230/LIPIcs.ITP.2021.19.
+  [FKW20] Yannick Forster, Fabian Kunze, and Maximilian Wuttke. Verified Program-
+               ming of Turing Machines in Coq. In Proceedings of the 9th ACM SIG-
+               PLAN International Conference on Certified Programs and Proofs. ACM, 2020.
+               doi:10.1145/3372885.3373816.
+       [FL19] Yannick Forster and Dominique Larchey-Wendling. Certified Undecidability of
+               Intuitionistic Linear Logic via Binary Stack Machines and Minsky Machines.
+               In CPP 2019, pages 104–117. ACM, 2019. doi:10.1145/3293880.3294096.
+   [FLW18] Yannick Forster and Dominique Larchey-Wendling. Towards a library of
+               formalised undecidable problems in Coq: The undecidability of intuitionistic
+               linear logic. Workshop on Syntax and Semantics of Low-level Languages, Oxford,
+               2018.
+[FLWD+ 20] Yannick Forster, Dominique Larchey-Wendling, Andrej Dudenhefner, Edith
+               Heiter, Dominik Kirst, Fabian Kunze, Gert Smolka, Simon Spies, Dominik Wehr,
+               and Maximilian Wuttke. A Coq library of undecidable problems. In The Sixth
+               International Workshop on Coq for Programming Languages (CoqPL 2020),
+               2020. URL: https://github.com/uds-psl/coq-library-undecidability.
+[FLWD+ 21] Yannick Forster, Dominique Larchey-Wendling, Andrej Dudenhefner, Lennard
+               Gäher, Edith Heiter, Marc Hermes, Dominik Kirst, Fabian Kunze, Maximilian
+               Wuttke, Gert Smolka, Simon Spies, and Dominik Wehr. The Coq Library of
+               Undecidability Proofs: Hilbert’s Tenth problem in Coq (LMCS) v1.1, May 2021.
+               doi:10.5281/zenodo.4827453.
+       [FS17] Yannick Forster and Gert Smolka. Weak call-by-value lambda calculus as
+               a model of computation in coq. In Interactive Theorem Proving, pages
+               189–206, Cham, 2017. Springer International Publishing. doi:10.1007/
+               978-3-319-66107-0_13.
+     [Göd31] Kurt Gödel. Über formal unentscheidbare Sätze der Principia Mathematica und
+               verwandter Systeme I. Monatshefte für mathematik und physik, 38(1):173–198,
+               1931. doi:10.1063/1.3051400.
+      [Gol81] Warren D. Goldfarb. The undecidability of the secondorder unification problem.
+               Theoretical Computer Science, 13:225–230, 1981. doi:10.1016/0304-3975(81)
+               90040-2.
+       [Hil02] David Hilbert. Mathematical problems. Bulletin of the American Mathematical
+               Society, 8(10):437–479, 1902. doi:10.1090/S0002-9904-1902-00923-3.
+      [JM84] J. P. Jones and Y. V. Matijasevič. Register Machine Proof of the Theorem on
+               Exponential Diophantine Representation of Enumerable Sets. J. Symb. Log.,
+               49(3):818–829, 1984. doi:10.2307/2274135.
+Vol. 18:1          HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                    35:33
+
+
+
+
+     [Lar17] Dominique Larchey-Wendling. Typing Total Recursive Functions in Coq. In ITP
+              2017, pages 371–388. Springer, 2017. doi:10.1007/978-3-319-66107-0_24.
+     [Luc78] Edouard Lucas. Théorie des Fonctions Numériques Simplement Périodiques.
+              [Continued]. American Journal of Mathematics, 1(3):197–240, 1878. doi:
+              10.2307/2369308.
+   [LWF19] Dominique Larchey-Wendling and Yannick Forster. Hilbert’s Tenth Problem in
+              Coq. In 4th International Conference on Formal Structures for Computation
+              and Deduction (FSCD 2019), volume 131 of Leibniz International Proceedings
+              in Informatics (LIPIcs), pages 27:1–27:20, Dagstuhl, Germany, 2019. Schloss
+              Dagstuhl–Leibniz-Zentrum fuer Informatik. doi:10.4230/LIPIcs.FSCD.2019.
+              27.
+    [Mat70] Yuri V. Matijasevič. Enumerable sets are Diophantine. In Soviet Mathematics:
+              Doklady, volume 11, pages 354–357, 1970.
+    [Mat97] Yuri V. Matiyasevich. A new technique for obtaining Diophantine repre-
+              sentations via elimination of bounded universal quantifiers. J. Math. Sci.,
+              87(1):3228–3233, 1997.
+    [Mat00] Yuri V. Matiyasevich. On Hilbert’s Tenth Problem. Expository Lec-
+              tures 1, Pacific Institute for the Mathematical Sciences, University of Calgary,
+              February 2000. URL: http://www.mathtube.org/sites/default/files/
+              lecture-notes/Matiyasevich.pdf.
+    [Mat16] Yuri V. Matiyasevich. Martin davis and hilbert’s tenth problem. In Martin
+              Davis on Computability, Computational Logic, and Mathematical Foundations,
+              volume 10 of Outstanding Contributions to Logic, pages 35–54. Springer, 2016.
+              doi:10.1007/978-3-319-41842-1\_2.
+    [Min67] Marvin L. Minsky. Computation: finite and infinite machines. Prentice-Hall,
+              Inc., 1967.
+    [Pak17] Karol Pak. The Matiyasevich Theorem. Preliminaries. Formalized Mathematics,
+              25(4):315–322, 2017. doi:10.1515/forma-2017-0029.
+    [Pak18] Karol Pak. Diophantine sets. Preliminaries. Formalized Mathematics, 26(1):81–
+              90, 2018. doi:10.2478/forma-2018-0007.
+     [Pos44] Emil L. Post. Recursively enumerable sets of positive integers and their decision
+              problems. bulletin of the American Mathematical Society, 50(5):284–316, 1944.
+              doi:10.1090/S0002-9904-1944-08111-1.
+    [Rob52] Julia Robinson. Existential definability in arithmetic. Transactions of
+              the American Mathematical Society, 72(3):437–449, 1952. doi:10.1090/
+              S0002-9947-1952-0048374-2.
+      [S+ 18] Benedikt Stock et al. Hilbert meets Isabelle: Formalisation of the DPRM
+              theorem in Isabelle. Isabelle Workshop 2018, 2018. doi:10.29007/3q4s.
+  [SAB+ 20] Matthieu Sozeau, Abhishek Anand, Simon Boulier, Cyril Cohen, Yannick
+              Forster, Fabian Kunze, Gregory Malecha, Nicolas Tabareau, and Théo Win-
+              terhalter. The MetaCoq project. J. Autom. Reason., 64(5):947–999, 2020.
+              doi:10.1007/s10817-019-09540-0.
+      [SF20] Simon Spies and Yannick Forster. Undecidability of higher-order unification
+              formalised in Coq. In Proceedings of the 9th ACM SIGPLAN International
+              Conference on Certified Programs and Proofs, pages 143–157, 2020. doi:
+              10.1145/3372885.3373832.
+35:34          HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                       Vol. 18:1
+
+
+
+
+     [SM19] Matthieu Sozeau and Cyprien Mangin. Equations reloaded: High-level
+              dependently-typed functional programming and proving in coq. Proc. ACM
+              Program. Lang., 3(ICFP), July 2019. doi:10.1145/3341690.
+        [tea] The Mathematical Components team. Mathematical Components. URL:
+              https://math-comp.github.io.
+     [Tea21] The Coq Development Team. The Coq Proof Assistant, January 2021. doi:
+              10.5281/zenodo.1003420.
+    [XZU13] Jian Xu, Xingyuan Zhang, and Christian Urban. Mechanising turing machines
+              and computability theory in isabelle/hol. In Interactive Theorem Proving,
+              pages 147–162, Berlin, Heidelberg, 2013. Springer Berlin Heidelberg. doi:
+              10.1007/978-3-642-39634-2_13.
+
+
+
+
+           Appendix A. Some Remarks about the Coq Code Contents
+The file names below are hyper-linked to the corresponding files in the following specific
+release of the Coq library of undecidability proofs:
+
+  https://github.com/uds-psl/coq-library-undecidability/tree/H10-LMCS-v1.1
+
+To help at understanding the H10 code from a high-level point of view, we provide two
+additional Coq source code files:
+• the file summary.v which gives specific pointers to the main problems contained in the
+  reduction chain described in this paper;
+• the file standalone.v which gives a (combined) reduction from the binary BPCP to H10 but
+  where the statements of those two problems have been rewritten to minimize dependencies.
+      Additionally, we here give a detailed overview of the structure of the code corresponding
+to the results presented in this paper, and which was contributed to our Coq library
+of undecidability proofs. The following lines of code (loc) measurements combine both
+definitions and proof scripts but do not account for comments. Notice that there are more
+files in the whole library than those needed to actually cover H10, but here, we only present
+the latter. In total, we contribute 16k loc to our undecidability project, 4k being additions
+to its shared libraries as extensions of the Coq standard library.
+      Concerning the multi-purpose shared libraries in Shared/Libs/DLW/Utils:
+• we implemented finitary sums/products (over monoids) up to the binomial theorem
+  (Newton) over non-commutative rings in sums.v and binomial.v for a total of 550 loc;
+• we implemented bitwise operations over N, both a lists of bits in bool list.v and Peano
+  nat in bool nat.v for a total of 1700 loc;
+• we implemented many results about Euclidean division and Bézout’s identity in gcd.v, prime
+  numbers and their unboundedness in prime.v, and base p representations in power decomp.v
+  for a total of 1200 loc;
+• we implemented miscellaneous libraries for the reification of bounded quantification.v (120
+  loc), the Pigeon Hole Principle in php.v (350 loc) and iterations of binary relations in
+  rel iter.v (230 loc).
+Concerning the libraries for Minsky machines and FRACTRAN programs:
+Vol. 18:1          HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                     35:35
+
+
+
+
+• by a slight update to the existing code [FL19], we proved in mm comp.v that MM-
+  termination (on any state) is undecidable (10 loc). Both the pre-existing result (undecid-
+  ability of MM-termination on the zero state) and the new result derive from the correctness
+  of the compiler of binary stack machines into Minsky machines;
+• we implemented the removal of self loops in Minsky machines in mm no self.v (340 loc);
+• we construct two infinite sequences of primes pi and qi in prime seq.v (240 loc);
+• FRACTRAN definitions and basic results occur in fractran utils.v (310 loc) and the verified
+  compiler from Minsky machines to FRACTRAN occurs in MM FRACTRAN.v (300 loc);
+Concerning the libraries for proving Matiyasevich’s theorems:
+• we implemented a library for modular arithmetic (Z/pZ) in Zp.v (920 loc);
+• we implemented a library for 2 × 2-matrix computation including exponentiation and
+  determinants in matrix.v (210 loc);
+• we implemented an elementary proof of Lucas’s theorem in luca.v (330 loc);
+• we implemented the “classical proof” of Lagrange’s theorem in lagrange.v (520 loc);
+• the solution αb (n) of Pell’s equation and its (modular) arithmetic properties up to a proof
+  of its Diophantineness are in alpha.v (1150 loc);
+• from αb (n), we implement the meta-level Diophantine encoding of the exponential in
+  expo diophantine.v (150 loc);
+• we implement the sparse ciphers used in the Diophantine elimination of bounded universal
+  quantification in cipher.v (1450 loc).
+Concerning the object-level Diophantine libraries:
+• the definition of Diophantine logic and basic results is in dio logic.v (540 loc);
+• the definition of elementary Diophantine constraints and the reduction from Diophantine
+  logic is in dio elem.v (440 loc);
+• the definition of single Diophantine equations and the reduction from elementary Dio-
+  phantine constraints is in dio single.v (350 loc);
+• we implement the object-level Diophantine encoding of the exponential relation in
+  dio expo.v (60 loc); but all the work is done in the previously mentioned libraries;
+• the object-level Diophantine encoding of bounded universal quantification spans over
+  dio binary.v, dio cipher.v and dio bounded.v (460 loc);
+• we derive the object-level Diophantine encoding of the reflexive-transitive closure in
+  dio rt closure.v (40 loc);
+• we implement the object-level Diophantine encoding of the FRACTRAN termination
+  predicate in fractran dio.v (80 loc).
+Concerning µ-recursive algorithms, reducing H10 and reduced to Minsky machines:
+• building on the pre-existing developments corresponding to [Lar17] (1000 loc);
+• the µ-recursive algorithm that searches for a solution to a single Diophantine equation in
+  ra utils.v, ra dio poly.v, recomp.v and ra recomp.v (1370 loc);
+• extensions of the Minsky machines library for N-indexed registers in env.v, mme defs.v
+  and mme utils.v (600 loc);
+• the certified compiler from µ-recursive algorithms to Minsky machines in ra mm.v and
+  ra mm env.v (1250 loc).
+Concerning the reduction from µ-recursive algorithms to L:
+• the step-indexed evaluator and the reduction are in MuRec.v (450 loc)
+35:36            HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                 Vol. 18:1
+
+
+
+
+• the framework used to extract the step-indexed evaluator is in the directory L and consists
+  of about 2500 lines of code. More details can be found in [FK19].
+To finish, the main undecidability results and the DPRM:
+• the undecidability of Minsky machines is in MM undec.v (20 loc);
+• the reduction from MM to FRACTRAN is in MM FRACTRAN.v (90 loc);
+• the Diophantine encoding of FRACTRAN termination is in FRACTRAN DIO.v (70 loc);
+• the whole reduction chain leading to the undecidability of H10 is in H10 undec.v (60 loc);
+• the reduction from H10 to H10Z is in H10Z.v (200 loc)
+• and the DPRM theorem is in DPRM.v (170 loc).
+
+
+                                 Appendix B. Lucas’s theorem
+Lucas’s theorem allows for the computation of the binomial coefficient Cm   n modulo a prime
+
+number p using the base p expansions of m and n. There are various proofs of this theorem
+but most of them involve high-level concepts like generating functions or group action and
+we choose instead to implement a low-level combinatorial proof of the theorem. Such a proof
+provides specific combinatorial insights into Lucas’s results.
+     While a high-level proof could rightfully be considered as more beautiful, it would also
+likely require a lot of additional library code. We could of course rely on an external library
+such as MathComp [tea] but this would generate a new external dependency, additional
+to the already involved Equations [SM19] and MetaCoq [SAB+ 20] libraries, increasing the
+likelihood of synchronization issues between all these developments. An additional benefit
+of a low-level proof is that it could reasonably be imported in alternate developments
+(e.g. [BDP+ 19]) in other proof assistants (e.g. Isabelle/HOL) without the need to convert a
+substantial helper library.
+     Before we enter this low-level proof of Lucas’s theorem, we must give a light-weight,
+working and formal definition of binomial coefficients. For this, we use Pascal’s identity as a
+ground for a fixpoint definition:
+                 0
+                Cm := 1        and       C01+n := 0       and          1+n
+                                                                      C1+m     n
+                                                                           := Cm    1+n
+                                                                                 + Cm
+where we use the compact notation Cm   n for a more compact typesetting of the upcoming
+
+equations. Starting from Pascal’s definition, one can derive the following identities
+                            n                                           n
+               n! (m − n)! Cm = m!        for n ≤ m          and       Cm =0       for m < n
+and we call the leftmost one as the binomial identity.22
+Lemma B.1. Let p be a prime number and let us consider M = mp + m0 and N = np + n0
+                                     N ≡ C n C n0 [p] holds.
+with m0 , n0 < p. Then the identity CM    m m0
+
+Proof. Let us first notice that the identity is trivial (in N already) when n > m or n =
+m ∧ n0 > m0 because both sides evaluate to 0. So below, we only consider the cases
+n ≤ m ∧ n0 ≤ m0 or n < m ∧ m0 < n0 which cover the remaining part of the domain.
+    Before we split those two cases, let us define φ : N → N → N and ψ : N → N by
+                                                                                      i−1
+                    φir := (ip + 1) · · · (ip + r)     and         ψi := φ0p−1 · · · φp−1 .
+
+   22We do not enter the details of these inductive proofs which are standard exercises in basic arithmetic.
+Vol. 18:1              HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                 35:37
+
+
+
+
+Notice that φir generalize the factorial function as r! = φ0r but we will always use φir with
+r < p. Projected on Z/pZ, both φ and ψ simplify to factorial as it is easy to show23
+                              φir ≡ r! [p]      and       ψi ≡ (p − 1)!i [p].                          (B.1)
+Moreover, φir is invertible in Z/pZ for any r < p, and in particular (p − 1)! = φ0p−1 and ψi
+are also invertible in Z/pZ. Using φ, ψ and the semiring structure of N, we establish the
+identity
+                (ip + r)! = φ0p−1 · (1p + 0) · · · φi−1               i       i i
+                                                    p−1 · (ip + 0) · φr = i! p φr ψi   (B.2)
+
+    In the case n ≤ m and n0 ≤ m0 , we have M − N = (m − n)p + (m0 − n0 ) and we rewrite
+                                     N = M ! in N as
+the binomial equation N ! (M − N )! CM
+                                                     N
+                   (np + n0 )! (m − n)p + (m0 − n0 ) ! CM = (mp + m0 )!
+                                                                                  n as
+and then rewrite again with Eq. (B.2) and the binomial equation m! = n! (m − n)! Cm
+            n! pn φnn0 ψn · (m − n)! pm−n φm−n            N                n    m m
+                                           m0 −n0 ψm−n · CM = n! (m − n)! Cm · p φm0 ψm
+
+In N, we simplify by pn pm−n = pm and n!(m − n)! and get
+                                φnn0 ψn φm−n          N    n m
+                                         m0 −n0 ψm−n CM = Cm φm0 ψm
+Now switching to Z/pZ using Eqs. (B.1), we derive:
+                   n0 ! (p − 1)!n (m0 − n0 )! (p − 1)!m−n CM
+                                                           N    n
+                                                             ≡ Cm m0 ! (p − 1)!m [p]
+Because (p − 1)! is invertible in Z/pZ, we can simplify by (p − 1)!n (p − 1)!m−n = (p − 1)!m .
+Then we rewrite using the binomial equation m0 ! = n0 ! (m0 − n0 )! Cm n0 and deduce
+                                                                        0
+
+                                        N    n         n                   n0
+                      n0 ! (m0 − n0 )! CM ≡ Cm m0 ! ≡ Cm n0 ! (m0 − n0 )! Cm 0
+                                                                               [p]
+Finally, as both n0 < p and m0 − n0 < p hold, then n0 ! (m0 − n0 )! is invertible in Z/pZ and,
+                     N ≡ C n C n0 [p] as required.
+simplifying, we get CM     m m0
+    Then we consider the alternative
+                                       case where n < m and m0 < n0 < r. In this case
+we have M − N = m − (n + 1) p + p − (n0 − m0 ) and again we develop the binomial
+equation N ! (M − N )! CM N = M ! in N as
+                                                            N
+              (np + n0 )! (m − (n + 1))p + (p − (n0 − m0 )) ! CM = (mp + m0 )!
+                                                                      n , rewriting it into
+and thus, using Eq. (B.2) and the binomial equation m! = n! (m − n)! Cm
+                                              m−(n+1)
+ n! pn φnn0 ψn (m − (n + 1))! pm−(n+1) φp−(n0 −m0 ) ψm−(n+1) CM
+                                                              N                n m m
+                                                                = n! (m − n)! Cm p φm0 ψm
+
+that we then simplify by n! (m − (n + 1))! and pn pm−(n+1) = pm−1 to get
+                               m−(n+1)
+                      φnn0 ψn φp−(n0 −m0 ) ψm−(n+1) CM
+                                                     N            n
+                                                       = (m − n) Cm p φm
+                                                                       m0 ψm
+
+Notice that p appears (at least once) on the right-hand side, thus switching to Z/pZ, we get:
+                      n0 ! (p − 1)!n (p − (n0 − m0 ))! (p − 1)!m−(n+1) CM
+                                                                        N
+                                                                          ≡ 0 [p]
+Now, as n0 < p and p − (n0 − m0 ) < p, the factorials n0 ! and (p − (n0 − m0 ))! are both
+invertible in Z/pZ. This is also the case of any power of (p − 1)!. We deduce that CMN ≡ 0 [p]
+
+which leads us to conclude CM N ≡ C n C n0 [p] as C n0 = 0 trivially follows from m < n .
+                                     m m0          m0                              0   0
+
+   23Notice that Wilson’s theorem establishes (p − 1)! ≡ −1 [p] but this equation is not needed in this proof.
+35:38           HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                           Vol. 18:1
+
+
+
+
+Theorem B.2 (Lucas [Luc78]). Whenever u0 , . . . un , v1 , . . . , vn < p, the following identity
+holds:
+                      un pn + · · · + u0
+                                                        
+                                             un               u0
+                                           ≡         · · ·           [p].
+                      vn p n + · · · + v0    vn               v0
+Proof. By induction on the number n of coefficients using Lemma B.1.
+Definition B.3. Let a = an 2n + · · · + a0 and b = bn 2n + · · · + b0 representations in base 2.
+We denote a 4 b if ai ≤ bi holds for any i ≤ n.
+    Notice that the definition of a 4 b is irrelevant to which base 2 representations of a and
+b are picked up, i.e. it is not influenced by trailing zeros that might appear in front of (the
+representations of) a or b.
+Corollary B.4. For any a, b : N we have a 4 b ↔ Cba ≡ 1 [2].
+
+
+         Appendix C. Avoiding Overflows in the Proof of Theorem 2.8
+The section explains why we slightly modified the original proof of the elimination of bounded
+universal quantification [Mat97] to avoid overflows when dealing with parallel multiplications,
+in search for a Diophantine encoding of the simultaneous equations a1 = b1 c1 , . . . , an = bn cn ,
+which can also be viewed as the identity between the vectors ~a = [a1 ; . . . ; an ] and the
+scalar/dot product ~b · ~c = [b1 c1 ; . . . ; bn cn ].
+     Following Matiyasevich [Mat97], the component of those vectors are encoded sparsely
+within the digits in base r of the corresponding so called ciphers (see below for examples).
+Using the natural product of ciphers, he can somehow recover the identity between the
+components of ~a and those of ~b · ~c. The basis r for the encoding is chosen large enough w.r.t.
+the component of ~a, ~b and ~c to avoid digit overflow during the natural product of ciphers.
+However, this product generates artefacts on in-between digits that need to be masked out
+and, with Matiyasevich’s choice for r as r := 22q , some overflow could occur within these
+artefacts, a subtlety which we speculate he might have missed. This overflow pointlessly
+complicates the correctness proof of masking. In our Coq code, we propose to avoid any
+digit overflow by increasing r to r := 24q , but, as we realized later on, any power of 2 greater
+than 22q+1 would work as well.
+     Let us switch to the technical details explaining how the overflow occurs and how it can
+be avoided, with little impact on the rest of the argument. For the moment, we describe what
+Matiyasevich does in [Mat97] so we stick with his definition of r as r := 22q and consider the
+encoding of vectors of Dqn as ciphers, written in base r, where q ≥ 1 and Dq := {0, . . . , 2q − 1}
+is the set of allowed digits for vectors. He considers five vectors and their respective ciphers:
+                     vector/length                              cipher
+                                                           1             n
+                ~u = [1; . . . ; 1] ∈ Dqn         u = 1.r2 + · · · + 1.r2
+                                                            1        2           n+1
+              ~u 0 = [0; 1; . . . ; 1] ∈ Dqn+1    u0 = 0.r2 + 1.r2 + · · · + 1.r2
+                                                             1               n
+                ~a = [a1 ; . . . ; an ] ∈ Dqn      a = a1 r2 + · · · + an r2
+                                                            1               n
+                 ~b = [b1 ; . . . ; bn ] ∈ Dn      b = b1 r2 + · · · + bn r2
+                                            q
+                                                            1                n
+                 ~c = [c1 ; . . . ; cn ] ∈ Dqn     c = c1 r2 + · · · + cn r2 .
+Each summand is an actual digit of the cipher in base r. Notice that q is to be chosen
+large enough so that the digits in Dq cover the components of the vectors ~a, ~b and ~c. Also,
+Vol. 18:1             HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                            35:39
+
+
+
+
+ the ciphers have a sparse representation in base r, i.e. only the digits which correspond to
+             i
+ powers r2 are possibly non-zero. Finally, most of the digits of base r are unused, i.e. only
+ 2q of them out of r = 22q many, to avoid overflows when adding or multiplying digits. But
+ remark that which overflows are avoided (or not) is the purpose of the whole discussion here.
+      The problem solved in [Mat97] is to find, depending on q/r and n, Diophantine repre-
+ sentations for (the ciphers of) ~u and ~u 0 , and most importantly, for the identities ~a = ~b + ~c
+(the sum) and ~a = ~b ·~c (the scalar product), implementing some kind of parallel addition and
+ multiplication. We skip over the Diophantine encodings of ~u and ~u 0 , of which the description
+ spans about one fourth of [Mat97], to directly consider the parallel sum and multiplication.
+ For ~a = ~b + ~c, the encoding is as straightforward as the addition of ciphers a = b + c, because
+ the basis r is large enough to avoid overflows of digit additions, i.e. 2(2q − 1) < r = 22q , and
+                                                             i
+ no artefacts appear at powers different from r2 .
+      The case of parallel multiplication is more complicated. To recover the identity between
+~a and the scalar product ~b · ~c = [b1 c1 ; . . . ; bn cn ], Matiyasevich also uses the natural product
+ of the ciphers but it generates artefacts on in-between digits that need to be masked out.
+ Indeed, considering the identities
+                            n               n               n
+                                      i               i                    i+1                        i   j
+                            X               X               X                        X
+                  au =            ai r2 ×         r2 =               ai r 2      +       (ai + aj )r2 +2          (C.1)
+                            i=1             i=1             i=1                  1≤i<j≤n
+
+and
+                      n               n                   n
+                                  i               i                       i+1                             i   j
+                      X               X                   X                          X
+               bc =         bi r2 ×         ci r2 =             bi ci r2         +       (bi cj + bj ci )r2 +2    (C.2)
+                      i=1             i=1                 i=1                    1≤i<j≤n
+                                      P
+by filtering out the two parts            1≤i<j≤n . . . on the right hand side of the + sign, and then
+identifying the two values, we may recover the identity ~a = ~b · ~c.
+                                            2                      n+1
+    For this, he uses (r − 1)u0 = (r − 1)r2 + · · · + (r − 1)r2        as a mask. This is the
+meaning of Equation (40) of page 3232 in [Mat97], (slightly) reformulated here as
+                                      au & (r − 1)u0 = bc & (r − 1)u0                                             (C.3)
+                                                                24
+where & is the digit by digit AND operator. However, to show the equivalence between
+Equation (C.3) and the identity ~a = ~b · ~c, we have to makeP sure that the masking operator
+x 7→ x & (r − 1)u0 effectively erases the two rightmost sums 1≤i<j≤n . . . in Equations (C.1)
+and (C.2), while keeping the left sums intact. Proving this property is not even considered
+worthy of an explanation in [Mat97] but it turned out to be not that obvious.
+    We first remark that the digit by digit AND operator & does not commute with + (in
+general), hence computing the mask can be tricky. However, & commutes with the digit by
+digit OR operator. Moreover OR and + coincide whenever the binary digits of the added
+numbers do not overlap (there are never two 1 on the same binary digit power in each
+number). As r is a power of 2, this generalises from base 2 to base r, and provided the
+below summations are base r representations, one can commute the sum/+ with & and
+apply masking component by component, e.g. one can show the identity
+                                      !                 !
+                        X                 X                 X
+                                 ϕ(i)              ϕ(i)
+                            xi r        &     mi r        =  (xi & mi )rϕ(i)
+                            i∈I                       i∈I                        i∈I
+
+   24The Diophantine encoding of the AND operator is itself derived from Lucas’s theorem.
+35:40           HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                            Vol. 18:1
+
+
+
+
+as soon as xi < r and mi < r holds for any i ∈ I, and ϕ : I → N injectively maps the finite
+type I. But this implies that we have to check that Equations (C.1) and (C.2) contain such
+genuine base r representations.
+                                                           k       i  j
+     In that spirit, if i < j holds then the powers r2 and r2 +2 are never the same power of
+r. So these represent two distinct digit positions in base r and hence, in Equations (C.1)
+and (C.2), those digits from the left of +, and those from the right of + do not over-
+                                                                                 2              n+1
+lap/interfere. This also motivates the use of the mask (r −1)u0 = (r −1)r2 +· · ·+(r −1)r2
+                                             i  j                                     i
+which indeed filters out digits at any r2 +2 position while leaving those at r2 intact.
+     The way Equations (C.1) and (C.2) are written unfortunately suggests that these are
+base r representations
+                  P          of both au and bc. However, formally, we have to verify that the two
+rightmost sums 1≤i<j≤n . . . are proper base r representations. This is not the case for (C.2)
+                                                                                             0    0
+and we here give a counter example. On the one hand, it is true that 2i + 2j = 2i + 2j
+implies (i, j) = (i0 , j 0 ) when i < j and i0 < j 0 , ensuring that digits at those powers of r do
+not accidentally overlap. On the other hand, it possible that the value bi cj + bj ci overflows
+the digit range of base r, even though considerable room was initially reserved to avoid that
+situation. For instance, when bi = cj = bj = ci = 2q − 1 (the maximum allowed digit in Dq ),
+then we get bi cj + bj ci = 22q+1 − 2q+2 + 2 ≥ r + 2 as soon as q > 1. So this component at
+                   i   j
+digit position r2 +2 overflows and we would have to consider the spill out at digit position
+   i  j
+r2 +2 +1 and show that it does not overlap with the other digits or other spill outs. This
+is a property which we think holds true but the proof of it would add significant formal
+complexity.
+     On the other hand, with our proposed alternative choice of r := 24q , keeping the same
+set Dq = {0, . . . , 2q − 1} for the allowed digits in vectors, the overflow does not occur any
+more, i.e. no spill out, and Equations (C.1) and (C.2) become genuine base r representations,
+allowing smooth component by component masking.
+     Because there is an obvious way out of a tricky overflow management problem, we think
+that it is possible that Matiyasevich simply did not notice the eventuality of an overflow in
+the to be masked parts of Equation (C.2). We speculate this because this overflow does not
+occur in the parts which are left intact by the mask, at the left of the + sign. With this
+remark, we do not imply that Equation (40) of [Mat97] is improper in any way. However,
+the formal proof of its equivalence with the identity ~a = ~b · ~c is really more complicated
+when overflows occur and we did not try to prove it in the case where r := 22q , this situation
+being straightforward to avoid with a change (of otherwise low impact) in the value of r.
+
+
+                         Appendix D. Proof of Proposition 4.1
+Let (p1 , q1 ), . . . , (pn , qn ) be a sequence of pairs in N × N. We establish the equivalence:
+                      n
+                      X                n
+                                       X
+                            2pi qi =         p2i + qi2 ↔ p1 = q1 ∧ · · · ∧ pn = qn .
+                      i=1              i=1
+
+Proof. We give an elementary arithmetic justification of the result, proof which involves none
+of the high-level tools of mathematical analysis. We first show the two following statements
+               2ab ≤ a2 + b2      and        2ab = a2 + b2 ↔ a = b        for any a, b : N     (D.1)
+Assuming w.l.o.g. that a ≤ b, we can write b = a + δ with δ ∈ N and then, for ./ ∈ {≤, =}
+we have 2ab ./ a2 + b2 ↔ 2a2 + 2aδ ./ a2 + a2 + 2aδ + δ 2 ↔ 0 ./ δ 2 hence the desired result.
+Vol. 18:1           HILBERT’S TENTH PROBLEM IN COQ (EXTENDED VERSION)                                                        35:41
+
+
+
+
+     From the left inequality (D.1), we easily generalize by induction on n and obtain the
+following inequality:                Pn             Pn      2    2
+                                       i=1 2pi qi ≤   i=1 pi + qi                          (D.2)
+     Now we can proceed with the proof of the main stated equivalence.             The
+                                                                                    P if case is
+obvious so we only describe the only if case. Hence we show that ni=1 2pi qi = ni=1 p2i + qi2
+                                                                        P
+entails pi = qi for all i ∈ [1, n]. We proceed by induction on n again. The base case n = 0 is
+trivial. For the inductive step 1 + n, let us assume
+                   Pn                             Pn      2    2      2      2
+                      i=1 2pi qi + 2pn+1 qn+1 =     i=1 (pi + qi ) + pn+1 + qn+1 .         (D.3)
+By the left inequality of (D.1) and inequality (D.2), we have both 2pn+1 qn+1 ≤ p2n+1 + qn+1  2
+     Pn            Pn      2      2
+and i=1 2pi qi ≤ i=1 pi + qi . The only possibility for the identity in hypothesis (D.3) to
+hold is that both inequalities are in fact identities, hence both 2pn+1 qn+1 = p2n+1 + qn+1
+                                                                                         2    and
+Pn             Pn     2     2
+   i=1 2p q
+         i i =      p
+                i=1 i   + q i hold.   From  this we derive pn+1 = q n+1 by the equivalence on the
+right of (D.1) and p1 = q1 , . . . , pn = qn by the induction hypothesis.
+
+
+
+
+                                         This work is licensed under the Creative Commons Attribution License. To view a copy of this
+                                         license, visit https://creativecommons.org/licenses/by/4.0/ or send a letter to Creative
+                                         Commons, 171 Second St, Suite 300, San Francisco, CA 94105, USA, or Eisenacher Strasse
+                                         2, 10777 Berlin, Germany
+

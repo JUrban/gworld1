@@ -2,11 +2,19 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately 19:00 UTC on 29 September: nine whole-entry
-candidates (F28,N5,M0,H4,F41,GA3,F38,F34,N8), one partial candidate
-(G9), zero established novel results. All ten await specialist review and
+Latest checkpoint, approximately 20:22 UTC on 29 September: ten whole-entry
+candidates (F28,N5,M0,H4,F41,GA3,F38,F34,N8,N9), one partial candidate
+(G9), zero established novel results. All eleven await specialist review and
 novelty assessment. Whole-entry coverage may combine candidate new subparts
-with explicitly credited prior subparts; it is not a count of ten new theorems.
+with explicitly credited prior subparts; it is not a count of eleven new theorems.
+
+N9(a) now has a full fixed-group candidate in problems/N9/proof.md. The
+rank-two form encoding uses a fixed circuit and full integer kernel; the
+input-dependent affine condition forces the unit chart by a square
+Pfaffian and a modulus-three guard. Native GAP checks one fixed toy group;
+Lean checks the universal integer normalization. The full universal group
+has not been numerically expanded or formally verified. See audit.md.
+Do not repeat the passed finite checks without a concrete new concern.
 
 N8 now has a general candidate decision algorithm in every finite rank and
 class. Its consolidated proof and audit are problems/N8/general-proof.md and
@@ -44,8 +52,9 @@ verify the general tree argument.
 F38(c) now has a full candidate: graded shortening upgrades the finite
 stabilizer condition to a linear comparison. Its structural theorem
 application and novelty need specialist review; finite implementations
-pass independent complete-graph checks. F20's cover probe was inconclusive,
-and N9's fixed-ambient encoding remains obstructed.
+pass independent complete-graph checks. F20's cover probe was inconclusive.
+The earlier N9 encodings remain obstructed, but the new alternating-form
+construction above does not use them.
 
 N3 now has a restricted nested-cover construction for countable ascending
 nilpotent exhaustions, with the countable case explicitly credited to

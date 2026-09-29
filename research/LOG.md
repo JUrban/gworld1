@@ -1854,3 +1854,22 @@ four parameters. Removing the modulus-three guard gives a verified false
 positive. All four jobs passed with empty stderr. The universal reduction
 remains unadopted pending its full proof/source audit. Counts9whole/1partial/
 0established-novel unchanged. No imported Kourovka material.
+
+
+## N9 fixed-ambient candidate adopted (2026-09-29T20:23:38.498094+00:00)
+
+The consolidated proof in problems/N9/proof.md reduces one fixed
+nonrecursive Diophantine set to retracts H_n in a single fixed torsion-free
+class-two group. The original fixed-group quantifier is now met; prior
+part(b) remains credited. Fresh proof audit covers both directions,
+integral lattice saturation, noncommuting inputs and earlier failed routes.
+Lean verifies the universal integer normalization and gate identities
+with an axiom audit. First run aborted with exit134; unchanged source
+passes with explicit thread limit and8GB. Five successful jobs and one
+retained failure in total, all terminal. GAP supplies24 actual retraction
+checks, including seven in the same Hirsch-length82 toy group.
+
+Counts now10whole/1partial/0established novel. The universal numerical
+presentation is not expanded; full theorem and novelty await external
+review. DPRM and free-case primary scopes checked; no Kourovka import,
+no push, no clock change.

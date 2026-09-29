@@ -175,5 +175,6 @@ independent implementations; this is not independent specialist review.
 A later route to the full fixed-group question appears in
 `problems/N9/fixed-ambient-lead.md`. It supplies a proposed encoding of
 the restricted actual commutator vectors q, addressing the specific gap
-identified above. The initial lead remains separately labelled pending
-its full audit; these special cases alone do not solve N9(a).
+identified above. Its subsequent full candidate proof and audit are now
+in `problems/N9/proof.md` and `audit.md`; these special cases alone do
+not establish that undecidability theorem.

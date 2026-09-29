@@ -1,8 +1,10 @@
 # N9(a): proposed fixed-ambient undecidability construction
 
 First structural lead:29 September2026, approximately20:02–20:04 UTC.
-**Unadopted until construction, integrality, scope and source audits are
-complete.** The preceding general criterion is in
+**Initial status: unadopted pending construction, integrality, scope and
+source audits.** The subsequent internally audited candidate is now in
+[proof.md](proof.md), with exact qualifications in [audit.md](audit.md).
+The development argument below is retained. The preceding general criterion is in
 `research/notes/N9-Heisenberg-rank-two-criterion.md`; its positive group
 maps have already passed independent GAP/nq checks. The present universal
 encoding was initially unchecked. Subsequent checks at20:10--20:12 UTC

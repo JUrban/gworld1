@@ -4,9 +4,14 @@
 
 [Current progress](reports/PROGRESS.md) · [Research plan](research/PLAN.md) · [Research log](research/LOG.md). The initial preparation snapshot is preserved in Git. The generated catalogue and problem READMEs retain their preparation status; current assessments are in [the working triage](research/triage.csv) and [dated claim ledger](research/claims.jsonl).
 
-Current working tally: **nine whole-entry candidates and one partial
+Current working tally: **ten whole-entry candidates and one partial
 candidate**, all awaiting independent review and novelty assessment.
-The latest whole-entry upgrade is [N8](problems/N8/README.md): a candidate
+The latest candidate is [N9](problems/N9/proof.md): undecidability of the
+retract problem in one fixed torsion-free class-two group, already for
+two-generator subgroups. Its [audit](problems/N9/audit.md) includes actual
+GAP retractions and a Lean check of the integer normalization lemma;
+the full theorem is not formally verified. Part(b) is credited prior work.
+[N8](problems/N8/README.md) also has a candidate
 algorithm for single commutator equations in every finite-rank free
 nilpotent group. See its [general proof](problems/N8/general-proof.md)
 and [audit](problems/N8/general-audit.md). The full all-rank implementation

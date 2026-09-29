@@ -2,7 +2,9 @@
 
 Active experiment: 28 September 2026 10:04:49 UTC to 30 September 2026 10:04:49 UTC.
 
-Current counts: **1 partial candidate**, **9 whole-entry candidate solutions**, **0 established novel results**. All ten candidates await independent review; novelty remains provisional. Dated checkpoints below preserve earlier scope and counts; this opening summary is current.
+Current counts: **1 partial candidate**, **10 whole-entry candidate solutions**, **0 established novel results**. All eleven candidates await independent review; novelty remains provisional. Dated checkpoints below preserve earlier scope and counts; this opening summary is current.
+
+- N9: a new [candidate proof](../problems/N9/proof.md) answers(a) negatively in one fixed torsion-free class-two group. Its two-generator subgroups encode a fixed nonrecursive Diophantine set. A modulus-three normalization forces integral circuit values; the ambient presentation never changes. GAP independently checks the full integer kernel and seven retractions in a fixed toy group, alongside17 general-criterion examples. Lean verifies the universal integer normalization, not the full group theorem. The [audit](../problems/N9/audit.md) retains the initial Lean abort and distinguishes the prior uniform theorem and free-nilpotent part(b). This adds one whole-entry coverage candidate, with prior(b) credited; novelty and external review remain pending.
 
 - N8: now a **whole-entry coverage candidate**, combining the general N8(b) algorithm with prior N8(a). The [consolidated proof](../problems/N8/general-proof.md) handles every finite rank and class. Its diagonal separating functional fixes each first exceptional parameter to finitely many integers, even with arbitrarily many later columns; exact universal periods finish the tail. The [audit](../problems/N8/general-audit.md) records44 independently reconstructed Lie spaces, three actual group fixtures, complete integer lattices and the limits of those checks. The full all-rank implementation, independent specialist review and novelty assessment remain outstanding. This promotes the same N8 entry and does not add another entry to the ten-candidate portfolio.
 
@@ -59,7 +61,8 @@ GAP verified nine new witness certificates and three unit determinants.
 See `problems/M0/kronecker-construction.md`. This strengthens the same
 candidate and makes no claim of practical complexity or specialist review.
 
-N9(a) follow-up: the fixed ambient group remains an essential gap.
+Earlier N9(a) follow-up: the fixed ambient group remained an essential gap
+in that attempted construction; the later candidate above uses a different encoding.
 An attempted reduction by varying retracts of a fixed base fails
 because retracts reflect solvability of equations. The prior uniform
 construction has been written with a class-two coproduct, resolving
