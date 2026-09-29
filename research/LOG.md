@@ -1841,3 +1841,16 @@ by Wilton TheoremD. FP1 balanced and A1 two-relator scopes remain open
 in this check. Read a potential F41 concern about definability again:
 the existing generic-type separating formula already avoids assuming
 orbit/primitive definability; no new gap or test. Counts unchanged.
+
+
+## N9 fixed-group lead and exact toy audit (2026-09-29T20:14:15.234857+00:00)
+
+An integral rank-two alternating-form criterion characterizes two-generator
+nonabelian retracts in torsion-free class-two groups. Independent GAP/nq
+checks17 maps and four algebraic obstruction controls. A proposed fixed
+arithmetic-circuit encoding has now passed a separate saturated-lattice
+and native-group check: one Hirsch-length82 group, seven retractions for
+four parameters. Removing the modulus-three guard gives a verified false
+positive. All four jobs passed with empty stderr. The universal reduction
+remains unadopted pending its full proof/source audit. Counts9whole/1partial/
+0established-novel unchanged. No imported Kourovka material.
