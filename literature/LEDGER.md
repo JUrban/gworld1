@@ -417,3 +417,8 @@ Archived Guirardel math/0306306, Rybak2605.14159v3, BMR Discriminating and co-di
 ## 2026-09-29T03:19:17.768194+00:00 — GA1 retired as a prior consequence
 
 [Brady–Ciobanu–Martino–O Rourke, author PDF](https://math.ou.edu/~nbrady/papers/trees.pdf), Trans. AMS361(2009),223–236, DOI10.1090/S0002-9947-08-04639-4: x^p y^q=z^r forces commuting solutions in every Lambda-free group for p,q,r>=4. Fourth roots give the immediate negative GA1 consequence for any nonabelian divisible group. Author PDF labels the theorem3.2 in the introduction and3.6 in its body; exact statement inspected. Read introduction/main proof, viewed pp1,11,13; full underlying lemmas not independently formalized. Full original GA1 rendering viewed. Excluded from new-result counts. This supersedes the earlier unresolved assessment, without invalidating its exponent-two surface control.
+
+
+## 2026-09-29T03:35:05.537079+00:00 — S5 exact prior Lean theorem
+
+[Achyuth Jayadevan, k-5-38](https://github.com/Achxy/k-5-38), revision4330f0513173258259f0585d1c1b8a624fda59d2, public latest push15September2026. Archived35 source files,CC0license,per-filehashes andGitHubmetadata. Exact Hopfian/fg/solvable/product definitions and selected centrality/integral-correction proof modules read; originalS5rendering viewed. Reproduced pinned Lean4.24/Mathlib build,298-declaration transitive axiom audit and independent statementcheck. No peer-review status asserted; standard trusted cacheddependencies, not a full independentkernel check. RetireS5 as externalprior, no newcount. Precise evidence: research/notes/S5-prior-Lean-proof-audit.md.

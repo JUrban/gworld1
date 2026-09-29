@@ -182,3 +182,8 @@ F38(c): implemented the prior filling positive case. Gupta–Kapovich Propositio
 ## 2026-09-29T03:19:17.768194+00:00 — GA1 prior negative answer
 
 GA1 is negative in the substantive nonabelian scope by an immediate consequence of Brady–Ciobanu–Martino–O Rourke2009: x^4 y^4=z^4 in a tree-free group forces commutativity. Taking fourth roots of arbitrary a,b,ab shows every divisible tree-free group is abelian. The free Q-groups of ranks zero and one retain elementary positive actions. The original unstarred entry is retired as prior; no new candidate. See `research/notes/GA1-prior-fourth-power-obstruction.md`.
+
+
+## 2026-09-29T03:35:05.537079+00:00 — S5 prior proof verified
+
+S5 is retired as a prior affirmative result by Achyuth Jayadevan. The public Lean development was pinned and built here; all298 project-declaration axiom checks and an independent exact-statement check passed. Full source and compact logs are archived; large toolchains and caches remain ignored. Details and trust limits: `research/notes/S5-prior-Lean-proof-audit.md`. This is external prior work, not another candidate or specialist review. Counts remain6 whole,3 partial,0 established novel.

@@ -1,0 +1,71 @@
+PASS: all 35 external source files and 9 dependency revisions match pins
+COMMAND ["lean", "--version"]
+Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)
+COMMAND ["bash", "scripts/check.sh"]
+✔ [2043/2068] Built Kourovka.FinitePaths (1.8s)
+✔ [2044/2068] Built Kourovka.Hopfian (2.0s)
+✔ [2045/2068] Built Kourovka.Problem (1.8s)
+✔ [2046/2068] Built Kourovka.Components (2.7s)
+✔ [2047/2068] Built Kourovka.AbelianWeight (4.4s)
+✔ [2048/2068] Built Kourovka.DerivedReduction (2.5s)
+✔ [2049/2068] Built Kourovka.Paths (2.5s)
+✔ [2050/2068] Built Kourovka.CentralProducts (3.1s)
+✔ [2051/2068] Built Kourovka.CentralPeriod (2.6s)
+✔ [2052/2068] Built Kourovka.SolvableWeight (3.2s)
+✔ [2053/2068] Built Kourovka.CentralLattice (4.6s)
+✔ [2054/2068] Built Kourovka.CenterWeight (2.5s)
+✔ [2055/2068] Built Kourovka.PathWeight (2.8s)
+✔ [2056/2068] Built Kourovka.CenterQuotients (2.8s)
+✔ [2057/2068] Built Kourovka.LivePaths (2.4s)
+✔ [2058/2068] Built Kourovka.PathExtension (2.6s)
+✔ [2059/2068] Built Kourovka.PathExpansion (2.5s)
+✔ [2060/2068] Built Kourovka.MixedPaths (2.7s)
+✔ [2061/2068] Built Kourovka.CentralProductPowers (2.8s)
+✔ [2062/2068] Built Kourovka.DiagonalCongruence (3.3s)
+✔ [2063/2068] Built Kourovka.EventualCentrality (3.2s)
+✔ [2064/2068] Built Kourovka.CentralHopfian (2.6s)
+✔ [2065/2068] Built Kourovka.QuotientProducts (3.2s)
+✔ [2066/2068] Built Kourovka.Paper (2.1s)
+✔ [2067/2068] Built Kourovka (2.1s)
+Build completed successfully (2068 jobs).
+Axiom audit passed for 298 project declarations.
+'Kourovka.FinitePaths.middle_eq_terminal_of_bounded_prefixes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Kourovka.FinitePaths.factorial_iterate_idempotent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Kourovka.FinitePaths.factorial_middle_eq_terminal_of_bounded_prefixes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Kourovka.CentralProducts.quotientEquiv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Kourovka.retract_eq_bot_of_le_commutator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Kourovka.injective_of_central_offDiagonal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Kourovka.exists_central_offDiagonal_iterate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Kourovka.central_offDiagonal_factorial_iterate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Kourovka.central_offDiagonal_iff_quotient_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Kourovka.factorial_quotient_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Kourovka.CentralLattice.exists_group_correction_modulus' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Kourovka.directProduct_isHopfian' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Kourovka.problem_5_38' depends on axioms: [propext, Classical.choice, Quot.sound]
+Kourovka.problem_5_38 : ∀ (A : Type u_1) (B : Type u_2) [inst : Group A] [inst_1 : Group B],
+  Kourovka.ProductHopficityStatement A B
+COMMAND ["lake", "env", "lean", "--trust=0", "--stdin"]
+theorem gworld_S5.{u, v} : ∀ (A : Type u) (B : Type v) [inst : Group A] [inst_1 : Group B] [Group.FG A] [Group.FG B]
+  [IsSolvable A] [IsSolvable B],
+  (∀ (f : A →* A), Function.Surjective ⇑f → Function.Injective ⇑f) →
+    (∀ (f : B →* B), Function.Surjective ⇑f → Function.Injective ⇑f) →
+      ∀ (f : A × B →* A × B), Function.Surjective ⇑f → Function.Injective ⇑f :=
+fun A B [Group A] [Group B] [Group.FG A] [Group.FG B] [IsSolvable A] [IsSolvable B] hA hB =>
+  Kourovka.directProduct_isHopfian hA hB
+class Group.FG.{u_3} (G : Type u_3) [Group G] : Prop
+number of parameters: 2
+fields:
+  Group.FG.out : ⊤.FG
+constructor:
+  Group.FG.mk.{u_3} {G : Type u_3} [Group G] (out : ⊤.FG) : Group.FG G
+class IsSolvable.{u_1} (G : Type u_1) [Group G] : Prop
+number of parameters: 2
+fields:
+  IsSolvable.solvable : ∃ n, derivedSeries G n = ⊥
+constructor:
+  IsSolvable.mk.{u_1} {G : Type u_1} [Group G] (solvable : ∃ n, derivedSeries G n = ⊥) : IsSolvable G
+'gworld_S5' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS: independent S5 statement and transitive axiom check
+PASS: pinned S5 prior proof build, author audit, completion, and trust-zero restatement
