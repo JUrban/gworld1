@@ -288,3 +288,8 @@ for volume. Return to unresolved problems and specific candidate proof
 concerns; a full-class11 result would require several additional kernel
 classifications beyond this family. Counts4 whole,4 partial,0 established
 novel; original deadline retained.
+
+
+## Working focus after the H4 infinite-input checkpoint
+
+H4 now has a stronger torsion-class counting proof, valid even for infinite non-elementary virtually free inputs. Its bounded GAP checks are complete; do not enlarge finite samples without a new concern. F37’s determinant route lacks both reflection for products under full-rank self-embeddings and an effective encoding of primitive-factor constraints; rank-changing embeddings show the unrestricted reflection statement false. The obstacle is recorded, not a solution. Return to unresolved mathematical leads or a specific candidate proof concern. Counts4 whole,4 partial,0 established novel; original deadline retained.

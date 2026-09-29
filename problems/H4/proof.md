@@ -135,6 +135,12 @@ It cannot be polynomial in the O(n log n) input bit length. An algorithm
 must spend at least the time required to write its explicit output,
 proving the theorem.
 
+The later [infinite-input extension](infinite-input-proof.md) strengthens
+the size bound to m_n>(2^n-n-1)/(n+1) for n>=2 and also covers infinite,
+non-elementary virtually free inputs. It uses the classical bound on
+short representatives of torsion conjugacy classes. The original proof
+above remains valid and is retained.
+
 This is an unconditional size obstruction. It uses no unproved separation
 such as P != NP, no assumption on how the algorithm searches, and no
 requirement that it preserve generators or append relators to the input.

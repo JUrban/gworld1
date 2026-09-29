@@ -107,3 +107,7 @@ review remains necessary. There is no claim of established novelty.
 No Kourovka argument was imported and no outside reviewer, subagent,
 contact or push was used. The candidate is a negative answer to the
 whole H4 entry under its standard explicit uniform interpretation.
+The later [infinite-input audit](infinite-input-audit.md) records a
+stronger bound and an extension to infinite non-elementary virtually
+free input groups, using the classical torsion-conjugacy lemma. It is
+the same candidate and retains the explicit-output and torsion qualifications.
