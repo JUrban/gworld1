@@ -792,3 +792,13 @@ including introductory attribution against the prior uniform result.
 See problems/N9/isolated-inputs-and-prior-scope.md. Tally unchanged:
 10 whole-entry candidates,2 partial,0 established novel. All jobs terminal;
 no push, external contact, subagent or parent/preparation change.
+
+
+Checkpoint 2026-09-29T22:16:48.422383+00:00: B9 has an all-parameter obstruction to one
+proposed way of using the infinite B5 family to obtain another B4 braid.
+It excludes all n>=3 through the ten known smaller inputs; a separate
+recurrence-tail attempt gives only an existing braid. Python and GAP
+symbolic checks pass, with the failed first bound and unavailable inverse
+method retained. See research/notes/B9-family-return-obstruction.md.
+This prunes two routes but does not exhaust B4. Tally10whole/2partial/
+0established-novel unchanged; all jobs terminal, no push.

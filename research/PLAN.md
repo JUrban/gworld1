@@ -843,3 +843,18 @@ fillings, so restrict any new B12 work to n>=13. Do not infer this covers
 that remaining range or that B_n is fully residually hyperbolic.
 Return to a genuinely different unresolved scope or a concrete candidate
 proof concern. Original deadline and final-eight-hours audit reserve hold.
+
+
+## Working checkpoint,29 September approximately22:15UTC
+
+N9 now has an isolated-input strengthening and a full2017 free-case
+source audit in isolated-inputs-and-prior-scope.md. This supplements the
+existing fixed-group candidate without changing the count.
+
+B9 now excludes the entire known infinite B5 family as a source of
+exponent-two B3 parameters through the ten known B4 inputs. Its other
+proposed recurrence-tail cancellation is exactly a known parameter ray.
+Do not enlarge finite searches along either route; the new universal
+obstructions are in research/notes/B9-family-return-obstruction.md.
+Other underlying families and the full B4 exhaustion remain unproved.
+Tally remains10whole/2partial/0established-novel. Original deadline unchanged.

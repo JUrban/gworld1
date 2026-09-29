@@ -1926,3 +1926,23 @@ quantifiers audited; actual original statement and primary theorem/table
 pages viewed. This is credited prior consequence, not a new candidate;
 n>=13 remains unresolved here. Counts10whole/2partial/0established-novel,
 all jobs terminal, no push or deadline change.
+
+
+## N9 follow-up and B9 excluded families (2026-09-29T22:16:48.422383+00:00)
+
+The preceding96dc515 commit strengthened N9 to isolated input subgroups
+and audited the primary2017 free-case proof. Its fixed0/1 witnesses give
+a universal unit pairing; seven actual toy-group graded checks passed.
+One scalar/polynomial comparison failure was preserved.
+
+A wider read-only scan in this turn recovered already retired F11/F40
+results and the existing limitations in the matrix, solvable, embedding
+and hyperbolic queues; no new result was inferred from those searches.
+The concrete B9 investigation instead tested a proposed return from
+the known infinite B5 family. A universal polynomial matrix obstruction
+now excludes every parameter n>=3 with any of the ten known B4 inputs.
+The initially false n3 bound is retained, and the proof separates that
+case from n>=4. Independent GAP passes after replacing its unavailable
+polynomial-matrix inverse operation by the checked unipotent inverse.
+A second recurrence-tail attempt is algebraically just the known B2 ray.
+All four B9 jobs terminal; no new count, no push or clock change.
