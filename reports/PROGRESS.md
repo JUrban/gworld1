@@ -863,3 +863,8 @@ or deadline change and no independent specialist review is implied.
 ## F20 finite-image checkpoint (2026-09-29T23:31:56.543036+00:00)
 
 [F20 finite-image probe](../research/notes/F20-finite-images.md): complete pair tests in S6,S7 and five PSL2 groups find no counterexample. Python and GAP agree. This remains inconclusive for F20; ten whole/two partial/zero established novel unchanged.
+
+
+## N8 concrete transfer sequence (2026-09-29T23:43:16.841041+00:00)
+
+[N8 concrete transfer convergence](../problems/N8/sweep-convergence-lean-audit.md) now has an explicit simpler proof and nineteen accepted universal Lean declarations. It supplies the actual finite reachable sequence needed by the averaging argument, including norm/sum preservation. Full N8 formalization and specialist review remain outstanding. Ten whole/two partial/zero established novel unchanged.

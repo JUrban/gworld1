@@ -2081,3 +2081,8 @@ problems/N8/block-separation-lean-audit.md.
 ## F20 finite-image checkpoint (2026-09-29T23:31:56.543036+00:00)
 
 Completed a distinct F20 finite-image probe: 167604 pairs after first-generator conjugacy reduction in seven nonnilpotent ambient groups. All accepted pairs kill every weight-seven target. Python and native GAP agree pair-by-pair. Three terminal1CPU/4GB runs; first GAP serialization invalid JSON and retained, v2 corrected. No mathematical failure or counterexample; no tally change.
+
+
+## N8 concrete transfer sequence (2026-09-29T23:43:16.841041+00:00)
+
+Completed F20 finite-image probe at f146fef. A subsequent local B9 structural reread supplied no new restriction; no further bounded braid search was run. For N8 found a simpler explicit sweep convergence proof avoiding the positive-cycle matrix construction. Nineteen universal Lean declarations now verify the permitted adjacent half-transfer words, invariant zero-sum l1 ball and convergence in every finite list length. Six terminal sequential1CPU jobs, four unsuccessful (all retained), two passes. The final12GB-cap run passes in10.00s with one harmless linter warning. Formal assembly with the separate positional and maximum-principle files remains a written bridge. No count/deadline change or push.

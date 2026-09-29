@@ -933,3 +933,8 @@ Ten whole/two partial/zero established novel; all jobs terminal.
 ## F20 finite-image checkpoint (2026-09-29T23:31:56.543036+00:00)
 
 The seven-group F20 finite-image search is finished and inconclusive. Do not repeat or enlarge without a new structural reason. Continue a distinct unresolved scope or a concrete candidate dependency audit, retaining the original final-eight-hours audit/reporting reserve. All jobs terminal; deadline unchanged.
+
+
+## N8 concrete transfer sequence (2026-09-29T23:43:16.841041+00:00)
+
+N8 now has a concrete convergent sequence of permitted half-transfer words verified in Lean, not merely an abstract contraction inequality. See sweep-convergence-lean-audit.md. Do not repeat these passed checks or label the separate formal ingredients a fully formal algorithm. Return to a distinct unresolved route or a concrete imported dependency concern; preserve final-eight-hours verification/reporting reserve. All jobs terminal; original deadline unchanged.
