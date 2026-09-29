@@ -370,3 +370,8 @@ Re-read frozen N8 paragraph and viewed its rendered statement. Bounded queries u
 ## 2026-09-29T00:36:11.621403+00:00 — H4 torsion-conjugacy source
 
 Archived Michael Batty, after Panagiotis Papasoglu, Notes On Hyperbolic and Automatic Groups,21October2003, https://www.math.ucdavis.edu/~kapovich/280-2020/hyplectures_papasoglu.pdf . Read and viewed Theorem3.27 and its complete proof onp29; the rest of the notes were not audited. The bound on conjugacy-minimal torsion word length is prior, credited machinery. It supplies a stronger H4 output bound when combined with the already constructed metacyclic family; its free product with Z extends the input restriction. Bounded searches found no matching conversion bound, not proof of novelty. Exact queries and reading limits are in problems/H4/infinite-input-audit.md. F37 broader embedding reflection attempt is recorded separately without a new claim.
+
+
+## 2026-09-29T00:58:28.060374+00:00 — F41 definability and generic-type sources
+
+Archived Kharlampovich--Myasnikov arXiv1111.0577v5, Pillay arXiv0812.1692 and Myasnikov--Roman'kov2015 doi10.1134/S1995080215040113. Read the exact KM Definitions5-6/Theorem13 and local proof plus negligible-set discussion; viewed pages3,9. Read Pillay's generic-element definition, Fact1.10 and Theorem2.1/proof; viewed pages6,7. Read the four-page verbal-set paper as extracted text only. Deep NTQ/stability/free-factor results are imported, not independently established. Source failures, hashes, exact novelty queries and reading limits are recorded in problems/F41/multipattern-audit.md. The elementary signed-piece count is combined with these published results; no novelty certification follows from the bounded searches.

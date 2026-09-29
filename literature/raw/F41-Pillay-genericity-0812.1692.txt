@@ -1,0 +1,371 @@
+                                                 On genericity and weight in the free group
+arXiv:0812.1692v1 [math.GR] 9 Dec 2008
+
+
+
+
+                                                                         Anand Pillay∗
+                                                                  University of Leeds, England
+                                                                          October 24, 2018
+
+
+                                                                                Abstract
+                                                     We prove that the generic type of the (theory of the) free group Fn
+                                                  on n ≥ 2 generators has infinite weight, strengthening the well-known
+                                                  result that these free groups are not superstable. A preliminary result,
+                                                  possibly of independent interest, is that the realizations in Fn of the
+                                                  generic type are precisely the primitives.
+
+
+                                         1        Introduction and preliminaries
+                                         From the work by Sela [11] and Kharlampovich and Myasnikov [3], we know
+                                         that all nonabelian free groups have the same elementary (or first order)
+                                         theory, which we call Tf g . Sela [12] also recently proved that Tf g is stable. It
+                                         has been known for a long time ([2], [10]) that Tf g is not superstable. Rather
+                                         recently, influenced by work on theories without the independence property,
+                                         the notion of “strongly stable” has aroused interest. A theory T is said to
+                                         be strongly stable if it is stable and every (finitary) type has finite weight
+                                         (see below). Any superstable theory is strongly stable. It is natural to ask
+                                         whether the free group is strongly stable. We show here that it is not. In
+                                         fact we prove that in Tf g the generic type has infinite weight, strengthening
+                                         our observation in [9] that the generic type has weight ≥ 2. On the way to
+                                         proving this we will show that the realizations in Fn of the generic type are
+                                         precisely the primitives. Our proof makes use of recent work by Perin [7].
+                                             This work was supported by a Marie Curie Chair EXC 024052 as well as an EPSRC
+                                             ∗
+
+                                         grant EP/F009712/1
+
+                                                                                     1
+    Many thanks to both Sasha Ivanov and Zlil Sela for helpful discussions
+and pointing out relevant results in the literature. In particular Ivanov ex-
+plained to me how the special case “weight of generic type is ≥ 3” followed
+from our methods just using a result of Nies [6] that F2 is homogeneous.
+    In the remainder of this section, I recall pertinent facts about free groups,
+stable groups, and weight. The main results, and their proofs (quite easy)
+appear in section 2.
+
+1.1     Free groups
+Fn denotes the free group on n generators, where usually n ≥ 2. In so far as
+we consider Fn as a structure in the sense of model theory it will be in the
+language of groups {·,−1 , e}. Sometimes we write ab in place of a · b.
+    It is well-known that Fn is isomorphic to Fm iff m = n. If Fn is free on
+generators a1 , .., an we call {a1 , .., an } a basis of Fn , and an element of a basis
+is called a primitive of Fn . So the primitives of Fn form a single orbit under
+Aut(Fn ).
+    We will be making heavy use of the following fact, which follows easily
+from Whitehead’s theorem, although we give an explanation.
+Fact 1.1. Let {a1 , .., an } be a basis of Fn . Let m ≤ n and let k1 , .., km be
+integers > 1. Then ak11 · .. · akmm is not a primitive of Fn .
+Explanation. Let A = {a1 , .., an }. A−1 denotes the set of inverses of A. An
+automorphism α of Fn is called a Whitehead automorphism if it is induced
+by either (i) a permutation of A ∪ A−1 , or (ii) for some i, a map which fixes
+ai , and for each j 6= i takes aj to aj ai , a−1         −1
+                                              i aj , or ai aj · ai . A word w (in the
+basis elements) is said to be cyclically reduced if it is reduced, and not of the
+form cvc−1 . A cyclic word is a cyclically reduced word, defined up to cyclic
+permutation. For w a reduced word l(w) denotes its length. Whitehead’s
+theorem, which is Theorem 4 in section 10 of [1] or Proposition 4.17 of [4]
+says that if w, u are cyclic words which are in the same orbit of Aut(Fn )
+and such that moreover l(u) is minimal among lengths of words in this orbit,
+THEN there is a sequence τ1 , .., τs of Whitehead automorphisms of Fn such
+that for each i = 1, .., s, l(w) ≥ l(τi ...τ1 w). Moreover if l(w) 6= l(u), then
+each of these inequalities is strict.
+     Now let w be our word ak11 .....akmm . Clearly w is cyclically reduced and so
+is a cyclic word. We want to show that w is not primitive, namely is not in
+the same orbit under Aut(Fn ) as a1 . Supposing otherwise, put u = a1 , also a
+
+                                          2
+cyclic word, clearly of minimal length in its orbit. So Whitehead’s theorem
+applies to w and u. But by inspection, l(αw) ≥ l(w) for any Whitehead
+automorphism of Fn , which gives a contradiction.
+
+In [11], Sela proved:
+Theorem 1.2. If m ≥ n ≥ 2 then the natural embedding of Fn in Fm is an
+elementary embedding.
+    Of course, this not only solves Tarski’s problem on the elementary equiva-
+lence of of finite rank nonabelian free groups, but also shows that the natural
+embeddings of Fκ into Fλ (for any finite or infinite cardinals κ < λ) are also
+elementary embeddings.
+    On the other hand Chloé Perin [7] has recently proved a converse to
+Theorem 1.2:
+Theorem 1.3. Let n ≥ 2 and let G be an elementary substructure of Fn .
+Then G is a free factor of Fn . Namely G is a free group of rank at most n
+and some (any) basis of G extends to a basis of Fn .
+
+As mentioned in the introduction we let Tf g denote common theory of non-
+abelian free groups of finite rank, which we know now to be complete. Sela
+[12] has also proved the striking result:
+Theorem 1.4. Tf g is stable.
+   Some basic stability-theoretic properties of the free group will be dis-
+cussed in the next section.
+
+1.2    Stability
+For basic model theory we refer the reader to [5]. In my recent paper [9] on
+stability-theoretic aspects of the free group, I gave a brief survey of stability
+and stable groups, directed towards nonexperts, so rather than repeat myself
+I will direct readers to the introduction of that paper. Further facts about
+stability and stable groups can be found in [8].
+   Let us fix a complete countable stable theory T , and a model M. We let
+M̄ be a saturated elementary extension of M (so we allow M = M̄). From
+stability theory we have the notion “a is independent from b over C” for a, b
+tuples from M (or even subsets of M) and C a subset of M. Technically the
+
+                                       3
+notion is “tp(a/C ∪ {b}) does not fork over C”, where forking is as defined
+by Shelah. In any case “a is independent from b over C” is synonymous with
+“a is independent from C ∪ {b} over C”. We also may say “a forks with b
+over C” in place of “a is not independent from b over C”.
+    Among key properties of independence in a stable theory are
+(a) (symmetry) a is independent from b over C iff b is independent from a
+over C,
+(b) (transitivity) If A ⊆ B ⊆ C then a is independent from C over A iff a is
+independent from C over B and a is independent from B over A.
+(c) (local character) If a is a finite tuple and C any set then there is a count-
+able C0 ⊆ C such that a is independent from C over C0 .
+(d) (invariance) Whether or not a is independent from b over C depends on
+tp(a, b, C) (so working in M̄ the notion is invariant under automorphism),
+(e) (existence) Given a and C and B ⊇ C, there is a′ ∈ M̄ such that
+tp(a′ /C) = tp(a/C) and a′ is independent from B over C.
+(f) (uniqueness) If C is “algebraically closed in M eq ”, and a a tuple, then
+tp(a/C) is stationary, meaning that for any B ⊇ C, if a′ , a′′ are such that
+tp(a′ /C) = tp(a′′ /C) = tp(a/C) and each of a′ , a′′ is independent from B
+over C then tp(a′ /B) = tp(a′′ /B).
+
+Remark 1.5. It would be interesting to give a relatively explicit description
+of independence when M is a free group. For C = ∅, and a, b “generics” this
+will be done below.
+
+Let A ⊆ M and {bi : i ∈ I} be a set of tuples from M. We will say that
+{bi : i ∈ I} is A-independent, if for each i ∈ I, bi is independent from
+{bj : j 6= i} over A. Let us note a couple of things. Firstly, if κ is a cardinal
+and (bi : i < κ) has the property that for each i, bi is independent from
+{bj : j < i} over A, then in fact {bi : i < κ} is A-independent (by symmetry
+and transitivity of independence).
+    Secondly, if p(x) ∈ S(A) is stationary, then any two A-independent se-
+quences (bi : i < κ), (ci : i < κ) of realizations of p, have the same type over
+A. In particular (bi : i < κ) is totally indiscernible over A (every permutation
+is an elementary map over A in the sense of the ambient model M)
+
+I will give now give a definition of weight in a countable stable theory T .
+Strictly speaking it is the definition of preweight, but for our purposes this
+will not matter.
+
+                                       4
+Definition 1.6. Let a be a finite tuple from M and A a subset of M. The
+weight of tp(a/A) (written w(tp(a/A)) or even w(a/A)) is the supremum of
+the cardinals κ such that in M̄ there exists an A-independent set {bi : i < κ}
+such that a forks with each bi over A.
+
+Fact 1.7. For any a, A as in Definition 1.6, w(a/A) ≤ ω. Moreover, if
+w(a/A) = ω then for some B ⊇ A, possibly from M̄ , such that a is indepen-
+dent from B over A, the supremum is achieved for tp(a/B), namely there is
+a B-independent set {ci : i < ω} such that a forks with each ci over B.
+
+In [8] we called a stable theory thin if every finitary type (namely type of
+some finite tuple over some set) has finite weight. Following work of Shelah
+[13], this is now called strongly stable. Any superstable theory is strongly
+stable. Among the reasons for the current interest in weight is that Shelah
+was able to find a solution to the equation x : NIP = stronglystable : stable,
+rather than a solution to x : NIP = superstable : stable.
+
+Example 1.8. (i) In a strongly minimal theory such as the theory of al-
+gebraically closed fields of a fixed characteristic, w(b/A) is the same as the
+Morley rank of tp(b/A) (b a finite tuple, A a set of parameters).
+(ii) If p(x) is a complete stationary type over ∅ of weight 1 in a stable theory
+T , then in any model M of T any two maximal independent sets of realiza-
+tions of p have the same cardinality.
+(iii) If p is a complete type of U-rank ω α (in a stable theory) then w(p) = 1.
+(iv) In the structure ((Z/4Z)ω , +) the generic type (see below) has Morley
+rank 2 but weight 1.
+(v) There are strongly stable but non superstable groups, such as a vector
+space over Q equipped with predicates for members of an infinite strictly de-
+scending chain of subspaces.
+(vi) The generic type (see below) of a separably closed field F of infinite Ersov
+invariant is 1, although T h(F ) is nonsuperstable.
+
+
+For our purposes a stable group is a definable group in a stable theory T .
+Namely there are formulas φ(x) and ψ(x, y, z) such that in some (any) model
+M of T , the set of solutions of ψ is the graph of a group operation on the
+set of solutions of φ. We will assume these formulas have no parameters.
+So the free group is a stable group, with T = Tf g . In a stable group, the
+theory of independence above has an equivariant variation, leading to the
+
+                                       5
+theory of generic types. Let us fix again a model M of T and let G be
+the interpretation of the relevant formulas in M. There are two equivalent
+definitions of a “generic type” or “generic element” of G: (i) Let A ⊆ M.
+Then g ∈ G is a generic element of G over A, or tp(g/A) is a generic of G, if
+for any A-definable subset X of G containing g, finitely many left translates
+of X cover G, (ii) Again for A ⊆ M, g is generic in G over A if (working
+possibly in M̄ ) whenever h ∈ G(M̄) is independent from g over A, then h · g
+is independent from h over A.
+    It is a fact that if tp(g/A) is generic then g is independent from A over ∅
+and also that if tp(g/A) is generic and g is independent from B over A, then
+tp(g/B) is generic.
+A stable group is said to be connected if it has no proper definable subgroup
+of finite index. Again it is a basic fact that G is connected if and only if there
+is a unique generic type of G: namely, working possibly in M̄ , for any set A
+of parameters there is a unique tp(g/A) with g generic in G over A. For G
+connected, we denote by pG  0 (x) the unique generic type of G over ∅. Moreover
+this type will be stationary. In particular for any cardinal (maybe finite) κ,
+an independent set {ai : i ∈ I} of realizations of pG 0 is an indiscernible set. It
+is somehat interesting to note that the Whitehead transformations applied
+to such an independent set, are elementary maps. More precisely:
+Fact 1.9. Suppose G is a connected stable group. Let A = {ai : i ∈ I} be an
+independent set of realizations of pG
+                                    0 (x) in G. Let π be one of the following
+maps
+(i) for some permutation σ of I, π(ai ) = aσ(i) or a−1
+                                                     σ(i) ,
+(ii) for some i ∈ I, π(ai ) = ai and for every j 6= i, π(aj ) is aj · ai , a−1
+                                                                            i · aj ,
+     −1
+or ai · aj · ai .
+Then π is an elementary map in the sense of G. In particular {π(ai ) : i < κ}
+is also an independent set of realizations of pG
+                                               0.
+
+    The following was observed in [9], and moreorever the results were shown
+to follow from Theorems 1.2 and 1.4, using elementary arguments due to
+Poizat [10].
+Fact 1.10. (i) The free group is connected.
+(ii) If F is a free group with basis {ai : i ∈ I}, then {ai : i ∈ I} is an
+independent set of realizations of the unique generic type p0 .
+   Bearing in mind that any two bases of a free group have the same car-
+dinality, part (ii) above together with Example 1.7 (ii), might be considered
+
+                                         6
+evidence that the generic type of the free group has weight 1. In fact, in [9]
+we already pointed out that the generic type has weight at least two, simply
+because a generic in the free group is a product of two nongenerics. In the
+next section we will prove that in fact the generic type of the free group has
+infinite weight.
+
+
+2     Main results
+As above Tf g is the theory of the noncommutative free group, and p0 (x) is the
+generic type of Tf g over ∅. In fact we will be working entirely in “standard
+models” of Tf g , namely free groups of finite rank.
+   Our first result is a kind of converse to Fact 1.10 (ii).
+
+Theorem 2.1. (i) Let F be a free group of finite rank (≥ 2). Then any
+realization of p0 (x) in F is a primitive.
+(ii) Any maximal independent set of realizations of p0 (x) in F is a basis of
+F.
+
+Proof. (i) Suppose F is free of rank n, with basis {a1 , .., an }, and consider
+F as a subgroup of Fn+1 where the latter has basis {a1 , .., an , an+1 }. By
+Theorem 1.2 F is an elementary substructure of Fn+1 . Let b realize p0 in F .
+So b also realizes p0 in Fn+1 .
+Claim I. b, an+1 are independent realizations of p0 in Fn+1 .
+Proof. Work in Fn+1 . By Fact 1.10(ii), an+1 realizes p0 , and is moreover inde-
+pendent from {a1 , .., an } over ∅. But b ∈ dcl(a1 , .., an ) so an+1 is independent
+from b over ∅. This suffices.
+Let G be the subgroup of Fn+1 generated by {b, an+1 }.
+Claim II. (b, an+1 ) has the same type in G as in Fn+1 .
+Proof. By Fact 1.10 (i), and stationarity of p0 , the type of (b, an+1 ) in Fn+1
+is the same as the type of a basis of F2 in F2 . Hence G is free with basis
+(b, an+1 ), and Claim II follows.
+As {b, an+1 } generates G, it follows from Claim II that G is an elementary
+substructure of Fn+1 . By Theorem 1.3, G is a free factor of Fn+1 , whence
+{b, an+1 } extends to a basis {b, an+1 , c1 , ..., cn−1 } of Fn+1 . Let φ : Fn+1 → F
+be the surjective homomorphism defined by: φ is the identity on F and
+φ(an+1 ) = 1. So φ(b) = b, and {b, φ(c1 ), .., φ(cn−1)} generates F . As F is free
+
+
+                                         7
+of rank n, by Proposition 2.7 of [4] for example, {b, φ(c1 ), .., φ(cn )} is a basis
+of F . So b is a primitive of F .
+(ii) Let I be a maximal independent set of realizations of p0 in F . By part (i)
+and Fact 1.10(ii), |I| > 1. As in the proof of part (i), the group G generated
+by I is an elementary substructure of F , and is moreover free on I. By
+Theorem 1.3 again, G is a free factor of F whereby I extends to a basis of
+F . Again using Fact 1.10 and our maximality assumption on I, G = F , so I
+is a basis of F . The proof is complete.
+Remark 2.2. By part (ii) of the Proposition, any two maximal independent
+sets of realizations of p0 (x) in a “free, finite rank” model of Tf g have the
+same cardinality, which is again a kind of “weight 1” behaviour.
+Theorem 2.3. The generic type p0 (x) of Tf g has infinite weight.
+Proof. For each n ≥ 2 we will find a realization g of p0 in Fn and independent
+realizations b1 , .., bn of p0 in Fn such that g depends on (forks with) bn for each
+n. We will be systematically using Fact 1.9 to check that certain elements we
+construct are generic, or even independent sets of generics. In fact we could
+equally well observe that our “transformations” are taking bases to bases,
+and hence by Fact 1.10(ii) to independent sets of generics. In any case we
+will just say “by Fact 1.9”.
+Let us fix a basis {a1 , .., an } of Fn . Let g = a1 a32 a33 ...a3i ...a3n . Then
+Claim I. g realizes p0 (x).
+Proof. By Fact 1.9.
+Now let b1 = a1 ,
+b2 = a1 a2 ,
+and for i = 3, .., n,
+bi = a1 a32 ...a3i−1 ai .
+Claim 2. {b1 , .., bn } is an independent set of realizations of p0 .
+Proof. Again by Fact 1.9. In fact one sees directly that {b1 , .., bn } is a basis
+of Fn .
+Claim 3. g forks with bi for each i = 1, .., n.
+Proof. Suppose for a contradiction that g is independent from bi . By Fact
+1.9, b−1
+      i g realizes p0 , so in particular by Proposition 2.1(i) is a primitive
+                                                                  3    3
+element in Fn . Suppose first that i = 1. As b1 = a1 , b−11 g = a2 ...an , but by
+Fact 1.1 the latter is not primitive, contradiction. Now suppose i > 1. Then
+         2 3       3
+b−1
+ i g = ai ai+1 ...an , also not primitive by Fact 1.1. Again a contradiction.
+
+
+                                              8
+Claims 1, 2 and 3 show that w(p0 ) ≥ n. As n was arbitrary w(p0 ) = ω,
+proving the theorem.
+
+Remark 2.4. It is not hard to conclude from the proof of Theorem 2.3 plus
+compactness, that in some model G of Tf g , there is a realization g of p0 and
+an independent set {bi : i < ω} of realizations of p0 such that g forks with
+each bi over ∅. Can this happen in Fω ?
+
+
+References
+ [1] D. E. Cohen, Combinatorial Group Theory: a topological approach, LMS
+     Student texts 14, Cambridge University Press, 1989.
+
+ [2] P. Gibone, Notices AMS, 1976.
+
+ [3] O. Kharlampovich and A. Myasnikov, Elementary theory of free non-
+     abelian groups, J. Algebra 302 (2006), 451-552.
+
+ [4] R. C. Lyndon and P. E. Schupp, Combinatorial Group Theory, Springer-
+     Verlag, 1977.
+
+ [5] D. Marker, Model Theory: An Introduction, Springer, 2002.
+
+ [6] A. Nies, Aspects of free groups, Journal of Algebra 263 (2003), 119-125.
+
+ [7] C. Perin, Plongements elementaires dans un groups hyperbolique sans
+     torsion, Ph. D. thesis, Caen, Oct. 2008.
+
+ [8] A, Pillay, Geometric Stability Theory, Oxford University Press, 1996.
+
+ [9] A. Pillay, Forking in the free group, Journal of the Inst. of Math. Jussieu,
+     vol. 7 (2008), 375-389.
+
+[10] B. Poizat, Groupes stables avec types generiques reguliers, Journal of
+     Symbolic Logic 48 (1983), 641-658.
+
+[11] Z. Sela, Diophantine geometry over groups VI: The elementary theory
+     of a free group,GAFA 16(2006), 707-730.
+
+[12] Z. Sela, Diophantine        geometry     over   groups    VIII:   Stability.
+     (arXiv:math/0609096v1)
+
+                                       9
+[13] S. Shelah, Strongly dependent theories (arXiv:math/0504197v2 ), to
+     appear.
+
+
+
+
+                                  10
+

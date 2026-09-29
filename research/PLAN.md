@@ -2,20 +2,19 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately23:35 UTC: four whole-entry candidates
-(F28,N5,M0,H4), four partial candidates (N8,F41,F38(a),F34(a)), zero
-established novel results. N8 now covers every target in class ten,
-completing classes three through ten in all finite ranks. The new coupled
-integer and quadratic branches have independent rank-two GAP certificates;
-rank-three structural Python checks passed, but both GAP attempts timed out.
-The first group run exposed a class-ten conjugation term omitted by the old
-optimized tail; the corrected routine and failed evidence are retained.
+Latest checkpoint, approximately 00:58 UTC on 29 September: five whole-entry
+candidates (F28,N5,M0,H4,F41), three partial candidates
+(N8,F38(a),F34(a)), zero established novel results. F41 now has a full
+intended-scope candidate from signed piece-cover counting, the KM
+definable-set theorem and Pillay's generic-type theorem. The exact source
+statements, proof and scope audit are in problems/F41/multipattern-proof.md
+and multipattern-audit.md. Its 46,536 positional checks and 77 independent
+GAP counts are complete; the deep imported results are credited dependencies.
 
-F38(c)'s boundedness condition cannot use the injection substitution of
-F38(a), and the rank-three F1(b)/F26 scopes are prior. Next return to a
-concrete unresolved question in the wider portfolio or a specific adversarial
-proof/novelty concern. Do not spend the run merely scaling the timed-out
-rank-three benchmark. The original 48-hour clock and budget are unchanged.
+Next return to a concrete unresolved question in the wider portfolio or
+a specific adversarial proof/novelty concern. F41's model-theoretic
+dependency and novelty deserve specialist review; more finite samples
+would not settle those issues. The original clock and budget are unchanged.
 
 ## First pass: source and literature triage
 
@@ -293,3 +292,8 @@ novel; original deadline retained.
 ## Working focus after the H4 infinite-input checkpoint
 
 H4 now has a stronger torsion-class counting proof, valid even for infinite non-elementary virtually free inputs. Its bounded GAP checks are complete; do not enlarge finite samples without a new concern. F37’s determinant route lacks both reflection for products under full-rank self-embeddings and an effective encoding of primitive-factor constraints; rank-changing embeddings show the unrestricted reflection statement false. The obstacle is recorded, not a solution. Return to unresolved mathematical leads or a specific candidate proof concern. Counts4 whole,4 partial,0 established novel; original deadline retained.
+
+
+## Working focus after the full F41 candidate checkpoint
+
+F41 has a complete intended-scope candidate, with imported definability and generic-type theorems and a new quantitative piece-cover argument. Its counting checks are complete. Do not spend further cycles increasing those samples; a useful audit must target the exact source theorem, parameter-free separation or a counterexample to the general counting lemma. Resume the wider unresolved portfolio alongside such audits. Original deadline retained;5 whole,3 partial,0 established novel.

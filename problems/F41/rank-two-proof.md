@@ -1,5 +1,9 @@
 # F41: a candidate for words of primitivity rank at most two
 
+Historical scope: on 29 September the [multipattern argument](multipattern-proof.md)
+extended this entry to a full intended-scope candidate. This earlier proof
+is retained as a separate argument with its original qualifications.
+
 28 September 2026, active experiment. This is a **partial candidate**,
 not a full solution of F41. Independent mathematical and novelty review
 remain outstanding. No Kourovka argument is imported.

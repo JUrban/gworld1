@@ -1,5 +1,9 @@
 # F41 rank-two candidate: audit and reproduction
 
+Historical audit. The [29 September multipattern audit](multipattern-audit.md)
+records the later full intended-scope candidate; the findings and counts
+below describe the earlier checkpoint.
+
 28 September 2026, approximately 18:22--18:45 UTC. Read together with
 `rank-two-proof.md`. This is one partial candidate; the full problem
 and novelty assessment remain open here.

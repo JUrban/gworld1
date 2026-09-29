@@ -1,0 +1,1051 @@
+                                         June 28, 2018 20:34 WSPC/INSTRUCTION FILE                       definableset˙ijac
+
+
+
+
+                                                  International Journal of Algebra and Computation
+                                                   c World Scientific Publishing Company
+arXiv:1111.0577v5 [math.GR] 3 Dec 2012
+
+
+
+
+                                                                         Definable sets in a hyperbolic group
+
+
+                                                                                        Olga Kharlampovich
+                                                         Department of Mathematics and Statistics, Hunter College, City University NY
+                                                                                  New York 110065, USA
+                                                                                okharlampovich@gmail.com
+
+                                                                                         Alexei Myasnikov
+                                                                   Department of Mathematics, Stevens Institute of Technology
+                                                                                  Hoboken, NJ 07030, USA
+                                                                                   amiasnikov@gmail.com
+
+
+                                                                                    Received (Day Month Year)
+                                                                                    Revised (Day Month Year)
+
+                                                                                     Communicated by [editor]
+
+
+                                                      We give a description of definable sets P = (p1 , . . . , pm ) in a free non-abelian group
+                                                      F and in a torsion-free non-elementary hyperbolic group G. As a corollary we show
+                                                      that proper non-cyclic subgroups of F and G are not definable. This answers Malcev’s
+                                                      question posed in 1965 for F .
+
+
+
+                                                  1. Introduction
+                                                  We denote by F a free group with finite basis and by G a torsion-free non-elementary
+                                                  hyperbolic group and consider formulas in the language LA that contains generators
+                                                  of F (or G) as constants. In this paper we give a description of subsets of F m
+                                                  definable in F (Theorem 13) that follows from [6] and similar description for G
+                                                  (Theorem 24) that uses [12]. A subset S ∈ H n is definable in a group H if there
+                                                  exists a first-order formula φ(P ) in LH such that S is precisely the set of tuples in
+                                                  H n where φ(P ) holds: S = {g ∈ H n |H  φ(g)}.
+                                                      Our description implies that definable subsets in F are either negligible or co-
+                                                  negligible (Bestvina and Feighn’s result) and they are also either negligible or generic
+                                                  in the meaning of the complexity theory. We will obtain the following corollary.
+
+                                                  Theorem 1. Proper non-cyclic subgroups of F and G are not definable.
+                                                     These results solve Malcev’s problem 1.19 from [7] posed in 1965. Malcev asked
+                                                  the following:
+                                                     1) Describe definable sets in F ;
+                                                     2) Describe definable subgroups in F ;
+
+                                                                                                  1
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                         definableset˙ijac
+
+
+
+
+       2   O. Kharlampovich, A. Myasnikov
+
+
+          3) Is the derived subgroup [F, F ] of F definable in F ?
+          The main result, Theorem 13, will be proved in Section 4, Theorem 1 for F will
+       be proved in Section 5. In Section 5 we will also prove
+
+       Theorem 2. The set of primitive elements of F is not definable if rank(F ) > 2.
+           Notice that the set of all bases in F2 = F2 (a, b) is definable. This is based on
+       Nielsen’s theorem: elements g; h ∈ F2 form a basis if and only if the commutator
+       [g, h] is conjugated either to [a, b] or [b, a]. Hence the set of bases in F2 is defined
+       by the following formula
+                     φ(p1 , p2 ) = ∃z([p1 , p2 ] = z −1 [a, b]z ∨ [p1 , p2 ] = z −1 [b, a]z).
+       The set of all primitive elements in F2 = F2 (a, b) is defined by the following formula
+                                           ψ(p1 ) = ∃p2 φ(p1 , p2 ).
+           The results on hyperbolic groups will be presented in the last section.
+
+
+       2. Conjunctive ∃∀-formulas
+       The first step to analyze the structure of definable sets is to reduce it to the study
+       of the structure of ∀∃-definable sets.
+
+       Theorem 3. [9],[6] Every formula in the theory of F is equivalent to a boolean
+       combination of ∀∃-formulas.
+           Furthermore, a more precise result holds.
+
+       Theorem 4. Every set definable in F is defined by some boolean combination of
+       formulas
+                            ∃X∀Y (U (P, X) = 1 ∧ ¬(V (P, X, Y ) = 1)),                          (1)
+       where X, Y, P are tuples of variables.
+           We call formulas in the form (1) where U (P, X) = 1 and V (P, X, Y ) = 1 are
+       either equations or finite systems of equations, conjunctive ∃∀-formulas. Notice that
+       in the language LA every finite system of equations in F and in G is equivalent to
+       one equation. For F this is Malcev’s result, see also Lemma 3 in [5], for G this is
+       Lemma 28. Therefore we can assume that U (P, X) = 1 and V (P, X, Y ) = 1 are
+       equations (although this is not essential for the proof of the main results). Every
+       finite disjunction of equations in F and G is equivalent to one equation. This is
+       attributed to Gurevich for F , see also Lemma 4 in [5], and the same proof works
+       for G.
+
+       Proof. By Theorem 1, every definable set is defined by a boolean combination of
+       ∃∀-formulas. By Lemma 10 [5], every ∃∀-formula is equivalent to
+                                 ∃X∀Y (V (X, Y, P ) = 1 → U (Y ) = 1),
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                          definableset˙ijac
+
+
+
+
+                                                                       Definable sets in a hyperbolic group     3
+
+
+         where X, Y, P are tuples of variables.
+            This formula has form (25) in [6], namely
+                          φ(P ) = ∀Z∃X∀Y (V (X, Y, P ) = 1 → U (Y ) = 1).                                     (2)
+         The proof of Theorem 39 in Section 12.7 of [6] shows that the formula φ(P ) is false
+         for a value P̄ of the variables P if and only if the conjunction of disjunctions of
+         formulas of the two types given below is true for P̄ . We will write these formulas
+         in the same form as they appear in Section 12.7 of [6]. Notice that instead of the
+         union of variables X1 , Y1 , . . . , Xk−1 in these formulas we take variables P .
+                       ∃Zk−1 ∀B, C(U (P, Zk−1 ) = 1 ∧ V (P, Zk−1 , B, C) 6= 1),                               (3)
+                          ∀Zk−1 ∃B(U ′ (P, Zk−1 ) = 1 → V ′ (P, Zk−1 , B) = 1.                                (4)
+             The first formula is in the form (1). The negation of the second formula is also
+         in the form (1).
+             We give more details on how the formulas (3) and (4) are obtained in [6] in the
+         Appendix.
+
+
+         3. Diophantine sets and ∃-sets
+
+         Definition 5. A piece of a word u ∈ F is a non-trivial subword v that appears in
+         at least two different ways (maybe the second time as v −1 , maybe with overlapping).
+              A piece of a tuple of reduced words (u1 , . . . , um ), uj ∈ F is a non-trivial sub-
+         word v that appears in at least two different ways as a subword of some words of
+         u1 , . . . , um .
+
+         Definition 6. A proper subset P of F admits parametrization if it is a set of all
+         words p that satisfy a given system of equations (with coefficients) without cancel-
+         lations in the form
+                                    p ⊜ wt (y1 , . . . , yn ), t = 1, . . . , k,                              (5)
+         where for all i = 1, . . . , n, yi 6= 1, each yi appears at least twice in the system and
+         each variable yi in w1 is a piece of p.
+              A proper subset P of F m admits parametrization if after permutation of indices
+         it is a product set of F k , k < m and a set of all tuples of words pj , j = 1, . . . , m − k
+         that satisfy a given system of equations (with coefficients) without cancellations in
+         the form
+                                  pj ⊜ wtj (y1 , . . . , yn ), t = 1, . . . , kj ,                            (6)
+         where for all i = 1, . . . , n, yi 6= 1, each yi appears at least twice in the system and
+         each variable yi in each w1j is a piece of the tuple.
+            The empty set and one-element subsets of F m admit parametrization.
+            A finite union of sets admitting parametrization will be called a multipattern. A
+         subset of a multipattern will be called a sub-multipattern
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                   definableset˙ijac
+
+
+
+
+       4   O. Kharlampovich, A. Myasnikov
+
+
+           In this section we will give a description of Diophantine sets and ∃-sets in F .
+
+       Theorem 7. Suppose a Diophantine set P ⊆ F m defined by the formula
+                                      ψ(P ) = ∃Y U (Y, P ) = 1,
+       where U (Y, P ) = 1 is a system of equations, is not the whole group F m . Then P is
+       a multipattern.
+          We will prove this result using the notion of a cut equation introduced in [5],
+       Section 5.7.
+
+       Definition 8. A cut equation Π = (E, M, X, fM , fX ) consists of a set of intervals
+       E, a set of variables M , a set of parameters X, and two labeling functions
+                                 fX : E → F [X],   fM : E → F [M ].
+       For an interval σ ∈ E the image fM (σ) = fM (σ)(M ) is a reduced word in variables
+       M ±1 and constants from F , we call it a partition of fX (σ).
+           Sometimes we write Π = (E, fM , fX ) omitting M and X.
+
+       Definition 9. A solution of a cut equation Π = (E, fM , fX ) with respect to an
+       F -homomorphism β : F [X] → F is an F -homomorphism α : F [M ] → F such
+       that: 1) for every µ ∈ M α(µ) is a reduced non-empty word; 2) for every reduced
+       word fM (σ)(M ) (σ ∈ E) the replacement m → α(m) (m ∈ M ) results in a word
+       fM (σ)(α(M )) which is a reduced word as written and such that fM (σ)(α(M )) is
+       graphically equal to the reduced form of β(fX (σ)); in particular, the following dia-
+       gram is commutative.
+                                                 E
+                                                  ❅
+                                          fX       ❅ f
+                                          ✠           ❘M
+                                                      ❅
+                                       F (X)                   F (M )
+                                       ❅
+                                          ❅
+                                          β             α
+                                            ❘
+                                            ❅          ✠
+                                                   F
+           If α : F [M ] → F is a solution of a cut equation Π = (E, fM , fX ) with respect
+       to an F -homomorphism β : F [X] → F , then we write (Π, β, α) and refer to α as a
+       solution of Π modulo β. In this event, for a given σ ∈ E we say that fM (σ)(α(M )) is
+       a partition of β(fX (σ)). Sometimes we also consider homomorphisms α : F [M ] → F ,
+       for which the diagram above is still commutative, but cancellation may occur in the
+       words fM (σ)(α(M )). In this event we refer to α as a group solution of Π with respect
+       to β.
+           Definition of a generalized equation can be found in [5] (Definition 8, [5]). This
+       is one of the principal objects in our work on equations in groups. The following
+       result states that every generalized equation is equivalent to a certain cut equation.
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                    definableset˙ijac
+
+
+
+
+                                                                 Definable sets in a hyperbolic group   5
+
+
+         Lemma 10 (Lemma 34,[5]). For a generalized equation Ω(H) one can effectively
+         construct a cut equation ΠΩ = (E, fX , fM ) such that the following conditions hold:
+
+         (1) X is a partition of the whole interval [1, ρΩ ] into disjoint closed subintervals;
+         (2) M contains the set of variables H;
+         (3) for any solution U = (u1 , . . . , uρ ) of Ω the cut equation ΠΩ has a solution α
+             modulo the canonical homomorphism βU : F (X) → F (βU (x) = ui ui+1 . . . uj
+             where i, j are, correspondingly, the left and the right end-points of the interval
+             x);
+         (4) for any solution (β, α) of the cut equation ΠΩ the restriction of α on H gives
+             a solution of the generalized equation Ω.
+
+            The proof given below is verbatim the one cited but it is given in the paper
+         to make it more self-contained and because some features of the construction are
+         implicitly used in the proof of Theorem 7. All undefined notions used in the proof
+         can be found in [5].
+
+         Proof. We begin with defining the sets X and M . Recall that a closed interval of
+         Ω is a union of closed sections of Ω. Let X be an arbitrary partition of the whole
+         interval [1, ρΩ ] into closed subintervals (i.e., any two intervals in X are disjoint and
+         the union of X is the whole interval [1, ρΩ ]).
+             Let B be a set of representatives of dual bases of Ω, i.e., for every base µ of Ω
+         either µ or ∆(µ) belongs to B, but not both. Put M = H ∪ B.
+             Now let σ ∈ X. We denote by Bσ the set of all bases over σ and by Hσ the set
+         of all items in σ. Put Sσ = Bσ ∪ Hσ . For e ∈ Sσ let s(e) be the interval [i, j], where
+         i < j are the endpoints of e. A sequence P = (e1 , . . . , ek ) of elements from Sσ is
+         called a partition of σ if s(e1 ) ∪ · · · ∪ s(ek ) = σ and s(ei ) ∩ s(ej ) = ∅ for i 6= j. Let
+         Partσ be the set of all partitions of σ. Now put
+
+                                       E = {P | P ∈ Partσ , σ ∈ X}.
+
+         Then for every P ∈ E there exists one and only one σ ∈ X such that P ∈ Partσ .
+         Denote this σ by fX (P ). The map fX : P → fX (P ) is a well-defined function from
+         E into F (X).
+             Each partition P = (e1 , . . . , ek ) ∈ Partσ gives rise to a word wP (M ) = w1 . . . wk
+         as follows. If ei ∈ Hσ then wi = ei . If ei = µ ∈ Bσ then wi = µε(µ) . If ei = µ
+         and ∆(µ) ∈ Bσ then wi = ∆(µ)ε(µ) . The map fM (P ) = wP (M ) is a well-defined
+         function from E into F (M ).
+             Now set ΠΩ = (E, fX , fM ). It is not hard to see from the construction that
+         the cut equation ΠΩ satisfies all the required properties. Indeed, (1) and (2) follow
+         directly from the construction.
+             To verify (3), let’s consider a solution U = (u1 , . . . , uρΩ ) of Ω. To define corre-
+         sponding functions βU and α, observe that the function s(e) (see above) is defined
+         for every e ∈ X ∪ M . Now for σ ∈ X put βU (σ) = ui . . . uj , where s(σ) = [i, j], and
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                        definableset˙ijac
+
+
+
+
+       6   O. Kharlampovich, A. Myasnikov
+
+
+       for m ∈ M put α(m) = ui . . . uj , where s(m) = [i, j]. Clearly, α is a solution of ΠΩ
+       modulo β.
+           To verify (4) observe that if α is a solution of ΠΩ modulo β, then the restriction
+       of α onto the subset H ⊂ M gives a solution of the generalized equation Ω. This
+       follows from the construction of the words wp and the fact that the words wp (α(M ))
+       are reduced as written (see definition of a solution of a cut equation). Indeed, if a
+       base µ occurs in a partition P ∈ E, then there is a partition P ′ ∈ E which is obtained
+       from P by replacing µ by the sequence hi . . . hj . Since there is no cancellation in
+       words wP (α(M )) and wP ′ (α(M )), this implies that α(µ)ε(µ) = α(hi . . . hj ). This
+       shows that αH is a solution of Ω.
+
+           We will give an example. Let Ω be a generalized equation in Fig 1. For
+
+
+
+                             Ω:                         p
+
+
+                                                             µ
+                                      λ             µ                      λ
+
+                                      h1       h2       h3         h4      h5
+
+
+
+                                       Fig. 1. Generalized equation Ω
+
+
+
+       the cut equation we will have X = {p}, M = {h1 , h2 , h3 , h4 , h5 , λ, µ}, E =
+       {σ1 , σ2 , σ3 , σ4 , σ5 }, fX (σi ) = p, i = 1, . . . , 5. Further, fM (σ1 ) = λµλ, fM (σ2 ) =
+       h1 h2 µh5 , fM (σ3 ) = h1 h2 h3 h4 h5 , fM (σ4 ) = h1 µλ, fM (σ5 ) = h1 h2 h3 λ. This gives
+       five partitions for p.
+       Lemma 11 (Theorem 8, [5]). Let S(X, Y, A)) = 1 be a system of equations over
+       F = F (A). Then one can effectively construct a finite set of cut equations
+
+                           CE(S) = {Πi | Πi = (Ei , fXi , fMi ), i = 1 . . . , k}
+
+       and a finite set of tuples of words {Qi (Mi ) | i = 1, . . . , k} such that:
+
+       (1) for every equation Πi = (Ei , fXi , fMi ) ∈ CE(S), one has Xi = X and fXi (Ei ) ⊂
+           X ±1 ;
+       (2) for any solution (U, V ) of S(X, Y, A) = 1 in F (A), there exists a number i and
+           a tuple of words Pi,V such that the cut equation Πi ∈ CE(S) has a solution
+           α : Mi → F with respect to the F -homomorphism βU : F [X] → F which is
+           induced by the map X → U . Moreover, U = Qi (α(Mi )), the word Qi (α(Mi )) is
+           reduced as written, and V = Pi,V (α(Mi ));
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                 definableset˙ijac
+
+
+
+
+                                                             Definable sets in a hyperbolic group   7
+
+
+         (3) for any Πi ∈ CE(S) there exists a tuple of words Pi,V such that for any solution
+             (group solution) (β, α) of Πi the pair (U, V ), where U = Qi (α(Mi )) and V =
+             Pi,V (α(Mi )), is a solution of S(X, Y ) = 1 in F .
+
+             Proof of Theorem 7. We think about U (Y, P ) = 1 as a system of equations
+         with coefficients A and two sets of variables: X = P and Y . It follows from Lemma
+         11 (where the role of S(X, Y, A) = 1 is taken by the system U (P, Y ) = 1), that
+         one can effectively construct a finite set of cut equations satisfying the conditions
+         of the statement. Consider one of the cut equations. We can assume that this cut
+         equation has a solution. It follows from the construction that there is at least one
+         interval σj ∈ E labeled by pj that is completely covered by variables from M and
+         constants (=coefficients). We can assume that each variable yi from M appears at
+         least twice in the cut equation, otherwise we can remove the partition containing
+         yi and express yi in terms of other variables and pi . After removing the partition
+         solutions satisfying this cut equation will not be graphical solutions of the cut
+         equation, but they will be group solutions, and every group solution of the cut
+         equation still provides a solution of the initial equation S(X,Y,A)=1 (see item 3 in
+         Theorem 11). (Let us consider the example given above. We have
+
+                       p = λµλ = h1 h2 µh5 = h1 h2 h3 h4 h5 = h1 µλ = h1 h2 h3 λ.
+
+         We remove p = h1 h2 h3 h4 h5 , because h4 is contained only once, then remove p =
+         h1 h2 µh5 , because now h5 is contained only once, then remove p = h1 h2 h3 λ, then
+         p = h1 µλ, and, finally, p = λµλ. Therefore p can be arbitrary element of F .)
+             By assumption, formula ψ(P ) does not define the whole group F m . If formula
+         ψ(P ) defines a finite or empty set, then the set P is trivially a multipattern. Hence,
+         we further assume that ψ(P ) does not define a finite or empty set. So at least
+         one fX (σj ) can be represented in several ways as a product without cancellation
+         in the form (6). Variables from M correspond to pieces of a reduced word fX (σj )
+         corresponding to pj . Suppose there exists p = pj such that for each partition pj =
+         wij , where i = 1, . . . , kj in (6) there is a variable that appears only as a matching
+         variable. Let y be a variable in the partition pj = w1j that appears only as a
+         matching variable. Cutting y, if necessary, we can assume it does not intersect any
+         boundaries. If it is covered by some variable z in some other partition of pj , and z
+         has a non-matching occurrence, then y is a piece (see Figure 2).
+             If all variables z that cover y in other partitions of pj only have matching
+         occurrences, we represent each such z as z = z1 yz2 . To find a group solution of the
+         cut equation we can now remove all occurrences of y, solve the remaining system
+         of equations for the remaining variables, and then express the value of the removed
+         variable y in terms of the remaining variables and pj (see Figure 3). We can take
+         any pj ∈ F in such a group solution provided the remaining variables satisfy the
+         system of equations obtained by removing the matching variable y (We denote this
+         system by Q(M )). This system has a solution, because we assumed that the cut
+         equation has a solution. Therefore, pj can be arbitrary element of F . If m = 1
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                                            definableset˙ijac
+
+
+
+
+       8   O. Kharlampovich, A. Myasnikov
+
+
+
+                                                                      p
+                                      y1                  y                    y2         y3             y4
+
+                                 y3        y4             y                     y1                  y5
+
+                                 y3        y4                     z
+                                 y3                       z
+
+
+                                  Fig. 2. Matching variable y is a piece
+
+
+
+
+                                                                      p
+                                                y1            y            y2        y3        y4
+
+                                       y3            y4       y            y1             y5
+
+                                                              z
+
+                                                              z
+
+
+
+
+                                                                      p
+                                                y1                         y2        y3        y4
+
+                                       y3            y4                        y1         y5
+
+                                                     z1                   z2
+                                                     z1                   z2
+
+
+
+
+                                  Fig. 3. Matching variable y is removed
+
+
+
+       and F m = F this contradicts to the assumption of the theorem, therefore in this
+       case at least in one partition of p1 = pj , p1 = w1 (y1 , . . . , yn ), each variable is a
+       piece. This proves for m = 1 that the words wt1 give a parametrization of the set P
+       satisfying properties of Definition 6 and hence P is a multipattern. Therefore this
+       proves the theorem for m = 1. If m > 1, we can assume that j = m, and pm can
+       be arbitrary element of F . The existence of a group solution of the cut equation
+       we began with for p1 , . . . , pm−1 is equivalent to the existence of a solution of the
+       system that consists of (6) for j = 1, . . . , m − 1 and Q(M ) = 1. We can now use
+       induction on m. Since ψ(P ) defines neither F m nor a finite set nor an empty set, it
+       follows by induction that for pj , j = 1, . . . , m − k words wtj give a parametrization
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                 definableset˙ijac
+
+
+
+
+                                                             Definable sets in a hyperbolic group   9
+
+
+         of the set P satisfying properties of Definition 6 and hence P is a multipattern.
+         Theorem 7 is proved.
+         Theorem 12. Suppose an ∃-set P is defined by the formula
+                              ψ1 (P ) = ∃Y (U (Y, P ) = 1 ∧ V (Y, P ) 6= 1).
+         If the positive formula ψ(P ) = ∃Y (U (Y, P ) = 1 does not define the whole group
+         F m , then P is a sub-multipattern. Otherwise, either ¬P or P is a sub-multipattern.
+
+         Proof. If the positive formula ψ(P ) = ∃Y (U (Y, P ) = 1 does not define the whole
+         group F m , then by Theorem 7 it defines a multipattern, and P is a subset of this
+         multipattern, therefore, a sub-multipattern.
+              Suppose now that ψ(P ) defines the whole group F m . Then the set of parameters
+         defined by ψ1 (P ) contains the set of parameters defined by ψ2 (P ) = ∃Y1 U1 (Y1 ) =
+         1 ∧ V1 (Y1 , P ) 6= 1. Let us prove this. Parameters satisfying ψ(P ) are described by
+         disjunction of cut equations, and one of the cut equations defines the whole group
+         F m (denote it Π1 ), therefore this cut equation can be described by the formula
+         ∃M U1 (M ) = 1. This follows from [5], Lemma 8 and also can be seen directly. Indeed,
+         if y has only matching occurrences we remove it from all partitions of pj , and we have
+         a system of equations for the remaining variables that does not contain pj . Every
+         tuple from Y corresponding to the cut equation Π1 can be represented as a function
+         Y = f (M, P, A). The system of equations consisting of V (f (M, P, A), P ) = 1 for all
+         such functions f (M, P, A), by the Noetherian property, is equivalent to one equation
+         V1 (M, P ) = 1. If ψ1 (P̄ ) is false, then P̄ satisfies the formula.
+                            ¬ψ2 (P̄ ) = ∀M (U1 (M ) = 1 → V1 (M, P̄ ) = 1).
+         Since there exists M such that U1 (M ) = 1, such tuples P̄ either constitute the whole
+         F m or form a disjunction of cut equations, therefore form a multipattern. If ¬ψ2 (P )
+         defines a multipattern, then ¬ψ1 (P ) defines a sub-multipattern. If for any P̄ ∈ F m
+         we have ¬ψ2 (P̄ ), then ψ2 (P ) defines an empty set and we cannot use solutions of
+         the cut equation Π1 to obtain solutions of U (Y, P ) = 1 ∧ V (P, Y ) 6= 1. Then we
+         consider the next cut equation Π2 corresponding to the equation U (Y, P ) = 1 and
+         defining the whole group F m (if exists) and construct ψ2 (P ) the same way as we
+         constructed it for Π1 . If one of the formulas ¬ψ2 (P ) defines a multipattern, then
+         ¬P is a sub-multipattern, otherwise P is a sub-multipattern.
+
+         4. Main Theorem
+         In this section we will prove the main theorem.
+         Theorem 13. For every definable set P ⊆ F m in a free group F , either P or its
+         complement ¬P is a sub-multipattern.
+
+         Proof. Suppose a set P is defined by the formula (1). If the ∃-set defined by
+         ∃X(U (P, X) = 1) is not the whole group F m , then the set P defined by the formula
+         (1) is a sub-multipattern.
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                    definableset˙ijac
+
+
+
+
+       10   O. Kharlampovich, A. Myasnikov
+
+
+           Suppose now that the set defined by ∃X(U (P, X) = 1 is the whole group, then,
+       as in the proof of Theorem 12, a subset of parameters satisfying formula (1) is a
+       union of a sub-multipattern and another subset that is defined by
+                              ∃X1 ∀Y (U1 (X1 ) = 1 ∧ V1 (X1 , Y, P ) 6= 1).
+       Suppose this formula does not define the empty set. Then the negation is
+                         φ1 (P ) = ∀X1 ∃Y (U1 (X1 ) = 1 → V1 (X1 , Y, P ) = 1)
+       and it does not define F m .
+
+       Lemma 14. Formula
+                         θ(P ) = ∀X1 ∃Y (U1 (X1 ) = 1 → V1 (X1 , Y, P ) = 1)
+       in F in the language LA is equivalent to the condition that ∃-formula
+       ∃Y V1 (X1 , Y, P ) = 1 holds in each of the finite number of NTQ groups N1 , . . . , Nk .
+
+       Proof. We can assume that the equation U1 (X1 ) = 1 is irreducible. By [5] each so-
+       lution of this equation factors through one of the finite number of N T Q-systems. By
+       [5], Theorem 12, formula ∃Y V1 (P, Y ) = 1 holds in one of the corrective normalizing
+       extensions N1 , . . . , Nk of one of these NTQ systems. For any value P̄ of variables
+       P that makes each such formula true in each of the NTQ groups N1 , . . . , Nk , this
+       value also makes θ(P ) true.
+
+          Since ¬P 6= F m , this lemma implies that a formula ∃Y V2 (P, Y ) = 1 holds in F ,
+       therefore by Theorem 7 ¬P must be a multi-pattern.
+
+
+       5. Negligible sets
+
+       Definition 15. [2] A subset P of F is negligible if there exists ǫ > 0 such that all
+       but finitely many p ∈ P have a piece such that
+                                          length(piece)
+                                                        ≥ ǫ.
+                                            length(p)
+            A complement of a negligible subset is co-negligible.
+           Bestvina and Feighn [2] stated that in the language without constants every
+       definable subset of F is either negligible or co-negligible. They also proved
+
+       Proposition 16. [2] 1) Subsets of negligible sets are negligible.
+          2) Finite sets are negligible.
+          3) A subset S containing a coset of a non-cyclic subgroup G of F cannot be
+       negligible
+          4) A proper non-cyclic subgroup of F is neither negligible nor co-negligible.
+          5) The set of primitive elements of F is neither negligible nor co-negligible if
+       rank(F ) > 2.
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                   definableset˙ijac
+
+
+
+
+                                                               Definable sets in a hyperbolic group   11
+
+
+         Proof. Statements 1) and 2) immediately follow from the definition. 3) If x, y ∈ G
+         and [x, y] 6= 1, then the infinite set {f xyxy 2 x . . . xy i x, i ∈ N} is not negligible .
+         Statement 4) follows from 3). 5) Let a, b, c be three elements in the basis of F and
+         denote F2 = F (a, b) The set of primitive elements contains cF2 , and the complement
+         contains < [a, b], c−1 [a, b]c > .
+
+         Lemma 17. A set P ⊆ F that is a sub-multipattern, is negligible.
+
+         Proof. It is enough to show that a set P ⊆ F that admits parametrization is
+         negligible. Let m be the length of word w1 (as a word in variables yi ’s and constants).
+         The set P is negligible with ǫ = 1/m.
+
+         Corollary 18. Every definable subset of F in the language with constants (and,
+         therefore, in the language without constants) is either negligible or co-negligible.
+            This and Proposition 16 imply Theorem1 for F and Theorem 2.
+
+         Definition 19. Recall that in complexity theory T ⊆ F (X) is called generic if
+                                            |T ∩ Bn (X)|
+                                ρn (T ) =                → 1, if n → ∞,
+                                                |Bn |
+         where Bn (X) is the ball of radius n in the Cayley graph of F (X). The term “negli-
+         gible” is usually used for a complement of a generic set. We will call in this paper
+         such a set CT-negligible.
+
+         Proposition 20. Negligible sets in Definition 15 are CT-negligible.
+
+         Proof. Let 2|X| = k. Then |Bn | = (k/k − 2)((k − 1)n − 1). Fix ǫ > 0. Let N be
+         the set of words w that have a piece such that
+                                                |piece|
+                                                        ≥ ǫ.
+                                                  |w|
+         If |w| = n, then |piece| ≥ m = ǫn. We now count the number of reduced words of
+         length n that have a piece of length m (if they have a piece longer than m, then they
+         also have a piece of length m). There are n(n−1)2    choices for positions of the first
+         letters of the pieces. Suppose these positions are fixed, one piece begins at position
+         i and the other at position j. Then there are two cases :
+             1) If the pieces of length m do not overlap, then up to a constant there are at
+         most (k − 1)n−2m (k − 1)m = (k − 1)n−m such words;
+             2) If the pieces of length m overlap, and j = i + t, then up to a constant there
+         are at most (k − 1)n−m−t (k − 1)t = (k − 1)n−m such words.
+             Therefore up to a constant there are at most n(n − 1)(k − 1)n−m reduced words
+         of length n that have a piece of length m = ǫn. Let Pn,ǫ be the set of reduced words
+                                                                             Pn
+         in Bn that have a piece of length m, m = ǫn. |Pn,ǫ | is at most C i=1 i(i − 1)(k −
+         1)i(1−ǫ) , where C is a constant.
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                                        definableset˙ijac
+
+
+
+
+       12     O. Kharlampovich, A. Myasnikov
+
+
+             It is known that
+                                           n
+                                           X                1 − (n + 1)z n + nz n+1
+                                                 iz i = z                           ,
+                                           i=1
+                                                                   (1 − z)2
+
+                     n
+                     X                  1 + z − (n + 1)2 z n + (2n2 + 2n − 1)z n+1 − n2 z n+2
+                           i2 z i = z                                                         .
+                     i=1
+                                                               (1 − z)3
+
+          Using these formulas with z = (k − 1)(1−ǫ) , we obtain that |Pn,ǫ | ≤ C1 n2 (k −
+            (1−ǫ)n
+       1)     , where C1 is a constant.
+                                 2         (1−ǫ)n                2
+                            (k−1)
+             Then ρn ≤ C1 n (k−1) n
+                                                           n
+                                                    = C1 (k−1) nǫ . Therefore ρn → 0, as n → ∞.
+
+
+
+
+       6. Torsion free hyperbolic groups
+       In this section G is a non-elementary torsion free hyperbolic group.
+
+       Theorem 21. Let G be a non-elementary torsion free hyperbolic group. Every set
+       definable in G is defined by some boolean combination of conjunctive ∃∀-formulas.
+
+       Proof. Similarly to Theorem 6.5 [12] one can prove that EAE(p) (we use Sela’s
+       notation) is in the boolean algebra of conjunctive ∃∀ sets. Indeed EAE(p) = T1 (p)∪
+       . . . Td (p), where d is the depth of the tree of stratified sets and Tn (p) is the set
+       of specializations of the defining parameters P for which there exists a valid PS
+       statement for some proof system of depth n. Lemma 6.2 in [12] deals with T1 (p).
+       The proof that T1 (p) is a conjunctive ∃∀ set is identical to the free group case.
+       Theorem 6.3 [12] deals with T2 (p). As in the free group case, Proposition 3.7 [11]
+       (the proof of this proposition is not given there but it is stated that it is identical
+       to the proof of Proposition 1.34 [11]) reduces the analysis of the set T2 (p) to the
+       set of specializations of the defining parameters P =< p > for which there exists a
+       test sequence of valid P S statements that factors through the various resolutions
+       P SHGHRes. By construction, if p0 ∈ T2 (p) then there must exist a valid PS
+       statement of the form
+                                                                           1
+                                     (r, (h21 , g11 ), . . . , (h2d(ps) , gd(ps) ), h10 , w0 , p0 , a)
+       that factors through one of the PS resolutions PSHGHRes constructed with respect
+       to all proof systems of depth 2. (Notice that the notion of a resolution corresponds
+       to the notion of a fundamental sequence in our work.) The sets T SP S(p) associ-
+       ated with various PS resolutions P SHGHRes, i.e. the sets of specializations p0 of
+       defining parameters P =< p > for which there exists a test sequence (test sequence
+       corresponds to a generic family) that factors through any of the PS resolutions
+       P SHGHRes and restricts to valid PS statements are in the Boolean algebra of
+       ∃∀ sets (Proposition 1.34, [11]). Moreover, it follows from the proof of Proosition
+       1.34 that for any specialization p0 of the defining parameters, there are finitely
+       many combinations for the collections of ungraded resolutions covered by a PS res-
+       olution P SHGHRes, and the collections of ungraded resolutions covered by the
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                     definableset˙ijac
+
+
+
+
+                                                                 Definable sets in a hyperbolic group   13
+
+
+         other (auxiliary) graded resolutions associated with P SHGHRes. These finitely
+         many possibilities for the collections of ungraded resolutions form a stratification
+         on the set of specializations of the defining parameters, obtained from the bases
+         of all the graded resolutions that have been constructed. Therefore p0 ∈ T SP S(p)
+         if and only if it belongs to certain strata in the combined stratification, and not
+         to the complement of these strata, but it depends only on the stratum, not on
+         the particular specialization. A stratum in the stratification is the set of specializa-
+         tions for which there exists a given combination of rigid and strictly solid families
+         of specializations (= Max-classes) of finitely many rigid or solid limit groups (=
+         groups without sufficient splitting). These sets of specializations can be defined by
+         a Boolean combination of conjunctive ∃∀ formulas. By Theorem 1.33 in [11], if there
+         exists a valid PS statement that factors through a PS resolution P SHGHRes, then
+         either there exists a test sequence that factors through this resolution and restricts
+         to valid PS statements, or there must exist a combined specialization that factors
+         through a resolution of lower complexity, and we can continue with this resolution.
+         The definition of a valid PS statement is given in Definition 1.23 [11]. The fact that
+         for a specialization p0 there exists a valid PS statement that factors through a PS
+         resolution P SHGHRes can be expressed by a Boolean combination of conjunctive
+         ∃∀ formulas, because conditions (i)-(iv) in this definition can be expressed by such
+         formulas.
+             Each set Tn (p) is in the boolean algebra of conjunctive ∃∀ sets, by applying the
+         same sieve procedure that is used to analyze the set T2 (p).
+
+         Definition 22. Let G be a torsion-free hyperbolic group generated by a set A and
+         ν : F (A) → G the canonical projection.
+
+          1) A proper subset P of G admits parametrization if P is the image under ν of a
+             set P̃ in F (A) that admits parametrization in F (A) and there exist constants
+             λ, c and D such that for each p ∈ P there is a pre-image p̃ ∈ P̃ such that
+             the path corresponding to p̃ in the Cayley graph of G is (λ, c)-quasigeodesic in
+             D-neighborhood of the geodesic path for p.
+          2) A finite union of sets admitting parametrization is called a multipattern. A
+             subset of a multipattern is a sub-multipattern.
+
+            A similar definition can be given for sets of tuples of elements of G.
+
+         Definition 23. Let G be a torsion-free hyperbolic group generated by a set A and
+         ν : F (A) → G the canonical projection.
+
+          1) A proper subset P of Gm admits parametrization if P is the image of the set P̃ in
+             F m that admits parametrization in F and there exist constants λ, c and D such
+             that for each p = (p1 , . . . , pm ) ∈ P there is a pre-image p̃ = (p̃1 , . . . , p̃m ) ∈ P̃
+             such that the path corresponding to each p̃i in the Cayley graph of G is (λ, c)-
+             quasigeodesic in D neighborhood of the geodesic pi .
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                     definableset˙ijac
+
+
+
+
+       14   O. Kharlampovich, A. Myasnikov
+
+
+       2) A finite union of sets admitting parametrization is called a multipattern. A
+          subset of a multipattern is a sub-multipattern.
+
+       Theorem 24. For every definable subset P of non-elementary torsion free hyper-
+       bolic group Gm , P or its complement ¬P is a sub-multipattern.
+
+       Proof. We will first show the set defined by the positive existential formula
+
+                                         ∃Y U (P, Y, A) = 1,
+
+       where elements in A are constants, is a sub-multipattern if it is not the whole group.
+           In [8], the problem of deciding whether or not a system of equations S over a
+       torsion-free hyperbolic group G has a solution was solved by constructing quasi-
+       geodesics called canonical representatives for certain elements of G. This construc-
+       tion reduced the problem to deciding the existence of solutions in finitely many
+       systems of equations over free groups. The reduction may also be used to describe
+       parameters P as shown below.
+
+       Lemma 25. [8] Let G =< A|R > be a torsion-free δ-hyperbolic group and π :
+       F (A) → G the canonical epimorphism. There is an algorithm that, given a system
+       S(Z, A) = 1 of equations over Γ, produces finitely many systems of equations
+
+                               S1 (X1 , A) = 1, . . . , Sn (Xn , A) = 1                  (7)
+
+       over F and homomorphisms ρi : F (Z, A) → FR(Si ) for i = 1, . . . , n such that
+
+       (1) for every F -homomorphism φ : FR(Si ) → F , the induced map ρi φπ : ΓR(S) → Γ
+           is a Γ-homomorphism, and
+       (2) for every Γ-homomorphism ψ : ΓR(S) → Γ there is an integer i and an F -
+           homomorphism φ : FR(Si ) → F (A) such that ρi φπ = ψ.
+
+           Moreover, the algorithm also gives positive numbers λ, c and D such that for each
+       solution ψ(Z) of S(Z, A) = 1 the corresponding words φ(ρi (Z)) in F (A) represent
+       (λ, c)-quasigeodesics in the D neighborhood of corresponding elements in ψ(Z).
+
+           By this lemma the set of parameters P defined by the formula ∃Y U (P, Y, A) =
+       1 consists of the images of the set of parameters satisfying the formula
+       ∃Y W (Y, P, A) = 1 for certain system of equations ∃Y W (Y, P, A) = 1 is F (A).
+       This proves that this set is a sub-multipattern.
+           Now the proof of the theorem is the same as in the free group case. Suppose a set
+       P is defined by the formula (1). If the ∃-set defined by ∃X(U (P, X) = 1) is not the
+       whole group Gm , then the set P defined by the formula (1) is a sub-multipattern.
+           Suppose now that the set defined by ∃X(U (P, X) = 1 is the whole group, then,
+       as in the proof of Theorem 13, a subset of parameters satisfying formula (1) is a
+       union of a sub-multipattern and another subset that is defined by
+
+                             ∃X1 ∀Y (U1 (X1 ) = 1 ∧ V1 (X1 , Y, P ) 6= 1).
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                 definableset˙ijac
+
+
+
+
+                                                            Definable sets in a hyperbolic group   15
+
+
+         Suppose this formula does not define the empty set. Then the negation is
+                          φ1 (P ) = ∀X1 ∃Y (U1 (X1 ) = 1 → V1 (X1 , Y, P ) = 1)
+         and it does not define Gm .
+
+         Lemma 26. ([12], Theorem 2.3) Formula
+                           θ(P ) = ∀X1 ∃Y (U1 (X1 ) = 1 → V1 (X1 , Y, P ) = 1)
+         in G in the language LA is equivalent to the condition that there exists a formal
+         solution Y of the system V1 (X1 , Y, P ) = 1 in the covering closure (which corresponds
+         to a finite number of NTQ groups N1 , . . . , Nk ).
+            Since ¬P 6= Gm , this lemma implies that a formula ∃Y V2 (P, Y ) = 1 holds in G,
+         therefore ¬P must be a multi-pattern.
+
+         Theorem 27. Proper non-cyclic subgroups in a non-elementary torsion free hyper-
+         bolic group G are not definable.
+
+         Proof. We will prove the theorem by contradiction. Let H be a definable non-
+         cyclic subgroup in G. Let a, b be two non-commuting elements in H such that
+         they generate a free subgroup, we can assume that b is cyclically minimal. Such
+         elements exist by [10], Lemma 1.14. Let x = an , y = bm where n, m are sufficiently
+         large numbers so that the set of elements {Pi = xyxy 2 x . . . xy i x, i ∈ N} consists
+         of (λ1 , c1 )-quasigeodesics in the D1 -neighborhood of corresponding geodesics. Such
+         numbers n, m exist by [10], Lemma 2.3. We can assume that λ1 = λ, c = c1 and
+         D1 = D.
+             Elements {Pi } can be represented by quasigeodesics Qi that have pieces Ri = R̄i
+         of length greater than ǫ|Qi |. We have one of the following two cases.
+             1) There is a number δ and a subsequence of indices {ij } such that the non-
+         overlapping part of Rij and R̄ij in Qij is greater than δ|Qi |.
+             2) There is a subsequence of indices {ij } such that Qij have periodic subwords
+         of length greater than ǫ|Qij |, with period qij such that |qij |/|Qij | → 0.
+             In the second case, since quasigeodesics Pij and Qij are 2D close to each other,
+         such long periodic subwords must appear in the elements Pij . Indeed, the number
+                                                                                    k
+         of different geodesics joining phase vertices of the subpath labeled by qij   of the path
+         labeled by Qij to the nearest vertices of the path labeled by Pij in the generators
+         a and b is bounded by |2A|2D+|a|+|b| . Therefore, the same geodesic (labeled, say,
+         by t) keeps repeating, and a relatively large part of Pij (greater than ǫ|Pij |) is a
+         product of commuting elements, each of them being equal to t−1 qij       r
+                                                                                    t for some r.
+         This contradicts to the form of the elements Pi .
+             In the first case, since quasigeodesics Pij and Qij are 2D close to each other, two
+         pieces in Pij of length greater than ǫ|Pij | are 4D close to each other. Then, similarly
+         to the previous case, we can show that there exists an element t conjugating a power
+         of a to a power of a and a power of b to a power of b, and, therefore, commuting with
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                     definableset˙ijac
+
+
+
+
+       16   O. Kharlampovich, A. Myasnikov
+
+
+       both a and b. Therefore, t = 1 and two pieces in Pij of length greater than ǫ1 |Pij |
+       for some 0 ≤ ǫ1 ≤ ǫ coincide. This again contradicts to the form of the elements
+       Pij . The theorem is proved.
+
+          We complete this section with the following lemma which shows that a finite
+       system of equations in G is equivalent to one equation.
+
+       Lemma 28. Let G be a torsion-free δ-hyperbolic group. Then
+           1) There exists a constant n = n(G, δ) such that equation xn y n z n = 1 implies
+       [x, y] = [x, z] = [y, z] = 1.
+           2) A finite system of equations in G is equivalent to one equation.
+
+       Proof. The first statement follows from [4], 5.3B and [10], Corollary 6. Indeed, one
+       has to take N to be the maximum of 100δ and the numbers determined as in [10],
+       Corollary 6 for all triples of elements in G of length not more than 100δ. It can be
+       also obtained from the proof of Theorem 1.4, [3]. The theorem, in particular, states
+       that in a non-elementary hyperbolic group, for any finite set of elements x1 , . . . , xk
+       there exists an integer N such that the normal closure of xN                   N
+                                                                         1 , . . . , xk is free. The
+       number N in the proof depends only on the number of elements k and the minimum
+       of their translation lengths. Since hyperbolic groups are translationally discrete, and
+       k = 3, this number depends only on the group and δ.
+           To prove the second statement we fix n > N , and elements a, b ∈ G that do
+       not commute, and show that the equation (xn a)n a−n = ((yb)n b−n )n has only the
+       trivial solution x = 1 and y = 1 in G.
+           Suppose, by contradiction, that x 6= 1. By the first statement of the lemma,
+       [x a, a] = 1. Hence [xn , a] = 1. By transitivity of commutation (here we use x 6= 1)
+         n
+
+       we have [x, a] = 1. Therefore, we can rewrite the equation in the form (xn )n =
+       ((yb)n b−n )n , which implies that [xn , ((yb)n b−n )] = 1, and hence (since G is torsion
+       free), that xn = (yb)n b−n . Again, it follows that [y, b] = 1, [x, y] = 1 and xn = y n .
+       This implies that x = y and, by transitivity of commutation, [a, b] = 1, which
+       contradicts the choice of a, b. The contradiction shows that x = 1. In this event the
+       initial equation transforms into (y n b)n b−n = 1, which implies [y, b] = 1 and y = 1,
+       as desired.
+
+       7. Appendix: groups with no sufficient splitting and conjunctive
+          ∃∀-formulas
+       To make this paper more self-contained we will give more explanations how formulas
+       (3) and (4) are obtained in [6]. In Section 5.4 of [6] we defined the notion of a
+       sufficient splitting of a group K modulo a class of subgroups K. Let F be a free
+       group with basis A, P = A ∪ {p}, H =< p > ∗F. Let K consist of one subgroup
+       K = {H}. The set of specializations p such that formula (2) is true in F is associated
+       with a finite number of groups without sufficient splitting modulo H and for each
+       such group K with a given combination of Max-classes of algebraic solutions. The
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                definableset˙ijac
+
+
+
+
+                                                           Definable sets in a hyperbolic group   17
+
+
+         total number of such classes is bounded by Theorem 11 in [6]. Let H ≤ K and
+         K =< X, P |S(X, P ) > does not have a sufficient splitting modulo H. Let D be an
+         abelian JSJ decomposition of K modulo H.
+            We recall the notion of algebraic solutions. Let K1 be a fully residually free
+         quotient of the group K, κ : K → K1 the canonical epimorphism, and H1 = H κ
+         the canonical image of H in K1 . An elementary abelian splitting of K1 modulo H1
+         which does not lift into K is called a new splitting.
+
+
+         Definition 29. (Definition 20 [6]) In the notation above the quotient K1 is called
+         reducing if one of the following holds:
+
+
+         (1) K1 has a non-trivial free decomposition modulo H1 ;
+         (2) K1 has a new elementary abelian splitting modulo H1 .
+
+
+             We say that a homomorphism φ : K → K1 is special if φ either maps an edge
+         group of D to the identity or maps a non-abelian vertex group of D to an abelian
+         subgroup.
+             Let R = {K/R(r1 ), . . . , K/R(rs )} be a complete reducing system for K (see [6]).
+         Now we define algebraic and reducing solutions of S = 1 in F with respect to R.
+         Let φ : H → F be a fixed F -homomorphism and Solφ the set of all homomorphisms
+         from K onto F which extend φ. A solution ψ ∈ Solφ is called reducing if there exists
+         a solution ψ ′ ∈ Solφ in the ∼MAX -equivalence class of ψ which satisfies one of the
+         equations r1 = 1, . . . , rk = 1 (more precise, which factors through the corrective
+         extension of one of the groups K/R(ri )). All non-reducing non-special solutions
+         from Solφ are called K-algebraic (modulo H and φ).
+
+
+         Theorem 30. Let H ≤ K be as above. The fact that for parameters P there
+         are exactly N non-equivalent Max-classes of K-algebraic solutions of the equation
+         S(X, P ) = 1 modulo H can be written as a boolean combination of conjunctive
+         ∃∀-formulas.
+
+
+             The generating set X of K corresponding to the decomposition D can be par-
+         tition as X = X1 ∪ X2 such that G =< X2 ∪ P > is the fundamental group of the
+         graph of groups obtained from D by removing all QH-subgroups. If ce is a given
+         generator of an edge group of D, then we know how AE-transformation σ associated
+         with edge e acts on the generators from the set X. Namely, if x ∈ X is a generator
+         of a vertex group, then either xσ = x or xσ = c−m xcm , where c is a root of the
+         image of ce in F , or in case e is an edge between abelian and rigid vertex groups
+         and x belongs to the abelian vertex group, xσ = xcm . Similarly, if x is a stable
+         letter then either xσ = x or xσ = xcm .
+             One can write elements ce as words in generators X2 , ce = ce (X2 ). Denote
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                        definableset˙ijac
+
+
+
+
+       18    O. Kharlampovich, A. Myasnikov
+
+
+       T = {ti , i = 1, . . . , m}. Consider a formula
+
+            ∃X1 ∃X2 ∀Y ∀T ∀Z (S(X1 , X2 , P ) = 1
+                     m
+                                                                                                  !!
+                     ^
+              ∧¬          [ti , ci (X2 )] = 1 ∧ Z = X2σT ∧ S(Y, X2 , P ) = 1 ∧ V (Y, Z, P ) = 1        .
+                    i=1
+
+       It says that there exists a solution of the equation S(X1 , X2 , P ) = 1 that is not Max-
+       equivalent to a solution Y, Z, P that satisfies V (Y, Z, P ) = 1. If now V (Y, Z, P ) = 1
+       is a disjunction of equations defining (corrective extensions of) maximal reducing
+       quotients, then this formula states that for parameters P there exists at least one
+       Max-class of algebraic solutions of S(X, P ) = 1 with respect to H.
+            Denote                               τ (T, X2 , Y, Z)                                      =
+       ( m                                    σT
+        V
+           i=1 [t i , c i (X 2 )] = 1 ∧ Z = X 2   ∧ S(Y,  X  2 , P ) = 1 ∧ V (Y, Z, P ) = 1). The follow-
+       ing formula states that for parameters P there exists at least two non-equivalent
+       Max-classes of algebraic solutions of S(X, P ) = 1 with respect to H.
+
+         θ2 (P ) = ∃X1 , X3 ∃X2 , X4 ∀Y, Y ′ ∀T, T ′ , T ′′ ∀Z, Z ′ (S(X1 , X2 , P ) = 1 ∧ S(X3 , X4 , P ) = 1
+                                                          m
+                                                                                                 !!
+                                                                                     σT ′′
+                                                         ^
+                                   ′         ′  ′               ′′
+       ∧ ¬ τ (T, X2 , Y, Z) ∨ τ (T , X4 , Y , Z ) ∨ ( [ti , ci (X2 )] = 1 ∧ X2             = X4 )   .
+                                                          i=1
+
+           Both these formulas have type (3). Similarly one can write a formula θN (P )
+       that states for parameters P there exists at least N non-equivalent Max-classes of
+       algebraic solutions of S(X, P ) = 1 with respect to H.
+           Then θN (P ) ∧ ¬θN +1 (P ) states that there are exactly N non-equivalent Max-
+       classes. The theorem is proved.
+           We will recall now how formulas (3),(4) appear in [6]. In Section 12 in [6], param-
+       eters P always correspond to variables X1 , Y1 , . . . , Xk−1 . The tree TXk is finite, we
+       can have schemes of levels (1, 0), (1, 1, ), (2, 1), (2, 2) etc up to some number (m, m).
+       We will concentrate on level (2, 1). In Definition 27 we define initial fundamental
+       sequences of levels (2, 1) and (2, 2) and width i (the possible width is bounded)
+       modulo P =< X1 , Y1 , . . . , Xk−1 >. All conditions (1)-(5) in this definition can
+       be expressed by boolean combinations of conjunctive ∃∀ formulas (depending on
+       X1 , Y1 , . . . , Xk−1 ). Lemmas 27 and 28 reduce the analysis of the set of parameters
+       P =< X1 , Y1 , . . . , Xk−1 > for which there exists a fundamental sequence of level
+       (2, 1) and width i to those for which for this fundamental sequence there exists a
+                                                      (1)     (2,j,s)  (2,j,s)
+       generic family of values of the variables Yk−1 , Zk−1 , Yk−1 ,
+                                                  (3,k)
+       j = 1, . . . , is , s = 1, . . . , t, Zk−1 with properties (1)–(5) from Definition
+       27. Similarly, Lemma 29 reduces the analysis of the set of parameters P =<
+       X1 , Y1 , . . . , Xk−1 > for which there exists a fundamental sequence of level (2, 2)
+       and width i to those for which for this fundamental sequence there exists a generic
+                                              (1)  (2,j,s) (2,j,s)
+       family of values of the variables Yk−1 , Zk−1 , Yk−1 ,
+                                          (3,k)
+       j = 1, . . . , is , s = 1, . . . , t, Zk−1 with properties (1)–(6) from Definition 28.
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                      definableset˙ijac
+
+
+
+
+                                                                 Definable sets in a hyperbolic group   19
+
+
+            For a given value of X1 , Y1 , . . . , Xk−1 formula
+           Ψ = ∀Yk−1 ∃Xk ∀Yk (U (X1 , Y1 , . . . , Xk , Yk ) = 1 → V (X1 , Y1 , . . . , Xk , Yk ) = 1) (8)
+         cannot be proved on level less than (2,1) if and only if the following conditions are
+         satisfied.
+         (a) There exist algebraic solutions for some Ui,coef f = 1 corresponding to the termi-
+             nal group of a fundamental sequence Vi,fund satisfying possibility (i) in Lemma
+             27, namely for this fundamental sequence there exists a generic family of values
+                               (1)    (2,j,s) (2,j,s)
+             of the variables Yk−1 , Zk−1 , Yk−1 ,
+                                               (3,k)
+             j = 1, . . . , is , s = 1, . . . , t, Zk−1 with properties (1)–(5) from Definition 27.
+         (b) There is no algebraic solutions for equations corresponding to the terminal
+             groups of fundamental sequences that describe solutions from Vi,fund that do not
+             satisfy one of properties (1)-(5). There is a finite number of such fundamental
+             sequences.
+         (c) There is no algebraic solutions for equations corresponding to the terminal
+             groups of fundamental sequences of level (2,1) and greater depth derived from
+             Vi,fund .
+                                        (1)
+         (d) (X1 , Y1 , . . . , Yk−1 , Yk−1 ) cannot be extended to a solution of V = 1 by arbitrary
+             Xk (Xk of level 0) and Yk of level (1,0).
+             For a given value of X1 , Y1 , . . . , Xk−1 formula (8) can be disproved on level (2, 1)
+         if and only if it cannot be proved on level less than (2, 1) and there is no algebraic
+         solutions for equations corresponding to the terminal groups of fundamental se-
+         quences of level (2,2) corresponding to Vi,fund . These conditions can be described
+         by a boolean combination of conjunctive ∃∀-formulas of type (3).
+
+
+         Acknowledgments
+         The authors would like to thank the referee for many comments and suggestions.
+         The first named author gratefully acknowledges support from the NSF grant DMS-
+         1201379 and PSC-CUNY enhanced award. The second named author gratefully
+         acknowledges support from the NSF grant DMS-1201379.
+
+
+         References
+          [1] J.L. Brenner, R.C. Lyndon, Permutations and cubic graphs, Pacific Journal of Maths,
+              v.104, 285–315
+          [2] M. Feighn (joint with M. Bestvina), Talk on negligible sets: Luminy, France, June
+              2010, M. Feighn’s homepage at Rutgers, http://andromeda.rutgers.edu/∼feighn/.
+          [3] V. Chaynikov, On the generators of the kernels of hyperbolic group presentations,
+              Algebra and Discrete Mathematics, Volume 11, 2, 2011, 1850.
+          [4] M. Gromov, Hyperbolic groups, Essays in group theory, Springer Verlag, MSRI Publ.,
+              8, 1987, 75-263.
+          [5] O. Kharlampovich and A. Myasnikov, Implicit function theorem over free groups,
+              Journal of Algebra, vol 290/1, pp. 1–203, 2005.
+June 28, 2018 20:34 WSPC/INSTRUCTION FILE                  definableset˙ijac
+
+
+
+
+       20   O. Kharlampovich, A. Myasnikov
+
+
+        [6] O. Kharlampovich and A. Myasnikov, Elementary theory of free non-abelian groups,
+            Journal of Algebra , 302, Issue 2, 451-552, 2006.
+        [7] Kourovka Notebook: Unsolved Problems in Group Theory (American Mathematical
+            Society Translations Series 2) by Kourovskaia Tetrad. English, L. Ia Leifman and D.
+            J. Johnson (Aug 1983)
+        [8] E. Rips, Z. Sela, Canonical representatives and equations in hyperbolic groups, In-
+            ventiones Mathematicae, v. 120, no 3, 1995, 489-512.
+        [9] Z. Sela. Diophantine geometry over groups V: Quantifier elimination., GAFA
+            16(2006), 707-730.
+       [10] A.Yu. Ol’shanskii, On residualing homomorphisms and G-subgroups of hyperbolic
+            groups, IJAC, Vol. 3, No. 4, 365-409, 1993.
+       [11] Z. Sela, Diophantine geometry over groups. V1. Quantifier elimination. I. Israel J.
+            Math. 150 (2005), 1197.
+       [12] Z. Sela, Diophantine geometry over groups. VII. The elementary theory of a hyper-
+            bolic group. Proc. Lond. Math. Soc. (3) 99 (2009), no. 1, 217273.
+
