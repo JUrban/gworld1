@@ -44,3 +44,14 @@ isometric free action requested by GA1. A finite-presentability or
 algorithmic theorem for one Lambda-free subclass does not decide the
 elementary theory of the whole class in GA4. No new claim is made
 for either entry.
+
+
+## 29 September follow-up
+
+The nonabelian GA3 gap above is now addressed by the candidate in
+`problems/GA3/proof.md`, with its separate audit. It uses a controlled
+real-tree collapse and boundary separation, rather than assuming BP
+from CSA. The full intended scope includes arbitrarily generated G.
+The BMR source has since been archived and its exact free-square
+hypothesis reread. This dated update preserves the earlier unsuccessful
+assessment; independent review and novelty remain outstanding.

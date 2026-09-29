@@ -2,24 +2,29 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately 01:35 UTC on 29 September: five whole-entry
-candidates (F28,N5,M0,H4,F41), three partial candidates
-(N8,F38(a),F34(a)), zero established novel results. F41's full
-intended-scope candidate remains for specialist and novelty review.
+Latest checkpoint, approximately 02:52 UTC on 29 September: six whole-entry
+candidates (F28,N5,M0,H4,F41,GA3), three partial candidates
+(N8,F38(a),F34(a)), zero established novel results. All nine await
+specialist review and novelty assessment.
 
-The latest broader pass ruled out a locally free MA4 construction and
-checked that recent C2/B12 sources do not match those full questions.
-N8 central targets now also have an alternative finite-projective-fibre
-proof and rational-point solver, independent of the Klyachko rotation
-lemma. Thirteen Lie cases, two affine controls and sixteen GAP positive
-lifts passed; the first conversion failure is retained. This is a proof
-audit of the existing scope, not another candidate.
+GA3 now has a complete intended nonabelian argument. A controlled
+collapse gives a real-tree action with abelian arc fixators and trivial
+tripod fixators; boundary separation supplies simultaneous conjugating
+maps, which extend to the whole group. Arbitrary ordered length groups
+and arbitrary generation are included. Guirardel2004 and Rybak2026 are
+explicitly credited. The finite free-group controls passed in Python
+and GAP after one preserved GAP variable-name failure. They do not
+verify the general tree argument.
 
-Next return to a concrete unresolved mathematical lead in the wider
-portfolio. Do not keep enlarging the new finite test suite: its key
-finiteness assertion is mathematical, and the original central-target
-scope was already covered. General higher-class intermediate N8 targets
-remain unresolved. Preserve the original deadline and resource budget.
+The preceding F38(c) work gives a decidable necessary stabilizer
+condition and an effective exponential comparison after it passes;
+the linear bound remains unresolved. F20's cover probe was inconclusive,
+and N9's fixed-ambient encoding remains obstructed.
+
+Next: return to an unresolved mathematical lead in the wider portfolio,
+while retaining GA3's bibliographic and specialist-review caveats. Do
+not expand the free-group controls merely to increase their volume.
+The original deadline and resource budget remain unchanged.
 
 ## First pass: source and literature triage
 

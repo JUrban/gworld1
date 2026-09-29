@@ -1,0 +1,650 @@
+    Discriminating and co-discriminating groups
+              Gilbert Baumslag     Alexei Miasnikov
+                      Vladimir Remeslennikov
+
+
+1     Introduction
+1.1    Separation conditions
+This paper is concerned with proving that a number of groups satisfy certain
+separation conditions. In order to explain what these conditions are we need
+to recall some definitions from [5] (see also [4]).
+
+Definition 1 Let H be a group, S a non-empty set of groups and F a family
+of homomorphisms of H into the groups in S. We term F a separating family
+if for each h ∈ H, h 6= 1, there exists φ ∈ F such that φ(h) 6= 1. In this
+event we also say that S separates H or that H is residually S.
+
+If S consists of the singleton G, then we say that G separates H or that H
+is residually G.
+
+Definition 2 Let H be a group, S a non-empty set of groups and F a family
+of homomorphisms of H into the groups in S. We term F a discriminating
+family if for each finite subset Y of non-trivial elements of H, there exists a
+homomorphism φ ∈ F such that φ(h) 6= 1 for every h ∈ Y (we say that φ
+discriminates the finite set Y ). In this event we say that S discriminates H.
+
+If S consists of a singleton G we say that G discriminates H, or that H is
+fully residually G or that H is ω–residually G.
+    These notions of separation and discrimination play a role in several ar-
+eas of group theory; for example, in the theory of varieties of groups [17], in
+algorithmic group theory [14] and in, what we have termed, algebraic geom-
+etry over groups [5]. Our concern here is with two related notions. However,
+
+
+                                      1
+before we turn our attention to them, it may be worth noting that there is a
+distinct difference between the notion of separation and that of discrimina-
+tion. The interested reader will find it instructive to reflect on the notion of
+a root property discussed in the paper [7], the results in [2], [3], [6] and the
+book [17].
+    Our concern here will be with two notions related to separation and dis-
+crimination.
+
+1.2    Discriminating groups
+The first of these is that of a discriminating group. We term a group G
+discriminating if every group separated by G is discriminated by G. It is not
+easy to determine which groups are discriminating, although it is is not hard
+to find a characterization of such groups. Indeed a group G is discriminating
+if and only if its direct square G × G is discriminated by G (see section 2).
+We concentrate here on the task of classifying those abelian groups which
+are discriminating. It turns out that every torsion–free abelian group is
+discriminating. Our main result here, Theorem A, involves torsion abelian
+groups. We refer the reader to the books (see [9], [11]) for a comprehensive
+discussion of abelian groups and the notions described below. In order to
+formulate Theorem A we need to digress a little. Let then A be a torsion
+abelian group. Given an integer n, we define
+
+                           A[n] = {a ∈ A | an = 1}.
+
+Clearly, A[n] is a subgroup of A. Observe that A[pk−1 ] ≤ A[pk ], for every
+prime p and every positive integer k. Moreover A[pk ]/A[pk−1 ] is of exponent
+p and can therefore be viewed as a vector space over the field of p elements.
+We denote the dimension of a vector space V by dim(V ) and define
+
+                      α(A, p, k) = dim(A[pk ]/A[pk−1 ]).
+
+Consider next the Sylow p-subgroup τp (A) of A. Its maximal divisible sub-
+group δ(τp (A)) is a direct sum of a number of quasi-cyclic groups of type
+Zp∞ . The cardinality of the set of summands involved is an invariant of A,
+which we denote by β(A, p). These invariants can be traced back to Ulm (see
+[9]); they were explicitly introduced in [18]. Finally, we recall that a ∈ A
+                                          k
+has infinite p − height if the equation xp = a has a solution in A for every
+positive integer k. We are now in a position to formulate
+
+                                       2
+Theorem A Let A be a torsion, abelian group and suppose that τp (A)/δ(τp (A))
+has no elements of infinite p-height. Then A is discriminating if and only
+if α(A, p, k) is either zero or infinite for every prime p and every positive
+integer k and β(A, p) is either zero or infinite for every prime p.
+
+1.3    Co-discriminating groups
+Dually, we term a group H co-discriminating if an arbitrary family S of
+groups separates H if and only if S discriminates H. We will focus here
+on a large class of co-discriminating groups, groups without zero divisors,
+which were introduced in [5] in a rather different context. We recall that a
+group H has no zero divisors if given any non-trivial elements a, b ∈ H there
+exists an element x ∈ H such that [a, bx ] 6= 1. Groups without zero divisors
+are called domains and, as noted above (and easily proved directly from the
+definition) every such domain is co-discriminating. These domains include,
+in particular, the CSA groups introduced in [5]. We recall that a group G
+is a CSA group if every maximal abelian subgroup M of G is malnormal,
+i.e., M g ∩ M = 1 for every g ∈ G − M. The class of CSA-groups is quite
+substantial. It includes all abelian groups, all torsion-free hyperbolic groups
+[16] and all groups acting freely on Λ-trees [1] as well as many one-relator
+groups – a complete description of one-relator CSA-groups was obtained by
+D. Gildenhuys, O. Kharlampovich and A. Myasnikov in [10]. It turns out
+that many free products with amalgamation and many one-relator groups
+are domains. In particular, a free product A ∗ B is a domain unless both
+the groups A and B are of order 2. This allows one to view a result of B.
+Baumslag [2] that a free product A ∗ B is separated by a non-abelian free
+group if and only if both the groups A and B are discriminated by a non-
+abelian free group in a slightly different light. This theorem of Baumslag
+follows immediately from the remarks above. Indeed, more generally, the
+corresponding result holds when the non-abelian free group is replaced by an
+arbitrary torsion-free group G which separates its own free square G ∗ G, for
+instance every non-abelian torsion-free hyperbolic group (see [4]).
+     The main result of the paper is
+
+Theorem B Every one-relator group with more then 2 generators is a do-
+main, in particular it is co-discriminating.
+
+   It follows, perhaps surprisingly (see Section 4.3, Theorem 6), that every
+
+                                      3
+one–relator group which is separated by a free group is discriminated by a
+free group.
+
+
+2      Discriminating abelian groups
+2.1     Discriminating groups
+Recall that a group G is discriminating if every group separated by G is
+discriminated by G.
+    First we record the following well-known lemma, the proof of which is left
+to the reader (see [8]).
+Lemma 1 A group H is separated by a family of groups S ={Gi | i ∈ I} if
+and only if H is a subgroup of a cartesian product of groups from S.
+The following criterion is useful.
+Proposition 1 A group G is discriminating if and only if G × G is discrim-
+inated by G.
+Proof. Suppose that the group G × G is discriminated by G and that a group
+H is separated by G. Now by Lemma 1, H can be embedded in a cartesian
+power P of G. Let h1 , . . . , hn be a finite number of non-trivial elements
+of H. Then there exists a projection π of P onto a finite direct product
+Gk = G × . . . × G of k copies of G such that π(hi ) 6= 1 for i = 1, . . . , n. Since
+G discriminates G × G it follows readily that G discriminates Gk . Thus 2
+implies 1. The reverse implication is immediate.
+   We make use of this criterion repeatedly in what follows.
+   We gather together a number of results about discriminating groups.
+Throughout this section, p will denote a prime.
+Proposition 2 Let D be a discriminating group. Then the following condi-
+tions hold.
+    1. If H is a finite subgroup of D × D, then there is a finite subgroup of D
+       which is isomorphic to H.
+    2. If H is a finite subgroup of D × D and H is contained in a divisible
+       subgroup (i.e., extraction of n-th roots is possible in that subgroup for
+       every positive integer n) of D × D, then there is a finite subgroup of D
+       which is contained in a divisible subgroup and is isomorphic to H.
+
+                                         4
+   3. If H is a finite subgroup of a Sylow p–subgroup (i.e., a subgroup in which
+      every element has order a power of p and which is maximal subject to
+      this condition) of D × D, then there is a finite subgroup of a Sylow
+      p–subgroup of D which contains a subgroup isomorphic to H.
+
+   4. The number of elements of a given finite order in D is either zero or
+      infinite.
+
+   5. If Di is discriminating for every i ∈ I, then the cartesian product
+      Q                                          Q
+        i∈I Di and the restricted direct product   i∈I Di , are discriminating.
+
+Proof. If D is discriminating, then for every finite subgroup K of D × D
+there exists a homomorphism φ : D × D −→ D which is monic on K. If a
+finite subgroup K of D × D is contained in a divisible subgroup or a Sylow
+p-subgroup of D × D then it’s image under φ has the same property. These
+remarks are enough for the proof of 1, 2, 3 and 4.
+                              Q                                          Q
+    We prove next that D = i∈I Di is discriminating – the proof that i∈I Di
+is discriminating is similar and is left to the reader. For each i ∈ I we choose
+a discriminating family of homomorphisms Φi from Di × Di into Di . For any
+”I-sequence” of homomorphisms
+                                         Y
+                                    φ∈        i∈I
+                                                    Φi
+
+we define a homomorphism λφ : D × D −→ D as follows: if f, h ∈ D then
+
+                       λφ (f, h)(i) = φi (f (i), h(i)), i ∈ I.
+
+Clearly, λφ is a homomorphism of D×D into D. Now, if we have finitely many
+non–trivial elements (f1 , h1 ), . . . , (fn , hn ) ∈ D × D, then we can find a finite
+subset I0 of I such that for each of the elements (fk , hk ) there exists an index
+i ∈ I0 such that (fk (i), hk (i)) 6= 1 in Di × Di . Since Di is discriminating there
+exists a homomorphism φi ∈ Φi discriminating all the elements (fk (i), hk (i))
+for i ∈ I0 . If, for each i 6∈ I0 , we choose φi to be any element in Φi , we obtain
+                        Q
+an I-sequence φ ∈ i∈I Φi . Obviously, the homomorphism λφ discriminates
+all of the elements (fk , hk ), which proves that D discriminates D × D.
+
+2.2     Abelian groups
+Next we focus on the problem as to which abelian groups are discriminating.
+We shall use additive notation throughout this subsection.
+
+                                          5
+    If A is an abelian group, then we denote the torsion subgroup of A by
+τ (A) and, for each prime p, we denote its unique Sylow p–subgroup by τp (A).
+Notice that τ (A) is the direct sum of its Sylow p–subgroups:
+
+                                  τ (A) = ⊕p τp (D).
+
+Finally, let δ(A) be the maximal divisible subgroup of A. A is termed re-
+duced if δ(A) = 0. Every divisible subgroup of an abelian group is a direct
+summand; so δ(A) is a direct summand of A and therefore we can express A
+in the form A = B ⊕ δ(A). It follows that B ∼    = A/δ(A) is reduced. Notice
+also, that every divisible abelian p–group is a direct sum of groups of type
+Z(p∞ ), i.e., additive copies of the multiplicative group of all pn –th roots of
+unity. The following proposition then holds.
+
+Proposition 3 Let A be an abelian group.
+
+   1. If A is torsion-free abelian, then A is discriminating.
+
+   2. If A is discriminating, then so too is its torsion subgroup τ (A).
+
+   3. If A is a torsion group, then A is discriminating if and only if all of
+      its Sylow p–subgroups τp (A) are discriminating.
+
+   4. If A splits over τ (A), then A is discriminating if and only if τ (A) is
+      discriminating.
+
+   5. If A is a non–trivial divisible p–group, then A is discriminating if and
+      only if it is a direct sum of infinitely many copies of Z(p∞ ).
+
+   6. If A is discriminating then so too is δ(A).
+
+Proof.
+    1. Let (a1 , b1 ), . . . , (an , bn ) be non–trivial elements of A ⊕ A. Since ex-
+traction of roots in a torsion–free abelian group is unique, whenever it is
+possible, there exists a positive integer k such that the homomorphism from
+A ⊕ A into A defined by
+
+                             (a, b) 7→ a + kb (a, b ∈ A)
+
+is monic on the set {(a1 , b1 ), . . . , (an , bn }). This completes the proof.
+
+
+                                           6
+    2. It follows immediately from the fact that A ⊕ A is discriminated by A,
+that τ (A ⊕ A) = τ (A) ⊕ τ (A) is discriminated by τ (A) and hence that τ (A)
+is discriminating.
+    3. An analogous argument to the one above suffices to prove the given
+assertion.
+    4. This follows on combining 1 and 2.
+    5. If A is a finite direct sum of copies of Z(p∞ ) then it has finitely many
+elements of order p, hence by Proposition 2 (4) A is not discriminating. If
+A is a direct sum of infinitely many copies of Z(p∞ ) then A ∼    = A ⊕ A and
+therefore A is discriminating.
+    6. The image of a divisible subgroup under a homomorphism is again
+divisible. Since A ⊕ A is discriminated by A, it follows that δ(A) ⊕ δ(A) is
+discriminated by δ(A). Consequently δ(A) is discriminating.
+    Now a torsion abelian group of finite exponent is a direct sum of cyclic
+groups (see, e.g., I. Kaplansky [11]). The following lemma is an immediate
+consequence of this remark and the definition.
+
+Lemma 2 Let A be a torsion abelian group. Then α(A, p, k) is equal to the
+cardinality of the set of cyclic summands of order pk in any decomposition of
+A[pk ] into a direct sum of cyclic groups.
+
+   We are now in a position to prove our main theorem about discriminating
+abelian groups.
+
+Theorem A Let A be a torsion, abelian group and suppose that τp (D)/δ(τp (D))
+has no elements of infinite p-height. Then A is discriminating if and only
+if α(D, p, k) is either zero or infinite for every prime p and every positive
+integer k and β(D, p) is either zero or infinite for every prime p.
+
+Proof. By Proposition 3, (3), we can assume that A is a p–group.
+   We begin by proving that if α(A, p, k) = α is non–zero, then it must
+be infinite. Suppose the contrary, i.e., for some k, α is finite and non–zero.
+Then if we decompose A[pk ] into a direct sum of cyclic groups, there are
+exactly α cyclic summands C(pk ) of order pk . It follows that A[pk ] and
+therefore A itself, does not contain any direct power of C(pk ) with more then
+α summands. But A ⊕ A has a subgroup which is a direct power of 2α cyclic
+summands of order pk . So, by Proposition 2, (1), A is not discriminating.
+Therefore, if α(A, p, k) = α is non–zero, it must be infinite.
+
+
+                                       7
+    We observe next, that by Proposition 3, (5) and (6), β = β(A, p) is either
+0 or infinite. We consider first the case where β = 0. So A is a reduced,
+torsion abelian p–group, without any elements of infinite p-height. If A = 0,
+there is nothing to prove. So we assume that A 6= 0. It suffices then to prove
+that if H is any finite subgroup of A ⊕ A, then there is a homomorphism
+of A ⊕ A into A which is monic on H. Now every finite subgroup of a
+p–group P without elements of infinite height can be embedded in a finite
+direct summand of P (see, e.g., [11]). Therefore we can assume that H is
+of the form H = K ⊕ K ≤ D ⊕ D, where K is a direct summand of A, say
+A = K ⊕ L. Suppose that we decompose K into a direct sum of cyclic groups
+and that a cyclic summand of maximal order has order pj . Since α(A, p, j)
+is infinite, there are infinitely many elements of order pj in L and hence
+subgroups of L which are arbitrarily large direct powers of C(pj ). Hence
+there is a homomorphism µ of A into itself which is identical on L and which
+maps K monomorphically into L. Consider now the homomorphism ρ of
+A ⊕ A into A which maps A ⊕ {0} identically onto A and maps {0} ⊕ A into
+A according to µ. Then ρ maps H monomorphically into A – indeed it maps
+H onto K ⊕ K, thought of now as a subgroup of A itself.
+    We are left with the case where β is infinite. Let H be a finite subgroup of
+A ⊕ A. We can assume, without loss of generality, that H = K ⊕ K ≤ A ⊕ A.
+If we now decompose A into a direct sum A = B ⊕ δ(A), then again we can
+assume that K = K1 ⊕ A1 ≤ E ⊕ δ(A). Since β is infinite, we can find a
+monomorphism µ of K into δ(A) such that µ(K) ∩ D1 = 0. It follows that
+the homomorphism of A ⊕ A into A which maps A ⊕ {0} identically onto A
+and maps {0} ⊕ A into A according to µ, is monic on H. This completes the
+proof of the theorem.
+    The following examples provide answers to some of the natural questions
+that might arise in the readers minds.
+
+Example 1 Let A be the direct sum of a countably infinite number of copies
+of the groups Zp∞ and a group of order p. Then A is discriminating, but A
+modulo its maximal divisible subgroup is not.
+
+Example 2 Let p be a prime and let A be the unrestricted direct sum of
+the cyclic groups of order pi (i = 1, 2, . . .). Then A is discriminating and
+therefore so too is its torsion subgroup T . Notice that T is not a direct sum
+of cyclic groups (see, e.g., [9]).
+
+
+                                       8
+Example 3 Let p be a prime. For a positive integer i denote by Di the direct
+sum of a countably infinite number of copies of the cyclic group of order pi .
+Then Di is discriminating by Theorem A. Now, the unrestricted direct sum
+A = ⊕i Di of the groups Di (i = 1, 2, . . .) is discriminating by Proposition
+2. Notice again, that the torsion subgroup of A is not a direct sum of cyclic
+groups.
+
+
+3     Co-discriminating groups
+3.1    Co-discrimination and n-separation
+Recall that a group H is co-discriminating if every group G separating H
+discriminates H.
+    We shall have need here of a new notion.
+
+Definition 3 Let H be a group, let G be a family of groups and let n be a
+positive integer. Then we say that G n–separates H if given any n non-trivial
+elements h1 , . . . , hn of H, there exists a group G ∈ G and a homomorphism
+φ of H into G such that φ(hi ) 6= 1 for i = 1, . . . , n.
+
+Notice, in particular, that if G n–separates H, then G certainly separates H.
+It turns out that, under the right circumstances, if G 2-separates H, then G
+actually discriminates H.
+    Some of the results that we will prove here are straightforward gener-
+alizations of some analogous results of B. Baumslag concerned with groups
+discriminated by free groups [2].
+    We recall first the
+
+Definition 4 A group G is called commutative transitive if commutation is
+a transitive relation on the set of all non-trivial elements of G, i.e., if a
+commutes with b and b commutes with c, then a commutes with c, provided
+a, b, c are non-trivial.
+
+It is not hard to see that CSA-groups are commutative transitive [16].
+    The following proposition is useful.
+
+Proposition 4 Let H be a group and let G be a family of CSA-groups. Then
+the following hold:
+
+
+                                      9
+  1. Suppose that G 2-separates H. Then H is a CSA-group.
+
+  2. If H is commutative transitive and separated by G, then H is a CSA-
+     group.
+Proof. 1. Suppose that H is not a CSA-group. Then there exists a maximal
+abelian subgroup M of H which is not malnormal. Hence there is a non-
+trivial element a ∈ M and an element x ∈     / M such that ax 6= a with ax =
+b ∈ M . Put c = [a, x]. Notice that c 6= 1 and that c ∈ M . Now there exists a
+homomorphism φ of H into a group G ∈ G such that φ(a) and φ(c) are again
+non-trivial. Let M 0 be a maximal abelian subgroup of G containing φ(M ).
+Since G is a CSA-group, φ(x) ∈ M 0 . But then [φ(a), φ(x)] = 1 and therefore
+φ(c) = 1, a contradiction. This completes the proof of 1.
+    2. If H is abelian, then H is a CSA-group. Assume then that H is non-
+abelian. It follows from the assumption that H is commutative transitive,
+that H has a trivial center. We will prove that G 2-separates H and then
+invoke 1. Suppose then that a and b are a pair of non-trivial elements of H.
+If there exists an element x ∈ H such that [a, bx ] 6= 1, then there exists a
+homomorphism of H into a group in G such that the image of [a, bx ] is not
+equal to 1. Consequently neither the image of a nor that of b is 1, as desired.
+On the other hand, suppose that a commutes with all of the conjugates of b in
+H. Then it follows from commutative transitivity that the normal closure of
+b in H is abelian, i.e., that H contains a non-trivial normal abelian subgroup.
+Hence we can find a homomorphism of H onto a non-abelian subgroup H 0
+of a group G ∈ G which contains a non-trivial abelian normal subgroup M 0 .
+Let M be a maximal abelian subgroup of G containing M 0 . Then M is not
+malnormal in G, which is impossible since G is a CSA-group. This completes
+the proof.
+
+Corollary 1 Let G be a non-abelian CSA-group. Then G × G is separated
+by G but not discriminated by G.
+
+Proof. G × G is obviously separated by G. If G is non-abelian, then commu-
+tation in G × G is not transitive on the set of all non-trivial elements. Hence,
+G × G is not a CSA-group. Thence, by Proposition 4, G × G can not be
+discriminated by the CSA-group G. In particular, non-abelian CSA groups
+are not discriminating.
+    We remark, in passing, that during the course of the proof of Proposition
+4, we have also proved that a non-abelian CSA-group G satisfies the following
+
+                                      10
+property: if a and b are non-trivial elements of G, where we allow for the
+possibility that a = b, then there exists an element x ∈ G such that [a, bx ] 6=
+1. Such groups are called groups without zero divisors or, more frequently,
+domains.
+
+Theorem 1 Every group without zero divisors is co-discriminating.
+
+Proof. Let H be a group without zero divisors and let h1 , . . . , hn be finitely
+many, non-trivial elements in H. There exists an element x1 ∈ H such that
+[h1 , hx2 1 ] 6= 1. Hence there exists an element x2 ∈ H such that [[h1 , hx2 1 ], hx3 2 ] 6=
+1 and so on. It follows that we can find elements x1 , x2 , . . . , xn−1 ∈ H such
+that
+                         c = [. . . [[h1 , hx2 1 ], hx3 2 ], . . . , hxnn−1 ] 6= 1.
+Now suppose that H is separated by a family of groups G. Let φ be a
+homomorphism of H into a group G ∈ G such that cφ 6= 1. Then φ maps
+each of the elements h1 , . . . , hn non-trivially into G, as desired.
+
+Corollary 2 Every non–abelian CSA group is co-discriminating.
+
+
+4     Domains
+4.1     Domains and products
+Proposition 5 Let A and B be non-trivial groups. Then A ∗ B is a domain
+unless both A and B are of order 2.
+
+Proof. Suppose that the order of B is at least 3. Let x and y be non–trivial
+elements of A ∗ B. We claim that there are elements g, h ∈ A ∗ B such that
+[xg , y h ] 6= 1. We can assume that x and y are cyclically reduced.
+     If | x |=| y |= 1 (here | x | is the syllable length of x), then [x, y] 6= 1
+provided x and y lie in different factors, and if they both lie in the same
+factor, say A, then [x, y b ] 6= 1 for any non- trivial b ∈ B.
+     Suppose now that | x |≥ 2. Then we can assume (conjugating if neces-
+sary) that x = a1 b1 . . . an bn (1 6= ai ∈ A, 1 6= bi ∈ B). Again, conjugating if
+necessary, we can assume that y is a strictly alternating product of elements
+from A and B with the first and last elements coming out of B. In this event,
+the products xy and yx have different syllable length - so x and y do not
+commute, as desired.
+
+                                             11
+   If | A |=| B |= 2, then A ∗ B has a non-trivial normal abelian subgroup
+(the derived subgroup). In this event A ∗ B is not a domain.
+   Notice, that we do not require that the factors A and B in the lemma
+above be domains. Under the assumptions that A and B are domains, one
+can prove the following result (see [5] for details).
+
+Theorem 2 Let A and B be domains. Suppose that C is a subgroup of both
+A and B satisfying the following condition:
+
+              if c ∈ C, c 6= 1, either [c, A] 6⊆ C or [c, B] 6⊆ C.
+
+Then the amalgamated free product H = A ∗C B is a domain.
+
+   Now we are in the position to prove the following generalization of the
+result of B. Baumslag [2] referred to in the introduction.
+Theorem 3 Let A and B be non-trivial groups not both of order 2. Let G be
+a group which separates its own free square G∗G (in particular a non–abelian
+torsion-free hyperbolic group). Then the following conditions are equivalent:
+  1. G separates A ∗ B;
+
+  2. G discriminates A ∗ B;
+
+  3. G discriminates each of A and B.
+Proof. By Proposition 5 the group A ∗ B is a domain. So, by Theorem 1, 1
+and 2 are equivalent.
+    3 immediately follows from 2 since A and B are subgroups of A ∗ B.
+    Suppose now that both the groups A and B are discriminated by G. Then
+in the natural way A ∗ B is discriminated by G ∗ G. It is then easy to see that
+if G separates G ∗ G, then, by transitivity of separation, G separates A ∗ B.
+
+4.2    One–relator groups
+The main theorem of this paper is the following
+
+Theorem B Let G = hX | r = 1i be a one-relator group with | X |> 2.
+Then G is a domain.
+
+   We shall make use of the following lemma.
+
+                                      12
+Lemma 3 Let N be a domain and let G be a semi–direct product of N and
+an abelian group. Then G is a domain if and only if G has trivial center.
+
+Proof. Clearly, if G is a domain then the center of G is trivial.
+   Suppose now that the center of G is trivial. Observe, that if x and y are
+a pair of zero divisors in G, then their normal closures gpG (x) and gpG (y) in
+G, commute:
+                              [gpG (x), gpG (y)] = 1.
+If u, v ∈ G, then
+                                [x, u] ∈ gpG (x), [y, v] ∈ gpG (y)
+and hence
+                                   [gpG ([x, u]), gpG ([y, v])] = 1,
+Now the center of G is trivial. Therefore there exist elements u and v in G
+such that [x, u] and [y, v] are non–trivial. But this implies that both [x, u]
+and [y, v] are zero-divisors in G. Since G/N is abellian, both [x, u] and [y, v]
+are contained in N . It follows that, in particular, [x, u] is a zero-divisor in
+N , which contradicts the assumption that N is a domain.
+    We are now in a position to prove our main theorem. Suppose then that
+X = {t, b, c, . . .} and that
+                                G = hX; r = 1i,                              (1)
+where r is a cyclically reduced word in X. Let σx (r) denote the sum of the
+exponents of all of the occurrences of x in r. We divide the proof into two
+cases.
+   Case 1: σt (r) = 0. Denote by N the normal closure in G of X − t. Put
+
+                                    bi = ti bt−i , ci = ti ct−i , . . . ,
+
+Then N is generated by Y = {bi , ci , . . .}. Since σt (r) = 0, r can be re-
+expressed as a word s = s(. . . , bj , . . . , ck , . . .) in the generators Y , where each
+of the generators x occuring in r is replaced by xi , where the subscript i is
+the sum of the t-exponents of the subword of r preceding x. It follows then,
+that
+
+   ti rt−i = ti s(. . . , bj , . . . , ck , . . .)t−i = s(. . . , bj+i , . . . , ck+i , . . .),   (i ∈ Z).
+
+Put
+                          si = s(. . . , bj+i , . . . , ck+i , . . .),     (i ∈ Z).
+
+                                                       13
+Using the Reidemeister-Schreier method (see, for example [13]) it is not hard
+to prove that N has the following presentation:
+                     N = hbi , ci , . . . (i ∈ Z) ; si = 1 (i ∈ Z)i.
+Let α and β be correspondingly the minimal and the maximal index of b that
+occurs in the word s. Now, for arbitrary non-negative integers i, j put
+N−i,j = hck , . . . (k ∈ Z), bα−i , bα−i+1 . . . , bβ+j | s−i = 1, s−i+1 = 1, . . . , sj = 1i.
+It follows (see [13]) that N is the union of the following ascending chain of
+subgroups
+      N0,0 ≤ N0,1 ≤ N−1,1 ≤ N−1,2 . . . ≤ N−i+1,i ≤ N−i,i ≤ N−i,i+1 ≤ . . . .
+Notice that in the presentation for N−i,j above, there are infinitely many
+generators and finitely many relators, so each N−i,j is a free product of two
+infinite groups. Hence, by Proposition 5, for each i, j ≥ 0, the group N−i,j
+is a domain. Since the union of an ascending chain of domains is again a
+domain, we conclude that N is a domain. Observe that the group G is the
+semidirect product of N and the infinite cyclic group generated by t. K.
+Murasugi [15] has proved that every one-relator presentation with more than
+two generators, defines a group with trivial center. So by Lemma 3, G is a
+domain.
+    Case 2: σx (r) 6= 0, f or every x ∈ X.
+    Denote by F = F (X) a free group on X. Observe, that r 6∈ [F, F ].
+Consequently there exists a free basis Y = {y1 , y2 , . . .} of F (see [13] Theorem
+3.5), such that
+                                     r = y1e y 0
+where here e is a positive integer and y 0 is an element in the derived group of
+F , expressed in terms of the new basis Y of F . Clearly, σy (s) = 0 for every
+y ∈ Y − {y1 }. So if we present G on the generators Y , we find that
+                                   G =< Y ; y1e y 0 > .
+So we are back to Case 1 and G is a domain, as before.
+   The condition | X | ≥ 3 is essential, since, for example the following
+one-relator groups are not domains (they contain non-trivial abelian normal
+subgroups):
+                hx, y | xk = y ` i, hx, y | y −1 xy = x` i, ((k, ` ≥ 2).
+    It is unclear whether the only one-relator groups which are not domains
+are those which contain abelian normal subgroups, as in the examples above.
+
+                                            14
+4.3    One-relator groups which are separated by free
+       groups are discriminated by them
+The object of this subsection is to prove the
+
+Theorem 6 Every one-relator group separated by a free group F is discrim-
+inated by the free group F .
+   Since every one-relator group with at least three generators is, by Theo-
+rem B, a domain and hence, by Theorem 1, co-discriminating, it suffices to
+prove the following lemma.
+
+Lemma 4 Let G be a group generated by two elements. Then the following
+conditions are equivalent:
+
+  1. G is separated by a free group F ;
+
+  2. G is discriminated by a free group F ;
+
+  3. G is either free or free abelian.
+
+Proof. Notice, that 3 implies 2 (in the case when G is free abelian, it follows
+from Section 2 that G is discriminated by Z, hence by F ). It is obvious that
+2 implies 1. So it is enough to prove that 1 implies 33. Observe that every
+group separated by a torsion-free group is torsion-free; hence G is torsion-
+free. If G is abelian, then G is free abelian. Suppose now that G is generated
+by a and b and that [a, b] 6= 1. Then there exists a homomorphism φ : G → F
+such that [φ(a), φ(b)] 6= 1. Therefore the subgroup generated by φ(a) and φ(b)
+is a free group of rank 2; hence φ is an isomorphism.
+
+
+References
+ [1] Bass H., Groups acting on non–archimedian trees. Arboreal group the-
+     ory, 1991, pp. 69–130.
+
+ [2] Baumslag B., Residually free groups. Proc. London Math. Soc., 1967, 17
+     (3), pp. 402–418.
+
+ [3] Baumslag G., On generalized free products. Math. Zeit., 1962, 7, 8, pp.
+     423–438.
+
+
+                                         15
+ [4] Baumslag G., Myasnikov A., Remeslennikov V., Residually hyperbolic
+     groups. Proc. Inst. Appl. Math. Russian Acad. Sci., 1995, 24, pp. 3–37.
+
+ [5] Baumslag G., Myasnikov A., Remeslennikov V., Algebraic geometry over
+     groups I: Algebraic sets and ideal theory. To appear in J. Algebra.
+
+ [6] Baumslag, G. and Roseblade, J.E., Subgroups of direct products of free
+     groups. J. London Math. Soc., 1984, (2), pp. 44–52.
+
+ [7] Gruenberg. K.W., Residual properties of infinite soluble groups. Proc.
+     London Math. Soc. (1957) (3) 7, pp. 29–62.
+
+ [8] Hall, P., Finiteness conditions for soluble groups. Proc. London Math.
+     Soc. (3), 4 (1954), pp. 419-436.
+
+ [9] Fuchs, L., Infinite abelian groups, Academic Press, New York, 1970
+     (volume 1), 1973(volume 2).
+
+[10] Gildenhuys D., Kharlampovich O., and Myasnikov A., CSA groups and
+     separated free constructions. Bull. Austr. Math. Soc., 1995, 52, 1, pp.
+     63–84.
+
+[11] Kaplansky I., Infinite abelian groups. Ann Arbor: Univ. of Michigan
+     Press, 1954.
+
+[12] Lyndon, R.C., and Schupp, P.E., Combinatorial group theory. Ergeb-
+     nisse der Mathematik und ihrer Grenzgebiete 89, Springer-Verlag,
+     Berlin, Heidelberg, New York, 1977.
+
+[13] Magnus W., Karrass A., Solitar D., Combinatorial group theory: presen-
+     tations of groups in terms of generators and relators. Dover Publications,
+     New York, 1976.
+
+[14] Miller III C.F., Decision problems for groups - survey and reflections.
+     In Algorithms and Classification in Combinatorial Group Theory, ed.
+     G.Baumslag and C.F.Miller III, MSRI Publications 23, Springer-Verlag,
+     1992, pp. 1-59.
+
+[15] Murasugi K., The center of a group with a single defining relation. Math.
+     Ann., 1964, 155, p. 246-251.
+
+
+
+                                      16
+[16] Myasnikov A.G., Remeslennikov V.N., Exponential groups II: extensions
+     of centralizers and tensor completion of CSA-groups. International Jour-
+     nal of Algebra and Computation, 1996, 6(6), p. 687–711.
+
+[17] Newmann H., Varieties of groups. Springer, 1967.
+
+[18] Szmielew W., Elementary properties of Abelian groups. Fund.Math.,
+     1955, 41, pp.203–271.
+
+
+
+
+                                     17
+

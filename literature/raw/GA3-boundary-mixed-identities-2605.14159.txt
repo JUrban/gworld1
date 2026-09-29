@@ -1,0 +1,2192 @@
+                                           Boundary dynamics, triple transitivity, and mixed identities in
+                                                           weakly hyperbolic groups
+                                                                                  Ekaterina Rybak
+
+                                                                                       Abstract
+                                                      We study the interplay between the algebraic and dynamical properties of groups
+                                                 that admit a general type action on a δ-hyperbolic space such that the induced action
+                                                 on the limit set in the Gromov boundary is faithful. We divide the class of such groups
+                                                 into two subclasses based on a dynamical criterion: groups whose induced action on the
+arXiv:2605.14159v3 [math.GR] 28 Jul 2026
+
+
+
+
+                                                 limit set is topologically free, and those whose action is not. We prove that satisfying
+                                                 the criterion is equivalent to a purely algebraic property of being mixed identity free,
+                                                 generalizing results of P. Fima, F. Le Maı̂tre, S. Moon, and Y. Stalder from groups
+                                                 acting on trees to groups acting on arbitrary hyperbolic spaces. As one corollary, we
+                                                 obtain that the reduced C ∗ -algebra of such groups is selfless, using the results of N.
+                                                 Ozawa. For the subclass of groups whose action on the limit set is not topologically
+                                                 free, we prove the rigidity result for all 3-transitive faithful actions and bound the
+                                                 transitivity degree by 3, generalizing the result of A. Le Boudec and N. Matte Bon. As
+                                                 an application, we show that non-affine simple Kac-Moody groups over finite fields are
+                                                 MIF, answering the question of J. Belk, F. Fournier-Facio, J. Hyde, and M. Zaremsky.
+
+
+                                           Contents
+                                           1 Introduction                                                                                    2
+                                             1.1 Weakly hyperbolic groups . . . . . . . . . . . . . . . . . . . . . . . . . . . .            2
+                                             1.2 MIF weakly hyperbolic groups . . . . . . . . . . . . . . . . . . . . . . . . .              4
+                                             1.3 Rigidity of 3-transitive actions . . . . . . . . . . . . . . . . . . . . . . . . .          7
+                                           2 Preliminary results                                                                             8
+                                             2.1 Group actions on hyperbolic spaces . . . . . . . . . . . . . . . . . . . . . . .            8
+                                             2.2 Minimal actions on trees . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         15
+                                             2.3 Elliptic radical . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       16
+                                             2.4 Micro-supported actions . . . . . . . . . . . . . . . . . . . . . . . . . . . . .          18
+                                           3 Boundary dynamics and algebraic properties                                                     21
+                                             3.1 The cross-ratio and topological transitivity of actions on the limit set . . . .           21
+                                             3.2 Boundary dynamics and mixed identities . . . . . . . . . . . . . . . . . . . .             24
+                                              MSC Primary: 20F65, 20F69. Secondary: 20F67, 46L05
+
+
+                                                                                            1
+    3.3    Boundary dynamics and triple transitivity . . . . . . . . . . . . . . . . . .     29
+    3.4    Examples and necessity of assumptions . . . . . . . . . . . . . . . . . . . . .   38
+
+
+1     Introduction
+1.1       Weakly hyperbolic groups
+
+One of the generalizations of the class of non-elementary hyperbolic groups is the class of
+acylindrically hyperbolic groups. Recently, studies of acylindrically hyperbolic groups have
+attracted a lot of attention. A group is acylindrically hyperbolic if it admits an acylindrical
+action of general type on a hyperbolic space. The acylindricity condition is a generalization
+of properness of the action. We refer the reader to [Osi16] for the definitions. The class of
+acylindrically hyperbolic groups is large; in particular, it includes all non-elementary hyper-
+bolic and relatively hyperbolic groups, mapping class groups of punctured closed surfaces
+except for surfaces with genus g = 0 and fewer than three punctures, Out(Fn ) for n ≥ 2,
+directly indecomposable right-angled Artin groups, and 1-relator groups with at least 3
+generators. Despite being such a broad class, the requirement of the acylindricity of the
+action is restrictive enough to obtain nontrivial results about the algebraic properties of
+acylindrically hyperbolic groups. For example, acylindrically hyperbolic groups are closed
+under taking infinite normal subgroups [Osi16], are SQ-universal, and have finite amenable
+radical [DGO]. Finitely generated acylindrically hyperbolic groups have cut points in all of
+their asymptotic cones [Sis] and have exponential conjugacy growth [HO13].
+   We want to enlarge the class of acylindrically hyperbolic groups even further and study
+what properties hold when the acylindricity condition is removed. Following the terminology
+from [MT], we say
+Definition 1.1. A group G is weakly hyperbolic if it admits a general type action on a
+geodesic hyperbolic space. An isometric action on a hyperbolic space is of general type if
+orbits are unbounded and G contains two loxodromic elements with disjoint fixed points on
+the Gromov boundary.
+
+    We refer the reader to Section 2.1 for details on Gromov hyperbolic spaces and the
+classification of group actions on them. Examples of weakly hyperbolic groups that are not
+necessarily acylindrically hyperbolic come from groups acting on trees and, more generally,
+groups of isometries of hyperbolic spaces.
+    Many properties of particular examples of weakly hyperbolic groups are well documented
+in the literature. Various results on random walks in weakly hyperbolic groups were obtained
+in [MT], [Sun], [BMSS], [AMS], [AS], [GTT22], [Cho], and [Hor]. However, not many group
+structural results are known about the whole class. Using a simple ping-pong argument,
+one can prove that any weakly hyperbolic group contains a nonabelian free subgroup (see
+[Gro87, 8.2.F] or [Ham, Thm. 2.7]). In [Osi17], it is proved that for every invariant random
+subgroup H of a countable weakly hyperbolic group G, when G acts on some hyperbolic
+
+                                                2
+                              Weakly hyperbolic groups
+
+                                                                    P SL2 (C)
+                              Acylindrically hyperbolic
+                                          groups
+                                                            M CG(Σg )
+                                     Non-elementary
+                                                       F2
+                                   hyperbolic groups
+
+
+
+Figure 1: The class of weakly hyperbolic groups. By F2 we denote the free group on 2
+generators, M CG(Σg ) denotes the mapping class group of any punctured closed surface,
+except for surfaces with genus g = 0 and fewer than three punctures, P SL2 (C) denotes the
+projective special linear group over C.
+
+space via a general type action, the induced action of H either has the same limit set as G
+or all orbits of H are bounded. In particular, every normal subgroup of a weakly hyperbolic
+group satisfies this dichotomy. In [GOR, Thm 1.2] it is proved that the Frattini subgroup of
+a countable weakly hyperbolic group acts on a hyperbolic space with bounded orbits, and
+thus has infinite index.
+   A natural question to ask is what other interesting algebraic properties are satisfied by
+every weakly hyperbolic group. Finding such properties is challenging, as having just the
+general type action without any properness condition is not very limiting. Therefore, we
+want to impose an additional condition on the group action.
+    Recall that the limit set ΛS (G) in the Gromov boundary of a hyperbolic space S is the
+closure of the set of accumulation points of orbits under the G-action.
+Definition 1.2. We say that a group G is faithful weakly hyperbolic if it admits a general
+type action on a hyperbolic space S such that the induced G-action on ΛS (G) is faithful.
+
+    Note that not every weakly hyperbolic group is faithful weakly hyperbolic. A source
+of examples of weakly hyperbolic groups that are not faithful weakly hyperbolic groups is
+given in Proposition 3.31. However, by Proposition A, any weakly hyperbolic group has a
+faithful weakly hyperbolic quotient. Here, ES (G) is the elliptic radical with respect to the
+action of G on S. It is the set of all elements of G that act on ΛS (G) trivially. We refer the
+reader to Section 2.3 for the basic properties of ES (G).
+Proposition A. Suppose that a group G admits a general type action on a hyperbolic space
+S. Then G/ES (G) is faithful weakly hyperbolic.
+
+   Let X be a topological space. Recall that an action of a group G on X by homeomor-
+phisms is topologically free if the set of fixed points FixX (g) of every non-trivial element
+
+                                              3
+g ∈ G has empty interior.
+
+Definition 1.3. A weakly hyperbolic group G is called lim-free if it admits a general type
+action on a hyperbolic space S such that the induced action on ΛS (G) is topologically free.
+
+    We have an obvious inclusion: Lim-free weakly hyperbolic groups are faithful weakly
+hyperbolic groups. While the property of being weakly hyperbolic is not closed under taking
+non-trivial normal subgroups, both properties of being faithful weakly hyperbolic and of
+being lim-free are closed under taking non-trivial normal subgroups by Lemma 2.26. We
+will see that lim-free weakly hyperbolic groups and faithful weakly hyperbolic groups that
+are not lim-free are two distinct classes. Groups from the former class include acylindrically
+hyperbolic groups without non-trivial finite normal subgroups (see Corollary 3.12) and
+behave similarly to them, while groups from the latter class have very different algebraic
+properties.
+
+1.2   MIF weakly hyperbolic groups
+
+Let Fn denote a free group of rank n. Recall that a group G satisfies a mixed identity w = 1
+for some w ∈ G∗Fn if every homomorphism G∗Fn → G that is the identity on G sends w to
+1. A mixed identity w = 1 is non-trivial if w is a non-trivial element of G ∗ Fn , and a group
+G is mixed identity free (or MIF for brevity) if it does not satisfy any non-trivial mixed
+identity. The property of being MIF imposes strong restrictions on the algebraic structure
+of G. If G is MIF, then G has infinite conjugacy classes, it is directly indecomposable, and
+it has infinite girth (see [HO16, Prop. 5.4]). A countable group G is MIF if and only if G
+and G ∗ Fn are universally equivalent as G-groups for all n ∈ N (see [HO16, Prop. 5.3]). A
+surprising connection between MIF groups and the Boone-Higman conjecture was recently
+discovered in [BFFHZ].
+   In our first main theorem, part (b) reveals a rigidity phenomenon: properties of one
+general type action impose strong constraints on all general type actions. Furthermore,
+part (c) shows that the geometrically defined class of lim-free groups can be characterized
+within the class of faithful weakly hyperbolic groups by a purely algebraic condition.
+
+Theorem B. For any faithful weakly hyperbolic group G, the following conditions are equiv-
+alent:
+
+ (a) G is lim-free;
+
+ (b) for any general type action of G on a hyperbolic space with trivial elliptic radical, the
+     induced action on the limit set is topologically free;
+
+ (c) G is MIF.
+
+   Considering mixed identities in weakly hyperbolic groups was inspired by the results
+about groups acting on simplicial trees. An action of a group G on a tree T is called
+
+                                              4
+                                                             MIF
+                         Weakly hyperbolic                          Vn
+
+                     Faithful weakly hyperbolic
+                    Not lim-free              Lim-free
+                        Aut(T )               PSL2 (C)
+
+
+
+                        A ∗V B                    H
+
+
+
+Figure 2: The interaction between classes of weakly hyperbolic groups and MIF groups.
+Here A ∗V B denotes the verbal product of non-trivial groups A and B with respect to
+a nonempty set of words V , where at least one of the factors is weakly hyperbolic (see
+Example 3.29), Vn denotes the Higman-Thompson group (see [BEH, Thm. 3.5]), and H
+stands for a group constructed in Example 3.40.
+
+minimal if there are no nontrivial invariant subtrees. Combining [BM, Proposition 3.7]
+with their results, P. Fima, F. Le Maı̂tre, S. Moon, and Y. Stalder prove that if the action
+of a group G on a simplicial tree T is faithful, minimal, and of general type, then G is MIF
+if and only if the induced action on ∂T is topologically free [FMMS, Theorem B]. Their
+result can be obtained as a corollary of Theorem B (See Corollary 3.14).
+   One of the applications of Theorem B, not covered by [FMMS, Theorem B], is the proof
+that infinite simple Kac-Moody groups over finite fields are MIF (see Example 3.42). This
+partially answers Question 3.6 from [BFFHZ].
+    Let G be a group and w(t) ∈ G ∗ ⟨t⟩ be a mixed identity. The solution set {g ∈ G |
+w(g) = 1} is called the primitive solution set corresponding to w(t). The Zariski topology
+on G is defined by taking the collection of primitive solution sets to be a subbasis for the
+closed sets of the topology. A Zariski-closed subgroup (or more generally, a subset) of G
+is called algebraic. The natural question to ask is what proper subgroups of a group G
+can be algebraic. If G is torsion-free non-elementary hyperbolic, then all such subgroups
+are cyclic [KM]. In [Jac], structural conditions for non-elementary algebraic subgroups of
+acylindrically hyperbolic groups were obtained. By a similar argument as in the proof of
+Theorem B, we get
+Corollary C. Let G be a lim-free weakly hyperbolic group. Then G does not contain any
+non-trivial proper normal Zariski-closed subgroups.
+
+    Non-lim-free faithful weakly hyperbolic groups also have interesting common purely
+algebraic properties. For example, they contain infinite direct sums of infinite non-abelian
+subgroups (see Corollary 2.36). Recall that the monolith Mon(G) of a group G is the
+
+                                             5
+intersection of all non-trivial normal subgroups of G, and G is said to be monolithic if
+Mon(G) ̸= {1}. As a corollary of [GR, Corollary 1.7], we obtain the following.
+Proposition D. Let G be a faithful weakly hyperbolic group. If G is not lim-free, then it
+is monolithic with an infinite simple monolith.
+
+    In this way, non-lim-free faithful weakly hyperbolic groups are very different from acylin-
+drically hyperbolic groups, whose monolith is always trivial (see Proposition 3.11). This
+allows us to obtain the result of M. Hull and D. Osin [HO16, Corollary 5.10] that acylindri-
+cally hyperbolic groups without nontrivial finite normal subgroups are MIF as a corollary
+of Theorem B and Proposition D (see Corollary 3.12).
+   Another corollary of Proposition D gives us a large class of lim-free weakly hyperbolic
+groups.
+Corollary E. Every residually finite faithful weakly hyperbolic group is lim-free. In partic-
+ular, every finitely generated linear faithful weakly hyperbolic group is lim-free.
+
+   The famous Tits Alternative states that a finitely generated linear group is either vir-
+tually solvable or contains a nonabelian free subgroup. As another corollary of Theorem B,
+we obtain an analogous statement for all subgroups of PSL2 (C).
+Corollary F. Every subgroup of PSL2 (C) is either virtually solvable or MIF.
+
+    We should note that in [GGS], it is proved that any center-free unbounded and non-
+virtually solvable countable subgroup of SL2 (k) is highly transitive, where k is a local field,
+which implies being MIF by the result of [HO16]. In [Tom], Tomanov gives necessary and
+sufficient conditions for Zariski-dense subgroups of linear groups to be MIF. Corollary F does
+not require any assumptions on subgroups of PSL2 (C) and is not an immediate consequence
+of Corollary E, [Tom], or [GGS].
+    A property called selflessness was recently introduced for a C∗ -algebra by L. Robert.
+It implies many important regularity properties such as simplicity, stable rank one in the
+tracial setting, and strict comparison. We refer the reader to [Rob] for the definitions. In
+[AGKEP], Tattwamasi Amrutam, David Gao, Srivatsav Kunnawalkam Elayavalli, and Gre-
+gory Patchell proved that acylindrically hyperbolic groups without finite normal subgroups
+have selfless reduced C ∗ -algebras. In their proof, they used a stronger quantitative version
+of the property of being MIF and the rapid decay property. This attracted attention to the
+quantitative version of being MIF, which resulted in a series of works: [BS], [AG], [Vid].
+Later, in his remarkable paper, Ozawa obtained a dynamical condition for the group to
+have a selfless reduced C ∗ -algebra. Using the results of [Oza], we obtain
+Corollary G. If a weakly hyperbolic group G is lim-free, its reduced group C ∗ -algebra Cλ∗ (G)
+is selfless.
+
+   Corollary G gives us the first examples of finitely presented simple groups with selfless
+reduced C ∗ -algebras.
+
+                                               6
+Proposition H. Non-affine simple finitely presented Kac-Moody groups over finite fields
+constructed in [CR] are MIF, and their reduced C ∗ -algebras are selfless.
+
+1.3    Rigidity of 3-transitive actions
+
+Recall that a G-action on some set Ω is k-transitive for some k ∈ N if for any two k-tuples
+of distinct points (ω1 , . . . , ωk ) ∈ Ωk and (v1 , . . . , vk ) ∈ Ωk , there exists g ∈ G such that
+gωi = vi for all i = 1, . . . , k. As discussed earlier, Theorem B gives a rigidity phenomenon
+for general type actions of lim-free weakly hyperbolic groups. If a group is faithful weakly
+hyperbolic but not lim-free, we obtain a rigidity phenomenon for all 3-transitive actions on
+any set, as our second main theorem shows.
+Definition 1.4. Two actions of a group G on sets Ω and Ω′ are conjugate if there exists a
+bijective G-equivariant map Ω → Ω′ .
+Theorem I. Suppose that the action of a group G on a hyperbolic space S is of general type
+and that the induced action of G on ΛS (G) is faithful and not topologically free. Assume
+that G acts faithfully and 3-transitively on a set Ω. Then there exists a G-orbit O ⊂ ΛS (G)
+such that the actions of G on Ω and on O are conjugate.
+
+    This theorem is the analogue of [BM, Theorem 1.4] for group actions on simplicial trees.
+We generalize their arguments to groups acting on arbitrary hyperbolic spaces and obtain
+their result as a corollary (see Corollary 3.28).
+    The transitivity degree of a group G is the maximum k such that G admits a k-transitive
+faithful action on some set. Among infinite groups, examples of groups with transitivity
+degree 1, 2, 3, and ∞ are known. Whether there exists an infinite group with transitivity
+degree 4 is an open question. The next corollary shows that if such an example exists, it
+cannot be a faithful weakly hyperbolic group that is not lim-free.
+Corollary J. Let G be a faithful weakly hyperbolic group that is not lim-free. Then the
+transitivity degree of G is at most 3.
+
+     Recall that an action of a group G on a topological space X is topologically transitive
+if, for every pair of nonempty open subsets U and V of X, there is an element g ∈ G such
+that g(U ) ∩ V ̸= ∅. It is topologically k-transitive for k ∈ N if the induced action of G on
+the k-fold Cartesian product X k is topologically transitive.
+    Since Theorem I tells us that the limit set “sees” all 3-transitive actions of a faithful
+weakly hyperbolic group G that is not lim-free, it suffices to examine just the G-action on
+the limit set to determine whether the transitivity degree of G is 3 or less, as the following
+corollary shows.
+Corollary K. Let G be a faithful weakly hyperbolic group that is not lim-free. If the
+transitivity degree of G is 3, then for any general type action of G on any hyperbolic space
+S, if the induced action on ΛS (G) is faithful, it is topologically 3-transitive.
+
+                                                 7
+   The paper is organized as follows. In Section 2, we provide the necessary background
+and preliminary results and prove Proposition A in Subsection 2.3. In Subsection 3.2, we
+prove Theorem B, Corollary C, Proposition D, Corollary E, Corollary F, and Corollary G.
+In Subsection 3.3, we prove Theorem I, Corollary J, and Corollary K. In Subsection 3.4,
+we prove Proposition H and discuss some examples and the necessity of the conditions of
+Theorem B and Theorem I.
+
+Acknowledgments. The author is grateful to Denis Osin and Spencer Dowdall for pro-
+viding guidance throughout the course of this project. The author is thankful to Francesco
+Fournier-Facio for comments on the first version, for drawing her attention to Kac–Moody
+groups, and for helpful discussions concerning Example 3.42.
+
+
+2     Preliminary results
+Notation. Throughout the paper, we denote by S a geodesic δ-hyperbolic metric space,
+and by dS the metric on S. All group actions on S are by isometries. For a group G acting
+on S and any s ∈ S, let Gs = {gs | g ∈ G} denote the G-orbit of the point s.
+    For group elements g and h we denote by g h the conjugate h−1 gh. If a group G acts on
+a set X, we denote by FixX (G) the set of fixed points of G in X, and by Gx the stabilizer
+subgroup of x ∈ X under the action of G. If U is a subset of a topological space X, we
+denote by Int(U ) the interior of U in X.
+
+2.1   Group actions on hyperbolic spaces
+
+We refer the reader to [DSU, Chapter 3] and [BS07] for more details on the material dis-
+cussed in this subsection.
+
+Definition 2.1. Let S be a geodesic metric space. Recall that the Gromov product of two
+points x, y ∈ S with respect to a point o ∈ S is defined by
+                                1
+                       ⟨x|y⟩o := (dS (x, o) + dS (y, o) − dS (x, y)).
+                                2
+Definition 2.2 (Gromov hyperbolicity). A geodesic metric space S is δ-hyperbolic if for
+any points x, y, z, o ∈ S, we have
+
+                            ⟨x|y⟩o ≥ min {⟨x|z⟩o , ⟨z|y⟩o } − δ.
+
+    If Y ⊆ S is a subspace, then for any constant K ≥ 0, we denote the closed K-
+neighborhood of Y in S by NK (Y ) = {x ∈ S | dS (x, Y ) ≤ K}.
+
+Definition 2.3 (Rips hyperbolicity). Fix δ ≥ 0. A geodesic metric space S is δ-hyperbolic
+if given any x, y, z ∈ S and any geodesics α, β, γ between them, we have γ ⊆ Nδ (α ∪ β).
+
+                                             8
+    A geodesic metric space is Rips hyperbolic if and only if it is Gromov hyperbolic (see,
+for example, [KS, Lemma 1.46]). In this work, we choose δ in a way that S satisfies both
+Definitions 2.2 and Definition 2.3 simultaneously.
+    A sequence (xi ) of elements of S converges at infinity if ⟨xi |xj ⟩o → ∞ as i, j → ∞ for
+some, or equivalently for any, point o ∈ S. Two such sequences (xi ) and (yi ) are equivalent
+if ⟨xi |yj ⟩o → ∞ as i, j → ∞. The Gromov boundary of S, denoted by ∂S, is defined as
+the set of equivalence classes of sequences converging at infinity. If a is the equivalence
+class of (xi ), we say that the sequence (xi ) converges to a. There is a natural topology
+on Sb = S ∪ ∂S extending the topology on S such that S is dense in S,        b which will be
+discussed later. The definition of ∂S is independent of the choice of the basepoint, and any
+isometric group action on S extends to a continuous action on S. b The Gromov product can
+be extended to Sb in the following way.
+Definition 2.4. Let a, b ∈ ∂S and o, x ∈ S.
+
+  1. The Gromov product of a and b with respect to o is defined by
+                                                                      
+                   ⟨a|b⟩o = inf lim inf ⟨xi |yj ⟩o (xi ) → a, (yj ) → b .
+                                       i,j→+∞
+
+
+  2. The Gromov product of a and x with respect to o is defined by
+                                                               
+                        ⟨a|x⟩o = inf lim inf ⟨xi |x⟩o (xi ) → a .
+                                              i→∞
+
+
+    The next lemma shows that taking the lim inf in the definition of the Gromov product of
+the boundary points is the same as taking lim sup up to a constant and that the boundary
+points also satisfy the four-point condition.
+Lemma 2.5 ([BS07], Lemma 2.2.2). Let S be a δ-hyperbolic space. Let o ∈ S, and let
+a, b, c ∈ ∂S.
+
+  1. For arbitrary sequences (xi ) → a, (yi ) → b, we have
+
+                      ⟨a|b⟩o ≤ lim inf ⟨xi |yi ⟩o ≤ lim sup⟨xi |yi ⟩o ≤ ⟨a|b⟩o + 2δ.
+                                 i→∞                 i→∞
+
+  2.
+                                  ⟨a|b⟩o ≥ min {⟨a|c⟩o , ⟨c|b⟩o } − δ.
+
+   The Gromov product of distinct points of the boundary is always finite, i.e., if a, b ∈ ∂S,
+then ⟨a|b⟩o = ∞ if and only if a = b. It is also preserved by isometries of S, i.e., if g is an
+isometry of S, a, b ∈ Sb then ⟨ga|gb⟩go = ⟨a|b⟩o (see [DSU, Section 3.4.1]).
+   For any point a ∈ ∂S, o ∈ S, and r ∈ R, denote by
+                                       n                   o
+                            Uo (a, r) = s ∈ Sb | ⟨a|s⟩o > r .
+
+                                                 9
+   The subset Uo (a, r) is open in the topology on S,
+                                                    b and {Uo (a, r) | r ≥ 0} form a neigh-
+borhood base for the topology on Sb at a (see [DSU, Remark 3.4.15 (II)]).
+   The limit set ΛS (G) of G is defined as the intersection of the closure of Gs in Sb with
+∂S. This definition is independent of the choice of s ∈ S.
+    An element g ∈ G is said to be loxodromic if the group ⟨g⟩ has unbounded orbits and
+fixes exactly two points on ∂S (equivalently, |ΛS (⟨g⟩)| = 2). By LS (G) we denote the set
+of all loxodromic elements of G.
+   The following lemma establishes the standard notation for fixed points of loxodromic
+elements, motivated by the so-called north-south dynamics (see [Gro87, Lemma 8.1.G] or
+[DSU, Theorem 6.1.10]).
+Lemma 2.6. The fixed points of g ∈ LS (G) can be denoted by g + and g − so that
+      lim g n s = g + ∀s ∈ Sb \ g −             lim g −n s = g − ∀s ∈ Sb \ g +
+                                                                         
+                                        and
+         n→∞                                      n→∞
+
+where the convergence in the first (respectively, second) limit is uniform on sets whose
+closure does not contain g − (respectively, g + ).
+Remark 2.7. If g ∈ LS (G), then f gf −1 ∈ LS (G) for any f ∈ G. Moreover, we have
+(f gf −1 )+ = f g + and (f gf −1 )− = f g − .
+   We denote the set of endpoints of loxodromic elements by HS (G) = {g ± | g ∈ LS (G)}.
+   Possible actions of groups on hyperbolic spaces can be classified as follows according to
+the cardinality of ΛS (G) (see [Gro87, Sections 8.1-8.2], [Ham], or [DSU, Chapter 6]):
+
+  1. (elliptic action) |ΛS (G)| = 0. Equivalently, G has bounded orbits.
+  2. (parabolic action) |ΛS (G)| = 1. Equivalently, G has unbounded orbits, and LS (G) = ∅.
+     In this case Fix∂S (G) = ΛS (G).
+  3. (lineal action) |ΛS (G)| = 2. Equivalently, LS (G) ̸= ∅, and any two loxodromic ele-
+     ments have the same fixed points on ∂S. In this case Fix∂S (G) ⊆ ΛS (G).
+  4. |ΛS (G)| = ∞. Then LS (G) ̸= ∅. In turn, this case breaks into two subcases.
+      (a) (quasi-parabolic action) Fix∂S (G) ̸= ∅. Then G fixes a unique point of ∂S.
+      (b) (general type action) Fix∂S (G) = ∅. Equivalently, G contains at least two (or
+          infinitely many) loxodromic elements with disjoint fixed points.
+
+   The action of G is called elementary in cases 1 – 3 and non-elementary in case 4.
+   Recall that an action of a group G by homeomorphisms on a topological space X is
+minimal if there is no proper closed nonempty G-invariant subset Y ⊂ X.
+Corollary 2.8. [DSU, Corollary 7.4.1] Suppose that the action of a group G on a hyperbolic
+space S is of general type. Then ΛS (G) is the smallest nonempty closed G-invariant subset
+of ∂S. Therefore, the action of G on ΛS (G) is minimal.
+
+                                            10
+    The following can be found in [Gro87, Section 8.2]; alternatively, see [Ham, Theorems
+2.6, 2.9] or [DSU, Propositions 7.4.6, 7.4.7].
+
+Lemma 2.9. Suppose that a group G acts non-elementarily on a hyperbolic space S. Then
+HS (G) is dense in ΛS (G). Moreover, if the action is of general type, then {(g + , g − ) | g ∈
+LS (G)} is dense in ΛS (G) × ΛS (G).
+
+    The following lemma follows from [Osi17, Theorem 4.5], where a much more general
+fact is proved.
+
+Lemma 2.10. Suppose that a group G admits a general type action on a hyperbolic space
+S. Then the induced action of any normal subgroup N ≤ G either has bounded orbits in S
+or is also of general type. If the action of N on ΛS (G) is nontrivial, then ΛS (N ) = ΛS (G).
+
+Remark 2.11. The proof of Lemma 2.10 remains true for an arbitrary group G with a
+general type action on a hyperbolic space S, not necessarily countable as stated in [Osi17,
+Theorem 4.5].
+   For any λ ≥ 1 and c ∈ R, a map of metric spaces φ : (X, dX ) → (Y, dY ) is a (λ, c)-quasi-
+isometric embedding if for all x, y ∈ X
+
+                      1
+                        dX (x, y) − c ≤ dY (φ(x), φ(y)) ≤ λdX (x, y) + c.
+                      λ
+   A (λ, c)-quasi-geodesic is a (λ, c)-quasi-isometric embedding φ of an interval I ⊆ R into
+S. In this work, we will not distinguish between quasi-geodesics and their images when the
+parametrization is not important. If the constants λ and c of φ are not important, we write
+that φ is a quasi-geodesic.
+   Let Y ⊆ S, and let σ ≥ 0. We say that Y is σ-quasiconvex in S if every geodesic
+with endpoints in Y is contained in the σ-neighborhood of Y . A subset Y ⊂ S is said
+to be quasiconvex if it is σ-quasiconvex for some σ ≥ 0. Any (λ, c)-quasi-geodesic in S is
+quasiconvex by the Morse Lemma.
+
+Lemma 2.12 (Morse Lemma). Let S be a δ-hyperbolic metric space, and fix λ ≥ 1 and
+c ≥ 0. There exists a constant σ depending only on δ, λ, and c such that if γ1 and γ2 are
+(λ, c)-quasi-geodesics in S with the same endpoints, then γ1 ⊆ Nσ (γ2 ).
+
+    Let Y ⊂ S, and let x ∈ S. The nearest-point projection of x onto Y is a point x
+such that dS (x, x) ≤ dS (x, Y ) + 1. When Y is σ-quasiconvex, the nearest-point projection
+is coarsely well-defined: for different choices x1 , x2 of points in Y nearest to x we have
+dS (x1 , x2 ) ≤ max(2, 2σ + 9δ) (see [KS, Remark 1.103]).
+   Let x and y have nearest-point projections x and y onto a quasi-geodesic segment γ.
+The following lemma shows that if x and y are O(δ) apart, then, up to additive error, the
+geodesic from x to y goes from x to x, then runs along the geodesic from x to y, and then
+heads back out to y.
+
+                                              11
+                     x                                                              y
+
+
+
+
+                                 px             ≥ 14δ                  py
+                             M                                              M
+                                                  γ
+                         x                                                      y
+
+                                      Figure 3: For Lemma 2.13
+
+Lemma 2.13. Let x, y ∈ S and let γ ⊂ S be a (λ, c)-quasi-geodesic segment. Let x be a
+nearest-point projection of x on γ and let y be a nearest-point projection of y on γ. Then
+there exists a constant M = M (λ, c, δ) such that if dS (x, y) > 14δ + 2M then
+                   dS (x, y) ≥ dS (x, x) + dS (x, y) + dS (y, y) − 24δ − 4M.
+
+Proof. Consider the geodesic segment [x, y], and let px and py be nearest-point projections to
+[x, y] of x and y, respectively. By [Mah, Proposition 3.6], if γ lies in a bounded neighborhood
+of a geodesic, then the nearest-point projections of any point to γ and to the geodesic are a
+bounded distance apart. Combining this with the Morse Lemma, we obtain that px , py lie
+within M = M (λ, c, δ) of x and y. Since dS (x, y) > 14δ + 2M , we have dS (px , py ) > 14δ.
+Therefore, by [Mah, Proposition 3.4], the following holds
+                    dS (x, y) ≥ dS (x, px ) + dS (px , py ) + dS (py , y) − 24δ.
+Using that dS (x, px ) ≤ M and dS (y, py ) ≤ M , we obtain the conclusion of the lemma.
+
+Definition 2.14. Let g ∈ G. The asymptotic translation length of g in S is
+                                                   dS (s0 , g n s0 )
+                                      τS (g) := lim
+                                               n→∞       n
+for some (equivalently, any) s0 ∈ S.
+
+   An element g ∈ LS (G) if and only if τS (g) > 0 [CDP, Chapitre 10, Proposition 6.3],
+and it acts on S by translation along a quasi-geodesic axis which connects the two limit
+points g + and g − of g in ∂S.
+    If τS (g) is sufficiently large, such an axis can be chosen uniformly, as shown in the
+following lemma, which summarizes results from [Cou16, Section 3].
+Lemma 2.15. Let G act on a δ-hyperbolic space S. Suppose g ∈ LS (G) and τS (g) ≥
+LS δ−16δ, where LS depends only on δ (and is more explicitly described in [Cou16, Definition
+2.8]). Then there exists a (2, δ)-quasi-geodesic Lg in S which connects the limit points g +
+and g − of g in ∂S. Lg is preserved by g and is (δ + 8δ)-quasiconvex. The quasi-geodesic Lg
+is rectifiable, i.e., the length l(γ) is well-defined for any segment γ ⊂ Lg .
+
+                                                  12
+              gx0
+                                                                          gxn
+                                   y ′ 4δ gs
+                                                          s′
+                                                L
+                      D         2δ     6δ            2δ
+
+                                       L            L
+                      D + 2δ                s
+                                   y                      g −1 s′
+                                                                           xn
+              x0                                    2δ
+
+                                            g −1 s
+
+                                Figure 4: For Lemma 2.18
+
+
+   We will call such a uniform quasi-geodesic axis a standard quasi-geodesic axis of g. Note
+that we can always increase the asymptotic translation length by taking the appropriate
+power of g. Thus, the standard quasi-geodesic axis exists for every loxodromic element in
+G, up to passing to powers.
+   The following lemma is a reformulation of the “local-to-global” property in terms of
+Gromov products and the reverse triangle inequality for the orbits of loxodromic elements.
+
+Lemma 2.16. For every A ∈ N and every isometry g ∈ G of S, if
+
+                        ⟨gs | g −1 s⟩s ≤ A and dS (s, gs) > 4A + 24δ,
+
+for some s ∈ S, then g ∈ LS (G).
+
+Proof. Consider the sequence s, gs, g 2 s, . . . , g n s for some n ∈ N. By [ABDHMW, Lemma
+2.1], we have
+                                                    n
+                                              1X
+                           dS (s, g n s) ≥              dS (g j−1 s, g j s).            (1)
+                                              2
+                                                j=1
+
+Letting n → ∞ in (1), and using that dS (s, gs) > 4A + 24δ, we conclude that τS (g) ≥
+2A + 12δ. Since τS (g) > 0, g ∈ LS (G).
+
+Proposition 2.17. Suppose that the action of a group G on a hyperbolic space S is
+parabolic. Then for every g1 , g2 ∈ G, there exists s ∈ S such that dS (g1 s, s) ≤ 56δ and
+dS (g2 s, s) ≤ 56δ.
+
+   For the proof, we will need the following technical lemma.
+
+Lemma 2.18. Let G be a group acting on S by isometries. Let (xi )i∈N be a sequence in S
+converging to a point in ∂S. Fix a basepoint x0 so that ⟨xi | xj ⟩x0 −→ ∞ as i, j −→ ∞.
+
+
+
+                                                13
+and an arbitrary g ∈ G. Let D = dS (x0 , gx0 ). For a given n ∈ N consider the geodesic
+quadrilateral x0 , xn , gxn , gx0 . For s ∈ [x0 , xn ], if
+                         2D + 4δ < dS (x0 , s) < ⟨xn | gxn ⟩x0 − 2D − 4δ,                          (2)
+then ⟨g −1 s | gs⟩s ≤ 8δ.
+
+Proof. First, observe that for s ∈ [x0 , xn ], if
+                             D + 2δ < dS (x0 , s) < ⟨xn | gxn ⟩x0 − 2δ,                            (3)
+then s is within 2δ of some point s′ ∈ [gx0 , gxn ]. Indeed, any geodesic quadrilateral in S is
+2δ-slim, so s is within 2δ of a point s′ on one of the sides [x0 , gx0 ], [gx0 , gxn ], or [gxn , xn ].
+If s′ ∈ [x0 , gx0 ], then
+                            dS (x0 , s) ≤ dS (x0 , s′ ) + dS (s′ , s) ≤ D + 2δ,
+which contradicts the first inequality in (3). If s′ ∈ [xn , gxn ], then
+                            ⟨xn | gxn ⟩x0 ≤ dS (x0 , s′ ) ≤ dS (x0 , s) + 2δ,
+which contradicts the second inequality in (3).
+   Therefore, if (2) is satisfied, then there exists s′ ∈ [gx0 , gxn ] such that dS (s, s′ ) ≤ 2δ.
+Consider the point gs ∈ [gx0 , gxn ]. Note that, since dS (x0 , gx0 ) = D and dS (s, s′ ) ≤ 2δ, by
+the triangle inequality, we obtain
+                                 |dS (gx0 , s′ ) − dS (x0 , s)| ≤ D + 2δ.
+Thus, we have
+                               |dS (gx0 , s′ ) − dS (gx0 , gs)| ≤ D + 2δ.
+Since gx0 , gs, s′ are on the same geodesic [gx0 , gxn ], we conclude that L := dS (gs, s′ ) ≤
+D + 2δ. Consider the point g −1 s′ ∈ [x0 , xn ]. We have dS (s, g −1 s′ ) = L. Let y be the other
+point on the geodesic [x0 , xn ] at distance L from s. Since L ≤ D + 2δ, by (2), we obtain
+that
+                            D + 2δ < dS (x0 , y) < ⟨xn | gxn ⟩x0 − 2δ.
+Therefore, y is within 2δ of some point y ′ ∈ [gx0 , gxn ]. Note that since dS (s, s′ ) ≤ 2δ, by
+the triangle inequality |dS (y ′ , s′ ) − dS (y, s)| ≤ 4δ. Thus, we obtain
+                                    L − 4δ ≤ dS (y ′ , s′ ) ≤ L + 4δ.
+Since dS (gs, s′ ) = L, and y ′ , gs, s′ are all on the same geodesic, we get dS (y ′ , gs) ≤ 4δ. We
+have dS (g −1 s, g −1 s′ ) = dS (s, s′ ) ≤ 2δ, and dS (gs, y) ≤ dS (gs, y ′ ) + dS (y, y ′ ) ≤ 6δ. So,
+                                   1
+                 ⟨g −1 s, gs⟩s =       dS (s, g −1 s) + dS (s, gs) − dS (g −1 s, gs) ≤
+                                                                                    
+                                   2
+                     1
+                          dS (s, g s ) + 2δ + dS (s, y) + 6δ − dS (g −1 s′ , y) + 8δ) ≤
+                                  −1 ′
+                                                                                        
+                  ≤
+                     2
+                  ≤ ⟨y | g −1 s′ ⟩s + 8δ = 8δ.
+
+
+
+                                                    14
+Proof of Proposition 2.17. Let q be the unique fixed point of G on ∂S and let (xi )i∈N ∈ S
+be a sequence converging to q. Fix a basepoint x0 so that ⟨xi | xj ⟩x0 −→ ∞ as i, j −→ ∞.
+Now let arbitrary g1 , g2 ∈ G be given. Let D = max{dS (x0 , g1 x0 ), dS (x0 , g2 x0 )}, and take
+n ∈ N such that the geodesic segment [x0 , xn ] is sufficiently long to satisfy the condition (2)
+in Lemma 2.18. By Lemma 2.18, we can find s ∈ [x0 , xn ], such that
+
+                           ⟨g1−1 s | g1 s⟩s ≤ 8δ and ⟨g2−1 s | g2 s⟩s ≤ 8δ.
+
+Since the action of G on S is parabolic, LS (G) = ∅. Therefore, by Lemma 2.16,
+
+                          dS (s, g1 s) ≤ 56δ and dS (s, g2 s) ≤ 56δ.
+
+Lemma 2.19. Suppose that a group G acts by isometries on a hyperbolic space S. Let
+g ∈ LS (G). Let Lg be the standard (2, δ)-quasi-geodesic axis of g. Let T be the translation
+distance of g along Lg . Then there exist D = D(δ) ∈ N and N ∈ N such that for every
+n ≥ N and for every s ∈ S, we have
+                                 n
+                2dS (s, Lg ) +     T − D ≤ dS (s, g n s) ≤ 2dS (s, Lg ) + 2nT + D.
+                                 2
+Proof. First, choose N ∈ N such that for any x ∈ Lg and n ≥ N the distance dS (x, g n x) ≥
+2M (δ) + 14δ, where M is a constant from Lemma 2.13, applied to Lg . Take any s ∈ S. Let
+s be any nearest point projection of s on Lg . Then g n s ∈ Lg and g n s is the nearest-point
+projection of g n s onto Lg .
+
+              dS (s, g n s) ≥ dS (s, s) + dS (s, g n s) + dS (g n s, g n s) − 24δ − 4M (δ)
+                                                                                             (4)
+               ≥ 2dS (s, Lg ) + dS (s, g n s) − 24δ − 4M (δ) − 2.
+Let γ be the segment of Lg from s to g n s. Since Lg is a (2, δ)-quasi-geodesic and T is the
+translation distance of g along Lg , we have
+
+                  n        1
+                    T − δ = l(γ) − δ ≤ dS (s, g n s) ≤ 2l(γ) + δ = 2nT + δ.                  (5)
+                  2        2
+Combining (4), (5), and the triangle inequality, we obtain
+                                 n
+                2dS (s, Lg ) +     T − D ≤ dS (s, g n s) ≤ 2dS (s, Lg ) + 2nT + D,
+                                 2
+where D = 25δ + 4M (δ) + 2.
+
+2.2   Minimal actions on trees
+
+We will use the facts established in this subsection to obtain the results about groups acting
+on simplicial trees from [BM] and [FMMS] as corollaries of Theorem B and Theorem I.
+
+
+
+                                                  15
+Proposition 2.20. [Bas, Proposition 7.5] Suppose that a group G acts on a simplicial
+tree T by isometries. If G contains a loxodromic element, then there is a unique minimal
+nonempty G-invariant subtree L ⊆ T , which is the union of the axes of all loxodromic
+elements.
+
+   The next lemma shows that if a group G, acting on a tree T , contains loxodromic
+elements, then the minimality of the action is almost equivalent to ΛT (G) = ∂T , in the
+sense that every nontrivial invariant subtree is “large”.
+Lemma 2.21. Suppose that the group G acts on a simplicial tree T by isometries, and
+LT (G) ̸= ∅. If the action of G on T is minimal, then ΛT (G) = ∂T . Moreover, without the
+minimality assumption, the following conditions are equivalent:
+
+  1. ΛT (G) = ∂T ;
+  2. For every G-invariant subtree S ⊆ T , we have ∂T = ∂S.
+
+Proof. By Proposition 2.20, the union of the axes of all loxodromic elements L ⊆ T is the
+unique nonempty G-invariant subtree. Since the action of G on T is minimal, L = T . By
+the construction of L, the set of fixed points of loxodromic elements of G is dense in ∂L.
+Therefore, ΛL (G) = ∂L = ∂T .
+    Now, assume that ΛT (G) = ∂T . Let S ⊆ T be a G-invariant subtree. Note that
+ΛT (G) ⊆ ∂S since ΛT (G) does not depend on a chosen point t ∈ T and we can choose
+t ∈ S. Then we have ∂T ⊆ ∂S, so ∂T = ∂S. Conversely, assume that for every G-invariant
+subtree S ⊆ T , we have ∂S = ∂T . Let L be the union of the axes of all loxodromic
+elements. By Proposition 2.20, L is a G-invariant subtree of T , and ΛL (G) = ∂L by the
+construction of L. Since the limit set does not depend on a chosen point t ∈ T , we have
+ΛT (G) = ΛL (G) = ∂L = ∂T .
+
+Lemma 2.22. Every elliptic subgroup of a group G acting on any tree T by isometries
+either fixes a vertex or a midpoint of an edge.
+
+Proof. By [HV, Chapter 3.b, Proposition 9], every elliptic subgroup of G fixes some point
+of T , and, by [Bas, Proposition 7.2], this point should be either a vertex or a midpoint of
+an edge.
+
+2.3   Elliptic radical
+
+Definition 2.23. [Osi17] Given an action of a group G by isometries on a hyperbolic space
+S, define the elliptic radical of G with respect to this action by
+                         ES (G) = {g ∈ G | gs = s ∀s ∈ ΛS (G)}.
+
+   Note that this definition makes sense for arbitrary actions on hyperbolic spaces. For
+general type actions, the following proposition provides an equivalent characterization.
+
+                                            16
+Proposition 2.24. [Osi17, Proposition 3.4] Suppose that a group G admits a general type
+action on a hyperbolic space S. Then ES (G) is the unique maximal elliptic normal subgroup
+of G.
+
+  Recall that the finite radical K(G) of an acylindrically hyperbolic group G is the unique
+maximal finite normal subgroup of G (see [DGO, Thm 6.14]).
+
+Lemma 2.25. [BH, Lemma 3.7] If the action of a group G on a hyperbolic space S is of
+general type and acylindrical, then ES (G) = K(G).
+
+    The next lemma shows that the property of being faithful weakly hyperbolic and the
+property of being lim-free pass to normal subgroups; thus, all the results in this work pass
+to normal subgroups.
+
+Lemma 2.26. Let H be a non-trivial normal subgroup of a faithful weakly hyperbolic group
+G. Then H is also a faithful weakly hyperbolic group. If G is lim-free, then H is also
+lim-free.
+
+Proof. Suppose that the action of G on a hyperbolic space S is of general type and the
+induced action of G on ΛS (G) is faithful. The subgroup H is normal in G, so by Lemma
+2.10, either the action of H on S is elliptic or it is of general type; in the latter case,
+ΛS (H) = ΛS (G). Assume that H is elliptic. Since H is normal, H ≤ ES (G) by the
+maximality of ES (G), and, thus, is trivial because the action of G on ΛS (G) is faithful,
+which is a contradiction. Therefore, the action of H on S is of general type, and the induced
+action of H on ΛS (H) = ΛS (G) is faithful. If the action of G on ΛS (G) is topologically
+free, so is the action of H on ΛS (H).
+
+    We finish this subsection by proving Proposition A, which allows us to apply the main
+results of this work to some quotients of weakly hyperbolic groups that are not faithful
+weakly hyperbolic.
+
+Proof of Proposition A. We need to show that there exists a hyperbolic space S ′ such that
+the action of G/ES (G) on S ′ is also of general type and the induced action on ΛS ′ (G/ES (G))
+is faithful.
+    We will use the following lemma. The proof appears in [BFGS], though the statement
+is different.
+Lemma 2.27. [BFGS, Lemma 4.10] Suppose that N is a normal subgroup of G, and G acts
+on a hyperbolic space S such that the action of N is elliptic. Then there is a G-invariant
+Y ⊂ S, a hyperbolic graph S ′ , a homomorphism G/N → Isom S ′ , and a quasi-isometry
+φ : Y → S ′ that is G-equivariant.
+
+   We apply Lemma 2.27 to ES (G). Since Y ⊂ S is G-invariant, it contains orbits ⟨g⟩y
+and ⟨f ⟩y of two elements f, g ∈ LS (G) with disjoint fixed points, for some y ∈ Y . Since
+
+
+                                              17
+φ : Y → S ′ is a quasi-isometry, the images of orbits φ(⟨g⟩y) and φ(⟨f ⟩y) bi-infinitely
+diverge. Thus, gES (G), f ES (G) ∈ LS ′ (G/ES (G)) with disjoint fixed points because φ is
+G-equivariant and orbits of ES (G) are bounded. Therefore, the action of G/ES (G) on S ′ is
+of general type. The preimage of ES ′ (G/ES (G)) under the homomorphism G → G/ES (G)
+is a normal subgroup of G and, since φ : Y → S ′ is a G-equivariant quasi-isometry, it is also
+elliptic. By the maximality of ES (G) (Proposition 2.24), the preimage of ES ′ (G/ES (G)) is
+contained in the kernel of the homomorphism. Thus, we have ES ′ (G/ES (G)) = 1 and the
+action of G/ES (G) on ΛS ′ (G/ES (G)) is faithful.
+
+2.4    Micro-supported actions
+
+Definition 2.28. Suppose that a group G acts on a set X. The support of an element
+g ∈ G is the set supp(g) = {x ∈ X | gx ̸= x}.
+Definition 2.29. Let G be a group that acts on a set X. Given a subset U ⊆ X, the rigid
+stabilizer of U is the subgroup
+
+                          RistG (U ) := {g ∈ G | gx = x      ∀x ∈ X \ U }.
+
+Definition 2.30. An action of a group G by homeomorphisms on a topological space X is
+called micro-supported if, for every nonempty open subset U ⊆ X, there is an element of G
+acting non-trivially on U and trivially on the complement X \ U . If the action of G on X is
+faithful, this is the same as having RistG (U ) ̸= 1 for every nonempty open subset U ⊆ X.
+
+   The following fact is standard and known to experts (for example, see the proof of
+[CRW, Proposition H]).
+Lemma 2.31. Let G be a subgroup of the homeomorphism group of a Hausdorff topolog-
+ical space X. If the G-action is micro-supported, then RistG (U ) is non-abelian for every
+nonempty open subset U ⊆ X.
+Lemma 2.32. Suppose that the action of a group G on a topological space X by homeo-
+morphisms is faithful and micro-supported. Then it is either topologically k-transitive for
+all k ∈ N or G satisfies a non-trivial mixed identity.
+
+Proof. Suppose that the action of G on X is not topologically k-transitive for some k ∈ N.
+Then there exist nonempty open subsets A1 , . . . , Ak and B1 , . . . , Bk of X such that for every
+g ∈ G there exists i ∈ {1, . . . , k} with Ai ∩ gBi = ∅. Let us fix an arbitrary gb ∈ G and,
+without loss of generality, assume that A1 ∩ gbB1 = ∅.
+    Since the action of G on X is micro-supported, we can find non-trivial elements a1 , . . . , ak
+and b1 , . . . , bk ∈ G, such that supp(ai ) ⊆ Ai and supp(bi ) ⊆ Bi for each i ∈ {1, . . . , k}. Then
+for any point x ∈     / gb−1 A1 we have gb−1 a1 gbx = gb−1 gbx = x. Therefore, supp(a1gb) ⊆ gb−1 A1 and
+we obtain supp(a1gb) ∩ supp(b1 ) = ∅. We conclude that a1gb and b1 commute, since they have
+disjoint support.
+
+                                                  18
+    This argument shows that for an arbitrary g ∈ G we have
+                            [ag1 , b1 ] = 1 ∨ [ag2 , b2 ] = 1 ∨ . . . ∨ [agk , bk ] = 1.                (6)
+Denote by ci := [ati , bi ] ∈ G ∗ ⟨t⟩. Since a1 , . . . , ak and b1 , . . . , bk are non-trivial, the Normal
+Form Theorem (see, for example, [LS, Theorem 1.2, Chapter 4]) implies that each ci is a
+non-trivial element of G ∗ ⟨t⟩. Let x1 , . . . , xk−1 be elements of a free group F (x1 , . . . , xk−1 ),
+                                                                                    x
+and let wk be the iterated commutator of the elements c1 , cx2 1 . . . , ck k−1 :
+                                             x         x
+                                                    k−2
+                                  wk = [ck k−1 , [ck−2  , [. . . [c1 , cx2 1 ] . . .].
+Clearly, wk is a non-trivial element of G ∗ F (t, x1 , x2 , . . . , xk−1 ). By (6), G satisfies the
+mixed identity wk = 1.
+
+Definition 2.33. Suppose that a group G acts on a topological space X by homeomor-
+phisms. Let H ≤ G. A subset V of X is called H-compressible if it is nonempty and if for
+any nonempty open subset U , there exists h ∈ H such that hV ⊆ U . We say that the action
+of G is compressible if a nonempty G-compressible open subset exists and fully compressible
+if every non-dense open set is G-compressible.
+Lemma 2.34. Suppose that the action of a group G on a hyperbolic space S is quasi-
+parabolic, and let Fix∂S (G) = {q}. Then every nonempty open subset V ⊂ ΛS (G) with
+q∈/ V is G-compressible. More precisely, given any nonempty open subset V ⊂ ΛS (G) with
+q∈/ V and any nonempty open U ⊆ ΛS (G), there exists l ∈ LS (G) such that lV ⊂ U . If the
+action of G on S is of general type, then the action of G on ΛS (G) is fully compressible.
+More precisely, given any nonempty non-dense open subset V ⊂ ΛS (G) and any nonempty
+open U ⊆ ΛS (G), there exists l ∈ LS (G) such that lV ⊂ U .
+
+Proof. Let V ⊂ ΛS (G) be a nonempty open subset with q ∈     / V . Take any nonempty open
+subset U ⊆ ΛS (G). Since q ∈  / V , there exist two disjoint open subsets F + ⊂ U and
+F − ⊂ ΛS (G) \ V such that q ∈ F − . By Lemma 2.9, there exists f ∈ LS (G) with f + ∈ F +
+and f − = q. By Lemma 2.6 there exists k ∈ N such that f k (ΛS (G) \ F − ) ⊆ F + . Taking
+l = f k , we obtain
+                        lV = f k V ⊂ f k (ΛS (G) \ F − ) ⊂ F + ⊂ U.
+The proof of the general type case is similar.
+
+Lemma 2.35. Suppose that the action of a group G on a hyperbolic space S is of general
+type. If the induced action on ΛS (G) is faithful and not topologically free, it is micro-
+supported.
+
+Proof. Let U be an arbitrary nonempty open subset of ΛS (G). Since the action of G on
+ΛS (G) is not topologically free, there exists a ∈ G \ {1} such that Int(FixΛS (G) (⟨a⟩)) ̸= ∅.
+Therefore, V = ΛS (G)\FixΛS (G) (⟨a⟩) is a non-dense open subset of ΛS (G). Since the action
+of G on ΛS (G) is faithful, V is nonempty and a ∈ RistG (V ) acts nontrivially on V . Then,
+by Lemma 2.34, there exists l ∈ LS (G) such that lV ⊂ U . Therefore, l RistG (V )l−1 ≤
+RistG (U ).
+
+                                                           19
+Corollary 2.36. Let G be a faithful weakly hyperbolic group that is not lim-free. Then G
+contains infinite direct sums of infinite non-abelian subgroups.
+
+Proof. Let S be a hyperbolic space such that the action of G on S is of general type,
+and the induced action on ΛS (G) is faithful and not topologically free. Take an infinite
+set of pairwise disjoint non-empty open subsets V1 , . . . , Vn , · · · ⊂ ΛS (G). By Lemma 2.35,
+rigid stabilizers RistG (Vi ) are nonempty, and, by Lemma 2.31, they are non-abelian for
+all i ∈ N. Elements in RistG (Vi ) and RistG (Vj ) have disjoint support for i ̸= j, therefore
+they commute. Thus, RistG (Vi ), i ∈ N, form a direct sum. Every nonempty open subset of
+ΛS (G) contains infinitely many disjoint nonempty open subsets. Therefore, rigid stabilizers
+RistG (Vi ) are infinite.
+
+    We already know that if the G-action on a Hausdorff topological space X is micro-
+supported, then the rigid stabilizer of a nonempty open subset U ⊂ X is non-abelian. If,
+in addition, U is G-compressible, we can say more.
+
+Lemma 2.37. Let G be a subgroup of the homeomorphism group of a Hausdorff topological
+space X, and U ⊂ X be a nonempty open G-compressible subset. Either RistG (U ) is
+torsion-free, or there exists a finite k ≥ 2 such that RistG (U ) ≀ Zk < RistG (U ).
+
+Proof. Suppose that a non-identity element g ∈ RistG (U ) has finite order. Take x ∈ U such
+that the orbit of x under the action of ⟨g⟩ has the maximum size k. Since the action of G on
+X is faithful, k ≥ 2 and divides the order of g. Consider the distinct points gx, . . . , g k−1 x.
+Since X is Hausdorff, there exist disjoint open subsets V0 , . . . , Vk−1 , such that g i x ∈ Vi for
+i ∈ {0, . . . , k − 1}. Consider the subset
+                                                    k−1
+                                                    \
+                                              V =          g −i Vi .
+                                                    i=0
+
+It is open and nonempty since x ∈ V . By the maximality of the orbit size, a quotient of ⟨g⟩
+isomorphic to Zk acts on V by permutations, and V, gV, . . . , g k−1 V are pairwise disjoint.
+   Since U is G-compressible, there exists f ∈ G such that f U ⊂ V . Therefore,
+
+             g i f RistG (U )(g i f )−1 ≤ RistG (g i V ) ≤ RistG (U ), i ∈ {0, . . . , k − 1}.
+
+   The subgroups g i f RistG (U )(g i f )−1 commute, since their elements have disjoint support,
+and the subgroup ⟨g⟩ < RistG (U ) acts on the direct product
+                                       k−1
+                                       Y
+                                             g i f RistG (U )(g i f )−1
+                                       i=0
+
+permuting the terms. Thus, RistG (U ) ≀ Zk < RistG (U ).
+
+
+                                                      20
+3     Boundary dynamics and algebraic properties
+3.1    The cross-ratio and topological transitivity of actions on the limit set
+
+In this subsection, we develop a technical tool that is later used in the proof of Proposition
+3.16. We also use it to prove that the boundary action arising from a general-type action is
+never topologically 4-transitive (see Proposition 3.7). A similar notion in the case of proper
+hyperbolic spaces was considered in [Pau96].
+Definition 3.1. Let a, b, c, d be four distinct points of ∂S and let o ∈ S. Then the cross-
+ratio [a, b, c, d]o is the real number defined by
+                            [a, b, c, d]o = ⟨a|b⟩o + ⟨c|d⟩o − ⟨a|d⟩o − ⟨b|c⟩o .                               (7)
+
+    Since the Gromov product of distinct points of the boundary is finite and is preserved
+by isometries of S, we can see that the cross-ratio of distinct points of ∂S is also finite, and
+is also preserved by isometries of S, i.e., if g is an isometry of S, then
+                                       [ga, gb, gc, gd]go = [a, b, c, d]o .
+For x, y ∈ R, ε ≥ 0, we say that x ≈ε y if |x − y| ≤ ε.
+Remark 3.2. Note that for arbitrary bounded sequences (pi ), (qi ) ∈ R, if
+                     lim inf pi ≈ε lim sup pi and lim inf qi ≈ε lim sup qi , then
+                      i→∞              i→∞                i→∞                 i→∞
+
+                               lim inf pi + lim inf qi ≈2ε lim inf (pi + qi ) .
+                                i→∞            i→∞               i→∞
+
+   The next lemma shows that the cross-ratio does not depend much on the choice of the
+base point o ∈ S.
+Lemma 3.3. Let a, b, c, d be distinct points of ∂S and let o, o′ ∈ S. Then
+                                        [a, b, c, d]o ≈48δ [a, b, c, d]o′ .
+
+Proof. Let (xi ), (yi ), (zi ), and (ti ) be arbitrary sequences converging to a, b, c, and d, respec-
+tively. Applying Lemma 2.5(1), we get
+      [a, b, c, d]o ≈8δ lim inf ⟨xi |yi ⟩o + lim inf ⟨zi |ti ⟩o − lim inf ⟨xi |ti ⟩o − lim inf ⟨yi |zi ⟩o .   (8)
+                          i→∞                   i→∞                 i→∞                   i→∞
+
+Also, since points a, b, c, d are distinct, ⟨a|b⟩o , ⟨c|d⟩o , ⟨a|d⟩o , and ⟨b|c⟩o are finite; therefore,
+sequences (⟨xi |yi ⟩o ), (⟨zi |ti ⟩o ), (⟨xi |ti ⟩o ) and (⟨yi |zi ⟩o ) are bounded. Thus, by (8), Lemma
+2.5, Remark 3.2, and the definition of the Gromov product, we obtain
+                [a, b, c, d]o ≈24δ lim inf (⟨xi |yi ⟩o + ⟨zi |ti ⟩o − ⟨xi |ti ⟩o − ⟨yi |zi ⟩o ) =
+                                      i→∞
+                 = 1/2 lim inf (dS (xi , ti ) + dS (yi , zi ) − dS (xi , yi ) − dS (zi , ti )).
+                           i→∞
+
+Therefore, the cross-ratio [a, b, c, d]o is independent of the choice of o ∈ S up to 48δ.
+
+                                                        21
+    The next lemma is technical and will be used mainly in the proof of stability of the
+cross-ratio.
+
+Lemma 3.4. Let o ∈ S, a, b ∈ ∂S and ⟨a|b⟩o = R < ∞. Then for arbitrary a′ ∈ Uo (a, R +
+2δ) and b′ ∈ Uo (b, R + 2δ), we have
+
+                      max{⟨a′ |b⟩o , ⟨a|b′ ⟩o , ⟨a′ |b′ ⟩o } ≤ min{⟨a′ |a⟩o , ⟨b′ |b⟩o }         (9)
+
+Proof. Assume that ⟨a′ |b⟩o > ⟨a′ |a⟩o . Then by Lemma 2.5(2), we have
+
+             R = ⟨a|b⟩o ≥ min ⟨a|a′ ⟩o , ⟨a′ |b⟩o − δ = ⟨a|a′ ⟩o − δ > R + δ,
+                                  
+
+
+which gives a contradiction. The inequality ⟨a′ |b⟩o ≤ ⟨b′ |b⟩o and inequalities for ⟨a|b′ ⟩o
+follow by the same reasoning.
+   Now assume that ⟨a′ |b′ ⟩o > ⟨b′ |b⟩o . Then by Lemma 2.5(2), we have
+
+  R = ⟨a|b⟩o ≥ min ⟨a|a′ ⟩o , ⟨a′ |b⟩o − δ ≥ min ⟨a|a′ ⟩o , min ⟨a′ |b′ ⟩o , ⟨b′ |b⟩o − δ − δ =
+                                                             
+
+  = min ⟨a|a′ ⟩o , ⟨b′ |b⟩o − δ − δ > R,
+         
+
+
+which gives a contradiction. Similarly, ⟨a′ |b′ ⟩o ≤ ⟨a′ |a⟩o .
+
+Lemma 3.5. Let o ∈ S and |ΛS (G)| = ∞. If O is a dense subset of ΛS (G), then there
+exist distinct a, b, c, d ∈ O such that [a, b, c, d]o is arbitrarily large.
+
+Proof. Let M > 0, o ∈ S, and a, c ∈ O be given. Let ⟨a|c⟩o = K < ∞. Take N =
+M/2 + 2(K + δ). If |ΛS (G)| = ∞, then, by Lemma 2.9, HS (G) is dense in ΛS (G); in
+particular, ΛS (G) is Hausdorff and perfect. Since O is dense in ΛS (G), it is not discrete and
+has no isolated points. Thus, there exist b ∈ (Uo (a, N )∩O)\{a} and d ∈ (Uo (c, N )∩O)\{c}.
+Then, by Lemma 3.4 and Lemma 2.5(2), we have
+
+                       K = ⟨a|c⟩o ≥ min {⟨a|b⟩o , ⟨b|c⟩o } − δ = ⟨b|c⟩o − δ.
+
+Therefore, ⟨b|c⟩o ≤ K + δ. Similarly, ⟨a|d⟩o ≤ K + δ. Thus, we obtain
+
+                 ⟨a|b⟩o + ⟨c|d⟩o − ⟨a|d⟩o − ⟨b|c⟩o > 2N − 2(K + δ) = M.
+
+    The next lemma shows that the cross-ratio is stable, i.e., it does not change much if we
+slightly move the points of the boundary.
+
+Lemma 3.6. Let a, b, c, and d be distinct points of ∂S, and let o ∈ S. Define R =
+max {⟨a|b⟩o , ⟨c|d⟩o , ⟨a|d⟩o , ⟨b|c⟩o } + 2δ. If a′ ∈ Uo (a, R), b′ ∈ Uo (b, R), c′ ∈ Uo (c, R), and
+d′ ∈ Uo (d, R), then
+                                        [a, b, c, d]o ≈8δ [a′ , b′ , c′ , d′ ]o .
+
+
+
+
+                                                     22
+Proof. By Lemma 2.5(2), we have
+           ⟨a′ |b′ ⟩o ≥ min ⟨a′ |a⟩o , min ⟨a|b⟩o , ⟨b|b′ ⟩o − δ − δ = ⟨a|b⟩o − 2δ.
+                                         
+
+Similarly, by Lemma 2.5(2) and Lemma 3.4, we obtain ⟨a|b⟩o ≥ ⟨a′ |b′ ⟩o − 2δ, and thus,
+⟨a|b⟩o ≈2δ ⟨a′ |b′ ⟩o . Using the same argument, we get
+                   ⟨c|d⟩o ≈2δ ⟨c′ |d′ ⟩o , ⟨a|d⟩o ≈2δ ⟨a′ |d′ ⟩o , and ⟨b|c⟩o ≈2δ ⟨b′ |c′ ⟩o .
+This gives us the desired inequality |[a, b, c, d]o − [a′ , b′ , c′ , d′ ]o | ≤ 8δ.
+
+Proposition 3.7. Let G be a group admitting a non-elementary action on a hyperbolic
+space S, and let O be a G-invariant subset of ΛS (G).
+
+ (a) If the action of G on S is of general type, then the induced action of G on O is not
+     topologically 4-transitive.
+  (b) If the action of G on S is quasi-parabolic, then the induced action of G on O is not
+      topologically 3-transitive.
+
+Proof. By Lemma 2.9, the set of fixed points of elements of LS (G) is dense in ΛS (G). Thus,
+since O is G-invariant, by Lemma 2.6, it is also dense in ΛS (G).
+
+  (a) Let o ∈ S. By Lemma 3.5, the cross-ratio of distinct points of O can be arbitrarily
+      large. Therefore, there exist eight distinct points a, b, c, d, a′ , b′ , c′ , d′ ∈ O such that
+                                          [a, b, c, d]o − [a′ , b′ , c′ , d′ ]o ≥ 65δ.
+       Define
+                              R1 = max {⟨a|b⟩o , ⟨c|d⟩o , ⟨a|d⟩o , ⟨b|c⟩o } + 2δ and
+                              R2 = max ⟨a′ |b′ ⟩o , ⟨c′ |d′ ⟩o , ⟨a′ |d′ ⟩o , ⟨b′ |c′ ⟩o + 2δ.
+                                       
+
+       By way of contradiction, assume that the action of G on O is topologically 4-transitive.
+       Then there exists g ∈ G and points
+            a ∈ Uo (a′ , R2 ) ∩ O, bb ∈ Uo (b′ , R2 ) ∩ O, b
+            b                                              c ∈ Uo (c′ , R2 ) ∩ O, db ∈ Uo (d′ , R2 ) ∩ O
+       such that
+        a ∈ Uo (a, R1 ) ∩ O, gbb ∈ Uo (b, R1 ) ∩ O, gb
+       gb                                            c ∈ Uo (c, R1 ) ∩ O, and g db ∈ Uo (d, R1 ) ∩ O.
+       Using Lemma 3.6 and Lemma 3.3, we obtain
+
+       65δ ≤ [a, b, c, d]o − [a′ , b′ , c′ , d′ ]o ≤ [a, b, c, d]o − [b
+                                                                      a, bb, b
+                                                                             c, d]
+                                                                                b o + [b
+                                                                                       a, bb, b  b o − [a′ , b′ , c′ , d′ ]o ≤
+                                                                                              c, d]
+
+       ≤ [a, b, c, d]o − [gb
+                           a, gbb, gb
+                                    c, g d]
+                                         b o + [gb
+                                                 a, gbb, gb    b o − [gb
+                                                          c, g d]      a, gbb, gb
+                                                                                c, g d]
+                                                                                     b go +
+
+       + [b
+          a, bb, b  b o − [a′ , b′ , c′ , d′ ]o ≤ 64δ,
+                 c, d]
+
+       which is a contradiction.
+
+                                                          23
+ (b) Let q be a global fixed point in ΛS (G). Let o ∈ S. Again, using Lemma 3.5, we find
+     distinct points a, b, c, a′ , b′ , c′ ∈ O such that
+
+                                   [a, b, c, q]o − [a′ , b′ , c′ , q]o ≥ 65δ.
+
+      The rest of the proof is similar to part (a), except that we use a fixed point q instead
+      of d and d′ .
+
+
+
+Remark 3.8. M. Gromov [Gro87, 8.2.H] observed that if a group G admits a non-elementary
+action on a hyperbolic space S, then the induced action of G on ΛS (G) is always topologically
+transitive. If, in addition, the action of G on S is of general type, then the induced action
+on ΛS (G) is always topologically 2-transitive.
+   We will later use the following easy observation.
+Lemma 3.9. If an action of a group G on a dense subset O of a Hausdorff topological
+space X without isolated points is k-transitive, then it is topologically k-transitive.
+
+Proof. Let U1 , . . . , Uk and V1 , . . . , Vk be nonempty open subsets of O. Being a dense sub-
+set of a Hausdorff topological space without isolated points, O is itself Hausdorff without
+isolated points. Therefore, we can find pairwise distinct x1 , . . . , xk and pairwise distinct
+y1 , . . . , yk such that xi ∈ Ui and yi ∈ Vi for every i = 1, . . . , k. Since the action of G on
+O is k-transitive, there exists g ∈ G such that gyi = xi for all i = 1, . . . , k; in particular,
+gVi ∩ Ui ̸= ∅ for every i = 1, . . . , k.
+
+3.2    Boundary dynamics and mixed identities
+
+Theorem 3.10. Suppose that an action of a group G on a hyperbolic space S is of general
+type and the induced action on ΛS (G) is faithful. Then the following are equivalent:
+
+ (1) G is MIF.
+
+ (2) The induced action of G on ΛS (G) is topologically free.
+
+Proof. (1) ⇒ (2). By contrapositive, suppose that the action of G on ΛS (G) is not topo-
+logically free. Then by Lemma 2.35, it is micro-supported. The action of G on ΛS (G) is
+not topologically 4-transitive by Proposition 3.7. Therefore, by Lemma 2.32, G satisfies a
+nontrivial mixed identity.
+    (2) ⇒ (1). Assume that the action of G on ΛS (G) is topologically free. Since the action
+of G on S is of general type, G contains a free subgroup and does not satisfy any nontrivial
+identity. By [HO16, Rem. 5.1], G satisfies some non-trivial mixed identity w ∈ G ∗ Fn if
+and only if it satisfies a non-trivial mixed identity w′ ∈ G ∗ ⟨t⟩. Thus, it is sufficient to prove
+that G does not satisfy any mixed identity w ∈ (G ∗ ⟨t⟩) \ ⟨t⟩.
+
+                                                  24
+                                                   a2 s
+                                                                        a3 s
+
+                           a1 s
+                                                    V2          V3
+                                        V1                                     Λ(G)
+
+
+                       f+ F+           U      V0
+                         s  F−                                 Vn
+                             f−
+
+                                                                     an s
+
+                                      Figure 5: For Theorem 3.10
+
+
+     Take any reduced nonempty word w ∈ (G ∗ ⟨t⟩) \ ⟨t⟩. Up to conjugation w =
+tn1 a1 tn2 a2 . . . am−1 tnm am , where ai ∈ G \ {1}, ni ∈ Z \ {0}, i ∈ {1, . . . , m}.
+    Since G acts on ΛS (G) by homeomorphisms, and the action is topologically free, the
+sets FixΛS (G) (⟨ai ⟩) are closed in ΛS (G) and Int(FixΛS (G) (⟨ai ⟩)) = ∅ for every i ∈ {1, . . . , m}.
+Let                                     \
+                                M=           ΛS (G) \ FixΛS (G) (⟨ai ⟩).
+                                       i∈{1...m}
+
+The set M is a finite intersection of open dense sets, so it is open and dense; in particular,
+it is nonempty, and there exists s ∈ ΛS (G) such that ai s ̸= s for every i ∈ {1, . . . , m}.
+      Since ΛS (G) is Hausdorff, there exist open subsets V0 and V1 , . . . , Vm of ΛS (G) such
+that s ∈ V0 , ai s ∈ Vi and V0 ∩ Vi = ∅ for every i ∈ {1, . . . , m}. Take U = V0 ∩ a−11 (V1 ) ∩
+. . . ∩ a−1
+         m  (V m ) to ensure that U ∩ ai (U ) = ∅ for all i ∈ {1, . . . , m}.
+   The action of G on S is of general type and U \ {s} is open; therefore, by Lemma 2.9,
+there exists f ∈ LS (G) such that {f + , f − } ⊂ U \ {s}. Let F + and F − be two disjoint open
+subsets of U \ {s} such that f + ∈ F + and f − ∈ F − . By Lemma 2.6 there exists n ∈ N such
+that
+                    f n (ΛS (G) \ F − ) ⊆ F + and f −n (ΛS (G) \ F + ) ⊆ F − .
+Take g = f n . We have
+
+  w(g)s = g n1 a1 . . . am−1 g nm am s ∈ g n1 a1 . . . am−1 g nm am (U ) ⊂ g n1 a1 . . . am−1 g nm (∂S\U ) ⊂
+     ⊂ g n1 a1 . . . am−1 (F + ∪ F − ) ⊂ g n1 a1 g n2 a2 . . . am−1 (U ) ⊂ . . . ⊂ g n1 a1 (U ) ⊂ F + ∪ F − .
+
+Since s ̸∈ F + ∪ F − , we obtain that w(g)s ̸= s; in particular, w(g) ̸= 1 in G.
+
+Proof of Theorem B. Condition (b) obviously implies (a). The equivalence of conditions
+(a) and (c) is the statement of Theorem 3.10. Being MIF is a purely algebraic property of
+a group. So, by Theorem 3.10, if G is MIF, then any general type action on any hyperbolic
+
+                                                          25
+space S should induce a topologically free action on ΛS (G) whenever the action on ΛS (G)
+is faithful. By the definition of an elliptic radical, the induced action of G on ΛS (G) is
+faithful if and only if ES (G) is trivial. Therefore, (c) implies (b).
+
+Proof of Corollary C. Let H be a proper normal subgroup of G. Then, by Lemma 2.26, H
+is itself lim-free, and ΛS (H) = ΛS (G). Suppose that H is algebraic. Then there exists a
+finite collection of mixed identities {w1 (t), . . . , wn (t)} in G∗⟨t⟩ such that for any h ∈ H there
+exists i ∈ {1, . . . , n} such that wi (h) = 1 in G. Up to conjugation each wi (t) is either simply
+tm for some m ∈ N or of the form wi (t) = tn1 a1 tn2 a2 . . . am−1 tnm am , where aj ∈ G \ {1},
+nj ∈ Z\{0}, j ∈ {1, . . . , m}. Let {a1 , . . . ak } be the finite collection of all coefficients from G
+appearing in the mixed identities {w1 (t), . . . , wn (t)}. Repeating the argument of Theorem
+3.10, we can find s ∈ ΛS (H), such that ai s ̸= s for every i ∈ {1, . . . , k}, and h ∈ LS (H)
+such that wi (h)s ̸= s simultaneously for all wi (t) containing nontrivial coefficients from G.
+Note that hm ̸= 1 in G for every m ∈ N, since h is loxodromic. In particular, wi (h) ̸= 1 for
+all i = 1, . . . , n in G, which contradicts that H is algebraic.
+
+    Now, we show that faithful weakly hyperbolic groups that are not lim-free also have an
+interesting algebraic property.
+
+Proof of Proposition D. Let S be a hyperbolic space such that the action of G on S is
+of general type, and the induced action of G on ΛS (G) is faithful and not topologically
+free. Let C be the collection of all nonempty non-dense open subsets of ΛS (G). Let H =
+⟨RistG (Y ) | Y ∈ C⟩. By Lemma 2.35, the action of G on ΛS (G) is micro-supported; in
+particular, H is a nontrivial normal subgroup of G. Since the action of G on ΛS (G) is
+faithful, H acts on ΛS (G) nontrivially. Therefore, by Lemma 2.10, the action of H on S is
+also of general type and ΛS (H) = ΛS (G). Thus, by Lemma 2.34, the action of H on ΛS (G)
+is fully compressible. In particular, C satisfies the conditions of [GR, Corollary 1.7], and
+Mon(G) = [H, H] is non-abelian and simple. Assume Mon(G) is finite. Then Mon(G) is a
+normal elliptic subgroup of G, and, by Proposition 2.24, Mon(G) ≤ ES (G). In particular,
+ES (G) ̸= 1, which contradicts that the action of G on ΛS (G) is faithful.
+
+   Proposition D does not apply to any acylindrically hyperbolic group. In fact, every
+acylindrically hyperbolic group has a trivial monolith.
+
+Proposition 3.11. Let G be an acylindrically hyperbolic group. Then Mon(G) = 1.
+
+Proof. By [DGO, Thm 2.24 (c)], there exists a hyperbolically embedded subgroup H ≤ G
+such that H ∼ = Z × K(G), where K(G) is the unique maximal finite normal subgroup of
+G. Let g be any nontrivial element of G. Then, by [DGO, Thm 7.19], for the finite subset
+Z = {g, 1} there exists a finite subset F ⊆ H \ {1} such that for every normal subgroup N
+of H, satisfying N ∩ F = ∅, the natural epimorphism ε : G → G is injective on Z, where
+
+                                          G = G/ ⟨⟨N ⟩⟩G .
+
+
+                                                  26
+Since F is finite and H ∼= Z × K(G), a nontrivial normal subgroup N with the property
+N ∩ F = ∅ always exists. Thus, G is a proper quotient, in which the image of g is nontrivial;
+therefore, the kernel of the natural homomorphism avoids g. Since g was an arbitrary
+nontrivial element of G, Mon(G) = 1.
+
+   This allows us to obtain the result of D. Osin and M. Hull [HO16, Cor. 5.10] indepen-
+dently, as a corollary of Proposition 3.11, Theorem B, and Proposition D.
+Corollary 3.12. If the action of a group G on a hyperbolic space S is of general type and
+acylindrical, then the following conditions are equivalent
+
+  1. The finite radical K(G) is trivial.
+
+  2. The action of G on ΛS (G) is faithful.
+
+  3. The action of G on ΛS (G) is topologically free.
+
+  4. G is MIF.
+
+Proof. The equivalence of (1) and (2) follows from K(G) = ES (G), by Lemma 2.25. To
+obtain (2) =⇒ (3), note that by Proposition 3.11, Mon(G) = 1, and by Proposition D, G is
+lim-free. (3) ⇐⇒ (4) is Theorem B, and (4) ⇒ (1) is obvious.
+
+   Proposition D also gives us another large class of lim-free weakly hyperbolic groups.
+
+Proof of Corollary E. If a faithful weakly hyperbolic residually finite group G is not lim-
+free, then, by Proposition D, Mon(G) is infinite and simple. This contradicts the fact that
+every subgroup of a residually finite group is residually finite. By a well-known result of
+Malcev [Mal], every finitely generated linear group is residually finite. Thus, every finitely
+generated faithful weakly hyperbolic linear group is lim-free. By Theorem B, every faithful
+weakly hyperbolic residually finite group is MIF.
+
+   In the special case of subgroups of PSL2 (C), we do not need finite generation.
+
+Proof of Corollary F. Let H3 = {z + tj : z ∈ C, t > 0} be the upper half-space model of
+hyperbolic three-space.
+                                                             
+                              a b                                 
+                PSL2 (C) =           a, b, c, d ∈ C, ad − bc = 1    {±I} .
+                              c d
+
+Every subgroup H of PSL2 (C) acts on H3 by Möbius transformations:
+                           
+                       a b        az + b
+               g(z) =         z=         , z ∈ C,
+                        c d       cz + d
+                                             
+                                          −d                a
+               g(∞) = ∞ if c = 0 and g          = ∞, g(∞) = if c ̸= 0.
+                                           c                c
+
+                                              27
+    See [Bea, Chapter 4] for more details. The boundary of H3 is Cb = C ∪ {∞}. Analyzing
+solutions of the equation cz 2 + (d − a)z − b = 0, where z ∈ ΛH3 (H), we obtain that an
+element of H has more than two fixed points in ΛH3 (H) if and only if c = b = 0 and d = a,
+which happens only when it is trivial. Thus, the action of H on ΛH3 (H) is topologically
+free. Therefore, by Theorem B, if the action of H on H3 is of general type, then H is MIF.
+   Assume that the action of H on H3 is not of general type. Then either H fixes a point
+on ∂H3 or the action of H is elliptic or lineal, exchanging the two points in the limit set.
+    If the action of H is elliptic, then H fixes a point in H3 [Bea, Thm 4.3.7]. Therefore,
+H is conjugate to a subgroup of SO(3). Every proper closed (in the Euclidean topology)
+subgroup of SO(3) is virtually abelian. Therefore, if H is not virtually solvable, then H
+is dense in SO(3). Therefore, H is Zariski dense, and, by the result of Tomanov [Tom], is
+MIF.
+    If the action of H is lineal, exchanging the two points in the limit set, then H contains
+a subgroup N of index 2, fixing these points in ∂H3 .
+    Now let us consider the case in which H fixes a point in ∂H3 . Since the action of PSL2 (C)
+                 b we can always find an element g ∈ PSL2 (C) such that H ′ = g −1 Hg fixes
+is transitive on C,
+∞. Then H ′ consists of the upper-triangular matrices
+                                                           
+                                   a b
+                                          a, b, d ∈ C, ad = 1
+                                   0 d
+
+and is solvable. Therefore, H is also solvable.
+
+Remark 3.13. Unfortunately, Corollary E does not generalize to arbitrary finitely generated
+weakly hyperbolic linear groups; the faithfulness condition is essential here. Neither does
+Corollary F generalize to subgroups of projective linear groups of higher dimension. For
+example, F2 × Z ≤ SL3 (R) is not virtually solvable, but also is not MIF.
+    The next corollary shows that results about mixed identities from [FMMS] can be ob-
+tained as a special case of Theorem 3.10.
+
+Corollary 3.14. [FMMS, Theorem B] Let T be a simplicial tree. Suppose that the action
+of G on T is faithful, minimal, and of general type. Then the following are equivalent:
+
+  1. G is MIF;
+
+  2. The action of G on ∂T is topologically free.
+
+Proof. To obtain the statement as a corollary of Theorem 3.10 we need to show that if the
+action of G on T is faithful, minimal, and of general type, then the induced action on ΛT (G)
+is also faithful. By Lemma 2.21 ΛT (G) = ∂T . By taking the barycentric subdivision, we
+can assume that the action of G on T is without inversions. Therefore, by Lemma 2.22,
+ET (G) fixes a vertex t ∈ T . Since ET (G) is normal in G, it fixes every vertex of the orbit Gt.
+Thus, it stabilizes a minimal invariant subtree TGt containing this orbit. Since the action
+
+                                               28
+of G on T is minimal, TGt = T , and, since the action of G on T is faithful, ET (G) = 1.
+Therefore, the induced action of G on ∂T is also faithful.
+
+    We finish this section by proving Corollary G, connecting our research to reduced C ∗ -
+algebras. This follows immediately from the following theorem, which is the combination
+of Proposition 15 and Theorem 14 from [Oza].
+
+Theorem 3.15. Let G be a group. Assume that there is a continuous action of G on a
+Hausdorff topological space that is minimal, fully compressible, and topologically free. Then
+the reduced group C ∗ -algebra Cλ∗ (G) is selfless.
+
+Proof of Corollary G. Suppose a group G admits a general type action on a hyperbolic
+space S such that the induced action on ΛS (G) is topologically free. Then, by Lemma 2.34
+and Corollary 2.8, the action of G on ΛS (G) is fully compressible and minimal. Therefore,
+by Theorem 3.15, the reduced group C ∗ -algebra Cλ∗ (G) is selfless.
+
+3.3   Boundary dynamics and triple transitivity
+
+The goal of this subsection is to prove Theorem I. The proof strategy closely follows [BM],
+but the details are different. The key ingredient of the proof is the following proposition.
+
+Proposition 3.16. Suppose that the action of a group G on a hyperbolic space S is of
+general type. Let Ω be a set on which G acts faithfully and 2-transitively. Then for any
+ω ∈ Ω, the action of a subgroup Gω on S is non-elementary, and ΛS (Gω ) = ΛS (G).
+
+    We will need the following known and easily established fact (see, for example, [La, ex.
+47]). We provide the proof to make the paper self-contained.
+
+Lemma 3.17. If the action of a group G on a set Ω is 2-transitive, then for any ω ∈ Ω,
+there exists an element g ∈ G such that G admits a decomposition into double cosets G =
+Gω ⊔ Gω gGω .
+
+Proof. Fix ω ∈ Ω. Take any ω1 , ω2 ∈ Ω \ {ω}. Since the action of G on Ω is 2-transitive, the
+action of Gω is transitive on Ω \ {ω}. Therefore, there exists γ ∈ Gω such that γω1 = ω2 .
+Since G acts transitively on Ω, there exists g ∈
+                                               / Gω such that gω = ω1 . Hence, ω2 = γgω.
+Since ω2 was arbitrary, we obtain Ω \ {ω} = Gω gω. Thus, if f ∈ G \ Gω , then f ω = γ1 gω
+for some γ1 ∈ Gω . So, f = γ1 gγ2 for some γ2 ∈ Gω . Therefore, G = Gω ⊔ Gω gGω .
+
+Remark 3.18. Note that the subgroup Gω ≤ G in this case is maximal.
+
+Proof of Proposition 3.16. Fix an arbitrary ω ∈ Ω. The action of G on Ω is 2-transitive;
+thus, by Lemma 3.17, there exists g ∈ G such that G = Gω ⊔ Gω gGω . We argue by
+contradiction and assume that ΛS (Gω ) ̸= ΛS (G).
+
+
+
+                                             29
+   Case 1. Assume that ΛS (Gω ) = ∅, so the action of Gω on S is elliptic. Take any point
+s ∈ S. Let K = sup{dS (ts, s) | t ∈ Gω }, and M = dS (gs, s). Let f ∈ G be arbitrary. If
+f ∈ Gω , then dS (f s, s) ≤ K. If f ∈
+                                    / Gω , then, by Lemma 3.17, there exist γ1 , γ2 ∈ Gω , such
+that f = γ1 gγ2 . Thus, we have
+
+      dS (f s, s) = dS (γ1 gγ2 s, s) ≤ dS (gγ2 s, gs) + dS (gs, s) + dS (s, γ1−1 s) ≤ 2K + M.
+
+Therefore, G also acts on S with bounded orbits, which contradicts that the action of G on
+S is of general type.
+    Case 2. Assume that |ΛS (Gω )| = 1, so the action of Gω on S is parabolic. Let
+q(ω) = ΛS (Gω ). Take l ∈ LS (G) with sufficiently large asymptotic translation length τS (l)
+and fixed points {l+ , l− } disjoint from q(ω). Let Ll be the standard (2, δ)-quasi-geodesic
+axis of l, provided by Lemma 2.15. Let T be the translation distance of l along Ll . Let N
+be a constant from Lemma 2.19, and let m, n ≥ N be such that m ≫ 4n. Since Gω contains
+no loxodromic elements, by Lemma 3.17, lm and ln are in the same double coset of Gω , and
+there exist γ1 , γ2 ∈ Gω such that lm = γ1 ln γ2 .
+   By Proposition 2.17, there exists s ∈ S such that
+
+                              dS (s, γ1 s) ≤ 56δ and dS (s, γ2 s) ≤ 56δ.
+
+We obtain the following:
+
+               dS (lm s, s) = dS (γ1 ln γ2 s, s) ≤ dS (s, γ1 s) + dS (γ1 s, γ1 ln γ2 s) ≤
+                                                                                                      (10)
+                ≤ dS (s, γ1 s) + dS (s, ln s) + dS (ln s, ln γ2 s) ≤ dS (s, ln s) + 112δ.
+
+By Lemma 2.19, there exists D(δ) ∈ N such that
+                         m
+        2dS (s, Ll ) +     T − D ≤ dS (s, lm s) and dS (s, ln s) ≤ 2dS (s, Ll ) + 2nT + D.            (11)
+                         2
+Combining (10) and (11), we get
+
+                                     mT ≤ 4nT + 4(D + 56δ),
+
+which contradicts that m ≫ 4n and T > 0.
+   Case 3. Now, assume that |ΛS (Gω )| > 1.
+   For an element f ∈ G and a point o ∈ S, define
+
+          [ΛS (Gω ), f ΛS (Gω )]o := inf{[a, b, c, d]o | a, b ∈ ΛS (Gω ), c, d ∈ f ΛS (Gω )},
+
+if such points can be chosen pairwise distinct, so that [a, b, c, d]o is well-defined; and
+[ΛS (Gω ), f ΛS (Gω )]o := 0, otherwise.
+   Let f ∈ G be arbitrary. By Lemma 3.17, there exists γ1 , γ2 ∈ Gω such that f = γ1 gγ2 .
+Therefore,
+
+     [ΛS (Gω ), f ΛS (Gω )]o = [ΛS (Gω ), γ1 gγ2 ΛS (Gω )]o = [γ1−1 ΛS (Gω ), gγ2 ΛS (Gω )]γ −1 o .
+                                                                                                1
+
+
+
+                                                   30
+   Thus, since γ1 and γ2 preserve ΛS (Gω ) setwise, using Lemma 3.3, we obtain
+             |[ΛS (Gω ), f ΛS (Gω )]o − [ΛS (Gω ), gΛS (Gω )]o |
+              ≤ |[γ1−1 ΛS (Gω ), gγ2 ΛS (Gω )]o − [ΛS (Gω ), gΛS (Gω )]o | + 48δ ≤ 48δ.
+In particular, we have
+                            sup{[ΛS (Gω ), f ΛS (Gω )]o | f ∈ G} < ∞.                            (12)
+
+    The subset U = ΛS (G) \ ΛS (Gω ) is nonempty and open in ΛS (G). Therefore, by
+Lemma 2.9, there exists l ∈ LS (G) such that {l+ , l− } ⊂ U . There exists N ∈ N such that
+VN = Uo (l+ , N ) ∩ ΛS (G) = {x ∈ ΛS (G) | ⟨x|l+ ⟩o > N } ⊂ U . There exists M ≫ N such
+that VM = Uo (l+ , M ) ∩ ΛS (G) ⊂ VN ⊂ U . By Lemma 2.6 there exists m ∈ N such that
+lm ΛS (Gω ) ⊂ VM . Take f = lm . Then, using Lemma 2.5, for arbitrary c, d ∈ f ΛS (Gω ), we
+obtain
+                         ⟨c|d⟩o ≥ min{⟨c|l+ ⟩o , ⟨l+ |d⟩o } − δ ≥ M − δ.               (13)
+Also, for arbitrary a, b ∈ ΛS (Gω ), we have
+   N > ⟨a|l+ ⟩o ≥ min{⟨a|d⟩o , ⟨d|l+ ⟩o } − δ, and N > ⟨b|l+ ⟩o ≥ min{⟨b|c⟩o , ⟨c|l+ ⟩o } − δ.
+Note that min{⟨a|d⟩o , ⟨d|l+ ⟩o } = ⟨a|d⟩o , and min{⟨b|c⟩o , ⟨c|l+ ⟩o } = ⟨b|c⟩o since M ≫ N .
+Thus, we obtain
+                             ⟨a|d⟩o < N + δ and ⟨b|c⟩o < N + δ.                            (14)
+   Combining (13) and (14), we get [ΛS (Gω ), f ΛS (Gω )]o > M − 2N − 3δ, which contradicts
+(12), since M was arbitrarily large. Therefore, ΛS (Gω ) = ΛS (G). The action of Gω on S is
+non-elementary, since |ΛS (Gω )| = |ΛS (G)| = ∞.
+
+    From now on, we fix an action of a group G on a hyperbolic space S that is of general
+type, and the induced action on ΛS (G) is faithful and not topologically free. Actions of
+subgroups of G on S are induced by this action. We assume that G acts faithfully and
+3-transitively on a set Ω. Note that G is infinite, and thus Ω is also infinite, since the action
+of G on Ω is faithful.
+    We want to show that for any ω ∈ Ω, the action of Gω on S is quasi-parabolic. Note
+that by the transitivity of G on Ω, all subgroups Gω , ω ∈ Ω are conjugate, and thus their
+actions on S are of the same type. Proposition 3.16 shows that it is either quasi-parabolic
+or of general type. Arguing by contradiction, we assume that the action of Gω is of general
+type. The action of Gω on Ω \ {ω} is 2-transitive. Therefore, we can apply Proposition
+3.16 to point stabilizers of points of Ω \ {ω} in Gω to conclude that they also induce a
+non-elementary action on S. This gives us two possibilities to exclude: the action of such
+point stabilizers on S is of general type, or it is quasi-parabolic. The former possibility will
+be excluded in Proposition 3.19, the latter in Proposition 3.20.
+   Denote by Ω(2) the set of ordered pairs of elements of Ω minus the diagonal, i.e.,
+                                Ω(2) = Ω × Ω \ {(ω, ω) | ω ∈ Ω} .
+
+                                                 31
+Proposition 3.19. There does not exist a set Ω such that the action of G on Ω is faithful, 3-
+transitive, the action of Gω on S is of general type for every ω ∈ Ω, and for every ∆ ∈ Ω(2) ,
+the action of G∆ on S is also of general type.
+
+Proof. For the sake of contradiction, assume that the action of G∆ on S is of general type for
+some ∆ ∈ Ω(2) . Since the action of G on Ω(2) is transitive, all subgroups G∆ are conjugate.
+Therefore, it is sufficient to arrive at a contradiction for a specifically chosen ∆ ∈ Ω(2) . We
+will explain the choice of ∆ below.
+   By Proposition 3.7, the action of G on ΛS (G) is not topologically 4-transitive, therefore
+there exist nonempty open subsets V1 , V2 , V3 , V4 ⊂ ΛS (G) and W1 , W2 , W3 , W4 ⊂ ΛS (G)
+such that there does not exist any f ∈ G∆ such that
+                               Wi ∩ f (Vi ) ̸= ∅ for all i = 1, 2, 3, 4.
+Thus, setting Vj = Wj−4 for j = 5, 6, 7, 8, we obtain the list of nonempty open subsets
+V1 , . . . , V8 with the property that for every f ∈ G∆ there is a pair i, j ∈ {1, . . . , 8} such that
+                                            Vi ∩ f Vj = ∅.                                        (15)
+By taking smaller subsets if necessary, we can assume Vi to be pairwise disjoint and not
+dense in ΛS (G) for all i ∈ {1, . . . , 8}.
+    Since the action of G on ΛS (G) is faithful and not topologically free, by Lemma 2.35,
+the action of G on ΛS (G) is micro-supported. Therefore, there exists a nontrivial element
+g1 ∈ G such that supp(g1 ) ⊆ V1 . By Lemma 2.31, RistG (V1 ) cannot have all its elements
+of order two. Thus, we may assume that the order of g1 is greater than two, and, since the
+action of G on Ω is faithful, g1 has an orbit of size at least 3 in Ω. Let ω1 , ω2 , ω3 ∈ Ω be
+distinct points such that
+                                 ω2 = g1 ω1 , and ω3 = g1 ω2 .                            (16)
+Define ∆ = (ω1 , ω2 ).
+     Since the action of G∆ on S is of general type, by Lemma 2.34, we can find
+u2 , u3 , u4 , u5 , u6 , u7 , u8 ∈ G∆ such that gi = ui g1 u−1
+                                                            i  have supports in Vi , respectively,
+i = 2, . . . , 8.
+     Using (16), the fact that each ui stabilizes both ω1 and ω2 , and that [gi , gj ] = 1 for
+i, j ∈ {1, . . . , 8}, i ̸= j, since they have disjoint support, for all i = 2, . . . , 8 we obtain
+                         gi ω1 = ui g1 u−1
+                                        i ω1 = ui g1 ω1 = ui ω2 = ω2 , and
+                                                                                                  (17)
+                         gi ω2 = gi g1 ω1 = g1 gi ω1 = g1 ω2 = ω3 .
+
+    Take any f ∈ G∆ . By (15), elements gif and gj have disjoint support for at least one
+pair i, j ∈ {1, . . . , 8} and, thus, [gif , gj ] = 1. Using this, (17), and the fact that f fixes ω1
+and ω2 , we obtain
+                                gif ω1 = f −1 gi ω1 = f −1 ω2 = ω2 and
+                                                                                                 (18)
+                                gif ω2 = gif gj ω1 = gj gif ω1 = gj ω2 = ω3 .
+
+                                                  32
+Combining (18) and gif ω2 = f −1 gi ω2 = f −1 ω3 , we obtain f ω3 = ω3 , which contradicts the
+assumption that the action of G on Ω is 3-transitive.
+
+Proposition 3.20. There does not exist a set Ω such that the action of G on Ω is faithful, 3-
+transitive, the action of Gω on S is of general type for every ω ∈ Ω, and for every ∆ ∈ Ω(2) ,
+the action of G∆ on S is quasi-parabolic.
+
+    Denote by Ω{2} the set of unordered pairs of distinct elements of Ω and by ∆{2} the
+element of Ω{2} , corresponding to ∆. Denote by G∆{2} the setwise stabilizer of ∆{2} in G.
+Clearly, G∆ is a subgroup of index 2 in G∆{2} , hence is normal. For the sake of contradiction,
+assume that the action of G∆ on S is quasi-parabolic. Then, by the normality of G∆ in
+G∆{2} , the action of G∆{2} on S is also quasi-parabolic. Note that, by Proposition 3.16,
+ΛS (G) = ΛS (Gω ). We denote by q(∆) the unique point of ΛS (G), which is fixed by G∆
+and G∆{2} . Note that G∆ acts transitively on Ω \ ∆ by the 3-transitivity of the G-action
+on Ω, and G∆ < Gq(∆) , so Gq(∆) acts transitively on Ω \ ∆.
+   The proof of Proposition 3.20 will consist of a series of lemmas that will lead to a
+contradiction.
+
+Lemma 3.21. Suppose that G and Gω satisfy the conditions of Proposition 3.20 for any
+ω ∈ Ω. Then for every nonempty open subset U ⊂ ΛS (G), all orbits of RistG (U ) in Ω have
+cardinality at least 3.
+
+Proof. Assume for contradiction that RistG (U ) has an orbit of cardinality at most 2. Then
+the induced permutation group on this orbit is abelian, and the commutator subgroup
+[RistG (U ), RistG (U )] must fix a point ω ∈ Ω. Since the action of Gω on S is of general type,
+by Lemma 2.34, for any nonempty non-dense open V ⊂ ΛS (G) there exists f ∈ Gω such
+that f (V ) ⊂ U . Thus, we have
+
+                                  f RistG (V )f −1 ≤ RistG (U ),
+
+and
+                  f [RistG (V ), RistG (V )]f −1 ≤ [RistG (U ), RistG (U )] ≤ Gω .
+Since f ∈ Gω , we obtain [RistG (V ), RistG (V )] ≤ Gω .
+    By Lemma 2.35, the action of G on ΛS (G) is micro-supported, and, by Lemma 2.31,
+rigid stabilizers of nonempty open subsets of ΛS (G) are non-abelian. Therefore,
+
+      N = ⟨[RistG (V ), RistG (V )] | V ⊂ ΛS (G) is a nonempty non-dense open subset⟩
+
+is a non-trivial normal subgroup of G. Thus, Gω contains a non-trivial normal subgroup of
+G. Since the action of G on Ω is 2-transitive, this means that the action of Gω is transitive
+on Ω, which contradicts that Gω fixes ω ∈ Ω.
+
+Lemma 3.22. G∆{2} ̸= Gq(∆) for any ∆{2} ∈ Ω{2} .
+
+
+                                                33
+Proof. Fix any ∆{2} = {ω ′ , ω ′′ } ∈ Ω{2} . The orbit G∆{2} ω ′ in Ω is of size at most 2. For
+any nonempty open subset U ⊂ ΛS (G), not containing q(∆), the subgroup RistG (U ) fixes
+q(∆), and hence RistG (U ) ≤ Gq(∆) . By Lemma 3.21, any orbit of RistG (U ) in Ω is of size
+at least 3. Therefore, G∆{2} ̸= Gq(∆) .
+
+   Define π : Ω{2} −→ ΛS (G) by ∆{2} 7→ q(∆). This map is G-equivariant.
+
+Lemma 3.23. The fiber π −1 (q(∆)) forms a partition P∆ of Ω into blocks of size 2, and
+Gq(∆) preserves P∆ and acts 2-transitively on its blocks.
+
+                                                             {2}   {2}
+Proof. Fix ∆ ∈ Ω{2} . We first argue that two distinct ∆1 , ∆2 ∈ π −1 (q(∆)) are always
+                                                   {2}    {2}                  {2}    {2}
+disjoint. Assume that this is not the case. Then ∆1 ∩∆2 is a singleton, say ∆1 ∩∆2 =
+             {2}                   {2}
+{ω}. Let ∆1 = {ω, ω1 } and ∆2 = {ω, ω2 }. Since the action of Gω on Ω \ {ω} is 2-
+transitive, the actions of G∆1 and G∆2 on Ω \ {ω, ω1 } and Ω \ {ω, ω2 } are transitive, and
+we claim that
+                                       Gω = ⟨G∆1 , G∆2 ⟩.
+Indeed, it is obvious that ⟨G∆1 , G∆2 ⟩ ≤ Gω , so we need to show that Gω ≤ ⟨G∆1 , G∆2 ⟩. Take
+an arbitrary h ∈ Gω . If hωi = ωi , for some i = 1, 2, then h ∈ G∆i . Suppose hωi = ω    bi ̸= ωi
+for both i = 1, 2. Without loss of generality, assume hω1 = ω       b ̸= ω1 . Then there exists
+h1 ∈ G∆1 such that h1 ω b = ω ′ , where ω ′ ∈
+                                            / {ω1 , ω2 }. Thus, we can find h2 ∈ G∆2 , such that
+                                                                          {2}  {2}
+    ′
+h2 ω = ω1 . Therefore, h2 h1 hω1 = ω1 , and h ∈ ⟨G∆1 , G∆2 ⟩. Since ∆1 , ∆2 ∈ π −1 (q(∆)),
+subgroups G∆1 and G∆2 both fix q(∆). Thus, it follows that the subgroup Gω also fixes
+q(∆). This contradicts the assumption that the action of Gω on ΛS (G) is of general type.
+    It remains to show that the pairs of π −1 (q(∆)) cover Ω. Let Σ be the union of these
+pairs. Note that Σ defines a subset of Ω, and that this subset is Gq(∆) -invariant by the
+equivariance of the map π. Since Gq(∆) is transitive on Ω, we must have Σ = Ω.
+    The subgroup Gq(∆) fixes q(∆), thus it preserves P∆ . The action of Gq(∆) on the blocks
+of P∆ is transitive because the action of Gq(∆) on Ω already is. In order to show that
+this action of Gq(∆) on the blocks of P∆ is 2-transitive, we need to show that the block
+stabilizers act transitively, i.e., we need to show that G∆{2} acts transitively on P∆ \ {∆}.
+Since G∆ < G∆{2} , it is enough to show that the action of G∆ is transitive on P∆ \ {∆}.
+Indeed, take any ∆′ , ∆′′ ∈ P∆ that are distinct from ∆. Choose ω ′ ∈ ∆′ and ω ′′ ∈ ∆′′ .
+Since ∆′ , ∆′′ are disjoint from ∆ we have ω ′ , ω ′′ ∈ Ω \ {∆}. Since G∆ acts transitively on
+Ω \ {∆}, there exists f ∈ G∆ such that f ω ′ = ω ′′ . Since G∆ preserves the blocks, it follows
+that we must have f ∆′ = ∆′′ , and hence G∆ acts transitively on P∆ \ {∆}.
+
+    By G0q(∆) we denote the subgroup of Gq(∆) consisting of elements that fix some open
+neighborhood U ⊂ ΛS (G) of q(∆) pointwise, i.e.,
+                            [
+                    G0q(∆) = {RistG (V ) | V is open and q(∆) ̸∈ V }.
+
+
+
+                                               34
+    Observe that G0q(∆) is a non-trivial normal subgroup of Gq(∆) since the action of G on
+ΛS (G) is micro-supported by Lemma 2.35.
+Lemma 3.24. For every ∆{2} ∈ Ω{2} , we have G0q(∆) G∆ = Gq(∆) .
+
+Proof. Recall that a group action is called primitive if it does not preserve any non-trivial
+partition. By Lemma 3.23, the action of Gq(∆) on the blocks of the partition P∆ is 2-
+transitive, thus it is primitive. Since G0q(∆) is a normal subgroup of Gq(∆) , and the action of
+Gq(∆) on the blocks of the partition P∆ is transitive and primitive, it follows that the action
+of G0q(∆) on these blocks is either trivial or transitive. Otherwise, the non-trivial partition
+into G0q(∆) -orbits would be preserved by the action of Gq(∆) .
+    If the action of G0q(∆) on the blocks of P∆ were trivial, then G0q(∆) would consist of
+elements of order at most two, since all blocks have size 2, the action of G0q(∆) on Ω is
+faithful, and G0q(∆) preserves the partition P∆ as a subgroup of Gq(∆) . This cannot happen
+since G0q(∆) contains a rigid stabilizer of some nonempty open subset V ⊂ ΛS (G), disjoint
+from q(∆), and, by Lemma 2.31, RistG (V ) cannot be abelian.
+   Therefore, this action is transitive, and it follows that G0q(∆) has at most two orbits in
+Ω, and each orbit intersects each block of P∆ .
+    Consider the subgroup G0q(∆) G∆ ≤ Gq(∆) . It is indeed a subgroup since G∆ normalizes
+G0q(∆) . We claim that G0q(∆) G∆ acts transitively on Ω. There are two cases to consider.
+First, if G0q(∆) has only one orbit, then this is clear. Second, if G0q(∆) has two orbits, then
+the subgroup G∆ does not preserve the partition of Ω into these two orbits because G∆ acts
+transitively on Ω \ {∆}. Thus, the claim follows.
+   Take ω ∈ ∆ and any f ∈ Gω ∩ Gq(∆) . By the equivariance of π, we have
+                                   q(f ∆) = f q(∆) = q(∆),
+thus f ∆ and ∆ belong to the same fiber of the partition. On the other hand, ω ∈ f ∆ ∩ ∆
+since f fixes ω. Therefore, f ∆ = ∆ and
+                                      Gω ∩ Gq(∆) = G∆ .                                    (19)
+Recall that if a group G acts on a set Ω transitively and a subgroup H ≤ G also acts on Ω
+transitively, then for any ω ∈ Ω,
+                                        G = HGω .
+Therefore, since G0q(∆) G∆ contains a stabilizer of a point in Ω under the action of Gq(∆) by
+(19), and both actions of Gq(∆) and G0q(∆) G∆ are transitive on Ω, we finally obtain
+
+                                    G0q(∆) G∆ = Gq(∆) .
+
+Lemma 3.25. Fix ∆{2} ∈ Ω{2} and ∆′{2} ∈ P∆ distinct from ∆{2} . Then there exists
+a nonempty open subset V ⊂ ΛS (G) such that q(∆) ∈
+                                                 / V and h ∈ RistG (V ) such that
+h∆{2} = ∆′{2} and h∆′{2} ̸= ∆{2} .
+
+                                              35
+Proof. Consider the action of G0q(∆) on Ω, and denote by
+
+                                      ψ : G0q(∆) −→ Sym(P∆ )
+
+the induced action on the set of blocks of P∆ . We have a short exact sequence
+
+                           1 −→ ker(ψ) −→ G0q(∆) −→ ψ(G0q(∆) ) −→ 1.
+
+Note that ker(ψ) is an elementary abelian 2-group, since G0q(∆) preserves the partition P∆ ,
+which consists of blocks of size 2.
+   The subgroup G0q(∆) contains a rigid stabilizer of some nonempty open subset V ⊂ ΛS (G)
+with q(∆) ∈ / V , thus, by Lemma 2.37, it does not consist of elements of order not greater
+than 4. Therefore, it is not an extension of two elementary abelian 2-groups, and ψ(G0q(∆) )
+does not consist only of elements of order 2. Thus, there exists an element of G0q(∆) having
+a cycle of length at least 3 under the action of G0q(∆) on P∆ , i.e., there exist an element h0
+               {2}   {2}     {2}
+and distinct ∆1 , ∆2 , ∆3          ∈ P∆ such that
+                                          {2}       {2}
+                                      h0 ∆i     = ∆i+1 , i = 1, 2.
+
+   By the definition of G0q(∆) , there exists an open subset V0 ⊂ ΛS (G), not containing q(∆),
+such that h0 ∈ RistG (V0 ).
+   Now, since the action of Gq(∆) on P∆ is 2-transitive by Lemma 3.23, we may find
+                           {2}                    {2}
+f ∈ Gq(∆) such that f ∆1 = ∆{2} and f ∆2 = ∆′{2} . Let V = f V0 . Note that q(∆) ∈/ V,
+                                                   −1
+since f fixes q(∆). Consider the element h = f h0 f . We have h ∈ RistG (V ), and
+                                                          {2}        {2}
+                     h∆{2} = f h0 f −1 ∆{2} = f h0 ∆1           = f ∆2     = ∆′{2} ;
+                                                           {2}           {2}
+                     h∆′{2} = f h0 f −1 ∆′{2} = f h0 ∆2          = f ∆3        ̸= ∆{2} .
+
+Therefore, h satisfies the conclusion.
+
+Lemma 3.26. Fix ∆{2} ∈ Ω{2} . Then for every nonempty open subset U ⊂ ΛS (G) there
+exists g ∈ RistG (U ) such that g exchanges the two elements of ∆{2} .
+
+Proof. Choose an element f ∈ G such that f exchanges the two elements of ∆{2} . By
+Lemma 3.24, there exist h ∈ G0q(∆) and h′ ∈ G∆ such that f = hh′ . So the element h also
+exchanges the two elements of ∆{2} , and since h ∈ G0q(∆) there exists a nonempty open
+subset V ⊂ ΛS (G) such that q(∆) ∈
+                                 / V and h ∈ RistG (V ).
+    Now let U be an arbitrary nonempty open subset of ΛS (G). Since the action of G∆ on
+ΛS (G) is quasi-parabolic, by Lemma 2.34 there exists l ∈ LS (G∆ ) such that lV ⊂ U and,
+thus, g = lhl−1 ∈ RistG (U ). Note that g also exchanges the two elements of ∆{2} since
+l ∈ G∆ .
+
+                                                   36
+   We complete the proof of Proposition 3.20.
+
+Proof of Proposition 3.20. Let ∆{2} ∈ Ω{2} and ∆′{2} ∈ P∆ distinct from ∆{2} , V ⊂ ΛS (G)
+and h ∈ RistG (V ) be as in Lemma 3.25, and let ∆   e {2} ∈ Ω{2} such that ∆   e {2} ∩ ∆{2} and
+∆
+e {2} ∩∆   ′{2}                      {2}
+                are nonempty. Say ∆ = {ω, ω }, ∆′′   ′{2}     ′
+                                                          = {ω , ω
+                                                                 e } and ∆
+                                                                         e {2} = {e ω , ω}, where
+    ′             ′′
+       e , and ω ∈ Ω are distinct. Choose a nonempty open subset W ⊂ ΛS (G) \ V with
+ω, ω , ω
+q(∆) ∈ / W . We apply Lemma 3.26 and find g ∈ RistG (W ) such that ge      ω = ω and gω = ω    e.
+Note that g fixes q(∆), and hence g must preserve the partition P∆ . Since g exchanges two
+elements of ∆{2} and ∆′{2} , it follows that g actually exchanges the blocks ∆{2} and ∆′{2} .
+Thus, we have
+                                   hg∆{2} = h∆′{2} ̸= ∆{2} .                                 (20)
+Since g and h are supported in disjoint open subsets of ΛS (G), they commute. Therefore,
+
+                             hg∆{2} = gh∆{2} = g∆′{2} = ∆{2} ,
+
+which contradicts (20).
+
+   The next lemma completes the proof outlined after Proposition 3.16.
+
+Lemma 3.27. Assume that G acts faithfully and 3-transitively on a set Ω. Then for any
+ω ∈ Ω, the action of a subgroup Gω on S is quasi-parabolic.
+
+Proof. Fix any ω ∈ Ω. By Proposition 3.16, the action of Gω on S is non-elementary.
+Therefore, it suffices to prove that it is not of general type. For the sake of contradiction,
+assume that the action of Gω on S is of general type. The action of G on Ω is 3-transitive.
+Therefore, the action of Gω on Ω \ {ω} is 2-transitive. Let ω1 ∈ Ω \ {ω} and ∆ = (ω1 , ω).
+We apply Proposition 3.16 to G∆ ≤ Gω and obtain that G∆ is itself non-elementary. By
+Proposition 3.19, the action of G∆ on S cannot be of general type, and by Proposition 3.20,
+it cannot be quasi-parabolic. This leads to a contradiction.
+
+   Now we are ready to prove Theorem I.
+
+Proof of Theorem I. By Lemma 3.27, the action of Gω on S is quasi-parabolic for any
+ω ∈ Ω. Let q(ω) ∈ ΛS (Gω ) be the unique fixed point of Gω . Consider the map q : Ω → ∂S,
+given by ω 7→ q(ω). This map is G-equivariant. For the sake of contradiction, assume that
+q is not injective, i.e., there exists ω1 , ω2 ∈ Ω, such that ω1 ̸= ω2 , but q(ω1 ) = q(ω2 ). The
+action of G is 2-transitive on Ω, so for any distinct ω1′ , ω2′ ∈ Ω there exists g ∈ G such
+that gω1 = ω1′ and gω2 = ω2′ . Therefore, Gω1 = g −1 Gω1′ g and Gω2 = g −1 Gω2′ g. Thus,
+q(ω1′ ) = gq(ω1 ) = gq(ω2 ) = q(ω2′ ). Then the map q is constant, and it follows that G
+fixes a point in ΛS (G), which contradicts the assumption that the action of G on S is of
+general type. Therefore, q is injective, and the G-action on Ω is conjugate to the action on
+O = q(Ω).
+
+
+
+                                               37
+Proof of Corollary J. The group G admits a general type action on a hyperbolic space S
+such that the induced action of G on ΛS (G) is faithful and not topologically free. Thus, by
+Theorem I, if G acts faithfully and 3-transitively on any set Ω, then this action is conjugate
+to the action of G on some G-orbit O ⊂ ΛS (G). By Lemma 2.9, the set of fixed points of
+elements of LS (G) is dense in ΛS (G). Thus, since O is G-invariant, by Lemma 2.6, it is also
+dense in ΛS (G). Therefore, by Proposition 3.7, the action of G on O is not topologically
+4-transitive. Thus, by Lemma 3.9, it is at most 3-transitive. Therefore, G does not admit
+any faithful 4-transitive action on any set Ω, and the transitivity degree of G is at most
+3.
+
+Proof of Corollary K. Since G is faithful weakly hyperbolic and not lim-free, it admits a
+general type action on a hyperbolic space S such that the induced action of G on ΛS (G) is
+faithful and not topologically free. Moreover, by Theorem B, for any general type action
+of G on any hyperbolic space, such that the induced action on the limit set is faithful, the
+induced action on the limit set is not topologically free. Since the transitivity degree of G
+is 3, there exists a set Ω such that the G-action on Ω is faithful and 3-transitive. Then,
+by Theorem I, the G-action on Ω is conjugate to the G-action on some orbit O ⊂ ΛS (G).
+Since the action of G on S is of general type, O is dense in ΛS (G). Therefore, the action of
+G on ΛS (G) is topologically 3-transitive.
+
+Corollary 3.28. [BM, Theorem 1.4] Let T be a simplicial tree. Suppose that the action of
+G ≤ Aut(T ) on T is minimal and of general type and that the action of G on ∂T is not
+topologically free. Assume that G acts faithfully and 3-transitively on a set Ω. Then there
+exists a G-orbit O ⊂ ∂T such that the actions of G on Ω and on O are conjugate.
+
+Proof. It is sufficient to show that G satisfies the conditions of Theorem I. This was already
+shown in the proof of Corollary 3.14.
+
+3.4   Examples and necessity of assumptions
+
+Example 3.29. Verbal products. This example provides a family of non-faithful weakly
+hyperbolic groups that satisfy a mixed identity.
+    Let V = {fν (x1 . . . xnν ) : ν ∈ I} be a subset of words in an infinitely generated free
+group. A verbal V -subgroup V (G) of a group G is a subgroup generated by all possible
+values of all words of V , when x1 , x2 , . . . run through the entire group G independently of
+each other. A verbal V -subgroup V (G) is normal Q      in G. Let Gi , i ∈ I be some collection of
+groups and let F = ∗i∈I Gi . Let π : F −→ i∈I Gi be the natural epimorphism. Then the
+Cartesian subgroup C < F is the kernel of π. Let V (F ) be a verbal V -subgroup of F . Then
+the verbal product ∗V Gi of groups Gi with respect to V is F/(V (F ) ∩ C).
+
+Lemma 3.30. Let A and B be nontrivial groups, and let V be a nonempty subset of words
+in a free group F (x1 , · · · , xk ). Then the group G = A ∗V B satisfies a mixed identity.
+
+
+
+                                               38
+Proof. Let v = v(x1 , x2 , x3 , · · · , xk ) be a nonempty word in V , and let a ∈ A and b ∈ B be
+non-trivial elements of G. Consider the element
+
+   w(a, b, x1 , x2 , x3 , · · · , xk ) = v([ax1 , b], [ax2 , b], [ax3 , b], · · · , [axk , b]) ∈ G ∗ F (x1 , · · · , xk ).
+
+For any i ∈ {1, . . . , k} and values of xi in G, elements [axi , b] are in the Cartesian
+subgroup of A ∗ B, thus v([ax1 , b], [ax2 , b], [ax3 , b], · · · , [axk , b]) ∈ V (A ∗ B). Therefore,
+w(a, b, g1 , g2 , g3 , · · · , gk ) = 1 in G for any values g1 , · · · , gk ∈ G. Since a, b are non-trivial in
+G, w(a, b, x1 , x2 , x3 , · · · , xk ) is non-trivial in G ∗ F (x1 , · · · , xk ).
+
+Proposition 3.31. Let A, B be nontrivial groups, and let at least one of A or B be weakly
+hyperbolic. Let V be a nonempty subset of words in a free group F (x1 , · · · , xk ). Then
+G = A ∗V B is a weakly hyperbolic group that is not faithful weakly hyperbolic.
+
+Proof. Without loss of generality, assume that A is weakly hyperbolic. There exists a
+surjective homomorphism of G onto A, thus G is also weakly hyperbolic. Let φ(C) be the
+image of the Cartesian subgroup C < A ∗ B under the homomorphism φ : A ∗ B → G.
+  If φ(C) = 1, then G is a direct product of two non-trivial groups, so it is not MIF and
+Mon(G) = 1. Thus, by Proposition D, G cannot be faithful weakly hyperbolic.
+    Assume now that φ(C) ̸= 1. Since φ is surjective, φ(C) is normal in G. Therefore, by
+Lemma 2.10, for any general type action of G on any hyperbolic space S, the subgroup φ(C)
+is either elliptic or of general type. Since V (φ(C)) = {1}, φ(C) satisfies some non-trivial
+identity v = 1, v ∈ V and cannot contain a non-abelian free subgroup. So, φ(C) is elliptic,
+and since it is normal in G, φ(C) < ES (G) by the maximality of ES (G). Therefore, ES (G)
+is non-trivial, and G is not a faithful weakly hyperbolic group.
+
+Example 3.32. Non-lim-free HNN extensions and amalgams. The following propo-
+sition provides restrictions on associate subgroups of HNN-extensions and amalgamated
+products when the action on the boundary of the Bass-Serre tree is not topologically free.
+Definition 3.33. Let H be a group and let φ : C → φ(C) be an isomorphism between
+subgroups of H. Then HNN-extension associated to (H, C, φ) is the group defined by the
+following presentation
+
+                          HNN(H, C, φ) := ⟨H, t | t−1 ct = φ(c) for all c ∈ C⟩,
+
+where t is an extra generator, not belonging to H, called a stable letter.
+
+    Recall that it is called ascending if one of the subgroups C, φ(C) is equal to H.
+Definition 3.34. Let l1 : C → A and l2 : C → B be injective group homomorphisms. We
+will denote by Cj the image of lj and by φ : C1 → C2 the isomorphism sending l1 (c) to
+l2 (c) for all c ∈ C. The free product with amalgamation (or amalgam for short) associated
+to (A, B, C, φ) is the group defined by the following presentation:
+
+       A ∗C B := ⟨A, B | l1 (c) = l2 (c) for all c ∈ C⟩ = ⟨A, B | c = φ(c) for all c ∈ C1 ⟩ .
+
+                                                            39
+   Recall that such an amalgam is said to be non-trivial if A, B ̸= Cj for j = 1, 2, and
+non-degenerate if moreover [A : C1 ] ≥ 3 or [B : C2 ] ≥ 3.
+   Given an HNN-extension G = HNN(H, C, φ) or an amalgam G = A ∗C B, we can
+construct a Bass-Serre tree T associated to G. The group G acts on T transitively on the
+edges of T . Stabilizers of edges are conjugates of C or φ(C). The action of G on T is
+always minimal. We refer the reader to [Ser] for more information. If HNN(H, C, φ) is
+non-ascending or G = A ∗C B is non-degenerate, then the action of G on T is of general
+type (see, for example, [FMMS, Sections 2.5, 2.6]).
+
+Proposition 3.35. Let G = HNN(H, C, φ) be a non-ascending HNN-extension or a non-
+degenerate amalgam G = A ∗C B. If the induced action of G on the boundary ∂T of the
+Bass-Serre tree is faithful but not topologically free, then C is non-abelian.
+
+Proof. By Lemma 2.35, the action of G on ∂T is micro-supported, and, by Lemma 2.31,
+RistG (U ) is non-abelian for every nonempty open subset U ⊆ ∂T . Take an arbitrary open
+U that is not dense in ∂T . Consider two adjacent vertices v1 and v2 in T , such that the
+ends of infinite rays from these vertices are in ∂T \ U . Then RistG (U ) fixes both v1 and v2 ;
+thus, stabilizes the edge e incident to v1 and v2 . Since stabilizers of edges are conjugate to
+C, there exists g ∈ G such that RistG (U ) ≤ C g . Therefore, C is non-abelian.
+
+Corollary 3.36. The action of a non-solvable Baumslag-Solitar group BS(m, n) on the
+boundary of its Bass-Serre tree is not topologically free if and only if |m| = |n|.
+
+Example 3.37. Solvable Baumslag-Solitar groups. This example shows that the con-
+clusion of Theorem 3.10 does not hold if we take a quasi-parabolic action instead of a
+general-type action in the assumptions.
+    The Baumslag-Solitar group BS(1, 2) admits a quasi-parabolic action on its Bass-Serre
+tree TBS since it is an ascending HNN extension (see [FMMS, Section 2.5]), such that
+the induced action on ΛTBS (BS(1, 2)) = ∂TBS is topologically free [FMMS, Lemma 8.6].
+However, BS(1, 2) is solvable of order 3, so it satisfies the identity
+
+                           [[[x1 , x2 ], [x3 , x4 ]], [[x5 , x6 ], [x7 , x8 ]]] = 1.
+
+Example 3.38. Topologically free action on the boundary. This example shows why
+in Theorem 3.10 we must consider topologically free actions on the limit set, not the whole
+boundary as an equivalent condition. A similar example is given in [FMMS, Proposition
+9.2], where they discuss the necessity of minimality of the action on the tree in their case,
+which exactly gives faithfulness of the action on the limit set.
+    Let G = F2 × Z, where F2 is a free group of rank 2. The action of F2 on its Cayley graph
+T is of general type. Let E be a countable bundle of rays from a unique point o, enumerated
+by integers. The group Z acts on E as follows: n · rm = rn+m for every n ∈ Z and every
+ray rm ⊂ E. This action of Z on E is elliptic since it fixes a point o. Let S be a space,
+constructed by gluing over each vertex of T a copy of E at its fixed point o. Then G acts on
+
+
+                                                     40
+S by isometries, where elements from F2 act on a copy of T and elements of Z act on copies
+of E in S. This action is of general type, and the induced action on ∂S is topologically free.
+However, it is not topologically free (and not even faithful) on ΛS (G) = ∂T , since elements
+(1, n) ∈ F2 × Z, n ̸= 0 fix ∂T . Obviously, G satisfies a nontrivial mixed identity [f x , n] = 1,
+where f ∈ F2 , x is a free variable, and n ∈ Z \ {0}.
+Example 3.39. Monolithic lim-free groups. This example shows that the converse of
+Proposition D is not true, i.e., there exist lim-free weakly hyperbolic (hence MIF) groups
+with infinite simple monolith.
+   Consider PSL2 (C), PSL2 (R), PSL2 (Q), or any PSL2 (F ), where F is a field of char = 0
+with cardinality less or equal to continuum. By the proof of Corollary F, they are lim-free,
+and it is well known that they are simple (see [Dix]), so coincide with their monolith.
+Example 3.40. Non-faithful weakly hyperbolic MIF groups.
+
+Proposition 3.41. Every countable group can be embedded into a finitely generated MIF
+weakly hyperbolic group, which is not faithful.
+
+Proof. Let K be an arbitrary countable group. By the Higman-Neumann-Neumann Em-
+bedding Theorem [HNN], K can be embedded in a finitely generated group G. By the
+construction in [HNN], G is a non-ascending HNN-extension; therefore, it is weakly hyper-
+bolic. Then by [HL, Thm 1.1], there exists a finitely generated group H, such that:
+
+   1. G ≤ H ≤ Sym(G × Z);
+
+   2. There is a short exact sequence:
+
+                                   1 −→ N −→ H −→ (G × Z) −→ 1,
+
+      where N is locally finite;
+
+   3. H is MIF.
+
+The group H maps surjectively on G × Z, and G × Z is weakly hyperbolic, since G is weakly
+hyperbolic. Therefore, H also admits a general type action on the same hyperbolic space
+as G. Note that the subgroup N is non-trivial; otherwise H would be isomorphic to G × Z,
+which is impossible since H is MIF and G × Z has a non-trivial center. Since N is locally
+finite, it consists of torsion elements of H. Since N is normal in H, it cannot be a parabolic
+subgroup with respect to any action on any hyperbolic space, so it is always elliptic, and,
+by Proposition 2.24, it should be in an elliptic radical of H with respect to any general
+type action. Therefore, any elliptic radical of H is non-trivial, and H is not faithful weakly
+hyperbolic.
+
+Example 3.42. Finitely presented simple MIF groups.
+   Kac-Moody groups. We partially answer Question 3.6 from [BFFHZ].
+
+                                               41
+Proof of Proposition H. Let Γ(F ) be a finitely presented Kac-Moody group over a finite
+field, constructed in [CR], such that its quotient by the finite center G(F ) = Γ(F )/Z(Γ(F ))
+is an infinite finitely presented simple group. We want to show that G(F ) is lim-free weakly
+hyperbolic. First, we will show that G(F ) is weakly hyperbolic.
+    The group G(F ) is a nonuniform lattice in a product of two buildings. Since F is finite,
+the associated building is locally finite; hence its Davis realization X is a proper CAT(0)
+space. Since F is a field, by the proof of [CF, Corollary 1.3 (page 19, line 1 of the proof)],
+G(F ) acts Weyl-transitively on each of the two buildings. By [CF, Proposition 5.3], the
+action of G(F ) on one of these buildings X contains two rank-one elements g1 and g2 with
+disjoint limit points in the boundary of X.
+    By [PSZ, Theorem B], there exists δ such the curtain model XD associated to X is δ-
+hyperbolic and Isom(X) ≤ Isom(XD ). By [PSZ, Theorem C], two rank-one elements g1 and
+g2 of the action of G(F ) on X become loxodromic elements of the action of G(F ) on XD .
+Finally, by [PSZ, Theorem L], the boundary ∂XD embeds as an Isom-invariant subset of ∂X;
+thus, the four limit points of rank-one elements g1 and g2 in ∂X must also be four distinct
+points when looking at the corresponding limit points on ∂XD . Therefore, the action of
+G(F ) on XD is of general type. Since G(F ) is simple, EXD (G(F )) = {1}, and the action
+of G(F ) on ΛXD (G(F )) is faithful. Note that the space XD is not necessarily geodesic,
+though, by [PSZ, Proposition N], there is a geodesic hyperbolic space E(XD ), called the
+injective hull, such that the canonical embedding XD → E(XD ) is an Isom(XD )-equivariant
+quasi-isometry. In particular, it induces an Isom(X)-equivariant homeomorphism between
+the Gromov boundaries of XD and E(XD ). Thus, g1 and g2 act loxodromically on E(XD )
+and have disjoint pairs of fixed points. Moreover, the elliptic radical
+
+                            EE(XD ) (G(F )) = EXD (G(F )) = {1}.
+
+Thus, we can pass to the space E(XD ) to conclude that G(F ) is faithful weakly hyperbolic.
+    Now, assume that the action of G(F ) on ΛE(XD ) (G(F )) is not topologically free. Then,
+by Corollary 2.36, the rigid stabilizers of nonempty open subsets of ΛE(XD ) (G(F )) are
+infinite and contain infinite direct sums of other rigid stabilizers. Assume that a rigid
+stabilizer of some nonempty non-dense open subset U of ΛE(XD ) (G(F )) has an element
+of order 1 < n < ∞. Then Lemma 2.37 allows us to construct elements of arbitrarily
+large finite order in RistG(F ) (U ). Since the center Z(Γ(F )) is finite, this contradicts [Cap,
+Corollary 1.3]. Therefore, the rigid stabilizers of nonempty non-dense open subsets in the
+limit set ΛE(XD ) (G(F )) are torsion-free. Thus, G(F ) contains an infinite direct sum P of
+infinite cyclic subgroups. By [BD, Theorem 64], the asymptotic dimension of G(F ) is at
+least the supremum of the asymptotic dimensions of its finitely generated subgroups. For
+every n ∈ N, a subgroup P contains a direct sum Pn isomorphic to Zn . Since the asymptotic
+dimension of Zn is n, we obtain that the asymptotic dimension of G(F ) is infinite. This
+yields a contradiction with the fact that the asymptotic dimension of G(F ) is bounded
+from above by the asymptotic dimension of the product of two buildings it acts on [SWZ,
+last paragraph], which is finite by [DS]. Therefore, the action of G(F ) on ΛE(XD ) (G(F )) is
+
+
+                                               42
+topologically free and, by Theorem B, G(F ) is MIF. By Corollary G, the reduced C ∗ -algebra
+of G(F ) is selfless.
+
+    Burger-Mozes group. In [BM97], the finitely presented simple Burger-Mozes group G
+was constructed. It acts by isometries on a locally finite tree T such that the induced action
+on ∂T is 2-transitive ([BM97, Remark 5]). Therefore, the action of G on T is of general
+type. By construction, G acts properly and cocompactly by isometries on the product of
+two locally finite trees. Hence, it has finite asymptotic dimension. So, the argument of
+Proposition H can be applied to G to conclude that G is MIF, and the reduced C ∗ -algebra
+of G is selfless. The fact that G is MIF was first observed in [BFFHZ, Remark 3.5].
+    Amir-Lazarovich groups. Very recently, in [AL], M. Amir and N. Lazarovich con-
+structed simple finitely presented groups acting on products of two Davis complexes: a
+c-regular tree with c ≥ 6 and the right-angled Davis complex of an Odd graph. By [AL,
+Theorem 5.2], the action of such groups on a tree is vertex-transitive and therefore is of
+general type. Thus, the rest of the argument of Proposition H also applies, and such groups
+are MIF and have selfless reduced C ∗ -algebras.
+Remark 3.43. In [TMW] a family of lattices acting on two-dimensional Euclidean buildings
+was introduced, and recently it was proved that this construction also produces a family
+of infinite simple groups [LW]. Unfortunately, the reasoning from Proposition H does not
+apply to this family, and we do not know whether they are mixed identity free or not.
+
+
+References
+[ABDHMW] T. Aougab, H. Bray, S. Dowdall, H. Hoganson, S. Maloni, B. Whitfield, Con-
+   structing reducibly geometrically finite subgroups of the mapping class group. Groups
+   Geom. Dyn., 2026.
+
+[AG] N. Avni, T. Gelander, Mixed identities in linear groups – effective version,
+    arXiv:2510.03492v1.
+
+[AGKEP] T. Amrutam, D. Gao, S. Kunnawalkam Elayavalli, G. Patchell, Strict comparison
+   in reduced group C ∗ -algebras. Invent. math. 242 (2025), 639–657.
+
+[AL] M. Amir, N. Lazarovich, Simple lattices in products of Davis complexes,
+    arXiv:2605.09493.
+
+[AMS] R. Aoun, P. Mathieu and Ç. Sert, Random walks on hyperbolic spaces: second order
+   expansion of the rate function at the drift, J. Éc. polytech. Math. 10 (2023), 549–573.
+
+[AS] R. Aoun and Ç. Sert, Random walks on hyperbolic spaces: concentration inequalities
+    and probabilistic Tits alternative, Probab. Theory Related Fields 184 (2022), no. 1-2,
+    323–365.
+
+
+
+                                             43
+[Bas] H. Bass, Covering theory for graphs of groups, J. Pure Appl. Algebra 89 (1993),
+     no. 1-2, 3–47.
+
+[BD] G. Bell, A. Dranishnikov, Asymptotic dimension, Topology Appl., 155 (2008), 1265–
+    1296.
+
+[Bea] A. Beardon, The geometry of discrete groups. Graduate Texts in Mathematics,
+    Springer, 91, New York etc., 1995.
+
+[BEH] C. Bleak, L. Elliott, J. T. Hyde, Sufficient conditions for a group of homeomorphisms
+    of the Cantor set to be two-generated, J. Inst. Math. Jussieu 23 (2024), no. 6, 2825–
+    2858.
+
+[Bes] M. Bestvina. R-trees in topology, geometry, and group theory. In Handbook of Geo-
+     metric Topology, pages 55-91. North Holland, 2001.
+
+[BFFHZ] J. Belk, F. Fournier-Facio, J. Hyde, M. C. B. Zaremsky, Boone-Higman embed-
+    dings of Aut(Fn ) and mapping class groups of punctured surfaces, arXiv:2503.21882v2.
+
+[BFGS] S.Balasubramanya, F. Fournier-Facio, A.Genevois, Property (NL) for hyperbolic
+    group actions, with Appendix by A.Sisto, arXiv:2212.14292.
+
+[BH] H. Baik, W. Jang, On the kernel of actions on asymptotic cones, Journal of Group
+    Theory, 28 (2025) 753–809.
+
+[BH99] M.R. Bridson, A. Haefliger, Metric spaces of non-positive curvature. Grundlehren
+    der Mathematischen Wissenschaften [Fundamental Principles of Mathematical Sci-
+    ences] 319. Springer-Verlag, Berlin, 1999.
+
+[BM] A. Le Boudec, N. Matte Bon, Triple transitivity and non-free actions in dimension
+    one, J. Lond. Math. Soc. 105 (2022), 2, 884–908.
+
+[BM97] M. Burger and S. Mozes, Finitely presented simple groups and products of trees,
+   C. R. Acad. Sci. Paris Sér. I Math., (1997) 324 747–752.
+
+[BMSS] A. Boulanger, P. Mathieu, C. Sert, A. Sisto, Large deviations for random walks on
+   Gromov-hyperbolic spaces, Ann. Sci. Éc. Norm. Supér. (4) 56 (2023), no. 3, 885–944.
+
+[BS07] Sergei Buyalo and Viktor Schroeder. Elements of asymptotic geometry. EMS Mono-
+    graphs in Mathematics. European Mathematical Society (EMS), Zurich, 2007.
+
+[BS] H. Bradford, A. Sisto, Non-solutions to mixed equations in acylindrically hyperbolic
+    groups coming from random walks, arXiv:2504.15456v1.
+
+[CDP] M. Coornaert, T. Delzant, A. Papadopoulos, Géométrie et théorie des groupes,
+   Lecture Notes in Mathematics, 1441, Springer-Verlag, Berlin, 1990.
+
+
+
+                                            44
+[Cap] P-E. Caprace, A uniform bound on the nilpotency degree of certain subalgebras of
+    Kac–Moody algebras, J. of Algebra 317(2) (2007), 867–876.
+
+[CF] P-E. Caprace, K. Fujiwara, Rank-One Isometries of Buildings and Quasi-Morphisms
+    of Kac–Moody Groups. Geom. Funct. Anal. 19 (2010), 1296–1319.
+
+[Cho] I. Choi, Central limit theorem and geodesic tracking on hyperbolic spaces and Te-
+    ichmüller spaces, Adv. Math., 431 (2023), 68.
+
+[Cou16] R. Coulon, Partial periodic quotients of groups acting on a hyperbolic space, Ann.
+    Inst. Fourier (Grenoble), 66 (2016), 1773–1857.
+
+[CR] P.-E. Caprace, B. Rémy, Simplicity and superrigidity of twin building lattices, Invent.
+    Math., 176(2009), 169–221.
+
+[CRW] P. Caprace, C. Reid, G. Willis, Locally normal subgroups of totally disconnected
+   groups. Part II: Compactly generated simple groups, Forum Math. Sigma 5 (2017),
+   no. e12, 89.
+
+[DGO] F. Dahmani, V. Guirardel, and D. Osin, Hyperbolically embedded subgroups and
+   rotating families in groups acting on hyperbolic spaces, Mem. Amer. Math. Soc., 245
+   (2017), v+152.
+
+[Dix] L. E. Dickson, Theory of linear groups in an arbitrary field, T rans. Amer. Math. Soc.
+     2 (1901), 363–394.
+
+[DSU] T. Das, D. Simmons, M. Urbanski, Geometry and dynamics in Gromov hyperbolic
+    metric spaces: With an emphasis on non-proper settings, Mathematical Surveys and
+    Monographs 218, 2017.
+
+[FMMS] P. Fima, F. Le Maı̂tre, S. Moon, Y. Stalder, A characterization of high transitivity
+   for groups acting on trees, Discrete Anal. 8 (2022), 63.
+
+[GGS] T. Gelander, Y. Glasner, G. Soifer, Maximal subgroups of countable groups: a
+   survey. In Dynamics, geometry, number theory: the impact of Margulis on modern
+   mathematics, University of Chicago Press (2022), 169–210.
+
+[GOR] G. Goffer, D. V. Osin and E. Rybak, Frattini subgroups of hyperbolic-like groups,
+   J. Algebra 658 (2024), 22–37.
+
+[Gro87] M. Gromov, Hyperbolic groups, Essays in Group Theory, MSRI Series 8, (S.M.
+    Gersten, ed.), Springer, 1987, 75–263.
+
+[GR] A. Garrido, C. D. Reid, Compressible subgroups and simplicity, arxiv:2412.18891
+
+[DS] J. Dymara, T. Schick, Buildings have finite asymptotic dimension, Russ. J. Math.
+    Phys., 16 (2009), 409-–412.
+
+
+                                             45
+[GTT22] I. Gekhtman, S. J. Taylor and G. Tiozzo, Central limit theorems for counting
+   measures in coarse negative curvature, Compos. Math. 158 (2022), no. 10, 1980–2013.
+
+[Ham] M. Hamann, Group actions on metric spaces: fixed points and free subgroups, Abh.
+    Math. Semin. Univ. Hambg. 87 (2017), 245–263.
+
+[HL] J. Hyde, Y. Lodha, Embeddings into highly transitive and mixed identity free groups,
+    arXiv:2509.09788, 2025
+
+[HNN] G. Higman, B. H. Neumann and H. Neumann, Embedding theorems for groups, J.
+   London Math. Soc. 24 (1949), 247–254.
+
+[HO13] M. Hull, D. Osin, Conjugacy growth of finitely generated groups, Advances in
+    Mathematics. 235 (2013) (1), 361–389.
+
+[HO16] M. Hull, D. Osin, Transitivity degrees of countable groups and acylindrical hyper-
+    bolicity, Israel J. Math. 216 (2016), no.1, 307–353.
+
+[Hor] C. Horbez, Central limit theorems for mapping class groups and Out(FN ), Geom.
+    Topol. 22 (2018), no. 1, 105–156.
+
+[HV] P. de la Harpe, Alain Valette. La propriété (T ) de Kazhdan pour les groupes lo-
+    calement compacts (avec un appendice de Marc Burger). Astérisque, No. 175. Société
+    Mathématique de France, Paris, 1989. With an appendix by M. Burger.
+
+[Jac] B. Jacobson, Algebraic subgroups of acylindrically hyperbolic groups, J. of Algebra,
+     476 (2017), 113–133.
+
+[KM] O. Kharlampovich, A. Myasnikov, Definable sets in a hyperbolic group, Internat. J.
+   of Algebra and Comput. 23 (2013), 91–110.
+
+[KS] M. Kapovich, P. Sardar, Trees of hyperbolic spaces, Mathematical surveys and mono-
+    graphs, 282, 2024.
+
+[La] S. Lang, Algebra. Volume 1. Revised third edition, Graduate Texts in Mathematics
+     211, New York, NY: Springer (2002)
+
+[LS] R. Lyndon, P. Schupp, Combinatorial Group Theory,Classics in Mathematics,
+     Springer Berlin, Heidelberg (2001)
+
+[LW] J. Lécureux, S. Witzel, The Normal Subgroup Theorem for lattices on two-dimensional
+    Euclidean buildings, arXiv:2605.06163
+
+[Mah] J. Maher, Linear progress in the complex of curves, Trans. Amer. Math. Soc. 362
+    (2010), 2963–2991.
+
+[Mal] A.I. Malcev, On isomorphic matrix representations of infinite groups of matrices
+    (Russian), Mat. Sb. 8 (1940), 405–422, Amer. Math. Soc. Transl. (2) 45 (1965), 1–18.
+
+                                           46
+[MT] J. Maher, G. Tiozzo, Random walks on weakly hyperbolic groups, J. Reine Angew.
+    Math., 742 (2018), 187–239.
+
+[Osi16] D. V. Osin, Acylindrically hyperbolic groups, Trans. Amer. Math. Soc., 368 (2016),
+     pp. 851–888.
+
+[Osi17] D. Osin, Invariant random subgroups of groups acting on hyperbolic spaces. Proc.
+     Amer. Math. Soc., 145 (2017), no. 8, 3279–88.
+
+[Oza] N. Ozawa, Proximality and selflessness for group C ∗ -algebras, arXiv:2508.07938v5.
+
+[Pau96] F. Paulin, Un groupe hyperbolique est déterminé par son bord. J. London Math.
+    Soc. 54(1) (1996), 50–74.
+
+[PSZ] H. Petyt, D. Spriano, A. Zalloum, Hyperbolic models for CAT(0) spaces, Adv. in
+    Math., 450 (2024).
+
+[Rob] L. Robert, Selfless C ∗ -algebras, Adv. Math. 478 (2025), 110409.
+
+[Ser] P. Serre (with H. Bass), Trees, Springer-Verlag, 1980.
+
+[Sis] A. Sisto, Quasi-convexity of hyperbolically embedded subgroups, Mathematische
+      Zeitschrift. 283 (2016) (3–4), 649–658.
+
+[Sun] M. Sunderland, Linear progress with exponential decay in weakly hyperbolic groups,
+    Groups Geom. Dyn., 14(2) (2020), 539–566.
+
+[TMW] T. Titz Mite, S. Witzel, Non-residually finite C
+                                                     e2 -lattices, arXiv:2509.05054.
+
+[SWZ] R. Skipper, S. Witzel, M.C.B. Zaremsky, Simple groups separated by finiteness
+   properties, Invent. math. 215 (2019), 713–740.
+
+[Tom] G. Tomanov, Generalized group identities in linear groups,(Russian) Mat. Sb.
+    (N.S.)1, (1984) 35–49.
+
+[Vid] I. Vigdorovich, Structural properties of reduced C ∗ -algebras associated with higher-
+     rank lattices, arXiv:2503.12737v3.
+
+
+Ekaterina Rybak:       Department of Mathematics, Vanderbilt University, Nashville, TN,
+U.S.A.
+E-mail: ekaterina.rybak@vanderbilt.edu
+
+
+
+
+                                            47
+

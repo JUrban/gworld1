@@ -1,0 +1,2009 @@
+ISSN 1364-0380 (on line) 1465-3060 (printed)                                   1427
+
+
+Geometry & Topology                                                      G     T
+                                                                      G G TT TG T T
+Volume 8 (2004) 1427–1470                                           G
+                                                                    G    T     G T
+Published: 27 November 2004                                         G    T     G   T
+                                                                     G T GG TT
+                                                                       GGG T T
+
+
+
+  Limit groups and groups acting freely on Rn –trees
+                              Vincent Guirardel
+
+                    Laboratoire E. Picard, UMR 5580, Bât 1R2
+                   Université Paul Sabatier, 118 rte de Narbonne
+                          31062 Toulouse cedex 4, France
+                     Email: guirardel@picard.ups-tlse.fr
+
+
+
+Abstract
+
+We give a simple proof of the finite presentation of Sela’s limit groups by using
+free actions on Rn –trees. We first prove that Sela’s limit groups do have a free
+action on an Rn –tree. We then prove that a finitely generated group having a
+free action on an Rn –tree can be obtained from free abelian groups and surface
+groups by a finite sequence of free products and amalgamations over cyclic
+groups. As a corollary, such a group is finitely presented, has a finite classifying
+space, its abelian subgroups are finitely generated and contains only finitely
+many conjugacy classes of non-cyclic maximal abelian subgroups.
+
+
+AMS Classification numbers            Primary: 20E08
+Secondary: 20E26
+
+
+Keywords:      Rn –tree, limit group, finite presentation
+
+
+
+
+Proposed: Martin Bridson                                  Received: 14 October 2003
+Seconded: Benson Farb, Walter Neumann                    Revised: 26 November 2004
+
+
+c Geometry & Topology Publications
+1428                                                                Vincent Guirardel
+
+
+1      Introduction
+
+Limit groups have been introduced by Z Sela in the first paper of his solution of
+Tarski’s problem [30]. These groups appeared to coincide with the long-studied
+class of finitely generated fully residually free groups (see [2], [3], [20, 21], [10]
+and references).
+
+A limit group is a limit of free groups in the space of marked groups. More
+precisely, if n is a fixed integer, a marked group is a group together with an
+ordered generating family S = (s1 , . . . , sn ). Two marked groups (Γ, S) and
+(Γ′ , S ′ ) are close to each other in this topology if for some large R, (Γ, S) and
+(Γ′ , S ′ ) have exactly the same relations of length at most R (see section 2.1).
+
+Limit groups have several equivalent characterisations: a finitely generated
+group G is a limit group if and only if it is fully residually free, if and only
+if it has the same universal theory as a free group, if and only if it is a subgroup
+of a non-standard free group [26, 7].
+
+One of the main results about limit groups is a structure theorem due to
+Kharlampovich–Myasnikov, Pfander and Sela [20, 21, 25, 30]. This theorem
+claims that a limit group can be inductively obtained from free abelian groups
+and surface groups by taking free products and amalgamations over Z (see The-
+orem 7.1 below). This structure theorem implies that a limit group is finitely
+presented, and that its abelian subgroups are finitely generated. The goal of the
+paper is to give a simpler proof of this result in the broader context of groups
+acting freely on Rn –trees.
+
+After completing this work, the author learnt about the unpublished thesis of
+Shalom Gross, a student of Z Sela, proving the finite presentation of finitely
+generated groups having a free action on an Rn –tree [16]. Both proofs deeply
+rely on Sela’s structure theorem for super-stable actions of finitely generated
+groups on R–trees ([28, Theorem 3.1], see also Theorem 5.2 below). However,
+Gross does not state a dévissage theorem over cyclic groups, but over finitely
+generated abelian groups.
+
+Let’s recall briefly the definition of a Λ–tree. Given a totally ordered abelian
+group Λ, there is a natural notion of Λ–metric space where the distance function
+takes its values in Λ. If Λ is archimedean, then Λ is isomorphic to a subgroup
+of R and we have a metric in the usual sense. When Λ is not archimedean,
+there are elements which are infinitely small compared to other elements. A
+typical example is when Λ = Rn endowed with the lexicographic ordering.
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                          1429
+
+
+A Λ–tree may be defined as a geodesic 0–hyperbolic Λ–metric space. Roughly
+speaking, an Rn –tree may be thought of as a kind of bundle over an R–tree
+where the fibres are (infinitesimal) Rn−1 –trees.
+In his list of research problems, Sela conjectures that a finitely generated group
+is a limit group if and only if it acts freely on an Rn –tree [29]. However, it
+is known that the fundamental group Γ = ha, b, c | a2 b2 c2 = 1i of the non-
+orientable surface Σ of Euler characteristic −1 is not a limit group since three
+elements in a free group satisfying a2 b2 c2 = 1 must commute ([23],[11, p.249]).
+But this group acts freely on a Z2 –tree: Σ can be obtained by gluing together
+the two boundary components of a twice punctured projective plane, so Γ can
+be written as an HNN extension F2 ∗Z . The Z2 –tree can be roughly described
+as the Bass–Serre tree of this HNN extension, but where one blows up each
+vertex into an infinitesimal tree corresponding to a Cayley graph of F2 (see [11,
+p.237] for details).
+In this paper, we start by giving a proof that every limit group acts freely on
+an Rn –tree. This is an adaptation a theorem by Remeslennikov saying that a
+fully residually free groups act freely on a Λ–tree where Λ has finite Q–rank,
+i.e. Λ ⊗ Q is finite dimensional ([27], see also [11, Theorem 5.10]). However,
+Remeslennikov claims that Λ can be chosen finitely generated, but this relies
+on a misquoted result about valuations (see section 3).
+We actually prove that there is a closed subspace of the space of marked groups
+consisting of groups acting freely on Rn –trees. In the following statement, an
+action of a group Γ on a Bruhat–Tits tree is the action on the Bruhat–Tits tree
+of SL2 (K) induced by a morphism j : Γ → SL2 (K) where K is a valuation
+field. Note that K may vary with Γ.
+
+Theorem 3.3 (Acting freely on Bruhat–Tits trees is closed, see also [27])
+Let BT ⊂ Gn be the set of marked groups (Γ, S) having a free action on a
+Bruhat–Tits tree.
+Then BT is closed in Gn , and BT consists in groups acting freely on Λ–trees
+where Λ⊗Q has dimension at most 3n+1 over Q. In particular, BT consists in
+groups acting freely on R3n+1 –trees where R3n+1 has the lexicographic ordering.
+
+Corollary 3.4 [27] A limit group has a free action on an Rn –tree.
+
+Remark As a corollary of their study of the structure of limit groups [20, 21],
+Kharlampovich and Myasnikov prove the more precise result that a limit group
+is a subgroup of an iterated free extension of centralizers of a free group, and
+
+
+Geometry & Topology, Volume 8 (2004)
+1430                                                              Vincent Guirardel
+
+
+has therefore a free action on a Zn –tree [21, Corollary 6]. An alternative proof
+of this fact using Sela’s techniques is given in [7].
+
+The main result of the paper is the following structure theorem for groups acting
+freely on Rn –trees (see theorem 7.2 for a more detailed version). In view of the
+previous corollary, this theorem applies to limit groups.
+
+Theorem 7.1 (Dévissage theorem, simple version. See also [16, Corollary 6.6])
+Consider a finitely generated, freely indecomposable group Γ having a free
+action on an Rn –tree. Then Γ can be written as the fundamental group of a
+finite graph of groups with cyclic edge groups and where each vertex group is
+finitely generated and has a free action on an Rn−1 –tree.
+
+For n = 1, Rips theorem says that Γ (which is supposed to be freely indecom-
+posable) is either a free abelian group, or a surface group (see [13, 4]). Hence, a
+limit group can be obtained from abelian and surface groups by a finite sequence
+of free products and amalgamations over Z. It is therefore easy to deduce the
+following result:
+
+Corollary 7.3 (See also [16]) Let Γ be a finitely generated group having a
+free action on an Rn –tree. Then
+   • Γ is finitely presented [16, Corollary 6.6];
+   • if Γ is not cyclic, then its first Betti number is at least 2;
+   • there are finitely many conjugacy classes of non-cyclic maximal abelian
+     subgroups in Γ, and abelian subgroups of Γ are finitely generated. More
+     precisely, one has the following bound on the ranks of maximal abelian
+     subgroups:               X
+                                  (Rk A − 1) ≤ b1 (Γ) − 1
+                               A
+
+     where the sum is taken over the set of conjugacy classes of non-cyclic
+     maximal abelian subgroups of Γ, and where b1 (Γ) denotes the first Betti
+     number of Γ;
+   • Γ has a finite classifying space, and the cohomological dimension of Γ is
+     at most max(2, r) where r is the maximal rank of an abelian subgroup
+     of Γ.
+
+Remark A combination theorem by Dahmani also shows that Γ is hyperbolic
+relative to its non-cyclic abelian subgroups [12].
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                               1431
+
+
+Corollary [30, 20, 21, 25] A limit group is finitely presented, its abelian
+subgroups are finitely generated, it has only finitely many conjugacy classes of
+maximal non-cyclic abelian subgroups, and it has a finite classifying space.
+
+Finally, we can also easily derive from the dévissage theorem the existence of
+a principal splitting, a major step in Sela’s proof of the finite presentation of
+limit groups (see corollary 7.4 and [30, Theorem 3.2]).
+Unlike Sela’s proof, the proof we give doesn’t need any JSJ theory, and does
+not use the shortening argument. The proof is also much shorter than the one
+by Kharlampovich–Myasnikov in [20, 21] using algebraic geometry over groups,
+and the study of equations in free groups.
+The paper is organized as follows: after some premilinaries in section 2, section
+3 is devoted to the proof of the fact that limit groups act freely on Rn –trees.
+Section 4 sets up some preliminary work on graph of actions on Λ–trees, which
+encode how to glue equivariantly some Λ–trees to get a new Λ–tree. In section
+5, starting with a free action of a group Γ on an Rn –tree T , we study the
+action on the R–tree T obtained by identifying points at infinitesimal distance,
+and we deduce a weaker version of the dévissage Theorem where we obtain a
+graph of groups over (maybe non-finitely generated) abelian groups. Section
+6 contains the core of the argument: starting with a free action of Γ on an
+Rn –tree T , we build a free action on an Rn –tree T ′ such that the R–tree T ′
+has cyclic arc stabilizers. The dévissage theorem and its corollaries will then
+follow immediately, as shown in section 7.
+The author thanks the referee for useful presentation suggestions.
+
+
+2     Preliminaries
+
+2.1    Marked groups and limit groups
+
+Sela introduced limit groups in [30]. For background about Sela’s limit groups,
+see also [7] or [24].
+A marked group (G, S) is a finitely generated group G together with a finite
+ordered generating family S = (s1 , . . . , sn ). Note that repetitions may occur in
+S , and some generators si may be the trivial element of G. Consider two groups
+G and G′ together with some markings of the same cardinality S = (s1 , . . . , sn )
+and S ′ = (s′1 , . . . , s′n ). A morphism of marked groups h : (G, S) → (G′ , S ′ ) is
+a homomorphism h : G → G′ sending si on s′i for all i ∈ {1, . . . , n}. Note
+
+
+Geometry & Topology, Volume 8 (2004)
+1432                                                                  Vincent Guirardel
+
+
+that there is at most one morphism between two marked groups, and that all
+morphisms are epimorphisms.
+A relation in (G, S) is an element of the kernel of the natural morphism Fn → G
+sending ai to si where Fn is the free group with basis (a1 , . . . , an ). Note that
+two marked group are isomorphic if and only if they have the same set of
+relations.
+Given any fixed n, we define Gn to be the set of isomorphism classes of marked
+groups. It is naturally endowed with the topology such that the sets NR (G, S)
+defined below form a neighbourhood basis of (G, S). For each (G, S) ∈ Gn and
+each R > 0, NR (G, S) is the set of marked groups (G′ , S ′ ) ∈ Gn such that
+(G, S) and (G′ , S ′ ) have exactly the same relations of length at most R. For
+this topology, Gn is a Hausdorff, compact, totally disconnected space.
+
+Definition 2.1 A limit group (G, S) ∈ Gn is a marked group which is a limit
+of markings of free groups in Gn .
+
+Actually, being a limit group does not depend on the choice of the generating
+set. Moreover, limit groups have several equivalent characterizations: a finitely
+generated group is a limit group if and only if it is fully residually free, if and only
+if it has the same universal theory as a free group, if and only if it is a subgroup
+of a non-standard free group [26, 7]. We won’t need those characterizations in
+this paper.
+
+
+2.2    Λ–trees
+
+For background on Λ–trees, see [1, 11].
+
+
+Totally ordered abelian groups A totally ordered abelian group Λ is an
+abelian group with a total ordering such that for all x, y, z ∈ Λ, x ≤ y ⇒ x+z ≤
+y + z . Our favorite example will be Rn , with the lexicographic ordering. In
+all this paper, Rn will always be endowed with its lexicographic ordering. To
+fix notations, we use the little endian convention: the leftmost factor will have
+the greatest weight. More precisely, if Λ1 and Λ2 are totally ordered abelian
+groups, the lexicographic ordering on Λ1 ⊕ Λ2 is defined by (x1 , x2 ) ≤ (y1 , y2 )
+if x1 < y1 or (x1 = y1 and x2 ≤ y2 ).
+A morphism ϕ : Λ → Λ′ between two totally-ordered abelian groups is a non-
+decreasing group morphism. Given a, b ∈ Λ, the subset [a, b] = {x ∈ Λ | a ≤
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                          1433
+
+
+x ≤ b} is called the segment between a and b. A subset E ⊂ Λ is convex if for
+all a, b ∈ E , [a, b] ⊂ E . The kernel of a morphism is a convex subgroup, and
+if Λ0 ⊂ Λ is a convex subgroup, then Λ/Λ0 has a natural structure of totally
+ordered abelian group. By proper convex subgroup of Λ, we mean a convex
+subgroup strictly contained in Λ.
+The set of convex subgroups of Λ is totally ordered by inclusion. The height
+of Λ is the (maybe infinite) number of proper convex subgroups of Λ. Thus,
+the height of Rn is n. Λ is archimedean if its height is at most 1. It is well
+known that a totally ordered abelian group is archimedean if and only if it is
+isomorphic to a subgroup of R (see for instance [11, Theorem 1.1.2])
+If Λ0 ⊂ Λ is a convex subgroup, then any element λ0 ∈ Λ0 may be thought
+as infinitely small compared to an element λ ∈ Λ \ Λ0 since for all n ∈ N,
+nλ0 ≤ λ. Therefore, we will say that an element in Rn is infinitesimal if it lies
+in the maximal proper convex subgroup of Rn , which we casually denote by
+Rn−1 . Similarly, for p ≤ n, we will identify Rp with the corresponding convex
+subgroup of Rn . The magnitude of an element λ ∈ Rn is the smallest p such
+that λ ∈ Rp . Thus λ ∈ Rn is infinitesimal if and only if its magnitude is at
+most n − 1.
+Given a totally ordered abelian group Λ, Λ ⊗ Q has a natural structure of a
+                                                ′
+totally ordered abelian group by letting nλ ≤ nλ′ if and only if n′ λ ≤ nλ′ .
+
+
+Λ–metric spaces and Λ–trees A Λ–metric space (E, d) is a set E endowed
+with a map d : E × E → Λ≥0 satisfying the three usual axioms of a metric:
+separation, symmetry and triangle inequality. The set Λ itself is a Λ–metric
+space for the metric d(a, b) = |a − b| = max(a − b, b − a) ∈ Λ. A geodesic
+segment in E is an isometric map from a segment [a, b] ⊂ Λ to a subset of
+E . A Λ–metric space is geodesic if any two points are joined by a geodesic
+segment. We will denote by [x, y] a geodesic segment between two points in E
+(which, in this generality, might be non-unique).
+Note that even in a set Λ like Rn , the upper bound is not always defined so one
+cannot easily define a Λ–valued diameter (see however [11, p.99] for a notion
+of diameter as a interval in Λ). Nevertheless, we will say that a subset F of a
+Rn –metric space E is infinitesimal if the distance between any two points of F
+is infinitesimal. Similarly, we define the magnitude of F as the smallest p ≤ n
+such that the distance between any two points of F has magnitude at most p.
+We give two equivalent definitions of a Λ–tree. The equivalence is proved for
+instance in [11, Lemma 2.4.3, p.71].
+
+
+Geometry & Topology, Volume 8 (2004)
+1434                                                               Vincent Guirardel
+
+
+Definition 2.2 A Λ–tree T is a geodesic Λ–metric space such that
+
+   • T is 0–hyperbolic in the following sense:
+
+       ∀x, y, u, v ∈ T, d(x, y) + d(u, v) ≤ max{d(x, u) + d(y, v), d(x, v) + d(y, u)}
+
+   • ∀x, y, z ∈ T, d(x, y) + d(y, z) − d(x, z) ∈ 2Λ
+
+Equivalently, a geodesic Λ–metric space is a Λ–tree if
+
+   • the intersection of any two geodesic segments sharing a common endpoint
+     is a geodesic segment
+   • if two geodesic segments intersect in a single point, then their union is a
+     geodesic segment.
+
+
+Remark In the first definition, the second condition is automatic if 2Λ = Λ,
+which is the case for Λ = Rn .
+
+It follows from the definition that there is a unique geodesic joining a given pair
+of points in a Λ–tree.
+
+
+Clearly, Λ itself is Λ–tree. Another simple example of a Λ–tree is the vertex
+set V (S) of a simplicial tree S : V (S) endowed with the combinatorial distance
+is a Z–tree.
+
+
+
+2.3    Killing infinitesimals and extension of scalars
+
+The following two operations are usually known as the base change functor.
+
+
+
+Killing infinitesimals Consider Λ0 ⊂ Λ a convex subgroup (a set of in-
+finitesimals), and let Λ = Λ/Λ0 . If Λ = Rn , we will usually take Λ0 = Rn−1 ,
+so that Λ ≃ R. Consider a Λ–metric space E . Then the relation ∼ defined by
+x ∼ y ⇔ d(x, y) ∈ Λ0 is an equivalence relation on E , and the Λ–metric on E
+provides a natural Λ–metric on E/ ∼. We say that E = E/ ∼ is obtained from
+E by killing infinitesimals. Clearly, if T is a Λ–tree, then T is a Λ–tree. Thus,
+killing infinitesimals in an Rn –tree T provides an R–tree T . By extension, we
+will often denote R–trees with a bar.
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                             1435
+
+
+Extension of scalars Consider a Λ–tree T , and an embedding Λ ֒→ Λ̃ (for
+example, one may think of Z ⊂ R). Then T may be viewed as a Λ̃–metric
+space, but it is not a Λ̃–tree if Λ is not convex in Λ̃: as a matter of fact, T is
+not geodesic as a Λ̃–metric space (there are holes in the geodesics). However,
+there is a natural way to fill the holes:
+
+Proposition 2.3 (Extension of scalars, see [11, Theorem 4.7, p.75]) There
+exists a Λ̃–tree T̃ and an isometric embedding T ֒→ T̃ which is canonical in the
+following sense: if T ′ is another Λ̃–tree with an isometric embedding T ֒→ T ′ ,
+then there is a unique Λ̃–isometric embedding T̃ → T ′ commuting with the
+embeddings of T in T̃ and T ′ .
+
+For example, take T to be the Z–tree corresponding corresponding to the set
+of vertices of a simplicial tree S . Then the embedding Z ⊂ R gives an R–tree
+T̃ which is isometric to the geometric realization of S .
+
+Remark The proposition also holds if one only assumes that T is 0–hyperbolic.
+In this case, taking Λ̃ = Λ, one gets a natural Λ–tree containing T .
+
+
+2.4    Subtrees
+
+A subtree Y of a Λ–tree T is a convex subset of T , i.e. such that for all x, y ∈ Y ,
+[x, y] ⊂ Y . A subtree is non-degenerate if it contains at least two points. One
+could think of endowing Λ, and T , with the order topology. However, this is
+usually not adapted. For instance: Rn is not connected with respect to this
+topology for n > 1. This is why we need a special definition of a closed subtree.
+The definition coincides with the topological definition for R–trees.
+
+Definition 2.4 (Closed subtree) A subtree Y ⊂ T is a closed subtree if the
+intersection of Y with a segment of T is either empty or a segment of T .
+
+There is a natural projection on a closed subtree. Consider a base point y0 ∈ Y .
+Then for any point x ∈ T , there is a unique point p ∈ Y such that [y0 , x] ∩ Y =
+[y0 , p]. One easily checks that p does not depend on the choice of the base point
+y0 ([p, x] is the bridge between x and Y , see [11]). The point p is called the
+projection of x on Y .
+
+Remark The existence of a projection is actually equivalent to the fact that
+the subtree Y is closed. Be aware that a non-trivial proper convex subgroup of
+Λ is never closed in Λ. In particular, the intersection of infinitely many closed
+subtrees may fail to be closed.
+
+
+Geometry & Topology, Volume 8 (2004)
+1436                                                                 Vincent Guirardel
+
+
+A linear subtree of T is a subtree in which any three points are contained in a
+segment. It is an easy exercise to prove that a maximal linear subtree of T is
+closed in T . Finally, any linear subtree L ⊂ T is isometric to a convex subset
+of Λ and any two isometries L → Λ differ by an isometry of Λ.
+
+
+2.5    Isometries
+
+An isometry g of a Λ–tree T can be of one of the following exclusive types:
+   • elliptic: g has a fix point in T
+   • inversion: g has no fix point, but g2 does
+   • hyperbolic: otherwise.
+In all cases, the set Ag = {x ∈ T | [g −1 x, x] ∩ [x, g.x] = {x} is called the
+characteristic set of g .
+If g is elliptic, Ag is the set of fix points of g which is a closed subtree of T .
+Moreover, for all x ∈ T , the midpoint of [x, g.x] exists and lies in Ag .
+If g is an inversion, then Ag = ∅. Actually, for any x ∈ T , d(x, g.x) ∈          / 2Λ
+so [x, g.x] has no midpoint in T . In particular, if 2Λ = Λ (which occurs for
+instance if Λ = Rn ), inversions don’t exist. Moreover, one can perform the
+analog of barycentric subdivision for simplicial trees to get rid of inversions:
+consider Λ̃ = 12 Λ, and let T̃ be the Λ̃–tree obtained by the extension of scalars
+Λ ⊂ Λ̃. Then the natural extension of g to T̃ fixes a unique point in T̃ (in
+particular, g is elliptic in T̃ ). If g is elliptic or is an inversion, its translation
+length lT (g) is defined to be 0.
+If g is hyperbolic, then the set Ag is non-empty, and is a maximal linear subtree
+of T , and is thus closed in T . It is called the axis of g . Moreover, the restriction
+of g to Ag is conjugate to the action of a translation τ : a 7→ a + lT (g) on a
+τ –invariant convex subset of Λ for some positive lT (g) ∈ Λ. The translation
+length of g is the element lT (g) ∈ Λ>0 . If p is the projection of x on Ag , then
+for k 6= 0, d(x, g k .x) = 2d(x, p) + |k|lT (g).
+Note that it may happen that Ag is not isometric to Λ. For instance, if Λ = R2 ,
+the axis of an element g with infinitesimal translation length can be of the form
+I × R where I is any non-empty interval in R which can be open, semi-open
+or closed.
+If g is hyperbolic, then for all x ∈ T , the projection of x on Ag is the projection
+of x on [g−1 .x, g.x]. In particular, if the midpoint of [x, g.x] exists, then it lies
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                              1437
+
+
+in Ag . It also follows that if g is hyperbolic and if g −1 .x, x, g.x are aligned (in
+any order) then they lie on the axis of g .
+If an abelian group A acts by isometries on Λ–tree T and contains a hyperbolic
+element g , then all the hyperbolic elements of A have the same axis l, A
+contains no inversion, and all elliptic elements fix l. We say that l is the axis
+of the abelian group A. The axis of A can be characterized as the only closed
+A–invariant linear subtree of T , or as the only maximal A–invariant linear
+subtree of T .
+Finally if a group Γ has a non-abelian action without inversion on a Λ–tree
+T , then there is a unique minimal non-empty Γ–invariant subtree Tmin (Γ) [10,
+Theorem 3.4.1]. This applies if Γ is non-abelian and acts freely on T . Note
+however that Tmin (Γ) is not a closed subtree of T in general (even if Λ = R); if
+Λ is not archimedean, Tmin (Γ) may also fail to coincide with the union of the
+translation axes of Γ; finally, there is no unique such minimal subtree for the
+action of Γ = {0} × Z on R2 .
+
+
+2.6    Elementary properties of groups acting freely on Λ–trees
+
+We now recall some elementary properties of groups acting freely (without
+inversion) on Λ–trees. They are proved for instance in [11].
+
+Lemma 2.5 Let Γ be a group acting freely without inversion on a Λ–tree.
+Then
+ (1) Γ is torsion free;
+ (2) two elements g, h ∈ Γ commute if and only if they have the same axis.
+     If they don’t commute, the intersection of their axes is either empty or a
+     segment ([11], proof of Lemma 5.1.2 p.218 and Rk p.111);
+ (3) maximal abelian subgroups of Γ are malnormal (property CSA) and Γ
+     is commutative transitive: the relation of commutation on Γ \ {1} is
+     transitive [11, Lemma 5.1.2 p.218].
+
+Remark Property CSA implies that Γ is commutative transitive.
+A result known as Harrison Theorem, proved by Harrison for R–trees and by
+Chiswell and Urbanski–Zamboni for general Λ–trees, says that a 2–generated
+group acting freely without inversion on a Λ–tree is either a free group or a free
+abelian group. (see [9, 31, 18]). We won’t use this result in this paper.
+
+
+Geometry & Topology, Volume 8 (2004)
+1438                                                                  Vincent Guirardel
+
+
+3       A limit group acts freely on an Rn –tree
+
+The goal of this section is to prove that limit groups act freely on Rn –trees.
+This is an adaptation of an argument by Remeslennikov concerning fully resid-
+ually free groups ([27], see also [11, Theorem 5.5.10 p.246]). Note that it is
+claimed in [27] that finitely generated fully residually free groups act freely on
+a Λ–tree where Λ is a finitely generated ordered abelian group. However, the
+proof is not completely correct since it relies on a misquoted result about valu-
+ations (Theorem 3 in [27]) to which there are known counterexamples (for any
+subgroup Λ ⊂ Q, there is valuation on Q(X, Y ), extending the trivial valuation
+on Q, whose value group is Λ [32, ch.VI, §15, ex.3,4] or [22, Theorem 1.1]).
+Nevertheless, Remeslennikov’s argument proves the following weaker statement:
+a finitely generated fully residually free group acts freely on a Λ–tree where Λ
+has finite Q–rank, i.e. Λ ⊗ Q is finite dimensional over Q.
+The fact that a limit group acts freely on an Rn tree will be deduced from a
+more general result about group acting freely on Bruhat–Tits trees. But we
+first state a simpler result in this spirit (see also [15, 14]). Remember that Gn
+denotes the space of groups marked by a generating family of cardinality n.
+
+Proposition 3.1 (Acting freely on Λ–trees is closed) Let Tn ⊂ Gn be the
+set of marked groups having a free action without inversion on some Λ–tree (Λ
+may vary with the group).
+Then Tn is closed in Gn .
+
+We won’t give the proof of this result since this proposition is not sufficient
+for us as it does not give any control over Λ. This is why we rather prove the
+following more technical result.1
+For general information of the action of SL2 (K) on its Bruhat–Tits Λ–tree
+BTK where K a field, and v : K → Λ ∪ {∞} is a valuation, see for instance
+[11, §4.3, p.144]. Essentially, we will only use the existence of the Bruhat–Tits
+Λ–tree and the formula for the translation length of a matrix m ∈ SL2 (K):
+lBTK (m) = max{−2v(Tr(m)), 0}. Also note that the action of SL2 (K) on
+its Bruhat–Tits tree has no inversion (however, there may be inversions in
+GL2 (K)).
+    1
+    The proof is actually very similar to the proof of the more technical result: instead
+of taking ultraproducts of valuated fields, take an ultraproduct of trees to get a free
+action without inversion on a Λ∗ –tree (see also [11, p.239] where the behavior Λ–trees
+under ultrapowers is studied in terms of Lyndon length functions).
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                             1439
+
+
+Definition 3.2 (Action on a Bruhat–Tits tree) By an action of Γ on a
+Bruhat–Tits tree, we mean an action of Γ on the Bruhat–Tits Λ–tree for
+SL2 (K) induced by a morphism j : Γ → SL2 (K) where K is a valuated field
+with values in Λ.
+
+Theorem 3.3 (Acting freely on Bruhat–Tits trees is closed, see also [27])
+Let BT ⊂ Gn be the set of marked groups (Γ, S) having a free action on a
+Bruhat–Tits tree.
+Then BT is closed in Gn , and BT consists in groups acting freely on Λ–trees
+where Λ⊗Q has dimension at most 3n+1 over Q. In particular, BT consists in
+groups acting freely on R3n+1 –trees where R3n+1 has the lexicographic ordering.
+
+Corollary 3.4 [27] A limit group has a free action on an Rn –tree.
+
+Proof of the corollary This follows from the theorem above since a free
+group acts freely on a Bruhat–Tits tree.
+
+Proof of the Theorem We first prove that BT is closed. Let (Γi , Si ) ∈ BT
+be a sequence of marked groups converging to (Γ, S). For each index i, consider
+a field Ki and a valuation vi : Ki → Λi ∪ {∞} and an embedding ji : Γi →
+SL2 (Ki ) such that ji (Γi ) acts freely without inversions on the corresponding
+Bruhat–Tits tree BTi .
+Consider ω an ultrafilter on N, i.e. a finitely additive measure of total mass 1
+(a mean), defined on all subsets of N, and with values in {0, 1}, and assume
+that this ultrafilter is non-principal, i.e. that the mass of finite subsets is zero.
+Say that a property P (k) depending on k ∈ N is true ω –almost everywhere if
+ω({k ∈ N|P (k)}) = 1. Note that a property which is not true almost everywhere
+is false almost everywhere. Given    a sequence of sets (Ei )i∈N , the ultraproduct
+  ∗
+                              Q
+E of (Ei ) isQ the quotient ( i∈N Ei )/∼ω where ∼ω is the natural equivalence
+relation on i∈N Ei defined by equality ω –almost everywhere.
+Consider K ∗ the ultraproduct of the fields Ki , Γ∗ the ultraproduct of the
+groups Γi , and Λ∗ the ultraproduct of the totally ordered abelian groups Λi .
+As a warmup, we prove the easy fact that the natural ring structure on K ∗
+makes it a field: if k∗ = (ki )i∈N 6= 0 in K ∗ , then for almost all i ∈ N, ki 6= 0,
+and 1/ki is defined for almost every index i, and defines an inverse (1/ki )i∈N
+for k∗ in K ∗ .
+Similarly, Γ∗ is a group, and Λ∗ a totally ordered abelian group (for the total
+order (xi )i∈N ≤ (yi )i∈N if and only if xi ≤ yi almost everywhere). Now consider
+
+
+Geometry & Topology, Volume 8 (2004)
+1440                                                                     Vincent Guirardel
+
+
+the map v ∗ : K ∗ → Λ∗ ∪ ∞ defined by v ∗ ((ki )i∈N ) = (vi (ki ))i∈N , and the map
+j ∗ : Γ∗ → SL2 (K ∗ ) defined by j ∗ ((gi )i∈N ) = (ji (gi ))i∈N . Then v ∗ is a valuation
+on K ∗ , and j ∗ a monomorphism of groups. We denote by BT ∗ the Bruhat–Tits
+tree of SL2 (K ∗ ).(2 )
+Now, given a field K with a valuation v : K → Λ ∪ {∞}, a subgroup H ⊂
+SL2 (K) acts freely without inversions on the corresponding Bruhat–Tits tree
+BT if and only if the translation length of any element h ∈ H \ {1} is non-zero.
+But the translation length of a matrix m ∈ SL2 (K) can be computed in terms
+of the valuation of its trace by the formula lBT (m) = max{0, −2v(Tr(m))},
+so the freeness (without inversion) of the action translates into v(Tr(h)) < 0
+for all h ∈ H \ {1} [11, Lemma 4.3.5 p.148]. Therefore, since for all i and all
+gi ∈ Γi \ {1}, Tr(ji (gi )) has negative valuation, all the elements g∗ ∈ Γ∗ \ {1}
+satisfy v ∗ (Tr(j ∗ (g∗ ))) < 0, which means that Γ∗ acts freely without inversion
+on BT ∗ .
+Finally, there remains to check that the marked group (Γ, S) embeds into
+Γ∗ (see for instance [7]). We use the notation S = (s1 , . . . , sn ) and Si =
+   (i)         (i)
+(s1 , . . . , sn ). Consider the family S ∗ = (s∗1 , . . . , s∗n ) of elements of Γ∗ de-
+                    (i)                    (i)
+fined by s∗1 = (s1 )i∈N , . . . , s∗n = (sn )i∈N . The definition of the convergence of
+marked groups says that if an S –word represents the trivial element (resp. a
+non-trivial element) in Γ, then for i sufficiently large, the corresponding Si –
+word is trivial (resp. non-trivial) in Γi . Since ω is non-principal, this implies
+that the corresponding S ∗ –word is trivial (resp. non-trivial). This means that
+the map sending (s1 , . . . , sn ) to (s∗1 , . . . , s∗n ) extends to an isomorphism between
+Γ and hS ∗ i ⊂ Γ∗ . Therefore, (Γ, S) ∈ BT , so BT is closed.
+We now prove the fact that any group (Γ, S) in BT acts freely on a Λ–tree
+where Λ ⊗ Q has dimension at most 3n + 1. So consider an embedding j : Γ →
+SL2 (K) where K has a valuation v : K → Λ∪{∞} such that the induced action
+of Γ on the Bruhat–Tits tree for SL2 (K) is free without inversion. Consider the
+subfield L ⊂ K generated by the 4n coefficient of the matrices j(s1 ), . . . , j(sn ).
+Since the matrices have determinant 1, L can be written as L = k0 (x1 , . . . , x3n )
+where k0 is the prime subfield of K . Let ΛL = v(L \ {0}) be the value group of
+L. Since Γ embeds in SL2 (L), Γ acts freely on the corresponding Bruhat–Tits
+ΛL –tree. We now quote a result about valuations which implies that ΛL has
+finite Q–rank.
+
+Theorem 3.5 [5, Corollary 1 in VI.10.3] Let L = L0 (x1 , . . . , xp ) be a finitely
+generated extension of L0 , and v : L → Λ ∪ {∞} a valuation. Denote by
+   2
+       It may also be checked that BT ∗ is actually the ultraproduct of the Λi –trees BTi .
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                          1441
+
+
+ΛL = v(L \ {0}) (resp. Λ0 = v(L0 \ {0})) the corresponding value group. Then
+the Q–vector space (ΛL ⊗ Q)/(Λ0 ⊗ Q) has dimension at most p.
+
+Taking L0 = k0 , one gets that ΛL has Q–rank at most 3n + 1 since Λ0 is either
+trivial or isomorphic to Z.
+Using the extension of scalars (base change functor), there remains to prove
+that if a totally ordered group Λ has finite Q–rank, then it is isomorphic to a
+subgroup of Rn .
+
+Lemma 3.6 Consider Λ a totally ordered group of Q–rank p. Then Λ is
+isomorphic (as an ordered group) to a subgroup of Rp with its lexicographic
+ordering.
+
+Remark However, Λ⊗Q is usually not isomorphic to Qp with its lexicographic
+ordering as shows an embedding of Q2 into R.
+
+Proof We first check that the height of Λ is at most p (see [5, prop 3 in
+VI.10.2]). First, Λ embeds into Λ ⊗ Q, so we may replace Λ by Λ ⊗ Q and
+assume that Λ is a totally ordered Q–vector space of dimension p. Any convex
+subgroup Λ0 ⊂ Λ is a Q vector subspace in Λ since if 0 ≤ x ∈ Λ0 , for all
+k ∈ N \ {0}, k1 x ∈ Λ0 since 0 ≤ k1 x ≤ x. Now the height of Λ is at most p since
+a chain of convex subgroups Λ0 $ Λ1 $ · · · $ Λi is a chain of vector subspaces.
+We now prove by induction that a totally ordered group Λ of finite height q
+embeds as an ordered subgroup of Rq with its lexicographic ordering. Once
+again, one can replace Λ by Λ ⊗ Q without loss of generality. We argue by
+induction on the height. If Λ has height 1, i.e. if Λ is archimedean, then Λ
+embeds in R (see for instance [11, Theorem 1.1.2]). Now consider Λ0 ⊂ Λ the
+maximal proper convex subgroup of Λ, and let Λ = Λ/Λ0 . Since Λ, Λ0 and Λ
+are Q vector spaces, one has algebraically Λ = Λ ⊕ Λ0 .
+The fact that Λ0 is convex in Λ implies that the ordering on Λ corresponds to
+the lexicographic ordering on Λ ⊕ Λ0 [5, lemma 2 in VI.10.2]. Indeed, one first
+easily checks that any section j : Λ → Λ is increasing. Now let’s prove that the
+isomorphism f : Λ × Λ0 → Λ defined by f (x, x0 ) = j(x) + x0 is increasing for
+the lexicographic ordering on Λ × Λ0 . So assume that (x, x0 ) ≥ 0. If x = 0,
+then f (x, x0 ) = x0 ≥ 0. If x > 0, then f (x, x0 ) = j(x)+x0 > 0 since otherwise,
+one would have 0 ≤ j(x) ≤ −x0 , hence j(x) ∈ Λ0 by convexity, a contradiction.
+Finally, by induction hypothesis, Λ0 embeds as an ordered subgroup of Rq−1
+and Λ embeds as an ordered subgroup of R, so Λ embeds as an ordered sub-
+group of Rq .
+
+
+Geometry & Topology, Volume 8 (2004)
+1442                                                                 Vincent Guirardel
+
+
+4      Gluing Λ–trees
+
+The goal of this section is to define graph of actions on Λ–trees which show
+how to glue actions on Λ–trees along closed subtrees to get another action on
+a Λ–tree, and to give a criterion for the resulting action to be free. We will
+finally study more specifically gluings of R–trees along points, and show that a
+decomposition of an R–tree T into a graph of actions on R–trees above points
+correspond to a transverse covering of T by closed subtrees.
+
+
+4.1    Gluing Λ–trees along points
+
+Here, we recall that one can glue Λ trees together along a point to get a new
+Λ–tree (see [11, Lemma 2.1.13]).
+
+Lemma 4.1 [11, Lemma 2.1.13] Let (Y, d) be a Λ–tree, and (Yi , di )i∈I be
+a family of Λ–trees. Assume that     S Yi ∩ Y = {xi } and that for all i, j ∈ I ,
+Yi ∩ Yj = {xi } ∩ {xj }. Let X = ( i∈I Yi ) ∪ Y and let d : X × X → Λ defined
+by: d|Y ×Y = d; d|Yi ×Yi = di ; for x ∈ Yi , y ∈ Y d(x, y) = d(x, xi ) + d(xi , y); for
+x ∈ Yi , y ∈ Yj d(x, y) = d(x, xi ) + d(xi , xj ) + d(xj , y).
+
+Then (X, d) is a Λ–tree.
+
+
+4.2    Gluing two trees along a closed subtree
+
+The following gluing construction will be used for gluing trees along maximal
+linear subtrees.
+
+Assume that we are given two Λ–trees (Y1 , d1 ), (Y2 , d2 ), two closed subtrees
+δ1 ⊂ Y1 and δ2 ⊂ Y2 , and an isometric map ϕ : λ1 ։ λ2 . By definition of a
+closed subtree, we have two orthogonal projections pλi : Yi → λi for i ∈ {1, 2}.
+
+Let X = Y1 ⊔ Y2 , and let ∼ be the equivalence relation on X generated by
+x ∼ ϕ(x) for all x ∈ λ1 . The set (Y1 ∪ϕ Y2 ) := X/ ∼ is now endowed with the
+following metric which extends di on Yi : if x ∈ Y1 and y ∈ Y2 , we set
+
+        d(x, y) := d1 (x, pλ1 (x)) + d2 (ϕ(pλ1 (x)), pλ2 (y)) + d2 (y, pλ2 (y))    (1)
+                 =    d1 (x, pλ1 (x)) + d2 (ϕ(pλ1 (x)), y)
+                 =    min{d1 (x, x1 ) + d2 (ϕ(x1 ), y) | x1 ∈ λ1 }                 (2)
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                                    1443
+
+
+To prove the last equality, introduce z1 = pλ1 (x); then for any x1 ∈ λ1 ,
+      d1 (x, x1 ) + d2 (ϕ(x1 ), y) = d1 (x, z1 ) + d1 (z1 , x1 ) + d2 (ϕ(x1 ), y)
+                                   = d1 (x, z1 ) + d1 (ϕ(z1 ), ϕ(x1 )) + d2 (ϕ(x1 ), y)
+                                   ≥ d1 (x, z1 ) + d1 (ϕ(z1 ), y)
+                                   = d(x, y)
+
+Lemma 4.2 With the definitions above, (Y1 ∪ϕ Y2 , d) is a Λ–tree. Moreover,
+any closed subtree of Yi is closed in (Y1 ∪ϕ Y2 , d).
+
+Proof Let T = Y1 ∪ϕ Y2 . Then T can be viewed as the tree L = λ1 = λ2
+on which are glued some subtrees of Y1 , Y2 at some points. More precisely, for
+x ∈ λ1 , let Ax = (pλ1 )−1 (x), and similarly, for x ∈ λ2 , let Bx = (pλ2 )−1 (x).
+Then, because of the formula (1) for the metric, T is isometric to the Λ–tree
+obtained by gluing the trees Ax and Bx on L along the point x as in lemma
+4.1. Therefore, by lemma 4.1, (T, d) is an Λ–tree.
+Now let Z ⊂ Y1 be a closed subtree. Let’s prove that Z is closed in T .
+Consider z ∈ Z , y ∈ T , and let’s prove that there exists z0 ∈ Z such that
+[z, y] ∩ Z = [z, z0 ]. If y ∈ Y1 , then one can take z0 to be the projection of y on
+Z by hypothesis. If y ∈ Y2 , let y0 be the projection of y on λ2 , and z0 be the
+projection of ϕ−1 (y0 ) on Z . Of course, [y, z0 ] ⊂ Z . Now [y0 , y] \ {y0 } does not
+meet Z since it is contained in T \ Y1 , and neither does [z0 , y0 ] \ {z0 }. Thus
+[z, y] ∩ Z = [z, z0 ] and Z is closed in T .
+
+
+4.3     Equivariant gluing: graphs of actions on Λ–trees
+
+The combinatorics of the gluing will be given by a simplicial tree S , endowed
+with an action without inversion of a group Γ. We denote by V (S) and E(S)
+the set of vertices and (oriented) edges of S , by t(e) and o(e) the origin and
+terminus of an (oriented) edge e, and by e the edge with opposite orientation
+as e.
+A graph of actions on trees is usually defined as a graph of groups with some
+additional data like vertex trees. Here, we rather use an equivariant definition
+at the level of the Bass–Serre tree.
+
+Definition 4.3 (Graph of actions on Λ–trees) Given a group Γ, a Γ–equiv-
+aiant graph of actions on Λ–trees is a triple (S, (Yv )v∈V (S) , (ϕe )e∈E(S) ) where
+   • S is a simplicial tree,
+
+
+Geometry & Topology, Volume 8 (2004)
+1444                                                                      Vincent Guirardel
+
+
+   • for each vertex v ∈ V (S), Yv is a Λ–tree (called vertex tree),
+   • for each edge e ∈ E(S), ϕe : λe ։ λe is an isometry between closed
+     subtrees λe ⊂ Yo(e) and λe ⊂ Yt(e) such that ϕe = ϕ−1    e . We call the
+     subtrees λe the edge subtrees.
+This data is assumed to be Γ–equivariant in the following sense:
+   • Γ acts on S without inversion,
+   • Γ acts on X = ⊔v∈V (S) Yv so that the restriction of each element of Γ to
+     a vertex tree is an isometry,
+   • the natural projection π : X → V (S) (sending a point in Yv to v ) is
+     equivariant
+   • the family of gluing maps is equivariant: for all g ∈ Γ, λg.e = g.λe , and
+     ϕg.e = g ◦ ϕe ◦ g−1 .
+
+We say that such a graph of actions is over its edge subtrees.
+
+
+The Λ–tree dual to a graph of actions Given G a Γ–equivariant graph
+of actions on Λ–trees, we consider the smallest equivalence relation ∼ on X =
+⊔v∈V (S) Yv such that for all edge e ∈ E(S) and x ∈ λe , x ∼ ϕe (x). The Λ–tree
+dual to G is the quotient space TG = X/∼. To define the metric on TG , one
+can alternatively say that TG is obtained by gluing successively the vertex trees
+along the edge trees according to lemma 4.2 in previous section. Formula (2) in
+previous section shows that the metric does not depend on the order in which
+the gluing are performed. Indeed, an induction shows that the distance between
+x ∈ Yu and y ∈ Yv can be computed as follows: let e1 , . . . , en the edges of the
+path from u to v in S , and v0 = u, v1 , . . . , vn = v the corresponding vertices
+then
+       d(x, y) = min{dYu (x, x1 ) + dYv1 (ϕe1 (x1 ), x2 ) + · · · + dYvn (ϕen (xn ), y)
+where the minimum is taken over all xi ∈ λei . By finitely many applications of
+lemma 4.2, one gets that the gluings corresponding to finite subtrees of S are
+Λ–trees. Now apply the fact that an increasing union of Λ–trees is a Λ–tree
+to get that T is a Λ–tree (see [11, Lemma 2.1.14]). We thus get the following
+lemma:
+
+Definition 4.4 (Tree dual to a graph of actions on Λ–trees) Consider G =
+(S, (Yv ), (ϕe )) a Γ–equivariant graph of actions on Λ–trees. The dual tree TG
+is the set X/∼ endowed with the metric d defined above. It is a Λ–tree on
+which Γ acts by isometries.
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                           1445
+
+
+We say that a Λ–tree T splits as a graph of actions G if there is an equivariant
+isometry between T and TG .
+
+Remark Consider an increasing union of trees Ti such that Y ⊂ T0 is a closed
+subtree of each Ti . Then Y is closed in ∪i Ti . Therefore, using lemma 4.2, one
+gets that a closed subtree of a vertex tree is closed in TG . In particular, vertex
+trees themselves are closed in TG .
+
+
+4.4    Gluing free actions into free actions
+
+We next give a general criterion saying that an action obtained by gluing is free.
+It is stated in terms of the equivalence relation ∼ on X = ⊔v∈V (S) Yv defined
+above. Each equivalence class has a natural structure of a connected graph:
+elements of the equivalence class are vertices, put an oriented edge between two
+vertices x and y if y = ϕe (x) for some edge e ∈ E(S). Since this graph embeds
+into S via the map π : X → S , so this graph is a simplicial tree. This graph
+structure defines a natural combinatorial metric on each equivalence class.
+
+Lemma 4.5 (Criterion for a graph of free actions to be free) Consider G =
+(S, Yv , ϕe ) a Γ–equivariant graph of actions on Λ–trees. For each vertex v ∈
+V (S), denote by Γv its stabilizer, and assume that the action of Γv on Yv is
+free. Assume furthermore that each equivalence class of ∼ has finite diameter
+(for the combinatorial metric).
+Then the action of Γ on TG is free.
+
+Remark If the equivalence classes are allowed to have infinite diameter, then
+the resulting action may fail to be free. The simplest example is as follows: take
+S a simplicial tree with a free action of a non-trivial free group Γ, for instance
+S is a line and Γ = Z. Define each vertex tree Yv as a point (having a free
+action of the trivial group), and ϕe the only map. Then TG is a point.
+One can cook up a less trivial example where Γ = G × F where G has a free
+action on a Λ–tree Y , and F is a free group acting freely on a simplicial tree
+S . Γ acts on S with kernel G. Now take Yv = Y and ϕe = Id. Then TG = Y ,
+and F is in the kernel of the action of Γ.
+
+Proof If an element g ∈ Γ fixes a point in TG , then g globally preserves
+the corresponding equivalence class in X . Since this equivalence class has the
+structure of a tree with finite diameter, g must fix a vertex in this equivalence
+class (there are no inversions because the action on S has no inversion). Hence
+g fixes a point of X , which means that g fixes a point in a vertex tree.
+
+
+Geometry & Topology, Volume 8 (2004)
+1446                                                             Vincent Guirardel
+
+
+4.5    Transverse coverings and graph of actions on R–trees
+
+In this section, we restrict to the case of a graph of actions on R–trees along
+points. We prove that an action on an R–tree splits as such a graph of actions
+if and only if it has a certain kind of covering by subtrees. The argument could
+in fact be generalised to graph of actions on Λ–trees along points but we won’t
+need it.
+
+Definition 4.6 (Transverse covering) Let T be an R–tree, and (Yu )u∈U be
+a family of non-degenerate closed subtrees of T . We say that (Yu )u∈U is a
+transverse covering of T if
+• transverse intersection: whenever Yu ∩Yv contains more than one point,
+    Yu = Yv ;
+• finiteness condition: every arc of T is covered by finitely many Yu ’s.
+
+Remark When T is endowed with an action of a group Γ, we always require
+that the family (Yu ) is Γ–invariant.
+
+Lemma 4.7 Consider an action of a group Γ on an R–tree T . If T splits
+as a graph of actions on R–trees along points G , then the image in T of non-
+degenerate vertex trees of G gives a transverse covering of T .
+Conversely, if T has a Γ–invariant transverse covering, then there is a natural
+graph of actions G whose non-degenerate vertex trees correspond to the subtrees
+of the transverse covering and such that T ≃ TG .
+
+Proof We first check that the family of vertex trees of a graph of actions
+G = (S, (Yv ), (ϕe )) forms a transverse covering of TG . We have already noted
+that vertex trees are closed in TG . The transverse intersection condition follows
+from the fact that edge trees are points. To prove the finiteness condition,
+consider x ∈ Yu and y ∈ Yv and note that [x, y] is covered by the trees Yw for
+w ∈ [u, v].
+To prove the converse, we need to define the simplicial tree S encoding the
+combinatorics of the gluing.
+
+Definition 4.8 (Skeleton of a transverse covering) Consider a transverse cov-
+ering (Yu )u∈U of T . The skeleton of this transverse covering is the bipartite
+simplicial tree S defined as follows:
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                                     1447
+
+
+   • V (S) = V0 (S) ∪ V1 (S) where V1 (S) = {Yu | u ∈ U }, and V0 (S) is the set
+     of points of T which belong to a least two distinct trees Yu 6= Yv
+   • there is an edge between x ∈ V0 (S) and Y ∈ V1 (S) if and only if x ∈ Y .
+
+The connectedness of S follows from the finiteness condition (using the fact
+that the subtrees Yu are closed in T ). Now let’s prove the simple connect-
+edness. Consider a path p = x0 , Y0 , x1 , . . . , xn−1 , Yn−1 , xn in S , and let p̃ =
+[x0 , x1 ].[x1 , x2 ] . . . [xn−1 , xn ] be the corresponding path in T . If p does not back-
+track, then Yi ∩ Yi+1 = {xi+1 } so p̃ does not backtrack. Therefore, x0 6= xn
+and p is not a closed path.
+Now there is a natural graph of actions G corresponding to S : for x ∈ V0 (S),
+the corresponding vertex tree is the point {x}, for Y ∈ V1 (S), the corresponding
+vertex tree is Y , and the gluing maps ϕe : {x} → Y are given by inclusion.
+Finally, consider the natural map Ψ : TG → T given by the inclusion of vertex
+trees. This application is an isometry in restriction to vertex trees, and if [a, b],
+[a, c] are two arcs in TG lying in two distinct vertex trees Y1 , Y2 of TG , then
+Ψ([a, b]) ∩ Ψ([a, c]) ⊂ Ψ(Y1 ) ∩ Ψ(Y2 ) is reduced to one point. This implies that
+Ψ is an isometry in restriction to each segment, and hence an isometry.
+
+Remark We will often prefer using a transverse covering (or the graph of
+actions corresponding to such a covering) to a general graph of actions be-
+cause of the following acylindricity property of the dual graph of actions G =
+(S, (Yv )v∈V (S) , (ϕe )e∈E(S) ): if two points x ∈ Yv , and x′ ∈ Yv′ have the same
+image in TG , then v, v ′ are at distance at most 2 in S .
+
+It is also worth noticing the following simple minimality result:
+
+Lemma 4.9 Consider an R–tree T endowed with a minimal action of Γ.
+Consider (Yu )u∈U an equivariant transverse covering of T , and let S be the
+skeleton of the transverse covering.
+Then the action of Γ on S is minimal.
+
+Proof Assume that S ′ ⊂ S is an invariant subtree. Let T ′ ⊂ T be the
+union of vertex trees of S ′ . One easily checks that T ′ is connected using the
+connectedness of S ′ . Thus, by minimality of T , one has T ′ = T . Using the
+acylindricity remark above, S is contained in the 2–neighbourhood of S ′ . In
+particular, if S ′ 6= S , then S contains a terminal vertex v . By definition,
+every vertex in V0 (S) has at least two neighbours, so v ∈ V1 (S). We thus
+get a contradiction since Yv is contained in T ′ , contradicting the transverse
+intersection property of the transverse covering.
+
+
+Geometry & Topology, Volume 8 (2004)
+1448                                                              Vincent Guirardel
+
+
+5      The action modulo infinitesimals, abelian dévissage
+
+In this section, we prove a weaker version of the cyclic dévissage theorem,
+where (maybe non-finitely generated) abelian groups may appear in place of
+cyclic groups (see Proposition 5.5).
+Start with a finitely generated group Γ acting freely on an Rn –tree T with
+n ≥ 2, and assume that Γ is freely indecomposable. Denote by Rn−1 the
+maximal proper convex subgroup of Rn , and consider elements of Rn−1 as
+infinitesimals. Now consider the R–tree T obtained from T by identifying
+points at infinitesimal distance (this is often called the base change functor in
+the literature, see for instance [8], [19], [1], see also [11, Theorem 2.4.7]). Note
+that the canonical projection f : T → T preserves alignment, and that the
+preimage of a convex set is convex. The preimage in T of a point of T is
+thus an infinitesimal subtree of T . Of course, the action of Γ on T induces an
+isometric action of Γ on T .
+However, this action generally fails to be free. It may even happen that Γ fixes
+a point x in T , but in this case, the dévissage theorem holds trivially since Γ
+acts freely on the Rn−1 –tree f −1 (x). Therefore, we assume that Γ acts non-
+trivially on T , and, up to taking a subtree of T and its preimage in T , we can
+assume that the action on T is minimal, i.e. that there is no non-empty proper
+invariant subtree.
+We first analyse how far from free this action can be.
+
+Fact 5.1 If a group Γ acts freely on an Rn –tree T , then the action of Γ on
+T satisfies the following:
+    • tripod fixators are trivial (a tripod is the convex hull of 3 points which
+      are not aligned)
+    • for every pair of commuting, elliptic elements g, h ∈ Γ \ {1}, FixT g =
+      FixT h; in particular, FixT g = FixT gk for k 6= 0;
+    • arc fixators are abelian; the global stabilizer of a line is maximal abelian
+      if it is non-trivial;
+    • the action is superstable: for every non-degenerate arc I ⊂ T with non-
+      trivial fixator, for every non degenerate sub-arc J ⊂ I , one has Stab I =
+      Stab J .
+
+Remark This fact does not use the fact that we have an Rn –tree rather than
+a more general Λ–tree. The statement holds for every Λ–tree T with a free
+action of Γ without inversion and every Λ/Λ0 –tree T obtained from T by
+killing a convex subgroup Λ0 of infinitesimals.
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                           1449
+
+
+Proof of the fact We start with the proof of the two first items. Consider
+g ∈ Γ \ {1}, and consider FixT g its set of fix points in T . The preimage of
+FixT g is the set of points in T moved by an infinitesimal amount. This set
+is either empty if lT (g) is not infinitesimal, or, it is the set of points whose
+distance to the axis Ag of g is infinitesimal. Therefore, if FixT g is not empty,
+then it is the image of Ag in T which contains no tripod since the quotient
+map preserves alignment. Moreover, for any element h ∈ Γ commuting with g ,
+h globally preserves the axis of g , so Ah = Ag . Therefore, if h is elliptic in T
+then it has the same set of fixed points as g .
+Now we prove superstability and that arc fixators are abelian. Consider some
+non-degenerate arcs J ⊂ I ⊂ T , two elements g, h ∈ Γ \ {1} fixing pointwise
+I and J respectively. We want to prove that h fixes I and commutes with g .
+By hypothesis, the translation length of g and h are infinitesimal in T , their
+axes Ag and Ah must intersect in a subset of non-infinitesimal diameter.
+Now since the diameter of Ag ∩Ah is much (infinitely) larger than lT (g)+lT (h),
+ghg −1 h−1 is elliptic in T (see for instance [11, Rk. p.111]). Since the action is
+free, this means that g and h commute and in particular, the fixator of I is
+abelian. This implies that h(Ag ) = Ag , thus Ah ⊃ Ag since Ah is the maximal
+h–invariant linear subtree of T , and Ah = Ag by symmetry of the argument.
+Therefore, FixT h = FixT g and in particular, h fixes I .
+Let’s prove that the global stabilizer Γl of a line l ⊂ T is abelian. Since
+Fix g = Fix g2 for all g ∈ Γ, Γl acts on l by translations. If the fixator Nl of l
+is trivial, then we are done. Otherwise, Nl is a normal abelian subgroup of Γl ,
+and let ˜l be its axis in T . Since Γl normalizes Nl , Γl preserves ˜l, so Γl acts
+freely by translations on ˜l, so Γl is abelian. Finally, any element normalising
+Γl must preserve l, so Γl is maximal abelian.
+
+Therefore, one can apply Sela’s theorem which claims that superstable actions
+on R–trees are obtained by gluing equivariantly some simpler R–trees along
+points (see definition 4.4). In this statement a simplicial arc in T is an arc
+[a, b] which contains no branch point of T except maybe at a or b.
+
+Theorem 5.2 (Structure theorem [28, Theorem 3.1], see also [17]) Let (T , Γ)
+be a minimal action of a finitely generated group on an R–tree. Assume that
+Γ is freely indecomposable, that tripod fixators are trivial, and that the action
+is super-stable. Then T can be decomposed into a graph of actions on R–trees
+along points, each vertex tree being either
+ (1) a point;
+
+
+Geometry & Topology, Volume 8 (2004)
+1450                                                                  Vincent Guirardel
+
+
+ (2) a simplicial arc, which is fixed pointwise by its global stabilizer;
+ (3) a line l together with an action Γl l having dense orbits, such that the
+
+
+
+
+                                              
+     image of Γl in Isom(l) is finitely generated;
+ (4) or an action on an R–tree dual to an arational3 measured foliation on a
+     2–orbifold (with boundary).
+
+Remark In [17], simplicial arcs are incorporated in the skeleton of the decom-
+position of the action (as edges of positive length) and hence do not appear in
+the statement of the theorem.
+Since Γ is torsion-free, the orbifold groups occurring in the structure theorem
+are actually surface groups.
+
+
+Agglutination of simplicial arcs We now make the decomposition given
+in the structure theorem nicer with respect to abelian groups. In particular,
+we want to gather simplicial arcs having the same fixator into bigger vertex
+subtrees. This will imply that the stabilizer of the new corresponding vertex
+trees are maximal abelian. The goal is to reformulate the Structure Theorem
+as follows:
+
+Theorem 5.3 (Reformulation of Structure Theorem) There is a Γ–invariant
+transverse covering of T by a family (Y u )u∈U of non-degenerate closed subtrees
+such that, denoting by Γu be the global stabilizer of Y u , one of the following
+holds:
+• abelian-type: Y u is an arc or a line, the image Γu of Γu in Isom(Y u ) is
+    finitely generated, and Γu is maximal abelian in Γ; moreover for any two
+    abelian-type subtrees Y u 6= Y v , Γu and Γv don’t commute;
+• surface-type: or the action Γu Y u is dual to an arational measured foli-
+                                         
+
+
+
+
+    ation on a surface with boundary.
+
+Proof Consider the transverse covering of T by the non-degenerate vertex sub-
+trees (Y u )u∈U of the decomposition given by the structure theorem 5.2 (lemma
+4.7). Consider the equivalence relation on U generated by u ∼ u′ if Y u and
+Y u′ are simplicial arcs and the fixators of Y u and Y u′ commute (note that the
+  3
+    A measured foliation on a surface with boundary is arational if any non simply-
+connected leaf (or generalised leaf) actually has a cyclic fundamental group and contains
+a boundary component of Σ. Equivalently, F is arational if every simple closed curve
+having zero intersection with the measured foliation is boundary parallel.
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                             1451
+
+
+fixators of these arcs are non-trivial since Γ is freely indecomposable). The com-
+mutation of the fixators implies that those fixators coincide since commuting
+elliptic elements have the same set of fix points (fact 5.1).
+                                             S
+For any equivalence class [u], let Z [u] = u∈[u] Y u . We prove that (Z [u] )u∈U/∼
+is the wanted transverse covering. For u such that Y u is a simplicial arc, let
+N[u] be the common fixator of the simplicial arcs Y u for u ∈ [u]. One has
+Fix Nu = Z [u] . As a matter of fact, Nu cannot fix an arc in a surface type
+vertex tree since the fixator of an arc in a surface-type vertex tree is trivial,
+and Nu cannot fix an arc in a line-type vertex tree because tripod fixators are
+trivial. This implies that Z [u] is closed and connected, and is a linear subtree
+of T since tripod fixators are trivial. Since the case of a semi-line is easy to
+rule out, Z [u] is either an arc of a line. In particular, the family of subtrees
+(Z [u] )[u]∈U/∼ is a transverse covering of T .
+The global stabilizer Γ[u] of Z [u] is maximal abelian in Γ: this was already
+noted in the case where Z [u] is a line; if Z [u] is an arc, then Γ[u] coincides with
+its fixator Nu since there can be no reflection (because Fix g = Fix g2 ) so in
+particular, Γ[u] is abelian. Now any element g commuting with the elements of
+Nu must globally preserve Z [u] , so g ∈ Γ[u] . Therefore, Γ[u] is maximal abelian.
+If u, v are such that Γ[u] and Γ[v] commute, then Nu and Nv commute, so
+Nu = Nv and [u] = [v].
+
+We now focus on the skeleton S of this transverse covering, and we analyse the
+corresponding splitting of Γ. We prove that this splitting satisfies the abelian
+dévissage. We give a simple version before giving a more detailed statement.
+
+Proposition 5.4 (Abelian dévissage, simple version) If a finitely generated
+freely indecomposable group Γ acts freely on an Rn –tree (n ≥ 2), then Γ can
+be written as the fundamental group of a finite graph of groups where
+   • each edge group is abelian; more precisely, an edge group is either cyclic
+     or fixes an arc in T ;
+   • each vertex group acts freely on an Rn−1 –tree.
+
+Proposition 5.5 (Abelian dévissage, detailed version) If a finitely generated
+freely indecomposable group Γ acts freely on an Rn –tree, then Γ can be written
+as the fundamental group of a finite graph of groups with 3 types of vertices
+named abelian, surface and infinitesimal, and such that the following holds:
+   • each edge is incident to exactly one infinitesimal vertex;
+
+
+Geometry & Topology, Volume 8 (2004)
+1452                                                                Vincent Guirardel
+
+
+   • for each abelian vertex v , Γv is abelian maximal in Γ, Γv = Γv ⊕ Nv
+     where Γv is a finitely generated (maybe trivial) free abelian group, Nv is
+     an arc fixator, and the image in Γv of all incident edges coincide with the
+     (maybe infinitely generated) abelian group Nv ; moreover, if v 6= v ′ are
+     distinct abelian vertices, then Γv does not commute with any conjugate
+     of Γv′ ;
+   • for each surface vertex v , Γv is the fundamental group of a surface Σ
+     with boundary holding an arational measured foliation; there is one edge
+     for each boundary component of Σ, and the image of its edge group in
+     Γv is conjugate to the fundamental group of the corresponding boundary
+     component of Σ;
+   • for each infinitesimal vertex v , Γv acts freely on an Rn−1 –tree; moreover,
+     any element g ∈ Γ \ {1} commuting with an element of Γv \ {1} either
+     belongs to Γv , or is conjugate into Γw where w is an abelian vertex
+     neighbouring v .
+Finally, G is 4–acylindrical and any non-cyclic abelian subgroup of Γ is conju-
+gate into a vertex group.
+
+Remark A surface with empty boundary could occur in this graph of groups,
+but in this case, the graph of groups contains no edge, and Γ is a surface group.
+Note that the edge and vertex groups could a priori be non-finitely generated in
+the abelian dévissage. On the other hand, if one knew somehow4 that abelian
+subgroups of Γ were finitely generated, then the finite presentation of Γ would
+follow easily: finite generation of edge groups would imply the finite generation
+of vertex groups (since Γ is finitely generated), and thus vertex groups would
+be finitely presented by induction hypothesis.
+
+If one knows that arc fixators of T are cyclic, then it is immediate to deduce the
+conclusion of the cyclic dévissage theorem from the abelian dévissage theorem.
+The strategy for the proof of the Cyclic Dévissage Theorem will thus consist in
+finding an Rn –tree T ′ such that arc fixators of T ′ are cyclic (see next section).
+
+Proof of the simple version from the detailed version The claim about
+edge groups follows from the fact that each edge is either incident on a surface
+vertex or on an abelian vertex. The claim about vertex groups follows from
+  4
+    Note that the claim of Remeslennikov that limit groups act freely on a Λ–tree with
+Λ finitely generated would imply that abelian subgroup are finitely generated since
+they are isomorphic to subgroups of Λ since an abelian subgroup of Γ acts freely by
+translation on its axis, and is thus isomorphic to a subgroup of Λ.
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                             1453
+
+
+the fact that countable torsion free abelian groups and surface groups holding
+an arational measured foliation (which are free groups in the case where the
+surface have non-empty boundary) have a free action on an R–tree.
+
+Proof of the detailed version Let S be the skeleton of the transverse cov-
+ering given by the reformulation of the structure theorem (Theorem 5.3). We
+prove that the graph of groups decomposition Γ = π1 (G) induced by the action
+of Γ on S satisfies the abelian dévissage theorem.
+Remember that S is bipartite, with V (S) = V0 (S) ⊔ V1 (S) where V1 (S) is the
+set of non-degenerate subtrees in the transverse covering, and V0 (S) is the set
+of points of T which belong to at least two distinct subtrees of the transverse
+covering. The set V0 (S) will be the set of our infinitesimal vertices. Since the
+stabilizer of such a vertex fixes a point in T , it acts freely on an Rn−1 –tree.
+By the reformulation of the Structure Theorem, V1 (S) is a disjoint union of
+abelian-type and surface type vertices V1 (S) = Vab ⊔ Vsurf , where Vab is the
+set of vertices corresponding to abelian-type subtrees and Vsurf to surface-type
+subtrees (excluding tori). The fact that S is bipartite means that each edge of
+G is incident on exactly one infinitesimal vertex.
+Let’s first consider an abelian vertex v , and let Nv be the fixator of the linear
+subtree Y v , and Γv the image of Nv in Isom(Y v ). The direct sum follows from
+the fact that Γv is abelian and that Γv is a free abelian group. The only thing
+to check is that the image of all edge groups incident on v coincide with Nv .
+This follows from the fact that an edge e ∈ E(S) is a pair (x, Y v ) where x ∈ Y v ,
+so the fixator of e is the stabilizer of x in Γv , which is Nv .
+The acylindricity follows from the fact that if two edges (x, Y v ) (x′ , Y v′ ) have
+commuting fixators Γe , Γe′ , then Γe and Γe′ have the same (non-empty) set of
+fix points in T which is either a point, or an abelian subtree. In the first case,
+one has x = x′ so the two edges have a common endpoint at an infinitesimal
+vertex. In the second case, the endpoints x and x′ of the two edges are at
+distance at most 2 in S . The acylindricity implies that any non-cyclic abelian
+group A is conjugate into a vertex group since otherwise, a non-trivial subgroup
+of A would fix its axis in S , contradicting acylindricity.
+Let’s turn to a surface vertex v . We know that its stabilizer Γv is the fundamen-
+tal group of a surface with boundary holding an arational measured foliation.
+Moreover, since Γ is freely indecomposable, edge fixators are non-trivial. The
+fixator of an edge e = (x, Y v ) is non-trivial and fixes a point in Y v . Since Y v
+is dual to an arational measured foliation on a surface Σ, the elliptic elements
+of Γv are exactly those which can be conjugate into the fundamental group of
+
+
+Geometry & Topology, Volume 8 (2004)
+1454                                                             Vincent Guirardel
+
+
+a boundary component of Σ, and an elliptic element fixes exactly one point.
+Thus, Γe is conjugate to a boundary component be of Σ (and not to a proper
+subgroup since Γe is the whole stabilizer of x in Γv ). Moreover, if two edges
+e = (x, Y v ), e′ = (x′ , Y v ) of S correspond to the same boundary component
+be = Be′ of Σ, then Γe and gΓe′ g −1 for some g ∈ Γv , which implies that
+x′ = g.x since Γe fixes exactly one point in Y v , so e′ = g.e. This proves that
+two distinct edges of G incident on a surface vertex of G correspond to distinct
+boundary components of the surface. If a boundary component of Σ does not
+correspond to any incident edge, it is easy to check that Γ has a non-trivial free
+splitting, contradicting the hypothesis.
+There remains to check the last affirmation about elements commuting with an
+element stabilising an infinitesimal vertex. So let v ∈ V0 (S), g ∈ Γv \ {1} and
+h ∈ Γ commuting with g . If h is elliptic, then h ∈ Γv since two commuting
+elliptic elements have the same fixed points. If h is hyperbolic, then g must fix
+pointwise its axis Ah . Since surface-type subtrees have trivial arc fixators, Ah
+cannot meet any surface-type subtree in more than a point. So Ah is contained
+in a union of abelian subtrees. But since g fixes Ah , Ah is a single abelian
+subtree. Now x ∈ Ah since g fixes no tripod and the last claim follows.
+
+
+6      Obtaining cyclic arc fixators
+
+To prove the cyclic dévissage theorem, we will find an Rn –tree T ′ such that
+arc fixators of the R–tree T ′ are cyclic. The cyclic dévissage theorem will then
+follow from the abelian dévissage theorem.
+
+Theorem 6.1 Assume that a freely indecomposable finitely generated group
+Γ acts freely on an Rn –tree T . Then Γ has a free action on an Rn –tree T ′ such
+that the action on the R–tree T ′ obtained by killing infinitesimals has cyclic
+arc fixators.
+
+The strategy of the proof is the following: starting with the decomposition of
+Γ given by the structure theorem for the action of Γ on T , we build a more
+adapted decomposition of Γ as a graph of groups with abelian edge groups,
+such that the action of its non-abelian vertex groups on their minimal subtree
+in T has cyclic arc fixators. Taking the Bass–Serre tree of this decomposition
+as a skeleton, we define a graph of actions on Rn –trees satisfying the conclusion
+of Theorem 6.1.
+But to clarify the exposition, we first sketch the proof of Theorem 6.1 in two
+important particular cases.
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                          1455
+
+
+6.1     Main examples
+
+6.1.1    Acylindrical case
+
+The first case concerns a decomposition of Γ as an amalgamated product of
+non-abelian groups over a maximal abelian subgroup. The CSA property of Γ
+immediately implies the 1–acylindricity of the splitting.
+
+Lemma 6.2 Consider a free action of a finitely generated group Γ on an Rn –
+tree, and assume that T is a simplicial tree, dual to an amalgamated product
+Γ = A ∗C B . In particular, A and B both stabilize a Rn−1 –tree in T . For
+simplicity, also assume that C contains an element whose translation length
+has magnitude n − 1.
+If C is not cyclic and maximal abelian in both A and B , then Γ has a free
+action on an Rn−1 –tree T ′ .
+
+Remark The hypothesis that C is not cyclic is crucial here. Indeed, a group
+of the from Γ = F2 ∗C F2 where C is maximal cyclic in both copies of F2 has
+a free action on a Z2 –tree (see [1]). However, if C is chosen so that Γ is not
+a free product of surface or abelian groups, then C has no free action on any
+R–tree.
+
+Proof Take S = T endowed with its natural set of vertices and edges. For
+each vertex v ∈ V (S), let Yv be the preimage of v in the Rn –tree T . Note
+that Yv is an Rn−1 –tree. For each edge e ∈ E(S), denote by Γe its fixator, and
+let λe be the axis of Γe in Yt(e) . We will construct T ′ as a graph of actions on
+Rn−1 –trees with S as skeleton, and whose vertex and edge trees are Yv and λe .
+The main point is to define the gluing isometries so that the resulting action is
+free.
+One technical problem which may occur in general is that λe may not be iso-
+metric to λe : it might be isometric to a strict convex subset of Rn−1 . However,
+our hypothesis which claims that some element of C has a translation length
+of magnitude n − 1 prevents this. In general, this problem will be fixed by
+enlarging the vertex trees using an end completion procedure.
+Now, we need to define the gluing maps ϕe . To prove that we get a free action,
+we will apply our criterion for freeness (lemma 4.5). Indeed, we will choose the
+maps ϕe so that no point of Yv gets identified with a point of Yw where v and
+w are at distance more than 2 in S . This is of course automatic if for each
+
+
+Geometry & Topology, Volume 8 (2004)
+1456                                                             Vincent Guirardel
+
+
+vertex v ∈ V (S) and for each pair of distinct edges e, e′ incident on v , λe does
+not intersect λe′ .
+We argue that for two edges e 6= e′ incident on v , λe ∩ λe′ is small: it has
+magnitude at most n − 2. This is where the non-cyclicness of C is crucial. The
+hypothesis that C is maximal abelian in both A and B implies that for each
+pair of distinct edges, Γe and Γe′ don’t commute (this is an easy exercise about
+the CSA property). The smallness of λe ∩ λe′ follows from the following fact
+applied to the action of Γv on Yv with p = q = n − 1, H = Γe , and H ′ = Γe′ .
+
+Fact 6.3 (Infinitesimal intersection of axes of non-cyclic groups) Let Γ Y
+
+
+
+
+                                                                              
+be a free action of a group on an Rp –tree. Let H, H ′ be two non-commuting
+abelian subgroups of Γ. Assume that for some q ≤ p, the subgroups of H and
+H ′ consisting of elements whose translation length is of magnitude at most q
+are both non-cyclic.
+Then the intersection of the axes of H and H ′ has magnitude at most q − 1.
+
+We keep the proof of the fact for later.
+
+Definition 6.4 The branching locus of axes in Yv is the set
+                                [                      
+                 Bv =                          λe ∩ λe ′ .
+                           e 6= e′ ∈ E(S) incident on v
+
+
+The fact says that this branching locus is a countable union of sets of magnitude
+at most n − 2.
+Now choose an oriented edge e, and any isometry ϕe : λe → λe . Up to compos-
+ing ϕe by a generic translation of λe ≃ Rn−1 , we can assume that ϕe (Bo(e) ) does
+not intersect Bt(e) (there are countably many classes of prohibited translations
+mod Rn−2 ). Now extend this choice of ϕe equivariantly to get an equivariant
+graph of actions on Rn−1 –trees.
+There remains to prove that no point of Yv gets identified with a point of Yw
+where v and w are at distance more than 2 in S . Take x ∈ Yv and assume
+that x is identified with two points y ∈ Yu and z ∈ Yw where u, w are two
+distinct neighbours of v . If e, e′ denote the edges joining v to u and w, we
+have that x ∈ λe ∩ λe′ so x ∈ Bv . Therefore, our choice of gluing isometries
+implies that y ∈
+               / Bu and z ∈ / Bw . This implies that y and z are not identified
+with any other point. Therefore, Lemma 4.5 applies and the action dual to our
+graph of actions is free.
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                           1457
+
+
+Proof of Fact 6.3 This is just a consequence of the fact that if the axes of
+two hyperbolic elements g, h intersect in a segment whose diameter is larger
+than the sum of the translation lengths of g and h, then the commutator [g, h]
+fixes a point, so that g and h commute.
+Up to taking subgroups, one can assume that every element of H and H ′ have
+translation length of magnitude at most q . We just need to prove that for any
+positive ε ∈ Rq \ Rq−1 , H (resp. H ′ ) contain non-trivial elements of translation
+length at most ε. This clearly holds if some element of H \{1} has a translation
+length of magnitude at most q −1. Otherwise, consider a morphism ρ : H → Rq
+having the same translation length function. Composing ρ by the collapse of
+infinitesimals in Rq , we get an embedding of H as a subgroup of R. This
+subgroup has to be dense since H is not cyclic.
+
+
+6.1.2   Non acylindrical case
+
+The next case occurs when one allows different edge fixators to commute. In
+this case we need to modify the graph of groups to get a more adapted one.
+The major example is the following: Γ = A∗C where both inclusions of C in
+A are identical. Then we can consider the following modified decomposition:
+Γ = A ∗C (C ⊕ Z). The corresponding Bass–Serre tree has the following nice
+feature which will be generalised later: if Γe commutes with Γe′ then e, e′ are
+incident on a common vertex whose stabilizer is abelian (see Lemma 6.9).
+
+Lemma 6.5 Consider a free action of a group Γ on an Rn –tree T . Assume
+that Γ splits as an amalgamated product A ∗C Ĉ where A is non-abelian and
+preserves an Rn−1 –subtree of T , that Ĉ is abelian and Ĉ ≃ C ⊕ C for some
+non-trivial finitely generated free abelian group C . Also assume for simplicity
+that C contains an element whose translation length has magnitude n − 1.
+If C is not cyclic, then Γ has a free action on an Rn−1 –tree.
+
+Proof We want to define a Γ–equivariant graph of actions on Rn−1 –trees. Let
+S be the Bass–Serre tree of the splitting Γ = A ∗C Ĉ . We denote by a and
+c the vertices of S whose stabilizers are A and Ĉ respectively, and by e0 the
+edge connecting them with t(e0 ) = c.
+For each v ∈ V (S) in the orbit of a, define Yv = Tmin (Γv ) as the minimal
+Γv –invariant subtree of T . Remember that Ba denote the branching locus of
+axes of Ya , i.e. the set of points of Ya which belong to the intersection of the
+axes of two distinct conjugates of C . Let D = {d(x, x′ )| x, x′ ∈ Ba } be the set
+
+
+Geometry & Topology, Volume 8 (2004)
+1458                                                                   Vincent Guirardel
+
+
+of mutual distances between points of the branching locus of axes. By Fact 6.3,
+D is a countable union of sets of magnitude at most n − 2 (as a metric space);
+in other words, each of these countably many sets has the property that the
+difference of two of is elements lies in Rn−2 .
+For each v ∈ Γ.c, define Yv as a copy of Rn−1 . We choose any action of
+Ĉ = C ⊕ C on Yv so that the translation length of elements of C is the same
+as in T , and so that the translation length of any element of Ĉ \ C lies in
+Rn−1 \ D. We extend equivariantly this action to an action of Γ on the union
+of those copies of Rn−1 .
+Define λe0 as Yc = Rn−1 and λe0 as the axis of C in Ya . Since C contains
+an element of translation length n − 1, λe0 ≃ Rn−1 , and choose for ϕe0 any
+isometry. Define λe and ϕe for every edge by equivariance.
+Thus, we have defined a graph of actions on Rn−1 –trees, and we need to prove
+that the action of Γ on the dual Rn−1 –tree is free. To apply our criterion for
+freeness (Lemma 4.5), there remains to prove that no point of Yv gets identified
+with a point of Yw where v and w are at distance more than 4 in S .
+Assume on the contrary that there are two such points at distance 5. Denote by
+u = u0 , u1 , . . . , u5 = v the vertices of [u, v], ei the edge [ui−1 , ui ] and let xi ∈
+Yui such that ϕei (xi−1 ) = xi . If ui ∈ Γ.a for some i ∈ {1, . . . , 4}, then xi lies in
+Bvi . Since any edge of S joins a vertex in Γ.a to a vertex in Γ.c, one can find two
+indices i, i + 2 ∈ {1, . . . , 4} such that ui , ui+2 ∈ Γ.a. By equivariance, we can
+assume that ui = a, ui+1 = c, and ui+2 = g.a for some g ∈ Ĉ . Since ui+2 6= ui ,
+g∈/ C . The two points xi and g−1 xi+2 both lie in Ba , so dYa (xi , g−1 xi+2 ) ∈ D.
+Besides, ϕei+2 (xi+2 ) = xi+1 so ϕei+1 (g−1 xi+2 ) = g −1 xi+1 . Since ϕei+1 (xi ) =
+xi+1 , one gets dYc (xi+1 , g −1 xi+1 ) = dYa (xi , g−1 xi+2 ) ∈ D, a contradiction with
+our choice for the action of Ĉ on Yc since g ∈      / C.
+
+6.2    General case
+
+The following definition will be convenient.
+
+Definition 6.6 (Flawless Rn –trees) Let T be an Rn –tree endowed with an
+action of Γ, and let T be the R–tree obtained by killing infinitesimals. One
+says that T is flawless if T has cyclic arc fixators.
+
+By extension, we will also say that the R–tree T is flawless accordingly.
+With this terminology, Theorem 6.1 means that any finitely generated group
+having a free action on an Rn –tree, has a flawless free action on another Rn –
+tree.
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                           1459
+
+
+6.3     Gluing flawless trees along infinitesimals is flawless
+
+We will build our flawless action as a graph of flawless actions over infinitesimal
+subtrees. We first check that such an action is always flawless.
+
+Lemma 6.7 Consider an action of a group Γ on an R–tree T . Assume that
+T is transversely covered (Definition 4.6) by a Γ–invariant family of subtrees
+(Y v ) such that the action on Y v of its global stabilizer is flawless.
+Then Γ T is flawless.
+         
+
+
+
+
+Proof Consider an arc I ⊂ T . Using the finiteness condition in a transverse
+covering, up to making I smaller, one can assume that I is contained in a non-
+degenerate subtree Y v of the transverse covering. Any element fixing I must
+preserve Y v by the transverse intersection property. Since Γv Y v is flawless,
+
+
+
+
+                                                                  
+this implies that the fixator of I is cyclic, which means that T is flawless.
+
+We immediately deduce the following lemma:
+
+Lemma 6.8 (Gluing flawless trees is flawless) Consider a graph of flawless
+actions on Rn –trees over infinitesimal subtrees.
+Then the Rn –tree dual to this graph of actions is flawless.
+
+Recall that a graph of actions on Rn –trees is over infinitesimal subtrees if the
+edge subtrees are infinitesimal.
+
+Proof Let S be the skeleton of the graph of actions, and denote by Yv the
+vertex Rn –trees and by ϕe : λe → λe the gluing isometries between infinitesimal
+closed subtrees of the corresponding vertex trees. Let T be the Rn tree dual to
+this graph of actions, and let T be the R–tree obtained by killing infinitesimals.
+The images Y v of the vertex trees in T give a transverse covering of T because
+the gluing occurs along infinitesimal trees.
+
+
+6.3.1    Decomposition of the group
+
+The next step in the proof is to build an adapted decomposition of Γ from the
+structure of the action of Γ on T . This is the analogue of the transformation
+of Γ = A∗C into Γ = A ∗C (C ⊕ Z) in the second example. We state it in terms
+of the corresponding Bass–Serre tree.
+
+
+Geometry & Topology, Volume 8 (2004)
+1460                                                              Vincent Guirardel
+
+
+Lemma 6.9 Let Γ be a finitely generated group acting freely on an Rn –tree
+T . Then Γ has an action on a simplicial tree S such that S is bipartite for the
+partition of V (S) into the set of vertices Vab (S) whose stabilizer is abelian and
+the set VF (S) (F for flawless) whose stabilizer is non-abelian and such that
+ (i) ∀v ∈ VF (S), the action of Γv on the minimal subtree Tmin (Γv ) is flawless;
+ (ii) ∀v ∈ Vab (S), Γv is maximal abelian in Γ, and Γv = Nv ⊕ Γv where Nv
+      coincides with the fixator of all edges incident on v and Γv is a finitely
+      generated free abelian group;
+(iii) ∀e ∈ E(S), Γe is abelian, not cyclic, and the translation length of its
+      elements in T is infinitesimal;
+(iv) if e, e′ ∈ E(S) are distinct edges such that Γe and Γe′ commute, then e
+     and e′ share a common vertex in Vab (S).
+
+Proof Start with S0 the tree dual to the graph of groups given by the Abelian
+Dévissage Theorem 5.5. We can assume that the action Γ S0 is minimal. We
+                                                              
+keep the terminology of Proposition 5.5 about abelian type vertices: by an
+abelian type vertex we mean a vertex of S0 of abelian type in the sense of
+Proposition 5.5; we will not use this term to designate a vertex of S0 (or S )
+whose stabilizer is abelian (i.e. an element of Vab (S)).
+Take S the tree obtained from S0 by collapsing all the edges whose fixator is
+cyclic. Denote by π : S0 → S the collapsing map. Most requirements for S
+will follow from the properties of S0 described in Proposition 5.5.
+First, for each edge e ∈ E(S0 ), the translation length of Γe is infinitesimal
+because because one of the vertices of e is of infinitesimal type. Therefore, the
+same holds for edge fixators of S and point (iii) is clear.
+Note that all edges of S0 incident on a surface type vertex are collapsed by π , so
+any edge of S0 which is not collapsed under π joins an infinitesimal type vertex
+u0 to an abelian type vertex v0 whose stabilizer is of the form Γv0 = Nv0 ⊕ Γv0
+for some non-cyclic Nv0 . Since all the edges incident on v0 have the same
+fixator Nv0 , no edge incident on v0 is collapsed. Denoting v = π(v0 ), it follows
+that π −1 (v) = {v0 } so Γv = Γv0 and v satisfies (ii). To complete the proof of
+(ii), we only need to check that for all v with Γv abelian, π −1 (v) = {v0 } for
+an abelian-type vertex as above. Let v ∈ V (S) with Γv abelian. The subtree
+π −1 (v) cannot contain any surface-type vertex (because its stabilizer is non-
+abelian). It can neither contain a vertex neighbouring a surface-type vertex
+(because the corresponding edge would be collapsed in S ). If π −1 (v) contains
+an infinitesimal-type vertex v0 , then Γv0 is abelian, and all its neighbours are of
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                           1461
+
+
+abelian type. There are at least two such neighbours u1 , u2 by minimality, and
+Γu1 and Γu2 commute because Γv0 is abelian (commutative transitivity). Since
+Γu1 is maximal abelian in Γ, CSA property implies that u1 and u2 cannot be
+in the same orbit. But Proposition 5.5 prohibits the commutation of stabilizers
+of abelian-type vertices in distinct orbits, a contradiction. It follows that the
+subtree π −1 (v) is reduced to a single abelian type vertex, and (ii) is proved.
+It follows that S is bipartite: consider e ∈ E(S) and ẽ ∈ E(S0 ) its preimage;
+since Γẽ is non-cyclic, ẽ has no surface type endpoint, so ẽ = [x, a] for an
+infinitesimal vertex x and an abelian type vertex a; since all edges incident on
+a have the same non-cyclic fixator, π −1 (π(a)) = a so the stabilizer of π(a) is
+abelian; the stabilizer of π(x) can’t be abelian by the argument above.
+Now take v ∈ V (S) with Γv non-abelian, and let’s prove that the action of
+Γv on Tmin (Γv ) is flawless. Remember that S0 was obtained as the skeleton
+of the transverse covering of T given by Theorem 5.3, so to each vertex v0 ∈
+V (S0 ) corresponds either a point or a non-degenerate subtree Y v0 (according
+to whether v0 is of infinitesimal type or not). Denote by Yv0 the preimage of
+the R–tree Y v0 in the Rn –tree T . Note that the action of Γv0 on Yv0 is flawless
+except when v0 is of abelian type with S   Nv0 non-cyclic, which occurs only when
+Γπ(v0 ) is abelian. Now consider Yv = v0 ∈π−1 (v) Yv0 , and let Y v its image in
+T . If Y v is reduced to a point, then Γ Yv and thus Γv Tmin (Γv ) are clearly
+                                           
+
+
+
+
+                                                           
+
+
+
+
+flawless. Otherwise, Y v it is transversely covered by the non-degenerate subtrees
+of the family (Yv0 )v0 ∈π−1 (v) . Moreover, each action Γv0 Yv0 is flawless, so the
+                                                          
+
+
+
+
+action of Γv on Yv is flawless by Lemma 6.7. Since the flawless condition is
+stable under taking invariant subtrees, this proves (i).
+Now consider two edges e, e′ ∈ E(S) whose stabilizers commute. Denote by
+ẽ, ẽ′ ∈ E(S0 ) their preimages. Since Γẽ is non-cyclic, its non-infinitesimal
+endpoint is an abelian type vertex u. Similarly, ẽ′ has an abelian type endpoint
+u′ . By commutative transitivity, Γu commutes with Γu′ . Proposition 5.5 then
+implies that u = u′ , so ẽ and ẽ′ share an abelian type vertex. Since π(u) has
+an abelian stabilizer, (iv) is proved.
+This concludes the proof of the lemma.
+
+6.3.2   Construction of the graph of actions
+
+Now we use the tree S constructed in the previous lemma as a skeleton for a
+graph of actions on Rn –trees to build a flawless action of Γ on an Rn –tree.
+Let’s first define the vertex Rn –trees (Yv )v∈V (S) of our graph of actions. For
+v ∈ Vab (S), we take for Yv a copy of Rn−1 (we will define the action of Γv on
+
+
+Geometry & Topology, Volume 8 (2004)
+1462                                                              Vincent Guirardel
+
+
+Yv later). For v ∈ VF (S), we would like to take Yv = Tmin (Γv ), the minimal
+Γv –invariant subtree of T . For each edge e ∈ E(S), denote by le the axis of Γe
+in Tmin (Γo(e) ) (resp. le = Rn−1 if t(e) ∈ Vab (S)). We would next like to glue
+le on le for each edge e. Unfortunately, this might not be possible as it might
+happen that le is not isometric to le .
+However, for every vertex v ∈ VF (S), and for any edge e incident on v , le has
+magnitude at most n − 1 because Γe is non-cyclic and Tmin (Γo(e) ) is flawless.
+As a remedy, we are going enlarge the vertex trees so that all axes of edge
+groups become isometric to Rn−1 .
+In what follows, we call line in an Rn –tree T a maximal linear subtree of T .
+
+Fact 6.10 (End completion, [1, Appendix E]) If (Z, Γ) is an action on Rn –
+tree, and (le ) is an invariant family of lines in Z with magnitude at most n − 1,
+then there is a natural enlargement Ẑ of Z (endowed with an action of Γ) such
+that each le is contained in a unique maximal line ˆle of Ẑ , and ˆle is isometric
+to Rn−1 .
+
+Proof This fact follows for instance from [1, Appendix E]: take Ẑ to be the
+Rn−1 –neighbourhood of Z in the Rn –fulfilment of Z . We give an alternative
+simple sketch of proof for completeness, under the assumption that any two dis-
+tinct lines of the family intersect in a segment (and not a semi-line for example).
+This assumption is satisfied in our setting.
+Fix a line le , choose an embedding je of le into Rn−1 , and glue Z to Rn−1 along
+the maximal line le using je . There is actually no choice for doing this since
+any two embeddings of le into Rn−1 differ by an isometry of Rn−1 . It is easily
+seen that the glued tree Z ∪je Rn−1 is an Rn –tree (although je (le ) is generally
+not closed in Rn−1 in the sense of Λ–trees). The additional assumption we
+made says that any other line le′ is a maximal linear subtree in the extended
+tree. Therefore, we can iterate this construction, and the obtained tree does
+not depend on the order chosen to extend the lines. Since an increasing union
+of Rn –trees is an Rn –tree, the fact is proven.
+
+This allows us to define our vertex and edge trees as follow:
+   • for v ∈ Vab (S), take for Yv a copy of Rn−1 ;
+                                  \
+   • for v ∈ VF (S), take Yv = Tmin  (Γv ) to be the end completion of Tmin (Γv )
+     given by the fact above;
+   • for e ∈ E(S) take either λe = Rn−1 or λe = ˆle (which coincides with the
+     axis of Γe in Yt(e) ).
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                             1463
+
+
+The end completion being canonical, the group Γ acts naturally on the disjoint
+union ⊔v∈∪VF (S) Yv , but we still have to define an action on ⊔v∈Vab (S) Yv (the
+set of copies of Rn−1 ).
+Remember that for v ∈ VF (S), the branching locus of axes in Yv is the set
+                                  [                     
+                  Bv =                          λe ∩ λe ′ .
+                            e 6= e′ ∈ E(S) incident on v
+
+Since two distinct edges incident on v have non-commuting fixators, Fact 6.3
+implies that Bv is a countable union of sets of magnitude at most n − 2. Let
+Dv = {d(x, x′ ) | x, x′ ∈ Bv } ⊂ Rn be theSset of mutual distances between points
+of the branching locus, and let D = {Dv |v ∈ VF (S)}. As above, D is a
+countable union of sets of magnitude at most n − 2 of Rn (as a Rn –metric
+space).
+To get an action of Γ on ⊔v∈Vab (S) Yv , we just need to define an action of Γv
+on Yv for one vertex v of each orbit in Vab (S)/Γ, and to extend this action
+equivariantly. Now remember that for v ∈ Vab (S), Γv = Nv ⊕Γv , and Nv comes
+with a natural action on its axis in T (and its translation length is infinitesimal),
+so we take an action of Nv on Yv ≃ Rn−1 having the same translation length
+as in T . We choose the action of Γv on Yv so that the translation length of
+any element of Γv \ Nv lies in Rn−1 \ D.
+We define the gluing maps ϕe inductively in a generic set as follows. First, up to
+changing e to e, we can assume that t(e) ∈ Vab (S) while o(e) ∈ VF (S). For the
+first orbit of edges, we choose any Γe –equivariant gluing isometry ϕe : λe → λe ,
+and we extend this choice equivariantly. Then, if some choices of gluing maps
+are already made for some other edges incident on v , we choose ϕe so that
+ϕe (Bo(e) ) does not meet ϕe′ (Bo(e′ ) ) for any edge e′ such that t(e′ ) = t(e) and
+on which ϕe′ was already defined. This is possible since one can compose
+ϕe by any translation in Rn−1 , and there are only countably many classes
+of translations mod Rn−2 which are prohibited. Then, we extend this choice
+equivariantly on the orbit of e. This completes the definition of our graph of
+actions on Rn –trees G = (S, (Yv )v∈V (S) , (ϕe )e∈E(S) ).
+To sum up, our generic choices with respect to the branching locus of axes
+ensure that the following holds:
+
+Lemma 6.11      • For any vertex v ∈ Vab (S), the translation length of any
+    element of Γv \ Nv in Yv does not lie in D.
+  • Assume that two edges e, e′ are incident on a common vertex v ∈ Vab (S)
+                        −1
+    so that ϕ−1                                      ′
+             e Bo(e) ∩ ϕe′ Bo(e′ ) 6= ∅; then e and e are in the same orbit.
+
+
+
+Geometry & Topology, Volume 8 (2004)
+1464                                                              Vincent Guirardel
+
+
+6.3.3   The dual action is free
+
+Let T ′ = TG be the Rn –tree dual to the graph of actions defined above. By
+lemma 6.8, the action of Γ on T ′ is flawless. Therefore, Theorem 6.1 will be
+proved as soon as we prove that the action of Γ on T ′ is free.
+
+Lemma 6.12 The action of Γ on T ′ = TG is free.
+
+
+Proof We prove the freeness using our criterion (lemma 4.5). We will prove
+that no point of Yv gets identified with a point of Yw where v and w are at
+distance more than 4 in S .
+Let’s first consider a point x ∈ Yv where v ∈ VF (S) such that x is identified
+with two points y1 ∈ Yu1 , y2 ∈ Yu2 for two distinct neighbours u1 , u2 of v .
+Then there are two edges e 6= e′ incident on v such that x ∈ λe ∩ λe′ , so x lies
+in the branching locus of axes Bv .
+Assume that there are two points of Yu and Yv which are identified in TG , for
+some u, v at distance 5 in S . Since every edge of S joins a vertex in Vab (S)
+to a vertex in VF (S), there is a sub-path (v1 , w, v2 ) of [u, v] \ {u, v} and some
+points x1 ∈ Yv1 , y ∈ Yw , x2 ∈ Yv2 with v1 , v2 ∈ VF (S), w ∈ Vab (S). In
+particular, for both i = 1, 2, xi ∈ Bvi . By the second item of lemma 6.11, the
+edges e1 = [v1 , w] and e2 = [v2 , w] are in the same orbit. So let g ∈ Γ sending
+e1 on e2 . Note that g ∈ Γw since w and vi are not in the same orbit. Since
+Nw fixes all the edges incident on w, g ∈ Γw \ Nw . Now, since x1 ∈ Bv1 ,
+g.x1 ∈ Bv2 , and d(g.x1 , x2 ) ∈ Dv2 . Let y = ϕe1 (x1 ), so g.y = ϕe2 (g.x1 )
+so d(y, g.y) = d(x2 , g.x1 ) ∈ D, a contradiction with the first item of lemma
+6.11.
+
+
+
+7      Dévissage theorem and corollaries
+
+Theorem 7.1 (Dévissage theorem, simple version. See also [16, Corollary 6.6])
+Consider a finitely generated, freely indecomposable group Γ having a free
+action on an Rn –tree. Then Γ can be written as the fundamental group of a
+finite graph of groups with cyclic edge groups and where each vertex group is
+finitely generated and has a free action on an Rn−1 –tree.
+
+This is a consequence of the following detailed version.
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                          1465
+
+
+Theorem 7.2 (Dévissage theorem, detailed version) If a finitely generated
+freely indecomposable group Γ acts freely on an Rn –tree, then Γ can be written
+as the fundamental group of a finite graph of groups G with cyclic edge groups,
+finitely generated vertex groups, with 3 types of vertices named abelian, surface
+and infinitesimal, and such that the following holds:
+   • each edge is incident to exactly one infinitesimal vertex;
+   • for each abelian vertex v , Γv is abelian maximal in Γ, Γv = Γv ⊕ Nv
+     where Γv is a finitely generated (maybe trivial) free abelian group, Nv is
+     maximal cyclic in G, and the image in Γv of all incident edges coincide
+     with Nv ; moreover, if v 6= v ′ are distinct abelian vertices, then Γv does
+     not commute with any conjugate of Γv′ ;
+   • for each surface vertex v , Γv is the fundamental group of a surface Σ
+     with boundary holding an arational measured foliation; there is one edge
+     for each boundary component of Σ, and the image of its edge group in
+     Γv is conjugate to the fundamental group of the corresponding boundary
+     component of Σ;
+   • for each infinitesimal vertex v , Γv acts freely on an Rn−1 –tree; moreover,
+     any element g ∈ Γ \ {1} commuting with an element of Γv \ {1} either
+     belongs to Γv , or is conjugate into Γw where w is an abelian vertex
+     neighbouring v .
+Finally, G is 4–acylindrical and any non-cyclic abelian subgroup of Γ is conju-
+gate into a vertex group.
+
+Proof Using Theorem 6.1, consider a free action Γ T ′ such that the action
+                                                      
+
+
+
+
+on the R–tree T ′ obtained by killing infinitesimals has cyclic arc fixators. The
+Theorem is then a direct consequence of the abelian dévissage (Proposition 5.5):
+the fact that Γ and the edge groups of G are finitely generated implies that
+vertex groups are finitely generated.
+
+Remark The dévissage theorem does not claim that the splitting is non-
+trivial. This occurs if Γ is abelian, if Γ is the fundamental group of a surface
+with empty boundary, or if Γ acts freely on some Rn−1 –tree.
+It follows from the commutative transitivity of Γ that any non-cyclic maximal
+abelian subgroup of an infinitesimal vertex group is maximal abelian in Γ.
+However, some edge groups may fail to be maximal cyclic in Γ for some edges
+incident on surface vertices.
+
+The following corollary is due to Sela and Kharlampovich–Myasnikov for limit
+groups [30, 20].
+
+
+Geometry & Topology, Volume 8 (2004)
+1466                                                            Vincent Guirardel
+
+
+Corollary 7.3 (See also [16]) Let Γ be a finitely generated group having a
+free action on an Rn –tree. Then
+   • Γ is finitely presented [16, Corollary 6.6];
+   • if Γ is not cyclic, then its first Betti number is at least 2;
+   • there are finitely many conjugacy classes of non-cyclic maximal abelian
+     subgroups in Γ, and abelian subgroups of Γ are finitely generated. More
+     precisely, one has the following bound on the ranks of maximal abelian
+     subgroups:               X
+                                  (Rk A − 1) ≤ b1 (Γ) − 1
+                               A
+     where the sum is taken over the set of conjugacy classes of non-cyclic
+     maximal abelian subgroups of Γ, and where b1 (Γ) denotes the first Betti
+     number of Γ;
+   • Γ has a finite classifying space, and the cohomological dimension of Γ is
+     at most max(2, r) where r is the maximal rank of an abelian subgroup
+     of Γ.
+
+Proof For n = 1, all the statements of the corollary follow from Rips theorem
+which claims that Γ is a free product of finitely generated abelian groups and
+fundamental groups of closed surfaces (see [13, 4]).
+For n > 1, we argue by induction and assume that the corollary holds for
+smaller values of n. The conclusion of the corollary is stable under free product
+since any non-cyclic abelian subgroup of a free product is conjugate into a
+vertex group. Thus one can assume that Γ is freely indecomposable. Then the
+dévissage theorem says that Γ is the fundamental group of a finite graph of
+groups G with cyclic edge groups, and vertex groups satisfy the corollary by
+induction hypothesis. If this splitting of Γ is trivial, then Γ is a vertex group
+and we are done.
+The finite presentation of vertex groups implies that Γ is finitely presented.
+Moreover, induction hypothesis shows that Γ has a finite classifying space, and
+the cohomological dimension of X is clearly at most max(2, r) (see for instance
+[6, Proposition VIII.2.4 and Ex.8b in VIII.6]).
+We have the following bound about Betti numbers:
+                            X
+                   b1 (Γ) ≥     b1 (Γv ) + b1 (G) − #E(G)
+                             v∈V (G)
+
+where b1 (G) denotes the first Betti number of the graph underlying G . Indeed,
+consider the graph of groups G0 obtained from G by replacing edge group by a
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                          1467
+
+
+trivial group so that π1 G0 is a free product of the vertex groups and of a free
+group of rank b1 (G). Since edge groups of G are cyclic, one obtains Γ from π1 G0
+by adding one relation for each edge of G , and the inequality
+                                                           P follows. Now since
+b1 (G) − 1 = #E(G) − #V (G), one gets that b1 (Γ) − 1 ≥ v∈V (G) (b1 (Γv ) − 1).
+By induction hypothesis, each term in the sum is non-negative. In particular,
+b1 (Γ) ≥ b1 (Γv ) for all v ∈ V (G). Thus if some vertex group is non-cyclic then
+b1 (Γ) ≥ 2; but all vertex groups cannot be cyclic because of acylindricity.
+The dévissage theorem claims that a non-cyclic abelian subgroup A fixes a
+vertex v in the Bass–Serre tree S of G . Let’s prove that there are finitely
+many conjugacy classes of non-cyclic maximal abelian subgroups. Since edge
+stabilizers are cyclic, such a subgroup A fixes exactly one point in S . Since
+there are only finitely many orbits of vertices in S , there remains to prove that
+for any vertex v ∈ V (S), there are only finitely many Γ–conjugacy classes of
+abelian subgroups A which fix v . The induction hypothesis says that there are
+at most finitely many such subgroups up to conjugacy in Γv , and therefore in
+Γ.
+Denote by Ab(Γ) the set of conjugacy classes of abelian subgroups of Γ. The
+argument above shows that the natural map ⊔v∈V (G) Ab(Γv ) → Ab(Γ) is onto.
+Therefore,
+               X                      X       X
+                   (Rk A − 1) ≤                    (Rk A − 1)
+                A∈Ab(Γ)                   v∈V (G) A∈Ab(Γv )
+                                            X
+                                      ≤             (b1 (Γv ) − 1)
+                                          v∈V (G)
+                                      ≤ b1 (Γ) − 1.
+This terminates the proof of the corollary.
+
+Corollary 7.4 Consider a freely indecomposable, non-abelian, finitely gener-
+ated group having a free action on an Rn –tree. Then Γ has a non-trivial split-
+ting which is principal in the following sense: either Γ = A ∗C B or Γ = A∗C
+where C is maximal abelian in Γ, or Γ = A ∗C (C ⊕ Zk ).
+
+Proof We argue by induction on n. The statement is clear for n = 1. Other-
+wise, consider the graph of groups given by the dévissage theorem. If G contains
+a surface-type vertex, then cutting along an essential curve provides a splitting
+over a cyclic subgroup which is maximal abelian. If G contains an abelian-type
+vertex v , write Gv = Nv ⊕ Γv . If Γv is trivial, then Nv = Gv is maximal
+abelian, so each of the edges of G incident on v provides a principal splitting of
+
+
+Geometry & Topology, Volume 8 (2004)
+1468                                                                Vincent Guirardel
+
+
+Γ. If Γv is non-trivial, then Γ = A ∗Nv (Nv ⊕ Γv ) where A is the fundamental
+group of the graph of groups G ′ obtained from G by replacing the vertex group
+Γv = Nv ⊕ Γv by the cyclic group Nv . If G has no abelian-type and no surface-
+type vertex, then G consists in a single infinitesimal vertex. This means that
+Γ acts freely on an Rn−1 –tree.
+
+
+References
+
+  [1] Hyman Bass, Group actions on non-Archimedean trees, from: “Arboreal group
+      theory (Berkeley, CA, 1988)”, Math. Sci. Res. Inst. Publ. 19, Springer, New York
+      (1991) 69–131 MR1105330
+  [2] Benjamin Baumslag, Residually free groups, Proc. London Math. Soc. 17
+      (1967) 402–418 MR0215903
+  [3] Gilbert Baumslag, On generalised free products, Math. Z. 78 (1962) 423–438
+      MR0140562
+  [4] Mladen Bestvina, Mark Feighn, Stable actions of groups on real trees, In-
+      vent. Math. 121 (1995) 287–321 MR1346208
+  [5] N Bourbaki, Éléments de mathématique. Fasc. XXX. Algèbre commutative.
+      Chapitre 5: Entiers. Chapitre 6: Valuations, Actualités Scientifiques et Indus-
+      trielles, No. 1308, Hermann, Paris (1964) MR0194450
+  [6] Kenneth S Brown, Cohomology of groups, Graduate Texts in Mathematics
+      87, Springer–Verlag, New York (1982) MR0672956
+  [7] Christophe Champetier, Vincent Guirardel, Limit groups as limits of free
+      groups: compactifying the set of free groups, Israel J. Math. (to appear)
+      http://hal.ccsd.cnrs.fr/view/ccsd-00000980/fr
+  [8] I M Chiswell, Nontrivial group actions on Λ–trees, Bull. London Math. Soc.
+      24 (1992) 277–280 MR1157264
+  [9] I M Chiswell, Harrison’s theorem for Λ–trees, Quart. J. Math. Oxford 45
+      (1994) 1–12 MR1269285
+ [10] I M Chiswell, Introduction to Λ–trees, from: “Semigroups, formal languages
+      and groups (York, 1993)”, NATO Adv. Sci. Inst. Ser. C Math. Phys. Sci. 466,
+      Kluwer (1995) 255–293 MR1630624
+ [11] Ian Chiswell, Introduction to Λ–trees, World Scientific Publishing Co. Inc.,
+      River Edge, NJ (2001) MR1851337
+ [12] François     Dahmani,       Combination          of    convergence     groups,
+      Geom. Topol. 7 (2003) 933–963 MR2026551
+ [13] D Gaboriau, G Levitt, F Paulin, Pseudogroups of isometries of R and Rips’
+      theorem on free actions on R–trees, Israel J. Math. 87 (1994) 403–428
+
+
+Geometry & Topology, Volume 8 (2004)
+Limit groups and groups acting freely on Rn –trees                                   1469
+
+
+ [14] Anthony M Gaglione, Dennis Spellman, Every “universally free” group is
+      tree-free, from: “Group theory (Granville, OH, 1992)”, World Sci. Publishing,
+      River Edge, NJ (1993) 149–154 MR1348896
+ [15] Anthony M Gaglione, Dennis Spellman, Does Lyndon’s length function
+      imply the universal theory of free groups?, from: “The mathematical legacy
+      of Wilhelm Magnus: groups, geometry and special functions (Brooklyn, NY,
+      1992)”, Contemp. Math. 169, Amer. Math. Soc., Providence, RI (1994) 277–
+      281 MR1292905
+ [16] Shalom Gross, Group actions on Λ–trees, Ph.D. thesis, Hebrew University,
+      Jerusalem (1998)
+ [17] Vincent Guirardel, Rips theory for actions of finitely generated groups on
+      R–trees, in preparation
+ [18] Nancy Harrison, Real length functions in groups, Trans. Amer. Math. Soc.
+      174 (1972) 77–106 MR0308283
+ [19] Stephen Jackson, Luca Q Zamboni, A note on a theorem of Chiswell, Proc.
+      Amer. Math. Soc. 123 (1995) 2629–2631 MR1277116
+ [20] O Kharlampovich, A Myasnikov, Irreducible affine varieties over a free
+      group. I. Irreducibility of quadratic equations and Nullstellensatz, J. Algebra
+      200 (1998) 472–516 MR1610660
+ [21] O Kharlampovich, A Myasnikov, Irreducible affine varieties over a free
+      group. II. Systems in triangular quasi-quadratic form and description of resid-
+      ually free groups, J. Algebra 200 (1998) 517–570 MR1610664
+ [22] F-V Kuhlmann, Value groups, residue fields and bad places of rational function
+      fields, Trans. Amer. Math. Soc. (to appear)
+      http://math.usask.ca/~fvk/Fvkpaper.html
+ [23] R C Lyndon, The equation a2 b2 = c2 in free groups, Michigan Math. J. 6
+      (1959) 89–95 MR0103218
+ [24] Frédéric Paulin, Sur la théorie élémentaires des groupes libres [d’après Sela],
+      (2003) séminaire Bourbaki No. 922 (Juin 2003)
+      http://www.dma.ens.fr/~paulin
+ [25] Patrick H Pfander, Finitely generated subgroups of the free Z[t]–group on
+      two generators, from: “Model theory of groups and automorphism groups
+      (Blaubeuren, 1995)”, London Math. Soc. Lecture Note Ser. 244, Cambridge
+      Univ. Press, Cambridge (1997) 166–187 MR1689871
+ [26] V N Remeslennikov, ∃–free groups, Siberian Math. J. 30 (1989) 998–1001,
+      translation (1990) from Sibirsk. Mat. Zh. 30 (1989), 193–197 MR1185681
+ [27] V N Remeslennikov, ∃–free groups as groups with a length function,
+      Ukrainian Math. J. 44 (1992) 733–738, translation (1993) from Ukraı̈n. Mat.
+      Zh. 44(6):813–818 (1992) MR1185681
+ [28] Z Sela, Acylindrical accessibility for groups, Invent. Math. 129 (1997) 527–565
+      MR1465334
+
+
+Geometry & Topology, Volume 8 (2004)
+1470                                                           Vincent Guirardel
+
+
+ [29] Zlil Sela, A list of research problems,
+      http://www.ma.huji.ac.il/~zlil/problems.dvi
+ [30] Zlil Sela, Diophantine geometry over groups. I. Makanin–Razborov diagrams,
+      Publ. Math. Inst. Hautes Études Sci. 93 (2001) 31–105 MR1863735
+ [31] Mariusz Urbański, Luca Zamboni, On free actions on Λ–trees, Math. Proc.
+      Cambridge Philos. Soc. 113 (1993) 535–542 MR1207518
+ [32] Oscar Zariski, Pierre Samuel, Commutative algebra. Vol. II, Reprint of the
+      1960 edition, Graduate Texts in Mathematics 29, Springer–Verlag, New York
+      (1975) MR0389876
+
+
+
+
+Geometry & Topology, Volume 8 (2004)
+

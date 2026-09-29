@@ -869,3 +869,12 @@ Read the original full F38 statement/background and viewed its rendering. Archiv
 ## 2026-09-29T02:30:50.784647+00:00 — precise weaker F38 comparison
 
 The converse investigation yields an elementary quantitative clarification: finite stabilizer orbit is equivalent to comparison by an arbitrary function, and Whitehead shortening upgrades it to an effective exponential bound. Wrote the exact bound and a finite algorithm for the optimal length envelope after a passed test. The missing linear bound remains explicit; no F38(c) solution or new count. This is proof work, with no new mathematical job or agent. Only indexed excerpts/abstracts of adjacent algebraic-closure and quadratic-equation papers were consulted; they are not dependencies. Original clock and frozen inputs unchanged.
+
+
+## 2026-09-29T02:52:23.718212+00:00 — full intended-scope GA3 candidate
+
+The preceding F38 turn made progress. Revalidated the original active clock and empty jobs ledger. Completed the GA3 geometric lead: a finite-generator translation scale ensures a nontrivial real-tree collapse; abelian arc and trivial tripod fixators give boundary separation. Identity/conjugation maps extend from the finite coefficient subgroup to all G. The missing literal nonabelian hypothesis remains explicit and is not counted separately.
+
+Read and viewed the original statement, Guirardel's general-Lambda collapse fact and CSA lemma, and the exact Rybak boundary statements/separation proof. Rybak2026 credits the boundary mechanism; no matching full Lambda-free application was located. Wrote proof and audit with precise reading limits.
+
+Python verified160 boundary-cone separations,46 north-south cone inclusions and6400 positive images in the free-group control. Independent GAP verified6400 images,3 bad separators and49 abelian controls. The first GAP attempt failed on a reserved variable despite exit zero; exact source/log retained. Final Python and GAP jobs have empty stderr. The computations do not verify the general tree collapse. Promoted GA3 to a whole intended-entry candidate:6 whole,3 partial,0 established novel, all9 awaiting independent review. No agents, contacts, push or Kourovka import; original clock and frozen corpus unchanged.

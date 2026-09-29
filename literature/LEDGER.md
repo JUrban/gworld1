@@ -402,3 +402,8 @@ Also archived Solie1007.4022, Sections2–3 read as text, and Kapovich–Lustig0
 ## 2026-09-29T02:30:50.784647+00:00 — F38 converse exploration
 
 Queries included "bounded translation equivalence" stabilizer; "filling" "finite stabilizer" "free group"; free groups algebraic closure finite automorphism orbit length bound rigid elements; free groups equations finitely many solutions linear bound length coefficients. Indexed excerpts of Ould Houcine--Vallino, DOI10.5802/aif.3071 (https://www.numdam.org/item/10.5802/aif.3071.pdf), and abstract of Kharlampovich--Vdovina1107.2843 (https://arxiv.org/abs/1107.2843) were consulted only. Neither full PDF was downloaded or viewed here, and no theorem from them is used. The new exponential-envelope observation uses the already archived classical Whitehead machinery. It does not establish the necessary linear converse.
+
+
+## 2026-09-29T02:52:23.718212+00:00 — GA3 arbitrary-Lambda discrimination
+
+Archived Guirardel math/0306306, Rybak2605.14159v3, BMR Discriminating and co-discriminating groups, and Ciobanu--Fine--Rosenberger1210.3950. Read Guirardel Sections2.3--2.6/Fact5.1 and viewed printed1437,1448,1449: the collapse statement explicitly covers arbitrary Lambda. Read Rybak Lemmas2.6/2.9 and Theorem3.10 separation direction; viewed10,11,24,25. The boundary mechanism is prior work. BMR and CFR were checked as extracted text for the separate CSA/free-square/BP hypotheses; no visual inspection claimed for them. Full exact reading limits, hashes and novelty queries appear in problems/GA3/audit.md. No matching full arbitrary-Lambda application located; novelty remains provisional, not certified.
