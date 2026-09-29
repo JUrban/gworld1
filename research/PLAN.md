@@ -411,3 +411,21 @@ portfolio problem rather than merely adding more N8 test sizes. O6
 Linton reduction retains the primitive-extension hypothesis and supplies no
 full answer. Preserve the six whole/three partial candidate counts and the
 original48hour clock. No mathematical jobs remain after this checkpoint.
+
+
+## Working focus after the audit/MA7 checkpoint (2026-09-29T07:32:23.155731+00:00)
+
+The F41 parameter audit found no gap; do not repeat its finite suites.
+MA7's new explicit finite noncommutative construction is complete and
+independently checked, but the short website entry is already prior.
+Do not count it as a new GroupWorld solution or infer a commutative-ring
+answer. The renderer works with the path in docs/LOCAL_TOOLS.md; do not
+repeat package downloads for already present libraries.
+
+Return to a concrete unresolved mathematical lead in the broader frozen
+portfolio. M4 still needs a compatible free basis beyond finite rank;
+FP9 still lacks effective enumeration of all embeddings; F38(c) still
+has stabilizer-passing cases outside its known positive branches. These
+are mathematical gaps, not solved statuses. Preserve the whole195-entry
+objective,6 whole/3 partial candidates,0 established novel and original
+48hour clock. No mathematical jobs remain at this checkpoint.

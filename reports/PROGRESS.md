@@ -267,3 +267,18 @@ a new metabelian-image negative control completes that suite. The scope is
 gamma_(c-5), c>=9, within the same partial candidate. Counts remain6 whole,
 3 partial,0 established novel. O6 literature check confirms a prior reduction
 to primitive extension groups, with the remaining hypothesis unresolved.
+
+
+F41 follow-up: the parameter-free genericity step and dependence of
+constants on the fixed word were re-audited without finding a gap. The
+imported theorems still require specialist review; see
+`problems/F41/followup-audit.md`.
+
+MA7: the short website question has a prior affirmative existence answer. An additional
+explicit finite noncommutative-ring construction is now written and
+independently checked:343 elementary factors, a rank38 obstruction and a
+unit off-diagonal entry. It satisfies the stronger nonscalar condition
+for fixed n=3, but supplies no commutative-ring result or established
+novelty. See `problems/MA7/exterior-ring-proof.md` and its audit. No entry
+is added to the candidate tally. O6's pending visual statement check is
+also complete after restoring the existing browser-library path.

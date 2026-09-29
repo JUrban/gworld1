@@ -491,3 +491,20 @@ plus the introduction describing remaining cases. Canadian Journal of
 Mathematics78(1)(2026),35--61; online2024. The result reduces Gersten’s
 conjecture to primitive extension groups; it does not remove that hypothesis.
 See `research/notes/O6-Linton-reduction-scope.md`. No discovery count.
+
+
+## 2026-09-29T07:32:23.155731+00:00 — F41 dependency audit and MA7 prior scope
+
+F41: reread KM Definitions5--6/Theorem13 and Pillay genericity definition/
+Theorem2.1; four stored page images actually viewed. No changed dependency
+or matching novelty source established; see F41/followup-audit.md.
+
+MA7: Dennis--Vaserstein1988 Theorem1 read in the author-listed article's
+indexed text, institution metadata/abstract archived. This already answers
+the short fixed-size existential question, including GL versus SL by
+constant scalar normalization over C[x]. Full PDF/proof not obtained.
+Speyer's one-page Problem Set Five downloaded and read in extracted text;
+Problem6/footnote credits the truncated exterior-unit construction. Our
+additional finite noncommutative matrix argument and all reading/download
+limits are recorded in problems/MA7/exterior-ring-audit.md. No new entry
+count, no claim for the commutative nonscalar strengthening.

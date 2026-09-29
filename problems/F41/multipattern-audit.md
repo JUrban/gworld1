@@ -185,3 +185,6 @@ scope candidate, preserving its historical partial record. The candidate
 tally becomes **5 whole entries and 3 partial entries**, eight entries
 total. The literal identity exception remains explicit. No additional
 count is assigned to the counting lemma, source readings or finite tests.
+
+Follow-up: see `followup-audit.md` for the later parameter/uniformity
+check. It changes neither the candidate scope nor the counting decision.

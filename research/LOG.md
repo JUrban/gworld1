@@ -1017,3 +1017,30 @@ also failed because the local apt package lists are absent. O6 visual audit
 is explicitly pending; no solution/scope count follows from that check.
 The whole195-entry objective, original clock and local-only commit policy
 remain active. Counts6 whole,3 partial,0 established novel.
+
+
+## 2026-09-29T07:32:23.155731+00:00 — F41 audit, wider scan and MA7 finite-ring construction
+
+Reread the exact F41 model-theoretic dependencies and viewed their four
+retained pages. The parameter-free formula is essential for both orbit
+invariance and finite-translate genericity; no gap found in this pass.
+Singleton and finite-index-union controls explain two possible misuses.
+Deep imported results and novelty still await outside review.
+
+Broader revisits of M4, FP9, GA4, S4/S7, F25/F39 and the growth/automatic
+portfolio did not yield a new full solution. No scope was promoted from
+these searches. MA7 yielded an explicit finite noncommutative-ring
+construction satisfying even n>=3 and nonscalarity modulo every proper
+ideal. A degree-one quotient and bivector-rank bound exclude all proposed
+commutator factors; a343-transvection certificate is independently checked
+in native GAP algebra arithmetic. Python0.320s/GAP2.327s, exit0, empty
+stderr. The short website question is already prior by Dennis--Vaserstein
+1988, so no new GroupWorld candidate is counted. Ring commutativity and
+stable-size variants remain separate; related construction novelty unknown.
+
+The O6 rendering failure was an omitted local library path: dependencies
+were already present. Restored invocation, captured/viewed O6 and MA7,
+and documented the command. Publisher/RG403 and expired-certificate source
+downloads are recorded without claiming access. No failed mathematical
+run, agents, contact, push or old-research transfer. Original clock and
+counts6 whole,3 partial,0 established novel retained.

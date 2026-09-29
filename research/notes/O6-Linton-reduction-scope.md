@@ -30,3 +30,11 @@ Only the specified theorem/proof and contextual passages were read, not
 all technical proofs in the paper. The search also located the related
 2022 one-relator-hierarchy abstract, but no additional claimed result is
 based on that abstract. No O6 solution, candidate scope, or count is added.
+
+Follow-up, 29 September around 07:21 UTC: the missing libraries were
+already extracted in `scratch/browser-libs/root`. Supplying that directory
+in LD_LIBRARY_PATH restored Chromium. Captured the original O6 paragraph
+and full page, then actually viewed `research/statement-audits/O6/statement.png`.
+Its wording matches the transcription above. This completes the pending
+visual statement check without changing the literature conclusion. The
+earlier render/download failures remain recorded. See `docs/LOCAL_TOOLS.md`.
