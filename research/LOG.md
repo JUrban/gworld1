@@ -943,3 +943,10 @@ Archived Altassan2013 and viewed precise pages19/24. Its prior inner-solution th
 ## 2026-09-29T05:30:25.564544+00:00 — wider portfolio source audit
 
 The preceding N8 turn made progress. Revalidated the original active clock and empty jobs ledger. Read/viewed the exact GA5/E6/G7 statements and relevant primary pages. Retired GA5(c) existential scope as prior rank2 binary action, retaining its normal-subgroup distinction from F28. Wrote a numerical control and elementary Folner-ball repair for the G7 source inference; neither solves G7. E6 strong conciseness does not imply completion EN. The first multi-ID render invocation failed because the script takes one ID; both single-ID reruns succeeded and were viewed. No mathematical jobs, agents, contact, push or Kourovka transfer. Counts6 whole,3 partial,0 established novel.
+
+
+## 2026-09-29T05:44:55.353545+00:00 — uniform N8 third-from-last layer
+
+A graded-tail subalgebra makes C and each first correction U free generators, allowing the prior inner-solution theorem for arbitrary leading weights. This yields the uniform kernel bound and quadratic obstruction; equal weights are injective and adjacent weights have exact finite Nielsen residues. Full original N8 HTML/background reread and actual statement viewed; exact Shirshov/inner-solution pages viewed again.
+
+Implemented every leading type and promoted this layer within the same partial candidate after audit. Final Python group suites cover34 targets; GAP independently verifies19 witnesses,101 linear decisions(45 negative),2 polynomials,10 samples,39 nullities,11 Nielsen periods. Separate native Python/GAP weighted-Lie checks verify7 kernels and4 composite-coefficient obstructions. All8 final jobs pass with empty stderr. Two initial fixture expectations were wrong: equal-weight perturbations had solutions. Preserved the failures and verified the corrected positive witnesses in GAP; solver unchanged. Counts6 whole,3 partial,0 established novel; no agents/contact/push/Kourovka transfer and original clock retained.

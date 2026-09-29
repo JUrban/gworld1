@@ -454,3 +454,8 @@ are not publication dates for these2007/2012/2013 works.
 ## 2026-09-29T05:30:25.564544+00:00 — GA5(c), G7 and E6 scope audit
 
 Archived Nekrashevych book manuscript, Arzhantseva--Cherix metric-profile paper and de las Heras--Zozaya arXiv2502.07427v1. Precise URLs, hashes and reading/viewing limits in the three new research notes. GA5(c) has a prior positive existential answer in rank2. G7 numerical implication is insufficient; cited book lemma not obtained and no group counterexample claimed. E6 completion strong conciseness is a different property. First E6 institutional download timed out; arXiv succeeded. Further S4, H15, H9 and OR4 abstract-level leads did not establish new full scope; no such abstract was promoted to a proof.
+
+
+## 2026-09-29T05:44:55.353545+00:00 — uniform third-layer N8 dependencies
+
+Re-viewed the archived Bryant--Kovacs--Stohr2005 p147 homogeneous Shirshov statement and Altassan2013 p24 inner-solution theorem. Reread the latter general-coefficient discussion pp26--27; the new proof uses a graded subalgebra with actual free-basis coefficients, not an unjustified arbitrary-coefficient extension. Targeted current searches located the same prior Lie theorem in a post-Lie article and the known2016 class-two commutator sources, but no matching uniform group-stratum theorem. No exhaustive novelty claim. Exact proof, computational scope and source-reading limits in problems/N8/third-layer-audit.md.
