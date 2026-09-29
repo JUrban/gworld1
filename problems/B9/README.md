@@ -6,12 +6,14 @@ Source begins at line 59; byte range [2636, 3037). The raw fragment is stored in
 
 Heading star: False. Starred subparts: none detected. Hall of Fame entries: 0. Linked background sections indexed: 0.
 
-The unrestricted counting question remains unresolved here. A verified
-[height-bound counterexample](height-counterexample.md) gives a special
-braid in B5 whose minimum expression height is six, answering a related
-question in Dehornoy's survey. This is not counted as a solution of B9.
-See the [computation audit](../../research/notes/B9-strand-drop.md) and
-[earlier bounded counts](../../research/notes/B9-bounded-enumeration.md).
+A [candidate infinite family](infinite-family-proof.md) gives countably
+infinitely many special braids in every B_N with N>=5. Its
+[audit](infinite-family-audit.md) includes symbolic integer matrices and
+independent faithful-action checks. This is one partial candidate; the
+small-strand counts and external review remain outstanding. The earlier
+[height-bound counterexample](height-counterexample.md) and
+[bounded counts](../../research/notes/B9-bounded-enumeration.md) remain
+development records and are not additional candidates.
 The machine-readable source evidence is in `data/problems.json`; the
 extracted text below is a search aid, not an authoritative transcription.
 

@@ -1873,3 +1873,21 @@ Counts now10whole/1partial/0established novel. The universal numerical
 presentation is not expanded; full theorem and novelty await external
 review. DPRM and free-case primary scopes checked; no Kourovka import,
 no push, no clock change.
+
+
+## B9 infinite special B5 family (2026-09-29T20:39:01.317674+00:00)
+
+A fresh broader scan revisited solvable-group and embedding questions
+without resolving their existing scope barriers. Returning to the explicit
+B9 word led to a structural family: the recurrence u_n S(u_(n-1))=s1^n
+allows three-shift cancellation, leaving a fixed B5 word beta_n. Its
+integral Burau(5,2) entry is n(n-1), so every n>=3 is distinct. This proves
+countably infinite cardinality for all B_N,N>=5, as a candidate result.
+The earlier n=5 height counterexample belongs to this family.
+
+Python symbolic and independent GAP polynomial/free-group checks pass.
+The first GAP run had a constant-polynomial versus integer determinant
+comparison failure; exact failed source and logs retained. Full proof
+and audit are in problems/B9/infinite-family-proof.md and audit.md.
+Small-strand exhaustion and external review remain open. Counts10whole/
+2partial/0established-novel. All jobs terminal; no push or clock change.

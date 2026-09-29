@@ -843,3 +843,14 @@ abstract confirms prior free-nilpotent retract algorithm; full proof not
 audited. Fixed-group/Heisenberg/retract/undecidability searches returned
 prior uniform results without a matching fixed-group answer; not a novelty
 guarantee. Exact links and limitations: problems/N9/audit.md.
+
+
+B9 infinite family source check (2026-09-29T20:39:01.317674+00:00):
+
+Full frozen statement and actual screenshot rechecked; survey actual
+printedp13 inspected again. New primary archive Dehornoy Strange Questions
+About Braids, author Dgb.pdf: Section1.3 and end of5.3 read, full paper not
+audited. It gives no small-strand exhaustion used here. Targeted special-
+braid/infinitude/B5/height searches did not locate this family; novelty
+unverified. The positive ordinal-descent family of a different paper is
+not this shelf. See problems/B9/infinite-family-audit.md.

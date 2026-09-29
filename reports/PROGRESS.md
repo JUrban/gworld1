@@ -2,7 +2,9 @@
 
 Active experiment: 28 September 2026 10:04:49 UTC to 30 September 2026 10:04:49 UTC.
 
-Current counts: **1 partial candidate**, **10 whole-entry candidate solutions**, **0 established novel results**. All eleven candidates await independent review; novelty remains provisional. Dated checkpoints below preserve earlier scope and counts; this opening summary is current.
+Current counts: **2 partial candidates**, **10 whole-entry candidate solutions**, **0 established novel results**. All twelve candidates await independent review; novelty remains provisional. Dated checkpoints below preserve earlier scope and counts; this opening summary is current.
+
+- B9: a new [infinite-family proof](../problems/B9/infinite-family-proof.md) gives countably infinitely many special braids in every B_N with N>=5. A recurrence constructs special terms whose high strands cancel; an integral Burau entry n(n-1) separates all parameters. Independent GAP verifies the symbolic entry and six faithful-action instances. The [audit](../problems/B9/infinite-family-audit.md) retains the first constant-polynomial comparison failure. Small-strand counts are not asserted, so B9 is now one partial candidate. This extends the earlier uncounted height counterexample; external review and novelty remain pending.
 
 - N9: a new [candidate proof](../problems/N9/proof.md) answers(a) negatively in one fixed torsion-free class-two group. Its two-generator subgroups encode a fixed nonrecursive Diophantine set. A modulus-three normalization forces integral circuit values; the ambient presentation never changes. GAP independently checks the full integer kernel and seven retractions in a fixed toy group, alongside17 general-criterion examples. Lean verifies the universal integer normalization, not the full group theorem. The [audit](../problems/N9/audit.md) retains the initial Lean abort and distinguishes the prior uniform theorem and free-nilpotent part(b). This adds one whole-entry coverage candidate, with prior(b) credited; novelty and external review remain pending.
 

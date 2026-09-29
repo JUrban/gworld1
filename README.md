@@ -4,8 +4,8 @@
 
 [Current progress](reports/PROGRESS.md) · [Research plan](research/PLAN.md) · [Research log](research/LOG.md). The initial preparation snapshot is preserved in Git. The generated catalogue and problem READMEs retain their preparation status; current assessments are in [the working triage](research/triage.csv) and [dated claim ledger](research/claims.jsonl).
 
-Current working tally: **ten whole-entry candidates and one partial
-candidate**, all awaiting independent review and novelty assessment.
+Current working tally: **ten whole-entry candidates and two partial
+candidates**, all awaiting independent review and novelty assessment.
 The latest candidate is [N9](problems/N9/proof.md): undecidability of the
 retract problem in one fixed torsion-free class-two group, already for
 two-generator subgroups. Its [audit](problems/N9/audit.md) includes actual
@@ -16,7 +16,10 @@ algorithm for single commutator equations in every finite-rank free
 nilpotent group. See its [general proof](problems/N8/general-proof.md)
 and [audit](problems/N8/general-audit.md). The full all-rank implementation
 is not complete; the theorem argument and novelty require specialist review.
-The latest partial candidate is [G9](problems/G9/flow-growth-proof.md):
+The new [B9 partial candidate](problems/B9/infinite-family-proof.md) constructs
+infinitely many special braids on five strands, giving countably infinitely
+many in every B_N with N>=5; the small-strand counts remain separate.
+[G9](problems/G9/flow-growth-proof.md) provides
 effective approximation of free-metabelian growth in every finite rank,
 and certified rank-two bounds `2.658596558 <= lambda_2 <= 2.943737759`.
 The exact constant remains undetermined; see the [audit](problems/G9/flow-growth-audit.md).
