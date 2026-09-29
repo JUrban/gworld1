@@ -1362,3 +1362,27 @@ rerun. See `research/notes/portfolio-29sep-late-morning.md`.
 Counts remain8 whole-entry coverage candidates,2 partial entries,0
 established novel. The F34 change was accounting only. All jobs terminal;
 no subagents, pushes or contacts. Original deadline unchanged.
+
+
+## N8 universal exact substitutions (2026-09-29T12:13:43.448957+00:00)
+
+The candidate now covers all leading degrees <=7 in arbitrary class and,
+with the existing deepest-six-layer theorem, all targets in classes <=13.
+The key new step integrates later correction kernels as universal group
+word substitutions preserving the commutator exactly, so no ambient free-
+generator hypothesis is needed. A complete finite fiber quotient handles
+separated exceptional offsets, including the boundary t'=2t.
+
+Independent GAP replay passes22 universal maps,88 inverse equalities and
+6 wrong-Nielsen controls in six weighted groups. Another32 substitutions
+on8 pairs with decomposable heavier leading coefficients pass128 inverse
+equalities. The first GAP generator-list error and all41 rejected fractional
+powers are retained. The full new branch algorithm is a candidate proof,
+not an end-to-end implementation; overlapping exceptional offsets remain
+unresolved. See `problems/N8/universal-gauge-proof.md` and its audit.
+
+Kuno's primary symplectic-expansion source and its Massuyeau credit are
+recorded; this classical ingredient is not claimed as new. All jobs are
+terminal, all evidence is local, and no subagents/pushes/contacts occurred.
+Counts remain8 whole-entry coverage candidates,2 partial,0 established novel.
+The original deadline remains30September10:04:49UTC.

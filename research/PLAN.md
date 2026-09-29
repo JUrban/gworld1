@@ -560,3 +560,16 @@ Return to the wider unresolved portfolio or a specific mathematical
 proof concern. N8's remaining unequal weighted branches, the F20/F25
 obstructions, and fixed-ambient questions remain unresolved. Maintain
 all 195-entry scope and original deadline; 7 whole / 3 partial / 0 established novel.
+
+
+## Working focus after N8 universal substitutions (2026-09-29T12:13:43.448957+00:00)
+
+The universal construction and decomposable-pair controls are complete.
+Do not repeat the passed finite suites. Preserve the distinction between
+the candidate branch proof and its not-yet-complete end-to-end implementation.
+The remaining mathematical obstacle is overlapping pre-Nielsen exceptional
+offsets; it is not settled by one quadratic per parameter. Further scope
+needs a specific argument controlling their interaction. Return also to
+concrete unresolved portfolio problems and proof dependencies of existing
+whole-entry candidates. All jobs terminal;8 whole/2 partial/0 established
+novel, original deadline unchanged.

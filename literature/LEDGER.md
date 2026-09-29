@@ -632,3 +632,19 @@ matching higher-class branch theorem located; novelty remains unverified.
 The new proof gives its own integral-power and finite-orbit arguments;
 classical Hall/Malcev coordinates remain credited background. Details
 and computational reading limits in weighted-orbit-proof.md and audit.
+
+
+### N8 universal commutator substitutions (2026-09-29T12:13:43.448957+00:00)
+
+Archived Kuno, *A combinatorial construction of symplectic expansions*,
+arXiv:1009.2219v2 (https://arxiv.org/abs/1009.2219). Introduction, Theorem1.1
+and start of definitions read; actual PDFp2 viewed. The preceding paragraph
+credits Massuyeau's Lemma2.16 for the earlier degreewise construction.
+Massuyeau's original and Kuno's full proof were not audited. The weighted
+finite recursion with our commutator convention is written in the candidate
+proof. PDF SHA256:56f6f53824f6231222b687572d531181fba3a83f05b1f59203969742d839edc4.
+Altassan2013 printedp24 re-viewed to check the free-basis hypothesis and
+rank scope of Theorem3.3. Full frozen N8 HTML/background reread and actual
+statement rendering re-viewed. Targeted commutator/symplectic searches
+found no precise matching extension; novelty remains unverified. Full
+reading limits and prior credits: `problems/N8/universal-gauge-audit.md`.

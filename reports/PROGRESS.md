@@ -16,8 +16,7 @@ Current counts: **2 partial candidates**, **8 whole-entry candidate solutions**,
 - F42: derived the exact extremal formula and a covering-graph construction, then found Koch-Hyde–Olive's September 2026 preprint already proving the same answer. Preserved as a rediscovery, excluded from new-solution count.
 - F11: derived a cyclic-retract/index-three counterexample, then found the same mechanism in Snopce–Tanushevski–Zalesskii (2019). Also excluded. Original HTML screenshots for F11/F42 have now been inspected.
 - Primary sources also report prior resolutions of F15, F30, F31 and F40. B11 has a 2025 primary seminar announcement; full proof not yet located. Scope checks are recorded in `research/triage.csv` and `literature/LEDGER.md`.
-- N8(b) extension: all targets with nonzero degree-three leading term are now covered in arbitrary class, along with every equal-weight branch and the stated free-generator branches. A weighted free Lie algebra and denominator-clearing powers give finitely many integral pair orbits. GAP independently verifies46 subgroup automorphisms,2412 inverse-image equalities and92 commutator witnesses, and rejects a dependent-generator control. See `problems/N8/weighted-orbit-proof.md` and its audit. The full finite-union algorithm is proved, not implemented end to end; arbitrary-class N8(b) remains partial and novelty is unverified.
-- N8(b): constructive candidate algorithms in all finite ranks for every target in classes three through ten, plus every target in gamma_(c-5) for arbitrary class c>=9 and the earlier arbitrary-class families. The new fifth/sixth-layer proof retains complete coupled integral point/line solutions and all remaining tail coordinates. Independent GAP replay checks44 witnesses,424 integer decisions,227 nullities,40 Nielsen periods,25 coupled systems and27 quadratics, including three parameter lines of step6. Proof and audit: `problems/N8/fifth-sixth-layer-proof.md`, `fifth-sixth-layer-audit.md`. This remains one partial candidate; arbitrary lower layers, specialist review and novelty remain outstanding. Earlier low-class/family proofs and all failed runs are retained.
+- N8(b): the latest candidate covers all leading target degrees through seven in arbitrary class, all separated exceptional-offset branches, and all targets through class thirteen when combined with the previous six-final-layer theorem. Exact commutator-preserving substitutions apply even to decomposable heavier leading terms. GAP independently verifies22 universal automorphisms and32 substitutions on8 such pairs, with216 inverse equalities and6 wrong-Nielsen controls. The full new branch algorithm is proved but not implemented end to end. See `problems/N8/universal-gauge-proof.md` and `universal-gauge-audit.md`; previous weighted-orbit and implemented fifth/sixth-layer audits are retained. N8 remains one partial candidate; overlapping exceptional offsets, specialist review and novelty are unresolved.
 - H4: candidate negative answer to polynomial-time conversion into an explicit Dehn presentation. Short presentations of finite metacyclic groups have doubly exponential order; a forbidden-factor automaton bounds the order of any finite group in terms of every Dehn presentation's size. Thus every explicit output is superpolynomial, even with changed generators. Proof: `problems/H4/proof.md`. GAP verified four finite models and independently computed three presentation orders. Related finite-group lower-bound ideas from2012 are credited; novelty and specialist review remain outstanding. Compressed output is a different specification. The strengthened bound in `problems/H4/infinite-input-proof.md` also covers infinite non-elementary virtually free inputs. GAP independently checked three conjugacy-class partitions and two free-kernel presentations (ranks6 and60); this remains the same candidate.
 - F28: explicit negative answer using a rational matrix conjugation on an index-two subgroup of F2. The image also has index two, and the bounded-orbit argument excludes every nontrivial invariant subgroup. Candidate proof: `problems/F28/proof.md`. Exact matrix/word checks covered 13,120 words; GAP independently checked subgroup indices/ranks and defining identities. Related arithmetic constructions in the literature establish weaker normal-subgroup statements; a matching prior full answer has not yet been found.
 - F34: whole-entry coverage combines candidate (a) with known (b); this is a counting reconciliation, not an additional solved subpart. See `research/notes/F34-coverage-reconciliation.md`. Part (a): candidate uniform decision algorithm for potential positivity in every finite rank. A positive image under an injection pulls back through a spanning-tree basis; a nonzero-determinant test on the full EDT0L solution relation decides existence. GAP independently verified270 explicit positive automorphism witnesses in ranks2--4 and3 scope controls. Rank2 and part(b) are prior; potentially new scope is rank>=3. Full recompression is imported, not implemented. Proof and audit: `problems/F34/part-a-proof.md`, `part-a-audit.md`.
@@ -362,3 +361,27 @@ rerun. See `research/notes/portfolio-29sep-late-morning.md`.
 Counts remain8 whole-entry coverage candidates,2 partial entries,0
 established novel. The F34 change was accounting only. All jobs terminal;
 no subagents, pushes or contacts. Original deadline unchanged.
+
+
+## N8 universal exact substitutions (2026-09-29T12:13:43.448957+00:00)
+
+The candidate now covers all leading degrees <=7 in arbitrary class and,
+with the existing deepest-six-layer theorem, all targets in classes <=13.
+The key new step integrates later correction kernels as universal group
+word substitutions preserving the commutator exactly, so no ambient free-
+generator hypothesis is needed. A complete finite fiber quotient handles
+separated exceptional offsets, including the boundary t'=2t.
+
+Independent GAP replay passes22 universal maps,88 inverse equalities and
+6 wrong-Nielsen controls in six weighted groups. Another32 substitutions
+on8 pairs with decomposable heavier leading coefficients pass128 inverse
+equalities. The first GAP generator-list error and all41 rejected fractional
+powers are retained. The full new branch algorithm is a candidate proof,
+not an end-to-end implementation; overlapping exceptional offsets remain
+unresolved. See `problems/N8/universal-gauge-proof.md` and its audit.
+
+Kuno's primary symplectic-expansion source and its Massuyeau credit are
+recorded; this classical ingredient is not claimed as new. All jobs are
+terminal, all evidence is local, and no subagents/pushes/contacts occurred.
+Counts remain8 whole-entry coverage candidates,2 partial,0 established novel.
+The original deadline remains30September10:04:49UTC.
