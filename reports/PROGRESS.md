@@ -159,3 +159,6 @@ F37’s proposed determinant shortcut remains unproved for products of primitive
 
 
 Wider portfolio checkpoint,29September: the locally free construction route for MA4 is ruled out by a finite-normal-generation obstruction, with a perfect locally free linear control preserving the distinction. Recent compressed-primitivity and four-strand hyperbolic-quotient theorems do not settle C2 or B12. Proof/scope notes and source audits are saved; no candidate count changes.
+
+
+N8 central-factor audit,29September: an alternative finite-projective-fibre proof and Groebner/multiplication-matrix implementation supplies the same all-class central-target decision result without the Klyachko rotation lemma. Thirteen Lie cases and two affine controls passed; independent GAP checked16 positive group witnesses. The first conversion failure is retained. See `problems/N8/projective-factor-audit.md`. This strengthens verification of the existing partial candidate; counts remain5 whole,3 partial,0 established novel.

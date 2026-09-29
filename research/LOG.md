@@ -841,3 +841,10 @@ Python passed46,536 positional schemes and an uncovered negative control. GAP in
 The preceding preparation-only response made no mathematical progress on this active goal. Revalidated the original gworld1 clock and empty jobs ledger. Proved that locally residually solvable groups have no nontrivial perfect finitely normally generated normal subgroup, ruling out a locally free MA4 construction. Included a perfect locally free linear direct-limit control, so the proof cannot be overextended to perfectness alone. No general MA4 answer or new count.
 
 Archived and checked Kapovich2026 compressed primitivity (C2) and Mangioni--Sisto2026 selected B4 quotients (B12). Neither theorem matches the full original question. Original statements and precise primary theorem pages were viewed. Updated their working triage rows, retaining unresolved scope. No mathematical job was run, no agents/contact/push, no new Kourovka transfer, original deadline and frozen inputs unchanged.
+
+
+## 2026-09-29T01:35:30.157324+00:00 — alternate N8 central-factor proof
+
+Developed a finite-projective-fibre argument from Shirshov-Witt and a terminating rational-point enumeration via quotient-algebra multiplication matrices. It gives another central-target decision proof, without the original Klyachko rotation lemma or its two-direction bound. The new exact solver passed13 Lie cases and2 affine controls; independent GAP/nq verified16 positive group lifts. A first rational-type conversion failure was preserved before the explicit conversion fix. Final Python and GAP runs passed with empty stderr in2.026s and2.126s.
+
+Re-read/viewed original N8 and the exact primary Shirshov-Witt statement. The finite scheme proof and integral scaling argument were internally rechecked; no outside review or new novelty/scope claim. All jobs terminal; original clock and inputs unchanged. No agents/contact/push or new Kourovka transfer.

@@ -14,3 +14,8 @@ G) are decidable in every finitely generated 2-nilpotent group G?
 (b) Are equations of the form [x,y] = g (g \in G) decidable
 in every finitely generated free nilpotent group? Background
 ```
+
+The [projective-factor audit](projective-factor-audit.md) gives an
+alternative central-target decision argument and implementation, with
+13 exact Lie cases and 16 independent GAP group-witness checks. This
+does not enlarge the current partial scope.

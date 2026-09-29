@@ -2,19 +2,24 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately 00:58 UTC on 29 September: five whole-entry
+Latest checkpoint, approximately 01:35 UTC on 29 September: five whole-entry
 candidates (F28,N5,M0,H4,F41), three partial candidates
-(N8,F38(a),F34(a)), zero established novel results. F41 now has a full
-intended-scope candidate from signed piece-cover counting, the KM
-definable-set theorem and Pillay's generic-type theorem. The exact source
-statements, proof and scope audit are in problems/F41/multipattern-proof.md
-and multipattern-audit.md. Its 46,536 positional checks and 77 independent
-GAP counts are complete; the deep imported results are credited dependencies.
+(N8,F38(a),F34(a)), zero established novel results. F41's full
+intended-scope candidate remains for specialist and novelty review.
 
-Next return to a concrete unresolved question in the wider portfolio or
-a specific adversarial proof/novelty concern. F41's model-theoretic
-dependency and novelty deserve specialist review; more finite samples
-would not settle those issues. The original clock and budget are unchanged.
+The latest broader pass ruled out a locally free MA4 construction and
+checked that recent C2/B12 sources do not match those full questions.
+N8 central targets now also have an alternative finite-projective-fibre
+proof and rational-point solver, independent of the Klyachko rotation
+lemma. Thirteen Lie cases, two affine controls and sixteen GAP positive
+lifts passed; the first conversion failure is retained. This is a proof
+audit of the existing scope, not another candidate.
+
+Next return to a concrete unresolved mathematical lead in the wider
+portfolio. Do not keep enlarging the new finite test suite: its key
+finiteness assertion is mathematical, and the original central-target
+scope was already covered. General higher-class intermediate N8 targets
+remain unresolved. Preserve the original deadline and resource budget.
 
 ## First pass: source and literature triage
 

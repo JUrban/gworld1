@@ -380,3 +380,8 @@ Archived Kharlampovich--Myasnikov arXiv1111.0577v5, Pillay arXiv0812.1692 and My
 ## 2026-09-29T01:27:14.020908+00:00 — C2 and B12 scope checks
 
 Kapovich arXiv2607.21499v1: read introduction and Sections5-6; viewed pp2,16. The fixed-rank compressed primitivity certificate and minimality test do not supply arbitrary-word orbit comparison. Mangioni--Sisto arXiv2602.23275, author-hosted PDF: read introduction/TheoremB/RemarkF; viewed p2. Selected B4 hyperbolic quotients differ from the B_n,n>4 existence question. Both full PDFs and hashes archived; underlying long algorithmic/geometric proofs not independently audited. See the C2 and B12 scope notes. Bounded MA4 searches yielded no matching general resolution; the elementary local-residual obstruction is not asserted novel.
+
+
+## 2026-09-29T01:35:30.157324+00:00 — N8 alternative factor finiteness
+
+Reused archived Bryant--Kovacs--Stohr2005; read and viewed printedp147/PDFp5, which states the ordinary Shirshov-Witt theorem over a field. The positive-characteristic restricted-Lie theorem is not used. A projective linear-projection argument then supplies finite unequal-weight factor fibres; no novelty asserted. Exact proof, rational algorithm, conversion failure and limited checks are in problems/N8/projective-factor-audit.md.

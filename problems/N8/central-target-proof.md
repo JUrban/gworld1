@@ -2,6 +2,11 @@
 
 Candidate argument, 28 September 2026. Scope: given a finite rank r, a class c, and g in the last lower-central term gamma_c of N=F_r/gamma_(c+1), decide whether g is a single commutator and produce factors on a positive answer. This is a partial scope of N8(b), not a solution of the entire entry. The proof uses Klyachko's classical Lie idempotent theorem, credited below. Novelty and independent review remain outstanding.
 
+An [alternative finiteness proof and solver](projective-factor-audit.md),
+added on 29 September, uses projective fibres and Shirshov--Witt instead
+of the rotation lemma. It supplies a separate route to the same central
+target decision statement, without the stronger two-direction bound.
+
 Use [x,y]=x^-1 y^-1 x y. The associated graded Lie ring of F_r is the free integral Lie ring L on its generators, embedded in the free associative algebra T. Write L_j for its homogeneous component of degree j. Integral Hall bases and all the maps below are effective. The rank-one and class-one cases are immediate; g=1 always has the identity factors.
 
 ## 1. A rotation consequence of Klyachko's theorem
