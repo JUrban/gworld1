@@ -1,0 +1,2833 @@
+                                                  Aperiodicity properties of automorphism groups of free
+                                                                         products
+                                                                                     Yassine Guerch
+
+                                                                                     January 8, 2026
+arXiv:2601.03947v1 [math.GR] 7 Jan 2026
+
+
+
+
+                                                                                          Abstract
+                                                       Let G “ G1 ˚. . .˚Gk ˚FN be a free product of finitely presented groups, where FN
+                                                   is a free group of rank N P N. Let OutpG, Gq be the subgroup of OutpGq preserving
+                                                   the set of conjugacy classes G “ trG1 s, . . . , rGk su. Under natural conditions on the
+                                                   groups Gi with i P t1, . . . , ku, we prove that the group OutpG, Gq has a finite index
+                                                   subgroup IApG, G, 3q with notable aperiodicity properties. We show that the group
+                                                   IApG, G, 3q is torsion free and, if ϕ P IApG, G, 3q, every ϕ-periodic conjugacy class
+                                                   of elements of G is in fact fixed by ϕ and every ϕ-periodic conjugacy class of free
+                                                   factors of G is fixed by ϕ.
+                                                       As an application, we prove that, for every toral relatively hyperbolic group G,
+                                                   the group OutpGq has a finite index subgroup IApG, 3q with the same above men-
+                                                   tioned aperiodicity properties. We in particular give another proof of the theorem,
+                                                   due to Handel–Mosher, that the kernel of the action of OutpFN q on H1 pFN , Z{3Zq
+                                                   satisfies natural aperiodicity properties. 1
+
+
+                                          1       Introduction
+                                          Let G be a finitely generated group and let ϕ P OutpGq be an outer automorphism of
+                                          G. When studying dynamical properties of ϕ, one often needs to pass to a power of ϕ so
+                                          that any periodic orbit is pointwise fixed. However, this power generally depends on the
+                                          chosen outer automorphism and is not stable by composition. This is why constructing a
+                                          finite index subgroup of OutpGq in which every outer automorphism has pointwise fixed
+                                          periodic orbits is particularly useful in practice.
+                                              We illustrate this philosophy with three standard examples. The first famous example
+                                          of a group G whose outer automorphism group contains such an aperiodic finite index
+                                          subgroup is the free abelian group Zn of rank n ě 1. Indeed, it is a standard result of
+                                          Minkowski that the group
+
+                                                                       IApZn , 3q “ ker pGLn pZq Ñ GLn pZ{3Zqq
+                                              1
+                                              Keywords: outer automorphism groups, free products of groups, group actions on trees, JSJ decom-
+                                          positions of groups. AMS codes: 20E36, 20F65, 20F28, 20E08
+
+
+
+
+                                                                                              1
+is torsion free. From this it is easy to deduce that, for every ϕ P IApZn , 3q, every
+ϕ-periodic element of Zn is fixed by ϕ (see for instance Proposition 6.1).
+    When G is the fundamental group of a closed, connected, hyperbolic surface Σ, the
+mapping class group MCGpΣq “ Outpπ1 pΣqq of the surface Σ also contains a finite index
+subgroup with remarkable aperiodicity properties. Indeed, Serre [Ser] proved that the
+group
+                  IApπ1 pΣq, 3q “ ker pMCGpΣq Ñ AutpH1 pΣ, Z{3Zqqq
+is also torsion free. Moreover, Ivanov [Iva, Theorem 1.2] later proved that if ϕ P MCGpΣq,
+the homotopy class of any ϕ-periodic simple closed curve of Σ is fixed by ϕ and the ho-
+motopy class of any ϕ-periodic subsurface of Σ is fixed by ϕ. Ivanov then used the group
+IApπ1 pΣq, 3q to prove a Tits alternative for MCGpΣq: every subgroup of IApπ1 pΣq, 3q
+either contains a nonabelian free subgroup or is free abelian. His proof relies on the
+action of IApπ1 pΣq, 3q on the Teichmüller space T pΣq and its Thurston compactification
+T pΣq, where the above mentioned aperiodicity properties of IApπ1 pΣq, 3q translates into
+aperiodicity properties of the action of IApπ1 pΣq, 3q on T pΣq. Later, Kida [Kid] worked
+in the group IApπ1 pΣq, 3q to prove that the group MCGpΣq is rigid in the sense of mea-
+sure equivalence. This similarly uses the fact that aperiodicity properties of IApπ1 pΣq, 3q
+gives aperiodicity properties of the action of IApπ1 pΣq, 3q on the curve complex of Σ.
+     Let FN be a free group of rank N ě 1. Handel–Mosher [HM1] proved that OutpFN q
+also contains a finite index subgroup with notable aperiodicity properties. Indeed, let
+
+                   IApFN , 3q “ ker pOutpFN q Ñ AutpH1 pFN , Z{3Zqqq .
+
+The group IApFN , 3q is torsion free (see for instance [BFH3, Corollary 5.7.6]). Handel–
+Mosher proved that for every ϕ P IApFN , 3q, every ϕ-periodic conjugacy class of elements
+in FN is fixed by ϕ ([HM1, Theorem II.4.1]) and that every ϕ-periodic conjugacy class
+of free factors of FN is preserved by ϕ ([HM1, Theorem II.3.1]). Later, they proved
+that every virtually abelian subgroup of IApFN , 3q is abelian [HM2], and the author
+proved that IApFN , 3q satisfies the unique root property [Gue]. As in the surface case,
+these aperiodicity properties turn out to be useful to understand structural properties
+of the group OutpFN q, such as the Tits alternative [BFH3, BFH2, BFH4], subgroup
+decomposition properties [HM1] or the measure equivalence rigidity [GH3]. This relies
+on the fact that the aperiodicity properties of IApFN , 3q also translates into aperiodic-
+ity properties of the action of IApFN , 3q on some natural OutpFN q-complexes, such as
+Culler–Vogtmann’s Outer space [CV] or the free factor complex [BF].
+    The aim of the present paper is to construct finite index subgroups with nice aperiod-
+icity properties for larger families of outer automorphisms of groups. Recall that a toral
+relatively hyperbolic group is a torsion free finitely generated group which is hyperbolic
+relative to finitely generated free abelian groups. This includes in particular all torsion
+free Gromov hyperbolic groups, but also all Sela’s limit groups (see [Ali, Dah1]). We in
+particular prove the following theorem.
+
+Theorem 1.1 (see Corollary 6.7). Let G be a toral relatively hyperbolic group. There
+exists a finite index subgroup IApG, 3q of OutpGq with the following properties.
+
+                                             2
+ (1) The group IApG, 3q is torsion free.
+
+ (2) If ϕ P IApG, 3q, every ϕ-periodic conjugacy class of elements of G is fixed by ϕ.
+
+ (3) If ϕ P IApG, 3q, every ϕ-periodic conjugacy class of free factors of G is fixed by ϕ.
+
+ (4) If Φ P AutpGq is such that rΦs P IApG, 3q, every Φ-periodic element of G is fixed
+     by Φ.
+
+    The construction of IApG, 3q is explicit and it coincides with the above mentioned
+groups when G is free, free abelian or the fundamental group of a surface. We in partic-
+ular give another proof of the free group case which does not use the CT map technology
+introduced by Feighn–Handel [FH]. Instead, we use group actions on canonical trees and
+the first generation of (relative) train tracks for free products, see [CT, FM, Lym2] and
+the seminal work of Bestvina–Handel [BH] in the free group setting. In fact, most of the
+results in the present article are proved in the general context of free products.
+    A free product is a couple pG, Gq where G is a finitely generated group and G “
+trG1 s, . . . , rGk su is a finite set of conjugacy classes of finitely generated subgroups of G
+such that
+                                        G “ G1 ˚ . . . ˚ Gk ˚ FN ,
+where FN is a free group of rank N P N. By Stallings’ theorem about ends of groups [Sta],
+every finitely generated, infinitely-ended, torsion free group admits a nontrivial free
+product structure. Let ξpG, Gq “ k ` N be the Grushko rank of pG, Gq.
+    We study the group OutpG, Gq of outer automorphisms of G which preserve the set
+G. This group is a natural generalisation of OutpFN q and has been intensively studied
+over the last decades [GL3, Hor2, FM, GH1, GH2, DL, Lym1]. If, for every rGi s P G,
+the group Gi is one-ended, then OutpGq “ OutpG, Gq.
+    Our aim in this paper is to find an aperiodic finite index subgroup of OutpG, Gq,
+that is, a finite index subgroup which satisfy the four assertions in Theorem 1.1. There
+are natural obstructions for the existence of such an aperiodic finite index subgroup.
+For instance, if there exists rGi s P G such that OutpGi q has no aperiodic finite index
+subgroup, then we cannot find such an aperiodic finite index subgroup for OutpG, Gq.
+We prove that this is essentially the only restriction. Indeed, we gather in what we call
+the Standing Assumptions all the hypotheses on the groups Gi , OutpGi q and AutpGi q
+that we need in order to construct an aperiodic finite index subgroup for OutpG, Gq
+(see Section 3.1). Basically, we assume that Gi is finitely presented, that Gi is torsion
+free and that OutpGi q and AutpGi q contain aperiodic finite index subgroups. We in
+fact assume that OutpGi q satisfies a stronger statement than Item p2q of Theorem 1.1
+since we also assume that the same is true replacing conjugacy classes of elements by
+conjugacy classes of periodic subgroups. Our main theorem is the following.
+
+Theorem 1.2 (see Proposition 3.11, Theorems 4.1, 5.1, Corollary 4.10). Let pG, Gq be a
+free product satisfying the Standing Assumptions. Then OutpG, Gq contains an aperiodic
+finite index subgroup IApG, G, 3q.
+
+
+                                               3
+     Again the construction of the aperiodic finite index subgroup IApG, G, 3q is explicit.
+It is built out of the aperiodic finite index subgroups of the groups OutpGi q with rGi s P G,
+the finite index subgroup of OutpG, Gq fixing elementwise the set G and the finite index
+subgroup of OutpG, Gq acting trivially on H1 pG, Z{3Zq.
+     It must be noted that the construction of a finite index subgroup of OutpG, Gq sat-
+isfying Item p3q of Theorem 1.1 depends on the construction of a finite index subgroup
+of OutpG, Gq satisfying Item p2q of Theorem 1.1. Indeed, let G “ G1 ˚ G2 ˚ F3 , let
+Φi P AutpGi q be of infinite order and let Φ3 P AutpF3 q be a nontrivial automorphism of
+finite order. Let x P F3 be a primitive element of F3 such that the size of the Φ3 -orbit
+of x is the order of Φ3 . Let Φ P AutpGq acting as Φi on Gi and as Φ3 on F3 . Then Φ is
+of infinite order and G1 ˚ xxy is a periodic free factor of Φ and its period depends on the
+order of Φ3 .
+     We now sketch the proof of Theorem 1.2. Let IApG, G, 3q, let ϕ P IApG, G, 3q and let
+Φ P ϕ. Consider the group G ¸Φ Z, that is, the semi-direct product of G by Z induced
+by the automorphism Φ. The isomorphism class of this group only depends on the outer
+class ϕ, so we will denote G ¸Φ Z by Gϕ . As explained before, the proof of each item
+of the aperiodicity properties of ϕ relies on the construction of an action of G on a tree
+T which is ϕ-invariant: the action of G on T extends to an action of Gϕ . The quotient
+GzT has a natural structure of a graph of groups and Φ induces an automorphism of
+the graph of groups GzT .
+     Informally, the source of periodic behaviours for an automorphism of a graph of
+groups is twofold. Firstly, an automorphism of a graph of groups GzT induces an auto-
+morphism of the underlying graph GzT of GzT . This first source of periodicity is ruled
+out by the fact that Φ acts trivially on H1 pG, Z{3Zq. Indeed, this will imply that Φ also
+acts trivially on H1 pGzT , Z{3Zq and an elementary observation (see Lemma 3.5) shows
+that Φ induces a trivial automorphism of the graph GzT . Secondly, if an automorphism
+of GzT fixes pointwise the graph GzT , it induces automorphisms of the vertex groups of
+GzT which may have periodic behaviors. This source of periodicity is more delicate to
+deal with and it heavily depends on the tree T .
+     The construction of the ϕ-invariant tree T is different according to the item of The-
+orem 1.1 one wants to prove. We explain it in the case of ϕ-periodic conjugacy classes
+of elements and ϕ-periodic conjugacy classes of free factors. Let g P G whose conjugacy
+class rgs is ϕ-periodic and let H “ trxΦn pgqysunPN . Since rgs is ϕ-periodic, it is a finite set
+of conjugacy classes of cyclic subgroups of G. Since pG, Gq is a free product, the group
+G is hyperbolic relative to G. Moreover, by induction on the Grushko rank of pG, Gq,
+we may assume that G is one-ended relative to G Y H, that is, there does not exist a
+proper free product structure pG, Fq of G such that, for every rAs P G Y H there exists
+rBs P F with A Ď B. In that case, Guirardel–Levitt [GL2] constructed a canonical
+(JSJ) ϕ-invariant tree T with a G-action such that all edge stabilisers are either cyclic or
+conjugate into some Gi . Moreover, every subgroup xΦn pgqy with n P N is elliptic in T ,
+and every vertex stabiliser is either a conjugate of some Gi , cyclic, a surface group or a
+so-called rigid stabiliser, that is the image of ϕ in the outer automorphism group of the
+vertex group is finite (see Theorem 2.13). The vertex groups are therefore sufficiently
+
+
+                                               4
+simple so that one can show that the action of ϕ on every vertex group is aperiodic. This
+is done in Section 4.
+    We now turn to ϕ-periodic conjugacy classes of free factors. In fact, it is equivalent to
+show that, if pG, Fq is a free product structure on G such that F is ϕ-periodic, then F is
+fixed by ϕ. Let pG, Fq be such a ϕ-periodic free product structure. Again, an inductive
+argument shows that we may assume that the Grushko rank of pG, Fq is maximal among
+all ϕ-periodic free product structures pG, Fq. There are two sorts of such maximal free
+product structures, depending on whether there exists or not a ϕ-periodic tree T with a
+G-action such that every edge stabiliser is trivial and F is the set of conjugacy classes
+of nontrivial vertex stabilisers of T .
+    If there does not exist such a ϕ-periodic tree, then one can show using standard
+arguments from the theory of relative train tracks (see [Lym1]) that we can associate to
+F an attracting lamination ΛF of ϕ. Let B8 pG, Gq be the Bowditch boundary associated
+with the relatively hyperbolic structure pG, Gq. A lamination of pG, Gq is a closed, G-
+invariant, flip-invariant subset of the double boundary
+
+                         B 2 pG, Gq “ B8 pG, Gq ˆ B8 pG, Gq ´ Diag.
+
+An attracting lamination of ϕ is a particular ϕ-periodic lamination of pG, Gq which
+encodes informations regarding the dynamics of ϕ on G. It is standard to prove that, in
+order to show that ϕ fixes F, it suffices to show that ϕ fixes ΛF (see Lemma 5.14). The
+action of ϕ on its (finite) set of attracting laminations is encoded in a relative train track
+of ϕ, which is a way to represent ϕ as a homotopy equivalence of a graph of groups. It
+then suffices to know that ϕ fixes elementwise the sets G and H1 pG, Z{3Zq to show that
+ϕ fixes elementwise its set of attracting laminations as well as F.
+    Finally, assume that F is the set of conjugacy classes of nontrivial vertex stabilisers
+of some ϕ-periodic G-tree T with trivial edge stabilisers. Let ℓ ą 0 be such that T
+is ϕℓ -invariant. The key observation that we use, which we think is of independent
+interest, is that any ϕℓ -invariant such tree T induces a graph of groups Gϕℓ zT with
+infinite cyclic edge groups such that π1 pGϕℓ zT q » Gϕℓ . Call such a graph of groups
+decomposition a Gϕℓ -cyclic splitting. Conversely, any such Gϕℓ -cyclic splitting induces
+a ϕℓ -invariant G-tree with trivial edge groups. Thus, we are reduced to understand
+the possible graph of groups decomposition Gϕℓ zT with infinite cyclic edge groups. This
+observation was used for instance by Dahmani [Dah2] to solve the conjugacy problem for
+outer automorphisms ϕ of FN whose induced suspension Gϕ is Gromov hyperbolic. This
+idea was also suggested by Mutanguha [Mut] to show that being polynomially growing
+among free-by-cyclic groups is a geometric invariant.
+    The advantage of this point of view is that we can invoke the theory of JSJ decom-
+positions of groups introduced by Rips–Sela [RS] to understand all cyclic splittings of a
+given finitely presented one-ended group. This theory, combined with the construction of
+tree of cylinders introduced by Guirardel–Levitt [GL4], produces an AutpGϕℓ q-invariant
+Gϕℓ -tree U which encodes all Gϕℓ -cyclic splittings. Even though U does not necessarily
+have cyclic edge stabilisers, the fact that it is AutpGϕℓ q-invariant is sufficient for our
+considerations. Indeed, the group Gϕℓ is a normal subgroup of Gϕ , so that Gϕ acts on
+
+                                              5
+U and hence U can be seen as a ϕ-invariant G-tree. As U encodes all ϕ-periodic G-trees
+T with trivial edge stabilisers, it therefore suffices to understand the action of ϕ on U
+and its vertex stabilisers to show that ϕ must preserve T and F. We insist on the fact
+that this is the only place where we need the assumption that G is finitely presented so
+as to apply Rips–Sela theory.
+    We end this introduction with an open question. Our main application of Theo-
+rem 1.2 deals with toral relatively hyperbolic groups as we manage to prove that they
+satisfy the Standing Assumptions. However, the Standing Assumptions are quite flexible
+and we hope that they are satisfied by larger classes of groups. We in particular ask the
+following.
+
+Questions 1.3. (1) Let Γ be a finite simple graph. Does the associated Right Angled
+     Artin group AΓ satisfy the Standing Assumptions?
+
+ (2) Is the kernel IApAΓ , 3q of the action of OutpAΓ q on H1 pAΓ , Z{3Zq an aperiodic
+     finite index subgroup?
+
+   There are evidence towards a positive answer for Question 1.3. Firstly, the group
+IApAΓ , 3q is torsion free (in fact of type F) by a result of Day–Wade ([DW, Theorem B]).
+Secondly, Fioravanti [Fio] recently proved how to construct canonical (JSJ) trees for
+subgroups of OutpAΓ q that are close in spirit to the trees we use in this paper. We hope
+that these trees may be useful to prove that AΓ satisfies the Standing Assumptions.
+    We now explain the structure of the paper. In Section 2, we present the relevant
+background regarding free factor systems, splittings of groups, JSJ decompositions of
+groups or relative train tracks. In Section 3, we describe the Standing Assumptions
+and prove first immediate properties of the group IApG, G, 3q, such as being torsion
+free (see Proposition 3.11). In Section 4, we prove Theorem 4.1, which implies that,
+if ϕ P IApG, G, 3q, every ϕ-periodic conjugacy class of elements of G is fixed by ϕ.
+Section 5 is devoted to the proof of Theorem 5.1, which implies that every ϕ-periodic
+conjugacy class of free factors of G is fixed by ϕ. This in particular concludes the proof
+of Theorem 1.2. Finally, in Section 6, we explain how to deduce the case where G is
+a toral relatively hyperbolic group (Theorem 1.1) from Theorem 1.2. We in particular
+show that any toral relatively hyperbolic group satisfies the Standing Assumptions.
+
+Acknowledgements
+I warmly thank Naomi Andrew, Camille Horbez, Sam Hughes, Gilbert Levitt and Ric
+Wade for helpful conversations. I also thank the LABEX MILYON (ANR-10-LABX-
+0070) for its financial support during my postdoctoral position; during which part of
+this project was written.
+
+Dedication
+I dedicate this paper to my grand-father, Jean-Jacques Lesage.
+
+
+                                            6
+2      Background
+2.1     Free products, Free factor systems
+Let N P N, let G1 , . . . , Gk be finitely generated groups and let
+
+                                         G “ G1 ˚ . . . ˚ Gk ˚ FN
+
+be the corresponding free product, where FN is a free group of rank N . Let G “
+trG1 s, . . . , rGk su, where r.s denotes the G-conjugacy class. The Grushko rank of pG, Gq
+is ξpG, Gq “ k ` N .
+Definition 2.1 (Free factor system, free factor). A pG, Gq-free factor system is a finite set
+F “ trH1 s, . . . , rHn su of conjugacy classes of subgroups of G such that:
+      • for every i P t1, . . . , ku, there exists j P t1, . . . , nu such that Gi Ď Hj ;
+
+      • there exists a (necessarily free) subgroup B of G such that
+
+                                            G “ H1 ˚ . . . ˚ Hn ˚ B.
+
+A pG, Gq-free factor system F is proper if F ‰ trGsu.
+    A pG, Gq-free factor is a subgroup of G whose conjugacy class is contained in some
+pG, Gq-free factor system.
+   If F is a pG, Gq-free factor system, then the pair pG, F q is also a free product, so
+that ξpG, Fq is well-defined. The set FFpG, Gq of proper pG, Gq-free factor systems is
+equipped with a poset structure, where F1 Ď F2 if, for every rAs P F1 , there exists
+rBs P F2 with A Ď B. Note that, in that case, ξpG, F2 q ď ξpG, F1 q, so that
+
+                                    ξ:     FFpG, Gq Ñ     N
+                                              F     ÞÑ ξpG, F q
+
+is an order-reversing poset map.
+    A pG, Gq-free factor system F is sporadic if ξpG, F q ď 2. This happens exactly in
+the following cases:
+
+      • F “ trGsu;
+
+      • F “ trH1 s, rH2 su and G “ H1 ˚ H2 ;
+
+      • F “ trHsu and G “ H ˚ Z.
+
+   Let F be a pG, Gq-free factor system. We denote by AutpG, Fq the subgroup of
+AutpGq which preserves F. Note that an element of AutpG, Fq may permute the ele-
+ments of F. The group InnpGq of inner automorphisms of G is contained in AutpG, Fq.
+The group OutpG, Fq of outer automorphisms of G preserving F is the quotient group
+AutpG, Fq{InnpGq.
+
+                                                    7
+    More generally, let H be a finite set of conjugacy classes of subgroups of G. We denote
+by OutpG, Hq the subgroup of OutpGq which preserves the set H. Let OutpG, Hptq q be
+the subgroup of OutpG, Hq consisting of all ϕ P OutpG, Hq such that, for every rHs P H,
+there exists Φ P ϕ with ΦpHq “ H and Φ|H “ IdH .
+
+    Let H be a subgroup of G. The group H is pG, Gq-peripheral if it is contained in a
+conjugate of some Gi and is pG, Gq-nonperipheral otherwise.
+    Assume additionally that H is finitely generated. If X is a subset of H, we denote by
+rXsH the H-conjugacy class of X. Any pG, Gq-free factor system F induces a free factor
+system F|H of H by considering, for every A Ď G with rAs P F , the H-conjugacy class
+rH X AsH . We remark that it is possible that there exist A, B Ď G with rAs “ rBs P F
+but rH X AsH and rH X BsH induce distinct elements of F|H . The free factor system
+F|H turns H into a free product pH, F|H q.
+
+2.2     Splittings of a group
+Let Γ be a finitely generated group (not necessarily a free product). Let A be a nonempty
+family of subgroups closed under conjugation and passing to subgroups. A pΓ; Aq-
+splitting is a Γ-equivariant isometry class of an action of Γ by isometry on a simplicial
+tree T such that:
+
+      • Edge stabilisers belong to A;
+
+      • Γ does not preserve any proper subtree of T (we say that the action is minimal );
+
+      • there does not exist g P Γ which preserves an edge of T while flipping its endpoints.
+
+    We denote by V T the set of vertices of T and by ET the set of (unoriented) edges
+of T . If v P V T (resp. e P ET ), we denote by Γv (resp. Γe ) the stabiliser of v (resp.
+e) in Γ. A pΓ; Aq-splitting T is degenerate if T is reduced to a point. Let v P V T with
+Γv finitely generated. If Γ is equipped with a free product structure pΓ, Gq and if F is a
+pΓ, Gq-free factor system, we will denote by Fv the free factor system F|Γv of Γv .
+    We will also need relative versions of splittings. Let H1 , . . . , Hn Ď Γ be finitely
+generated subgroups and let H “ trH1 s, . . . , rHn su. A pΓ, H; Aq-splitting is a pΓ; Aq-
+splitting T such that, for every i P t1, . . . , nu, the group Hi fixes a point in T .
+    We will mostly work with the following classes of splittings.
+
+Definition 2.2 (free, cyclic splittings). Let Γ be a finitely generated group, let H1 , . . . , Hn
+be finitely generated subgroups of Γ and let H “ trH1 s, . . . , rHn su.
+
+      • A pΓ, Hq-splitting is a pΓ, H; Aq-splitting where A is the family of all subgroups of
+        Γ.
+
+      • A pΓ, Hq-free splitting is a pΓ, H; Aq-splitting where A is the family consisting only
+        of the trivial group.
+
+
+                                                8
+   • A pΓ, Hq-cyclic splitting is a pΓ, H; Aq-splitting where A is the family of all cyclic
+     (possibly trivial) subgroups of Γ.
+   A pΓ, Hq-free splitting is in particular a pΓ, Hq-cyclic splitting. When H “ ∅, we will
+usually refer to a pΓ, Hq-splitting simply as a Γ-splitting.
+   The group AutpΓq acts on the set of Γ-splittings by precomposition of the action.
+Since InnpΓq acts trivially on this set (recall that a splitting is defined up to Γ-equivariant
+isometry), the AutpΓq-action induces an action of OutpΓq on the set of Γ-splittings.
+   Let S be a Γ-splitting. We now describe the stabiliser StabpSq of S in OutpΓq. This
+description is due to Levitt [Lev].
+   Note that, since Γ is finitely generated and since the action of Γ on S is minimal, the
+quotient ΓzS has the structure of a finite graph of groups. The group StabpSq acts by
+graph automorphism on the underlying graph ΓzS of ΓzS. This gives a homomorphism
+
+                                  StabpSq Ñ Autgr pΓzSq,
+
+where Autgr pΓzSq is the group of graph automorphisms of ΓzS. Since ΓzS is a finite
+graph, the kernel KpSq of the above map is a finite index subgroup of StabpSq.
+    Let ϕ P KpSq and let v P V S. Any representative of ϕ induces a unique Γ-equivariant
+isometry of S. If Φ1 , Φ2 are two representatives of ϕ which fix the vertex v, then they
+differ by an inner automorphism adg with g P Γv . This shows that, to any outer auto-
+morphism ϕ P KpSq, one can naturally associate an outer automorphism ϕv P OutpΓv q.
+Similarly, for every edge e P ES and every ϕ P KpSq, one can naturally associate an
+outer automorphism ϕe P OutpΓe q. We thus have a natural restriction homomorphism
+                                          ź
+                                KpSq Ñ          OutpΓv q,
+                                           vPV ΓzS
+
+whose kernel is denoted by T pSq.
+   The following proposition describes the structure of T pSq when S is a Γ-free splitting.
+Proposition 2.3 ([Lev, Proposition 3.1]). Let S be a Γ-free splitting. The group T pSq is
+isomorphic to a direct product      ź
+                                          Γnv v {ZpΓv q,
+                                     vPV ΓzS
+
+where nv is the valence of the vertex v of ΓzS and ZpΓv q embeds diagonally in Γnv v .
+   When S is a Γ-free splitting, we also have another description of the group KpSq.
+Proposition 2.4 ([Lev, Proposition 4.2]). Let S be a Γ-free splitting. The group KpSq
+splits as a direct product                  ź
+                                  KpSq “         Mv
+                                               vPV ΓzS
+
+where, for every v P V ΓzS, there exists nv ě 1 such that the group Mv fits in a short
+exact sequence
+                          1 Ñ Γnv v ´1 Ñ Mv Ñ AutpΓv q Ñ 1.
+
+                                               9
+2.3     JSJ decompositions of finitely presented groups and trees of cylinders
+Let Γ be a finitely presented group. Let H1 , . . . , Hn Ď Γ be finitely generated subgroups
+and let H “ trH1 s, . . . , rHn su. In this section, we define the notion of a JSJ decomposition
+of Γ relative to H. JSJ decompositions of groups are Γ-splittings which have been
+introduced by Sela [Sel] for hyperbolic groups and greatly generalised afterwards [RS,
+Bow1, DS, FP]. Here we present the point of view due to Guirardel–Levitt [GL1].
+    We will give two constructions of JSJ decompositions. One is general and does not
+require any other assumption on Γ. The second one requires that Γ is hyperbolic relative
+to a finite set of finitely generated subgroups. The advantage of the second construction
+is that the JSJ decomposition is invariant under every automorphism of Γ preserving
+the parabolic structure. Moreover, as explained below (see Theorem 2.13), we have a
+better understanding of the action of AutpΓq on the so-called rigid vertices of the JSJ
+decomposition.
+
+2.3.1    On the terminology of JSJ decompositions of groups
+Let A be a family of subgroups of Γ, closed under taking subgroups and conjugation.
+Definition 2.5 (Universally elliptic splitting). Let S be a pΓ, H; Aq-splitting. We say that
+S is universally elliptic if, for every e P ES, the group Γe is elliptic in every pΓ, H; Aq-
+splitting.
+Definition 2.6 (Rigid, flexible vertex). Let S be a pΓ, H; Aq-splitting. Let v P V S. We
+say that v is a rigid vertex if Γv is elliptic in every pΓ, H; Aq-splitting. Otherwise, we
+say that v is a flexible vertex.
+   Let Σ be a connected, compact, hyperbolic (not necessarily orientable) surface. A
+boundary subgroup of Σ is a subgroup of π1 pΣq conjugate to the fundamental group
+B “ π1 pCq of a boundary component of Σ.
+Definition 2.7 (QH vertex, mapping class group). Let S be a pΓ, H; Aq-splitting. Let
+v P V S. We say that v is a QH vertex if there exists a connected, compact, hyperbolic
+(not necessarily orientable) surface Σv such that the following hold.
+      • The group Γv is isomorphic to π1 pΣv q.
+
+      • For every e P ES adjacent to v, the group Γe is contained in a boundary subgroup
+        of Σv .
+
+      • If rHs P H is such that H X Γv ‰ t1u, then H X Γv is contained in a boundary
+        subgroup of Σv .
+   The mapping class group of Γv , denoted by MCGpΓv q, is the subgroup of OutpΓv q
+preserving the set of conjugacy classes of boundary subgroups of Σv .
+    Note that, if v is a QH vertex of a splitting S and if S is not reduced to a point, then
+Γv is infinitely-ended since BΣv ‰ ∅.
+
+                                              10
+2.3.2   JSJ splittings, tree of cylinders
+Recall that Γ is one-ended relative to H if there does not exist a nondegenerate pΓ, Hq-
+splitting with finite edge stabilisers.
+Theorem 2.8 ([GL1, Theorems 2.20, 6.2]). Let Γ be a torsion free finitely presented group
+and let H be a finite set of conjugacy classes of finitely generated subgroups of Γ. Suppose
+that Γ is one-ended relative to H. There exists a pΓ, Hq-cyclic splitting TJSJ  H    with the
+following properties.
+               H
+ (1) The tree TJSJ is universally elliptic.
+                          H
+ (2) Edge stabilisers of TJSJ are infinite cyclic.
+                            H
+ (3) Vertex stabilisers of TJSJ are elliptic in every universally elliptic splitting.
+               H , one of the following hold.
+ (4) If v P V TJSJ
+        (a) The group Γv is infinite cyclic.
+                                                                                      H
+        (b) The vertex v is QH. In particular, its stabiliser is infinitely ended if TJSJ is
+            not reduced to a point.
+        (c) The vertex v is rigid.
+                  H
+    A splitting TJSJ   given by Theorem 2.8 is called a JSJ pΓ, Hq-splitting. In general,
+a JSJ pΓ, Hq-splitting is not unique. However, if T and T 1 are two distinct JSJ pΓ, Hq-
+splittings, they have the same tree of cylinders, as defined by Guirardel–Levitt [GL4]. Let
+T be a Γ-cyclic splitting. Let E be the equivalence relation on the edges of T generated
+by e „ e1 if and only if Γe and Γe1 have a common finite index subgroup. The equivalence
+relation E is an admissible relation in the sense of [GL4, Definition 3.1]. A cylinder of
+T is a subforest of T consisting of all the edges in a given equivalence class. By [GL4,
+Lemma 4.1], a cylinder is a subtree of T .
+Definition 2.9 (Tree of cylinders). Let T be a Γ-cyclic splitting. The tree of cylinders Tc
+of T is the bipartite tree V Tc “ V0 > V1 defined as follows:
+ (1) there is one vertex in V0 for every vertex of T which is not contained in at most
+     one cylinder;
+ (2) there is one vertex in V1 for every cylinder of T ;
+ (3) there exists an edge px, Cq between x P V0 and C P V1 if and only if x (considered
+     as a vertex of T ) is contained in C (considered as a subtree of T ).
+    The tree of cylinders of a Γ-cyclic splitting is naturally equipped with a Γ-action,
+which turns it into a Γ-splitting. However, beware that, in general, the tree of cylinders
+of a Γ-cyclic splitting is not necessarily a Γ-cyclic splitting. Indeed, edge stabilisers of a
+tree of cylinders are not necessarily cyclic.
+    The advantage of working with trees of cylinders instead of the JSJ Γ-splittings comes
+from the fact that it is canonical in the following sense.
+
+                                               11
+Proposition 2.10 ([GL4, Corollary 4.10]). Let Γ be a finitely presented torsion free group
+and let H be a finite set of conjugacy classes of finitely generated subgroups of Γ. Suppose
+that Γ is one-ended relative to H.
+    If T1 and T2 are two JSJ pΓ, Hq-splittings, their trees of cylinders are Γ-equivariantly
+isomorphic. In particular, if T is a JSJ pΓ, Hq-splitting, then its tree of cylinders Tc is
+AutpΓ, Hq-invariant.
+   Let T1 , T2 be two Γ-splittings. We say that T1 collapes onto T2 if T2 is obtained from
+T1 by collapsing some orbits of edges. In that case, we say that T1 is a refinement of T2 .
+Two trees T1 and T2 are compatible if they have a common refinement. The following
+lemma shows that the tree of cylinders of a JSJ Γ-splitting is compatible with every
+Γ-cyclic splitting.
+Lemma 2.11. Let Γ be a finitely presented torsion free group and let H be a finite set
+of conjugacy classes of finitely generated subgroups of Γ. Suppose that Γ is one-ended
+relative to H and let T be a JSJ pΓ, Hq-splitting.
+    Then the tree of cylinders Tc of T is compatible with every pΓ, Hq-cyclic splitting.
+Moreover, if all vertex stabilisers of T are rigid, a common refinement is obtained by
+equivariantly blowing-up trees at vertices of Tc corresponding to cylinder subtrees of T .
+Proof. The first assertion follows from [GL4, Corollary 8.4]. Even though the statement
+only covers the case H “ ∅, the proof is identical in the relative setting.
+   If all vertex stabilisers of T are rigid, then, in the language of Guirardel–Levitt, T
+dominates every pΓ, Hq-cyclic splitting. Therefore, the last assertion follows from the
+construction of the compatible tree in the proof of [GL4, Proposition 8.1].
+
+2.3.3   The relatively hyperbolic construction
+Recall the definition of a relatively hyperbolic group from for instance [Bow2]. Let
+Γ be a finitely presented torsion free group. Suppose that Γ is hyperbolic relative to
+a set P “ trP1 s, . . . , rPk su of conjugacy classes of finitely generated subgroups. Let
+H1 , . . . , Hn Ď Γ be finitely generated subgroups and let H “ trH1 s, . . . , rHn su.
+Definition 2.12 (Elementary subgroups, splittings). (1) A subgroup of Γ is elementary
+      if it is cyclic or conjugate into one of the groups Pi with i P t1, . . . , ku.
+ (2) A pΓ, P YHq-elementary splitting is a pΓ, P YH; Aq-splitting, where A is the family
+     of elementary subgroups.
+    The advantage of working with relatively hyperbolic groups is that one can construct
+a canonical elementary splitting, as explained in the following theorem. Recall that a
+Γ-splitting S is K-acylindrical for some K ą 0 if the Γ-stabiliser of any arc in S of length
+at least K ` 1 is finite.
+Theorem 2.13 ([GL2, GL1]). Let Γ be a torsion free finitely generated hyperbolic group
+relative to P and let H be a finite set of conjugacy classes of finitely generated subgroups
+of Γ. Suppose that Γ is one-ended relative to P YH. There exists a pΓ, P YHq-elementary
+splitting TPYH with the following properties.
+
+                                            12
+ (1) [GL1, Theorem 9.18] Edge stabilisers are infinite elementary. Moreover, every edge
+     has one endpoint with elementary stabiliser and one endpoint with nonelementary
+     stabiliser.
+
+ (2) [GL4, Proposition 5.13] The action of Γ on TPYH is 2-acylindrical.
+
+ (3) Any elementary subgroup fixes at most one vertex with elementary stabiliser.
+
+ (4) [GL2, Lemma 3.7] Edge and vertex stabilisers are finitely generated.
+
+ (5) [GL1, Theorem 9.18] If v P V TPYH , one of the following hold:
+
+      (a) the group Γv is two-ended;
+      (b) the conjugacy class of Γv is contained in P;
+      (c) the vertex v is nonelementary and QH;
+      (d) the vertex v is nonelementary and rigid.
+
+ (6) [GL1, Theorem 9.18] The group AutpΓ, P, Hq of automorphisms preserving P and
+     H preserves the Γ-equivariant isometry class of TPYH .
+
+ (7) [GL2, Proposition 4.1] For every edge e P ETPYH , the image
+
+                           KpTPYH q X OutpΓ, P, Hptq q Ñ OutpΓe q
+
+     is finite.
+
+ (8) [GL2, Proposition 4.1] For every rigid vertex v P V TPYH , the image
+
+                           KpTPYH q X OutpΓ, P, Hptq q Ñ OutpΓv q
+
+     is finite.
+
+ (9) [GL2, Proposition 4.1] For every QH vertex v P V TPYH , the image KpTPYH q Ñ
+     OutpΓv q is contained in MCGpΓv q.
+
+    The splitting TPYH given by Theorem 2.13 is called the JSJ pΓ, P Y Hq-elementary
+splitting.
+
+Remark 2.14. Theorem 2.13p3q follows from the following facts. First, the tree TPYH is
+a tree of cylinders for the equivalence relation of coelementarity [GL4, Proposition 6.1].
+Moreover, vertices of TPYH with elementary stabilisers correspond to vertices associated
+with cylinders. Finally, any elementary subgroup preserves at most one cylinder.
+
+Remark 2.15. If v P V TPYH is a QH vertex such that Σv is isomorphic to a three-
+punctured sphere, then MCGpΓv q is finite. This is why, in the rest of the paper, we
+will assume that, if v P V TPYH is a QH vertex such that Σv is isomorphic to a three-
+punctured sphere, then v is a rigid vertex. This is coherent with Theorem 2.13p8q and
+the assumptions of Guirardel–Levitt in [GL2, Remark 3.6].
+
+                                           13
+      We record an immediate consequence of Theorem 2.13.
+
+Lemma 2.16. Let Γ be a torsion free finitely generated hyperbolic group relative to P and
+let H be a finite set of finitely generated subgroups of Γ. Suppose that Γ is one-ended
+relative to P Y H.
+    Let H be a subgroup of Γ which fixes a point in TPYH . Then H fixes a unique
+elementary vertex of TPYH or a unique nonelementary vertex of TPYH .
+
+Proof. This follows from the fact that the action of Γ on TPYH is 2-acylindrical (Theo-
+rem 2.13p2q) together with the fact that every edge has an elementary endpoint and a
+nonelementary endpoint (Theorem 2.13p1q).
+
+2.4    The outer space of a free product
+Let pG, Gq be a free product of groups. In this section, following Guirardel–Levitt [GL3]
+(see [CV] for the case pG, Gq “ pFN , ∅q), we define a simplicial graph on which OutpG, Gq
+acts cocompactly, called the spine of outer space of pG, Gq. An important property that
+we will use is that any finite subgroup of OutpG, Gq fixes a point in it.
+
+Definition 2.17 (Grushko free splitting). A Grushko pG, Gq-free splitting is a pG, Gq-free
+splitting T such that, for every v P V T , either Gv is trivial or rGv s P G.
+
+Definition 2.18 ([GL3, Spine of outer space]). Let pG, Gq be a free product. The spine of
+outer space of pG, Gq, denoted by OpG, Gq, is the graph whose vertices are the Grushko
+pG, Gq-free splittings, two such splittings S and T being adjacent if S collapses onto T
+or conversely.
+
+    The group AutpG, Gq acts on OpG, Gq by precomposition of the action. Since the
+group InnpGq acts trivially on OpG, Gq, this action passes to the quotient to give an
+action of OutpG, Gq on OpG, Gq.
+    We now recall a theorem, due to Hensel–Kielak [HK], describing the action of finite
+subgroups of OutpG, Gq on OpG, Gq.
+
+Theorem 2.19 ([HK, Corollary 6.1]). Let pG, Gq be a free product of groups (recall that G
+is finitely generated) and let H be a finite subgroup of OutpG, Gq. Then H fixes a point
+of OpG, Gq.
+
+    We will also frequently construct pG, Gq-free factor systems using Grushko pG, Gq-
+free splittings, as follows. Let S be a Grushko pG, Gq-free splitting and let T be a G-
+equivariant subforest of S containing every vertex with nontrivial stabiliser. The quotient
+GzT is a (not necessarily connected) graph of groups, which identifies with a subgraph
+of groups of GzS. Let U1 , . . . , Ut be the connected components of GzT (considered as
+graphs of groups) and let FpT q “ trπ1 pUi qsuti“1 , where rπ1 pUi qs is the conjugacy class of
+the fundamental group π1 pUi q seen as a subgroup of G. Since T contains every vertex
+with nontrivial stabiliser, the set F pT q is a pG, Gq-free factor system. We call FpT q the
+pG, Gq-free factor system induced by T .
+
+
+                                              14
+2.5   Double boundary of a free product and its laminations
+Let pG, Gq be a free product of groups. The group G is hyperbolic relative to the set G.
+Therefore, one can consider the Bowditch boundary B8 pG, Gq of pG, Gq (see [Bow2]). It
+may be described as follows. Let S be a Grushko pG, Gq-free splitting. Let B8 S be the
+Gromov boundary of S and let V8 pSq be the set of vertices of S with infinite valence.
+Let S “ S Y B8 S, equipped with the metric topology. For two distinct points x, y P S,
+the direction of x at y is the connected component of Sztyu which contains x. The
+observers’ topology for S (see [CHL]) is the topology generated by the sets of directions
+in S. The Bowditch boundary B8 pG, Gq of pG, Gq is the set B8 S Y V8 pSq equipped with
+the observers’ topology. Its homeomorphism class does not depend on the choice of S.
+    Let
+                        B 2 pG, Gq “ pB8 pG, Gq ˆ B8 pG, Gqq ´ ∆{ „
+be the double boundary of pG, Gq, where ∆ is the diagonal and „ is the equivalence
+relation generated by the flip px, yq „ py, xq. One can geometrically see an element of
+B 2 pG, Gq as follows. A point tx, yu of B 2 pG, Gq is represented by a (not necessarily finite)
+unoriented geodesic path between the points of S representing x and y. For this reason,
+we call an element of B 2 pG, Gq a line of pG, Gq.
+     Note that the group G naturally acts on B 2 pG, Gq. A lamination of pG, Gq is a closed
+G-invariant subset of B 2 pG, Gq.
+     Let A be a pG, Gq-free factor. The inclusion A Ď G induces an A-equivariant inclusion
+B8 pA, G|A q ãÑ B8 pG, Gq and an A-equivariant inclusion B 2 pA, G|A q ãÑ B 2 pG, Gq with
+closed image. We identify B 2 pA, G|A q with its image in B 2 pG, Gq. A pG, Gq-free factor
+system F induces a lamination B 2 pF, Gq of pG, Gq by looking at the union of the (disjoint)
+sets gB 2 pA, G|A q with rAs P F and g P G.
+
+2.6   Relative train track maps for free products
+Let pG, Gq be a free product of groups. Let ϕ P OutpG, Gq. In this section, we recall
+the construction of particular topological representatives of ϕ, called relative train tracks.
+They encode several dynamical invariants of ϕ. Relative train tracks were first introduced
+by Bestvina–Handel [BH] in the context of automorphisms of free groups and were then
+extended to the context of free products by Collins–Turner [CT] (see also the work of
+Francaviglia–Martino [FM] and Lyman [Lym2, Lym1]).
+    Let T be a Grushko pG, Gq-free splitting and let Φ P AutpG, Gq. A morphism F : T Ñ
+T associated with Φ is a map sending vertices to vertices, edges of S to nontrivial edge
+paths and such that, for all g P G and x P T , we have
+
+                                     F pgxq “ ΦpgqF pxq.
+
+    Let γ be a path in T . There exists a unique geodesic in T which is homotopic to γ
+relative to its endpoints. This geodesic is denoted by rγs and is called the reduced path
+associated with γ.
+
+
+
+                                              15
+   A filtration of T is an increasing sequence
+                                ∅ “ T0 Ď T1 Ď . . . Ď Tn “ T
+of subgraphs which are both G and F -invariant. The graphs of the filtration are not
+necessarily connected.
+    Let r P t0, . . . , nu. The r-th stratum of T , denoted by Hr , is the closure of Tr ´ Tr´1 .
+    To every stratum Hr , one can naturally associate a transition matrix Mr as follows.
+The matrix Mr is a square matrix indexed by the G-orbits of unoriented edges of Hr .
+Let e, e1 P EHr . Then the value at the pGe1 , Geq-entry of Mr is equal to the number of
+times that the path rF peqs contains edges in Ge1 . Since F is Φ-equivariant, this does not
+depend on the choice of a representative of Ge. A filtration is maximal if every transition
+matrix is either irreducible or the zero matrix.
+    Suppose that the transition matrix Mr is irreducible. Associated to Mr is a Perron–
+Froebenius eigenvalue λr ě 1. We say that Hr is exponentially growing (EG) if λr ą 1
+and nonexponentially growing (NEG) otherwise.
+    Let v P V T . Recall that a direction at v is a connected component of T ztvu, or
+equivalently an oriented edge whose origin is v. If d is a direction at v, then F sends d to
+a direction DF pdq at F pvq. Thus, the map F induces a map DF of the set of directions
+of T . A turn is an unordered pair of directions at a vertex of T . A turn td, d1 u is
+degenerate if d “ d1 , it is illegal if there exists m ě 1 such that pDF qm pdq “ pDF qm pd1 q,
+and is legal otherwise.
+    Let γ “ e1 . . . em be an oriented geodesic edge path in T . Note that, for every
+i P t1, . . . , mu, the set te´1
+                              i , ei`1 u is a turn. We say that γ is a legal path if, for every
+i P t1, . . . , mu, the turn te´1
+                               i , ei`1 u is legal.
+    Let r P t0, . . . , nu. A turn te, e1 u is of height r if e, e1 P EHr . A geodesic edge path
+γ is r-legal if all its height r turns are legal.
+    We can now define a relative train track map.
+Definition 2.20 (Relative train track map). Let Φ P AutpG, Gq, let F : T Ñ T be a
+morphism associated with Φ and let ∅ “ T0 Ď T1 Ď . . . Ď Tn “ T be a filtration. The
+map F is a relative train track if the filtration is maximal and if, for every EG stratum
+Hr , the following hold.
+ (1) Directions in Hr are mapped by DF to directions in Hr .
+ (2) If σ Ď Tr´1 is a nondegenerate geodesic edge path with endpoints in Hr , then
+     rF pσqs is a nondegenerate geodesic edge path with endpoints in Hr .
+ (3) If σ is an r-legal geodesic edge path, so is rF pσqs.
+   We can now state the main existence theorem of relative train tracks. It appears in
+several forms in the literature (see [CT], [FM, Corollary 8.25], [Lym2, Theorem A]).
+Theorem 2.21 ([CT, FM, Lym2]). Let pG, Gq be a free product and let ϕ P OutpG, Gq.
+There exists a relative train track map F : T Ñ T associated with an automorphism
+representing ϕ. Moreover, if ϕ preserves a pG, Gq-free factor system F, one may choose
+F : T Ñ T such that there exists an element Ti of the filtration of T with F pTi q “ F.
+
+                                               16
+2.7     Relatively fully irreducible outer automorphisms
+Let pG, Gq be a free product and let ϕ P OutpG, Gq. We say that ϕ is fully irreducible
+relative to G if, for every n ą 0, the outer automorphism ϕn does not preserve any proper
+pG, Gq-free factor system distinct from G. The main property we will use regarding fully
+irreducible outer automorphisms is the existence of an R-tree equipped with a pG, Gq-
+action obtained as a limit of iterates of a relative train track.
+
+Theorem 2.22 ([FMS]). Let pG, Gq be a nonsporadic free product, let ϕ P OutpG, Gq be
+fully irreducible relative to G and let F : T Ñ T be a relative train track representative
+of ϕ. There exist λ ą 1 and an R-tree Xϕ equipped with an action of G by isometries
+such that
+                                                1
+                                    Xϕ “ lim n ϕn T.
+                                           nÑ8 λ
+
+    The tree Xϕ does not depend on the choice of the relative train track map F : T Ñ T
+and has the following properties.
+
+    (1) Arc stabilisers in Xϕ are trivial.
+
+    (2) There exists a (possibly trivial) cyclic subgroup H Ď G such that the set of conju-
+        gacy classes of point stabilisers in Xϕ is exactly G Y trHsu.
+
+Remark 2.23. The existence of Xϕ follows from [FMS, Lemma 2.14.1]. The fact that
+it does not depend on the relative train track map follows from [FMS, Theorem 5.1.1].
+The description of the action of G on Xϕ follows for instance from the fact that Xϕ is
+arational (see [GH2, Theorems 3.4, 4.1]).
+
+
+3      First properties of congruence subgroups
+Let pG, Gq be a free product of groups with G “ G1 ˚ . . . ˚ Gk ˚ FN . We now describe
+the finite index subgroup of OutpG, Gq which will be of central interest in the rest of the
+paper.
+    The group OutpG, Gq naturally permutes the conjugacy classes in G. The kernel of
+this action is a finite index subgroup, denoted by Out0 pG, Gq. We now pass to a further
+finite index subgroup using the action on homology. The group Out0 pG, Gq naturally
+acts on the finite group H1 pG, Z{3Zq. We denote the kernel of this action by IA0 pG, G, 3q.
+We record in this section the first immediate aperiodicity properties of IA0 pG, G, 3q.
+    We start with some standard lemmas regarding the homology of a graph of groups.
+If S is a splitting of a group G, recall the definition of KpSq from Section 2.2.
+
+Lemma 3.1. Let G be a finitely generated group, let A be a trivial G-module and let X be
+the graph of groups associated with a G-splitting S. Let v P X and let Incv be the set of
+Gv -conjugacy classes of edge groups associated with oriented edges of X with origin v.
+    Let H be the image of H1 pGv , Aq in H1 pG, Aq and let KIncv be the subgroup of
+H1 pGv , Aq generated by the images of H1 pGe , Aq with rGe sGv P Incv in H1 pGv , Aq.
+
+                                             17
+   There exists a subgroup K Ď KIncv such that H fits in an exact sequence
+
+                                         K Ñ H1 pGv , Aq Ñ H.                                           (1)
+
+Moreover, for every ϕ P KpSq, the sequence in Equation (1) is ϕ-equivariant.
+Proof. We denote by EX  ⃗ the set of oriented edges of X. For every w P V X (resp. e P EX),
+                                                                                       ⃗
+let pXw , ˚w q (resp. pXe , ˚e q) be a pointed CW complex with contractible universal cover
+whose fundamental group is isomorphic to Gw (resp. Ge ). We additionally assume that,
+for every e P EX⃗ with origin w, there exists an embedding ιw,e : Xe ãÑ Xw and a path
+pe between ˚w and ιw,e p˚e q so that the map ιw,e induces via pe an embedding Ge ãÑ Gw .
+Let                                ¨                           ˛
+                                       ž        ž
+                            XG “ ˝         Xw >     Xe ˆ r0, 1s‚{ „
+                                      wPV X            ⃗
+                                                     ePEX
+
+                     ⃗ with origin w1 and terminal vertex w2 , Xe ˆ r0, 1s is identified
+where, for every e P EX
+with Xe´1 ˆ r0, 1s equipped with the reverse orientation and the subspaces Xe ˆ t0u and
+Xe ˆ t1u are glued to Xw1 and Xw2 via ιw1 ,e and ιw2 ,e . Then π1 pXG q is isomorphic to G
+and its universal cover is contractible.
+   Let U be the open subset of XG which is the image of
+                                         „   ˙                         „      ˙
+                        ž                  3             ž                  1
+           Xv >                   Xe ˆ 0,      >                 Xe ˆ 0,        .
+                                           4                                3
+                      ⃗
+                    ePEX,opeq“v,tpeq‰v                        ⃗
+                                                            ePEX,opeq“tpeq“v
+
+Let V be the open subset of XG which is the image of
+                                                                                        „       ˙
+           ž                     ž                                     ž                    3
+                    Xw >                      Xe ˆ r0, 1s >                         Xe ˆ 0,         >
+                                                                                            4
+        wPV X,w‰v            ⃗
+                           ePEX,opeq,tpeq‰v                      ⃗
+                                                               ePEX,tpeq“v,opeq‰v
+                                                     ˆ         ˙
+                                 ž                       1 3
+                                              Xe ˆ        ,        .
+                                                         4 4
+                             ⃗
+                           ePEX,opeq“tpeq“v
+
+Then U Y V covers XG . Thus, we can apply the Mayer Vietoris exact sequence to the
+triple pXG , U, V q, that is, the following sequence is exact
+
+                     H1 pU X V, Aq Ñ H1 pU, Aq ‘ H1 pV, Aq Ñ H1 pG, Aq.                                 (2)
+   The subset U deformation retracts to Xv , so that H1 pU, Aq “ H1 pGv , Aq and the
+image
+   š of H1 pU, Aq in H1 pG, Aq is H. Moreover, the subset À    U X V deformation retracts
+to ePEX,opeq“v
+       ⃗         X e , so that H 1 pU X V, Aq is isomorphic to     ⃗
+                                                                 ePEX,opeq“v H1 pGe , Aq and
+the image of H1 pU X V, Aq in H1 pGv , Aq is exactly KIncv . Thus, Equation (1) follows
+from Equation (2) and the above descriptions of H1 pU, Aq and H1 pU X V, Aq.
+   Let ϕ P KpSq. Then ϕ induces a homotopy equivalence ϕXG of XG . Since ϕ P KpSq,
+ϕ acts trivially on the graph X. Thus, ϕXG preserves (up to homotopy) the subsets U
+and V . This shows that the exact sequence in Equation (2) is ϕXG -equivariant and the
+exact sequence in Equation (1) is ϕ-equivariant.
+
+                                                    18
+Lemma 3.2. Let F be a pG, Gq-free factor system and let rAs P F .
+   • The group H1 pA, Z{3Zq embeds as a direct summand of H1 pG, Z{3Zq.
+   • For every rBs P F distinct from rAs, the inclusion A˚B Ď G induces an embedding
+     H1 pA, Z{3Zq ‘ H1 pB, Z{3Zq ãÑ H1 pG, Z{3Zq.
+   • If, for all g P G and rGi s P G, the group gGi g ´1 is not contained in A, then
+     H1 pA, Z{3Zq is a nontrivial direct summand of H1 pG, Z{3Zq.
+Proof. Let rBs P F ´ trAsu, let C Ď G be such that G “ A ˚ C and let D Ď G be such
+that G “ A ˚ B ˚ D. The fact that H1 pA, Z{3Zq ‘ H1 pB, Z{3Zq is a direct summand of
+H1 pG, Z{3Zq follows from the fact that A ˚ B is a free factor of G and Lemma 3.1 applied
+with X induced by G “ A ˚ B ˚ D. This proves the first two assertions of the lemma.
+    Suppose now that for all g P G and rGi s P G, the group gGi g ´1 is not contained in A.
+We now prove that H1 pA, Z{3Zq is nontrivial. By assumption on A, for every rGi s P G,
+some conjugate of Gi is contained in C. Since G “ G1 ˚ . . . ˚ Gk ˚ FN , we may assume,
+up to changing the representative FN , that A Ď FN is a nontrivial free factor of FN .
+Thus, we have H1 pA, Z{3Zq ‰ t0u.
+
+Lemma 3.3. Let ϕ P IA0 pG, G, 3q. Let F be a ϕ-invariant pG, Gq-free factor system. Then
+every element of F is fixed by ϕ.
+Proof. Let rAs P F . Suppose first that there exists i P t1, . . . , ku such that Gi Ď A. Then
+for every rBs P F distinct from rAs, we have Gi X B “ t1u. Thus, since ϕ P Out0 pG, Gq,
+we have ϕprAsq “ rAs.
+    Suppose now that, for all i P t1, . . . , ku and all g P G, we have A X gGi g ´1 “ t1u.
+By Lemma 3.2, the group H1 pA, Z{3Zq is a nontrivial direct summand of H1 pG, Z{3Zq.
+Moreover, for every rBs P F distinct from rAs, the image of H1 pB, Z{3Zq in H1 pG, Z{3Zq
+is distinct from H1 pA, Z{3Zq. As ϕ acts trivially on H1 pG, Z{3Zq, we see that ϕprAsq “
+rAs.
+
+Lemma 3.4. Let ϕ P IA0 pG, G, 3q and let A be a pG, Gq-free factor whose conjugacy class
+is ϕ-invariant. The image ϕ|A of ϕ in OutpAq is contained in IA0 pA, G|A , 3q.
+Proof. Since A is a pG, Gq-free factor, for every rHsA P G|A , there exists a unique rGi s P G
+such that rHs “ rGi s. In particular, since ϕ P Out0 pG, Gq, the image of ϕ is contained
+in Out0 pA, G|A q.
+    By Lemma 3.2, since A is a pG, Gq-free factor, the image of A in H1 pG, Z{3Zq is a
+direct factor F preserved by ϕ. As ϕ acts trivially on H1 pG, Z{3Zq, we see that ϕ also
+acts trivially on F , so that ϕ|A P IA0 pA, G|A , 3q.
+
+   The next lemma gives a useful criterion to show that the automorphism of a finite
+graph is trivial.
+Lemma 3.5 ([Iva, Lemma 1.1]). Let X be a finite connected graph and let f : X Ñ X be
+a graph automorphism. Suppose that f fixes every leaf of X and that the action of f on
+H1 pX, Z{3Zq is trivial. Then one of the following holds.
+
+                                             19
+   • The graph X is homeomorphic to a circle and f acts on X as a rotation.
+
+   • The map f is the identity.
+
+Lemma 3.6. Let G be a group, let S be a G-splitting and let ϕ P OutpGq be an outer
+automorphism preserving S. If ϕ acts trivially on H1 pG, Z{3Zq, then ϕ acts trivially on
+H1 pGzS, Z{3Zq.
+
+Proof. Let ϕgr be the graph automorphism of GzS induced by ϕ. Denote by ϕ˚ (resp.
+ϕgr˚ ) the action on H1 pG, Z{3Zq (resp. H1 pGzS, Z{3Zq) induced by ϕ (resp. ϕgr ).
+Since G is the fundamental group of the graph of groups GzS, there exists a natural
+surjective homomorphism G Ñ π1 pGzSq inducing in turn a surjection p : H1 pG, Z{3Zq Ñ
+H1 pGzS, Z{3Zq. The following diagram is commutative:
+
+                                             ϕ˚
+                           H1 pG, Z{3Zq             H1 pG, Z{3Zq
+                                p                          p
+                                            ϕgr˚
+                          H1 pGzS, Z{3Zq           H1 pGzS, Z{3Zq.
+
+Since p is surjective and ϕ˚ is trivial, the map ϕgr˚ is also trivial.
+
+Lemma 3.7. Let ϕ P IA0 pG, G, 3q. Let S be a ϕ-invariant pG, Gq-free splitting.
+
+ (1) The graph automorphism of GzS induced by ϕ is trivial.
+
+ (2) For every v P V S, the image of the natural homomorphism xϕy Ñ OutpGv q is
+     contained in IA0 pGv , Gv , 3q.
+
+Proof. We may assume that S is nondegenerate as otherwise there is nothing to prove.
+    We prove the first assertion. By Lemma 3.6, the action of ϕ on H1 pGzS, Z{3Zq is
+trivial. Thus, in order to apply Lemma 3.5, it suffices to prove that ϕ fixes every leaf of
+GzS. Note that ϕ preserves the pG, Gq-free factor system induced by the set of vertex
+stabilisers of S. In particular, by Lemma 3.3, the outer automorphism ϕ fixes pointwise
+the set of vertices of GzS with nontrivial vertex stabiliser. Since every leaf of GzS has
+nontrivial stabiliser by minimality of S, we see that ϕ fixes every leaf of GzS. Thus, by
+Lemma 3.5, if GzS is not a circle, then ϕ acts trivially on GzS.
+    It remains to study the case where GzS is a circle. By Lemma 3.5, ϕ acts as a
+rotation on GzS. Thus, in order to show that ϕ acts trivially on GzS, it suffices to
+prove that ϕ fixes a point of GzS. If ξpG, Gq ě 2, then GzS has a vertex with nontrivial
+stabiliser, and is therefore fixed by ϕ. Otherwise, as S is nondegenerate, we have G “ Z
+and ϕ “ id, so that ϕ acts as the identity on GzS. This concludes the proof of the first
+assertion.
+    The second assertion follows from Lemma 3.4 since every nontrivial vertex stabiliser
+of a pG, Gq-free splitting is a pG, Gq-free factor.
+
+
+
+
+                                             20
+3.1     The Standing Assumptions and the group IApG, G, 3q
+In this section we construct a further finite index subgroup IApG, G, 3q of IA0 pG, G, 3q
+which will satisfy the desired aperiodicity properties. The construction of IApG, G, 3q
+relies on further assumptions on G which we call the Standing Assumptions. These as-
+sumptions will be used in the rest of the paper. We first recall some standard definitions.
+    Let ϕ P OutpG, Gq. A periodic subgroup of ϕ is a subgroup H Ď G such that there
+exist ℓ ą 0 and Ψ P ϕℓ with ΨpHq “ H and Ψ|H “ idH . If Φ P ϕ, let
+
+                      PerpΦq “ tg P G | Dℓ ą 0 such that Φℓ pgq “ gu
+
+be the periodic subgroup of Φ.
+
+Standing Assumptions.         Let G be a finitely presented torsion free group, let G “
+G1 ˚ . . . ˚ Gk ˚ FN be the Grushko decomposition of G and let G “ trG1 s, . . . , rGk su. Let
+                                                    k
+                                                    ź
+                                    0
+                               p : IA pG, G, 3q Ñ         OutpGi q
+                                                    i“1
+
+be the natural restriction homomorphism.
+    Suppose that, for every i P t1, . . . , ku, there exists a subgroup Out˚ pGi q of OutpGi q
+with the following properties.
+
+ (1) The group Out˚ pGi q is a finite index subgroup of OutpGi q.
+ (2) The group Out˚ pGi q is torsion free.
+ (3) For every ϕ P Out˚ pGi q and every ϕ-periodic finitely generated subgroup H of ϕ,
+     we have ϕ P OutpGi , rHsptq q.
+  (4) Denote by Aut˚ pGi q the full preimage of Out˚ pGi q in AutpGi q. For every Φ P
+      Aut˚ pGi q, every Φ-periodic element of Gi is fixed by Φ, that is PerpΦq “ FixpΦq.
+
+    Let IApG, G, 3q be the preimage by p of ki“1 Out˚ pGi q. It is a finite index subgroup
+                                            ś
+of IA0 pG, G, 3q.
+Remark 3.8. When G “ FN and G “ ∅, the group IApG, G, 3q is exactly the kernel of the
+natural homomorphism OutpFN q Ñ GLN pZ{3Zq given by the action on H1 pFN , Z{3Zq.
+      We observe immediate consequences of the Standing Assumptions.
+Lemma 3.9. Let G be a group satisfying the Standing Assumptions. Let ϕ P IApG, G, 3q
+and let A be a pG, Gq-free factor whose conjugacy class is ϕ-invariant. The image ϕ|A of
+ϕ in OutpAq is contained in IApA, G|A , 3q.
+Proof. By Lemma 3.4, we have ϕ|A P IA0 pA, G|A , 3q. For every rHsA P G|A , there ex-
+ists a unique rGi s P G such that rHs “ rGi s. Thus, the restriction homomorphism
+pH : IA0 pG, G, 3q Ñ OutpHq factors through IA0 pG, G, 3q Ñ IA0 pA, G|A , 3q. As ϕ maps
+into Out˚ pHq, so does ϕ|A and we have ϕ|A P IApA, G|A , 3q.
+
+                                             21
+Lemma 3.10. Let G be a group satisfying the Standing Assumptions.
+
+    (1) For every i P t1, . . . , ku, the group Gi {ZpGi q is torsion free.
+
+    (2) Let S be a Grushko pG, Gq-free splitting. The group T pSq is torsion free.
+
+Proof. Let i P t1, . . . , ku. The group InnpGi q Ď IAAut pGi q is isomorphic to Gi {ZpGi q.
+By Item p4q of the Standing Assumptions, the group IAAut pGi q is torsion free. Therefore,
+the group Gi {ZpGi q is torsion free. This proves the first assertion.
+    We now prove the second assertion. Let S be a Grushko pG, ś        Gq-free splitting. By
+Proposition 2.3, the group T pSq is isomorphic to a direct product vPV GzS Gnv v {ZpGv q,
+where ZpGv q embeds diagonnally. The group vPV GzS Gnv v {ZpGv q projects onto the
+                                                   ś
+
+group vPV GzS pGv {ZpGv qqnv with kernel isomorphic to vPV GzS ZpGv qnv {ZpGv q. The
+       ś                                                    ś
+
+group vPV GzS pGv {ZpGv qqnv is torsion free by Assertion p1q and the kernel is also
+       ś
+
+torsion free, being the quotient of a direct product of free abelian groups by its diagonal
+subgroup (recall that G is torsion free). Hence T pSq is torsion free.
+
+      We now check an easy aperiodicity property of IApG, G, 3q.
+
+Proposition 3.11. Let G be a group satisfying the Standing Assumptions. The group
+IApG, G, 3q is torsion free.
+
+Proof. The natural homomorphism pIA : IApG, G, 3q Ñ ki“1 OutpGi q has torsion free
+                                                         ś
+image by Item p2q of the Standing Assumptions. Thus, it suffices to show that kerppIA q
+is torsion free.
+    Let H be a finite subgroup of kerppIA q. By Theorem 2.19, the group H fixes a
+Grushko pG, Gq-free splitting S. By Lemma 3.7, the group H is contained in KpSq.
+Since H Ď kerppIA q, the group H is contained in T pSq. By Lemma 3.10, the group T pSq
+is torsion free. Hence H is trivial.
+
+
+4      Periodic conjugacy classes of elements
+Let G be a group satisfying the Standing Assumptions. In this section we describe the
+dynamics of periodic conjugacy classes of elements of G for automorphisms in IApG, G, 3q.
+The aim of the section is to prove the following theorem.
+
+Theorem 4.1. Let G be a group satisfying the Standing Assumptions. Let ϕ P IApG, G, 3q.
+Let H be a ϕ-invariant finite set of conjugacy classes of finitely generated periodic sub-
+groups of ϕ. Then ϕ P OutpG, Hptq q.
+
+      As a corollary, we have:
+
+Corollary 4.2. Let G be a group satisfying the Standing Assumptions. Let ϕ P IApG, G, 3q.
+Every ϕ-periodic conjugacy class of elements of G is fixed by ϕ.
+
+
+
+                                                 22
+Proof. Let g P G whose conjugacy class is ϕ-periodic, let Φ be a representative of ϕ and
+let H “ trxΦi pgqysuiPN . Then H is a ϕ-invariant finite set of conjugacy classes of finitely
+generated periodic subgroups of ϕ. By Theorem 4.1, we have ϕ P OutpG, Hptq q, so that
+there exists Ψ P ϕ such that Ψpxgyq “ xgy and Ψ|xgy “ Idxgy . Then Ψpgq “ g and the
+G-conjugacy class of g is fixed by ϕ.
+
+    The proof uses elementary JSJ decompositions of the relatively hyperbolic pair pG, Gq
+relative to the set H. Indeed, using an inductive argument, we may assume that G is
+one-ended relative to G Y H. In that case, by Theorem 2.13 (with G “ Γ and P “ G),
+there exists a canonical ϕ-invariant JSJ elementary splitting TGYH . We then show that
+the action of ϕ on this JSJ splitting is sufficiently simple to prove the desired result. The
+proof being quite technical, we subdivide it into several subsections.
+
+4.1   Trivial action on the quotient graph
+Let G be a group satisfying the Standing Assumptions and let H be a finite set of
+conjugacy classes of finitely generated subgroups of G such that G is one-ended relative
+to G YH. The aim of this section is to prove that any outer automorphism ϕ P IApG, G, 3q
+preserving H and such that H consists of periodic subgroups of ϕ acts trivially on the
+graph GzTGYH (see Proposition 4.6).
+    The strategy is to apply Lemma 3.5. However, in order to apply it, we need to prove
+that ϕ fixes every leaf of GzTGYH . This is done in Lemma 4.4. During the proof of the
+later, we will need the following result, due to Horbez.
+Lemma 4.3 ([Hor1, Lemma 6.11]). Let pG, Gq be a free product and let T be a pG, Gq-
+cyclic splitting whose edge stabilisers are all nontrivial. There exists v P V T such that
+Gv splits as a free product relative to Gv and incident edge stabilisers.
+Lemma 4.4. Let G be a group satisfying the Standing Assumptions. Let H be a finite
+set of conjugacy classes of finitely generated subgroups of G such that G is one-ended
+relative to G Y H. Let ϕ P IApG, G, 3q be an outer automorphism preserving H. The
+graph automorphism induced by ϕ on GzTGYH fixes every leaf of GzTGYH .
+Proof. We assume that TGYH is not reduced to a point as otherwise there is nothing to
+prove. We first prove that ϕ fixes every leaf of GzTGYH with noncyclic stabiliser. Let v
+be a leaf of GzTGYH with noncyclic stabiliser and let v be a lift of v in TGYH . Note that,
+since Gv is noncyclic, by Theorem 2.13p5q, the stabiliser of v either is nonelementary or
+its conjugacy class belongs to G.
+    Suppose first that rGv s P G. Since the action of G on TGYH is minimal, and since v
+is a leaf, we see that v is the unique point fixed by Gv . Since ϕ P Out0 pG, Gq, we deduce
+that v is fixed by ϕ.
+    Suppose that Gv is nonelementary. Assume first that there exists i P t1, . . . , ku such
+that v is the unique fixed point of a conjugate of Gi . Since ϕ P Out0 pG, Gq, we see that
+v is fixed by ϕ.
+    Assume otherwise that v is not the only fixed point of a conjugate of some Gi with
+i P t1, . . . , ku. We claim that |Gv | ď 1. Indeed, let e P EGzTGYH be the edge adjacent to
+
+                                             23
+v and let e P ETGYH be a lift of e adjacent to v. Since v is a leaf of GzTGYH , the group Gv
+acts transitively on the set of edges adjacent to v and there exists a unique Gv -conjugacy
+class of edges groups in Gv . Let rAs P G be such that A X Gv ‰ t1u. Since TGYH is a
+pG, G Y Hq-elementary tree, the group A is elliptic in TGYH . By assumption, v is not the
+only fixed point of A, so that, up to taking a Gv -conjugate of A, we have A X Gv Ď Ge .
+Thus, for every rBsGv P Gv , there exists B 1 P rBsGv such that B 1 X Gv Ď Ge . Since Ge
+is elementary, we necessarily have |Gv | ď 1. The claim follows.
+    The claim implies that the free product decomposition of Gv induced by Gv is:
+
+                                       Gv “ H ˚ Fℓ ,
+
+where H is a (possibly trivial) subgroup of some conjugate of some Gi and Fℓ is a
+nonabelian free group of rank ℓ ě 0. Since the action of G on TGYH is minimal and
+since, by assumption, v is not the only fixed point of H, we have ℓ ě 1.
+Claim. The group Fℓ induces a nontrivial subspace of H1 pG, Z{3Zq which is distinct
+from any subspace of H1 pG, Z{3Zq induced by any other leaf group of GzTGYH .
+
+Proof. If H is nontrivial, then the stabiliser of the edge adjacent to v is contained in H as
+v is not the fixed point of a maximal parabolic subgroup. Thus, Fℓ is a pG, Gq-free factor
+and the image of Fℓ in H1 pG, Z{3Zq is not contained in any subspace of H1 pG, Z{3Zq
+induced by any other leaf group of GzTGYH by Lemma 3.2.
+    Suppose that H is trivial. Since edge stabilisers of TGYH are elementary, the stabiliser
+of the edge adjacent to v is infinite cyclic. Since Gv is nonelementary, we have ℓ ě 2.
+Let U be the tree obtained from TGYH by collapsing every orbit of edges except the
+one of the edge e adjacent to v. Then U is a pG, Gq-cyclic splitting. Since v is a leaf,
+the splitting U induces an amalgam G » Fℓ ˚Ge Gw , for some w P V U . Let L1 be the
+set of leaves of GzTGYH distinct from v. Then the image V 1 of xH1 pGv1 , Z{3Zqyv1 PL1 in
+H1 pG, Z{3Zq is contained in the image of H1 pGw , Z{3Zq. Let V be a supplementary
+subspace of H1 pGe , Z{3Zq in H1 pFℓ , Z{3Zq, which exists since ℓ ě 2 and Ge » Z. Then
+the image of V in H1 pG, Z{3Zq is not contained in V 1 by Lemma 3.1. Therefore, the
+image of Fℓ in H1 pG, Z{3Zq is not contained in any subspace of H1 pG, Z{3Zq induced by
+any other leaf of GzTGYH .
+
+    Since ϕ P IApG, G, 3q, the claim implies that v is fixed by ϕ. This shows that ϕ fixes
+every leaf of GzTGYH with noncyclic stabiliser.
+    It remains to prove that ϕ fixes every leaf of GzTGYH with cyclic stabiliser. Let v be
+a leaf of GzTGYH with cyclic stabiliser. By Theorem 2.13p3q, every elementary subgroup
+of G fixes at most one vertex of TGYH with elementary stabiliser. Thus, in order to prove
+that ϕ fixes v, its suffices to prove that ϕ fixes rGv s.
+    Suppose that Gv is pG, Gq-peripheral. Since ϕ P Out0 pG, Gq, there exist rGi s P G and
+Φ P ϕ such that Gv Ď Gi , ΦpGi q “ Gi , and rGv sGi is a Φ|Gi -periodic conjugacy class of
+a cyclic subgroup of Gi . By Item p3q of the Standing Assumptions, we see that rGv s is
+fixed by Φ|Gi . Thus, the vertex v is fixed by ϕ.
+
+
+                                             24
+    Suppose now that Gv is pG, Gq-nonperipheral. Let L be the set of leaves v 1 of GzTGYH
+with cyclic pG, Gq-nonperipheral stabiliser. Let U be the pG, Gq-cyclic splitting obtained
+by collapsing every edge of GzTGYH except the ones adjacent to leaves of L. Note that
+every edge of U has nontrivial infinite cyclic edge stabiliser by Theorem 2.13p1q.
+    Let x be the central vertex of GzU . Then x is the unique vertex of GzU with noncyclic
+stabiliser. In particular, x is the unique vertex of GzU such that incident edge stabilisers
+can induce a nontrivial free product decomposition. Thus, by Lemma 4.3, the group Gx
+splits as a free product relative to the pGx , Gx q-free factor system Fx obtained from Gx
+by adding one conjugacy class of cyclic subgroup for every v 1 P L.
+    Since every leaf of GzU has cyclic pG, Gq-nonperipheral stabiliser, for every rHs P G,
+the group H fixes (a G-translate of) x. Thus, for every rHs P G, there exists a unique
+rHx sGx P Gx such that rHs “ rHx s. This shows that the set F “ G Y trGv1 suv1 PL is
+a pG, Gq-free factor system preserved by ϕ. By Lemma 3.3, the outer automorphism ϕ
+preserves the conjugacy class of every Gv1 with v 1 P L. In particular, it preserves rGv s
+and it therefore fixes v.
+
+    The next ingredient we need in the proof of the fact that ϕ acts trivially on the
+quotient graph GzTGYH is the following lemma, which studies QH vertices of TGYH and
+more generally QH vertices of G-splittings (see Section 2.3.1 for the terminology). We in
+particular describe, for v a QH vertex of a G-splitting S, the image of the homomorphism
+H1 pGv , Z{3Zq Ñ H1 pG, Z{3Zq induced by Gv ãÑ G. Let Σv be the compact hyperbolic
+surface associated with v. Let Bdv be the set of conjugacy classes of boundary subgroups
+of Σv . Let BdS be the set of conjugacy classes of boundary subgroups C of Σv such that
+there exists e P ES such that C and Ge are commensurable. Let χpΣv q be the Euler
+characteristic of Σv and let χS pΣv q “ χpΣv q ` |BdS |. Note that, since Σv is hyperbolic,
+we have χpΣv q ă 0.
+Lemma 4.5. Let G be a torsion free finitely generated group, let S be a G-splitting and
+let v P V S be a QH vertex.
+
+ (1) Suppose that χS pΣv q ă 1. For every w P V S not in the G-orbit of v, the image of
+     H1 pGv , Z{3Zq in H1 pG, Z{3Zq is not contained in the image of H1 pGw , Z{3Zq in
+     H1 pG, Z{3Zq.
+ (2) Let C be a boundary subgroup of Σv . One of the following hold.
+      (a) There exists e P ES such that Ge and C are commensurable.
+       (b) The image of H1 pC, Z{3Zq in H1 pG, Z{3Zq is nontrivial. Moreover, for every
+           boundary subgroup C 1 of Σv which is not G-conjugate to C, the images of
+           H1 pC, Z{3Zq and H1 pC 1 , Z{3Zq are distinct.
+       (c) The surface Σv is orientable and C is the unique (up to G-conjugacy) boundary
+           subgroup of Σv which is not contained in BdS .
+      (d) The surface Σv is orientable, C is not contained in BdS and, up to G-
+          conjugacy, there exists exactly one boundary subgroup D which is not G-
+          conjugate to C such that D is not contained in BdS . Moreover, if we fix an
+
+                                            25
+             orientation of Σv and we let c and d be the generators of C and D with positive
+             orientation, then c and d have distinct nontrivial images in H1 pG, Z{3Zq.
+
+Proof. We first fix some notations that we will use in the proof. We always consider
+homology groups with coefficients in Z{3Z. In this proof only, x.y denotes the Z{3Z-
+module freely generated by the subset. If Σv is orientable, we consider the following
+presentation of its first homology group:
+                                                                                        s
+                                                                                        ÿ
+  H1 pΣv q “ H1 pΣv , Z{3Zq “ xa1 , b1 , . . . , at , bt , c1 , . . . , cs y{x                 cj y, t ě 0 and s ě 0. (3)
+                                                                                       j“1
+
+Moreover, the image of every boundary subgroup is equal to some xci y with i P t1, . . . , su
+and we identify the boundary subgroup with the corresponding xci y. If Σv is nonori-
+entable, we consider
+                                                                    t
+                                                                    ÿ            s
+                                                                                 ÿ
+             H1 pΣv q “ xa1 , . . . , at , c1 , . . . , cs y {x2          ai `         cj y,
+                                                                    i“1          j“1
+                                                                    s
+                                                                    ÿ          t
+                                                                               ÿ
+                        “ xa1 , . . . , at , c1 , . . . , cs y {x       cj ´         ai y, t ě 1 and s ě 0.           (4)
+                                                                j“1            i“1
+
+As above, the image of every boundary subgroup is equal to some xci y with i P t1, . . . , su
+and we identify the boundary subgroup with the corresponding xci y. In either case,
+denote by pΣv : xa1 , b1 , . . . , at , bt , c1 , . . . , cs y Ñ H1 pΣv q the natural projection.
+    We recall some general facts about the image of H1 pGv q in H1 pGq. Let KS “
+pΣv pxci yci PBdS q. By definition of a QH vertex, for every edge e P ES which is adjacent
+to v, the group Ge is contained in a boundary subgroup of Σv . By Lemma 3.1, we see
+that the image of H1 pGv q “ H1 pΣv q in H1 pGq is a quotient H1 pGv q{K, where K is a
+subgroup of KS . Moreover, for every w P V S not in the G-orbit of v, the intersection of
+the images of H1 pGv q and H1 pGw q in H1 pGq is contained in KS {K.
+    We now prove the first assertion. Suppose that χS pΣv q ă 1. According to the above
+discussion, it suffices to prove that KS ‰ H1 pΣv q. We distinguish between two cases,
+according to the orientability of Σv .
+    Suppose first that Σv is nonorientable. Recall the notations from Equation (4). If
+t ě 2, then pΣv pxa1 yq is not contained in KS by Equation (4) and the conclusion follows.
+Suppose that t “ 1. Then χpΣv q “ 1 ´ s. Since χS pΣv q ă 1, there exists j P t1, . . . , su
+such that pΣv pcj q R KS . Thus, we have KS ‰ H1 pΣv q. This proves the first case.
+    Suppose now that Σv is orientable. Recall the notations from Equation (3). If Σv
+is not a punctured sphere, then t ě 1 and KS ‰ H1 pΣv q. Suppose now that Σv is a
+punctured sphere. Then χpΣv q “ 2´s. Since χS pΣv q ă 1, we have |Bdv | “ s ě |BdS |`2.
+Therefore, by Equation (3), we see that KS Ĺ pΣv pxci yiPt1,...,su q. This proves the first
+assertion of the lemma.
+   We now prove the second assertion. Let C be a boundary subgroup of Σv . Suppose
+that there does not exist an edge e P ES such that C and Ge are commensurable. Thus,
+
+                                                             26
+up to reordering, we may suppose that the image of C in H1 pΣv q is equal to pΣv pxc1 yq and
+that the group H generated by the image in H1 pΣv q of every boundary subgroup distinct
+from C is contained in pΣv pxc2 , . . . , cs yq. We prove that C satisfies Assertion p2qpbq,pcq
+or pdq. Again, we distinguish between two cases, according to the orientability of Σv .
+    Suppose first that Σv is nonorientable. We prove that C satisfies Assertion p2qpbq.
+As explained in the paragraph above the proof of the first assertion, since KS Ď H,
+it suffices to prove that the subspace pΣv pxc1 yq is not contained in H. Since t ě 1 by
+Equation (4), the subspace pΣv pxc1 yq is not contained in pΣv pxc2 , . . . , cs yq. In particular,
+we see that the image of C in H1 pΣv q (which is contained in pΣv pxc1 yq) is not contained
+in H Ď pΣv pxc2 , . . . , cs yq. This proves the nonorientable case.
+    Suppose now that Σv is orientable. If |Bdv | “ |BdS | ` 1, then C satisfies Asser-
+tion p2qpcq. So we may suppose that |Bdv | ě |BdS | ` 2. We prove that C satisfies
+Assertion p2qpbq or Assertion p2qpdq. If |Bdv | ě |BdS | ` 3, then, by Equation (3), the
+group pΣv pxc1 yq is not contained in H, so that Assertion p2qpbq holds.
+    Finally, suppose that |Bdv | “ |BdS | ` 2 and fix an orientation of Σv . Let C, D P
+Bdv ´ BdS be nonconjugate boundary subgroups and let c P C and d P D be generators
+of C and D inducing the orientation of C and D. We want to show that c and d have
+distinct images in H1 pGq. Up to reordering, we may suppose that c is sent to the image
+of c1 in H1 pGq and d is sent to the image of c2 .ř
+    Recall that the only relation in H1 pΣv q is si“1 pΣv pci q “ 0 and that the image of
+H1 pΣv q in H1 pGq is isomorphic
+                           řs          to a quotient of H1 pΣv q by K Ď KS Ď pΣv pxc3 , . . . , cs yq.
+Thus, if the image of i“3 pΣv pci q in H     ř1 pGq is nontrivial, then c and d generate distinct
+subspaces of H1 pGq. If the image of si“3 pΣv pci q in H1 pGq is trivial, then c and d are
+sent in H1 pGq to distinct nontrivial elements: the image of c is equal to the image of
+d´1 .
+
+Proposition 4.6. Let G be a group satisfying the Standing Assumptions. Let H be a finite
+set of conjugacy classes of finitely generated subgroups of G such that G is one-ended
+relative to G Y H. Let ϕ P IApG, G, 3q be an outer automorphism preserving H and such
+that H consists of periodic subgroups of ϕ. The graph automorphism induced by ϕ on
+GzTGYH is trivial.
+
+Proof. Again we assume that TGYH is not reduced to a point. In particular, by Theo-
+rem 2.13p1q, there exists a nonelementary vertex stabiliser.
+    The proof is similar to the one of Lemma 3.7, but we also have to deal with nontrivial
+edge stabilisers. By Lemma 4.4, the automorphism ϕ fixes every leaf of GzTGYH . By
+Lemma 3.6, ϕ acts trivially on H1 pGzTGYH , Z{3Zq. Thus, by Lemma 3.5, either ϕ acts
+trivially on GzTGYH , or else GzTGYH is a circle and ϕ acts on it by rotation. The
+conclusion in the first case being immediate, we may assume that we are in the second
+case. It therefore suffices to prove that ϕ fixes a point in GzTGYH .
+    Let rHs P G. By Lemma 2.16, the group H fixes a unique nonelementary vertex,
+or a unique elementary vertex. In both cases, one can canonically associate to rHs a
+unique vertex of GzTGYH . Since ϕ P Out0 pG, Gq, if G ‰ ∅, we see that ϕ fixes a point in
+GzTGYH .
+
+
+                                                 27
+    Thus, we are reduced to the case where G “ ∅. This implies that G “ FN is a
+nonabelian free group. Moreover, every elementary subgroup is infinite cyclic. For every
+vertex v of GzTGYH , let Incv be the set of Gv -conjugacy classes of edge groups adjacent
+to v. Let Fv be the minimal free factor system of Gv such that, for every rKv s P Incv ,
+the group Kv is pGv , Fv q-peripheral.
+    By Lemma 4.3, there exists a vertex v of GzTGYH such that Fv ‰ trGv sGv u. Since
+Fv ‰ trGv sGv u, and since elementary subgroups are cyclic, the group Gv is nonelemen-
+tary. Let nv ě 1 be the minimal integer such that ϕnv pvq “ v. Note that Fv is preserved
+by ϕnv . Moreover, since ϕ acts as a rotation on GzTGYH , the graph automorphism of
+GzTGYH induced by ϕnv is trivial.
+Case 1. Suppose that the image of ϕnv in OutpGv , Fv q is finite.
+     Notice that, by Theorem 2.13p8q, this includes in particular the case where v is rigid
+(recall that H consists of periodic subgroups of ϕ).
+     By Theorem 2.19 applied to the free product pGv , Fv q and to xϕnv v y, the group xϕnv v y
+fixes a Grushko pGv , Fv q-free splitting Uv in the outer space of Gv relative to Fv .
+     For every w P V GzTGYH in the ϕ-orbit of v, let Uw be the Grushko pGw , Fw q-free
+splitting whose underlying tree is the same as Uv , and the action of g P Gw is given
+by the action of Φ´n  w
+                        w pgq P G , where n
+                                  v           w is the minimal positive integer such that
+ϕ w pvq “ w and Φw P ϕnw is such that Φw pGv q “ Gw . We claim that the Grushko
+  n
+
+pGw , Fw q-free splitting Uw only depends on Uv and ϕ. Indeed, if Φw , Φ1w P ϕnw are such
+that Φw pGv q “ Gw “ Φ1w pGv q, then Φ1w ˝ Φ´1   w is an inner automorphism adh of FN
+preserving Gw . Since Gw is nonelementary, it fixes a unique vertex in TGYH , so that it
+is its own normaliser in FN . In particular, h P Gw and the construction of Uw does not
+depend on the choice of Φw . Therefore, the splitting Uw is preserved by ϕnwv .
+     Let U be the splitting of FN obtained from TGYH by blowing up, for every m ě 1,
+the splitting Uϕm pvq at ϕm pvq and attaching the adjacent edges of ϕm pvq to the unique
+points fixed by their edge groups. Note that U is fixed by ϕ since the construction of
+the splitting Uw with w P xϕyv is ϕ-equivariant.
+     Let S 1 be the free splitting of FN obtained from U by collapsing all edges with
+nontrivial stabiliser. Then S 1 is a ϕ-invariant free splitting of FN .
+     We claim that, if ϕ acts nontrivially on FN zTGYH , then it also acts nontrivially on
+FN zS 1 . Indeed, any nontrivial action of ϕ on FN zTGYH will permute the subgraphs of
+S 1 corresponding to points in the outer space of pGw , Fw q with w P V FN zTGYH .
+     By Lemma 3.7, the automorphism ϕ acts trivially on FN zS 1 . Thus, ϕ acts trivially
+on FN zTGYH . This concludes the proof of Case 1.
+Case 2. Suppose that v is flexible.
+    By Theorem 2.13p5q, the vertex v is a QH vertex. Let Σv be the associated compact
+surface. Recall the notations Bdv , BdS and χS pΣv q from just above Lemma 4.5. Since
+FN zTGYH is a circle, we have |BdS | ď 2. In particular, since Σv is hyperbolic, we have
+χpΣv q ď ´1 and χS pΣv q ď 1.
+    Suppose first that χS pΣv q “ 1. Then χpΣv q “ ´1 and |BdS | “ 2, so that Σv has at
+least two boundary components. This implies that Σv is isomorphic to a pair of pants or
+
+                                              28
+a twice-punctured projective plane. In both cases, these surfaces have a finite mapping
+class group (see [Kor, Corollary 4.6] for the twice-punctured projective plane). Since ϕnv
+maps into the mapping class group of Σv by Theorem 2.13p9q, the case where χS pΣv q “ 1
+follows from Case 1.
+    Finally, suppose that χS pΣv q ă 1. By Lemma 4.5p1q, for every w P V TGYH not in
+the G-orbit of v, the image of H1 pGv , Z{3Zq in H1 pG, Z{3Zq is distinct from the image
+of H1 pGw , Z{3Zq in H1 pG, Z{3Zq. In particular, since ϕ P IApG, G, 3q, the vertex v is
+fixed by ϕ. Hence ϕ acts trivially on FN zTGYH .
+
+4.2   Understanding the outer action on the vertex groups
+By Proposition 4.6, for every vertex v P V TGYH (resp. every edge e P ETGYH ), the outer
+automorphism ϕ induces an outer automorphism ϕv P OutpGv q (resp. (ϕe P OutpGe q).
+We now investigate the outer action of ϕv on Gv according to the nature of v.
+Lemma 4.7. Let G be a torsion free finitely generated group and let S be a G-splitting.
+Let v P V S be a QH vertex and let Σv be the associated compact surface. Let ϕ P
+OutpGq X KpSq be an outer automorphism acting trivially on H1 pG, Z{3Zq.
+   Suppose that, for every edge e P ES adjacent to v with Ge » Z, the outer auto-
+morphism ϕe is trivial. Then ϕ preserves the G-conjugacy class of a generator of every
+boundary subgroup of π1 pΣv q.
+Proof. Suppose first that S is reduced to the vertex v. Then G is a surface group and
+the lemma follows from the work of Ivanov [Iva, Theorem 1.2].
+    So we may suppose that S is not reduced to a vertex. Let C be a boundary subgroup
+of π1 pΣv q and let c be a generator of C. Note that, since G is torsion free, the group C
+is infinite cyclic. By definition of a QH vertex, for every edge e P ES adjacent to v, the
+group Ge is contained in a boundary subgroup of Σv . We now examine the four possible
+cases given by Lemma 4.5p2q.
+    Suppose that Lemma 4.5p2qpaq occurs, so that there exists an edge e of S such that
+Ge is a finite index subgroup of C. Let Φ P ϕ be an automorphism preserving Ge and
+Gv . By assumption, we have Φ|Ge “ idGe . Since Gv » π1 pΣv q is a finitely generated free
+group, Ge is contained in a unique maximal cyclic subgroup C 1 , so that Φ preserves C 1
+and C Ď C 1 . As Φ fixes Ge elementwise, it also fixes C 1 and C elementwise. Thus, we
+see that ϕ preserves the conjugacy class of c.
+    Suppose that Lemma 4.5p2qpbq occurs: the image of H1 pC, Z{3Zq in H1 pG, Z{3Zq is
+nontrivial and, for every boundary subgroup C 1 of Σv which is not conjugate to C, the
+images of H1 pC, Z{3Zq and H1 pC 1 , Z{3Zq in H1 pG, Z{3Zq are distinct. Since ϕ permutes
+the conjugacy classes of the generators of the boundary subgroups of Σv and since ϕ acts
+trivially on H1 pG, Z{3Zq, we see that the conjugacy class of c is fixed by ϕ.
+Claim. Suppose that Lemma 4.5p2qpcq or pdq occur so that Σv is orientable. Then ϕv
+preserves the orientation of Σv .
+
+Proof. As S is a connected G-splitting, there exists a boundary component C 1 of π1 pΣv q
+which is commensurable to an edge stabiliser Ge of e P ES. Since ϕe acts trivially on Ge ,
+
+                                           29
+any automorphism in the outer class of ϕ preserving e also acts trivially on C 1 . Thus, ϕv
+preserves the orientation at any point contained in the boundary of Σv associated with
+C 1 . This shows that ϕv induces an orientation-preserving mapping class of Σv .
+
+    Suppose that Lemma 4.5p2qpcq occurs, so that Σv is orientable and C is the only
+boundary subgroup which is not commensurable to an edge stabiliser. We fix an ori-
+entation of Σv so that c is a positive generator of C. By the Claim, ϕv preserves the
+orientation of Σv . Thus ϕv sends rcs to the conjugacy class of a generator of C inducing
+the orientation, that is ϕprcsq “ rcs.
+    Finally, suppose that Lemma 4.5p2qpdq occurs, so that Σv is orientable and that there
+exists a unique (up to conjugacy) boundary subgroup D of Σv which is not conjugate
+to C and which is not commensurable to an edge stabiliser. Again, fixing an orientation
+of Σv , we may suppose that c is a positive generator of C and that d P D is a positive
+generator of D. By the Claim, ϕv preserves the orientation of Σv , so that ϕv sends rcs
+to either itself or rds. By Lemma 4.5p2qpdq the images of c and d in H1 pG, Z{3Zq are
+distinct. Since ϕ acts trivially on H1 pG, Z{3Zq, we see that ϕ preserves the conjugacy
+class of c.
+
+Lemma 4.8. Let G be a group satisfying the Standing Assumptions. Let H be a finite
+set of conjugacy classes of finitely generated subgroups of G such that G is one-ended
+relative to G Y H. Let ϕ P IApG, G, 3q be an outer automorphism preserving H and such
+that H consists of periodic subgroups of ϕ.
+    Let v P V TGYH be a rigid vertex. Suppose that, for every edge e P ETGYH adjacent
+to v with Ge » Z, the outer automorphism ϕe is trivial. Then ϕv “ id.
+
+Proof. By Theorem 2.13p4q, the group Gv is finitely generated. Thus, the pair pGv , Gv q
+defines a free product. By Theorem 2.13p8q, the outer automorphism ϕv of Gv induced
+by ϕ is of finite order. We will prove that ϕv is in fact trivial. By Theorem 2.19, there
+exists a Grushko pGv , Gv q-free splitting Sv which is preserved by ϕv .
+Claim. The outer automorphism ϕv acts trivially on the quotient graph Gv zSv .
+
+Proof. We will prove the Claim using Lemma 3.5. Notice that we do not know that
+ϕv acts trivially on H1 pGv , Z{3Zq, so that we cannot apply Lemma 3.6. In order to
+overcome this difficulty, we need a more detailed analysis of the action of ϕv on Gv zSv .
+Step 1. ϕv fixes every vertex of Gv zSv with nontrivial stabiliser. In particular, ϕv fixes
+every leaf of Gv zSv .
+
+Proof. Since edge stabilisers in Sv are trivial, and since the action of Gv on Sv is minimal,
+it suffices to prove that ϕv preserves the Gv -conjugacy class rHsGv of every nontrivial
+vertex stabiliser H of Sv . Let rHsGv P Gv be the Gv -conjugacy class of a vertex stabiliser
+H of Sv . Since TGYH is a pG, Gq-elementary splitting, H has a fixed point in TGYH .
+Moreover, either rHsG P G and v is the unique fixed point of H or else H is the inter-
+section of Gv with an elementary vertex stabiliser, that is, H is a stabiliser of an edge
+adjacent to v. Let us examine both cases.
+
+
+                                             30
+    Suppose that H is the stabiliser of an edge e adjacent to v. By Proposition 4.6, the
+outer automorphism ϕ acts trivially on the quotient graph GzTGYH . In particular, ϕ has
+a representative Φ fixing e. Hence ΦpGv q “ Gv and ΦpHq “ H, that is, ϕv preserves the
+Gv -conjugacy class of H.
+    Suppose now that v is the unique fixed point of H and that rHsG P G. Since
+ϕ P Out0 pG, Gq, the outer class ϕ preserves the G-conjugacy class of H. By [GL2,
+Lemma 2.2] (applied with K “ Gv ), as H does not fix an edge in TGYH , the outer
+automorphism ϕv preserves the Gv -conjugacy class of H. The first assertion of the claim
+follows. Since the action of Gv on Sv is minimal, every leaf of Gv zSv has nontrivial
+stabiliser, so that ϕv fixes every leaf of Gv zSv by the first assertion.              ■
+
+   Let Incv be the set of Gv -conjugacy classes of edge stabilisers of TGYH incident to v.
+Let Inccyc
+       v be the subset of Incv consisting of Gv -conjugacy classes of edge stabilisers of
+TGYH incident to v with pG, Gq-nonperipheral cyclic stabiliser.
+Step 2. Let rGe sGv P Inccyc
+                           v   and let c P Ge be a generator. Then c acts loxodromically
+on Sv . Moreover, there exists Φv P ϕv such that Φv pcq “ c. Thus, Φv preserves the axis
+Axpcq of c in Sv as well as its orientation.
+
+Proof. Since c is pG, Gq-nonperipheral, it does not fix a point in the Grushko pGv , Gv q-
+free splitting Sv . Thus, c acts loxodromically on Sv . Since ϕ acts trivially on every edge
+group Ge with Ge » Z by assumption, there exists Φv P ϕv such that Φv pcq “ c (take
+any representative fixing the edge e). Thus, Φv preserves the axis Axpcq of c in Sv as
+well as its orientation.                                                                  ■
+
+    If rGe sGv P Inccyc
+                     v , and if ce is a generator of Ge , we denote by γce the projection of
+                           Sv
+Axpce q in Gv zSv . Let KInc  cyc be the subgroup of H1 pGv zSv , Zq generated by the classes
+                              v
+                            cyc
+rγce s with rxce ysGv P Incv . Let KIncv (resp. KInccyc  v
+                                                           ) be the subgroup of H1 pGv , Zq
+generated by the image of xGe yrGe sGv PIncv (resp. of xGe yrGe sGv PInccyc
+                                                                        v
+                                                                            ).
+
+Step 3. The outer automorphism ϕv acts trivially on H1 pGv zSv , Zq.
+                                                  Sv
+Proof. By Step 2, ϕv fixes elementwise the group KInc cyc . Let T be the torsion part
+                                                           v
+                                 Sv
+of the quotient H1 pGv zSv , Zq{KInc cyc and let V be the preimage of T in H1 pGv zSv , Zq.
+                                    v
+                                                                                  Sv
+Note that V is a direct factor of H1 pGv zSv , Zq. Then V is preserved by ϕv and KInc cyc
+                                                                                          v
+                                                     Sv
+has finite index in V . Since ϕv fixes elementwise KInc cyc and since V is a free abelian
+                                                        v
+group, it follows that ϕv fixes elementwise V .
+   We now claim that ϕv fixes elementwise the free abelian group H1 pGv zSv , Zq{V .
+Since ϕv has finite order, it induces a finite order automorphism of H1 pGv zSv , Zq{V .
+Since             ´                                                       ¯
+               ker GLpH1 pGv zSv , Zq{V q Ñ GLpH1 pGv zSv , Zq{V b Z{3Zq
+
+is torsion free, it suffices to prove that ϕv acts trivially on H1 pGv zSv , Zq{V b Z{3Z.
+    Let H be the image of the homomorphism H1 pGv , Z{3Zq Ñ H1 pG, Z{3Zq. Let
+KIncv pZ{3Zq be the image of KIncv in H1 pGv , Z{3Zq. By Proposition 4.6, we have
+
+
+                                             31
+ϕ P KpTGYH q. Thus, by Lemma 3.1, there exists a subgroup K of KIncv pZ{3Zq such
+that the group H fits in an exact sequence of ϕv -equivariant maps
+
+                                  K Ñ H1 pGv , Z{3Zq Ñ H.                                   (5)
+
+The projection prv : H1 pGv , Zq Ñ H1 pGv zSv , Zq is surjective and ϕv -equivariant. If
+rGe sGv P Incv zInccyc
+                   v , then Ge is a fixed point of Sv , so that the images of Ge in π1 pGv zSv q
+and H1 pGv zSv , Zq are trivial. Therefore, we have
+                                                            Sv
+                           prv pKIncv q “ prv pKInccyc
+                                                   v
+                                                       q “ KInc cyc Ď V.
+                                                               v
+
+Thus, the projection
+
+                         pv : H1 pGv , Zq{KIncv Ñ H1 pGv zSv , Zq{V
+
+is well-defined, surjective and ϕv -equivariant. Tensoring by Z{3Z, the homomorphism
+
+                   H1 pGv , Zq{KIncv b Z{3Z Ñ H1 pGv zSv , Zq{V b Z{3Z                      (6)
+
+is surjective and ϕv -equivariant. The group H1 pGv , Zq{KIncv b Z{3Z is isomorphic to
+H1 pGv , Z{3Zq{KIncv pZ{3Zq (recall that we defined KIncv pZ{3Zq as the image of KIncv
+in H1 pGv , Z{3Zq). By Equation (5), the group H1 pGv , Z{3Zq{KIncv pZ{3Zq is a quotient
+of H. Therefore, H surjects ϕv -equivariantly onto the group H1 pGv , Zq{KIncv b Z{3Z.
+Combining Equations (5) and (6), we obtain a ϕv -equivariant surjective homomorphism
+
+                               H Ñ H1 pGv zSv , Zq{V b Z{3Z.
+
+Since H Ď H1 pG, Z{3Zq and since ϕv P IApG, G, 3q, ϕv acts trivially on H and hence on
+H1 pGv zSv , Zq{V b Z{3Z. This proves that ϕv fixes pointwise H1 pGv zSv , Zq{V .
+    Let x P H1 pGv zSv , Zq. Since ϕv fixes pointwise both V and H1 pGv zSv , Zq{V , there
+exists vx P V such that ϕv pxq “ x ` vx . Since ϕv pvx q “ vx and since ϕv is a finite order
+automorphism of H1 pGv zSv , Zq, we necessarily have vx “ 0, so that ϕv fixes pointwise
+H1 pGv zSv , Zq.                                                                          ■
+
+    By Step 3, ϕv fixes pointwise H1 pGv zSv , Zq and H1 pGv zSv , Z{3Zq. By Step 1, ϕv
+fixes every leaf of Gv zSv . By Lemma 3.5, either ϕv fixes pointwise Gv zSv or else Gv zSv
+is a circle and ϕv acts as a rotation on it.
+    In order to prove that ϕv fixes pointwise Gv zSv , it remains to prove that, if Gv zSv
+is a circle, then ϕv fixes a point in it. So suppose that Gv zSv is a circle. Since Gv is
+nonelementary, in particular noncyclic, the graph of groups Gv zSv contains a vertex with
+nontrivial stabiliser. By Step 1, this vertex is fixed by ϕv . The conclusion follows.
+
+    By the claim, ϕv lies in KpSv q. We now use the short exact sequence in Proposition 2.4
+to prove that ϕv is trivial. Suppose first that Gv “ ∅. By Proposition 2.4, we have
+KpSv q “ tidu, so the conclusion follows in this case.
+    Suppose that Gv ‰ ∅ and let rHs P Gv with H ‰ t1u. We have a natural homomor-
+phism xϕv y Ñ AutpHq given by sending ϕv to the unique representative ΦH of ϕv which
+fixes a chosen edge adjacent to the vertex fixed by H.
+
+                                                32
+    There exists a unique i P t1, . . . , ku such that H Ď Gi . Uniqueness of Gi implies
+that the automorphism ΦH extends to a representative Φ of ϕ which preserves Gi . Since
+ϕ|Gi P Out˚ pGi q, we have Φ|Gi P Aut˚ pGi q. In particular, by Item p4q of the Standing
+Assumptions, every element of H which is Φ-periodic (and hence ΦH -periodic) is fixed.
+As ΦH is finite order since ϕv is, we see that the image of ϕv in AutpHq is trivial.
+    By Proposition 2.4, the outer automorphism ϕv is contained in a direct product N
+of groups, each direct factor being isomorphic to a subgroup H of Gv with rHs P Gv .
+Since G is torsion free, we see that N is torsion free. In particular, ϕv is trivial.
+
+4.3     Conclusion and proof of Theorem 4.1
+In this section, we prove Theorem 4.1 by combining the results of the above sections.
+We first record the following elementary lemma.
+
+Lemma 4.9. Let pG, Gq be a free product with G torsion free and let g P G be pG, Gq-
+nonperipheral. Then NG pxgyq “ CG pgq is root–closed and infinite cyclic.
+
+Proof. Let h P G ´ t1u and let m ą 0 be such that hm P NG pxgyq. Let T be a Grushko
+pG, Gq-free splitting. Since g is pG, Gq-nonperipheral, it acts loxodromically on T . Let
+Axpgq be the axis of g. Then for every n P Z˚ , we have Axpgq “ Axpg n q. Since
+hm P NG pxgyq, we have
+
+                            hm Axpgq “ Axphm gh´m q “ Axpgq.
+
+Thus, the group xg, hm y preserves Axpgq.
+    The group H “ StabG pAxpgqq has an index two subgroup H 1 preserving the ori-
+entation of Axpgq. Thus, we have a homomorphism H 1 Ñ Z given by the translation
+length in Axpgq. Since T is a free splitting, the kernel of H 1 Ñ Z is trivial. Thus, H is
+virtually cyclic. Since G is torsion free, the group H is cyclic, generated by an element
+acting loxodromically on Axpgq. Since hm P H ´ t1u, h and hm acts loxodromically on
+T and Axphq “ Axphm q “ Axpgq. Thus, h is contained in the cyclic group H, so that h
+commutes with g.
+
+      We are now ready to prove the main theorem of this section.
+
+Proof of Theorem 4.1. The proof is by induction on the Grushko rank ξpG, Gq of pG, Gq.
+If ξpG, Gq “ 1, then either G “ G1 or else G “ Z. If G “ G1 , then the result follows
+from Item p3q of the Standing Assumptions. If G “ Z, then IApG, G, 3q “ tIdu and the
+result is immediate.
+    Suppose now that ξpG, Gq ě 2. Let F be the minimal pG, Gq-free factor system such
+that for every rHs P H, the group H is pG, Fq-peripheral. Then ϕ preserves F. By
+Lemma 3.3, every element of F is preserved by ϕ.
+    Let rAs P F and let ϕ|A P OutpAq be the outer automrophism of A induced by ϕ.
+Let HA be the set of A-conjugacy classes of subgroups of A induced by H. Suppose that
+F ‰ trGsu. Then, for every rAs P F, we have ξpA, G|A q ă ξpG, Gq. By Lemma 3.9 and
+
+
+                                           33
+                                                                      ptq
+the inductive hypothesis, for every rAs P F , we have ϕ|A P OutpA, HA q. We deduce that
+ϕ P OutpG, Hptq q.
+    So we may suppose that F “ trGsu, that is, G is one-ended relative to G Y H. The
+group G is hyperbolic relative to G. Let TGYH be the JSJ pG, G YHq-elementary splitting
+given by Theorem 2.13. The tree TGYH is preserved by ϕ. By Proposition 4.6, the graph
+automorphism induced by ϕ on GzTGYH is trivial. Therefore, for every v P V TGYH ,
+we have a natural homomorphism xϕy Ñ OutpGv q. Recall that we denote the image
+of ϕ by ϕv . Similarly, for every edge e P ETGYH , we have a natural homomorphism
+xϕy Ñ OutpGe q and we denote the image of ϕ by ϕe .
+    For every v P V TGYH , let Hv be the set of Gv -conjugacy classes of subgroups of Gv
+induced by H. Since for every rHs P H, the group H is elliptic in TGYH , it suffices to
+                                                           ptq
+prove that, for every v P V TGYH , we have ϕv P OutpGv , Hv q. We first need the following
+claim.
+Claim. Let e P ETGYH be such that Ge » Z. Then ϕe “ id.
+
+Proof. Let Φe P ϕe be induced by the restriction to Ge of a representative Φ of ϕ
+preserving e and let t be a generator of Ge . Then Φe ptq “ t or Φe ptq “ t´1 . Thus, t is a
+periodic element of Φe and of Φ. Suppose that Ge is contained in a peripheral subgroup
+Gi with i P t1, . . . , ku. Since Gi is malnormal, Gi is the unique subgroup of G containing
+Ge such that rGi s P G. Thus ΦpGi q “ Gi . By Item p4q of the Standing Assumptions, we
+see that Φe ptq “ Φ|Gi ptq “ t.
+     Thus, we may suppose that Ge is pG, Gq-nonperipheral. In that case, by Lemma 4.9,
+t is not conjugate to t´1 in G. Thus, it suffices to prove that ϕ preserves the conjugacy
+class of t in G.
+     By Lemma 4.3, the group Ge is contained in a proper pG, Gq-free factor. Let A be the
+minimal (necessarily proper) pG, Gq-free factor containing Ge . Then rAs is preserved by
+ϕ. Moreover, since A is a pG, Gq-free factor, the image ϕ|A of ϕ in OutpAq is contained
+in IApA, G|A , 3q by Lemma 3.9. Since OutpGe q is finite, every A-conjugacy class of an
+element in Ge is ϕ|A -periodic. Since A is proper, we have ξpA, G|A q ă ξpG, Gq. By the
+induction hypothesis, we see that ϕ|A preserves the A-conjugacy class of t and that Φe
+fixes Ge elementwise.
+                                                                       ptq
+   We now prove that, for every v P V TGYH , we have ϕv P OutpGv , Hv q. We distinguish
+between several cases, according to the nature of v.
+Case 1. Suppose that Gv is elementary noncyclic.
+    In that case, we have rGv s P G. By Item p3q of the Standing Assumptions, since
+                                            ptq
+ϕ P IApG, G, 3q, we see that ϕv P OutpGv , Hv q.
+Case 2. Suppose that Gv is elementary cyclic.
+    Since edge stabilisers are infinite, there exists an edge e adjacent to v such that Ge
+has finite index in Gv . By the claim, we see that ϕe acts trivially on Ge . Since Ge Ď Gv
+is infinite cyclic, this implies that ϕv acts trivially on Gv .
+
+
+                                            34
+Case 3. Suppose that v is rigid.
+    By the Claim, we see that ϕ acts trivially on the stabiliser of every edge e adjacent
+to v with Ge » Z. By Lemma 4.8, the outer automorphism ϕv is trivial.
+Case 4. Suppose that Gv is a flexible nonelementary vertex.
+    Recall that, by Theorem 2.13p5q, there exists a compact surface Σv such that Gv
+is isomorphic to π1 pΣv q. Moreover, for every edge e adjacent to Gv , the group Ge is
+contained in a boundary subgroup of π1 pΣv q and, for every rHs P Hv , the group H is
+contained in a boundary subgroup of π1 pΣv q.
+    The outer class ϕv then induces an outer automorphism of π1 pΣv q preserving the set
+of conjugacy classes of boundary subgroups of π1 pΣv q. Therefore, it suffices to prove
+that ϕv fixes the conjugacy class of a generator of every boundary subgroup of π1 pΣv q.
+By the Claim, we see that ϕ acts trivially on the stabiliser of every edge e adjacent to v
+with Ge » Z. By Lemma 4.7, the outer automorphism ϕv preserves the conjugacy class
+of a generator of every boundary subgroup. This concludes the proof of the last case
+and the proof of the theorem.
+
+   We finish this section with a proof of the Aut-version of Theorem 4.1.
+Corollary 4.10. Let G be a group satisfying the Standing Assumptions. Consider an
+automorphism Φ P IAAut pG, G, 3q. Every Φ-periodic element of G is fixed by Φ.
+Proof. Let g be a Φ-periodic element of G, let H “ xϕℓ pgqyℓPN and let H “ trHsu. Since
+g is Φ-periodic, the group H is finitely generated and Φ-invariant. Let A be the minimal
+pG, Gq-free factor containing H. Then A is preserved by Φ. Thus, using an inductive
+argument, we may suppose that G “ A.
+    Then the group G is one-ended relative to G Y H. Let TGYH be the associated JSJ
+pG, G Y Hq-elementary splitting given by Theorem 2.13.
+    Let ϕ “ rΦs P OutpGq. By Proposition 4.6, the outer automorphism ϕ acts trivially
+on the quotient graph GzTGYH . Moreover, by the Claim in the proof of Theorem 4.1,
+the outer automorphism ϕ acts trivially on every edge group with cyclic stabiliser.
+    The group H fixes a point v in TGYH . Moreover, one can choose v so that Gv is
+preserved by Φ. Indeed, By Lemma 2.16, the group H fixes a unique elementary vertex
+or a unique nonelementary vertex. We investigate different cases according to v.
+    If Gv is elementary noncyclic, then, by Item p4q of the Standing Assumptions, the
+automorphism Φ acts trivially on H.
+    Suppose that Gv is elementary cyclic. Since ϕ acts trivially on cyclic edge stabilisers
+of TGYH , we see that Φv acts trivially on H.
+    Suppose that Gv is nonelementary and rigid. By Lemma 4.8, the automorphism Φ
+acts on Gv as a global conjugation by an element h P Gv . Thus, for every ℓ ą 0, we have
+Φℓ pgq “ hℓ gh´ℓ . As g is Φ-periodic, there exists m ą 0 such that hm P Cpgq.
+    Suppose that g is pG, Gq-nonperipheral. Then its centraliser is infinite cyclic and
+root–closed by Lemma 4.9. Hence h P Cpgq and g is fixed by Φ.
+    Suppose that there exists rGi s P G with g P Gi . Then Gi is preserved by Φ. This
+case then follows from Item p4q of the Standing Assumptions.
+
+                                            35
+    Finally, suppose that Gv is nonelementary and flexible. By Theorem 2.13p5q, there
+exists a compact surface Σv such that Gv is isomorphic to π1 pΣv q. Moreover, the group
+H is contained in a unique boundary subgroup. By Lemma 4.7, the automorphism Φ
+fixes elementwise this boundary subgroup. This concludes the proof.
+
+
+5     Periodic free factor systems
+Let G be a group satisfying the Standing Assumptions. In this section, we prove the
+following theorem.
+Theorem 5.1. Let G be a group satisfying the Standing Assumptions. Let ϕ P IApG, G, 3q.
+Every ϕ-periodic pG, Gq-free factor system is fixed by ϕ.
+    The proof of Theorem 5.1 relies on the study of maximal ϕ-periodic pG, Gq-free factor
+systems. We use two distinct techniques according to whether the free factor system is
+sporadic or not.
+    If the free factor system is sporadic, then it induces a natural ϕ-periodic pG, Gq-free
+splitting. Therefore, we are left with studying ϕ-periodic pG, Gq-free splittings. This is
+the content of Section 5.1.
+    When the free factor system is nonsporadic, one can naturally associate to it an
+attracting lamination of ϕ. Attracting laminations are dynamical invariants of ϕ on
+which ϕ naturally acts. The action of ϕ on the (finite) set of attracting laminations is
+encoded in a relative train track of ϕ. This action is studied in details in Section 5.2.
+
+5.1   JSJ decompositions of suspensions and periodic free splittings
+Let G be a group satisfying the Standing Assumptions and let ϕ P OutpG, Gq. In this
+section, we prove the following theorem.
+Theorem 5.2. Let G be a group satisfying the Standing Assumptions. Let ϕ P IApG, G, 3q.
+Every ϕ-periodic pG, Gq-free splitting is fixed by ϕ.
+    Let Φ P ϕ be a representative of ϕ. The proof requires the understanding of cyclic
+splittings of the suspension of G by Φ, which is the group
+
+                       GΦ “ G ¸Φ Z “ xG, t | tgt´1 “ ϕpgq @g P Gy.
+
+If Ψ P AutpG, Gq is in the same outer class as Φ, then GΦ and GΨ are isomorphic.
+Therefore, if ϕ P OutpG, Gq and Φ P ϕ, we can denote by Gϕ a group whose one of its
+presentation is GΦ .
+    We will see in Proposition 5.6 that the tree of cylinders of a JSJ Gϕ -cyclic splitting
+encodes the set of all ϕ-periodic pG, Gq-free splittings. This shows that it will be sufficient
+to understand the action of Gϕ on its tree of cylinders in order to understand all ϕ-
+periodic pG, Gq-free splittings.
+    Note that if T is a Gϕ -splitting in which G does not fix a point, then the restricted
+action of G on T induces a G-splitting T G . Indeed, the fact that the action of G on T is
+
+                                              36
+minimal follows from the facts that G is a normal subgroup of Gϕ and that the action of
+Gϕ on T is minimal. We record in the following lemma information regarding the tree
+T seen either as a Gϕ -splitting or a G-splitting.
+
+Lemma 5.3 ([Dah2, Lemmas 2.6, 2.7, 2.8, 2.9]). Let pG, Gq be a free product and let
+ϕ P OutpG, Gq. Let T be a Gϕ -splitting in which G does not fix a point.
+
+ (1) If c is a cell of T , then the GΦ -stabiliser of c is isomorphic to Gc ¸ Z, where Gc is
+     the G-stabiliser of c.
+
+ (2) If the GΦ -edge stabilisers are all virtually cyclic, there does not exist a cell c of T
+     whose GΦ -stabiliser is infinitely-ended.
+
+ (3) If T is a Gϕ -cyclic splitting such that, for every rGi s P G, the group Gi is elliptic,
+     then T G is a pG, Gq-free splitting.
+
+    Let F be a sporadic proper pG, Gq-free factor system. One can canonically associate
+to F a pG, Gq-free splitting TF . The conjugacy classes of vertex stabilisers of TF are
+contained in F and TF has a unique orbit of edges. The group AutpG, F q preserves the
+G-equivariant isometry class of TF . In particular, we have the following, where the last
+assertion follows from Lemma 5.3(1).
+
+Lemma 5.4. Let pG, Gq be a free product and let F be a sporadic pG, Gq-free factor system.
+Let Φ P AutpG, Fq.
+
+ (1) The action of G on TF extends to an action of GΦ on TF .
+
+ (2) The GΦ -splitting TF is a GΦ -cyclic splitting.
+
+   By Lemma 5.3p1q, the group Gϕ is one-ended. Since G is finitely presented by the
+Standing Assumptions, so is Gϕ .
+   Let TJSJ pGϕ q be a JSJ Gϕ -cyclic splitting given by Theorem 2.8 and let Tc pGϕ q be
+the associated tree of cyclinders. We note that the tree Tc pGϕ q was already considered
+by Guirardel–Horbez [GH3, Theorem 6.12] when G is a free group.
+   We now give a description of the vertex stabilisers of the tree Tc pGϕ q (considered as
+a Gϕ -splitting). If Φ P ϕ, recall that PerpΦq is the periodic subgroup of Φ.
+
+Lemma 5.5. Let v P V Tc pGϕ q.
+
+ (1) Suppose that v corresponds to a cylinder C Ď TJSJ pϕq. Let e P EC, let ℓ ą 0 and
+     let Φ P ϕℓ which generates pGϕ qe . There exist m ą 0 dividing ℓ and Ψ P ϕm such
+     that the stabiliser of v in Gϕ is equal to PerpΦq ¸Ψ Z.
+
+ (2) If v is a vertex of TJSJ pGϕ q, there exist a pG, Gq-free factor A, ℓ ą 0 and a
+     representative Φ P ϕℓ preserving A such that pGϕ qv is equal to A ¸Φ Z. Moreover,
+                                                              G pG q induces a pG, Gq-
+     the set of G-conjugacy classes of vertex stabilisers of TJSJ   ϕ
+     free factor system.
+
+                                             37
+Proof. The fact that the stabiliser of a cylinder vertex is isomorphic to PerpΦq ¸Ψ Z
+follows from [AGH, Lemma 6.2].
+    We now prove the second assertion. The tree TJSJ pGϕ q is a Gϕ -cyclic splitting.
+Therefore, by Lemma 5.3p3q, the tree TJSJ G pG q is a pG, Gq-free splitting. In particular,
+                                                ϕ
+                              G
+every vertex stabiliser of TJSJ pGϕ q is a pG, Gq-free factor and the set of G-conjugacy
+                                  G pϕq is a pG, Gq-free factor system. By Lemma 5.3p1q,
+classes of vertex stabilisers of TJSJ
+for every vertex v of TJSJ pGϕ q, there exist a free factor A of pG, Gq, ℓ ą 0 and a
+representative Φ P ϕℓ preserving A such that pGϕ qv is equal to A ¸Φ Z.
+
+Proposition 5.6. Let S be a ϕ-invariant pG, Gq-free splitting. Then S and TcG pGϕ q
+are compatible as pG, Gq-splittings. Moreover, a common refinement is obtained from
+TcG pGϕ q by blowing-up trees at its cylinder vertices.
+
+Proof. Since S is ϕ-invariant, the G-action on S extends to a Gϕ -action. By Lemma 5.3,
+S is a Gϕ -cyclic splitting. We want to apply Lemma 2.11 to conclude the proof. There-
+fore, it suffices to show that every vertex of TJSJ pGϕ q is rigid.
+    By Theorem 2.8, flexible vertices are infinitely ended. By Lemma 5.3p2q, there does
+not exist a Gϕ -cyclic splitting with an infinitely-ended vertex stabiliser. Therefore, every
+vertex of TJSJ pGϕ q is rigid. Thus, by Lemma 2.11, a common refinement is obtained
+from Tc pGϕ q by blowing-up trees at its cylinder vertices.
+
+   We can now prove the main theorem of the section.
+
+Proof of Theorem 5.2. Let ϕ P IApG, G, 3q. Let S be a ϕ-periodic pG, Gq-free splitting.
+Let ℓ ą 0 be such that ϕℓ fixes S and acts trivially on GzS. Let Tc pGϕℓ q be the tree
+of cylinders associated with a JSJ pGϕℓ , Gq-cyclic splitting given by Proposition 2.10.
+Note that, for every rGi s P G, the group Gi is elliptic in Tc pGϕℓ q as it is elliptic in any
+JSJ pGϕℓ , Gq-cyclic splitting. We denote by TcG pGϕℓ q the tree Tc pGϕℓ q considered as a
+pG, Gq-splitting. It comes equipped with a partition of its vertices V TcG pGϕℓ q “ Vr0 Vr1
+                                                                                          š
+
+where, for every v P Vr0 , v corresponds to a vertex in TJSJ pGϕℓ q and, for every v P Vr1 ,
+                                                                       š
+v corresponds to a cylinder of TJSJ pGϕℓ q. Let V GzTcG pGϕℓ q “ V0 V1 be the induced
+partition.
+    Note that the group Gϕℓ is a normal subgroup of Gϕ , so that the action of Gϕ on Gϕℓ
+by conjugation induces a homomorphism Gϕ Ñ AutpGϕℓ q. Since Tc pGϕℓ q is preserved
+by AutpGϕℓ q by Proposition 2.10, we obtain an action of Gϕ on Tc pGϕℓ q. In particular,
+the outer automorphism ϕ preserves TcG pGϕℓ q.
+Claim 1. Let v P Vr1 be a cylinder vertex. There exists Φ P ϕ such that Gv “ FixpΦq.
+
+Proof. By Lemma 5.5, there exists Ψ P ϕℓ such that the G-stabiliser of v is isomorphic
+to PerpΨq. By Theorem 4.1 applied to H “ tϕn rPerpΨqsunPN , there exists Φ P ϕ such
+that PerpΨq “ FixpΦq. In particular, the G-stabiliser of any cylinder of TcG pGϕℓ q is a
+fixed subgroup of some Φ P ϕ.
+
+Claim 2. The outer class ϕ fixes pointwise the graph GzTcG pGϕℓ q.
+
+                                             38
+Proof. By Lemma 3.6, ϕ acts trivially on H1 pGzTcG pGϕℓ q, Z{3Zq. In order to apply
+Lemma 3.5, we need to prove that ϕ fixes every leaf of GzTcG pGϕℓ q.
+Step 1. Let v P V0 . If Gv is nontrivial, then ϕ fixes v.
+
+Proof. By Lemma 5.5p1q, the set of G-stabilisers of vertices in Vr0 is a ϕ-invariant pG, Gq-
+free factor system FVr0 . Thus v is the unique vertex in Vr0 fixed by Gv . Therefore, it
+suffices to prove that ϕ preserves the G-conjugacy class of Gv . By Lemma 3.3, every
+G-conjugacy class in FVr0 is ϕ-invariant. In particular, rGv s is ϕ-invariant and v is fixed
+by ϕ.                                                                                     ■
+
+Step 2. The outer class ϕ fixes every leaf of GzTcG pGϕℓ q.
+
+Proof. Let v be a leaf of GzTcG pGϕℓ q, let e be its adjacent edge and let w be the endpoint
+of e distinct from v.
+    Suppose first that v P V0 . Since v is a leaf, by minimality of the action of G on
+TcG pGϕℓ q, its G-stabiliser is nontrivial. Thus, by Step 1, v is fixed by ϕ.
+    Assume now that v P V1 . By Claim 1, there exists Φ P ϕ such that Gv “ FixpΦq.
+By minimality of the action of G on TcG pGϕℓ q, we have Gv Ę Gw . Thus, v is the only
+fixed point of FixpΦq, so that Φ (and hence ϕ) fixes v. Thus, ϕ fixes every leaf of
+GzTcG pGϕℓ q.                                                                             ■
+
+    By Step 2 and Lemma 3.5, either ϕ fixes pointwise GzTcG pGϕℓ q, or else GzTcG pGϕℓ q
+is a circle and ϕ acts as a rotation on it. So, in order to prove that ϕ fixes pointwise
+GzTcG pGϕℓ q, it remains to prove that ϕ fixes a point in it.
+    By Step 1, if there exists v P V0 with Gv ‰ t1u, then ϕ fixes v. Assume that, for
+every v P V0 , we have Gv “ t1u. Since every edge of TcG pGϕℓ q has an endpoint in Vr0 , it
+follows that TcG pGϕℓ q is a pG, Gq-free splitting. By Lemma 3.7, since ϕ P IApG, G, 3q, ϕ
+fixes pointwise GzTcG pϕℓ q. As we have ruled out every case, the claim follows.
+
+Claim 3. Let v P Vr1 be a cylinder vertex. There exists Φ P ϕ such that Φ fixes pointwise
+the star of v in Tc pGϕℓ q.
+
+Proof. Let C Ď TJSJ pϕℓ q be the cylinder corresponding to v and let Ψ P ϕℓ be a generator
+of an edge stabiliser in C (Ψ is not contained in a strict power of ϕℓ since ϕℓ P IApG, G, 3q
+                       G pϕℓ q by Lemma 3.7). By Corollary 4.10, the periodic subgroup
+acts trivially on GzTJSJ
+of Ψ is equal to its fixed subgroup, so that Gv “ FixpΨq.
+Step 1. Let e1 , . . . , en be representatives of the Gv -orbits of edges adjacent to v with
+trivial G-stabiliser. There exists Φ P ϕ such that Gv “ FixpΦq and, for every i P
+t1, . . . , nu, the edge ei is fixed by Φ.
+
+Proof. We first claim that there exists m ą 0 such that, for every i P t1, . . . , nu, the
+automorphism Ψm fixes ei . Indeed, by definition of a cylinder, all edge stabilisers in
+C are commensurable. As Ψ fixes an edge in C, there exists m ą 0 such that Ψm
+
+
+                                             39
+fixes pointwise a finite subtree of C containing every vertex of C corresponding to the
+endpoints of the edges ei in Vr0 . This proves the claim.
+    Let i P t1, . . . , nu. By Claim 2, there exists Φi P ϕ which fixes ei . Since the G-
+stabiliser of ei is trivial, the Gϕ -stabiliser of ei is cyclic. Thus, Φi and Ψm have a
+common power, so that PerpΦi q “ PerpΨm q “ FixpΨq “ Gv . By Corollary 4.10, we have
+PerpΦi q “ FixpΦi q “ Gv .
+    Thus, for every i P t1, . . . , nu, there exists Φi P ϕ such that FixpΦi q “ Gv , Φi fixes ei
+and Φi and Ψ have a common power. For any i, j P t1, . . . , nu, Φi and Φj differ by an
+element gi,j of Gv “ FixpΦi q “ FixpΦj q. Then Φi sends ej to gi,j ej . So, for every p ą 0,
+we have Φpi pej q “ gi,jp
+                          ej . But Φi , Φj and Ψ have a common power, so there exists p0 ą 0
+             p0
+such that Φi pej q “ ej . As G is torsion free, this forces gi,j “ 1. Hence Φi “ Φj . Setting
+Φ “ Φ1 , we see that Φ fixes every edge ei with i P t1, . . . , nu and its fixed subgroup is
+equal to Gv . This proves the first step.                                                      ■
+
+   Let Φ P ϕ be the representative given by Step 1. Let g P Gv and let i P t1, . . . , nu.
+As Gv “ FixpΦq, we have Φpgei q “ gei , so that Φ fixes every edge in the Gv -orbit of ei .
+Step 2. The automorphism Φ fixes every edge e adjacent to v such that Ge is nontrivial.
+
+Proof. Let e be an edge adjacent to v such that Ge is nontrivial. Let w be the other
+endpoint of e. By Lemma 5.5, the group Gw is a pG, Gq-free factor. Moreover, its G-
+conjugacy class is fixed by Φ. Since Ge ‰ t1u, the group Gw is the only group in its
+G-conjugacy class which contains Ge . Since Ge Ď FixpΦq, the group Gw is preserved by
+Φ. As w is the only vertex in Vr0 fixed by Gw , we conclude that w and e are fixed by Φ.
+This proves Step 2.                                                                   ■
+
+    Combining both Steps 1 and 2, we see that the automorphism Φ satisfies the asser-
+tions of the claim.
+
+    Since S is fixed by ϕℓ , by Proposition 5.6, a common refinement U of S and TcG pGϕℓ q
+is obtained by blowing-up trees at cylinder vertices of TcG pGϕℓ q (we consider U as a G-
+splitting and not a Gϕℓ -splitting). Let Vr be the set of vertices in Vr1 which are blown-up
+when passing from TcG pGϕℓ q to U . By Claim 3, for every v P Vr , the automorphism ϕ
+has a representative Φv which pointwise fixes Gv and which fixes every edge of TcG pϕℓ q
+adjacent to v. The automorphism Φv therefore fixes every G-tree obtained from TcG pϕℓ q
+by blowing-up a subtree at v. In particular, U is preserved by ϕ.
+    We claim that ϕ acts trivially on GzU . Indeed, let pU : U Ñ TcG pGϕℓ q be the natural
+G-equivariant projection and let x be a point in TcG pGϕℓ q. If p´1   U pxq is a point, then,
+by Claim 2 and the G-equivariance of pU , ϕ preserves the G-orbit of p´1                ´1
+                                                                            U pxq. If pU pxq
+is not reduced to a point, then x P Vr . By Claim 3, ϕ has a representative which fixes
+pointwise p´1
+            U pxq. It follows that ϕ fixes pointwise GzU .
+    Therefore, ϕ preserves every pG, G)-splitting on which U collapses. Since U is a
+refinement of S, this shows that ϕ preserves S.
+
+
+
+                                               40
+5.2   Laminations and nonsporadic free factor systems
+Let G be a group satisfying the Standing Assumptions and let ϕ P OutpG, Gq. Let
+Fmax pϕq be the set of all proper, maximal ϕ-periodic pG, Gq-free factor systems. The set
+Fmax pϕq has a partition                        ž
+                                Fmax pϕq “ Spϕq    NSpϕq,
+where Spϕq contains all the pG, Gq-free factor systems in Fmax pϕq which are sporadic and
+NSpϕq contains all the pG, Gq-free factor systems in Fmax pϕq which are nonsporadic. In
+this section, we focus on the action of ϕ on NSpϕq. The main result of the section is the
+following proposition.
+
+Proposition 5.7. Let G be a group which satisfies the Standing Assumptions. Let ϕ P
+IApG, G, 3q and let F P NSpϕq. Then F is fixed by ϕ.
+
+    The proof of Proposition 5.7 uses the existence of attracting laminations associated
+with ϕ. An attracting lamination is a particular closed subset of the double boundary
+of G which is invariant by a power of a representative of ϕ. We in particular show
+(see Lemma 5.11) that, to any maximal ϕ-periodic nonsporadic free factor system one
+can canonically associate an attracting lamination of ϕ. Thus, instead of studying the
+dynamics of ϕ on its periodic nonsporadic free factor systems, we will study the dynamics
+of ϕ on its set of attracting laminations. This is well-described using a relative train track
+representative of ϕ given by Theorem 2.21.
+
+    First, we explain the necessary background relevant to the study of attracting lamina-
+tions. Let ϕ P OutpG, Gq. Following the work of Bestvina–Feighn–Handel [BFH1, BFH3]
+in the context of free groups, Lyman [Lym1] introduced a set Lpϕq of laminations asso-
+ciated with ϕ, called the set of attracting laminations of ϕ. Instead of giving a precise
+definition of an attracting lamination (we refer to [Lym1, Section 4] instead), we present
+several properties of Lpϕq and its links with relative train tracks representing ϕ.
+    Let F : T Ñ T be a relative train track representative of ϕ given by Theorem 2.21.
+We now record several properties of the set Lpϕq.
+
+Lemma 5.8 ([Lym1, Lemma 4.4]). Let pG, Gq be a free product, let ϕ P OutpG, Gq and let
+F : T Ñ T be a relative train track representative of ϕ. The following hold.
+
+ (1) For every attracting lamination Λ P Lpϕq, there exists a line ℓΛ of B 2 pG, Gq such
+     that Λ is the minimal lamination of B 2 pG, Gq containing ℓΛ . Such a line ℓΛ is called
+     a generic line of Λ.
+
+ (2) For every Λ P Lpϕq, there exists an EG stratum Hr such that, for every generic
+     line ℓΛ of Λ, the stratum Hr is the highest stratum crossed by ℓΛ .
+
+ (3) Let Λ P Lpϕq and let Hr be the associated EG stratum. There exists an edge
+     e P EHr and a generic line ℓΛ of Λ such that, for any finite subpath γ of ℓΛ , there
+     exist n ą 0 and g P G such that γ Ď grF n peqs.
+
+
+                                             41
+    Lemma 5.8p2q implies that there exists a ϕ-equivariant map pϕ : Lpϕq Ñ EG, where
+EG is the set of EG strata of T . We now describe properties of this map.
+    Let Hr be an EG stratum. The stratum Hr is aperiodic if its associated transition
+matrix Mr is aperiodic, that is there exists ℓ ą 0 such that every entry of Mrℓ is positive.
+If Hr is not aperiodic, we have the following, whose proof is due to Lyman [Lym1]. We
+add a sketch of proof as the exact assertion is not explicitly written.
+Lemma 5.9 ([Lym1, Proof of Lemma 4.6]). Let pG, Gq be a free product, let ϕ P OutpG, Gq
+and let F : T Ñ T be a relative train track representative of ϕ. Let Hr P EG be a non
+aperiodic EG stratum.
+   There exists a G-invariant partition
+                                               prq
+                                     EHr “ P1 > . . . Pnprq
+                                                         r
+
+
+of the edges of Hr such that the following hold.
+                                                               prq
+ (1) For every i P t1, . . . , nr u and every edge e P Pi            the path rF peqs is contained in
+              prq
+     Tr´1 Y Pi`1 , where indices are taken modulo nr .
+
+ (2) For any distinct i, j P t1, . . . , nr u, we have
+                                              prq                       prq
+                                 FpTr´1 Y Pi q ‰ FpTr´1 Y Pj q.
+
+Sketch of proof. The partition of EHr comes from general theory [Sen] applied to the
+set of edges of GzHr and its transition matrix. The second assertion follows from the
+                                                                                   prq
+fact that there exists s ą 0 such that, for every i P t1, . . . , nr u, the set Pi is the set of
+edges of an aperiodic EG stratum of the relative train track map F s : T Ñ T (see [Lym1,
+                                                                                       prq
+Proof of Lemma 4.6]). The fact that, for every i P t1, . . . , nr u the stratum Pi is an EG
+stratum for F s implies that for any distinct i, j P t1, . . . , nr u, there exists g P G which is
+                      prq                                         prq
+both pG, FpTr´1 Y Pi qq-peripheral and pG, F pTr´1 Y Pj qq-nonperipheral. Indeed, it
+suffices to take any nontrivial element in the fundamental group of the graph of groups
+                 prq                                                    prq                prq
+π1 pGzpTr´1 Y Pi qq whose associated reduced path crosses Pi (it exists as Pi is an
+                                             prq                       prq
+EG stratum). This shows that FpTr´1 Y Pi q ‰ FpTr´1 Y Pj q.
+
+Proposition 5.10 ([Lym1]). Let pG, Gq be a free product, let ϕ P OutpG, Gq and let F : T Ñ
+T be a relative train track representative of ϕ. The following hold.
+
+ (1) [Lym1, Lemma 4.3] The application pϕ : Lpϕq Ñ EG is surjective.
+
+ (2) [Lym1, Proof of Lemma 4.6] If Hr P EG is aperiodic, then |p´1
+                                                                ϕ pHr q| “ 1.
+
+ (3) [Lym1, Proof of Lemma 4.6] Suppose that Hr P EG is not aperiodic and let
+                 prq            prq
+     EHr “ P1 > . . . Pnr be the associated partition given by Lemma 5.9. For ev-
+     ery i P t1, . . . , nr u, there exists a unique Λ P p´1
+                                                          ϕ pHr q such that some (equivalently
+                                                         prq
+      any) generic line of Λ contains edges of Pi .
+
+                                               42
+ (4) [Lym1, Lemma 4.6] The set Lpϕq is finite.
+
+ (5) [Lym1, Proof of Lemma 4.6] For every ℓ ą 0, we have Lpϕℓ q “ Lpϕq.
+
+Lemma 5.11. Let pG, Gq be a free product and let ϕ P OutpG, Gq. For every F P NSpϕq,
+there exists a unique ΛF P Lpϕq such that ΛF Ę B 2 pF, Gq. In particular, the map
+ρϕ : NSpϕq Ñ Lpϕq sending F to ΛF is ϕ-equivariant.
+
+Proof. Let F P NSpϕq. Let ℓ ą 0 be such that ϕℓ preserves F. Let F ℓ : T Ñ T be a
+relative train track representing ϕℓ , and a filtration T0 Ď . . . Ď Tn such that there exists
+an element Tr´1 of the filtration of T with FpTr´1 q “ F .
+    Note that, since F is maximal, ϕℓ is fully irreducible relative to F. In particular,
+one may choose the relative train track F ℓ : T Ñ T so that r “ n. Moreover, since F is
+nonsporadic, the stratum Hr is an EG stratum.
+    We claim that Hr is aperiodic. Indeed, suppose towards a contradiction that Hr is
+not aperiodic and let
+                                              prq
+                                   EHr “ P1 > . . . Pnprqr
+
+be the associated partition of edges given by Lemma 5.9, with nr ě 2. Recall that F ℓ
+                                         prq       prq
+induces a permutation of the set tP1 , . . . , Pnr u. Then F ℓnr ! preserves every element of
+          prq          prq
+the set tP1 , . . . , Pnr u. Thus, F ℓnr ! preserves a proper filtration
+
+                          T1 Ď . . . Ď Tr´1 Ď Tr,1 Ĺ . . . Ĺ Tr,nr “ T
+
+of T .
+     Recall that, by Proposition 5.10p3q, for every i P t1, . . . , nr u, one may associate an
+attracting lamination Λi to Tr,i . Moreover, by Lemma 5.8, for every generic line ℓ of
+Λi , ℓ crosses Tr,i . Thus, there do not exist a generic line ℓ of Λi and a conjugacy class
+rAs P F “ F pTr´1 q such that ℓ P B 2 pA, G|A q. Therefore, for every i P t1, . . . , nr u, we have
+F “ FpTr´1 q ă F pTr,i q. Since nr ě 2, by Lemma 5.9p2q, for every i P t1, . . . , nr ´ 1u,
+we have FpTr,i q ă trGsu. In particular, one may find a proper ϕℓ -periodic pG, Gq-free
+factor system F Ę F 1 . This contradicts the maximality of F . Hence Hr is aperiodic.
+     Thus, by Proposition 5.10p2q one can associate to F an attracting lamination of
+Lpϕℓ q “ Lpϕq by sending F to the unique attracting lamination ΛF associated with
+Hr . This attracting lamination does not depend on the choice of the relative train track
+because of the following facts. Note that Hr is the unique EG stratum which is not
+contained in Tr´1 . Therefore, by Lemma 5.8, a generic line of an attracting lamination
+Λ P Lpϕq is contained in Tr´1 if and only if Λ ‰ ΛF . As F pTr´1 q “ F, this implies that
+Λ Ď B 2 pF, Gq if and only if Λ ‰ ΛF . Thus the attracting lamination ΛF only depends
+on F and we have a well-defined ϕ-equivariant map ρϕ : NSpϕq Ñ Lpϕq.
+
+    We now describe the preimage of a lamination by ρϕ . We first need some technical
+lemmas. The first one, called the bounded cancellation lemma is well-known to experts.
+Its proof in the free group case is due to Cooper [Coo, Bounded Cancellation].
+
+
+
+                                                43
+Lemma 5.12 ([Lym1, Lemma 1.8]). Let pG, Gq be a free product, let ϕ P OutpG, Gq, let T
+be a Grushko pG, Gq-free splitting and let F : T Ñ T be a morphism associated with ϕ.
+There exists a constant CpF q ě 0 such that for any reduced path ρ “ ρ1 ρ2 in T we have
+
+                      ℓprF pρqsq ě ℓprF pρ1 qsq ` ℓprF pρ2 qsq ´ 2CpF q.
+
+    The second lemma deals with iterates by a relative train track of a legal subpath
+in some illegal path. It is implicit in the work of Bestvina–Feighn–Handel [BFH1,
+Lemma 5.5] in the free group case.
+
+Lemma 5.13 ([FMS, Corollary 6.1.8]). Let pG, Gq be a nonsporadic free product. Let
+ϕ P OutpG, Gq be fully irreducible and let F : T Ñ T be a relative train track map for
+ϕ. Let g P G be pG, Gq-nonperipheral and let Lg Ď T be the associated geodesic line.
+Suppose that the sequence tℓT pϕn prgsqunPN is unbounded. For every C ą 0, there exists
+M ą 0 such that the reduced path rF M pLg qs contains a legal subpath of length greater
+than C.
+
+    Let F P NSpϕq and let ℓ ą 0 be the minimal integer such that ϕℓ pFq “ F . By
+maximality of F, the outer automorphism ϕℓ , considered as an element of OutpG, F q, is
+fully irreducible relative to F. We denote by TF the R-tree equipped with a G-action
+given by Theorem 2.22. Let AF be the set of conjugacy classes of nontrivial point
+stabilisers in TF .
+
+Lemma 5.14. Let Λ P Lpϕq.
+
+ (1) Let F, F 1 P ρ´1                1
+                   ϕ pΛq. Every pG, F q-peripheral element is elliptic in TF .
+
+ (2) For any F, F 1 P ρ´1
+                       ϕ pΛq, we have AF “ AF 1 .
+
+ (3) Suppose that G satisfies the Standing Assumptions. Suppose that ϕ P IApG, G, 3q
+     and that ϕpΛq “ Λ. Then ϕ fixes elementwise ρ´1
+                                                  ϕ pΛq.
+
+Proof. The first statement of Lemma 5.14 is stable under taking powers of ϕ, so we may
+suppose that ϕpFq “ F and ϕpF 1 q “ F 1 .
+    Suppose towards a contradiction that there exists a pG, F 1 q-peripheral element g
+which is not elliptic in TF . Let F : T Ñ T be a train track representative of the fully
+irreducible outer automorphism ϕ P OutpG, Fq and let λ be its Perron–Froebenius eigen-
+value. Up to taking a power of ϕ, we may suppose that λ ą 2. By Theorem 2.22, we
+have ℓTF pgq “ limnÑ8 λ1n ℓT pϕn prgsqq.
+    Let CpF q be the bounded cancellation constant for F given by Lemma 5.12. Since
+ℓTF pgq ą 0, the sequence tℓT pϕn prgsqunPN is unbounded. By Lemma 5.13, there exists
+M ą 0 such that, rF M pLg qs contains a legal subpath γ of length greater than 2CpF q ` 1.
+    Write γ “ σ1 eσ2 , where ℓpσ1 q, ℓpσ2 q ě CpF q and e is a nontrivial edge. Since γ
+is legal, for every n P N, the path rF n pγqs has length greater than λn p2CpF q ` 1q ě
+2n p2CpF q ` 1q and there exist reduced paths γ1n , γ2n of lengths at least 2n CpF q such
+that rF n pγqs “ γ1n rF n peqsγ2n . Since CpF q is the bounded cancellation constant of F , by
+
+
+                                             44
+Lemma 5.12, for every n P N, the subpath of rF n pγqs contained in rF n pLg qs is obtained
+from rF n pγqs by erasing an initial and a terminal segment of length at most 2n CpF q. In
+particular, for every n ě M , the path rF n´M peqs is contained in rF n pLg qs.
+     Recall that T is a train track representative of a fully irreducible outer automorphism,
+so that T has a unique stratum and its transition matrix is primitive. In particular, for
+every edge e1 P ET and every n ě 0, there exists hn P G such that the path hn rF n pe1 qs is
+contained in some reduced iterate of e by F . Thus, the edge e satisfies the conclusion of
+Lemma 5.8p3q, that is, there exists a generic line ℓΛ of Λ such that any finite reduced edge
+path in ℓΛ is contained in the G-orbit of some reduced iterate of e by F . As rF n´M peqs
+is a subpath of rF n pLg qs for every n ě M , every finite subpath of ℓΛ is contained in the
+G-orbit of some reduced iterate of Lg by F . Thus, for every open neighbourhood V of
+ℓΛ , there exist n ě 1 and h P G such that hrF n pLg qs P V . This shows that the closure
+GtrF n pLg qsunPN contains Λ “ GℓΛ .
+     Since ϕpF 1 q “ F 1 and g is pG, F 1 q-peripheral, for every n P N, the line rF n pLg qs
+represents an element in B 2 pF 1 , Gq. Since B 2 pF 1 , Gq is G-invariant and closed, we have
+
+                             Λ Ď GtrF n pLg qsunPN Ď B 2 pF 1 , Gq.
+
+This contradicts Lemma 5.11. Thus, every pG, F 1 q-peripheral element is elliptic in TF .
+    We now prove the second assertion. Let F, F 1 P ρ´1    ϕ pΛq. We assume that F ‰ F as
+                                                                                           1
+
+otherwise the statement is immediate. The sets AF and AF 1 consist of conjugacy classes
+of malnormal subgroups with trivial pairwise intersection as they are the set of point
+stabilisers of an action of G on an R-tree with trivial arc stabilisers (see Theorem 2.22).
+Hence, by malnormality of the groups in AF and AF 1 , it suffices to prove that, for every
+rAs P AF , the group A is elliptic in TF 1 . A symmetric argument will then show that
+for every rA1 s P AF 1 , the group A1 is elliptic in TF . This will conclude the proof of the
+second assertion.
+    By Theorem 2.22, there exists a (possibly trivial) cyclic subgroup H of G such that
+AF “ F Y trHsu. By the first assertion, for every rAs P F, the group A is elliptic in TF 1 .
+    We now prove that H is elliptic in TF 1 . Note that, by the first assertion, every
+subgroup whose conjugacy class is in F 1 is elliptic in TF . Since F ‰ F 1 , and since F 1 is
+maximal, we have F 1 Ę F. Since AF “ F Y trHsu, we see that H is pG, F 1 q-peripheral.
+Thus, by Theorem 2.22, H is elliptic in TF 1 . This proves the second assertion.
+    We finally prove the third assertion. Let F P ρ´1    ϕ pΛq. By the second assertion, the
+                              ´1
+set AF is an invariant of ρϕ pΛq, so that ϕ preserves AF .
+    By Theorem 2.22, there exists a (possibly trivial) cyclic subgroup H of G such that
+AF “ F Y trHsu. By Theorem 4.1, since H is cyclic and ϕ P IApG, G, 3q, we see that
+ϕprHsq “ H, so that ϕpFq “ F . By Lemma 3.3, ϕ fixes elementwise F. By the second
+assertion and Theorem 2.22, every element of ρ´1   ϕ pΛq is obtained by taking a finite subset
+of AF . Therefore, we see that ϕ fixes elementwise ρ´1   ϕ pΛq.
+
+   We now prove the main technical result of this section.
+Proposition 5.15. Let G be a group satisfying the Standing Assumptions.              Let ϕ P
+IApG, G, 3q and let Λ P Lpϕq. Then Λ is fixed by ϕ.
+
+                                              45
+Proof. The proof follows [HM1, Lemma II.4.2]. Let n be the size of the orbit of Λ
+under iteration of ϕ. Let F : T Ñ T be a relative train track representative of ϕ. By
+Proposition 5.10, there exists an EG stratum Hr with the following properties.
+
+   • The top stratum crossed by every generic line of Λ is Hr .
+
+   • If Hr is aperiodic, then n “ 1.
+
+   • If Hr is not aperiodic, there exists a G-invariant partition
+                                                    prq
+                                       EHr “ P1 > . . . Pnprq
+                                                           r
+
+                                                                                            prq
+      of the edges of Hr such that, for every i P t1, . . . , nr u and every edge e P Pi          the
+                                            prq
+      path rF peqs is contained in Tr´1 Y Pi`1 , where indices are taken modulo nr .
+
+    Suppose towards a contradiction that nr ě 2. Note that, since F pTr´1 q “ Tr´1 , we
+have ϕpF pTr´1 qq “ F pTr´1 q. By Lemma 3.3, ϕ fixes every element of FpTr´1 q, so that
+F preserves every connected component of GzTr´1 . Let T 1 be the tree obtained from T
+by collapsing every connected component of GzTr´1 to a point. Then the filtration of
+T induces a filtration of T 1 . Let Xr be the underlying graph of GzTr1 and let Xr´1 be
+the underlying graph of GzTr´1  1 . Then X
+                                            r´1 is a set of vertices. Moreover, F induces
+a homotopy equivalence F : Xr Ñ Xr which fixes every vertex of Xr´1 . Since ϕ acts
+trivially on H1 pGzT , Z{3Zq by Lemma 3.6, it also acts trivially on H1 pXr , Z{3Zq.
+                                                         prq
+    The map F permutes the distinct graphs tTr´1 YPi uiPt1,...,nr u . Let i, j P t1, . . . , nr u
+be distinct. By Lemma 5.9, we have
+                             prq                 prq          prq       prq
+                FpTr´1 Y Pi q ‰ FpTr´1 Y Pj q and EPi               X EPj     “ ∅.
+
+                                                                              prq                 prq
+Let Xi and Xj be the underlying subgraphs of Xr induced by Tr´1 YPi                 and Tr´1 YPj .
+          prq      prq
+Since EPi X EPj “ ∅ and since the partition of EHr is G-invariant, the intersection
+Xi X Xj “ Xr´1 consists only of vertices.
+Claim. Let i P t1, . . . , nr u. One of the following hold.
+
+ (1) The graph Xi contains an embedded circle.
+
+ (2) There exist two distinct vertices v, w P Xi corresponding to two distinct connected
+     components of GzTr´1 such that v and w are joined by an arc in Xi .
+
+Proof. Assume that Xi does not contain an embedded circle. Let Λi be the attracting
+                                              prq
+lamination of ϕ associated with Tr´1 Y Pi and let ℓi be a generic line for Λi . By
+                                                prq
+Proposition 5.10, the line ℓi crosses Tr´1 Y Pi , so that ℓi projects to an immersed line
+ℓi in Xi which contains edges of Xi . Since ℓi is connected and immersed, and since there
+is no embedded circle in Xi , some subpath of ℓi is an arc in Xi between two vertices of
+Xi corresponding to two distinct connected components of GzTr´1 .
+
+                                               46
+    We now distinguish between the two cases of the claim. Suppose first that there exists
+an embedded circle γ in Xi . Then γ induces a nontrivial element rγs P H1 pXr , Z{3Zq.
+Moreover, since γ Ę Xr´1 and since Xi X Xj “ Xr´1 , any embedded circle in Xj will
+induce an element of H1 pXr , Z{3Zq distinct from rγs. Since ϕ P IApG, G, 3q acts trivially
+                                                                                            prq
+on H1 pXr , Z{3Zq by Lemma 3.6, we see that F preserves Xi and that F preserves Pi ,
+a contradiction.
+    Suppose now that Xi has no embedded circle and that there exist two distinct vertices
+v, w P V Xi corresponding to two distinct connected components of GzTr´1 such that v
+and w are joined by an arc γi in Xi . This arc is unique as Xi does not contain any
+                                                      m
+embedded circle. For every m ą 0, the graph F pXi q “ Xi`m has a unique arc between
+v and w since F fixes both v and w (here and thereafter, i ` m is taken modulo nr ).
+    For m ě 0, let γi`m be the arc in Xi`m between v and w. Then γ “ tγi`m umPN is
+an F -invariant subgraph of Xr with exactly two vertices, v and w, and nr arcs between
+them. Since nr ě 2, the graph γ has no leaf. As ϕ P IApG, G, 3q it acts trivially on
+H1 pXr , Z{3Zq. As γ is an F -invariant subgraph of Xr , we see that ϕ fixes pointwise
+H1 pγ, Z{3Zq.
+    By Lemma 3.6, either F is homotopy equivalent to the identity map on γ, or else
+nr “ 2 and F is homotopy equivalent to a rotation. As F fixes v and w, in both cases,
+we see that F is homotopy equivalent to the identity map on γ. This shows that, for
+any distinct i, j P t1, . . . , nr u, the graph Xi cannot be sent to Xj by F , a contradiction.
+    Thus, Hr is aperiodic and ϕ acts trivially on Lpϕq.
+
+Proof of Proposition 5.7. Let ϕ P IApG, G, 3q and let F be a maximal ϕ-periodic pG, Gq-
+free factor system which is nonposradic. By Lemma 5.11, there exists a unique lamination
+ΛF associated with F . Moreover, by Lemma 5.14p3q, F is fixed by ϕ if and only if ΛF
+is fixed by ϕ. The result now follows from Proposition 5.15.
+
+   We now have all the necessary tools to prove Theorem 5.1.
+
+Proof of Theorem 5.1. Let ϕ P IApG, G, 3q and let F be a ϕ-periodic proper pG, Gq-
+free factor system. We prove by induction on ξpG, Gq that F is fixed by ϕ. The case
+ξpG, Gq “ 1 is immediate since in this case either F “ trGsu or else G “ Z and ϕ “ Id.
+    Suppose that ξpG, Gq ě 2. Let F 1 be a maximal proper ϕ-periodic pG, Gq-free factor
+system such that F Ď F 1 . We claim that F 1 is fixed by ϕ. Indeed, if F 1 is nonsporadic,
+this follows from Proposition 5.7. If F 1 is sporadic, it induces a canonical pG, Gq-free
+splitting TF 1 . By Theorem 5.2, the free splitting TF 1 is fixed by ϕ. Hence F 1 is fixed by
+ϕ.
+    In both cases, the pG, Gq-free factor system F 1 is fixed by ϕ. Let rAs P F 1 . By
+Lemma 3.3, the conjugacy class rAs is fixed by ϕ. Moreover, since A is a pG, Gq-free
+factor, by Lemma 3.9, the outer automorphism ϕ|A of OutpAq induced by ϕ is contained
+in IApA, G|A , 3q. Let F|A be the pA, G|A q-free factor system induced by F . By induction,
+we see that F|A is fixed by ϕ|A . Since F Ď F 1 , for every rHs P F, there exist rAs P F 1
+and g P G such that gHg ´1 Ď A and rgHg ´1 sA P F|A . Thus there exists Φ|A P ϕ|A
+
+
+
+                                              47
+which preserves gHg ´1 . As ΦA is the restriction to A of some Φ P ϕ, the automorphism
+Φ preserves gHg ´1 . Therefore, we see that F is fixed by ϕ.
+
+
+6     Aperiodic finite index subgroups of outer automorphism groups
+      of toral relatively hyperbolic groups
+Let H be a toral relatively hyperbolic group, that is a torsion free hyperbolic group
+relative to a finite set P of finitely generated abelian groups. In this section, we show
+that H satisfies the Standing Assumptions (see in particular Corollary 6.7). Note that
+the hypotheses are only related to the one-ended factors of the Grushko decomposition
+of H, so we may assume that H is one-ended. We split the proof into two sections,
+whether H is free abelian or not.
+
+6.1   Finitely generated free abelian groups
+Let n ą 0. Consider the group GLn pZq “ AutpZn q “ OutpZn q. Let IApZn , 3q be the
+kernel of the natural homomorphism
+
+                                  GLn pZq Ñ GLn pZ{3Zq,
+
+that is, IApZn , 3q is the level 3 principal congruence subgroup of GLn pZq. The group
+IApZn , 3q is torsion free. Recall that the periodic subgroup PerpΦq of Φ is the subgroup
+of Zn consisting of all Φ-periodic elements.
+Proposition 6.1. Suppose that Φ P IApZn , 3q. Then every element of the periodic subgroup
+of Φ is fixed by Φ.
+Proof. Note that, for every m ą 0 and every v P Zn , the element v has at most one m-th
+root. This implies that the subgroup PerpΦq is root–closed, so a direct summand of Zn .
+   Therefore, the image of Φ in AutpPerpΦqq given by restriction is a finite order auto-
+morphism contained in IApPerpΦq, 3q. Since IApPerpΦq, 3q is torsion free, the image of
+Φ in AutpPerpΦqq is trivial. Therefore, Φ acts trivially on PerpΦq and every element of
+the periodic subgroup of Φ is fixed by Φ.
+
+6.2   One-ended toral relatively hyperbolic groups
+Let H be a nonelementary one-ended toral relatively hyperbolic group and let P be its
+peripheral structure. Then P consists of finitely generated free abelian groups. Note
+that, in this case, elementary subgroups of H are free abelian. The aim of this section is to
+construct a finite index subgroup of OutpHq satisfying the Standing Assumptions. First,
+we need some general lemmas regarding vertex stabilisers of an elementary splitting. It is
+similar to [GL2, Lemma 3.8], but the later is only written for JSJ elementary splittings.
+Lemma 6.2. Let H be a toral one-ended relatively hyperbolic group, let P be its peripheral
+structure and let S be an pH, Pq-elementary splitting. For every v P V S, the group Hv
+is toral relatively hyperbolic.
+
+                                             48
+    Let Pv be the set of maximal parabolic subgroups contained in Hv and let Incv be the
+set of incident edge stabilisers. A peripheral structure of Hv is Pv Y Incv .
+
+Proof. Since edge stabilisers are elementary, by [GL2, Proposition 3.4], vertex stabilisers
+are relatively quasi-convex, hence they are toral relatively hyperbolic.
+    We now explicit the peripheral structure of Hv . By [Hru, Theorem 9.1], a peripheral
+structure of Hv is given by the groups Hv X gP g ´1 , with g P H and rP s P P. Since
+gP g ´1 is elliptic in S and since edge stabilisers are elementary, either gP g ´1 Ď Hv , or
+else gP g ´1 X Hv is an edge stabiliser. Conversely, any edge stabiliser in Incv which is
+not equal to some Hv X gP g ´1 , with g P H and rP s P P is infinite cyclic. Such groups
+may be added to the peripheral structure.
+
+    By Theorem 2.13, there exists a canonical pH, Pq-elementary splitting TP preserved
+by AutpHq and OutpHq.
+    Let Out0 pHq be the finite index subgroup of OutpHq acting trivially on the quotient
+graph HzTP and fixing the conjugacy class of every group in P. We have natural
+restriction homomorphisms
+                                              ź
+                             pVH : Out0 pHq Ñ      OutpHv q
+                                                  vPV TP
+
+and                                                   ź
+                             pE      0
+                              H : Out pHq Ñ                OutpHe q.
+                                                  ePETP
+                                                           1
+    By Theorem 2.13p7q, the image of pE                                 E
+                                       H is finite. Let Out pHq “ kerppH q. The next
+                                  V
+lemma describes the kernel of pH , and applies more generally for elementary splittings
+of toral relatively hyperbolic group.
+
+Lemma 6.3. Let H be a nonelementary one-ended toral relatively hyperbolic group, let P
+be its peripheral structure and let S be an pH, Pq-elementary splitting with the following
+properties.
+
+ (1) For every edge e P ES, there exists an endpoint v of e such that He is malnormal
+     in Hv .
+
+ (2) For every edge e P ES, there exists an endpoint v of e such that Hv is abelian.
+
+The kernel T pSq of the natural homomorphism
+                                       ź
+                                KpSq Ñ     OutpHv q,
+                                              vPV S
+
+is a finitely generated free abelian group.
+
+Proof. We use the definitions and notations from [GL2]. Since every edge group is
+malnormal in the stabiliser of one of its endpoints, by [GL2, Lemma 2.12 (2)], the group
+T pSq is the group of twists of S (see [Lev]).
+
+                                               49
+    The rest of the proof follows [GL2, Proof of Corollary 4.4]. Since H is nonelementary,
+its centre is trivial (see for instance ś
+                                        [Far]). Thus, by [Lev, Proposition 3.1], the group
+T pSq is isomorphic to a quotient of ePEpHzSq
+                                            ⃗
+                                                                      ⃗
+                                                  CHopeq pHe q (where EpHzSq   is the set of
+oriented edges of HzS) by the image of the natural diagonal map
+                   ź                ź                  ź
+              j:         ZpHv q ˆ         ZpHe q Ñ          CHopeq pHe q.
+                  vPV pHzSq           ePEpHzSq            ⃗
+                                                        ePEpHzSq
+
+Let v P V pHzSq and let e be an edge of HzS adjacent to v. Suppose that Hv is
+nonelementary. Then Hv is not abelian and He is malnormal in Hv by Lemma 6.2.
+Moreover, the centre of Hv is trivial. Thus, we have CHv pHe q “ He and ś ZpHv q “ t1u.
+    Hence, for every e P EpHzSq, the edge relation induced by jp ePEpHzSq ZpHe qq
+identifiesśthe two copies of He coming from
+                                         ś a chosen orientation of e. Moreover, the
+group jp vPV pHzSq ZpHv qq is equal to jp vPV pHzSq, Hv abelian ZpHv qq.
+    This shows that T pSq is isomorphic to the direct product
+                                        ˜                ¸
+                              ź            ź
+                                                CHv pHe q {ZpHv q,
+                      vPV pHzSq, Hv abelian   ePIncv
+
+
+where ZpHv q embeds diagonally. Let v P V pHzSq with Hv`ś      abelian. Then, for ˘ every
+e P Incv , we have CHv pHe q “ ZpHv q “ Hv , so that the group   ePIncv C Hv pHe q {ZpHv q
+is free abelian.
+
+   Let v P V TP . We now construct a finite index subgroup IApHv , 3q of the image of
+Out1 pHq in OutpHv q.
+
+Suppose that v is rigid.
+   By Theorem 2.13p8q, the image of Out1 pHq is finite. We set IApHv , 3q “ tidu.
+
+Suppose that v is elementary.
+   In this case, there exists n ě 1 such that the group OutpHv q is isomorphic to GLn pZq.
+Let IApHv , 3q be the intersection of the image of Out1 pHq with the level 3 principal
+congruence subgroup of OutpHv q.
+
+Suppose that v is flexible.
+   By Theorem 2.13p5q, there exists a compact hyperbolic surface Σv such that the group
+Hv is isomorphic to π1 pΣv q. Moreover, the image of Out1 pHq in OutpHv q is isomorphic
+to MCGpΣv q, the mapping class group of Σv . By a result of Ivanov [Iva, Theorem 1.7],
+there exists a finite index subgroup IApHv , 3q of MCGpΣv q with the following properties.
+
+ (1) The group IApHv , 3q is torsion free.
+ (2) For every ϕ P IApHv , 3q and every periodic subgroup Perpϕq of ϕ, we have ϕ P
+     OutpHv , rPerpϕqsptq q.
+
+                                               50
+ (3) Suppose that K is the fundamental group of a subsurface of Σv . If the conjugacy
+     class rKs of K is ϕ-periodic, then rKs is fixed by ϕ.
+
+ (4) If Φ P AutpHv q is an automorphism whose image is contained in IApHv , 3q, then
+     every Φ-periodic element of Hv is fixed by Φ.
+
+     Let IA1 pH, 3q be the preimage in Out1 pHq of vPV TP IApHv , 3q. The group IA1 pH, 3q
+                                                  ś
+
+is a finite index subgroup of Out1 pHq, hence a finite index subgroup of OutpHq.
+     Let IApH, 3q be the finite index subgroup of IA1 pH, 3q whose action on H1 pH, Z{3Zq
+is trivial. We now prove that the group IApH, 3q satisfies the hypotheses of the Standing
+Assumptions.
+
+Lemma 6.4. The group IApH, 3q is torsion free.
+
+Proof. Let F be a finite subgroup of IApH, 3q. Since pVH pIApH, 3qq is torsion free by
+construction, the group F is contained in kerppVH q, which is a torsion free abelian group
+by Lemma 6.3. Hence F “ t1u.
+
+Proposition 6.5. Let ϕ P IApH, 3q and let H 1 Ď H be a ϕ-periodic finitely generated
+subgroup. Then ϕ P OutpH, rH 1 sptq q.
+
+Proof. Let H “ tϕℓ rH 1 suℓě0 . Since rH 1 s is ϕ-periodic, the set H is finite. Let TPYH
+be the associated JSJ pH, P Y Hq-elementary splitting given by Theorem 2.13. Then
+TPYH is preserved by ϕ. Moreover, the trees TP and TPYH are compatible by [GL1,
+Theorem 9.18 (3)].
+    Let U be the minimal common refinement of TP and TPYH (see [GL1, Proposi-
+tion A.26]). The tree U has the following property. Let pP : U Ñ TP and let pPYH : U Ñ
+TPYH be the natural H-equivariant projections. Then there does not exist an edge e
+of U such that both pP peq and pPYH peq are vertices. By minimality, since ϕ preserves
+both TP and TPYH , we see that ϕ preserves U and the projections pP and pPYH are
+ϕ-equivariant.
+Claim. The graph automorphism of HzTPYH induced by ϕ is trivial.
+
+Proof. As usual, we want to apply Lemma 3.5. We proceed in several steps.
+Step 1. Let v be a vertex of TPYH with nonelementary stabiliser. Then ϕ preserves the
+H-orbit of v.
+
+Proof. Since Hv is nonelementary, the vertex v is the unique point in TPYH fixed by Hv .
+Thus, ϕ preserves the H-orbit of v if and only if ϕ preserves the H-conjugacy class of
+Hv . We will frequently use this equivalence during the proof.
+     Consider the preimage p´1                                     ´1
+                               PYH pvq in U . Suppose first that pPYH pvq contains an edge
+er. By equivariance of pPYH , if ϕ preserves the H-orbit of er, then ϕ preserves the H-orbit
+of v, so we focus on the H-orbit of er. By minimality of U , denoting by ˚   er the interior of
+                                                         ˚                 0
+er, the projection pP restricts to a homeomorphism on er. Since ϕ P Out pHq, ϕ preserves
+
+
+                                              51
+the H-orbit of pP p˚erq. By equivariance of pP , ϕ preserves the H-orbit of er and hence the
+H-orbit of v.
+    Suppose now that p´1  PYH pvq is a vertex v
+                                              r. Then Hvr “ Hv . Thus, Hv fixes the vertex
+w “ pP pr
+        v q of TP . Since Hv is nonelementary, so is w. We distinguish between two cases,
+according to the nature of w.
+
+Case 1. The vertex w is rigid.
+    In this case, since ϕ P IApH, 3q, the outer automorphism ϕw P OutpHw q is trivial.
+Thus, ϕ acts as a global conjugation on Hv Ď Hw . Therefore, ϕ preserves the H-orbit
+of v.
+
+Case 2. The vertex w is flexible.
+     Then Hw is the fondamental group of a compact hyperbolic surface Σw . Moreover,
+since elementary subgroups of Hw are cyclic, the minimal subtree UHw Ď p´1     P pwq of Hw
+in U is an Hw -cyclic splitting. By [GL1, Proposition 5.4], the tree UHw is dual to a
+decomposition of Σw along closed geodesics. Since ϕw P IApHw , 3q, this decomposition
+is preserved by ϕw . Hence ϕw acts trivially on the graph Hw zUHw . As Hv Ď Hw , the tree
+UHw contains the unique vertex vr of U fixed by Hv . Hence ϕw preserves the Hw -orbit
+of vr, so that ϕ preserves the H-orbit of vr. Since Hvr “ Hv , ϕ preserves the H-conjugacy
+class of Hv , hence the H-orbit of v. As we have ruled out every case, this concludes the
+proof of Step 1.                                                                         ■
+Step 2. The outer class ϕ fixes every leaf of HzTPYH .
+Proof. Let v P V TPYH which projects to a leaf of HzTPYH . By Step 1, if Hv has
+nonelementary stabiliser, then the H-orbit of v is fixed by ϕ.
+    So we may suppose that Hv is elementary. Let e P ETPYH be an edge adjacent to
+v. Since v projects to a leaf of HzTPYH , by minimality of the action of H on TPYH , we
+have He Ĺ Hv . Hence Hv fixes a unique vertex of TPYH , so it suffices to prove that ϕ
+preserves the H-conjugacy class of Hv .
+    Suppose that rHv s P P. Since ϕ P Out0 pHq, we see that ϕ preserves rHv s. So the
+only case remaining is when Hv is infinite cyclic. As H is one-ended, the group He has
+finite index in Hv . Since TP and TPYH are compatible, the group He fixes a point in TP .
+Since Hv is infinite cyclic, the group Hv also fixes a point w in TP . Hence Hv is a periodic
+subgroup of ϕw P IApHw , 3q. By definition of IApHw , 3q, ϕ fixes the H-conjugacy class
+of Hv . This concludes the proof of Step 2.                                                ■
+    By Step 2, ϕ fixes every leaf of HzTPYH . Since ϕ P IApH, 3q, ϕ acts trivially on
+H1 pH, Z{3Zq. By Lemma 3.6, ϕ acts trivially on H1 pHzTPYH , Z{3Zq. By Lemma 3.5,
+ϕ acts trivially on HzTPYH or else HzTPYH is a circle and ϕ acts as a rotation on it.
+Therefore, in order to show that ϕ acts trivially on HzTPYH , it suffices to prove that ϕ
+fixes a point in HzTPYH .
+    Since H is nonelementary, the tree TPYH contains a vertex with nonelementary sta-
+biliser. By Step 1, ϕ fixes the H-orbit of this vertex. Thus, ϕ fixes a point in HzTPYH .
+This concludes the proof of the claim.
+
+                                             52
+    By the claim, the outer automorphism ϕ acts trivially on HzTPYH . Since ϕ P
+IApH, 3q, it also acts trivially on HzTP . Moreover, since every edge of U has nontrivial
+image in either TP or TPYH , ϕ also acts trivially on the graph HzU .
+    Let rKs P H. Then K fixes a point in TPYH . Since the action of K on TPYH is
+acylindrical (Theorem 2.13p2q), its fixed point set is bounded. Let vK be the centre of
+the fixed point set of K. Let ℓ ą 0 and let Φ P ϕℓ be such that ΦpKq “ K and Φ|K “ idK .
+By uniqueness of vK , the automorphism Φ fixes vK . Thus, K is also a periodic subgroup
+of ϕvK P OutpHvK q. This shows that, in order to prove Proposition 6.5, it remains to
+prove that, for every v P V TPYH , and every finitely generated ϕv -periodic subgroup Hv1
+of Hv such that rHv1 s P H, we have ϕv P OutpHv , rHv1 sptq q. We therefore fix a vertex
+v P V TPYH and a ϕv -periodic finitely generated subgroup Hv1 Ď Hv such that rHv1 s P H.
+Once again, we distinguish between several cases, according to the nature of v.
+
+Case 1. Suppose that v is elementary noncyclic.
+    Then Hv1 also fixes a point in TP . By Lemma 2.16, there exists a canonical point w
+in TP fixed by Hv1 , so that any automorphism in ϕ which preserves Hv1 also preserves
+Hw .
+    Since ϕ P IApH, 3q, the image of ϕ in OutpHw q is contained in IApHw , 3q. In par-
+ticular, for every ϕw -periodic finitely generated subgroup Hw1 of Hw , we have ϕw P
+OutpHw , rHw1 sptq q. Thus, we have ϕw P OutpHw , rHv1 sptq q. Since Hv is malnormal in
+H, any automorphism of Hw fixing Hv1 pointwise also preserves Hv . Thus, we have
+ϕv P OutpHv , rHv1 sptq q.
+
+Case 2. Suppose that v is rigid.
+    By Theorem 2.13p8q, the outer automorphism ϕv of OutpHv q induced by ϕ is of
+finite order. Let UHv Ď p´1PYH pvq be the minimal subtree of Hv in U (if Hv is elliptic,
+we assume that UHv is the centre of the bounded fixed subtree of Hv ). The Hv -splitting
+UHv is ϕv -invariant.
+    We claim that ϕv acts trivially on Hv zUHv . Indeed, let e P EUHv . We need to prove
+that ϕv peq is in the Hv -orbit of e. Since ϕ acts trivially on HzU , there exists h P H
+such that ϕv peq “ he. But ϕv preserves UHv Ď p´1                             ´1
+                                                     PYH pvq, so that e P EpPYH pvq and
+he P Ep´1PYH pvq. By H-equivariant of pPYH , we have hv “ v and h P Hv . Hence ϕv
+preserves the Hv -orbit of e and ϕv acts trivially on Hv zUHv . This proves the claim.
+    The above claim implies that we have a restriction homomorphism
+                                           ź
+                                 xϕv y Ñ         OutpHw q.
+                                        wPV UHv
+
+    We claim that the kernel of the above homomorphism is a free abelian group. Indeed,
+by Lemma 6.2, the group Hv is toral relatively hyperbolic. Let e P EUHv . By minimality
+of U , since pPYH peq is a point, the image of e in TP is an edge. By Lemma 6.2, the
+group He is malnormal in the endpoint of pP peq with nonelementary stabiliser. Then He
+is malnormal in the vertex stabiliser of the endpoint of e which projects to it. Moreover,
+one of the endpoints of e has abelian stabiliser since one of the endpoints of pP peq has
+
+                                           53
+abelian stabiliser. Thus, by Lemma 6.3, the kernel of the above homomorphism is free
+abelian. Since xϕv y is a finite group, the above
+                                             ś homomorphism is injective.
+    We now prove that the image of ϕv in wPV UH OutpHw q is trivial. Let w P V UHv .
+                                                      v
+Then the group Hw is contained in the vertex stabiliser Hx of a vertex pP pwq “ x P V TP .
+Since ϕ P IApH, 3q, for every ϕx -periodic finitely generated subgroup Hx1 of Hx , we have
+ϕx P OutpHx , rHx1 sptq q. As the image of ϕv in OutpHw q is of finite order, the group Hw
+is a ϕx -periodic subgroup. Since edge stabilisers in TP and TPYH are finitely generated
+by Theorem 2.13p4q, edge stabilisers in U are finitely generated. Thus, the group Hw is
+also finitely generated. Hence ϕx P OutpHx , rHw sptq q and the image of ϕv in OutpHw q is
+trivial.
+    Since the image of xϕv y in OutpHw q is trivial for every w P V UHv , the image of
+                                            ź
+                                   xϕv y Ñ        OutpHw q
+                                        wPV UHv
+
+is trivial. This shows that ϕv “ id.
+
+Case 3. Suppose that v is flexible.
+    By Theorem 2.13p5q, v is a QH vertex and the group Hv is the fondamental group of a
+compact hyperbolic surface Σv . Moreover, the subgroup Hv1 is conjugate into a boundary
+subgroup CHv1 of Σv . Then, it suffices to prove that ϕv preserves the conjugacy class of
+a generator of CHv1 . We prove this fact using Lemma 4.7. In order to apply it, it suffices
+to prove that for every e P ETPYH adjacent to v, the outer automorphism ϕe is trivial.
+    Let e P ETPYH be adjacent to v. Note that He fixes a vertex x of TP since it fixes a
+vertex of U . Let Φ P ϕ be such that Φpeq “ e. Then Φ fixes x by Φ-equivariance of pP .
+Since every Φ|Hx -periodic element of Hx is fixed by Φ|Hx , a generator of He is fixed by
+Φ, so that Φ fixes He elementwise. By Lemma 4.7, ϕv preserves the Hv -conjugacy class
+of a generator of CHv1 .
+
+Case 4. Suppose that Hv is infinite cyclic.
+    Let e be an edge adjacent to v. Then He and Hv are commensurable. Thus, it suffices
+to prove that ϕe is trivial. Let Φ P ϕ be such that Φpeq “ e, so that ΦpHe q “ He . Let
+w be the endpoint of e distinct from v. Then w has nonelementary stabiliser, He Ď Hw
+and ΦpHw q “ Hw .
+    If w is rigid, by Case 2, Φ acts as a global conjugation on Hw . Since He is malnormal
+in Hw by Lemma 6.2, we see that Φ fixes elementwise He .
+    If w is flexible, then Hw is contained in a boundary subgroup of the surface Σw
+associated with w. By Case 3, ϕ preserves the Hw -conjugacy class of a generator of every
+boundary component of Σw . In particular, Φ fixes a generator of He . This concludes
+the proof of the last case and the proof of the proposition.
+
+Proposition 6.6. Let H be a one–ended toral relatively hyperbolic group. Let Φ P AutpHq
+with ϕ “ rΦs P IApH, 3q. Every Φ-periodic element of H is fixed by Φ.
+
+
+                                            54
+Proof. Recall that PerpΦq is the periodic subgroup of Φ. Then PerpΦq is finitely gener-
+ated by [AGH, Theorem 5.22]. Let H “ trPerpΦqsu and let TPYH be the corresponding
+JSJ pH, P Y Hq-elementary splitting given by Theorem 2.13. Then TPYH is preserved by
+Φ. Since the action of H on TPYH is acylindrical (Theorem 2.13p2q), the group PerpΦq
+fixes a bounded subtree T in TPYH . Thus, its centre v P V T is fixed by PerpΦq and Hv
+is preserved by Φ. As before, we examine all possible cases.
+    Suppose that v is parabolic. By Proposition 6.1, since ϕ P IApH, 3q, we have PerpΦq “
+FixpΦq.
+    If v is rigid, then the outer automorphism ϕv of Hv induced by ϕ is finite. By
+Proposition 6.5, we have ϕ P OutpH, rHv sptq q. As Hv is nonelementary, v is the unique
+fixed point of Hv , so that any automorphism in ϕ fixing Hv elementwise also fixes v.
+This shows that ϕv is the trivial outer automorphism. Thus, Φ acts on Hv by a global
+conjugation by an element hv of Hv . Since H is toral relatively hyperbolic, the centraliser
+of a subgroup is root-closed and abelian. As a power of hv centralises PerpΦq, we see
+that hv centralises PerpΦq and Φ fixes pointwise PerpΦq.
+Claim. Suppose that PerpΦq is contained in a cyclic subgroup C of H preserved by Φ.
+Then Φ fixes C and PerpΦq elementwise.
+
+Proof. Let t be a generator of C. By Proposition 6.5, Φ preserves the H-conjugacy
+class of t. Since H is toral relatively hyperbolic, there does not exists h P H such that
+hth´1 “ t´1 . In particular, Φ fixes C and PerpΦq elementwise.
+
+   The claim therefore deals with the case where Hv is infinite cyclic.
+   Finally, suppose that v is flexible and let Σv be the associated compact surface. Then
+PerpΦq is contained in a boundary subgroup C of Σv and C is preserved by Φ. By the
+Claim, Φ fixes PerpΦq elementwise. This concludes the proof.
+
+   We then obtain the following immediate corollary, which implies Theorem 1.1.
+
+Corollary 6.7. Let G be a toral relatively hyperbolic group. There exists a finite index
+subgroup IApG, 3q of OutpGq with the following properties.
+
+ (1) The group IApG, 3q is torsion free.
+
+ (2) For every ϕ P IApG, 3q and every ϕ-periodic finitely generated subgroup H Ď G, we
+     have ϕ P OutpG, rHsptq q.
+
+ (3) If ϕ P IApG, 3q, every ϕ-periodic conjugacy class of G-free factors is fixed by ϕ.
+
+ (4) If ϕ P IApG, 3q, every ϕ-periodic G-free splitting is fixed by ϕ.
+
+ (5) If Φ P AutpGq is such that rΦs P IApG, 3q, every Φ-periodic element of G is fixed
+     by Φ.
+
+
+
+
+                                            55
+Proof. Let G “ G1 ˚. . .˚Gk ˚FN be the Grushko decomposition of G and let i P t1, . . . , ku.
+By Lemma 6.4 and Propositions 6.5 and 6.6, the group OutpGi q has a finite index
+subgroup satisfying the Standing Assumptions. The assertions of Corollary 6.7 then
+follow from Theorems 4.1, 5.1, 5.2 and Corollary 4.10.
+
+
+References
+[AGH] N. Andrew, Y. Guerch, and S. Hughes. Suspensions of relatively hyperbolic
+      groups and the Farrell–Jones Conjecture. Preprint [arXiv:2311.14036].
+
+[Ali]   E. Alibegović. A combination theorem for relatively hyperbolic groups. Bull.
+        London Math. Soc. 37 (2005) 459–466.
+
+[BF]    M. Bestvina and M. Feighn. Hyperbolicity of the complex of free factors. Adv.
+        Math. 256 (2014) 104–155.
+
+[BFH1] M. Bestvina, M. Feighn, and M. Handel. Laminations, trees and irrreducible
+       automorphisms of free groups. Geom. Funct. Anal. 7 (1997) 215–244; erratum
+       7 (1997) 1143–1143.
+
+[BFH2] M. Bestvina, M. Feighn, and M. Handel. Solvable subgroups of OutpFn q are
+       virtually abelian. Geom. Dedicata 104 (2004) 71–96.
+
+[BFH3] M. Bestvina, M. Feighn, and M. Handel. The Tits alternative for OutpFn q I:
+       Dynamics of exponentially growing automorphisms. Ann. of Math. 151 (2000)
+       517–623.
+
+[BFH4] M. Bestvina, M. Feighn, and M. Handel. The Tits alternative for OutpFn q II:
+       A Kolchin type theorem. Ann. of Math. 161 (2005) 1–59.
+
+[BH]    M. Bestvina and M. Handel. Train tracks and automorphisms of free groups.
+        Ann. of Math. 135 (1992) 1–51.
+
+[Bow1] B. Bowditch. Cut points and canonical splittings of hyperbolic groups. Acta
+       Math. 180 (1998) 145–186.
+
+[Bow2] B. Bowditch. Relatively hyperbolic groups. Internat. J. Algebra Comput. (3) 22
+       (2012).
+
+[CHL]   T. Coulbois, A. Hilion, and M. Lustig. Non-unique ergodicity, observers’ topol-
+        ogy and the dual lamination for R-trees. Illinois J. Math. 51 (2007) 897–911.
+
+[Coo]   D. Cooper. Automorphisms of free groups have finitely generated fixed point sets.
+        J. Algebra 111 (1987) 453–456.
+
+[CT]    D.J. Collins and E.C. Turner. Efficient representatives for automorphisms of
+        free products. Michigan Math. J. 41 (1994) 443–464.
+
+                                             56
+[CV]    M. Culler and K. Vogtmann. Moduli of graphs and automorphisms of free groups.
+        Invent. Math. 84 (1986) 91–120.
+
+[Dah1] F. Dahmani. Combination of convergence groups. Geom. Topol. 7 (2003) 933–
+       963.
+
+[Dah2] F. Dahmani. On suspensions and conjugacy of hyperbolic automorphisms. Trans.
+       Amer. Math. Soc. 368 (2016) 5565–5577.
+
+[DL]    F. Dahmani and R. Li. Relative hyperbolicity for automorphisms of free products
+        and free groups. J. Topol. Anal. 14 (2022) 55–92.
+
+[DS]    M.J. Dunwoody and M.E. Sageev. JSJ-splittings for finitely presented groups
+        over slender groups. Invent. Math. 135 (1999) 25–44.
+
+[DW]    M. Day and R.D. Wade. Relative automorphism groups of right-angled Artin
+        groups. J. Topol. 12 (2019) 759–798.
+
+[Far]   B. Farb. Relatively hyperbolic and automatic groups with applications to nega-
+        tively curved manifolds. Ph.D thesis, Princeton university 1994.
+
+[FH]    M. Feighn and M. Handel. The recognition theorem for OutpFn q. Groups Geom.
+        Dyn. (1) 5 (2011) 39–106.
+
+[Fio]   E. Fioravanti. Growth of automorphisms of virtually special groups. Preprint
+        [arXiv:2501.12321].
+
+[FM]    S. Francaviglia and A. Martino. Stretching factors, metrics and train tracks for
+        free products. Illinois J. Math. 59 (2015) 859–899.
+
+[FMS] S. Francaviglia, A. Martino, and D. Syrigos. On the action of relatively irre-
+      ducible automorphisms on their train tracks. Preprint [arXiv:2108.01680], to
+      appear in Ann. Ins. Fourier.
+
+[FP]    K. Fujiwara and P. Papasoglu. JSJ-decompositions of finitely presented groups
+        and complexes of groups. Geom. Funct. Anal. 16 (2005) 70–125.
+
+[GH1]   V. Guirardel and C. Horbez. Algebraic laminations for free products and ara-
+        tional trees. Alg. Geom. Topol. (5) 19 (2019) 2283–2400.
+
+[GH2]   V. Guirardel and C. Horbez. Boundaries of relative factor graphs and subgroup
+        classification for automorphisms of free products. Geom. Topol. 26 (2022) 71–
+        126.
+
+[GH3]   V. Guirardel and C. Horbez. Measure equivalence rigidity of OutpFN q. Preprint
+        [arXiv:2103.03696].
+
+[GL1]   V. Guirardel and G. Levitt. JSJ decompositions of groups. Astérisque 395
+        (2017), Soc. Math. France.
+
+                                          57
+[GL2]   V. Guirardel and G. Levitt. Splittings and automorphisms of relatively hyperbolic
+        groups. Groups Geom. Dyn. (2) 9 (2015) 599–663.
+
+[GL3]   V. Guirardel and G. Levitt. The outer space of a free product. Proc. London
+        Math. Soc. 94 (2007) 695–714.
+
+[GL4]   V. Guirardel and G. Levitt. Trees of cylinders and canonical splittings. Geom.
+        Topol. 15 (2011) 977–1012.
+
+[Gue]   Y. Guerch. Roots of outer automorphisms of free groups and centralizers of
+        abelian subgroups of OutpFN q. Michigan Math. J. 75 (2025) 1003–1020.
+
+[HK]    S. Hensel and D. Kielak. Nielsen realization by gluing: limit groups and free
+        products. Michigan Math. J. (1) 67 (2018) 199–223.
+
+[HM1] M. Handel and L. Mosher. Subgroup Decomposition in OutpFn q. Mem. Amer.
+      Math. Soc. 264 (2020).
+
+[HM2] M. Handel and L. Mosher. Virtually abelian subgroups of IAn pZ{3q are abelian.
+      Michigan Math. J. 69 (2020) 465–485.
+
+[Hor1] C. Horbez. The boundary of the outer space of a free product. Israel J. Math.
+       (1) 221 (2017) 179–234.
+
+[Hor2] C. Horbez. The Tits alternative for the automorphism group of a free product.
+       Invent. Math. 240 (2025) 869–901.
+
+[Hru]   G.C. Hruska. Relative hyperbolicity and relative quasiconvexity for countable
+        groups. Algebr. Geom. Topol. 10 (2010) 1807–1856.
+
+[Iva]   N. V. Ivanov. Subgroups of Teichmüller modular groups. Trans. Math. Mono.
+        115, Amer. Math. Soc. (1992).
+
+[Kid]   Y. Kida. Measure equivalence rigidity of the mapping class group. Ann. of Math.
+        171 (2010) 1851–1901.
+
+[Kor]   M. Korkmaz. Mapping class groups of nonorientable surfaces. Geom. Dedicata
+        89 (2002) 109–133.
+
+[Lev]   G. Levitt. Automorphisms of hyperbolic groups and graphs of groups. Geom.
+        Dedicata. (1) 114 (2005) 49–70.
+
+[Lym1] R.A. Lyman. CTs for free products. Preprint [arXiv:2203.08868].
+
+[Lym2] R.A. Lyman. Train track maps on graphs of groups. Groups Geom. Dyn. 16
+       (2022) 1389–1422.
+
+[Mut]   J.P. Mutanguha.     On        polynomial   free-by-cyclic   groups.     Preprint
+        [arXiv:2412.16150].
+
+                                           58
+[RS]    E. Rips and Z. Sela. Cyclic splittings of finitely presented groups and the canon-
+        ical JSJ decomposition. Ann. of Math. (2) 146 (1997) 53–109.
+
+[Sel]   Z. Sela. Structure and rigidity in (Gromov) hyperbolic groups and discrete groups
+        in rank 1 Lie groups. II. Geom. Funct. Anal. 7 (1997) 561–593.
+
+[Sen]   E. Seneta. Nonnegative matrices and Markov chains. Springer Series in Statis-
+        tics. Springer-Verlag, New York, second edition, 1981.
+
+[Ser]   J.-P. Serre. Rigidité du fondeur de Jacobi d’échelon n ě 3. Sem. H. Cartan,
+        1960/1961, Appendix to Exp. 17, 1961.
+
+[Sta]   J.R. Stallings. On torsion-free groups with infinitely many ends. Ann. of Math.
+        (2) 88 (1968) 312–334.
+
+ Yassine Guerch
+ Université Caen Normandie
+ CNRS
+ Normandie Univ
+ LMNO UMR6139
+ F-14000 CAEN, FRANCE
+ e-mail: yassine.guerch@cnrs.fr
+
+
+
+
+                                           59
+

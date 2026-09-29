@@ -1,0 +1,2101 @@
+                                           INTERSECTION FORM, LAMINATIONS AND CURRENTS ON
+                                                            FREE GROUPS
+arXiv:0711.4337v2 [math.GT] 22 Feb 2009
+
+
+
+
+                                                                   ILYA KAPOVICH AND MARTIN LUSTIG
+
+
+                                                  Abstract. Let F be a free group of rank N ≥ 2, let µ be a geodesic current
+                                                  on F and let T be an R-tree with a very small isometric action of F . We prove
+                                                  that the geometric intersection number hT, µi is equal to zero if and only if
+                                                  the support of µ is contained in the dual algebraic lamination L2 (T ) of T .
+                                                  Applying this result, we obtain a generalization of a theorem of Francaviglia
+                                                  regarding length spectrum compactness for currents with full support. We
+                                                  use the main result to obtain ”unique ergodicity” type properties for the at-
+                                                  tracting and repelling fixed points of atoroidal iwip elements of Out(F ) when
+                                                  acting both on the compactified Outer Space and on the projectivized space
+                                                  of currents. We also show that the some of the translation length functions
+                                                  of any two ”sufficiently transverse” very small F -trees is bilipschitz equivalent
+                                                  to the translation length function of an interior point of the Outer space. As
+                                                  another application, we define the notion of a filling element in F and prove
+                                                  that filling elements are ”nearly generic” in F . We also apply our results to
+                                                  the notion of bounded translation equivalence in free groups.
+
+
+
+
+                                                                                    Contents
+                                            1. Introduction                                                                             1
+                                            2. Geodesic currents                                                                        9
+                                            3. Laminations                                                                             12
+                                            4. Bounded back-tracking                                                                   15
+                                            5. The “if” case of the main result                                                        16
+                                            6. The dense orbits case                                                                   18
+                                            7. Approximating the word metric for a graph of groups                                     20
+                                            8. The discrete action case                                                                22
+                                            9. Restricting geodesic currents to subgroups                                              24
+                                            10. The general case                                                                       29
+                                            11. Length compactness for currents with full support                                      33
+                                            12. Unique ergodicity                                                                      35
+                                            13. Filling elements, filling currents and bounded translation equivalence.                36
+                                            References                                                                                 38
+
+
+
+                                                                               1. Introduction
+                                             The notion of a geometric intersection number between the free homotopy classes
+                                          of two essential closed curves on a compact surface plays a fundamental role in
+
+                                            2000 Mathematics Subject Classification. Primary 20F, Secondary 57M, 37B, 37D.
+                                            The first author was supported by the NSF grants DMS-0404991 and DMS-0603921.
+                                                                                          1
+2                            I. KAPOVICH AND M. LUSTIG
+
+
+the study of the Teichmüller space and of the mapping class group. This notion
+naturally extends to the notion of an intersection number between a closed curve
+and a measured lamination (Thurston) as well as the notion of an intersection
+form between two geodesic currents on a closed hyperbolic surface (Bonahon). The
+space of measured laminations naturally embeds into the space of currents. Thus
+Bonahon’s intersection form can be used to define the intersection number between
+a measured lamination (or equivalently, its dual R-tree) and a geodesic current on
+a surface.
+   In the free group case, Culler-Vogtmann’s Outer space [18], cv(F ), provides a
+natural analogue of the Teichmüller space of a surface. The points of cv(F ) can
+be thought of as minimal free discrete actions of F on R-trees. One also often
+considers the projectivized outer space Pcv(F ) that can be thought of as a subset
+CV (F ) ⊆ cv(F ) corresponding to actions where the quotient graph has volume
+1. Taking projective classes of equivariant Gromov-Hausdorff limits of elements
+of cv(F ) leads to a natural Thurston-type compactification CV (F ) = CV (F ) ∪
+∂CV (F ). The space CV (F ) turns out to consists precisely of all the projective
+classes of all minimal very small isometric actions of F on R-trees [8, 13]. Recall
+that an isometric action of F on an R-tree is very small if nontrivial stabilizers of
+non-degenerate arcs are maximal cyclic and if tripod stabilizers are trivial.
+   Most automorpisms of F (where N ≥ 3) are not geometric, in the sense that
+they are not induced by a self-homeomorphism of compact surface with boundary.
+This leads to the breakdown, in the case of a free group, of numerous symmetries
+and dualities from the hyperbolic surface situation, and most equivalent notions
+from the world of surfaces lead to distinct concepts in the free group setting.
+   The notion of a geodesic current on F (see Definition 2.4 below), and more
+generally, on a word-hyperbolic group, is a measure-theoretic generalization of the
+notion of a conjugacy class of a group element or of a free homotopy class of a closed
+curve on a surface. Much of the motivation for studying currents comes from the
+work of Bonahon about geodesic currents on hyperbolic surfaces [5, 6].
+   The space Curr(F ) of all geodesic currents has a useful linear structure and
+admits a canonical Out(F )-action. The space Curr(F ) turns out to be a natural
+companion of the Outer space and contains additional valuable information about
+the geometry and dynamics of free group automorphisms. Examples of such ap-
+plications can be found in [7, 17, 22, 27, 28, 29, 31, 34, 24, 40] and other sources.
+Kapovich proved [28] that for F there does not exist a natural symmetric analogue
+of Bonahon’s intersection number between two geodesic currents. However, there
+exists a natural Out(F )-equivariant continuous intersection form
+                            h , i : cv(F ) × Curr(F ) → R,
+where cv(F ) is the space of all very small minimal isometric actions of F on R-
+trees and where Curr(F ) is the space of geodesic currents on F . This intersection
+form has several important features in common with Bonahon’s construction. In
+particular, if T ∈ cv(F ) and ηg ∈ Curr(F ) is the counting current for g ∈ F − {1}
+(see Definition 2.7 below), then
+                                   hT, ηg i = ||g||T ,
+where ||g||T is the translation length of g with respect to the tree T , that is
+||g||T = minx∈T d(x, gx). The intersection form was introduced in [27, 28, 39]
+for free simplicial actions of F , that is for the non-projectivized Outer Space cv(F ).
+                INTERSECTION FORM, LAMINATIONS AND CURRENTS                           3
+
+
+In a recent paper [32] we proved that the intersection form extends continuously
+to the closure cv(F ) of cv(F ) consisting of all minimal very small isometric actions
+of F on R-trees. Note that the projectivization Pcv(F ) of cv(F ) is exactly the
+compactification CV (F ) of CV (F ). For T ∈ cv(F ) and for µ ∈ Curr(F ) we will
+also call hT, µi and the geometric intersection number of T and µ.
+   In general, if T ∈ cv(F ) and if µ ∈ Curr(F ) is approximated by rational currents
+as µ = limi→∞ λi ηgi , where gi ∈ F , λi ≥ 0, the geometric intersection number hT, µi
+can be computed as
+(‡)                              hT, µi = lim λi ||gi ||T
+                                            i→∞
+
+Ursula Hamenstädt [23] recently used our result from [32] about the continuous
+extension of the intersection form to cv(F ) as a key ingredient to prove that any
+non-elementary subgroup of Out(F ), where N ≥ 3, has infinite dimensional second
+bounded cohomology group (infinite dimensional space of quasi-morphisms). This
+in turn has an application to proving that any homomorphism from any lattice in
+a higher-rank semi-simple Lie group to Out(F ), where N ≥ 3, has finite image.
+    Very recently Bestvina and Feighn [3] used [32] to show that for any finite collec-
+tion φ1 , . . . , φm ∈ Out(FN ) of iwip outer automorphisms of FN (“irreducible auto-
+morphisms with irreducible powers”, see Definition 12.1) there exists a δ-hyperbolic
+complex X = X(φ1 , . . . , φm ) with an isometric Out(FN )-action where each φi acts
+with a positive translation length.
+    Another crucial notion in the surface theory is that of a geodesic lamination
+on a hyperbolic surface. In the free group case, there is a companion notion of
+an abstract algebraic lamination which is understood as a closed F -invariant and
+flip-invariant subset of
+                       ∂ 2 F = {(ξ1 , ξ2 ) : ξ1 , ξ2 ∈ ∂F, ξ1 6= ξ2 }.
+   A variation of this concept was successfully exploited by Bestvina, Feighn and
+Handel [9] to analyze the dynamics of free group automorphisms and the algebraic
+structure of subgroups of Out(F ). That paper in turn played a key role in the
+eventual proof of the Tits alternative for Out(F ) by Bestvina, Feighn and Handel
+in [10, 11].
+   Recently Coulbois, Hilion and Lustig [15, 16, 17] gave a detailed abstract treat-
+ment of the notion of an algebraic lamination for free group. In particular, given
+a very small action of F on an R-tree T , there is [16] a naturally defined “dual
+lamination” L2 (T ) on F (see section 3 below). In the special case where T be-
+longs to cv(F ), i.e. the F -action on T is free and simplicial, then L2 (T ) = ∅. The
+relationship between R-tree actions, laminations and geodesic currents in the free
+group case turns out to be considerably more delicate and complicated then for the
+case of hyperbolic surfaces. Investigating this relationship is an important basic
+task in the study of Out(F ).
+   In the present paper we study the situation where the intersection number be-
+tween a tree and a current is equal to zero. Our main result is:
+Theorem 1.1. Let F be a finitely generated nonabelian free group with a very small
+minimal isometric action on an R-tree T . Let µ ∈ Curr(F ).
+  Then hT, µi = 0 if and only if supp(µ) ⊆ L2 (T ).
+  Here supp(µ) ⊆ ∂ 2 F is the support of µ (see Section 3 below for the definition).
+4                              I. KAPOVICH AND M. LUSTIG
+
+
+   There is a known similar statement to Theorem 1.1 in the surface context.
+Namely, suppose λ and µ are measured geodesic laminations on a punctured hy-
+perbolic surface S. The transverse measures on λ and µ determines a geodesic
+currents λ̂ and µ̂ on the surface S. In this case Bonahon’s intersection number be-
+tween geodesic currents λb coincides with Thurston’s geometric intersection number:
+  b µ
+i(λ, b) = i(λ, µ). Moreover, since π1 (S) is free, geodesic currents on S in Bonahon’s
+sense are also geodesic currents on π1 (S) in the sense of the present paper. Then
+i(λ, µ) = 0 if and only if the supports supp(λ) and supp(λ) of λ and µ intersect
+in a common sublamination. If Tλ denotes the “dual” R-tree transverse to λ with
+metric defined by the transverse measure on λ (see Ch. 11.12 in [35] for details),
+then the definition in [32] gives:
+
+                               hTλ , µ                b µ
+                                     bi = i(λ, µ) = i(λ, b).
+The lamination L2 (Tλ ) always contains supp(λ), and if the latter fills the surface
+(i.e. all complementary components are contractible), L2 (Tλ ) is precisely equal to
+the union of supp(λ) with the (finite) set of diagonal leaves in the complementary
+surfaces of supp(λ). In particular we see that in this case one has hTλ , µi = 0 if and
+only if supp(µ) is contained in supp(λ) ⊆ supp(Tλ ).
+   One of the main motivations and prospective uses for Theorem 1.1 is to analyze
+the intersection graph, introduced by the authors in [32] in order to study vari-
+ous free group analogues of the curve complex. The intersection graph I(F ) is a
+bipartite graph with the vertex set Pcv(F ) ⊔ PCurr(F ) where [T ] ∈ Pcv(F ) and
+[µ] ∈ PCurr(F ) are adjacent in I(F ) if and only if hT, µi = 0. While it is generally
+not possible to define a good notion of an intersection number between two con-
+jugacy classes in a free group, one can use the intersection form to generalize the
+notion of having distance ≤ 2 in the standard curve complex. Thus one can define
+a graph, whose vertices are conjugacy classes of primitive elements in F where two
+vertices [a], [b] are adjacent if there exists T ∈ cv(F ) such that hT, ηa i = hT, ηb i = 0,
+that is ||a||T = ||b||T = 0 (this graph is almost the same as the “dual cut graph”
+defined in [32]). Taking a dual point of view, one can think of an essential simple
+closed curve on a surface as a splitting of the surface group over Z, where two curves
+are adjacent in the curve complex if and only if the corresponding Z-splittings have
+a common refinement. This leads to the notion [32] of a cut graph for F whose ver-
+tices are nontrivial splittings of F as the fundamental group of a graph of groups
+with a single edge and the trivial edge group, and where adjacency again corre-
+sponds to having a common refinement. A variation of this construction would
+declare two splittings to be adjacent if there exists a nontrivial element in F which
+is elliptic with respect to both of them. All these (as others) natural analogues of
+the curve complex can be studied by means of the intersection graph. In [32] we
+prove that for N ≥ 3 the intersection graph and all the free group analogues of
+the curve complex derived from it have infinite diameter, by analyzing the action
+of iwip automorphisms (see Definition 12.1). Iwip automorphisms are also some-
+times referred to as fully rreducible in the literature. Note that Theorem 1.1 gives
+a characterization of adjacency in the intersection graph.
+   In this paper we apply Theorem 1.1 to obtain a generalization of a result of
+Francaviglia [22] about length spectrum compactness for uniform currents on F
+(see Definition 2.12 below for the definition of the uniform current with respect
+to a free basis of F ). For T ∈ cv(F ) and µ ∈ Curr(F ), the automorphic length
+                INTERSECTION FORM, LAMINATIONS AND CURRENTS                           5
+
+
+spectrum of η with respect to T is the set
+         ST (µ) := {hT, φµi : φ ∈ Out(F )} = {hφT, µi : φ ∈ Out(F )} ⊆ R.
+If T = X(F, A) is the Cayley graph of F corresponding to a free basis A of F and
+µ = νA is the uniform current corresponding to A then
+                           ST (µ) = {λA (φ) : φ ∈ Out(F )}
+where λA (φ) is the generic stretching factor of φ with respect to A (see [24, 28] for
+definitions). Here we obtain:
+Theorem 1.2. Let µ ∈ Curr(F ) be a current with full support and let T ∈ cv(F ).
+Then:
+   (1) For any C > 0 the set
+                             {φ ∈ Out(F ) : hT, φµi ≤ C}
+        is finite.
+    (2) The set ST (µ) is a discrete subset of R≥0 .
+    (3) Suppose φn ∈ Out(F ) is an infinite sequence of distinct elements such that
+        for some λn ≥ 0 and some µ′ ∈ Curr(F ) we have limn→∞ λn φn µ = µ′ .
+        Then limn→∞ λn = 0.
+   Francaviglia [22], using very different methods, established Theorem 1.2 for a
+certain class of currents with full support, including uniform currents corresponding
+to free bases of F and, more generally, Patterson-Sullivan currents corresponding to
+points of cv(F ) (see [34] for definitions). Theorem 1.2 has applications to the “ideal”
+version of the Whitehead algorithm for geodesic currents, as explained in [29].
+Note that for T ∈ cv(F ) and µ ∈ Curr(F ) that does not have full support, the
+automorphic length spectrum ST (µ) need not be discrete. For example, if φ ∈
+Out(F ) is an iwip which is atoroidal (that is, with no periodic conjugacy classes)
+then there exist λ > 1 and a nonzero “eigencurrent” η ∈ Curr(F ) such that φη = λη
+(see [40]). Then φ−n η = λ1n η, so that for any T ∈ cv(F ) we have
+                                            1        n→∞
+                            hT, φ−n ηi =      hT, ηi −→ 0,
+                                           λn
+and hence ST (η) is not discrete. A recent paper of R. Sharp [43] studies other
+dynamic-theoretic aspects related to generic stretching factors of free group auto-
+morphisms. A new paper of D. Calegari and K. Fujiwara [12] investigates general-
+izations of generic stretching factors for different word metrics on word-hyperbolic
+groups.
+   We apply Theorem 1.1 to establish “unique ergodicity” type properties for the
+attracting and repelling fixed points of atoroidal elements of Out(F ) in the com-
+pactified Outer Space and in the projectivized space of currents.
+   If φ ∈ Out(F ) is an atoroidal iwip, then the (left) action of φ on CV (F ) has
+exactly two distinct fixed points, an attracting fixed point [T+ ] and a repelling fixed
+point [T− ] and similarly, the left action of φ on PCurr(F ) has exactly two distinct
+fixed points, an attracting fixed point [µ+ ] and a repelling fixed point [µ− ]. In both
+cases every point distinct from the two fixed points lies on a “North-South” orbit
+with positive powers of φ making it converge to the attracting fixed point and with
+negative powers of φ making it converge to the repelling fixed point. These facts
+were established by Levitt and Lustig [38] for the compactified Outer Space CV (F )
+and by Reiner Martin [40] for PCurr(F ).
+6                             I. KAPOVICH AND M. LUSTIG
+
+
+  In Section 12 we apply Theorem 1.1 to establish unique-ergodicity type state-
+ments for T+ and µ+ . These results are summarized in the following:
+Theorem 1.3. Let φ ∈ Out(F ), where N ≥ 3, be an atoroidal iwip. Let [T+ ] ∈
+CV (F ) and [µ+ ] ∈ PCurr(F ) be the attracting fixed points for the (left) actions of
+φ on CV (F ) and PCurr(F ) accordingly. Then:
+   (1) If [µ] ∈ PCurr(F ) is such that supp(µ) ⊆ supp(µ+ ) then [µ] = [µ+ ].
+   (2) If [T ] ∈ CV (F ) is such that L2 (T+ ) ⊆ L2 (T ) then [T ] = [T+ ].
+   (3) Let [µ] ∈ PCurr(F ). Then hT+ , µi = 0 if and only if [µ] = [µ+ ].
+   (4) Let [T ] ∈ CV (F ). Then hT, µ+ i = 0 if and only if [T ] = [T+ ].
+   We apply Theorem 1.1 together with Theorem 1.3 to show that for two “suffi-
+ciently transverse” trees from cv(F ) the sum of their translation length functions
+is bilipschitz equivalent to one coming from an interior point of cv(F ). For two
+functions f1 , f2 : F → R≥0 we write f1 ∼ f2 if there exists C ≥ 1 such that for
+every w ∈ F we have
+                             1
+                               f1 (w) ≤ f2 (w) ≤ Cf1 (w).
+                             C
+   We prove:
+Theorem 1.4. Let T1 , T2 ∈ cv(F ) be such that there does not exist µ ∈ Curr(F ),
+µ 6= 0 such that hT1 , µi = hT2 , µi = 0. Then for every T ∈ cv(F ) we have ||.||T1 +
+||.||T2 ∼ ||.||T .
+Proof. Let T ∈ cv(F ) be arbitrary. Then for any nonzero µ ∈ Curr(F ) we have
+hT, µi > 0. This follows from the explicit definition of the intersection form in
+Proposition-Definition 2.11 for the case where T ∈ cv(F ).
+  Define a function J : Curr(F ) − {0} → R as
+                           hT1 , µi + hT2 , µi
+                J (µ) :=                       ,   µ ∈ Curr(F ), µ 6= 0.
+                                  hT, µi
+Note that for every µ ∈ Curr(F ), µ 6= 0 we have 0 < J (µ) < ∞ by assumption
+on T1 , T2 . Also, the function J is continuous by construction since the intersection
+form is continuous. Moreover, it is easy to see that for every µ 6= 0 and every c > 0
+we have J (µ) = J (cµ). Thus J factors through to a continuous strictly positive
+function J ′ : PCurr(F ) → R. Since PCurr(F ) is compact, the function J ′ achieves
+a positive maximum and a positive minimum. Hence there exist 0 < C1 < C2 < ∞
+such that C1 ≤ J (µ) ≤ C2 for every µ ∈ Curr(F ), µ 6= 0. Applying this fact
+to rational currents ηg , g ∈ F − {1} we conclude that ||.||T1 + ||.||T2 ∼ ||.||T , as
+required.                                                                            
+   In the terminology of [32], the assumption of Theorem 1.4 says that the distance
+between [T1 ] and [T2 ] in the intersection graph I(F ) is bigger than two. Using
+Theorem 1.1 together with Theorem 1.3 we obtain the following corollary of The-
+orem 1.4
+Corollary 1.5. Let N ≥ 2. Then the following hold:
+   (1) Let T1 , T2 ∈ cv(F ) be such that L2 (T1 ) ∩ L2 (T2 ) = ∅. Then for any T ∈
+       cv(F ) we have ||.||T1 + ||.||T2 ∼ ||.||T .
+   (2) Let N ≥ 3 and let φ ∈ Out(F ) be an atoroidal iwip. Let [T+ ], [T− ] ∈ CV (F )
+       be the attracting and repelling fixed points of φ. Then for every T ∈ cv(F )
+       we have ||.||T+ + ||.||T− ∼ ||.||T .
+                INTERSECTION FORM, LAMINATIONS AND CURRENTS                          7
+
+
+    (3) Let N ≥ 3 and let φ, ψ ∈ Out(F ) be atoroidal iwips such that their fixed
+        points [T± (φ)], [T± (ψ)] ∈ CV (F ) are four distinct points. Then for every
+        T ∈ cv(F ) we have ||.||T+ (φ) + ||.||T+ (ψ) ∼ ||.||T .
+    (4) Let T1 , T2 ∈ cv(F ) be discrete simplicial trees with trivial arc stabilizers
+        (thus, algebraically, they correspond to graph of groups decompositions of
+        F with trivial edge groups). Suppose that every nontrivial elliptic element
+        for T1 is hyperbolic for T2 and that every nontrivial elliptic element for T2
+        is hyperbolic for T1 (that is the intersection of every conjugate of a vertex
+        group of T1 with every conjugate of a vertex group of T2 is trivial). Then
+        for any T ∈ cv(F ) we have ||.||T1 + ||.||T2 ∼ ||.||T .
+
+Proof. Part (1) follows directly from Theorem 1.1 together with Theorem 1.4. Parts
+(2) and (3) easily follows from Theorem 1.4 together with Theorem 1.1 and The-
+orem 1.3. We will give an argument for part (3) for concreteness and leave part
+(2) to the reader. The assumptions of part (3) together with Theorem 1.3 im-
+ply that the fixed points [µ± (φ)], [µ± (ψ)] of φ, ψ in PCurr(F ) are four distinct
+points. Hence, again, by Theorem 1.3, there does not exist µ 6= 0 such that
+hT+ (φ), µi = hT+ (ψ), µi = 0. Hence by part (1) the conclusion of part (3) fol-
+lows.
+   To see that part (4) holds it is not hard to show, using the explicit description
+of L2 (T1 ) and L2 (T2 ) obtained in Lemma 8.2 that under the assumptions of part
+(4) we have L2 (T1 ) ∩ L2 (T2 ) = ∅. Hence part (1) of the corollary applies.      
+
+    Theorem 1.1 has some interesting applications to the notions of a filling element
+(or a conjugacy class) and of bounded translation equivalence. The concept of a
+filling curve on a surface plays an important role in the surface theory. However,
+until now there was no clear analogue of this notion in the free group context,
+mainly because of the absence of a symmetric notion of an intersection number
+between two conjugacy classes (or between two currents) for a free group. We
+propose a natural asymmetric notion of a filling conjugacy class here. It is easy to
+see that the free homotopy class of an essential closed curve on a closed hyperbolic
+surface fills the surface if and only if this class has a positive intersection number
+with every measured lamination on the surface, or equivalently, if and only if the
+corresponding element of the surface group has positive translation length for the
+dual R-tree of every measured lamination. By analogy, we will say that an element
+g ∈ F, g 6= 1 fills F if for every very small isometric action of F on an R-tree T
+we have ||g||T > 0. More generally, we say that a current µ ∈ Curr(F ) fills F
+if for every very small isometric action of F on an R-tree T we have hT, µi > 0.
+Thus an element g ∈ F fills F if and only if the corresponding “counting current”
+ηg ∈ Curr(F ) fills F . As was explained to the authors by Vincent Guirardel, the
+results of his paper [21] can be used to show that an element g ∈ F fills F if and
+only if for every very small simplicial action of F on an R-tree T we have ||g||T > 0.
+However, we do not use this fact in this paper and work directly with the definition
+of a filling element given above.
+    Unlike in the surface case, it is not at all obvious that in a free group F filling
+elements exist and even less clear why being filling is a typical behavior. In fact,
+there is no known simple (or even complicated) explicit combinatorial criterion
+which guarantees that a given element of a free group is filling. Vincent Guirardel
+and Gilbert Levitt showed us a special construction for producing filling elements in
+8                             I. KAPOVICH AND M. LUSTIG
+
+
+free groups using iterated commutators and high powers. However, one would still
+like to understand why being filling is an essentially generic property for elements
+of free groups. Theorem 1.1 provides such an explanation. This theorem easily
+implies that every current on F with full support fills F . While counting currents
+of elements of F never have full support, it turns out that any multiple of a counting
+current that is “sufficiently close” to a current with full support does fill F :
+Corollary 1.6. Let F be a finitely generated nonabelian free group. Let µ ∈
+Curr(F ) be a current with full support. Then:
+   (1) The current µ fills F .
+   (2) Suppose gi ∈ F , λi ≥ 0 are such that
+                                    µ = lim λi ηgi .
+                                         i→∞
+
+        Then there is some i0 ≥ 1 such that for every i ≥ i0 the element gi fills F .
+   Note that rational currents (i.e. scalar multiples of counting currents) are dense
+in Curr(F ), so that any current µ with full support can be approximated by rational
+currents. Corollary 1.6 in turn implies that if A is a free basis of F and ξ is a random
+right-infinite freely reduced word over A±1 , then all sufficiently long initial segments
+of ξ give filling elements in F :
+Corollary 1.7. Let F = F (A) be a finitely generated nonabelian free group with
+a free basis A. Let µA be the uniform measure on ∂F corresponding to A. Then
+there exists a set R ⊆ ∂F with the following properties:
+    (1) We have µA (R) = 1.
+    (2) For each ξ ∈ R there is n0 ≥ 1 such that for every n ≥ n0 the element
+        ξA (n) ∈ F fills F .
+   Here ξA (n) ∈ F denotes the element of F corresponding to the initial segment
+of ξ of length n. The uniform measure µA on ∂F is a Borel probability measure
+(see Definition 13.5 for a precise definition), such that a µA -random point of ∂F
+corresponds to the intuitive notion of a “random” right-infinite freely reduced word
+over A.
+   In [30] Kapovich, Levitt, Schupp and Shpilrain introduced the notion of transla-
+tion equivalence in free groups, motivated by the notions of hyperbolic equivalence
+and simple intersection equivalence for curves in surfaces (see [36]). Recall that two
+elements g, h ∈ F are translation equivalent in F if for every very small action of
+F on an R-tree T we have ||g||T = ||h||T . The paper [30] exhibited several sources
+of translation equivalence and additional ones were found by Donghi Lee [37]. The
+following is a natural generalization of the notion of translation equivalence. We
+say that g, h ∈ F are boundedly translation equivalent in F , denoted g ≡b h, if there
+exists C > 0 such that for for every very small action of F on an R-tree T we have
+                             1
+                               ||h||T ≤ ||g||T ≤ C||h||T .
+                             C
+The following statement, together with Corollary 1.6 and Corollary 1.7, explains
+why, unlike translation equivalence, bounded translation equivalence is an essen-
+tially generic phenomenon in free groups:
+Corollary 1.8. Let g, h ∈ F be elements such that each of them fills F . Then
+g ≡b h in F .
+                 INTERSECTION FORM, LAMINATIONS AND CURRENTS                            9
+
+
+   Note that while Corollary 1.6 and Corollary 1.7 do explain why filling elements
+in F are plentiful, they do not provide an explicit sufficient condition for an element
+to be filling. Finding such a sufficient condition that would be easily algorithmically
+verifiable and that would hold for “generic” elements of F remains an interesting
+problem. The construction of Guirardel and Levitt mentioned above is both explicit
+and algorithmic, but it relies on using iterated commutators and large powers and
+thus is highly non-generic.
+   The paper is organized as follows. In Section 2 we review basic definitions and
+notations related to outer space and geodesic currents. In Section 3 we present
+background information regarding algebraic laminations on free groups, introduce
+the notions of the support of a current and the “dual lamination” associated with an
+action of a free group on an R-tree and establish some basic facts about laminations
+and subgroups. In Section 4 we discuss the “bounded back-tracking” property for
+very small actions of F on R-trees and its consequences. The bounded back-tracking
+property for very small actions, established in [19], is a key tool in the present
+paper. In Section 5 we prove the “if” direction of the main result, Theorem 1.1.
+Namely, in Theorem 5.2 we prove that if supp(µ) ⊆ L2 (T ) then hT, µi = 0. The
+“only if” direction of Theorem 1.1 turns out to be more difficult and requires
+considering several different types of trees T separately. In Section 6 we establish
+the “only if” direction of Theorem 1.1 for the case of a tree T ∈ cv(F ) with
+dense orbits. The case of a discrete T ∈ cv(F ) is dealt with in Section 7 and
+Section 8. Before dealing with the general case, we develop some new machinery
+for restricting geodesic currents to subgroups of F in Section 9. In Section 10 we
+establish the “only if” direction of Theorem 1.1 in the “mixed” or general case
+of an arbitrary T ∈ cv(F ). This is done in Theorem 10.7 which completes the
+proof of Theorem 1.1 In Section 11 we apply the main result to prove Theorem 1.2
+about length spectrum compactness (Theorem 11.2 in Section 11). In Section 12
+we establish the unique-ergodicity type results stated in Theorem 1.3 above. In
+Section 13 we obtain applications of Theorem 1.1 to filling elements, filling currents
+and bounded translation equivalence, stated in Corollary 1.6, Corollary 1.7 and
+Corollary 1.8 above.
+   We are grateful to Vincent Guirardel, Gilbert Levitt, Pascal Hubert and Chris
+Leininger for helpful comments and conversations. We are also grateful to the
+referee for an extremely careful and detailed referee report and for numerous useful
+suggestions.
+
+                               2. Geodesic currents
+Convention 2.1. For the remainder of the article let F be a finitely generated
+nonabelian free group.
+  Let ∂F be the hyperbolic boundary of F (see [20] for background information
+about word-hyperbolic groups). We denote
+                     ∂ 2 F = {(ξ1 , ξ2 ) : ξ1 , ξ2 ∈ ∂F, and ξ1 6= ξ2 }.
+Also denote by σF : ∂ 2 F → ∂ 2 F the “flip” map defined as σF : (ξ1 , ξ2 ) 7→ (ξ2 , ξ1 )
+for (ξ1 , ξ2 ) ∈ ∂ 2 F .
+Definition 2.2 (Simplicial charts). A simplicial chart on F is an isomorphism
+α : F → π1 (Γ, x) where Γ is a finite connected graph without degree-one vertices
+and where is a vertex of Γ.
+10                            I. KAPOVICH AND M. LUSTIG
+
+
+   From now on, when discussing graphs, for a graph Γ we will denote the set of
+vertices of Γ by V Γ.
+   If α is a simplicial chart on F , it defines an F -equivariant quasi-isometry between
+F (with any word metric) and Γ,   e with the simplicial metric, that is where every edge
+has length 1. Correspondingly, we get canonical F -equivariant homeomorphisms
+e : ∂F → ∂ Γ
+α              e and α                 e that do not depend on the choice of a word
+                       b : ∂ 2 F → ∂ 2 Γ,
+metric for F . If α is fixed, we will usually use these homeomorphisms to identify
+∂F with ∂ Γ  e and ∂ 2 F with ∂ 2 Γ
+                                  e without additional comment.
+
+Definition 2.3 (Cylinders). Let α : F → π1 (Γ, x) be a simplicial chart on F . For a
+nontrivial reduced edge-path γ in Γ  e denote by Cyle (γ) the set of all (ξ1 , ξ2 ) ∈ ∂ 2 F
+                                                      Γ
+such that the bi-infinite geodesic from α̃(ξ1 ) to α̃(ξ2 ) contains γ as a subpath.
+   We call CylΓe (γ) ⊆ ∂ 2 F the two-sided cylinder corresponding to γ.
+   It is easy to see that CylΓe (γ) ⊆ ∂ 2 F is both compact and open. Moreover, the
+collection of all such cylinders, where γ varies over all nontrivial reduced edge-paths
+   e forms a basis of open sets in ∂ 2 F .
+in Γ,
+Definition 2.4 (Geodesic currents). A geodesic current on F is a positive Radon
+measure (that is a Borel measure which is finite on compact sets) on ∂ 2 F that is
+F -invariant and σF -invariant. The set of all geodesic currents on F is denoted by
+Curr(F ). The set Curr(F ) is endowed with the weak topology which makes it into
+a locally compact space.
+    Specifically, let α : F → π1 (Γ, x) be a simplicial chart on F . Let µn , µ ∈
+Curr(F ). It is not hard to show [28] that limn→∞ µn = µ in Curr(F ) if and only
+if for every nontrivial reduced edge-path γ in Γe we have
+
+                            lim µn (CylΓe (γ)) = µ(CylΓe (γ)).
+                           n→∞
+
+     Let µ ∈ Curr(F ) and let v be a nontrivial reduced edge-path in Γ. Denote
+                                 hv, µiα := µ(CylΓe (γ)),
+
+where γ is any edge-path in Γ  e that is labelled by v (i.e. which is a lift of v to Γ).
+                                                                                     e
+Since µ is F -invariant, this definition does not depend on the choice of a lift γ of v.
+Notation 2.5. Let A = {a1 , . . . , ak } be a free basis of F and let α be the simplicial
+chart on F corresponding to A. That is, α : F → π1 (Γ, x), where Γ is a wedge of k
+loop-edges at a single vertex x, where the edges are labelled by a1 , . . . ak . The map
+α sends a freely reduced word v ∈ F (A) to the edge-path in Γ labelled by v. Then
+e = X(F, A) is the Cayley graph of F with respect to A.
+Γ
+   In this case, for v ∈ F (A) and µ ∈ Curr(F ), we will denote hα(v), µiα by hv, µiA .
+Notation 2.6. For any g ∈ F, g 6= 1 denote g ∞ = limn→∞ g n and g −∞ =
+limn→∞ g n so that (g −∞ , g ∞ ) ∈ ∂ 2 F .
+   Also, for any g ∈ F we will denote by [g]F or just by [g] the conjugacy class of
+g in F .
+Definition 2.7 (Counting and Rational Currents). Let g ∈ F be a nontrivial
+element that is not a proper power in F . Put
+                             X                              
+                       ηgF =       δ(h−∞ ,h∞ ) + δ(h∞ ,h−∞ ) .
+                               h∈[g]F
+                  INTERSECTION FORM, LAMINATIONS AND CURRENTS                         11
+
+
+  Let R(g) be the collection of all F -translates of (g −∞ , g ∞ ) and (g ∞ , g −∞ ) in
+∂ F . Note that if u ∈ F and h = ugu−1 then u(g −∞ , g ∞ ) = (h−∞ , h∞ ). Therefore
+ 2
+                                       X
+                              ηgF =           δ(x,y) ,
+                                          (x,y)∈R(g)
+
+and hence ηgF   is F -invariant and flip-invariant, that is ηg ∈ Curr(F ).
+    Let g ∈ F be an arbitrary nontrivial element. Write g = f m where m ≥ 1 and
+f ∈ F is not a proper power. Put ηgF := mηfF .
+    We call ηgF ∈ Curr(F ) the counting current corresponding to g. Positive scalar
+multiples of counting currents are called rational currents. If the ambient group F
+is fixed, we will often denote ηgF by ηg .
+     It is easy to see that if [g]F = [h]F then ηgF = ηhF and ηgF = ηgF−1 .
+     The following statement is an important basic fact regarding rational currents:
+Proposition 2.8. [27, 28] The set of all rational currents is dense in the space
+Curr(F ).
+Definition 2.9 (Cyclic paths and cyclic words). A cyclic path or circuit in Γ is an
+immersion graph-map c : S → Γ from a simplicially subdivided oriented circle S to
+Γ. Let u be an edge-path in Γ. An occurrence of u in c is a vertex of S such that,
+going from this vertex in the positive direction along S, there exists an edge-path
+in S (not necessarily simple and not necessarily closed) which is labelled by u, that
+is, which is mapped to u by c. We denote by hu, ci the number of occurrences of u
+in c.
+    If A is a free basis of F and Γ is a bouquet of edges labelled by the elements of
+A, then a cyclic path in Γ can also be thought of as a cyclic word over A. A cyclic
+word is a cyclically reduced word in F (A) written on a simplicially subdivided
+circle (where every positively oriented edge is labelled by an element of A) in the
+clockwise-direction without a specified base-point. The number of occurrences of
+v ∈ F (A) in a cyclic word w over A is denoted hv, wiA .
+   Let α : F → π1 (Γ, x) be a simplicial chart for F . Then every nontrivial conjugacy
+class [g]F is represented by a unique reduced cyclic edge-path wg in Γ.
+   If w is a cyclic edge-path in Γ and v is an edge-path in Γ, denote by hv, wiα
+the number of occurrences of v in w. We will also occasionally use the notation
+hv ±1 , wiα := hv, wiα + hv −1 , wiα .
+   It is not hard to see that the definition of a counting current can be reinterpreted
+as follows [28]:
+Lemma 2.10. Let α : F → π1 (Γ, x) be a simplicial chart for F . Let g ∈ F be a
+nontrivial element and let wg be the reduced cyclic path in Γ representing [g]F .
+  Then for every reduced edge-path v in Γ we have
+              hv, ηg iα = hv −1 , ηg iα = hv, wg iα + hv −1 , wg iα = hv ±1 , wiα .
+Proposition-Definition 2.11 (Intersection Form). [32] Let F be a finitely gen-
+erated nonabelian free group and with a very small minimal isometric action on an
+R-tree T . Let µ ∈ Curr(F ). Let µ = limi→∞ λi ηgi where λi ≥ 0 and gi ∈ F . Then:
+    (1) The limit
+                                   lim λi ||gi ||T
+                                        i→∞
+12                           I. KAPOVICH AND M. LUSTIG
+
+
+         exists and does not depend on the choice of a sequence of rational currents
+         λi ηgi approximating µ. We call this limit the length of µ with respect to
+         T or the geometric intersection number of T and µ or the length of µ with
+         respect to T and denote it by hT, µi or by ||µ||T .
+     (2) Let α : F → π1 (Γ, x) be a simplicial chart on F and let L be a metric
+         structure on Γ. That is, each oriented edge e ∈ EΓ is assigned a length
+         L(e) > 0 so that L(e) = L(e−1 ) for every e ∈ EΓ. Let T be the R-tree
+                                         e the same length as that of its projection
+         obtained by giving each edge in Γ
+         in Γ. Thus F acts on T freely and discretely by isometries, via α. Then
+                                       1 X
+                            hT, µi =       L(e)he, µiα .
+                                       2
+                                        e∈EΓ
+     (3) The function
+                           h , i : cv(F ) × Curr(F ) → R
+         is continuous, Out(F )-invariant, R≥0 -linear with respect to the second ar-
+         gument and R≥0 -homogeneous with respect to the first argument.
+   Proposition-Definition 2.11 for free simplicial actions was obtained in [28, 39].
+Recently, Kapovich and Lustig [32] generalized this result to the case of arbitrary
+very small actions and proved Proposition-Definition 2.11 in the form stated above.
+   Let A be a free basis of F and let X(F, A) be the Cayley graph of F cor-
+responding to A. Thus X(F, A) ∈ cv(F ). For a current µ ∈ Curr(F ) denote
+||µ||A := ||µ||X(F,A) = hX(F, A), µi.
+Definition 2.12 (Uniform current). Let A be a free basis of F and let k ≥ 2 be the
+rank of F . Consider the simplicial chart α on F corresponding to A. The uniform
+current corresponding to A, denoted by νA is the current defined by
+                                              1
+                            hv, νA iA =               ,
+                                        2k(2k − 1)n−1
+where v ∈ F (A) is a nontrivial freely reduced word and where |v|A = n.
+   It is not hard to show that νA is indeed a geodesic current on F and we refer
+the reader to [28, 24] for a more detailed discussion.
+
+                                  3. Laminations
+   Recall that, as specified in Convention 2.1, F is a finitely generated nonabelian
+free group. We refer the reader to [15, 16, 17] for detailed background material on
+algebraic laminations in the context of free groups. We shall only state some basic
+definitions and facts here.
+Definition 3.1 (Algebraic laminations). An algebraic lamination on F is a closed
+F -invariant and flip-invariant subset L ⊆ ∂ 2 F .
+   Denote by Λ2 (F ) the set of all algebraic laminations on F .
+Definition 3.2 (Laminary language of an algebraic lamination). Let α : F →
+                                                 e Recall that α defines a canonical
+π1 (Γ, x) be a simplicial chart of F and let X = Γ.
+F -equivariant homeomorphism α     e : ∂F → ∂X
+   Let B be the set of oriented edges of Γ. Let L ∈ Λ2 (F ). The laminary language
+of L, corresponding to α, denoted Lα , is defined as the set of all reduced edge-
+paths v in Γ such that there exists a bi-infinite geodesic γ in X with endpoints
+                 INTERSECTION FORM, LAMINATIONS AND CURRENTS                           13
+
+
+α       e(ξ2 ) ∈ ∂X for some (ξ1 , ξ2 ) ∈ L, such that γ contains a subsegment labelled
+e(ξ1 ), α
+by v. We can think of Lα as a subset of B ∗ , where B ∗ is the set of all words in the
+alphabet B.
+   If α is a simplicial chart on F corresponding to a free basis A of F (where Γ is
+the wedge of circles labelled by elements of A and where X is the Cayley graph of
+F with respect to A), we will denote Lα by LA . In this case LA is a set of freely
+reduced words in F = F (A).
+   Note that in [15, 16, 17] laminary languages are defined only with respect to a
+free basis of a free group. However, it is easy to see that the definition and the basic
+results listed here extend to an arbitrary simplicial chart, that is not necessarily a
+wedge of loop-edges.
+Proposition 3.3. [15] Let α : F → π1 (Γ, x) be a simplicial chart of F . Let
+L, L′ ∈ Λ2 (F ). Then L ⊆ L′ if and only if Lα ⊆ L′α .
+   Let H ≤ F be a finitely generated subgroup. Then the inclusion of H in F
+extends to a canonical H-equivariant topological embedding iH : ∂H → ∂F . We
+will usually suppress this embedding and write that ∂H ⊆ ∂F and ∂ 2 H ⊆ ∂ 2 F .
+Proposition-Definition 3.4. Let H ≤ F be a finitely generated subgroup and
+let L ∈ Λ2 (H) be an algebraic lamination on H. Then
+                                           [
+                                 iΛ (L) :=   fL
+                                              f ∈F
+                                     2
+is a closed F -invariant subset of ∂ F , that is, an algebraic lamination on F . Thus
+iΛ (L) ∈ Λ2 (F ).
+Definition 3.5 (Lamination defined by a tree action). [15, 16, 17] Let F be a
+finitely generated free group acting isometrically on an R-tree T . The lamination
+on F corresponding to the action of F on T , denoted L2 (T ) ∈ Λ2 (F ), is defined as
+follows.
+   Choose a simplicial chart α : F → π1 (Γ, x) and fix the corresponding identifica-
+                      e
+tion of ∂ 2 F and ∂ 2 Γ.
+   Then for (ξ1 , ξ2 ) ∈ ∂ 2 F we have (ξ1 , ξ2 ) ∈ L2 (T ) if and only if for every ǫ > 0
+and every reduced edge-path v in Γ labelling some subsegment of the bi-infinite
+geodesic joining ξ1 and x2 in Γ e there is some reduced and cyclically reduced closed
+path w in Γ containing v as a subpath such that ||w||T ≤ ǫ.
+   It is not hard to show (see [38, 16]) that this definition of L2 (T ) does not depend
+on the choice of a simplicial chart on F .
+Definition 3.6 (Support of a current). Let µ ∈ Curr(F ). Then we define the
+support of µ, denoted supp(µ), as ∂ 2 F − U where U is the union of all open subsets
+U ⊆ ∂ 2 F such that µ(U ) = 0. It is easy to see that supp(µ) ⊆ ∂ 2 F is both closed
+and F -invariant, so that supp(µ) ∈ Λ2 (F ). We say that µ ∈ Curr(F ) has full
+support if supp(µ) = ∂ 2 F .
+   Let α : F → π1 (Γ, x) be a simplicial chart on F , let L = supp(µ) ∈ Λ2 (F ) and
+let B = EΓ. We will denote the laminary language Lα ⊆ B ∗ by suppα (µ). Thus
+suppα (µ) consists of all reduced paths v in Γ such that hv, µiα > 0.
+   In the case where the simplicial chart α is defined by a free basis A of F , we will
+denote Lα by suppA (µ).
+14                             I. KAPOVICH AND M. LUSTIG
+
+
+  For example, it is obvious that for any free basis A of F the uniform current νA
+has full support. The following lemma is an easy corollary of the definitions:
+Lemma 3.7. Let α : F → π1 (Γ, x) be a simplicial chart on F and let µ ∈ Curr(F ).
+Let L = supp(µ) ∈ Λ2 (F ). Then for a reduced edge-path v in Γ we have v ∈ Lα if
+and only if hv, µiα > 0.
+Notation 3.8. Let F be a finitely generated free group with a free basis A. We
+will denote by X(F, A) the Cayley graph (which happens to be a tree) of F with
+respect to A.
+    For a nontrivial finitely generated subgroup H ≤ F denote by XH the smallest
+H-invariant subtree of X(F, A).
+    We also denote by ΓH the Stallings subgroup graph of H with respect to A
+(see [33] for a detailed discussion about Stallings subgroup graphs). Recall that ΓH
+can be obtained
+            S     as follows. Let x ∈ XH be the closest to 1 ∈ F vertex of XH . Then
+  ′                                                                             ′
+XH   = XH       ∪ f [1, x] is an H-invariant subtree of X(F, A). Then ΓH = XH     /H.
+                f ∈F
+Recall that every oriented edge in ΓH has a label a ∈ A±1 which comes from
+                                           ′
+the corresponding label of the edge in XH    . The image, under the quotient map
+   ′       ′
+XH → XH /H = ΓH of the vertex 1 ∈ F in ΓH is the base-vertex of ΓH .
+     For a finite connected graph Γ with a nontrivial fundamental group, the core
+of Γ, denoted Core(Γ), is the unique smallest subgraph ∆ of Γ such that ∆ is
+homotopically equivalent to Γ. Note that ∆ has no degree-one vertices and that Γ
+is equal to the union of ∆ and a finite (possibly empty) collection of trees attached
+to some vertices of ∆.
+Convention 3.9. For the remainder of this section, let H ≤ F = F (A) be a finitely
+generated subgroup. Let ΓH be the Stallings subgroup graph of H with respect to
+A and let ∆H = Core(ΓH ).
+   Let x ∈ ∆H be the closest vertex of ∆H to the basepoint y of ΓH . Let u ∈ F (A)
+be the label of the segment joining y to x in ΓH . Then we have a canonical
+isomorphism αH,A : H → π1 (ΓH , y), where α−1 H,A sends a loop γ at x in ∆H to
+    −1
+uwu , where w ∈ F (A) is the label of γ. Thus the pair (ΓH , y) defines a canonical
+isomorphism αH,A : H → π1 (ΓH , y) which is a simplicial chart for H. Moreover,
+          e H is contained in X(F, A) and coincides with the smallest H-invariant
+a copy of ∆
+subtree of X(F, A).
+   The following lemma is easily established by compactness argument since the
+graph ∆H is finite.
+Lemma 3.10. Let L ∈ Λ2 (H) and let L′ = iΛ (L) ∈ Λ2 (F ). Then for v ∈ F (A) we
+have v ∈ L′A if and only if there is a bi-infinite reduced path γ in ∆H whose F (A)-
+                                                                      e H , whose pair
+label contains v as a subword, such that some bi-infinite geodesic in ∆
+of endpoints is an element of L, projects to γ.
+     Lemma 3.10 in turn easily implies:
+Lemma 3.11. The following hold:
+      (1) Let (ξ1 , ξ2 ) ∈ ∂ 2 F . Then (ξ1 , ξ2 ) ∈ iΛ (∂ 2 H) if and only if the label of
+          the bi-infinite geodesic from ξ1 to ξ2 in X(F, A) is the F (A)-label of some
+          bi-infinite reduced edge-path in Core(ΓH ).
+                INTERSECTION FORM, LAMINATIONS AND CURRENTS                        15
+
+                     S
+   (2) The subset          f ∂ 2 H ⊆ ∂ 2 F is closed, and hence
+                    f ∈F
+                                                   [
+                                  iΛ (∂ 2 H) =            f ∂ 2 H.
+                                                   f ∈F
+
+
+                             4. Bounded back-tracking
+Definition 4.1 (Bounded Back-tracking Constant). Let F = F (A) be a finitely
+generated free group acting isometrically on an R-tree T . Let X(F, A) be the
+Cayley graph of F with respect to A. Let p ∈ T . There is a unique F -equivariant
+map ip : X(F, A) → T that is linear on edges on X(F, A) and with ip (1) = p. The
+Bounded Back-tracking Constant corresponding to A, T and p, denoted BBTT,p (A),
+is the infimum of all C > 0 such that for any Q, R ∈ X(F, A) the image ip ([Q, R])
+of [Q, R] ⊆ X(F, A) is contained in the C-neighborhood of [ip (Q), ip (R)]. The
+Bounded Back-tracking Constant corresponding to A and T , denoted BBTT (A), is
+the infimum over all p ∈ T of BBTT,p (A).
+  An useful result of [19] states:
+Proposition 4.2. Let F be a finitely generated nonabelian free group with a very
+small isometric minimal action on an R-tree T . Let A be a free basis of F and let
+p ∈ T . Then BBTT,p (A) < ∞.
+  The following is an easy corollary of the definitions:
+Lemma 4.3. Let F be a finitely generated nonabelian free group with a very small
+isometric minimal action on an R-tree T . Let A be a free basis of F and let p ∈ T .
+   Suppose BBTT,p (A) < C. Let u = u1 . . . um be a freely reduced product of freely
+reduced words in F (A), where m ≥ 1. Then the following hold:
+    (1) Let w ∈ F (A) be cyclically reduced. Then
+                                 ||w||T − dT (p, wp) ≤ 2C.
+   (2) Let u = u1 . . . um be a freely reduced product of freely reduced words in
+       F = F (A), where m ≥ 1. Then we have
+                                           m
+                                           X
+                            dT (p, up) −         dT (p, ui p) ≤ 2mC.
+                                           i=1
+
+   (3) Suppose, in addition, that u, u1 , . . . , um are cyclically reduced in F (B).
+       Then
+                                   m
+                                   X
+                          ||u||T −    ||ui ||T ≤ 4mC.
+                                           i=1
+
+  Levitt and Lustig [38] prove the following:
+Proposition 4.4. Let F be a finitely generated nonabelian free group with a very
+small isometric action on an R-tree T with dense orbits.
+   Then for any ǫ > 0 and any p ∈ T there exists a free basis B of F such that the
+following hold:
+     (1) We have BBTT,p (B) < ǫ.
+     (2) For every b ∈ B we have dT (p, bp) < ǫ.
+16                            I. KAPOVICH AND M. LUSTIG
+
+
+   If A is a free basis of a free group F (A), for u ∈ F (A) we denote by |u|A the
+freely reduced length of u with respect to A and we denote by ||u||A the cyclically
+reduced length of u with respect to A. Thus ||u||A is the translation length of u on
+the Cayley tree X(F (A), A) of F (A).
+Proposition-Definition 4.5 (Double Bounded Cancellation Constant). Let A, B
+be two free bases of a finitely generated free group F . Then there exist integers
+1 ≤ l ≤ n with the following properties:
+     (1) Let u, v be freely reduced words in F (A) such that the word uv is freely
+         reduced. Let u′ , v ′ be freely reduced words in F (B) representing u, v ac-
+         cordingly. Then the maximal terminal segment of u′ that freely cancels in
+         the product u′ · v ′ has length ≤ l.
+     (2) If u is a cyclically reduced word in F (A) and u′ is the freely reduced form
+         of u in F (B) then ||u′ ||B − |u|B ≤ 2l.
+     (3) Let w = uw0 v be a freely reduced product of freely reduced words in F (A)
+         and suppose that |u|A , |v|A > n. Let x, y be freely reduced words in F (A)
+         such that the product xwy is reduced as written. Let x′ , w′ , y ′ be the freely
+         reduced forms of x, w, y in F (B). Let w′′ be the maximal subword of w′
+         that is not affected by the free cancellations in the product x′ w′ y ′ . Then
+         w′′ is nonempty.
+            Let z1′ , z2′ be freely reduced words in F (B) such that z1′ w′′ z2′′ is freely
+         reduced as written. Let z1 , z2 , w̃ be the freely reduced words in F (A) rep-
+         resenting z1′ , z2′ , w′′ accordingly. Then the maximal subword W of w̃ that is
+         not affected by the free cancellations in z1 w̃z2 is nonempty and, in addition,
+         W contains w0 as a subword. Moreover, if z1′ w′′ z2′ is cyclically reduced in
+         F (B), then the maximal subword of w̃ that is not affected by the free and
+         cyclic reduction of z1 w̃z2 , is nonempty and contains w0 as a subword.
+   The existence of l ≥ 1 as above follows from the bounded cancellation lemma [14].
+It is not hard to deduce the existence of n ≥ 1 from the existence of l.
+   We refer to the smallest integer n = nA,B ≥ 1 satisfying condition (3) above as
+the double bounded cancellation constant for A, B.
+   Note that the definition of nA,B given above is not symmetric and it is possible
+that nA,B 6= nB,A . Note also that conditions (1), (2) in the above definition hold
+with l = nA,B .
+Definition 4.6. Let A, B be two free bases of a finitely generated free group F .
+  Let C = maxa∈A |a|B . We call C = CA,B the Lipshitz constant for A, B.
+
+                      5. The “if” case of the main result
+   In this section we will establish the “if” implication in Theorem 1.1. Namely, we
+will prove that for an arbitrary very small action of F on an R-tree T the condition
+supp(µ) ⊆ L2 (T ) implies that hT, µi = 0.
+Remark 5.1. Suppose µ ∈ Curr(F ), µ 6= 0 and let
+                                     µ = lim λi ηgi
+                                          i→∞
+
+where λi ≥ 0 and gi ∈ F . Then for λ′i ≥ 0 we have
+                                                        λ′i
+                        µ = lim λ′i ηgi     ⇐⇒        lim   = 1.
+                             i→∞                    i→∞ λi
+                   INTERSECTION FORM, LAMINATIONS AND CURRENTS                                     17
+
+
+In particular (see [27, 28]), if A is a free basis of F , and µ ∈ Curr(F ) is such that
+||µ||A = 1 then for any λi ≥ 0, gi ∈ F with µ = lim λi ηgi we have:
+                                                           i→∞
+                                           1
+                               µ = lim           ηgi .
+                                    i→∞ ||gi ||A
+
+Theorem 5.2. Let F be a finitely generated nonabelian free group. Let T be a
+R-tree with a very small minimal isometric action of F . Let µ ∈ Curr(F ) be such
+that supp(µ) ⊆ L2 (T ). Then hT, µi = 0.
+Proof. Let A be a free basis of F . We may assume that ||µ||A = 1. By Remark 5.1,
+it suffices to prove that whenever wi is a sequence of reduced cyclic words in F (A)
+                          η                  ||wi ||T
+such that µ = limn→∞ ||wwi ||i A then limi→∞ ||wi ||A
+                                                      = 0. Let wi be such a sequence of
+                              ||w t || ||wi ||T          ηwt         η
+cyclic words. Note that ||wit ||AT
+                                   = ||w     i ||A
+                                                   and ||wt ||i A = ||wwi ||i A for any integer t ≥ 1.
+                               i                          i
+Thus, by taking powers if necessary, we may assume that limi→∞ ||wi ||A = ∞.
+   Let p ∈ T . Let C1 > 0 be such that BBTT,p (A) < C1 . Recall that such C1 exists
+by Proposition 4.2. Also, we put C2 = maxa∈A dT (p, ap).
+   Let ǫ > 0 be arbitrary. Let N ≥ 1 be such that 1+10C              N
+                                                                            1
+                                                                               ≤ ǫ/2. Choose ǫ1 > 0
+                                   ′          N                 ′
+such that C2 N ǫ1 ≤ ǫ/2. Put wi = wi . Hence ||wi ||A = N ||wi ||A is divisible by N
+                        ηw′          η
+for every i ≥ 1. Then ||w′ ||i A = ||wwi ||i A and hence
+                              i
+                                                    ηwi′
+                                         µ = lim            .
+                                              i→∞ ||wi′ ||A
+
+    Write wi′ as a cyclic concatenation ui = y1 . . . ym where m = ||wi′ ||A /N and
+where each yj ∈ F (A) has |yj |A = N . We say that yj is good if yj ∈ suppA (µ) and
+that yj is bad otherwise. Write m = mgood + mbad where mgood is the number of
+                                                                           ηw′
+those j = 1, . . . , m for which yj is good. Since N is fixed and limi→∞ ||w′ ||i A = µ, for
+                                                                             i
+any fixed freely reduced word v ∈ F (A) of length N , the symmetrized frequencies
+hv ±1 ,wi′ iA
+  ||wi′ ||A   of v in wi′ converge to hv, µiA as i → ∞. In particular, if v 6∈ suppA (µ),
+these frequencies converge to zero. Therefore there exists some i0 ≥ 1 such that for
+every i ≥ i0 we have mbad ≤ ǫ1 ||wi′ ||A . Suppose now that i ≥ i0 is arbitrary.
+    Let zi ∈ F (A) be the freely reduced word obtained as a (non-cyclic) concatena-
+tion zi = y1 . . . ym .
+    Suppose first that yj is good. Since supp(µ) ⊆ L2 (T ), there exists a cyclically
+reduced word uj ∈ F (A) containing yj as an initial segment such that ||uj ||T ≤ 1.
+Then by Lemma 4.3 we have dT (p, uj p) ≤ 1 + 2C1 . Write uj as a reduced product
+uj = yj u′j . Then Lemma 4.3 implies that
+                  dT (p, yj p) + dT (p, u′j p) ≤ dT (p, uj p) + 2C1 ≤ 1 + 4C1
+and hence
+                                 dT (p, yj p) ≤ 1 + 4C1 .
+  Suppose that yj is bad. Then obviously dT (p, yj p) ≤ C2 N .
+  Recall that mbad ≤ ǫ1 ||wi′ ||A . Recall also that zi = y1 . . . ym ∈ F (A). Hence by
+Lemma 4.3
+              ||wi′ ||T = ||zi ||T ≤ dT (p, zi p) ≤ m(1 + 4C1 ) + ǫ1 ||wi′ ||A C2 N.
+   Then for every i ≥ i0
+                              ||wi′ ||T   1 + 10C1
+                                        ≤          + C2 N ǫ1 ≤ ǫ,
+                              ||wi′ ||A      N
+18                                   I. KAPOVICH AND M. LUSTIG
+
+
+and hence
+                                                ||wi′ ||T
+                                    0 ≤ hT, µi = lim      ≤ ǫ.
+                                           i→∞ ||wi′ ||A
+
+     Since ǫ > 0 was arbitrary, this implies that hT, µi = 0, as required.                  
+
+                                    6. The dense orbits case
+Proposition 6.1. Let F be a finitely generated nonabelian free group. Let T be an
+R-tree with a very small minimal isometric action of F such that this action has
+dense orbits.
+  Let µ ∈ Curr(F ) be such that hT, µi = 0. Then supp(µ) ⊆ L2 (T ).
+Proof. Choose a free basis A of F . By re-scaling we may assume that ||µ||A =
+1. Then there exists a sequence of reduced cyclic words wi in F (A) such that
+        η                                             ||wi ||T
+limi→∞ ||wwii|| = µ. Since hT, µi = 0, we have limi→∞ ||wi ||A
+                                                               = 0.
+                         ||w t || ||wi ||T                  ηwt      η
+                              T
+   Again, recall that ||wit ||A = ||w i ||A
+                                            and ||wt ||i A = ||wwi ||i A for any integer t ≥ 1.
+                          i                        i
+Thus, by taking powers if necessary, we may assume that limi→∞ ||wi ||A = ∞.
+   Let v ∈ F (A) be a freely reduced word with hv, µiA = α > 0. We need to prove
+that for any ǫ > 0 there exists a cyclically reduced word w in F (A) containing v as
+a subword and such that ||w||T ≤ ǫ.
+   Since ||µ||A = 1, there exists a sequence of cyclic word wi in F (A) such that
+                                             ηwi
+                                     lim           =µ
+                                    i→∞ ||wi ||A
+
+and such that
+                                                 ||wi ||T
+                                          lim               = 0.
+                                          i→∞ ||wi ||A
+
+     Hence
+                             hv ±1 , wi i
+                              lim         = hv, µiA = α > 0.
+                        i→∞    ||wi ||
+Choose i0 ≥ 1 such that for every i ≥ i0 we have
+                                                hv ±1 , wi i
+                                       α/2 ≤                 ≤ 2α.
+                                                  ||wi ||
+    Let ǫ > 0 be arbitrary. By Proposition 4.4 there is some free basis B of F
+and a point p ∈ T such that BBTT,p (B) < ǫ and dT (p, bp) < ǫ for every b ∈ B.
+Let n = nA,B ≥ 1 be the double bounded cancellation constant for A, B and let
+C = CA,B ≥ 1 be the Lipshitz constant for A, B.
+    Let i ≥ i0 . Choose a maximal collection v1 , . . . , vm of occurrences of v ±1 in wi
+such that the n-neighborhoods of these occurrences in wi do not overlap. Note
+that if an occurrence of v ±1 begins outside of the union of the n-neighborhoods of
+v1 , . . . , vm in wi , then, by maximality, the beginning of that occurrence is at most
+2n + |v| away from the union of the n-neighborhoods of v1 , . . . , vm . This implies
+that the total number of occurrences of v ±1 in wi satisfies:
+
+                                     hv ±1 , wi i ≤ 2m(2n + |v|).
+Hence
+                          m             hv ±1 , wi i     α    1
+                                ≥                      ≥             .
+                       ||wi ||A   ||wi ||A (4n + 2|v|)   2 4n + 2|v|
+                  INTERSECTION FORM, LAMINATIONS AND CURRENTS                          19
+
+
+Thus:
+                                         α     m
+                                           ≤         ≤ 2α,
+                                         K   ||wi ||
+where K = 8n + 4|v|.
+  Recall that limi→∞ ||wi ||T                                 K
+                     ||wi ||A = 0. Let ǫ1 > 0 be such that ǫ1 α < ǫ. We may
+                                                        ||wi ||T
+assume that i ≥ i0 was chosen big enough so that ||w       i ||A
+                                                                 ≤ ǫ1 .
+   We now subdivide the cyclic word wi as a cyclic concatenation w = y1 . . . ym
+where each segment yj ∈ F (A) of wi contains the n-neighborhood of vj in wi
+for j = 1, . . . , m. For j = 1, . . . , m let yj′ be the freely reduced word in F (B)
+representing yj .
+   Let zj be the portion of yj′ that survives after the free reductions in yj−1
+                                                                            ′
+                                                                                yj′ yj+1
+                                                                                     ′
+                                                                                         .
+Note that zj is nonempty by definition of n = nA,B . Then the cyclic concatenation
+wi′ = y1′ . . . ym
+                 ′
+                   is the cyclic word in F (B) representing the same conjugacy class
+as wi . Note that the words yj′ need not be cyclically reduced. We choose letters
+bj ∈ B ±1 such that each xj := bj zj is cyclically reduced over B and such that
+x1 . . . xm is a freely reduced and cyclically reduced word over B. Let wi′′ be the
+cyclic word obtained by cyclic concatenation wi′′ = x1 . . . xm .
+   By Lemma 4.3 we have
+                                                     m
+                                                     X
+                                            ′
+                          dT (p, y1′ . . . ym p) −         dT (p, zj p) ≤ 4mǫ,
+                                                     j=1
+
+                                d(p, xj p) − d(p, zj p) ≤ ǫ, and
+                                                     m
+                                                     X
+                         dT (p, x1 . . . xm p) −           dT (p, zj p) ≤ 4mǫ.
+                                                     j=1
+
+Hence
+                     |dT (p, y1′ . . . ym
+                                        ′
+                                          p) − dT (p, x1 . . . xm p)| ≤ 12mǫ.
+            ′        ′
+Since both y1 . . . ym and x1 . . . xm are cyclically reduced, Lemma 4.3 also implies
+                               |dT (p, y1′ . . . ym
+                                                  ′
+                                                    p) − ||wi′ ||T | ≤ 2ǫ,
+                       |dT (p, x1 . . . xm p) − ||wi′′ ||T | ≤ 2ǫ, and hence
+                               |||wi′ ||T − ||wi′′ ||T | ≤ 12mǫ + 4ǫ.
+   Thus
+                                 ||wi′′ ||T ≤ ||wi′ ||T + 12mǫ + 4ǫ.
+Since x1 , . . . , xm are cyclically reduced, Lemma 4.3 again implies that
+                     Xm
+                         ||xj ||T ≤ ||wi′′ ||T + 4mǫ ≤ ||wi′ ||T + 16mǫ + 4ǫ.
+                   j=1
+
+Therefore there exists j such that
+                            ||wi′ ||T         4ǫ   ||wi′ ||T
+                       ||xj ||T ≤     + 16ǫ +    ≤           + 20ǫ.
+                               m              m       m
+Recall that wi and wi′ represent the same conjugacy class in F and so ||wi ||T =
+||wi′ ||T . Thus
+                       ||wi ||T         ||wi ||T ||wi ||A           K
+          ||xj ||T ≤            + 20ǫ =                   + 20ǫ ≤ ǫ1 + 20ǫ ≤ 21ǫ
+                          m             ||wi ||A m                  α
+20                             I. KAPOVICH AND M. LUSTIG
+
+
+where the last inequality holds by the choice of ǫ1 .
+   We now rewrite xj = bj zj as a freely reduced word in F (A) and then cyclically
+reduce the result to get a cyclically reduced word sj in F (A). By definition of
+n = nA,B , the construction of xj implies that the occurrence vj of v ±1 in yj
+survives intact in sj . Thus sj is a cyclically reduced word in F (A) containing
+v ±1 as a subword and satisfying ||sj ||T ≤ 21ǫ. Since ǫ > 0 was arbitrary, this
+implies that v ∈ L2 (T ), as required.                                          
+
+         7. Approximating the word metric for a graph of groups
+Convention 7.1. If G = hSi is a group with a finite-generating set S, we say that
+a cyclic word w in S ±1 is a cyclic λ-quasigeodesic with respect to dS if for every
+vertex on w cutting w open at that vertex produced a word that is λ-quasigeodesic.
+We will denote the Cayley graph of X with respect to S by X(G, S).
+Lemma 7.2. Let G be a word-hyperbolic group with a fixed finite generating set S
+and let λ > 0. Then there exists λ′ = λ′ (λ, S, G) > 0 with the following property.
+Suppose that w is a cyclic word in S ±1 that is a cyclic λ-quasigeodesic for G with
+respect to dS . Let w be subdivided as a cyclic concatenation w = v1 . . . vm where
+each vi is a λ-quasigeodesic word in S ±1 . For i = 1, . . . , m let zi be a another
+λ-quasigeodesic word representing the same element of G as vi . Let w′ be the cyclic
+word obtained by a cyclic concatenation w′ = z1 . . . zm . Then w′ is a cyclic λ′ -
+quasigeodesic.
+Proof. The proof is a straightforward variation on the proof of a similar Lemma 3.4
+in [25] for non-cyclic word and we leave the details to the reader. Note, however,
+that the proof uses the fact that G is word-hyperbolic and hence the paths labelled
+by zi and vi in the Cayley graph of G are ǫ-Hausdorff close, where ǫ = ǫ(λ, G, S) > 0.
+It is not hard to see that the statement of this lemma in general fails for non-
+hyperbolic groups, e.g. for Z2 .                                                    
+Notation 7.3 (Graph of groups notations). Let Y be a graph of groups [1, 42]. For
+x ∈ V Y we will denote the vertex group of x by Gx and for e ∈ EY we will denote
+the edge group of e by Ge . For e ∈ EY we denote the initial vertex of e by o(e) and
+we denote the terminal vertex of e by t(e). For e ∈ EY we denote the corresponding
+boundary monomorphisms by αe : Ge → Go(e) and ωe : Ge → Go(e) . Recall that
+according to the standard graph of groups conventions, for every e ∈ EY we have
+Ge = Ge−1 , o(e) = t(e−1 ) and αe = ωe−1 .
+Definition 7.4. Let Y is a finite connected reduced graph of groups with underlying
+graph Y , where all the vertex groups Gx , x ∈ V Y , are finitely generated. Let Z ⊆ Y
+be a maximal tree in Y . Fix an orientation EY = E + Y ⊔ E − Y on Y , so that for
+every e ∈ EY we have e ∈ E + Y iff e−1 ∈ E − Y .
+   Let G = π1 (Y, Z). Then G has the presentation
+
+                                                         
+                            G=      ⋆x∈V Y Gx ∗ F (E + Y ) /
+               hhe−1 αe (c)e = ωe (c), e ∈ E + Y, c ∈ Ge ; e = 1, e ∈ E + Zii.
+     Let Sx be a finite generating set of Gx for x ∈ V Y . Then
+                                                [
+                              S = SY = E + Y        ∪x∈V Y Sx
+                  INTERSECTION FORM, LAMINATIONS AND CURRENTS                                 21
+
+
+is a generating set of G that is said to be adapted to Y.
+   Recall that a Y-path from x ∈ V Y to x′ ∈ V Y is a sequence
+                                α = g0 , e1 , g1 , e2 , . . . , en , gn
+where e1 , . . . , en is an edge-path in Y with the vertex sequence x = x0 , x1 , . . . , xn =
+x′ and where gi ∈ Gxi . A Y-path α as above is Y-reduced if it does not contain a
+subsequence of the form
+                                         e, ωe (c), e−1 ,
+where e ∈ EY and c ∈ Ge .
+   We say that a word W in SY±1 is a path-word for Y if it has the form
+                                   W = w0 e1 w1 . . . en wn
+where e1 , . . . , en is an edge-path in Y with the vertex sequence x0 , x1 , . . . , xn and
+where wi is a word in Sx±1           i
+                                       . Note that any path-word W as above defines a Y-path
+α = g0 , e1 , g1 , e2 , . . . , en , gn , where gi ∈ Gxi is the group element represented by wi .
+  We say that a path-word W as above is a Y-reduced path word if it defines a
+Y-reduced Y-path.
+  In a similar way, one defines the notions of a cyclic Y-path, Y-reduced cyclic
+Y-path, a cyclic path-word for Y and a Y-reduced cyclic path-word for Y.
+Convention 7.5. Let A be another finite generating set for G = π1 (Y, Z). For each
+element of SY choose its representation as a word in A. Using these representations
+                                                                      f in A±1 .
+for substitution, any (cyclic) word W in SY±1 defines a (cyclic) word W
+Proposition 7.6. Let G be a word-hyperbolic group and let G = π1 (Y, Z) be a
+splitting of G where Y is a finite graph of groups, and where Z ⊆ Y is a maximal
+subtree. Suppose that each vertex group Gx is quasiconvex in G. Let Sx be a finite
+generating set of Gx for each x ∈ V Y and let
+                                          [
+                              SY = E + Y     ∪x∈V Y Sx
+be a generating set of G adapted to Y. Let A be any other finite generating set of
+G.
+   There exist λ > 0 and ǫ > 0 with the following properties.
+    (1) For any g ∈ F, g 6= 1 there exists a Y-reduced path-word W representing g
+        such that W is λ-quasigeodesic with respect to dSY .
+           Moreover, if w ∈ (A ∪ A−1 )∗ is a dA -geodesic representing g, then the
+        paths from 1 to g labelled by w and W̃ in X(F, A) are ǫ-Hausdorff close.
+    (2) For any conjugacy class [g], g ∈ F, g 6= 1, there exists a Y-reduced cyclic
+        path-word representing [g] such that W is a cyclic λ-quasigeodesic with re-
+        spect to dSY .
+           Moreover, let w be a cyclic word over A±1 which is a cyclic dA -geodesic
+        representing [g]. Then there is a function f from the vertex set of w to
+        the vertex set of W with the following properties. For every vertex x on w
+        cutting open w at x and W at f (x) produces a dA -geodesic word wx and a
+        Y-reduced path-word Wx accordingly. Additionally, there exist paths p and
+        p′ in X(G, A) labelled by wx and g Wx such that there initial vertices are at
+        most ǫ-apart, their terminal vertices are at most ǫ-apart and, for any other
+        vertex y on w the vertices on p and p′ corresponding to y and f (y) are at
+        most ǫ-apart in X(G, A).
+22                               I. KAPOVICH AND M. LUSTIG
+
+
+Proof. Part (1) of the lemma is essentially the same as Proposition 5.1 in [26]. We
+will briefly indicate the proof of part (2) that is similar to to proof of Proposition 5.1
+in [26].
+    To see that part (2) holds, we first replace g by a dSY -shortest element g ′ ∈ [g].
+Let Ŵ be a dSY -geodesic representative of g ′ . Then, by the choice of g ′ , every cyclic
+permutation of Ŵ is a dSY -geodesic. Recall that Z is a maximal tree in Y .
+    Let W0 be the cyclic word defined by Ŵ . Thus W0 is a cyclic dSY -geodesic. By
+inserting in W0 several subwords in the alphabet EZ (which therefore represent the
+trivial element of G) of length ≤ #EZ each, we can obtain a new cyclic word W1
+that is a cyclic path-word for Y. By Lemma 7.2 W1 is a cyclic λ1 -quasigeodesic for
+some constant λ1 > 0. However, W1 need not be Y-reduced.
+    We say that a subsegment v of W1 is a pinch if v has the form v = eue−1 and
+v represents an element of the edge group ωe (Ge ). Note that we DO NOT require
+u to be a word in the generating set of the vertex group Gt(e) . We say that a
+collection of pinches v1 , . . . , vm in W1 is separated if the segments v1 , . . . , vm do not
+overlap in W1 .
+    Let each of v1 , . . . , vm and v1′ , . . . , vl′ be a separated collection of pinches in W1 .
+We say that v1 , . . . , vm is dominated by v1′ , . . . , vl′ if for each vi there is some vj′ such
+that the segment vi is contained in the segment vj in W1 .
+    Now take v1 = e1 u1 e−1                                  −1
+                                1 , . . . , vm = em um em be a maximal (with respect to
+dominance) separated collection of pinches in W1 . Replace each vi in W1 by its
+geodesic representative in the generators of the vertex group Go(ei ) . Denote the
+resulting cyclic word by W .
+    Since the vertex groups are quasiconvex in G, Lemma 7.2 implies that the cyclic
+word w is a cyclic λ2 -quasigeodesic for some constant λ2 > 0. The maximality of
+the choice of v1 , . . . , vm implies that W is a Y-reduced cyclic path-word.
+    Establishing the remaining properties of W asserted in part (2) of the proposition
+is a straightforward δ-hyperbolic exercise and we leave the details to the reader. 
+
+                             8. The discrete action case
+Convention 8.1. For the remainder of this section, let F be a finitely generated
+nonabelian free group. We fix a very small splitting F = π1 (Y, Z), where Y is a
+finite connected reduced graph of groups with a maximal tree Z, where all edge
+groups are cyclic (and hence all vertex groups are finitely generated free groups).
+We fix an orientation on Y and choose a finite generating set
+                                         [
+                             SY = E + Y    ∪x∈V Y Sx
+for F that is adapted to Y.
+   Let V ′ Y denote the set of all x ∈ V Y such that the vertex group Gx is non-cyclic.
+Let TY be the Bass-Serre tree corresponding to the splitting F = π1 (Y, Z).
+   We also fix a free basis A for F .
+Lemma 8.2. Let L = L2 (TY ) and let v ∈ F (A) be freely reduced. Then v ∈ LA if
+and only if for some vertex x ∈ V ′ Y the word v can be read as the label of a path
+in the core of the Stallings subgroup graph for Gx with respect to F (A). That is,
+L = ∪x∈V ′ Y iΛ (∂ 2 Gx )
+Proof. Note first that, since Y defines a very small splitting of F , every cyclic vertex
+group of Y is contained in some non-cyclic vertex group. Hence every word in F (A)
+                  INTERSECTION FORM, LAMINATIONS AND CURRENTS                              23
+
+
+readable in the core of the Stallings subgroup graph of a cyclic vertex group is also
+readable in the core of the Stallings subgroup graph of a non-cyclic vertex group.
+    Since the action of F on TY is discrete, there is some c > 0 such that for every
+f ∈ F either ||f ||TY ≥ c or else f is conjugate to an element of some Gx , x ∈ V Y and
+||f ||TY = 0. Therefore, in view of the above remark, by definition of L = L2 (TY ),
+for v ∈ F (A) we have v ∈ LA if and only if v is a subword of some cyclically
+reduced word in F (A) representing an element conjugate to an element of some
+Gx , x ∈ V ′ Y . This implies the statement of the lemma.                             
+   The following lemma is an easy corollary of the definitions:
+Lemma 8.3. Let H ≤ F (A) be a finitely generated subgroup. Let M be the number
+of edges in the Stallings subgroup graph ΓH of H with respect to F (A). Let z1 , w, z2
+be freely reduced words in F (A) such that |z1 |, |z2 | ≤ c and such that z1 · w · z2 ∈ H
+(we do not assume this product to be freely reduced). Let w be written as a reduced
+product w = w1 w′ w2 where |w1 |A , |w2 |A ≥ c + M . Then w′ can be read as the label
+of a path in the core of the graph ΓH .
+Proposition 8.4. Let F be as in Convention 8.1. Let T = TY be the Bass-Serre
+tree corresponding to Y. Let µ ∈ Curr(F ) be such that hT, µi = 0.
+   Then supp(µ) ⊆ L2 (T ).
+Proof. Choose a free basis A of F . By re-scaling we may assume that ||µ||A = 1.
+                                                                           η
+Let wi be a sequence of reduced cyclic words wi in F (A) such that limi→∞ ||wwii|| =
+µ. Since hT, µi = 0, we have limi→∞ ||w     i ||T
+                                         ||wi ||A = 0. As before, by taking powers
+if necessary, we may assume that limi→∞ ||wi ||A = ∞. We need to show that
+supp(µ) ⊆ L2 (T ).
+   Let λ, ǫ > 0 be as provided by Proposition 7.6. Let M be the maximum of the
+numbers of edges among the Stallings subgroups graphs with respect to F (A) for
+the subgroups Gx , x ∈ V Y .
+   Let v ∈ F (A) be a freely reduced word such that v ∈ suppA (µ). Thus hv, µiA > 0.
+Then there exists a freely reduced word v ′ = u1 vu2 such that α := hv ′ , µiA > 0 and
+such that |u1 |A , |u2 |A ≥ M + ǫ. We may assume that for every i ≥ 1 we have
+                                        h(v ′ )±1 , wi i
+                                α/2 ≤                    ≤ 2α.
+                                           ||wi ||A
+   Let Wi be a cyclically λ-quasigeodesic Y-reduced cyclic path-word representing
+the same conjugacy class in F as wi .
+   Fix N >> ǫ.
+   By the same argument as in the proof of Proposition 6.1 we may find m distinct
+occurrences v1 , . . . , vm of (v ′ )±1 in wi such that N -neighborhoods of v1 , . . . , vm do
+not overlap in wi and such that
+                                    α      m
+                                      ≤          ≤ 2α,
+                                    K   ||wi ||A
+where K = 8N + 4|v ′ |.
+    For each j = 1, . . . , m let xj , x′j be the initial and terminal vertices of vj in wi .
+Let Vj be the segment of Wi from f (xj ) to f (x′j ). The fact that the occurrences
+v1 , . . . , vm of (v ′ )±1 in w have non-overlapping N -neighborhoods implies that the
+segments V1 , . . . , Vm in Wi have no overlaps.
+24                             I. KAPOVICH AND M. LUSTIG
+
+
+  Suppose first that for every wi each Vj contains an occurrence of some e ∈ EY .
+Then ||wi ||T = ||Wi ||T ≥ m. Hence for every i ≥ 1
+
+                               ||wi ||T      m       α
+                                        ≥          ≥   > 0.
+                               ||wi ||A   ||wi ||A   K
+                                                  ||wi ||T
+This contradicts the assumption that limi→∞ ||w      i ||A
+                                                           = 0. Thus there is some wi
+such that some Vj contains no occurrences of EY . Since Wi is a cyclic path-word
+for Y, this implies that there is some vertex x of Y such that Vj is a word in Sx±1 .
+   Proposition 7.6 implies that in X(F, A) there are paths α1 , α2 labelled by v ′ and
+a word in Sx±1 accordingly, such that the initial vertices of α1 , α2 are at most ǫ-
+apart and the terminal vertices of α1 , α2 are at most ǫ-apart. Recall that v ′ = u2 vu2
+where |u1 |, |u2 | ≥ M + ǫ. Therefore by Lemma 8.3 v can be read as a path in the
+Stallings core graph of Gx = hSx i ≤ F (A). Hence by Lemma 8.2 v ∈ L2 (T )A , as
+required.                                                                             
+
+               9. Restricting geodesic currents to subgroups
+Definition 9.1 (Restriction of a current to a subgroup). Let H ≤ F be a finitely
+generated nonabelian subgroup. Since H is quasiconvex in F , we have a canon-
+ical H-equivariant topological embedding ∂H ⊂ ∂F which induces a canonical
+H-equivariant topological embedding ∂ 2 H ⊂ ∂ 2 F . Let µ ∈ Curr(F ). We de-
+fine the restricted current µ|H as follows. For any Borel subset S ⊆ ∂ 2 H put
+µ|H (S) := µ(S). It is easy to see that µ|H is an H-invariant measure on ∂ 2 H, that
+is µ|H ∈ Curr(H).
+   Denote rH : Curr(F ) → Curr(H), rH (µ) = µ|H for µ ∈ Curr(F ).
+Remark 9.2. In the above definition, the restricted current µ|H depends only on
+µ and the conjugacy class of H in F in the following sense. Let f ∈ F and put
+H1 = f Hf −1 . Consider an isomorphism α : H → H1 defined as α(h) = f hf −1
+for h ∈ H. Then α induces an α-equivariant homeomorphism α       b : ∂ 2 H → ∂ 2 H1 .
+Hence α  b induces a canonical isomorphism ᾰ : Curr(H) → Curr(H1 ) defined as
+               α−1 (S1 )) for any ν ∈ Curr(H) and S1 ⊆ ∂ 2 H1 .
+(ᾰν)(S1 ) = ν(b
+   It is not hard to check that for any µ ∈ Curr(F ) we have ᾰ(µ|H ) = µ|H1 .
+     The following is an immediate corollary of the definitions.
+Proposition 9.3. let H ≤ F be a finitely generated nonabelian subgroup. Then
+rH : Curr(F ) → Curr(H) is a linear continuous map.
+Notation 9.4. Let G be a group and g ∈ G be an element. We denote by [g]G the
+conjugacy class of g in G.
+  The proof of the following lemma given below was suggested to the authors by
+Gilbert Levitt.
+Lemma 9.5. Let H ≤ F be a finitely generated subgroup.
+   (1) There exists an integer n ≥ 1 with the following property. For every h ∈ H
+       there exist h1 , . . . , hm ∈ H with m ≤ n such that
+                        [h]F ∩ H = [h1 ]H ∪ [h2 ]H ∪ · · · ∪ [hm ]H .
+             We denote by nH,F the smallest n ≥ 1 with this property.
+                INTERSECTION FORM, LAMINATIONS AND CURRENTS                           25
+
+
+    (2) There exists an integer n1 ≥ 1 with the following property. Let h ∈ H be
+        any nontrivial element that is not a proper power in H. Represent h as
+        h = f d where f ∈ F is not a power and d ≥ 1. Then d ≤ n1 .
+          We denote by dH,F the smallest n1 ≥ 1 with this property.
+    (3) A finitely generated subgroup H ≤ F is malnormal if and only if nH,F =
+        dH,F = 1.
+Proof. It is easy to see that if H ≤ F is malnormal then nH,F = dH,F = 1 satisfy
+the requirements of the lemma. Similarly, if nH,F = dH,F = 1, it is not hard to
+show that H ≤ F is malnormal. Thus part (3) of the lemma holds.
+   Suppose now that H ≤ F is an arbitrary finitely generated subgroup. By Mar-
+shall Hall’s Theorem there exist subgroups K, U ≤ F such that U = hH, Ki = H ∗K
+has finite index in F . Let p = [F : U ]. Choose f1 , . . . , fp ∈ F such that
+F = ∪pj=1 U fj .
+   Let h ∈ H, h 6= 1 be arbitrary. Let J = {j|1 ≤ j ≤ p, fj−1 hfj ∈ U }. Every
+element of F has the form ufj , where u ∈ U , 1 ≤ j ≤ p. Hence it is obvious that
+                              [h]F ∩ U = ∪j∈J [fj−1 hfj ]U
+Let J ′ = {j ∈ J : fj−1 hfj ∈ H}. Since H ≤ U = H ∗ K is malnormal in U , it
+follows that for j ∈ J ′ we have
+                              [fj−1 hfj ]U ∩ H = [fj−1 hfj ]H
+and for j ∈ J − J ′ we have
+                                  [fj−1 hfj ]U ∩ H = ∅.
+  Therefore
+                              [h]F ∩ H = ∪j∈J ′ [fj−1 hfj ]H .
+Since h ∈ H, h 6= 1 was arbitrary, we see that nH,F ≤ p = [F : U ] and part (1) of
+the lemma is proved.
+    Now let U1 ≤ U be such that U1 ≤ F is normal and of finite index. Let
+q = [F : U1 ]. It is obvious that for any f ∈ F we have f q ∈ U1 and thus f q ∈ U .
+    Now let h ∈ H, h 6= 1 be an element that is not a proper power in H. Let
+h = f d where f ∈ F , d ≥ 1 and where f ∈ F is not a proper power. Note that
+since H ≤ U = U ∗ K is malnormal in U , it follows that h is not a proper power
+in U . Let t ≥ 1 be the smallest such that f t ∈ U . Note that, by the above
+remark, t ≤ q = [F : U1 ]. Note also, that, since H is a free factor of U and since
+(f t )d = ht ∈ H, it follows that f t ∈ H.
+    Suppose that d > t. If d is divisible by t, d = ts, then f t ∈ U and f ts ∈ H, where
+s > 1. Since f t ∈ H and h = (f t )s , this contradicts our assumption that h ∈ H is
+not a proper power in H. If d is not divisible by t, we can write d = ts + r where
+0 < r < t. Since f d = h ∈ U , f t ∈ U , it follows that f r ∈ U . Since 0 < r < t, this
+contradicts the choice of t. Thus d ≤ t ≤ q = [F : U1 ]. Hence dH,F ≤ [F : U1 ] and
+part (2) of the lemma is proved.
+                                                                                      
+   The following lemma follows easily from the definitions of counting currents in
+terms of delta-functions:
+Lemma 9.6. Let H ≤ F be a nonabelian finitely generated subgroup. Let h ∈ H be
+a nontrivial element such that h is not a proper power in H. Let h1 , . . . , hm ∈ H be
+26                            I. KAPOVICH AND M. LUSTIG
+
+
+pairwise non-conjugate elements such that [h]F ∩ H = [h1 ]H ∪ [h2 ]H ∪ · · · ∪ [hm ]H .
+Let h = f d where d ≥ 1 and f ∈ F is not a proper power in F .
+   Then:
+                          P
+    (1) We have ηhF |H = d m      H
+                             i=1 ηhi .
+    (2) If H ≤ F is malnormal then d = m = 1 and ηhF |H = ηhH .
+Lemma 9.7. Let H ≤ F be a finitely generated subgroup. Let A be a free basis of
+F and let ΓH be the Stallings subgroup graph for H ≤ F with respect to A.
+   Let µ ∈ Curr(F ). Then supp(µ) ⊆ iΛ (∂ 2 H) if and only if for every v ∈ F (A)
+with hv, µi > 0 there is a reduced edge-path labelled by v in Core(ΓH ). That is,
+supp(µ) ⊆ iΛ (∂ 2 H) if and only if for each v ∈ F (A) that cannot be read along a
+reduced path in Core(ΓH ) we have hv, µi = 0.
+Proof. Note that the convex hull T of ∂H in X(F, A) is a minimal H-invariant
+subtree in X(F, A) and that T can also be seen as a copy of the universal cover of
+Core(ΓH ) in X(F, A).
+   It is not hard to see that for v ∈ F (A) exactly one of the following two alternatives
+holds:
+   (a) Every segment labelled by v in X(F, A) is contained in some F -translate of
+T in F (X, A) and every such segment defines a two-sided cylinder that intersects
+nontrivially some F -translate of ∂ 2 H in ∂ 2 F .
+   (b) No segment labelled by v in X(F, A) is contained in an F -translate of T
+and every such segment defines a two-sided cylinder that is disjoint from every
+F -translate of ∂ 2 H in ∂ 2 F .
+   This fact immediately implies the statement of the lemma.                           
+Notation 9.8. Let H ≤ F be a finitely generated subgroup. We denote by
+CurrH (F ) the set of all µ ∈ Curr(F ) such that supp(µ) ⊆ iΛ (∂ 2 H).
+     Lemma 9.7 immediately implies:
+Lemma 9.9. Let H ≤ F be a finitely generated subgroup. Then CurrH (F ) is a
+closed affine subspace of Curr(F ).
+Proposition 9.10. Let H ≤ F be a finitely generated subgroup and let µ ∈
+CurrH (F ). Then there exist a sequence hi ∈ H and a sequence λi ≥ 0 such
+that
+                               µ = lim λi ηhFi .
+                                         i→∞
+
+Proof. Fix a free basis A of F . By re-scaling we may assume that ||µ||A = 1. Let
+                                                                      η
+wi be a sequence of reduced cyclic words in F (A) such that limi→∞ ||wwi ||i A = µ.
+   Let ΓH be the Stallings subgroup graph of H with respect to A. Let C > 0 be
+such that for any directed edges e, e′ in Core(ΓH ) there exists an edge-path p of
+length ≤ C in Core(ΓH ) such that epe′ is a reduced edge-path in Core(ΓH ).
+   It suffices to prove that for every M ≥ 1 and every ǫ > 0 there exists a cyclic
+path in Core(ΓH ) labelled by a cyclic word w such that for every v ∈ F (A) with
+|v|A = M we have
+                                 hv ±1 , wi
+(∗∗)                                        − hv, µi ≤ ǫ.
+                                  ||w||A
+     Let an integer M ≥ 1 and a real number ǫ > 0 be arbitrary. Let α = max|v|A =M hv, µi.
+     Choose an integer N > M ≥ 1 be such that
+                  INTERSECTION FORM, LAMINATIONS AND CURRENTS                                27
+
+
+
+                                                 N
+                                 (α + ǫ)(1 −        ) ≤ ǫ,
+                                               N +C
+and such that M+CN   ≤ ǫ/3.
+   By replacing wi by their high powers if necessary, we may assume that ||wi ||A is
+divisible by N for every i ≥ 1 and that lim ||wi ||A = ∞.
+                                              i→∞
+   Since µ = limi→∞ ||w1i ||A ηwi , there exists i0 ≥ 1 such that for every i ≥ i0 and
+every v ∈ F with |v|A = M we have
+                                   hv ±1 , wi i
+                                                − hv, µi ≤ ǫ.
+                                    ||wi ||A
+Hence, by the choice of N , for any v ∈ F with |v|A = M and for any 0 ≤ x ≤
+hv ±1 , wi i we have
+                                  x          x       N
+                                        −                ≤ ǫ.
+                               ||wi ||A   ||wi ||A N + C
+   Let ǫ1 > 0 be such that N ǫ1 ≤ ǫ/3.
+   Let i ≥ i0 . Put m = ||wi ||A /N and write wi as a cyclic concatenation wi =
+y1 . . . ym of segments of length N . As before, for j = 1, . . . , m we say that yj is
+good if yj ∈ supp(µ) and say that yj is bad otherwise. Let m = mbad + mgood where
+mbad is the number of those j = 1, . . . , m such that yj is bad.
+                     η
+   Since limi→∞ ||wwi ||i A = µ, for any fixed freely reduced word v ∈ F (A) of length
+                                       ±1
+N the symmetrized frequencies hv||w,w              i iA
+                                               i ||A
+                                                        of v in wi converge to hv, µiA as i → ∞.
+In particular, if v 6∈ suppA (µ), these frequencies converge to zero. It follows that
+there exists i1 ≥ i0 such that for every i ≥ i1 we have mbad ≤ ǫ1 ||wi ||A .
+   Let i ≥ i1 . For each j = 1, . . . , m such that yj is good choose a path pj in
+Core(ΓH ) labelled by yj and put zj = yj in this case. For each j such that yj is
+bad choose any reduced path pj of length N in Core(ΓH ). Put zj to be the label
+of pj in this case.
+   Finally, choose reduced paths p′1 , . . . , p′m in Core(ΓH ), of length ≤ C each, such
+that p1 p′1 p2 p′2 . . . pj p′j defines a reduced cyclic path α in Core(ΓH ). Let rj be the
+label of p′j . Then the label of the cyclic path α is the cyclic word wi′ obtained as a
+cyclic concatenation
+                                          wi′ = z1 r1 . . . zm rm .
+Since |zj | = N and |rj | ≤ C, we have
+                             ||wi ||A ≤ ||wi′ ||A ≤ ||wi ||A + mC,
+and hence
+                                        ||wi′ ||A    C
+(†)                                1≤             ≤1+ .
+                                        ||wi ||A     N
+   Note that by construction wi′ represents the F -conjugacy class of some hi ∈ H.
+   Let v ∈ F (A) be any freely reduced word of length M . We want to compare
+the frequencies of v in wi and wi′ . We say that an occurrence of v ±1 in wi is
+good if it lies in some good yj and that this occurrence is bad otherwise. Let
+hv ±1 , wi i = hv ±1 , wi igood + hv ±1 , wi ibad where hv ±1 , wi igood is the number of good
+occurrences of v in wi . Note that
+                  hv ±1 , wi ibad ≤ N mbad + M m ≤ N ǫ1 ||wi ||A + M m.
+28                                I. KAPOVICH AND M. LUSTIG
+
+
+     Hence
+                                 hv ±1 , wi ibad          M
+                                                 ≤ N ǫ1 +   ≤ ǫ.
+                                    ||wi ||A              N
+     Thus
+                           hv ±1 , wi igood   hv ±1 , wi i
+                                            −              ≤ ǫ.
+                               ||wi ||A        ||wi ||A
+   Similarly, we say that an occurrence of v ±1 in wi′ is good if it lies within some
+zj = yj where yj is good, and that an occurrence of v ±1 in wi′ is bad otherwise.
+   We have
+             hv ±1 , wi′ ibad ≤ N mbad + M m + Cm ≤ N ǫ1 ||wi ||A + M m + Cm.
+Hence
+                                hv ±1 , wi′ ibad          M  C
+                                                 ≤ N ǫ1 +   + .
+                                   ||wi ||A               N  N
+Therefore
+                 hv ±1 , wi′ ibad   hv ±1 , wi ibad ||wi ||A          M   C
+                                  =                          ≤ N ǫ1 +   +   ≤ǫ
+                    ||wi′ ||A          ||wi ||A ||wi′ ||A             N   N
+since ||wi ||A ≤ ||wi′ ||A .
+   Hence
+
+                            hv ±1 , wi′ igood   hv ±1 , wi′ i
+                                    ′         −               ≤ ǫ.
+                                ||wi ||A         ||wi′ ||A
+     Note that by construction hv, wi′ igood = hv, wi igood .
+     Hence by (†)
+
+     hv ±1 , wi igood   hv ±1 , wi′ igood   hv ±1 , wi igood ||wi ||A    hv ±1 , wi igood N
+                      ≥                   =                            ≥
+         ||wi ||A           ||wi′ ||A           ||wi ||A     ||wi′ ||A       ||wi ||A    N +C
+     Hence by the choice of N we have
+                               hv ±1 , wi igood   hv ±1 , wi′ igood
+                                                −                   ≤ ǫ.
+                                   ||wi ||A           ||wi′ ||A
+     Therefore
+                                   hv ±1 , wi′ i hv ±1 , wi i
+                                                −             ≤ 3ǫ
+                                    ||wi′ ||A     ||wi ||A
+and hence
+                              hv ±1 , wi′ i
+                                            − hv, µi ≤ 4ǫ.
+                               ||wi′ ||A
+   Since wi′ represents an element conjugate in F to an element of H, we have
+verified that for any ǫ > 0 and any integer M ≥ 1 condition (∗∗) holds. This
+implies the statement of the proposition.                                  
+Proposition 9.11. Let H ≤ F be a nonabelian finitely generated subgroup. Let T
+be an R-tree with a very small isometric action of F such that H acts nontrivially
+on T . Let TH be the smallest H-invariant subtree.
+   Let µ ∈ Curr(F ) be such that supp(µ) ⊆ iΛ (∂ 2 H). Then:
+    (1) We have
+                      hT, µi ≤ hTH , µ|H i ≤ nH,F dH,F hT, µi.
+                  INTERSECTION FORM, LAMINATIONS AND CURRENTS                           29
+
+
+      (2) Moreover, if H ≤ F is malnormal, then
+                                        hT, µi = hTH , µ|H i.
+Proof. By Proposition 9.10, there exist a sequence hi ∈ H and a sequence λi ≥ 0
+such that
+                                 µ = lim λi ηhFi .
+                                               i→∞
+We may assume that each hi is nontrivial and is not a proper power in H. For each
+i let 1 ≤ mi ≤ nH,F and hi,1 , . . . , hi,mi ∈ H be such that
+                                     [hi ]F ∩ H = ∪m
+                                                   j=1 [hi,j ]H .
+                                                     i
+
+
+
+Let 1 ≤ di ≤ dH,F be such that in F we have hi = fidi where fi is not a proper
+power in F .                    P i H
+  Then by Lemma 9.6 ηhFi |H = di mj=1 ηhi,j . Hence
+                                                        mi
+                                                        X
+                                     µ|H = lim λi di          ηhHi,j .
+                                            i→∞
+                                                        j=1
+
+Note that ||hi ||T = ||hi,j ||TH .
+  We have
+                                      hT, µi = lim λi ||hi ||T .
+                                                  i→∞
+Also,
+
+                                            mi
+                                            X
+(∗)             hTH , µ|H i = lim λi di           ||hi,j ||TH = lim λi di mi ||hi ||T
+                               i→∞                                i→∞
+                                            j=1
+
+Since 1 ≤ di mi ≤ nH,F dH,F , (∗) implies that
+                         hT, µi ≤ hTH , µ|H i ≤ nH,F dH,F hT, µi.
+Moreover, if H ≤ F is malnormal then nH,F = dH,F = 1 and hence
+
+                                        hT, µi = hTH , µ|H i,
+as required.
+                                                                                        
+
+                                 10. The general case
+   In this section we will prove that for an arbitrary very small action of F on an
+R-tree T the condition hT, µi = 0 implies that supp(µ) ⊆ L2 (T ).
+   We need the following basic fact about the structure of a general very small
+action (see Remark 2.1 in [16]):
+Proposition-Definition 10.1. [16] Let F be a nonabelian finitely generated group
+with a very small minimal isometric action on an R-tree T . Suppose that this action
+is neither discrete nor has dense orbits.
+   Then there exists an F -invariant collection V of disjoint closed subtrees of T
+with the following properties:
+    (1) The family V consists of a finite number of distinct F -orbits of closed sub-
+         trees of T .
+30                            I. KAPOVICH AND M. LUSTIG
+
+
+     (2) For every tree T ′ ∈ V the set-wise stabilizer H = StabF (T ′ ) of T ′ in F is a
+         finitely generated subgroup of F . Moreover, either H acts on T ′ with dense
+         orbits or T ′ is a single point that is fixed by H.
+     (3) Let Ts be an R-tree obtained from T by collapsing all subtrees from T to
+         points and let q : T → Ts be the corresponding F -equivariant quotient
+         map. Then the action of F on T factors through to an isometric action of
+         F on Ts that is very small, minimal and discrete.
+     (4) The quotient Y = Ts /F is a finite reduced graph of groups where the vertex
+         groups correspond to setwise F -stabilizers of trees from V and where the
+         edge-lengths correspond to distances in T between F -orbits of the trees
+         from V representing the end-points of the edge in question.
+Lemma 10.2. Let q : T → Ts be as in Proposition-Definition 10.1. Then the
+following hold:
+     (1) For every f ∈ F and every p ∈ T we have dTs (q(p), f q(p)) ≤ dT (p, f p).
+     (2) For every f ∈ F we have ||f ||Ts ≤ ||f ||T .
+     (3) For every µ ∈ Curr(F ) we have hTs , µi ≤ hT, µi.
+     (4) We have L2 (T ) ⊆ L2 (Ts ).
+Proof. Part (1) follows from the definition of q : T → Ts . Part (1) obviously implies
+part (2). It is also easy to see that part (2) implies parts (3) and (4).
+  Indeed, let µ ∈ Curr(F ). Write µ as µ = limi→∞ λi ηgi for some gi ∈ F, λi ≥ 0.
+Then
+                   hTs , µi = lim λi ||gi ||Ts ≤ lim λi ||gi ||T = hT, µi,
+                             i→∞               i→∞
+so that part (3) holds. To see that part (4) holds, fix a free basis A of F . Suppose
+v ∈ F (A) is such that v ∈ [L2 (T )]A . Then for any ǫ > 0 there is a cyclically reduced
+w with ||w||T ≤ ǫ and with v being a subword of w. Then ||w||Ts ≤ ||w||T . Since
+ǫ > 0 was arbitrary, it follows that v ∈ [L2 (Ts )]A , as required.                   
+Convention 10.3. For the remainder of this section and the subsequent section,
+let F , T , Ts and Y be as in Proposition-Definition 10.1. For each vertex x ∈ V Y
+let Gx ≤ F be a subgroup corresponding to the vertex group of x of Y . We will
+denote by V ′ Y the set of all those v ∈ V Y such that the vertex group of x in Y is
+not cyclic.
+Proposition 10.4. Let µ ∈ Curr(F ) be such that
+                                          [
+                    supp(µ) ⊆ L2 (Ts ) =      iΛ (∂ 2 Gx ).
+                                               x∈V ′ Y
+                                                                        P
+Then there exist currents µx ∈ Curr(F ), x ∈ V ′ Y , such that µ =         x∈V ′ Y µx and
+such that supp(µx ) ⊆ iΛ (∂ 2 Gx ) for every x ∈ V ′ Y .
+Proof. There is a finite collection of nontrivial elements g1 , . . . , gp ∈ F such that
+if for some x1 , x2 ∈ V ′ Y , x1 6= x2 and some f1 , f2 ∈ G we have f1 Gx1 f1−1 ∩
+f2 Gx2 f2−1 6= 1, then f1 Gx1 f1−1 ∩f2 Gx2 f2−1 is a cyclic group generated by a conjugate
+of the power of some gi in F . Indeed, suppose that H = f1 Gx1 f1−1 ∩ f2 Gx2 f2−1 6= 1.
+Then H fixes a segment in Ts joining a vertex v1 of Ts projecting to x1 with a
+vertex v2 of Ts projecting to x2 . Hence H fixes an edge of Ts adjacent to v1 . This
+implies that H is conjugate to a subgroup of the edge-group for an edge adjacent
+to x1 in Y. Thus we can take g1 , . . . , gp ∈ F to be the generators of the nontrivial
+edge-groups of Y.
+                 INTERSECTION FORM, LAMINATIONS AND CURRENTS                            31
+
+
+   One can then show that if x1 , x2 ∈ V ′ Y , x1 6= x2 and a point (ξ, ζ) ∈ ∂ 2 F
+belongs to iΛ (∂ 2 Gx1 ) ∩ iΛ (∂ 2 Gx2 ) then for some 1 ≤ i ≤ p the point (ξ, ζ) is an F -
+translate of (gi−∞ , gi∞ ) or of (gi∞ , gi−∞ ). To see this, choose a free basis A of F and
+suppose that (ξ, ζ) ∈ iΛ (∂ 2 Gx1 ) ∩ iΛ (∂ 2 Gx2 ). Then the bi-infinite geodesic joining
+ξ to ζ in the Cayley graph X(F, A) is labelled by a bi-infinite freely reduced word
+w that can be read along some bi-infinite paths in cores of the Stallings subgroup
+graphs ΓGx1 and ΓGx2 . Therefore (see [33]) w can be read along a bi-infinite path in
+a connected component of the “Stallings product graph” ΓGx1 × ΓGx2 (also known
+as the push-out of ΓGx1 and ΓGx2 ). Hence (again see [33]) the bi-infinite word w is
+readable along some path in the core of the Stallings subgroup graph for a subgroup
+of the form f1 Gx1 f1−1 ∩ f2 Gx2 f2−1 for some f1 , f2 ∈ F . Therefore w is an infinite
+power of some gi , as required.                                      
+   For 1 ≤ i ≤ p put λi = µ {(gi−∞ , gi∞ )} = µ {(gi∞ , gi−∞ )} . Thus λi ≥ 0.
+   Hence we can represent µ as
+                                             p
+                                             X
+                                    µ=ν+           λi ηgi
+                                             i=1
+
+where ν ∈ Curr(F ) is a geodesic current, and where for every 1 ≤ i ≤ p the
+current ν has no atom at (gi−∞ , gi∞ ), and hence it has no atom at every F -translate
+of (gi−∞ , gi∞ ) or of (gi∞ , gi−∞ ). Here by saying that a measure has no atom at a
+particular point we mean that the measure of a singleton consisting of that point
+is equal to zero.
+    For the current ν the statement of the proposition is obvious. Indeed, for S ⊆
+∂ 2 F and for x ∈ V ′ Y put
+                                                            
+                                 νx (S) = ν S ∩ iΛ (∂ 2 Gx ) .
+                                           ′
+                          Pfor every x ∈ V Y we have νx ∈ Curr(F ) and supp[νx ] ⊆
+It is not hard to check that
+      2
+iΛ (∂ Gx ), and that ν = x∈V ′ Y νx .
+    Note that for every 1 ≤ i ≤ p there is some (not necessarily unique) x(i) = x ∈
+V ′ Y such that supp(ηgi ) ⊆ iΛ (∂ 2 Gx ).
+    For every x ∈ V ′ YPput µx to be the sum of νx and all those λi ηgi for which
+x(i) = x. Then µ = x∈V ′ Y µx and supp(µx ) ⊆ iΛ (∂ 2 Gx ) for every x ∈ V ′ Y , as
+required.                                                                         
+                                         P
+    Note that the decmposition µ = x∈V ′ Y µx in Proposition 10.4 is, in general,
+non-canonical.
+Proposition 10.5. Let H ≤ F = F (A) be a finitely generated subgroup and let
+µ ∈ CurrH (F ).
+  Then supp(µ) ⊆ iΛ (supp(µ|H )).
+Proof. Let ΓH be the Stallings subgroup graph of H with respect to A and let
+∆H = Core(ΓH ). Note that the minimal H-invariant subtree XH ⊆ X(F, A) is a
+copy of ∆gH in X(F, A).
+   By conjugating H if necessary, without loss of generality we may assume that
+in fact ∆H = ΓH , so that the base-vertex y ∈ V ΓH is a vertex of ∆H . Then
+(ΓH , y) provides a canonical isomorphism (simplicial chart) α : H → π1 (ΓH , y).
+This isomorphism in turn provides a canonical H-equivariant identification of ∂H
+with ∂ Γf                                                                2
+         H = ∂XH and a corresponding H-equivariant identification of ∂ H with
+32                                I. KAPOVICH AND M. LUSTIG
+
+
+∂ 2 XH . From this point on we will assume that these identifications are made
+without additional comment.
+    Recall that the lamination L := iΛ (supp(µ|H )) ∈ Λ2 (F ) has the form
+
+                                    L = ∪f ∈F f supp(µ|H ).
+  Let v ∈ F (A) be such that v ∈ suppA (µ), so that hv, µiA > 0. We need to show
+that v ∈ LA .
+   Fix a segment [x, y] in XH labelled by v.
+   Since supp(µ) ⊆ iΛ (∂ 2 H), we know that
+                                                                      
+           hv, µi = µ(CylX ([x, y])) = µ CylX ([x, y]) ∩ ∪f ∈F f ∂ 2 H =
+                            [                            
+                         =        CylX ([x, y]) ∩ f ∂ 2 H > 0.
+                                 f ∈F
+
+     Since µ is countably additive, there is some f ∈ F such that
+                                                                     
+              µ CylX ([x, y]) ∩ f ∂ 2 H = µ f −1 CylX ([x, y]) ∩ ∂ 2 H > 0.
+It is easy to see that if [x, y] is not contained in f XH then CylX ([x, y]) and f ∂ 2 H
+are disjoint. Hence we have that [x, y] ⊆ f XH and that [x, y] is labelled by v in
+X = X(F, H). Thus there is a reduced path p in ∆H labelled by v such that
+                                  e H is a lift of p in ∆
+[x′ , y ′ ] := f −1 [x, y] ⊆ XH = ∆                     e H . Note that f −1 CylX ([x, y]) =
+             ′ ′                     ′ ′        2
+CylX ([x , y ]) so that µ(CylX ([x , y ]) ∩ ∂ H) > 0. It is easy to see that
+                      CylX ([x′ , y ′ ]) ∩ ∂ 2 H = CylXH ([x′ , y ′ ]) ⊆ ∂ 2 H.
+Therefore by definition of µ|H we have:
+       µ|H (CylXH ([x′ , y ′ ])) = µ(CylXH ([x′ , y ′ ])) = µ(CylX ([x′ , y ′ ]) ∩ ∂ 2 H) > 0.
+    Thus hp, µ|H iα > 0 and hence p ∈ suppα (µ|H ). Since v ∈ F (A) is the label of p,
+it follows that v ∈ LA where L = iΛ (supp µ|H ), as required.                       
+Proposition 10.6. Let x ∈ V ′ Y and let µ ∈ Curr(F ) be such that supp(µ) ⊆
+iΛ (∂ 2 Gx ) and hT, µi = 0. Then supp(µ) ⊆ L2 (T ).
+Proof. Denote H = Gx . Fix a free basis A of F and a free basis B of H. If H fixes
+a vertex of T then iΛ (∂ 2 H) ⊆ L2 (T ) and the statement is obvious. Suppose that H
+acts nontrivially on T and let TH be the minimal H-invariant subtree of T . Then
+H acts on TH with dense orbits.
+   Since supp(µ) ⊆ iΛ (∂ 2 H) and hT, µi = 0, Proposition 9.11 implies that hTH , µ|H i =
+0. Since H acts on TH with dense orbits, we know by Proposition 6.1 that
+supp(µ|H ) ⊆ L2 (TH ) ⊆ ∂ 2 H.
+   Since supp(µ) ⊆ iΛ (∂ 2 H), Proposition 10.5 implies that supp(µ) ⊆ iΛ (supp(µ|H ))
+and hence
+                                supp(µ) ⊆ iΛ (L2 (TH ))
+   It is easy to see that iΛ (L2 (TH )) ⊆ L2 (T ) and the statement of the proposition
+follows.
+                                                                                     
+Theorem 10.7. Let F be a finitely generated nonabelian free group with a very
+small isometric minimal action on an R-tree T . Let µ ∈ Curr(F ) be such that
+hT, µi = 0. Then supp(µ) ⊆ L2 (T ).
+                INTERSECTION FORM, LAMINATIONS AND CURRENTS                        33
+
+
+Proof. If F acts on T with dense orbits or if the action is simplicial, the state-
+ment of the theorem follows from Proposition 6.1 and Proposition 8.4. Suppose
+neither of these two situations occurs. Let q : T → Ts = Ye be as in Proposition-
+Definition 10.1.
+   By Proposition 10.4 we can decompose µ as
+                                        X
+                                   µ=        µx ,
+                                          x∈V ′ Y
+
+where each µx ∈ Curr(F ) satisfies supp(µx ) ⊆ iΛ (∂ 2 H).
+  We have                                X
+                           0 = hT, µi =        hT, µx i
+                                             x∈V ′ Y
+                                      ′
+and hence hT, µx i = 0 for each x ∈ V Y .
+   Therefore by Proposition 10.6 we have supp(µx ) ⊆ L2 T for every x ∈ V X.
+   Since, obviously, supp(µ) = ∪x∈V ′ Y supp(µx ), it follows that supp(µ) ⊆ L2 (T ),
+as required.
+                                                                                  
+
+Lemma 10.8. Let F = F (A) be a finitely generated nonabelian free group. Let
+T be an R-tree with a very small nontrivial minimal isometric action of F on T .
+Then L2 (T ) 6= ∂ 2 F .
+Proof. Put L = L2 (T ). We need to show that there exists v ∈ F (A) such that
+v 6∈ LA .
+    Let p ∈ T . By Proposition 4.2, there is C < ∞ such that BBTT,p (A) < C.
+    Since the action of F on T is nontrivial, there exists a freely reduced v ∈ F (A)
+such that ||v||T ≥ 4C + 2. Hence dT (p, vp) ≥ ||v||T ≥ 4C + 2. Suppose that v ∈ LA .
+Then there exists a cyclically reduced word w in F (A) such that v is an initial
+segment of w and such that ||w||T ≤ 1. We can write w as a reduced product
+w = vu. by Lemma 4.3 we have
+              dT (p, wp) ≥ dT (p, vp) + dT (p, up) − 2C ≥ ||v||T − 2C.
+  Since w is cyclically reduced, Lemma 4.3 also implies that
+                    ||w||T ≥ dT (p, wp) − 2C ≥ ||v||T − 4C ≥ 2.
+This contradicts our assumption that ||w||T ≤ 1. Thus v 6∈ LA .
+                                                                                   
+
+Corollary 10.9. Let µ ∈ Curr(F ) be a current with full support. Then for every
+very small action of F on an R-tree T we have hT, µi > 0.
+Proof. Suppose there is some very small T such that hµ, T i = 0. By Theorem 10.7
+it follows that supp(µ) ⊆ L2 (T ). By Lemma 10.8 this contradicts our assumption
+that µ has full support.                                                       
+
+        11. Length compactness for currents with full support
+Definition 11.1 (Automorphic length spectrum of a current). Let T ∈ cv(F ) and
+µ ∈ Curr(F ). The automorphic length spectrum of µ with respect to T is the set
+                      ST (µ) := {hT, φµi : φ ∈ Out(F )} ⊆ R.
+34                            I. KAPOVICH AND M. LUSTIG
+
+
+  Note that by Out(F )-invariance of the intersection form, we always have hT, φµi =
+hφ−1 T, µi. Hence
+                        ST (µ) := {hφT, µi : φ ∈ Out(F )}.
+Theorem 11.2. Let µ ∈ Curr(F ) be a current with full support and let T ∈ cv(F ).
+Then:
+   (1) For any C > 0 the set
+                             {φ ∈ Out(F ) : hT, φµi ≤ C}
+          is finite.
+      (2) The set ST (µ) is a discrete subset of R≥0 .
+      (3) Suppose φn ∈ Out(F ) is an infinite sequence of distinct elements such that
+          for some λn ≥ 0 and some µ′ ∈ Curr(F ) we have limn→∞ λn φn µ = µ′ .
+          Then limn→∞ λn = 0.
+Proof. It is obvious that (1) implies (2).
+   To see that (1) holds, suppose that for some C > 0 there exists an infinite
+sequence of distinct elements φn ∈ Out(F ) such that for every n ≥ 1 we have
+hT, φn µi ≤ C. By rescaling T , we may assume that the graph T /F has volume 1,
+that is T ∈ CV (F ).
+   Since CV (F ) = CV (F ) ∪ ∂CV (F ) is compact, after passing to a subsequence
+we may assume that limn→∞ [φ−1  n T ] = [T∞ ] in CV (F ) for some T∞ ∈ cv(F ). Thus
+there is a sequence cn ≥ 0 such that
+(♣)                                lim cn φ−1
+                                           n T = T∞
+                                  n→∞
+
+in cv(F ). Moreover, since all φn ∈ Out(F ), n ≥ 1 are distinct and the action of
+Out(F ) on CV (F ) = Pcv(F ) is properly discontinuous, we have [T∞ ] ∈ ∂CV (F ).
+This implies that limn→∞ cn = 0.
+   Indeed, suppose not. Then, after passing to a subsequence, we may assume that
+cn ≥ c > 0 for every n ≥ 1. Since T∞ 6∈ cv(F ), there are nontrivial elements in
+F acting on T∞ with arbitrary small translation length. That is, there exists a
+sequence gi ∈ F, gi 6= 1 such that limi→∞ ||gi ||T∞ = 0. Recall that by definition
+of the left action of Out(F ) on cv(F ), we have ||g||φ−1
+                                                       n T
+                                                           = ||φn (g)||T for every
+g ∈ F and every n ≥ 1. Then (♣) implies that there is a sequence ni ≥ 1 with
+limi→∞ ni = ∞ such that
+                      0 = lim cni ||gi ||φ−1
+                                          n T
+                                              = lim cni ||φni gi ||T .
+                          i→∞              i     i→∞
+On the other hand, since the action of F on T is free and simplicial, there is some
+δ > 0 such that for every f ∈ F, f 6= 1 we have ||f ||T ≥ δ. Hence for every i ≥ 1
+                                 cni ||φni gi ||T ≥ cδ > 0,
+yielding a contradiction. Thus indeed limn→∞ cn = 0.
+   By Out(F )-invariance of the intersection form we have
+            0 ≤ hcn φ−1             −1
+                     n T, µi = cn hφn T, µi = cn hT, φn µi ≤ cn C →n→∞ 0.
+
+Therefore, by the continuity of the intersection form [32], we have
+                           0 = lim hcn φ−1
+                                        n T, µi = hT∞ , µi.
+                                n→∞
+However, this contradicts the conclusion of Corollary 10.9 since by assumption µ
+has full support. Thus part (1) is established.
+                 INTERSECTION FORM, LAMINATIONS AND CURRENTS                          35
+
+
+  We now show that (1) implies (3). Let λn , φn , µ′ be as in (3). Part (1) implies
+that limn→∞ hT, φn µi = ∞. On the other hand,
+                  lim λn hT, φn µi = lim hT, λn φn µi = hT, µ′ i < ∞.
+                 n→∞                  n→∞
+This implies that limn→∞ λn = 0, as required.                                         
+
+                               12. Unique ergodicity
+   Recall that an element φ ∈ Out(F ) is called reducible if there exists a free
+product decomposition F = C1 ∗ . . . Ck ∗ F ′ , where k ≥ 1 and Ci 6= {1}, such
+that φ permutes the conjugacy classes of subgroups C1 , . . . , Ck in F . An element
+φ ∈ Out(F ) is called irreducible if it is not reducible.
+Definition 12.1. An element φ ∈ Out(F ) is said to be irreducible with irreducible
+powers or an iwip for short, if for every n ≥ 1 φn is irreducible (sometimes such
+automorphisms are also called fully irreducible). Thus φ ∈ Aut(F ) is an iwip if and
+only if no positive power of φ preserves the conjugacy class of a proper free factor of
+F . An element φ ∈ Aut(F ) is atoroidal that is, if there does not exist a nontrivial
+conjugacy class in F that is fixed by some positive power of φ.
+   Let φ ∈ Out(F ) be an atoroidal iwip. It is known, by the work of Reiner Martin
+in the case of currents and by the result of Levitt and Lustig in the case of CV (F )
+that the (left) action of φ has “North-South” dynamics on both PCurr(F ) and
+CV (F ):
+Proposition 12.2. Let φ ∈ Out(F ) be an atoroidal iwip. Then the following hold:
+   (1) [38] The action of φ on CV (F ) has exactly two distinct fixed points [T+ ], [T− ]
+       and, moreover, for any [T ] ∈ CV (F ), [T ] 6= [T− ] we have limn→∞ φn [T ] =
+       [T+ ] and for any [T ] ∈ CV (F ), [T ] 6= [T+ ] we have limn→∞ φ−n [T ] = [T− ].
+   (2) [40] The action of φ on PCurr(F ) has exactly two distinct fixed points
+       [µ+ ], [µ− ] and, moreover, for any [µ] ∈ PCurr(F ), [µ] 6= [µ− ] we have
+       limn→∞ φn [µ] = [µ+ ] and for any [µ] ∈ PCurr(F ), [µ] 6= [µ+ ] we have
+       limn→∞ φ−n [µ] = [µ− ].
+   (3) [32] We have hT+ , µ+ i = hT− , µ− i = 0 and hT+ , µ− i > 0, hT− , µ− i > 0.
+  Here we prove that µ+ is uniquely ergodic in the following sense:
+Theorem 12.3. Let φ ∈ Out(F ), µ± , T± be as in Proposition 12.2. If [µ] ∈
+PCurr(F ) is such that supp(µ) ⊆ supp(µ+ ) then [µ] = [µ+ ].
+Proof. Note that since φ fixes [T+ ], we have φT+ = λT+ for some λ > 0. Suppose
+that supp(µ) ⊆ supp(µ+ ) but [µ] 6= [µ+ ]. Since hT+ , µ+ i = 0, Theorem 1.1 implies
+that supp(µ+ ) ⊆ L2 (T+ ). Since supp(µ) ⊆ supp(µ+ ) ⊆ L2 (T+ ), Theorem 1.1 also
+implies that hT+ , µi = 0. Since [µ] 6= [µ+ ] we have limn→∞ φ−n [µ] = [µ− ], so that
+for some sequence cn > 0 we have limn→∞ cn φ−n µ = µ− in Curr(F ). Hence for
+any n ≥ 1
+          hT+ , cn φ−n µi = hφn T+ , cn µi = hλn T+ , cn µi = λn cn hT+ , µi = 0.
+Therefore, by continuity of the intersection form
+              0 = lim hT+ , cn φ−n µi = hT+ , lim cn φ−n µi = hT+ , µ− i,
+                  n→∞                          n→∞
+
+which contradicts part (3) of Proposition 12.2.                                       
+36                              I. KAPOVICH AND M. LUSTIG
+
+
+     By a similar argument we obtain a dual statement for T+ .
+Theorem 12.4. Let φ ∈ Out(F ), µ± , T± be as in Proposition 12.2. Let [T ] ∈
+CV (F ) be such that L2 (T+ ) ⊆ L2 (T ). Then [T ] = [T+ ].
+Proof. Note that since φ fixes [µ+ ], there is r > 0 such that φµ+ = rµ+ . Suppose
+that [T ] ∈ CV (F ) be such that L2 (T+ ) ⊆ L2 (T ) but that [T ] 6= [T+ ]. We have
+supp(µ+ ) ⊆ L2 (T+ ) ⊆ L2 (T ) and therefore by Theorem 1.1 we have hT, µ+ i = 0.
+Since [T ] 6= [T+ ], we have limn→∞ φ−n [T ] = [T− ], so that for some sequence cn > 0
+we have limn→∞ cn φ−n T = T− in cv(F ). Hence for any n ≥ 1
+            hcn φ−n T, µ+ i = hcn T, φn µ+ i = hcn T, rn µ+ i = rn cn hT, µ+ i = 0.
+Therefore, by continuity of the intersection form
+               0 = lim hcn φ−n T, µ+ i = h lim cn φ−n T, µ+ i = hT− , µ+ i,
+                    n→∞                      n→∞
+
+which contradicts part (3) of Proposition 12.2.                                        
+
+Corollary 12.5. Let φ ∈ Out(F ), µ± , T± be as in Proposition 12.2.
+      (1) Let T ∈ cv(F ). Then hT, µ+ i = 0 if and only if [T ] = [T+ ].
+      (2) Let µ ∈ Curr(F ), µ 6= 0. Then hT+ , µi = 0 if and only if [µ] = [µ+ ].
+Proof. (1) We already know that hT+ , µ+ i = 0 and that supp(µ+ ) ⊆ L2 (T+ ).
+Suppose hT, µ+ i = 0 for some T ∈ cv(F ). Suppose that [T ] 6= [T+ ]. Then
+limn→∞ φ−n [T ] = [T− ], so that limn→∞ cn φ−n T = T− for some cn > 0. We
+have
+         hcn φ−n T, µ+ i = hcn T, φn µ+ i = hcn T, rn µ+ i = cn rn hT, µ+ i = 0.
+Since limn→∞ cn φ−n T = T− , the continuity of the intersection form implies that
+hT− , µ+ i = 0, yielding a contradiction with part (3) of Proposition 12.2.
+   The proof of part (2) is essentially symmetric and we omit the details.     
+
+   As noted in the above argument, we do know that supp(µ+ ) ⊆ L2 (T+ ), but even
+in this particular case it can happen that the inclusion is a strict one.
+   One can check, by directly comparing the definitions, that, under the assump-
+tions of Proposition 12.2, supp(µ+ ) is equal to the “stable lamination” of φ in the
+sense of [9]. The reason for the potential inequality supp(µ+ ) 6= L2 (T+ ) comes from
+the possibility that (ξ, ζ), (ζ, ω) ∈ supp(µ+ ) but (ξ, ω) 6∈ supp(µ+ ), while this type
+of behavior is by definition impossible in L2 (T+ ).
+   We believe that that for any atoroidal iwip automorphism L2 (T+ ) is obtained
+from the stable lamination of φ via the operation of “diagonal closure” as indicated
+above.
+
+     13. Filling elements, filling currents and bounded translation
+                                 equivalence.
+Definition 13.1. Let µ ∈ Curr(F ). We say that µ fills F if for every very small
+action of F on an R-tree T we have hT, µi > 0.
+   Similarly, we say that an element g ∈ F fills F if for every very small action of
+F on an R-tree T we have ||g||T > 0. Thus g fills F if and only if ηg fills F .
+     Corollary 10.9 says that every current µ ∈ Curr(F ) with full support fills F .
+                   INTERSECTION FORM, LAMINATIONS AND CURRENTS                           37
+
+
+Proposition 13.2. Let µ ∈ Curr(F ) be a current with full support. Let µn ∈
+Curr(F ) be a sequence such that limn→∞ µn = µ. Then there is n0 ≥ 1 such that
+for every n ≥ n0 the current µn fills F .
+
+Proof. Suppose the statement of the proposition fails. Then there exists a sequence
+ni with limi→∞ ni = ∞ and a sequence of very small R-trees Ti such that hTi , µni i =
+0. Since CV (F ) ∪ ∂CV (F ) is compact, there exists a sequence ri ≥ 0 and a very
+small action of F on an R-tree T such that limi→∞ ri Ti = T . Note that we have
+
+                              hri Ti , µni i = ri hTi , µni i = 0.
+
+By the continuity of the intersection form on the closure of the non-projectivized
+Outer space (see [32]), this implies that
+
+                                         hT, µi = 0.
+
+This contradicts the fact that, by Corollary 10.9, µ fills F .                           
+
+   Proposition 13.2 immediately implies:
+
+Corollary 13.3. Let µ ∈ Curr(F ) be a current with full support. Let λn ≥ 0 and
+gn ∈ F be such that limn→∞ λn ηgn = µ. Then there is n0 ≥ 1 such that for every
+n ≥ n0 the element gn fills F .
+
+Notation 13.4. Let F be a finitely generated free group and let A be a free
+basis of F . Let ξ ∈ ∂F . We represent ξ by a right-infinite freely reduced word
+x1 x2 . . . xn . . . , where xi ∈ A±1 , labelling the geodesic ray from 1 to ξ in the Cayley
+graph X(F, A). For every n ≥ 1 we denote by ξA (n) the element of F represented
+by the initial segment of this ray of length n, that is ξA (n) = x1 . . . xn ∈ F .
+
+Definition 13.5 (Uniform measure corresponding to a free basis). Let A be a free
+basis of F and let k ≥ 2 be the rank of F . For a nontrivial freely reduced word
+v ∈ F (A) let CylA (v) be the set of all ξ ∈ ∂F such that v is an initial segment of ξ,
+when ξ is realized as a geodesic ray with origin 1 ∈ F in the Cayley graph X(F, A).
+   The uniform measure on ∂F , corresponding to A, denoted µA , is a Borel proba-
+bility measure on ∂F , such that for every nontrivial freely reduced word v ∈ F (A)
+we have
+                                                   1
+                          µA (CylA (v)) =                  ,
+                                             2k(2k − 1)n−1
+where n = |v|A .
+
+   Informally, a µA -random point ξ ∈ ∂F corresponds to a “random” right-infinite
+freely reduced word over A±1 . We refer the reader to [28, 24, 34] for a more detailed
+discussion regarding the uniform measure µA and the uniform current νA .
+
+Theorem 13.6. Let F = F (A) be a finitely generated nonabelian free group. Let
+µA be the uniform measure on ∂F corresponding to A. Then there exists a set
+R ⊆ ∂F with the following properties:
+    (1) We have µA (R) = 1.
+    (2) For each ξ ∈ R there is N ≥ 1 such that for every n ≥ N the element
+        ξA (n) ∈ F fills F .
+38                                I. KAPOVICH AND M. LUSTIG
+
+
+Proof. Let νA be the uniform current on F corresponding to A. Note that by
+construction νA has full support. As shown in [28], there exists a subset R ⊆ ∂F
+with µA (R) = 1 such that for each ξ ∈ R we have
+                                       ηξ (n)
+                                  lim A       = νA .
+                                 n→∞     n
+   Corollary 13.3 implies that for every ξ ∈ R there is N ≥ 1 such that for each
+n ≥ N the element ξA (n) fills F , as required.                                
+     Theorem 13.6 says that an “almost generic” element of F (A) fills F .
+Definition 13.7. We say that nontrivial elements g, h ∈ F are boundedly transla-
+tion equivalent in F , denoted g ≡b h, if there is C ≥ 1 such that for every free and
+discrete action of F on an R-tree T we have
+
+                            1
+                              ||h||T ≤ ||g||T ≤ C||h||T
+                            C
+  Note that in the above definition we can replace “every free and discrete action”
+by “every very small action”.
+Proposition 13.8. Let f, g ∈ F both fill F . Then f ≡b g in F .
+Proof. Consider the following function D : CV (F ) ∪ ∂CV (F ) → R. For every very
+small action of F on an R-tree T put
+                                                     ||f ||T
+                                        D([T ]) :=
+                                                     ||g||T
+Since f and g both fill F , the function D is well-defined on CV (F ) ∪ ∂CV (F ) and,
+moreover, D([T ]) > 0 for every [T ] ∈ CV (F ) ∪ ∂CV (F ). It is also clear that D
+is continuous. Since CV (F ) ∪ ∂CV (F ) is compact, it follows that D achieves a
+positive minimum and a positive maximum on CV (F ) ∪ ∂CV (F ). This implies
+that f ≡b g, as claimed.                                                           
+   Theorem 13.6 and Proposition 13.8 show that the phenomenon of bounded trans-
+lation equivalence is “almost generic” in F (A).
+
+                                          References
+     [1] H. Bass, Covering theory for graphs of groups, J. Pure Appl. Algebra 89 (1993), no. 1-2,
+         3–47
+     [2] M. Bestvina and M. Feighn, The topology at infinity of Out(Fn ). Invent. Math. 140 (2000),
+         no. 3, 651–692
+     [3] M. Bestvina, M. Feighn, A hyperbolic Out(Fn ) complex, preprint, 2008; arXiv:0808.3730
+     [4] M. Bestvina, and M. Handel, Train tracks and automorphisms of free groups. Ann. of
+         Math. (2) 135 (1992), no. 1, 1–51
+     [5] F. Bonahon, Bouts des variétés hyperboliques de dimension 3. Ann. of Math. (2) 124
+         (1986), no. 1, 71–158
+     [6] F. Bonahon, The geometry of Teichmüller space via geodesic currents. Invent. Math. 92
+         (1988), no. 1, 139–162
+     [7] F. Bonahon, Geodesic currents on negatively curved groups. Arboreal group theory (Berke-
+         ley, CA, 1988), 143–168, Math. Sci. Res. Inst. Publ., 19, Springer, New York, 1991
+     [8] M.      Bestvina    and     M.     Feighn,      Outer      Limits,     preprint,     1993;
+         http://andromeda.rutgers.edu/˜feighn/papers/outer.pdf
+     [9] M. Bestvina, M. Feighn, and M. Handel, Laminations, trees, and irreducible automor-
+         phisms of free groups. Geom. Funct. Anal. 7 (1997), no. 2, 215–244
+                INTERSECTION FORM, LAMINATIONS AND CURRENTS                                   39
+
+
+[10] M. Bestvina, M. Feighn, and M. Handel, The Tits alternative for Out(Fn ). I. Dynamics
+     of exponentially-growing automorphisms. Ann. of Math. (2) 151 (2000), no. 2, 517–623
+[11] M. Bestvina, M. Feighn, and M. Handel, The Tits alternative for Out(Fn ). II. A Kolchin
+     type theorem. Ann. of Math. (2) 161 (2005), no. 1, 1–59
+[12] D. Calegari and K. Fujiwara, Combable functions, quasimorphisms, and the central limit
+     theorem, preprint, http://arxiv.org/abs/0805.1755
+[13] M. Cohen and M. Lustig, Very small group actions on R-trees and Dehn twist automor-
+     phisms. Topology 34 (1995), no. 3, 575–617
+[14] D. Cooper, Automorphisms of free groups have finitely generated fixed point sets. J. Alge-
+     bra, 111 (1987), no. 2 453–456
+[15] T. Coulbois, A. Hilion, and M. Lustig, R-trees and laminations for free groups I: Algebraic
+     laminations, J. Lond. Math. Soc. (2) 78 (2008), no. 3, 723–736
+[16] T. Coulbois, A. Hilion, and M. Lustig, R-trees and laminations for free groups II: The
+     dual lamination of an R-tree, J. Lond. Math. Soc. (2) 78 (2008), no. 3, 737–754
+[17] T. Coulbois, A. Hilion, and M. Lustig, R-trees and laminations for free groups III: Currents
+     and dual R-tree metrics, J. Lond. Math. Soc. (2) 78 (2008), no. 3, 755–766
+[18] M. Culler, K. Vogtmann, Moduli of graphs and automorphisms of free groups. Invent.
+     Math. 84 (1986), no. 1, 91–119
+[19] D. Gaboriau, A. Jaeger, G. Levitt, and M. Lustig, An index for counting fixed points of
+     automorphisms of free groups. Duke Math. J. 93 (1998), no. 3, 425–452
+[20] E. Ghys and P. de la Harpe (editors), Sur les groupes hyperboliques d’aprés Mikhael Gro-
+     mov, Birkhäuser, Progress in Mathematics series, vol. 83, 1990
+[21] V. Guirardel, Approximations of stable actions on R-trees. Comment. Math. Helv. 73
+     (1998), no. 1, 89–121
+[22] S. Francaviglia, Geodesic currents and length compactness for automorphisms of free
+     groups, Trans. Amer. Math. Soc. 361 (2009), no. 1, 161–176
+[23] U. Hamenstädt, subgroups of Out(Fn ), a talk at the workshop ”Discrete Groups and
+     Geometric Structures”, Kortrijk, Belgium, May 2008.
+[24] V.Kaimanovich, I. Kapovich and P.. Schupp, The Subadditive Ergodic Theorem and
+     generic stretching factors for free group automorphisms, Israel J. Math. 157 (2007), 1–46
+[25] I. Kapovich, Quasiconvexity and amalgams, Int. J. Algebra Comput. 7(1997), no. 6, 771–
+     811.
+[26] I. Kapovich, The Combination Theorem and Quasiconvexity, Intern. J. Algebra Comput.
+     11 (2001), no. 2, 185–216
+[27] I. Kapovich, The frequency space of a free group, Internat. J. Alg. Comput. 15 (2005), no.
+     5-6, 939–969
+[28] I. Kapovich, Currents on free groups, Topological and Asymptotic Aspects of Group The-
+     ory (R. Grigorchuk, M. Mihalik, M. Sapir and Z. Sunik, Editors), AMS Contemporary
+     Mathematics Series, vol. 394, 2006, pp. 149-176
+[29] I. Kapovich, Clusters, currents and Whitehead’s algorithm, Experimental Mathematics 16
+     (2007), no. 1, pp. 67-76
+[30] I. Kapovich, G. Levitt, P. Schupp and V. Shpilrain, Translation equivalence in free groups,
+     Transact. Amer. Math. Soc. 359 (2007), no. 4, 1527–1546
+[31] I. Kapovich, and M. Lustig, The actions of Out(Fk ) on the boundary of outer space and
+     on the space of currents: minimal sets and equivariant incompatibility. Ergodic Theory
+     Dynam. Systems 27 (2007), no. 3, 827–847
+[32] I. Kapovich, and M. Lustig, Geometric Intersection Number and analogues
+     of the Curve Complex for free groups, Geometry and Topology, to appear;
+     http://www.arxiv.org/abs/0711.3806
+[33] I. Kapovich and A. Myasnikov, Stallings foldings and the subgroup structure of free groups,
+     J. Algebra 248 (2002), no 2, 608–668
+[34] I. Kapovich and T. Nagnibeda, The Patterson-Sullivan embedding and minimal volume
+     entropy for Outer space, Geom. Funct. Anal. (GAFA) 17 (2007), no 4, 1201–1236
+[35] M. Kapovich, Hyperbolic Manifolds and Discrete Groups, Birkhauser, 2001.
+[36] C. J. Leininger, Equivalent curves in surfaces, Geom. Dedicata 102 (2003), 151–177
+[37] D. Lee, Translation equivalent elements in free groups. J. Group Theory 9 (2006), no. 6,
+     809–814
+40                                I. KAPOVICH AND M. LUSTIG
+
+
+     [38] G. Levitt and M. Lustig, Irreducible automorphisms of Fn have north-south dynamics on
+          compactified outer space. J. Inst. Math. Jussieu 2 (2003), no. 1, 59–72
+     [39] M. Lustig, A generalized intersection form for free groups, preprint 2004
+     [40] R. Martin, Non-Uniquely Ergodic Foliations of Thin Type, Measured Currents and Auto-
+          morphisms of Free Groups, PhD Thesis, 1995
+     [41] F. Paulin, The Gromov topology on R-trees. Topology Appl. 32 (1989), no. 3, 197–221
+     [42] J.-P. Serre, Trees. Springer-Verlag, Berlin-New York, 1980
+     [43] R. Sharp, Distortion and entropy for automorphisms of free groups, preprint, May 2008
+     [44] R. Skora, Deformations of length functions in groups, preprint, Columbia University, 1989
+     [45] M. Steiner, Gluing Data and Group Actions on R-Trees, Thesis, Columbia University,
+          1988
+     [46] K. Vogtmann, Automorphisms of Free Groups and Outer Space, Geometriae Dedicata 94
+          (2002), 1–31
+
+   Department of Mathematics, University of Illinois at Urbana-Champaign, 1409 West Green
+Street, Urbana, IL 61801, USA
+http://www.math.uiuc.edu/~kapovich/
+   E-mail address: kapovich@math.uiuc.edu
+
+   Mathématiques (LATP), Université Paul Cézanne -Aix Marseille III,, av.           Escadrille
+Normandie-Niémen, 13397 Marseille 20, France
+   E-mail address: Martin.Lustig@univ-cezanne.fr
+

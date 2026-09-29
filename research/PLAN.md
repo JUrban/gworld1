@@ -307,3 +307,8 @@ F41 has a complete intended-scope candidate, with imported definability and gene
 ## Working focus after the F20/N9 checkpoint (2026-09-29T02:00:26.125130+00:00)
 
 F20 finite-cover homology is inconclusive after218 exactly replayed covers; neither larger rewriting budgets nor a blind enlargement of finite covers is a priority. A useful next step needs a structural kernel argument or a different quotient. N9 cannot be encoded by enlarging a proper subgroup containing the fixed base and the new commutator in a class-two coproduct; that obstruction is now proved. Return to a new unresolved lead or a specific candidate proof concern. Do not infer N9 undecidability from the varying-ambient theorem. Counts5 whole,3 partial,0 established novel; original clock retained.
+
+
+## Working focus after the F38 stabilizer checkpoint (2026-09-29T02:26:28.296428+00:00)
+
+F38(c) now has a terminating necessary-condition test, with exact negative witnesses and finite-orbit certificates. Its bounded implementation controls are complete; do not enlarge them merely for volume. The next substantive question is whether commensurable conjugacy stabilizers imply bounded translation equivalence, or whether there is a counterexample. Finite orbit arguments alone do not prove a uniform linear bound; compactness can lose relative vanishing rates. The quantifier remains automorphisms, not embeddings or all tree actions. Preserve the wider unresolved portfolio rather than assuming this converse. Counts5 whole,3 partial,0 established novel; original deadline unchanged.

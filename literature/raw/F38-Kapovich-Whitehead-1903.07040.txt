@@ -1,0 +1,2100 @@
+                                           GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED
+
+
+                                                                                                ILYA KAPOVICH
+
+
+
+                                                  Abstract. The results of [29] show that, with respect to the simple non-backtracking random walk on the
+                                                  free group FN = F (a1 , . . . , aN ), Whitehead’s algorithm has strongly linear-time generic-case complexity
+                                                  and that generic elements of FN are strictly minimal in their Out(FN )-orbits. Here we generalize these
+                                                  results, with appropriate modifications, to a much wider class of random processes generating elements of
+                                                  FN . We introduce the notion of an M -minimal conjugacy class [w] in FN , where M ≥ 1. For [w] to be
+                                                  M -minimal means that any chain of k Whitehead moves, starting with [w] and producing a sequence of
+                                                  distinct conjugacy classes with monotonically non-increasing lengths, satisfies k ≤ M . We prove that if a
+                                                  conjugacy class [w] is sufficiently close to a filling projective geodesic current [ν] ∈ P Curr(FN ), then, after
+                                                  applying one of finitely many reducing automorphisms depending only on ν, one obtains an M -minimal
+                                                  conjugacy class, for a uniform constant M = M (ν). Consequently, the corresponding finite speed-up of
+arXiv:1903.07040v3 [math.GR] 2 Aug 2026
+
+
+
+
+                                                  Whitehead’s algorithm works in quadratic time when the other input is arbitrary, and in linear time when
+                                                  both inputs are projectively close to [ν]. We then prove that a wide class of random processes produces
+                                                  random conjugacy classes [wn ] that converge projectively to a filling current. For such [wn ], if u ∈ FN is
+                                                  arbitrary, the finite speed-up of Whitehead’s algorithm on ([wn ], [u]) works in time O(max{|wn |, |u|2 }); if
+                                                  [wm′ ] is also generated randomly, it works in time O(max{|w |, |w ′ |}).
+                                                                                                                   n    m
+
+
+
+
+                                                                                                   Contents
+
+                                          1.     Introduction                                                                                                          2
+                                          1.1.    Whitehead’s algorithm and generic complexity                                                                         2
+                                          1.2.    M -minimality                                                                                                        3
+                                          1.3.    Filling currents and preferred representatives                                                                       4
+                                          1.4.    Adapted random processes and generic complexity                                                                      5
+                                          1.5.    Group and graph random walks                                                                                         6
+                                          1.6.    Organization and further remarks                                                                                    6
+                                          2.     Whitehead’s algorithm                                                                                                 7
+                                          3.     M -minimality and Whitehead’s algorithm                                                                               9
+                                          3.1.    Main definitions                                                                                                     9
+                                          3.2.    Behavior of Whitehead’s algorithm                                                                                   12
+                                          3.3.    Algorithmic detectability                                                                                           15
+                                          4.     Geodesic currents on free groups                                                                                     16
+                                          4.1.    Basic notions                                                                                                       17
+                                          4.2.    Simplicial charts and weights                                                                                       18
+                                          4.3.    Geometric intersection form                                                                                         19
+                                          2020 Mathematics Subject Classification. Primary 20F65, Secondary 20F10, 20F67, 37D99, 60B15, 68Q87, 68W40.
+                                          Key words and phrases. free group, Whitehead’s algorithm, random walks.
+                                          The author was supported by the individual NSF grant DMS-1905641.
+
+                                                                                                         1
+2                                                  ILYA KAPOVICH
+
+
+    5.     Filling geodesic currents                                                                        20
+    6.     Filling currents and M -minimality                                                               21
+    7.     Group random walks as a source of M -minimality                                                  28
+    8.     Finite-state Markov chains and the frequency measures                                            30
+    8.1.    Finite-state Markov chains.                                                                     31
+    8.2.    Iterated Markov Chains                                                                          32
+    8.3.    Quasi-inversions                                                                                33
+    9.     Graph-based non-backtracking random walks                                                        34
+    References                                                                                              39
+
+
+
+                                                  1. Introduction
+
+1.1. Whitehead’s algorithm and generic complexity. Let FN = F (A) be a free group of finite rank
+N ≥ 2, with a fixed free basis A = {a1 , . . . , aN }. The automorphism problem for FN asks, given two freely
+reduced words w, w′ ∈ FN , whether w′ = Φ(w) for some Φ ∈ Aut(FN ). For g ∈ FN , let |g|A and ∥g∥A
+denote its freely reduced and cyclically reduced lengths, respectively, and let [g] denote its conjugacy class.
+Put
+                                               CN := {[g] | g ∈ FN }.
+Then
+                       Aut(FN )w = Aut(FN )w′ ⇐⇒ Out(FN )[w] = Out(FN )[w′ ].
+Thus we formulate the automorphism problem in terms of the action of Out(FN ) on CN .
+  Whitehead [46] solved this problem using a finite generating set of Whitehead automorphisms for Aut(FN ).
+Their images in Out(FN ) are called Whitehead moves; the set of nontrivial such outer automorphisms is
+denoted by WN , see Definition 2.1. A conjugacy class [u] ∈ CN is Out(FN )-minimal if
+                                       ∥u∥A ≤ ∥φ(u)∥A   for every φ ∈ Out(FN ),
+and it is Whitehead-minimal if the same inequality holds for every τ ∈ WN . Whitehead’s ”peak reduction”
+theorem implies that these two conditions are equivalent. Peak reduction also divides Whitehead’s algorithm
+into two stages. First, one repeatedly applies a Whitehead move that strictly decreases cyclically reduced
+length until an Out(FN )-minimal conjugacy class is reached. This minimization stage has a general quadratic-
+time bound. One then explores the component of minimal representatives connected by length-preserving
+Whitehead moves. This stabilization component may have exponentially many vertices, and the best general
+upper bound for the complete algorithm is exponential. The precise statements are recalled in Section 2.
+The worst-case complexity remains open in rank N ≥ 3; see, among others, [9, 31, 35, 36, 40, 41, 44]. In
+rank N = 2 a quadratic time bound is known [41, 31].
+   Kapovich–Schupp–Shpilrain [29] initiated the generic-case complexity study of Whitehead’s algorithm.
+They called [w] ∈ CN strictly minimal if
+                                            ∥w∥A < ∥τ (w)∥A
+for every non-inner Whitehead move τ of the second kind. They proved [29] that a uniformly random
+freely reduced or cyclically reduced word in FN is strictly minimal with exponentially high probability.
+Consequently, both stages of Whitehead’s algorithm are generically linear when both inputs are random,
+while for one random input w and one arbitrary input u the running time is
+                                          O max{|w|A , |u|2A } .
+                                                              
+                     GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                             3
+
+
+   Strict minimality is too rigid for many other natural random processes. For example, let F2 = F (a, b)
+and let wn be a positive Bernoulli word of length n with probabilities p(a) = 1/10 and p(b) = 9/10. For the
+Whitehead automorphism
+                                         τ (a) = ab−1 ,     τ (b) = b,
+let An be the number of occurrences of a and let Cn be the number of cyclic occurrences of ab in wn . Then
+                                                   ∥τ (wn )∥A           1     9    23
+                 ∥τ (wn )∥A = n + An − 2Cn ,                   −→ 1 +     −2     =    <1
+                                                    ∥wn ∥A             10    100   25
+almost surely. Thus [wn ] is not even Whitehead-minimal with probability tending to 1. This example
+motivates a weaker notion that still controls the complexity of Whitehead’s algorithm.
+
+1.2. M -minimality. The following is a key technical notion introduced in this paper. It generalizes strict
+minimality by replacing the requirement that every relevant Whitehead move increase length with a uniform
+bound on all simple non-increasing chains of Whitehead moves.
+  Let M ≥ 1. A conjugacy class [u] ∈ CN is called M -minimal (see Definition 3.1 below) if the following
+condition holds. Whenever τ1 , . . . , τk ∈ WN and
+                                     [ui ] := τi · · · τ1 ([u])   (1 ≤ i ≤ k)
+satisfy
+                                        ∥u∥A ≥ ∥u1 ∥A ≥ · · · ≥ ∥uk ∥A
+and the k + 1 conjugacy classes
+                                              [u], [u1 ], . . . , [uk ]
+are pairwise distinct, then k ≤ M . In particular, every strictly length-decreasing Whitehead-minimization
+chain starting at [u] has length at most M , and the set of Out(FN )-minimal representatives in the orbit of
+[u] has uniformly bounded cardinality in terms of N, M .
+   We prove:
+Theorem A. Fix N ≥ 2 and M ≥ 1. There exist constants C = C(N, M ) ≥ 1 and K = K(N, M ) ≥ 1 such
+that the following hold.
+    (1) Given 1 ̸= u ∈ FN , whether [u] is M -minimal can be decided in time at most K|u|A .
+    (2) If 1 ̸= u ∈ FN and [u] is M -minimal, then Whitehead minimization on u terminates in time at most
+        K|u|A , and
+                               #M([u]) ≤ C,        rank StabOut(FN ) ([u]) ≤ C.
+    (3) If 1 ̸= u, v ∈ FN and [u] and [v] are both M -minimal, then Whitehead’s algorithm decides whether
+                                          Out(FN )[u] = Out(FN )[v]
+          in time at most
+                                              K max{|u|A , |v|A }.
+    (4) If 1 ̸= u ∈ FN , [u] is M -minimal, and 1 ̸= v ∈ FN is arbitrary, then the same problem can be decided
+        in time at most
+                                              K max{|u|A , |v|2A }.
+
+   The cases involving the trivial conjugacy class are immediate: [1] is M -minimal, M([1]) = {[1]}, and
+StabOut(FN ) ([1]) = Out(FN ), which is generated by the finite set of Whitehead moves. Inputs equal to the
+identity can therefore be recognized and handled separately in constant time.
+   Theorem A combines Lemma 3.2, Theorem 3.13, and Propositions 3.17 and 3.18. Every strictly minimal
+conjugacy class is M -minimal for M = 2N N !, so the new notion contains the principal generic class from
+[29].
+4                                               ILYA KAPOVICH
+
+
+  The proofs use two quantitative refinements, called (M, λ, ε)-minimality and (M, λ, ε, WN )-minimality.
+At a schematic level, they require a finite set S ⊆ Out(FN )[u] with #S ≤ M such that
+                                          ∥u′ ∥A
+                                   1−ε≤          ≤1+ε        ([u], [u′ ] ∈ S),
+                                          ∥u∥A
+while leaving S produces a definite multiplicative length increase:
+                            ∥φ(u)∥A
+                                     ≥λ        whenever [u] ∈ S and φ([u]) ∈   / S.
+                              ∥u∥A
+For (M, λ, ε, WN )-minimality, the latter condition is required only for φ ∈ WN . The precise definitions,
+including the orbit conditions on S, and their relationship to M -minimality are given in Section 3.
+
+1.3. Filling currents and preferred representatives. Geodesic currents on free groups provide a crucial
+technical tool in this paper (Sections 4 and 5 recall the required background). Put
+                                 ∂ 2 FN := (∂FN × ∂FN ) \ {(x, x) | x ∈ ∂FN },
+and let ϖ : ∂ 2 FN → ∂ 2 FN be the flip map ϖ(x, y) = (y, x). A geodesic current on FN is a positive, locally
+finite Borel measure ν on ∂ 2 FN that is invariant under both the diagonal action of FN and the flip ϖ. The
+space of geodesic currents is denoted by Curr(FN ), and its projectivization is
+                                    P Curr(FN ) = (Curr(FN ) \ {0})/R>0 .
+For 1 ̸= w ∈ FN , the counting current ηw ∈ Curr(FN ) depends only on the conjugacy class [w].
+    Kapovich–Lustig [26, 27] constructed a continuous geometric intersection form
+                                      ⟨ · , · ⟩ : cvN × Curr(FN ) −→ R≥0 ,
+where cvN is the closure of unprojectivized Culler–Vogtmann Outer space. It satisfies
+                                 ⟨T, ηw ⟩ = ∥w∥T        (T ∈ cvN , 1 ̸= w ∈ FN ).
+If TA is the Cayley tree of FN corresponding to the basis A, put
+                                               ∥ν∥A := ⟨TA , ν⟩;
+then ∥ηw ∥A = ∥w∥A . A nonzero current ν ∈ Curr(FN ) is called filling if
+                                       ⟨T, ν⟩ > 0       for every T ∈ cvN .
+
+    Our main general result relating geodesic currents and Whitehead’s algorithm is the following:
+Theorem B. Let FN = F (A) and let 0 ̸= ν ∈ Curr(FN ) be a filling current. There exist an integer M ≥ 1,
+a finite set
+                                      W ⊆ Out(FN ),        #W = M,
+and a number λ with 1 < λ < 2 such that the following holds. For every 0 < ε < λ−1, there is a neighborhood
+U of [ν] in P Curr(FN ) such that, whenever 1 ̸= w ∈ FN and [ηw ] ∈ U , the set
+                                                     S := W[w]
+satisfies:
+     (1) #S ≤ M , and every element of S is M -minimal;
+     (2) for every [u], [u′ ] ∈ S,
+                                                     ∥u′ ∥A
+                                             1−ε≤           ≤ 1 + ε;
+                                                     ∥u∥A
+     (3) if [u] ∈ S and φ([u]) ∈ / S, where φ ∈ Out(FN ), then
+                                                    ∥φ(u)∥A
+                                                            ≥ λ;
+                                                     ∥u∥A
+     (4) M([w]) ⊆ S, and StabOut(FN ) ([w]) is finite.
+                   GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                             5
+
+
+   Theorem B is proved in Theorem 6.8 and Corollary 6.9. The number λ may be chosen below 2, since
+the argument only requires it to lie strictly below the positive multiplicative gap. Thus 0 < ε < λ − 1
+automatically implies ε < 1, as required in Corollary 6.9. The finite set W consists of the automorphisms
+minimizing ∥φν∥A over φ ∈ Out(FN ). Properness and discreteness of the Out(FN )-orbit of a filling current
+yield the gap, and continuity transfers it to counting currents whose projective classes are close to [ν].
+
+1.4. Adapted random processes and generic complexity. To obtain generic-case complexity results
+we introduce the following notion relating random processes generating word-inputs in FN and geodesic
+currents.
+   Let (Ω, P) be the probability space underlying an FN -valued random process W = W1 , W2 , . . . . For
+0 ̸= ν ∈ Curr(FN ), the process W is called ν-adapted if, for P-almost every ω ∈ Ω, one has Wn (ω) ̸= 1 for
+all sufficiently large n and
+                                    [ηWn (ω) ] −→ [ν]   in P Curr(FN ).
+The process W is called tame if there exists C > 0 such that
+                           |Wn (ω)|A ≤ Cn      for every n ≥ 1 and every ω ∈ Ω.
+These notions are formally introduced in Definition 6.11. For a finite set W ⊆ Out(FN ), the W-speed-up
+of Whitehead minimization applies the minimization procedure in parallel to [Wn ] and to the finitely many
+conjugacy classes φ([Wn ]), φ ∈ W; the precise algorithm is defined in Section 2.
+   Our main general result regarding random processes and the generic-case complexity of Whitehead’s
+algorithm is:
+Theorem C. Let W = W1 , W2 , . . . be adapted to a filling current ν. Then there exist M ≥ 1, a number
+λ with 1 < λ < 2, and a finite set W ⊆ Out(FN ), with #W ≤ M , such that for every 0 < ε < λ − 1 the
+following hold.
+   (1) For P-almost every trajectory, all sufficiently large n have the property that Sn := W[Wn ] satisfies
+       conclusions (1)–(4) of Theorem B.
+   (2) The probability that Sn satisfies those conclusions tends to 1 as n → ∞.
+If, in addition, W is tame, there exists K ≥ 1 such that:
+   (3) for P-almost every trajectory and all sufficiently large n, the W-speed-up of Whitehead minimization
+       on Wn terminates in time at most Kn;
+   (4) for P-almost every trajectory, all sufficiently large n, and every u ∈ FN , the W-speed-up decides
+       whether
+                                           Out(FN )[Wn ] = Out(FN )[u]
+       in time at most
+                                                 K max{n, |u|2A };
+   (5) for P × P-almost every pair of independent trajectories and all sufficiently large n, m, it decides
+       whether
+                                                                         ′
+                                          Out(FN )[Wn ] = Out(FN )[Wm      ]
+       in time at most
+                                                  K max{n, m}.
+   (6) The probability that the conclusion of (3) holds at time n tends to 1 as n → ∞, and the same is true
+       for the uniform-in-u conclusion of (4).
+   (7) If W ′ = W1′ , W2′ , . . . is an independent copy and ni , mi ≥ 1 satisfy min{ni , mi } → ∞, then the
+                                                                   ′
+       probability that the conclusion of (5) holds for (Wni , Wm    i
+                                                                       ) tends to 1.
+6                                               ILYA KAPOVICH
+
+
+   The qualitative and quantitative parts of Theorem C are Theorems 6.13 and 6.14, respectively. We state
+the results directly in terms of random processes and probabilities, rather than choosing a single formalism
+for generic-case complexity. In the broader sense developed after [28], these are generic-case complexity
+statements.
+
+1.5. Group and graph random walks. Theorem C becomes useful once one has natural random processes
+adapted to filling currents. The paper treats two broad families of such processes.
+Theorem D. The following hold.
+    (1) Let µ : FN → [0, 1] be a finitely supported probability measure such that
+                                              ⟨supp(µ)⟩+ = FN .
+        Then the associated group random walk is tame and adapted to a filling current.
+    (2) Let Γ be a marked finite connected graph with all vertices of degree at least 3 and π1 (Γ) ∼= FN , let
+        X be an irreducible Γ-based finite-state Markov chain, let µ be any initial distribution, and let B be
+        a closing-path system. Then both the B-closing process and the modified B-closing process are tame
+        and adapted to the characteristic current νX .
+    (3) If νX is filling, in particular under any of the explicit hypotheses of Proposition 9.14, then the
+        conclusions of Theorem C apply to both graph-based processes.
+
+   Part (1) of Theorem D is Theorem 7.6; parts (2) and (3) combine Theorems 9.11 and 9.12 with Propo-
+sition 9.14. For the group-random-walk result, Gekhtman’s theorem [19, Theorem 1.5] gives convergence
+of normalized oriented closed-geodesic measures to a harmonic invariant measure in the boundary measure
+class λ̌ × λ, where λ is the hitting measure for µ and λ̌ is the hitting measure for the reflected probability
+measure
+                                               µ̌(g) := µ(g −1 ).
+Symmetrization produces a usual flip-invariant current in the measure class
+                                              (λ̌ × λ) + (λ × λ̌).
+The semigroup hypothesis implies
+                                         supp(λ) = supp(λ̌) = ∂FN ,
+so the symmetrized current has full support on ∂ 2 FN and is filling. For graph-based walks, the characteristic
+current is constructed directly from stationary block frequencies. Its filling property follows either from full
+support or from the R-tree criterion of Proposition 5.7.
+   The standard simple non-backtracking walk on the rose is a special case: its characteristic current is
+the uniform current νA , which has full support on ∂ 2 FN . Thus the framework recovers the earlier generic
+model of [29], while also allowing highly nonuniform and graph-directed random processes such as the biased
+process discussed above.
+
+1.6. Organization and further remarks. Section 2 recalls Whitehead’s algorithm and peak reduction.
+Section 3 develops M -minimality, its quantitative refinements, algorithmic detection, and stabilizer bounds.
+Sections 4–6 treat currents, filling, and the neighborhood theorem underlying Theorem B. Section 7 proves
+the group-random-walk result, and Sections 8–9 develop the finite-state Markov-chain and graph-walk con-
+structions.
+   The earlier results of [29] are strongly generic, with exponentially fast convergence of the relevant prob-
+abilities. The qualitative group-random-walk application here uses Gekhtman’s equidistribution theorem
+followed by symmetrization, and the cited theorem does not provide a quantitative rate. A quantitative
+version would yield corresponding estimates after refining the definition of adaptation. In the graph-based
+setting, the frequency and cancellation arguments provide exponential or stretched-exponential estimates for
+their constituent events.
+                    GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                                7
+
+
+   We are most grateful to Vadim Kaimanovich and Joseph Maher for many helpful discussions about random
+walks, for help with the references, and for clarifying several random-walk arguments. In particular, the proof
+of Proposition 7.5 was explained to us by Kaimanovich. We are also grateful to the organizers of the March
+2019 Dagstuhl conference “Algorithmic Problems in Group Theory” for providing impetus and motivation
+for completing this paper.
+
+                                        2. Whitehead’s algorithm
+
+   Our main background reference for Whitehead’s algorithm is Lyndon and Schupp, Chapter I.4 [37], and
+we refer the reader there for additional details. Some other useful details and complexity results are available
+in [29, 44]. We recall the basic definitions and results here.
+  In this section we fix a free group FN = F (A) of rank N ≥ 2, with a fixed free basis A = {a1 , . . . , aN }.
+Put ΣA = A ⊔ A−1 . We will also denote by CN the set of all FN -conjugacy classes [g] where g ∈ FN .
+Definition 2.1 (Whitehead automorphisms). A Whitehead automorphism of FN with respect to A is an
+automorphism τ ∈ Aut(FN ) of FN of one of the following two types:
+   (1) There is a permutation t of ΣA such that τ |ΣA = t. In this case τ is called a relabeling automorphism
+or a Whitehead automorphism of the first kind.
+  (2) There is an element a ∈ ΣA , the multiplier, such that for any x ∈ ΣA
+                                         τ (x) ∈ {x, xa, a−1 x, a−1 xa}.
+
+  In this case we say that τ is a Whitehead automorphism of the second kind. (Note that since τ is an
+automorphism of FN , we always have τ (a) = a in this case).
+   We also refer to the images of Whitehead automorphisms in Out(FN ) as Whitehead moves and sometimes
+again as Whitehead automorphisms. We denote by WN the set of all Whitehead moves τ ∈ Out(FN ) such
+that τ ̸= 1 in Out(FN ).
+
+   Note that for any a ∈ ΣA the inner automorphism ad(a) ∈ Aut(FN ) is a Whitehead automorphism of the
+second kind. Note also that if τ ∈ WN then τ −1 ∈ WN .
+   To simplify the exposition, we formulate all the definitions and results related to Whitehead’s algorithm
+in terms of conjugacy classes of elements of FN . In this context we usually think of an input [w] ∈ CN as
+given by a cyclically reduced word w ∈ F (A). Since for w ∈ FN we have ||w||A ≤ |w|A , and since it takes
+linear time in |w|A to find a cyclically reduced form of w ∈ F (A) (see [29] for additional discussion on this
+topic), all our complexity estimates hold in terms of |w|A .
+Definition 2.2 (Minimal and Whitehead-minimal elements). A conjugacy class [w] ∈ CN is Out(FN )-
+minimal with respect to A if for every φ ∈ Out(FN ) we have ||w||A ≤ ||φ(w)||A .
+  A conjugacy class [w] ∈ CN is Whitehead-minimal with respect to A if for every Whitehead move τ ∈ WN
+we have ||w||A ≤ ||τ (w)||A .
+  For [w] ∈ CN , denote M([w]) = {[u] ∈ Out(FN )[w]|[u] is Out(FN )-minimal}.
+
+  Note that, by definition, an Out(FN )-minimal [w] is necessarily Whitehead-minimal.
+Definition 2.3 (Automorphism graph). The automorphism graph of FN is the labelled multigraph T defined
+as follows. Its vertex set is
+                                              V T = CN .
+For every [w] ∈ CN and every τ ∈ WN satisfying ∥τ (w)∥A = ∥w∥A , introduce an oriented edge
+                                           e([w], τ ) : [w] −→ τ ([w])
+labelled by τ , and equip the edge set with the involution
+                                         e([w], τ )−1 = e(τ ([w]), τ −1 ).
+8                                                  ILYA KAPOVICH
+
+
+The resulting underlying multigraph allows parallel edges and loops. If the displayed involution fixes the
+move data, the corresponding loop still has its two formal orientations, both carrying the same involutive
+label. Thus distinct Whitehead moves inducing the same map between conjugacy classes remain distinct
+labelled edges.
+  For n ≥ 0, let Tn be the full subgraph spanned by the vertices [w] with ∥w∥A = n. For a vertex [w] ∈ V Tn ,
+denote by Tn [w] the connected component of Tn containing [w].
+
+   We first state the following simplified version of Whitehead’s “peak reduction” lemma (see [29, Proposi-
+tion 1.2]):
+Proposition 2.4. Let N ≥ 2 be an integer. Then the following hold:
+     (1) An element [w] ∈ CN is Out(FN )-minimal if and only if [w] is Whitehead-minimal. (Thus if [w] is
+         not Out(FN )-minimal then there exists τ ∈ WN such that ||τ (w)||A < ||w||A ).
+     (2) Suppose that [w] ̸= [w′ ] are both Out(FN )-minimal. Then Out(FN )[w] = Out(FN )[w′ ] if and only if
+         ||w||A = ||w′ ||A = n ≥ 0, and there exists a finite sequence τ1 , . . . τk ∈ WN such that τk . . . τ1 [w] =
+         [w′ ] and that for i = 1, . . . , k we have
+                                                ||τi . . . τ1 (w)||A = n.
+
+    Proposition 2.4 implies that if [w] ∈ CN is Out(FN )-minimal with ||w||A = n then M([w]) = V Tn [w].
+    We also record the following more general version of “peak reduction”:
+Proposition 2.5. [37, Proposition 4.17] Let [w], [w′ ] ∈ CN and φ ∈ Out(FN ) be such that [w′ ] = φ([w])
+and ∥w′ ∥A ≤ ∥w∥A . Then there exists a factorization φ = τk . . . τ1 in Out(FN ), where τi ∈ WN and where
+∥τi . . . τ1 (w)∥A ≤ ∥w∥A for i = 1, . . . , k.
+Definition 2.6 (Whitehead algorithm). Let FN = F (A) be free of rank N ≥ 2, with a fixed free basis A.
+   • The Whitehead minimization algorithm is the following process. Given [w] ∈ CN put [w1 ] = [w]. If
+[wi ] is already constructed, check if there exists τ ∈ WN such that ||τ (wi )||A < ||wi ||A . If not, declare that
+[wi ] ∈ M([w]) (that is [wi ] is an Out(FN )-minimal element in Out(FN )[w] and terminate the algorithm. Put
+[wi+1 ] = [τ (wi )].
+   • The Whitehead stabilization algorithm is the following process. Suppose that [w] ∈ CN is Whitehead-
+minimal (and therefore Out(FN )-minimal) with ||w||A = n ≥ 0. Construct the component Tn [w] of Tn using
+the “breadth-first” stabilization process. Start with S1 = {[w]}. Now if a finite collection Si of conjugacy
+classes with ||.||A = n is already constructed, for each element [u] ∈ Si and each τ ∈ WN , put
+                            Si+1 = Si ∪ {τ ([u])|[u] ∈ Si , τ ∈ WN and ||τ (u)||A = n}.
+Terminate the process with the output Si for the smallest i ≥ 1 such that Si+1 = Si . Declare that Si =
+V Tn [w] = M([w]).
+   • The Whitehead algorithm is the following process. Given [w], [w′ ] ∈ CN , first apply the Whitehead
+minimization process to each of [w], [w′ ] to output elements [u], [u′ ] accordingly. Declare that [u] ∈ M([w])
+and [u′ ] ∈ M([w′ ]). If ||u||A ̸= ||u′ ||A , declare that Out(FN )[w] ̸= Out(FN )[w′ ] and terminate the process.
+If ||u||A = ||u′ ||A = 0, then [u] = [u′ ] = [1]; declare the inputs equivalent and terminate. Thus suppose
+that ||u||A = ||u′ ||A = n ≥ 1. Apply the Whitehead stabilization algorithm to [u] to produce the set S.
+Declare that S = V Tn [u] = M([w]). Then check whether [u′ ] ∈ S. If [u′ ] ∈ S, declare that Out(FN )[w] =
+Out(FN )[w′ ], and if [u′ ] ̸∈ S, declare that Out(FN )[w] ̸= Out(FN )[w′ ], and terminate the process.
+Remark 2.7. Part (1) of Proposition 2.4 implies that the Whitehead minimization algorithm on an input
+[w] ∈ CN always terminates in O(|w|2A ) time and indeed outputs an element of M([w]). The quadratic time
+bound arises since going from [wi ] to [wi+1 ] takes a priori linear time in ||wi ||A , and since ||w1 ||A > ||w2 ||A >
+. . . , the process terminates with some [wk ] such that k ≤ ||w||A .
+                      GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                                  9
+
+
+   Part (2) of Proposition 2.4 implies that the Whitehead stabilization algorithm on an Out(FN )-minimal
+input [w] with ∥w∥A = n outputs the set M([w]) = V Tn [w]. In the standard word model, exploring a
+component with V vertices takes O(nV ) time, since one tests only the fixed finite set WN at each vertex and
+each test takes O(n) time. Taken together, Proposition 2.4 implies that Whitehead’s algorithm correctly
+decides whether or not Out(FN )[w] = Out(FN )[w′ ].
+   Overall, the a priori worst-case complexity of Whitehead’s algorithm on the input [w], [w′ ] is exponential
+in max{|w|A , |w′ |A } because for [u] ∈ V Tn the cardinality #V Tn [u] is at most exponential in n.
+Definition 2.8. Suppose that W ⊆ Out(FN ) is a fixed finite set of auxiliary automorphisms.
+      • The W-speed-up of the Whitehead minimization algorithm takes an input [w] ̸= [1], computes
+                                                W[w] = {ψ[w] : ψ ∈ W},
+        and runs the Whitehead minimization algorithm in parallel on [w] and on every element of W[w],
+        stopping when the first branch terminates. Since all branches remain in the orbit Out(FN )[w], the
+        output belongs to M([w]).
+      • The W-speed-up of Whitehead’s algorithm first applies this speeded-up minimization procedure to
+        two nontrivial inputs [w] and [w′ ], producing [u] ∈ M([w]) and [u′ ] ∈ M([w′ ]), and then applies the
+        usual stabilization procedure to decide whether Out(FN )[w] = Out(FN )[w′ ].
+
+   Since W is finite and fixed, the parallel branches may be implemented by a round-robin simulation with
+only a constant multiplicative overhead. Thus the a priori complexity estimates remain those of Remark 2.7,
+up to constants depending on W. When W = {ψ}, we also call this the ψ-speed-up.
+
+                                3. M -minimality and Whitehead’s algorithm
+
+   Let FN = F (A) be free of rank N ≥ 2 where A = {a1 , . . . , aN } is a fixed free basis of FN .
+
+3.1. Main definitions.
+Definition 3.1 (M -minimal elements). Let M ≥ 1 be an integer. A conjugacy class [u] ∈ CN is called
+M -minimal if the following condition holds:
+   Whenever τ1 , τ2 , . . . τk ∈ WN are such that for [ui ] = τi . . . τ1 ([u]), where i = 1, . . . , k, we have
+                                       ||u||A ≥ ||u1 ||A ≥ ||u2 ||A ≥ · · · ≥ ||uk ||A
+and that the conjugacy classes [u], [u1 ], . . . , [uk ] ∈ CN are distinct, then k ≤ M .
+Lemma 3.2. Let M ≥ 1 be an integer and let [u] ∈ CN be M -minimal. Put B = #WN and
+                                                                      M
+                                                                      X
+                                                 ′      ′
+                                              M = M (M, N ) :=              Bj .
+                                                                      j=0
+
+Then the following hold.
+    (1) If τ ∈ WN and ∥τ (u)∥A < ∥u∥A , then τ ([u]) is M -minimal. If ∥τ (u)∥A = ∥u∥A , then τ ([u]) is
+        2M -minimal.
+    (2) We have #M([u]) ≤ M ′ .
+    (3) Every [u′ ] ∈ M([u]) is (M ′ − 1)-minimal.
+    (4) Every strictly length-decreasing chain of Whitehead moves starting at [u] has length at most M .
+
+Proof. Let [v] = τ ([u]) with ∥v∥A < ∥u∥A . Any simple non-increasing chain starting at [v] can be prefixed
+by the step [u] → [v]; because all subsequent lengths are strictly smaller than ∥u∥A , the class [u] cannot
+reappear. Hence the prefixed chain has length at most M , and [v] is M -minimal.
+10                                                 ILYA KAPOVICH
+
+
+   Now suppose that ∥v∥A = ∥u∥A , and consider a simple non-increasing chain of length k starting at [v]. If
+the chain does not contain [u], prefixing it by [u] → [v] gives k + 1 ≤ M . If it first reaches [u] after j steps,
+all lengths along the initial segment are equal. Reversing that segment gives a simple non-increasing chain
+of length j starting at [u], while the remaining segment gives one of length k − j starting at [u]. Thus j ≤ M
+and k − j ≤ M , so k ≤ 2M .
+   To prove (2), first apply the Whitehead minimization algorithm to [u], deleting repetitions if necessary,
+and obtain an orbit-minimal class [v] by a strictly decreasing chain. By M -minimality this chain has length
+at most M . For any [u′ ] ∈ M([u]), Proposition 2.4(2) gives a simple length-preserving chain from [v] to [u′ ].
+Concatenating the two chains produces a simple non-increasing chain from [u] to [u′ ]; the two parts meet
+only at [v], since every earlier vertex has length greater than the minimum. Hence the total length is at
+                              PM
+most M . There are at most j=0 B j = M ′ possible endpoints of such labelled chains, proving (2).
+   If [u′ ] ∈ M([u]), every non-increasing chain starting at [u′ ] is length-preserving and remains inside M([u]).
+A simple such chain has at most M ′ vertices, and therefore length at most M ′ − 1. This proves (3). Part
+(4) is immediate from Definition 3.1.                                                                           □
+
+  Recall that as defined in [29], an element [u] ∈ CN is called strictly minimal if for every Whitehead
+automorphism of the second kind τ ∈ WN we have ||u||A < ||τ (u)||A .
+Lemma 3.3. Put M = 2N N !. Let [u] ∈ CN be strictly minimal. Then [u] is M -minimal.
+
+Proof. Let [u] ∈ CN be strictly minimal. Let τ1 , . . . , τk ∈ WN be such that for [ui ] = τi . . . τ1 ([u]) with
+i = 1, . . . , k we have
+                                         ||u||A ≥ ||u1 ||A ≥ · · · ≥ ||uk ||A
+and that the conjugacy classes [u], [u1 ], . . . , [uk ] ∈ CN are distinct. As shown in [29], in this case each
+τi is a Whitehead automorphism of the first kind and each ui is again strictly minimal, for i = 1, . . . , k.
+Hence φi = τi . . . τ1 ∈ Out(FN ) is a re-labelling automorphism for i = 1, . . . , k. The number of re-labelling
+automorphisms of FN is equal to 2N N !. Since [u1 ], . . . , [uk ] ∈ CN are distinct, it follows that φ1 , . . . , φk ∈
+Out(FN ) are distinct, and hence k ≤ 2N N !. Thus [u] is M -minimal for M = 2N N !, as required.
+                                                                                                                     □
+
+   In the context of this paper the sources of M -minimal elements (various random processes) provide
+elements with additional, sharper, metric properties, captured by the definitions below.
+Definition 3.4. Let M ≥ 1 be an integer, let λ > 1 and let 0 < ε < λ − 1.
+   A finite set S of conjugacy classes of nontrivial elements of FN is called (M, λ, ε)-minimizing if it satisfies
+the following properties:
+      (1) We have #(S) ≤ M .
+      (2) For any [u], [u′ ] ∈ S we have Out(FN )[u] = Out(FN )[u′ ].
+                                                     ′
+      (3) For any [u], [u′ ] ∈ S we have 1 − ε ≤ ||u   ||A
+                                                  ||u||A ≤ 1 + ε.
+      (4) For every [u] ∈ S and every φ ∈ Out(FN ) such that φ([u]) ̸∈ S we have ||φ(u)||
+                                                                                   ||u||A ≥ λ > 1 + ε.
+                                                                                          A
+
+
+
+     In this case for any [u] ∈ S we also say that S is a (M, λ, ε)-minimizing set for [u].
+  We say that a nontrivial conjugacy class [u] in FN is (M, λ, ε)-minimal if there exists an (M, λ, ε)-
+minimizing set S for [u] (and thus [u] ∈ S).
+
+     Note that if S is a (M, λ, ε)-minimizing set and if [u] ∈ S then for φ ∈ Out(FN ) either φ(u) ∈ S or
+||φ(u)||A
+  ||u||A ≥ λ, and these outcomes are mutually exclusive.
+
+Definition 3.5. Let M ≥ 1 be an integer, let λ > 1 and let 0 < ε < λ − 1.
+                       GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                                           11
+
+
+    A finite set S ⊆ CN of conjugacy classes of nontrivial elements of FN is called (M, λ, ε, WN )-minimizing
+if it satisfies the following properties:
+    (1) We have #(S) ≤ M .
+    (2) For any [u], [u′ ] ∈ S we have Out(FN )[u] = Out(FN )[u′ ].
+                                                     ′
+    (3) For any [u], [u′ ] ∈ S we have 1 − ε ≤ ||u     ||A
+                                                  ||u||A ≤ 1 + ε.
+    (4) For any [u] ∈ S and τ ∈ WN exactly one of the following occurs:
+         (i) We have τ ([u]) ∈ S.
+        (ii) We have τ ([u]) ̸∈ S and ||τ||u||
+                                           (u)||A
+                                               A
+                                                  ≥ λ > 1 + ε.
+
+   In this case for any [u] ∈ S we also say that S is a (M, λ, ε, WN )-minimizing set for [u].
+  We say that a nontrivial conjugacy class [u] in FN is (M, λ, ε, WN )-minimal if there exists an
+(M, λ, ε, WN )-minimizing set S for [u] (and thus [u] ∈ S).
+Lemma 3.6. Let M ≥ 1 be an integer, let λ > 1, 0 < ε < 1 be such that ε < λ − 1 and λ(1 − ε) > 1.
+Let S ⊆ CN be a finite set of conjugacy classes of nontrivial elements of FN such that S is (M, λ, ε, WN )-
+minimizing.
+    (1) For any [u] ∈ S and τ ∈ WN such that ||τ (u)||A ≤ (1 + ε)||u||A we have τ ([u]) ∈ S.
+    (2) For any [u] ∈ S and φ ∈ Out(FN ) such that ||φ(u)||A ≤ ||u||A we have φ([u]) ∈ S.
+    (3) For any [u] ∈ S we have M([u]) ⊆ S.
+
+Proof. Part (1) follows from conditions (3), (4) of Definition 3.5.
+   For (2), suppose that [u] ∈ S and φ ∈ Out(FN ) are such that ||φ(u)||A ≤ ||u||A . By Proposition 2.5, there
+exist τ1 , . . . , τk ∈ WN such that φ = τk . . . τ1 and that for [u0 ] = [u], [ui ] = τi . . . τ1 ([u]) for i = 1, . . . , k we
+have ||ui ||A ≤ ||u||A . Note that [uk ] = φ([u]).
+   We argue by induction on i that [ui ] ∈ S for i = 1, . . . , k. We have [u] = [u0 ] ∈ S. Suppose now 0 ≤ i < k
+and [ui ] ∈ S. We need to show that [ui+1 ] = τi+1 [ui ] ∈ S. Suppose, on the contrary, that [ui+1 ] ̸∈ S. Then
+||ui+1 ||A /||ui ||A ≥ λ. Since [u], [ui ] ∈ S, also have ||ui ||A /||u||A ≥ 1−ε. Therefore ||ui+1 ||A /||u||A ≥ λ(1−ε),
+so that ||ui+1 ||A ≥ λ(1 − ε)||u||A > ||u||A since λ(1 − ε) > 1. This contradicts the choice of τ1 , . . . , τk . Thus
+[ui+1 ] ∈ S, as required.
+   Hence [uk ] = φ([u]) ∈ S, and part (2) of the lemma is verified.
+   Now part (2) directly implies part (3).                                                                                   □
+
+   The following result plays a key role in this paper:
+Proposition 3.7. Let M ≥ 1, let λ > 1, and let 0 < ε < λ − 1. If [u] ∈ CN is (M, λ, ε, WN )-minimal, then
+[u] is M -minimal.
+
+Proof. Let S ⊆ CN be an (M, λ, ε, WN )-minimizing set containing [u].
+   Suppose now that τ1 , τ2 , . . . τk ∈ WN are such that for [ui ] = τi . . . τ1 ([u]), where i = 1, . . . , k, we have
+                                    ||u||A ≥ ||u1 ||A ≥ · · · ≥ ||ui ||A ≥ · · · ≥ ||uk ||A ,
+and that the conjugacy classes [u], [u1 ], . . . , [uk ] are distinct.
+   We prove inductively that [ui ] ∈ S. If [ui−1 ] ∈ S but [ui ] ∈
+                                                                 / S, Definition 3.5(4)(ii) would give
+                                             ∥ui ∥A ≥ λ∥ui−1 ∥A > ∥ui−1 ∥A ,
+contrary to the assumed non-increase of lengths. Thus all [ui ] lie in S. Since the conjugacy classes
+[u], [u1 ], . . . , [uk ] are distinct and #S ≤ M , it follows that k ≤ M − 1. Hence [u] is M -minimal. □
+Remark 3.8. The definitions directly imply that every (M, λ, ε)-minimizing set is (M, λ, ε, WN )-minimizing.
+Consequently, every (M, λ, ε)-minimal conjugacy class is (M, λ, ε, WN )-minimal.
+12                                                      ILYA KAPOVICH
+
+
+     The following partial converse holds after slightly strengthening the parameters.
+Proposition 3.9. Let M ≥ 1, let λ > 1, and let 0 < ε < λ − 1. Let 0 < ε′ < ε and λ′ > λ satisfy
+                                                        λ′ (1 − ε′ ) > λ.
+If S ⊆ CN is (M, λ′ , ε′ , WN )-minimizing, then S is (M, λ, ε)-minimizing.
+
+Proof. Conditions (1)–(3) of Definition 3.4 follow immediately. Let [u] ∈ S and let φ ∈ Out(FN ) satisfy
+       / S. Lemma 3.6(2), applied with λ′ , ε′ , implies that ∥φ(u)∥A > ∥u∥A .
+φ([u]) ∈
+     Apply Proposition 2.5 to φ−1 and the pair φ([u]), [u]. Reversing the resulting factorization gives
+                                                          φ = τk · · · τ1
+with τi ∈ WN such that, for [v0 ] = [u] and [vi ] = τi · · · τ1 ([u]),
+                                            ∥vi ∥A ≤ ∥φ(u)∥A           (0 ≤ i ≤ k).
+Let j ≥ 1 be the first index for which [vj ] ∈
+                                             / S. Then [vj−1 ] ∈ S, and Definition 3.5(4) gives
+                                                     ∥vj ∥A ≥ λ′ ∥vj−1 ∥A .
+Since [vj−1 ], [u] ∈ S, condition (3) gives ∥vj−1 ∥A ≥ (1 − ε′ )∥u∥A . Therefore
+                                     ∥φ(u)∥A ≥ ∥vj ∥A ≥ λ′ (1 − ε′ )∥u∥A > λ∥u∥A .
+Thus condition (4) of Definition 3.4 holds.                                                                      □
+
+3.2. Behavior of Whitehead’s algorithm.
+Proposition 3.10. Let M ≥ 1 be an integer and let [u] ∈ CN be M -minimal. Then the following hold:
+      (1) If τ1 , τ2 , . . . τk ∈ WN are such that
+                              ||u||A > ||τ1 (u)||A > ||τ2 τ1 (u)||A > · · · > ||τk . . . τ2 τ1 (u)||A
+          then k ≤ M .
+      (2) If a sequence τ1 , τ2 , . . . , τk ∈ WN as in (1) has the property that [uk ] is WN -minimal then [uk ] ∈
+          M([u]).
+      (3) For any [u′ ] ∈ M([u]) we have ||u||A ≤ 3M ||u′ ||A .
+
+Proof. Part (1) of the proposition is exactly part (4) of Lemma 3.2. Part (2) holds by the general peak
+reduction properties of Whitehead’s algorithm given in Proposition 2.4.
+   For part (3), let τ1 , τ2 , . . . τk ∈ WN be as in (1) such that [uk ] is WN -minimal. Then [uk ] ∈ M([u]) so
+that ||uk ||A = ||u′ ||A . Note that each τi−1 is again an element of WN . For any Whitehead automorphism
+τ ∈ WN and any w ∈ FN we have ||τ (w)||A ≤ 3||w||A . Therefore ||u||A ≤ 3k ||uk ||A = 3k ||u′ ||A ≤ 3M ||u′ ||A .
+Thus part (3) of the proposition holds.                                                                       □
+
+  Remark 3.8 and Proposition 3.7 imply that the conclusions of Proposition 3.10 also apply to (M, λ, ε)-
+minimal conjugacy classes.
+Definition 3.11. Let M ≥ 1 be an integer.
+      (1) We denote by UN (M ) the set of all 1 ̸= u ∈ FN such that [u] is M -minimal.
+      (2) We denote by YN (M ) the set of all 1 ̸= w ∈ FN such that there exists [u] ∈ Out(FN )[w] such that
+          [u] is M -minimal.
+      (3) Let ψ ∈ Out(FN ). Denote by UN (M, ψ) the set of all 1 ̸= w ∈ FN such that ψ([w]) is M -minimal.
+Lemma 3.12. Let M ≥ 1, and let M ′ = M ′ (M, N ) be as in Lemma 3.2. If u ∈ YN (M ), then
+                                                       #M([u]) ≤ M ′ ,
+and every element of M([u]) is (M ′ − 1)-minimal.
+                     GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                                   13
+
+
+Proof. Choose an M -minimal conjugacy class [v] ∈ Out(FN )[u]. Then M([u]) = M([v]), and the result
+follows from Lemma 3.2(2),(3).                                                                   □
+
+   We now summarize algorithmic properties of M -minimal elements in relation to Whitehead’s algorithm.
+Theorem 3.13. Let M ≥ 1 be an integer. Then there exists a constant K ≥ 1 such that the following hold:
+    (a) For any u ∈ UN (M ) the Whitehead minimization algorithm on the input u terminates in time at
+         most K|u|A and produces an element of M([u]).
+    (b) For any u1 , u2 ∈ UN (M ), the Whitehead algorithm for the automorphic equivalence problem in FN
+         terminates in time at most K max{|u1 |A , |u2 |A }, on the input (u1 , u2 ).
+    (c) For any u1 ∈ YN (M ) and any 1 ̸= u2 ∈ FN , the Whitehead algorithm for the automorphic equivalence
+         problem in FN terminates in time at most K max{|u1 |2A , |u2 |2A }, on the input (u1 , u2 ).
+    (d) For any u1 ∈ UN (M ) and any 1 ̸= u2 ∈ FN , the Whitehead algorithm for the automorphic equivalence
+         problem in FN terminates in time at most K max{|u1 |A , |u2 |2A }, on the input (u1 , u2 ).
+    (e) Let ψ ∈ Out(FN ) be a fixed element. Then there is a constant K ′ = K ′ (N, M, ψ) ≥ 1 such
+         that for any u1 , u2 ∈ UN (M, ψ), the ψ-speed-up of Whitehead’s algorithm decides in time at most
+         K ′ max{|u1 |A , |u2 |A }, whether or not Out(FN )[u1 ] = Out(FN )[u2 ].
+    (f ) Let ψ ∈ Out(FN ) be a fixed element. Then there is a constant K ′ = K ′ (N, M, ψ) ≥ 1 such that for
+         any u1 ∈ UN (M, ψ) and any 1 ̸= u2 ∈ FN , the ψ-speed-up of Whitehead’s algorithm decides in time
+         at most K ′ max{|u1 |A , |u2 |2A }, whether or not Out(FN )[u1 ] = Out(FN )[u2 ].
+
+Proof. Let M ′ = M ′ (M, N ) ≥ 1 be the constant provided by part (2) of Lemma 3.2.
+   (a) Let u ∈ UN (M ) be arbitrary. Proposition 3.10 implies that starting with u and iteratively looking
+for Whitehead moves that decrease the ||.||A -length terminates after a chain of ≤ M such moves with a
+conjugacy class that is Whitehead-minimal and therefore is Out(FN )-minimal, that is, an element of M([u]).
+This process takes at most time C1 |u|A for some constant C1 > 0 depending only on N, M .
+   (b) Let u1 , u2 ∈ UN (M ) so that [u1 ], [u2 ] are M -minimal. By part (a) above, applying the Whitehead
+minimization algorithm to [ui ] terminates in time ≤ C1 |ui |A with an Out(FN )-minimal element [u′i ] ∈ M([ui ])
+such that ni = ||u′i ||A ≤ ||ui ||A ≤ |ui |A . If n1 ̸= n2 then Out(FN )[u1 ] ̸= Out(FN )[u2 ] and we are done.
+Suppose that n = n1 = n2 .
+   By Proposition 2.4 we have M([ui ]) = V Tn [u′i ] for i = 1, 2. Moreover, by part (2) of Lemma 3.2 we
+have #V Tn [u′i ] ≤ M ′ here. Since M, M ′ are fixed, it takes linear time in |ui |A to construct the graph Tn [u′i ]
+from u′i . Then Out(FN )[u1 ] = Out(FN )[u2 ] if and only if [u′2 ] ∈ V Tn [u′1 ], and this condition can be checked
+in linear time in max{|u1 |A , |u2 |A }. Summing up we get that the total running time of the Whitehead
+algorithm for the automorphic equivalence problem in FN is time at most C2 max{|u1 |A , |u2 |A }, for some
+constant C2 > 0 depending only on N, M .
+   (c) Now suppose that u1 ∈ YN (M ) and 1 ̸= u2 ∈ FN . We first apply the Whitehead minimization
+algorithm to each of u1 , u2 to find Out(FN )-minimal elements [u′i ] ∈ Out(FN )[ui ] for i = 1, 2. Producing u′i
+from ui takes quadratic time in terms of |ui |A . By Lemma 3.12, the set M([u1 ]) = M([u′1 ]) has cardinality
+at most M ′ .
+    Put ni = ∥u′i ∥A . If n1 ̸= n2 then Out(FN )[u1 ] ̸= Out(FN )[u2 ] and we are done. Suppose that n = n1 = n2 .
+Since u′1 is Out(FN )-minimal, Proposition 2.4 gives M([u1 ]) = M([u′1 ]) = V Tn [u′1 ], and Lemma 3.12 gives
+#V Tn [u′1 ] ≤ M ′ . Then, since M, M ′ are fixed, it takes at most linear time in n = ||u′1 ||A ≤ |u1 |A to construct
+the graph Tn [u′1 ]. Recall also that [u′2 ] ∈ M([u2 ]) and ∥u′2 ∥A = n. Then we have Out(FN )[u1 ] = Out(FN )[u2 ]
+if and only if [u′2 ] ∈ V Tn [u′1 ]. This last condition can be checked in linear time in n. Again, summing up we
+see that the total running time of the Whitehead algorithm on (u1 , u2 ) is at most C3 max{|u1 |2A , |u2 |2A }, for
+some constant C3 > 0 depending only on N, M .
+   (d) Now let u1 ∈ UN (M ) and 1 ̸= u2 ∈ FN . We first apply the Whitehead minimization algorithm to
+each of u1 , u2 to find Out(FN )-minimal elements [u′i ] ∈ Out(FN )[ui ] for i = 1, 2. As in (b), producing u′1
+14                                                  ILYA KAPOVICH
+
+
+from u1 takes linear time in |u1 |A , because u1 is M -minimal. Producing u′2 from u2 takes at most quadratic
+time in |u2 |A , by the general Whitehead’s minimization algorithm properties. After that we proceed exactly
+in (c) above to decide if [u′1 ] and [u′2 ] are Out(FN )-equivalent. Summing up we see that the total running
+time of the Whitehead algorithm on (u1 , u2 ) is at most C4 max{|u1 |A , |u2 |2A } in this case, for some constant
+C4 > 0 depending only on N, M .
+     (e) Choose a representative Ψ ∈ Aut(FN ) of ψ, and choose Cψ ≥ 1 such that
+                                          |Ψ(g)|A ≤ Cψ |g|A        (g ∈ FN ).
+Let ui ∈ UN (M, ψ). In the ψ-speed-up of minimization, the branch beginning at Ψ(ui ) begins with an M -
+minimal conjugacy class and has input length at most Cψ |ui |A . By part (a), that branch terminates in time
+O(|ui |A ). The round-robin implementation therefore makes the entire speeded-up minimization terminate
+in linear time. Let [vi ] ∈ M([ui ]) be its output.
+     The orbit Out(FN )[ui ] contains the M -minimal class ψ([ui ]), so Lemma 3.12 gives
+                                                   #M([ui ]) ≤ M ′ .
+Moreover, with C0 = max{1, Cψ }, one has ∥vi ∥A ≤ C0 |ui |A . If ∥v1 ∥A ̸= ∥v2 ∥A , the speeded-up Whitehead
+algorithm stops after minimization. If their common length is n, then
+                                                 V Tn [v1 ] = M([u1 ])
+has at most M ′ vertices. Its breadth-first construction and the final membership test take O(nM ′ ) time.
+Since M ′ is fixed, the total running time is linear in max{|u1 |A , |u2 |A }, proving (e).
+   (f) Apply the same speeded-up minimization to u1 ∈ UN (M, ψ); it terminates in O(|u1 |A ) time and
+produces [v1 ] ∈ M([u1 ]). On the arbitrary second input u2 , the original branch of the speed-up is the
+ordinary Whitehead minimization algorithm, so the whole round-robin procedure terminates in O(|u2 |2A )
+time and produces [v2 ] ∈ M([u2 ]). If the two minimal lengths agree, the component V Tn [v1 ] = M([u1 ]) still
+has at most M ′ vertices, since the orbit of u1 contains the M -minimal class ψ([u1 ]). Thus stabilization takes
+only linear time in the common minimal length. The total running time is therefore
+                                             O max{|u1 |A , |u2 |2A } ,
+                                                                     
+
+which proves (f).
+                                                                                                                      □
+
+  We recall another basic fact related to Whitehead’s algorithm which describes Out(FN )-stabilizers of
+conjugacy classes in FN :
+Proposition 3.14. [29, Proposition 8.1] Let 1 ̸= u ∈ FN be such that [u] is Out(FN )-minimal, and let
+n = ||u||A . Then for φ ∈ Out(FN ) we have φ([u]) = [u] if and only if there exists a sequence of Whitehead
+automorphisms τ1 , . . . , τk ∈ WN such that for [ui ] = τi . . . τ1 ([u]), we have ||ui ||A = n for i = 1, . . . , k and
+[uk ] = [u] and such that φ = τk . . . τ1 in Out(FN ).
+Remark 3.15. By Definition 2.3, every oriented edge of Tn has a specified Whitehead label, including loop
+edges. Reading labels gives a homomorphism
+                                          ρ[u] : π1 (Tn [u], [u]) −→ Out(FN ).
+Since at most 2#WN oriented edge germs leave each vertex, the rank of the free group π1 (Tn [u], [u]) is
+bounded above by a constant                                   
+                                           R = R N, #V Tn [u] .
+If [u] is Out(FN )-minimal and n = ∥u∥A , then M([u]) = V Tn [u].
+
+     Proposition 3.14 now directly implies:
+Corollary 3.16. Let 1 ̸= u ∈ FN be such that [u] is Out(FN )-minimal, and let n = ||u||A . Then:
+                     GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                                   15
+
+
+    (1) We have StabOut(FN ) ([u]) = ρ[u] (π1 (Tn [u], [u])).
+    (2) We have rank StabOut(FN ) ([u]) ≤ R(N, #M([u])), where R is the constant provided by Remark 3.15.
+Proposition 3.17. Let M ≥ 1 be an integer. Let M ′ = M (N, M ) be the constant provided by Lemma 3.2.
+Let u ∈ YN (M ) (that is 1 ̸= u ∈ FN and the orbit Out(FN )[u] contains an M -minimal element). Then
+                                       rank StabOut(FN ) ([u]) ≤ R(N, M ′ ),
+where R is the constant provided by Remark 3.15.
+
+Proof. Let [u′ ] be an Out(FN )-minimal element in Out(FN )[u], and put n = ∥u′ ∥A . By Proposition 2.4,
+M([u]) = M([u′ ]) = V Tn [u′ ], and Lemma 3.12 gives #M([u]) ≤ M ′ . Corollary 3.16 bounds the rank of
+StabOut(FN ) ([u′ ]). Since the stabilizers of two classes in the same Out(FN )-orbit are conjugate, the same
+bound holds for StabOut(FN ) ([u]).                                                                         □
+
+3.3. Algorithmic detectability. For a finite nonempty subset S ⊆ CN denote ||S||A = max{||u||A |[u] ∈ S}.
+Proposition 3.18. Let N ≥ 2 and let M ≥ 1 be fixed integers. Then there exists a linear time, in terms of
+|w|A , algorithm that, given w ∈ FN , decides whether or not [w] is M -minimal.
+
+Proof. Put B = #WN . The number of sequences τ1 , . . . , τM +1 of length M + 1 of elements of WN is
+equal to B M +1 . Given w ∈ FN , for each sequence t = τ1 , . . . , τM +1 as above we compute the elements
+w1 = τ1 (w), w2 = τ2 τ1 (w), . . . , wM +1 = τM +1 . . . τ1 (w) in FN . We then check whether it is true that
+||w||A ≥ ||w1 ||A ≥ · · · ≥ ||wM +1 ||A and that [w], [w1 ], . . . , [wM +1 ] ∈ CN are distinct. For each t this check
+can be done in linear time in terms of |w|A since M is fixed. If we find a sequence t of length M + 1 such
+that the above condition holds then [w] is not M -minimal. Otherwise [w] is M -minimal. Since the number
+of sequences t that need to be considered is equal to B M +1 , which is a constant, the total running time of
+this algorithm is linear in terms of |w|A .                                                                         □
+Remark 3.19. Fix an integer M ≥ 1 and rational numbers 0 < ε < 1 and λ > 1 + ε.
+   (1) Since WN is finite, one can decide in linear time in ||S||A whether a given set S ⊆ CN − {[1]} of
+cardinality at most M is (M, λ, ε, WN )-minimizing.
+   (2) One can also decide whether such an S is (M, λ, ε)-minimizing. Conditions (1) and (3) of Definition 3.4
+are checked directly, and condition (2) is checked with Whitehead’s algorithm. To check condition (4), fix
+[u] ∈ S and enumerate all conjugacy classes [v] with
+                                                  ||v||A < λ||u||A .
+There are exponentially many such classes in ||u||A . For each one, Whitehead’s algorithm decides whether
+[v] ∈ Out(FN )[u]; condition (4) holds precisely when every orbit element found in this finite range already
+belongs to S. Thus, for fixed M, λ, ε, this test has a coarse exponential-time bound in ||S||A .
+   (3) Consequently, one can decide whether a given [u] is (M, λ, ε)-minimal. Indeed, condition (3) forces
+every member of a minimizing set containing [u] to have length at most (1 + ε)||u||A . Enumerate the finitely
+many subsets of that ball having cardinality at most M and containing [u], and apply the test in (2). Since
+M is fixed, this again gives an exponential-time procedure in ||u||A .
+
+   It turns out that deciding whether an element [u] is (M, λ, ε, WN )-minimal can be done in linear time in
+||u||A (under slightly more stringent assumptions in λ, ε).
+Lemma 3.20. Let M ≥ 1 be an integer, let λ > 1, 0 < ε < 1 be such that ε < λ − 1 and λ 1−ε       1+ε > 1.
+Let S ⊆ CN be a finite set of conjugacy classes of nontrivial elements of FN such that S is (M, λ, ε, WN )-
+minimizing. Let [u] ∈ S.
+   Then for [u′ ] ∈ CN , [u′ ] ̸= [u] the following conditions are equivalent:
+    (1) We have [u′ ] ∈ S.
+16                                                    ILYA KAPOVICH
+
+
+      (2) There exists a chain τ1 , . . . , τk ∈ WN such that k ≤ M , that τk . . . τ1 [u] = [u′ ] and that with [u0 ] = [u]
+          [ui ] = τi . . . τ1 [u] we have ||ui+1 ||A ≤ (1 + ε)||ui ||A for 0 ≤ i < k.
+
+Proof. Assume first that (2) holds. Starting with [u0 ] = [u] ∈ S, Lemma 3.6(1) applies successively to the
+displayed inequalities and shows that every [ui ] lies in S. Hence [u′ ] = [uk ] ∈ S, proving (1).
+     Conversely, suppose that [u′ ] ∈ S. Then
+(3.1)                                             ∥u′ ∥A ≤ (1 + ε)∥u∥A .
+Choose φ ∈ Out(FN ) with φ([u]) = [u′ ]. If ∥u′ ∥A ≤ ∥u∥A , apply Proposition 2.5 directly to φ. If ∥u′ ∥A >
+∥u∥A , apply that proposition to φ−1 and the pair [u′ ], [u], and then reverse the resulting chain, replacing
+every Whitehead move by its inverse. In either case we obtain Whitehead moves τ1 , . . . , τk such that, with
+                                           [u0 ] = [u],     [ui ] = τi · · · τ1 ([u]),
+                     ′
+one has [uk ] = [u ] and
+(3.2)                        ∥ui ∥A ≤ max{∥u∥A , ∥u′ ∥A } ≤ (1 + ε)∥u∥A                  (0 ≤ i ≤ k).
+Deleting closed subchains if necessary, we may assume that the classes [u0 ], . . . , [uk ] are distinct.
+     We claim that every step satisfies
+(3.3)                                           ∥ui ∥A ≤ (1 + ε)∥ui−1 ∥A .
+Otherwise, let i be the first index for which (3.3) fails. Lemma 3.6(1) shows inductively that [u0 ], . . . , [ui−1 ]
+lie in S. Condition (3) of Definition 3.5 then implies that [ui ] ∈
+                                                                  / S, and condition (4)(ii) gives
+                                  ∥ui ∥A ≥ λ∥ui−1 ∥A ≥ λ(1 − ε)∥u∥A > (1 + ε)∥u∥A ,
+where the final inequality is the hypothesis λ(1 − ε)/(1 + ε) > 1. This contradicts (3.2), proving the claim.
+   Another induction using Lemma 3.6(1) now shows that all [ui ] lie in S. They are distinct and #S ≤ M ,
+so k ≤ M − 1, in particular k ≤ M . Thus (2) holds.                                                    □
+Corollary 3.21. Let M ≥ 1 be an integer, let λ > 1, 0 < ε < 1 be rational numbers such that ε < λ − 1 and
+λ 1−ε
+  1+ε > 1. Then there is an algorithm that, given 1 ̸= u ∈ FN decides in linear time in |u|A whether or not
+[u] is (M, λ, ε, WN )-minimal.
+
+Proof. Suppose we are given an input 1 ̸= u ∈ FN . We need to decide if there exists an (M, λ, ε, WN )-
+minimizing set S containing [u].
+   We first enumerate all chains of k ≤ M Whitehead moves as in part (2) of Lemma 3.20 and collect all [u′ ]
+reachable from [u] by applying such chains. Denote the resulting subset of CN by S ′ . Computing S ′ from
+[u] takes at most linear time in |u|A since M is fixed and the set WN is also finite and fixed.
+   Lemma 3.20 implies that if [u] belongs to some (M, λ, ε, WN )-minimizing set S then S = S ′ . We then
+check if conditions (1)-(4) of Definition 3.5 hold for S ′ . Again this can be done in linear time in |u|A since
+M is fixed.
+   We conclude that [u] is (M, λ, ε, WN )-minimal if and only if conditions (1)-(4) of Definition 3.5 do hold
+for S ′ .                                                                                                  □
+
+                                      4. Geodesic currents on free groups
+
+   We provide some basic background on geodesic currents on FN here and refer the reader to [23, 26, 27]
+for further details. For the remainder of this section, let FN be a free group of finite rank N ≥ 2. We denote
+by ∂FN the hyperbolic boundary of FN and denote ∂ 2 FN := {(x, y)|x, y ∈ ∂FN , x ̸= y}. We give ∂ 2 FN
+the subspace topology from ∂FN × ∂FN and endow ∂ 2 FN with the natural diagonal translation action of
+FN by homeomorphisms. The space ∂ 2 FN also comes with a natural “flip” involution ϖ : ∂ 2 FN → ∂ 2 FN ,
+                    GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                                 17
+
+
+ϖ : (x, y) 7→ (y, x). The boundary ∂FN is homeomorphic to the Cantor set, and ∂ 2 FN is a locally compact
+totally disconnected but non-compact metrizable topological space.
+
+4.1. Basic notions.
+Definition 4.1 (Oriented currents and symmetrization). An oriented geodesic current on FN is a locally
+finite positive Borel measure on ∂ 2 FN that is invariant under the diagonal action of FN ; flip invariance is not
+required. We denote the space of oriented currents by Curr+ (FN ) and equip it with the weak-* topology. If
+α is an oriented current, define
+                                              Sym(α) := α + ϖ∗ α.
+Then Sym(α) is flip-invariant.
+Definition 4.2. A geodesic current on FN is a locally finite (i.e. finite on compact subsets) positive Borel
+measure ν on ∂ 2 FN such that ν is FN -invariant and flip-invariant. The set of all geodesic currents on FN is
+denoted Curr(FN ).
+
+   The set Curr(FN ) is equipped with the weak-* topology, which makes Curr(FN ) locally compact. Any
+automorphism Φ ∈ Aut(FN ) is a quasi-isometry of FN and hence extends to a homeomorphism, which we
+still denote by Φ : ∂FN → ∂FN . Diagonally extending this homeomorphism we also get a homeomorphism
+Φ : ∂ 2 FN → ∂ 2 FN . There is a natural left action of Aut(FN ) by homeomorphisms on Curr(FN ), where for
+Φ ∈ Aut(FN ) and ν ∈ Curr(FN ) we have (Φν)(S) = ν(Φ−1 (S)) for S ⊆ ∂ 2 FN . The subgroup Inn(FN ) ≤
+Aut(FN ) is contained in the kernel of this action, and therefore the action descends to the action of Out(FN )
+on Curr(FN ). There is also a multiplication by a scalar action of R>0 on Curr(FN ) − {0}, with the quotient
+space P Curr(FN ) = (Curr(FN ) − {0})/R>0 , equipped with the quotient topology. The space P Curr(FN ) is
+compact, although infinite dimensional. For 0 ̸= ν ∈ Curr(FN ) we denote the R>0 -equivalence class of ν by
+[ν]. Thus [ν] = {cν|c ∈ R>0 } and [ν] ∈ P Curr(FN ). We call elements of P Curr(FN ) projectivized geodesic
+currents on FN .
+  Let 1 ̸= g ∈ FN . Then g determines a pair of distinct “poles” g −∞ , g ∞ ∈ ∂FN , where g ∞ = limn→∞ g n
+and g −∞ = limn→∞ g −n in FN ∪ ∂FN . Thus (g −∞ , g ∞ ) ∈ ∂ 2 FN . For h ∈ FN we have hg ∞ = (hgh−1 )∞ ,
+and we also have g −∞ = (g −1 )∞ .
+Definition 4.3 (Counting and rational currents). Let 1 ̸= g ∈ FN . The oriented counting current of g is
+                                               X
+                                      ηg+ :=         δh(g−∞ ,g∞ ) .
+                                                 h∈FN /⟨g⟩
+
+The usual counting current is its symmetrization:
+                                               X
+                          ηg := Sym(ηg+ ) =
+                                                                                      
+                                                           δh(g−∞ ,g∞ ) + δh(g∞ ,g−∞ ) .
+                                               h∈FN /⟨g⟩
+
+We call currents of the form cηg , where c > 0, rational currents.
+
+   It is known that the set of all rational currents is a dense subset of Curr(FN ), and that for any 1 ̸= g ∈ FN
+and any u ∈ FN we have ηg = ηugu−1 = ηg−1 . Therefore we also denote η[g] := ηg where [g] is the conjugacy
+class of g in FN . Moreover, for φ ∈ Aut(FN ) and 1 ̸= g ∈ FN , one has φηg = ηφ(g) .
+  For a fixed free basis A, the standard suspension construction gives a linear homeomorphism
+                                  IA : Curr+ (FN ) −→ Mflow T 1 (TA /FN )
+                                                                         
+
+from oriented currents to geodesic-flow-invariant Radon measures on the oriented geodesic-flow space. It is
+characterized on oriented counting currents by
+                                              IA (ηg+ ) = ||g||A Dg ,
+18                                                ILYA KAPOVICH
+
+
+where Dg is normalized arclength measure on the oriented closed geodesic determined by g. In particular,
+                                              + 
+                                                 ηg
+(4.1)                                     IA           = Dg .
+                                               ||g||A
+This correspondence is also obtained by lifting a flow-invariant measure to ∂ 2 FN × R and disintegrating it
+as an oriented current times Lebesgue measure along the flow lines.
+
+4.2. Simplicial charts and weights. We adopt the conventions of [14] regarding graphs. All graphs are
+1-cell complexes, where 0-cells are called vertices and 1-cells are called topological edges. Every topological
+edge is homeomorphic to an interval (0, 1) and thus admits exactly two orientations. An oriented edge of
+a graph is a topological edge with a choice of an orientation. The same topological edge with the opposite
+orientation is denoted e−1 . The set of all oriented edges of a graph ∆ is denoted E∆. We also denote by V ∆
+the set of all vertices of ∆. Unless specified otherwise, by an edge of a graph we always mean an oriented
+edge. Every oriented edge e ∈ E∆ has an initial vertex denoted o(e) ∈ V ∆ and a terminal vertex t(e) ∈ V ∆.
+We also have o(e−1 ) = t(e) and t(e−1 ) = o(e). An edge-path γ of length n ≥ 1 in ∆ is a sequence of edges
+e1 , . . . , en such that t(ei ) = o(ei+1 ). We also consider a vertex v of ∆ to be a path of length 0. An edge-path
+γ in ∆ is reduced if it does not contain subpaths of the form e, e−1 where e ∈ E∆. We denote by |γ| the
+length of an edge-path γ.
+Definition 4.4 (Simplicial chart). Let FN be free of rank N ≥ 2. A simplicial chart on FN is a pair (Γ, κ)
+where Γ is a finite connected oriented graph with all vertices of degree ≥ 3 and with the first Betti number
+b(Γ) = N , and where κ : FN → π1 (Γ, x0 ) is a group isomorphism (with x0 ∈ V Γ some base vertex), called a
+marking.
+
+   When talking about simplicial charts, we usually suppress explicit mention of κ. We equip Γ and T0 =
+ ^
+(Γ, x0 ) with simplicial metrics, where every edge has length 1. In this setting we denote by Ω(Γ) the set
+of all semi-infinite reduced edge-paths e1 , e2 , . . . , in Γ. For n ≥ 1 denote by Ωn (Γ) the set of all reduced
+edge-paths e1 , e2 , . . . , en of length n in Γ. Also denote Ω∗ = ∪∞n=1 Ωn (Γ).
+   If A = {a1 , . . . , aN } is a free basis of FN , then the graph RA , with a single vertex x0 and with N petal-
+edges marked a1 , . . . , aN , is a simplicial chart on FN . In this case the corresponding covering tree TA := R
+                                                                                                                eA
+is exactly the Cayley tree of FN with respect to A. We refer to such simplicial chart RA as an N -rose.
+   For a simplicial chart Γ, the marking κ induces an FN -equivariant quasi-isometry FN → T0 , which we use
+to identify ∂FN with ∂T0 . For (x, y) ∈ ∂ 2 FN denote by γx,y the bi-infinite geodesic in T0 from x to y. The
+group FN = π1 (Γ, x0 ) acts on T0 = Γ e by covering transformations, which is a free and isometric discrete
+action with T0 /FN = Γ.
+Definition 4.5 (Cylinders and weights). Let Γ be a simplicial chart on FN , with T0 = Γ.
+                                                                                      e
+   (1) For two distinct vertices p, q ∈ T0 denote by CylΓ ([p, q]) the set of all (x, y) ∈ ∂ 2 FN such that the
+geodesic γx,y , oriented from x to y, traverses the segment [p, q] from p to q. The set CylΓ ([p, q]) ⊆ ∂ 2 FN is
+called the cylinder set corresponding to [p, q].
+  For any g ∈ FN and any p, q ∈ V T0 , p ̸= q we have gCylΓ ([p, q]) = CylΓ ([gp, gq]). The cylinder sets
+CylΓ ([p, q]) ⊆ ∂ 2 FN are compact and open, and the collection of all such cylinder sets forms a basis for the
+subspace topology on ∂ 2 FN defined above.
+   (2) For a geodesic current η ∈ Curr(FN ) denote by ⟨v, η⟩Γ := η (CylΓ ([p, q])) where [p, q] is any lift of v
+to T0 . The number 0 ≤ ⟨v, η⟩Γ < ∞ is called the weight of v in η with respect to Γ.
+
+   If Γ = RA is an N -rose, we use the subscript A rather than RA for chart-related notations. E.g. ⟨v, η⟩A :=
+⟨v, η⟩RA , etc.
+Proposition 4.6. [23] Let FN be free of rank N ≥ 2 and let Γ be a simplicial chart on FN . Then:
+                    GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                            19
+
+
+   (1) For η, ηn ∈ Curr(FN ), where n = 1, 2, . . . , we have limn→∞ ηn = η in Curr(FN ) if and only if for
+       every v ∈ Ω∗ (Γ) we have
+                                        lim ⟨v, ηn ⟩Γ = ⟨v, η⟩Γ .
+                                            n→∞
+    (2) Let η ∈ Curr(FN ). Then for every k ≥ 1 and every v ∈ Ωk (Γ) we have
+                                    X                             X
+(‡)                ⟨v, η⟩Γ =                   ⟨ve, η⟩Γ =                    ⟨e′ v, η⟩Γ .
+                              e∈EΓ with ve∈Ωk+1 (Γ)           e′ ∈EΓ with e′ v∈Ωk+1 (Γ)
+
+          Moreover, any system of finite nonnegative weights a(v), v ∈ Ω∗ (Γ), satisfying the two switch
+        conditions                          X          X
+                                     a(v) =    a(ve) =     a(e′ v)
+                                                  e           e′
+        (with the sums taken over reduced extensions) and the symmetry relations a(v) = a(v −1 ) uniquely
+        determines a current η ∈ Curr(FN ) with ⟨v, η⟩Γ = a(v).
+
+  Condition (‡) is often called the switch condition for Γ.
+   For v ∈ Ω∗ (Γ) and a nondegenerate closed reduced and cyclically reduced edge-path w in Γ, denote by
+⟨v, w⟩Γ the number of ways in which v can be read, reading forwards or backwards, in a circle of length |w|
+labelled by w. The number ⟨v, w⟩Γ ≥ 0 is called the number of occurrences of v in w. A key useful fact that
+follows from the definitions is:
+Lemma 4.7. Let FN be free of rank N ≥ 2 and let Γ be a simplicial chart on FN . Let v ∈ Ω∗ (Γ) and let w
+be a nondegenerate closed reduced and cyclically reduced edge-path in Γ. Then ⟨v, w⟩Γ = ⟨v, ηw ⟩Γ .
+
+                                                                                                           □
+Definition 4.8 (Uniform current). Let FN = F (A) be free of rank N ≥ 2 with a free basis A. The uniform
+                                                                                                1
+current νA ∈ Curr(FN ) corresponding to A is the current given by the weights ⟨v, νA ⟩A = N (2N −1) k−1 for
+
+every 1 ̸= v ∈ FN with |v|A = k ≥ 1.
+
+  For a current η ∈ Curr(FN ) the support supp(η) ⊆ ∂ 2 FN is
+                                          [
+                      supp(η) := ∂ 2 FN \ {U ⊆ ∂ 2 FN |U is open and η(U ) = 0}.
+Thus supp(η) is a closed FN -invariant subset of ∂ 2 FN .
+Remark 4.9. Let Γ be a simplicial chart on FN . If η ∈ Curr(FN ) and (x, y) ∈ ∂ 2 FN then (x, y) ∈ supp(η)
+if and only if every finite nondegenerate edge subpath of γx,y projects to a reduced edge-path v in Γ with
+⟨v, η⟩Γ > 0.
+
+4.3. Geometric intersection form. We refer the reader to [3, 16, 27, 45] for the background and basic
+info regarding the Outer space, and only recall a few facts and definitions here. Denote by cvN the (un-
+projectivized) Culler-Vogtmann Outer space for FN . Elements of cvN are equivariant FN -isometry classes
+of free and discrete minimal isometric actions of FN on R-trees. In particular, if Γ is a simplicial chart on
+FN then T0 = Γ  e defines a point of cvN . There is a natural “axes” topology on cvN and a (right) action of
+Out(FN ) on cvN by homeomorphisms. Moreover, the closure cvN of cvN in the axes topology is known to
+consist of all minimal nontrivial “very small” isometric actions on FN on R-trees (again considered up to
+FN -equivariant isometry), and the action of Out(FN ) extends to cvN . For T ∈ cvN and g ∈ FN denote by
+||g||T the translation length of g in T , that is ||g||T = inf x∈T dT (x, gx).
+  A key result of Kapovich and Lustig [26] is:
+Proposition 4.10. Let FN be free of finite rank N ≥ 2. Then there exists a continuous geometric intersec-
+tion form
+                                     ⟨− , −⟩ : cvN × Curr(FN ) → R≥0
+satisfying the following properties:
+20                                                 ILYA KAPOVICH
+
+
+      (1) The map ⟨− , −⟩ is R≥0 -homogeneous with respect to the first argument and R≥0 -linear with respect
+          to the second argument.
+      (2) For every φ ∈ Out(FN ), every T ∈ cvN and every η ∈ Curr(FN ) we have
+                                                  ⟨T, φη⟩ = ⟨T φ, η⟩.
+      (3) For every 1 ̸= g ∈ FN and every T ∈ cvN we have ⟨T, ηg ⟩ = ||g||T .
+
+  In view of the above proposition, for T ∈ cvN and η ∈ Curr(FN ) we denote ||η||T = ⟨T, η⟩. If A is a free
+basis of FN and TA is the Cayley tree of FN with respect to the free basis A, then for η ∈ Curr(FN ) we
+denote ||η||A := ||η||TA = ⟨TA , η⟩.
+   For every T ∈ cvN there is an associated dual lamination L(T ) ⊆ ∂ 2 FN , which is a certain closed FN -
+invariant and flip-invariant subset of ∂ 2 FN recording the information about sequences of elements of FN
+with translation length in T converging to 0. We refer the reader to [27] for the precise definition of L(T )
+and additional details.
+     We need the following key result of [27]:
+Proposition 4.11. Let T ∈ cvN and η ∈ Curr(FN ). Then ||η||T = 0 if and only if supp(η) ⊆ L(T ).
+
+                                           5. Filling geodesic currents
+
+     Whenever edge-paths occur in this section, Γ denotes a fixed simplicial chart on FN .
+Definition 5.1. Let FN be free of rank N ≥ 2.
+      (1) An element g ∈ FN is filling in FN if for every T ∈ cvN we have ||g||T > 0.
+      (2) A current η ∈ Curr(FN ) is filling in FN if for every T ∈ cvN we have ||η||T > 0.
+
+     Thus an element 1 ̸= g ∈ FN is filling if and only if ηg is a filling.
+     One of the main results of [27] is:
+Proposition 5.2. [27, Corollary 1.6] Let η ∈ Curr(FN ) be such that supp(η) = ∂ 2 FN . Then η is filling in
+FN .
+
+     We will sometimes say that a current η ∈ Curr(FN ) has full support if supp(η) = ∂ 2 FN .
+     Remark 4.9 directly implies:
+Proposition 5.3. Let Γ be a simplicial chart on FN .
+   Then η ∈ Curr(FN ) has full support if and only if for every nondegenerate edge-path v in Γ we have
+⟨v, η⟩Γ > 0.
+Lemma 5.4. Let 0 ̸= ν ∈ Curr(FN ). Let w be a nondegenerate closed reduced and cyclically reduced
+edge-path in Γ such that for every n ≥ 1 we have ⟨wn , ν⟩Γ > 0. Then supp(ηw ) ⊆ supp(ν).
+
+Proof. Let p+ = (w−∞ , w∞ ). The cylinders determined by longer and longer finite subsegments of the axis
+of w form a neighborhood basis at p+ . Every such segment is, after translating along the axis and possibly
+passing to a subpath, contained in a lift of wn for some n. Since ⟨wn , ν⟩Γ > 0, the cylinder of that lift of
+wn has positive ν-measure and is contained in the cylinder of the shorter segment. Hence every cylinder
+neighborhood required by the support criterion has positive measure. Thus p+ ∈ supp(ν). Flip invariance
+gives p− = (w∞ , w−∞ ) ∈ supp(ν). Finally,
+                                                     [
+                                        supp(ηw ) =      h{p+ , p− },
+                                                         h∈FN
+
+and FN -invariance of supp(ν) gives supp(ηw ) ⊆ supp(ν).                                                   □
+                    GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                                   21
+
+
+Lemma 5.5. Let 1 ̸= g ∈ FN be a filling element and let 0 ̸= ν ∈ Curr(FN ) be a current such that
+supp(ηg ) ⊆ supp(ν). Then ν is a filling current.
+
+Proof. Suppose, on the contrary, that ν is not filling. Then there exists T ∈ cvN such that ⟨T, ν⟩ = 0. By
+[27, Theorem 1.1] this implies that supp(ν) ⊆ L(T ). Hence supp(ηg ) ⊆ L(T ) as well. Therefore, again by
+[27, Theorem 1.1], we have 0 = ⟨T, ηg ⟩ = ||g||T , which contradicts that g is filling.                  □
+Corollary 5.6. Let z be a nondegenerate closed reduced and cyclically reduced edge-path in Γ representing
+the conjugacy class of a filling element g ∈ FN .
+  Let 0 ̸= ν ∈ Curr(FN ) be such that for every n ≥ 1 we have ⟨z n , ν⟩Γ > 0. Then ν is a filling current.
+
+Proof. Lemma 5.4 implies that supp(ηg ) ⊆ supp(ν). Therefore, by Lemma 5.5, the current ν is filling.             □
+Proposition 5.7. Let 0 ̸= ν ∈ Curr(FN ) be such that for some free basis A = {a1 , . . . , aN } the following
+holds. For i = 1, . . . , N let wi be a closed reduced and cyclically reduced edge-path in Γ representing the
+conjugacy class of ai in FN . For 1 ≤ i < j ≤ N let wi,j be a closed reduced and cyclically reduced edge-path
+in Γ representing the conjugacy class of ai aj in FN . Suppose that ⟨win , ν⟩Γ > 0 for every i = 1, . . . , N
+                                 n
+and every n ≥ 1, and that ⟨wi,j    , ν⟩Γ > 0 for every 1 ≤ i < j ≤ N and every n ≥ 1. Then the current
+ν ∈ Curr(FN ) is filling.
+
+Proof. Indeed, suppose ν is not filling. Then there exists T ∈ cvN such that ⟨T, ν⟩ = 0. By [27, Theorem 1.1]
+this implies that supp(ν) ⊆ L(T ).
+  Lemma 5.4 implies that for all i = 1, . . . , N we have supp(ηai ) ⊆ supp(ν), and for all 1 ≤ i < j ≤ N we
+have supp(ηai aj ) ⊆ supp(ν). Since supp(ν) ⊆ L(T ), [27, Theorem 1.1] implies that for i = 1, . . . , N
+                                              0 = ⟨T, ηai ⟩ = ||ai ||T
+and for all 1 ≤ i < j ≤ N we have
+                                            0 = ⟨T, ηai aj ⟩ = ||ai aj ||T
+Thus all ai and ai aj act elliptically on T and so have nonempty fixed sets in T .
+   For 1 ≤ i < j ≤ N , the elements ai , aj , ai aj act elliptically on T , and therefore, by [43, Proposition 1.8],
+FixT (ai ) ∩ FixT (aj ) ̸= ∅. Thus FixT (a1 ), . . . FixT (aN ) are nonempty subtrees of T with pairwise nonempty
+intersections. Therefore ∩N   i=1 FixT (ai ) ̸= ∅. Hence FN has a global fixed point in T , which contradicts the
+fact that T ∈ cvN is a nontrivial FN -tree.                                                                       □
+Proposition 5.8. Let FN = F (A) (where N ≥ 2) and let w ∈ F (A) be a freely and cyclically reduced word
+such that for every v ∈ F (A) with |v|A = 3, the word v occurs as a subword of some cyclic permutation of w
+or of w−1 . Then:
+    (1) The element w ∈ FN is filling.
+    (2) If 0 ̸= ν ∈ Curr(FN ) is such that for all n ≥ 1 ⟨wn , ν⟩A > 0, then the current ν is filling in FN .
+
+Proof. Part (1) is exactly [7, Corollary 5.6].
+  Now part (1) implies part (2) by Corollary 5.6.                                                                 □
+
+                                  6. Filling currents and M -minimality
+
+   Also, as before, we denote by TA the Cayley tree of FN with respect to the free basis A. Thus TA is a
+simplicial tree with all edges of length 1.
+Definition 6.1. Let 0 ̸= ν ∈ Curr(FN ). The automorphic distortion spectrum of ν with respect to the free
+basis A of FN is the set
+                                   DA (ν) := {∥φν∥A : φ ∈ Out(FN )}.
+Also denote JA (ν) := inf DA (ν).
+22                                               ILYA KAPOVICH
+
+
+Remark 6.2. Thus DA (ν) ⊆ R>0 . For every φ ∈ Out(FN ),
+                                         ||φν||A = ⟨TA , φν⟩ = ⟨TA φ, ν⟩.
+If B is another free basis, choose ψ ∈ Out(FN ) with TB = TA ψ. Then
+                                       ||φν||B = ⟨TA ψ, φν⟩ = ⟨TA , ψφν⟩.
+As φ ranges over Out(FN ), so does ψφ; hence DB (ν) = DA (ν). We retain the subscript because the
+minimizing automorphisms and the associated length function are expressed relative to the chosen basis.
+   Note also that for 1 ̸= w ∈ FN and φ ∈ Out(FN ) we have ⟨TA , φηw ⟩ = ⟨TA , ηφ (w)⟩ = ||φ(w)||A . Therefore
+in this case DA (ηw ) = {||φ(w)||A : φ ∈ Out(FN )} ⊆ Z>0 , and JA (ηw ) is the smallest ||.||A -length of elements
+in the orbit Out(FN )[w].
+
+     We need the following useful result essentially proved in [27, Theorem 11.2]:
+Proposition 6.3. Let ν ∈ Curr(FN ) (where N ≥ 2) be a filling current and let A be a free basis of FN .
+Then:
+      (1) The set DA (ν) is a discrete unbounded subset of [0, ∞).
+      (2) For every C > 0 the set {φ ∈ Out(FN ) : ||φν||A ≤ C} is finite.
+
+Proof. Theorem 11.2 of [27] is stated for currents of full support. Its proof uses that hypothesis only to
+obtain
+                                                 ⟨T∞ , ν⟩ > 0
+for a limiting tree T∞ ∈ cvN . The definition of a filling current gives exactly this positivity for every
+T∞ ∈ cvN . The remainder of the proof of [27, Theorem 11.2] therefore applies verbatim and gives the
+finite-sublevel conclusion in (2). It follows that DA (ν) ∩ [0, C] is finite for every C > 0, and hence that
+DA (ν) is discrete. If DA (ν) were bounded, then all of the infinite group Out(FN ) would lie in a single finite
+sublevel set, a contradiction. Thus DA (ν) is unbounded, proving (1).                                         □
+
+     Proposition 6.3 immediately implies:
+Corollary 6.4. For FN and A as in Proposition 6.3 let ν ∈ Curr(FN ) be a filling current. Then:
+      (1) We have JA (ν) ∈ DA (ν), so that JA (ν) = min DA (ν).
+      (2) The set WA,ν = {φ ∈ Out(FN ) : ||φν||A = JA (ν)} is finite and nonempty.
+
+     We also record the following useful general consequence of Proposition 6.3:
+Proposition 6.5. Let ν ∈ Curr(FN ) (where N ≥ 2) be a filling current. Then:
+      (1) The stabilizer StabOut(FN ) (ν) is finite.
+      (2) We have StabOut(FN ) (ν) = StabOut(FN ) ([ν]), where [ν] ∈ P Curr(FN ) is the projective class of ν.
+      (3) If τ ∈ WN is a Whitehead move of the second kind such that τ ̸= 1 in Out(FN ) then τ ν ̸= ν and
+          τ [ν] ̸= [ν].
+
+Proof. Let A be a free basis of FN . Put C = ||ν||A . For every φ ∈ StabOut(FN ) (ν) we have ||φν||A = ||ν||A =
+C. Therefore
+                                StabOut(FN ) (ν) ⊆ {φ ∈ Out(FN ) : ||φν||A ≤ C}
+and hence StabOut(FN ) (ν) is finite by Proposition 6.3. Thus (1) is verified.
+     For (2), suppose that ψ ∈ StabOut(FN ) ([ν]). Thus ψν = tν for some t > 0.
+   Suppose first that t ̸= 1. Then ψ −1 ν = 1t ν. Therefore, after possibly replacing ψ by ψ −1 , we have ψν = tν
+with t < 1. Hence for every n ≥ 1 ψ n ν = tn ν. Since t ̸= 1, this implies that ψ n ν ̸= ν, so that ψ has infinite
+order in Out(FN ). Moreover, since t < 1, for every n ≥ 1 we have ||ψ n ν||A = tn ||ν||A ≤ ||ν||A = C. Hence
+                                  {ψ n |n ≥ 1} ⊆ {φ ∈ Out(FN ) : ||φν||A ≤ C},
+                     GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                                 23
+
+
+which contradicts the fact that by Proposition 6.3 the latter set is finite. Thus t = 1, so that ψν = tν = ν
+and ψ ∈ StabOut(FN ) (ν). Since ψ ∈ StabOut(FN ) ([ν]) was arbitrary, it follows that StabOut(FN ) ([ν]) =
+StabOut(FN ) (ν). The inclusion StabOut(FN ) (ν) ⊆ StabOut(FN ) ([ν]) is obvious. Hence StabOut(FN ) (ν) =
+StabOut(FN ) ([ν]), and (2) holds, as required.
+    It remains to justify the infinite-order assertion used in (3). Represent τ by a Whitehead automorphism Φ
+of the second kind with multiplier a ∈ A±1 , and let a0 ∈ A be the underlying basis element, so that a = a±1
+                                                                                                           0 .
+If the induced map on H1 (FN ; Z) is nontrivial, its matrix has the form I + Q, where Q ̸= 0, the image of Q
+is contained in the line spanned by a, and Q(a) = 0. Hence Q2 = 0 and
+                                       (I + Q)n = I + nQ ̸= I           (n ≥ 1),
+so the outer class of Φ has infinite order.
+   Suppose instead that Φ acts trivially on H1 (FN ; Z). Then every x ∈ A \ {a0 } is mapped either to itself
+or to a−1 xa; thus Φ is a partial conjugation. Conjugating no element of A \ {a0 } gives the identity, while
+conjugating all of them gives an inner automorphism. Since τ ̸= 1 in Out(FN ), Φ conjugates a nonempty
+proper subset of A \ {a0 }. Choose x in that subset and y in its complement. Then
+                                 Φn (x) = a−n xan ,       Φn (a) = a,      Φn (y) = y.
+If Φn were inner, its conjugating element would centralize the two noncommuting basis elements a and y,
+and hence would be trivial; this contradicts Φn (x) ̸= x. Thus τ again has infinite order. Parts (1) and (2)
+now imply
+                                  τ∈ / StabOut(FN ) (ν) = StabOut(FN ) ([ν]),
+which proves (3).                                                                                         □
+Definition 6.6. Let FN be free of finite rank N ≥ 2, let A be a free basis of FN and let ν ∈ Curr(FN ) be
+a filling current.
+   (1) We call the set WA,ν := {φ ∈ Out(FN ) : ||φν||A = JA (ν)} the A-minimizing set for ν and we call the
+integer MA (ν) := #WA,ν ≥ 1 the minimizing multiplicity for ν with respect to A.
+  (2) Also let
+                  ′
+                 JA (ν) = min{||φν||A : φ ∈ Out(FN ), φ ̸∈ WA,ν } = min (DA (ν) \ {JA (ν)}) .
+                  J ′ (ν)
+and let λA (ν) = JA
+                  A
+                    (ν) , so that λA (ν) > 1. We call λA (ν) the distortion threshold for ν with respect to A.
+
+  (3) Denote ℑA,ν = WA,ν ν = {φν|φ ∈ WA,ν } ⊆ Curr(FN ) and call ℑA,ν the orbit floor for ν.
+  (4) For ν ′ ∈ ℑA,ν denote RA,ν,ν ′ = {ψ ∈ Out(FN ) : ψν ′ ∈ ℑA,ν }.
+Lemma 6.7. Let FN be free of rank N ≥ 2, let A be a free basis, and let ν ∈ Curr(FN ) be filling. Suppose
+that ν ′ = φν ∈ ℑA,ν with φ ∈ WA,ν . Then:
+   (1)
+                                RA,ν,ν ′ = WA,ν φ−1 = {φ′ φ−1 : φ′ ∈ WA,ν }.
+       In particular, #RA,ν,ν ′ = MA (ν).
+   (2) For every current η and every conjugacy class [u],
+                               RA,ν,ν ′ η = WA,ν φ−1 η,      RA,ν,ν ′ [u] = WA,ν φ−1 [u].
+   (3) RA,ν,ν ′ ν ′ = ℑA,ν .
+
+Proof. Put H = StabOut(FN ) (ν). First observe that the minimizing set is right H-invariant:
+                                                  WA,ν H = WA,ν ,
+because hν = ν for h ∈ H. Now ψν ∈ ℑA,ν if and only if there exists φ′ ∈ WA,ν such that
+                                       ′
+
+                                                      ψφν = φ′ ν.
+24                                                  ILYA KAPOVICH
+
+
+Equivalently, (φ′ )−1 ψφ ∈ H, or
+                                             ψ ∈ φ′ Hφ−1 ⊆ WA,ν φ−1 .
+The converse inclusion is immediate: if ψ = θφ−1 with θ ∈ WA,ν , then ψν ′ = θν ∈ ℑA,ν . This proves (1),
+including the cardinality assertion. Part (2) follows by applying the equality of sets of automorphisms, and
+part (3) follows from
+                                  RA,ν,ν ′ ν ′ = WA,ν φ−1 φν = WA,ν ν = ℑA,ν .                             □
+
+     We now obtain the following key technical result of this paper:
+Theorem 6.8. Let FN be free of rank N ≥ 2, let A be a free basis, and let ν ∈ Curr(FN ) be a filling current.
+Let
+                                    1 < λ < λA (ν),     0 < ε < λ − 1.
+Put W = WA,ν and M = MA (ν) = #W. Then there exists a neighborhood U = U ([ν], λ, ε) of [ν] in
+P Curr(FN ) such that, whenever 1 ̸= w ∈ FN and [ηw ] ∈ U , the following hold:
+      (1) S = W[w] is (M, λ, ε, WN )-minimizing and M([w]) ⊆ S;
+      (2) every element of S is M -minimal;
+      (3) StabOut(FN ) ([w]) is finite.
+
+Proof. Put ℑ = ℑA,ν = Wν. Every ν ′ ∈ ℑ has ∥ν ′ ∥A = JA (ν). If ψν ′ ∈
+                                                                      / ℑ, then
+                                                   ∥ψν ′ ∥A
+                                                            ≥ λA (ν).
+                                                    ∥ν ′ ∥A
+Choose numbers λ1 and δ such that
+(6.1)                   λ < λ1 < λA (ν),       0 < δ < ε,       λ1 > 1 + δ,       λ1 (1 − δ) > 1.
+        ′                                                                     ′
+For ν ∈ ℑ, put Rν ′ = RA,ν,ν ′ . By Lemma 6.7, #Rν ′ = M and Rν ′ ν = ℑ.
+     For fixed ν ′ ∈ ℑ, the functions
+                                                        ∥ψη∥A
+                                                    [η] 7−→
+                                                         ∥η∥A
+                                      ′
+are continuous on P Curr(FN ). At [ν ] their value is 1 for ψ ∈ Rν ′ , while for every τ ∈ WN \ Rν ′ their value
+is at least λA (ν) > λ1 . Since ℑ, every Rν ′ , and WN are finite, we may choose neighborhoods Vν ′ of [ν ′ ],
+equivariantly with respect to the finite groupoid of maps Rν ′ , so that:
+      (a) if [η] ∈ Vν ′ and ψ ∈ Rν ′ , then ψ[η] ∈ Vψν ′ and
+                                                        ∥ψη∥A
+                                              1−δ ≤           ≤ 1 + δ;
+                                                         ∥η∥A
+      (b) if [η] ∈ Vν ′ and τ ∈ WN \ Rν ′ , then
+                                                     ∥τ η∥A
+                                                            > λ1 .
+                                                      ∥η∥A
+For completeness, such an equivariant family is obtained by choosing one point ν0 ∈ ℑ, intersecting the
+pullbacks of the finitely many preliminary neighborhoods to [ν0 ], making the resulting neighborhood invariant
+under the finite stabilizer of ν0 , and transporting it to the other points of ℑ.
+     Finally, shrink a neighborhood U of [ν] so that
+(6.2)                                      φU ⊆ Vφν         for every φ ∈ W.
+Let [ηw ] ∈ U and put S = W[w]. Clearly #S ≤ M , and all elements of S belong to the same Out(FN )-orbit.
+                    GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                               25
+
+
+  Fix [u] = φ[w] ∈ S and put ν ′ = φν. By (6.2), [ηu ] ∈ Vν ′ , and Lemma 6.7(2) gives Rν ′ [u] = S. If [x] ∈ S,
+choose ψ ∈ Rν ′ with [x] = ψ[u]. Property (a) gives
+                                                        ∥x∥A
+                                              1−δ ≤          ≤ 1 + δ,
+                                                        ∥u∥A
+so condition (3) of Definition 3.5 holds with ε.
+  Let τ ∈ WN . If τ ∈ Rν ′ , then τ [u] ∈ S. If τ ∈
+                                                  / Rν ′ , property (b) gives
+                                                ∥τ (u)∥A
+                                                         > λ1 > λ,
+                                                 ∥u∥A
+and τ [u] ∈
+          / S, since all elements of S have length at most (1+δ)∥u∥A while λ1 > 1+δ. Thus S is (M, λ, ε, WN )-
+minimizing. In fact, the same argument shows that it is (M, λ1 , δ, WN )-minimizing. Proposition 3.7 therefore
+implies that every element of S is M -minimal. Moreover, if [u] ∈ S, then Out(FN )[u] = Out(FN )[w]; hence
+Lemma 3.6, applied to [u] with the parameters λ1 , δ, gives M([w]) = M([u]) ⊆ S.
+  It remains to prove finiteness of the stabilizer. Choose [u] ∈ S of minimal length, write [u] = φ[w] with
+φ ∈ W, and put ν ′ = φν. By (6.2), [ηu ] ∈ Vν ′ . If a Whitehead move τ lies in Rν ′ , then τ [u] ∈ S and cannot
+be shorter than [u]; if τ ∈
+                          / Rν ′ , property (b) strictly increases length. Thus no Whitehead move decreases
+∥u∥A , and [u] is Out(FN )-minimal by Proposition 2.4.
+  Let ψ ∈ StabOut(FN ) ([u]). By Proposition 3.14, write ψ = τk · · · τ1 so that every intermediate class
+                                                [ui ] = τi · · · τ1 ([u])
+has length ∥u∥A . Put ν0 = ν and, inductively, νi = τi · · · τ1 ν ′ for 1 ≤ i ≤ k. Starting with [ηu ] ∈ Vν0 ,
+                                ′
+
+property (b) rules out τi+1 ∈
+                            / Rνi , because every intermediate conjugacy class has length ∥u∥A , while property
+(a) transports the counting current to Vνi+1 . Thus, inductively,
+                                      νi = τi · · · τ1 ν ′ ∈ ℑ      (1 ≤ i ≤ k).
+Hence ψν ′ ∈ ℑ, so ψ ∈ Rν ′ . Therefore
+                                       # StabOut(FN ) ([u]) ≤ #Rν ′ = M.
+The stabilizers of [u] and [w] are conjugate in Out(FN ), completing the proof.                               □
+Corollary 6.9. Let FN be free of finite rank N ≥ 2, let A be a free basis of FN and let ν ∈ Curr(FN ) be a
+filling current. Let λ be such that 1 < λ < λA (ν) and let 0 < ε < 1 be such that λA (ν) > λ > 1 + ε.
+  Let W = WA,ν and let M = MA (ν) = #W.
+   Then there exists a neighborhood U1 = U1 ([ν], λ, ε) of [ν] in P Curr(FN ) such that for every 1 ̸= w ∈ FN
+with [ηw ] ∈ U1 the following hold:
+   (1) For every φ ∈ W the element φ[w] is M -minimal.
+   (2) The set S = W[w] ⊆ CN is (M, λ, ε)-minimizing.
+   (3) We have M([w]) ⊆ S, and hence #M([w]) ≤ M .
+   (4) The stabilizer StabOut(FN ) ([w]) is finite.
+
+Proof. First choose λ′ such that λA (ν) > λ′ > λ > 1. Then choose ε′ such that 0 < ε′ < min{ε, λ′ − 1}
+and λ′ (1 − ε′ ) > λ. By Theorem 6.8, there exists a neighborhood U = U ([ν], λ′ , ε′ ) of [ν] in P Curr(FN )
+such that for every 1 ̸= w ∈ FN with [ηw ] ∈ U the set S = W[w] is (M, λ′ , ε′ , WN )-minimizing. Therefore,
+by Proposition 3.9, the set S is (M, λ, ε)-minimizing. Theorem 6.8 also gives M([w]) ⊆ S and finiteness of
+StabOut(FN ) ([w]). Then for any φ ∈ W the element φ([w]) is (M, λ′ , ε′ , WN )-minimal. Therefore Proposi-
+tion 3.7 implies that φ[w] is M -minimal. Thus U1 := U satisfies the requirements of the corollary.        □
+26                                                   ILYA KAPOVICH
+
+
+Remark 6.10. Suppose that U ⊆ P Curr(FN ) is a neighborhood of [ν] provided by Theorem 6.8. The
+coordinate description of the weak-* topology gives a finite set V ⊆ F (A) − {1} and a number ε0 > 0 such
+that                                                                                   
+                                               ⟨v, η⟩A    ⟨v, ν⟩A
+                    U0 := [η] ∈ P Curr(FN ) :          −           < ε0 for every v ∈ V
+                                                ∥η∥A       ∥ν∥A
+is a neighborhood of [ν] contained in U . Consequently, if 1 ̸= w ∈ FN satisfies
+                                         ⟨v, w⟩A   ⟨v, ν⟩A
+(♠)                                              −         < ε0          (v ∈ V),
+                                          ∥w∥A      ∥ν∥A
+then [ηw ] ∈ U0 ⊆ U , and the conclusions of Theorem 6.8 apply to w.
+Definition 6.11. Let W = W1 , W2 , . . . , Wn , . . . be a sequence of FN -valued random variables.
+      (1) We say that W is tame if for some (equivalently, any) free basis A of FN there exists C > 0 such
+          that we always have |Wn |A ≤ Cn where n ≥ 1.
+      (2) Let 0 ̸= ν ∈ Curr(FN ). We say that the sequence W is ν-adapted if, for almost every trajectory
+          w1 , w2 , . . . , wn , . . . of W, one has
+                                                     lim [ηwn ] = [ν]
+                                                    n→∞
+          in P Curr(FN ).
+
+   In Definition 6.11 above, a random trajectory of W is implicitly required to satisfy wn ̸= 1 for all
+sufficiently large n (which is needed in order for ηwn to be defined), but we do not require ||wn ||A → ∞ as
+n → ∞. In particular, if ν = ηw for some 1 ̸= w ∈ FN , and the random process W always outputs Wn = w
+for all n ≥ 1, then W is ν-adapted.
+     The following statement is key for our paper:
+Proposition 6.12. Let FN , A, ν, λ, ε, W, and M be as in Corollary 6.9, and let W = W1 , W2 , . . . be a
+ν-adapted sequence of FN -valued random variables. Then:
+      (1) for almost every trajectory, all sufficiently large n satisfy all conclusions of Corollary 6.9 with w =
+          Wn ;
+      (2) the probability that all those conclusions hold at time n tends to 1 as n → ∞.
+
+Proof. Let U1 be the neighborhood supplied by Corollary 6.9. Since W is ν-adapted, for almost every
+trajectory one has [ηWn ] ∈ U1 for all sufficiently large n. Almost-sure convergence also implies convergence
+in probability, so                                          
+                                              P [ηWn ] ∈ U1 −→ 1.
+Corollary 6.9 gives the result.                                                                            □
+Theorem 6.13. Let FN = F (A) be a free group of finite rank N ≥ 2 with a free basis A.
+   Let W = W1 , W2 , . . . be a sequence of F (A)-valued random variables. Let 0 ̸= ν ∈ Curr(FN ) be a filling
+geodesic current such that W is adapted to ν.
+   Then there exist M ≥ 1, a number λ with 1 < λ < 2, and a subset W ⊆ Out(FN ) with #W ≤ M such
+that for every 0 < ε < 1 with λ > 1 + ε the following hold:
+      (a) For almost every trajectory ξ = (w1 , w2 , . . . , wn , . . . ) of W there exists n0 = n0 (ξ) ≥ 1 such that the
+          following hold for all n ≥ n0 :
+           (1) The set Sn = W[wn ] is (M, λ, ε)-minimizing.
+           (2) For every φ ∈ W the conjugacy class φ[wn ] ∈ Sn is (M, λ, ε)-minimal and M -minimal.
+           (3) We have M([wn ]) ⊆ W[wn ], and in particular, #M([wn ]) ≤ M .
+           (4) The stabilizer StabOut(FN ) ([wn ]) is finite.
+      (b) The probability of each of the following events tends to 1 as n → ∞:
+           (1) The set Sn = W[Wn ] is (M, λ, ε)-minimizing.
+                   GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                                   27
+
+
+        (2) For every φ ∈ W the conjugacy class φ[Wn ] is (M, λ, ε)-minimal and M -minimal.
+        (3) We have M([Wn ]) ⊆ W[Wn ], and #M([Wn ]) ≤ M .
+        (4) The stabilizer StabOut(FN ) ([Wn ]) is finite.
+
+Proof. Put W = WA,ν and M = MA (ν). Choose λ with
+                                               1 < λ < min{λA (ν), 2}.
+If 0 < ε < λ − 1, then ε < 1 and λ > 1 + ε. Proposition 6.12, together with Corollary 6.9, therefore gives
+every assertion in (a) and (b).                                                                         □
+Theorem 6.14. Let FN = F (A), ν, M , λ, W, and W = W1 , W2 , . . . be as in Theorem 6.13, and assume
+that W is tame. Then there exists K0 ≥ 1 such that the following hold.
+    (a) For almost every pair of independently sampled trajectories
+                                    ξ = (w1 , w2 , . . . ),   ξ ′ = (w1′ , w2′ , . . . ),
+       there exist n0 , m0 ≥ 1 such that:
+        (1) for every n ≥ n0 , the W-speed-up of Whitehead minimization on wn terminates in time at most
+            K0 n and produces an element of M([wn ]);
+        (2) for every n ≥ n0 and every u ∈ FN , the W-speed-up of Whitehead’s algorithm decides in time
+            at most
+                                                   K0 max{n, |u|2A }
+            whether Aut(FN )wn = Aut(FN )u;
+        (3) for every n ≥ n0 and m ≥ m0 , the W-speed-up of Whitehead’s algorithm decides in time at
+            most
+                                                    K0 max{n, m}
+                                                    ′
+            whether Aut(FN )wn = Aut(FN )wm           .
+   (b) The following convergence-in-probability assertions hold.
+        (1) The probability that the W-speed-up of Whitehead minimization on Wn terminates in time at
+            most K0 n and produces an element of M([Wn ]) tends to 1.
+        (2) The probability that Wn has the following property tends to 1: for every u ∈ FN , the W-speed-
+            up of Whitehead’s algorithm decides in time at most K0 max{n, |u|2A } whether Aut(FN )Wn =
+            Aut(FN )u.
+        (3) Let W ′ = W1′ , W2′ , . . . be an independent copy of W, and let ni , mi ≥ 1 satisfy min{ni , mi } → ∞.
+            Then the probability that the W-speed-up decides in time at most K0 max{ni , mi } whether
+                                                                 ′
+                                          Aut(FN )Wni = Aut(FN )Wm i
+
+             tends to 1 as i → ∞.
+
+Proof. Choose C ≥ 1 so that |Wn |A ≤ Cn for every n. For each φ ∈ W, choose a representative Φφ ∈
+Aut(FN ). Since W is finite, there exists L ≥ 1 such that
+(6.3)                               |Φφ (g)|A ≤ L|g|A         (φ ∈ W, g ∈ FN ).
+All constants below depend only on N , M , W, the chosen representatives, and the tameness constant C.
+   Fix ε0 with 0 < ε0 < min{1, λ − 1}. Call an index n good for a trajectory if the four pointwise conclusions
+in Theorem 6.13(a), with ε = ε0 , hold for wn . In particular, at a good index every class in W[wn ] is
+M -minimal and
+(6.4)                                              #M([wn ]) ≤ M.
+By Theorem 6.13, for almost every trajectory all sufficiently large indices are good, and the probability that
+n is good tends to 1.
+  Suppose that n is good. For every φ ∈ W, the auxiliary branch beginning at Φφ (wn ) starts from an
+M -minimal class and from a word of length at most L|wn |A . Theorem 3.13(a), together with the finite
+28                                              ILYA KAPOVICH
+
+
+round-robin overhead, therefore makes the speeded-up minimization terminate in O(|wn |A ) time. Its output
+is an orbit-minimal class [vn ] ∈ M([wn ]) with ∥vn ∥A = O(|wn |A ). Since |wn |A ≤ Cn, this gives the O(n)
+estimate underlying (a)(1) and (b)(1).
+   Now let u ̸= 1 be arbitrary. The speeded-up minimization of u includes the ordinary branch and hence
+terminates in O(|u|2A ) time, producing some [v] ∈ M([u]). If ∥vn ∥A ̸= ∥v∥A , automorphic inequivalence is
+already decided. If the two minimal lengths agree, (6.4) says that the stabilization component
+                                           V T∥vn ∥A [vn ] = M([wn ])
+has at most M vertices. Its construction and the final membership test take O(∥vn ∥A ) = O(|wn |A ) time.
+Thus the total running time is
+                                           O max{|wn |A , |u|2A } ,
+                                                                 
+
+and tameness gives the stated bound O(max{n, |u|2A }). The case u = 1 is immediate. This proves the
+deterministic estimate underlying (a)(2) and (b)(2).
+                                                                                                        ′
+   If n and m are good for two trajectories, the two speeded-up minimizations take O(|wn |A ) and O(|wm   |A )
+time, respectively. The first stabilization component has at most M vertices by (6.4), so the remaining work
+                       ′
+takes O(max{|wn |A , |wm  |A }). Tameness gives O(max{n, m}), proving the deterministic estimate underlying
+(a)(3).
+  Choose K0 larger than the finitely many implied constants. The almost-sure eventual goodness in Theo-
+rem 6.13(a) proves part (a). For (b)(1),(2), apply the same deterministic bounds on the good event and use
+Theorem 6.13(b). For (b)(3), if Gn and G′m denote the good events for the two copies, then
+                               P(Gni ∩ G′mi ) ≥ 1 − P(Gcni ) − P((G′mi )c ) −→ 1.
+The deterministic two-input estimate on this intersection completes the proof.                                □
+
+                       7. Group random walks as a source of M -minimality
+
+Convention 7.1 (Terminology regarding random processes). Let B be a set with the discrete topology (such
+as a discrete group, the set of vertices of a graph, words in a finite alphabet, etc). For any infinite sequence
+of B-valued random variables W = W1 , W2 , . . . , Wn , . . . we assume that the sample space Ω = B ω (as usual
+given the product topology for the discrete topologies on the factors B) is a probability space equipped with
+a Borel probability measure P. We will usually suppress the explicit mention of this probability measure P.
+Thus a trajectory of W is a sequence ζ = (w1 , w2 , . . . , wn , . . . ) ∈ Ω, where all wi ∈ B. We say that some
+property E holds for almost every trajectory of W if
+                                                                       
+                                         P {ζ ∈ Ω : ζ satisfies E} = 1.
+Convention 7.2. For a discrete probability measure µ : G → [0, 1] on a group G, we denote by ⟨supp(µ)⟩+ the
+subsemigroup of G generated by the support supp(µ) of µ. Note that we have ⟨supp(µ)⟩+ = ∪∞    n=1 supp(µ
+                                                                                                        (n)
+                                                                                                            )
+       (n)
+where µ    is the n-fold convolution of µ. Thus for g ∈ G we have g ∈ ⟨supp(µ)⟩+ if and only if there exist
+n ≥ 1 and g1 , . . . , gn ∈ G such that g = g1 . . . gn and µ(gi ) > 0 for i = 1, . . . , n.
+Definition 7.3 (Group random walk). Let G be a group and let µ : G → [0, 1] be a discrete probability
+measure on G. Let X1 , X2 , . . . , Xn , . . . be a sequence of G-valued i.i.d. random variables, where each Xi
+has distribution µ. Put Wn = X1 . . . Xn ∈ G, where n = 1, 2 . . . . The random process
+                                          W = W1 , W2 , . . . , Wn , . . .
+is called the random walk on G defined by µ.
+
+   Recall that if G is a group acting on
+                                       Pa set X, and µ is a discrete probability measure on G, then a measure
+λ on X is called µ-stationary if λ = g∈G µ(g)gλ.
+                    GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                           29
+
+
+   If G is a non-elementary word-hyperbolic group, a discrete probability measure µ on G is called non-
+elementary if ⟨supp(µ)⟩+ contains some two independent loxodromic elements of G (which, for a word-
+hyperbolic G means some two elements g1 , g2 ∈ G of infinite order such that ⟨g1 ⟩ ∩ ⟨g2 ⟩ = {1}).
+   We need the following well-known fact (see, e.g. [39, Theorem 1.1] for the most general version of this
+statement for random walks on groups acting on Gromov-hyperbolic spaces; see [21, Theorem 7.6] specifically
+for the case of a word-hyperbolic G):
+Proposition 7.4. Let G be a non-elementary word-hyperbolic group and let µ be a non-elementary discrete
+probability measure on G. Let W = W1 , W2 , . . . , Wn , . . . be the random walk on G defined by µ. Then:
+   (1) For almost every trajectory w1 , w2 , . . . of W there exists x ∈ ∂G such that limn→∞ wn = x in G∪∂G.
+   (2) Putting, for S ⊆ ∂G, λ(S) to be the probability that a trajectory of W converges to a point of S,
+       defines a µ-stationary Borel probability measure λ on ∂G.
+
+  This measure λ is called the exit measure or the hitting measure for W.
+   Recall also that if G is a word-hyperbolic group and H ≤ G is a non-elementary subgroup, then ∂G
+contains a unique nonempty minimal closed H-invariant subset Λ(H) ⊆ ∂G called the limit set of H (see
+[30, 25] for details).
+    We need the following fact which appears to be folklore, although it does not seem to appear in the
+literature. We include a proof, explained to us by Vadim Kaimanovich, for completeness.
+Proposition 7.5. Let G be a non-elementary word-hyperbolic group, let µ be a non-elementary discrete
+probability measure on G, and let λ be the exit measure on ∂G for the random walk on G defined by µ.
+  Suppose H ≤ G is a non-elementary subgroup such that H ⊆ ⟨supp(µ)⟩+ . Then Λ(H) ⊆ supp(λ).
+  In particular if Λ(H) = ∂G then supp(λ) = ∂G.
+
+Proof. Let λ be the exit measure on ∂G for the random walk determined by µ. For any k ≥ 1, the measure
+                          for the random walk based on µ(k) , and therefore λ is µ(k) -stationary. Thus for
+λ is also an exit measure P
+every n ≥ 1 we have λ = g∈G µ(n) (g) · gλ. Hence λ dominates gλ whenever n ≥ 1 and µ(n) (g) > 0, that
+is, whenever g ∈ ⟨supp(µ)⟩+ . Since H ⊆ ⟨supp(µ)⟩+ , it follows that λ dominates hλ for every h ∈ H. Since
+H is a subgroup of G, this implies that for all h ∈ H the measures λ and hλ are in the same measure class.
+Hence for every h ∈ H supp(λ) = h supp(λ). Thus supp(λ) is a nonempty closed H-invariant subset of ∂G,
+and therefore Λ(H) ⊆ supp(λ), as claimed.                                                                □
+
+   Note that if ⟨supp(µ)⟩+ contains a subgroup H of G such that H has finite index in G, or such that H
+is an infinite normal subgroup of G, then Λ(H) = ∂G (see [30]) and therefore we get supp(λ) = ∂G in the
+conclusion of Proposition 7.5.
+Theorem 7.6. Let FN = F (A) be a free group of rank N ≥ 2, and let µ : FN → [0, 1] be a finitely supported
+probability measure such that ⟨supp(µ)⟩+ = FN . Let W = W1 , W2 , . . . be the random walk defined by µ.
+Then W is tame and is adapted to a filling current 0 ̸= ν ∈ Curr(FN ).
+
+Proof. Let TA be the Cayley tree of FN with respect to A. Since µ has finite support,
+                                       C := max{|g|A : µ(g) > 0} < ∞,
+and |Wn |A ≤ Cn for every n. Thus W is tame.
+  The semigroup hypothesis implies that µ is non-elementary. Let
+                                                µ̌(g) = µ(g −1 ).
+Since the inverse of a product reverses the order of its factors,
+                                 ⟨supp(µ̌)⟩+ = {g −1 : g ∈ ⟨supp(µ)⟩+ } = FN .
+30                                                   ILYA KAPOVICH
+
+
+Thus µ̌ is non-elementary as well. Let λ and λ̌ be the hitting measures of the µ- and µ̌-walks. Applying
+Proposition 7.5 with H = FN , whose limit set is ∂FN , gives
+(7.1)                                        supp(λ) = supp(λ̌) = ∂FN .
+
+    The action of FN on TA is proper and cocompact, hence convex cocompact. The measure µ has finite
+second moment, and Gekhtman’s Axiom 1.4 holds for convex-cocompact actions and finitely supported mea-
+sures. Therefore [19, Theorem 1.5] applies. For almost every trajectory, Wn is loxodromic for all sufficiently
+large n, and the normalized arclength measures DWn on the corresponding oriented closed geodesics in
+T 1 (TA /FN ) converge weakly to the harmonic invariant probability measure m.
+   Let IA be the current–flow correspondence in (4.1), and let ν̄ ∈ Curr+ (FN ) be the nonzero oriented
+current determined by
+                                                 IA (ν̄) = m.
+                                 1      ∼   2
+The FN -invariant lift of m to T (TA ) = ∂ FN ×R is, under the suspension correspondence, ν̄ ×dt. Axiom 1.4
+says that this lift is in the measure class of
+                                                 λ̌ × λ × dt.
+Uniqueness of the disintegration along flow lines therefore gives
+(7.2)                                               ν̄ ≍ (λ̌ × λ)|∂ 2 FN ,
+where ≍ denotes equality of measure classes.
+     For every sufficiently large n, (4.1) gives
+                                                         +
+                                                                !
+                                                        ηW
+                                               IA          n
+                                                                    = DWn .
+                                                       ∥Wn ∥A
+Since IA is a homeomorphism, Gekhtman’s convergence implies that, for almost every trajectory,
+                                           1
+                                                η + −→ ν̄
+                                         ∥Wn ∥A Wn
+in the weak-* topology on oriented currents. The continuous symmetrization map then gives
+                                                          
+                              1                   1      +
+(7.3)                             ηW = Sym             η     −→ ν := ν̄ + ϖ∗ ν̄.
+                          ∥Wn ∥A n              ∥Wn ∥A Wn
+Consequently [ηWn ] → [ν], and W is adapted to the usual flip-invariant current ν.
+     By (7.2), the current ν is in the measure class of
+                                           (λ̌ × λ) + (λ × λ̌)       on ∂ 2 FN .
+In view of (7.1), every nonempty open subset of ∂ 2 FN has positive measure for this symmetrized product
+measure. Hence ν has full support. Proposition 5.2 now implies that ν is filling.                     □
+
+   We can now conclude that algebraic and algorithmic conclusions of Theorem 6.13 and Theorem 6.14 apply
+in the case of µ-random walks on FN , where µ has finite support with ⟨supp(µ)⟩+ = FN :
+Corollary 7.7. Let FN = F (A) be free of rank N ≥ 2, with a free basis A. Let µ : FN → [0, 1] be a finitely
+supported discrete probability measure such that ⟨supp(µ)⟩+ = FN .
+     Let W = W1 , . . . , Wn , . . . be the random walk on FN defined by µ.
+   Then there exist M ≥ 1, 0 < ε < 1 and λ > 1 + ε and a subset W ⊆ Out(FN ) with #W ≤ M such that
+the conclusions of Theorem 6.13 and Theorem 6.14 hold for W with these choices of M, λ, ε, W.
+
+                      8. Finite-state Markov chains and the frequency measures
+
+   We recall some basic notions and facts regarding finite-state Markov chains here and refer the reader to
+[15, 18, 32, 33] for proofs and additional details.
+                      GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                                      31
+
+
+8.1. Finite-state Markov chains. Recall that a finite-state Markov chain, or FSMC X is defined by a
+finite nonempty set S P  of states and by a family of transition probabilities pX (s, s′ ) ≥ 0, where s, s′ ∈ S such
+                                          ′
+that for every s ∈ S       s′ ∈S pX (s, s ) = 1. Then for every integer n ≥ 1 we also get the n-step transition
+               (n)                 (1)
+probabilities pX (s, s′ ) where pX (s, s′ ) = pX (s, s′ ) and where for n ≥ 2 and s, s′ ∈ S we have
+                                         (n)
+                                                     X (n−1)
+                                       pX (s, s′ ) =      pX   (s, s′′ )pX (s′′ , s′ ).
+                                                        s′′ ∈S
+
+The sample space associated with X is the product space S N = {ξ = (s1 , s2 , s3 , . . . , sn , . . . )|si ∈ S for i ≥ 1}.
+The set S is given the discrete topology and S N is given the corresponding product topology, which makes
+S N a compact metrizable totally disconnected topological space. For i ≥ 1 we denote by Xi : S N → S
+the function picking out the i-th coordinate of an element of S N . The transition matrix M = M (X ) is an
+S × S matrix where for s, s′ ∈ S the entry M (s, s′ ) of M is defined as M (s, s′ ) = pX (s, s′ ). Thus M (X )
+is a nonnegative matrix, where the sum of the entries in each row is equal to 1. Also, for all n ≥ 1 and
+                    (n)
+s, s′ ∈ S we have pX (s, s′ ) = (M n )(s, s′ ). A FSMC X as above is called irreducible if for all s, s′ ∈ S there
+                         (n)
+exists n ≥ 1 such that pX (s, s′ ) > 0. Thus X is irreducible if and only if the nonnegative matrix M (X ) is
+irreducible in the sense of Perron-Frobenius theory.
+   For an FSMC X , given a initial probability distribution µ on S, we obtain the corresponding Markov
+process Xµ = X1 , . . . , Xn , . . . where each Xi is an S-valued random variable
+                                                                             P with probability distribution
+µi on S, where µ1 = µ and where for i ≥ 2 and s′ ∈ S we have µi (s′ ) = s∈S µi−1 (s)pX (s, s′ ). An initial
+distribution µ on S is called stationary for X if µi = µ for all i ≥ 1 (equivalently, if µ2 = µ). It is well-
+known, by the basic result of Perron-Frobenius theory, that if X is an irreducible finite-state Markov chain
+with state set S, then there is a unique stationary probability distribution µ on S for X , and that it satisfies
+µ(s) > 0 for all s ∈ S. In this case the row vector (µ(s))s∈S is the unique strictly positive left eigenvector
+of M (X ) having ||.||1 -norm 1 and eigenvalue 1. Moreover, 1 is the Perron–Frobenius eigenvalue of M (X ); in
+particular, it is simple and equals the spectral radius.
+   For an FSMC X with state set S, a word w = s1 . . . sn ∈ S n of length n ≥ 2 is called feasible if
+pX (s1 , s2 ) . . . pX (sn−1 , sn ) > 0. Also, we consider all words w = s ∈ S of length n = 1 to be feasible. (Hence
+every nonempty subword of a feasible word is also feasible). An element ξ = (s1 , s2 , . . . ) ∈ S N is feasible for
+X if for every n ≥ 1 the word s1 . . . sn is feasible. Denote by (S N )+ the set of all feasible ξ ∈ S N . Also, for
+every n ≥ 1 denote by (S n )+ the set of all feasible s1 . . . sn ∈ S n .
+   For a word w = s1 . . . sn ∈ S n (where n ≥ 2) put
+                                           pX (w) := pX (s1 , s2 ) . . . pX (sn−1 , sn )
+
+   Any initial probability distribution µ on S defines a Borel probability µ∞ via the standard convolution
+formulas. Namely, if n ≥ 1, s1 , . . . sn ∈ S then
+                   µ∞ (Cyl(s1 . . . sn )) := µ(s1 )pX (s1 , s2 ) . . . pX (sn−1 , sn ) = µ(s1 )pX (s1 . . . sn )
+where Cyl(s1 . . . sn ) = {ξ ∈ S N |Xi (ξ) = si for i = 1, . . . , n}.
+   If µ is strictly positive on S, then the support supp(µ∞ ) of µ∞ is equal to (S N )+ . In particular, that is
+the case if X is an irreducible FSMC and µ is the unique stationary probability distribution on S.
+Definition 8.1 (Occurrences and frequencies). Let X be an irreducible finite-state Markov chain with state
+set S.
+    (1) For a word w = s1 . . . sn ∈ S n (where n ≥ 1) and an element s ∈ S we denote by ⟨s, w⟩ the number
+of those i ∈ {1, . . . , n} such that si = s. We call ⟨s, w⟩ the number of occurrences of s in w. We also put
+θs (w) = ⟨s,w⟩
+           |w| , where |w| = n is the length of w. We call θs (w) the frequency of s in w.
+
+   (2) The above notions can be extended from s to arbitrary nonempty words v ∈ S ∗ as follows. Let v =
+y1 . . . ym ∈ S m where yj ∈ S for j = 1, . . . , m. Also denote by w∞ the semi-infinite word w∞ = wwww . . . .
+For an arbitrary integer i ≥ 1 we still denote by si ∈ S the i-th letter of w∞ . Now define ⟨v, w⟩ to be the
+32                                                        ILYA KAPOVICH
+
+
+number of i ∈ {1, . . . , n} such that in w∞ we have si = y1 , si+1 = y2 , . . . , si+m−1 = ym . We call ⟨v, w⟩ the
+number of occurrences of v in w, and we call θv (w) = ⟨v,w⟩
+                                                         |w| the frequency of v in w.
+
+  We record the following immediate corollary of the above definition (which holds since we defined the
+numbers of occurrences in w cyclically).
+Lemma 8.2. Let w ∈ S n where n ≥ 1. Then the following hold:
+                        P                   P
+  (1) We have n = |w| = s∈S ⟨s, w⟩ and P 1 = s∈S θs (w).        P
+  (2) For every m ≥ 1 we have n = |w| = v∈S m ⟨v, w⟩ and 1 = v∈S m θv (w).
+  (3) For every m ≥ 1 and every v ∈ S m we have
+                                          X           X
+                                 ⟨v, w⟩ =   ⟨vs, w⟩ =     ⟨s′ v, w⟩.
+                                                         s∈S               s′ ∈S
+          and                                           X                  X
+                                             θv (w) =          θvs (w) =           θs′ v (w).
+                                                        s∈S                s′ ∈S
+
+  For a finite-state Markov chain X with state set S and an element ξ = (s1 , s2 , s3 , . . . , sn , . . . ) of S N , we
+denote wn = s1 . . . sn ∈ S n , where n ≥ 1.
+     The strong law of large numbers for finite-state Markov chains implies:
+Proposition 8.3. Let X be an irreducible finite-state Markov chain with state set S and let µ0 be the
+unique stationary probability distribution on S. Let µ be an arbitrary initial distribution on S defining the
+corresponding Markov process Xµ = X1 , . . . , Xn , . . . . Then the following hold:
+      (1) For every s ∈ S and for µ∞ -a.e. trajectory ξ = (s1 , s2 , s3 , . . . , sn , . . . ) ∈ S N of Xµ , we have
+                                                       lim θs (wn ) = µ0 (s).
+                                                      n→∞
+      (2) For every 0 < ε ≤ 1 and every s ∈ S
+                                             lim Pµ∞ (|θs (wn ) − µ0 (s)| < ε) = 1
+                                            n→∞
+          and the convergence in this limit is exponentially fast as n → ∞.
+
+8.2. Iterated Markov Chains. Let X be a finite-state Markov chain with state set S. Let k ≥ 1 be an
+integer. Consider a finite-state Markov chain X [k] with the state set (S k )+ and with transition probabilities
+defined as follows. Suppose s1 . . . sk ∈ (S k )+ and s ∈ S are such that pX (sk , s) > 0 (so that s1 . . . sk s ∈ S k+1
+is feasible for X , and s2 . . . sk s ∈ (S k )+ ). Then put pX [k] (s1 . . . sk , s2 . . . sk s) = pX (sk , s). Set all other
+transition probabilities in X [k] to be 0. Note that we have X [1] = X .
+   It is not hard to see that if X as above is irreducible then for every k ≥ 1 the FSMC X [k] is also
+irreducible. Moreover, in this case there is a natural canonical homeomorphism between the set of infinite
+feasible trajectories (S N )+ of X and the set ((S k )+ )N + of infinite feasible trajectories for X [k]. Under this
+                                                                                                                   
+homeomorphism a sequence ξ = (s1 , . . . , sn . . . ) ∈ (S N )+ goes to (v1 , v2 . . . , vn , . . . ) ∈ ((S k )+ )N + where
+vi = si si+1 . . . si+k−1 . Moreover, if µ0 is the unique stationary distribution for X on S then
+(*)                               µ0 [k](s1 . . . sk ) = µ0 (s1 )pX (s1 , s2 ) . . . pX (sk−1 , sk ),
+                        k
+where s1 . . . sk ∈ (S )+ , is the unique stationary probability distribution for X [k]. Using these facts and the
+application of Proposition 8.3, standard results about Markov chains imply the following statement; see [6,
+Proposition 3.13] for a more detailed version of this statement, with explicit speed of convergence estimates:
+Proposition 8.4. Let X be an irreducible finite-state Markov chain with state set S, let µ0 be its stationary
+distribution, and let µ be any initial distribution. For k ≥ 1, extend
+                                   µ0 [k](s1 . . . sk ) = µ0 (s1 )pX (s1 , s2 ) · · · pX (sk−1 , sk )
+by zero to nonfeasible words. Then, for every v ∈ S k :
+                    GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                                 33
+
+
+    (1) for µ∞ -almost every trajectory,
+                                              θv (wn ) −→ µ0 [k](v);
+    (2) for every ε > 0,                                        
+                                    P |θv (wn ) − µ0 [k](v)| < ε −→ 1,
+        and the convergence is exponentially fast.
+
+Proof. Apply Proposition 8.3 to the irreducible block chain X [k]. The ordinary number of length-k occur-
+rences counted by that chain and the cyclic occurrence number in Definition 8.1 differ by at most k − 1.
+After division by n, this discrepancy tends to zero, and the same bounded discrepancy does not affect the
+exponential convergence in probability.                                                                □
+Corollary 8.5. In the setting of Proposition 8.4, for every m ≥ 1 one has
+                                            X
+                                                 µ0 [m](v) = 1,
+                                                  v∈S m
+                     m
+and, for every v ∈ S ,                      X                        X
+                              µ0 [m](v) =         µ0 [m + 1](vs) =         µ0 [m + 1](sv).
+                                            s∈S                      s∈S
+
+Proof. Choose a trajectory in the countable intersection of the full-measure sets supplied by Proposition 8.4
+for all finite words, and pass to the limit in Lemma 8.2(2),(3).                                           □
+
+8.3. Quasi-inversions. An irreducible finite-state Markov chain is called a deterministic cycle if every
+state has a unique successor and the corresponding transition probability is 1. Otherwise it is called non-
+deterministic.
+Proposition 8.6. Let X be an irreducible non-deterministic finite-state Markov chain with state set S,
+#S ≥ 2. Then there exist an integer q ≥ 1 and a number 0 < σ < 1 with the √       following property. Let S ′ ⊆ S,
+         ′
+let ι : S → S be injective, and let µ be any initial distribution. Put rn = ⌊ n⌋. Then, for all sufficiently
+large n,
+                                                                     R 
+(8.1)                       P X1 · · · Xrn = ι(Xn−rn +1 ) · · · ι(Xn )     ≤ σ ⌊rn /q⌋ ,
+where the event is declared empty if one of the last rn states does not belong to S ′ . In particular, the
+probabilities in (8.1) are summable in n.
+
+Proof. Because X is finite, irreducible, and not a deterministic cycle, there is a uniform bound on the length
+of a directed path all of whose transition probabilities are 1: otherwise a repeated state would produce a
+closed deterministic communicating class, which by irreducibility would be the entire chain. Hence there
+exists q ≥ 1 such that every feasible block of q consecutive transitions has probability at most some σ < 1.
+  Condition on X1 , . . . , Xn−rn . If the event in (8.1) is possible, it prescribes the next rn states. Its
+                                                                                   ⌊rn /q⌋
+conditional probability is a product of transition probabilities and is at most
+                                                                             √ σ           . Averaging over the
+conditioning gives (8.1). The resulting sequence is summable because rn ≍ n.                                 □
+Corollary 8.7. In the setting of Proposition 8.6, for almost every trajectory the equality in (8.1) fails for
+all sufficiently large n.
+
+Proof. This is the first Borel–Cantelli lemma.                                                                  □
+Remark 8.8. If X is a deterministic cycle, every trajectory is periodic. In the graph-based setting below,
+one period projects to a fixed closed reduced and cyclically reduced path. The proof of Theorem 9.12 gives
+a periodic-word argument showing that cyclic reduction removes only a uniformly bounded number of edges
+from the closed prefixes.
+34                                                  ILYA KAPOVICH
+
+
+                            9. Graph-based non-backtracking random walks
+
+Convention 9.1. In this section we will assume that FN = F (A) is a free group of finite rank N ≥ 2, that Γ
+is a finite connected oriented graph with all vertices of degree ≥ 3 and with the first Betti number b(Γ) = N ,
+and that α : FN → π1 (Γ, x0 ) is a fixed isomorphism, where x0 ∈ V Γ is some base vertex. We equip Γ and
+T0 = Γ e with simplicial metrics, where every edge has length 1.
+
+     Note that for Γ as above we always have #EΓ ≤ 6N .
+Definition 9.2. Under the above convention, a FSMC X with state set S is Γ-based if the following hold:
+      (1) We have S ⊆ EΓ, with #S ≥ 2.
+      (2) Whenever e, e′ ∈ S are such that pX (e, e′ ) > 0 then t(e) = o(e′ ) in Γ and e′ ̸= e−1 .
+
+   Thus for a Γ-based FSMC X as above, the space of feasible trajectories (S N )+ can be thought of as a
+subset of the set Ω(Γ) of all reduced semi-infinite edge-paths γ = e1 , e2 , . . . in Γ. Similarly, (S n )+ can be
+thought of as a subset of the set Ωn (Γ) of all reduced length n edge-paths e1 , e2 , . . . , en in Γ.
+Proposition 9.3. Let X be an irreducible Γ-based FSMC with state set S ⊆ EΓ. Let µ0 be the unique
+stationary probability distribution on S. For every k ≥ 1 we extend µ0 [k] to Ωk (Γ) by setting µ0 [k](v) = 0
+for every v ∈ Ωk (Γ) − (S k )+ .
+     There exists a unique geodesic current ν on FN with the following properties:
+      (1) For every k ≥ 1 and every v ∈ Ωk (Γ) we have ⟨v, ν⟩Γ = µ0 [k](v) + µ0 [k](v −1 ).
+      (2) We have ⟨T0 , ν⟩ = 1.
+
+Proof. We use the formulas in part (1) of the proposition to define a system of weights ν on ∪n≥1 Ωn (Γ).
+Note that these weights are already symmetrized since the defining equations for the weights in (1) give the
+same answers for v and v −1 . Now Corollary 8.5 implies that these ν weights satisfy the switch conditions.
+Therefore they do define a geodesic current ν ∈ Curr(FN ).
+   Also, part (1) of Corollary 8.5 implies that e∈EΓ µ0 [1](e) = 1 = e∈EΓ µ0 [1](e−1 ). For the unit-edge
+                                                   P                       P
+tree T0 , the intersection form is one half of the sum of the weights of all oriented edges. Therefore
+                                     1 X                                1 X
+                          ⟨T0 , ν⟩ =       (µ0 [1](e) + µ0 [1](e−1 )) =     ⟨e, ν⟩Γ = 1.
+                                     2                                  2
+                                       e∈EΓ                                 e∈EΓ
+
+This proves the normalization in part (2) and, in particular, ν ̸= 0. Uniqueness follows from the coordinate
+characterization of currents above.                                                                       □
+Definition 9.4 (Characteristic current). Let X be an irreducible Γ-based FSMC with state set S ⊆ EΓ. Let
+0 ̸= ν ∈ Curr(FN ) be the geodesic current constructed in Proposition 9.3 above. We call ν the characteristic
+current of X and denote it by νX .
+Definition 9.5 (X -directed random walk on Γ). Let X be an irreducible Γ-based FSMC with state set
+S ⊆ EΓ. Let µ be any initial probability distribution on S defining the corresponding Markov process
+Xµ = X1 , . . . , Xn , . . . . For every n = 1, 2, . . . put Wn = X1 . . . Xn so that Wn takes values in S n . The random
+process Wµ = W1 , . . . , Wn , . . . is called the X -directed non-backtracking random walk on Γ corresponding to
+µ.
+
+     Note that for Wµ and any n ≥ 1 the only feasible values of Wn are contained in S n ∩ Ωn (Γ).
+   Since in general Γ may have more than one vertex, a reduced edge-path in Γ (such as, for example, the
+length-n path given by Wn in the above setting) is not necessarily closed and thus may not define a conjugacy
+class in π1 (Γ, x0 ). To get around this issue, we modify Wµ slightly, in two different ways to output closed
+paths in Γ.
+                     GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                                    35
+
+
+Definition 9.6 (Closing path system). Let Γ be as in Convention 9.1. A closing path system for Γ is a
+family B = (βe,e′ )e,e′ ∈EΓ of reduced edge-paths in Γ such that for every e, e′ ∈ EΓ eβe,e′ e′ is a reduced
+edge-path in Γ.
+   For a nondegenerate reduced edge-path γ in Γ define the B-closing γ   b of γ as γ
+                                                                                   b = γβe,e′ where e is the
+last edge of γ and e′ is the first edge of γ. Note also that for any nondegenerate reduced edge-path γ in Γ
+the B-closing γ
+              b is a reduced and cyclically reduced closed edge-path in Γ.
+
+   For a closing path system B as above, if e, e′ ∈ EΓ then t(e) = o(βe,e′ ) and o(e′ ) = t(βe,e′ ). Such a system
+always exists. Indeed, the directed non-backtracking edge graph, whose vertices are the elements of EΓ
+and whose arrows are the reduced pairs ef , is strongly connected because Γ is connected and every vertex
+has degree at least 3. A shortest directed path from e to e′ supplies the required intermediate path βe,e′ ;
+when e = e′ , choose a shortest positive directed return path. Such a path can be chosen without repeated
+directed-edge vertices except for its two endpoints, and hence
+                                                |βe,e′ | ≤ |EΓ| ≤ 6N.
+Definition 9.7 (B-closing of a non-backtracking walk on Γ). Let X be an irreducible Γ-based FSMC with
+state set S ⊆ EΓ. Let B = (βe,e′ )e,e′ ∈EΓ be a closing path system for Γ. Let µ be any initial probability
+distribution on S and let Wµ = W1 , . . . , Wn , . . . be the X -directed non-backtracking random walk on Γ
+corresponding to µ. Define the random process W      dµ = W c1 , . . . , W                  cn is the B-closing of Wn .
+                                                                         cn , . . . , where W
+We call Wµ the B-closing of Wµ .
+         d
+
+   An advantage of using Wdµ is that it always outputs reduced and cyclically reduced closed paths W   cn of
+length n ≤ |Wn | ≤ n + C, where C = maxe,e |βe,e |. In many natural examples, however, Wn is already
+             c                                  ′     ′
+
+closed with positive probability. Therefore we offer a variation of the W
+                                                                        dµ approach which takes this fact into
+account.
+  For a reduced nondegenerate closed edge-path γ in Γ denote by cyc(γ) the subpath of γ obtained from
+γ by a maximal cyclic reduction. Thus cyc(γ) is a nondegenerate closed reduced and cyclically reduced
+edge-path in Γ.
+Notation 9.8. Let B be a closing path system for Γ. For a nondegenerate reduced edge-path γ in Γ let
+γ̆ := cyc(γ) if γ is a closed path, and let γ̆ := γ
+                                                  b otherwise. Thus in both cases γ̆ is a closed reduced and
+cyclically reduced edge-path in Γ (but it may now have length < n). We call γ̆ the modified B-closing of γ.
+Definition 9.9. Let X be an irreducible Γ-based FSMC with state set S ⊆ EΓ. Let B = (βe,e′ )e,e′ ∈EΓ be
+a closing path system for Γ. Let µ be any initial probability distribution on S. Let Wµ = W1 , . . . , Wn , . . .
+be the X -directed non-backtracking random walk on Γ corresponding to µ.
+  Define the random process W̆µ = W̆1 , . . . , W̆n , . . . , where W̆n is the modified B-closing of Wn . We call
+W̆µ the modified B-closing of Wµ .
+Convention 9.10. For each vertex x ∈ V Γ, choose a reduced path γx from x0 to x, with γx0 trivial. If ρ is a
+closed path based at x, define
+                                       gρ := α−1 [γx ργx−1 ] ∈ FN ,
+                                                            
+
+and choose its freely reduced representative over A±1 . We use the same symbol ρ for this representative
+when no confusion can arise. A different choice of the paths γx changes gρ by conjugation, so it does not
+change the counting current ηρ or any statement about automorphic equivalence of conjugacy classes.
+   Because the marking and the graph are fixed, there exist constants KΓ ≥ 1 and KΓ′ ≥ 0 such that every
+closed edge-path ρ satisfies
+(9.1)                                           |gρ |A ≤ KΓ |ρ| + KΓ′ .
+Thus the closed-path processes defined above are canonically regarded, up to harmless conjugacy choices, as
+FN -valued random processes.
+36                                              ILYA KAPOVICH
+
+
+Theorem 9.11. Let X be an irreducible Γ-based FSMC, let µ be any initial distribution, let B be a closing
+path system, and let νX be the characteristic current. Then the B-closing W
+                                                                          dµ is tame and adapted to νX .
+
+Proof. Put C = maxe,e′ |βe,e′ |. In graph length,
+                                              n ≤ |W
+                                                   cn | ≤ n + C.
+           cn |A ≤ KΓ (n + C) + K ′ , so the process is tame.
+By (9.1), |W                     Γ
+   Fix a trajectory ξ = e1 e2 . . . to which Proposition 8.4 applies for every finite edge-path, and put wn =
+e1 . . . en . Here ⟨v, wn ⟩ denotes the one-direction cyclic occurrence number of Definition 8.1; for a closed
+cyclically reduced path z one has
+                                              ⟨v, ηz ⟩Γ = ⟨v, z⟩ + ⟨v −1 , z⟩.
+For a reduced path v of length k,
+                                             |⟨v, w
+                                                  bn ⟩ − ⟨v, wn ⟩| ≤ C + 2k,
+because only occurrences meeting the added closing path or one of its two endpoints can change. The same
+estimate holds for v −1 . Hence
+                                      ⟨v, ηwbn ⟩Γ          ⟨v, wn ⟩ + ⟨v −1 , wn ⟩
+                                 lim              = lim
+                                n→∞        n          n→∞            n
+                                                  = µ0 [k](v) + µ0 [k](v −1 ) = ⟨v, νX ⟩Γ .
+The coordinate characterization of currents gives
+                                               1
+                                                 ηwb −→ νX ,
+                                               n n
+and therefore [ηwbn ] → [νX ].                                                                                 □
+Theorem 9.12. Let X be an irreducible Γ-based FSMC, let µ be any initial distribution, let B be a closing
+path system, and let νX be the characteristic current. Then the modified closing W̆µ is tame and adapted to
+νX .
+
+Proof. Put C = maxe,e′ |βe,e′ |. Since |W̆n | ≤ n + C in graph length, (9.1) gives
+                                          |W̆n |A ≤ KΓ (n + C) + KΓ′ ,
+so the process is tame. Fix a trajectory to which Proposition 8.4 applies for every finite path, and write
+wn = e1 · · · en . Whenever wn is closed, let cn be the number of pairs of boundary edges removed in passing
+from wn to cyc(wn ).
+                                                          √                     √
+               √ that X is non-deterministic. If cn ≥ ⌊ n⌋,−1
+   Suppose first                                                then the first ⌊ n⌋ edges are the inverse reverse
+of the last ⌊ n⌋ edges. Apply Corollary 8.7 with ι(e) = e on the subset of states whose inverse also lies
+in S. Almost surely,                                       √
+                                                     cn < n
+for every sufficiently large closed wn . Thus
+                                                                 √
+                                              | cyc(wn )| ≥ n − 2 n.
+
+   Suppose now that X is a deterministic cycle. After cyclically shifting the period to begin with the first
+state of the trajectory, write the successive prefixes as P q R, where P is a nontrivial closed reduced and
+cyclically reduced period and R ranges over the finitely many prefixes of P . Fix such an R for which P q R
+is closed. We claim that the amount of cyclic cancellation in P q R is bounded independently of q.
+   Indeed, suppose that the cancellation were unbounded. If ℓq pairs of boundary edges cancel in P q R,
+then the initial segment of length ℓq of the periodic ray P ∞ agrees with the inverse reverse of the terminal
+segment of length ℓq of P q R. Removing the fixed terminal path R loses at most |R| letters, and the remaining
+terminal segment lies in one of the finitely many phases of the periodic word P ∞ . Passing to a subsequence
+for which this phase is fixed and ℓq → ∞, we obtain agreement of arbitrarily long prefixes of P ∞ with
+                    GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                                    37
+
+
+prefixes of a fixed shift of (P −1 )∞ . Hence these one-sided periodic words agree, and their primitive periods
+are cyclic conjugates. Thus the primitive cyclic root Q of P is cyclically conjugate to Q−1 .
+   The nontrivial element represented by Q would therefore be conjugate to its inverse. Any such conjugator
+normalizes the maximal cyclic subgroup containing Q. In a free group the normalizer of a nontrivial maximal
+cyclic subgroup is the subgroup itself, so the conjugator centralizes Q. It would follow that Q = Q−1 , and
+hence Q2 = 1, contradicting torsion-freeness. Thus cancellation is bounded for each R, and the finiteness of
+the possible remainders makes the bound uniform. Consequently cn = O(1) along the closed times in the
+deterministic case. Thus, in either case, cn = o(n) along every sequence of closed times.
+   Let v be a reduced path of length k. Removing 2cn = o(n) boundary edges changes the cyclic number of
+occurrences of v by at most 2cn + 2k = o(n). Therefore, along every sequence of closed times ni ,
+                                  ⟨v, ηw̆ni ⟩Γ         ⟨v, wni ⟩ + ⟨v −1 , wni ⟩
+                              lim              = lim
+                              i→∞      ni        i→∞              ni
+                                               = µ0 [k](v) + µ0 [k](v −1 ) = ⟨v, νX ⟩Γ .
+At nonclosed times w̆n = w
+                         bn , and the coordinate convergence proved in Theorem 9.11 applies. The closed
+and nonclosed subsequences therefore have the same coordinate limit, so
+                                1
+                                  ηw̆ −→ νX and hence [ηw̆n ] −→ [νX ].
+                                n n
+                                                                                                     □
+
+  In summary, we get:
+Corollary 9.13. Let X be an irreducible Γ-based FSMC with state set S ⊆ EΓ. Let µ be any initial
+probability distribution on S. Let B = (βe,e′ )e,e′ ∈EΓ be a closing path system for Γ. Let νX ∈ Curr(FN ) be
+the characteristic current for X . Suppose that νX is filling in FN .
+   Then Wdµ and W̆µ are adapted to the characteristic current νX . Therefore Theorem 6.13 and Theorem 6.14
+apply to Wdµ and W̆µ .
+
+  We next explain several situations where one can guarantee that the current νX ∈ Curr(FN ) is filling.
+Proposition 9.14. Let X be an irreducible Γ-based FSMC with state set S ⊆ EΓ. Let νX ∈ Curr(FN ) be
+the characteristic current for X .
+   (1) Suppose that X has the property that S = EΓ and that for every e, e′ ∈ EΓ such that ee′ is a reduced
+       edge-path in Γ we have pX (e, e′ ) > 0. Then the current νX ∈ Curr(FN ) is filling.
+   (2) Suppose that Γ = RA , the N -rose corresponding to a free basis A = {a1 , . . . , aN } of FN (so that we
+       can identify E(RA ) = A±1 ). Suppose that X is such A ⊆ S and that for all 1 ≤ i, j ≤ N we have
+       pX (ai , aj ) > 0. Then the current νX ∈ Curr(FN ) is filling.
+   (3) Suppose there exists a nondegenerate reduced cyclically reduced closed edge-path w in Γ such that w
+       represents a filling element of FN and that for every n ≥ 2 we have pX (wn ) > 0. Then the current
+       νX ∈ Curr(FN ) is filling.
+   (4) Suppose there exists a free basis A = {a1 , . . . , aN } such that the following hold. For i = 1, . . . , N let
+       wi be a closed reduced and cyclically reduced edge-path in Γ representing the conjugacy class of ai in
+       FN . For 1 ≤ i < j ≤ N let wi,j be a closed reduced and cyclically reduced edge-path in Γ representing
+       the conjugacy class of ai aj in FN . Suppose that we have pX (wi2 ) > 0 for i = 1, . . . , N and that we
+                     2
+       have pX (wi,j   ) > 0 for all 1 ≤ i < j ≤ N . Then the current νX ∈ Curr(FN ) is filling.
+
+Proof. Let µ0 be the unique stationary probability distribution on S for X .
+    (1) The assumption on X implies that for every reduced edge-path v in Γ of length k ≥ 1 we have
+µ0 [k](v) > 0, and therefore, by definition of νX , we also have ⟨v, νX ⟩Γ > 0. Thus νX ∈ Curr(FN ) has full
+support and therefore νX is filling in FN .
+38                                                     ILYA KAPOVICH
+
+
+     (2) The assumptions on X (with Γ = RA ) imply that, for every n ≥ 1,
+                    µ0 [n](ani ) > 0   (1 ≤ i ≤ N ),          µ0 [2n]((ai aj )n ) > 0   (1 ≤ i < j ≤ N ).
+Therefore
+                  ⟨ani , νX ⟩A > 0 (1 ≤ i ≤ N ),              ⟨(ai aj )n , νX ⟩A > 0    (1 ≤ i < j ≤ N ).
+Proposition 5.7 now implies that νX is filling.
+   (3) Again, similarly to (1) and (2) we see that for every n ≥ 1 ⟨wn , νX ⟩Γ > 0. Therefore by Corollary 5.6
+the current νX ∈ Curr(FN ) is filling.
+    (4) Recall that for a reduced edge-path v in Γ of length k ≥ 2 and starting with e1 ∈ EΓ we have
+µ0 [k](v) = µ0 (e1 )pX (v). Thus µ0 [k](v) > 0 if and only if e1 ∈ S and the transition probabilities pX (e′ , e′′ )
+are > 0 for all length-2 subpaths e′ e′′ of v. Note also that if for the second edge e2 of v we have pX (e1 , e2 ) > 0
+then e1 , e2 ∈ S.
+     Let ℓi = |wi | and ℓi,j = |wi,j |. The assumptions in part (4) imply that for every n ≥ 1,
+                                       µ0 [nℓi ](win ) > 0,                    n
+                                                                  µ0 [nℓi,j ](wi,j ) > 0.
+Therefore, by definition of νX , we have ⟨win , νX ⟩Γ > 0, and, also, for all 1 ≤ i < j ≤ N and all n ≥ 1 we
+       n
+have ⟨wi,j , νX ⟩Γ > 0. Therefore, by Proposition 5.7, the current νX ∈ Curr(FN ) is filling.
+                                                                                                                    □
+Example 9.15. Let A = {a1 , . . . , aN } be a free basis of FN = F (A) and let Γ = RA be the corresponding
+N -rose.
+   (1) Consider an RA -based FSMC X with state set S = A±1 and transition probabilities pX (aεi , aδj ) = 2N1−1
+if aεi ̸= a−δ
+            j  and pX (aεi , a−ε
+                              i ) = 0, where ε, δ = ±1. Then X is irreducible and non-deterministic. The
+stationary distribution µ0 is the uniform probability distribution on A±1 . Then X , with an initial distribution
+µ on A±1 , defines the standard non-backtracking simple random walk Wµ = W1 , W2 . . . on FN = F (A). In
+this case the characteristic current νX is the uniform current νA corresponding to A. The current νX = νA
+has full support and therefore is filling. Since RA has one vertex, Wn is always closed, but in general
+W̆n = cyc(Wn ). Theorem 9.12 shows that cyclic reduction changes only a sublinear number of letters almost
+surely. Using a closing path system B produces cyclically reduced words W      cn = Wn β, where β ∈ B is an
+appropriate closing path. Since ηWn = ηcyc(Wn ) , Theorem 9.12 also shows directly that Wn is adapted to
+νA ; this fact is explained in more detail in [24] and exploited in the context of Whitehead’s algorithm there.
+In this case νA already has the “strict minimality” properties similar to those of strictly minimal elements
+of FN . Again see [24] for details.
+   (2) Let Γ be a simplicial chart on FN . Consider a Γ-based FSMC X with state set S = EΓ and transition
+probabilities satisfying pX (e, e′ ) > 0 if and only if ee′ is a reduced length-2 edge-path in Γ. Then X is
+irreducible and non-deterministic. The characteristic current νX has full support, and therefore is filling.
+   (3) Let X be an RA -based FSMC with state set S = A and transition probabilities satisfying pX (ai , aj ) > 0
+for all 1 ≤ i, j ≤ N . Then X is irreducible and non-deterministic. The characteristic current νX has the
+property that for 1 ̸= v ∈ F (A) we have ⟨v, νX ⟩A > 0 if and only if v or v −1 is a positive word over A. The
+current νX is filling in FN by Proposition 5.7. We again have Wn = W̆n in this case, and moreover, Wn is
+already cyclically reduced because it is a positive word.
+  (4) Assume here that N ≥ 3, and let Γ be a “fan of lollipops”. Thus Γ has a central vertex x0 , oriented
+edges e1 , . . . , eN from x0 to distinct vertices yi , and a loop fi at each yi . Choose the marking so that the
+based loop ei fi e−1 i   represents ai . Let X have state set
+                                               S = EΓ − {f1−1 , . . . , fN
+                                                                         −1
+                                                                            },
+and assume that pX (e, e′ ) > 0 whenever e, e′ ∈ S and ee′ is reduced. This chain is irreducible and non-
+deterministic.
+                     GENERIC-CASE COMPLEXITY OF WHITEHEAD’S ALGORITHM, REVISITED                                           39
+
+
+  For 1 ≤ i ≤ N , put wi = fi , a closed path based at yi . For 1 ≤ i < j ≤ N , put
+                                                 wi,j = fi e−1       −1
+                                                            i ej fj ej ei ,
+a closed reduced and cyclically reduced path based at yi . The path wi represents the conjugacy class of ai ,
+while conjugating wi,j to the base vertex x0 and freely reducing gives
+                                                   (ei fi e−1         −1
+                                                           i )(ej fj ej ),
+
+so wi,j represents the conjugacy class of ai aj . Every transition occurring in wi2 and wi,j
+                                                                                         2
+                                                                                             has positive
+probability by construction. Proposition 9.14(4) therefore shows that νX is filling.
+   In (1), (2), (3) and (4) above, the processes W
+                                                 dµ and W̆µ (where µ is any initial distribution on the state
+set S of X ) are adapted to the characteristic current νX of the defining irreducible FSMC, and νX is filling
+in FN . Therefore Theorem 6.13 and Theorem 6.14 apply to W    dµ and W̆µ in these cases.
+
+                                                      References
+ [1] A. Ancona, Positive harmonic functions and hyperbolicity. Potential theory – surveys and problems (Prague, 1987), 1–23,
+     Lecture Notes in Math., 1344, Springer, Berlin, 1988
+ [2] F. Bassino, C. Nicaud, and P. Weil, On the genericity of Whitehead minimality. J. Group Theory 19 (2016), no. 1,
+     137–159
+ [3] M. Bestvina, Geometry of outer space. Geometric group theory, 173–206, IAS/Park City Math. Ser., 21, Amer. Math.
+     Soc., Providence, RI, 2014
+ [4] M. Bestvina and P. Reynolds, The boundary of the complex of free factors. Duke Math. J. 164 (2015), no. 11, 2213–2251
+ [5] F. Bonahon, The geometry of Teichmüller space via geodesic currents, Invent. Math. 92(1988), no. 1, 139–162
+ [6] D. Calegari and J. Maher, Statistics and compression of scl. Ergodic Theory Dynam. Systems 35 (2015), no. 1, 64–110
+ [7] C. Cashen and J. Manning. Virtual geometricity is rare. LMS J. Comput. Math. 18 (2015), no. 1, 444–455
+ [8] D. Calegari, The ergodic theory of hyperbolic groups. Geometry and topology down under, 15–52, Contemp. Math., 597,
+     Amer. Math. Soc., Providence, RI, 2013
+ [9] L. Ciobanu, Polynomial-time complexity for instances of the endomorphism problem in free groups. Internat. J. Algebra
+     Comput. 17 (2007), no. 2, 289–328.
+[10] M. Clay and A. Pettet, Current twisting and nonsingular matrices. Comment. Math. Helv. 87 (2012), no. 2, 385–407
+[11] T. Coulbois, A. Hilion, and P. Reynolds, Indecomposable FN -trees and minimal laminations. Groups Geom. Dyn. 9
+     (2015), no. 2, 567–597
+[12] M. Culler, Finite groups of outer automorphisms of a free group. Contributions to group theory, 197–207, Contemp.
+     Math., 33, Amer. Math. Soc., Providence, RI, 1984
+[13] M. Culler, K. Vogtmann, Moduli of graphs and automorphisms of free groups, Invent. Math. 84 (1986), no. 1, 91–119
+[14] S. Dowdall, I. Kapovich, and C. J. Leininger, Dynamics on free-by-cyclic groups. Geom. Topol. 19 (2015), no. 5, 2801–2899
+[15] A. Dembo and O. Zeitouni, Large deviations techniques and applications, 2nd ed., Applications of Mathematics, 38,
+     Springer, New York, 1998
+[16] S. Francaviglia and A. Martino, Metric properties of outer space, Publ. Mat. 55 (2011), no. 2, 433–473
+[17] U. Hamenstädt, Lines of minima in outer space. Duke Math. J. 163 (2014), no. 4, 733–776
+[18] R. Gallager, Stochastic processes. Theory for applications. Cambridge University Press, Cambridge, 2013; ISBN: 978-1-
+     107-03975-9
+[19] I. Gekhtman, Equidistribution of closed geodesics along random walk trajectories with respect to the harmonic invariant
+     measure, preprint, 2017, arXiv:1711.04985
+[20] C. Horbez, The Poisson boundary of Out(FN ), Duke Math. J. 165 (2016), no. 2, 341–369
+[21] V. A. Kaimanovich, The Poisson formula for groups with hyperbolic properties. Ann. of Math. (2) 152 (2000), no. 3,
+     659–692
+[22] V. Kaimanovich, I. Kapovich, and P. Schupp, The subadditive ergodic theorem and generic stretching factors for free
+     group automorphisms. Israel J. Math. 157 (2007), 1–46
+[23] I. Kapovich, Currents on free groups. Topological and asymptotic aspects of group theory, 149–176, Contemp. Math.,
+     394, Amer. Math. Soc., Providence, RI, 2006
+[24] I. Kapovich, Clusters, currents, and Whitehead’s algorithm. Experiment. Math. 16 (2007), no. 1, 67–76
+[25] I. Kapovich, and N. Benakli, Boundaries of hyperbolic groups. Combinatorial and geometric group theory (New York,
+     2000/Hoboken, NJ, 2001), 39–93, Contemp. Math., 296, Amer. Math. Soc., Providence, RI, 2002
+[26] I. Kapovich and M. Lustig, Geometric intersection number and analogues of the curve complex for free groups. Geom.
+     Topol. 13 (2009), no. 3, 1805–1833
+[27] I. Kapovich and M. Lustig, Intersection form, laminations and currents on free groups. Geom. Funct. Anal. 19 (2010),
+     no. 5, 1426–1467
+40                                                    ILYA KAPOVICH
+
+
+ [28] I. Kapovich, A. Myasnikov, P. Schupp, and V. Shpilrain, Generic-case complexity, decision problems in group theory,
+      and random walks. J. Algebra 264 (2003), no. 2, 665–694
+ [29] I. Kapovich, P. Schupp, and V. Shpilrain, Generic properties of Whitehead’s algorithm and isomorphism rigidity of
+      random one-relator groups. Pacific J. Math. 223 (2006), no. 1, 113–140
+ [30] I. Kapovich, and H. Short, Greenberg’s theorem for quasiconvex subgroups of word hyperbolic groups. Canad. J. Math.
+      48 (1996), no. 6, 1224–1244
+ [31] B. Khan, The structure of automorphic conjugacy in the free group of rank two. Computational and experimental group
+      theory, 115–196, Contemp. Math., 349, Amer. Math. Soc., Providence, RI, 2004
+ [32] J. R. Kirkwood, Markov processes. Advances in Applied Mathematics. CRC Press, Boca Raton, FL, 2015; ISBN: 978-1-
+      4822-4073-3
+ [33] A. Kulik, Ergodic behavior of Markov processes. With applications to limit theorems. De Gruyter Studies in Mathematics,
+      67. De Gruyter, Berlin, 2018; ISBN: 978-3-11-045870-1
+ [34] F. Ledrappier, Some asymptotic properties of random walks on free groups. Topics in probability and Lie groups: boundary
+      theory, 117–152, CRM Proc. Lecture Notes, 28, Amer. Math. Soc., Providence, RI, 2001
+ [35] D. Lee, Counting words of minimum length in an automorphic orbit. J. Algebra 301 (2006), no. 1, 35–58
+ [36] D. Lee, A tighter bound for the number of words of minimum length in an automorphic orbit. J. Algebra 305 (2006), no.
+      2, 1093–1101
+ [37] R. Lyndon and P. E. Schupp, Combinatorial group theory. Reprint of the 1977 edition. Classics in Mathematics. Springer-
+      Verlag, Berlin, 2001; ISBN: 3-540-41158-5
+ [38] J. Maher and A. Sisto, Random Subgroups of Acylindrically Hyperbolic Groups and Hyperbolic Embeddings, International
+      Mathematics Research Notices, Vol. 2017, No. 00, pp. 1-40, doi: 10.1093/imrn/rnx233
+ [39] J. Maher, and J. Tiozzo, Random walks on weakly hyperbolic groups. J. Reine Angew. Math. 742 (2018), 187–239
+ [40] A.D. Myasnikov, and R. M. Haralick, A hybrid search algorithm for the Whitehead minimization problem. J. Symbolic
+      Comput. 41 (2006), no. 7, 818–834
+ [41] A. G. Myasnikov and V. Shpilrain, Automorphic orbits in free groups, J. Algebra 269 (2003), 18–27
+ [42] A. Myasnikov, V. Shpilrain, and A. Ushakov, Group-based cryptography. Advanced Courses in Mathematics. CRM
+      Barcelona. Birkhauser Verlag, Basel, 2008. ISBN: 978-3-7643-8826-3
+ [43] F. Paulin, The Gromov topology on R-trees. Topology Appl. 32 (1989), no. 3, 197–221
+ [44] A. Roig, E. Ventura, and P. Weil, On the complexity of the Whitehead minimization problem. Internat. J. Algebra Comput.
+      17 (2007), no. 8, 1611–1634
+ [45] K. Vogtmann, On the geometry of outer space. Bull. Amer. Math. Soc. (N.S.) 52 (2015), no. 1, 27–46
+ [46] J. H. C. Whitehead, On equivalent sets of elements in a free group, Ann. of Math. (2) 37 (1936), no. 4, 782–800
+ [47] B. Zimmermann, Über Homöomorphismen n-dimensionaler Henkelkörper und endliche Erweiterungen von Schottky-
+      Gruppen. Comment. Math. Helv. 56 (1981), no. 3, 474–486
+
+
+
+
+     Department of Mathematics and Statistics, Hunter College of CUNY
+     695 Park Ave, New York, NY 10065
+     http://math.hunter.cuny.edu/ilyakapo/,
+     Email address: ik535@hunter.cuny.edu
+

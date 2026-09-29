@@ -165,3 +165,6 @@ N8 central-factor audit,29September: an alternative finite-projective-fibre proo
 
 
 F20 follow-up:143 selected weight-six finite covers show no surviving weight-seven commutator in integral first homology. GAP and Python/FLINT agree on these and75 known weight-five controls. The bounded result is inconclusive; failed runs are retained. See `research/notes/F20-finite-cover-homology.md`. A broader fixed-coproduct retraction obstruction is added to the N9 note, without answering its fixed-ambient problem. Counts remain5 whole,3 partial,0 established novel.
+
+
+F38(c) follow-up: an implemented necessary condition decides whether the two conjugacy stabilizers are commensurable. If they are not, it returns an exact automorphism proving unboundedness. Python controls and two independent GAP certificate replays passed; one earlier GAP failure is preserved. Sufficiency is unproved, so this is a research tool, not a full decision procedure. See `research/notes/F38-stabilizer-obstruction.md`. Counts remain5 whole,3 partial,0 established novel.

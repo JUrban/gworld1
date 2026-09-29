@@ -1,0 +1,438 @@
+                                                             GENERICITY OF FILLING ELEMENTS
+
+                                                                                  BRENT B. SOLIE
+arXiv:1007.4022v1 [math.GR] 22 Jul 2010
+
+
+
+
+                                                   Abstract. An element of a finitely generated non-Abelian free group F (X)
+                                                   is said to be filling if that element has positive translation length in every very
+                                                   small minimal isometric action of F (X) on an R-tree. We give a proof that the
+                                                   set of filling elements of F (X) is exponentially F (X)-generic in the sense of
+                                                   Arzhantseva and Ol’shanskiı̆. We also provide an algebraic sufficient condition
+                                                   for an element to be filling and show that there exists an exponentially F (X)-
+                                                   generic subset of filling elements whose membership problem is solvable in
+                                                   linear time.
+
+
+
+
+                                                                                1. Introduction
+                                             Statistical group theory is a fairly new area of mathematics that has generated
+                                          a great deal of active research in recent years. A typical result in this area usually
+                                          concerns the probability with which a random group element satisfies a given prop-
+                                          erty. Properties which are held by almost all sufficiently long elements of a given
+                                          finitely generated group are especially interesting, and we informally refer to such
+                                          properties as generic.
+                                             The earliest occurence of the notion of genericity appears to be due to Guba
+                                          [15]. Shortly afterwards, Gromov gave a formal definition in the context of finitely
+                                          presented groups [14]. In the same paper, Gromov asserts that almost every finitely
+                                          presented group is hyperbolic, a fact first proved by Ol’shanskiı̆ [28] and later by
+                                          Champetier [10, 11]. Subsequent results in statistical group theory include the work
+                                          of Arzhantseva [1, 2], Arzhantseva and Ol’shanskiı̆ [3], and Ollivier [24, 23, 25, 26].
+                                          The surveys by Ghys [13] and Ollivier [27] provide an excellent overview of genericity
+                                          with a focus on random groups. More recent results in statistical group theory
+                                          apply the notion of genericity to computational group theory. Some group-theoretic
+                                          decision problems with high worst-case complexity have been shown to have low
+                                          complexity on a generic set of inputs [20, 21]. These results have furthered the
+                                          understanding of the average-case complexity of these problems [18, 19].
+                                             The focus of the present paper is to investigate the generic geometric behavior
+                                          of elements of a finitely generated non-Abelian free group. Our investigation is
+                                          motivated by the notion of a filling element, first introduced by Kapovich and
+                                          Lustig as a free group analogue of a filling curve on a surface [17]. Filling curves
+                                          have been important in the theory of surface groups and may be characterized by
+                                          a number of equivalent geometric and algebraic properties.
+                                             Let Σ be a closed, orientable surface of genus at least two. By a surface group
+                                          we mean the fundamental group of such a surface Σ. Let α and β be closed curves
+
+                                             Date: January 2, 2018.
+                                             2010 Mathematics Subject Classification. Primary 20P05, Secondary 03D15, 20E08, 20F65.
+                                             Key words and phrases. geometric group theory, statistical group theory, free group, filling
+                                          element, genericity.
+                                                                                           1
+2                                  BRENT B. SOLIE
+
+
+on Σ. The geometric intersection number, denoted i(α, β), is the least number of
+intersections between members of the free homotopy classes of α and β. If β is such
+that i(α, β) > 0 for every essential simple closed curve α, then we say that β is a
+filling curve.
+    Recall that the dual tree associated to an essential simple closed curve α on Σ is
+a simplicial tree equipped with a small minimal isometric action by π1 (Σ). (From
+now on, we will assume all of our group actions on trees are minimal and isometric.)
+It is well-known that if β is a (not necessarily simple) closed curve on Σ, then the
+translation length of β on Tα , denoted ||β||Tα , is equal to i(α, β). Therefore, a
+closed curve β is filling if and only if it has positive translation length on Tα for
+every essential simple closed curve α.
+    As a consequence of Skora’s duality theorem, any simplicial tree equipped with
+a small action by π1 (Σ) can be collapsed down to a tree Tα for some essential
+simple closed curve α. Therefore, a closed curve β is filling if and only if it has
+positive translation length in every small action of π1 (Σ) on a simplicial tree. An
+application of Bass-Serre theory shows that a closed curve β is filling if and only if
+it is not conjugate into a vertex group of any elementary cyclic splitting of π1 (Σ).
+    We now move from surface groups to consider a finitely generated non-Abelian
+free group F (X). Recall that the Culler-Vogtmann outer space, denoted CV (F (X)),
+is the projectivized space of free discrete actions of F (X) on simplicial trees. Outer
+space is the free group counterpart to Teichmüller space in the sense that it admits a
+properly discontinuous isometric action by the outer automorphism group of F (X)
+[12]. More, outer space also admits a Thurston-type compactification CV (F (X)),
+where CV (F (X)) is the projectivized space of very small actions of F (X) on R-trees
+[4].
+    In [17], Kapovich and Lustig introduce the notion of a filling element as a free
+group analogue for a filling curve. A filling element is an element w ∈ F (X) that
+has positive translation length in every very small action of F (X) on an R-tree. In
+the same paper, Kapovich and Lustig prove that almost every prefix of almost every
+freely reduced right-infinite word on the letters X ± := X ∪ X −1 is a filling element
+of F (X) [17, Theorem 13.6]. This result echoes the work of Bonahon showing that
+filling is the typical behavior of closed curves on a closed orientable hyperbolic
+surface [5, 6, 7].
+    However, the proof of Kapovich and Lustig’s theorem is non-constructive; we
+would still like to find an algorithmically verifiable sufficient condition for a free
+group element to be filling. Further, we would like to find such a condition which
+is also generic in the following formal sense of Arzhantseva and Ol’shanskiı̆. Let
+S be the set of elements of F (X) satisfying a given condition. We say that S is
+F (X)-generic if
+                                       #(S ∩ Bn )
+                                  lim              = 1,
+                                 n→∞      #Bn
+where Bn := {w ∈ F (X) : |w|X ≤ n} [21]. If the limit converges to 1 exponentially
+fast, we say that S is exponentially F (X)-generic. We will give a slightly more
+general definition of genericity in Definition 2.3.
+    The main result of this paper is:
+Theorem 3.7. Let F (X) be a finitely generated non-Abelian free group.
+   (1) Let w ∈ F (X). If the stabilizer of w in Aut F (X) is infinite cyclic, then w
+       is filling.
+                          GENERICITY OF FILLING ELEMENTS                                3
+
+
+    (2) The set of filling elements of F (X) is exponentially F (X)-generic.
+    (3) There exists an exponentially F (X)-generic subset S of F (X) such that
+        every element of S is filling and the membership problem for S is solvable
+        in linear time.
+   The proof of Theorem 3.7 relies on the construction of an exponentially F (X)-
+generic set T S ′ constructed to study the generic-case complexity of Whitehead’s
+algorithm [21]. Let T S be the set of all cyclically reduced elements of F (X) which
+are not proper powers, whose conjugacy classes are fixed by no relabeling Whitehead
+automorphism, and whose cyclic length is strictly increased by every non-inner, non-
+relabeling Whitehead automorphism. (Whitehead automorphisms will be defined
+formally in Definition 2.4.) The set T S ′ is defined as the set of all elements of
+F (X) whose cyclic reductions are elements of T S. The set T S ′ satisfies a number
+of important properties, outlined in Proposition 3.2.
+   The other main ingredient in the proof of Theorem 3.7 is an analysis of the
+structure of vertex groups in elementary cyclic splittings of F (X). The work of
+Guirardel [16] implies that a non-filling element must be conjugate into such a vertex
+group. The algebraic structure of these vertex groups, detailed in in Proposition
+3.1, implies part (1) of Theorem 3.7. Parts (2) and (3) then follow from part (1)
+and the properties of the set T S ′ .
+
+                                  2. Preliminaries
+   By X we will always denote a finite set with #X ≥ 2. Let F (X) be the free
+group on the set of letters X.
+   An R-tree is a geodesic metric space in which any two points are connected by
+a unique simple path. We continue to assume that every action of F (X) on an
+R-tree is isometric and minimal. An action of F (X) on an R-tree is very small if
+the stabilizer of any tripod is trivial and the stabilizer of any arc is either trivial or
+maximal cyclic in the stabilizers of the endpoints of the arc. For w ∈ F (X) and T
+an R-tree on which F (X) acts, then the translation length of w is defined to be
+                               ||w||T := inf dT (p, w(p)).
+                                         p∈T
+
+Definition 2.1. Let w ∈ F (X). We say that w is a filling element if ||w||T > 0
+for every very small action of F (X) on an R-tree T . We say that w is a non-filling
+element if ||w||T = 0 for some very small action of F (X) on an R-tree T .
+   The work of Guirardel allows us to approximate the very small action of F (X)
+on a given R-tree by very small actions on a simplicial trees [16]. In particular, if
+w ∈ F (X) fixes a point in a very small action on an R-tree, it must also fix a point
+in a very small action on a simplicial tree. This implies:
+Proposition 2.1. An element w ∈ F (X) is non-filling if and only if ||w||T = 0 for
+some very small action of F (X) on a simplicial tree T .
+   Recall that a very small action of F (X) on a simplicial tree gives a decomposition
+of F (X) as the fundamental group of a graph of groups with cyclic edge groups.
+We briefly review some of the associated terminology.
+Definition 2.2. A cyclic splitting of F (X) is the decomposition of F (X) as the
+fundamental group of a graph of groups with cyclic edge groups. A boundary map
+in a cyclic splitting is a map from an edge group to a vertex group. A cyclic splitting
+4                                  BRENT B. SOLIE
+
+
+of F (X) is elementary if the corresponding graph of groups is connected and has
+exactly one edge. An elementary cyclic splitting of F (X) is a segment of groups
+if it has two distinct vertices and is a loop of groups if it has a single vertex. An
+elementary cyclic splitting is nontrivial if it is either a loop of groups, or it is a
+segment of groups in which neither boundary map is an isomorphism. Given any
+splitting of F (X), we say that w ∈ F (X) is elliptic with respect to this splitting if
+w is conjugate to an element of a vertex group. Elements of F (X) which are not
+elliptic in a given splitting are said to be hyperbolic.
+   We will find it useful to slightly generalize the notion of F (X)-genericity pre-
+sented in the introduction. The following notion of genericity referred to as the
+Arzhantseva-Ol’shanskiı̆ model of genericity, and the specific terminology is due to
+Kapovich, Schupp, and Shpilrain [21].
+Definition 2.3. Let S ⊆ T ⊆ F (X). We say that S is T -generic if
+                                    #(S ∩ Bn )
+                                 lim           = 1,
+                                n→∞ #(T ∩ Bn )
+
+where Bn := {w ∈ F (X) : |w|X ≤ n} and |w|X denotes the word length of the
+element w with respect to the basis X. If the above limit converges exponentially
+fast, we say that S is exponentially T -generic. If T − S is (exponentially) T -generic,
+then we say that S is (exponentially) T -negligable.
+   Recall that for the standard basis X of F (X), we have a corresponding set of
+Whitehead automorphisms which act as a finite generating set for Aut F (X). Each
+of these Whitehead automorphism falls into one of the two following categories.
+Definition 2.4. An automorphism σ : F (X) → F (X) is called a type I White-
+head automorphism (or a relabeling Whitehead automorphism) if σ is induced by a
+permutation on the set X ± := X ∪ X −1 .
+   An automorphism σ : F (X) → F (X) is called a type II Whitehead auto-
+morphism if there is an element a ∈ X ± such that for all x ∈ X ± , we have
+σ(x) ∈ {x, xa, a−1 x, xa }, where xa := z −1 xa.
+
+                                  3. Main Results
+3.1. Cyclic Splittings of F (X). The structure of elementary cyclic splittings of
+free groups has been well-studied. A topological lemma due to Bestvina and Feighn
+[4, Lemma 4.1] can be used to characterize one-relator presentations of F (X),
+resulting in the following characterization of vertex groups of cyclic splittings. The
+following proposition may also be obtained from earlier results in [30], [31], or [32].
+Proposition 3.1. If F (X) has the structure of a nontrivial segment of groups with
+cyclic edge group, then its vertex groups must have the form hA, bi and hBi, where
+A ⊔ B is a basis for F (X), #B ≥ 2, and b ∈ hBi.
+   If F (X) has the structure of a nontrivial loop of groups with cyclic edge group,
+then its vertex group must have the form hU, uv i, where U ⊔ {v} is a basis for F (X)
+and u ∈ hU i.
+3.2. The Set T S ′ . In [21], Kapovich, Schupp, and Shpilrain construct an exponen-
+tially F (X)-generic set with several important properties related to Whitehead’s
+algorithm.
+                         GENERICITY OF FILLING ELEMENTS                               5
+
+
+Definition 3.1. Let C ⊆ F (X) be the set of cyclically and freely reduced elements
+of F (X). The set T S is the set of w ∈ C which are not proper powers, whose cyclic
+length is increased by every non-inner type II Whitehead automorphism, and whose
+conjugacy class is fixed by no type I Whitehead automorphism. The set T S ′ is the
+set of elements w ∈ F (X) whose cyclic reductions are in T S.
+Proposition 3.2 ([21, Theorem 8.5]). Let #X ≥ 2 and let T S ′ ⊆ F (X) be as
+above.
+    (1) The set T S ′ is exponentially F (X)-generic.
+    (2) For any nontrivial w ∈ T S ′ , the stabilizer of w in Aut F (X) is the infinite
+        cyclic group generated by right-conjugation by w.
+    (3) The membership problem for T S ′ is solvable in linear time.
+    We very briefly summarize the arguments presented in [21]. Let N := #X. Let
+w ∈ C have cyclic length n. For every x ∈ X ± , define wx to be the number of
+occurrences of x in w. Likewise, for every x, y ∈ X ± such that x 6= y −1 , define wxy
+to be the number of occurrences of xy as a subword of w written as a cyclic word.
+    Let ǫ > 0. Let L(ǫ) be the set of all w ∈ C such that for all x, y ∈ X ± where
+x 6= y −1 , we have
+                                                                               
+    wx         1         1            wxy           1                  1
+         ∈        − ǫ,      + ǫ and        ∈                − ǫ,                +ǫ .
+     n        2N       2N              n       2N (2N − 1)       2N (2N − 1)
+    If τ is a type II Whitehead automorphism, the difference in cyclic length between
+w and τ (w) is easily calculated in terms of the quantities wx and wxy (see [22], [29]).
+Let 0 < ǫ < (2N − 3)/N (2N − 1)(4N − 3). If w ∈ L(ǫ) for such an ǫ, the quantities
+wx and wxy nearly uniformly distributed. It is then fairly straightforward to see
+that any non-inner type II Whitehead automorphism will necessarily increase the
+cyclic length of w ∈ L(ǫ).
+    Using some deep results from large deviation theory, one can further show that
+the set L(ǫ) itself is C-generic. Since L(ǫ) is C-generic, the set L′ (ǫ) consisting of
+elements of F (X) whose cyclic reductions are in L(ǫ) is F (X)-generic. Although
+L′ (ǫ) may contain elements whose conjugacy class is fixed by a type I Whitehead
+automorphism, the set of such elements is F (X)-negligable and may be safely dis-
+carded to obtain a subset of T S ′ which is F (X)-generic. We conclude that T S ′
+itself is also F (X)-generic.
+    Suppose now that w ∈ T S. If α ∈ Aut F (X) is such that α(w) = w, recall
+that Whitehead’s theorem states that α can be written as a sequence of White-
+head automorphisms α = τm ◦ · · · ◦ τ1 such that τi+1 does not increase the cyclic
+length of τi ◦ . . . τ1 (w). Since w ∈ T S and T S is closed under type I Whitehead
+automorphisms and cyclic permutations, each τi must be either a type I Whitehead
+automorphism or it must cyclically permute w. We may therefore write α = γ ◦ σ,
+where σ is a type I Whitehead automorphism and γ is an inner automorphism.
+Since the conjugacy class of w cannot be fixed by a type I Whitehead automor-
+phism, σ must be trivial, and so α itself must be inner. It follows directly that α
+can only be conjugation by some power of w, since w is not a proper power itself.
+A slight modification to this argument shows that any w′ whose cyclic reduction is
+w also has a cyclic stabilizer in Aut F (X).
+    To algorithmically decide whether an element w′ belongs to T S ′ , we first pass to
+the cyclic reduction of w′ , denoted by w, in time linear in the length of w′ . We then
+decide whether w ∈ T S. It is well-known how to check whether w is a proper power
+6                                  BRENT B. SOLIE
+
+
+or not in time linear in the length of w. Checking whether the cyclic length of w
+increases under any non-inner type II Whitehead automorphisms or whether any
+type I Whitehead automorphism fixes the conjugacy class of w can each be done
+in linear time since the number of Whitehead automorphisms of F (X) is constant.
+Remark. Although the membership problem for T S ′ is linear in the length of the
+input, it has a factorial dependence on the rank of F (X) due to the growth of the
+set of Whitehead automorphisms. It is worth noting that we can circumvent this
+dependence by passing to L′ (ǫ), which is exponentially T S ′ -generic for the suffi-
+ciently small values of ǫ given above. The membership problem for L′ (ǫ) requires
+only that we check the counts on a given word’s one- and two-letter subwords, which
+can be done in linear time without any dependence on the rank of the ambient free
+group.
+3.3. Genericity of Filling Elements. We first consider the case where w ∈ F (X)
+is elliptic in an elementary splitting of F (X) over the trivial group.
+Lemma 3.3. Let w ∈ F (X) be elliptic in an elementary splitting of F (X) over a
+trivial group. Then w has non-cyclic stabilizer in Aut F (X).
+Proof. To say that w is elliptic in an elementary splitting of F (X) over a trivial
+group is equivalent to saying that w is contained in a proper free factor of F (X).
+Suppose that w is not a proper power. Let A ⊔ B be a basis for F (X) such that
+#A, #B ≥ 1 and w ∈ hAi. Let σ : F (X) → F (X) be right-conjugation by w.
+Define τ : F (X) → F (X) via
+                                      (
+                                        xw if x ∈ A,
+                              τ (x) =
+                                        x   if x ∈ B,
+   where xw := w−1 xw. Both σ and τ fix w. However, σ fixes exactly hwi, while
+τ fixes hw, Bi. Thus σ must be distinct from every power of τ , so the Aut F (X)
+stabilizer of w cannot be cyclic.
+   If w = z r where r > 1 and z is not a proper power, then z is elliptic in an
+elementary cyclic splitting if and only if w is elliptic in that same splitting. We
+may therefore pass from w to its root z, which is also elliptic in the given splitting.
+The argument above shows that z has a non-cyclic stabilizer, and since the stabilizer
+of w contains that of z, w must have non-cyclic stabilizer in Aut F (X) as well. 
+   Since the set T S ′ is an exponentially F (X)-generic set whose elements all have
+cyclic stabilizers in Aut F (X), any set consisting of elements with non-cyclic stabi-
+lizers is exponentially F (X)-negligable.
+Corollary 3.4. The set of elements of F (X) which lie in a proper free factor of
+F (X) is exponentially F (X)-negligable.
+Remark. This is a slight generalization of results appearing in [8] and [9], which
+show that the set of primitive elements of F (X) is F (X)-negligable.
+Lemma 3.5. Let w ∈ F (X) be elliptic in some elementary cyclic splitting of F (X).
+Then w has a non-cyclic stabilizer in Aut F (X).
+Proof. Suppose that w is not a proper power.
+  Let w ∈ F (X) be elliptic in a segment of groups. Then there must exist a basis
+A ⊔ B of F (X) such that #A ≥ 1, #B ≥ 2, b ∈ hBi, and either w ∈ hA, bi or
+                        GENERICITY OF FILLING ELEMENTS                               7
+
+
+w ∈ hBi. Note that if b is a proper power of some c ∈ F (X), then we would have
+w ∈ hA, ci, so w would remain elliptic in a splitting of the same type. Hence we may
+assume that b is not a proper power. Define an automorphism σ : F (X) → F (X)
+by                                    (
+                                        y, if y ∈ A
+                              σ(y) =
+                                        y b , if y ∈ B.
+   Any power of σ fixes the rank 2 subgroup hA, bi pointwise and so also fixes
+w, whereas right-conjugation by w fixes exactly the cyclic subgroup hwi. Right-
+conjugation by w must therefore differ from every power of σ, so the stabilizer of
+w in Aut F (X) cannot be cyclic.
+   If w ∈ hBi, since #A ≥ 1, w lies in a proper free factor of F (X). Lemma 3.3
+states that such an element has a non-cyclic stabilizer in Aut F (X).
+   Let w ∈ F (X) be elliptic in a loop of groups. There then exists a basis U ⊔{v} of
+F (X) such that w ∈ hU, uv i for some u ∈ hU i. We define the map τ : F (X) → F (X)
+by
+                                 τ (y) = y, if y ∈ U
+                                 τ (v) = uv.
+   Since u ∈ hU i, τ is an automorphism. In particular, τ fixes the subgroup hU, uv i
+pointwise, so no power of τ equals right-conjugation by x, which fixes only the
+cyclic subgroup hwi. Again, the stabilizer of w in Aut F (X) therefore cannot be
+cyclic.
+   We handle the case where w is a proper power in the same way it was handled
+in the proof of Lemma 3.3.                                                        
+Lemma 3.6. If w ∈ T S ′ , then w is filling.
+Proof. We consider instead the set of non-filling elements in F (X). By Proposition
+2.1, a non-filling element w fixes a point in some simplicial tree equipped with a
+very small action by F (X). This in turn gives a splitting of F (X) over infinite
+cyclic and trivial groups. Since w fixes a point in the action, w must be elliptic in
+this splitting. We may choose any edge in the splitting and collapse the components
+of its complement down to vertices, thereby obtaining an elementary splitting of
+F (X) over an infinite cyclic or trivial group in which w is elliptic. Since w is
+elliptic in such a splitting, by Lemmas 3.3 and 3.5, the stabilizer of w is non-cyclic
+in Aut F (X). By Proposition 3.2, all elements of T S ′ have cyclic stabilizers in
+Aut F (X), and so w ∈   / T S ′.                                                    
+Theorem 3.7. Let F (X) be a finitely generated non-Abelian free group.
+   (1) Let w ∈ F (X). If the stabilizer of w in Aut F (X) is infinite cyclic, then w
+       is filling.
+  (2) The set of filling elements of F (X) is exponentially F (X)-generic.
+   (3) There exists an exponentially F (X)-generic subset S of F (X) such that
+       every element of S is filling and the membership problem for S is solvable
+       in linear time.
+Proof. Part (1) follows from Lemmas 3.3 and 3.5. Since every element of T S ′
+has a cyclic stabilizer in Aut F (X) (Proposition 3.2, part (1)), every element of
+T S ′ must be filling. Part (2) then follows from the fact that T S ′ is exponentially
+8                                        BRENT B. SOLIE
+
+
+F (X)-generic (Proposition 3.2, part (2)). Finally, Part (3) follows from part (3) of
+Proposition 3.2, taking S to be exactly T S ′ .                                    
+
+                                  4. Acknowledgements
+  The author would like to thank Ilya Kapovich for his guidance and many valuable
+comments and Enric Ventura for a helpful discussion via email.
+
+                                          References
+ [1] G. N. Arzhantseva. Generic properties of finitely presented groups and Howson’s theorem.
+     Comm. Algebra, 26(11):3783–3792, 1998.
+ [2] G. N. Arzhantseva. A property of subgroups of infinite index in a free group. Proc. Amer.
+     Math. Soc., 128(11):3205–3210, 2000.
+ [3] G. N. Arzhantseva and A. Yu. Ol′ shanskiı̆. Generality of the class of groups in which subgroups
+     with a lesser number of generators are free. Mat. Zametki, 59(4):489–496, 638, 1996.
+ [4] M. Bestvina and M. Feighn. Outer limits (preprint), 1994.
+ [5] Francis Bonahon. Bouts des variétés hyperboliques de dimension 3. Ann. of Math. (2),
+     124(1):71–158, 1986.
+ [6] Francis Bonahon. The geometry of Teichmüller space via geodesic currents. Invent. Math.,
+     92(1):139–162, 1988.
+ [7] Francis Bonahon. Geodesic currents on negatively curved groups. In Arboreal group theory
+     (Berkeley, CA, 1988), volume 19 of Math. Sci. Res. Inst. Publ., pages 143–168. Springer,
+     New York, 1991.
+ [8] Alexandre V. Borovik, Alexei G. Myasnikov, and Vladimir Shpilrain. Measuring sets in in-
+     finite groups. In Computational and statistical group theory (Las Vegas, NV/Hoboken, NJ,
+     2001), volume 298 of Contemp. Math., pages 21–42. Amer. Math. Soc., Providence, RI, 2002.
+ [9] J. Burillo and E. Ventura. Counting primitive elements in free groups. Geom. Dedicata,
+     93:143–162, 2002.
+[10] Christophe Champetier. Petite simplification dans les groupes hyperboliques. Ann. Fac. Sci.
+     Toulouse Math. (6), 3(2):161–221, 1994.
+[11] Christophe Champetier. Propriétés statistiques des groupes de présentation finie. Adv. Math.,
+     116(2):197–262, 1995.
+[12] Marc Culler and Karen Vogtmann. Moduli of graphs and automorphisms of free groups.
+     Invent. Math., 84(1):91–119, 1986.
+[13] Étienne Ghys. Groupes aléatoires (d’après Misha Gromov,. . . ). Astérisque, (294):viii, 173–
+     204, 2004.
+[14] M. Gromov. Hyperbolic groups. In Essays in group theory, volume 8 of Math. Sci. Res. Inst.
+     Publ., pages 75–263. Springer, New York, 1987.
+[15] V. S. Guba. Conditions under which 2-generated subgroups in small cancellation groups are
+     free. Izv. Vyssh. Uchebn. Zaved. Mat., (7):12–19, 87, 1986.
+[16] Vincent Guirardel. Approximations of stable actions on R-trees. Comment. Math. Helv.,
+     73(1):89–121, 1998.
+[17] Ilya Kapovich and Martin Lustig. Intersection form, laminations and currents on free groups.
+     Geom. Funct. Anal., 19(5):1426–1467, 2010.
+[18] Ilya Kapovich, Alexei Miasnikov, Paul Schupp, and Vladimir Shpilrain. Generic-case com-
+     plexity, decision problems in group theory, and random walks. J. Algebra, 264(2):665–694,
+     2003.
+[19] Ilya Kapovich, Alexei Miasnikov, Paul Schupp, and Vladimir Shpilrain. Average-case com-
+     plexity and decision problems in group theory. Adv. Math., 190(2):343–359, 2005.
+[20] Ilya Kapovich and Paul Schupp. Genericity, the Arzhantseva-Ol′ shanskii method and the
+     isomorphism problem for one-relator groups. Math. Ann., 331(1):1–19, 2005.
+[21] Ilya Kapovich, Paul Schupp, and Vladimir Shpilrain. Generic properties of Whitehead’s algo-
+     rithm and isomorphism rigidity of random one-relator groups. Pacific J. Math., 223(1):113–
+     140, 2006.
+[22] Roger C. Lyndon and Paul E. Schupp. Combinatorial group theory. Classics in Mathematics.
+     Springer-Verlag, Berlin, 2001. Reprint of the 1977 edition.
+                            GENERICITY OF FILLING ELEMENTS                                       9
+
+
+[23] Y. Ollivier. Sharp phase transition theorems for hyperbolicity of random groups. Geom.
+     Funct. Anal., 14(3):595–679, 2004.
+[24] Yann Ollivier. Critical densities for random quotients of hyperbolic groups. C. R. Math. Acad.
+     Sci. Paris, 336(5):391–394, 2003.
+[25] Yann Ollivier. Cogrowth and spectral gap of generic groups. Ann. Inst. Fourier (Grenoble),
+     55(1):289–317, 2005.
+[26] Yann Ollivier. Effondrement de quotients aléatoires de groupes hyperboliques avec torsion.
+     C. R. Math. Acad. Sci. Paris, 341(3):137–140, 2005.
+[27] Yann Ollivier. A January 2005 invitation to random groups, volume 10 of Ensaios
+     Matemáticos [Mathematical Surveys]. Sociedade Brasileira de Matemática, Rio de Janeiro,
+     2005.
+[28] A. Yu. Ol′ shanskiı̆. Almost every group is hyperbolic. Internat. J. Algebra Comput., 2(1):1–
+     17, 1992.
+[29] Abdó Roig, Enric Ventura, and Pascal Weil. On the complexity of the Whitehead minimiza-
+     tion problem. Internat. J. Algebra Comput., 17(8):1611–1634, 2007.
+[30] Abe Shenitzer. Decomposition of a group with a single defining relation into a free product.
+     Proc. Amer. Math. Soc., 6:273–279, 1955.
+[31] J. R. Stallings. Free groups which are free products with cyclic amalgamations. Notices
+     A.M.S., 1(1):49, 1980.
+[32] G. A. Swarup. Decompositions of free groups. J. Pure Appl. Algebra, 40(1):99–102, 1986.
+
+  Department of Mathematics, University of Illinois at Urbana-Champaign, 1409 W.
+Green St., Urbana, IL 61801
+  E-mail address: solie@math.uiuc.edu
+

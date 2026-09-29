@@ -6,7 +6,7 @@ Source begins at line 275; byte range [13587, 14646). The raw fragment is stored
 
 Heading star: False. Starred subparts: b. Hall of Fame entries: 1. Linked background sections indexed: 1.
 
-Current openness and exact scope require review. No solving has started. The machine-readable source evidence is in `data/problems.json`; the extracted text below is a search aid, not an authoritative transcription.
+Part (a) has a candidate decision argument in [the proof](part-a-proof.md) and [audit](part-a-audit.md), awaiting independent review. Part (b) and rank-two cases are prior. For part (c), [the stabilizer obstruction](../../research/notes/F38-stabilizer-obstruction.md) supplies a tested necessary condition and certified negative instances; passing it does not decide bounded equivalence. The full higher-rank question remains unresolved here. The machine-readable source evidence is in `data/problems.json`; the extracted text below is a search aid, not an authoritative transcription.
 
 ```text
 (F38) (I.Kapovich, P.Schupp)
