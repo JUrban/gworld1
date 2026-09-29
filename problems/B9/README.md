@@ -15,7 +15,11 @@ four-strand count and external review remain outstanding. The
 1, 2 and 4 in B1, B2 and B3 from Dehornoy's prior results and isolates
 the remaining B4 sector of exponent sum two. Its
 [audit](small-strand-audit.md) credits these dependencies and records
-the new right-power checks. The earlier
+the new right-power checks. A further
+[parameter reduction](positive-parameter-reduction.md) classifies all
+positive parameters and proves uniqueness of a terminal special pair in
+each represented coset; possible additional negative terminal pairs
+remain unresolved. The earlier
 [height-bound counterexample](height-counterexample.md) and
 [bounded counts](../../research/notes/B9-bounded-enumeration.md) remain
 development records and are not additional candidates.

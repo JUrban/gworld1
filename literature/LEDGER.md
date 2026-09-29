@@ -882,3 +882,14 @@ classification theorem. See the two new research notes.
 ### F41 independent-source boundary, 29 September evening
 
 Archived Perin--Pillay--Sklinos--Tent, [arXiv1210.5757v2](https://arxiv.org/abs/1210.5757v2). Read introduction, initial free-group background, Theorem3.3/Corollary3.4/Proposition3.5 with local proofs and references; viewed printedp7. The independent subgroup-definability proof does not replace KM's arbitrary-definable-set multipattern dichotomy. Higher-rank orbit nondefinability confirms the need to use a definable containing set, as our candidate already does. No new correctness or novelty certification. Failed author-copy TLS retrieval and unavailable publisher DOI comparison recorded in problems/F41/dependency-boundary-audit.md; source/audit hashes in research/certificates/F41-dependency-boundary/manifest-v1.json.
+
+
+### B9 positive-parameter deduction, 29 September evening
+
+Reread Dehornoy Dgb Section2, especially Lemma2.1 and Proposition2.5,
+and Lemma5.6. The new terminal-pair reduction explicitly retains the
+imported free-LD division result in Lemma2.1. The positive-parameter
+classification follows from exact identity-color flags and the Artin
+relation; no source claim that all four-strand parameters are positive
+is made. Original B9 paragraph and actual rendering checked again.
+See problems/B9/positive-parameter-reduction.md; no separate novelty count.

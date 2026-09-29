@@ -758,3 +758,14 @@ and actual page7 checked; see problems/F41/dependency-boundary-audit.md.
 No finite suite rerun, no imported deep proof independently established,
 and no new candidate or novelty claim. Counts remain10 whole-entry
 candidates/2 partial/0 established novel. All jobs terminal; no push.
+
+
+Checkpoint 2026-09-29T21:31:55.952240+00:00: B9 positive parameters are now classified
+completely, and each represented B3/B2 coset has a unique terminal special
+pair under inverse sigma1 coloring. Any further four-strand example
+needs a new terminal pair with both colors nontrivial and no positive
+parameter representative. This does not bound all negative parameters.
+See problems/B9/positive-parameter-reduction.md. A ten-state finite
+automaton check and independent GAP reconstruction of all46 old endpoints
+passed; no search bound increased. Counts unchanged:10 whole candidates,
+2 partial,0 established novel. All jobs terminal; no push.
