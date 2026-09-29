@@ -198,3 +198,9 @@ F37/N3 route checks: the inspected commutator-length embeddings do not meet the 
 
 
 C4 computational checkpoint:45832 bounded FullHRed evaluations completed; independent GAP replay checked22501 selected steps and67 faithful Artin input/output pairs. No asymptotic bound obtained. The width3 theorem is prior, and a broader proposed length-bound route was disproved by Dehornoy–Wiest2004. Details: `research/notes/C4-handle-reduction-probe.md`. No candidate-count change.
+
+
+N8 structural advance: a new coefficient/Lyndon argument proves that every first correction of leading type(1,q) has at most one parameter, in every degree. An exceptional leading factor is supported on the derivative chain of that direction. Independent Python/GAP agree on22 related finite systems. The needed uniform next obstruction remains unproved; group-decision scope and counts are unchanged. See `research/notes/N8-general-first-kernel.md`.
+
+
+N8 follow-up in the same work period: the uniform next obstruction is now proved using cyclic rotation of associative words and the fact that non-linear Lie polynomials have zero cyclic coefficient sums. The proposed integral branch algorithm is written, but group implementation and scope checks are pending; no candidate scope/count has yet been enlarged. Section6 of the same note supersedes its earlier open-obstacle discussion.

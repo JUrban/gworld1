@@ -914,3 +914,13 @@ Archived the saved Calegari–Walker primary PDF, inspected the relevant commuta
 ## 2026-09-29T04:28:42.557535+00:00 — C4 algorithm and bounded probe
 
 The preceding preparation-only turn made no research progress; revalidated the original active gworld1 clock and empty jobs ledger. Completed the saved C4 implementation, reproduced the exact published nine-step trace, and evaluated45832 bounded inputs without hitting a cap. Independent GAP replay checked235 records/22501 steps and67 faithful Artin pairs; all four recorded jobs passed with empty stderr. Archived Dehornoy1997, the convergence note, and Dehornoy–Wiest2004; the latter disproves a tempting broader length conjecture but not C4. Source-reading and actual image-view limits are documented. No asymptotic theorem or new candidate; counts6 whole,3 partial,0 established novel. No agents/contact/push/Kourovka transfer; original clock and frozen inputs retained.
+
+
+## 2026-09-29T04:39:33.784766+00:00 — general N8 first-correction lemma
+
+Derived a degree-uniform support lemma in free differential Lie algebras: [T,D]=delta V forces D,V into the T-chain. Polynomial divisibility by the sum of position variables excludes outside endpoint seeds; Lyndon triangularity eliminates all outside letters. Hence every fixed nonzero type(1,q) first-correction kernel has dimension at most one. Independent Python/GAP checks cover9 common-direction systems and13 double-primitive systems, all passing with empty stderr. The latter suggest, but do not prove, a uniform quadratic obstruction. Full original N8 HTML reread/rendering viewed; exact prior Lyndon source page1822 read/viewed. No group-scope or count extension, no failed jobs, agents/contact/push or Kourovka transfer; original deadline retained.
+
+
+## 2026-09-29T04:44:08.394406+00:00 — N8 uniform quadratic obstruction lead
+
+The double-primitive gap in the preceding note is now resolved algebraically: compare first-letter components in [z,V]=[t,D], [z,W]=[t,V]. All three polynomials become cyclically invariant, which forces their Lie components of length>=2 to vanish. The explicit differential-chain embedding and highest-bracket-length projection give a nonzero final quadratic obstruction for every first exceptional type(1,q), q>2. Wrote the proposed finite integral branch algorithm. Group implementation/scope audit remain outstanding, so no candidate scope is promoted. The initial support-only note is retained as a version. Original deadline/inputs unchanged; no new process, agents, contacts or push.

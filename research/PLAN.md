@@ -343,3 +343,13 @@ The entire F28 matrix-orbit obstruction now has a checked Lean proof, and the in
 ## Working focus after C4 probe (2026-09-29T04:28:42.557535+00:00)
 
 C4 has a checked FullHRed implementation and independent GAP replay, but no new bound. Do not enlarge random/exhaustive samples without a structural hypothesis. Width3 is prior; unrestricted mixed reversing-length control is false by2004. A useful return requires a potential specific to the handle strategy or a provable slow family. Resume unresolved portfolio work. Counts6 whole,3 partial,0 established novel; original deadline retained.
+
+
+## Working focus after N8 support lemma (2026-09-29T04:39:33.784766+00:00)
+
+The first type(1,q) correction has at most one parameter in every degree, by the tensor/Lyndon support proof in N8-general-first-kernel.md. Next prove or refute its double-primitive condition: delta V=[U,D], delta W=[U,V] should force D scalar U. It holds in complete one-chain rational calculations q<=14, independently replayed in GAP, but no all-degree proof exists here. Do not promote finite dimensions to a uniform theorem or enlarge samples without a hypothesis. Other leading types and later layers remain distinct. Counts6 whole,3 partial,0 established novel; original clock retained.
+
+
+## Immediate next action after the uniform N8 obstruction (2026-09-29T04:44:08.394406+00:00)
+
+The double-primitive question above is now proved by the cyclic-word argument in Section6 of N8-general-first-kernel.md. Do not repeat bounded dimension probes. Implement a general type(1,q) third-from-last integral branch solver using the at-most-one kernel and nonzero quadratic obstruction. Preserve all leading scales; reject other leading types as unsupported unless separately handled. Test mixed derivative-chain cases in class11/12 outside the old families, plus zero-kernel, nonprimitive, inconsistent and out-of-scope controls. Independently replay witnesses and full integral/quadratic certificates in GAP, then audit before enlarging the existing N8 partial scope. Counts6 whole,3 partial,0 established novel; original deadline unchanged.
