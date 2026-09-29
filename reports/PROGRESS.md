@@ -168,3 +168,6 @@ F20 follow-up:143 selected weight-six finite covers show no surviving weight-sev
 
 
 F38(c) follow-up: an implemented necessary condition decides whether the two conjugacy stabilizers are commensurable. If they are not, it returns an exact automorphism proving unboundedness. Python controls and two independent GAP certificate replays passed; one earlier GAP failure is preserved. Sufficiency is unproved, so this is a research tool, not a full decision procedure. See `research/notes/F38-stabilizer-obstruction.md`. Counts remain5 whole,3 partial,0 established novel.
+
+
+The F38 stabilizer condition now has an exact weaker interpretation: it decides whether each length can be bounded by some function of the other, and supplies effective exponential bounds. Linear comparison remains unresolved. Proof: `research/notes/F38-stabilizer-length-envelope.md`; counts unchanged.

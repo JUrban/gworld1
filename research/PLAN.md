@@ -312,3 +312,6 @@ F20 finite-cover homology is inconclusive after218 exactly replayed covers; neit
 ## Working focus after the F38 stabilizer checkpoint (2026-09-29T02:26:28.296428+00:00)
 
 F38(c) now has a terminating necessary-condition test, with exact negative witnesses and finite-orbit certificates. Its bounded implementation controls are complete; do not enlarge them merely for volume. The next substantive question is whether commensurable conjugacy stabilizers imply bounded translation equivalence, or whether there is a counterexample. Finite orbit arguments alone do not prove a uniform linear bound; compactness can lose relative vanishing rates. The quantifier remains automorphisms, not embeddings or all tree actions. Preserve the wider unresolved portfolio rather than assuming this converse. Counts5 whole,3 partial,0 established novel; original deadline unchanged.
+
+
+F38 quantitative refinement: `research/notes/F38-stabilizer-length-envelope.md` proves that the test exactly decides mutual functional bounds and yields exponential bounds by Whitehead shortening. Any further advance must control the envelope linearly or exhibit a superlinear pair passing the test. Do not confuse a computable finite envelope with the required linear bound. The exact-envelope procedure is described, not implemented.
