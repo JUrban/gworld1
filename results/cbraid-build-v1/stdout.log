@@ -1,0 +1,7 @@
+make: Entering directory '/project/gworld1/large-artifacts/tools/cbraid/lib'
+g++ -M cbraid.cpp braiding.cpp \
+	-I../include > .depends
+g++ -Wall -fPIC -I../include  -O -c cbraid.cpp
+g++ -Wall -fPIC -I../include  -O -c braiding.cpp
+ar rcs libcbraid.a cbraid.o braiding.o
+make: Leaving directory '/project/gworld1/large-artifacts/tools/cbraid/lib'

@@ -787,3 +787,11 @@ with a concrete dependency concern. Keep proof/statement/novelty statuses
 separate, and reserve the final eight hours for overlapping verification and
 final reporting. Current counts9 whole/1 partial(G9)/0 established novel;
 original deadline30 September10:04:49UTC.
+
+
+29 September19:42UTC: B9 yielded a genuine counterexample to the survey
+height bound, independently checked in GAP. Preserve this related result
+without counting the full entry. A useful next structural test is whether
+right-shelf iterations can stay in one fixed Bn indefinitely: acyclicity
+would then give infinitely many distinct special braids. A bounded list
+alone cannot establish that.

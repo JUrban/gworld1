@@ -1808,3 +1808,16 @@ new G11 candidate. Reread N8/N5/F28/GA3/F41 candidate proofs and the existing
 F34/F38 shared-foundation audit; no new gap found, no independent review.
 G9's stale preparation sentence now links its existing partial candidate.
 Counts9whole/1partial/0established novel. Deadline unchanged; local work only.
+
+
+## B9 height-bound counterexample (2026-09-29T19:42:02.289110+00:00)
+
+An exact29-letter braid in B5 has minimum term height6. This refutes
+Dehornoy survey Question3.19, but does not answer GroupWorld B9. GAP
+independently checks11 such examples, every special parent, all1930
+height<=5 matrix images and all exact strand reductions. The first
+reversed-substitution run timed out after six examples; its source and
+logs remain. The revised evaluation passes in4.68s. See
+problems/B9/height-counterexample.md and research/notes/B9-strand-drop.md.
+Seven terminal jobs: six pass, one timeout. Maximum4cores/6GB for build.
+Counts9whole/1partial/0established-novel unchanged. No push or clock change.

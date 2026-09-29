@@ -810,3 +810,14 @@ the slides and viewedslide21. No full proof audit of the later horocyclic
 algorithms. The nondividing whole-group/coset-growth comparison is not
 established by these sources; see G11-horocyclic-scope.md. No new solution
 or present-openness certification follows.
+
+
+B9,29 September19:42UTC: reread the survey complexity definition and
+Question3.19 on the actual printed page13. The literal bound c(beta)<=n
+is contradicted by the new certified B5 examples with c=6. Searches
+for special braids/height/finite counts/infinitude did not locate a prior
+counterexample; novelty remains unverified. See
+`problems/B9/height-counterexample.md`; this does not settle the original
+GroupWorld count. CBraid primary source is https://github.com/jeanluct/cbraid,
+pin891fcaf7cf9af3ec9ca0f1b0e46b0f86cf461b78; independent GAP verification
+removes that discovery dependency from the result.
