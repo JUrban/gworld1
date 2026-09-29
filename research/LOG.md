@@ -2009,3 +2009,24 @@ unsorted set and unavailable name, retained despite exitzero. Corrected
 GAP passes188 junctions, eight nilpotent automorphisms and an A5 separator;
 three stronger-family fixtures also pass. All jobs terminal, no count change,
 no push or clock change. The complete note is F39-unimodular-obstruction.md.
+
+
+## N8 division-free polynomial bridge (2026-09-29T23:03:54.295384+00:00)
+
+The preceding preparation-only turn did not advance the active solving goal.
+Revalidated the original launch, unchanged deadline, clean research worktree
+and terminal jobs, then returned to a concrete N8 dependency concern.
+
+The positional averaging step needs no division by the coordinate sum:
+its two encoded equations have exactly equal left sides. Two further
+zero-sum evaluations give the half-transfer identity directly. Lean now
+checks this in every finite dimension, cyclic invariance, the actual
+origin transfer definitions, preservation of sums and l1 bounds. Twenty
+declarations pass the restricted transitive axiom audit. The complete
+Lie/group algorithm is not formalized; the exact boundary is in
+problems/N8/polynomial-bridge-lean-audit.md.
+
+Four sequential1CPU/8GB jobs: two failed sources preserved, two passes.
+The final extended source passes in10.30seconds with empty stderr and
+no warnings. No repeated finite Lie/group fixtures. No scope/count change,
+no push, no clock change; all jobs terminal.

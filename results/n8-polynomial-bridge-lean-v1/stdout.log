@@ -1,0 +1,65 @@
+Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)
+{"source": "/project/gworld1/research/certificates/N8-polynomial-bridge-lean/Bridge.lean", "command": ["lake", "env", "lean", "--trust=0", "--stdin"], "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7", "scope": "All finite tuple lengths; from delta and diagonal evaluation identities to cyclic boundary and transfer averaging. Not the Lie encoding, contraction application or N8 algorithm."}
+<stdin>:30:52: error: Application type mismatch: The argument
+  a
+has type
+  ℝ
+but is expected to have type
+  ?m.10 (Fin.last ?m.15).succ
+in the application
+  Fin.snoc ?m.20 a
+<stdin>:36:41: error: Application type mismatch: The argument
+  Fin.init z
+has type
+  Fin n → ℝ
+but is expected to have type
+  (i : Fin ?m.15) → ?m.10 i.succ.castSucc
+in the application
+  Fin.cons ?m.17 (Fin.init z)
+<stdin>:49:6: error: Type mismatch
+  Fin.cons ?m.100 (Fin.snoc ?m.104 ?m.105) (Fin.last (m + 1))
+has type
+  ?m.99 (Fin.last (m + 1))
+but is expected to have type
+  ?m.88 0
+<stdin>:62:42: error(lean.unknownIdentifier): Unknown identifier `tail_snoc`
+<stdin>:63:42: error(lean.unknownIdentifier): Unknown identifier `init_cons`
+<stdin>:65:2: error: linarith failed to find a contradiction
+case h1.h
+n : ℕ
+P : (Fin (n + 1) → ℝ) → ℝ
+V : (Fin (n + 2) → ℝ) → ℝ
+hdelta : DeltaEquation P V
+hdiag : DiagonalZero V
+z : Fin (n + 1) → ℝ
+a : ℝ
+ha : 2 * a + ∑ i, z i = 0
+hv : V (Fin.snoc z a) = V (Fin.cons a z)
+hr : (∑ i, z i + a) * V (Fin.snoc z a) = P (Fin.tail (Fin.snoc z a)) - P z
+hl : (a + ∑ i, z i) * V (Fin.snoc z a) = P z - P (Fin.init (Fin.cons a z))
+a✝ : 2 * P z < P (Fin.snoc (Fin.tail z) a) + P (Fin.cons a (Fin.init z))
+⊢ False
+failed
+<stdin>:100:28: error(lean.unknownIdentifier): Unknown identifier `tail_snoc`
+<stdin>:101:28: error(lean.unknownIdentifier): Unknown identifier `init_cons`
+<stdin>:102:2: error: 'change' tactic failed, pattern
+  P (Fin.snoc (Fin.tail z) a) = P (shiftFirst z a)
+is not definitionally equal to target
+  P (Fin.tail (Fin.snoc (Fin.cons (z 0 + a) (Fin.tail z)) a)) = P (Fin.cons (z 0 + a) (Fin.tail z))
+<stdin>:100:51: warning: This simp argument is unused:
+  Fin.tail_cons
+
+Hint: Omit it from the simp argument list.
+  simp only [Fin.init_snoc, tail_snoc, shiftFirst,̵ ̵F̵i̵n̵.̵t̵a̵i̵l̵_̵c̵o̵n̵s̵] at hr
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:101:50: warning: This simp argument is unused:
+  Fin.init_snoc
+
+Hint: Omit it from the simp argument list.
+  simp only [Fin.tail_cons, init_cons, shiftLast,̵ ̵F̵i̵n̵.̵i̵n̵i̵t̵_̵s̵n̵o̵c̵] at hl
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'N8Bridge.transfer_average_half' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+<stdin>:123:57: error(lean.unknownIdentifier): Unknown constant `N8Bridge.tail_snoc`
+<stdin>:124:8: error(lean.unknownIdentifier): Unknown constant `N8Bridge.init_cons`

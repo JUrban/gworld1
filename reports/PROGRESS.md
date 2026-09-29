@@ -834,3 +834,15 @@ Its image avoids primitive elements, and a variant avoids all short automorphic
 orbits using the prior F40 theorem. Exact GAP word/nilpotent controls and a
 finite A5 separator pass; one initial script failure is preserved. This is an
 uncounted obstruction, not a new F39 algorithm. Tally10whole/2partial/0novel.
+
+
+### N8 positional bridge, 2026-09-29T23:03:54.295384+00:00
+
+A [new limited formalization](../problems/N8/polynomial-bridge-lean-audit.md)
+proves the positional averaging derivation without division or a separate
+zero-sum extension argument. It also checks cyclic invariance and the
+concrete half-transfer sum/l1 properties in all finite dimensions. Twenty
+Lean declarations pass; two failed intermediate sources remain alongside
+two successful runs. This strengthens the same general N8 candidate;
+the full Lie/group algorithm and the formal assembly of the analytic
+steps remain outside the check. Counts and review status are unchanged.

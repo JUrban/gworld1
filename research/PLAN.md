@@ -891,3 +891,17 @@ from prior F40, not a new problem resolution. F37's primitive-length
 reflection remains a different unanswered question. All GAP jobs terminal.
 Return to a distinct unresolved structural route or a concrete candidate
 concern; preserve final-eight-hours audit reserve and original deadline.
+
+
+## After N8 division-free bridge (2026-09-29T23:03:54.295384+00:00)
+
+The positional evaluation-to-averaging step and concrete origin-transfer
+sum/l1 properties now pass Lean; see polynomial-bridge-lean-audit.md.
+Do not repeat passed checks without a new concern. The formal files remain
+separate ingredients: coefficient encoding, cyclic relocation and the
+contracting-word/max-principle assembly are still written arguments.
+The larger review priorities are the full-block Lie projection and
+convolution, and the remaining other candidates' deep imported inputs.
+Wider discovery remains authorized within the original deadline, with
+the final-eight-hours verification/reporting reserve unchanged.
+All jobs terminal; ten whole/two partial/zero established novel.
