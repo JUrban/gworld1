@@ -177,3 +177,8 @@ The F38 stabilizer condition now has an exact weaker interpretation: it decides 
 ## 2026-09-29T03:13:42.489680+00:00 — prior filling case for F38(c)
 
 F38(c): implemented the prior filling positive case. Gupta–Kapovich Propositions4.16–4.17 already characterize filling by finite conjugacy stabilizer and decide it; Kapovich–Lustig Proposition13.8 already gives boundedness for filling pairs. The existing mod-three orbit routine now detects finite outer groups via basis classes and pair products. Six group, six word and four pair controls passed. Independent GAP replay verified7 negative witnesses,52 finite orbits,287 inverse pairs and293 transitions. Both runs have empty stderr; no mathematical failures. Non-filling pairs passing the necessary condition remain unresolved. See `research/notes/F38-filling-recognition.md`. No count increase:6 whole,3 partial,0 established novel.
+
+
+## 2026-09-29T03:19:17.768194+00:00 — GA1 prior negative answer
+
+GA1 is negative in the substantive nonabelian scope by an immediate consequence of Brady–Ciobanu–Martino–O Rourke2009: x^4 y^4=z^4 in a tree-free group forces commutativity. Taking fourth roots of arbitrary a,b,ab shows every divisible tree-free group is abelian. The free Q-groups of ranks zero and one retain elementary positive actions. The original unstarred entry is retired as prior; no new candidate. See `research/notes/GA1-prior-fourth-power-obstruction.md`.

@@ -412,3 +412,8 @@ Archived Guirardel math/0306306, Rybak2605.14159v3, BMR Discriminating and co-di
 ## 2026-09-29T03:13:42.489680+00:00 — prior exact filling algorithm
 
 [Gupta–Kapovich, arXiv1411.5523v4](https://arxiv.org/abs/1411.5523v4), Propositions4.16–4.17, already proves finite outer conjugacy stabilizer iff filling and its decidability. Read/viewed p20; Definition2.12/Proposition2.14 read as text. Archived the arXiv PDF after the NSF copy timed out. Also read/viewed Kapovich–Lustig0711.4337 p38, Definition13.7/Proposition13.8: filling pairs satisfy even tree-action boundedness. These are prior results, not new candidates. Solie2311.01668 introduction and Section4 read as text, no visual inspection; its subgroup/cyclic-splitting scope is distinct. Earlier Solie1007.4022 Sections2–3 re-read as text. Exact reading limits and source hashes in the filling note/certificates; no full imported-proof audit.
+
+
+## 2026-09-29T03:19:17.768194+00:00 — GA1 retired as a prior consequence
+
+[Brady–Ciobanu–Martino–O Rourke, author PDF](https://math.ou.edu/~nbrady/papers/trees.pdf), Trans. AMS361(2009),223–236, DOI10.1090/S0002-9947-08-04639-4: x^p y^q=z^r forces commuting solutions in every Lambda-free group for p,q,r>=4. Fourth roots give the immediate negative GA1 consequence for any nonabelian divisible group. Author PDF labels the theorem3.2 in the introduction and3.6 in its body; exact statement inspected. Read introduction/main proof, viewed pp1,11,13; full underlying lemmas not independently formalized. Full original GA1 rendering viewed. Excluded from new-result counts. This supersedes the earlier unresolved assessment, without invalidating its exponent-two surface control.

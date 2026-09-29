@@ -2,6 +2,12 @@
 
 28 September 2026, approximately 22:33–22:36 UTC. No new solution.
 
+**29 September update:** the later
+[fourth-power obstruction](GA1-prior-fourth-power-obstruction.md)
+settles the nonabelian GA1 case negatively as an immediate consequence
+of Brady–Ciobanu–Martino–O Rourke (2009). The earlier failed surface
+obstruction below is preserved; it is compatible with that theorem.
+
 The exact original GA1 fragment asks whether the free Q-group acts freely
 on some Lambda-tree. The ordered abelian length group is unrestricted.
 Read the fragment again in this pass; no new visual statement audit is

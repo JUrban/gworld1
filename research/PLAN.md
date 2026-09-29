@@ -325,3 +325,6 @@ F38 quantitative refinement: `research/notes/F38-stabilizer-length-envelope.md` 
 ## Working focus after the filling checkpoint (2026-09-29T03:13:42.489680+00:00)
 
 The finite-stabilizer/filling criterion and its decidability are explicit prior Gupta–Kapovich results; the positive pair theorem is prior Kapovich–Lustig. Implementation and independent certificate replay are complete. Do not repeat these samples or count the criterion as new. Any further F38(c) advance must address non-filling pairs with commensurable stabilizers, or give a superlinear envelope counterexample. Resume the wider unresolved portfolio as appropriate. Counts6 whole,3 partial,0 established novel; original deadline unchanged.
+
+
+GA1 scope correction, 2026-09-29T03:19:17.768194+00:00: retire the nonabelian free-Q-group question as a direct prior2009 consequence. Do not continue root-adjunction attempts for it. Fourth-power surjectivity contradicts the published tree-free power-equation theorem unless the group is abelian. Rank0/1 are elementary positive cases. Counts unchanged.
