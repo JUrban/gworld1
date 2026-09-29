@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **29 September 2026, 22:26 UTC**. The experiment is still active;
+Snapshot: **29 September 2026, 22:34 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -25,7 +25,7 @@ not an independent mathematical referee.
 | GA3 | Every nonabelian group acting freely without inversions on a Λ-tree has the stated discrimination of its free square by conjugating one factor; arbitrary generation and arbitrary ordered abelian Λ are allowed. | [Proof](../problems/GA3/proof.md), [audit](../problems/GA3/audit.md). | The nonabelian restriction is necessary: the literal statement is false for nontrivial abelian groups. The general collapse and boundary arguments import substantial tree-action results; free-group fixtures do not verify those steps. |
 | F38 | Uniform decisions for translation equivalence (a) and bounded translation equivalence (c), in every finite rank. For (c), the proposed criterion is commensurability of the oriented conjugacy stabilizers in Out(F_r). | [(a) proof](../problems/F38/part-a-proof.md) and [audit](../problems/F38/part-a-audit.md); [(c) proof](../problems/F38/bounded-proof.md) and [audit](../problems/F38/bounded-audit.md). | Part (b) and rank-two decisions are prior. Part (a) imports a full EDT0L solution-relation construction, not implemented here. Part (c)'s essential sufficiency step imports Sela's graded shortening theorem; finite tests do not establish that application. The ambient-automorphism quantifier is retained. |
 | F34 | A uniform algorithm decides whether a word can be made positive by an automorphism, in every finite rank. | [(a) proof](../problems/F34/part-a-proof.md), [audit](../problems/F34/part-a-audit.md). | Rank two and the stability statement in (b) are prior. The same unimplemented full EDT0L construction as F38(a) is imported. The identity convention is stated explicitly. |
-| N8 | An algorithm decides a single commutator equation [x,y]=g in every finite-rank free nilpotent group, in every finite class, and constructs solutions. | [General proof](../problems/N8/general-proof.md), [general audit](../problems/N8/general-audit.md). | This is the current candidate for (b); the negative answer to (a) for general nilpotent groups is prior. Earlier class-bounded notes are intermediate stages. The full arbitrary-rank algorithm is not implemented; all-rank structural lemmas remain a central review requirement. |
+| N8 | An algorithm decides a single commutator equation [x,y]=g in every finite-rank free nilpotent group, in every finite class, and constructs solutions. | [General proof](../problems/N8/general-proof.md), [general audit](../problems/N8/general-audit.md), [limited analytic formalization](../problems/N8/averaging-lean-audit.md). | This is the current candidate for (b); the negative answer to (a) for general nilpotent groups is prior. Earlier class-bounded notes are intermediate stages. The full arbitrary-rank algorithm is not implemented; all-rank structural lemmas remain a central review requirement. |
 | N9 | The retract problem is undecidable in one fixed finitely generated torsion-free class-two group, already on two-generator isolated Heisenberg subgroups with primitive images in both graded layers. | [Proof](../problems/N9/proof.md), [audit](../problems/N9/audit.md), [isolated-input supplement and source audit](../problems/N9/isolated-inputs-and-prior-scope.md). | The class-wide undecidability theorem and the positive free-nilpotent case (b) are prior. Potential new scope is one fixed ambient group. The construction imports DPRM; the universal presentation is not numerically expanded. Lean verifies an integer normalization lemma, not the full reduction. |
 
 ## Two partial-entry candidates
@@ -46,7 +46,7 @@ certification of later supplements. Some candidates have several manifests
 or directly cited check records rather than one overall manifest.
 
 There are no complete formal verifications of these twelve candidate
-theorems. The Lean work for F28 and N9 checks explicitly delimited parts.
+theorems. The Lean work for F28, N8 and N9 checks explicitly delimited parts.
 Separate reproduced Lean proofs for the prior A5 and S5 results are not
 new solutions from this experiment. In particular, GAP tests of selected
 nilpotent groups, finite word graphs or polynomial examples cannot establish

@@ -870,3 +870,13 @@ remaining verification priority is the general N8 diagonal polynomial
 separation lemma: its universal argument, not more fixed small Lie spaces.
 All jobs are terminal. Keep the original deadline and final-eight-hours
 verification/reporting reserve; do not create FINAL_REPORT.md prematurely.
+
+
+## After N8 analytic formal check (2026-09-29T22:35:08.048427+00:00)
+
+The contraction estimate and abstract maximum principle now pass Lean;
+see averaging-lean-audit.md for exact hypotheses and the unformalized
+application boundary. Do not repeat this check or enlarge finite Lie fixtures
+without a new concern. The positional-polynomial identities and full-block
+normalization remain useful substantive review targets; alternatively pursue
+a different unresolved scope. Preserve all original deadline/counting rules.

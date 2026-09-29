@@ -17,7 +17,7 @@ boundary of the published free-nilpotent algorithm.
 [N8](problems/N8/README.md) also has a candidate
 algorithm for single commutator equations in every finite-rank free
 nilpotent group. See its [general proof](problems/N8/general-proof.md)
-and [audit](problems/N8/general-audit.md). The full all-rank implementation
+and [audit](problems/N8/general-audit.md). A [limited Lean check](problems/N8/averaging-lean-audit.md) verifies the stochastic contraction and maximum principle used in its separation argument. The full all-rank implementation
 is not complete; the theorem argument and novelty require specialist review.
 The new [B9 partial candidate](problems/B9/infinite-family-proof.md) constructs
 infinitely many special braids on five strands, giving countably infinitely

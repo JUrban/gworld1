@@ -813,3 +813,13 @@ class-specific N8 scopes and intermediate counts are historical. A further
 no new gap in the canonical quotient/maximality step; specialist review of
 the imported shortening argument remains outstanding. Counts10whole/
 2partial/0established-novel are unchanged.
+
+
+## Limited N8 formalization (2026-09-29T22:35:08.048427+00:00)
+
+[N8's new audit](../problems/N8/averaging-lean-audit.md) records successful
+Lean verification of two universal analytic ingredients: stochastic contraction
+and the compact harmonic maximum principle. The transfer construction and
+polynomial/Lie bridge remain written proofs, as does the full general algorithm.
+One initial proof-script failure is retained. Tally unchanged at10whole/
+2partial/0established-novel; no additional novelty claim.

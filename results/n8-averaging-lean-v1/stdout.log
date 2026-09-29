@@ -1,0 +1,55 @@
+Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)
+{"source": "/project/gworld1/research/certificates/N8-averaging-lean/Averaging.lean", "command": ["lake", "env", "lean", "--trust=0", "--stdin"], "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7", "scope": "Stochastic contraction and abstract harmonic maximum principle only; not the Lie encoding, concrete transfer words or complete N8 algorithm"}
+<stdin>:64:18: error: linarith failed to find a contradiction
+case h1.h
+X : Type u_1
+I : Type u_2
+S : Set X
+f : X → ℝ
+A B : I → X → X
+hA : ∀ (i : I), ∀ x ∈ S, A i x ∈ S
+hB : ∀ (i : I), ∀ x ∈ S, B i x ∈ S
+hmean : ∀ (i : I), ∀ x ∈ S, 2 * f x = f (A i x) + f (B i x)
+x y✝ : X
+hx : x ∈ S
+hmax : IsMaxOn f S x
+y : X
+h : Reach A B x y
+i : I
+ih : y ∈ S ∧ f y = f x
+ha : A i y ∈ S
+hb : B i y ∈ S
+hma : A i y ∈ {x_1 | (fun x_2 => f x_2 ≤ f x) x_1}
+hmb : B i y ∈ {x_1 | (fun x_2 => f x_2 ≤ f x) x_1}
+hm : 2 * f y = f (A i y) + f (B i y)
+a✝ : f (A i y) < f x
+⊢ False
+failed
+<stdin>:71:18: error: linarith failed to find a contradiction
+case h1.h
+X : Type u_1
+I : Type u_2
+S : Set X
+f : X → ℝ
+A B : I → X → X
+hA : ∀ (i : I), ∀ x ∈ S, A i x ∈ S
+hB : ∀ (i : I), ∀ x ∈ S, B i x ∈ S
+hmean : ∀ (i : I), ∀ x ∈ S, 2 * f x = f (A i x) + f (B i x)
+x y✝ : X
+hx : x ∈ S
+hmax : IsMaxOn f S x
+y : X
+h : Reach A B x y
+i : I
+ih : y ∈ S ∧ f y = f x
+ha : A i y ∈ S
+hb : B i y ∈ S
+hma : A i y ∈ {x_1 | (fun x_2 => f x_2 ≤ f x) x_1}
+hmb : B i y ∈ {x_1 | (fun x_2 => f x_2 ≤ f x) x_1}
+hm : 2 * f y = f (A i y) + f (B i y)
+a✝ : f (B i y) < f x
+⊢ False
+failed
+'N8.stochastic_contraction' depends on axioms: [propext, Classical.choice, Quot.sound]
+'N8.harmonic_constant' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+<stdin>:119:0: error: Unexpected axiom sorryAx

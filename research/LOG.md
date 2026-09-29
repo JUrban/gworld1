@@ -1966,3 +1966,21 @@ needs specialist review. The N8 general proof and the shared F34/F38
 polynomial argument were reread without a scope change. A wider scan of
 unresolved entries did not yield a fresh structural route. All jobs terminal;
 no push, no deadline change, no count change.
+
+
+## N8 analytic ingredients checked in Lean (2026-09-29T22:35:08.048427+00:00)
+
+Formalized an arbitrary finite column-stochastic matrix contraction inequality
+on zero-sum vectors, plus the compact harmonic maximum principle with explicit
+reachable-sequence convergence. The latter proves maximum preservation through
+every finite branch word, then uses continuity and both extrema. The application
+to N8 is delimited in problems/N8/averaging-lean-audit.md: concrete transfers,
+positional polynomials, Lie and group arguments are not formalized. A written
+two-cycle calculation gives the explicit factor1-l/4^l and tightens the old
+longer mixing-word explanation without changing the candidate.
+
+First Lean run failed when linarith did not unfold set-membership inequalities;
+its source and sorryAx rejection remain. Second run passed all four declarations
+and the restricted transitive axiom audit in6.24seconds, empty stderr. Both jobs
+used1CPU/8GB and are terminal. No new finite Lie samples, no scope or tally
+change, no push or deadline change.
