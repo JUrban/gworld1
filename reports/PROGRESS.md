@@ -172,3 +172,8 @@ F38(c) follow-up: an implemented necessary condition decides whether the two con
 
 
 The F38 stabilizer condition now has an exact weaker interpretation: it decides whether each length can be bounded by some function of the other, and supplies effective exponential bounds. Linear comparison remains unresolved. Proof: `research/notes/F38-stabilizer-length-envelope.md`; counts unchanged.
+
+
+## 2026-09-29T03:13:42.489680+00:00 — prior filling case for F38(c)
+
+F38(c): implemented the prior filling positive case. Gupta–Kapovich Propositions4.16–4.17 already characterize filling by finite conjugacy stabilizer and decide it; Kapovich–Lustig Proposition13.8 already gives boundedness for filling pairs. The existing mod-three orbit routine now detects finite outer groups via basis classes and pair products. Six group, six word and four pair controls passed. Independent GAP replay verified7 negative witnesses,52 finite orbits,287 inverse pairs and293 transitions. Both runs have empty stderr; no mathematical failures. Non-filling pairs passing the necessary condition remain unresolved. See `research/notes/F38-filling-recognition.md`. No count increase:6 whole,3 partial,0 established novel.

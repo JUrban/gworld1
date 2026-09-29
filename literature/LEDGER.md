@@ -407,3 +407,8 @@ Queries included "bounded translation equivalence" stabilizer; "filling" "finite
 ## 2026-09-29T02:52:23.718212+00:00 — GA3 arbitrary-Lambda discrimination
 
 Archived Guirardel math/0306306, Rybak2605.14159v3, BMR Discriminating and co-discriminating groups, and Ciobanu--Fine--Rosenberger1210.3950. Read Guirardel Sections2.3--2.6/Fact5.1 and viewed printed1437,1448,1449: the collapse statement explicitly covers arbitrary Lambda. Read Rybak Lemmas2.6/2.9 and Theorem3.10 separation direction; viewed10,11,24,25. The boundary mechanism is prior work. BMR and CFR were checked as extracted text for the separate CSA/free-square/BP hypotheses; no visual inspection claimed for them. Full exact reading limits, hashes and novelty queries appear in problems/GA3/audit.md. No matching full arbitrary-Lambda application located; novelty remains provisional, not certified.
+
+
+## 2026-09-29T03:13:42.489680+00:00 — prior exact filling algorithm
+
+[Gupta–Kapovich, arXiv1411.5523v4](https://arxiv.org/abs/1411.5523v4), Propositions4.16–4.17, already proves finite outer conjugacy stabilizer iff filling and its decidability. Read/viewed p20; Definition2.12/Proposition2.14 read as text. Archived the arXiv PDF after the NSF copy timed out. Also read/viewed Kapovich–Lustig0711.4337 p38, Definition13.7/Proposition13.8: filling pairs satisfy even tree-action boundedness. These are prior results, not new candidates. Solie2311.01668 introduction and Section4 read as text, no visual inspection; its subgroup/cyclic-splitting scope is distinct. Earlier Solie1007.4022 Sections2–3 re-read as text. Exact reading limits and source hashes in the filling note/certificates; no full imported-proof audit.

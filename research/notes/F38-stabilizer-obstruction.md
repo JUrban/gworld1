@@ -16,6 +16,12 @@ The converse is **not proved**. A passed test is reported as
 whole-entry or named-subpart candidate is added. The existing F38(a)
 candidate is unchanged; rank-two F38(c) is already prior work of Lee.
 
+Subsequent supplement: [filling recognition](F38-filling-recognition.md)
+adds the already published positive case of two filling words. The
+original necessary-condition module retains its conservative return
+value; the separate wrapper invokes the prior filling theorems only
+after certifying finite stabilizers.
+
 ## Original quantifier
 
 The complete frozen F38 paragraph, background and actual rendered

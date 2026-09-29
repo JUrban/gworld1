@@ -1,0 +1,2034 @@
+                                         Under consideration for publication in Math. Proc. Camb. Phil. Soc.                      1
+
+
+
+                                          The primitivity index function for a free group, and untangling
+                                                       closed curves on hyperbolic surfaces.
+                                                    With an appendix by Khalid Bou-Rabee.
+arXiv:1411.5523v4 [math.GR] 7 Sep 2017
+
+
+
+
+                                                                                     By NEHA GUPTA
+                                         Department of Mathematics, FAS, Harvard University, One Oxford Street, Cambridge, MA 02138
+                                                                      e-mail neha@math.harvard.edu
+
+                                                                             and ILYA KAPOVICH
+                                                 Department of Mathematics, University of Illinois at Urbana-Champaign,
+                                                               1409 West Green Street, Urbana, IL 61801
+                                                                    email kapovich@math.uiuc.edu
+
+                                                                                   (Received     )
+
+
+                                                                                      Abstract
+                                            Motivated by the results of Scott and Patel about “untangling” closed geodesics in
+                                         finite covers of hyperbolic surfaces, we introduce and study primitivity, simplicity and
+                                         non-filling index functions for finitely generated free groups. We obtain lower bounds
+                                         for these functions and relate these free group results back to the setting of hyperbolic
+                                         surfaces. An appendix by Khalid Bou-Rabee connects the primitivity index function
+                                         fprim (n, FN ) to the residual finiteness growth function for FN .
+
+
+
+                                           The second author was partially supported by the NSF grants DMS-1405146 and
+                                         DMS-1710868. Both authors acknowledge support from U.S. National Science Foundation
+                                         grants DMS 1107452, 1107263, 1107367 “GEAR Network”.
+
+                                                                                  1. Introduction
+
+                                            Let Σ be a compact connected surface with a hyperbolic metric ρ and with (possibly
+                                         empty) geodesic boundary. In [52, 53] Scott proved that π1 (Σ) is subgroup separable
+                                         or LERF, meaning that for every finitely generated subgroup K ≤ π1 (Σ) and every
+                                         g ∈ π1 (Σ) such that g 6∈ K there exists a subgroup H ≤ π1 (Σ) of finite index in π1 (Σ)
+                                         such that K ≤ H but g 6∈ H. (Scott’s result dealt with the case of a closed surface S since
+                                         in the case ∂S 6= ∅, the group π1 (S) is free and hence known to be subgroup separable by
+                                         a much older result of Hall [29]). In the same work [52] Scott showed that if γ is a closed
+                                         geodesic on (Σ, ρ) then there exists a finite cover Σ b → Σ such that γ lifts to a simple
+                                         closed geodesic in Σ, where Σ is given the hyperbolic structure obtained by the pull-back
+                                                            b         b
+                                         of ρ. As customary in the context of hyperbolic surfaces, the term “closed geodesic”
+                                         here assumes that the curve in question is not a proper power in the fundamental group
+                                                   2010 Mathematics Classification. Primary 20F65, Secondary 37D, 53C, 57M.
+2                        Neha Gupta and Ilya Kapovich
+of the surface. Recently Patel [44] obtained quantitative versions of Scott’s subgroup
+separability result and of his result about lifting a closed geodesic to a simple one in a
+finite cover. Thus she proved that for every Σ as above there exists a hyperbolic metric
+ρ0 on Σ such that every closed geodesic of length L on (Σ, ρ0 ) lifts to a simple closed
+geodesic in some finite cover of Σ of degree ≤ 16.2L. Since the length functions on π1 (Σ)
+coming from any two hyperbolic structures on Σ are bi-Lipschitz equivalent, it follows
+that for any hyperbolic structure ρ on Σ there is some constant c > 0 such that every
+closed geodesic of length L on (Σ, ρ) lifts to a simple closed geodesic in some finite cover
+of Σ of degree ≤ cL. Motivated by these results, if ρ is a hyperbolic structure on Σ, for
+every closed geodesic γ on (Σ, ρ) we denote by degΣ,ρ (γ) the smallest degree of a finite
+cover of Σ such that γ lifts to a simple closed geodesic in that cover. For L ≥ sys(ρ)
+(where sys(ρ) is the shortest length of a closed geodesic on (Σ, ρ)) put fΣ,ρ (L) to be the
+maximum of degΣ,ρ (γ) taken over all closed geodesics γ on (Σ, ρ) of length ≤ L. Patel’s
+result mentioned above implies that for every hyperbolic structure ρ on Σ there is c > 0
+such that fΣ,ρ (L) ≤ cL for all L ≥ sys(ρ).
+   A simple closed geodesic on a hyperbolic surface is a particular example of a non-filling
+curve. Thus for a hyperbolic surface (Σ, ρ) as above and for a closed geodesic γ on Σ
+we can also define degfΣ,ρ ill
+                               (γ) to be the smallest degree of a finite cover of Σ such that γ
+                                                                     f ill
+lifts to a non-filling closed geodesic in that cover. Then put fΣ,ρ        (L) to be the maximum
+        f ill
+of degΣ,ρ (γ) taken over all closed geodesics γ on (Σ, ρ) of length ≤ L. Thus, in view of
+                             f ill
+Patel’s result, we have fΣ,ρ       (L) ≤ fΣ,ρ (L) ≤ cL for all L ≥ sys(ρ). However, up to now,
+                                                                    f ill
+nothing has been known about lower bounds for fΣ,ρ (L) or fΣ,ρ             (L). (Note that the first
+place where the question about quantitative properties of fΣ,ρ (L) was raised, although
+somewhat indirectly, appears to have been the paper of Rivin [48]).
+   In general, obtaining lower bounds for quantitative results related to residual finiteness
+is quite difficult, and is usually harder than obtaining upper bounds. Recently there has
+been a significant amount of research regarding quantitative aspects of residual finiteness;
+see, for example [8, 5, 11, 12, 13, 14, 10, 17, 27, 37, 38, 44, 48, 19, 9, 16, 18]. We
+will discuss some of these results in more detail below.
+   Let N ≥ 2 be an integer and let FN be the free group of rank N . If A is a free basis of
+FN , for an element g ∈ FN we denote by |g|A the freely reduced length of g over A and
+we denote by ||g||A the cyclically reduced length of g over A. A classic result of Marshall
+Hall [29], mentioned above, (see also [34] for a modern proof using Stallings subgroup
+graphs) proves that finitely generated free groups are subgroup separable. More precisely,
+Hall proved that if K ≤ FN is a finitely generated subgroup and g ∈ FN − K then there
+exists a subgroup H ≤ FN of finite index such that g 6∈ H, K ≤ H, and, moreover, K is
+a free factor of H. It is not hard to adapt the proof of this result to show that for every
+g ∈ FN , g 6= 1 there exists a subgroup H ≤ FN of finite index such that g ∈ H and that
+g is a primitive element of H, that is, that g belongs to some free basis of H. In fact,
+a simple argument using Stallings subgroup graphs (see Proposition 3·5 below) shows
+that if A is a free basis of FN and w is a nontrivial cyclically reduced word in F (A) of
+length n then there exists a subgroup H ≤ FN with [FN : H] = n such that w ∈ H is a
+primitive element of H. For a nontrivial element g ∈ FN we define the primitivity index
+dprim (g) = dprim (g; FN ) as the minimum of [FN : H] where H varies over all subgroups
+of finite index in FN containing g as a primitive element. Given a free basis A of FN ,
+for n ≥ 1 we then define fprim (n) = fprim (n; FN ) as the maximum of dprim (g) where g
+                  The primitivity index function for a free group                             3
+varies over all nontrivial freely reduced words of length ≤ n in FN = F (A) which are not
+proper powers in FN . It is not hard to see that fprim (n) does not depend on the choice
+of a free basis A of FN ; we call fprim (n) the primitivity index function for FN . Thus
+fprim (n) is the smallest monotone non-decreasing function such that for every nontrivial
+root-free g ∈ FN we have dprim (g) ≤ fprim (|g|A ).
+  A nontrivial element g ∈ FN is called simple in FN if g belongs to some proper free
+factor of FN . A nontrivial element g ∈ FN is called filling in FN if g does not belong to
+a vertex group of a nontrivial splitting of FN over the trivial or maximal infinite cyclic
+subgroup. See Section 2·3 for more precise definitions and a discussion of these notions.
+Note that for 1 6= g ∈ FN , if g is primitive then g is simple, and if g is simple then
+g is non-filling. For a nontrivial element g ∈ FN let dsimp (g) = dsimp (g; FN ) be the
+smallest index [FN : H] where H varies over all subgroups of finite index in FN such that
+g ∈ H and that g is simple in H. Finally, let df ill (g) = df ill (g; FN ) be the smallest index
+[FN : H] where H varies over all subgroups of finite index in FN such that g ∈ H and
+that g is non-filling in H. Thus by definition, we have df ill (g) ≤ dsimp (g) ≤ dprim (g).
+For n ≥ 1 we then define the simplicity index function fsimp (n) = fsimp (n; FN ) as the
+maximum of dsimp (g) where g varies over all nontrivial freely reduced words of length
+≤ n in FN = F (A) that are not proper powers in FN . Also, for n ≥ 1 we then define
+the non-filling index function ff ill (n) = ff ill (n; FN ) as the maximum of df ill (g) where g
+varies over all nontrivial freely reduced words of length ≤ n in FN = F (A) that are not
+proper powers in FN .
+  In view of Proposition 3·5 mentioned above, for every nontrivial g ∈ FN we have
+dsimp (g) ≤ dprim (g) ≤ ||g||A ≤ |g|A , and hence ff ill (n) ≤ fsimp (n) ≤ fprim (n) ≤ n (see
+Lemma 3·6 for details).
+  In general, we are interested in the following types of questions:
+     • Understand the actual asymptotics of the “worst-case” index functions ff ill (n),
+        fsimp (n), fprim (n) for free groups and of their geometric counterparts fΣ,ρ (L) or
+          f ill
+        fΣ,ρ    (L).
+     • Find specific sequences of elements in free groups or curves on surfaces realizing
+        this “worst-case” behavior or at least exhibiting reasonably fast growth of the
+        corresponding index and degree functions.
+     • Understand the asymptotics of the indexes dprim (gn ), dsimp (gn ), df ill (gn ) and of
+        degΣ,ρ (γn ), degfΣ,ρ
+                           ill
+                               (γn ) for various “natural” sequences of group elements gn ∈ FN
+        or closed geodesics γn on (Σ, ρ).
+     • Understand the relationship between the index functions for free groups and the
+        degree functions for surfaces, and relate both to other functions measuring quan-
+        titative aspects of residual properties of free and surface groups.
+  Our first main result provides a lower bound for ff ill (n; FN ); see Theorem 6·2 below:
+  Theorem 1·1. Let N ≥ 2 and let FN = F (A) where A = a1 , . . . , aN . Then there
+exists a constant c > 0 and an integer M ≥ 1 such that for all n ≥ M we have
+                                                                   log n
+                        fprim (n) ≥ fsimp (n) ≥ ff ill (n) ≥ c             .
+                                                                 log log n
+   For a finitely generated group G equipped with a finite generating set A, the residual
+finiteness growth function RFG (n) is defined as the smallest number d such that for every
+nontrivial element g ∈ G of word-length ≤ n with respect to A there exists a subgroup
+of index at most d in G that does not contain g.
+4                      Neha Gupta and Ilya Kapovich
+  In an appendix to this paper, for a free group FN with a free basis A, Khalid Bou-
+Rabee relates fprim (n, FN ) to the residual finiteness growth function RFFN (n). Namely,
+he shows in Theorem A1 below that for n ≥ 1 one has fprim (4n + 4, FN ) ≥ RFFN (n).
+Using a recent result of Kozma and Thom [38] about lower bounds for RFFN (n), Bou-
+Rabee then shows in Corollary A2 below that for all sufficiently large n one has
+                                                             1/4 !
+                                                    log(n)
+                       fprim (4n + 4) ≥ exp                          .
+                                                 C log log(n)
+
+Note that this lower bound behaves almost like n1/4 . Moreover, if we assume Babai’s Con-
+jecture on the diameter of Cayley graphs of permutation groups, then for all sufficiently
+large n we have an almost linear lower bound:
+                                                           1
+                                 fprim (4n + 4) ≥ n C log log(n) .
+Bou-Rabee’s homological trick used in Theorem A1 does not work for the index functions
+fsimp (n) and ff ill (n). Thus for these functions the lower bound given by Theorem 1·1
+remains the best known bound.
+   We also obtain a bound from below on dsimp (wn ) and df ill (wn ) where wn is a “random”
+freely reduced word in F (A) of length n >> 1.
+  Theorem 1·2. Let N ≥ 2 and let FN = F (A) where A = {a1 , . . . , aN }.
+  Then there exist constants c(N ) > 0, D1 (N ) > 1, 1 > D2 (N ) > 0 such that for n ≥ 1
+and for a freely reduced word wn ∈ F (A) of length n chosen uniformly at random from
+the sphere S(n) of radius n in F (A) we have
+                                                               D2
+                                                                     
+                   1 − Pµn dsimp (wn ) ≥ c log1/3 n = O (D1 )−n
+
+and
+                                                              D2
+                                                                    
+                    1 − Pµn df ill (wn ) ≥ c log1/5 n = O (D1 )−n
+
+so that
+                                                          
+                           lim Pµn dsimp (wn ) ≥ c log1/3 n = 1
+                          n→∞
+
+and
+                                                            
+                            lim Pµn df ill (wn ) ≥ c log1/5 n = 1
+                           n→∞
+
+   Here µn is the uniform probability distribution on the n-sphere S(n) ⊆ FN = F (A).
+See Convention 7·1 for our use of the big-O notation.
+   It remains an interesting question to understand the actual behavior of dsimp (wn ) and
+df ill (wn ) on “random” elements wn ∈ FN and, in particular, to see if dsimp (wn ) and
+df ill (wn ) admit sublinear upper bounds.
+   Finally, in Section 9 we relate the above results for free groups to the original motivating
+questions about the degree functions for hyperbolic surfaces. Thus, using Theorem 1·2,
+we obtain (see Theorem 9·6 below):
+   Corollary 1·3. Let (Σ, ρ) be a compact connected hyperbolic surface with b ≥ 1
+geodesic boundary components. Then there exists C 0 > 0 such that for all sufficiently
+large L we have
+                                     f ill             log L
+                         fΣ,ρ (L) ≥ fΣ,ρ   (L) ≥ C 0           .
+                                                     log log L
+                  The primitivity index function for a free group                                 5
+  Similarly, using Theorem 1·1, we obtain (see Theorem 9·3 below):
+
+  Corollary 1·4. Let Σ be a compact connected surface with a hyperbolic structure
+ρ and with (possibly empty) geodesic boundary. Let Σ1 ⊆ Σ be a compact connected
+subsurface with ≥ 3 boundary components, each of which is a geodesic in (Σ, ρ). Let
+x ∈ Σ1 and let A be a free basis of π1 (Σ1 , x).
+  Let wn ∈ F (A) = π1 (Σ1 , x) be a freely reduced word of length n over A±1 generated
+by a simple non-backtracking random walk on F (A) = π1 (Σ1 , x). Let γn be the closed
+geodesic on (Σ, ρ) in the free homotopy class of wn .
+  Then there exist constants c > 0, K 0 ≥ 1 such that
+
+
+                              lim P r(degΣ,ρ (γn ) ≥ c log1/3 n) = 1
+                             n→∞
+
+and such that with probability tending to 1 as n → ∞ we have that wn ∈ π1 (Σ, x) is not
+a proper power and that n/K 0 ≤ `ρ (γn ) ≤ K 0 n.
+
+  In the original November 2014 version of this paper we used Corollary 1·4 to obtain,
+for all sufficiently large L, a lower bound
+
+                                      fΣ,ρ (L) ≥ c log1/3 L,
+
+where (Σ, ρ) is a closed hyperbolic surface. At the time this was the only known lower
+bound for fΣ,ρ (L). Motivated by our work, Jonah Gaster [26] subsequently obtained a
+linear lower bound fΣ,ρ (L) ≥ cL and exhibited a specific sequence of curves γn in Σ,
+living in a pair-of-pants subsurface of Σ, realizing this lower bound. Since these curves
+are already non-filling in Σ and have degfΣ,ρ       ill
+                                                        (γn ) = 1, Gaster’s proof does not provide
+                             f ill                                                    f ill
+any lower bounds for fΣ,ρ (L). Thus for the moment the lower bound for fΣ,ρ                 (L) given
+by Corollary 1·3 remains the best bound known. In Section 9 we also relate our results
+                                       f ill
+to the versions of fΣ,ρ (L) and fΣ,ρ         (L) that do not involve a hyperbolic metric and use
+the geometric intersection number i([γ], [γ]) instead of the hyperbolic length of γ in their
+definitions.
+   Also, in Section 4 we prove algorithmic computability of the indexes dprim (g, FN )
+dsimp (g, FN ), df ill (g, FN ) and of the corresponding index functions fprim (n), fsimp (n), ff ill (n);
+see Theorem 4·14 and Theorem 4·18 below.
+   A recent paper of Puder [45] (see also [46, 47] for related work) introduces the notion
+of a primitivity rank π(g) for an element g ∈ FN . Namely, π(g) is defined as the smallest
+rank of a subgroup H ≤ FN such that g ∈ H but g is not primitive in H. Puder proves in
+[45, Corollary 4.2] that for an element g ∈ FN one has either π(g) = ∞ or 0 ≤ π(g) ≤ N ,
+and that every integer between 0 and N does occur as a value of π(g) for some g. He also
+defines and studies the primitivity rank π(H) for a finitely generated subgroup H ≤ FN ,
+where π(H) is defined as the minimum rank of J such that H ≤ J ≤ FN and that H
+is not a proper free factor of J. These notions are related to and in some sense dual
+to our definitions of dprim (g) and dsimp (g), but the precise connection of our results
+with Puder’s work remains to be understood. Malestein and Putman [41] obtained a
+number of lower bound results (in terms of k) for the minimal self-intersection number
+of nontrivial elements of the k-term of the lower central series and the derived series of a
+surface group. It would be interesting to see if their methods can be used to obtain lower
+bounds for the function fΣ,ρ . It would also be interesting to investigate if looking inside
+6                       Neha Gupta and Ilya Kapovich
+the lower central series and the derived series of FN may produce new lower bounds for
+fprim (n) and fsimp (n).
+  We are grateful to Yuliy Baryshnikov for providing us with a proof of Lemma 5·1.
+We then used the idea of the proof of Lemma 5·1 to obtain Proposition 5·7, which
+plays a crucial role in the proof of our main results. We are also grateful to Igor Rivin for
+suggesting to try to apply our free group results to untangling closed curves on hyperbolic
+surfaces, and to Priyam Patel for suggesting to apply our results to the degree functions
+based in the self-intersection number rather than the length of a curve. We thank Kasra
+Rafi for the suggestion to consider degfΣ,ρ
+                                          ill      f ill
+                                              and fΣ,ρ   . We thank Nathan Dunfield and Chris
+Leininger for many useful conversations. We are grateful to Andreas Thom, Gady Kozma,
+Doron Puder and Khalid Bou-Rabee for helpful feedback. We are particularly grateful to
+the referee of the original version of this paper for pointing out that our methods implied
+a much better lower bound for fprim (n) and fsimp (n) than the one we originally had in
+mind. We are also grateful to the referee of the current version for numerous detailed
+helpful suggestions.
+
+
+                                        2. Preliminaries
+2·1. Graphs and Edge Paths
+    The exposition in this subsection follows that of [36].
+
+  Definition 2·1. A graph is a 1-dimensional cell-complex. The 0-cells of Γ are called
+vertices and we denote the set of vertices of Γ by V Γ. The open 1-cells of Γ are called
+topological edges of Γ and the set of topological edges are denoted by Etop Γ.
+
+Every topological edge of Γ is homeomorphic to the open interval (0, 1) and thus, when
+viewed as a 1-manifold, admits two possible orientations. An oriented edge of Γ is a
+topological edge with a choice of orientation on it. We denote by EΓ the set of all
+oriented edges of Γ. If e ∈ EΓ is an oriented edge, we denote by ē the same underlying
+edge with the opposite orientation. Note that for every e ∈ EΓ we have ē 6= e and ē¯ = e;
+thus ¯: EΓ → EΓ is an involution with no fixed points.
+  Since Γ is a cell-complex, every oriented edge e ∈ EΓ comes equipped with the
+orientation-preserving attaching map je : [0, 1] → Γ such that je maps (0, 1) homeo-
+morphically to e and such that je (0), je (1) ∈ V Γ (though not necessarily distinct). For
+e ∈ EΓ we call je (0) the initial vertex of e, denoted o(e), and we call je (1) the terminal
+vertex of e, denoted t(e). Thus, by definition, o(ē) = t(e) and t(ē) = o(e).
+  For any vertex x ∈ V Γ, the degree of x in Γ denoted by deg(x) is the cardinality of the
+set {e ∈ EΓ|o(e) = x}.
+  An orientation on a graph Γ is a partition EΓ = E+ Γ t E− Γ such that for an edge
+e ∈ EΓ we have e ∈ E+ Γ if and only if ē ∈ E− Γ. If Γ is a graph with an orientation,
+and ∆ ⊆ Γ is a subgraph, then ∆ inherits an induced orientation from Γ by setting
+E+ ∆ := E+ Γ ∩ E∆ and E− ∆ := E− Γ ∩ E∆. Whenever we are dealing with a graph,
+equipped with an orientation, and a subgraph of that graph, we will always assume that
+the subgraph is given the induced orientation.
+  An edge-path p in Γ is a sequence of edges e1 , e2 , . . . , ek with ei ∈ EΓ for all i and
+o(ej ) = t(ej−1 ) for all 2 ≤ j ≤ k. The length |p|, of the path p is the number of edges in p,
+that is |p| = k. We put o(p) = o(e1 ), and t(p) = t(ek ). We define p−1 := ek , ek−1 , . . . , e1 .
+                  The primitivity index function for a free group                               7
+                                                                                               −1
+A path p in a graph Γ is reduced if it does not contain any sub-paths of the form e, e
+where e ∈ EΓ is an edge.
+   Note that if Γ is a graph and x ∈ V Γ is a vertex, there is a canonical identification of
+π1 (Γ, x) with the set of reduced edge-paths from x to x in Γ. We will use this identification
+throughout the paper.
+   Definition 2·2. For two graphs Γ1 and Γ2 , a morphism or a graph-map f : Γ1 → Γ2
+is a continuous map f such that f (V Γ1 ) ⊆ V Γ2 and such that the restriction of f to
+any topological edge e ∈ Γ1 is a homeomorphism between e and some topological edge e0
+of Γ2 . Thus a morphism f : Γ1 → Γ2 naturally defines functions f : EΓ1 → EΓ2 and
+f : V Γ1 → V Γ2 such that for any e ∈ EΓ1 we have f (ē) = f (e) ∈ EΓ2 , o(f (e)) = f (o(e))
+and t(f (e)) = f (t(e)).
+  Definition 2·3. Let Γ be a graph and x ∈ V Γ. Then the core of Γ at x is defined as:
+               Core(Γ, x) = ∪{p | where p is a reduced path in Γ from x to x}.
+  Note that Core(Γ, x) is a connected subgraph of Γ containing x. If Core(Γ, x) = Γ
+we say that Γ is a core graph with respect to x. The graph Core(Γ, x) has no degree 1
+vertices except possibly x itself.
+  We say that a graph Γ is a core graph if Γ is connected and for every vertex x ∈ V Γ
+we have Core(Γ, x) = Γ.
+  If a graph T is a tree then for vertices v, v 0 ∈ V T we denote by [v, v 0 ]T the unique
+reduced edge-path from v to v 0 in T .
+   Proposition-Definition 2·4. Let Γ be a connected graph, and x ∈ V Γ. Choose a
+maximal subtree T ⊆ Γ, and an orientation EΓ = E+ Γ t E− Γ. For e ∈ EΓ define
+[x, o(e)]T to be the unique reduced path in T from x to o(e), and let se := [x, o(e)]T e [t(e), x]T .
+Let ST := {se | e ∈ E+ Γ − E+ T }. Then π1 (Γ, x) is free and ST is a free basis of π1 (Γ, x).
+   We call ST the free basis of π1 (Γ, x) dual to T .
+  We need to explicitly say how to rewrite elements of π1 (Γ, x) in terms of the basis ST ,
+both as freely reduced words and cyclically reduced words.
+   Proposition 2·5. Let Γ be a connected graph, let x ∈ V Γ and let T ⊆ Γ be a maximal
+subtree. Suppose E+ Γ − E+ T = {e1 , . . . , em } where ei 6= ej for i 6= j, so that ST =
+{sei |1 ≤ i ≤ m}. Then:
+  (i)Rewriting γ as a freely reduced word in ST : Delete from γ all edges of T and replace
+     each e±1
+            i  by s±1
+                   ei . The result is a freely reduced word over ST representing γ ∈ π1 (Γ, x).
+ (ii)Rewriting γ as a cyclically reduced word in ST : First cyclically reduce the edge-path
+     γ by removing the maximal initial and terminal segments of γ that cancel in the
+     concatenation γγ. The result is a subpath γ1 of γ such that γ1 is a closed cyclically
+     reduced path (though γ1 maybe based at a vertex different from x). Now apply the
+     previous procedure to γ1 : delete all edges of T and replace each e±1    i  by s±1
+                                                                                     ei . The
+     result is the cyclically reduced form of γ ∈ π1 (Γ, x) over ST .
+2·2. Graphs and subgroups
+   In a seminal paper from 1983 Stallings [56] used labeled graphs to study subgroups of
+free groups. We give a brief exposition of the relevant definitions and results below and
+refer the reader to[34] for details.
+8                       Neha Gupta and Ilya Kapovich
+   Recall that we fix for the free group FN = F (A) = F (a1 , . . . , aN ) (where N ≥ 2), a
+distinguished free basis A = {a1 , . . . , aN }. If w is a word in Υ = A t A−1 , we will denote
+by w the freely reduced word in Υ obtained from w by performing all possible (if any)
+free reductions.
+  Definition 2·6. An A-graph Γ consists of an underlying oriented graph where every
+edge e ∈ EΓ is labeled by a letter µ(e) ∈ A t A−1 in such a way that µ(ē) = (µ(e))−1 .
+Multiple edges between vertices and loops at a vertex are allowed. An A-graph Γ is said
+to be folded if there does not exist a vertex x and two distinct edges e1 , e2 with o(e1 ) =
+o(e2 ) = x such that µ(e1 ) = µ(e2 ). Otherwise Γ is said to be non-folded.
+   An A-graph Γ is said to be A-regular if for every vertex x ∈ V Γ and for every ai , there
+is precisely one outgoing edge at x labeled by ai and precisely one incoming edge at x
+labeled by ai (thus, in particular, an A-regular graph is folded).
+   If Γ is an A-graph and p = e1 , . . . , ek is an edge-path in Γ, then p has a label which is a
+word in A t A−1 and we denote this label by µ(p) = µ(e1 )µ(e2 ) . . . µ(ek ). The definitions
+immediately imply:
+   Lemma 2·7. An A-graph Γ is folded if and only if the label of every reduced path in Γ
+is a freely reduced word.
+ Definition 2·8. For any two A-graphs Γ1 and Γ2 , a map f : Γ1 → Γ2 is an A-
+morphism if f is a graph-map such that µ(e) = µ(f (e)).
+  For FN = F (a1 , . . . , aN ) we define the standard N -rose RN to be the wedge of N loop-
+edges each labeled by a1 , . . . , aN respectively, at a vertex x0 . Then F (A) = π1 (RN , x0 ).
+  For Γ an A-graph, x ∈ V Γ and µ as before, we can define a map µ# : π1 (Γ, x) → F (A)
+as p 7→ µ(p). This map is a group homomorphism.
+ Notation 2·9. For Γ an A-graph, x ∈ V Γ we say that (Γ, x) represents the subgroup
+H := µ# (π1 (Γ, x)) ≤ F (A).
+  Proposition-Definition 2·10. [56, 34] Let H ≤ F (A). Then there exists a con-
+nected, folded A-graph Γ with x0 ∈ V Γ such that Γ = Core(Γ, x0 ) and (Γ, x0 ) represents
+                 H = {µ(p) | p is a reduced path in Γ from x0 to x0 } ≤ F (A)
+Moreover, such a (Γ, x0 ) is unique. This graph (Γ, x0 ) is called the Stallings subgroup
+graph of H with respect to A.
+  If (Γ, x0 ) is the Stallings subgroup graph for H, then the labeling map µ : π1 (Γ, x0 ) →
+H is a group isomorphism. If T ⊆ Γ is a maximal tree and ST = {se |e ∈ E+ (Γ − T )} is
+the dual free basis of π1 (Γ, x0 ), then µ(ST ) = {µ(se )|e ∈ E+ (Γ − T )} is a free basis of H.
+2·3. Primitive, simple and non-filling elements
+   Definition 2·11 (Primitive and simple elements). In the free group FN , a non-trivial
+element g ∈ FN is called primitive in FN if g belongs to some free basis of FN .
+   In the free group FN , a non-trivial element g ∈ FN is called simple in FN if g belongs
+to a proper free factor of FN .
+  Definition 2·12 (Non-filling elements). An element g ∈ FN is said to be non-filling
+in FN if there exists a splitting of FN as an amalgamated free product FN = K ∗C L or
+as an HNN-extension FN = hK, t|t−1 Ct = C 0 i, such that C ≤ FN is either trivial or a
+                 The primitivity index function for a free group                           9
+maximal cyclic subgroup, such that in the FN = K ∗C L case C 6= K, C 6= L, and such
+that g ∈ K.
+  An element g ∈ FN is said to be filling in FN if g is not non-filling.
+
+  Remark 2·13. Note that if g ∈ FN is primitive, then it is also simple. Similarly, if
+g ∈ FN is simple, then g is non-filling.
+  Also, for elements of FN the properties of being primitive, being simple and being
+non-filling are preserved under applying arbitrary automorphisms of FN .
+
+   The following known key fact relates the property of being filling in FN to the compact-
+ification CVN of the projectivized Culler-Vogtmann Outer space CVN . This compact-
+ification consists of the projective classes of all minimal “very small” isometric actions
+of FN on R-trees. An isometric action of a group G on an R-tree T is called very small
+if for every nondegenerate segment of T the setwise stabilizer of that segment in G is
+either trivial or maximal infinite cyclic in G, and if the setwise stabilizer of every tripod
+in T is trivial. For example, the Bass-Serre tree corresponding to a splitting of FN as an
+amalgamated product or an HNN-extension over a maximal infinite cyclic subgroup is a
+very small FN -tree. See [33, 4] for a more detailed explanation of the relevant terminol-
+ogy. Also, if T is an R-tree equipped with an isometric action of a group G, for g ∈ G
+we denote ||g||T := inf x∈T d(x, gx); the quantity ||g||T is called the translation length of
+g in T .
+
+   Proposition 2·14. [33, 55] Let 1 6= g ∈ FN . Then the following conditions are
+equivalent:
+  (i)The element g is filling in FN .
+ (ii)For every minimal very small isometric action of FN on a nontrivial simplicial tree
+     T we have ||g||T > 0.
+(iii)For every minimal very small isometric action of FN on a nontrivial R-tree T we
+     have ||g||T > 0.
+
+   Proof. The proof of this statement is implicit in [33, 55] but we sketch the argument
+for completeness.
+   Part (3) directly implies part (2). Since the simplicial splittings that appear in Defini-
+tion 2·12 are very small, part (2) also directly implies part (1).
+   To see that part (1) implies part (3), suppose that 1 6= g ∈ FN is filling but that there
+exists a minimal very small isometric action of FN on a nontrivial R-tree T we have
+||g||T = 0. Then a result of Bestvina and Feighn [4] (see also a paper of Guirardel [28])
+implies that there exists a very small minimal simplicial FN -tree T 0 with ||g||T 0 = 0.
+Taking the quotient graph of groups T 0 /FN and collapsing all edges except one in this
+graph gives us a splitting of FN as in Definition 2·12 such that g is conjugate to a vertex
+group element for that splitting. This contradicts the assumption that g is filling in FN .
+Thus (1) implies (3), as required.
+
+
+2·4. Whitehead Graphs
+ We now describe the relationship between simple elements, primitive elements, and
+Whitehead graphs.
+
+  Definition 2·15. [Whitehead graph] Let FN = F (A) be as before and let w ∈ FN be
+10                      Neha Gupta and Ilya Kapovich
+a nontrivial cyclically reduced word. Let c be the first letter of w. The word wc is then
+freely reduced.
+   The Whitehead graph of w with respect to A, denoted by W hA (w), is an undirected
+graph whose set of vertices V (W hA (w)) = Υ. Edges are added as follows: For a, b ∈
+V (W hA (w)), there is an undirected edge joining a−1 and b if ab or b−1 a−1 occurs as a
+subword of wc.
+   Note that if w̃ is a cyclic permutation of w or of w−1 then W hA (w) = W hA (w̃).
+   For an arbitrary 1 6= g ∈ FN , we put W hA (g) := W hA (w), where w is the cyclically
+reduced form of g in F (A).
+
+  Recall that a cut vertex in a graph ∆ is a vertex x such that ∆ − {x} is disconnected.
+Note that if ∆ has at least one edge and is disconnected, then Γ does possess a cut vertex;
+namely any end-vertex of an edge of ∆ is a cut vertex in this case.
+  Generalizing a result of Whitehead, Stallings established the relationship between sim-
+ple elements and Whitehead graphs [57]:
+
+  Proposition 2·16. [57] Let FN = F (A), where N ≥ 2 and let g ∈ F (A) be a
+cyclically reduced word. If g is simple, then the Whitehead graph W hA (g) has a cut
+vertex.
+
+  Notice that Remark 2·13 implies that if g ∈ F (A) is primitive, then W hA (g) has a cut
+vertex.
+
+   Remark 2·17. Stallings’ definition of Whitehead graphs differs slightly from our def-
+inition. Assume the same setting as in Definition 2·15. Stallings adds an edge from a−1
+to b for each occurrence of a subword ab in wc. Let us call the Whitehead graph of a cycli-
+cally reduced word w under Stallings’ definition Γ, and the corresponding graph under our
+definition Γ1 . It is clear that V (Γ) = V (Γ1 ). Further it is easily checked that x ∈ V (Γ) is
+a cut-vertex in Γ if and only if x ∈ V (Γ1 ) is a cut-vertex in Γ1 . Thus Proposition 2·16
+holds for our definition of Whitehead graphs just as well.
+
+   Finally, note that if a graph has a reduced circuit that contains all the vertices, then the
+graph can not have a cut vertex. This observation applies, for instance, to the Whitead
+graph of an element g ∈ FN when the string a2N a21 a22 . . . a2N occurs as a subword of a
+cyclically reduced form of g. In this case g is not simple (and hence not primitive) as its
+Whitehead graph does not have a cut vertex. We state this fact explicitly as a corollary
+of Proposition 2·16:
+
+  Corollary 2·18. Let FN = F (A), where N ≥ 2 and A = {a1 , . . . , aN }. If a cyclically
+reduced word w ∈ F (A) contains the subword a2N a21 a22 . . . a2N then w is not simple (and
+hence not primitive) in F (A).
+
+   The Whitehead graph, as defined above, records the information about two-letter sub-
+words in the cyclically reduced form w of a nontrivial element g ∈ FN = F (A). There are
+also generalizations of the Whitehead graph recording the information about k-letter sub-
+words of w, where k ≥ 2 is a fixed integer. These generalizations are commonly known as
+“Rauzy graphs” or “initial graphs” and naturally occur in the study of geodesic currents
+on free groups [30, 31, 32].
+   We do not formally define these “level k” versions of the Whitehead graph in this
+paper, because we only need the following specific statement related to the k = 3 case:
+                   The primitivity index function for a free group                                   11
+  Proposition 2·19. [21] Let FN = F (A), where N ≥ 2 and A = {a1 , . . . , aN }. Let w
+be a nontrivial cyclically reduced word in F (A) such that for every freely reduced word
+v ∈ F (A) with |v| = 3 the word v occurs as a subword of a cyclic permutation of w or of
+w−1 .
+  Then w is filling in FN (and, in particular, w is non-simple and non-primitive in FN ).
+
+                3. Primitivity, Simplicity, and Non-Filling Index Functions
+  In 1949 Marshall Hall Jr. proved in [29] that any finitely generated subgroup of a free
+group FN is a free factor of a finite index subgroup of FN . We state the result in a more
+precise form, as stated in [56]:
+
+  Proposition 3·1. [56] Let α1 , . . . , αk , β1 , . . . , βl be elements of a free group FN . Let
+S be the subgroup of FN generated by {α1 , . . . , αk }. Suppose βi ∈   / S for i = 1, . . . , l. Then
+there exists a subgroup S 0 of finite index in FN , such that S ⊂ S 0 , βi ∈  / S 0 for i = 1, . . . , l,
+                                    0
+and there exists a free basis of S having a subset that is a free basis of S.
+
+  If we pick g 6= 1 ∈ FN and apply the above result to the infinite cyclic subgroup
+S = hgi, we get that there must exist a finite index subgroup S 0 of FN such that g is a
+primitive element in S 0 (and hence g ∈ S 0 is non-simple and non-filling in S 0 ).
+  This fact motivates the following definition:
+
+  Definition 3·2. [Primitivity, simplicity and non-filling indexes]
+  Let N ≥ 2 be an integer and let FN be a free group of rank N . Let 1 6= g ∈ FN .
+  Define the primitivity index dprim (g) = dprim (g, FN ) of g in FN to be the smallest
+possible index for a subgroup L ≤ FN containing g as a primitive element.
+  Define the simplicity index dsimp (g) = dsimp (g, FN ) to be the smallest possible index
+for a subgroup L ≤ FN containing g as a simple element.
+  Finally, define the non-filling index df ill (g) = df ill (g, FN ) to be the smallest possible
+index for a subgroup L ≤ FN containing g as a non-filling element.
+
+   As noted above, Proposition 3·1 implies that for every nontrivial g ∈ FN we have
+df ill (g) ≤ dsimp (g) ≤ dprim (g) < ∞.
+
+   Definition 3·3 (Primitivity, simplicity and non-filling index functions). Let FN be a
+free group of rank N ≥ 2 and let A be a free basis of FN . For any n ≥ 1 define the
+primitivity index function for FN as
+                 fprim (n) = fprim (n; FN ) :=                  max               dprim (g)
+                                                           1≤|g|A ≤n, g6=1
+                                                     g not a proper power in FN
+
+  Similarly, for n ≥ 1 define the simplicity index function for FN as
+                 fsimp (n) = fsimp (n; FN ) :=                  max               dsimp (g)
+                                                           1≤|g|A ≤n, g6=1
+                                                     g not a proper power in FN
+
+  Finally, for for n ≥ 1 define the non-filling index function for FN as
+                   ff ill (n) = ff ill (n; FN ) :=             max                df ill (g)
+                                                           1≤|g|A ≤n, g6=1
+                                                     g not a proper power in FN
+
+It is easy to see that the definitions of fprim (n; FN ), fsimp (n; FN ) and ff ill (n; FN ) do
+not depend on the choice of a free basis A of FN . Note that fprim (n) is the smallest
+12                     Neha Gupta and Ilya Kapovich
+
+
+
+
+Fig. 1. Proof by Picture for Proposition 3·5
+
+monotone non-decreasing function such that for every non-trivial root-free g ∈ FN we
+have dprim (g) ≤ fprim (|g|A ); similar reformulations hold for fsimp (n) and ff ill (n). We
+recall the following well-known fact, which is Lemma 8.10 in [34]:
+
+  Lemma 3·4. Let Γ be a finite folded A-graph. Then there exists a finite folded A-regular
+graph Γ0 such that Γ is a subgraph of Γ0 and such that V Γ = V Γ0 .
+
+  Proposition 3·5. For every non-trivial cyclically reduced word w ∈ F (A) of length
+n, there exists a finite index subgroup H ≤ F (A) of index n such that w ∈ H is primitive
+in H.
+
+   Proof. Take the word w of length n and write it on a circle of simplicial length n. Pick
+a vertex x as the base vertex. Call this graph (Γw , x). By Lemma 3·4 we can complete
+this graph to a finite cover (Γ0w , x) of the N -rose without adding any extra vertices. Thus
+(Γ0w , x) has n vertices and represents a subgroup H of FN of index precisely n. The fact
+that w is realized as the label of a simple closed curve in (Γ0w , x) implies that w is a
+primitive element in H. It is clear that w ∈ H by definition of H. Note that since (Γ0 , x)
+has no extra vertices, a maximal tree T of (Γ, x) consists of all but one edge of the simple
+closed curve representing w. Let e ∈ E+ Γ0 − T . Then µ(se ) = w and hence w is primitive.
+See Figure 1 for a pictorial proof.
+
+
+  Proposition 3·5, together with the definitions, directly implies:
+
+  Lemma 3·6. Let N ≥ 2 and let FN be free of rank N . Then the following hold:
+ (i)If 1 6= g ∈ FN = F (A) then
+                      df ill (g) ≤ dsimp (g) ≤ dprim (g) ≤ ||g||A ≤ |g|A = n.
+                  The primitivity index function for a free group                            13
+(ii)For every n ≥ 1 we have
+                              ff ill (n) ≤ fsimp (n) ≤ fprim (n) ≤ n.
+(iii)Let 1 6= g ∈ FN and let α ∈ Aut(FN ). Then dprim (g) = dprim (α(g)), dsimp (g) =
+     dsimp (α(g)) and df ill (g) = df ill (α(g)).
+(iv)If 1 6= g ∈ FN and k ≥ 1 is an integer, then dsimp (g k ) ≤ dsimp (g) and df ill (g k ) ≤
+     df ill (g).
+   In particular, part (3) of the above lemma shows that for g1 , g2 conjugate non-trivial
+elements of FN , we have dprim (g1 ) = dprim (g2 ), dsimp (g1 ) = dsimp (g2 ) and df ill (g1 ) =
+df ill (g2 ).
+   As noted above, if 1 6= g ∈ FN and k ≥ 1 is an integer, then dsimp (g k ) ≤ dsimp (g) and
+df ill (g k ) ≤ df ill (g). However, the function dprim (g) does not behave well under taking
+powers, as demonstrated by the following lemma:
+  Lemma 3·7. For any ai ∈ {a1 , . . . , aN }, and any positive integer n, dprim (ani ) = n.
+   Proof. As noted above, for every nontrivial g ∈ FN we have dsimp (g) ≤ dprim (g) ≤
+||g||A . Thus dprim (ani ) ≤ ||ani ||A = n. We need to show that dprim (ani ) ≥ n.
+   Let d = dprim (ani ) and let H ≤ FN be a subgroup of index d such that ani ∈ H and
+that ani is a primitive element of H. Let (Γ, ∗) be the d-fold cover of RN corresponding to
+H, so that for the covering map p : Γ → RN have π1 (Γ, ∗) ∼    = H and p# = µ : π1 (Γ, ∗) →
+H ≤ FN = π1 (RN , x0 ) is an isomorphism.
+   The fact that ani ∈ H implies that there exists a reduced closed path γ from ∗ to ∗ in
+Γ with µ(γ) = ani . Since ani is primitive in H, the element γ is primitive in π1 (Γ, ∗).
+   Since ani is cyclically reduced, the closed path γ is also cyclically reduced. We claim
+that γ is a simple closed path in Γ. Indeed, suppose not. Then γ = γ1k where k ≥ 2 and
+                                                           n/k
+where γ1 is a simple closed path at ∗ in Γ with label ai . Therefore γ is a proper power
+in π1 (Γ, ∗), which contradicts the fact that γ is primitive in π1 (Γ, ∗). Thus indeed γ is
+a simple closed path in Γ with label ani . This means that the full p-preimage of the i-th
+petal of RN , labeled ai , in Γ consists of ≥ n distinct topological edges. Therefore the
+degree d of the cover p : Γ → RN satisfies d ≥ n.
+   Thus d = dprim (ani ) ≥ n. Since we already know that dprim (ani ) ≤ n, it follows that
+dprim (ani ) = n, as required.
+  Avoiding the bad behavior of dprim (g) under taking powers of g, demonstrated by
+Lemma 3·7, is the main reason why in Definition 3·2 we take the maximum over all
+root-free nontrivial elements g ∈ FN with |g|A ≤ n rather than over all nontrivial g ∈ FN
+with |g|A ≤ n.
+
+             4. Algorithmic computability of dprim (g), dsimp (g), and df ill (g)
+   In this section we will establish algorithmic computability of dprim (g), dsimp (g), and
+df ill (g). Consequently, we will also establish the algorithmic computability of fprim (n),
+fsimp (n), and ff ill (n).
+   We first need to recall some basic definitions and facts related to Whitehead automor-
+phisms and Whitehead’s algorithm. We only briefly cover this topic here and refer the
+reader for further details to [40, pp. 30-35] and to [43, 35, 32, 49] for some of the recent
+developments. As before, FN = F (A) = F (a1 , . . . , aN ) is the free group of rank N ≥ 2
+with a free basis A = {a1 , . . . , aN }.
+14                     Neha Gupta and Ilya Kapovich
+   Definition 4·1 (Whitehead automorphisms). A Whitehead automorphism τ of FN =
+F (A) with respect to A is an automorphism τ of F (A) of one of the following types:
+  (i)There exists a permutation t of Υ = A t A−1 such that τ |Υ = t. In this case τ is
+     called a relabeling automorphism or a Whitehead automorphism of the first kind.
+ (ii)There exists an element a ∈ Υ which we call the multiplier such that for any x ∈ Υ,
+     τ (x) ∈ {x, xa, a−1 x, a−1 xa}. In this case τ is called a Whitehead automorphism of
+     the second kind.
+  Note that since τ ∈ Aut(F (A)), if τ is a Whitehead automorphism of the second
+kind with multiplier a, then τ (a) = a. Also for any a ∈ Υ, the inner automorphism
+corresponding to conjugation by a is a Whitehead automorphism of the second kind.
+  Definition 4·2 (Automorphically minimal and Whitehead minimal elements). An el-
+ement g ∈ F (A) = FN is automorphically minimal in F (A) with respect to a basis A of
+FN if, for every ϕ ∈ Aut(F (A)) we have ||g||A ≤ ||ϕ(g)||A .
+  An element g ∈ F (A) is Whitehead minimal in F (A) with respect to a free basis A if,
+for every Whitehead automorphism τ of F (A) we have ||g||A ≤ ||τ (g)||A . For an element
+g ∈ F (A) we say that g̃ ∈ F (A) is a Whitehead minimal form of g with respect to A if g̃ is
+Whitehead minimal with respect to A and there exists an automorphism ϕ ∈ Aut(F (A))
+such that ϕ(g) = g̃.
+  Note that neither Whitehead automorphisms of the first kind nor inner automorphisms
+change the cyclically reduced length of an element.
+  The following proposition summarizes the key known facts regarding Whitehead’s al-
+gorithm (see [61] for the original proof by Whitehead and see [40, Proposition 4.17] for
+a modern exposition):
+   Proposition 4·3 (Whitehead’s Theorem). Let N ≥ 2 and let FN = F (A) be free of
+rank N with a free basis A. Then:
+  (i)An element g ∈ F (A) is automorphically minimal in F (A) with respect to a basis A
+     if and only if g is Whitehead minimal in F (A) with respect to A. (Hence g ∈ F (A) is
+     not automorphically minimal with respect to A if and only if there exists a Whitehead
+     automorphism τ such that ||τ (g)||A < ||g||A ).
+ (ii)Whenever u, v ∈ F (A) are Whitehead minimal with respect to A such that the orbits
+     Aut(F (A))u = Aut(F (A))v (so that, in particular, ||u||A = ||v||A ), then there exists
+     a sequence of Whitehead automorphisms τ1 , . . . , τm of F (A) with respect to A such
+     that τm ...τ1 (u) = v and that ||τi ...τ1 (u)||A = ||u||A for i = 1, ..., m.
+  Note that part (2) of Proposition 4·3 holds even if u, v are conjugate in F (A) since
+conjugation by an element of A±1 is a Whitehead automorphism.
+4·1. Algorithmic computability of dprim (g) and dsimp (g)
+   The following useful lemma explicitly states the relationship between primitivity, sim-
+plicity and Whitehead minimality:
+  Lemma 4·4. Let 1 6= w ∈ F (A) = FN .
+ (i)w primitive in F (A) if and only if every (equivalently, some) Whitehead minimal
+    form we of w has ||w||
+                       e A = 1.
+(ii)w is simple in F (A) if and only if some Whitehead minimal form w
+                                                                    e of w misses an
+    a±1
+     i  .
+                   The primitivity index function for a free group                                 15
+(iii)w is simple in F (A) if and only if every Whitehead minimal cyclically reduced form
+     e of w misses an a±1
+     w                  i .
+
+   Proof.
+   Part (1) of the lemma is well-known and follows directly from Proposition 4·3.
+   If some Whitehead minimal form w         e of w misses an a±1   i , then w is simple in F (A) as
+w ∈ F (B) where B = A − {ai } and F (B) is a proper free factor of F (A).
+   Conversely, suppose that w is simple in F (A). Then there exists an automorphism ϕ
+of F (A) such that the cyclically reduced form w        b of ϕ(w) misses a±1   N .
+   Claim 1. We claim that some Whitehead minimal form of w                 b also misses a±1 N .
+   We prove this claim by induction on ||w||         b A . If ||w||
+                                                                b A = 1, then the claim clearly
+holds. Suppose now that ||w||     b A = m > 1 and that the claim has been established for all
+nontrivial cyclically reduced words in F (a1 , . . . , aN −1 ) of length ≤ m − 1.
+   If w  b is already Whitehead minimal in F (A) then we are done as the claim holds in
+this case.
+   If w  b is not Whitehead minimal in F (A) then there exists a Whitehead automorphism
+τ of F (A) such that ||τ (w)||  b A < ||w||
+                                         b A . Note first that since the cyclically reduced length
+of w b changes under τ , we must have that τ is a Whitehead automorphisms of the second
+kind that is not an inner automorphism.
+   Let a ∈ Υ = A t A−1 be the multiplier of τ . If a = a±1       N , since w  b is a cyclically reduced
+word in F (A) that misses the letter a±1       N ,  the definition   of a Whitehead     automorphism
+implies that there can be no cancellation in τ (w)         b between the letters {a1 , . . . , aN −1 }
+when a cyclically reduced form of τ (w)     b is computed. Hence ||τ (w)||    b A ≥ ||w||b A , contrary
+to the fact that ||τ (w)||             b A . Therefore a ∈ {a1 , . . . , aN −1 }±1 . We then define
+                             b A < ||w||
+a Whitehead automorphism τ 0 of F (a1 , . . . , aN −1 ) with respect to {a1 , . . . , aN −1 } as
+τ 0 = τ |{a1 ,...,aN −1 } . Hence τ (w)
+                                      b = τ 0 (w).
+                                               b Thus τ (w)   b still misses a±1   N and ||τ (w)||
+                                                                                                b A <
+||w||
+   b A = m. Applying the inductive hypothesis to τ (w),      b we conclude that some Whitehead
+minimal form w                b in F (A) misses a±1
+                     e of τ (w)                    N . Then w e is also a Whitehead minimal form
+of w,b and Claim 1 is verified.
+   Thus we have established part (2) of the lemma.
+   To see that part (3) holds, note that if every Whitehead minimal cyclically reduced
+form w    e of w misses an a±1  i  then w is simple in F (A).
+   Now suppose w is simple in F (A). From (2) we know that there is a w                   e Whitehead
+minimal cyclically reduced form of w that misses a±1            N  . Let  w 0
+                                                                               be  another  Whitehead
+minimal cyclically reduced form of w in F (A). Then Aut(F (A))w0 = Aut(F (A))w,                   e and
+so by part (2) of Proposition 4·3, there exists a sequence of Whitehead automorphisms
+τ1 , . . . , τm of F (A) with respect to A such that τm ...τ1 (w) e = w0 and that ||τi ...τ1 (w)||
+                                                                                                 e A=
+     0
+||w ||A for i = 1, ..., m.
+   For j = 0, 1, . . . , m denote wj = τj ...τ1 (w),
+                                                   e where w0 = w.    e
+   Claim 2. We claim that for each j = 0, . . . , m the cyclically reduced form of wj misses
+some a±1     i .
+   We will establish Claim 2 by induction on j.
+   If j = 0 then w0 = w and there is nothing to prove. Suppose now that j ≥ 1 and that
+the claim has been verified for wj−1 .
+   Thus the cyclically reduced form of wj−1 misses some a±1           i . If τj is a Whitehead auto-
+morphism of the first kind, it is clear that the cyclically reduced form of τj (wj−1 ) = wj
+still misses some a±1               ±1                      ±1
+                         k (this ak is not necessarily ai ). Suppose now that τj is a White-
+head automorphism of the second kind. The restriction that ||τj (wj−1 )||A = ||wj−1 ||
+16                       Neha Gupta and Ilya Kapovich
+forces the condition that either τj (wj−1 ) is equal to wj−1 after cyclic reduction, or
+else τj is a Whitehead automorphism of the second kind with multiplier a ∈ B t B −1
+where B = {x ∈ A t A−1 |x occurs in the cyclically reduced form of wj−1 } (in particular
+a 6= a±1                                                                             ±1
+      i ). In both cases we see that the cyclically reduced form of wj still misses ai , as
+required. This completes the inductive step and the proof of Claim 2.
+   Applying Claim 2 with j = m shows that the cyclically reduced form of w0 = wm
+misses some a±1i , and part (3) of the lemma is proved.
+
+   Proposition 4·5. Let 1 6= g ∈ H ≤ F (A), where H is a proper free factor of F (A).
+Then the following hold:
+  (i)The element g is primitive in H if and only if g is primitive in FN .
+ (ii)There is an algorithm which decides, given g ∈ F (A), whether or not g ∈ F (A) is
+     primitive.
+(iii)There is an algorithm which given g ∈ F (A), whether or not g ∈ F (A) is simple.
+
+    Proof.
+    We first prove part (1). The “only if” direction is obvious. Thus we assume that g ∈ H
+is primitive in FN .
+    Let K ≤ FN be such that FN = H ∗ K. Let BH = {h1 , . . . , hl } be a free basis for H,
+and BK = {k1 , . . . , km } be a free basis for K. Then BF = {h1 , . . . , hl , k1 , . . . , km } is a
+free basis for FN (here l + m = n).
+    Since g ∈ H, then g is a freely reduced word over BH , with cyclically reduced form w.
+We prove that g is primitive in H by induction on the length m of w.
+    If w has length 1, then g is primitive in H, as required. If w has length m > 1, then
+the fact that w is primitive in FN implies that w is not Whitehead minimal in FN with
+respect to the free basis BF of FN . Hence there exists a Whitehead automorphism τ of
+FN with respect to BF such that ||τ (w)||BF < m. (Note that at this point we do not yet
+know that τ (w) ∈ H since τ is a Whitehead automorphism of FN , and not of H).
+    By the same argument as in the proof of Lemma 4·4, we see that there exists a White-
+head automorphism τ 0 of H = F (BH ) such that τ 0 (w) = τ (w). Then τ (w) = τ 0 (w) ∈ H is
+primitive in FN with ||τ (w)||BF < m. Therefore by the inductive hypothesis the element
+τ (w) = τ 0 (w) is primitive in H. Since τ 0 ∈ Aut(H), it follows that w is also primitive in
+H, as required. Thus part (1) of the proposition holds.
+    To prove parts (2) and (3) for g ∈ F (A) = F (a1 , . . . , FN ), let ge be a Whitehead
+minimal form of g in F (A) (such ge exists by Proposition 4·3. By part (1) of Lemma 4·4,
+||e
+  g ||A = 1 if and only if g is primitive in F (A). By part (3) of Lemma 4·4, ge misses some
+a±1
+  i    if and only if w is simple in F (A).
+
+   Remark 4·6. The algorithm described in part (2) of Proposition 4·5 is due to White-
+head [61]. The first algorithms for deciding whether an element of FN is simple in FN
+were provided by Stallings [57] and Stong [58] in 1990s. Their algorithms are somewhat
+different from the algorithm given in part (3) of Proposition 4·5 above, but they are also
+based on using Whitehead’s algorithm.
+
+  Definition 4·7 (Principal quotient). Following the terminology of [34], for a finite
+connected A-graph Γ1 and a folded A-graph Γ2 , we say that Γ2 is a principal quotient of
+Γ1 if there exists a surjective A-morphism Γ1 → Γ2 .
+
+  Definition 4·8. Let w ∈ FN = F (A) be a nontrivial cyclically reduced word. We
+                 The primitivity index function for a free group                           17
+denote by Cw the A-graph which is a simplicial circle subdivided into n = ||w||A topological
+edges, such that the label of the closed path of length n corresponding to going around
+this circle once from some vertex ∗ to ∗ is the word w.
+   By definition, the graph Cw has a distinguished base-vertex ∗. Thus a principal quo-
+tient of Cw also come equipped with a distinguished base-vertex. We say that (Γ, x) is a
+principal quotient of Cw if Γ is a finite connected folded A-graph, if x ∈ V Γ and if there
+exists a surjective A-morphism f : Cw → Γ such that f (∗) = x.
+
+  Note that if (Γ, x) is a principal quotient of Cw , then there exists a unique path γw,x in
+Γ starting with x and with label w, and, moreover, this path is closed and passes through
+every topological edge of Γ.
+  The following lemma is an immediate corollary of the definitions:
+
+  Lemma 4·9. The following hold:
+ (i)Let Γ1 be a finite connected A-graph and Γ2 be a finite folded A-graph. Then Γ2 is
+    a principal quotient of Γ1 if and only if Γ2 can be obtained from Γ1 by the following
+    procedure: choose some partition V Γ1 = V1 t · · · t Vm (with all Vi 6= ∅), then for each
+    i = 1, . . . , m collapse Vi to a single vertex to get an A-graph Γ01 , and then fold the
+    graph Γ01 to obtain Γ2 .
+(ii)If w ∈ FN = F (A) is a nontrivial cyclically reduced word and Γ is a finite connected
+    folded A-graph, then Γ is a principal quotient of Cw if and only if Γ is a core graph
+    and there exists a closed path γw in Γ with label w such that γw passes through every
+    topological edge of Γ.
+
+  A priori it is unclear that the functions fprim (n) and fsimp (n) are even computable
+for a given FN . We now give an algorithm that calculates dprim (g) and dsimp (g) for any
+non-trivial g. This would then show that the functions fprim (n) and fsimp (n) are indeed
+algorithmically computable.
+
+   Definition 4·10. Let 1 6= g ∈ FN = F (A) and let w ∈ F (A) be the cyclically reduced
+form of g. We denote by G0 (w) the set of all finite connected folded basepointed A-graphs
+(Γ, x) such that there exists a closed path γ from x to x labeled w with the property that γ
+passes through every topological edge of Γ at least once and such that either the labeling
+map Γ → RN is not a covering (that is, there exists a vertex of Γ of degree < 2N ), or the
+labeling map Γ → RN is a covering and the element γ ∈ π1 (Γ, x) is simple in π1 (Γ, x).
+   We denote by G(w) the set of all finite connected folded basepointed A-graphs (Γ, x)
+such that there exists a closed path γ from x to x labeled w with the property that γ passes
+through every topological edge of Γ at least once and such that the element γ ∈ π1 (Γ, x)
+is primitive in π1 (Γ, x).
+
+Let (Γ, x) ∈ G(w) or (Γ, x) ∈ G0 (w). Since w is cyclically reduced and γ passes through
+every topological edge of Γ at least once, every vertex of Γ has degree ≥ 2, so that Γ is
+a core graph.
+  Note further that the condition that γ is simple in π1 (Γ, x) is equivalent to the condition
+that w is simple in the subgroup H ≤ FN represented by (Γ, x). This follows from the
+fact that the labeling map gives an isomorphism µ : π1 (Γ, x) → H, with µ(γ) = w.
+  We recall the following basic fact:
+
+  Lemma 4·11 ([34], p.13). Let Γ be a folded connected A-graph and let Γ0 be a con-
+18                        Neha Gupta and Ilya Kapovich
+nected subgraph of Γ. Let ∗ be a vertex of Γ0 . If H 0 ≤ F (A) is the subgroup represented
+by (Γ0 , ∗) and H is the subgroup represented by (Γ, ∗), then H 0 is a free factor of H.
+  Remark 4·12. In the setting of Lemma 4·11, π1 (Γ0 , ∗) is a free factor of π1 (Γ, ∗).
+   Proposition 4·13. Let 1 6= g ∈ FN = F (A) and let w ∈ F (A) be the cyclically
+reduced form of g. Then the following hold:
+  (i)The number dprim (g) equals to the minimum of #V Γ, taken over all (Γ, x) ∈ G(w).
+ (ii)The number dsimp (g) equals to the minimum of #V Γ, taken over all (Γ, x) ∈ G0 (w).
+  Proof. We give a proof of part (2). The proof of part (1) is very similar in nature.
+However, it additionally involves using part (1) of Proposition 4·5 to prove one of the
+inequalities. For 1 6= g ∈ FN = F (A) and w ∈ F (A) the cyclically reduced form of g, let
+dsimp (g) =     min     #V Γ. First suppose that H ≤ FN such that [FN : H] = dsimp (g) =
+           (Γ,x)∈G0 (w)
+dsimp (w), and that w ∈ H is simple in H. Let (Γ, x) be the graph representing H as in
+Proposition-Definition 2·10. We have that #V Γ = dsimp (w). Since w ∈ H, there exists a
+path γ from x to x in Γ with label w. Also since w ∈ H is simple in H, γ ∈ π1 (Γ, x) is
+simple in π1 (Γ, x). Let Γ0 ⊆ Γ be the subgraph spanned by γ. Then γ is a path from x to
+x in Γ0 that passes through every topological edge in Γ0 at least once. If Γ0 = Γ, then the
+labeling map Γ0 → RN is a covering. Since γ is simple in Γ = Γ0 , we have (Γ0 , x) ∈ G0 (w).
+Since #V Γ0 = #V Γ = dsimp (g), we have that dsimp (g) ≤ dsimp (g). If Γ0 6= Γ, then
+#V Γ0 ≤ #V Γ and #EΓ − #EΓ0 ≥ 1. From Remark 4·12, (Γ0 , x) is a proper free factor
+of (Γ, x). In this case the labeling map Γ0 → RN is not a covering and (Γ0 , x) ∈ G0 (w).
+Thus dsimp (g) ≤ dsimp (g).
+   Conversely suppose that (Γ, x) ∈ G0 (w) with #V Γ = dsimp (g). Let γ be the closed
+path from x to x labeled by w such that γ passes through every topological edge of Γ
+at least once. If the labeling map Γ → RN is a covering then γ ∈ π1 (Γ, x) is simple in
+π1 (Γ, x) by definition of G0 (w). Let H be the subgroup represented by (Γ, x). H is then
+a subgroup of FN of index dsimp (g) with w ∈ H and w simple in H. Hence dsimp (g) =
+dsimp (w) ≤ dsimp (g). If the labeling map Γ → RN is not a covering, we use Lemma 3·4
+to complete (Γ, x) to a finite cover (Γ,
+                                       b x) of RN without adding any extra vertices and
+by adding at least one edge. Again from Remark 4·12, (Γ, x) is a proper free factor of
+ b x). Hence γ ∈ π1 (Γ,
+(Γ,                     b x) is simple in π1 (Γ,
+                                              b x). Let H be the subgroup represented by
+(Γ, x). We have shown that w ∈ H is simple in H. Since #V Γ
+ b                                                              b = #V Γ = dsimp (g), we
+see that dsimp (g) ≤ dsimp (g).
+  We can now prove:
+   Theorem 4·14. Let FN = F (A), where N ≥ 2 and where A = {a1 , . . . , aN } is a free
+basis of FN . Then:
+  (i)There exists an algorithm that, given 1 6= g ∈ FN , computes dprim (g) and dsimp (g).
+ (ii)There exists an algorithm that, for every n ≥ 1 computes fprim (n) and fsimp (n)
+   Proof.
+   Let 1 6= g ∈ FN and let w be the cyclically reduced form of g. Note that a finite
+connected folded base-pointed A-graph (Γ, x) admits a closed path γ from x to x labeled
+w and passing through every topological edge of Γ at least once if and only if (Γ, x) is a
+principal quotient of Cw with x being the image of the base-vertex ∗ of Cw .
+   Therefore we can algorithmically find all the graphs in G0 (w) as follows: List all par-
+titions on V Cw . For each partition of V Cw as a disjoint union of nonempty subsets
+                  The primitivity index function for a free group                               19
+V1 , . . . Vm , collapse Vi to a single vertex for i = 1, . . . , m, and fold the resulting graph to
+obtain a principal quotient (Γ, x) of Cw , with x being the image of the base-vertex ∗ of Cw .
+Let γ be the path from x to x in Γ labeled w (so that, by construction, γ passes through
+every topological edge of Γ at least once). Then check whether the labeling map Γ → RN
+is a covering, that is, whether it is true that every vertex of Γ has degree 2N . If Γ → RN
+is not a covering, the graph (Γ, x) belongs to G0 (w). If Γ → RN is a covering, check, using
+the algorithm from part (3) of Proposition 4·5, whether or not γ ∈ π1 (Γ, x) is simple in
+the finite rank free group π1 (Γ, x). If γ ∈ π1 (Γ, x) is simple in π1 (Γ, x), we conclude that
+the graph (Γ, x) belongs to G0 (w), and γ ∈ π1 (Γ, x) is not simple in π1 (Γ, x), we con-
+clude that he graph (Γ, x) does not belong to G0 (w). Performing this procedure for each
+partition of V Cw as a disjoint union of nonempty subsets produces the finite set G0 (w).
+Proposition 4·13 then implies that dsimp (g) = dsimp (w) = min{#V Γ : (Γ, x) ∈ G0 (w)}.
+   The algorithm for computing dprim (g) = dprim (w) is similar. We first find all the graphs
+in G(w) as follows. Enumerate all partitions of V Cw as a disjoint union of nonempty
+subsets. For each such partition V1 , . . . Vm collapse each Vi , i = 1, . . . , m, to a vertex and
+then fold the result to get a principal quotient (Γ, x) of Cw . There is a path γ from x
+to x in Γ labeled w. Then check, using the algorithm from part (2) of Proposition 4·5,,
+whether or not γ ∈ π1 (Γ, x) is primitive in the free group π1 (Γ, x). If yes, we conclude that
+(Γ, x) ∈ G(w) and if not, we conclude that (Γ, x) 6∈ G(w). This procedure algorithmically
+computes the set G(w).
+   Proposition 4·13 then implies that dprim (g) = dprim (w) = min{#V Γ : (Γ, x) ∈ G(w)}.
+Thus part (1) of the theorem is verified.
+   Part (2) now follows directly from part (1) using the definitions of fprim (n) and
+fsimp (n).
+
+
+   Remark 4·15. The complexity of the algorithms for computing dsimp (g) and dprim (g)
+given in part (1) of Theorem 4·14 is super-exponential in n = ||g||A . The reason is that
+enumerating all principal quotients of the graph Cw requires listing all partitions of the
+n-element set V Cw . The Bell number Bn , which is the number of all partitions of an
+n-element set, grows roughly as nn .
+4·2. Algorithmic computability of df ill (g)
+   We now want to give an algorithm for computing df ill (g). Computationally this al-
+gorithm is not nearly as nice as the algorithms for computing dsimp (g) and dprim (g)
+described above.
+   We briefly recall here some definitions and notations related to the Outer space. We
+refer the reader to [28, 33, 59] for more details. Let N ≥ 2 be an integer. The unpro-
+jectivized Outer space cvN is the set of all of FN -equivariant isometry classes of R-trees
+T such that T is equipped with a free discrete minimal isometric action of FN . The
+projectivized Outer space CVN consists of the projective classes [T ] where T ∈ cvN . Here
+for T ∈ cvN the projective class [T ] of T is the set of all cT ∈ cvN where c ∈ R≥0 . Here
+cT is the same set as T , with the same action of FN , but where the metric on cT is the
+multiple by c of the metric on T .
+   The space cvN is the closure of cvN in the equivariant Gromov-Hausdorff convergence
+topology. It is known that cvN consists precisely of all of FN -equivariant isometry classes
+of R-trees T such that T is equipped with a free minimal very small isometric action of
+FN . The space CVN is the set of all projective classes [T ] where T ∈ cvN (the projective
+20                     Neha Gupta and Ilya Kapovich
+class [T ] for T ∈ cvN is defined similarly as above, as the set of f all cT ∈ cvN where
+c ∈ R≥0 ).
+   The following result provides a useful characterization of filling elements:
+   Proposition 4·16. Let 1 6= g ∈ FN . Then g ∈ FN is filling if and only if StabOut(FN ) ([g])
+is finite.
+   Proof. Solie [54, Lemma 2.42, Lemma 2.44] proves that if g ∈ FN is non-filling then
+StabOut(FN ) ([g]) is infinite. Thus the the “if” direction of Proposition 4·16 holds.
+   Let us now prove the “only if” direction. Suppose StabOut(FN ) ([g]) is infinite. Choose
+a basepoint [T0 ] ∈ CVN . Since the action of Out(FN ) on CVN is properly discon-
+tinuous and since CVN is compact, it follows that there exist an infinite sequence of
+distinct elements ϕn ∈ StabOut(FN ) ([g]) and a point [T ] ∈ CVN − CVN such that
+limn→∞ [T0 ]ϕn = [T ]. Then for some sequence of scalars cn ≥ 0 with cn → 0 as
+n → ∞ we have limn→∞ cn T0 ϕn = T in cvN . Since ϕn ([g]) = [g], it follows that
+||g||T = limn→∞ cn ||ϕn (g)||T0 = 0. Then by Proposition 2·14 the element g is not filling
+in FN , as required.
+   Proposition 4·17. Let FN = F (A), where N ≥ 2 and where A = {a1 , . . . , aN } is a
+free basis of FN . Then there exists an algorithm that, given a nontrivial element g ∈ FN ,
+decides whether or not g is filling in FN .
+   Proof.
+   Let g ∈ FN = F (A) be a nontrivial freely reduced word. By a result of McCool [42]
+the group StabOut(FN ) ([g]) is finitely generated and, moreover, we can algorithmically
+compute a finite generating set Y = {ψ1 , . . . , ψk } of StabOut(FN ) ([g]).
+   In view of Proposition 4·16 we next need to determine if H := hY i ≤ Out(FN ) is
+finite. Wang and Zimmermann [60] prove that for N > 2, the maximum order of a
+finite subgroup of Out(FN ) is 2N N !. Also, the word problem for Out(FN ) is solvable
+(even solvable in polynomial time [50]). Thus we then start building the Cayley graph
+Cay(H; Y ) of H with respect to Y . Using solvability of the word problem in Out(FN ),
+for any finite k we can algorithmically construct the ball B(k) of radius k cantered
+at identity in Cay(H; Y ). We construct the balls B(2N N !) and B(1 + 2N N !). By the
+result of Wang and Zimmermann mentioned above, the group H is finite if and only if
+B(2N N !) = B(1 + 2N N !).
+   Thus we can algorithmically decide whether or not StabOut(FN ) ([g]) is finite, and hence,
+by Proposition 4·16, whether or not g is filling in FN .
+
+
+   Theorem 4·18. Let FN = F (A), where N ≥ 2 and where A = {a1 , . . . , aN } is a free
+basis of FN . Then:
+  (i)There exists an algorithm that, given 1 6= g ∈ FN , computes df ill (g).
+ (ii)There exists an algorithm that, for every n ≥ 1 computes ff ill (n)
+  Proof. Part (2) follows directly from part (1) and from the definition of ff ill (n). Thus
+we only need to establish part (1).
+  Given g ∈ FN , let w be the cyclically reduced form of g. Let Cw and its princi-
+ple quotients be as in Definitions 4·8, 4·7. Enumerate all principle quotients of Cw as
+{Γ1 , . . . , Γk }. For each Γi with 1 ≤ i ≤ k, two possibilities arise:
+Case (i) (Γi is not a finite cover of RN ): In this case, we call Γi a “success”. In this
+                  The primitivity index function for a free group                               21
+case we can complete Γi to a finite cover Γ0i of RN and now π1 (Γi ) is a free factor of
+π1 (Γ0i ). Hence w is simple in in the subgroup represented by Γ0i i.e. w is not filling in the
+subgroup represented by Γ0i .
+Case (ii) (Γi is a finite cover of RN ): In this case there is a closed loop γi in Γi with
+label w. We then use the algorithm from Proposition 4·17 to check whether γi is filling
+in π1 (Γi ). If γi is not filling in π1 (Γi ), and we call Γi a success.
+Finally, observe that df ill (g) = min{V Γi | Γi is a “success”} where this equality is estab-
+lished in a manner similar to that in Proposition 4·13. Thus part (1) of the theorem is
+proved.
+
+
+                              5. Special words and finite covers
+   The main goal of this section is to find a suitable sufficient condition implying that a
+given freely reduced word is filling in a given finite index subgroup of FN represented by
+a finite cover of the rose RN . Similarly we find a suitable sufficient condition implying
+that a given freely reduced word is not simple in a subgroup of FN represented by a given
+finite cover of the rose RN .
+   These goals are accomplished by constructing “simplicity blocking” and “filling forc-
+ing” words in FN of controlled length, provided by Proposition 5·12 and Proposition 5·7
+below. Since the proofs of these Propositions are somewhat technical, we first illustrate
+the idea of their proof by obtaining a related simpler statement, given in Lemma 5·1
+below. The proof of Lemma 5·1 is due to Yuliy Baryshnikov. We then adapt the idea of
+this proof to obtain Proposition 5·7 and Proposition 5·12.
+
+  Lemma 5·1. Let N ≥ 2. Then there exists a constant c0 = c0 (N ) > 0 with the follow-
+ing property. Let (Γ, ∗) be a connected d-fold cover of the N -rose RN , where d ≥ 1. Then
+there exists a freely reduced word v = v(Γ) with |v| ≤ c0 d2 such that for every vertex
+x ∈ V Γ the path p(x, v) from x labeled by v in Γ passes through every topological edge of
+Γ at least once.
+
+   Proof. The graph Γ is a connected 2N -regular graph with d vertices and N d topological
+edges. We can view Γ as a directed graph where the directed edges are labeled by elements
+of A (and without using A−1 ). Then Γ is a connected directed graph where the in-degree
+of every vertex is equal to N , which is also equal to the out-degree of every vertex. Hence
+there exists an Euler circuit in Γ beginning and ending at ∗ consisting of edges labeled
+by elements of A that transverses each topological edge exactly once. Let v1 be the label
+of this Euler circuit. Then v1 is freely reduced and no a−1  i   occurs in v1 for i = 1, . . . , N .
+Enumerate the vertices as V Γ = {x1 , x2 , . . . , xd } with ∗ = x1 . Starting at the vertex
+x2 follow a path p1 with label v1 . Denote the terminal vertex of p1 by z1 . Let p01 be
+an Euler circuit in Γ starting and ending at z1 and consisting only of edges labeled by
+elements of A. Let v2 be the label of this path p01 . Note that since we only consider
+positively labeled edges, the path p2 = p1 p01 is reduced and its label v1 v2 is a positive
+(and hence freely reduced) word over A. We now inductively define a positive word vi+1
+over A given that the positive words v1 , . . . , vi where i ∈ {1, . . . , d − 1} have already
+been defined. Starting at vertex xi+1 we follow a path pi with label v1 . . . vi . Denote the
+terminal vertex of the path pi by zi . Let p0i be an Euler circuit at zi that transverses every
+positively labeled edge exactly once. Let vi+1 be the label of this path p0i . We define our
+word v := v1 v2 . . . vd . Since following a path with label v1 . . . vi at any vertex vi already
+22                       Neha Gupta and Ilya Kapovich
+passes through every topological edge of Γ at least once, so does following a path with
+label v. Since each |vi | = N d for 1 = 1, . . . , d, we have that |v| = N d2 .
+
+5·1. Simplicity blocking words and finite covers
+   In the above proof the concatenation argument always produces reduced edge-paths
+because we only deal with edges and paths labeled by positive words over A. By contrast,
+in proving Proposition 5·7 simple concatenation does not always work as it may result
+in paths that are not reduced. Also, instead of paths labeled by v passing through every
+edge of Γ, we need to ensure a more complicated condition which implies that all paths
+labeled by v in Γ pass through a certain “simplicity-blocking” path α(Γ, T ), which is
+defined below.
+
+   Definition 5·2. Let Γ be a finite connected folded A-graph, let T ⊆ Γ be a maximal
+tree in Γ and let ST be the corresponding basis of π1 (Γ, ∗). Let u = y1 . . . yn be a nontrivial
+freely reduced word over ST±1 . Thus each yi corresponds to an edge ei ∈ E(Γ − T ). We
+define a reduced path δ(u) in Γ as
+                  δ(u) := [∗, o(e1 )]T e1 [t(e1 ), o(e2 )]T e2 . . . . . . en [t(en ), ∗]T .
+
+Note that if d = #V Γ then T has ≤ d − 1 topological edges and hence |δ(u)| ≤ n + (n +
+1)(d − 1) = nd + d − 1 = d(n + 1) − 1.
+
+  Definition 5·3. Let (Γ, ∗) be a finite folded core graph with a base-vertex ∗. Let T ⊆ Γ
+be a maximal subtree in Γ. Let ST = {b1 , . . . , br } be the basis of π1 (Γ, ∗) dual to T .
+  Define a reduced edge-path α(Γ, T ) from ∗ to ∗ in Γ as
+
+                                      α(Γ, T ) := δ(b2r b21 . . . b2r ).
+
+  Remark 5·4. Note that the path α(Γ, T ) is reduced and represents the element b2r b21 . . . b2r
+in π1 (Γ, ∗). The following proposition demonstrates the “simplicity-blocking” property of
+α(Γ, T ). The word b2r b21 . . . b2r has length 2r + 2 and hence |α(Γ, T )| ≤ d(2r + 3) − 1 where
+d = #V Γ. In particular, if Γ is a d-fold cover of the rose RN , then r = d(N − 1) + 1 and
+                   |α(Γ, T )| ≤ d(2d(N − 1) + 3) − 1 ≤ 2d2 (N − 1) + 4d.
+
+  Proposition 5·5. Let Γ be as in Definition 5·3 with T a maximal tree in Γ. Let ST
+and α(Γ, T ) be as before. Let γ ∈ π1 (Γ, ∗) be such that γ is represented by a cyclically
+reduced circuit in Γ containing α(Γ, T ) as a subpath. Then γ is not simple in π1 (Γ, ∗).
+
+   Proof. We first use Proposition 2·5 to rewrite γ as a cyclically reduced word w in
+ST = {b1 , . . . , br }. Then the occurrence of α(Γ, T ) in γ produces an occurrence of the
+reduced word b2r b21 . . . b2r in w. Hence, by Corollary 2·18, in this case γ is not simple in
+F (b1 , . . . , br ) = π1 (Γ, ∗).
+
+
+  Note that Definition 2·3 of a core graph implies that if Γ is a finite connected core
+graph, then Γ does not have any degree-1 vertices.
+
+  Lemma 5·6. Let Γ be a finite connected core graph with d vertices. Suppose that π1 (Γ)
+has rank ≥ 2. Then for any any two edges e1 , e2 ∈ E(Γ), there exists a reduced path
+p(e1 , e2 ) starting at e1 , ending at e2 , and with |p(e1 , e2 )| ≤ 3d.
+                 The primitivity index function for a free group                            23
+
+
+
+
+Fig. 2. Proof by picture for Lemma 5·6
+
+   Proof. Pick a graph Γ0 ⊆ Γ such that Γ0 is a finite, connected, core graph with π1 (Γ0 )
+of rank 2 and e1 , e2 ∈ EΓ0 . Then there are precisely three possibilities for Γ0 . It can be
+the wedge of two circles, or a theta-graph (a circle with a line segment joining two points
+on the circle), or a barbell graph (two circles attached to two ends of a line segment). We
+will show that the result holds for the graph Γ0 , and hence holds for our graph Γ. Our
+proof is essentially going to be a proof by picture for each of these three cases. In Figure
+2, green edges (or arrows) indicate e1 and blue edges (or arrows) indicate e2 . We indicate
+the path p(e1 , e2 ) in red with the • representing the starting point of p(e1 , e2 ) and the →
+representing the direction. The path p(e1 , e2 ) starts at o(e1 ) and ends at t(v1 ). We call a
+“cusp” any vertex of Γ0 of degree ≥ 3 in Γ0 . The idea behind finding this path p(e1 , e2 )
+is always to travel along e1 to the nearest cusp. Then if one is required to go back on the
+same path one has already been on to get to e2 , one instead travels along a disjoint loop
+at the cusp. Now one can go back to e2 and the path p(e1 , e2 ) will be reduced. If after
+traveling from e1 to the cusp one can get to e2 without compromising the fact that the
+path p(e1 , e2 ) is reduced, then one simply goes to e2 and the path p(e1 , e2 ) so obtained
+is reduced. From Figure 2 we see that the result holds.
+
+
+  The following fact plays a key role in the proof of Theorem 1·2:
+   Proposition 5·7. Let N ≥ 2. Then there exists a constant c0 = c0 (N ) > 0 with
+the following property. Let (Γ, ∗) be a connected d-fold cover of the N -rose RN , where
+d ≥ 1 and let T ⊆ Γ be a maximal subtree of Γ. Then there exists a freely reduced word
+v = v(Γ, T ) with |v| ≤ c0 d3 such that for every vertex x ∈ V Γ the path p(x, v) from x
+labeled by v in Γ contains α(Γ, T ) as a subpath.
+  Proof. Let us begin by enumerating the vertices of V Γ = x1 , x2 , . . . , xd . Let H ≤ FN
+be the subgroup of index d that is represented by (Γ, ∗). Let T be a maximal tree in (Γ, ∗)
+and let ST = {b1 , b2 , . . . , br } be the corresponding basis of π1 (Γ, ∗). By Remark 5·4, we
+have |α(Γ, T )| ≤ 2d2 (N − 1) + 4d.
+  Let e be the first edge of the path α(Γ, T ). Starting at the vertex x1 ∈ V Γ, there exists
+a unique path [x1 , ∗]T of length ≤ d − 1 with terminal edge e1 (say). Lemma 5·6 then
+24                      Neha Gupta and Ilya Kapovich
+gives us a reduced path p(e1 , e) = e1 p0 e of length ≤ 3d. Let the word v1 be the label of
+the path p1 = [x1 , ∗]T p0 α(Γ, T ). Note that |v1 | = |p1 | ≤ 2d2 (N − 1) + 8d − 3.
+   Starting at the vertex x2 we follow a path p01 that has label v1 . Let e2 be the terminal
+edge of the path p01 . Then from Lemma 5·6, the path p(e2 , e) = e2 p001 e is reduced with
+|p(e2 , e)| ≤ 3d, and hence |p001 | ≤ 3d − 2. Let the word v2 be the label of the path
+p2 = p001 α(Γ, T ). Now the path p01 p2 = p01 p001 α(Γ, T ) is reduced. Notice that |v2 | = |p2 | ≤
+2d2 (N − 1) + 7d − 1. We now define inductively a sequence of words and paths as follows:
+Suppose we have already defined our words v1 , v2 , . . . , vi−1 which are respectively the
+labels of reduced paths p1 , . . . , pi−1 . Starting at vertex xi we follow the path p0i−1 labeled
+by the word v1 v2 . . . vi−1 . Let ei be the terminal edge of the path p0i−1 . Then the path
+p(ei , e) = ei p00i−1 e is reduced with |p00i−1 | ≤ 3d − 2. Let the word vi be the label of the
+reduced path pi = p00i−1 α(Γ, T ). Now the path p0i−1 pi = p0i−1 p00i−1 α(Γ, T ) is reduced. Let
+the word v := v1 v2 . . . vd . Then notice that at any vertex xi with 1 ≤ i ≤ d, the path
+p0i−1 pi is a reduced path labeled by v1 . . . vi that already contains the subpath α(Γ, T ).
+Thus for i = 1, . . . , d the path starting at xi labeled by the word v1 . . . vd also contains
+the subpath α(Γ, T ). Since for all 2 ≤ i ≤ d, |vi | ≤ 2d2 (N − 1) + 7d − 1, we have that
+|v| ≤ 2d3 (N − 1) + 7d2 − 2 ≤ (2N + 5)d3 . Thus with c0 = 2N + 5, we are done.
+
+
+  If Γ is a finite connected graph and T ⊆ Γ is a maximal subtree, then, following the
+conventions of Bass-Serre theory, we denote
+
+               π1 (Γ, T ) := hEΓ|eē = 1 for all e ∈ EΓ, e = 1 for all e ∈ ET i.
+
+If Γ is equipped with an orientation, then π1 (Γ, T ) is canonically isomorphic to the free
+group F (E+ Γ − E+ T ). Note also that π1 (Γ, T ) is isomorphic to the fundamental group
+of the quotient space Γ/T (where T is collapsed to a point).
+   The freely reduced word v = v(Γ, T ) in F (A) can be viewed as a “simplicity blocking”
+word for the elements of the fundamental group of a d-fold cover Γ of RN .
+
+  Corollary 5·8. Let N ≥ 2 and let c0 = c0 (N ) > 0 be the constant provided by
+Proposition 5·7.
+  Let d ≥ 1, let Γ be a connected d-fold cover of the N -rose RN and let T ⊆ Γ be a
+maximal tree in Γ. Let ∗ ∈ V Γ, let γ be a reduced edge-path from ∗ to ∗ in Γ and let γ 0
+be the cyclically reduced form of the path γ (so that the label of γ 0 is a cyclically reduced
+word in F (A)). Suppose that the label of γ 0 contains as a subword the word v = v(Γ, T )
+with |v| ≤ c0 d3 provided by Proposition 5·7.
+  Then γ ∈ π1 (Γ, ∗) does not belong to a proper free factor of π1 (Γ, ∗).
+
+   Proof. From definitions γ ∈ π1 (Γ, ∗). Using the tree T we can obtain a free basis
+ST = {b1 , . . . , br } of π1 (Γ, T ). Then Proposition 2·5 tells us how to rewrite γ in terms of
+the basis ST , both as freely reduced word and as a cyclically reduced word. Let α(Γ, T )
+be as before. Then for the label of γ 0 to contain the word v, we must have that the
+cyclically reduced form of γ 0 in terms of ST contains b2r b21 . . . b2r as a subword. Now from
+Corollary 2·18 we know that γ 0 is not simple in π1 (Γ, T ). Finally from Lemma 3·6 γ is
+not simple in πi (Γ, T ), that is, γ ∈ π1 (Γ, ∗) does not belong to a proper free factor of
+π1 (Γ, ∗).
+                 The primitivity index function for a free group                           25
+5·2. Filling forcing words and finite covers
+  To proceed further we will once again adapt the idea of proof of Lemma 5·1 to produce
+a “filling-forcing” path β(Γ, T ) of controlled length.
+   Convention 5·9. If F (B) is a free group with |B| = r ≥ 2, then the total number of
+freely reduced words of length 3 in F (B) are L = 2r(2r − 1)2 . Let {u1 , . . . , uL } be the
+set of all freely reduced words of length 3 in B ±1 . Define a freely reduced word uB :=
+u1 y1 u2 y2 u3 y3 . . . yL−1 uL where each yi is either the empty word, or yi ∈ B ±1 . Namely,
+whenever the concatenation uj uj+1 is reduced to begin with, we define yj to be the empty
+word. If this concatenation is not reduced, then we can always choose yj ∈ B ±1 so that
+uj yj uj+1 is reduced in F (B). Note that |u|B ≤ 3L + L − 1 = 4L − 1.
+  We now define the path β(Γ, T ) as follows:
+  Definition 5·10. Let (Γ, ∗) be a finite connected folded core graph with a base-vertex
+∗. Let T ⊆ Γ be a maximal subtree in Γ with E+ (Γ − T ) = {e1 , . . . , er }, and let ST =
+{b1 , . . . , br } be the basis of π1 (Γ, ∗) dual to T . We put
+                                     β(Γ, T ) := δ(uST ).
+Thus β(Γ, T ) is a reduced edge-path from ∗ to ∗ in Γ representing the element uST in
+π1 (Γ, ∗). Recall that uST has length 4L − 1 = 8r(2r − 1)2 − 1. Therefore
+                                |β(Γ, T )| ≤ 8rd(2r − 1)2 − 1
+where d = #V Γ. In particular, if Γ is a d-fold cover of RN then r = d(N − 1) + 1 and
+             |β(Γ, T )| ≤ 8d(d(N − 1) + 1)(2d(N − 1) + 1)2 − 1 ≤ 500d4 N 3 .
+  The following proposition demonstrates the a “filling-forcing” property of the path
+β(Γ, T )
+   Proposition 5·11. Let Γ be as in Definition 5·10 with T a maximal tree. Let ST and
+β(Γ, T ) be as before. Let γ ∈ π1 (Γ, ∗) be such that γ is represented by a cyclically reduced
+circuit in Γ containing β(Γ, T ) as a subpath. Then γ is filling in π1 (Γ, ∗).
+  Proof. We first use Proposition 2·5 to rewrite γ as a cyclically reduced word w in
+ST = {b1 , . . . , br }. Then the occurrence of β(Γ, T ) in γ produces an occurrence of the
+reduced word u1 y1 u2 y2 u3 y3 . . . yl−1 ul in w. Since every reduced word of length 3 now
+occurs in w, by Proposition 2·19 γ is filling in F (b1 , . . . , br ) = π1 (Γ, ∗).
+
+
+ We are now in a position to prove a key proposition that is used in the proofs of
+Theorem 1·1 and Theorem 1·2:
+   Proposition 5·12. Let N ≥ 2. Then there exists a constant c1 = c1 (N ) > 0 with
+the following property. Let (Γ, ∗) be a connected d-fold cover of the N -rose RN , where
+d ≥ 1 and let T ⊆ Γ be a maximal subtree of Γ. Then there exists a freely reduced word
+w = w(Γ, T ) with |w| ≤ c1 d5 such that for every vertex x ∈ V Γ the path p(x, w) from x
+labeled by w in Γ contains β(Γ, T ) as a subpath.
+  Proof. Let us begin by enumerating the vertices of V Γ = {x1 , x2 , . . . , xd }. Let H ≤
+FN be the subgroup of index d that is represented by (Γ, ∗). We have seen above that
+|β(Γ, T )| ≤ 500d4 N 3 .
+26                      Neha Gupta and Ilya Kapovich
+   Let e be the first edge of the path β(Γ, T ). Starting at the vertex x1 ∈ V Γ, there exists
+a unique path [x1 , ∗]T of length ≤ d − 1 with terminal edge e1 (say). Lemma 5·6 then
+gives us a reduced path p(e1 , e) = e1 p0 e of length ≤ 3d. Let the word w1 be the label of
+the path p1 = [x1 , ∗]T p0 β(Γ, T ). Note that |w1 | ≤ 500d4 N 3 + 3d.
+   Starting at the vertex x2 we follow a path p01 that has label w1 . Let e2 be the terminal
+edge of the path p01 . Then from Lemma 5·6, there is a reduced path p(e2 , e) = e2 p001 e with
+|p(e2 , e)| ≤ 3d and |p001 | ≤ 3d−2. Let the word w2 be the label of the path p2 = p001 β(Γ, T ).
+Thus |w2 | = |p2 | ≤ 500d4 N 3 + 3d.
+   Now the path p01 p2 = p01 p001 β(Γ, T ) is reduced, starts at x2 , ends in β(Γ, T ), has label
+w1 w2 and has length
+                             |p01 p2 | = |w1 w2 | ≤ 2(500d4 N 3 + 3d).
+   We proceed inductively as follows. For 2 ≤ i ≤ d suppose that we have already con-
+structed freely reduced words w1 , . . . , wi−1 ∈ FN = F (A) of length |wj | ≤ 500d4 N 3 + 3d
+such that the word w1 . . . wi−1 is freely reduced and such that reading w1 . . . wi−1 from
+the vertex xi−1 gives a reduced path in Γ ending in β(Γ, T ).
+   Starting at vertex xi we follow the path p0i−1 labeled by the word w1 w2 . . . wi−1 . Let
+ei be the terminal edge of the path p0i−1 . Then the path p(ei , e) = ei p00i−1 e is reduced
+with |p00i−1 | ≤ 3d − 2. Let the word wi be the label of the reduced path pi = p00i−1 β(Γ, T ).
+We again have |wi | ≤ 500d4 N 3 + 3d. Now the path p0i−1 pi = p0i−1 p00i−1 β(Γ, T ) is reduced,
+starts with xi and ends in β(Γ, T ), completing the inductive step.
+   Finally let w := w1 w2 . . . wd . Then w is freely reduced, has |w| ≤ 500d5 N 3 + 3d2 ≤
+1000N 3 d5 . By construction w has the property that for i = 1, . . . , d reading w from xi
+gives a path in Γ containing β(Γ, T ) as a subpath. We put w(Γ, T ) := w and c1 = 1000N 3 .
+The conclusion of the proposition now holds.
+
+  The freely reduced word w = w(Γ, T ) in F (A) can be viewed as a “filling forcing” word
+for the elements of the fundamental group of a d-fold cover Γ of RN .
+
+                    6. A lower bound for the non-filling index function
+  Remark 6·1. Let FN = F (a1 , . . . , aN ) be free of rank N ≥ 2, as before. It is well-
+known (see, for example, [39]) that for an integer d ≥ 1 there are ≤ (d!)N subgroups of
+index d in FN . Indeed, every subgroup of index d in FN can be uniquely represented by
+a finite connected folded 2N -regular A-graph on vertices 1, . . . , d, where 1 is viewed as a
+base-vertex. Every such graph Γ is uniquely specified by choosing an ordered N -tuple of
+permutations in Sd . Indeed, if σ1 , . . . , σN ∈ Sd , we construct Γ with V Γ = {1, . . . , d} by
+putting an edge from j to σi (j) labeled by ai for 1 ≤ i ≤ N , and 1 ≤ j ≤ d.
+  Thus indeed FN has ≤ (d!)N subgroups of index d and it has ≤ d(d!)N subgroups of
+index ≤ d.
+
+  Theorem 6·2. Let N ≥ 2 and let FN = F (A) where A = a1 , . . . , aN . Then there
+exists a constant c > 0 and an integer M ≥ 1 such that for all n ≥ M we have
+                                                                   log n
+                        fprim (n) ≥ fsimp (n) ≥ ff ill (n) ≥ c             .
+                                                                 log log n
+   Proof.
+   Let d ≥ 1 be an integer. Denote m(d) = m := d(d)!N . Enumerate all the subgroups
+of FN of index ≤ d as H1 , . . . , Hm (we do allow repetitions in this list since the actual
+                  The primitivity index function for a free group                                27
+number of such distinct subgroups is < m(d). Let Γ1 , . . . , Γm be the base-pointed finite
+covers of the rose RN representing the subgroups H1 , . . . , Hm .
+   For i = 1, . . . , m let wi ∈ F (A) be the freely reduced “filling forcing” word with
+|wi | ≤ c1 d5 corresponding to Γi as provided by Proposition 5·12. We can now construct
+a freely reduced and cyclically reduced word
+                                zd := w1 u1 w2 u2 . . . um−1 wm um
+where each ui is either the empty word or ui ∈ {a1 , . . . , aN }±1 . Then
+                                  ||zd || ≤ c1 md5 = c1 d6 (d!)N .
+
+   We claim that df ill (zd ) > d. Indeed, suppose not, that is suppose that df ill (zd ) ≤ d.
+Then there exists 1 ≤ i ≤ m such that zd ∈ Hi and that zd is a non-filling element of
+Hi = π1 (Γi , ∗). Let γ be the path in Γi from ∗ to ∗ labeled by zd . By Proposition 5·12 the
+fact that zd is cyclically reduced and contains wi as subword implies that γ contains the
+path β(Γi , T ) as a subword. Hence, by Proposition 5·11, γ is a filling element in π1 (Γi , ∗),
+yielding a contradiction. Thus indeed df ill (zd ) > d.
+   Now for d ≥ 1 let nd := c1 d6 (d!)N . We also put n0 = 1. Then for every integer d ≥ 0
+we have ff ill (nd ) > d. By Stirling’s formula, there is C > 0 such that for all sufficiently
+large d ≥ 1 we have
+                                                log nd
+                                        d≥C                                                  (†)
+                                              log log nd
+Similarly, using a standard calculus argument we see that for all sufficiently large d we
+have
+                               log(nd−1 )     1 log(nd )
+                                            ≥                .                         (‡)
+                             log log(nd−1 )   2 log log(nd )
+Let d0 ≥ 2 be such that for all d ≥ d0 the inequalities (†) and (‡) hold and that the
+                           log x
+function the function              is monotone increasing on the interval [nd0 −1 , ∞).
+                         log log x
+   Now let n ≥ nd0 +1 be an arbitrary integer. There exists a unique d ≥ 0 such that
+nd−1 < n ≤ nd . Since ff ill (n) is a non-decreasing function, we get that ff ill (n) ≥
+ff ill (nd−1 ) > d − 1 and d − 1 ≥ d0 .
+   Then
+                                                 log(nd−1 )     C log(nd )       C log n
+     ff ill (n) ≥ ff ill (nd−1 ) > d − 1 ≥ C                  ≥                ≥             ,
+                                               log log(nd−1 )   2 log log(nd )   2 log log n
+and the conclusion of the theorem follows.
+
+
+                      7. Non-backtracking simple random walk on FN
+  Convention 7·1. In this paper we use the standard big-O and big-Θ conventions.
+For functions f, g : N → R we write f = O(g) (or sometimes f (n) = O(g(n))) if there
+exist an integer n0 ≥ 1 and a constant C > 0 such that for all integers n ≥ n0 we
+have |f (n)| ≤ C|g(n)|. For such f, g we write f = Θ(g) if f = O(g) and g = O(f ). In
+particular, if f (n) = O(g(n)) and limn→∞ g(n) = 0 then limn→∞ f (n) = 0.
+
+  Recall that we set for the free group FN = F (A) = F (a1 , . . . , aN ) (where N ≥ 2) a
+distinguished free basis A = {a1 , . . . , aN }. Put Υ = A ∪ A−1 .
+28                    Neha Gupta and Ilya Kapovich
+   Definition 7·2. We consider the following finite-state Markov chain X . The set of
+states for X is Υ. For x, y ∈ Υ, the transition probability Px,y from x to y is defined as:
+                                    (
+                                        1
+                                            ,   if y 6= x−1
+                            Px,y := 2N −1                     .
+                                      0, if y = x−1
+
+  Let M be the transition matrix of X . That is, M is a 2N × 2N matrix with columns
+and rows indexed by Υ where for x, y ∈ Υ the entry mx,y in M is equal to 1 if y 6= x−1
+and is equal to 0 if y = x−1 .
+  We summarize the following elementary properties of X , which easily follow from the
+definitions:
+
+   Lemma 7·3. Let N ≥ 2 and X be as in Definition 7·2. Then:
+  (i)X is an irreducible aperiodic finite-state Markov chain.
+ (ii)The uniform probability distribution µ1 on Υ is stationary for X .
+(iii)The matrix M is an irreducible aperiodic nonnegative matrix with the Perron-Frobenius
+     eigenvalue λ = 2N − 1.
+
+   Proof. For any x, y ∈ Υ there exists z ∈ Υ such that xzy is a freely reduced word.
+Hence Px,z Pz,y > 0, which means that X is an irreducible Markov chain. The fact that
+for every x ∈ Υ, we have Px,x > 0 implies that X is aperiodic. Thus (1) is verified.
+   Part (2) easily follows from the definition of X by direct verification.
+   Part (1) implies that M is an irreducible aperiodic nonnegative matrix. Therefore, by
+the basic Perron-Frobenius theory, the spectral radius λ := max{|λ∗ | : λ∗ ∈ C is an eigenvalue of M }
+is a positive real number which is itself an eigenvalue of M called the Perron-Frobenius
+eigenvalue of M . It is also known that λ admits an eigenvector with strictly positive
+coordinates, and that any other eigenvalue of M admitting such an eigenvector is equal
+to λ. It is easy to see from the definition of M that for the vector v with all entries equal
+to 1 we have M v = (2N − 1)v. Therefore λ = 2N − 1, as claimed.
+
+   Let Ω = ΥN = {ω = x1 , x2 , . . . |xi ∈ Υ}. We put the discrete topology on Υ and the
+product topology on Ω so that Ω becomes a compact Hausdorff space. For every finite
+word σ ∈ Υ∗ the cylinder Cyl(σ) ⊆ Ω consists of all sequences ω ∈ Ω with σ as the
+initial segment. For each σ ∈ Υ∗ the set Cyl(σ) is compact and open in Ω and the sets
+{Cyl(σ)|σ ∈ Υ∗ } provide a basis for the product topology on Ω.
+   By using the uniform distribution µ1 on Υ as the initial distribution for X , the Markov
+chain X defines a Borel probability measure µ on Ω via the standard convolution formula:
+   For σ = x1 . . . xn ∈ Υ∗ ,
+
+                         µ(Cyl(σ)) = µ1 (x1 )Px1 ,x2 . . . Pxn−1 ,xn .
+
+  Note that the support of µ is exactly ∂FN , that is, the set of all semi-infinite freely
+reduced words ω = x1 , x2 , . . . over Υ.
+
+   Convention 7·4. For σ ∈ Υ∗ (where Υ∗ is the set of all words over the alphabet
+Υ) we denote µ(σ) := µ(Cyl(σ)). Also, for the remainder of this section we denote
+λ := 2N − 1.
+
+  The following is a direct corollary of the definitions:
+                 The primitivity index function for a free group                            29
+                                        ∗
+  Lemma 7·5. Let σ = x1 . . . xn ∈ Υ , where n ≥ 1. Then
+                        (
+                                  1
+                                     n−1 ,    if σ is freely reduced,
+                µ(σ) = 2N (2N −1)
+                           0,    if σ is not freely reduced.
+  Notation 7·6. Let v, w ∈ Υ∗ . We denote by hv, wi the number of times the word v
+occurs as a subword of w.
+  For n ≥ 1 let S(n) be the set of all freely reduced words of length n in Υ∗ (so that
+                             2N
+#(S(n)) = 2N (2N −1)n−1 = 2N       n
+                               −1 λ ), and let µn be the uniform probability distribution
+on S(n).
+  The following statement is a special case, when applied to X , of Proposition 3.13 in [20]
+(which in turn is based on the proof of the main result of Dinwoodie [23]).
+   Proposition 7·7. Let ε > 0 and 0 < ` < 1. Then there exist constants C1 > 1 and
+C2 > 0, depending on ε and `, with the following property. Let n ≥ 1 and σ ∈ Υ∗ be a
+freely reduced word be such that |σ| = ` logλ n = ` log n/ log λ. Then for wn ∈ S(n) we
+have
+                                                                        C2
+                  1 − Pµn (|hσ, wn i − nµ(σ)| < nε+(1−`)/2 ) = O(C1−n ),
+                                              −1 −|σ|      −1 −`
+and therefore, since λ = 2N − 1 and µ(σ) = 2N
+                                            2N λ      = 2N
+                                                         2N n ,
+
+                                     2N − 1 1−`                        C2
+              1 − Pµn ( hσ, wn i −         n    < nε+(1−`)/2 ) = O(C1−n ),
+                                      2N
+  Corollary 7·8. Let ε > 0 and 0 < ` < 1. Let constants C1 = C1 (ε, `) > 1 and
+C2 = C2 (ε, `) > 0 be the constants provided by Proposition 7·7.
+ (i)Let n ≥ 1 and let En ⊆ S(n) consist of those wn ∈ S(n) such that for every freely
+    reduced σ ∈ Υ∗ with |σ| = ` logλ n = ` log n/ log λ we have
+                                           2N − 1 1−`
+                              hσ, wn i −         n    < nε+(1−`)/2 ,
+                                            2N
+    Then
+                                                            C2
+                                                                
+                              1 − Pµn (wn ∈ En ) = O n` C1−n      .
+
+(ii)Suppose that ε > 0, 0 < ` < 1 are chosen so that ` < 1 − 2ε, and thus 1 − ` >
+    ε + (1 − `)/2. Let Hn ⊆ S(n) consist of all wn ∈ S(n) such that for every freely
+    reduced σ with |σ| = ` logλ n we have
+                                                   2N − 1 1−`
+                                      hσ, wn i ≥         n .
+                                                    4N
+    Then for n ≥ n0 we have
+                                                                C2
+                               1 − Pµn (wn ∈ Hn ) = O(n` C1−n ).
+                                                                0
+   Proof. For every freely reduced σ with |σ| = ` logλ n let En,σ   consist of all wn ∈ S(n)
+                                 ε+(1−`)/2
+such that |hσ, wn i − nµ(σ)| ≥ n           . Thus, by Proposition 7·7, for every such σ we
+                           C2
+            0
+have Pµn (En,σ  ) = O(C1−n ).
+   Suppose wn 6∈ En . Then there exists freely reduced σ ∈ Υ∗ with |σ| = ` logλ n such
+              0
+that wn ∈ En,σ    . Since there are O(n` ) freely reduced words σ with |σ| = ` logλ n, it
+                                            C2
+                                                                                    C2
+                                                                                         
+follows that Pµn (S(n) \ En ) = O n` C1−n         . Hence 1 − Pµn (En ) = O n` C1−n        , as
+required, and part (1) of Corollary 7·8 is verified.
+30                     Neha Gupta and Ilya Kapovich
+  Part (2) now directly follows from part (1).
+  Notation 7·9. For a freely reduced word w ∈ Υ∗ let ι(w) be the maximal initial
+segment of w such that (ι(w))−1 is a terminal segment of w. Let w̃ be the word obtained by
+removing the initial and terminal segments of w of length |ι(w)|. Thus w̃ is the cyclically
+reduced form of w.
+  The following facts are well-known and easy to check by a direct counting argument;
+see [2] for details:
+  Lemma 7·10. The following hold:
+ (i)For every 0 < ε0 < 1 there exists C0 > 1 such that for wn ∈ S(n)
+                              1 − Pµn (|ι(wn )| ≤ ε0 n) = O(C0−n ).
+(ii)There is C > 1 such that for wn ∈ S(n)
+                    1 − Pµn (wn is not a proper power in FN ) = O(C −n ).
+
+      8. Bounding below the simplicity and the non-filling index for random elements
+   Recall that for a nontrivial element g ∈ FN we denote by dsimp (g) the smallest d ≥ 1
+such that there exists a subgroup H ≤ FN with [FN : H] ≤ d such that g ∈ H and,
+moreover, that g belongs to a proper free factor of H. Similarly, for g ∈ FN − {1} we
+denote by dprim (g) the smallest d ≥ 1 such that there exists a subgroup H ≤ FN with
+[FN : H] ≤ d such that g ∈ H and, moreover, that g is primitive in H. As we have seen,
+for every g ∈ FN − {1} we have dsimp (g) ≤ dprim (g) ≤ ||g||A , where A = {a1 , . . . , an }
+is a free basis of FN . Recall that for n ≥ 1 we denote by µn the uniform probability
+distribution on the sphere S(n) ⊆ F (A) = FN .
+   For the remainder of the paper we adopt the convention that whenever we mention a
+word of length t ≥ 0 where t is not necessarily an integer, we actually mean a word of
+length btc.
+   We can now prove Theorem 1·2 from the Introduction:
+  Theorem 1·2. Let N ≥ 2 and let FN = F (A) where A = {a1 , . . . , aN }.
+  Then there exist constants c(N ) > 0, D1 (N ) > 1, 1 > D2 (N ) > 0, such that for n ≥ 1
+and for a freely reduced word wn ∈ F (A) of length n chosen uniformly at random from
+the sphere S(n) of radius n in F (A) we have
+                                                               D2
+                                                                     
+                   1 − Pµn dsimp (wn ) ≥ c log1/3 n = O (D1 )−n
+
+and
+                                                               D2
+                                                                     
+                    1 − Pµn df ill (wn ) ≥ c log1/5 n = O (D1 )−n
+
+so that
+                                                         
+                          lim Pµn dsimp (wn ) ≥ c log1/3 n = 1
+                          n→∞
+
+and
+                                                           
+                           lim Pµn df ill (wn ) ≥ c log1/5 n = 1
+                          n→∞
+
+  Proof.
+  Choose ε > 0 and 0 < ` < 1 such that ` < 1 − 2ε (for concreteness we can take ` = 1/2
+                 The primitivity index function for a free group                           31
+and ε = 1/5). Thus 1 − ` > ε + (1 − `)/2 > 0. Let n0 ≥ 1 be such that for all n ≥ n0 we
+have
+                        2N − 1
+                               (0.99n)1−` ≥ (0.99n)ε+(1−`)/2 ≥ 1.
+                          4N
+(The choice of the number 0.99 here is essentially arbitrary, and the argument would
+also work if 0.99 is replaced by any other number sufficiently close to 1.) Let C1 > 1
+and C2 > 0 be the constants provided by Corollary 7·8. Note that we can assume that
+0 < C2 < 1 since decreasing C2 preserves the validity of the conclusion of Corollary 7·8.
+   For wn ∈ S(n) denote by wn0 the subword of wn obtained by removing the initial and
+terminal segments of length 0.005n from wn . Then |wn0 | = 0.99n so that wn0 ∈ S(0.99n).
+Since the uniform distribution on A±1 is stationary for the Markov chain X , it follows
+that under the map S(n) → S(0.99n), wn 7→ wn0 the uniform distribution µn on S(n)
+projects to the uniform distribution µ0.99n on S(0.99n).
+   Let Hn0 be the event that for wn ∈ S(n) the word wn0 satisfies the property that for
+every freely reduced word σ ∈ F (A) with |σ| = ` logλ (0.99n) we have
+                                          hσ, wn0 i ≥ 1.
+                             −1
+Since for n ≥ n0 we have 2N 4N (0.99n)
+                                        1−`
+                                             ≥ (0.99n)ε+(1−`)/2 ≥ 1, Corollary 7·8 implies
+that
+                                −(0.99n)C2                                        C0
+                                                             C2 C2
+                                                                                   
+   1 − Pµn (Hn0 ) = O((0.99n)` C1          ) = O n` (C1 )−0.99 n      = O (C10 )−n 2 ,
+
+where C10 = (C1 + 1)/2 and C20 = C2 /2 (for the last inequality we use the fact that
+0 < C2 < 1). Note that C10 > 1 and 1 > C20 > 0.
+   Let Qn ⊆ S(n) be the event that for wn ∈ S(n) we have ι(wn ) ≤ 0.001n. Lemma 7·10
+implies that Pµn (Qn ) ≥ 1 − O(C0−n ) for some constant C0 > 1. Now let Hn00 be the set of
+all wn ∈ Hn0 such that ι(wn ) ≤ 0.001n, that is, Hn00 = Hn0 ∩ Qn .
+   Then
+
+                                       C0
+                                                                   D2
+                                                                         
+           1 − Pµn (Hn00 ) = O (C10 )−n 2 − O(C0−n ) ≥n→∞ = O (D1 )−n      ,
+
+where D1 = min{C0 , C10 } and D2 = min{C20 , 1} = C20 , so that D1 > 1 and 1 > D2 > 0.
+                                              `
+   We choose c > 0 such that c0 c3 ≤ 2 log(2N    −1) , where c0 > 0 is the constant provided
+by Proposition 5·7.
+   Let n ≥ n0 and let wn ∈ S(n) be such that wn ∈ Hn00 .
+   Since ι(wn ) ≤ 0.001n and since wn0 is the subword of wn obtained by removing the
+initial and terminal segments of length 0.005n from wn , it follows that wn0 is a subword
+of the cyclically reduced form w̃n of wn .
+   Let d = dsimp (wn ) = dsimp (w̃n ). We claim that d ≥ c log1/3 n.
+   Indeed, suppose not, that is, suppose that d < c log1/3 n. Let (Γ, x0 ) be a d-fold cover
+of the N -rose (RN , ∗) such that w̃n lifts to a loop γn from x0 to x0 in Γ such that γn
+belongs to a proper free factor of π1 (Γ, x0 ). Note that since w̃n is cyclically reduced, the
+closed path γn is also cyclically reduced.
+   Let T be a maximal subtree of Γ and let v = v(Γ, T ) be the freely reduced word in
+F (A) with |v| ≤ c0 d3 provided by Proposition 5·7. Thus |v| ≤ c0 d3 ≤ c0 c3 log n.
+   By definition of Hn00 , the fact that wn ∈ Hn00 implies that the word wn0 contains as
+subwords all freely reduced words in F (A) of length
+                                              `
+                      ` logλ (0.99n) =               (log n − | log 0.99|)
+                                         log(2N − 1)
+32                        Neha Gupta and Ilya Kapovich
+There is n1 ≥ n0 such that for all n ≥ n1 we have
+                          `                                     `
+                                 (log n − | log 0.99|) ≥               log n.
+                     log(2N − 1)                         2 log(2N − 1)
+Hence for n ≥ n1 the word wn0 contains as subwords all freely reduced words of length
+      `                             3              `                              0
+2 log(2N −1) log n. Since |v| ≤ c0 c log n ≤ 2 log(2N −1) log n, it follows that wn contains v
+as a subword.
+   Recall that wn0 is a subword of the cyclically reduced form w̃n of wn . Therefore, by
+Proposition 5·7, the path γn in Γ, labeled by w̃n , contains α(Γ, T ) as a subpath. Hence,
+by Corollary 5·8, γn does not belong to a proper free factor of π1 (Γ, x0 ), yielding a
+contradiction. Thus d = dsimp (wn ) ≥ c log1/3 n, as claimed.
+   We have verified that for every wn ∈ Hn00 , where n ≥ n1 , we have dsimp (wn ) ≥ c log1/3 n,
+and we also know that
+                                                            D2
+                                                                
+                               1 − Pµn (Hn00 ) = O (D1 )−n        .
+
+The conclusion of Theorem 1·2 regarding dsimp (wn ) is established.
+   The proof of the conclusion of Theorem 1·2 regarding df ill (wn ) is identical, with Propo-
+sition 5·11 and Proposition 5·12 used instead of Proposition 5·7 and Corollary 5·8. We
+leave the details to the reader.
+
+
+                     9. Untangling closed geodesics on hyperbolic surfaces
+9·1. Lower bounds for degΣ,ρ and fΣ,ρ for hyperbolic surfaces.
+  We need the following well-known fact:
+  Lemma 9·1. Let S be a compact connected surface with b ≥ 2 boundary components
+such that π1 (S) is free of rank ≥ 2. Let γ be an essential simple closed curve (possible
+peripheral) on S and let x ∈ S be a base-point for S. Then the element of π1 (S, x) given
+by any loop at x corresponding to γ belongs to a proper free factor of π1 (S, x).
+   Proof.
+   Without loss of generality we may assume that x ∈ γ.
+   By assumption, we have π1 (S, x) = Fm with m ≥ 2. Since S has b ≥ 2 boundary
+components, it follows that every boundary component (when realized as a loop at x)
+represents a primitive element of Fm .
+   Let γ be an essential simple closed curve on S. If γ is peripheral, then γ is a primitive
+element of Fm and thus belongs to a proper free factor of Fm .
+   Suppose now that γ is non-peripheral. Then cutting S along γ yields a nontrivial
+splitting of Fm = π1 (S) as an amalgamated product (if γ is separating) or as an HNN-
+extension (if γ is non-separating) over hγi = Z. Suppose that γ is separating, and it
+cuts S into two compact surfaces S1 and S2 with S1 ∩ S2 = γ and S1 ∪ S2 = S, each of
+π1 (S1 ), π1 (S2 ) is free of rank ≥ 2. Thus Fm = π1 (S, x) = π1 (S1 , x) ∗γ π1 (S2 , x). The fact
+that b ≥ 2 means that at least one of S1 , S2 has ≥ 2 boundary components. Assume for
+concreteness that S1 has ≥ 2 boundary components. Then γ is primitive in π1 (S1 , x).
+Thus we can find a free basis a1 , . . . , am of π1 (S1 , x) such that m ≥ 2 and γ = am . Also
+choose a free basis b1 , . . . , bk of π1 (S2 , x), where k ≥ 2. Let v ∈ F (b1 , . . . , bk ) = π1 (S2 , x)
+be the freely reduced word equal to γ in π1 (S2 , x). Then the above splitting of π1 (S, x) can
+be written as π1 (S, x) = F (a1 , . . . , am ) ∗am =v F (b1 , . . . , bk ). By eliminating the generator
+                   The primitivity index function for a free group                                 33
+am from this presentation, we see that π1 (S, x) = F (a1 , . . . , am−1 , b1 , . . . , bk ). Thus γ =
+v(b1 , . . . , bk ) belongs to a proper free factor F (b1 , . . . , bk ) of π1 (S, x), as required. The
+case where γ is non-separating is similar, and we leave the details to the reader.
+   Note that there is a general result (see, for example, [4, Lemma 4.1] and [55, Propo-
+sition 5.1]) which says that whenever the free group FN (with N ≥ 2) splits nontrivially
+as an amalgamated free product or an HNN-extension over a maximal infinite cyclic
+subgroup hgi, then g belongs to a proper free factor of FN .
+
+  The following proposition relates the degree function degΣ,ρ (γ) for curves in hyperbolic
+surfaces discussed in the Introduction, with the simplicity index dsimp in free groups for
+curves contained in suitable subsurfaces:
+
+  Proposition 9·2. Let (Σ, ρ) be a compact connected hyperbolic surface with (possibly
+empty) geodesic boundary. Let Σ1 ⊆ Σ be a compact connected subsurface with ≥ 3
+boundary components, each of which is a geodesic in (Σ, ρ). Let x ∈ Σ1 be a base-point.
+Then for every nontrivial element g ∈ π1 (Σ1 , x) represented by a closed geodesic γg on
+Σ we have
+                                degΣ,ρ (γg ) ≥ dsimp (g; π1 (Σ1 , x)).
+
+   Proof. By assumption π1 (Σ1 , x) ∼
+                                    = Fm is free of rank m ≥ 2. The fact that Σ1 is
+a subsurface of Σ with geodesic boundary implies that if g ∈ π1 (Σ1 , x) is a nontrivial
+element, then the shortest geodesic in Σ in the free homotopy class of g is contained in
+Σ1 . Indeed, the universal cover X := (Σ^ 1 , x) is a convex π1 (Σ1 , ∗)-invariant subset of
+^          2
+(Σ, x) = H . Therefore for every nontrivial element g ∈ π1 (Σ1 , x) the axis Axis(g) of g
+in H2 is contained in X. The image of Axis(g) in Σ is the unique closed geodesic in the
+free homotopy class of g; the fact that Axis(g) ⊆ X implies that this closed geodesic is
+contained in Σ1 , as claimed.
+   Now let 1 6= g ∈ π1 (Σ1 , x) and γg be as in the assumptions of the proposition. Thus
+γg is contained in Σ1 .
+   Let d = degΣ,ρ (γg ). Let p : Σ    b → Σ be a d-fold cover of Σ such that γg lifts to a simple
+closed geodesic γ   bg in Σ. b Let Σ  b1 ⊆ Σ b be the connected component of the full preimage
+  −1                                           b 1 → Σ1 is a d0 -fold cover of Σ1 with d0 ≤ d. Pick
+p (Σ1 ) of Σ1 containing γ       bg . Then p : Σ
+                  0                        0
+a base-point x ∈ Σ1 such that p(x ) = x.
+                      b
+   The cover p : (Σ  b 1 , x0 ) → (Σ1 , x) corresponds to a subgroup H ≤ π1 (Σ1 , x) of index d0 ,
+such that p# (π1 (Σ  b 1 , x)) = H, and that p# maps π1 (Σ   b 1 , x0 ) isomorphically to H.
+   Since Σ b 1 is a cover of Σ1 , the surface Σ   b 1 has ≥ 2 boundary components and π1 (Σ       b 1)
+is free of rank ≥ 2. By Lemma 9·1, the fact that γ         bg is an essential simple closed curve
+on Σb 1 implies that γ  bg corresponds an element w ∈ π1 (Σ      b 1 , x0 ) which belongs to a proper
+                              0
+free factor of π1 (Σ  b 1 , x ). Since p(bγg ) = γg , we have p# (w) = g ∈ H. Since p# maps
+          0
+π1 (Σ1 , x ) isomorphically to H, we conclude that g belongs to a proper free factor of H.
+    b
+Thus H ≤ π1 (Σ1 , x), [π1 (Σ1 , x) : H] = d0 and g belongs to a proper free factor of H.
+Therefore d0 ≥ dsimp (g; π1 (Σ1 , x)). Therefore
+                           degΣ,ρ (γg ) = d ≥ d0 ≥ dsimp (g; π1 (Σ1 , x)),
+as required.
+
+
+  Theorem 9·3. Let Σ be a compact connected surface with a hyperbolic structure ρ and
+34                     Neha Gupta and Ilya Kapovich
+with (possibly empty) geodesic boundary. Let Σ1 ⊆ Σ be a compact connected subsurface
+with ≥ 3 boundary components, each of which is a geodesic in (Σ, ρ). Let x ∈ Σ1 and let
+A be a free basis of π1 (Σ1 , x).
+  Let wn ∈ F (A) = π1 (Σ1 , x) be a freely reduced word of length n over A±1 generated
+by a simple non-backtracking random walk on F (A) = π1 (Σ1 , x). Let γn be the closed
+geodesic on (Σ, ρ) in the free homotopy class of wn .
+  Then there exist constants c > 0, K 0 ≥ 1 such that
+
+                            lim P r(degΣ,ρ (γn ) ≥ c log1/3 n) = 1
+                           n→∞
+
+and such that with probability tending to 1 as n → ∞ we have that wn ∈ π1 (Σ, x) is not
+a proper power and that n/K 0 ≤ `ρ (γn ) ≤ K 0 n.
+
+   Proof. As we have seen in the proof of Proposition 9·2, the fact that Σ1 is a subsurface
+of Σ with geodesic boundary implies that if g ∈ π1 (Σ1 , ∗) is a nontrivial element, then
+the shortest geodesic in Σ in the free homotopy class of g is contained in Σ1 .
+   By Theorem 1·2 and Lemma 7·10, there exist an integer n0 ≥ 1 such that for n ≥ n0 ,
+with probability tending to 1 as n → ∞ we have that wn is not a proper power in F (A),
+that 0.99n ≤ ||wn ||A ≤ n = |wn |A and dsimp (wn ; F (A)) ≥ c log1/3 n, where c = c(A) > 0
+is the constant provided by Theorem 1·2 for the free group Fm = F (A).
+   Proposition 9·2 now implies that with probability tending to 1 as n → ∞ we have
+                        degΣ,ρ (γn ) ≥ dsimp (wn ; F (A)) ≥ c log1/3 n.
+   Finally, the fact that Σ1 has geodesic boundary in (Σ, ρ) also implies that there exists
+a constant K ≥ 1 such that for every nontrivial element g ∈ π1 (Σ1 , x) represented by a
+closed geodesic γ on (Σ, ρ) we have ||g||A /K ≤ `ρ (γ) ≤ K||g||A . Since with probability
+tending to 1 as n → ∞ we have 0.99n ≤ ||wn ||A ≤ n = |wn |A , it follows that for all
+sufficiently large n with with probability tending to 1 as n → ∞ we have 0.99n/K ≤
+`ρ (γn ) ≤ Kn, as required.
+
+
+  Remark 9·4. Theorem 9·3 directly implies (e.g. by taking Σ1 to be a suitable pair-of-
+pants subsurface) that if (Σ, ρ) is a compact connected hyperbolic surface of genus ≥ 2
+with (possibly empty) geodesic boundary, then there exists c0 = c0 (Σ) > 0 such that for
+every L ≥ sys(ρ) we have fρ (L) ≥ c0 (log L)1/3 .
+9·2. Lower bounds for degfΣ,ρ
+                           ill      f ill
+                               and fΣ,ρ   for hyperbolic surfaces.
+   Our results about the behavior of df ill in free groups can also be used to obtain
+information about degfΣ,ρ
+                       ill
+                           for compact hyperbolic surfaces.
+
+   Lemma 9·5. Let (Σ, ρ) be a compact connected hyperbolic surface with b ≥ 1 geodesic
+boundary components. Then the following hold:
+  (i)If γ is a non-filling closed geodesic on (Σ, ρ) , then γ represents a non-filling element
+     of the free group π1 (Σ).
+ (ii)For any closed geodesic γ on (Σ, ρ) we have degfΣ,ρ  ill
+                                                              (γ) ≥ df ill (γ, π1 (Σ)).
+
+  Proof. To see that (1) holds, let γ be a non-filling closed geodesic on (Σ, ρ). Then either
+γ is contained in a proper compact connected subsurface Σ1 of (Σ, ρ) with geodesic
+boundary or Σ − γ is a union of disks, peripheral annuli and non-peripheral annuli
+                  The primitivity index function for a free group                             35
+A1 , . . . , Ak (where k ≥ 1). In the latter case the simple closed geodesics α1 , . . . , αk
+homotopic to the core curves of A1 , . . . , Ak are disjoint from γ, and we put Σ1 to be the
+surface obtained by cutting Σ open along the curves α1 , . . . , αk .
+  In either case, cutting Σ open along the boundary of Σ1 provides a nontrivial graph-of-
+groups decomposition of π1 (Σ) with maximal cyclic edge groups and such that γ belongs
+to a vertex group of this decomposition. Hence γ is non-filling in π1 (Σ). Thus (1) holds.
+  For (2), let γ be a closed geodesic on (Σ, ρ). Let d = degfΣ,ρ      ill             b → Σ
+                                                                          (γ) and let Σ
+be a degree-d cover such that γ lifts to a closed non-filling geodesic γ    b on Σ.
+                                                                                 b This cover
+corresponds to a subgroup H = π1 (Σ1 ) ≤ π1 (Σ) of index d containing the element γ. The
+fact that γb is a non-filling curve in Σ1 implies, by part (1) of this lemma, that γ is a non-
+filling element of H = π1 (Σ1 ). Therefore, by definition, df ill (γ, π1 (Σ)) ≤ d = degfΣ,ρ
+                                                                                         ill
+                                                                                             (γ),
+as required.
+  Theorem 9·6. Let (Σ, ρ) be a compact connected hyperbolic surface with b ≥ 1 geodesic
+boundary components. Then there exists C 0 > 0 such that for all sufficiently large L we
+have
+                                f ill             log L
+                               fΣ,ρ   (L) ≥ C 0           .
+                                                log log L
+   Proof. Let π1 (Σ) = FN = F (A) where A = {a1 , . . . , aN } with N ≥ 2. The universal
+cover X = (Σ̃, ρ̃) is a convex π1 (Σ)-invariant subset of H2 . Therefore the orbit map
+F (A) → H2 , w 7→ w∗ (where ∗ ∈ H2 is some basepoint) is a π1 (Σ)-equivariant quasi-
+isometry. Hence there exists K ≥ 1 such that for every closed geodesic γ on (Σ, ρ)
+representing an element w ∈ π1 (Σ) we have ||w||A /K ≤ `ρ (γ) ≤ K||w||A .
+   By Theorem 6·2 there exists a sequence of nontrivial cyclically reduced elements wn ∈
+F (A) such that ||wn ||A = n and that for all sufficiently large n we have
+                                                            log n
+                                df ill (wn , F (A)) ≥ C             ,
+                                                          log log n
+where C > 0 is the constant provided by Theorem 6·2. By Lemma 9·5, it follows that for
+all sufficiently large n we have
+                                                                    log n
+                         degfΣ,ρ
+                              ill
+                                  (γ) ≥ df ill (wn , F (A)) ≥ C             .
+                                                                  log log n
+Since ||w||A /K ≤ `ρ (γ) ≤ K||w||A , the statement of the theorem now follows.
+   Theorem 9·7. Let (Σ, ρ) be a compact connected hyperbolic surface with b ≥ 1 geodesic
+boundary components. Let A = {a1 , . . . , aN } be a free basis of π1 (Σ, x), so that π1 (Σ) =
+F (A). Let wn ∈ F (A) = π1 (Σ, x) be a freely reduced word of length n over A±1 generated
+by a simple non-backtracking random walk on F (A). Let γn be the closed geodesic on
+(Σ, ρ) in the free homotopy class of wn .
+   Then there exist constants c1 > 0, K1 ≥ 1 such that
+
+                            lim P r(degfΣ,ρ
+                                         ill
+                                             (γn ) ≥ c1 log1/5 n) = 1
+                           n→∞
+
+and such that with probability tending to 1 as n → ∞ we have that wn ∈ π1 (Σ, x) is not
+a proper power and that n/K1 ≤ `ρ (γn ) ≤ K1 n.
+  Proof. The proof is essentially identical to the proof of Theorem 9·3, and we leave the
+details to the reader.
+36                       Neha Gupta and Ilya Kapovich
+9·3. Degree and index functions based on the geometric intersection number
+   Let Σ be a compact connected surface admitting some hyperbolic structure (so that
+π1 (Σ) is free of rank ≥ 2). If ρ is a hyperbolic metric on Σ and γ is a closed geodesic
+with respect to ρ on Σ, we denote by dρ (γ) the smallest degree of a finite cover of Σ such
+that γ lifts to a simple closed geodesic in that cover.
+   We adopt the following conventions regarding the geometric intersection number for
+curves on surfaces. Let S is a compact surface and α, β : S1 → S be homotopically
+nontrivial closed curves on S. Then the geometric intersection number i([α], [β]) is defined
+as the minimum cardinality |(α1 × β1 )−1 (∆)| where ∆ ⊆ S × S is the diagonal and where
+α1 , β1 vary over all closed curves in the free homotopy classes [α], [β] respectively. It
+is well-know that if ρ is a hyperbolic structure on S (where we always assume that
+the boundary curves of S, if any, are geodesic with respect to ρ) and if α, β are distinct
+closed primitive (i.e. not proper powers) geodesics on S with respect to ρ then i([α], [β]) =
+|(α × β)−1 (∆)|. See [22] for a proof in the case of simple closed geodesics, and see p. 143
+in [7] and p. 99 in [6] for the general case.
+   Denote by CΣ the set of free homotopy classes of essential closed curves on Σ that are
+not proper powers in π1 (Σ). For [γ] ∈ CΣ denote by dΣ ([γ]) the smallest degree of a finite
+cover of Σ such that a representative of [γ] lifts to a simple closed curve in that cover.
+Note that if ρ is a hyperbolic metric on Σ, then for every [γ] ∈ CΣ there exists a unique
+closed ρ-geodesic γ ∈ [γ] and dρ (γ) = dΣ ([γ]). Moreover, as noted above, in this case the
+geometric intersection number i([γ], [γ]) is realized by γ.
+   For an integer m ≥ 1 we define fΣ (m) as the maximum of dΣ ([γ]) where [γ] varies over
+all elements of CΣ with i([γ], [γ]) ≤ m. Similarly, for [γ] ∈ CΣ denote by dfΣill ([γ]) the
+smallest degree of a finite cover of Σ such that a representative of [γ] lifts to a non-filling
+closed curve in that cover. Then define fΣf ill (m) as the maximum of dfΣill ([γ]) where [γ]
+varies over all elements of CΣ with i([γ], [γ]) ≤ m. Since simple curves are non-filling, we
+always have dΣ ([γ]) ≥ dfΣill ([γ]) and hence fΣ (m) ≥ fΣf ill (m).
+   A result of Basmajian [3, Theorem 1.1] (which also can be derived from the results of
+Bonahon [7]) states:
+   Proposition 9·8. Let (Σ, ρ) be a connected compact hyperbolic surface with a (possi-
+bly empty) geodesic boundary. Then there exists a constant K = K(Σ, ρ) ≥ 1 such that
+for every closed geodesic γ on (Σ, ρ) we have
+                                      i([γ], [γ]) ≤ K`ρ (γ)2 .
+  Theorem 9·6 can be used to derive a lower bound for fΣ :
+   Theorem 9·9. Let Σ be a compact connected surface admitting some hyperbolic struc-
+ture. Then there exist a constant c = c(Σ) > 0 and an integer m0 ≥ 1 such that for all
+m ≥ m0 we have
+                                                        log m
+                             fΣ (m) ≥ fΣf ill (m) ≥ c           .
+                                                      log log m
+   Proof. Fix a hyperbolic metric ρ on Σ. By Proposition 9·8, there exists a constant
+K = K(ρ) > 0 such that for every [γ] ∈ CΣ we have i([γ], [γ]) ≤ K`ρ ([γ])2 . Let C 0 =
+C 0 (Σ, ρ) > 0 be the constant provided by Theorem 9·6. Then Theorem 9·6 implies that
+there exist a sequence of closed geodesics γn on (Σ, ρ) and an integer n0 ≥ 1 such that
+for every n ≥ n0 we have `ρ (γn ) ≤ n and dfΣill ([γn ]) ≥ C 0 logloglogn n . Therefore i(γn , γn ) ≤
+K`ρ (γn )2 ≤ Kn2 for all n ≥ n0 .
+                 The primitivity index function for a free group                          37
+                                                                              2      2
+ Fix an integer n1 ≥ n0 such that for all integers n ≥ n1 we have (n + 1) ≤ 2n .
+ Let m ≥ Kn21 be an integer. Choose an integer n ≥ n1 such that Kn2 ≤ m ≤ K(n+1)2 .
+Then
+                      i([γn ], [γn ]) ≤ Kn2 ≤ m ≤ K(n + 1)2 ≤ 2Kn2
+        √
+          m
+and n ≥ √2K .
+  Therefore i([γn ], [γn ]) ≤ m and
+                                               √                         √
+                                          log √m            1
+                                                              log m − log 2K
+         f ill         0   log n      0         2K     0    2
+        dΣ ([γn ]) ≥ C             ≥C            √  =C                   √ ,
+                         log log n      log log √ m
+                                                2K
+                                                         log 1 log m − log 2K
+                                                               2
+
+and the statement of Theorem 9·9 follows.
+
+  Remark 9·10.
+  Note that the linear upper bound for fΣ,ρ (m), obtained by Patel [44] does not directly
+imply any upper bound for fΣ (m). The reason is that on a fixed hyperbolic surface there
+are arbitrarily long simple closed geodesics (which thus have self-intersection number 0).
+The lower bound for fΣ given by Theorem 9·9 was the first bound (upper or lower) known
+for fΣ . Subsequent to our paper and in part motivated by it, Aougab, Gaster, Patel and
+Sapir [1] proved that fΣ (m) = Θ(m), that is fΣ (m) has precisely linear growth in m.
+
+   Appendix A. Estimating the primitivity index function from below by the residual
+                               finiteness growth function function
+                                 by Khalid Bou-Rabee
+                    City College of the City University of New York
+
+   In this appendix we relate the primitivity index function fprim (n; FN ) to the residual
+finiteness growth function introduced in [8]. Applying deep results of Gady Kozma and
+Andreas Thom [38] then improves the lower bounds for the primitivity index function
+to almost linear.
+   We first recall the residual finiteness growth function. Let G be a finitely generated,
+residually finite group. The divisibility function D(g) = D(g; G) is the minimum [G : H]
+where H varies over all subgroups of finite index in G with g ∈/ H. For a fixed finite gen-
+erating set A ⊂ G the residual finiteness growth function is RFG,A (n) := max{D(g; G) :
+g ∈ G, |g|A ≤ n, g 6= 1}. Here |g|A is the word-length of g with respect to the word
+metric on G corresponding to A. In the case where G is a nonabelian free group FN with
+word-length |·|A given by a free basis A, we simply use this basis and denote the function
+by RFG (n).
+   Next, we recall the primitivity index function introduced by Gupta and Kapovich
+above. Fix a free group FN of finite rank N ≥ 2 with a free basis A = {a1 , . . . , aN }. The
+primitivity index dprim (g) = dprim (g; FN ) of an element g ∈ FN \ {1} is the minimum
+[FN : H] where H varies over all subgroups of finite index in FN containing g as a
+primitive element. Recall that the primitivity index function is
+fprim (n; FN ) = fprim (n) := max{dprim (g) : g ∈ G, |g|A ≤ n, g 6= 1, g is not a proper power }.
+
+  Theorem A1. Let G = FN be a free group of finite rank N ≥ 2. Then RFG (n) ≤
+fprim (4n + 4) for all n ≥ 1.
+38                        Neha Gupta and Ilya Kapovich
+   Proof. For each n ≥ 1 let wn be an element in FN with |wn |A ≤ n such that DG (wn ) =
+RFG (n). In the free group FN commutativity is a transitive relation on the set of all
+nontrivial elements, and therefore there exists a ∈ A such that [wn , a] 6= 1. Also, in a
+free group any two non-commuting elements freely generate a free subgroup of rank two.
+Thus wn , a freely generate a free subgroup of rank 2 in FN , and hence γn := [wn , wna ] 6= 1.
+(In [13, 15] the property, that for every nontrivial w ∈ FN there exists a ∈ A such that
+[w, wa ] 6= 1, is referred to as FN being 1-malabelian). Note that |[wn , wna ]|A ≤ 4n + 4.
+Since γn is a nontrivial commutator in FN , a result of Schützenberger [51] then implies
+that γn is not a proper power in FN .
+   Let H be a finite-index subgroup of G with γn primitive in H. If wn ∈ H and wna ∈ H,
+then [wn , wna ] ∈ [H, H], and thus [wn , wna ] cannot be primitive in H. Hence, wn or wna
+is not in H. In either case, it follows that [G : H] ≥ DG (wn ) = RFG (n). Since H
+was an arbitrary finite-index subgroup for which [wn , wna ] is primitive, it follows that
+RFG (n) ≤ fprim (4n + 4), as desired.
+  A result of Kozma and Thom [38] about lower bounds for RFFN (n) now directly
+implies:
+  Corollary A2. Let G = FN be free of finite rank N ≥ 2. There exists a constant
+C > 0 such that for all sufficiently large n we have
+                                                            1/4 !
+                                                   log(n)
+                      fprim (4n + 4) ≥ exp                          .
+                                                C log log(n)
+If we assume Babai’s Conjecture on the diameter of Cayley graphs of permutation groups,
+                                                                  1
+then for all sufficiently large n we have fprim (4n + 4) ≥ n C log log(n) .
+  At the time of this writing, for a nonabelian free group G, the best upper and lower
+bounds for fprim (n) and RFG (n) have the same asymptotic behavior. Is it true that
+fprim (n) and RFG (n) have the same asymptotic behavior?
+
+                                            REFERENCES
+       [1] T. Aougab, J. Gaster, P. Patel, J. Sapir, Building hyperbolic metrics suited to closed
+              curves and applications to lifting simply, to appear in Math. Research Letters;
+              arXiv:1603.06303v1, March 2016
+       [2] G. Arzhantseva and A. Ol’shanskii, Generality of the class of groups in which subgroups
+              with a lesser number of generators are free, (Russian) Mat. Zametki 59 (1996), no. 4,
+              489–496; translation in: Math. Notes 59 (1996), no. 3-4, 350–355
+       [3] A. Basmajian, Universal length bounds for non-simple closed geodesics on hyperbolic
+              surfaces. J. Topol. 6 (2013), no. 2, 513–524
+       [4] M.      Bestvina      and     M.      Feighn,     Outer    limits,   preprint,    1994;
+              http://andromeda.rutgers.edu/˜feighn/papers/outer.pdf
+       [5] I. Biringer, K. Bou-Rabee, M. Kassabov, F. Matucci. Intersection growth in groups,
+              Transact. Amer. Math. Soc., to appear; arXiv:1309.7993;
+       [6] F. Bonahon, Bouts des variétés hyperboliques de dimension 3, Ann. of Math. (2) 124
+              (1986), no. 1, 71–158
+       [7] F. Bonahon, The geometry of Teichmüller space via geodesic currents, Invent. Math. 92
+              (1988), no. 1, 139–162
+       [8] K. Bou-Rabee, Quantifying residual finiteness, J. Algebra 323 (2010), no. 3, 729–737
+       [9] K. Bou-Rabee and Y. Cornulier, Systolic growth of linear groups, Proc. Amer. Math.
+              Soc. 144 (2016), no. 2, 529–533
+     [10] K. Bou-Rabee, M. Hagen and P. Patel, Residual finiteness growths of virtually special
+              groups, Math. Z. 279 (2015), no. 1-2, 297–310
+     [11] K. Bou-Rabee, and T. Kaletha, Quantifying residual finiteness of arithmetic groups.
+              Compos. Math. 148 (2012), no. 3, 907–920
+               The primitivity index function for a free group                              39
+[12] K. Bou-Rabee, and D. B. McReynolds Bertrand’s postulate and subgroup growth. J.
+        Algebra 324 (2010), no. 4, 793–819
+[13] K. Bou-Rabee, and D. B. McReynolds, Asymptotic growth and least common multiples
+        in groups. Bull. Lond. Math. Soc. 43 (2011), no. 6, 1059–1068
+[14] K. Bou-Rabee, and D. B. McReynolds, Extremal behavior of divisibility functions, Geom.
+        Dedicata 175 (2015), 407–415
+[15] K. Bou-Rabee and D. B. McReynolds, Characterizing linear groups in terms of growth
+        properties, Michigan Math. J. 65 (2016), no. 3, 599–611
+[16] K. Bou-Rabee and A. Myropolska, Groups with near exponential residual finiteness
+        growth, Israel J. Math., to appear; arXiv:1509.01372
+[17] K. Bou-Rabee and B. Seward, Arbitrarily large residual finiteness growth, J. Reine
+        Angew. Math. 710 (2016), 199–204
+[18] K. Bou-Rabee and D. Studenmund, Full residual finiteness growths of nilpotent groups,
+        Israel J. Math. 214 (2016), no. 1, 209–233
+[19] N. V. Buskin, Efficient separability in free groups. (Russian) Sibirsk. Mat. Zh. 50 (2009),
+        no. 4, 765–771; translation in Sib. Math. J. 50 (2009), no. 4, 603–608
+[20] D. Calegari and J. Maher, Statistics and compression of scl, Ergodic Theory Dynam.
+        Systems 35 (2015), no. 1, 64–110
+[21] C. Cashen and J. Manning, Virtual geometricity is rare, LMS J. Comput. Math. 18
+        (2015), no. 1, 444–455
+[22] A. Casson and S. Bleiler, Automorphisms of surfaces after Nielsen and Thurston. Lon-
+        don Mathematical Society Student Texts, 9; Cambridge University Press, Cambridge,
+        1988
+[23] I. Dinwoodie. Expectations for nonreversible Markov chains. J. Math. Anal. Appl. 220
+        (1998), 585–596
+[24] S. Dowdall and S. Taylor, Hyperbolic extensions of free groups, Geom. Topol., to appear;
+        arXiv:1406.2567
+[25] B. Farb and D. Margalit, A primer on mapping class groups. Princeton Mathematical
+        Series, 49. Princeton University Press, Princeton, NJ, 2012
+[26] J. Gaster, Lifting curves simply, Internat. Math. Res. Notices IMRN 2016 (2016), no.
+        18, 5559–5568
+[27] R. Gimadeev and M. Vyalyi, Identical relations in symmetric groups and separating
+        words with reversible automata, Computer science theory and applications, Lecture
+        Notes in Comput. Sci., vol. 6072, Springer, Berlin, 2010, pp. 144–155
+[28] V. Guirardel, Approximations of stable actions on R-trees, Comment. Math. Helv.,
+        73(1):89-121, 1998.
+[29] M. Hall, Coset representations in free groups, Trans. Amer. Math. Soc. 67 (1949), 421–
+        432
+[30] I. Kapovich, The frequency space of a free group, Internat. J. Alg. Comput. 15 (2005),
+        no. 5-6, 939–969
+[31] I. Kapovich, Currents on free groups, Topological and Asymptotic Aspects of Group
+        Theory (R. Grigorchuk, M. Mihalik, M. Sapir and Z. Sunik, Editors), AMS Contem-
+        porary Mathematics Series, vol. 394, 2006, pp. 149-176
+[32] I. Kapovich, Clusters, currents and Whitehead’s algorithm, Experimental Mathematics
+        16 (2007), no. 1, pp. 67-76
+[33] I. Kapovich and M. Lustig, Intersection form, laminations and currents on free groups,
+        Geom. Funct. Anal. (GAFA) 19 (2010), no. 5, pp. 1426-1467
+[34] I. Kapovich and A. Myasnikov, Stallings foldings and the subgroup structure of free
+        groups , J. Algebra 248 (2002), no 2, pp. 608–668
+[35] I. Kapovich, P. Schupp, and V. Shpilrain, Generic properties of Whitehead’s algorithm
+        and isomorphism rigidity of random one-relator groups. Pacific J. Math. 223 (2006),
+        no. 1, 113–140
+[36] I. Kapovich and C. Pfaff, A Train track Directed Random Walk on Out(Fr ), Internat.
+        J. Algebra Comput. 25 (2015), no. 5, 745–798.
+[37] M. Kassabov and F. Matucci, Bounding the residual finiteness of free groups, Proc.
+        Amer. Math. Soc. 139 (2011), no. 7, 2281–2286
+[38] G. Kozma and A. Thom, Divisibility and Laws in Finite Simple Groups, to appear in
+        Math. Ann. ; arXiv:1403.2324
+[39] A. Lubotzky, and D. Segal, Subgroup growth. Progress in Mathematics, 212. Birkhäuser
+        Verlag, Basel, 2003
+40                        Neha Gupta and Ilya Kapovich
+     [40] R. Lyndon and P. Schupp, Combinatorial group theory, Reprint of the 1977 edition.
+             Classics in Mathematics. Springer-Verlag, Berlin, 2001
+     [41] J. Malestein, and A. Putman, On the self-intersections of curves deep in the lower central
+             series of a surface group. Geom. Dedicata 149 (2010), 73–84
+     [42] J. McCool, Some finitely presented subgroups of the automorphism group of a free group,
+             J. Algebra 35 (1975), 205213
+     [43] A. Myasnikov, and V. Shpilrain, Automorphic orbits in free groups. J. Algebra 269
+             (2003), no. 1, 18–27
+     [44] P. Patel, On a theorem of Peter Scott, Proc. Amer. Math. Soc. 142 (2014), no. 8,
+             2891–2906
+     [45] D. Puder, Primitive words, free factors and measure preservation. Israel J. Math. 201
+             (2014), no. 1, 25–73
+     [46] D. Puder, and O. Parzanchevski, Measure preserving words are primitive. J. Amer.
+             Math. Soc. 28 (2015), no. 1, 63–97
+     [47] D. Puder, and C. Wu, Growth of primitive elements in free groups. J. Lond. Math. Soc.
+             (2) 90 (2014), no. 1, 89–104
+     [48] I. Rivin, Geodesics with one self-intersection, and other stories, Adv. Math. 231 (2012),
+             no. 5, 2391–2412
+     [49] A. Roig, E. Ventura, and P. Weil, On the complexity of the Whitehead minimization
+             problem. Internat. J. Algebra Comput. 17 (2007), no. 8, 1611–1634
+     [50] S. Schleimer, Polynomial-time word problems. Comment. Math. Helv. 83 (2008), no. 4,
+             741–765
+     [51] M.-P. Schützenberger, Sur l’quation a2+n = b2+m c2+p dans un groupe libre. C. R. Acad.
+             Sci. Paris 248 (1959), 2435–2436
+     [52] Peter Scott, Subgroups of surface groups are almost geometric, J. London Math. Soc.
+             (2), 17 (1978), no. 3, 555–565
+     [53] Peter Scott, Correction to: ”Subgroups of surface groups are almost geometric” [J. Lon-
+             don Math. Soc. (2) 17 (1978), no. 3, 555–565], J. London Math. Soc. (2) 32 (1985),
+             no. 2, 217–220
+     [54] B. Solie, Algorithmic and statistical properties of filling elements of a free group, and
+             quantitative residual properties of Γ-limit groups, PhD Thesis, (2011)
+     [55] B. Solie, Genericity of filling elements Internat. J. Algebra Comput. 22 (2012), no. 2
+     [56] J. R. Stallings, Topology of finite graphs. Invent. Math. 71 (1983), 552-565
+     [57] J. R. Stallings, Whitehead graphs on handlebodies. Geometric group theory down under
+             (Canberra, 1996), 317–330, de Gruyter, Berlin, 1999
+     [58] R. Stong, Diskbusting elements of the free group. Math. Res. Lett. 4 (1997), no. 2-3,
+             201–21
+     [59] K. Vogtmann, On the geometry of outer space. Bull. Amer. Math. Soc. 52 (2015), no.
+             1, 27–46
+     [60] S. Wang, and B. Zimmermann,The maximum order of finite groups of outer automor-
+             phisms of free groups, Math. Z. 216(1994), no. 1, 83–87
+     [61] J. H. C. Whitehead, On equivalent sets of elements in a free group, Ann. of Math. (2)
+             37(1936), no. 4, 782–800
+

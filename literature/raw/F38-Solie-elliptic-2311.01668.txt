@@ -1,0 +1,995 @@
+                                              Elliptic subgroups in cyclic splittings of a free
+                                                                  group
+arXiv:2311.01668v1 [math.GR] 3 Nov 2023
+
+
+
+
+                                                                           Brent B. Solie
+                                                                         November 6, 2023
+
+                                                                               Abstract
+                                                   We use Gersten’s generalization of Whitehead’s algorithm to determine
+                                               whether a given finitely generated subgroup of a free group F is elliptic
+                                               in an elementary cyclic splitting of F . We provide a similar result for all
+                                               elementary cyclic splittings of a free group of rank two and partial results
+                                               towards an algorithm for ellipticity in elementary cyclic splittings of F as
+                                               an HNN-extension.
+
+
+                                          1    Introduction
+                                          In 1936, J. H. C. Whitehead developed an algorithm to solve the following
+                                          problem: Given elements u and v in a finitely generated free group F (X), is
+                                          there an automorphism ϕ ∈ Aut(F (X)) such that ϕ(u) = v? In his solution
+                                          to this problem, Whitehead observed that the cyclically reduced length of an
+                                          element of F (X) serves as a measure of the word’s complexity and that a finite
+                                          set of particularly simple generators of Aut(F (X)), now known as Whitehead
+                                          automorphisms, can be used to systematically calculate the shortest elements
+                                          of an element’s Aut(F (X)) orbit. By comparing these ‘minimal’ elements for
+                                          both u and v, one can deduce whether they share the same orbit.
+                                              Decades later, in 1980, Gersten extended Whitehead’s algorithm from single
+                                          elements of F (X) to finitely generated subgroups. Gersten’s generalization an-
+                                          swers the analogous problem: Given finitely generated subgroups H and K of a
+                                          finitely generated free group F (X), is there an automorphism ϕ ∈ Aut(F (X))
+                                          such that ϕ(H) = K? Gersten’s principle insight is that the appropriate mea-
+                                          sure of complexity for a finitely generated subgroup of F (X) is the number of
+                                          edges in its Stallings graph. The set of Whitehead automorphisms again pro-
+                                          vide a systematic way of calculating the automorphic images of H and K with
+                                          minimal complexity, answering the question of whether H and K share an orbit.
+                                              The present paper investigates how Gersten’s extension of Whitehead’s al-
+                                          gorithm may be used to study the structure of elementary cyclic splittings of
+                                          F (X). An elementary cyclic splitting of F (X) is a decomposition of F (X) as a
+                                          graph of groups with exactly one edge whose edge group is infinite cyclic. Thus
+                                          elementary cyclic splittings come in one of two varieties: segment splittings,
+
+
+                                                                                    1
+which correspond to the decomposition of F (X) as an amalgamated product
+F (X) ∼ = H ∗Z K, and loop splittings, which correspond to the decomposition of
+F (X) as an HNN-extension F (X) ∼    = H∗Z . Elements or subgroups are said to be
+elliptic if they are conjugate to elements or subgroups of H or K in a segment
+splitting, or conjugate to elements or subgroups of H in a loop splitting.
+    Our main result is the following:
+
+Theorem 1.1. Let F (X) be a free group of finite rank, and let H be a finitely
+generated subgroup of F (X). There is an algorithm to determine whether H is
+elliptic in some segment splitting of F (X) and, if it is, produce such a splitting.
+   In the first section of the present paper, we review some preliminaries con-
+cerning free groups, Stallings graphs, splittings, and Whitehead’s algorithm.
+In the second section, we present the main result, its proof, and some partial
+results in the case of loop splittings.
+
+
+2     Background
+The exposition provided in this section on Stallings graphs and folding is stan-
+dard. Complete details can be found, for instance, in [5].
+    Let X be a finite set with at least two elements. Define X −1 := {x−1 : x ∈
+X} to be the set of formal inverses of elements of X, and set X ± := X ⊔ X −1 .
+We denote the set of words on the letters X ± by (X ± )∗ . A word in (X ± )∗ is
+freely reduced if it has no subword of the form xx−1 or x−1 x for any x ∈ X. A
+word in (X ± )∗ is cyclically reduced if every cyclic permutation of that word is
+freely reduced.
+    Let F (X) be the free group on the letters X. The X-length of w ∈ F (X),
+denoted |w|X , is the length of the freely reduced word in (X ± )∗ which represents
+w. We will indicate that H is a finitely generated subgroup of F (X) by H ≤fg
+F (X).
+
+2.1    Stallings Graphs
+Definition 2.1 (X-digraph). Given a finite set X, an X-digraph is given by
+the data (V, E, ·+ , ·− , λ), where:
+    • V and E are sets;
+    • ·+ , ·− : E → V ; and
+    • λ : E → X.
+
+We call V the vertex set and E the edge set. For e ∈ E, we say that e− is
+the initial vertex of e and e+ is the terminal vertex of e. We call lambda the
+labeling function and λ(e) the label of edge e.
+    Let S be an X-digraph. By V S and ES we denote the vertex and edge sets
+of S, respectively. For v ∈ V S, we define the in-link of v to be lk+ (v) := {e ∈
+
+
+                                         2
+ES : e+ = v}, and we say the in-hyperlink of v is hl+ (v) := {λ(e) : e ∈ lk+ (v)}.
+Likewise, we define the out-link of v to be lk− (v) := {e ∈ ES : e− = v} and
+the out-hyperlink of v to be hl− (v) := {λ(e)−1 : e ∈ lk− (v)}. The link of v is
+lk(v) := lk− (v) ∪ lk+ (v) and the hyperlink of v is hl(v) := hl− (v) ∪ hl+ (v).
+    We say that the degree of v ∈ V S is degS (v) := # lk(v). If degS (v) = 0 we
+say that v is isolated, and if degS (v) = 1 we say that v is a leaf. If no vertex of
+S is a leaf, we say that S is cyclically reduced.
+    If u, v ∈ V S are such that there is e ∈ ES with e− = v and e+ = u, then
+we say that u and v are adjacent and that e is incident to both u and v. If
+e, f ∈ ES are such that e− = f− , then we say that e and f are coinitial ; if
+e+ = f+ , then e and f are coterminal. The edges e and f are coincident if e
+shares an endpoint with f .
+    Let Y ⊆ X. A Y -edge is any edge with label in Y . The set of Y -edges of S
+is denoted EY S.
+Convention. To aid readability, we will always denote singleton sets by their
+unique element. For instance, if x ∈ X, we will write x-edges rather than
+{x}-edges, and the set of x-edges of S will be denoted Ex S rather than E{x} S.
+    We say that S is folded at v if λ induces a bijection lk(v) → hl(v). The graph
+S is folded if S is folded at every vertex. If S is not folded, then some pair of
+coterminal or coinitial edges e, f ∈ ES share the same label. We fold these
+edges by identifying the pair of edge e and f and either the vertices e− and f−
+if e and f are coinitial or the vertices e+ and f+ if e and f are coterminal. The
+process of performing folds in S until none remain is called folding. [TODO:
+put in a reference on stallings graphs and assure the reader that the end result
+is an invariant reduced graph.]
+    We may delete a leaf v of S by deleting v and the unique edge incident to
+it. By repeatedly deleting leaves, we eventually arrive at a cyclically reduced
+X-digraph. We call this process cyclic reduction.
+    Lastly, if S and T are X-digraphs, an X-map is a map S → T which sends
+vertices to vertices, edges to edges, and preserves both orientation and label.
+We will assume that all of our maps of X-digraphs are X-maps. An X-map is
+an immersion if the induced map on the link of a vertex is injective for every
+vertex of S.
+
+Definition 2.2 (Dual digraph). Given an X-digraph S, we may construct the
+dual of S, denoted S ∗ , by adding a set of formal inverse edges ES := {ē : e ∈
+ES} and extending ·− , ·+ , and λ as follows:
+
+                                 (ē)− := e+ ,
+                                 (ē)+ := e− , and
+                                 λ(ē) := λ(e)−1 .
+
+By defining (ē) = e, the above equations are satisfied for any e ∈ ES ∗ .
+    A path p in an X-digraph S is a sequence of edges p = e1 e2 . . . el in the dual
+S ∗ such that (ei )+ = (ei+1 )− for all i = 1, . . . , l − 1. The path p is a loop if
+
+
+                                          3
+we further have that (el )+ = (e1 )− . The path is immersed if ei+1 ̸= ēi for all
+i = 1, . . . , l − 1. The label of p is λ(p) := λ(e1 ) . . . λ(el ). The length of p is l. We
+say that an X-digraph S is connected if there exists a path between any two
+vertices.
+Remark. For our purposes, we will not distinguish much between an X-digraph
+S and its dual S ∗ . Specifically, for x ∈ X, we will regard an x−1 -edge as simply
+an x-edge with the opposite orientation. If e is an x-edge, we will therefore
+consider it as an x-edge in that it contributes the label x to the hyperlink of e+ ,
+and also as an x−1 edge as it contributes the label x−1 to the hyperlink of e− .
+Definition 2.3 (Stallings graph). Let H ≤fg F (X). The Stallings graph rep-
+resenting H with respect to X, denoted SX (H), is the unique X-digraph with
+basepoint such that a freely reduced word in (X ± )∗ represents an element of H
+if and only if it occurs as the label of an immersed loop of SX (H) beginning
+and ending at the basepoint.
+    Recall that we may construct SX (H) as follows. Let h1 , . . . , hk be elements of
+(X ± )∗ representing a finite set of generators of H. Beginning with a basepoint,
+denoted 1, we construct a loop beginning and ending at 1 with label hi for each
+i; let S0 be the resulting graph. We then perform all possible folds in S0 (in
+any order) to obtain a folded graph S1 . Finally, we repeatedly delete leaves of
+S1 different from 1 until no leaves remain except possibly the basepoint. The
+resulting graph is SX (H), and it is well-known that SX (H) is invariant with
+respect to the choice of generating set for H as well as the order of the folds
+and leaf deletions.
+    Suppose that SX (H) is cyclically reduced. For any g ∈ F (X), we may
+construct SX (H g ) from SX (H) by adding a new basepoint 1′ , a path from 1 to
+1′ labeled by g, and then folding and deleting non-basepoint leaves. Therefore
+whenever SX (H) is cyclically reduced, we will forget the basepoint and think of
+SX (H) as representing H F (X) , the conjugacy class of H in F (X), rather than
+the single subgroup H.
+
+2.2     Whitehead’s Algorithm
+Our discussion of Gersten’s extension of Whitehead’s algorithm follows that of
+[6].
+Definition 2.4 (Whitehead automorphism). A type I Whitehead automorphism
+is an automorphism ϕ ∈ Aut F (X) which is induced by permutations and in-
+versions of the set X ± .
+    A type II Whitehead automorphism is an automorphism ϕ ∈ Aut F (X) for
+which there exists m ∈ X ± such that ϕ(m) = m and
+                               ϕ(x) ∈ {x, m−1 x, xm, xm }
+for all x ∈ X. We call m the multiplier for ϕ.
+    Given a type II Whitehead automorphism ϕ with multiplier m, define
+                    C := x ∈ X ± : ϕ(x) ∈ {m, xm, xm } .
+                         
+
+
+                                             4
+Then ϕ is determined completely by the pair (C, m), and we refer to C as the
+cut for ϕ.
+    Let C ⊆ X ± be such that m ∈ C and m−1 ∈     / C. We call such a C an m-cut.
+For any m ∈ X ± and m-cut C, the pair (C, m) defines a type II Whitehead
+automorphism of F (X).
+    More generally, if C, D ⊆ X ± , we say that C cuts D if D contains an element
+of both C and C ′ := X ± − C.
+Definition 2.5 (Hypergraph). A hypergraph is a tuple (V, E, ι), where V and
+E are sets and ι : E → P(V ), where P(V ) denotes the power set of V . The
+elements of V are called vertices and the elements of E are called hyperedges.
+We call ι the incidence function.
+    Let Γ be a hypergraph. We refer to the vertex and hyperedge sets of Γ by
+V Γ and EΓ, respectively. We will refer to the incidence function by simply ι
+when Γ is clear from context. We say that a hyperedge e ∈ EΓ is incident to
+a vertex v ∈ V Γ if v ∈ ι(e). A pair of hyperedges e, e′ ∈ EΓ are coincident if
+ι(e) ∩ ι(e′ ) ̸= ∅. Two vertices v, v ′ ∈ V Γ are adjacent if there is a hyperedge
+e ∈ EΓ with v, v ′ ∈ ι(e).
+    More generally, if Y ⊂ V Γ, we say that a hyperedge e ∈ EΓ is incident to
+Y if ι(e) ∩ Y ̸= ∅. Let Y1 , . . . , Yn , Z be subsets of V Γ. We say that a hyperedge
+e ∈ EΓ has type (Y1 , Y2 , . . . , Yn ; Z) if e is incident to each Yi for i = 1, . . . , n but
+e is not incident to Z. When Z is empty, we will write (Y1 , Y2 , . . . , Yn ) instead of
+(Y1 , Y2 , . . . , Yn ; ∅). We denote by [Y1 , Y2 , . . . , Yn ; Z]Γ the number of hyperedges
+of Γ of type (Y1 , Y2 , . . . , Yn ; Z).
+    Let Y ⊆ V Γ, and let Y ′ denote the complement V Γ − Y . We define the
+capacity of Y in Γ to be the number of hyperedges of Γ incident to both Y and
+its complement; in the above notation,
+
+                                   capΓ (Y ) = [Y, Y ′ ]Γ .
+
+   Let v ∈ V Γ. The degree of v in Γ is the number of edges incident to v; in
+the above notation,
+                              degΓ (v) = [v]Γ .
+Definition 2.6 (Whitehead hypergraph). Let S be a cyclically reduced X-
+digraph. We define the Whitehead hypergraph of S to be the hypergraph Γ(S) :=
+(X ± , V S, hl : V S → P(X ± )).
+    Given a cyclically reduced X-digraph S and an automorphism ϕ ∈ Aut F (X),
+one may construct ϕ(S) from S as follows. First, for all x ∈ X, we subdivide
+every x-edge in S into a path and relabel this path with ϕ(x). We fold the re-
+sulting graph and then delete leaves until none remain; the final graph is ϕ(S).
+When S represents the conjugacy class H Aut F (X) , we have that ϕ(S) represents
+ϕ(H)Aut F (X) .
+    When ϕ = (C, m) is a type II Whitehead automorphism, this construction
+has the special feature of being “local”. Let v ∈ V S be such that m ∈ hl(v),
+and let e be the m-edge with endpoints v and u for some u ∈ V S. We “unhook”
+
+
+                                              5
+     (a) The neighborhood of v before          (b) Constructing the auxiliary ver-
+     applying ϕ = (C, m).                      tex vaux .
+
+
+
+
+                         (c) Folding identifies vaux and the
+                         vertex u at the other end of the
+                         edge corresponding to m in hl(v).
+                         If no such vertex u exists, no fold-
+                         ing occurs.
+
+
+Figure 1: Locally, the Whitehead automorphism ϕ = (C, m) moves the edges in
+hl(v) ∩ (C − m) across the edge corresponding to m ∈ hl(v) (if present).
+
+
+
+each edge in lk(v) with label in C − m and reconnect that edge to u instead. If
+v ∈ V S is such that m ∈/ hl(v), we then construct an auxiliary vertex vaux and
+an auxiliary m-edge with initial vertex vaux and terminal vertex v. We again
+“unhook” the edges of lk(v) with label in C − {m} and reconnect them to vaux .
+The result of performing these moves at every vertex is the graph ϕaux (S), and
+we obtain ϕ(S) from ϕaux (S) by cyclic reduction. (See Figure 1; the dotted
+edges represent edges which may or may not be present.)
+   We make the following observations about ϕaux (S):
+  1. There is an injection from the vertex set of S to the set of non-auxiliary
+     vertices of ϕaux (S); we will refer to this injection simply as ϕaux .
+
+
+
+
+                                          6
+   2. (a) Let e be an m-edge of S such that e− = u and e+ = v. Then
+                    hl(ϕaux (v)) = (hl(v) ∩ (C ′ ∪ m) ∪ (hl(u) ∩ (C − m).         (1)
+
+       (b) Let v ∈ V S with m ∈
+                              / hl(v). Then
+                             hl(vaux ) = m−1 ∪ (hl(v) ∩ (C − m)) .
+
+   3. A vertex of ϕaux (S) is a leaf if and only if it is one of the following:
+       (a) vaux for v ∈ V S with hl(v) ⊆ C ′ ; or
+       (b) ϕaux (v) for v ∈ V S with hl(v) ⊆ (C − m).
+    As a result, note that if ϕ = ({m}, m), then ϕ(S) = S. If ϕ = (C, m) and
+ϕ′ = (C ′ , m−1 ), then note that ϕ(S) = ϕ′ (S). This latter observation allows us
+to assume that, without loss of generality, m ∈ X.
+    By keeping careful track of the construction for ϕ(S), it is possible to describe
+the change in the number of vertices between S and ϕ(S).
+Proposition 2.7 ([6]). Let S be a connected, cyclically reduced X-digraph with
+Whitehead hypergraph Γ = Γ(S), and let ϕ = (C, m) be a type II Whitehead
+automorphism with m ∈ X. Then we have:
+                     #V ϕ(S) − #V S = capΓ (C) − degΓ (m).
+    We will find it useful to recast Proposition 2.7 in terms of change in number
+of edges.
+Proposition 2.8. Let S be a connected, cyclically reduced X-digraph with
+Whitehead hypergraph Γ = Γ(S), and let ϕ = (C, m) be a type II Whitehead
+automorphism with m ∈ X. Then we have:
+  1. #Eϕ(S) − #ES = capΓ (C) − degΓ (m)
+  2. For a Whitehead automorphism ϕ = (C, m) with m ∈ X, we have
+                        #Em ϕ(S) − #Em S = capΓ (C) − deg Γ(m)
+      and
+                                   #Ex S = #Ex ϕ(H)
+      for all x ̸= m.
+Proof. Let S represent the conjugacy class H Aut F (X) . Since S is connected, we
+have the well-known relation #ES = #V S − 1 + R, where R is the rank of H
+as a free group. Since ϕ(S) represents the class ϕ(H)Aut F (X) and ϕ(H) must
+also have rank R, we then have #Eϕ(S) = #V ϕ(S) − 1 + R, and part 1 follows
+immediately.
+    Part 2 follows from the “local” version of the construction of ϕ(S). The only
+positive edges introduced in the subdivision stage have label m, and the only
+leaves which arise after subdivision and folding are leaves with hyperlink {m}.
+Therefore, the only positive edges added or removed in the application of ϕ to
+S are those labeled m.
+
+
+                                         7
+    We will recast Gersten’s version of Whitehead’s algorithm in graph-theoretic
+terms first seen in [4] and used later in [6] to analyze the complexity of the
+Whitehead reduction process.
+    Let S be a connected, cyclically reduced X-digraph and let ϕ ∈ Aut F (X).
+We call ϕ(S) an automorphic image of S. We say that ϕ reduces S if #V S <
+#V ϕ(S) (or equivalently, #ES < #Eϕ(S)), and that ϕ expands S if #V S >
+#V ϕ(S) (or equivalently, #ES > #Eϕ(S)). Where S is clear from context, we
+will say that ϕ is reducing or expanding. If the number of edges of S is minimal
+among all its automorphic images, then we say that S is minimal.
+Theorem 2.9 (Whitehead’s Theorem [2]). Let S be a connected, cyclically
+reduced X-digraph.
+
+  1. If S is not minimal, then some Whitehead automorphism reduces S.
+  2. Let S be minimal, and suppose there is ϕ ∈ Aut F (X) such that ϕ(S) is
+     also minimal. Then there exists a sequence of type II Whitehead auto-
+     morphisms ϕ1 , . . . , ϕk such that ϕi does not expand ϕi−1 ◦ · · · ◦ ϕ1 (S) and
+     ϕk ◦ · · · ◦ ϕ1 (S) = ϕ(S).
+    Let S be a cyclically reduced X-digraph. Let min(S) denote the set of
+minimal automorphic images of S. Whitehead’s Theorem gives an effective
+algorithm for constructing min(S) given S. Let S and T be cyclically reduced
+X-digraphs representing conjugacy classes H Aut F (X) and K Aut F (X) ; then there
+exists ϕ ∈ Aut F (X) such that K = ϕ(H) if and only if min(S) = min(T ). This
+is Gersten’s extension of Whitehead’s famous algorithm to finitely generated
+subgroups.
+Theorem 2.10 (Whitehead’s algorithm). There is an algorithm to decide, given
+H, K ≤fg F (X), whether or not there exists ϕ ∈ Aut F (X) such that ϕ(H) = K.
+
+2.3    Splittings of Free Groups
+Bass-Serre theory broadly concerns the structural implications of free group
+actions on trees. We will not need the full extent of the theory here, though we
+record some of the terminology here for completeness. An introduction to the
+theory may be found in [7].
+Definition 2.11 (Cyclic splitting). A cyclic splitting of F (X) is the decompo-
+sition of F (X) as the fundamental group of a graph of groups with cyclic edge
+groups. A free splitting of F (X) is the decomposition of F (X) as the funda-
+mental group of a graph of groups with trivial edge groups. An edge map refers
+to a homomorphism from an edge group to a vertex subgroup in a particular
+graph of groups. A splitting is elementary if the corresponding graph of groups
+is connected and has exactly one edge. An elementary splitting is a segment
+splitting if the underlying graph of groups has two distinct vertices and is a loop
+splitting if it has only one vertex. An elementary splitting is nontrivial if it is
+either a loop splitting or a segment splitting in which neither edge map is an
+
+
+                                         8
+                      (a) A standard segment vertex subgroup.
+
+
+
+
+                        (b) A standard loop vertex subgroup.
+
+
+           Figure 2: Stallings graphs of standard vertex subgroups.
+
+
+
+isomorphism. An elementary cyclic splitting is very small if the image of the
+edge group is maximal cyclic in the vertex subgroup(s).
+    We say that H ≤fg F (X) is elliptic in a splitting of F (X) if H is conjugate
+to a subgroup of a vertex subgroup. Subgroups which are not elliptic in a given
+splitting are said to be hyperbolic.
+Proposition 2.12. The vertex subgroups in a nontrivial, very small, elementary
+cyclic segment splitting of F (X) have the form
+
+                                 ⟨A, b⟩ and ⟨B⟩,
+
+where A ⊔ B is a basis for F (X), #A ≥ 1, #B ≥ 2, and b ∈ ⟨B⟩ is not a proper
+power.
+   The vertex subgroup in a cyclic loop splitting of F (X) has the form
+
+                                     ⟨U, uv ⟩,
+
+where U ⊔ {v} is a basis for F (X) and u ∈ ⟨U ⟩ is not a proper power.
+
+Proof. This is a straightforward application of a lemma of Bestvina-Feighn [1,
+Lemma 4.1]. Similar results also appear in [8, 10, 11].
+Definition 2.13 (Segment, loop vertex subgroups). We call a subgroup ⟨A, b⟩
+as in Proposition 2.12 a segment vertex subgroup. A subgroup ⟨U, uv ⟩ is called
+
+
+                                         9
+a loop vertex subgroup. When A ⊔ B = X or U ⊔ {v} = X, we say that these
+vertex subgroups are standard. By SV and LV we denote the sets of standard
+segment and standard loop vertex subgroups, respectively.
+    If H is a segment vertex subgroup, then for the automorphism ϕ induced by
+a bijection A ⊔ B → X, ϕ(H) ∈ SV. Thus, every segment vertex subgroup has
+an automorphic image in the set SV. Likewise, every loop vertex subgroup has
+an automorphic image in LV and every proper free factor has an automorphic
+image in SF.
+    Let H ≤fg F (X) be a proper free factor of F (X). If H = ⟨Y ⟩ where
+Y ⊂ X, then we say that H is a standard free factor. By SF we denote the
+set of standard free factors of F (X). Note that every standard free factor is a
+subgroup of a standard loop vertex subgroup.
+
+
+3     Main Results
+For convenience, we define the following general problem.
+
+Definition 3.1 (Automorphic orbit problem). Let K be a (possibly infinite) col-
+lection of subgroups of F (X). The automorphic orbit problem, denoted AO(K),
+is the problem:
+
+
+      Given H ≤fg F (X), do there exist K ∈ K and ϕ ∈ Aut F (X) such
+      that ϕ(H) ≤ K?
+
+
+   In the case where H consists of a single cyclic subgroup, AO(H) is solved
+by Whitehead’s algorithm.
+
+3.1    Proper Free Factors
+Recall that SF is the set of standard free factors of F (X), and that H ≤fg
+F (X) is contained in a proper free factor of F (X) if and only if H has some
+automorphic image which is a subgroup of a standard free factor.
+Proposition 3.2. A subgroup H ≤fg F (X) is contained in a proper free factor
+of F (X) if and only if each element of min(SX (H)) omits some letter of X from
+its set of edge labels.
+Proof. Let H ≤fg F (X). Let Y be a basis for F (X) such that H ≤ ⟨Y ′ ⟩ for
+some Y ′ ⊂ Y . Let ϕ ∈ Aut F (X) be induced by a bijection Y → X, so that
+ϕ(Y ′ ) := X ′ ⊂ X. The graph S = SX (ϕ(H)) therefore is in the automorphic
+orbit of SX H and omits some element m ∈ X as an edge label.
+   Let ψ = (C, m) be a Whitehead automorphism, where S omits m as an edge
+label. Proposition 2.8 states that applying ψ to S changes only the number of
+positive edges labeled m, and so ψ cannot be reducing.
+
+
+                                      10
+    We conclude that any reducing Whitehead automorphism for S must have
+a multiplier which occurs as an edge label in S. Therefore if the X-digraph
+S omits m as an edge label, S can be minimized by a sequence of Whitehead
+automorphisms, each with multiplier different from m. After minimizing, we
+see that some S0 ∈ min(SX (H)) must therefore omit some letter of X from its
+set of edge labels.
+    The second part of Whitehead’s algorithm states that every element of
+min(SX (H)) can be accessed from S0 by a sequence of non-expanding White-
+head automorphisms. This implies that all elements of min(SX (H)) must omit
+at least one element of X from its set of edge labels.
+    Suppose otherwise; let S ′ ∈ min(SX (H)) have all letters of X appear as edge
+labels. There must be a sequence of Whitehead automorphisms ϕ1 , ..., ϕn such
+that S ′ := Sn = ϕn ◦ ... ◦ ϕ1 (S0 ) and ϕi+1 does not expand Si := ϕi ◦ ... ◦ ϕ1 (S0 )
+for i = 1, 2, ..., n. However, since S ′ has all elements of X appearing as edge
+labels, there must be a least index k such that all letters of X appear as labels
+of Sk . Suppose that Sk−1 omits the letter x ∈ X from its set of edge labels.
+As ϕk (Sk−1 ) = Sk and x appears in the edge labels of Sk , the Whitehead
+automorphism ϕk must be type II with multiplier x. Since applying ϕk changes
+only the number of edges labelled x and Sk−1 has no such edges, ϕk must be
+expanding, a contradiction.
+    Conversely, it is straightforward to see that if some (every) element of
+min(SX (H)) omits a letter from X, then H is contained in a proper free fac-
+tor.
+
+    The following result is well-known, and we use the above machinery to prove
+it for completeness.
+Corollary 3.3. The problem AO(SF) is decidable.
+Proof. The subgroup H is contained in a proper free factor if and only if there
+exist ϕ ∈ Aut F (X) and K ∈ SF such that ϕ(H) ≤ K. However, ϕ(H) ≤ K ∈
+SF if and only if some (every) element of min(SX (ϕ(H))) omits an element of
+X as an edge label. Since min(SX (ϕ(H))) = min(SX (H)), our algorithm is as
+follows.
+Algorithm 3.4. Given H ≤fg F (X), we may determine whether or not H is
+contained in a proper free factor of F (X) as follows:
+  1. Construct the finite graph SX (H).
+
+  2. Construct an element T of min(SX (H)).
+  3. Determine whether T omits some element of X as an edge label.
+       (a) If T omits some element of X as an edge label, conclude that H is
+           contained in a proper free factor of F (X).
+       (b) Otherwise, conclude that H is contained in no proper free factor of
+           F (X).
+
+
+                                          11
+        Figure 3: Stallings graph of a standard segment vertex subgroup.
+
+
+
+    Note that by inverting the specific sequence of Whitehead automorphisms
+used to construct the minimal element T and applying it to the standard free
+factor containing T , we may construct the explicit free factor of F (X) containing
+H. This solves the associated search problem.
+
+3.1.1    Segment vertex subgroups in higher rank
+Let F (X) be a free group of rank at least three.
+    Recall that SV is the set of subgroups of F (X) of the form ⟨A, b⟩ where
+A ⊔ B = X, #A ≥ 1, #B ≥ 2, and b ∈ ⟨B⟩ is not a proper power.
+    Let S be an X-digraph and let Y ⊆ X. The subgraph of S spanned by
+the Y -edges is the subgraph consisting of all Y -edges and all vertices having an
+incident Y -edge.
+Definition 3.5 (Property (S)). We say that an X-digraph satisfies property
+(S) if:
+
+  1. S is connected and cyclically reduced; and
+  2. There is a partition X = A ⊔ B such that:
+        (a) The subgraph spanned by the A-edges is a bouquet of single-edge
+            loops; and
+        (b) The subgraph spanned by the B-edges is rank one.
+  Any element of SV has a Stallings graph which satisfies Property (S). We
+immediately obtain the following.
+Proposition 3.6. Let H ≤fg F (X). Then H is a subgroup of some element of
+SV if and only if SX (H) admits an immersion into a graph satisfying Property
+(S).
+
+
+
+
+                                        12
+Lemma 3.7. Let S be a connected, cyclically reduced X-digraph admitting an
+immersion onto a graph satisfying property (S). Suppose that S represents (the
+conjugacy class of ) a subgroup contained in no proper free factor of F (X). If S
+is not minimal, then some element of min(S) also admits an immersion onto a
+graph satisfying property (S).
+
+Proof. Suppose T is an X-digraph satisfying Property (S) such that π : S → T
+is an immersion. Let A ⊔ B = X be the partition given in the definition of
+Property (S). Let the basepoint of T be the unique vertex whose hyperlink
+meets A± , and let b = b1 . . . br be the label of the loop in T labeled by B-edges,
+beginning and ending at the basepoint. Note that the hyperlink of the basepoint
+is A± ∪ {b−1
+          1 , br }.
+    Since π : S → T is an immersion, there is a k such that, for any non-
+basepoint v ∈ V T , the preimage π −1 (v) is a set of exactly k vertices. More, the
+subgraph of S spanned by the B-edges is the union of exactly k paths labeled by
+b, any two of which are either disjoint or intersect only at one or both endpoints.
+    The following technical proposition will provide useful sufficient conditions
+for Property (S) to be preserved.
+Proposition 3.8.
+
+  1. Let ϕ = (C, m) be a Whitehead automorphism with m ∈ A± and let T be
+     as above. If C does not cut the hyperlink of any non-basepoint vertex of
+     T , then ϕ(T ) also satisfies property (S).
+  2. Let ϕ = (C, m) be a Whitehead automorphism with m ∈ B ± and let T be
+     as above. If C does not cut the set A± , then ϕ(T ) also satisfies property
+     (S).
+Proof. Suppose ϕ = (C, m) is as in part 1 of the proposition. In the construction
+of ϕ(S), new m-edges are only introduced at vertices of S whose hyperlinks are
+cut by C. Therefore, the only new edges introduced in the application of ϕ are
+incident to the basepoint; since every A-edge of T has the basepoint as its initial
+and terminal vertex, these new edges are folded away, leaving a B-labeled loop
+beginning and ending at the basepoint.
+    Suppose ϕ = (C, m) is as in part 2 of the proposition. If A± is not cut by
+C, then the effect of ϕ on T is to replace the loop labeled b with a loop labeled
+                       −1
+ϕ(b) or possibly ϕ(b)m . The resulting graph satisfies Property (S).
+Convention. To simplify notation, we define the following sets.
+
+   • ∆ := (A± ∩ C) − {m, m−1 , b−1
+                                1 , br }
+
+   • Σ := (A± ∩ C ′ ) − {m, m−1 , b−1
+                                   1 , br }
+
+   • Π := (B ± ∩ C) − {m, m−1 , b−1
+                                 1 , br }
+
+   • Ω := (B ± ∩ C ′ ) − {m, m−1 , b−1
+                                    1 , br }
+
+
+
+
+                                        13
+Note that we do not necessarily have that m, m−1 , b−1
+                                                    1 , and br are pairwise
+distinct.
+     Suppose that b−1  1 = br , and consider Γ(S). Since in Γ(S), the only element
+of B ± adjacent to some element of A± is br , a direct calculation shows that
+the Whitehead automorphism ϕ = (B ± − b−1          r , br ) reduces S. By Proposition
+3.8, ϕ(T ) satisfies Property (S). We will therefore assume from now on that
+b−1
+ 1 ̸= br .
+     Suppose that ϕ = (C, m) reduces S, where m ∈ A± . First note that if C does
+not cut {b−1                            ±                  ±
+            1 , br }, then either (C ∪B , m) or (C −B , m) is reducing for S, since
+        −1                                            ±
+only b1 and br are adjacent to elements of A in Γ(S). By Proposition 3.8,
+the image of T under either of these Whitehead automorphisms again satisfies
+Property (S).
+     Now assume that, without loss of generality, br ∈ C and b−1           1  ∈ C ′ :=
+   ±
+X − C and that C cuts the hyperlink of some non-basepoint vertex of T .
+Since the preimage under π of a non-basepoint vertex is a set of k internal
+vertices in SX (H), we have [Π ∪ {br }, Ω ∪ {b−1    1 }]Γ(S) ≥ k. Therefore, passing
+from (∆ ∪ {m, br } ∪ Π, m) to (∆ ∪ m, m) reduces the capacity by at least k
+(since at least k hyperedges contributing to capacity came from the hyperlink
+of an internal vertex) at the cost of adding [br , ∆ ∪ m]Γ(S) to the capacity.
+However, a br -edge is coincident to an A-edge in at most k vertices of S, so
+[br , ∆ ∪ m]Γ(S) ≤ k. Therefore, capΓ(S) (∆ ∪ m) ≤ capΓ(S) (∆ ∪ {m, br } ∪ Π), and
+so ϕ′ = (∆ ∪ m, m) must reduce S. Again, by Proposition 3.8, ϕ′ (T ) satisfies
+Property (S). (See Figure 4.)
+     Now suppose that ϕ = (∆ ∪ {m, br } ∪ Π, m) reduces S, where m ∈ B ± .
+Once again, if C does not cut {b−1    1 , br }, then either Whitehead automorphism
+(∆ ∪ Σ ∪ m ∪ Π, m) or (m ∪ Π, m) will also reduce S. By Proposition 3.8, each
+of these Whitehead automorphisms preserve Property (S). We may therefore
+assume that br ∈ C and b−1    1 ∈C .
+                                      ′
+
+     Consider the quantities [∆, br ; Σ ∪ Ω ∪ {b−1    1 ,m
+                                                             −1
+                                                                }]Γ(S) and [∆, Σ ∪ Ω ∪
+   −1     −1
+{b1 , m }; br ]Γ(S) . Note first that
+
+             [∆, Σ ∪ Ω ∪ {b−1
+                           1 ,m
+                               −1
+                                  }; br ]Γ(S) = [∆, Σ ∪ {b−1
+                                                          1 }; br ]Γ(S)
+
+because no element of ∆ ⊆ A± is coincident to m−1 or Ω.
+   Suppose that
+            [∆, br ; Σ ∪ Ω ∪ {b−1
+                               1 ,m
+                                   −1
+                                      }]Γ(S) ≤ [∆, Σ ∪ {b−1
+                                                         1 }; br ]Γ(S) .
+
+Moving ∆ into C ′ must therefore not increase the capacity of the cut, and so
+ϕ′ = ({m, br } ∪ Π, m) must be reducing for S. Since ϕ′ has multiplier in B ±
+and no longer cuts A± , its image has Property (S).
+   On the other hand, let
+       [∆, br ; Σ ∪ Ω ∪ {b−1
+                          r ,m
+                              −1
+                                 }]Γ(S) > [∆, Σ ∪ Ω ∪ {b−1
+                                                        1 ,m
+                                                            −1
+                                                               }; br ]Γ(S) .
+As degΓ(S) (br ) is at least as large as [∆, br ; Σ ∪ Ω ∪ {b−1
+                                                            r ,m
+                                                                −1
+                                                                   }]Γ(S) , we imme-
+diately see that changing the multiplier to br yields a reducing automorphism.
+Thus the Whitehead automorphism ϕ′ = (∆ ∪ br , br ) reduces S. (See Figure 5.)
+
+
+                                         14
+                 (a) Γ(S) with (∆ ∪ m ∪ Π, m) reducing, m ∈ A± .
+
+
+
+
+                   (b) Γ(S) with (∆ ∪ m, m) reducing, m ∈ A± .
+
+
+Figure 4: If (∆ ∪ m ∪ Π, m) reduces S with m ∈ A± , then so must (∆ ∪ m, m).
+
+
+
+
+                                       15
+   Unfortunately, ϕ′ = (∆∪br , br ) will almost certainly fail to preserve Property
+(S) in most cases. However, when ϕ′ is reducing, we can follow it with a
+specific sequence of Whitehead automorphisms whose composition effectively
+multiplies ∆ by the entire word b = b1 . . . br . The next proposition asserts that
+each individual Whithead automorphism in this sequence is reducing, and that
+Property (S) is restored at the end of the sequence.
+Proposition 3.9. For i = 1, . . . , r, define ϕi := (∆ ∪ bi , bi ). If ϕr reduces S,
+then for all i = 1, . . . , r−1, the Whitehead automorphism ϕi reduces ϕi+1 · · · ϕr (S).
+Furthermore, ϕ1 . . . ϕr (S) immerses onto a graph satisfying Property (S).
+Proof. First notice that since S immerses onto T with property (S), then
+ϕi+1 · · · ϕr (S) immerses onto ϕi+1 · · · ϕr (T ). Set Πi := B ± − bi and Π−1
+                                                                            i  :=
+B ± − b−1i  .
+    Suppose v ∈ V S has hyperlink type (∆, br ; Σ ∪ Πr ). The image of the vertex
+adjacent to v via the br edge will then have hyperlink type (∆, br−1 ; Σ ∪ Πr−1 )
+in ϕr (S). Moreover, this is the only way in which a vertex of ϕr (S) may have
+type (∆, br−1 ; Σ ∪ Πr−1 ). Therefore
+
+                 [∆, br ; Σ ∪ Πr ]Γ(S) = [∆, br−1 ; Σ ∪ Πr−1 ]Γ(ϕr (S)) .
+
+    Suppose v ∈ V S has type (∆, Σ ∪ Πr ; br ). Then v contributes an auxiliary
+vertex with hyperlink of type (∆, b−1         −1
+                                    r ; Σ∪Πr ). Again, the only way a hyperlink
+of type (∆, b−1
+             r  ; Σ ∪ Π −1
+                        r  ) may arise is as such an auxiliary vertex, so
+
+                  [∆, b−1       −1
+                       r ; Σ ∪ Πr ]Γ(ϕr (S)) = [∆, Σ ∪ Πr ; br ]Γ(S) .
+
+However, since a vertex of ϕr (S) whose hyperlink meets ∆ must have hyperlink
+contained in ∆ ∪ {b−1                                                         −1
+                     r , br−1 }, a vertex of ϕr (S) is of hyperlink type (∆, br ; Σ ∪
+  −1
+Πr ) if and only if it is of hyperlink type (∆, Σ ∪ Πr−1 ; br−1 ). We therefore have
+
+                 [∆, Σ ∪ Πr ; br ]Γ(S) = [∆, Σ ∪ Πr−1 ; br−1 ]Γ(ϕr (S)) .
+
+   Given that ϕr = (∆ ∪ br , br ) reduces S, it follows immediately that
+
+                     [∆, br ; Σ ∪ Πr ]Γ(S) > [∆, Σ ∪ Πr ; br ]Γ(S) .
+
+Using the above equalities and inequalities, we then have
+
+            [∆, br−1 ; Σ ∪ Πr−1 ]Γ(ϕr (S)) > [∆, Σ ∪ Πr−1 ; br−1 ]Γ(ϕr (S)) ,
+
+which is equivalent to saying that ϕr−1 = (∆ ∪ br−1 , br−1 ) reduces ϕr (S).
+    To see that ϕi reduces ϕi+1 · · · ϕr (S), note that any hyperedge of Γ(ϕi+1 · · · ϕr (S))
+incident to ∆ is contained in ∆ ∪ {b−1   i+1 , bi }. A similar argument shows that any
+vertex whose hyperlink contributes to capacity and not degree in ϕi+1 · · · ϕr (S)
+came from a vertex with hyperlink contributing to capacity and not degree in
+ϕi+2 · · · ϕr (S), and similarly for vertices contributing to degree and not capacity.
+It then follows that ϕi reduces ϕi+1 · · · ϕr (S).
+    Since the net effect of ϕ1 · · · ϕr is to multiply the edges in ∆ by the entire
+word b, it is immediate that ϕ1 · · · ϕr (S) immerses onto T .
+
+
+                                           16
+                      (a) Γ(S) with (C, m) reducing, m ∈ B ± .
+
+
+
+
+                   (b) If p ≤ q, then ({br , m} ∪ Π, br ) is reducing.
+
+
+
+
+                     (c) If p > q, then (∆ ∪ br , br ) is reducing.
+
+
+
+Figure 5: If (C, m) reduces S with m ∈ B ± , then either (C ∩ B ± , m) or (∆ ∪
+br , br ) also reduces S.
+
+
+
+
+                                           17
+    By Proposition 3.9, if ϕr = (∆ ∪ br , br ) reduces S, then we have an en-
+tire sequence of reducing Whitehead automorphisms which, when applied to
+S, yield an X-digraph that again immerses onto a graph with Property (S).
+Therefore, whenever S admits an immersion onto a graph satisfying Property
+(S), some element of min(S) is guaranteed to also admit an immersion onto a
+graph satisfying Property (S).
+Corollary 3.10. Let F (X) be a free group with #X ≥ 3. Then AO(SV) is
+decidable.
+Proof. If H ≤fg F (X) is such that ϕ(H) ≤ K ∈ SV, then SX (ϕ(H)) im-
+merses onto an X-digraph satisfying Property (S). Therefore some element of
+min(SX (ϕ(H))) immerses onto an X-digraph satisfying Property (S); equiva-
+lently, some element of min(SX (ϕ(H))) has a principal quotient satisfying Prop-
+erty (S). Since min(SX (ϕ(H))) = min(SX (H)), some element of min(SX (H))
+has a principal quotient satisfying Property (S).
+    Our algorithm is therefore:
+Algorithm 3.11. Given H ≤fg F (X), we may determine whether or not there
+exist ϕ ∈ Aut F (X) and K ∈ SV such that ϕ(H) ≤ K as follows:
+  1. Construct the finite X-digraph SX (H).
+
+  2. Construct the finite set min(SX (H)).
+                                                          [
+  3. Construct the finite set PQ(min(SX (H))) :=                     PQ(M ).
+                                                    M ∈min(SX (H))
+
+  4. For each P ∈ PQ(min(SX (H))), determine whether or not P satisfies
+     Property (S). If a P satisfying Property (S) is found, conclude that there
+     exist ϕ ∈ Aut F (X) and K ∈ SV such that ϕ(H) ≤ K. Otherwise, con-
+     clude that no such ϕ ∈ Aut F (X) and K ∈ SV exist.
+
+
+   Since SV is the set of subgroups of F (X) which are vertex groups in some
+very small elementary cyclic splitting of F (X), we have the following theorem.
+Theorem 3.12. Let F (X) be a free group of finite rank at least three. There
+is an algorithm to determine, given H ≤fg F (X), whether or not H is elliptic
+in a nontrivial, very small elementary cyclic splitting of F (X).
+
+3.1.2   The Rank Two Case
+Let F (a, b) denote the free group of rank two. The following characterization of
+the standard vertex subgroups of F (a, b) follows directly from Proposition 2.12.
+
+Proposition 3.13. For F (a, b), we have SV = ∅ and LV = {⟨a, ab ⟩, ⟨b, ba ⟩}.
+
+
+
+
+                                       18
+                 (a) SX (⟨a, ab ⟩)                     (b) Γ(SX (⟨a, ab ⟩))
+
+
+
+
+                          (c) Γ(SX (H)) for H ≤fg F (X), showing
+                          every possible edge.
+
+
+
+              Figure 6: Graphs associated to the subgroup ⟨a, ab ⟩.
+
+
+   As both elements of LV share an automorphic orbit, the problem of deter-
+mining ellipticity in a vertex subgroup for F (a, b) is therefore simply the problem
+AO(⟨a, ab ⟩).
+
+Theorem 3.14. The problem AO(⟨a, ab ⟩) is decidable.
+Proof. Suppose that H ≤fg ⟨a, ab ⟩ is cyclically reduced and that H is contained
+in no proper free factor of F (a, b). We have an immersion SX (H) → SX (⟨a, ab ⟩).
+Note that if this immersion is not a surjection, then H is contained in a proper
+free factor of F (a, b) (either ⟨a⟩ or ⟨ab ⟩).
+    Every vertex of S = SX (H) therefore has a hyperlink which is a subset
+of either {a, a−1 , b} or {a, a−1 , b−1 }. In particular, note that the set of initial
+vertices of b-edges in SX (H) is disjoint from the set of terminal vertices of
+b-edges, and so SX (H) has at least 2#Eb S vertices.
+    Suppose that S − Eb S has k connected components. Since S is cyclically
+reduced, each of these components has at least one a-edge. Since S − Eb S is an
+a-digraph, each connected component of S − Eb S is either a path or a cycle. We
+therefore have #Ea S ≥ 2#Eb S − k, hence #Ea S + k ≥ 2#Eb S. Since each of
+
+
+                                           19
+the connected components of S − Eb S must have at least one a-edge, #Ea S ≥ k
+and therefore #Ea S ≥ #Eb S. In terms of the Whitehead hypergraph Γ(S), we
+have degΓ (a) ≥ degΓ (b).
+    Now suppose that ϕ = (C, m) is a reducing Whitehead automorphism for
+H. Since C is an m-cut, if C has one or three elements, ϕ(S) = S. C therefore
+has two elements; without loss of generality, we may assume that C = {a, b}.
+    Suppose that m = a, so that ϕ = ({a, b}, a) is reducing. Clearly ϕ leaves
+SX (⟨a, ab ⟩) invariant, so ϕ(S) admits an immersion onto SX (⟨a, ab ⟩).
+    Suppose that m = b, so that ϕ = ({a, b}, b) is reducing. Since degΓ (a) ≥
+degΓ (b), the Whitehead automorphism ϕ′ = ({a, b}, a) is also reducing for S.
+By the above observation, ϕ(S) also admits an immersion onto SX (⟨a, ab ⟩).
+    Therefore, if S admits an immersion onto SX (⟨a, ab ⟩), there is at least one
+element of min(S) which also admits such an immersion. It follows directly
+that an arbitrary subgroup H ≤fg F (a, b) has some automorphic image which
+is a subgroup of ⟨a, ab ⟩ if and only if some element of min(SX (H)) admits an
+immersion onto SX (⟨a, ab ⟩).
+    We may check whether a given graph S admits an immersion onto SX (⟨a, ab ⟩)
+by calculating its finitely many quotient graphs with only two vertices and
+determining whether any is isomorphic to SX (⟨a, ab ⟩).
+    Our algorithm is therefore the following:
+Algorithm 3.15. Given H ≤fg F (a, b), we may determine whether or not there
+exists ϕ ∈ Aut F (a, b) such that ϕ(H) ≤ ⟨a, ab ⟩ as follows:
+  1. Construct the finite graph SX (H);
+  2. Construct the finite set min(SX (H));
+
+  3. If some member of min(SX (H)) admits an immersion onto SX (⟨a, ab ⟩),
+     conclude that there is ϕ ∈ Aut F (a, b) such that ϕ(H) ≤ ⟨a, ab ⟩. Otherwise,
+     conclude that no such ϕ ∈ Aut F (X) exists.
+
+
+
+3.1.3   Loop vertex subgroups in higher rank
+Let F (X) be a free group with rank at least three.
+   Recall that the set LV is the set of standard loop vertex subgroups; in other
+words, groups of the form
+                                     ⟨U, uv ⟩
+where U ⊔ {v} = X and u ∈ ⟨U ⟩ is not a proper power.
+    Observe that SX (⟨U, uv ⟩) has a unique v-edge, and that the complement of
+this edge has at least one component of rank one.
+Definition 3.16 (Property (L)). Let S be a Stallings graph. We say that S
+satisfies Property (L) if
+  1. There is some x ∈ X for which SX (H) has a unique x-edge e; and
+
+
+                                       20
+Figure 7: A Stallings graph satisfying Property (L). The red edges have labels
+different from v.
+
+
+  2. SX (H) − e has two connected components, at least of which is a rank one
+     graph.
+
+We say that H ≤fg F (X) satisfies Property (L) if SX (H) does.
+    We note that SX (⟨U, uv ⟩) satisfies Property (L). Suppose T is a cyclically
+reduced subgraph of SX (⟨U, uv ⟩). It is straightforward to verify that either T
+satisfies Property (L) or omits some x ∈ X as an edge label.
+
+Lemma 3.17. Let S be a cyclically reduced X-digraph satisfying property (L),
+and let ϕ = (C, m) be a reducing Whitehead automorphism for S. Then either
+ϕ(S) satisfies Property (L) or ϕ(S) omits some element of X as an edge label.
+Proof. Let ϕ = (C, m) reduce S. Let v ∈ X be such that S has a unique v-edge
+e and that S − e has two components, at least one of which is rank one.
+    First, suppose that m ̸= v ± . Then ϕ(S) also has a unique v-edge, since ϕ
+changes only the number of m-edges.
+    Recall that ϕ(S) is constructed from S in three stages: subdivision, folding,
+and leaf deletion. Let S1 and S2 be the connected components of S − e. Let ui
+be the endpoint of e in Si for i = 1, 2.
+    We may construct ϕ(S) by first subdividing and folding each Si to obtain a
+graph Si′ . It is clear that, since ϕ is an automorphism, Si and Si′ have the same
+rank. We then connect the vertices u1 and u2 via an appropriately oriented
+path labeled with ϕ(v), to obtain a graph T . By construction, T has at most
+two unfolded vertices, u1 and u2 , and has a unique v-edge which is also a cut
+edge. Making the final two folds at u1 and u2 and deleting any leaves which T
+may have introduces no new paths between the endpoints of the unique v-edge,
+and so T satisfies Property (L).
+    Now suppose that m = v ± . Since ϕ reduces S, it must reduce the number
+of v-edges in S. Since S has exactly one v-edge, ϕ(S) must have no v-edges, so
+ϕ(S) omits some element of X as an edge label.
+
+
+                                       21
+Theorem 3.18. There is an algorithm to determine, given H ≤fg F (X),
+whether or not there exists ϕ ∈ Aut F (X) such that SX (ϕ(H)) satisfies Property
+(L).
+Proof. If there exists such a ϕ ∈ Aut F (X) such that SX (ϕ(H)) satisfies Prop-
+erty (L), then by Lemma 3.17, min(SX (ϕ(H)) = min(SX (H)) has an element
+which satisfies Property (L). Since elements of min(SX (H)) represent sub-
+groups which are automorphic images of H, the converse also holds. Therefore,
+the algorithm is as follows:
+Algorithm 3.19. Given H ≤fg F (X), we may determine whether or not there
+exists ϕ ∈ Aut F (X) such that SX (ϕ(H)) satisfies Property (L) as follows:
+    1. Construct the finite graph SX (H).
+    2. Construct the finite set min(SX (H)).
+    3. If some element of the finite set min(SX (H)) satisfies Property (L), con-
+       clude that there exists ϕ ∈ Aut F (X) such that SX (ϕ(H)) satisfies Prop-
+       erty (L). Otherwise, conclude that no such ϕ exists.
+
+
+
+
+4     Free group actions on trees
+4.1     Outer space
+We now apply our results to the study of free group actions on R-trees.
+Definition 4.1 (R-tree). An R-tree is a geodesic metric space in which every
+two points are connected by a unique injective path and this path is a geodesic.
+    Recall that the action of F (X) on an R-tree T is:
+    • isometric if each element w ∈ F (X) acts as an isometry on T ;
+    • minimal if there exists no F (X)-invariant subtree of T ;
+    • very small if the stabilizer of any tripod is trivial and the stabilizer of any
+      arc is either trivial or maximal cyclic in the stabilizers of the endpoints of
+      the arc;
+    • simplicial if T has the topological structure of a simplicial complex.
+We will assume that all actions of F (X) on R-trees are isometric and minimal.
+Definition 4.2 (Filling subgroup). Let H ≤fg F (X). We say that H is a
+filling subgroup if the set H fixes no point in any very small action of F (X) on
+an R-tree, and that H is a non-filling subgroup if H, as a set, fixes a point in
+some very small action of F (X) on an R-tree. We say that w ∈ F (X) is a filling
+element if w generates a filling subgroup of F (X).
+
+
+                                         22
+    The work of Guirardel allows one to approximate the very small action of
+F (X) on a given R-tree by a very small action on a simplicial tree. In particular,
+if H fixes a point in the R-tree, then we may have H fix a point in the simplicial
+approximation [3, Theorem 1].
+Proposition 4.3. A subgroup H ≤fg F (X) is non-filling if and only if H fixes
+a point in some very small action of F (X) on a simplicial tree T .
+    A very small action of F (X) on a simplicial tree gives a decomposition of
+F (X) as a graph of groups, the details of which can be found in [7]. If a subgroup
+H ≤fg F (X) fixes a point in a very small action of F (X) on a simplicial tree,
+then H is necessarily elliptic in some elementary cyclic splitting of F (X). The
+author previously showed that filling elements are generic in F (X) in the sense
+that a sufficiently long element is overwhelmingly likely to be filling [9].
+    As a direct consequence of the previous section, we find we have algorithms
+to identify elements which fix no point in certain types of free group actions on
+simplicial trees.
+Corollary 4.4. There exists an algorithm to determine whether a given element
+w ∈ F (a, b) fixes a point in some very small action of F (a, b) on a simplicial
+tree.
+Corollary 4.5. There exists an algorithm to determine whether a given element
+w ∈ F (X) fixes a point in some very small action of F (X) on a simplicial tree
+whose fundamental domain is a single edge with distinct endpoints.
+
+
+References
+ [1] M. Bestvina and M. Feighn. Outer limits (preprint), 1994.
+ [2] S. M. Gersten. On Whitehead’s algorithm. Bull. Amer. Math. Soc. (N.S.),
+     10(2):281–284, 1984.
+ [3] Vincent Guirardel. Approximations of stable actions on R-trees. Comment.
+     Math. Helv., 73(1):89–121, 1998.
+ [4] Sašo Kalajdžievski. Automorphism group of a free group: centralizers and
+     stabilizers. J. Algebra, 150(2):435–502, 1992.
+ [5] Ilya Kapovich and Alexei Myasnikov. Stallings foldings and subgroups of
+     free groups. J. Algebra, 248(2):608–668, 2002.
+ [6] Abdó Roig, Enric Ventura, and Pascal Weil. On the complexity of
+     the Whitehead minimization problem. Internat. J. Algebra Comput.,
+     17(8):1611–1634, 2007.
+ [7] Jean-Pierre Serre. Trees. Springer Monographs in Mathematics. Springer-
+     Verlag, Berlin, 2003. Translated from the French original by John Stillwell,
+     Corrected 2nd printing of the 1980 English translation.
+
+
+                                        23
+ [8] Abe Shenitzer. Decomposition of a group with a single defining relation
+     into a free product. Proc. Amer. Math. Soc., 6:273–279, 1955.
+ [9] Brent B. Solie. Genericity of filling elements. arXiv:1007.4022v1 [math.GR],
+     2010.
+
+[10] J. R. Stallings. Free groups which are free products with cyclic amalgama-
+     tions. Notices A.M.S., 1(1):49, 1980.
+[11] G. A. Swarup. Decompositions of free groups. J. Pure Appl. Algebra,
+     40(1):99–102, 1986.
+
+
+
+
+                                       24
+

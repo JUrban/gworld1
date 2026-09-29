@@ -320,3 +320,8 @@ F38(c) now has a terminating necessary-condition test, with exact negative witne
 
 
 F38 quantitative refinement: `research/notes/F38-stabilizer-length-envelope.md` proves that the test exactly decides mutual functional bounds and yields exponential bounds by Whitehead shortening. Any further advance must control the envelope linearly or exhibit a superlinear pair passing the test. Do not confuse a computable finite envelope with the required linear bound. The exact-envelope procedure is described, not implemented.
+
+
+## Working focus after the filling checkpoint (2026-09-29T03:13:42.489680+00:00)
+
+The finite-stabilizer/filling criterion and its decidability are explicit prior Gupta–Kapovich results; the positive pair theorem is prior Kapovich–Lustig. Implementation and independent certificate replay are complete. Do not repeat these samples or count the criterion as new. Any further F38(c) advance must address non-filling pairs with commensurable stabilizers, or give a superlinear envelope counterexample. Resume the wider unresolved portfolio as appropriate. Counts6 whole,3 partial,0 established novel; original deadline unchanged.
