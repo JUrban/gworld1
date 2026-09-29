@@ -303,3 +303,14 @@ procedure. Independent GAP reconstructs all 12 tested minimum graphs
 and 20948 edges. See `problems/F38/bounded-proof.md` and `bounded-audit.md`.
 Earlier unresolved F38(c) entries above are historical. Counts now
 7 whole, 3 partial, 0 established novel; specialist and novelty review pending.
+
+
+## 2026-09-29T11:26:00.871224+00:00 — N3 restricted repair, no new count
+
+The nested cover construction now has a complete written restricted
+argument and independent finite checks. It covers countable ascending
+unions of nilpotent subgroups, including the already known countable
+case (Romanovskii1969). Arbitrary locally nilpotent groups remain
+unresolved here. GAP checks13 stages and an order-four negative control.
+See `research/notes/N3-nested-cover.md`; counts remain7 whole,3 partial,
+0 established novel. The original deadline remains unchanged.

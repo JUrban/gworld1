@@ -1288,3 +1288,29 @@ F38 moves from partial to whole-entry candidate: 7 whole / 3 partial / 0
 established novel. Part (b) and rank-two decisions retain their prior
 credits. No subagents, imported Kourovka mathematics, pushes or contacts;
 parent/preparation repositories untouched and original clock retained.
+
+
+## N3 restricted nested-cover construction (2026-09-29T11:26:00.871224+00:00)
+
+A nested construction avoids the earlier overlapping-profile torsion
+obstruction for groups with a countable ascending nilpotent exhaustion.
+The proof retains free abelian lower central factors using integral
+augmentation quotients, PBW and an explicit free Lie coproduct argument.
+The countable case is prior Romanovskii1969, confirmed in the editors'
+archived eighteenth-edition Notebook. The unrestricted N3 remains open
+here; this is supplementary audit work, not an added candidate.
+
+Exact Hilbert-series predictions and independent GAP ordinary-relator
+computations agree on13 stages in5 chains, including rank4/class5.
+Retractions, all lower central factors and torsion are checked. The
+negative control has a torsion-free factor but a mixed commutator of
+order4, so mere factor torsion-freeness is insufficient. Both recorded
+jobs pass; GAP took74.015seconds at1core/8GB, with two harmless parser
+warnings and an imprecise print label subsequently cleaned up. Executed
+source retained; no mathematical rerun needed for reporting edits.
+
+Sources, reading limits and proof are in N3-nested-cover.md, with a
+hash manifest. Failed alglog TLS retrievals are noted; the editor's
+Manchester PDF was obtained instead. No imported Kourovka mathematics,
+subagents, pushes or contacts; original deadline unchanged. Counts
+remain7 whole/3 partial/0 established novel.

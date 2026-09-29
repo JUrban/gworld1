@@ -2,7 +2,7 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately 11:00 UTC on 29 September: seven whole-entry
+Latest checkpoint, approximately 11:26 UTC on 29 September: seven whole-entry
 candidates (F28,N5,M0,H4,F41,GA3,F38), three partial candidates
 (N8,F34(a),G9), zero established novel results. All ten await
 specialist review and novelty assessment.
@@ -26,6 +26,11 @@ stabilizer condition to a linear comparison. Its structural theorem
 application and novelty need specialist review; finite implementations
 pass independent complete-graph checks. F20's cover probe was inconclusive,
 and N9's fixed-ambient encoding remains obstructed.
+
+N3 now has a restricted nested-cover construction for countable ascending
+nilpotent exhaustions, with the countable case explicitly credited to
+Romanovskii1969. The general cardinality problem remains unresolved.
+No candidate count is added; see `research/notes/N3-nested-cover.md`.
 
 Next: return to an unresolved mathematical lead in the wider portfolio,
 while retaining GA3's bibliographic and specialist-review caveats. Do
