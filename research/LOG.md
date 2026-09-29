@@ -1598,3 +1598,20 @@ is counted. Current N8 scope remains c-d<=13/all targets through class24,
 with the previous arbitrary-class families. Counts8 whole/2 partial/
 0 established novel unchanged. One core/4GB reserved for this arithmetic
 work; no push/contact/subagent/parent changes. Original deadline unchanged.
+
+
+## Three-exception group evidence, still unadopted (2026-09-29T16:17:00.171390+00:00)
+
+Two weighted actual-group blocks and four exact formal universal substitutions
+pass independent native GAP replay. Complete integer fibers and arithmetic
+replays pass as well. The25 retained runs comprise10 successful and15 failed,
+interrupted or configuration-rejected runs; details and limitations are in
+research/notes/N8-three-exception-audit-interim.md. Native Hall multiplication
+polynomials resolved large-exponent collection costs without changing equations.
+
+The class26 delayed-quadratic constructor and native quotient preflight remain
+live; the constructor has reached a330x273 block with integer kernel rank4.
+No class26 or general three-exception extension adopted. Current counts remain
+8 whole-entry candidates,2 partial candidates,0 established novel results.
+A focused F38 shortening-source recheck found no new gap; structural dependencies
+and novelty still need specialist review. Original deadline unchanged.

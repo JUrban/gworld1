@@ -715,3 +715,18 @@ and the common squarefree/degree hypotheses and logarithmic-height
 convention rechecked; full proof remains imported. The constrained-curve
 assembly has finite independent controls, but its N8 group application
 is still an unadopted draft. No arithmetic novelty claim.
+
+
+## 2026-09-29T16:17:00.171390+00:00 — F38 focused shortening-source recheck
+
+Reread archived Sela2001 Definitions10.1--10.3/Lemma10.4 and local proof,
+Section1 limit setup and Proposition5.6 constant-sequence passage. Actually
+viewed saved printedpage90. Graded equivalence uses precomposition by modular
+automorphisms fixing the parameter vertex; exponential2^m condition confirmed.
+See research/notes/F38-29sep-shortening-recheck.md for argument and limits.
+No new full-paper audit, specialist validation or novelty claim.
+
+Read installed Polycyclic manualSection3.3 and collect.gi/coldt.gi while
+resolving native exact-group collection costs. Runtime flag and native Hall
+multiplication-polynomial setup are recorded in the interim N8 audit;
+no package source changes or disabled overflow thresholds.

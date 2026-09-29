@@ -664,3 +664,15 @@ The proposed at-most-three-exception/class26 scope remains unadopted.
 Alternate with broader-portfolio work or a whole-entry dependency audit.
 All jobs terminal; current counts8 whole/2 partial/0 established novel;
 original deadline30 September10:04:49UTC.
+
+
+## Next checks after three-exception evidence (2026-09-29T16:17:00.171390+00:00)
+
+Revalidate and finish existing n8-delayed-quadratic-c26-v1 and
+n8-delayed-quotient-c26-v1. Constructor diagnostics now show generic Smith
+arithmetic as a bottleneck; preserve any timeout and exact source before
+optimizing. Once a complete certificate exists, independently replay actual
+group equations, full integer fibers and arithmetic. Formal substitutions
+still need an ambient period-lattice specialization. Do not promote scope
+from the small blocks alone; they have finite parameter fibers. Candidate
+scope/counts and immutable deadline unchanged.

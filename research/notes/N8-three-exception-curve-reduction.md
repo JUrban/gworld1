@@ -28,6 +28,12 @@ T,R. Coordinates have been fixed through some offset h. Assume:
    This holds in the intended block applications; it is an explicit
    hypothesis of the early-truncation case.
 
+The initial conditions here are polynomial **equalities and fixed-modulus
+congruences**. No disequalities are introduced by these block reductions.
+The curve arithmetic can also handle disequalities, but the univariate
+integer-linear fallback below is not being claimed to handle arbitrary
+extra disequalities merely because they are affine in R.
+
 The proposal is that such a family is decidable. A one-parameter family
 with just one future exception is a special case: solve layers before
 that exception polynomially, introduce its full integer kernel parameter
