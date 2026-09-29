@@ -618,3 +618,17 @@ just a late Lie relation, are necessary next checks. Alternate with a
 specific broader-portfolio route or adversarial review of a whole-entry
 candidate; avoid repeating status-only searches. All jobs terminal.
 Original deadline and 8 whole/2 partial/0 established novel unchanged.
+
+
+## Next checks after the three-exception checkpoint (2026-09-29T15:04:04.817848+00:00)
+
+Finish the existing class24 constructor `n8-polynomial-group-tail-c24-v3`
+and quotient preflight; revalidate their own recorded processes before any
+restart. Then run the independent polynomial-group GAP verifier on the
+completed class24 fixture and finish its manifest/audit. Only then decide
+whether the proposed fourteen-layer/class24 scope has adequate support.
+Class21 independent group replay and the strict class25 boundary already
+pass and should not be repeated without a new concern. Current candidate
+scope/counts remain unchanged. The compatible-deformation probe is a
+failed unbounded branch, not a positive example; its general obstruction
+question is only a lead. Original deadline unchanged.

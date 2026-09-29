@@ -1510,3 +1510,34 @@ Counts remain 8 whole-entry coverage candidates, 2 partial, 0 established
 novel results. All jobs terminal; at most 4 cores / 32 GB reserved. No
 subagents, pushes, contacts or parent/preparation changes. Original deadline
 30 September 10:04:49 UTC unchanged.
+
+
+## N8 three-exception and nonlinear-tail checkpoint (2026-09-29T15:04:04.817848+00:00)
+
+The new fourteen-final-layer/class24 proof is written but remains uncounted
+pending its upper-bound group audit. The candidate scope stays class20
+and leading degree10 in arbitrary class. All eight Lie kernels through
+the first three exceptions are independently checked, including an extra
+ambient generator. The class21 polynomial group family passes independent
+GAP replay:744 columns,16 joint controls,3 complete kernels,1 complete
+integer fiber and2 group witnesses. Class25 has a genuine mixed boundary
+term; its115 leading coefficients are independently checked.
+
+Five unsuccessful/incomplete runs and their executed sources are retained.
+They include two constructor timeouts, one intentional collection-bottleneck
+interruption, an NQ integer limit, and a verifier's group-word nesting error.
+The class24 constructor v3 is running with a1200-second cap; it uses cached
+linear collection and FLINT rank and saves the polynomial system before
+arithmetic. A native class24 quotient preflight is also pending. See
+`problems/N8/fourteen-layer-audit.md` for completed evidence and limits.
+
+A new compatible-deformation Lie probe clears the earlier successor
+obstruction, but its quadratic and later linear obstructions are independent.
+It therefore still fails as an unbounded absorbed-parameter branch; see
+`research/notes/N8-compatible-deformation-probe.md`. An M0 internal recheck
+makes the right/left Fox-Jacobian conversion explicit without finding a
+new gap or changing scope; `research/notes/M0-29sep-convention-recheck.md`.
+
+Counts8 whole/2 partial/0 established novel; at most2 cores/16GB reserved.
+No subagents, pushes, contacts, parent or preparation-repository changes.
+The original30 September10:04:49UTC deadline is unchanged.
