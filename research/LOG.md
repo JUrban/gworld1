@@ -1831,3 +1831,13 @@ a finite matrix obstruction. No word/step cap reached. One terminal
 job passes in1.02s,1CPU/4GB. This tests a concrete infinitude route
 but yields no infinite family; see B9-fixed-strand-orbits.md.
 Counts and deadline unchanged; all jobs terminal.
+
+
+## Prior-scope queue correction,29 September2026
+
+Archived/read primary sources and viewed actual statements/theorem pages:
+AUX2 constant yes by prior Hanna Neumann; OR15 infinite nonfree scope
+by Wilton TheoremD. FP1 balanced and A1 two-relator scopes remain open
+in this check. Read a potential F41 concern about definability again:
+the existing generic-type separating formula already avoids assuming
+orbit/primitive definability; no new gap or test. Counts unchanged.

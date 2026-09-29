@@ -727,3 +727,10 @@ check likewise yields no new answer. The evening internal proof readthrough
 found no new gap, with all imported-theorem and implementation limits retained.
 Current tally remains nine whole-entry candidates, one partial candidate and
 zero established novel results. No external review or publication occurred.
+
+
+29 September evening source correction: AUX2 is prior positive by Hanna
+Neumann. Wilton's TheoremD gives OR15 for infinite nonfree groups, with
+the website's omitted free/finite conventions kept explicit. Recent small
+undecidable presentations do not settle FP1 or A1. See
+`research/notes/AUX2-OR15-FP1-scope.md`; no candidate-count change.

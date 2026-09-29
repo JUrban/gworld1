@@ -821,3 +821,12 @@ counterexample; novelty remains unverified. See
 GroupWorld count. CBraid primary source is https://github.com/jeanluct/cbraid,
 pin891fcaf7cf9af3ec9ca0f1b0e46b0f86cf461b78; independent GAP verification
 removes that discovery dependency from the result.
+
+
+29 September2026: AUX2 follows immediately from Friedman1105.0129,
+Theorem2.1 (primary theorem and actual page inspected). OR15 intended
+infinite nonfree scope follows from Wilton2406.02121v3, TheoremD; free
+and finite conventions are explicit. FP1 remains open in the recent
+Kegel--Li--Ren2609.10461v1 introduction; its9-relator unsolvable-WP result
+also does not reach A1's2 relators. See AUX2-OR15-FP1-scope.md for exact
+reading limits and archived sources. No discovery count.

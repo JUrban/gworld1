@@ -1,0 +1,706 @@
+                                           SMALL UNDECIDABLE GROUPS AND UNRECOGNIZABLE 4-MANIFOLDS
+
+                                                                   MARC KEGEL, SHANA YUNSHENG LI, AND QIUYU REN
+
+
+
+                                                 Abstract. We construct a 3-generator 9-relator group with unsolvable word problem. We use the
+                                                 group to construct two fixed-size Adian–Rabin families of group presentations, one with 4 generators
+                                                 and 11 relators, and another with 2 generators and 10 relators. As a consequence, #7 (S 2 × S 2 )
+                                                 is topologically unrecognizable and #9 (S 2 × S 2 ) is smoothly unrecognizable. These algebraic and
+arXiv:2609.10461v1 [math.GR] 9 Sep 2026
+
+
+
+
+                                                 topological results improve the previous best known bounds by Borisov, Tancer, and Gordon.
+                                                     The construction of the group builds upon an example of Borisov and uses additional HNN
+                                                 extensions and Tietze eliminations to reduce the size of the presentation. We also provide a machine-
+                                                 checked Lean 4 formalization of the algebraic results.
+
+
+
+
+                                                                                        1. Introduction
+
+                                          Many undecidability results in topology are proved by showing that a hypothetical algorithm for a
+                                          topological decision problem would yield an algorithm for a known undecidable problem in group
+                                          theory. This approach, pioneered by Markov [Mar58], has led to numerous undecidable problems
+                                          in topology. These group-theoretic decision problems are also of intrinsic interest in combinatorial
+                                          group theory. A natural quantitative question is how small a finite presentation can be while still
+                                          exhibiting algorithmically undecidable behavior.
+
+
+                                          1.1. Algebra. The word problem for finitely presented groups, originating in the work of Dehn
+                                          [Deh11], is one of the classical decision problems in group theory. A fundamental negative result was
+                                          obtained by Novikov [Nov52; Nov55] and independently by Boone [Boo59], who constructed finitely
+                                          presented groups with unsolvable word problem. Subsequent work sought increasingly economical
+                                          examples: Boone [Boo59] obtained an example with 32 defining relators, Collins reduced this to 18
+                                          [Col66] and subsequently to 14 [Col69], and Borisov [Bor69] obtained an example with 12 relators.
+                                          The latter was the smallest number of relators previously known for a finitely presented group with
+                                          unsolvable word problem. Our first result improves upon this.
+                                          Theorem 1.1. There exists a 3-generator 9-relator group with unsolvable word problem.
+
+                                          The triviality problem for finitely presented groups is to determine, from a finite presentation,
+                                          whether the presented group is trivial. Following Novikov’s proof of the undecidability of the
+                                          word problem [Nov55], Adian proved that the triviality problem is undecidable, as are many other
+                                          recognition problems for finitely presented groups [Ady55; Ady57]. Rabin independently obtained
+                                          a general version of this result [Rab58], now known as the Adian–Rabin theorem.
+                                          The undecidability of the triviality problem can be quantified using the notion of Adian–Rabin
+                                          families.
+                                          Definition 1.2. A recursively enumerable family of finite group presentations P is called an Adian–
+                                          Rabin family if there is no algorithm that takes as input P ∈ P and decides whether or not the
+                                          group presented by P is trivial.
+                                                                                                  1
+2                             MARC KEGEL, SHANA YUNSHENG LI, AND QIUYU REN
+
+
+By the work of Adian [Ady55; Ady57] and Rabin [Rab58], the set of all finite group presentations
+forms an Adian–Rabin family. To measure the “smallness” of Adian–Rabin families, one may ask
+for such families with additional restrictions, for example, with a fixed (small) number of relators, or
+a fixed deficiency1. A longstanding open problem asks whether there exists an Adian–Rabin family
+consisting entirely of balanced presentations. The best previously known constructions are due to
+Tancer [Tan23], who constructed an Adian–Rabin family of deficiency 9, and Gordon [Gor22], who
+constructed one with 13 relators. Our next results improve upon both bounds.
+Theorem 1.3. There exists an Adian–Rabin family of 4-generator, 11-relator group presentations.
+Theorem 1.4. There exists an Adian–Rabin family of 2-generator, 10-relator group presentations.
+
+1.2. Topology. We say that a closed PL n-manifold M is PL-unrecognizable if there is no algo-
+rithm that, given a PL triangulation of a closed manifold X, decides whether or not X is PL-
+homeomorphic to M . Similarly, M is topologically unrecognizable if there is no algorithm deciding
+whether or not X is homeomorphic to M . In dimensions n ≤ 6, every PL n-manifold admits a com-
+patible smooth structure, unique up to diffeomorphism [Mil11]. Consequently, PL-unrecognizability
+and smooth unrecognizability are equivalent in these dimensions.
+By Perelman’s proof of the Geometrization Conjecture [Per02; Per03b; Per03a], every closed man-
+ifold of dimension at most three is recognizable [Kup19]. In contrast, the fundamental work of
+Markov [Mar58] and Novikov (see [VKF74; CL06]) shows that there are unrecognizable manifolds
+in every dimension at least four. In fact, in dimensions greater than four, every nonempty closed
+PL manifold is PL-unrecognizable [CL06].
+In dimension four, the situation is more mysterious. It is a major open question whether S 4 is rec-
+ognizable; see, for example, Problem 4.53 in the K3 problem list [BKR26]. Markov’s construction
+implies that the existence of an Adian–Rabin family with r relators yields the smooth and topologi-
+cal unrecognizability of #r (S 2 ×S 2 ) (see, for example, [FHK26]); the existence of such an r was first
+shown in [Ady55]. Subsequent work reduced the number of S 2 × S 2 factors. In particular, Tancer
+[Tan23] observed that a deficiency-d Adian–Rabin family yields the topological unrecognizability
+of #d (S 2 × S 2 ) as a consequence of Freedman’s theorem [Fre82], and Gordon [Gor22] observed that
+an r-relator Adian–Rabin family yields the smooth unrecognizability of #r−1 (S 2 × S 2 ) (although
+he only stated this in the topological category). Using their constructions of Adian–Rabin fami-
+lies mentioned above, they thereby showed the topological unrecognizability of #9 (S 2 × S 2 ) and
+the smooth unrecognizability of #12 (S 2 × S 2 ), respectively. Our Theorems 1.3 and 1.4 yield the
+following improvements.
+Corollary 1.5. #n (S 2 × S 2 ) is topologically unrecognizable for n ≥ 7 and smoothly unrecognizable
+for n ≥ 9.                                                                                        □
+Remark 1.6. Using analogous arguments, one can also show that (#a CP2 )#(#b CP2 ) is topologically
+unrecognizable for min(a, b) ≥ 7 and smoothly unrecognizable for min(a, b) ≥ 9.
+Remark 1.7. Cameron Gordon informed us that he has independently obtained improvements on the
+smallest known Adian–Rabin families in the spirit of Theorems 1.3 and 1.4, based on a modification
+of Borisov’s group in [Bor69]. Using these improvements, he was able to show both the smooth
+and the topological unrecognizability of #8 (S 2 × S 2 ). This will appear in an upcoming paper.
+
+1.3. Constructions of the Adian–Rabin families. The group G in Theorem 1.1 will satisfy
+the following extra properties.
+    1Here, following [Tan23], the deficiency is defined as the number of relators minus the number of generators; this
+is the negative of the usual group-theoretic convention.
+                 SMALL UNDECIDABLE GROUPS AND UNRECOGNIZABLE 4-MANIFOLDS                            3
+
+
+Proposition 1.8. The group G in Theorem 1.1 admits a 3-generator 9-relator presentation satis-
+fying the following additional properties:
+
+(1) There is a generator that normally generates G.
+(2) There is a generator that is trivial in the abelianization of G.
+
+Now we can combine the work of Gordon [Gor22] and Tancer [Tan23] with Theorem 1.1 and
+Proposition 1.8 to deduce Theorems 1.3 and 1.4.
+
+Proof of Theorems 1.3 and 1.4. Theorem 1.4 is a direct consequence of Gordon [Gor22, Lemma 2.1]
+applied to our group G in Theorem 1.1, noting that condition (2.1) in [Gor22] follows from Propo-
+sition 1.8(2).
+Theorem 1.3 follows from the construction in [Tan23, Theorem 9]. More precisely, in our setup,
+Tancer’s argument builds a 6-generator 13-relator Adian–Rabin family from our group G and the
+normal generator r1′ provided by Proposition 1.8(1). However, GPT suggested that two additional
+Tietze eliminations can be performed to cancel two pairs of generators and relators. In the notation
+of [Tan23, (1)–(4)], one first replaces the generator α by a new generator δ := γα−1 . Then one may
+cancel the generator γ with relation (1), and the generator r1′ with relation (4).                 □
+Remark 1.9. As pointed out by GPT and confirmed to us by Martin Tancer, two corrections appear
+to be necessary in [Tan23] concerning the construction of Adian–Rabin families from groups with
+unsolvable word problem.
+
+   (1) The word w in equation (3) of [Tan23] should be replaced by [w, β], as was done in Miller
+       [Mil92], because α−3 wα3 cannot be a basis element of a free group if w is torsion, breaking
+       Tancer’s argument.
+   (2) Applying [Tan23, Remark 10] to the group G would yield a 2-generator 9-relator Adian–
+       Rabin family, beating both Theorems 1.3 and 1.4. However, the remark seems to be unjus-
+       tified.
+
+1.4. Proof outline of Theorem 1.1. We briefly discuss the proof of Theorem 1.1, which uses
+a standard strategy in combinatorial group theory and builds directly on the ideas in Borisov’s
+construction [Bor69]. We start with Borisov’s group Γ4 , which has unsolvable word problem [Bor69].
+We then construct in Section 2 two HNN extensions
+                                          Γ4 ,→ Γ5 ,→ Γ6 .
+For the first extension, we identify two suitable subgroups of Γ4 and an isomorphism between them;
+for the second, we do the same for two subgroups of Γ5 . The main technical step is to prove that
+these subgroups have precisely the claimed presentations, with no additional relations. This is
+carried out in Section 3. Once this is established, the embeddings follow from the standard theory
+of HNN extensions, in particular, Britton’s lemma; see, for example, [Coh89, Theorem 32(ii) and
+Proposition 34].
+Since Γ4 embeds into Γ6 and has unsolvable word problem, Γ6 also has unsolvable word problem.
+Finally, we simplify the presentation of Γ6 : seven relators are redundant, and six generator–relator
+pairs can be eliminated by Tietze transformations. This leaves a presentation with three generators
+and nine relators, proving Theorem 1.1.
+
+1.5. Note on AI use. The main construction in this paper was essentially developed by GPT-5.6
+Sol Pro. Starting from Borisov’s group with unsolvable word problem, the model suggested the two
+4                        MARC KEGEL, SHANA YUNSHENG LI, AND QIUYU REN
+
+
+additional HNN extensions used in Sections 2 and 3 and the subsequent Tietze transformations
+leading to the 3-generator, 9-relator presentation. It also suggested the two additional Tietze
+eliminations used in the proof of Theorem 1.3 and drew our attention to the issues discussed in
+Remark 1.9.
+We independently checked and reorganized these arguments and verified the literature references.
+We then used Codex extensively to develop the Lean 4 formalization as explained below. The
+authors have reviewed the final mathematical argument and take responsibility for its correctness.
+This paper does not contain any text directly generated by AI.
+
+
+
+
+1.6. Lean autoformalization. With the assistance of GPT-5.6 Sol in Codex, we formalized in
+Lean 4 the proofs of Theorems 1.1, 1.3, and 1.4, together with all their dependencies, including
+Matiyasevich’s 2-letter 3-relator semigroup/Thue system with unsolvable word problem [Mat95]
+and Borisov’s construction [Bor69]. The complete formalization is available in the accompanying
+GitHub repository [KLR26]. We briefly summarize the development process.
+
+
+    (1) We first used GPT-5.6 Sol Pro to produce an informal proof of Theorem 1.1, which was
+        recorded in a companion PDF.
+    (2) We asked Codex to formalize the statements of the three main theorems. After some
+        simplification, these occupy fewer than 80 lines of Lean code. We checked the resulting
+        statements manually.
+    (3) We then provided Codex with the informal proof and asked it to identify the main de-
+        pendencies and construct the overall Lean proof skeleton. At this intermediate stage,
+        five project-specific assumptions were represented by temporary Lean axioms. The most
+        substantial ones concerned an undecidable 2-generator 3-relator semigroup/Thue system,
+        initially attributed to Matiyasevich’s 1967 construction [Mat67], Borisov’s unsolvability re-
+        duction from groups to semigroups/Thue systems, and the injectivity of the two further
+        compressions from Borisov’s group Γ4 .
+    (4) For each temporary axiom, we asked Codex to identify the relevant literature, collected
+        the sources in a dedicated reference directory, and then asked it to formalize the required
+        arguments. This discharged all but the Thue-system input. Codex traced the route through
+        Matiyasevich’s 1967 construction back through earlier work to Novikov’s undecidability the-
+        orem [Nov55], deciding that a direct formalization of that route would be disproportionately
+        large.
+    (5) To remove the remaining axiom, we followed a different route. Starting from a fixed Turing
+        machine with an undecidable halting problem, Codex formalized Post’s machine-to-Thue
+        construction [Pos47] and then Matiyasevich’s compression to a binary three-rule Thue sys-
+        tem [Mat95]. This completed the proof of the required undecidability statement.
+    (6) We prompted Codex to find the improvement of [Tan23, Theorem 9] that we used in the
+        proof of Theorem 1.3 above. We asked Codex to formalize the reductions to Theorems 1.3
+        and 1.4 following Tancer [Tan23] (with the improvement above) and Gordon [Gor22].
+    (7) After the proof was complete, we asked Codex to audit the development for project-specific
+        axioms and sorry declarations, remove redundant arguments, simplify proofs, and reorga-
+        nize the repository. The complete proof contains approximately 28,000 lines of Lean code.
+        A transitive axiom audit of the three main theorems reports only Lean’s standard principles
+        propext, Classical.choice, and Quot.sound.
+    (8) Finally, we verified that the formalization is accepted by the Lean Comparator [Böv25].
+                    SMALL UNDECIDABLE GROUPS AND UNRECOGNIZABLE 4-MANIFOLDS                                   5
+
+
+1.7. Acknowledgements. This work started during the 2026 Trisectors Workshop at Western
+Washington University. We thank the organizers of the workshop for fostering a stimulating envi-
+ronment for productive discussion and research. We warmly thank Nathan Dunfield for his sub-
+stantial help with this project. We thank Cameron Gordon for his careful reading of a first draft of
+this paper and for many valuable comments. We thank Martin Tancer for clarifications regarding
+his work [Tan23]. QR thanks Shurui Liu for helpful discussions on AI tools and autoformalization.
+MK was supported by a Ramón y Cajal grant (RYC2023-043251-I) and PID2024-157173NB-I00
+funded by MCIN/AEI/10.13039/501100011033, by ESF+, and by FEDER, EU; and by a VII Plan
+Propio de Investigación y Transferencia (SOL2025-36103) of the University of Sevilla. SYL was
+partially supported by the US National Science Foundation grant DMS-2303572. This research was
+conducted during the period when QR served as a Clay Research Fellow.
+
+
+                                            2. The construction
+
+We start with a finitely presented semigroup Π of the form
+                                       Π = ⟨s1 , s2 | Fi ∼ Ei , i = 1, 2, 3⟩
+such that:
+
+(a) There exists a positive word P over {s1 , s2 } such that there is no algorithm to decide, given a
+    word Q, whether or not Q ∼ P in Π;
+(b) The words Ei , Fi (i = 1, 2, 3) and P all contain both of the generators s1 and s2 ;
+(c) In a group containing s1 and s2 , if s1 = s−1
+                                               2 and F2 = E2 , then s1 = s2 = 1.
+
+Such a Π can be obtained from Matiyasevich’s construction [Mat95, eq. (6)] by applying a faithful
+encoding to it; see Appendix A.
+Consider the following sequence of groups and natural homomorphisms
+                                           Γ1 −→ Γ2 −→ · · · −→ Γ6 ,
+where each Γj is given by the relators enclosed in the square brackets in (1) and the generators
+s1 , s2 , c, d, e, k, t, y, z occurring in the corresponding relators. The subscripts i and β vary in {1, 2, 3}
+and {1, 2}, respectively.
+
+                                                                                      
+                                           Γ1 d4 sβ = sβ d, esβ = sβ e4
+                                               
+                                                                         
+                                                      sβ c = csβ
+                                                                               
+                                      Γ2 
+                                      
+                     
+                     
+                          
+                               Γ3                                        
+                                                                               
+                                                                                 
+                           Γ4     
+                                                   i    i      i    i
+                                                                          
+                                                  d Fi e c = cd Ei e
+                                                                            
+                                                                              
+                      Γ5                                                    
+                  Γ6 
+                         
+                          
+                               
+                                              ct = tc, dt = td
+                                                                               
+                                                                                                         (1)
+                                 ck = kc, ek = ke, (P −1 tP )k = k(P −1 tP )
+                                                                              
+                                                                              
+                                                                                
+                           dye = y, ey = yd, cy = yc, ty = yk, s1 ys2 = y       
+                                      dz = zt, tz = zc, cz = zy
+
+For example, Γ2 = ⟨s1 , s2 , c, d, e | d4 sβ = sβ d, esβ = sβ e4 , sβ c = csβ , di Fi ei c = cdi Ei ei ⟩.
+We claim that these natural homomorphisms arise from HNN extensions and are therefore injective.
+The subsequence ⟨d, e⟩ ≤ Γ1 ≤ Γ2 ≤ Γ3 ≤ Γ4 of embeddings was established by Borisov [Bor69].
+He also showed the following.
+6                           MARC KEGEL, SHANA YUNSHENG LI, AND QIUYU REN
+
+
+Theorem 2.1 (Borisov). If Q is a positive word over {s1 , s2 }, then Q ∼ P in Π if and only if
+(Q−1 tQ)k = k(Q−1 tQ) in Γ4 . Consequently, Γ4 has unsolvable word problem by property (a) of
+Π.                                                                                          □
+
+Thus, it remains to establish the following lemma, whose proof is deferred to Section 3.
+Lemma 2.2. Γ4 ≤ Γ5 ≤ Γ6 .
+
+It follows from Lemma 2.2 that G := Γ6 also has unsolvable word problem. In the rest of this
+section, we prove the remaining claims in Theorem 1.1 and Proposition 1.8.
+Proposition 2.3. Γ6 admits a presentation with 3 generators and 9 relators.
+
+Proof. Γ6 is a group with 9 generators and 22 relators by construction. Among the relators, the
+following seven
+          d4 s2 = s2 d,    es2 = s2 e4 ,   s2 c = cs2 ,     ck = kc,     ek = ke,    cy = yc,   ct = tc
+are redundant: The first five follow from the y-conjugates of
+                       es1 = s1 e4 ,   d4 s1 = s1 d,      s1 c = cs1 ,   ct = tc,   dt = td,
+respectively, and then the last two follow from the z-conjugates of ct = tc and dt = td, respectively.
+Next, we perform six Tietze eliminations to cancel six additional generator-relator pairs by rewriting
+           t := z −1 dz, c := z −1 tz, y := z −1 cz, e := ydy −1 , s2 := y −1 s−1         −1
+                                                                               1 y, k := y ty.            (2)
+We thus obtain a 3-generator 9-relator presentation
+             Γ6 ∼
+                = ⟨d, s1 , z | d4 s1 = s1 d, es1 = s1 e4 , s1 c = cs1 ,
+                di Fi ei c = cdi Ei ei (i = 1, 2, 3), dt = td, (P −1 tP )k = k(P −1 tP ), dye = y⟩,       (3)
+where t, c, y, e, s2 , k are words in d, s1 , z determined iteratively by (2).                             □
+
+Next, we show that the group Γ6 satisfies the properties in Proposition 1.8. More precisely, we
+have:
+Proposition 2.4. Using the presentation (3), Γ6 is normally generated by z, and d is trivial in the
+abelianization (Γ6 )ab of Γ6 .
+
+Proof. Setting z = 1, (2) gives d = t = c = y = e = k. The relation dye = y gives d2 = 1. Noting
+that s1 commutes with d by s1 c = cs1 , the relation d4 s1 = s1 d gives d3 = 1, so d = 1. Finally, the
+relation s2 = y −1 s−1                     −1                    2    2      2    2
+                    1 y in (2) gives s1 = s2 , and the relation d F2 e c = cd E2 e gives E2 = F2 , so
+property (c) of Π implies s1 = s2 = 1. This proves the first part of the proposition.
+Abelianizing (2) gives d = t = c = y = e = k and s1 = −s2 . The relations d4 s1 = s1 d and dye = y
+then give 3d = 0 and 2d = 0, respectively. Hence d = 0 in (Γ6 )ab .                             □
+
+Assuming Lemma 2.2, we can give a proof of Theorem 1.1.
+
+Proof of Theorem 1.1 and Proposition 1.8. By Lemma 2.2, Γ4 is a subgroup of Γ6 . Borisov’s theo-
+rem 2.1 implies that Γ4 has unsolvable word problem, and hence so does Γ6 . Proposition 2.3 proves
+that Γ6 admits a presentation with 3 generators and 9 relators, and the additional properties
+claimed in Proposition 1.8 follow from Proposition 2.4.                                         □
+                  SMALL UNDECIDABLE GROUPS AND UNRECOGNIZABLE 4-MANIFOLDS                                7
+
+
+                                         3. Proof of Lemma 2.2
+
+Thus, it remains to prove Lemma 2.2. We divide the proof into two parts. For Γ4 ≤ Γ5 , consider
+the subgroups A and B of Γ4 generated by {s1 , c, d, e, t} and {s2 , c, d, e, k} respectively. It suffices
+to show the following.
+Lemma 3.1. A and B have presentations
+          A∼= ⟨s1 , c, d, e, t | d4 s1 = s1 d, es1 = s1 e4 , s1 c = cs1 , ct = tc, dt = td⟩,
+              B∼
+               = ⟨s2 , c, d, e, k | d4 s2 = s2 d, es2 = s2 e4 , s2 c = cs2 , ck = kc, ek = ke⟩.
+
+Hence the assignment
+                            d 7→ e−1 ,    e 7→ d,    c 7→ c,    t 7→ k,    s1 7→ s−1
+                                                                                  2
+respects the relations and thus defines an isomorphism of subgroups θ : A → B, and Γ5 is the HNN
+extension of Γ4 relative to θ.
+For Γ5 ≤ Γ6 , consider the subgroups C and D of Γ5 generated by {c, d, t} and {c, t, y} respectively.
+It suffices to prove the following.
+Lemma 3.2. C and D have presentations
+                             C∼= ⟨c, d, t | ct = tc, dt = td⟩,
+                                        ∼ ⟨c, t, y | ct = tc, cy = yc⟩.
+                                       D=
+
+Hence the assignment
+                                     c 7→ y, d 7→ t, t 7→ c
+defines an isomorphism from C to D, and Γ6 is the HNN extension of Γ5 relative to this isomorphism.
+We will appeal to lemmas in Appendix B for the proofs of Lemmas 3.1 and 3.2.
+
+3.1. Proof of Lemma 3.1. To complete the analysis of A and B in Γ4 , we use the following facts
+about the extension ⟨d, e⟩ ≤ Γ1 proved by Borisov [Bor69, Assertions IV & V].
+Proposition 3.3 (Borisov, Assertion IV). The morphisms from free groups ⟨A1 , . . . , A5 ⟩ and
+⟨B1 , . . . , B5 ⟩ to Γ1 ,
+                           φA : ⟨A1 , . . . , A5 ⟩ → Γ1 , φB : ⟨B1 , . . . , B5 ⟩ → Γ1
+defined by
+             φA (Aβ ) = sβ ,    φA (A2+i ) = di Fi ei ,    φB (Bβ ) = sβ ,     φB (B2+i ) = di Ei ei
+are monomorphisms.                                                                                      □
+Proposition 3.4 (Borisov, Assertion V). For a reduced word in ⟨A1 , . . . , A5 ⟩ (resp. ⟨B1 , . . . , B5 ⟩),
+its expansion in s1 , s2 , d, e obtained by directly applying φA (resp. φB ) is HNN-reduced with respect
+to the multi-HNN extension ⟨d, e⟩ ≤ Γ1 .                                                               □
+
+For β = 1, 2, let Sβ denote the subgroup of Γ1 generated by {sβ , d, e}. We now prove the following.
+Lemma 3.5. For β = 1, 2,
+                   φA (⟨A1 , . . . , A5 ⟩) ∩ Sβ = ⟨sβ ⟩,   φB (⟨B1 , . . . , B5 ⟩) ∩ Sβ = ⟨sβ ⟩,       (4)
+and
+                   φA (⟨A1 , . . . , A5 ⟩) ∩ ⟨d, e⟩ = 1,   φB (⟨B1 , . . . , B5 ⟩) ∩ ⟨d, e⟩ = 1.       (5)
+8                           MARC KEGEL, SHANA YUNSHENG LI, AND QIUYU REN
+
+
+Proof. It suffices to prove the statements for φA and β = 1; the proofs for the other cases are
+identical.
+For (4), the inclusion ⟨s1 ⟩ ≤ φA (⟨A1 , . . . , A5 ⟩)∩S1 is obvious. Conversely, let g ∈ φA (⟨A1 , . . . , A5 ⟩)∩
+S1 . There exists a reduced word in ⟨A1 , . . . , A5 ⟩ whose expansion via φA is a word W in s1 , s2 , d, e
+representing g. By Proposition 3.4, W is HNN-reduced with respect to ⟨d, e⟩ ≤ Γ1 .
+On the other hand, since g ∈ S1 , there exists a word W ′ in s1 , d, e representing g that is HNN-
+reduced with respect to ⟨d, e⟩ ≤ S1 . By definition, W ′ is also HNN-reduced with respect to ⟨d, e⟩ ≤
+Γ1 since it does not contain the letter s2 . By Lemma B.1, W likewise contains no occurrence of
+s2 . By Property (b) of Π, each of φA (A2 ), . . . , φA (A5 ) contains the letter s2 , whereas φA (A1 ) = s1 .
+Hence the reduced word whose expansion is W can involve only A1 , and therefore W is a power of
+s1 .
+For (5) it suffices to show that ⟨d, e⟩ ∩ ⟨s1 ⟩ = 1. This follows from the observation that in the
+abelianization of Γ1 , s1 contributes to a free Z summand while both d and e have finite order. □
+
+Since Γ1 ≤ Γ2 is the HNN extension relative to the group isomorphism from φA (⟨A1 , . . . , A5 ⟩) to
+φB (⟨B1 , . . . , B5 ⟩) induced by Aj 7→ Bj , taking A = φA (⟨A1 , . . . , A5 ⟩) and B = ⟨d, e⟩ in Lemma B.2,
+we obtain the following corollary from (5).
+Corollary 3.6. The subgroup of Γ2 generated by {c, d, e} is free on {c, d, e} and its intersection
+with Γ1 is exactly ⟨d, e⟩.                                                                       □
+
+Similarly, taking A = φA (⟨A1 , . . . , A5 ⟩) and B = Sβ in Lemma B.2, we deduce the following
+corollary from (4).
+Corollary 3.7. For β = 1, 2, the subgroup of Γ2 generated by {sβ , c, d, e} has presentation
+                             ⟨sβ , c, d, e | d4 sβ = sβ d, esβ = sβ e4 , sβ c = csβ ⟩,                        (6)
+and its intersection with Γ1 is exactly Sβ .                                                                   □
+
+Write p := P −1 tP and observe that
+                                  Γ3 = ⟨Γ2 , p | ap = pa, a ∈ P −1 ⟨c, d⟩P ⟩.                                 (7)
+Let ∆ be the subgroup of Γ3 generated by {c, e, p}. Taking B in Corollary B.3 as the subgroup
+⟨c, e⟩ of Γ2 (note that ⟨c, e⟩ is free due to Corollary 3.6), we see that
+                                                ∆ ∩ Γ2 = ⟨c, e⟩.
+Furthermore, we observe that Γ3 ≤ Γ4 is the HNN extension relative to 1∆ . We are now ready to
+prove Lemma 3.1.
+
+Proof of Lemma 3.1. The desired presentation of A is obtained immediately by applying Corol-
+lary B.3 with B being the group in (6) for β = 1.
+For B, let B be the group in (6) for β = 2. Then ∆ ∩ B = ⟨c, e⟩ since
+                                      ⟨c, e⟩ ≤ ∆ ∩ B ≤ ∆ ∩ Γ2 = ⟨c, e⟩.
+Applying Corollary B.3 with this B (and G = Γ3 ≤ Γ4 = H) therefore gives the desired presentation
+of B.                                                                                           □
+                    SMALL UNDECIDABLE GROUPS AND UNRECOGNIZABLE 4-MANIFOLDS                            9
+
+
+3.2. Proof of Lemma 3.2. Let D and Dt be the subgroups of Γ3 generated by {c, d, e} and
+{c, d, e, t} respectively; we have seen from Corollary 3.6 that D is freely generated by {c, d, e}.
+Since Γ2 ≤ Γ3 is the HNN extension relative to the identity on the subgroup generated by {c, d},
+applying Corollary B.3 with B = D gives that
+                                   Dt ∼
+                                      = ⟨c, d, e, t | ct = tc, dt = td⟩.
+Restricting to C, we obtain the desired presentation
+                                  C∼ = ⟨c, d, t | ct = tc, dt = td⟩.
+For the presentation of D, recall that D ∩ Γ1 = ⟨d, e⟩ from Corollary 3.6. Let S be the subgroup of
+Γ1 generated by {s1 , s2 }. Then P ∈ S, and consequently P ̸∈ D since D intersects with only the
+torsion summands of Γ1 in the abelianization. Hence we may apply Lemma B.4 with this P and
+D along with K = ⟨c, e⟩ and G = Γ2 , obtaining
+                                                 ∆ ∩ Dt = ⟨c, e⟩.
+Now, since Γ3 ≤ Γ4 is the HNN extension relative to 1∆ , applying Corollary B.3 with B = Dt
+shows that the subgroup of Γ4 generated by {c, d, e, t, k} admits the presentation
+                             ⟨c, d, e, k, t | ck = kc, ek = ke, ct = tc, dt = td⟩.
+Since trivializing d and e gives a left inverse of the natural map
+              ⟨c, k, t | ck = kc, ct = tc⟩ → ⟨c, d, e, k, t | ck = kc, ek = ke, ct = tc, dt = td⟩,
+it follows that the subgroup Bk of Γ4 generated by {c, k, t} is presented by
+                                 Bk ∼= ⟨c, k, t | ck = kc, ct = tc⟩.
+We are now only one proposition away from obtaining the desired presentation of D.
+Proposition 3.8. Bk ∩ A and Bk ∩ B are the subgroups of Γ4 generated by {c, t} and {c, k} respec-
+tively.
+
+With Proposition 3.8, applying Lemma B.2 with B = Bk and A = A, we obtain that the subgroup
+of Γ5 generated by {c, k, t, y} has presentation
+                              ⟨c, k, t, y | ck = kc, ct = tc, ty = yk, cy = yc⟩,
+where k is redundant because k = y −1 ty; eliminating it gives
+                                D∼  = ⟨c, t, y | ct = tc, cy = yc⟩
+as desired.
+
+Proof of Proposition 3.8. Let Ct and Ck be the subgroups of Γ4 generated by {c, t} and {c, k}
+respectively. For Bk ∩ A, it suffices to show that Bk ∩ Γ3 = Ct since Ct ≤ A ≤ Γ3 . Since Γ3 ≤ Γ4
+is the HNN extension relative to 1∆ , this follows immediately from Corollary B.3 with B = Ct .
+For Bk ∩ B, using the notation of Lemma B.5 and set G = Γ3 , A = ∆, L = Ct , C = ⟨c⟩. Let M be
+the subgroup of Γ3 generated by {s2 , c, d, e}. It suffices to show that
+                                                Ct ∩ ∆M ∆ = ⟨c⟩.
+It is clear that ⟨c⟩ ⊂ Ct ∩ ∆M ∆. For the converse, note that an element g ∈ Ct ∩ ∆M ∆ is
+represented by a word of the form
+                               g = h1 pϵ1 · · · pϵn hn+1 · m · g1 pµ1 · · · pµn′ gn′ +1 ,            (8)
+10                           MARC KEGEL, SHANA YUNSHENG LI, AND QIUYU REN
+
+
+where m ∈ M , hj , gj ∈ ⟨c, e⟩, and ϵj , µj ∈ {±1}. Recall from (7) that Γ2 ≤ Γ3 is the HNN extension
+relative to 1P −1 ⟨c,d⟩P , hence reducing p-pinches preserves the form in (8). In particular, g admits
+an HNN-reduced expression of the form
+                                            g = m1 pε1 · · · pεn′′ mn′′ +1 ,                                 (9)
+where εj ∈ {±1} and mj ∈ M since ⟨c, e⟩ ⊂ M . Substituting p = P −1 tP gives
+                              g = (m1 P −1 )tε1 (P m2 P −1 )tε2 · · · tεn′′ (P mn′′ +1 ),
+which is HNN-reduced with respect to the extension Γ2 ≤ Γ3 obtained by adjoining t, since a t-pinch
+would imply that P mj P −1 ∈ ⟨c, d⟩ for some j with εj−1 = −εj , which implies that mj ∈ P −1 ⟨c, d⟩P ,
+giving a p-pinch in (9).
+On the other hand, since g ∈ Ct , it admits the following reduced form in terms of the t-extension:
+                                              g = γ1 tε1 · · · tεn′′ γn′′ +1 ,
+where γj ∈ ⟨c⟩. Hence
+                (m1 P −1 )tε1 (P m2 P −1 )tε2 · · · tεn′′ (P mn′′ +1 )γn−1
+                                                                         ′′ +1 t
+                                                                                −εn′′
+                                                                                      · · · t−ε1 γ1−1 = 1.
+If n′′ ̸= 0, Lemma B.1 implies that tεn′′ (P mn′′ +1 )γn−1
+                                                         ′′ +1 t
+                                                                 −εn′′ is a t-pinch, hence
+
+
+                                             (P mn′′ +1 )γn−1
+                                                            ′′ +1 ∈ ⟨c, d⟩,
+
+
+which implies that P ∈ M . However, by the property (b) of Π, this is not possible since, recalling
+that M ∩ Γ1 = S2 from Corollary 3.7, M intersects with only the free summand given by s2 in the
+abelianization of Γ1 , while P projects nontrivially to both the free summands given by s1 and s2 .
+Therefore n′′ = 0, which gives g ∈ ⟨c⟩ as desired.                                                □
+
+
+            Appendix A. A faithful encoding of Matiyasevich’s construction
+
+In [Mat95, eq. (6)], a semigroup Σ of the form
+                                         Σ = ⟨x, y | Fi ∼ Ei , i = 1, 2, 3⟩
+was constructed such that
+
+      (i) There exists a positive word P in x, y such that there is no algorithm to decide, given a
+          word G, whether or not G ∼ P in Σ;
+     (ii) F1 = xxyxy, E1 = yxx, F2 = xxyy and E2 = yxx.
+
+It is clear that Σ satisfies the properties (a) and (c) listed at the beginning of Section 2. The
+property (b), however, is not immediately clear from the literature, as F3 , E3 and P were not
+explicitly stated. Therefore we apply a faithful encoding to Σ to avoid having to determine these
+words explicitly.
+Consider the homomorphism η from the free semigroup ⟨x, y⟩ to the free semigroup ⟨s1 , s2 ⟩ defined
+by
+                                    η(x) = s1 s22 s1 , η(y) = s1 s32 s1 .
+Put Fi := η(Fi ), Ei := η(Ei ) and P := η(P), and define
+                                       Π := ⟨s1 , s2 | Fi ∼ Ei , i = 1, 2, 3⟩.
+It is straightforward to see that Π satisfies both properties (b) and (c). For property (a), it suffices
+to show the following:
+                  SMALL UNDECIDABLE GROUPS AND UNRECOGNIZABLE 4-MANIFOLDS                         11
+
+
+Proposition A.1. For any two positive words U and V in x and y, U ∼ V in Σ if and only if
+η(U ) ∼ η(V ) in Π.
+
+Proof. The forward implication is immediate. For the converse, observe that η is injective and that
+every word in its image has a unique factorization into copies of η(x) and η(y). It suffices to show
+that no occurrence of Fi or Ei can begin in the interior of a factor η(x) or η(y), so that we can
+translate replacements Fi ↔ Ei in Π back into replacements in Σ. Indeed, both Fi and Ei begin
+with s1 s2 , which occurs only at the very beginning of each η(x) and η(y) for an element in the
+image of η since it must be of the form
+                                   s1 sj21 s21 sj22 s21 · · · sj2n s1 ,   jk ∈ {2, 3}.            □
+
+
+                          Appendix B. Lemmas about HNN extensions
+
+Let G be a group, A ≤ G be a subgroup of G and φ : A → G be a monomorphism. Let Λ be a finite
+index set and H = ⟨G, uα | auα = uα φ(a), ∀a ∈ A (α ∈ Λ)⟩ be a (multi-)HNN extension of G
+relative to φ. A word in G, uα is HNN-reduced with respect to G ≤ H if it contains no pinches, i.e.,
+subwords of the form u−1                         −1
+                        α auα with a ∈ A or uα buα with b ∈ φ(A). By starting with an arbitrary
+word in G, uα and replacing uα auα and uα buα with φ(a) and φ−1 (b) respectively, one sees that
+                               −1             −1
+
+every element of H has a representative word that is HNN-reduced with respect to G ≤ H.
+The following two facts are standard [Coh89, Theorem 32 (ii) & Proposition 34].
+Lemma B.1 (Britton’s lemma). For an element h ∈ H = ⟨G, uα | auα = uα φ(a), ∀a ∈ A             (α ∈
+Λ)⟩, there exists a unique sequence
+                                               (α1 , ϵ1 ), . . . , (αn , ϵn ),
+where ϵj ∈ {±1} for all j = 1, . . . , n, such that every HNN-reduced word representing h is of the
+form
+                                         g1 uϵα11 g2 uϵα22 · · · uϵαnn gn+1 ,
+where gj ∈ G for all j = 1, . . . , n + 1.                                                        □
+Lemma B.2. Let B ≤ G. If φ(B ∩ A) = B ∩ φ(A), then for any subset Θ ⊂ Λ, the subgroup of H
+generated by B ∪ {uα | α ∈ Θ} is presented by
+                             ⟨B, uα | buα = uα φ(b), ∀b ∈ B ∩ A                   (α ∈ Θ)⟩,
+and its intersection with G is exactly B.                                                         □
+
+Taking φ = 1A , the assumption φ(B ∩ A) = B ∩ φ(A) is automatic. Thus, we obtain the following
+corollary.
+Corollary B.3. For any B ≤ G, the subgroup of H = ⟨G, u | au = ua, ∀a ∈ A⟩ generated by
+B ∪ {u} is presented by
+                             ⟨B, u | bu = ub, ∀b ∈ B ∩ A⟩,
+and its intersection with G is B.                                                                 □
+
+Let us fix H = ⟨G, u | au = ua, ∀a ∈ A⟩ below and denote by ⟨B, u⟩ the subgroup generated by
+B ∪ {u} in H. The proofs of the following two statements are routine applications of Lemma B.1.
+Lemma B.4. If K, A ≤ D ≤ G and P ∈ G \ D, then ⟨K, P −1 uP ⟩ ∩ ⟨D, u⟩ = K.
+12                         MARC KEGEL, SHANA YUNSHENG LI, AND QIUYU REN
+
+
+Proof. It is clear that K ⊂ ⟨K, P −1 uP ⟩ ∩ ⟨D, u⟩. For the converse, set p := P −1 uP . Then
+                                    H = ⟨G, p | bp = pb, ∀b ∈ P −1 AP ⟩.
+Let g ∈ ⟨K, p⟩ ∩ ⟨D, u⟩. Since the HNN extension is relative to the identity map, expanding g in
+K, p and applying pinch reduction gives the following HNN-reduced form:
+                                           g = k1 pϵ1 · · · kn pϵn kn+1 ,                                     (10)
+where ϵj ∈ {±1} and kj ∈ K with kj ̸∈ P −1 AP whenever 2 ≤ j ≤ n and ϵj−1 = −ϵj . Substituting
+p = P −1 uP back gives
+                           g = (k1 P −1 )uϵ1 (P k2 P −1 )uϵ2 · · · uϵn (P kn+1 ),
+which is also HNN-reduced in terms of the u-extension, since a u-pinch would imply kj ∈ P −1 AP
+for some j with ϵj−1 = −ϵj .
+On the other hand, expanding g in D, u gives the following HNN-reduced form:
+                                            g = d1 uϵ1 · · · uϵn dn+1 ,
+where dj ∈ D. Hence
+                  (k1 P −1 )uϵ1 (P k2 P −1 )uϵ2 · · · uϵn (P kn+1 )d−1
+                                                                    n+1 u
+                                                                         −ϵn
+                                                                             · · · u−ϵ1 d−1
+                                                                                         1 = 1.
+
+If n ̸= 0, uϵn (P kn+1 )d−1
+                         n+1 u
+                              −ϵn must be a u-pinch by Lemma B.1, which gives
+
+                                               P kn+1 d−1
+                                                       n+1 ∈ A.
+Since kn+1 , dn+1 ∈ D, this implies that P ∈ D, contradicting the assumption. Therefore n = 0, so
+g ∈ K from (10).                                                                               □
+Lemma B.5. Let A, L, M ≤ G. If C ≤ A ∩ L ∩ M satisfies C = L ∩ AM A, where AM A denotes
+the indicated product set, then ⟨L, u⟩ ∩ ⟨M, u⟩ = ⟨C, u⟩.
+
+Proof. It is clear that ⟨C, u⟩ ⊂ ⟨L, u⟩ ∩ ⟨M, u⟩. For the converse, let g ∈ ⟨L, u⟩ ∩ ⟨M, u⟩. Since
+the HNN extension is relative to the identity map, expanding g in L, u and M, u respectively gives
+HNN-reduced forms
+                                             g = l1 uϵ1 · · · uϵn ln+1 ,
+where ϵj ∈ {±1} and lj ∈ L, and
+                                            g = m1 uϵ1 · · · uϵn mn+1 ,
+where mj ∈ M . Hence
+                             l1 uϵ1 · · · uϵn ln+1 m−1
+                                                    n+1 u
+                                                           −ϵn
+                                                                · · · u−ϵ1 m−1
+                                                                            1 = 1,
+and by Lemma B.1
+                                                 ln+1 m−1
+                                                       n+1 ∈ A,
+hence ln+1 ∈ L ∩ AM A = C. It follows that lj ∈ C for all j by repeatedly applying u-pinch
+reductions, concluding that g ∈ ⟨C, u⟩.                                                         □
+
+                                                 References
+
+[Ady55]   S. I. Adyan, Algorithmic unsolvability of problems of recognition of certain properties of groups, Dokl.
+          Akad. Nauk SSSR (N.S.) 103 (1955), 533–535.
+[Ady57]   S. I. Adyan, Unsolvability of some algorithmic problems in the theory of groups, Trudy Moskov. Mat. Obšč.
+          6 (1957), 231–298, issn: 0134-8663.
+[BKR26]   R. I. Baykur, R. Kirby, and D. Ruberman, eds., K3: a new problem list in low-dimensional topology,
+          vol. 295, Mathematical Surveys and Monographs, American Mathematical Society, Providence, RI, 2026,
+          xi+430, isbn: 978-1-4704-8433-0, doi: 10.1090/ surv/ 295 , url: https:// doi.org/ 10.1090/ surv/ 295 .
+[Boo59]   W. W. Boone, The word problem, Ann. of Math. (2) 70 (1959), 207–265, issn: 0003-486X, doi: 10.2307/
+          1970103 , url: https:// doi.org/ 10.2307/ 1970103 .
+                                                   REFERENCES                                                      13
+
+
+[Bor69]    V. V. Borisov, Simple examples of groups with unsolvable word problem, Mat. Zametki 6 (1969), 521–532,
+           issn: 0025-567X.
+[Böv25]    H. Böving, Comparator, GitHub repository, 2025, url: https:// github.com/ leanprover/ comparator.
+[CL06]     A. V. Chernavsky and V. P. Leksine, Unrecognizability of manifolds, Ann. Pure Appl. Logic 141 (2006),
+           no. 3, 325–335, issn: 0168-0072,1873-2461, doi: 10.1016/ j.apal.2005.12.011 , url: https:// doi.org/ 10.
+           1016/ j.apal.2005.12.011 .
+[Coh89]    D. E. Cohen, Combinatorial group theory: a topological approach, vol. 14, London Mathematical Society
+           Student Texts, Cambridge University Press, Cambridge, 1989, x+310, isbn: 0-521-34133-7, doi: 10.1017/
+           CBO9780511565878 , url: https:// doi.org/ 10.1017/ CBO9780511565878 .
+[Col66]    D. J. Collins, A group with 18 defining relations and an unsolvable word problem, J. Symbolic Logic 31
+           (1966), no. 4, Research announcement, 700–701, issn: 0022-4812.
+[Col69]    D. J. Collins, Word and conjugacy problems in groups with only a few defining relations, Z. Math. Logik
+           Grundlagen Math. 15 (1969), 305–324, issn: 0044-3050, doi: 10.1002/ malq.19690152001 , url: https:
+           // doi.org/ 10.1002/ malq.19690152001 .
+[Deh11]    M. Dehn, Über unendliche diskontinuierliche Gruppen, Math. Ann. 71 (1911), no. 1, 116–144, issn: 0025-
+           5831,1432-1807, doi: 10.1007/ BF01456932 , url: https:// doi.org/ 10.1007/ BF01456932 .
+[Fre82]    M. H. Freedman, The topology of four-dimensional manifolds, J. Differential Geometry 17 (1982), no. 3,
+           357–453, issn: 0022-040X,1945-743X, url: http:// projecteuclid.org/ euclid.jdg/ 1214437136 .
+[FHK26]    S. Friedl, T. Hirsch, and M. Kegel, The Unsolvability of the Homeomorphism Problem, arXiv preprint
+           arXiv:2603.23630 (2026).
+[Gor22]    C. M. Gordon, On the homeomorphism problem for 4-manifolds, New Zealand J. Math. 52 (2022), 821–
+           826, issn: 1171-6096,1179-4984, doi: 10.53733/ 205 , url: https:// doi.org/ 10.53733/ 205 .
+[KLR26]    M. Kegel, S. Y. Li, and Q. Ren, Adian–Rabin, GitHub repository, A Lean 4 formalization of quantitative
+           undecidability results for finitely presented groups, including explicit Adian–Rabin constructions, 2026,
+           url: https:// github.com/ 32805433/ Adian-Rabin.
+[Kup19]    G. Kuperberg, Algorithmic homeomorphism of 3-manifolds as a corollary of geometrization, Pacific J.
+           Math. 301 (2019), no. 1, 189–241, issn: 0030-8730,1945-5844, doi: 10 . 2140 / pjm . 2019 . 301 . 189 , url:
+           https:// doi.org/ 10.2140/ pjm.2019.301.189 .
+[Mar58]    A. Markov, The insolubility of the problem of homeomorphy, Dokl. Akad. Nauk SSSR 121 (1958), 218–220,
+           issn: 0002-3264.
+[Mat67]    Y. Matiyasevich, Simple examples of unsolvable canonical calculi, Trudy Mat. Inst. Steklov. 93 (1967),
+           50–88, issn: 0371-9685.
+[Mat95]    Y. Matiyasevich, Word problem for Thue systems with a few relations, in: Term rewriting (Font Romeux,
+           1993), vol. 909, Lecture Notes in Comput. Sci. Springer, Berlin, 1995, 39–53, isbn: 3-540-59340-3, doi:
+           10.1007/ 3-540-59340-3_4 , url: https:// doi.org/ 10.1007/ 3-540-59340-3_4 .
+[Mil92]    C. F. Miller III, Decision problems for groups—survey and reflections, in: Algorithms and classification in
+           combinatorial group theory (Berkeley, CA, 1989), vol. 23, Math. Sci. Res. Inst. Publ. Springer, New York,
+           1992, 1–59, isbn: 0-387-97685-X, doi: 10.1007/ 978-1-4613-9730-4_1 , url: https:// doi.org/ 10.1007/ 978-
+           1-4613-9730-4_1 .
+[Mil11]    J. Milnor, Differential topology forty-six years later, Notices Amer. Math. Soc. 58 (2011), no. 6, 804–809,
+           issn: 0002-9920,1088-9477.
+[Nov52]    P. S. Novikov, On algorithmic unsolvability of the problem of identity, Doklady Akad. Nauk SSSR (N.S.)
+           85 (1952), 709–712.
+[Nov55]    P. S. Novikov, Ob algoritmičeskoı̆ nerazrešimosti problemy toždestva slov v teorii grupp, Trudy Mat. Inst.
+           Steklov. no. 44, Izdat. Akad. Nauk SSSR, Moscow, 1955, 143.
+[Per02]    G. Perelman, The entropy formula for the Ricci flow and its geometric applications (2002), arXiv: math/
+           0211159 [math.DG].
+[Per03a]   G. Perelman, Finite extinction time for the solutions to the Ricci flow on certain three-manifolds (2003),
+           arXiv: math/ 0307245 [math.DG].
+[Per03b]   G. Perelman, Ricci flow with surgery on three-manifolds (2003), arXiv: math/ 0303109 [math.DG].
+[Pos47]    E. L. Post, Recursive unsolvability of a problem of Thue, J. Symbolic Logic 12 (1947), 1–11, issn: 0022-
+           4812,1943-5886, doi: 10.2307/ 2267170 , url: https:// doi.org/ 10.2307/ 2267170 .
+[Rab58]    M. O. Rabin, Recursive unsolvability of group theoretic problems, Ann. of Math. (2) 67 (1958), 172–194,
+           issn: 0003-486X, doi: 10.2307/ 1969933 , url: https:// doi.org/ 10.2307/ 1969933 .
+[Tan23]    M. Tancer, Simpler algorithmically unrecognizable 4-manifolds, Preprint 2023, 27 pages, 2023, arXiv: 2310.
+           07421 .
+[VKF74]    I. A. Volodin, V. E. Kuznecov, and A. T. Fomenko, The problem of the algorithmic discrimination of the
+           standard three-dimensional sphere, Uspehi Mat. Nauk 29 (1974), no. 5(179), 71–168, issn: 0042-1316.
+14                                         REFERENCES
+
+
+Universidad de Sevilla, Dpto. de Álgebra, Avda. Reina Mercedes s/n, 41012 Sevilla, Spain
+
+Email address: kegelmarc87@gmail.com
+
+
+Dept. of Mathematics, University of Illinois Urbana-Champaign, Urbana, IL 61801, USA
+
+Email address: yl202@illinois.edu
+
+
+Department of Mathematics, Stanford University, Stanford, CA 94305, USA
+
+Email address: qren18@stanford.edu
+

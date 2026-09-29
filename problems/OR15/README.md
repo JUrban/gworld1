@@ -6,7 +6,7 @@ Source begins at line 75; byte range [3220, 3435). The raw fragment is stored in
 
 Heading star: False. Starred subparts: none detected. Hall of Fame entries: 0. Linked background sections indexed: 0.
 
-Current openness and exact scope require review. No solving has started. The machine-readable source evidence is in `data/problems.json`; the extracted text below is a search aid, not an authoritative transcription.
+Prior answer in the intended infinite nonfree scope: Wilton's Theorem D forces a surface group. The free/finite conventions remain explicit. See [the source audit](../../research/notes/AUX2-OR15-FP1-scope.md). No discovery count is added. The machine-readable source evidence is in `data/problems.json`; the extracted text below is a search aid, not an authoritative transcription.
 
 ```text
 (OR15) (B.Fine) If G is a one-relator group with the property that every
