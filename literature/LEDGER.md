@@ -648,3 +648,14 @@ rank scope of Theorem3.3. Full frozen N8 HTML/background reread and actual
 statement rendering re-viewed. Targeted commutator/symplectic searches
 found no precise matching extension; novelty remains unverified. Full
 reading limits and prior credits: `problems/N8/universal-gauge-audit.md`.
+
+
+### N8 parametric integer arithmetic (2026-09-29T12:46:29.054516+00:00)
+
+Schuster2007 thesis Section4.1.6/Theorem71 archived and relevant pages read;
+printedp67 actually viewed. Prior one-parameter solution parametrization;
+visible `U=AS` typo checked against preceding `UA=S`. Full thesis not audited.
+Primary publisher abstract of Bozga–Iosif–Lakhnech2009, DOI10.3233/FI-2009-0044,
+read and confirms prior decidability. Full PDF retrieval failed; no full-proof
+reading claimed. Details, URLs, hashes and limits in
+`problems/N8/parametric-integer-audit.md`. No arithmetic novelty claim.

@@ -1408,3 +1408,21 @@ in `research/notes/portfolio-29sep-noon.md` and added no candidate.
 
 All jobs terminal;8 whole/2 partial/0 established novel; no subagents,
 pushes, contacts or imported Kourovka arguments. Original clock unchanged.
+
+
+## N8 one-parameter arithmetic component (2026-09-29T12:46:29.054516+00:00)
+
+A complete integer-parameter linear solver now has a written elementary
+proof and independent GAP replay. This is prior arithmetic, explicitly
+credited to Schuster2007 and Bozga–Iosif–Lakhnech2009. The successful
+suites cover24 complete systems,268 finite decisions,352 residue decisions,
+2040 fixed specializations and19 final witnesses. Three implementation/
+representation failures and their sources/logs are retained; both successful
+runs have empty stderr. All jobs and handles are terminal.
+
+See `problems/N8/parametric-integer-proof.md` and its audit. The proposed
+reduction of actual group corrections to this arithmetic remains unverified,
+so N8 scope and counts stay unchanged:8 whole/2 partial/0 established novel.
+The preceding preparation-only check advanced no solving; the recorded run
+has now resumed under its original30September10:04:49UTC deadline. No
+subagents, pushes, contacts, or changes to parent/preparation repositories.
