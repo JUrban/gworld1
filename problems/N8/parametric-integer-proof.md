@@ -132,11 +132,23 @@ claim explicit zero-dimensional test coverage.
 ## Implementation boundary
 
 `scripts/parametric_integer_linear.py` implements the proof using full
-Q[T] and integer Smith transformations, rational coefficients and complete
-integer-root lists. Its output contains all finite or residue decisions,
+Q[T] Smith transformations, integer Hermite transformations, rational
+coefficients and complete integer-root lists. Its output contains all finite or residue decisions,
 not only a witness. `check_parametric_integer_linear_gap.g` independently
 checks the polynomial identities, root lists, finite bound, complete
 congruence list, and integer decisions using GAP. See the companion audit.
+
+The initial integer Smith implementation is preserved at commit `2a01612`
+and in the later run snapshots. A larger group fixture exposed severe
+coefficient growth in that integer step; the current implementation uses
+the experiment's previously checked component Hermite routine. If
+H=U A^tr with U integral unimodular and H in row Hermite form, integer
+division along its nonzero pivots gives the unique constrained coordinates.
+The zero rows of H correspond to the remaining rows of U, which form a
+complete integral kernel basis after transposition. The implementation
+checks H=U A^tr and det(U)=+/-1, so this does not replace the lattice by its
+rational saturation. The full 24-system suite and independent GAP replay
+were repeated after the change; see `parametric-tail-audit.md`.
 
 The reduction of the remaining *group* variables to a matrix linear in
 all but one parameter is a separate obligation. In particular a term

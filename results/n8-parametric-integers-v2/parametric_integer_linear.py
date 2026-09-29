@@ -29,21 +29,21 @@ def normal_form(A,domain):
     return D,U,V
 
 def integer_solve(A,b):
-    # Full integer Smith transformations can explode on the larger group
-    # fixtures. The already-audited component Hermite routine retains the
-    # unimodular transform and returns the same complete affine Z-lattice.
-    from n8_component_linear import affine_solution
     A,b=S.Matrix(A),S.Matrix(b)
     m,n=A.shape
     assert b.shape==(m,1)
     assert all(x.is_Integer for x in list(A)+list(b))
     if m==0:return S.zeros(n,1),S.eye(n)
-    answer=affine_solution([[int(A[i,j]) for i in range(m)] for j in range(n)],
-                           [int(x) for x in b])
-    if answer is None:return None
-    z=S.Matrix(n,1,answer[0]);k=len(answer[1])
-    kernel=S.Matrix(n,k,lambda i,j:answer[1][j][i])
-    assert A*z==b and A*kernel==S.zeros(m,k)
+    D,U,V=normal_form(A,S.ZZ);beta=U*b
+    assert abs(U.det())==1 and abs(V.det())==1
+    r=sum(D[i,i]!=0 for i in range(min(m,n)))
+    if any(beta[i] for i in range(r,m)):return None
+    y=S.zeros(n,1)
+    for i in range(r):
+        if beta[i]%D[i,i]:return None
+        y[i]=beta[i]/D[i,i]
+    z=V*y;kernel=V[:,r:]
+    assert A*z==b and A*kernel==S.zeros(m,n-r)
     return z,kernel
 
 def integer_roots(p):

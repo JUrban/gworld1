@@ -425,3 +425,26 @@ so N8 scope and counts stay unchanged:8 whole/2 partial/0 established novel.
 The preceding preparation-only check advanced no solving; the recorded run
 has now resumed under its original30September10:04:49UTC deadline. No
 subagents, pushes, contacts, or changes to parent/preparation repositories.
+
+
+## N8 parametric tail construction (2026-09-29T13:19:35.161426+00:00)
+
+The proposed overlapping-kernel extension now has a detailed group-coordinate
+proof. Class15 independent GAP replay verifies52 polynomial columns,8 joint
+controls,3 full kernels, the complete integral successor line and both group
+witnesses; a separate verifier checks positive and negative parameter sets.
+Class18 construction and complete arithmetic replay pass, with50 tail
+coordinates and63 polynomial equations. Its full GAP group replay remains
+live (`n8-parametric-tail-gap-c18-v1`), so uniform scope is not promoted yet.
+
+A real class19 mixed term is nonzero, with54 coefficients independently
+checked in GAP: the raw linear-tail argument stops strictly at c-d<=9.
+The integer solver now uses exact component Hermite reduction after a larger
+Smith calculation stalled; all24 arithmetic systems and independent replay
+pass again. One timeout and two intentional diagnostic/fixture-selection
+interruptions are retained, with saved polynomial input reused explicitly.
+See `problems/N8/parametric-tail-audit.md` for boundaries and executed versions.
+
+Counts8 whole/2 partial/0 established novel and original deadline unchanged.
+At most2 cores/16GB reserved; no subagents, pushes, contacts, or parent/prep
+changes. The only remaining live job is the named class18 group replay.

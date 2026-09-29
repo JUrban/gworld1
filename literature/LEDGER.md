@@ -659,3 +659,11 @@ Primary publisher abstract of Bozga–Iosif–Lakhnech2009, DOI10.3233/FI-2009-0
 read and confirms prior decidability. Full PDF retrieval failed; no full-proof
 reading claimed. Details, URLs, hashes and limits in
 `problems/N8/parametric-integer-audit.md`. No arithmetic novelty claim.
+
+
+N8 overlap application (2026-09-29T13:19:35.161426+00:00): targeted queries for free-nilpotent
+commutator decidability and commutator-equation algorithms returned prior
+class-two work and broader equation results. No exact match for the candidate
+application found; no novelty guarantee or new full-proof reading claimed.
+Frozen full HTML/background and actual N8 rendering rechecked. Arithmetic
+prior credits remain in the dedicated Schuster/Bozga–Iosif–Lakhnech audit.
