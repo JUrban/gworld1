@@ -210,3 +210,11 @@ N8 general type-one extension: the candidate now decides every third-from-last t
 
 
 N8 combined type-one/two extension: the third-from-last algorithm now admits every target whose complete integral leading list has first weight at most2, in every finite rank and class c>=8. GAP independently passed10 witnesses,40 linear decisions and8 quadratic certificates, including the exceptional type(2,7) class11 branch. See `problems/N8/type12-third-proof.md` and its audit. The support lemma is now explicitly credited as a consequence of Remeslennikov--Stohr2007 via Lazard elimination; the elementary alternative proof is retained. This remains one partial N8 candidate; counts6 whole,3 partial,0 established novel.
+
+
+GA5(c) now has a checked prior existential positive answer in rank two from
+Nekrashevych Section1.10.4; the classification in (a) stays separate. The
+G7 metric-profile citation does not supply an accepted convergence proof:
+its numerical implication fails for a monotone submultiplicative sequence,
+which is not a group counterexample. The E6 strong-conciseness theorem
+also has different scope. See the three dated research notes; no counts change.

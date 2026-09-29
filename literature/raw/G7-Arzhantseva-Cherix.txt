@@ -1,0 +1,1995 @@
+   QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS
+
+                       GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+
+        Abstract. We introduce and systematically study a profile function whose asymptotic be-
+        haviour quantifies the dimension or the size of a metric approximation of a finitely generated
+        group G by a family of groups F = {(Gα , dα , kα , εα )}α∈I, where each group Gα is equipped
+        with a bi-invariant metric dα and a dimension kα , for strictly positive real numbers εα such that
+        inf α εα > 0. Through the notion of a residually amenable profile that we introduce, our ap-
+        proach generalises classical isoperimetric (aka Følner) profiles of amenable groups and recently
+        introduced functions quantifying residually finite groups. Our viewpoint is much more general
+        and covers hyperlinear and sofic approximations as well as many other metric approximations
+        such as weakly sofic, weakly hyperlinear, and linear sofic approximations.
+
+
+
+
+                                             1. Introduction
+
+    Approximation is ubiquitous in mathematics. In the theory of groups, it is particularly natural
+to approximate infinite groups by finite ones. A fundamental realisation of this idea has lead
+Malcev (1940’s) and P. Hall (1955) to the notion of a residually finite group: a group where the
+algebraic structure on any finite fixed set of elements is exactly as if these elements were in a
+suitable finite quotient of the group.
+    Once a concept of approximation is coined, a crucial question is how to compare distinct
+approximations of the same object, and, in particular, how to quantify the way an object is
+approximated. For residually finite groups, there are two main ways of quantifying the approx-
+imation of an infinite group by finite ones. The first way is to compute how many subgroups
+of a given finite index the group possesses. This is a classical subject of research on the sub-
+group growth, initiated by M. Hall (1949), which allows to enumerate how the group can be
+approximated by a finite quotient of a prescribed cardinality. The second way of quantifying is
+to compute the minimal cardinality among all possible finite quotients that detect the algebraic
+structure of the fixed finite set of elements of the residually finite group. This viewpoint is more
+recent and it is about the so-called full residual finiteness growth, see below for the definition.
+    In this paper, we push this second idea of quantifying of approximations of infinite groups
+significantly beyond the class of residually finite groups and apply it to much more general
+metric approximations of infinite groups in contrast to classical algebraic approximations. Metric
+approximations are approximations by groups equipped with bi-invariant metrics (see the next
+section for precise definitions) and they are very natural to study. Intuitively, we require that
+the algebraic operation on a finite set of group elements of the approximated group is almost as
+if these elements were in the approximating group, where ‘almost’ refers to the fixed bi-invariant
+
+   2010 Mathematics Subject Classification. 20E26, 20F69, 20C99, 03C20.
+   Key words and phrases. Residually finite groups, sofic and hyperlinear groups, metric ultraproducts, amenable
+groups, full residual finiteness growth, Følner function.
+   This research was partially supported by the European Research Council (ERC) grant of Goulnara Arzhantseva,
+“ANALYTIC” grant agreement no. 259527.
+                                                        1
+2                      GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+metric. This simple idea has gained a major importance following Gromov’s introduction of
+sofic groups (= groups metrically approximated by symmetric groups of finite degrees, endowed
+with the normalised Hamming distance) and his settlement, for sofic groups, of Gottschalk’s
+surjunctivity conjecture (1973) in topological dynamics. Another renowned example of metric
+approximation is that by unitary groups of finite rank, endowed with the normalised Hilbert-
+Schmidt distance. This defines the class of hyperlinear groups, appeared in the context of
+Connes’ embedding problem (1972) in operator algebra.
+   We encompass both sofic and hyperlinear groups as well as their generalisations such as linear
+sofic groups, weakly sofic groups, and weakly hyperlinear groups into a general framework of
+metric approximations by groups with, in addition to a prescribed bi-invariant metric, a dimen-
+sion or a size, associated with each of the approximating groups. For instance, the dimension
+of a finite symmetric group is chosen to be its degree, of a unitary group – its rank, of a finite
+group – its cardinality, etc. Our general quantification function, called metric profile, is then
+defined to be, given a finite set of group elements in the approximated group, e.g. the ball of
+finite radius with respect to the word length metric, the minimal dimension among all possible
+metric approximations which ‘almost’ preserve the algebraic structure of this finite set. Viewed
+within sofic groups, our approach is orthogonal to the recently emerged theory of sofic entropy
+started in the seminal work of L. Bowen (such a theory is not yet available for an a priori wider
+class of hyperlinear groups). Restricted to residually finite groups, the contrast between Bowen’s
+viewpoint and our approach is exactly the distinction between the subgroup growth of a group
+and the full residual finiteness growth, respectively.
+   Since metric approximations generalise classical algebraic approximations, the previously
+known functions, quantifying ‘exact’ approximations (versus ‘almost’ ones), occur to be up-
+per bounds for our metric profile. For example, a knowledge about the full residual finiteness
+growth of a residually finite group gives an estimate on the sofic and on the hyperlinear profiles
+of such a group. If the approximating groups are amenable, then besides a chosen dimension,
+they carry an associated isoperimetric function, the famous Følner function. We make use of this
+classical function and of our metric profile philosophy to define the residually amenable profile
+for every residually amenable group (and more generally, for every group locally embeddable
+into amenable ones). This allows to extend a classical study of Følner functions of amenable
+groups to non-amenable groups metrically approximable by amenable ones.
+   The main aim of this paper is to provide a necessary theoretical base for a further more specific
+quantitative analysis of metric approximations of concrete discrete groups. We meticulously
+compare our metric profile with previously investigated quantifying functions alluded to above.
+Since the classes of groups we study are preserved under several group-theoretical operations
+such as taking subgroups, direct and free products, extensions by amenable groups, restricted
+wreath products, etc., we also provide the corresponding estimates on the suitable metric profiles.
+On the way, we collect some crucial examples and finally formulate a number of open problems.
+
+  Acknowledgment. The main concepts of this paper have been introduced in 2008. Since
+then this work has been presented on several occasions at the universities of Neuchâtel, Copen-
+hagen, Aix-Marseille, at the ENS Lyon, ETH Zürich, MF Oberwolfach, and CRM Barcelona.
+The first author is grateful to colleagues at these institutions for the hospitality.
+                 QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                           3
+
+  The authors thank Martino Lupini for his help on the final version of this text and the
+anonymous referee for detailed comments and very useful suggestions.
+
+                           2. F-approximations and F-profile
+
+   Let I denote an index set. We let F = (Gα , dα , kα , εα )α∈I , where Gα is a group with a bi-
+invariant distance dα and identity element eα , kα is a natural number that can be thought as
+the dimension of Gα , and εα is a strictly positive real number such that inf α εα > 0.
+   Let G be a countable discrete group with identity eG and a distinguished generating set
+S ⊆ G. We denote by |g|S the length of an element g ∈ G with respect to the word length
+metric defined by S. We let BG,S (n) be the ball of center eG and radius n with respect to the
+word length metric induced by S – that is, BG,S (n) = {g ∈ G | |g|S ⩽ n}.
+
+Definition 1 (Approximation). Let n ∈ N and εα > 0. An (n, εα )-approximation of (G, S) by
+a group Gα is a function π : G → Gα satisfying the following:
+   (1) dα (π (g) π (h) , π (gh)) < 1/n for every g, h ∈ BG,S (n) with gh ∈ BG,S (n), and
+   (2) dα (π (g) , π (h)) > εα − 1/n for every g, h ∈ BG,S (n) such that g ̸= h.
+Such an (n, εα )-approximation is said to be of dimension kα .
+   An F-approximation of (G, S) is a sequence (πn )n∈N such that, for every n ∈ N, πn is an
+(n, εα )-approximation of (G, S) by Gα for some α ∈ I.
+   A finitely generated group G is F-approximable if (G, S) admits an F-approximation for some
+(or, equivalently, any) finite generating set S ⊆ G.
+
+   The above condition (1) is often called ‘almost homomorphism on the ball’ while condition
+(2) is termed as ‘uniform injectivity’.
+   In the definition below we convene that the minimum of the empty set is +∞.
+
+Definition 2 (Profile and dimension). Let G be a finitely generated group with a finite gener-
+                                                 F : N → N ∪ {+∞} defined by
+ating set S. The F-profile of G is the function DG,S
+     F
+    DG,S (n) = min {k ∈ N | ∃ an (n, εα )-approximation of G by Gα of dimension kα = k} .
+The F-dimension of G is defined by
+                                               1
+                               dimF
+                                  G,S = lim sup
+                                                      F
+                                                 log DG,S (n) .
+                                          n→+∞ n
+                                                                F
+  Observe that G is F-approximable if and only if the function DG,S is everywhere finite. We
+write simply DG,S when the family is irrelevant.
+
+Remark 3. One can consider families F as above where dα is not necessarily a metric but just
+a bi-invariant pseudometric. One can always reduce to the case of bi-invariant metric (rather
+                                                              
+than pseudometric) by replacing (Gα , dα ) with Gα /Nα , dα , where Nα is the normal subgroup
+{g ∈ Gα : dα (g, eα ) = 0} and dα is the bi-invariant metric induced by dα on the quotient.
+
+   We consider the quasi-order ≼ for functions D1 , D2 : N → N defined by D1 ≼ D2 if and only
+if there exists a constant C ∈ N such that D1 (n) ⩽ CD2 (Cn) for every n ∈ N. We also let ≃
+be the equivalence relation associated with the quasi-order ≼. Thus D1 ≃ D2 iff D1 ≼ D2 and
+D2 ≼ D1 .
+4                        GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+    If S, S ′ are two finite generating sets of G, then there exists C ∈ N such S ⊆ BG,S ′ (C) and
+S ′ ⊆ BG,S (C). Therefore BG,S (n) ⊆ BG,S ′ (Cn) and BG,S ′ (n) ⊆ BG,S (Cn) for every n ∈ N.
+This easily implies that DG,S (n) ⩽ DG,S ′ (Cn) and DG,S ′ (n) ⩽ DG,S (Cn). In particular, the
+≃-equivalence class of DG,S does not depend on the choice of the finite generating set S. We
+denote such an equivalence class by DG .
+
+Lemma 4. Let G be a group and F ⊆ G be a finite symmetric subset containing the identity
+eG of G. Let ε > 0 and H be a bi-invariant metric group with metric dH and π : G → H be a
+function such that dH (π (g) π (h) , π (gh)) < ε for every g, h ∈ F such that gh ∈ F .
+  For every n ∈ N and g, g1 , . . . , gn ∈ G such that g, gk , g1ε1 · · · gkεk ∈ F for every ε1 , . . . , εn ∈
+{+1, −1} and k ∈ {1, 2, . . . , n} the following assertions hold:
+    (1) dH (π (eG ) , eH ) < ε;
+    (2) dH (π g −1 , π (g)−1 ) < 2ε;
+                    
+
+    (3) dH (π (g1 · · · gn ) , π (g1 ) · · · π (gn )) < (n − 1) ε, whenever n > 1;
+    (4) dH (π (g1ε1 ) · · · π (gnεn ) , π (g1 )ε1 · · · π (gn )εn ) < 2nε;
+    (5) dH (π (g1ε1 · · · gnεn ) , π (g1 )ε1 · · · π (gn )εn ) < (3n − 1) ε.
+
+Proof. Since eG ∈ F , using the hypothesis on π and the bi-invariance of dH we have
+                              dH (π (eG ) , eH ) = dH (π (eG )2 , π (eG )) < ε.
+This proves (1). Similarly, for (2) we have
+          dH (π g −1 , π (g)−1 ) = dH (π (g) π g −1 , eH ) ⩽ dH (π (eG ) , eH ) + ε < 2ε.
+                                                  
+
+One can easily prove (3) by induction on n using the hypothesis, and (4) using (2). Finally (5)
+follows from (3) and (4).                                                                    □
+
+   In the following we suppose that G is a finitely generated group with a presentation ⟨X | R⟩
+given by generators X and relators R. We denote by S the symmetric generating set of G
+associated with X, i.e. S = X ⊔ X −1 . Without loss of generality, we assume that R = R−1 , i.e.
+R contains inverses of all of its elements. We denote by FX the free group over the alphabet
+X. For a word w over the letters from X ⊔ X −1 we let |w|FX be its length. In this situation,
+in order to define a homomorphism from G to another group H, it is often convenient to define
+a homomorphism from FX to H, in such a way that any word in R is mapped to the identity
+element eH ∈ H. This defines a unique group homomorphism from G to H, and any group
+homomorphism arises in this way. In this spirit, we define natural variants of the F-profile as
+follows (recall our convention that the minimum of the empty set is +∞):
+          F (n) is the least k ∈ N such that for some α with k
+      • WG,S                                                      α = k there exists a ho-
+        momorphism φ : FX → Gα such that for any word w ∈ FX of length at most n one
+        has that dα (φ (w) , eα ) > εα − 1/n if w does not represent the identity of G and
+        dα (φ (w) , eα ) < 1/n otherwise;
+
+      • RFG,S (n) is the least k ∈ N such that for some α with kα = k there exists a homomorphism
+        φ : FX → Gα such that for any word w ∈ FX of length at most n that does not represent
+        the identity of G one has that dα (φ (w) , eα ) > εα − 1/n, and dα (φ (r) , eα ) < 1/n for
+        any relator r ∈ R of length at most n.
+                   QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                                 5
+
+   In the following proposition, we establish precise quantitative relations among the notions of
+          F , W F , RF
+profile DG,S     G,S    G,S we have just introduced. To begin with, we recall some notions from
+combinatorial group theory.
+   If w ∈ FX is a word that represents the identity of G = ⟨X | R⟩, then the corresponding
+combinatorial area AG,S (w) is defined to be the least ℓ such that w can be written as a product
+of ℓ conjugates of relators from R. The Dehn function, denoted by DehnG,S (m), is defined to be
+the largest combinatorial area AG,S (w), where w ranges among all the words of length at most
+m representing the identity of G. We let NG,S (m) be the minimum, among all representations
+w = η1 r1 η1−1 · · · ηℓ rℓ ηℓ−1 as product of ℓ ⩽ DehnG,S (m) conjugates of relators r1 , . . . , rℓ ∈ R,
+                              
+
+of the maximum of the length of r1 , . . . , rℓ .
+
+                                                                                        F ,
+Proposition 5. Under the notation above, the following relations between the functions DG,S
+  F , RF
+WG,S   G,S hold for all sufficiently large m’s:
+        F (m) ⩽ D F ((3m + 1)m);
+   (1) WG,S        G,S
+        F (m) ⩽ W F (3m);
+   (2) DG,S        G,S
+        F (m) ⩽ RF (max {Dehn (m) m, N
+   (3) WG,S        G,S         G      G,S (m)});
+        F          F
+   (4) RG,S (m) ⩽ WG,S (m).
+                                          F , W F , RF
+  In particular, if one of the functions DG,S  G,S   G,S is everywhere finite, then all the others
+are everywhere finite.
+
+Proof. We prove the nontrivial inequalities below.
+   (1): Fix m ∈ N and consider n = (3m + 1)m. If k = DG,SF (n), then for some α with k = k
+                                                                                        α
+there exists an (n, εα )-approximation π : G → Gα . Let φ : FX → Gα be the homomorphism
+induced by the restriction of π to X. Suppose that w = x1 · · · xl is a word in FX of length
+l ⩽ m. If w represents the identity eG ∈ G, then by the triangle inequality and by (1) and (5)
+of Lemma 4 we have that
+
+       dα (φ (w) , eα ) ⩽ dα (φ (w) , π (eG )) + dα (π (eG ) , eα ) < (3m − 1) /n + 1/n < 1/m.
+
+Suppose now that w represents a nontrivial element g of G. Then we have again, by the triangle
+inequality together with (1) and (5) of Lemma 4,
+
+      dα (φ (w) , eα ) ⩾ dα (π (g) , π (eG )) − dα (π (eG ) , eα ) − dα (π (g) , φ (w)) > εα − 1/m.
+
+(2): Suppose that m ∈ N and set n = 3m. If k = WG,S     F (n), then for some α with k = k there
+                                                                                        α
+exists a homomorphism φ : FX → Gα such that for any word w ∈ FX of length at most n one has
+that dα (φ (w) , eα ) > εα − 1/n if w does not represent the identity of G and dα (φ (w) , eα ) < 1/n
+otherwise. One can choose for any element g ∈ BG,S (m) a word wg ∈ FX of minimal length
+that represents g in such a way that wg−1 = wg−1 for g ∈ G. Define then π (g) = φ (wg ) for every
+g ∈ BG,S (m) and arbitrarily for g ∈  / BG,S (m). We claim that π is an (m, εα )-approximation for
+G. Indeed, suppose that g, h ∈ BG,S (m) are such that gh ∈ BG,S (m). Observe that the word
+        −1
+wg wh wgh  ∈ FX has length at most n and represents the identity of G. Hence, by assumption,
+we have that
+                                                            −1
+                   dα (π (g) π (h) , π (gh)) = dα (φ(wg wh wgh ), eα ) < 1/n < 1/m.
+6                       GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+Suppose now that g, h are distinct elements of BG,S (m). We have that wg wh−1 is an element of
+FX of length at most 2m < n that does not represent the identity of G. Hence
+                dα (π (g) , π (h)) = dα φ wg wh−1 , eα > εα − 1/n > εα − 1/m.
+                                                     
+
+(3): Fix m ∈ N. Set n = max {DehnG,S (m) m, NG,S (m)}. If k = RF               G,S (n), then for some α
+with kα = k there exists a homomorphism φ : FX → Gα such that for any word w ∈ FX of length
+at most n that does not represent the identity of G one has that dα (φ (w) , eα ) > εα − 1/n, and
+dα (φ (r) , eα ) < 1/n for any relator r ∈ R of length at most n. Suppose now that w is a word in
+G of length at most m that represents the identity of G. Then we can write w as the product
+ η1 r1 η1−1 · · · ηℓ rℓ ηℓ−1 where ℓ ⩽ DehnG,S (m), ri ∈ R have length at most NG,S (m) ⩽ n and
+                           
+
+ηi ∈ FX . Thus, we have, for each i ⩽ ℓ,
+                               dα φ ηi ri ηi−1 , eα = dα (φ (ri ) , eα ) < 1/n
+                                                  
+
+and, hence, dα (φ (w) , eα ) < DehnG,S (m) /n ⩽ 1/m.                                                 □
+
+Proposition 6. Let F = (Gα , dα , kα , εα )α∈I be a family as above such that
+     (i) for every k ∈ N, {α ∈ I : kα ⩽ k} is finite, and
+    (ii) for every α ∈ I the bi-invariant metric group (Gα , dα ) is compact.
+    If G is a finitely generated group, then the following assertions are equivalent:
+     (1) the F-profile DG,S F                                                         F , RF
+                                 of G is bounded (equivalently, each of the profiles WG,S  G,S is
+         bounded);
+     (2) there exists an injective group homomorphism ι : G ,→ Gα for some α ∈ I such that
+         dα (ι (g) , ι (h)) > εα for every g, h ∈ G such that g ̸= h.
+
+Proof. The implication (2)⇒(1) is obvious, so we focus on the implication (1)⇒(2). Fix a finite
+generating set S for G. Suppose that the F-profile of G is bounded. Then there exists k ∈ N
+such that for any n ∈ N there exist αn ∈ I such that kαn ⩽ k and an (n, εαn )-approximation
+φn : G → Gαn . Since by assumption {α ∈ I : kα ⩽ k} is finite, without loss of generality we can
+assume that αn = α does not depend on n, and thus φn : G → Gα for every n ∈ N. Fix a
+nonprincipal ultrafilter U over N and define φ : G → Gα by φ (g) := limn→U φn (g). Observe
+that this is well defined since, by assumption, (Gα , dα ) is compact. Since, for every n ∈ N, φn is
+an (n, εα )-approximation, it follows that φ is an injective group homomorphism as required. □
+
+Remark 7. It is clear from the preceding proof that assumption (ii) can be weakened. For
+example, Proposition 6 remains true under condition (ii’) that (Gα , dα ) is a proper metric space
+(i.e. a metric space where every closed ball is compact) and for each g ∈ G and some l > 0 we
+have {n ∈ N | dα (φn (g), eα ) ⩽ l} ∈ U, where α is the index appearing in the proof. Indeed, such
+(ii’) ensures that limn→U φn (g) exists and is unique.
+
+2.1. F-approximations and metric ultraproducts. Adopting the notation from the be-
+ginning of the section, we let F be the family (Gα , dα , kα , εα )α∈I , where kα is a nonzero nat-
+ural number, εα is a strictly positive real number such that inf α εα > 0, and Gα is a bi-
+invariant metric group with distance dα and identity element eα . Fix a non-principal ultrafilter
+                                                     Q
+U over the index set I. The metric ultraproduct        U (Gα , dα ) of the family of bi-invariant
+metric groups (Gα , dα )α∈I can be defined as in [38, Section 4]. This is the quotient of the
+                    QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                                        7
+                   Q
+direct product α∈I Gα by the normal subgroup consisting of those elements (gα ) such that
+                                                           Q
+limα→U dα (gα , eα ) = 0 . The metric ultraproduct U (Gα , dα ) is endowed with a canonical
+                                                                                            Q
+bi-invariant metric dU , obtained as the quotient of the bi-invariant pseudometric on α∈I Gα
+defined by dU ((gα ) , (hα )) = limα→U dα (gα , hα ). Such a construction is in fact a particular in-
+stance, in the case of bi-invariant metric groups, of the notion of ultraproduct in the logic for
+metric structures; see [7, Section 5] and [16, Section 2.6].
+   In the case when the family (εα )α∈I is constantly equal to a given strictly positive real number
+ε, one can reformulate the notion of F-approximability in terms of embeddings into a metric
+                 Q
+ultraproduct U (Gα , dα ). Precisely, a countable group G is F-approximable if and only if
+                                                                               Q
+there exist an ultrafilter U over I and a group homomorphism ι : G → U (Gα , dα ) such that
+dU (ι (g) , ι (h)) ⩾ ε for every distinct g, h ∈ G; see also [46, Proposition 1.8].
+Example 8 (Varieties and non-varieties). It follows from the preceding paragraph that if C is a
+class of groups that is closed under taking arbitrary direct products, subgroups, and quotients
+(equivalently, by the Birkhoff theorem, if C is a variety of groups, i.e. a class of groups defined
+by a given set of identities or, using an alternative terminology, laws), and that contains Gα for
+every α ∈ I, then C contains every F-approximable group.
+   For instance, for any positive integer ℓ, groups approximable by solvable groups of derived
+length at most ℓ are solvable of derived length at most ℓ. In contrast, there exists a non-solvable
+group which is approximable by solvable groups (with no uniform bound on the derived length).
+These are not using any consideration about a metric1.
+                                                          f in
+   A more ‘metric’ example is given be the family Fcc          = (Hα , dcc
+                                                                        α , |Hα |, 1)α∈I , see Section 3.4,
+                                                                                f in
+where Hα , α ∈ I are all finite groups. It is clear that there exists an Fcc         -approximable group
+                             f in
+which does not belong to Fcc but, moreover, there exists a finitely presented group, the famous
+                                  f in
+Higman group, which is not Fcc         -approximable [46], cf. Question 49.
+Example 9 (Constant dimension). Let G be a finitely generated F-approximable group. As-
+sume that kα = k for all α ∈ I and a fixed k > 0. By Definition 2, the F-profile DG,S         F    and,
+                                F     F
+by Proposition 5, profiles WG,S , RG,S are constant. In particular, (1) of Proposition 6 holds.
+However, (i) of Proposition 6 is not fulfilled. It is natural to ask whether or not conclusion (2)
+of Proposition 6 remains true in this case of constant dimension of approximating groups.
+   For instance, if Gα are finite for all α ∈ I and kα = |Gα | = k for some k > 0, is the fixed
+cardinality of these finite groups2, then Definition 1(2) implies that G is finite and injects in some
+Gα (cf. Section 3.4, for a general setting when sizes of finite groups vary). Thus, Proposition 6(2)
+does hold in this case.
+   In the same vein, let Gα = GL(k, Kα ) be the group of k × k invertible matrices for a fixed
+k > 0, with coefficients in a field Kα , and equipped with the trivial {0, 1}-valued metric d{0,1} ,
+for α ∈ I, defined by d{0,1} (g, h) = 1 if g ̸= h and 0 otherwise. Then G is linear, i.e. G is
+a subgroup of GL(n, K) for some positive integer n and a field K (which is not required to
+coincide with Kα for some α ∈ I). Indeed, n can be chosen to be k and K to be the algebraic
+ultraproduct of fields Kα . This result is due to Malcev [36] and it can be also formulated using
+  1In fact, the metric is the trivial {0, 1}-valued metric d
+                                                            {0,1} , see Example 9.
+  2There are finitely many finite groups of given cardinality, that is, at least one group among G , α ∈ I appears
+                                                                                                 α
+                                                   Q
+infinitely many times in the metric ultraproduct   U (Gα , dα ).
+8                      GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+the language of the first-order classical logic: if the universal first-order theory of G contains
+that of a linear group GL(k, Kα ) (this is the case, for instance, when G and GL(k, Kα ) have the
+same elementary theories), then G is linear.
+   Note that we can relax the assumption on finite generation of G as by Malcev’s local theorem
+a group has a faithful linear representation of degree n over a field of characteristic p ⩾ 0 if
+and only if each of its finitely generated subgroups has such a representation over a field of
+characteristic p [36].
+   Since we deal with metric ultraproducts (associated to arbitrary bi-invariant distances dα ) it
+is natural to ask whether or not Malcev’s result still holds in the continuous logic setting, see
+Question 50.
+   However, it is clear that for an arbitrary group Gα one cannot expect that an embedding of
+G into an ultrapower of Gα induces an embedding G ,→ Gα . Here is a concrete example in
+the case of algebraic ultrapower: if Gα = FX is a free non-abelian group, then, by a result of
+Remeslennikov [41], a finitely generated subgroup G of an algebraic ultrapower of FX is a fully
+residually free group. Take such a non-free group G, i.e. any non-free Sela’s limit group. See
+also Question 53.
+
+                           3. Classes of F-approximable groups
+
+   The notion of F-approximable group for various choices of F captures many classes of groups
+that are currently a subject of intensive study. We mention only main examples below, for more
+details about these wide classes of groups and a broad range of applications see [39, 38, 18, 1, 3,
+16]. The reader is also invited to analyze the F-profile and F-dimension, given her/his favorite
+family F. Moreover, note that our quantifying of metric approximations extends immediately
+to quantifying of constraint metric approximations [4], using suitable constraint metric profiles.
+   Observe that the classes of groups below are so that all residually finite and all amenable
+groups belong to these classes.
+
+3.1. Sofic groups. This class of groups has been first introduced by Gromov in [30] in the
+context of symbolic dynamics; see also a work of Weiss [50].
+   Let F sof be the collection of permutation groups Sym(n), n ∈ N, endowed with the normalised
+Hamming distance: for permutations σ, τ ∈ Sym(n), we define
+                                                 1 n                 o
+                                  dHam (σ, τ ) =    i | σ(i) ̸= τ (i) .
+                                                 n
+Definition 10 (Sofic group via permutations; sofic profile and dimension). A group G is said
+to be sofic if it is approximable by F sof = (Sym(n), dHam , n, 1)n∈N , in the sense of Definition 1.
+                           sof
+   We call sofic profile DG    and sofic dimension dimsof
+                                                       G of a sofic group G the F
+                                                                                      sof -profile and
+
+F sof -dimension (respectively) for such a choice of the approximating family F = F sof .
+
+  We stipulate that the dimension kn of Sym(n) is chosen to be equal to n and εn = 1 for every
+n ∈ N. Equivalently, εn can be chosen to be constantly equal to a fixed strictly positive real
+number ε ⩽ 1.
+  More precisely, εn = 1 and εn = ε < 1 in Definition 10 yield the same class of sofic groups
+but the corresponding sofic profile functions are not necessarily ≃-equivalent. Indeed, one can
+                  QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                             9
+
+enlarge a fixed ε using the so-called “amplification trick” (see the discussions in [39, §3] and [3,
+Section 5]) but this enlarges the dimension of permutation matrices from n to nl , whenever l
+amplification steps are required.
+                                             sof
+  In contrast, the ≃-equivalence class of DG     and, hence, the value of dimsof
+                                                                              G , do not change if
+                                                   sof
+one defines the sofic profile only considering an F -approximation, i.e. a sofic approximation,
+defined by maps g 7→ σg such that σeG is the identity permutation and, for g ̸= eG , σg−1 = σg−1
+has no fixed points; see [16, Exercise 2.1.10].
+  It follows from Proposition 6 that a finitely generated group has bounded sofic profile if and
+only if it is finite.
+  Gromov’s original definition of soficity of a group G uses approximations of its Cayley graph
+by finite labeled graphs.
+
+Definition 11 (Sofic group via graphs). A group G with a finite symmetric generating set S is
+called sofic, if for each δ > 0 and each n ∈ N there is a finite directed graph Γ edge-labeled by
+S, and a subset Γ0 ⊆ Γ with the properties, that:
+    (i) For each point v ∈ Γ0 there is a map ψv : BG,S (n) → Γ which is a label-preserving
+        isomorphism between the ball BG,S (n) in the Cayley graph of G with respect to S and
+        the n-ball in Γ around v, and
+   (ii) |Γ0 | ⩾ (1 − δ)|Γ|.
+Such a graph Γ is called an [n, δ]-approximation of the Cayley graph Cay(G, S).
+                                                             sof               sof
+  We can now give another, in addition to the above-defined DG,S (and, hence, WG,S and Rsof
+                                                                                        G,S ),
+natural definition of a profile of a sofic group:
+        sof
+     • GG,S (n) is the least cardinality (= number of vertices) of the graph Γ in an [n, 1/n]-
+       approximation of the Cayley graph Cay(G, S).
+  This new profile is ≃-equivalent to our initial definition of the sofic profile.
+                 sof        sof
+Proposition 12. GG,S (n) ≃ DG,S (n).
+
+Proof. The above two definitions of soficity, via permutations and via graphs, are equivalent, see,
+for instance, the proof of the equivalence of Definition 4.2 and Definition 4.3 in [23]. Analysing
+                                        sof          sof          sof        sof
+the details of this proof, we see that GG,S (2n) ⩾ DG,S  (n) and GG,S (n) ⩽ DG,S (2n + 2), whence
+the ≃-equivalence of the two functions.                                                          □
+
+Example 13 (Sofic profiles of free abelian groups). We begin with the group of integers: G = Z
+                              sof
+and S = {+1, −1}. Clearly, DZ,S   (n) ⩽ 2n + 1 by considering the sofic approximation coming
+from the action υ of Z on Z/(2n + 1)Z defined by
+                           υ(i) : Z/(2n + 1)Z → Z/(2n + 1)Z
+                                       j      7→ υ(i)(j) = i + j,
+where i, j ∈ Z and j 7→ j is the canonical epimorphism Z ↠ Z/(2n + 1)Z. This shows that
+DZsof (n) ≼ n.
+   Let us check that DZsof (n) ≃ n. Suppose that k < 2n + 1 and assume that φ : Z → Sym(k) is
+a (2n, 1)-approximation of Z. Then, since dHam has values in {0, 2/k, . . . , (k − 1)/k, 1}, we have
+that for every i, j ∈ [−n, n], φ (i + j) = φ (i) φ (j) and φ (i) is a nontrivial element of Sym(k)
+10                     GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+
+whenever i ̸= 0. In particular, φ (i) = φ (1)i and φ (1) is an element of order > n. We stipulate
+that ε = 1, then for every i ∈ [−n, n] such that i ̸= 1 we have
+                                                                   1
+                                   dHam (φ (1) , φ (1)i ) > 1 −      .
+                                                                  2n
+This implies dHam (φ (1) , φ (1)i ) = 1. Therefore, φ (1) is a cycle of length > n. Hence, k > n.
+This shows that n ≼ DZsof (n). It follows from this and Proposition 34 that any virtually-Z
+               sof
+group G has DG     (n) ≃ n. It also follows from this and the estimate on the sofic profile of the
+direct product that DZsof
+                        d (n) ≼ n
+                                     d for every d ∈ N, see Section 5.2. Moreover, D sof (n) ≃ nd
+                                                                                     Zd
+       sof       d                       d
+and DG (n) ≃ n for any virtually-Z group G. This follows from the same argument as above
+combined with a result on the stability of the commutator relator words with respect to the
+Hamming distance [2, Corollary 6.5], see Corollary 32 and Example 33.
+
+3.2. Hyperlinear groups. This class of groups appeared in relation to the concept of hyper-
+linearity in operator algebras. The definition below is due to a result of Rădulescu [42]; see also
+[16, Proposition 2.2.9] and [34, Section 4.2].
+   Let F hyp be the collection of finite-rank unitary groups U (n), n ∈ N, endowed with the
+normalised Hilbert-Schmidt distance: for unitary matrices u = (uij ), v = (vij ) ∈ U (n), we define
+                                      v
+                                      u1 n
+                                      u X                     r
+                                                                1
+              dHS (u, v) = ∥u − v∥2 = t                    2
+                                               |uij − vij | =     tr((u − v)∗ (u − v)).
+                                        n                       n
+                                            i,j=1
+
+Definition 14 (Hyperlinear group; hyperlinear profile and dimension). A group G is said to be
+                                                                √
+hyperlinear if it is approximable by F hyp = (U (n), dHS , n, 2)n∈N , in the sense of Definition 1.
+                                   hyp
+   We call hyperlinear profile DG       and hyperlinear dimension dimhyp G of a hyperlinear group G
+       hyp               hyp
+the F -profile and F -dimension (respectively) for such a choice of the approximating family
+F = F hyp .
+                                                                                   √
+   Again we convene that the dimension kn of U (n) is equal to n and εn = 2 for every n ∈ N.
+Equivalently, εn can be chosen to be constantly equal to a fixed strictly positive real number
+     √
+ε ⩽ 2. That is, we obtain the same class of hyperlinear groups.
+   The flexibility in the choice of εn that we observe in the definitions of both sofic and hyperlinear
+groups does not hold a priori for arbitrary F-approximations. Indeed, it strongly depends on
+specific properties of the metric we use. In fact, both the Hamming and the Hilbert-Schmidt
+metrics behave well under the above mentioned “amplification trick”, whence this freedom in
+the choice of εn ’s in the definitions of sofic and hyperlinear groups, respectively.
+   It follows from Proposition 6 that a finitely generated group has bounded hyperlinear profile
+if and only if it embeds into U (n) for some n ∈ N.
+   Given two permutations σ, τ ∈ Sym(n), let uσ , vτ ∈ U (n) denote the corresponding permuta-
+tion matrices. Then,
+                                                   1
+                                     dHam (σ, τ ) = (dHS (uσ , vτ ))2 .
+                                                   2
+It follows that sofic groups are hyperlinear. Noting BG,S (n) ⊆ BG,S (2n2 ), we immediately obtain
+that, for a sofic group G, we have:
+                                        hyp        sof
+                                       DG,S (n) ⩽ DG,S (2n2 ).
+                     QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                           11
+
+The converse is not yet known: whether or not all hyperlinear groups are sofic is a well-known
+open problem. Observe that the Hamming distance is an ℓ1 -type metric and the Hilbert-Schmidt
+distance is the Euclidean, hence, an ℓ2 -type metric. Therefore, the above square root distortion of
+the distance under the canonical map Sym(n) ,→ U (n) sending permutations to the permutation
+matrices: σ 7→ uσ , τ 7→ vτ , can a priori not be improved into an isometric embedding. However,
+we deal with approximations, whence the following
+                                    sof        hyp
+Conjecture 15. If G is sofic, then DG   (n) ≼ DG   (n).
+
+   The conjecture holds for sofic F hyp -stable groups (see Definition 30), e.g. for virtually abelian
+groups and the Heisenberg groups, see Corollary 32(2) and Example 33. See also Question 51
+and Question 52.
+   Here is a useful modification of the hyperlinear profile. The finite-rank unitary groups
+U (n), n ∈ N, can be endowed with the normalised projective Hilbert-Schmidt pseudo-distance:
+for unitary matrices u, v ∈ U (n), we define
+                                             r
+                                                1
+                           dHS (u, v) = inf       tr ((u − λv)∗ (u − λv)) ,
+                                         λ∈T    n
+where T denotes the set of complex numbers of modulus 1.
+
+Definition 16 (Projective hyperlinear profile and dimension). Let G be a finitely generated
+group with a finite generating set S. The projective hyperlinear profile of G is the function
+  hyp                                      hyp
+DG,S  : N → N ∪ {+∞} defined by setting DG,S   (n) to be the least k such that there exists a
+function σ : G → U (k) such that
+   (1) dHS (σ (g) σ (h) , σ (gh)) < 1/n for every g, h ∈ BG,S (n) with gh ∈ BG,S (n), and
+                              √
+   (2) dHS (σ (g) , σ (h)) > 2 − 1/n for every g, h ∈ BG,S (n) such that g ̸= h.
+  The projective hyperlinear dimension of G is defined by
+                                                1
+                               dimhyp
+                                  G,S = lim sup
+                                                       hyp
+                                                  log DG,S (n) .
+                                         n→+∞ n
+
+   Two distinct (pseudo)distances on U (k) are used in the two conditions above. One might
+consider the existence of a map σ : G → U (k) from Definition 16 as an alternative definition
+of a hyperlinear group. Indeed, a result of Rădulescu [42] is that this is actually equivalent to
+Definition 14. Our next result shows a precise relationship between these two approaches on the
+quantifying level.
+                                                                         2
+   For the proof of the following proposition, observe that dHS u, eU (n) = 2 − n2 Re (tr (u)), and
+              2
+dHS u, eU (n) = 2 − n2 |tr (u)| for u ∈ U (n). Observe furthermore that dHS (u, v) ⩽ dHS (u, v)
+for u, v ∈ U (n). Our next result is based on the “amplification trick”; see [42], [16, Proposition
+2.2.9], [34, Section 4.2].
+
+Proposition 17. Let G be a group with a finite generating set S. Then
+                                         hyp        hyp
+                                        DG,S (n) ⩽ DG,S (n)
+                √       −1
+                4 2
+and, for n ⩾     5 −1          ,
+                                                         ℓ
+                                     hyp         hyp
+                                    DG,S (n) ⩽ 2DG,S (80n) ,
+12                           GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+                                               
+                 1                         5 −1
+                                             
+where ℓ = log √
+               2   1
+                       log                 4          .
+                         −
+                   20n       200n2
+
+
+Proof. The first inequality is obvious. Let us check the second inequality. For u ∈ U (k),
+                                                 √      −1
+we set τ (u) = k1 tr (u). Suppose that n ⩾ 4 5 2 − 1         . Suppose that σ : G → U (k) is a
+      √
+(80n, 2)-approximation for (G, S). Then for g ∈ BG,S (n) such that g ̸= eG , using the triangle
+                                                                                               
+inequality, the uniform injectivity condition, and Lemma 4 (1), we have that dHS σ (g) , eU (k) ⩾
+                                             √     1     1
+                                                               √     1
+dHS (σ (g) , σ (eG )) − dHS σ (eG ) , eU (k) > 2 − 80n − 80n = 2 − 40n . Therefore,
+                                                                                2          1
+                             2 − 2Re (τ (σ (g))) = dHS σ (g) , eU (k)                >2−       .
+                                                                                           10n
+                        1
+Hence Re (τ (σ(g))) < 20n  . Consider the map σ  e : G → U (2k) defined by
+                                                          
+                                                   σ (g) 0
+                                        σ
+                                        e (g) =              .
+                                                     0    1
+                                 √      −1
+Then one has that, since n ⩾ 4 5 2 − 1       ,
+                                                     √       1
+                                  |1 + τ (σ(g))|       2 + 20n  1+ 1       4
+                    |τ (e
+                        σ (g))| ⩽                 ⩽            ⩽ √ 20n ⩽ .
+                                         2               2           2     5
+             √
+  Set δ := 20n2 − 200n
+                    1
+                       2 . Fix ℓ ∈ N such that
+                                                              
+                                                     5           1
+                                           ℓ log         ⩾ log       .
+                                                     4           δ
+                    e⊗ℓ : G → U (2k)ℓ defined by σ            e⊗ℓ (g) = σ
+                                              
+Consider the map σ                                                        e (g) ⊗ σ
+                                                                                  e (g) ⊗ · · · ⊗ σ
+                                                                                                  e (g). Then
+we have that, for g ∈ BG,S (n) such that g ̸= eG , since the trace is multiplicative under tensor
+products,
+                                                                    ℓ
+                                      ⊗ℓ                       ℓ     4
+                                    σ (g)) = |τ (e
+                                 τ (e                   σ (g))| ⩽         ⩽ δ.
+                                                                     5
+Therefore, we have that
+                                                                         
+                      dHS (eσ ⊗ℓ (g) , eU ((2k)ℓ ) )2 = 2 − 2 τ σ  e⊗ℓ (g) ⩾ 2 − 2δ.
+
+Hence,
+                                                                 √              √
+                                    σ ⊗ℓ (g) , eU ((2k)ℓ ) ) ⩾
+                               dHS (e                                2 − 2δ >       2 − 1/10n.
+Observe now, using the bi-invariance of dHS , the mixed-product property of the tensor product,
+                      e, that for g, h ∈ BG,S (n) with gh ∈ BG,S (n) one has that
+and the definition of σ
+
+                  σ ⊗ℓ (g) σ
+             dHS (e        e⊗ℓ (h) , σ
+                                     e⊗ℓ (gh)) ⩽ dHS (σ (g) σ (h) , σ (gh)) ⩽ 1/80n < 1/n.
+
+Finally, if g, h ∈ BG,S (n) are such that g ̸= h, then, using the bi-invariance of dHS , the triangle
+inequality, and the almost homomorphism condition on dHS , and hence on dHS , (cf. Lemma 4
+(5)) we have that
+                                                                                   5
+                        σ ⊗ℓ (h) , σ
+                                   e⊗ℓ (g)) ⩾ dHS (eσ ⊗ℓ g −1 h , eU ((2k)ℓ ) ) −
+                                                               
+                   dHS (e
+                                               √                           √      80n
+                                            ⩾    2 − 1/10n − 1/16n ⩾ 2 − 1/n.
+
+This concludes the proof.                                                                                 □
+                  QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                             13
+
+3.3. Linear sofic groups. This class of groups has been introduced and systematically studied
+by Arzhantseva-Păunescu [3]. The next definition is due to [3, Proposition 4.4].
+   Let F lin be the collection of groups GL(n, K) of n × n invertible matrices with coefficients
+in a given field K, endowed with the normalised rank distance: for invertible matrices u, v ∈
+GL(n, K), we define
+                                                  1
+                                    drank (u, v) = rank(u − v).
+                                                  n
+Definition 18 (Linear sofic group; linear sofic profile and dimension). A group G is said to be
+linear sofic over a field K if it is approximable by F lin = (GL(n, K), drank , n, 1/4)n∈N , in the
+sense of Definition 1.
+   We call linear sofic profile DGlin and linear sofic dimension dimlin over a field K of a linear
+                                                                        G
+sofic group G over a field K the F lin -profile and F lin -dimension (respectively) for such a choice
+of the approximating family F = F lin .
+
+   Thus, the dimension kn of GL (n, K) is declared to be n and εn is constantly equal to 1/4.
+Definition 18 is an equivalent characterisation of linear soficity proved in [3, Proposition 5.13]
+(see also [3, Pages 2289–2290] for the case of an arbitrary field K). The value of 1/4 comes from
+the so-called rank amplification, a construction introduced in [3]. It is not known whether 1/4
+can be replaced by a larger value (fixed or arbitrarily chosen between 1/4 and 1), see Question 55.
+   It follows from Proposition 6 that a finitely generated group has bounded linear sofic profile
+over a field K if and only if it is linear over K, namely, if and only if it embeds into GL (n, K)
+for some n ∈ N.
+   As above, we represent permutations by permutation matrices: Sym(n) ∋ σ 7→ uσ ∈ GL (n, K),
+for a fixed arbitrary field K. Observe that [3, Proposition 4.5]:
+
+                 drank (uσ , eGL(n,K) ) ⩽ dHamm (σ, eSym(n) ) ⩽ 2drank (uσ , eGL(n,K) ).
+
+Therefore, sofic groups are linear sofic over any given field K and, for a sofic group G, we have:
+                                          lin        sof
+                                         DG,S (n) ⩽ DG,S (n).
+
+   Here is a useful modification of the linear sofic profile, which is inspired by the projective
+variant of the hyperlinear profile. The groups GL (n, K) , n ∈ N, can be endowed with the
+normalised Jordan or projective rank pseudodistance: for matrices u, v ∈ GL (n, K), following
+[34], we define
+                                            1
+                              drank (u, v) = min rank (u − λv) ,
+                                            n λ∈F×
+where F is the algebraic closure of K and the rank is computed in Fn .
+
+Definition 19 (Projective linear sofic profile and dimension). Let G be a finitely generated
+group with a finite generating set S. The projective linear sofic profile of G is the function
+  lin : N → N ∪ {+∞} defined by setting D lin (n) to be the least k such that there exists a
+DG,S                                        G,S
+function σ : G → GL (k, K) such that
+   (1) drank (σ (g) σ (h) , σ (gh)) < 1/n for every g, h ∈ BG,S (n) with gh ∈ BG,S (n), and
+   (2) drank (σ (g) , σ (h)) > 18 − 1/n for every g, h ∈ BG,S (n) such that g ̸= h.
+14                          GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+     The projective linear sofic dimension of G is defined by
+                                                    1
+                                   dimlin
+                                      G,S = lim sup
+                                                           lin
+                                                      log DG,S (n) .
+                                             n→+∞ n
+
+   As in the projective hyperlinear case, two distinct (pseudo)distances on GL(k, K) are used in
+the two conditions above and one might consider the existence of a map σ : G → GL(k, K) from
+Definition 19 as an alternative definition of a linear sofic group. Indeed, a result of Arzhantseva-
+Păunescu [3, Theorem 5.10] shows that this is actually equivalent to Definition 18. Moreover,
+our next result is that these two approaches are equivalent on the quantifying level as well.
+                                                                       lin (n) ⩽ D lin (n)
+Proposition 20. Let G be a group with a finite generating set S. Then DG,S        G,S
+     lin (n) ⩽ 2D lin (2n).
+and DG,S         G,S
+
+Proof. The first inequality is obvious. The second inequality is proved in [34, Proposition 4.8],
+using [3, Theorem 5.10].                                                                       □
+                                            lin when restricting to other meaningful classes of
+  We obtain further useful variations of DG,S
+matrices, still equipped with the normalised rank distance3. For example, we use DG,Su   when
+                                       sa                                   nor
+approximate by unitary matrices, DG,S (n) by self-adjoint matrices and DG,S (n) by normal
+matrices with respect to drank . See also Question 63.
+
+3.4. Weakly sofic groups. This class of groups has been introduced by Glebsky-Rivera [28].
+   Let F f in be the collection of all finite groups Hα , α ∈ I, each of which is endowed with
+a normalised bi-invariant distance dα . For example, such a distance can be induced by the
+bi-invariant distances on the ambient groups via Cayley’s embeddings Hα ,→ Sym(|Hα |) ,→
+U (|Hα |), where |Hα | denotes the cardinality of Hα .
+
+Definition 21 (Weakly sofic group; weakly sofic profile and dimension). A group G is said to
+be weakly sofic if it is approximable by F f in = (Hα , dα , |Hα |, 1)α∈I , in the sense of Definition 1.
+                                     f in
+  We call weakly sofic profile DG         and weakly sofic dimension dimfGin of a weakly sofic group G
+the F f in -profile and F f in -dimension (respectively) for such a choice of the approximating family
+F = F f in .
+
+  Here, the dimension kα is the cardinality |Hα | of the finite group Hα and εα = 1 for every
+α ∈ I. It follows from Proposition 6 that a finitely generated group has bounded weakly sofic
+profile if and only if it is finite.
+  Sofic groups are clearly weakly sofic and, for a sofic group G, we have (‘!’ denotes the factorial):
+                                               f in        sof
+                                              DG,S  (n) ⩽ DG,S (n)!
+Linear sofic groups are weakly sofic [3, Theorem 8.2]. However, for a linear sofic group G, the
+                                f in          lin (n) yet remains to establish. See Questions 56, 57,
+exact relationship between DG,S      (n) and DG,S
+and 58.
+   An interesting subclass of weakly sofic groups has been introduced by Thom [46]. Namely,
+    f in
+if Fcc   = (Hα , dcc
+                  α , |Hα |, 1)α∈I is a family of finite groups where each bi-invariant distance
+
+     3Naturally, one can also vary the distance by taking, for example, the normalised operator norm, the Frobenius
+norm, the p-Schatten norm with 1 ⩽ p ⩽ ∞, etc.
+                      QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                                            15
+
+                                                                                        f in
+dcc
+ α is in addition commutator-contractive, then the famous Higman group H4 is not Fcc -
+approximable [46], hence, the corresponding metric profile of the Higman group diverges (i.e.
+    f in
+  Fcc
+DH  4 ,S
+         (n) = +∞ for a large enough n ∈ N).
+   A great freedom in the choice of bi-invariant distances dα on finite groups Hα , α ∈ I suggests
+that sofic groups might be a proper subset of weakly sofic groups. This is unknown. It is intrigu-
+ing that the Hamming distance on symmetric groups Sym(n), n ∈ N plays a distinguished role:
+the soficity can be defined with no reference to any distance [27], or accurately speaking, with a
+reference to the trivial {0, 1}-valued distance d{0,1} only, see Example 9. See also Question 67.
+
+3.5. Weakly hyperlinear groups. This class of groups has been introduced by Gismat-
+ullin [25].
+   Let F ct be the collection of all compact groups Hα , α ∈ I, each of which is endowed with
+a normalised bi-invariant distance dα . Examples of such distances are the trivial {0, 1}-valued
+distance d{0,1} and the (normalised) Alexandroff-Urysohn distance 4 dAU or, in specific compact
+groups, the conjugacy distance dconj induced by the Haar measure on centerless compact groups5
+and the well-known bi-invariant Riemannian distances on compact Lie groups.
+
+Definition 22 (Weakly hyperlinear group; weakly hyperlinear profile and dimension). A group
+G is called weakly hyperlinear if it is approximable by F ct = (Hα , dα , dim Hα , 1)α∈I , in the sense
+of Definition 1.
+   We call weakly hyperlinear profile DG  ct and weakly hyperlinear dimension dimct of a weakly
+                                                                                       G
+                            ct                ct
+hyperlinear group G the F -profile and F -dimension (respectively) for such a choice of the
+approximating family F = F ct .
+
+  Here, the dimension kα = dim Hα can be the Lebesgue covering dimension or cohomological
+dimension of the compact group Hα , and εα = 1 for every α ∈ I. Hyperlinear groups are clearly
+weakly hyperlinear and, hence, for a hyperlinear group G, we have:
+                                                ct         hyp
+                                               DG,S (n) ⩽ DG,S (n),
+whenever dim U (n) of the unitary group U (n) ∈ F ct is chosen to be at most n.
+
+3.6. LE-F groups. The introduction of these classes of groups goes back to Malcev [36], see
+also a work of Vershik-Gordon [48].
+   Let us consider an arbitrary family F{0,1} of discrete groups, where a discrete group is endowed
+with the trivial {0, 1}-valued metric d{0,1} (induced by the length function such that the length
+of each non-trivial element is 1). In this case, the choice of the parameters εα is of course
+irrelevant. We call an F{0,1} -approximable group simply an LE-F-group. For example, the
+famous class of groups that are locally embeddable into finite groups (LEF) coincides with the
+            f in                                 f in
+class of F{0,1}  -approximable groups, where F{0,1}   = (Hα , d{0,1} , |Hα |, 1)α∈I is the collection of
+all finite discrete groups each of which is endowed with the trivial metric d{0,1} . When F{0,1}  a   is
+   4In a topological group H, if {U }∞                                                            −1
+                                                                                                     = hUn h−1 ⊆ H
+                                         n n=0 is so that for all h ∈ H, n ⩾ 0, one has Un = Un
+                            3                                                                  −1
+and U0 = H, eH ∈ Un , Un+1 ⊆ Un , then dAU (g, h) = inf{l(s1 ) + . . . + l(sk ) | si ∈ H, gh       = s1 · · · sk }, where
+l(si ) = inf{2−n | si ∈ Un }, is a bi-invariant distance on H. For a compact H, this distance is continuous, (H, dAU )
+is of finite diameter, and dAU is compatible with the topology if and only if H is first-countable.
+    5d               log µ(C(gh−1 ))
+       conj (g, h) =     log µ(H)
+                                     , where C(gh−1 ) denotes the conjugacy class of element gh−1 for g, h ∈ H, and µ
+is the Haar measure on a compact group H with µ(H) ̸= 1 and µ(C(gh−1 )) ̸= 0.
+16                     GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+the family of all amenable groups endowed with the trivial metric d{0,1} , one obtains the notion
+of an initially subamenable group or, in other terminology, of a group locally embeddable into
+amenable groups (LEA). Accordingly, we have the concepts of the LE-F profile (also called
+the LE-F growth in this case, see Definition 27 below) and dimensions. In particular, we have
+                                                                              f in
+the LE-F f in and LE-F a profiles whenever the dimensions of groups from F{0,1}          a
+                                                                                   and F{0,1} are
+chosen. For instance, for a finite group one can again take its cardinality and for an amenable
+group its asymptotic dimension or its cohomological dimension. Alternatively, generalising our
+approach further, one can use a non-constant ‘dimension’ function of approximating groups. For
+instance, for approximating amenable groups one can use their Følner functions; we formalise
+this in more detail below by introducing the concept of the LEA profile, see Section 4.3.
+
+                 4. Relations to other famous quantifying functions
+
+   Many examples of quantifying functions associated with a given finitely generated group have
+been investigated in the literature. Since any group is trivially approximated by itself equipped
+with the trivial metric d{0,1} , we can consider such quantifying functions as very specific instances
+of our much more general approach.
+   Residually finite groups and amenable groups (and, hence, residually amenable groups) are
+basic examples of groups which are approximable by families we have mentioned in the preceding
+subsection. Therefore, functions quantifying the residual finiteness and amenability can be used
+to produce interesting upper bounds to our metric F-profiles.
+   Lower bounds are more difficult to provide as our general setting of F-approximable groups
+encompasses many different classes of groups with a priori very distinct quantifying features.
+
+4.1. Growth of balls and the metric profile. A famous quantifying function associated to
+every finitely generated group is the growth function
+                                        βG,S (n) = |BG,S (n)|,
+the cardinality of the ball at the identity of G with respect to the word length distance induced
+by the generating set S. This function gives a lower bound for an arbitrary F-profile. Indeed,
+the uniform injectivity condition, condition (2) of Definition 1, ensures that the ball BG,S (n)
+is injected into the corresponding group Gα . It remains to estimate from below the minimal
+dimension kα such that Gα can have this fixed ball injected. Usually, such an estimate of kα is
+immediate (although, in general, it depends on the dimension one has chosen for each Gα ). For
+example, for a sofic group G, we have:
+                                              f in        sof
+                                  βG,S (n) ⩽ DG,S  (n) ⩽ DG,S (n)!
+
+4.2. Følner function. This renowned function has been introduced by Vershik [47]. Let G be
+a group with finite symmetric generating set S. The Følner function of G with respect to S,
+denoted by FølG,S (n), is defined to be the smallest size |A| of a finite subset A ⊆ G with the
+property that
+                                     X
+                                           |gA △ A| ⩽ |A| /n,
+                                    g∈BG,S (n)
+with FølG,S (n) = ∞ whenever there is no such a subset A ⊆ G with respect to S; see [37].
+Such a subset A is called n1 -Følner set corresponding to the ball BG,S (n) . It is clear that the
+                   QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                                    17
+
+≃-equivalence class FølG of this Følner function does not depend on the chosen finite generating
+set S.
+Remark 23. There is a great flexibility in the choice of the definition of a Følner function as
+it is in the choice of the definition of a Følner set. For instance, instead of the symmetric
+difference above one can take |gA \ A| or instead of left translation by g ∈ BG,S (n) in gA △ A
+one can use right translation Ag △ A, etc. We leave to the reader to check that all these natural
+variations lead to ≃-equivalent Følner functions and they do not depend on the choice of the
+finite generating set of G.
+  It follows from the proof that amenable groups are sofic—see for instance [39, Example 4.4]—
+that, for an amenable group G, we have:
+                                          sof
+                                         DG,S (n) ⩽ FølG,S (2n) .
+This gives
+                        lin                        hyp
+                                                       (n) ⩽ FølG,S 4n2 .
+                                                                       
+                       DG,S (n) ⩽ FølG,S (2n) and DG,S
+  Basic examples of amenable groups include groups of subexponential growth and elementary
+amenable groups. Among the latter are virtually nilpotent groups. It is not hard to estimate
+the Følner functions of such groups6 and, hence, to obtain the upper bounds for their metric
+profiles using the preceding inequalities. On the lower bound see Question 59.
+Example 24 (Groups of subexponential growth). Suppose that G has subexponential growth
+and S is a finite generating set of G. Define an to be the size of the ball BG,S (n) for n ∈ N.
+                                                         √
+Since G has subexponential growth we have that limn→∞ n an = 1 and hence limn→∞ an+1     an = 1
+                                                                            1
+                                                                         1    n
+[18, Lemma 6.11.1]. Given n ∈ N, let m ∈ N be so that ak+1 /ak ⩽ 1 + 2na   n
+                                                                                for every k ⩾ m,
+then we have that, for every g ∈ BG,S (n),
+                            |gBG,S (m) \BG,S (m)|   an+m − am     1
+                                                  ⩽           ⩽
+                                 |BG,S (m)|            am       2nan
+and hence
+                               1          X                                      1
+                                                    |gBG,S (m) △ BG,S (m)| ⩽       .
+                          |BG,S (m)|                                             n
+                                       g∈BG,S (n)
+This shows that, for a group G of subexponential growth, we have:
+                                      (                        1           )
+             sof                                             1    n
+           DG    (n) ≼ FølG (n) ⩽ min m : ak+1 /ak ⩽ 1 +            for k ⩾ m .
+                                                           2nan
+Example 25 (Virtually nilpotent groups). Suppose that G is a virtually nilpotent group with
+finite generating set S. By Wolf’s result [51] (cf. Gromov’s polynomial growth theorem [29]),
+G has polynomial growth. Let d be the order of polynomial growth of G. Then, using the
+notation of Example 24, for some constant c = cS > 0 one has, for all but finitely many n ∈ N,
+                                                                                         1
+nd /c ⩽ an ⩽ cnd . Therefore, we have that am+1 /am ⩽ c2 (1 + 1/m)d and 1 + (2nan )−1 n ⩾
+                 1
+  1 + n−(d+1) /2c n . Hence, we get from Example 24 that
+                                      
+                                                        1     !−1 
+                                          −2         1    dn
+                         FølG,S (n) ⩽ 
+                                       c d 1 + 2cnd+1       −1     .
+                                                                    
+                                                                   
+
+  6We give direct estimates. A more careful study can be done for specific groups and classes of groups.
+18                       GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+This gives, for example, in case c = 1 that
+
+                                       FølG,S (n) ⩽ 2dnd+2 + dn.
+
+Indeed, observe that, for any number x > 0,
+                                        1                  x
+                                          log (1 + x) >
+                                        n               n(1 + x)
+and hence,
+                                                1             x
+                                       (1 + x) n > 1 +              .
+                                                           n(1 + x)
+Therefore,
+                                              1
+                                         1      dn                   1
+                                1+                   −1>
+                                       2nd+1                   dn(2nd+1 + 1)
+and
+                                             1         !−1
+                                        1      dn
+                               1+                   −1         < dn(2nd+1 + 1).
+                                      2nd+1
+     It follows that, for such a virtually nilpotent group G, we have:
+                                 sof
+                                DG   (n) ≼ FølG (n) < 2dnd+2 + dn.
+
+   The two examples above use the fact that in these groups subsequences of balls form a col-
+lection of Følner sets. Since the growth of balls is prescribed one can erroneously expect to
+have this prescribed (e.g. subexponential or polynomial) behaviour of the corresponding Følner
+functions. However, our quantitative statements on Følner functions require more information
+than just the knowledge of the asymptotic type of the growth function or of the classical isoperi-
+metric profile of an amenable group. By Definition 1, given n ∈ N, one has to determine an
+exact dependence between the radius N of the n1 -Følner set BG,S (N ) corresponding to the ball
+BG,S (n) and n. This dependence is exponential in our direct estimates above.
+
+4.3. LE-F growth and LEA profile. Suppose that G is a residually finite group with a
+finite generating set S. Quantifying functions associated with residually finite groups have been
+investigated, for example, in [9, 12, 13, 11, 14]. The most popular such a function is the residual
+finiteness growth (also called, the depth function), denoted by FG,S (n): it is defined to be the
+least integer k > 0 such that for any nontrivial element g ∈ BG,S (n) there exists a normal
+subgroup of G of index at most k that does not contain g.
+   Our approach is closer in the spirit to another, less known, function quantifying residual
+finiteness, the full residual finiteness growth (or the full depth function), denoted by ΦG,S (n):
+it is defined to be the least k such that there exists a normal subgroup N ⊴ G of index at most
+k that meets BG,S (n) only at the identity. It is clear that the ≃-equivalence class of ΦG,S (n)
+does not depend from the generating set S, and can be denoted by ΦG .
+   By Cayley’s theorem, a finite quotient G/N embeds into the symmetric group acting on the
+quotient itself: G/N ,→ Sym(|G/N |). Therefore, for a residually finite group G, we have:
+               sof                      hyp                          lin
+              DG,S (n) ⩽ ΦG,S (n),     DG,S (n) ⩽ ΦG,S (n),         DG,S (n) ⩽ ΦG,S (n) and
+                                                 f in
+                                     βG,S (n) ⩽ DG,S  (n) ⩽ ΦG,S (n).
+                   QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                                 19
+
+Example 26 (Linear / Nilpotent / Virtually abelian groups). Finitely generated linear groups
+have at most exponential function ΦG,S (n), see [10] (where the full residual finiteness growth is
+termed the residual girth and the normal systolic growth). It follows that all the main metric
+              hyp        sof         lin (n) and D f in (n), are at most exponential. If, in addition,
+profiles, DG,S    (n) , DG,S  (n) , DG,S              G,S
+such a group is not virtually nilpotent then it has at least exponential growth. We conclude
+        f in
+that DG,S    (n) is exponential whenever G is a finitely generated linear group that is not virtually
+nilpotent. See also Question 61.
+   If G is a finitely generated nilpotent group, then βG,S (n) ≃ ΦG,S (n) if and only if G is virtually
+                           f in
+abelian [14]. Hence, DG,S       (n) ≃ βG,S (n) ≃ ΦG,S (n) if and only if G is virtually abelian. Classical
+examples of nilpotent groups which are not virtually abelian include discrete Heisenberg groups
+H2n+1 = H2l+1 (Z) of dimension 2l + 1 with l ⩾ 1. By the Bass-Guivarc’h formula [32, 5]
+for growth in terms of the derived series of a finitely generated nilpotent group, βH2l+1 ,S (n) ≃
+n2l+2 . The upper and lower central series of H2l+1 coincide, then by [14, Theorem 1] we have
+                                                 f in
+ΦH2l+1 ,S (n) ≃ n2(2l+1) . That is, n2l+2 ≼ DH      2l+1 ,S
+                                                            (n) ≼ n2(2l+1) .
+                                                                f in
+  If H2l+1 is F f in -stable, then by Corollary 32(2), we have DH  2l+1 ,S
+                                                                           (n) ≃ n2(2l+1) . See Conjec-
+ture 64 and more generally Conjecture 65. See also Example 33.
+
+   The above way of quantifying and the above estimates extend immediately from the class of
+residually finite groups to a more general setting of LE-F groups, discussed in Section 3.6: one
+can introduce the corresponding quantifying function ΦF  G,S (n) as follows.
+
+Definition 27 (LE-F growth). Let G by a finitely generated group with a finite generating set
+S. The LE-F growth of G is the function ΦF
+                                         G,S : N → N ∪ {+∞} defined by
+
+        ΦF
+         G,S (n) = min {k ∈ N | ∃ a group Gα ∈ F of size kα = k with BG,S (n) ,→ Gα } ,
+
+where BG,S (n) ,→ Gα is a monomorphism on the ball, that is, it preserves the algebraic operation
+of G on the elements from BG,S (n) (i.e., it is a homomorphism on those elements) and it is an
+injection.
+
+  Observe that this LE-F growth is nothing else that our F{0,1} -profile and, for an LE-F group
+G, we have:
+                                  F                           F
+                                 DG,S (n) ⩽ ΦF           {0,1}
+                                             G,S (n) = DG,S    (n) ,
+
+whenever BG,S (n) ,→ Gα ∈ F{0,1} satisfies the uniform injectivity condition with respect to dα .
+This applies to an arbitrary fixed family F = {(Gα , dα , kα , εα )}α∈I .
+                f in
+  When F = F{0,1}    , that is, for an LEF group G, the inequalities above specify to
+
+                                      f in           F f in
+                                                   {0,1}
+                                                                    F f in
+                                                                 {0,1}
+                          βG,S (n) ⩽ DG,S  (n) ⩽ ΦG,S    (n) = DG,S    (n) .
+
+It would be interesting to find an example of an LEF group with the second inequality being
+strict, cf. Question 66.
+                 a
+   When F = F{0,1}                                                                a
+                      is a family of amenable groups, every amenable group Gα ∈ F{0,1} generated
+by a finite generating set Sα has the associated Følner function FølGα ,Sα (n). Therefore, for an
+  a
+F{0,1} -approximable group we extend our quantifying viewpoint further.
+20                       GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+Definition 28. (LEA-F a profile) Let G by a finitely generated group with a finite generating
+                                                        a
+set S. The LEA-F a profile of G is the function LEAF  G,S : N → N ∪ {+∞} defined by
+             a
+                          n                                                             o
+        LEAFG,S (n) = min  Føl Gα ,Sα (n) | ∃ a group G α ∈ F a
+                                                             {0,1} with BG,S (n) ,→ G α   ,
+where Sα is a finite generating set of Gα fixed in advance and the minimum is taken over all
+such monomorphisms on the ball.
+
+   This allows to study Følner like profile functions for non-amenable groups which possess
+                                                   a
+‘exact’ approximations by amenable groups. If F{0,1}   consists of all amenable groups, we denote
+                                                           a
+the corresponding LEA profile by LEAG,S (n). Also, if F{0,1}     consists of amenable quotients of
+G, this gives the residually amenable profile, denoted by RAG,S (n). Without loss of generality,
+we assume no any relationship between the generating sets S and Sα . Also, the assumption on
+the finiteness of Sα , α ∈ I, is not necessary. If the approximating groups Gα are not finitely
+generated, given a group Gα with BG,S (n) ,→ Gα , we can consider a subgroup of Gα generated by
+finitely many images under this injection of elements from BG,S (n) and take the Følner function
+of this finitely generated subgroup of Gα . Properties of usual Følner functions immediately
+extend to our LEA profile and RA profile. In particular, the ≃-equivalence class of LEAG,S ,
+respectively of RAG,S , does not depend on the choice of the finite generating set S.
+   For a group G, and a family F ⊇ F a ⊇ { amenable quotients of G}, we have:
+                           F
+                          DG,S (n) ⩽ LEAG,S (n) ⩽ RAG,S (n) ⩽ FølG,S (n),
+                              a
+whenever BG,S (n) ,→ Gα ∈ F{0,1}     satisfies the uniform injectivity condition with respect to dα .
+Here, FølG,S (n) = ∞ whenever G is non-amenable and the dimensions of Gα ∈ F a approximat-
+ing BG,S (n) satisfy kα ⩽ FølGα ,Sα (n). See also Question 60.
+   Subsequent to the present work and partially on the suggestion of the first author, the func-
+tions LE-F f in , LEAG,S (n) and RAG,S (n) have been also studied in [8] and [17].
+
+4.4. Metric profiles of stable metric approximations. As above, G denotes a group gener-
+ated by a finite set S = X ⊔ X −1 , with, say, X = {x1 , . . . , xm }, subject to a finite set of relators
+R ⊆ Fm = FX and F = (Gα , dα , kα , εα )α∈I is an approximating family of G.
+   If r ∈ Fm and g1 , . . . , gm are elements in a group H, we denote by r(g1 , . . . , gm ) ∈ H the
+image of r under the unique group homomorphism Fm → H such that xi 7→ gi .
+
+Definition 29 (Solution and almost solution). Elements g1α , . . . , gm
+                                                                      α ∈ G are a solution of R
+                                                                           α
+in Gα if
+                                      r(g1α , . . . , gm
+                                                       α
+                                                         ) = eα , ∀r ∈ R,
+where eα denotes the identity of Gα .
+  Elements g1α , . . . , gm
+                          α ∈ G are a δ-solution of R in G , for some δ > 0, if
+                               α                          α
+
+                                  dα (r(g1α , . . . , gm
+                                                       α
+                                                         ), eα ) < δ, ∀r ∈ R.
+
+     The following notion is due to Arzhantseva-Păunescu [2], see also [4] for a more general setting.
+
+Definition 30 (F-stable groups). The set R is F-stable if ∀ε > 0 ∃δ > 0 ∀α ∈ I ∀g1 , . . . , gm ∈ Gα
+a δ-solution of R, there exist g̃1 , . . . , g̃m ∈ Gα a solution of R such that dα (gi , g̃i ) < ε.
+   The group G = Fm /⟨⟨R⟩⟩ is called F-stable if its set of relator words R is F-stable.
+                    QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                                   21
+
+   The definition of F-stability does not depend on the particular choice of finite presentation
+of the group: Tietze transformations preserve stability as the metrics dα are bi-invariant, see [2,
+Section 3]. The following theorem is due to Arzhantseva-Păunescu, cf. [2, Definition 4.1, Theo-
+rem 4.2 and lines after it, and Theorem 4.3], see again [4] for a more general variant.
+
+Theorem 31. Assume that (εα )α∈I is constantly equal to a real number ε > 0. Then the
+following holds.
+                                                                           Q
+    (1) The set R is F-stable if and only if any group homomorphism ι : G → U (Gα , dα ) lifts
+           Q
+        to α∈I Gα .
+    (2) Assume that all subgroups of every Gα ∈ F belong to F. If G is F-approximable and
+        F-stable, then G is LE-F, equivalently, fully residually-F.
+
+   A homomorphism ι is not necessarily injective and the lifting property means that there exists
+gαi ∈ Gα , i = 1, . . . , m such that {gα1 , . . . , gαm } is a solution of R for any α ∈ I and ι(xi ) =
+                                                                                          Q i
+                                                                                            U gα ,
+see [2, Definition 4.1]. A group G is fully residually-F if for every finite subset F of G there
+exists a normal subgroup N ⊴ G such that F injects into G/N and G/N =       ∼ Gα for some α ∈ I.
+The equivalence between the LE-F property and the fully residually F property is because, in
+this section, G is assumed to be finitely presented.
+
+Corollary 32. Under the hypothesis above, we have the following inequalities.
+    (1) If the set R is F-stable, then
+                                             F
+                                            {0,1}        F
+                                          DG,S    (n) ⩽ DG,S (n) .
+
+
+    (2) If G is F-approximable and F-stable, then
+                                                   F
+                                    ΦF           {0,1}
+                                     G,S (n) ≃ DG,S
+                                                              F
+                                                       (n) ≃ DG,S (n) ,
+
+         whenever BG,S (n) ,→ Gα ∈ F{0,1} satisfies the uniform injectivity condition with respect
+         to dα .
+
+Proof. (1): By convention, the upper bound is +∞, whenever G does not admit any F-
+approximation. Otherwise, by definition of F-stability, an almost homomorphism on the ball lifts
+to a homomorphism on the ball. It follows that (as uniform injectivity lifts to injectivity), given
+an (n, ε)-approximation by (Gα , dα ) ∈ F of dimension kα , there exists an (n, 1)-approximation
+by (Gα , d{0,1} ) ∈ F{0,1} of the same dimension kα .
+   (2): This is immediate from (1) and our observation in Section 4.3.                            □
+
+  In particular, for such an F sof -stable sofic group G one has
+                                                        sof
+                                            ΦG,S (n) ≃ DG,S (n) .
+
+Similarly, for an F hyp -stable hyperlinear, respectively F lin -stable linear sofic, and yet, respec-
+                                                                    hyp
+tively F f in -stable weakly sofic group G one has ΦG,S (n) ≃ DG,S      (n) , respectively ΦG,S (n) ≃
+  lin (n) , and yet, respectively Φ            f in
+DG,S                                G,S (n) ≃ DG,S (n) . Here we imply that, under the hypothesis
+of Corollary 32(2) and by definitions of the growths, the corresponding LE-F growths coincide,
+                                   sof
+up to the ≃-equivalence, e.g. ΦF  G,S (n) ≃ ΦG,S (n), etc.
+22                     GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+  The assumption on finite presentation of G can be relaxed, cf. [4, Remark 2.10]. Moreover, the
+above statements can be generalised to a wider context of constraint metric approximations [4].
+  Corollary 32 allows us to explicit various metric profiles for groups known to be stable.
+
+Example 33 (F-profiles of F-stable groups).
+   (1) Let G be a finitely generated virtually abelian group and rank G denote the rank of any
+finite index free-abelian subgroup of G. Then
+                             sof        hyp        f in
+                            DG,S (n) ≃ DG,S (n) ≃ DG,S  (n) ≃ nrank G .
+                                                                                    f in
+Indeed, we use [2] for F sof -stability, [26] for F hyp -stability, Example 26 for DG,S  (n), [14] for
+ΦG,S (n) ≃ n   rank G (or simply argue as in Example 13) and Corollary 32(2) together with Propo-
+sition 34(ii) for conclusion. See Conjecture 62 on DG,S  lin (n).
+
+   (2) Let G be a finitely generated virtually nilpotent group so that a finite-index nilpotent
+subgroup H ⩽ G satisfies [Z(H) : γc (H)] < ∞, where Z(H) and γc (H) denote the center and
+the last nontrivial term of the lower central series of H (i.e. c is the nilpotency class of H).
+Let dim H denote the number of infinite cyclic factors in a composition series of H with cyclic
+factors. Then
+                                          sof
+                                         DG,S (n) ≃ ndim H .
+Indeed, we apply Proposition 34(ii) to restrict to a nilpotent group H as above, then [6] for
+F sof -stability, [14] for ΦH,S (n) ≃ ndim H and Corollary 32(2) for conclusion. In particular, for
+                                                            sof
+the (2l + 1)-dimensional Heisenberg group we have DH          2l+1 ,S
+                                                                      (n) ≃ n2(2l+1) .
+   The assumption [Z(H) : γc (H)] < ∞ is required by [14, Theorem 1]. For an arbitrary virtually
+nilpotent group, analogous conclusions hold using [14, Theorem 2] which provides a polynomial
+                                                                                        sof
+upper bound on ΦG,S (n), and hence, by Corollary 32(2), on the sofic profile DG,S           (n). This
+improves the upper bound from Example 25.
+   Furthermore, all virtually {polycyclic-by-finite} groups which are not virtually nilpotent have
+                 sof
+exponential DG,S     (n). For we use Proposition 34(ii) to restrict to a polycyclic-by-finite group
+H, then [6] for F sof -stability, [10] for ΦH,S (n) ≃ 2n (note that every polycyclic-by-finite group
+is linear [43, Section 5.C]) and Corollary 32(2) for conclusion.
+                                            hyp
+   On the hyperlinear profile, we have DH    2l+1 ,S
+                                                     (n) ≃ n2(2l+1) for the (2l+1)-dimensional Heisen-
+berg group, since it is F hyp -stable [33] (the argument extends from 3-dimensional to (2l + 1)
+dimensional Heisenberg group) and ΦH2l+1 ,S (n) ≃ n2(2l+1) [14, Theorem 1].
+   See Conjecture 64 on other metric profiles of the Heisenberg groups and Conjecture 65 on
+arbitrary finitely generated virtually nilpotent groups.
+
+4.5. Other metric profiles. Subsequent to our work other metric profiles have been intro-
+duced, with alternative (not equivalent!) to Definition 2 formulations, and restricted to certain
+metric approximations. Notably, a sofic profile was introduced in [19] and, by analogy, a hy-
+perlinear profile in [44]. In both cases, the formulation is ‘transversal’ to our line of thought.
+Indeed, one can parametrise an F-approximation by two parameters m and n (instead of one
+parameter n in Definition 1): m being the radius of the ball to be approximated and 1/n being
+the constant involved in the definitions of almost homomorphism and uniform injectivity on that
+ball. This can seem to give a greater flexibility but in fact provides an equivalent definition of an
+                    QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                                    23
+
+F-approximation. Even so, this yields distinct approaches to quantifying when one prescribes
+different constraints on the corresponding quantifying function DG,SF (m, n) of two variables. Our
+
+Definition 1, and hence Definition 2, take m = n so that we consider the values of the quantifying
+function on the diagonal of m-n plane (viewing, for example, m on the horizontal and n on the
+vertical axes). In contrast, both [19] and [44] choose to fix m and consider such a function on
+the vertical n-line, when n varies. A careful reader is invited to pay attention to such differences
+and variations in the existing terminology. See also the notion of sofic dimension [21] which
+mirrors an ‘orthogonal’ concept of subgroup growth we alluded to in the introduction.
+
+                5. Metric profile and group-theoretical constructions
+
+  In this section, we observe how the F-profile behaves with respect to various group-theoretical
+constructions such as taking subgroups, direct and free products, and restricted wreath products.
+
+5.1. Subgroups. It follows from Definition 1 that every subgroup of an F-approximable group
+is F-approximable and from definition of an LE-F group in Section 3.6 that a subgroup of an
+LE-F group is an LE-F group. Quantifying these statements we obtain the following easy but
+instructive result.
+
+Proposition 34. Let G be a finitely generated F-approximable group and H be a finitely
+generated subgroup of G. Then the following holds.
+     (i) DHF ≼ DF .
+                  G
+                                           sof     sof    hyp    hyp        lin ≃ D lin .
+    (ii) If H has finite index in G, then DG   ≃ DH    , DG   ≃ DH   , and DG      H
+   (iii) If G is an LE-F group, then ΦF H (n) ≼ Φ F (n) .
+                                                  G
+   (iv) If G is an LEA group, then LEAH (n) ≼ LEAG (n).
+
+Proof. The first assertion is clear and it holds for an arbitrary F-profile. The statements about
+LE-F and LEA profiles are by definitions.7
+                                                                                             sof      sof
+   We now prove the second assertion. By (i) above, it suffices to show that DG                   ≼ DH    .
+We proceed as in the definition of an induced linear representation and define an induced F-
+approximation of G starting from a given F-approximation of H. Let ℓ be the index of H in
+G, and T = {g1 , . . . , gℓ } be a choice of representatives for left cosets of H in G. Given g, we
+denote by g ∈ T the representative of gH. We assume for simplicity that the representative
+of H is the identity element eG ∈ T . If S is a generating set of G, then, by Schreier’s lemma,
+SH = {(st)−1 st | s ∈ S, t ∈ T } ⊆ H generates H. Moreover, BG,S (n) ⊆ T · BH,SH (n). We
+fix these finite generating sets for convenience: the ≃-equivalence class of the corresponding
+F-profile does not depend on the choice of a finite generating set.
+   Observe that for every g ∈ G and i ⩽ ℓ there exist unique αg (i) ⩽ ℓ and hg,i ∈ H such that
+ggi = gαg (i) hg,i . From the uniqueness of such a representation one can deduce that αg ◦ αk = αgk
+and hgk,i = hg,αk (i) hk,i . Furthermore, the map i 7→ αg (i) is a permutation of {1, . . . , ℓ}. Suppose
+now that φ : H → Sym(m) is an (n, 1)-approximation of H. We define a map ψ : G → Sym(ℓm)
+by identifying Sym(ℓm) with the group of permutations of {1, . . . , ℓ} × {1, . . . , m} and defining
+ψ (g) to be the map (i, j) 7→ (αg (i) , φ (hg,i ) (j)) . It is straightforward to check that for every
+  7The ≼ inequalities in (i), (iii), and (iv) can be replaced by usual ⩽ inequalities, whenever we consider the
+metric profiles with respect to fixed finite generating sets S ⊆ G and SH ⊆ H such that SH ⊆ S .
+24                       GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+g ∈ G the map ψ (g) is a permutation and that ψ is an (n, 1)-approximation of G of dimension ℓm.
+For the latter, we use a general fact that given two permutations σ ∈ Sym(m) and τ ∈ Sym(q),
+the normalised Hamming distance of the direct sum σ ⊕ τ ∈ Sym(m + q) satisfies
+                                              mdHam (σ, eSym(m) ) + qdHam (τ, eSym(q) )
+                dHam (σ ⊕ τ, eSym(m+q) ) =                                              .
+                                                              m+q
+                            sof    sof
+This shows the required DG      ≼ DH   . The proofs for the hyperlinear and linear sofic profiles are
+analogous, using corresponding properties of the normalised Hilbert-Schmidt and rank distances,
+cf. [3, Proposition 2.2]. Namely, we use a general fact that given two unitary matrices u ∈ U (m)
+and v ∈ U (q), the normalised Hilbert-Schmidt distance of the block-diagonal matrix u ⊕ v ∈
+U (m + q) satisfies
+                                                  md2HS (u, eU (m) ) + qd2HS (v, eU (q) )
+                      d2HS (u ⊕ v, eU (m+q) ) =                                           .
+                                                                 m+q
+Similarly, given u ∈ GL(m, K) and v ∈ GL(q, K), the normalised rank distance of the block-
+diagonal matrix u ⊕ v ∈ GL(m + q, K) satisfies
+                                              mdrank (u, eGL(m,K) ) + qdrank (v, eGL(q,K) )
+               drank (u ⊕ v, eGL(m+q,K) ) =                                                 .
+                                                               m+q
+                                                                                                         □
+
+Remark 35. Proposition 34(ii) extends to other metric F-profiles. The proof proceeds as
+above constructing F-approximations of G induced (as induced representations) by a given
+F-approximation of H. For this to work, assumptions on the family F and the distances dα are
+required. For example, one assumes that Gα ⊕ Gβ is defined and is isomorphic to some Gγ and
+the distances dα , dβ , dγ satisfy that f (dγ ) is a convex combination of f (dα ) and f (dβ ) for some
+function f . We call such functions f diagonally block-convex, which include so-called diagonally
+block-additive functions where the convexity is given by the sum: f (dγ ) = f (dα ) + f (dβ ). In our
+proof above, f (x) = x for the normalised Hamming and rank distances and f (x) = x2 for the
+Hilbert-Schmidt distance. Obviously, we can take f (x) = xp , 1 ⩽ p ⩽ ∞ which yields the convex
+equality as above for the p-Schatten norm. Therefore, we have the result as in Proposition 34(ii)
+for the metric approximations by matrices endowed with the normalised p-Schatten norm, for
+1 ⩽ p ⩽ ∞, and hence, for the normalised trace and operator norms (the rank of a matrix can
+                                                               f in    f in
+be viewed as its p-Schatten norm for p = 0). Similarly, DG          ≃ DH    , whenever the distances dα
+on the finite approximating groups admit some diagonally block-convex function as above.
+
+5.2. Direct and free products. It follows from Proposition 34 that for every n ∈ N we have
+               F        F         F
+          max{DG (n) , DH (n)} ⩽ DG×H (n) , max{ΦF        F         F
+                                                 G (n) , ΦH (n)} ⩽ ΦG×H (n) and
+
+                        max{LEAG (n) , LEAH (n)} ⩽ LEAG×H (n) .
+                                       n                                                        o
+                                                                 f in            f in
+On the other hand, taking a family F ∈ F sof , F hyp , F f in , Fcc   , F lin , F{0,1}    a
+                                                                                       , F{0,1}  , the known
+proofs that if G and H are F-approximable, then G × H is again F-approximable (see, for
+example, [24, Theorem 1] for the proof for sofic groups) give
+                                       F          F      F
+                                      DG×H (n) ≼ DG (n) DH (n) .
+                  QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                             25
+
+Analogously, for LE-F groups G and H, we have, under the assumption that F is closed under
+taking direct product of two groups,
+
+                                   ΦF          F      F
+                                    G×H (n) ≼ ΦG (n) ΦH (n) .
+
+It is also not hard to check that, for LEA groups G and H, for the Følner type profile, we have:
+
+                              LEAG×H (n) ≼ LEAG (n) LEAH (n) .
+
+The only point in the above estimates is to choose a suitable finite generating set of the direct
+product G × H starting from finite generating sets SG and SH . A natural choice is satisfactory:
+one can take SG×H = SG × {eH } ⊔ {eG } × SH .
+  The case of free products is less understood. Some of the classes of F-approximable groups
+are not known to be closed under taking free products, e.g. it is not yet proved for weak soficity
+and for weak hyperlinearity. As usual, we focus on the quantifying aspects.
+  Let G and H be sofic groups, and Fr denote a free group of rank r ⩾ 2. It follows from
+Proposition 34(iii) that ΦFr (n) ⩽ ΦF2 (n). This and Elek-Szabó’s proof of soficity of the free
+product G ∗ H [24, Theorem 1] give the estimate
+                               sof        sof      sof
+                              DG∗H (n) ≼ DG   (n) DH   (n) ΦF2 (n) .
+
+  Analogously, a free product of linear sofic groups is linear sofic [45, Theorem 5.6] and one
+                                  lin (n) whenever G and H are linear sofic, see Conjecture 68.
+might extract an upper bound on DG∗H
+  A free product of hyperlinear groups is hyperlinear [40, 49] or [15] but a meaningful upper
+            hyp
+bound on DG∗H   (n), whenever G and H are hyperlinear, seems unknown, see Question 69.
+  For residually amenable G and H, an upper bound on RAG∗H (n) is obtained in [8, Theo-
+rem 6.2.7 and lines before Example 6.2.9]. See Question 70 and Question 71.
+
+5.3. Extensions by amenable groups. Let G be a group, A be a finite set of size n, and GA
+be the group of all functions from A to G. Let Sym (A) be the group of permutations on A,
+which is clearly isomorphic to the group Sym(n) of permutations on {1, 2, . . . , n}.
+   The permutation wreath product is the semidirect product Sym (A) ⋉ GA with respect to
+the action of Sym (A) on GA that permutes the coordinates. An element of Sym (A) ⋉ GA is
+represented by a pair (σ, b) where σ ∈ Sym (A) and b ∈ GA is a function b : A → G. When G is
+a bi-invariant metric group, one can endow Sym (A) ⋉ GA with a canonical bi-invariant metric,
+which was defined in [35, Section 5] as follows. If σ0 , σ1 ∈ Sym (A) and b0 , b1 ∈ GA , then
+                                              1X
+       dSym(A)⋉GA ((σ0 , b0 ) , (σ1 , b1 )) =    {dG (b0 (a) , b1 (a)) : a ∈ A, σ0 (a) = σ1 (a)} +
+                                              n
+                                                                                 dSym(A) (σ0 , σ1 ) ,
+where dSym(A) denotes the normalised Hamming distance on Sym (A).
+  We now introduce a useful notion of controlled Følner function, which is implied by the
+controlled Følner sequence introduced in [20, Section 3.2].
+
+Definition 36 (Controlled Følner function). Let G be a finitely generated amenable group
+with finite symmetric generating set S. The controlled Følner function of G with respect to S,
+denoted by Følcon
+               G,S (n), is defined to be the smallest k ⩾ n such that there exists a subset A of
+26                     GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+BG,S (k) of size at most k with the property that
+                                     X
+                                           |gA △ A| ⩽ |A| /n.
+                                   g∈BG,S (n)
+
+   As usual, choosing a different finite generating set would yield a function with the same
+asymptotic type of growth. We let Følcon
+                                       G be the corresponding ≃-equivalence class of functions.
+   Let now H be a subgroup of G generated by a finite set R. We now recall the notion of
+distortion for the subgroup H in G as defined in [31, Chapter 3].
+
+Definition 37 (Distortion function). The distortion function of H in G with respect to R and
+S, denoted by ∆H⩽G,R,S (n), is defined to be the smallest k ⩾ n such that H ∩ BG,S (n) is
+contained in BH,R (k).
+
+   Since different choices of generating sets yield functions with the same asymptotic type of
+growth, the ≃-equivalence class of ∆H⩽G of the function defined above is well-defined.
+   Let F be an approximating family F = {(Gα , dα , kα , εα )}α∈I such that for every α ∈ I, εα
+is equal to a fixed strictly positive constant, which up to normalisation can be assumed to be
+equal to 1. We furthermore assume that for every α ∈ I and a finite set A there exists β ∈ I
+such that kβ ⩽ |A| kα , and the permutation wreath product Sym (A) ⋉ GA        α is isometrically
+isomorphic (when endowed with the canonical bi-invariant metric dSym(A)⋉GA   α
+                                                                                described above)
+to Gβ . For example, this applies when I = N and, for every n ∈ N, Gn is the permutation group
+Sym(n) endowed with the normalised Hamming distance. The following result can be seen as a
+quantified version of [35, Theorem 5.1].
+
+Theorem 38. Let G be a finitely generated group and F be a family as above, N be a normal
+subgroup of G such that the quotient G/N is amenable. Then we have:
+                                                                   
+                         F           con      F             con
+                       DG  (n) ≼ FølG/N  (n) DN   ∆N ⩽G (FølG/N (n)) .
+
+Proof. For g ∈ G we denote by g the image of g under the quotient map G ↠ G/N . Similarly,
+if A is a subset of G, then we let A be the collection {g : g ∈ A}. Fix a finite symmetric subset
+T of G such that T is a generating set of G/N . Fix also a right inverse σ : G/N → G for the
+quotient map G ↠ G/N such that σ(BG/N,T (n)) ⊆ BG,T (n) for every n ∈ N. In particular, this
+                                    
+implies that σ (eG ) = eG and σ t = t for t ∈ T . Let now R be a finite symmetric generating
+subset of N with the property that, for every t ∈ T , t−1 σ t ∈ R. Finally, let S be the finite
+                                                                
+
+symmetric generating set R ∪ T for G.
+   Let n be a natural number. Observe that BG,S (n) ⊆ BG/N,T (n) for every n ∈ N. Set k :=
+Følcon
+    G/N,T
+           (10n) ⩾ 10n. By definition of the controlled Følner function of G/N , one has that there
+                                                                       1 P
+exists a finite subset B of G such that B ⊆ BG/N,T (k), |B| ⩽ k, and |B|    g∈BG,S (10n) |gB △ B| ⩽
+(10n)−1 . By the choice of σ, A = σ (B) is a subset of BG,T (k) such that B = A. Consider
+now a function ϕ : G → Sym (A), g 7→ ϕg , such that ϕg (a) = σ (ag) if ag ∈ A (and it is defined
+arbitrarily otherwise). We have that
+                      A · BG,S (10n) · A−1 ⊆ BG,S (2k + 10n) ⊆ BG,S (20k)
+and hence
+                        N ∩ A · BG,S (10n) · A−1 ⊆ BN,R (∆N ⩽G (20k)) .
+                  QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                               27
+
+                  F , we deduce that there exist α ∈ I such that k ⩽ D F (∆
+By definition of DN,R                                             α    N,R    N ⩽G (20k)), and
+a (20k, 1)-approximation ψ : N → Gα . By hypothesis on F, there exists β ∈ I such that
+                                                F
+                                kβ ⩽ |A| kα ⩽ kDN,R (∆N ⩽G (20k))
+and Gβ is isometrically isomorphic to Sym (A)⋉GAα . Define now the function Υ : G → Sym (A)⋉
+Gα by setting Υ (g) = (ψg , bg ), where bg ∈ Gα is defined by a 7→ ψ σ ag −1 ga . Then the
+  A                                           A
+                                                                                
+
+argument at the end of the proof [35, Theorem 5.1] shows that Υ is an (n, 1)-approximation for
+G. This concludes our proof.                                                                □
+
+Corollary 39. Suppose that G is a finitely generated group, and N is a finitely generated normal
+subgroup of G such that the quotient G/N is amenable. Then we have
+                           sof
+                          DG   (n) ≼ Følcon      sof          con
+                                        G/N (n) DN (∆N ⩽G (FølG/N (n))).
+
+5.4. Restricted wreath products. Let G and H be two groups. The regular restricted wreath
+                                                               L
+product G≀H is the semidirect product B⋊H, where B = H G is the group of finitely-supported
+functions from H to G, and the action υ : H ↷ B is the Bernoulli shift. An element of G ≀ H
+can be represented by a pair (b, h) where h ∈ H and b ∈ B, b : H → G. It is clear that if G and
+H are finite, then G ≀ H is finite and |G ≀ H| = |H| |G||H| .
+   Suppose now that G is a bi-invariant metric group and F is a finite group. Then the wreath
+product G ≀ F = B ⋊ F is endowed with a canonical bi-invariant metric, defined in [35, Section
+3] as follows. For x0 , x1 ∈ F and b0 , b1 ∈ B, we set
+                                                
+                                                  maxx∈F dG (b0 (x) , b1 (x)) if x0 = x1 ,
+               dG≀F ((b0 , x0 ) , (b1 , x1 )) =
+                                                  1                           otherwise.
+It is proved in [35, Lemma 3.2] that if G is endowed with a commutator-contractive invariant
+length function, then for any finite group F the bi-invariant metric dG≀F on G ≀ F described
+above is commutator-contractive.
+
+5.4.1. The metric profile of wreath products by residually finite groups. Let F be an approximat-
+ing family F = {(Gα , dα , kα , εα )}α∈I . We assume that εα = 1 for every α ∈ I, and furthermore
+                                                                                        |F |
+that for any α ∈ I and any finite group F there exists β ∈ I such that kβ ⩽ |F | kα and Gβ
+is isometrically isomorphic to the wreath product Gα ≀ F endowed with the bi-invariant metric
+                                                                                       f in    f in
+dG≀F described above. These assumptions are fulfilled for example for F ∈ {F f in , Fcc     , F{0,1} }.
+   Recall that ΦG,S (n) denotes the full residual finiteness growth function of a residually finite
+group G, see Section 4.3.
+
+Theorem 40. Let F be a family as above. Let G be a group with finite generating set R, and H
+                                                                                       L
+be a group with finite generating set T . Consider the finite generating set S of G≀H = H G⋊H
+                                                        L
+consisting of the pairs (b, h) , where h ∈ T and b ∈ H G has support contained in {eH } and
+range contained in R. Then for every n ∈ N we have:
+                         F
+                        DG≀H,S                    F
+                               (n) ⩽ ΦH,T (4n) · DG,R (ΦH,T (4n))ΦH,T (4n)
+
+Proof. Clearly, we can assume that G is F-approximable and H is residually finite, otherwise
+there is nothing to prove. Observe that if n ∈ N then any element of BG≀H,S (n) is of the form
+                                  L
+(b, h), where h ∈ BH,T (n) and b ∈ H G has support contained in BH,T (n) and range contained
+in BG,R (n). Set m = ΦH,T (4n). Then by definition of ΦH,T there exists a normal subgroup N
+28                      GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+of H of index at most m such that N ∩ BH,T (4n) = {eH }. Also by definition of DG,R     F   there
+                                                                          F
+exists α ∈ I and a (m, 1)-approximation ϕ : G → Gα such that kα ⩽ DG (m). By hypothesis on
+F, there exists β ∈ I such that kβ ⩽ m · kαm ⩽ m · DG  F (m)m and G is isometrically isomorphic
+                                                                     β
+to Gα ≀ H/N . Define now the function ψ : G ≀ H → Gα ≀ H/N by setting ψ (g, h) = (bg , hN ) where
+gb : H/N → Gα is defined by
+                                   
+                                     eα       if BH,T (n) ∩ kN = ∅, and
+                        gb (kN ) =
+                                     φ (gk′ ) if BH,T (n) ∩ kN = {k ′ } .
+Then the proof of [35, Theorem 3.1] shows that ψ is a (n, 1)-approximation of G ≀ H.               □
+
+5.4.2. The sofic profile of wreath products of sofic groups by sofic groups. In this section, we
+suppose that G and H are groups with finite generating sets R and T , respectively. We let S
+                                       L                                                    L
+be the set of elements of G ≀ H = H G ⋊ H of the form (b, h) where h ∈ T and b ∈ H G is
+such that the support of b is contained in {eH } and the range is contained in R.
+   Let K denote a group with a bi-invariant distance d. If F is a finite subset of G and c, ε > 0,
+then a function ϕ : G → K is (F, ε)-multiplicative if d (ϕ (xy) , ϕ (x) ϕ (y)) < ε for x, y ∈ F,
+and (F, c)-injective if d (ϕ (x) , ϕ (y)) ⩾ c for x, y ∈ F distinct, cf. terminology of Definition 1.
+Proceeding as in the proof of [34, Lemma 2.8] gives the following.
+
+Lemma 41. Suppose that Ψ : G ≀ H → K is a function. Fix n ∈ N and let Gn be the set
+               L
+of elements of  H G whose support is contained in BH,T (n) and whose range is contained in
+BG,R (n). Suppose that Ψ satisfies the following (the identities eLH G and eH are denoted by 1):
+       • d (Ψ (xy, 1) , Ψ (x, 1) Ψ (y, 1)) < ε1 whenever x, y ∈ Gn ,
+       • d (Ψ (1, x) Ψ (1, y) , Ψ (1, xy)) < ε0 whenever x, y ∈ BH,T (n),
+       • Ψ (x, 1) Ψ (1, y) = Ψ (x, y) whenever x ∈ Gn and y ∈ BH,T (n), and
+       • Ψ (1, y) Ψ (x, 1) = Ψ (υy (x) , y).
+     Then d (Ψ (zw) , Ψ (z) Ψ (w)) < ε0 + ε1 for any z, w ∈ BG≀H,S (n).
+
+   Suppose that K is a bi-invariant metric group. Let d′ be any bi-invariant metric on B K that
+                                                                                      L
+
+restricts to the original metric on K on each copy of K, and d′ is also the corresponding metric
+   L                                                                 L
+on B K ≀B Sym (B). Consider also the maximum metric dmax on B K and the corresponding
+            L
+metric on B K ≀B Sym (B). The proof of [34, Proposition 3.3] gives the following.
+
+Lemma 42. Fix ε > 0. Suppose that σ : H → Sym (B) is a (BH,T (4n) , ε)-multiplicative
+and (BH,T (4n) , 1 − ε)-injective function. Suppose also that θ : G → K is a (BG,R (4n) , ε)-
+multiplicative and (BG,R (4n) , 1 − ε)-injective function. Then there exists a function
+                                                M
+                                  Ψ: G ≀ H →       K ≀B Sym (B)
+                                                 B
+                                   2
+that is (BG≀H,S (n) , 48 |BH,T (4n)| ε)-multiplicative with respect to the metric d′ and (BG≀H,S (n) , 1−
+48 |BH,T (n)|2 ε)-injective with respect to the metric dmax .
+
+   More precisely, [34, Proposition 3.3] states that under the assumptions of Lemma 42, which
+are more restrictive than the hypotheses of [34, Proposition 3.3], for any finite subset F ⊆ G ≀ H,
+there exists a set E ⊆ H, such that the previously defined function Ψ is (F, ε′ )-multiplicative, for
+                    ε′
+ε′ satisfying ε < 48|E| 2 . Since the assumptions of Lemma 42 are more restrictive, the set E can
+                  QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                             29
+
+be chosen to be BH,T (4n) and with ε′ = 48|E|2 ε. Moreover, applying a stronger version of [34,
+Proposition 3.3], formulated in [34, Remark 3.5], gives that Ψ is (BG≀H,S (n) , 1−48 |BH,T (n)|2 ε)-
+injective with respect to the metric dmax .
+   In a similar manner, a quantitative analysis of the proof of [34, Theorem 4.1] then shows the
+following.
+
+Lemma 43. Fix ε > 0. Suppose that σ : H → Sym (B) is a (BH,T (4n) , ε)-multiplicative
+and (BH,T (4n) , 1 − ε)-injective function. Suppose that θ : G → Sym (A) is a (BG,R (4n) , ε)-
+multiplicative and (BG,R (4n) , 1 − ε)-injective function. Let
+                                            M
+                               Ψ: G ≀ H →       Sym (A) ≀B Sym (B)
+                                             B
+
+be obtained from σ and θ as in Lemma 42. Define
+                         M
+                              Sym (A) ≀B Sym (B) → Sym AB × B by
+                                                             
+                      Θ:
+                             B
+
+                           Θ (π, τ ) : ((aβ ) , b) 7→ ((πb,β (aβ )) , τ (b)) .
+Then the composition Θ◦Ψ : G≀H → Sym B × AB is (BG≀H,S (n) , 48 |BH,T (4n)|2 ε)-multiplicative
+                                                       
+
+and (BG≀H,S (n) , 1 − 48 |BH,T (n)|2 ε)-injective when Sym B × AB is endowed with the nor-
+                                                                             
+
+malised Hamming distance.
+
+   We extract from Lemma 43 the following upper bound on the sofic profile of the wreath
+                                                        sof
+product of sofic groups. Recall that the sofic profile DG,R  (n) of a group G with finite generating
+                         F
+set R is the F-profile DG,R (n) where F is the family F     sof = (Sym (A) , dHam , |A| , 1)n∈N where
+A is a finite set and Sym (A) is endowed with the normalised Hamming distance.
+   Recall that βG,S (n) = |BG,S (n)| is the growth function of G with respect to a finite generating
+set S. We let βG denote the ≃-equivalence class of βG,S , which is independent of the choice of
+the generating set S.
+
+Theorem 44. Let G be a group with finite generating set R, and H be a group with finite
+                                                                  L
+generating set T . Consider the finite generating set S of G ≀ H = H G ⋊ H consisting of the
+                                  L
+pairs (b, h) where h ∈ H and b ∈ H G has support contained in {eH } and range contained in
+R. Then for every n ∈ N one has that
+                                                                        sof          2
+             sof
+            DG≀H,S        sof
+                   (n) ⩽ DH,T                    sof
+                              (48βH,T (n)2 n) · DG,R (48βH,T (n)2 n)DH,T (48βH,T (n) n) .
+
+5.4.3. The hyperlinear profile of the wreath product of a hyperlinear group by a sofic group.
+We adopt the preceding notations: G and H are groups with finite generating sets R and T ,
+respectively. We let S be the finite generating set for G ≀ H of elements (b, h) for h ∈ BH,T (n)
+        L
+and b ∈ H G with support contained in {eH } and range contained in BG,R (n).
+   Suppose that B is a finite set. Then we denote by HB the finite-dimensional Hilbert space
+with basis {|b⟩ : b ∈ B}. If H is a finite-dimensional Hilbert space, then we define H⊗B to be the
+tensor product of a family of |B| copies of H indexed by B. We denote by U (H) the group of
+unitary operators on H equipped with the projective normalised Hilbert-Schmidt pseudometric
+dHS as defined in Section 3.2. We analyze the proof of [34, Section 4.2] and obtain the following.
+30                       GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+Lemma 45. Fix ε > 0. Suppose that σ : H → Sym (B) is a (BH,T (4n) , ε)-multiplicative
+and (BH,T (4n) , 1 − ε)-injective function. Suppose that θ : G → U (H) is a (BG,R (4n) , ε)-
+multiplicative and (BG,R (4n) , 1 − ε)-injective function for some finite-dimensional Hilbert space
+                      L
+H. Let Ψ : G ≀ H →       B U (H) ≀ Sym (B) be the function      obtained in Lemma 42. Define the
+                                              ⊗B
+              L                                         
+function Θ :    B U (H) ≀B Sym (B) → U H          ⊗ HB by
+                                     O              O
+                         Θ (π, τ ) :    ξγ ⊗ |b⟩ 7→     πb,γ (ξγ ) ⊗ |σ (b)⟩ .
+                                         γ                 γ
+                                                                      1
+Then     Θ ◦ Ψ           is     (BG≀H,S (n) , 48 |BH,T (4n)|2 ε 2 )-multiplicative function   and
+                               2 21                                   ⊗B
+                                                                                
+(BG≀H,S (n) , 1 − 48 |BH,T (n)| ε )-injective function when U H           ⊗ HB is endowed with the
+normalised Hilbert-Schmidt distance.
+
+     We deduce the following.
+
+Theorem 46. Let G be a group with finite generating set R, and H be a group with finite
+                                                                  L
+generating set T . Consider the finite generating set S of G ≀ H = H G ⋊ H consisting of the
+                                  L
+pairs (b, h) where h ∈ H and b ∈ H G has support contained in {eH } and range contained in
+R. Then for every n ∈ N one has that
+                                                                                    sof       4 2
+          hyp
+         DG≀H,S        sof
+                (n) ⩽ DH,T                        hyp
+                           (2500βH,T (n)4 n2 ) · DG,R (2500βH,T (n)4 n2 )DH,T (2500βH,T (n) n ) .
+
+5.4.4. The linear sofic profile of the wreath product of a linear sofic group by a sofic group. Let
+K be a field. If B is a finite set, then we let KB to be the K-vector space obtained as the
+direct sum of |B| copies of K indexed by B with basis {|b⟩ : b ∈ B}. If V is a finite-dimensional
+K-vector space, then we let V ⊗B be the tensor product of a family of |B| copies of V indexed by
+B. We denote by GL (V, K) the group of invertible operators on V equipped with the projective
+normalised rank pseudometric drank as defined in Section 3.3. We analyse the proof of [34,
+Proposition 4.12 ] and obtain the following.
+
+Lemma 47. Fix ε > 0. Suppose that σ : H → Sym (B) is a (BH,T (4n) , ε)-multiplicative and
+(BH,T (4n) , 1 − ε)-injective function. Suppose also that θ : G → GL (V, K) is a (BG,R (4n) , ε)-
+                                                                               L
+multiplicative and (BG,R (4n) , 1 − ε)-injective function. Let Ψ : G ≀ H →       B GL (V, K) ≀B
+Sym (B) be the obtained as in Lemma 42. Let also
+                            M
+                                GL (V, K) ≀B Sym (B) → GL V ⊗B ⊗ KB , K
+                                                                         
+                       Θ:
+                              B
+
+be defined by
+                                         O                 O
+                           Θ (π, τ ) :       aγ ⊗ |b⟩ 7→       πb,γ (aγ ) ⊗ |τ (b)⟩ .
+                                         γ                 γ
+
+Then     Θ ◦ Ψ            is    (BG≀H,S (n) , 48 |BH,T (4n)|2 ε)-multiplicative           function   and
+(BG≀H,S (n) , 1 − 48 |BH,T (4n)|2 ε)-injective function.
+
+     The following is an immediate consequence of the preceding lemma.
+
+Theorem 48. Let G be a group with finite generating set R, and H be a group with finite
+                                                                  L
+generating set T . Consider the finite generating set S of G ≀ H = H G ⋊ H consisting of the
+                  QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                            31
+                                L
+pairs (b, h) where h ∈ H and b ∈ H G has support contained in {eH } and range contained in
+R. Then for every n ∈ N one has that
+                                                                             sof          2
+       lin
+      DG≀H,S        sof
+             (n) ⩽ DH,T (48nβH,T (n)2 ) · DG,R
+                                           lin      sof
+                                               (48nDH,T (48nβH,T (n)2 ))DH,T (48nβH,T (n) ) .
+
+                         6. Further remarks and open questions
+
+   The following question incites, in particular, a thorough study of possible definitions of bi-
+invariant metrics on solvable groups; see also our observation in Example 8.
+
+Question 49. Does there exist an infinite group which is not approximable by solvable groups
+(with no uniform bound on the derived length)?
+
+   We denote by T h∀c (G) the universal theory of G in the continuous logic setting [7]. An
+affirmative answer to the next question would generalise Malcev’s result, see Example 9.
+
+Question 50. Let G be a group such that T h∀c (GL(k, Kα )) ⊆ T h∀c (G) for some k > 0 and a
+field Kα . Is G linear?
+
+  Answers to the next two questions will clarify the status of Conjecture 15.
+                                                                                        sof
+Question 51. Does there exist a sofic group G which is not F hyp -stable but satisfies DG   (n) ≼
+ hyp
+DG   (n)?
+
+Question 52. Does there exist a sofic group G which is not F sof -stable but F hyp -stable?
+
+   Let Ū = U (R) be the unitary group of the hyperfinite factor R of type II1 equipped with the
+ultraweak topology. A group G is hyperlinear if and only if G embeds into a metric ultrapower of
+Ū [38, Corollary 4.3]. In [1, Proposition 7], the first author observed that all Gromov hyperbolic
+groups G are residually finite (respectively, LE-F f in , LEA, etc.) if and only if every G embeds
+into Ū .
+                                                                                         Q       
+Question 53. Let G be a non-elementary Gromov hyperbolic group such that G ,→ U Ū , d .
+Does it imply the existence of an embedding G ,→ Ū ?
+
+  A positive answer will establish the following conjecture.
+
+Conjecture 54. [1, Conjecture 2.8] All Gromov hyperbolic groups are residually finite ⇐⇒ all
+Gromov hyperbolic groups are sofic.
+
+  An answer to the next question will give a better understanding of the rank metric on linear
+groups, and hence, of linear sofic groups and their profile functions.
+
+Question 55. [3] Does the class of linear sofic groups, i.e. F lin = (GL(n, K), drank , n, 1/4)n∈N -
+approximable groups, coincide with the class of (GL(n, K), drank , n, εn )n∈N -approximable groups,
+where εn is constantly equal to a fixed or to an arbitrarily chosen number between 1/4 and 1?
+
+  The next three questions are about examples of sofic and linear sofic groups with extreme
+profile functions with respect to the ambient class of weakly sofic groups.
+                                                         f in
+Question 56. Does there exist a sofic group G such that DG,S  (n) ≃ nn ?
+32                     GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+                                                                          f in        lin (n)?
+Question 57. Does there exist an infinite linear sofic group G such that DG,S  (n) ≃ DG,S
+                                             f in          lin (n) for a linear sofic group G?
+Question 58. What is a relationship between DG,S  (n) and DG,S
+
+   If affirmative, the answer to the next question will generalise the famous Coulhon-Saloff-Coste
+isoperimetric inequality which is, using our notation: βG,S (n) ≼ FølG,S (n).
+                            sof
+Question 59. Is βG,S (n) ≼ DG,S (n) for a sofic group G?
+
+   To answer this rather challenging question one can first focus on subclasses of sofic groups
+such as classical matrix groups and (elementary) amenable groups. Here is a variant for groups
+locally embeddable into amenable groups.
+
+Question 60. Is βG,S (n) ≼ LEAG,S (n) for an LEA group G?
+
+  Recall that a finitely generated linear group that is not virtually nilpotent has exponential
+                      f in
+weakly sofic profile DG,S  (n), see Example 26.
+
+Question 61. Does there exist a finitely generated linear group of exponential growth with
+                                         sof
+polynomial/subexponential sofic profile DG,S (n)?
+
+  Corollary 32 and known stability results on virtually abelian groups, see Example 33, yield
+the following.
+                                                                            lin (n) ≃ nrank G .
+Conjecture 62. Let G be a finitely generated virtually abelian group. Then DG,S
+
+   A direct approach to establish Conjecture 62 is to proceed as in Example 13, using the dis-
+creteness of values of the rank distance drank . Alternatively, Conjecture 62 would be established
+by proving the F lin -stability of virtually abelian groups. This remains unknown, see [22] for
+a partial result. In this vein, it is interesting to investigate the (non)-stability of commuta-
+tor relator word with respect to the rank distance within various classes of matrices. Unitary,
+self-adjoint and normal matrices are natural classes to consider, see Section 3.3 for notation.
+                                                                                     u (n) ≃
+Question 63. Let G be a finitely generated virtually abelian group. Is it true that DG,S
+ sa (n) ≃ D nor (n) ≃ nrank G ?
+DG,S       G,S
+
+   We have shown that sofic and hyperlinear profiles of the Heisenberg groups H2l+1 coincide
+with the full residual finiteness growth, see Example 33. We expect this to hold for the weakly
+sofic and linear sofic profiles as well, cf. Example 26.
+                        f in              lin
+Conjecture 64. We have DH  2l+1 ,S
+                                   (n) ≃ DH 2l+1 ,S
+                                                    (n) ≃ n2(2l+1) .
+
+     Here is an ambitious generalisation of Example 13 and Example 33.
+
+Conjecture 65. Let G be a finitely generated virtually nilpotent group. Then
+                       sof        hyp        lin        f in
+                      DG,S (n) ≃ DG,S (n) ≃ DG,S (n) ≃ DG,S  (n) ≃ ΦG,S (n).
+
+  To approach the weakly sofic part of the preceding conjecture from an ambient class of groups,
+we consider arbitrary residually finite groups.
+                    QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                                    33
+
+                                                                                 f in
+Question 66. Does there exist a finitely generated residually finite group with DG,S  (n) ̸≃
+ΦG,S (n)?
+
+   The next question explores a possibility to describe weakly sofic groups in purely algebraic
+terms (see [27] for such a result on sofic groups).
+
+Question 67. Is there a characterisation of weakly sofic groups with no reference to any non-
+trivial bi-invariant distances dα on finite approximating groups Hα ?
+
+  In Section 5.2, we give an upper bound on the sofic profile of a free product of sofic groups.
+Other profiles of free products remain unexplored. Recall that F2 denotes a free group of rank 2.
+
+Conjecture 68. Let G and H be linear sofic groups. Then
+                                                       
+                        lin           lin        lin
+                       DG∗H (n) ≼ DG      (n) + DH   (n) ΦF2 (n) .
+
+                                                                        hyp
+Question 69. Let G and H be hyperlinear groups. Find an upper bound on DG∗H (n) in terms
+    hyp        hyp
+of DG (n) and DH (n). Is it true that
+                                                       
+                        hyp           hyp        hyp
+                       DG∗H  (n) ≼ DG     (n) + DH   (n) ΦF2 (n)?
+
+Question 70. Let G and H be LE-F groups. Estimate ΦF                    F          F
+                                                   G∗H (n) in terms of ΦG (n) and ΦH (n).
+
+Question 71. Let G and H be LEA groups. Estimate LEAG∗H (n) in terms of LEAG (n) and
+LEAH (n).
+                                                               f in                        F
+Question 72. Let F ∈ {F sof , F hyp , F lin , F f in , F ct , F{0,1} } and m ⩾ 3. What is DSLm (Z),S
+                                                                                                     (n)?
+
+                                               References
+ 1. Goulnara Arzhantseva, Asymptotic approximations of finitely generated groups, in Research Perspectives CRM
+    Barcelona-Fall 2012, Trends in Mathematics, vol. 1, Birkhäuser, Basel, 2014, pp. 7–16.
+ 2. Goulnara Arzhantseva and Liviu Păunescu, Almost commuting permutations are near commuting permuta-
+    tions, Journal of Functional Analysis 269 (2015), no. 3, 745–757.
+ 3. Goulnara Arzhantseva and Liviu Păunescu, Linear sofic groups and algebras, Transactions of the American
+    Mathematical Society 369 (2017), 2285–2310.
+ 4. Goulnara Arzhantseva and Liviu Păunescu, Constraint metric approximations and equations in groups, J.
+    Algebra 516 (2018), 329–351.
+ 5. Hyman Bass, The degree of polynomial growth of finitely generated nilpotent groups, Proc. London Math. Soc.
+    (3) 25 (1972), 603–614.
+ 6. Oren Becker, Alexander Lubotzky, and Andreas Thom, Stability and invariant random subgroups, Duke Math.
+    J. 168 (2019), no. 12, 2207–2234.
+ 7. Itaı̈ Ben Yaacov, Alexander Berenstein, C. Ward Henson, and Alexander Usvyatsov, Model theory for metric
+    structures, Model theory with applications to algebra and analysis. Vol. 2, London Mathematical Society
+    Lecture Note Series, vol. 350, Cambridge University Press, 2008, pp. 315–427.
+ 8. Federico Berlai, New residually amenable groups, permanence properties, and metric approximations, Ph.D.
+    thesis, University of Vienna, 2016.
+ 9. Khalid Bou-Rabee, Quantifying residual finiteness, Journal of Algebra 323 (2010), no. 3, 729–737.
+10. Khalid Bou-Rabee and Yves Cornulier, Systolic growth of linear groups, Proc. Amer. Math. Soc. 144 (2016),
+    no. 2, 529–533.
+11. Khalid Bou-Rabee, Mark F. Hagen, and Priyam Patel, Residual finiteness growths of virtually special groups,
+    Mathematische Zeitschrift 279 (2014), no. 1-2, 297–310.
+12. Khalid Bou-Rabee and David B. McReynolds, Asymptotic growth and least common multiples in groups,
+    Bulletin of the London Mathematical Society 43 (2011), no. 6, 1059–1068.
+13. Khalid Bou-Rabee and Brandon Seward, Arbitrarily large residual finiteness growth, J. Reine Angew. Math.
+    710 (2016), 199–204.
+34                        GOULNARA ARZHANTSEVA AND PIERRE-ALAIN CHERIX
+
+14. Khalid Bou-Rabee and Daniel Studenmund, Full residual finiteness growths of nilpotent groups, Israel J. Math.
+    214 (2016), no. 1, 209–233.
+15. Nathanial P. Brown, Kenneth J. Dykema, and Kenley Jung, Free entropy dimension in amalgamated free
+    products, Proc. Lond. Math. Soc. (3) 97 (2008), no. 2, 339–367, With an appendix by Wolfgang Lück.
+16. Valerio Capraro and Martino Lupini, Introduction to sofic and hyperlinear groups and Connes’ embedding
+    conjecture, Lecture Notes in Mathematics, vol. 2136, Springer, 2015, With an appendix by Vladimir Pestov.
+17. Matteo Cavaleri, Algorithms and quantifications in amenable and sofic groups algorithms and quantifications
+    in amenable and sofic groups, Ph.D. thesis, Universita degli studi di Roma La Sapienza, 2016.
+18. Tullio Ceccherini-Silberstein and Michel Coornaert, Cellular automata and groups, Springer Monographs in
+    Mathematics, Springer-Verlag, Berlin, 2010.
+19. Yves Cornulier, Sofic profile and computability of Cremona groups, Michigan Math. J. 62 (2013), no. 4,
+    823–841.
+20. Yves de Cornulier, Romain Tessera, and Alain Valette, Isometric group actions on Hilbert spaces: growth of
+    cocycles, Geometric and Functional Analysis 17 (2007), no. 3, 770–792.
+21. Ken Dykema, David Kerr, and Mikaël Pichot, Sofic dimension for discrete measured groupoids, Trans. Amer.
+    Math. Soc. 366 (2014), no. 2, 707–748.
+22. Gábor Elek and Lukasz Grabowski, Almost commuting matrices with respect to the rank metric, Groups
+    Geom. Dyn. 15 (2021), no. 3, 1059–1083.
+23. Gábor Elek and Endre Szabó, Sofic groups and direct finiteness, Journal of Algebra 280 (2004), no. 2, 426–434.
+24. Gábor Elek and Endre Szabó, On sofic groups, Journal of Group Theory 9 (2006), no. 2, 161–171.
+25. Jakub Gismatullin, On approximation of groups: weak soficity and weak hyperlinearity, (2013), in preparation.
+26. Lev Glebsky, Almost commuting matrices with respect to normalized Hilbert-Schmidt norm, 2010,
+    arXiv:1002.3082.
+27. Lev Glebsky, Approximations of groups, characterizations of sofic groups, and equations over groups, J. Al-
+    gebra 477 (2017), 147–162.
+28. Lev Glebsky and Luis Manuel Rivera, Sofic groups and profinite topology on free groups, J. Algebra 320
+    (2008), no. 9, 3512–3518.
+29. Mikhael Gromov, Groups of polynomial growth and expanding maps, Institut des Hautes Études Scientifiques.
+    Publications Mathématiques (1981), no. 53, 53–73.
+30. Mikhael Gromov, Endomorphisms of symbolic algebraic varieties, Journal of the European Mathematical
+    Society 1 (1999), no. 2, 109–197.
+31. Misha Gromov, Asymptotic invariants of infinite groups, Geometric group theory, Vol. 2 (Sussex, 1991),
+    London Math. Soc. Lecture Note Ser., vol. 182, Cambridge Univ. Press, Cambridge, 1993, pp. 1–295.
+32. Yves Guivarc’h, Croissance polynomiale et périodes des fonctions harmoniques, Bull. Soc. Math. France 101
+    (1973), 333–379.
+33. Don Hadwin and Tatiana Shulman, Stability of group relations under small Hilbert-Schmidt perturbations, J.
+    Funct. Anal. 275 (2018), no. 4, 761–792.
+34. Ben Hayes and Andrew W. Sale, Metric approximations of wreath products, Ann. Inst. Fourier (Grenoble) 68
+    (2018), no. 1, 423–455.
+35. Derek F. Holt and Sarah Rees, Some closure results for C-approximable groups, Pacific J. Math. 287 (2017),
+    no. 2, 393–409.
+36. Anatoliı̆ I. Malcev, On isomorphic matrix representations of infinite groups, Rec. Math. [Mat. Sbornik] N.S.
+    8 (50) (1940), 405–422.
+37. Justin Tatch Moore, Fast growth in the Følner function for Thompson’s group F , Groups, Geometry, and
+    Dynamics 7 (2013), no. 3, 633–651.
+38. Vladimir Pestov and Aleksandra Kwiatkowska, An introduction to hyperlinear and sofic groups, Appalachian
+    Set Theory 2006-2012, London Math. Soc. Lecture Note Ser., vol. 406, Cambridge Univ. Press, Cambridge,
+    2012.
+39. Vladimir G. Pestov, Hyperlinear and sofic groups: A brief guide, Bulletin of Symbolic Logic 14 (2008), no. 04,
+    449–480.
+40. Sorin Popa, Free-independent sequences in type II1 factors and related problems, no. 232, 1995, Recent advances
+    in operator algebras (Orléans, 1992), pp. 187–202.
+41. Vladimir N. Remeslennikov, ∃-free groups, Sibirsk. Mat. Zh. 30 (1989), no. 6, 193–197.
+42. Florin Rădulescu, The von Neumann algebra of the non-residually finite Baumslag group ⟨a, b|ab3 a−1 = b2 ⟩
+    embeds into Rω , Hot topics in operator theory, Theta Ser. Adv. Math., vol. 9, Theta, Bucharest, 2008,
+    pp. 173–185.
+43. Daniel Segal, Polycyclic groups, Cambridge Tracts in Mathematics, vol. 82, Cambridge University Press,
+    Cambridge, 1983.
+44. William Slofstra and Thomas Vidick, Entanglement in non-local games and the hyperlinear profile of groups,
+    Ann. Henri Poincaré 19 (2018), no. 10, 2979–3005.
+45. Abel Stolz, Properties of linearly sofic groups, 2013, arXiv:1309.7830.
+                    QUANTIFYING METRIC APPROXIMATIONS OF DISCRETE GROUPS                                       35
+
+46. Andreas Thom, About the metric approximation of Higman’s group, Journal of Group Theory 15 (2012),
+    no. 2, 301–310.
+47. Anatoliı̆ M. Vershik, Amenability and approximation of infinite groups, Selecta Math. Soviet. 2 (1982), no. 4,
+    311–330, Selected translations.
+48. Anatoliı̆ M. Vershik and Evgeniı̆ I Gordon, Groups that are locally embeddable in the class of finite groups,
+    Algebra i Analiz 9 (1997), no. 1, 71–97.
+49. Dan Voiculescu, A strengthened asymptotic freeness result for random matrices with applications to free en-
+    tropy, Internat. Math. Res. Notices (1998), no. 1, 41–63.
+50. Benjamin Weiss, Sofic groups and dynamical systems, Sankhyā. The Indian Journal of Statistics. Series A 62
+    (2000), no. 3, 350–359, Ergodic theory and harmonic analysis (Mumbai, 1999).
+51. Joseph A. Wolf, Growth of finitely generated solvable groups and curvature of Riemannian manifolds, J.
+    Differential Geometry 2 (1968), 421–446.
+
+   Universität Wien, Fakultät für Mathematik, Oskar-Morgenstern-Platz 1, 1090 Wien, Austria.
+   Email address: goulnara.arzhantseva@univie.ac.at
+
+  Université de Genève, Section de Mathématiques, Uni Dufour, 24 rue du Général Dufour, Case
+postale 64, 1211 Genève 4, Switzerland.
+  Email address: pierre-alain.cherix@unige.ch
+

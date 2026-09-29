@@ -449,3 +449,8 @@ Lazard embedding; exact reduction in N8-general-first-kernel.md Section7.
 Do not claim this lemma as new. The full integral group-stratum algorithm's
 novelty remains provisional. Search-engine crawl labels suggesting2026 dates
 are not publication dates for these2007/2012/2013 works.
+
+
+## 2026-09-29T05:30:25.564544+00:00 — GA5(c), G7 and E6 scope audit
+
+Archived Nekrashevych book manuscript, Arzhantseva--Cherix metric-profile paper and de las Heras--Zozaya arXiv2502.07427v1. Precise URLs, hashes and reading/viewing limits in the three new research notes. GA5(c) has a prior positive existential answer in rank2. G7 numerical implication is insufficient; cited book lemma not obtained and no group counterexample claimed. E6 completion strong conciseness is a different property. First E6 institutional download timed out; arXiv succeeded. Further S4, H15, H9 and OR4 abstract-level leads did not establish new full scope; no such abstract was promoted to a proof.

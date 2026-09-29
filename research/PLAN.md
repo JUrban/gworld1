@@ -2,7 +2,7 @@
 
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
-Latest checkpoint, approximately 05:14 UTC on 29 September: six whole-entry
+Latest checkpoint, approximately 05:32 UTC on 29 September: six whole-entry
 candidates (F28,N5,M0,H4,F41,GA3), three partial candidates
 (N8,F38(a),F34(a)), zero established novel results. All nine await
 specialist review and novelty assessment.
@@ -363,3 +363,8 @@ The general type-one third-from-last solver and independent GAP audit are comple
 ## Working focus after N8 type-two checkpoint (2026-09-29T05:13:43.813896+00:00)
 
 The combined p<=2 third-from-last scope is audited and implemented. Retain the new Remeslennikov--Stohr support credit; do not claim that lemma as novel or repeat its bounded probes. Other leading types still require control of decomposable correction directions. Return to the wider unresolved portfolio or pursue a specific proof concern. Counts6 whole,3 partial,0 established novel; original deadline unchanged.
+
+
+## 05:32 source follow-up
+
+GA5(c) existential rank2 scope is prior; do not spend discovery budget rediscovering it. G7/E6 leads did not settle their questions. A possible next F38(c) positive recognition route is a common filling subgroup, enumerated via the finite fringe of a cyclic subgroup (Takahasi). This would be a consequence of prior filling machinery, not a full decision or an automatic new count; keep Lee’s automorphism-versus-injection boundary control.
