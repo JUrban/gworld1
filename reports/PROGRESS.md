@@ -195,3 +195,6 @@ F28 now has a simpler integral proof and a Lean verification of the entire matri
 
 
 F37/N3 route checks: the inspected commutator-length embeddings do not meet the determinant condition needed by the F37 lead. N3’s existing torsion example already defeats strict-monotone and disjoint-superadditive profile repairs; a nested finite-subset construction cannot cover arbitrary cardinalities. Details are appended to the existing notes. Neither problem has gained a solution here.
+
+
+C4 computational checkpoint:45832 bounded FullHRed evaluations completed; independent GAP replay checked22501 selected steps and67 faithful Artin input/output pairs. No asymptotic bound obtained. The width3 theorem is prior, and a broader proposed length-bound route was disproved by Dehornoy–Wiest2004. Details: `research/notes/C4-handle-reduction-probe.md`. No candidate-count change.

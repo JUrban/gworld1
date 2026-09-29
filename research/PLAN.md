@@ -338,3 +338,8 @@ S5 is already proved in an external pre-launch Lean repository; pinned compilati
 ## Working focus after F28 Lean checkpoint (2026-09-29T04:05:15.277767+00:00)
 
 The entire F28 matrix-orbit obstruction now has a checked Lean proof, and the informal proof uses the same energy/parity argument. Do not enlarge finite word samples or formalization scope merely for volume. The free-group bridge remains an explicit written proof. Return to a genuinely unresolved portfolio question or a specific proof concern. Counts6 whole,3 partial,0 established novel; original deadline retained.
+
+
+## Working focus after C4 probe (2026-09-29T04:28:42.557535+00:00)
+
+C4 has a checked FullHRed implementation and independent GAP replay, but no new bound. Do not enlarge random/exhaustive samples without a structural hypothesis. Width3 is prior; unrestricted mixed reversing-length control is false by2004. A useful return requires a potential specific to the handle strategy or a provable slow family. Resume unresolved portfolio work. Counts6 whole,3 partial,0 established novel; original deadline retained.
