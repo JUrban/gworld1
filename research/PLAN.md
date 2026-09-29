@@ -604,3 +604,17 @@ valid test or prove why that case cannot occur. No class19/20 or
 leading-degree9/10 extension is counted from this lead. Alternate with
 specific unresolved portfolio questions and candidate dependency audits.
 All jobs terminal;8 whole/2 partial/0 established novel; original clock.
+
+
+## Next step after two-exception blocks (2026-09-29T14:22:20.018109+00:00)
+
+The candidate scope is leading degrees <=10 in arbitrary class and all
+targets through class20. The passed polynomial-family and two-block
+suites should not be repeated without a new concern. The next concrete
+N8 lead combines parameter elimination with a joint linear tail through
+n<=13; see `research/notes/N8-fourteen-layer-lead.md`. It is unverified and
+uncounted. A three-exception (3,5,7) group fixture and the full tail, not
+just a late Lie relation, are necessary next checks. Alternate with a
+specific broader-portfolio route or adversarial review of a whole-entry
+candidate; avoid repeating status-only searches. All jobs terminal.
+Original deadline and 8 whole/2 partial/0 established novel unchanged.

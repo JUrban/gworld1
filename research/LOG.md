@@ -1479,3 +1479,34 @@ Counts remain 8 whole-entry coverage candidates, 2 partial, 0 established
 novel. At most 3 cores / 24 GB reserved during this follow-up; no subagents,
 pushes, contacts, or parent/preparation-repository changes. Original
 30 September 10:04:49 UTC deadline unchanged.
+
+
+## N8 two-exception branch extension (2026-09-29T14:22:20.018109+00:00)
+
+A complete candidate argument now handles at most two remaining exceptional
+offsets. It retains the full integer block quotient, reduces the first
+quadratic to finitely many parameters or one polynomial family, then uses
+every residue of later exact substitutions. This covers leading gaps <=8,
+leading degrees <=10 in arbitrary class, and all targets through class 20
+with the preceding ten-final-layer result. General N8 remains unresolved.
+
+Independent GAP checks 11 complete polynomial systems, 67 complete fiber
+sections, 413 residue decisions and 671 specializations. Two actual weighted
+group fixtures check 33 block columns, 30 terminal columns, 12 quadratic
+samples, 7 block kernels, both complete integer lattices and 4 witnesses.
+The (4,6) fixture also verifies the Nielsen period and all three residues.
+Three representation failures are retained. Full ambient branch enumeration
+is not implemented; the general proof and novelty still need specialist
+review. See `problems/N8/two-exception-proof.md` and its audit.
+
+A fresh F5 primary-source check separates Humphries's rank-three result
+from an isolated general-n introductory sentence; property (T) blocks the
+same induced-character route in rank four, without proving full rigidity.
+Other bounded portfolio queries produced no new candidate. A possible N8
+fourteen-final-layer/class24 route is saved separately, explicitly unverified
+and uncounted; it needs an actual three-exception group audit.
+
+Counts remain 8 whole-entry coverage candidates, 2 partial, 0 established
+novel results. All jobs terminal; at most 4 cores / 32 GB reserved. No
+subagents, pushes, contacts or parent/preparation changes. Original deadline
+30 September 10:04:49 UTC unchanged.

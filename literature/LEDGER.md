@@ -667,3 +667,17 @@ class-two work and broader equation results. No exact match for the candidate
 application found; no novelty guarantee or new full-proof reading claimed.
 Frozen full HTML/background and actual N8 rendering rechecked. Arithmetic
 prior credits remain in the dedicated Schuster/Bozga–Iosif–Lakhnech audit.
+
+
+## 2026-09-29T14:22:20.018109+00:00 — F5 primary scope and N8 extension search
+
+Read the complete archived Humphries Aut_F3.pdf (including its code, not
+executed), extracted its text, and viewed actual page3. The displayed
+conclusion is rank3 despite one general-n introductory sentence. Nitsche
+arXiv2009.05134v3 abstract supports property(T) in rank4; no certificate
+download/replay. The induced-character obstruction is a stated inference,
+not full representation rigidity. Sources and hash: F5-Humphries-scope-check.md.
+Fresh N8 searches again located Roman'kov2016/class-two and Miasnikov2016
+slides, no precise match for the new two-exception assembly; this does not
+establish novelty. FP10/11/12, G6 and H15 screening added no candidate or
+full-proof audit. No new mathematical conclusion is drawn from search snippets.

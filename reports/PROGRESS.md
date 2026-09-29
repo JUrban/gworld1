@@ -16,7 +16,7 @@ Current counts: **2 partial candidates**, **8 whole-entry candidate solutions**,
 - F42: derived the exact extremal formula and a covering-graph construction, then found Koch-Hyde–Olive's September 2026 preprint already proving the same answer. Preserved as a rediscovery, excluded from new-solution count.
 - F11: derived a cyclic-retract/index-three counterexample, then found the same mechanism in Snopce–Tanushevski–Zalesskii (2019). Also excluded. Original HTML screenshots for F11/F42 have now been inspected.
 - Primary sources also report prior resolutions of F15, F30, F31 and F40. B11 has a 2025 primary seminar announcement; full proof not yet located. Scope checks are recorded in `research/triage.csv` and `literature/LEDGER.md`.
-- N8(b): the latest partial candidate covers all ten final target layers (c-d<=9), all targets through class eighteen, leading degrees through eight in arbitrary class, and separated exceptional-offset branches. The new tail proof handles a first overlapping kernel by retaining a complete integer line and all higher coordinates in a polynomial linear system. Independent GAP replays verify 302 polynomial columns, 18 simultaneous-correction controls, both complete successor lines, six kernel checks and four group witnesses across weighted classes 15 and 18; class 15 also supplies a complete negative branch decision. General ambient branch enumeration is proved, not implemented end to end. See `problems/N8/parametric-tail-proof.md` and its audit, including all performance failures and a genuine class-19 mixed-term boundary control. General N8, specialist review and novelty remain unresolved. The separate parameter-transmission lead is uncounted.
+- N8(b): the latest partial candidate covers all targets through class twenty, leading degrees through ten in arbitrary class, branches with at most two remaining exceptional offsets, and the previous ten-final-layer and separated-offset scopes. The new block proof retains every integral parameter and kernel residue; independent GAP checks both overlapping patterns (3,5) and (4,6), including the Nielsen boundary, plus complete polynomial solution families. See `problems/N8/two-exception-proof.md` and `two-exception-audit.md`. The general ambient branch algorithm is proved but not implemented end to end; specialist review and novelty remain unresolved. The separate fourteen-final-layer/class24 lead is unverified and uncounted.
 - H4: candidate negative answer to polynomial-time conversion into an explicit Dehn presentation. Short presentations of finite metacyclic groups have doubly exponential order; a forbidden-factor automaton bounds the order of any finite group in terms of every Dehn presentation's size. Thus every explicit output is superpolynomial, even with changed generators. Proof: `problems/H4/proof.md`. GAP verified four finite models and independently computed three presentation orders. Related finite-group lower-bound ideas from2012 are credited; novelty and specialist review remain outstanding. Compressed output is a different specification. The strengthened bound in `problems/H4/infinite-input-proof.md` also covers infinite non-elementary virtually free inputs. GAP independently checked three conjugacy-class partitions and two free-kernel presentations (ranks6 and60); this remains the same candidate.
 - F28: explicit negative answer using a rational matrix conjugation on an index-two subgroup of F2. The image also has index two, and the bounded-orbit argument excludes every nontrivial invariant subgroup. Candidate proof: `problems/F28/proof.md`. Exact matrix/word checks covered 13,120 words; GAP independently checked subgroup indices/ranks and defining identities. Related arithmetic constructions in the literature establish weaker normal-subgroup statements; a matching prior full answer has not yet been found.
 - F34: whole-entry coverage combines candidate (a) with known (b); this is a counting reconciliation, not an additional solved subpart. See `research/notes/F34-coverage-reconciliation.md`. Part (a): candidate uniform decision algorithm for potential positivity in every finite rank. A positive image under an injection pulls back through a spanning-tree basis; a nonzero-determinant test on the full EDT0L solution relation decides existence. GAP independently verified270 explicit positive automorphism witnesses in ranks2--4 and3 scope controls. Rank2 and part(b) are prior; potentially new scope is rank>=3. Full recompression is imported, not implemented. Proof and audit: `problems/F34/part-a-proof.md`, `part-a-audit.md`.
@@ -478,3 +478,34 @@ Counts remain 8 whole-entry coverage candidates, 2 partial, 0 established
 novel. At most 3 cores / 24 GB reserved during this follow-up; no subagents,
 pushes, contacts, or parent/preparation-repository changes. Original
 30 September 10:04:49 UTC deadline unchanged.
+
+
+## N8 two-exception branch extension (2026-09-29T14:22:20.018109+00:00)
+
+A complete candidate argument now handles at most two remaining exceptional
+offsets. It retains the full integer block quotient, reduces the first
+quadratic to finitely many parameters or one polynomial family, then uses
+every residue of later exact substitutions. This covers leading gaps <=8,
+leading degrees <=10 in arbitrary class, and all targets through class 20
+with the preceding ten-final-layer result. General N8 remains unresolved.
+
+Independent GAP checks 11 complete polynomial systems, 67 complete fiber
+sections, 413 residue decisions and 671 specializations. Two actual weighted
+group fixtures check 33 block columns, 30 terminal columns, 12 quadratic
+samples, 7 block kernels, both complete integer lattices and 4 witnesses.
+The (4,6) fixture also verifies the Nielsen period and all three residues.
+Three representation failures are retained. Full ambient branch enumeration
+is not implemented; the general proof and novelty still need specialist
+review. See `problems/N8/two-exception-proof.md` and its audit.
+
+A fresh F5 primary-source check separates Humphries's rank-three result
+from an isolated general-n introductory sentence; property (T) blocks the
+same induced-character route in rank four, without proving full rigidity.
+Other bounded portfolio queries produced no new candidate. A possible N8
+fourteen-final-layer/class24 route is saved separately, explicitly unverified
+and uncounted; it needs an actual three-exception group audit.
+
+Counts remain 8 whole-entry coverage candidates, 2 partial, 0 established
+novel results. All jobs terminal; at most 4 cores / 32 GB reserved. No
+subagents, pushes, contacts or parent/preparation changes. Original deadline
+30 September 10:04:49 UTC unchanged.
