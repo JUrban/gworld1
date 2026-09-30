@@ -1,0 +1,30 @@
+Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)
+{"components": [{"path": "research/certificates/N8-polynomial-bridge-lean/Bridge.lean", "sha256": "ad4697b0313dd3ba7cb18bf63ca9b4825b29d93e3d749e310447c1d6b77ccf10"}, {"path": "research/certificates/N8-energy-lean/Energy.lean", "sha256": "63ae082e726df82e198f6a64478d91d443b868a3477f024e017baba9883123d0"}, {"path": "research/certificates/N8-analytic-assembly/Assembly.lean", "sha256": "e13a72adfe914b2cbdee080554f2133f16b2aa9b47a4e12419a592d237673477"}, {"path": "research/certificates/N8-positional-polynomials/Polynomial.lean", "sha256": "5b07d3e5cd4af336adae9dc852c509f932bedbe848d7e4268cde71d983919701"}], "snapshot": "/project/gworld1/research/certificates/N8-positional-polynomials/Combined-v3.lean", "snapshot_sha256": "c9291854a9f8c108e832d97ed6017bd3ed31a8772948f25a4c17fd31e1b6468f", "command": ["lake", "env", "lean", "--trust=0", "--stdin"], "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7", "scope": "All finite dimensions: rational positional polynomial identities imply coefficient constancy. Free-Lie projection and the full N8 decision algorithm remain outside."}
+'N8Bridge.transfer_average_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 division-free positional averaging bridge
+'N8Energy.hyperplane_harmonic_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 concrete half-transfer energy maximum principle
+'N8Assembly.positional_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 assembled positional identities imply constancy
+<stdin>:719:8: error(lean.unknownIdentifier): Unknown identifier `eval₂_at_apply`
+<stdin>:717:69: error: unsolved goals
+m : ℕ
+P : MvPolynomial (Fin (m + 2)) ℚ
+z : Fin m → ℝ
+⊢ eval₂ (algebraMap ℚ ℝ) z (eval₂ C (diagonalVars m) P) =
+    eval₂ (algebraMap ℚ ℝ) (Fin.cons ((-∑ i, z i) / 2) (Fin.snoc z ((-∑ i, z i) / 2))) P
+<stdin>:729:37: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Fin.cons (?q 0) (Fin.tail ?q)
+in the target expression
+  w = Fin.cons (Fin.tail w (Fin.last m)) (Fin.tail w)
+
+m : ℕ
+w : Fin (m + 2) → ℝ
+hsum : ∑ i, w i = 0
+hend : w 0 = w (Fin.last (m + 1))
+z : Fin m → ℝ := Fin.init (Fin.tail w)
+hlast : Fin.tail w (Fin.last m) = w 0
+⊢ w = Fin.cons (Fin.tail w (Fin.last m)) (Fin.tail w)
+'N8Polynomial.rational_polynomial_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'N8Polynomial.rational_diagonal_constant' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+<stdin>:754:0: error: Unexpected axiom sorryAx

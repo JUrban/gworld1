@@ -1,0 +1,29 @@
+Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)
+{"components": [{"path": "research/certificates/N8-polynomial-bridge-lean/Bridge.lean", "sha256": "ad4697b0313dd3ba7cb18bf63ca9b4825b29d93e3d749e310447c1d6b77ccf10"}, {"path": "research/certificates/N8-energy-lean/Energy.lean", "sha256": "63ae082e726df82e198f6a64478d91d443b868a3477f024e017baba9883123d0"}, {"path": "research/certificates/N8-analytic-assembly/Assembly.lean", "sha256": "e13a72adfe914b2cbdee080554f2133f16b2aa9b47a4e12419a592d237673477"}, {"path": "research/certificates/N8-positional-polynomials/Polynomial.lean", "sha256": "b86f839af36780a4c0057b638b35c815b0fb86d4299ad5fbd1adc8e37111c1c6"}], "snapshot": "/project/gworld1/research/certificates/N8-positional-polynomials/Combined-v1.lean", "snapshot_sha256": "3a12859d068cd3824f89a71a0b385beb4787a61394e39c69395dcf10b6d68a33", "command": ["lake", "env", "lean", "--trust=0", "--stdin"], "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7", "scope": "All finite dimensions: rational positional polynomial identities imply coefficient constancy. Free-Lie projection and the full N8 decision algorithm remain outside."}
+'N8Bridge.transfer_average_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 division-free positional averaging bridge
+'N8Energy.hyperplane_harmonic_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 concrete half-transfer energy maximum principle
+'N8Assembly.positional_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 assembled positional identities imply constancy
+<stdin>:636:71: error: unsolved goals
+m : ℕ
+P : MvPolynomial (Fin m) ℝ
+w : Fin (m + 1) → ℝ
+⊢ (eval fun x => w x.succ) P - (eval fun x => w x.castSucc) P = (eval (Fin.tail w)) P - (eval (Fin.init w)) P
+<stdin>:637:50: warning: This simp argument is unused:
+  Fin.tail
+
+Hint: Omit it from the simp argument list.
+  simp [bracket0, eval_rename, Function.comp_def, Fin.t̵a̵il̵,̵ ̵F̵i̵n.̵in̵i̵t]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:637:60: warning: This simp argument is unused:
+  Fin.init
+
+Hint: Omit it from the simp argument list.
+  simp [bracket0, eval_rename, Function.comp_def, Fin.tail,̵ ̵F̵i̵n̵.̵i̵n̵i̵t̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'N8Polynomial.rational_polynomial_constant' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+<stdin>:695:0: error: Unexpected axiom sorryAx

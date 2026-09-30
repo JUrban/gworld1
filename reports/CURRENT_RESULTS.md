@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 02:10 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 02:22 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -58,7 +58,10 @@ all-rank structural claims or the hypotheses of an imported theorem.
 N8's [assembled analytic theorem](../problems/N8/analytic-assembly-audit.md)
 now proves constancy directly from the positional delta/diagonal functional
 identities and continuity. It includes cyclic relocation and the concrete
-energy argument, with no convergence assumption. Free-associative encoding,
+energy argument, with no convergence assumption. The subsequent
+[polynomial interface](../problems/N8/positional-polynomial-audit.md)
+checks explicit diagonal substitution and rational coefficient constancy
+from polynomial identities. The free-associative coefficient dictionary,
 Lie/group application and the complete algorithm remain outside Lean.
 
 The largest shared dependency is the full solution-language construction
@@ -85,7 +88,8 @@ publication, contact with authors, or Git push has been performed.
 The closing audit has begun. Its current same-agent proof rereads cover
 [N5](../research/audits/N5-closing-proof-reread.md),
 [F34/F38](../research/audits/F34-F38-closing-proof-reread.md), and
-[F41](../research/audits/F41-closing-proof-reread.md).
+[F41](../research/audits/F41-closing-proof-reread.md), together with
+[N8](../research/audits/N8-closing-proof-reread.md).
 No new gap was identified in those passes; their imported-theorem and
 implementation limits remain explicit. Artifact reconciliation is recorded
 in [the checkpoint](artifact-checkpoint-2026-09-30.md), and remaining work

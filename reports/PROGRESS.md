@@ -928,3 +928,8 @@ Closing audit started with5708 historical hash bindings:5676 current matches and
 ## Closing F34/F38/F41 audit (2026-09-30T02:11:44.213008+00:00)
 
 [Shared decisions and shortening](../research/audits/F34-F38-closing-proof-reread.md) and [F41 piece-cover growth](../research/audits/F41-closing-proof-reread.md): exact imported theorem interfaces, quantifiers and proof boundaries reread. No new gap identified; equation-language implementation, deep shortening/model theory and outside specialist review remain outstanding. Counts remain ten whole-entry coverage candidates, two partial entries, zero established novel results.
+
+
+## N8 closing audit and rational polynomial interface (2026-09-30T02:22:43.998491+00:00)
+
+[Closing reread](../research/audits/N8-closing-proof-reread.md) checks leading-factor completeness, actual free-basis hypotheses, reversible integral periods and the full later-column obstruction. [New Lean interface](../problems/N8/positional-polynomial-audit.md) gives rational coefficient constancy from polynomial identities and explicit diagonal substitution, for every finite dimension. Thirteen new declarations plus45 unchanged prerequisites pass; two failed inputs and all logs retained. Free-associative/Lie/group connections and the full algorithm remain outside. Counts10whole/2partial/0established-novel unchanged.
