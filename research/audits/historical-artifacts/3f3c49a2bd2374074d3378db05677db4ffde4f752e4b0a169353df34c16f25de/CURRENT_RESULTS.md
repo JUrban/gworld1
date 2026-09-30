@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 07:05 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 06:43 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -66,12 +66,6 @@ theorems. The Lean work for F28, F34/F38, N8 and N9 checks explicitly delimited 
 The [shared F34/F38 span audit](../problems/F38/shared-span-lean-audit.md)
 verifies universal reachability and termination implications, while leaving
 the concrete polynomial lift and equation-solution construction outside Lean.
-The shared [language interface](../problems/F38/language-interface-audit.md)
-now compiles the original group equations, constructs the regular-constraint
-monoid, and converts a supplied tuple grammar into the determinant test.
-Separate GAP replay checks 1,433 equation tuples and the supplied grammar
-certificates. The full equation-to-grammar construction remains unimplemented;
-no result on an incomplete supplied grammar is labeled a full decision.
 Separate reproduced Lean proofs for the prior A5 and S5 results are not
 new solutions from this experiment. In particular, GAP tests of selected
 nilpotent groups, finite word graphs or polynomial examples cannot establish

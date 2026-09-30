@@ -90,11 +90,6 @@ Representative evidence illustrates the differing scopes:
 - The shared F34/F38 linear-span argument has universal Lean reachability
   and termination results. The concrete polynomial encoding and full
   equation-language construction remain outside that formal check.
-  The [implemented language interfaces](../problems/F38/language-interface-audit.md)
-  now connect group equations to constrained monoid equations and supplied
-  tuple grammars to the polynomial checker. GAP separately checks 1,433
-  equation tuples and the grammar certificates. Generating a complete
-  grammar from arbitrary equations remains unimplemented.
 - N8's formal work includes an all-dimension analytic argument and an
   exact rational positional-polynomial constancy theorem, now connected
   to ordered words and the actual free-associative derivation by the
