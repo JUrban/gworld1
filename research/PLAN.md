@@ -960,3 +960,8 @@ M0 square-Jacobian dependency now has a direct constructive flow proof and exact
 ## F37 finite-quotient obstruction (2026-09-30T00:10:45.994599+00:00)
 
 Retire finite-quotient exclusion as a complete F37 decision strategy: the new uniform primitive-image bound obstructs it for all sufficiently large fixed lengths. Do not enlarge finite quotient searches for that purpose. Higher-rank primitive-length decision and same-rank determinant reflection remain unresolved. Continue another structural lead or concrete candidate audit; retain the final-eight-hours reporting reserve and the original30September10:04:49UTC deadline.
+
+
+## Shared F34/F38 span formalization (2026-09-30T00:18:59.128695+00:00)
+
+The shared F34/F38 span implication now has universal Lean support, not merely finite fixtures. Do not repeat passed tests or imply full algorithm formalization. Continue another unresolved structural route or a precise imported dependency audit; the actual EDT0L recompression remains unimplemented. Keep the original final-eight-hours reporting reserve and deadline.

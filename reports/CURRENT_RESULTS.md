@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **29 September 2026, 23:57 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 00:19 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -46,7 +46,10 @@ certification of later supplements. Some candidates have several manifests
 or directly cited check records rather than one overall manifest.
 
 There are no complete formal verifications of these twelve candidate
-theorems. The Lean work for F28, N8 and N9 checks explicitly delimited parts.
+theorems. The Lean work for F28, F34/F38, N8 and N9 checks explicitly delimited parts.
+The [shared F34/F38 span audit](../problems/F38/shared-span-lean-audit.md)
+verifies universal reachability and termination implications, while leaving
+the concrete polynomial lift and equation-solution construction outside Lean.
 Separate reproduced Lean proofs for the prior A5 and S5 results are not
 new solutions from this experiment. In particular, GAP tests of selected
 nilpotent groups, finite word graphs or polynomial examples cannot establish

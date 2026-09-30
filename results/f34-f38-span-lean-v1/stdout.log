@@ -1,0 +1,31 @@
+Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)
+{"source": "/project/gworld1/research/certificates/F34-F38-span-lean/Span.lean", "command": ["lake", "env", "lean", "--trust=0", "--stdin"], "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7", "scope": "Universal span, path and finite-dimension arguments. No concrete monomial lift, equation-to-EDT0L construction or full free-group decision algorithm."}
+<stdin>:29:8: error: Function expected at
+  le_sup_right
+but this term has type
+  ?m.41 ≤ ?m.40 ⊔ ?m.41
+
+Note: Expected a function because this term is being applied to the argument
+  (iSup_le_iff.mp le_rfl e ?_)
+<stdin>:30:2: error: No goals to be solved
+<stdin>:40:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?n + ?m + ?k
+in the target expression
+  stage T S (n + (k + 1)) = stage T S (n + k) ⊔ ⨆ e, Submodule.map (T e) (stage T S (n + k))
+
+K : Type u_1
+V : Type u_2
+E : Type u_3
+inst✝² : Field K
+inst✝¹ : AddCommGroup V
+inst✝ : Module K V
+T : E → V →ₗ[K] V
+S : Set V
+n : ℕ
+h : stage T S n = stage T S (n + 1)
+k : ℕ
+ih : stage T S (n + k) = stage T S n
+⊢ stage T S (n + (k + 1)) = stage T S (n + k) ⊔ ⨆ e, Submodule.map (T e) (stage T S (n + k))
+'ControlledSpan.dimension_bounded_test' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+'ControlledSpan.zero_certificate_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+<stdin>:194:0: error: Unexpected axiom sorryAx

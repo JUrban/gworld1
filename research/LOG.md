@@ -2108,3 +2108,8 @@ Previous turn made concrete progress at f146fef and8dce224, with source-scope no
 ## F37 finite-quotient obstruction (2026-09-30T00:10:45.994599+00:00)
 
 Finished the F37 finite-quotient route audit. Read the global finite-group and symmetric-generator hypotheses of Nikolov--Segal v6, viewed actual p3, and derived the bound with explicit primitive lifts and two primitive abelian representatives. Downloaded Bardakov--Shpilrain--Tolstykh v1 after failed author-host and guessed-v2 requests; read Section2 and viewed pp8--9. Their prior explicit family gives undetectable lower bounds. No mathematical job, count change, push or deadline change. This turn supplies a concrete obstruction, not another solution.
+
+
+## Shared F34/F38 span formalization (2026-09-30T00:18:59.128695+00:00)
+
+After recording the F37 obstruction at2cd1a39, reviewed the unresolved portfolio without enlarging any bounded search. Formalized the common F34(a)/F38(a) linear-span argument: all fields/spaces/operators, exact bounded-word span, stable tails, actual nonzero witnesses, dimension-bound termination, and directed-graph certificate soundness. v1 rejected on two proof-script details; v2 passes15 declarations with only standard allowed axioms. Both1CPU/12GB/120s, terminal. Explicit monomial/block bridges and full equation theorem remain written/imported. No count/deadline change or push.

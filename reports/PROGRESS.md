@@ -878,3 +878,8 @@ or deadline change and no independent specialist review is implied.
 ## F37 finite-quotient obstruction (2026-09-30T00:10:45.994599+00:00)
 
 [F37 approach obstruction](../research/notes/F37-finite-quotient-obstruction.md): Nikolov--Segal's prescribed-generator commutator theorem implies a uniform bound on primitive-image length in every marked finite quotient. The prior unbounded-width theorem supplies words outside any fixed primitive-length ball. Thus sufficiently large balls are proper and profinitely dense; quotient exclusion cannot decide all negative instances. This does not answer F37 or change the10whole/2partial/0established-novel tally.
+
+
+## Shared F34/F38 span formalization (2026-09-30T00:18:59.128695+00:00)
+
+[Shared span audit](../problems/F38/shared-span-lean-audit.md): fifteen universal Lean declarations verify the linear reachability/span step used by F34(a) and F38(a), including finite-dimensional termination and genuine path witnesses. Concrete polynomial lifting and the imported equation-to-EDT0L theorem remain outside the formal check. One failed source retained, final run passes in7.79s. No tally change.
