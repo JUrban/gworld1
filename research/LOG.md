@@ -2292,3 +2292,8 @@ After17075b3 implemented promised-nilpotent fp input without suppliedclassbound,
 ## Scope reconciliation through06:00 (2026-09-30T06:00:51.198170+00:00)
 
 After0b1650a updated N5 implementation boundary, N8complete leading-scales evidence and selecteduncountedF31/F32prior audits. Four exactprior scope/triage/reportversions archived; CSVLFpreserved. scope-ledger-v6 passes0.118s at1CPU2GB; 81bindings/all195IDs/counts10whole2partial0novel verified. Receiptloghashesverified, PIDabsent, registryempty. Thirteen manifestbindings retained. No mathematical rerun, deadlinefreeze, countchange orpush.
+
+
+## N8 complete integral recursion (2026-09-30T06:26:46.139984+00:00)
+
+Resumed original active run after preparation-only response; prior turn verified preparation but did not advance this research goal. Original clock and 711-receipt baseline revalidated. Connected complete leading pairs, every integer period residue, exceptional full-block lattice/quadratic restriction and joint linear tail in actual Magnus groups. Eight recorded passes, max3CPU24GBrequested, empty stderr; expanded12 group controls9positive3negative include delayedclass10, nonprimitiveperiods and all-branch quadraticnegative. GAP separately verifies9witnesses/287columns/16blocks/4quadratics24samples; universalGAP2maps8inversechecks andperiod72. Export None/fail format fixed before native replay; originals and exactsourceversions retained, no mathfailure. Fullpage/fragment reread, originalstatementrender viewed. All loghashes/PIDs verified; closure719terminalreceipts/emptyregistry/no workers. 84bindings. Group-input recursion complete; standalonewordcommand/boundaries pending. Currentreports remain dated06:00 until interface refresh. No count,novelty,deadline,subagentorpush change.
