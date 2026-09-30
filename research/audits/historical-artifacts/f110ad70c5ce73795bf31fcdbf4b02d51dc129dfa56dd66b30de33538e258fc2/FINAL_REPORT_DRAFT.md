@@ -36,7 +36,7 @@ equally thoroughly.
 | [GA3](../problems/GA3/proof.md) | A nonabelian group free on any ordered-abelian-group tree discriminates its free square by conjugating one factor. | Arbitrary generation is allowed. The literal nontrivial abelian case is negative; the general tree-collapse dependency remains substantial. |
 | [F34(a)](../problems/F34/part-a-proof.md) | Potential positivity is uniformly decidable in every finite rank. | Rank two and part (b) are prior; the imported full EDT0L solution construction is unimplemented. |
 | [F38(a,c)](../problems/F38/bounded-proof.md) | Translation equivalence and bounded translation equivalence are uniformly decidable in every finite rank. | Part (b) and rank-two decisions are prior. The two arguments respectively import full equation languages and graded shortening. |
-| [N8(b)](../problems/N8/general-proof.md) | Single commutator equations are decidable, with solutions constructed, in every finite-rank free nilpotent group of every finite class. | Part (a) and the free class-two case are prior. The complete arbitrary-rank/class [word-input solver](../problems/N8/general-word-audit.md) is implemented; finite controls do not establish its structural proof. |
+| [N8(b)](../problems/N8/general-proof.md) | Single commutator equations are decidable, with solutions constructed, in every finite-rank free nilpotent group of every finite class. | Part (a) and the free class-two case are prior. The complete arbitrary-rank/class solver is unimplemented. |
 | [N9(a)](../problems/N9/proof.md) | The retract problem is undecidable in one fixed torsion-free class-two group, even on isolated two-generator Heisenberg subgroups with primitive graded images. | The class-wide result and part (b) are prior. DPRM is imported and the universal numerical presentation is not expanded. |
 | [G9, partial](../problems/G9/flow-growth-proof.md) | Effective approximation of the standard free-metabelian growth constant in every finite rank, with rank-two bounds 2.658596558 to 2.943737759. | The exact constant remains undetermined. The extension to free solvable groups adds no problem count. |
 | [B9, partial](../problems/B9/infinite-family-proof.md) | Countably infinitely many special braids in every B_N with N at least five; prior structure gives counts 1,2,4 in B1,B2,B3. | B4 remains unresolved, specifically its exponent-two sector; at least ten examples are known. |
@@ -152,12 +152,8 @@ those implications.
 N8's [complete projective leading-pair implementation](../problems/N8/projective-leading-pairs-audit.md)
 also checks a noncentral example where primitive normalization alone
 loses all successful branches. All signed scales are retained, with
-separate GAP checks of the eight lift decisions. The subsequent
-[complete recursion](../problems/N8/general-implementation-audit.md) connects
-all integral period residues, exceptional quadratics and linear tails.
-The [word-input command](../problems/N8/general-word-audit.md) also covers
-elementary rank/class boundaries. Native GAP reconstructs its finite group
-certificates; the general structural proof remains a review obligation.
+separate GAP checks of the eight lift decisions. This strengthens evidence
+for the leading-pair stage without implementing the complete algorithm.
 
 ## Prior results, exclusions and unsuccessful work
 

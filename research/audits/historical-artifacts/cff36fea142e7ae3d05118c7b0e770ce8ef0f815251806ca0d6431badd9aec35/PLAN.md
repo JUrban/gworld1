@@ -8,13 +8,6 @@ coverage candidates, two partial entries and zero established novel
 results. The deadline and final process/artifact closure remain ahead.
 Earlier checkpoints below retain their dates and historical scopes.
 
-At 06:31 UTC the N8 candidate algorithm is implemented end to end on words
-in arbitrary finite-rank/class free nilpotent groups, including elementary
-boundaries. See `problems/N8/general-word-audit.md` and the preceding native
-recursion audit. This supersedes earlier implementation-limit statements
-below; the full structural proof and novelty still require specialist review.
-N5's general promised-nilpotent finite-presentation command is also complete.
-
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
 Latest checkpoint, approximately 20:35 UTC on 29 September: ten whole-entry
