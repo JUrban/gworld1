@@ -908,3 +908,8 @@ or deadline change and no independent specialist review is implied.
 ## N5 rational-to-integral pipeline (2026-09-30T01:19:40.454298+00:00)
 
 [Connected class-two implementation](../problems/N5/class2-pipeline-audit.md) now decides/constructs decompositions from exact torsion-free full-center commutator data. Fifteen fixtures include separate quotient-lattice and central-lattice gluing obstructions despite rational decomposability. Native GAP checks all33 recorded branches and6 positive decompositions. General torsion/presentation conversion remains unimplemented; this is prior torsion-free scope and adds no candidate. Counts10whole/2partial/0established-novel unchanged.
+
+
+## N5 class-two torsion pipeline (2026-09-30T01:34:11.633346+00:00)
+
+[Mixed class-two implementation](../problems/N5/class2-mixed-audit.md) joins rational support with all finite quotient splittings, central power defects and the existing mixed-center solver. Twenty fixtures pass; native GAP checks480 arithmetic equalities,102 defects,96 cross obstructions and9 actual decompositions, with separate finite-group decisions and negative quotient-coverage checks. The general mixed-center negative solver is not independently rerun in GAP; infinite negative examples retain written proofs. No new count or novelty claim.
