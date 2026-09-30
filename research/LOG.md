@@ -2178,3 +2178,8 @@ All195 catalogue IDs retained in reports/result-scope-ledger.json with exact sou
 ## Closing F28/M0/H4 audit (2026-09-30T02:41:54.082614+00:00)
 
 Reread full controlling proofs and relevant supplements: F28 arbitrary-subgroup/PSL-to-integral-sequence bridge, M0 true primitive-word finite-field detection and constructive classical Jacobian criterion, H4 all-output size bound with infinite-input torsion-class extension. Original pages/references/background and four statement images checked; GGR Lemma1 page517 and Batty/Papasoglu Theorem3.27 page29 actually viewed. No new gap identified.28 hash bindings retained; no new mathematical job or bibliography conclusion. All ten whole-entry candidates now have closing reread notes; partial boundaries and final closeout remain. No count/deadline change or push.
+
+
+## Closing G9/B9 partial boundaries (2026-09-30T02:45:48.945338+00:00)
+
+Full flow-growth/solvable-extension and infinite-braid-family/small-strand/parameter-reduction arguments reread. Original source pages and actual statement renderings checked; Guba Lemma3 page5 and Dehornoy page26 viewed, specified local proofs read. No new gap identified. Exact G9 constant and B4 exponent-two exhaustion remain unresolved.20bindings retained, no new mathematical computation. A read-only wrong-case path probbr.html was absent; actual probBr.html then read in full. All twelve counted entries now have closing notes. No scope/count/deadline change, outside reviewer or push.

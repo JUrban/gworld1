@@ -68,3 +68,10 @@ At 02:41 UTC the closing round also covers F28, M0 and H4, with no
 new gap found and no successful computation repeated. All ten whole-entry
 candidates now have a closing reread note. The G9/B9 partial boundaries
 and final deliverables remain to be completed.
+
+At 02:45 UTC the G9 and B9 partial-result rereads are also recorded.
+All twelve counted entries now have a closing note. No new gap was
+identified; exact G9 growth and the B4 exponent-two classification remain
+unresolved. This completes the planned first closing proof pass, while
+independent specialist review, remaining audit work and final deadline
+closure are still outstanding.

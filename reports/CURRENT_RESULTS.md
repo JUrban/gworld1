@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 02:41 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 02:45 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -95,6 +95,9 @@ The closing audit has begun. Its current same-agent proof rereads cover
 [F28](../research/audits/F28-closing-proof-reread.md),
 [M0](../research/audits/M0-closing-proof-reread.md), and
 [H4](../research/audits/H4-closing-proof-reread.md).
+The partial boundaries are also checked for
+[G9](../research/audits/G9-closing-proof-reread.md) and
+[B9](../research/audits/B9-closing-proof-reread.md).
 No new gap was identified in those passes; their imported-theorem and
 implementation limits remain explicit. Artifact reconciliation is recorded
 in [the checkpoint](artifact-checkpoint-2026-09-30.md), and remaining work
