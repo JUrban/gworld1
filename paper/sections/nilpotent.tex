@@ -1,0 +1,280 @@
+\section{Decisions and undecidability in nilpotent groups}\label{sec:nilpotent}
+
+\subsection{Direct decomposition with torsion (N5)}\label{sec:n5}
+\entry{N5}{G.~Baumslag}
+Is direct indecomposability decidable for finitely generated nilpotent
+groups? The torsion-free case is prior~\cite{bmo}. Here the input is a
+finite presentation \emph{promised to define a nilpotent group}; no
+recognition algorithm for arbitrary presentations is claimed.
+
+\begin{theorem}\label{prop:n5}
+Under this promise there is a uniform algorithm deciding whether
+$G=A\times B$ with both factors nontrivial, and constructing generators
+for such factors when they exist.
+\end{theorem}
+\begin{proof}
+Use standard effective nilpotent-group operations: consistent
+polycyclic presentations, subgroup membership, centres, finite torsion
+subgroups, kernels and intersections. Let $T=T(G)$, $Z=Z(G)$,
+$Q=G/T$, and let $R$ be the rational Malcev completion of $Q$.
+Rational direct decomposition is effective. Uniqueness modulo the
+centre of indecomposable rational factors~\cite[Theorem 3.3]{fgh},
+also used in~\cite{bmo}, says that any decomposition matches a partition
+of a fixed decomposition $R=R_1\times\cdots\times R_m$, modulo $Z(R)$.
+
+Put $K=G/Z$ and let $\kappa:K\to R/Z(R)$ be induced by the natural
+map. Its kernel is $S=T(K)$. To see this, the preimage $C$ in $G$
+of $Z(Q)=Q\cap Z(R)$ satisfies $\ker\kappa=C/Z$. Choose a finite
+quotient injective on $T$, using residual finiteness, and let $e$ be
+its exponent. The characteristic power subgroup $G^e$ is torsion-free
+and of finite index. For $c\in C$, $[c^e,g]$ lies in both $T$ and
+$G^e$ for every $g$, so $c^e\in Z$. Conversely a central power has
+central image in torsion-free $Q$, by unique roots. Thus $C/Z=T(K)$,
+which is finite and computable.
+
+For each ordered partition $I,J$ of the rational factors compute
+\[
+ K_1=\kappa^{-1}(R_I Z(R)/Z(R)),\qquad
+ K_2=\kappa^{-1}(R_J Z(R)/Z(R)).
+\]
+If $G=A\times B$ induces this partition, its images $Y_1,Y_2$ in
+$K$ form a direct product and satisfy $K_i=Y_iS$. Hence
+$[K_i:Y_i]\le|S|$. Enumerate all subgroups of $K_i$ up to that
+index, using finite permutation representations, and retain exactly
+the pairs with
+\[
+ K=Y_1Y_2,\qquad[Y_1,Y_2]=1,\qquad Y_1\cap Y_2=1.
+\]
+This is a finite complete list of quotient decompositions that might
+lift. Empty partitions and trivial $Y_i$ are kept, so central and
+finite factors are not lost.
+
+Let $X_i$ be the full preimages in $G$. Discard a pair if
+$[X_1,X_2]\ne1$. Otherwise $X_1X_2=G$ and $X_1\cap X_2=Z$.
+Choose presentations of $Y_i$ and lift their generators to $X_i$.
+The lifted relators are central defects $v_i\in Z^{m_i}$; changing
+lifts by central elements $z$ changes them to $v_i+E_i z$, where
+$E_i$ is the exponent-sum matrix. For a proposed splitting
+$Z=Z_1\oplus Z_2$, the extension $X_i/Z_i\to Y_i$ has a section
+exactly when $E_i z=-v_i$ is solvable over $Z/Z_i$.
+
+Smith reduction converts this into finitely many conditions
+\begin{equation}\label{eq:central-conditions}
+ v\in Z_i+dZ,\qquad d\ge0,
+\end{equation}
+where $d=0$ means exact membership. Appendix~\ref{app:central}
+gives a finite constructive decision for these conditions over an
+arbitrary finitely generated abelian group, retaining torsion, integral
+splittings and required nontrivial factors. Corrected lifts and $Z_i$
+then generate factors $A_i$. They commute, intersect trivially and
+generate $G$. Every actual decomposition occurred in the finite
+quotient list and passes precisely these lifting conditions, proving
+completeness and termination.
+\end{proof}
+
+The rational decomposition machinery is credited prior work; the
+proposed additional scope is torsion. In particular, rational
+decomposability alone does not decide integral decomposability. The
+final implementation accepts promised-nilpotent finite presentations
+without a supplied class bound and returns original-generator factor
+words. Its negative integral-gluing controls and finite comparisons
+support implementation details, not the universal support argument.
+\evidence{N5}{proof.md}
+
+\subsection{Single commutators in every free nilpotent group (N8)}\label{sec:n8}
+\entry{N8}{A.~Miasnikov}
+Part (a) concerns $[x,y]=g$ in general finitely generated class-two
+groups and has a prior negative answer~\cite{romankov2016}. Part (b) asks the same question
+in every finitely generated free nilpotent group. We use
+$[x,y]=x^{-1}y^{-1}xy$ throughout this section.
+
+\begin{theorem}\label{prop:n8}
+Given finite rank $r$, class $c$ and a word $g$ in
+$N_{r,c}=F_r/\gamma_{c+1}(F_r)$, the equation $[x,y]=g$ is
+decidable; on a positive answer its factors can be constructed.
+\end{theorem}
+
+The main issue is the finite treatment of correction parameters, not
+enumeration of positive witnesses. Here is the proposed algorithm's
+structure, with its separation argument detailed in
+Appendix~\ref{app:commutator}.
+
+For $g\ne1$, let $d$ be its first nonzero lower-central degree and
+$W$ its leading integral Lie coordinate. Exact Nielsen operations on
+the pair preserve its commutator. They normalize every solution to
+leading terms
+\[
+ C\in(L_\Z)_p,\quad D\in(L_\Z)_q,\quad [C,D]=W,
+ \quad p\le q,\quad p+q=d.
+\]
+Here $L_\Z$ is the untruncated free integral Lie ring. A finite list
+of leading pairs suffices. For unequal weights, the projective bracket
+map has finite fibres; rational points and all signed integral scale
+divisors are enumerated. For equal weights, the exterior tensor gives
+a rank-two lattice, and finitely many Hermite representatives suffice
+modulo the exact $\SL_2(\Z)$ operations. Primitive normalization alone
+would discard valid solutions.
+
+At offset $s$ the new coordinate map is
+\begin{equation}\label{eq:n8-correction}
+ A_s(U,V)=[U,D]+[C,V].
+\end{equation}
+The structural kernel analysis separates two cases. After the offset
+$q-p$, its elements lie in $\Lie(C,D)$ and have exact full-rank
+integral period lattices, obtained by denominator clearing in rational
+commutator-preserving substitutions. Every residue is retained. Before
+that offset a nonzero kernel has dimension at most one; these are the
+exceptional parameters.
+
+At the first exceptional offset $t$, solve \emph{all} equations from
+$t$ through $2t-1$ as one affine integer system. If the remaining class
+ends before $2t$, all remaining equations are jointly linear and the
+branch terminates by integer linear algebra. Otherwise choose an
+integral parameter $T$ for the first exceptional coordinate in the
+complete surviving lattice. Its image can have a nonunit step, which
+must be retained. At offset $2t$ there is a scalar quadratic obstruction
+in $T$ whose quadratic coefficient survives after quotienting by both
+the new correction image and \emph{all later parameter columns}.
+It has at most two integral roots. Fix the prefix through $t$ at
+each root and restart, leaving higher coordinates free again.
+
+The diagonal positional-polynomial lemma in
+Appendix~\ref{app:commutator} is the reason later parameters cannot
+cancel this quadratic term. Each branch has finitely many children
+and every restart fixes a higher offset, so the recursion terminates.
+An assembled solution is checked in the actual group. Completeness
+follows by retaining every leading branch, every exact-period residue
+and every integral root forced by the full correction block.
+
+The classical inputs include Hall/Malcev coordinates, Shirshov--Witt,
+Lazard elimination and the two-coefficient inner-solution theorem for
+free Lie algebras~\cite{altassan,remeslennikov-stoehr}. They are applied
+in suitable free subalgebras \emph{before} truncation. The original
+free class-two case is prior; the proposed contribution is the general
+finite recursion. Its full word-input implementation exists, with
+positive and negative native GAP reconstructions, but the all-rank
+structural proof remains a major review priority.
+\evidence{N8}{general-proof.md}
+
+\subsection{One fixed group with an undecidable retract problem (N9)}\label{sec:n9}
+\entry{N9}{A.~Miasnikov}
+Part (a) asks whether the retract problem is decidable in every finitely
+generated nilpotent group. Its background distinguishes one fixed
+ambient group from the previously established class-wide undecidability
+\cite{romankov2016}. Part (b), for free nilpotent groups, has a prior
+positive answer~\cite{retracts2017}.
+
+\begin{theorem}\label{prop:n9}
+There is a fixed finitely generated torsion-free class-two group $G$
+with undecidable retract problem, already on a computable family
+\[
+ H_n=\langle x_0,x_1^{3n+1}x_2^{-1}\rangle\quad(n\in\N)
+\]
+of isolated rank-two free class-two subgroups. Their images in both
+lower-central layers are primitive sublattices.
+\end{theorem}
+\begin{proof}
+Choose a nonrecursive computably enumerable set $S\subset\N$ containing
+$0,1$. DPRM gives one fixed integer polynomial $P$ such that
+\[
+ n\in S\quad\Longleftrightarrow\quad
+ \exists y_1,\ldots,y_m\in\Z\ P(n,y)=0.
+\]
+The integer version follows by replacing natural-number existential
+variables by sums of four squares~\cite{dprm-coq}. Fix an arithmetic
+circuit using additions, multiplications and integer constants. Let
+$p,o$ be its parameter and output labels.
+
+Use indices $0,1,2,3$ and two new indices $U_z,V_z$ for each scalar
+label $z$. Let $L$ be the full integer lattice of alternating matrices
+$M$ on these indices satisfying the following \emph{linear} equations:
+\begin{align*}
+ M_{0,U_z}=M_{1,V_z}&=0,&M_{1,U_z}+M_{0,V_z}&=0,\\
+ M_{0,V_z}&=cM_{01}&&\text{for a constant }z=c,\\
+ M_{0,V_z}&=M_{0,V_x}+M_{0,V_y}&&\text{for }z=x+y,\\
+ M_{U_x,V_y}&=M_{0,V_z}&&\text{for }z=xy,\\
+ M_{0,V_o}&=0,\quad M_{03}=M_{12}=0,&
+ M_{13}=M_{02}&=3M_{0,V_p}.
+\end{align*}
+Multiplication is encoded by imposing rank two on $M$, not by nonlinear
+equations defining the lattice.
+
+We claim that a rank-two $M\in L$ satisfying
+\begin{equation}\label{eq:n9-unit}
+ (3n+1)M_{01}-M_{02}=1
+\end{equation}
+exists precisely when $P(n,y)=0$ is integrally solvable. Put
+$d=M_{01}$, $x=M_{02}$ and $t=3n+1$. The Pfaffian on $0,1,2,3$
+gives $dM_{23}=x^2$, while $td-x=1$. Hence
+\[
+ d(M_{23}-t^2d+2t)=1.
+\]
+Thus $d=\pm1$; since $3\mid x$, the negative sign is impossible.
+So $d=1$, $x=3n$ and $M_{0,V_p}=n$. Define
+$u_i=M_{i1}$, $v_i=M_{0i}$. All rank-two Pfaffians now give
+\[
+ M_{ij}=u_iv_j-v_iu_j.
+\]
+The two coordinates for each scalar are $(u_{U_z},v_{U_z})=(z,0)$
+and $(u_{V_z},v_{V_z})=(0,z)$. Thus the remaining linear equations
+enforce the circuit over $\Z$. Conversely a circuit solution gives
+these coordinate pairs and
+\[
+ (u_0,v_0)=(1,0),\ (u_1,v_1)=(0,1),\
+ (u_2,v_2)=(0,3n),\ (u_3,v_3)=(-3n,0),
+\]
+which produce the required matrix.
+
+Compute an integer basis $B_1,\ldots,B_s$ of $L$ and define $G$ by
+\begin{equation}\label{eq:n9-group}
+ [x_i,x_j]=\prod_{\ell=1}^s z_\ell^{B_\ell[i,j]},
+ \qquad[x_i,z_\ell]=[z_\ell,z_k]=1.
+\end{equation}
+On $\Z^D\times\Z^s$ its multiplication is
+\[
+ (a,c)(b,e)=\left(a+b,c+e-\sum_{i<j}a_jb_iB[i,j]\right).
+\]
+Bilinearity proves associativity and the normal form realizes the
+presentation exactly, proving torsion-freeness. All data are fixed
+independently of $n$. Put $a=x_0$, $b_n=x_1^{3n+1}x_2^{-1}$ and
+$c_n=[a,b_n]$, with central coordinate
+$q_n=(3n+1)B[0,1]-B[0,2]$. A solution at $0\in S$ proves
+$q_n\ne0$ for every $n$. Thus $H_n$ is the integral Heisenberg
+group with central generator $c_n$.
+
+A retraction $\rho:G\to H_n$ must send $z_\ell$ to
+$c_n^{\lambda_\ell}$ and $x_i$ to $a^{r_i}b_n^{s_i}c_n^{k_i}$.
+The commutator relations give
+\[
+ M=\sum_\ell\lambda_\ell B_\ell,\qquad
+ M_{ij}=r_is_j-s_ir_j.
+\]
+Fixing $c_n$ gives~\eqref{eq:n9-unit}, so $M$ has rank two and
+$n\in S$. Conversely a rank-two solution of~\eqref{eq:n9-unit}
+gives a homomorphism by $x_i\mapsto a^{u_i}b_n^{v_i}$,
+$z_\ell\mapsto c_n^{\lambda_\ell}$. Its displayed coordinates fix
+$a$ and $b_n$, so it is a retraction. Therefore
+$H_n$ is a retract if and only if $n\in S$.
+
+For the asserted isolation, $L$ is the kernel of an integer matrix,
+hence saturated. Its basis matrix has an integer right inverse, so
+the commutator columns generate $\Z^s=G'$. Matrices $M_0,M_1$ from
+solutions at $0,1$ give coefficient vectors $\mu_0,\mu_1$ with
+\[
+ ((1-n)\mu_0+n\mu_1)\mathbin{\cdot}q_n
+ =(1-n)(3n+1)+n(3n-2)=1.
+\]
+Thus $q_n$ is primitive even when $n\notin S$. The abelianized
+subgroup has basis $e_0,(3n+1)e_1-e_2$, a direct summand. Also
+$H_n\cap G'=H_n'=\langle c_n\rangle$. If $g^k\in H_n$,
+first use the primitive abelianized image to write $g=hz$ with
+$h\in H_n$, $z\in G'$, then use primitivity of $q_n$ to conclude
+$z\in\langle c_n\rangle$. Hence $g\in H_n$.
+\end{proof}
+
+This is an effective construction from a fixed DPRM polynomial, whose
+full numerical presentation was not expanded. The implemented small
+circuit checks and Lean normalization lemma do not verify DPRM or the
+whole reduction. Primitivity of the graded images alone does not make
+the subgroup a retract: it does not remove the ambient defining relations.
+\evidence{N9}{isolated-inputs-and-prior-scope.md}

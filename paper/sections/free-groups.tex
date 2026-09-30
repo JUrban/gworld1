@@ -1,0 +1,304 @@
+\section{Free groups, equation languages and tree actions}\label{sec:free}
+
+\subsection{Growth of a nonprimitive automorphic orbit (F41)}\label{sec:f41}
+\entry{F41}{D.~Puder and C.~Wu}
+For a nonprimitive word in $F_r$, is the automorphic orbit's exponential
+growth rate $\sqrt{2r-1}$? The identity is an exception to the literal
+wording: its orbit has ball growth one. We use ordinary length in a
+fixed basis; this is not a stronger word-dependent cyclic-orbit conjecture.
+
+\begin{theorem}\label{prop:f41}
+Let $r\ge2$, $q=2r-1$, and let $w\ne1$ be nonprimitive in $F_r$.
+There are constants $C_w>0$, $D_w\ge0$ such that
+\[
+ |\Aut(F_r)w\cap B(n)|\le C_w(n+1)^{D_w}q^{n/2}.
+\]
+The ball growth limit and the spherical growth limsup are $\sqrt q$.
+\end{theorem}
+
+Two imported results are essential. Kharlampovich--Myasnikov's
+arbitrary-definable-set theorem says that a definable subset of $F_r$
+or its complement is a sub-multipattern~\cite[Definitions 5--6,
+Theorem 13]{km}. A one-variable pattern is described by finitely many
+noncancelling equations with fixed coefficients; every variable in its
+first equation is a repeated piece of the output, possibly with inverse
+orientation and overlap. A sub-multipattern is a subset of a finite
+union of these patterns. Pillay's parameter-free generic type $p_0$
+is realized by basis elements, and its realizations in finite-rank free
+groups are primitive~\cite[Fact 1.10, Theorem 2.1]{pillay}. Every
+parameter-free definable set containing a generic element has finitely
+many left translates covering the whole group.
+
+\begin{proof}[Derivation of Proposition~\ref{prop:f41}]
+First count reduced words with a fixed cover by repeated pieces. Suppose
+a first pattern equation has $t$ variable blocks and $C$ coefficient
+letters. For length $n$, choose the block lengths and a second occurrence
+of each block, including orientation. There are at most a constant
+times $(n+1)^{2t}$ choices. In each choice form the signed graph of
+identified letter positions. An inconsistent inverse cycle makes the
+choice impossible. In a consistent choice every noncoefficient position
+is joined to a different position, so the number $c$ of components
+satisfies $c\le(n+C)/2$.
+
+Collapse these components in the path of consecutive positions. The
+quotient is connected. On a spanning tree, the root component has
+$2r$ possible letters, while each further component has at most $q$:
+one letter is excluded by free reduction across its parent edge, with
+the prescribed signs. Ignoring other constraints only enlarges the
+count. Thus each choice contributes at most $2r q^{(n+C)/2}$ words.
+Finite unions and subsets preserve a polynomial times $q^{n/2}$ bound.
+No sub-multipattern is finite-translate generic, since translating by
+a fixed element changes the radius by at most a constant, whereas
+$F_r$ has ball growth $q$.
+
+Since $w$ is nonprimitive, it does not realize $p_0$. Choose a
+parameter-free formula $\varphi\in p_0$ false at $w$. Its negation
+defines an automorphism-invariant set $P$ containing the orbit of $w$.
+The complement contains a basis element and is finite-translate generic.
+The definable-set dichotomy and the preceding count therefore make $P$,
+not its complement, a sub-multipattern. This proves the upper bound.
+No definability of the orbit or of the primitive set is assumed.
+
+For the lower bound, replace $w$ by a cyclically reduced conjugate $v$,
+of length $\ell$. There are at least $(2r-2)q^{m-1}$ reduced words
+$t$ of length $m$ for which $tvt^{-1}$ is reduced as written: exclude
+the inverse of the first letter of $v$ and the last letter of $v$ from
+the last letter of $t$. Distinct $t$ give distinct words of length
+$2m+\ell$. This gives the ball lower bound and the matching spherical
+limsup. Empty parity classes can prevent a spherical limit.
+\end{proof}
+
+In rank one every orbit is finite. The higher-rank proof is a proposed
+consequence of the two deep cited theorems and the piece-cover count;
+its finite checks do not verify the model-theoretic interface.
+\evidence{F41}{multipattern-proof.md}
+
+\subsection{Discriminating a free square (GA3)}\label{sec:ga3}
+\entry{GA3}{A.~Miasnikov}
+If $G$ acts freely on a $\Lambda$-tree, can each finite set of
+nonidentity elements of $G*G$ survive a homomorphism to $G$?
+For nontrivial abelian $G$ the literal answer is negative: a commutator
+between the two factors always dies. Free actions below have no inversions.
+
+\begin{theorem}\label{prop:ga3}
+If $G$ is nonabelian and $\Lambda$-free, for each finite
+$W\subset(G*G)\setminus\{1\}$ there are $h\in G$ and $N$ such
+that the maps which are the identity on the first factor and
+$b\mapsto h^nbh^{-n}$ on the second are nontrivial on $W$ for all
+$n\ge N$. No finite-generation hypothesis on $G$ is required.
+\end{theorem}
+\begin{proof}[Derivation]
+It suffices first to control a finitely generated nonabelian subgroup
+$K$. In a divisible scalar extension of its free $\Lambda$-tree,
+choose a finite symmetric generating set $S$ and the scale
+\[
+ L=\max\{\ell(s),\ell(st):s,t\in S\}>0.
+\]
+The disjoint-axis formula bounds pairwise distances between generator
+axes by $L/2$. The finite Helly property gives a point within $L$
+of every axis, hence with generator displacements at most $3L$.
+The hull of its orbit has distances in the principal convex subgroup
+generated by $L$. Quotient by its maximal infinitesimal convex subgroup
+and extend the resulting Archimedean ordered group to $\R$.
+An element attaining translation length $L$ stays hyperbolic, so this
+collapse does not have a global fixed point.
+
+Guirardel's collapse theorem and its general-$\Lambda$ remark give
+abelian arc fixators and trivial tripod fixators~\cite[Fact 5.1]{guirardel}.
+The final scalar extension preserves these properties because the
+divisible Archimedean subgroup is dense and no branch points are added.
+The CSA property~\cite[Lemma 2.5]{guirardel} implies that a nonabelian
+$K$ has no nontrivial abelian normal subgroup: such a subgroup would
+lie in every conjugate of its maximal abelian subgroup, contradicting
+malnormality. Thus $K$ preserves no line and fixes no end. For a line,
+the arc kernel is abelian and the remaining faithful torsion-free action
+is by translations. For an end, the Busemann kernel is abelian because
+any two of its elements fix a common terminal ray. Either case would
+make $K$ abelian.
+
+In this real-tree action each nonidentity element fixes at most two
+ends, since three fixed ends give a fixed tripod. Given finitely many
+nonidentity coefficients $C\subset K$, choose two limit-set ends
+whose pair is disjoint from all its $C$-translates. Tree ping-pong,
+or the elementary separator in the retained supplement, gives a
+hyperbolic $h$ with both ends in small prescribed neighborhoods
+$U_+,U_-$ and
+\[
+ c(U_+\cup U_-)\cap(U_+\cup U_-)=\varnothing\quad(c\in C).
+\]
+Sufficient powers send the complement of $U_-$ into $U_+$ and the
+complement of $U_+$ into $U_-$ in the reverse direction. This is the
+standard boundary separation mechanism; its prior use is credited
+in the \record{problems/GA3/audit.md}{source audit}.
+
+Cyclically reduce each word in $W$. A core in one free factor survives
+automatically. Write every other core as $a_1b_1\cdots a_mb_m$,
+and include all coefficients, together with two noncommuting elements
+of $G$, in the generators of $K$. Starting with an end in $U_-$,
+read the substituted core from right to left. Each $h^{-n}$, $b_i$,
+$h^n$, $a_i$ sends it successively to $U_-$, outside both neighborhoods,
+$U_+$ and outside both. Its final image is outside $U_-$, so the
+word is nonidentity. The same $h,N$ work for all cores. The factor maps
+are automorphisms of all of $G$, which extends the argument from
+$K*K$ to $G*G$.
+\end{proof}
+
+The trivial group satisfies the property vacuously. This separates the
+literal abelian obstruction from the substantive nonabelian assertion.
+The arbitrary-$\Lambda$ collapse, not CSA alone, is the principal
+structural dependency. No procedure for obtaining $h,N$ from an
+unspecified presentation is asserted.
+\evidence{GA3}{proof.md}
+
+\subsection{A shared polynomial-identity method}\label{sec:languages}
+Let $F_r$ have basis $A$, and let $B_\phi$ be the exponent-sum matrix
+of an endomorphism. If $\det B_\phi\ne0$, then $\phi$ is injective:
+its image is a free group generated by $r$ elements, and its ambient
+abelianization has rank $r$, so its rank is exactly $r$; Hopficity then
+applies to the surjection onto that image.
+
+We use the effective \emph{full solution relation} of word equations
+with involution and regular constraints~\cite[Theorem 4.3]{diekert-elder}.
+It has the form
+\begin{equation}\label{eq:edt0l}
+ \{(h(d_1),\ldots,h(d_k)):h\in\mathcal R\},
+\end{equation}
+where $\mathcal R$ is a regular control of explicit endomorphisms of
+one finite extended alphabet, with separately designated output letters
+$d_i$. Group equations reduce to these monoid equations by triangulation.
+For reduced $X,Y,Z$, a triangle $XY=Z$ is replaced by
+\[
+ X=ST,\qquad Y=\overline T R,\qquad Z=SR,
+\]
+with reduced-word constraints; maximal cancellation proves equality of
+the projected solution relations. Cyclic reduction and positivity are
+regular constraints in the prescribed basis. Recognizing monoids can
+be made compatible with involution using $M\times M^{\mathrm{op}}$.
+
+\begin{lemma}\label{lem:polynomial}
+One can decide whether a rational polynomial in the separate output
+letter counts vanishes on every tuple of~\eqref{eq:edt0l}.
+\end{lemma}
+\begin{proof}
+Incidence matrices act linearly on the stacked count vector $y\in\N^D$.
+For polynomial degree $d$, lift $y$ to the vector $\nu_d(y)$ of all
+monomials of degree at most $d$, including one. Its dimension is
+$\binom{D+d}{d}$. Each transition induces an effective rational matrix
+$T^{[d]}$ satisfying $\nu_d(Ty)=T^{[d]}\nu_d(y)$.
+In each automaton state compute the rational span of reachable lifted
+vectors. Propagating these spaces can strictly increase total dimension
+only finitely many times. The stable spaces are exactly the spans of
+actual path vectors, by induction in both directions. Test the linear
+functional representing the polynomial on all accepting spaces.
+Reverse the control automaton if required by morphism-composition order.
+If terminal filtering is not built into the chosen convention, include
+the finite support of the count vector in the control state. This also
+handles erasing morphisms.
+\end{proof}
+
+This decides a universal identity, equivalently the existence of a
+\emph{nonzero} value. It does not decide whether an arbitrary polynomial
+has a zero among language outputs.
+
+\subsection{Potential positivity (F34)}\label{sec:f34}
+\entry{F34}{A.~Miasnikov and V.~Shpilrain}
+Part (a) asks whether some automorphism makes a supplied word positive
+in the fixed basis. Part (b) asks whether enlarging the ambient free
+rank creates new potentially positive words; its negative answer is prior~\cite{clark-goldstein}.
+
+\begin{theorem}
+Potential positivity is decidable uniformly in finite rank.
+\end{theorem}
+\begin{proof}
+An injection $\phi:F_r\to F_s$ reflects potential positivity. Indeed,
+orient every edge of the based Stallings graph of $\phi(F_r)$ by its
+positive ambient label. Choose a spanning tree and give each non-tree
+edge this orientation in the resulting free basis. A positive closed
+path stays positive when the tree is collapsed, so $\phi(w)$ positive
+implies $w$ positive in a basis of its domain. No finite-index assumption
+is needed.
+
+Consequently $w$ is potentially positive exactly when there is an
+endomorphism with $\phi(w)$ positive and $\det B_\phi\ne0$.
+Encode $w(X_1,\ldots,X_r)=V$ with $V\in A^*$ and construct its
+full relation~\eqref{eq:edt0l}. The determinant is a polynomial in
+the separate counts of the $X_j$. Lemma~\ref{lem:polynomial} decides
+whether it is identically zero. A nonzero output gives an injection
+and the graph argument supplies a witnessing automorphism.
+The identity is positive under the site's no-negative-letter convention;
+an alternative nonempty convention changes only that boundary case.
+\end{proof}
+
+Rank-two decisions and the stability answer are credited to earlier
+work in the \record{problems/F34/part-a-audit.md}{scope audit}.
+The complete equation-to-language construction is imported and was not
+implemented. The graph and polynomial stages and the language interfaces
+were implemented and checked; that is a narrower assertion.
+\evidence{F34}{part-a-proof.md}
+
+\subsection{Translation equivalence (F38)}\label{sec:f38}
+\entry{F38}{I.~Kapovich and P.~Schupp}
+Part (a) asks whether $\clen{\alpha(u)}=\clen{\alpha(v)}$ for
+all automorphisms can be decided. Part (c) replaces equality by
+two-sided bounds on their ratio, uniform in the ambient automorphism.
+Part (b), a substitution symmetry for translation-equivalent pairs,
+is already answered affirmatively by Lee~\cite{lee-substitution}.
+
+\begin{theorem}\label{prop:translation}
+Translation equivalence is decidable uniformly in finite rank.
+\end{theorem}
+\begin{proof}
+Kapovich--Levitt--Schupp--Shpilrain identify equality under all
+automorphisms with equality under all injective endomorphisms
+\cite[Corollary 1.4]{klss}. Thus the question is equivalent to
+\[
+ \det B_\phi\bigl(\clen{\phi(u)}-\clen{\phi(v)}\bigr)=0
+ \quad\hbox{for every endomorphism }\phi.
+\]
+Nonzero determinant guarantees injectivity; conversely every
+automorphism has determinant $\pm1$. Encode
+$P^{-1}u(X)P=U$ and $Q^{-1}v(X)Q=V$, with $U,V$ cyclically
+reduced, allowing the empty word. Every endomorphism extends to such
+a tuple, and $|U|,|V|$ are exactly the two cyclic lengths. The displayed
+expression is a polynomial of degree $r+1$ in separate letter counts.
+Apply Lemma~\ref{lem:polynomial} to the full solution relation.
+\end{proof}
+
+For bounded equivalence write $H_w\le\Out(F_r)$ for the stabilizer
+of the \emph{oriented} conjugacy class of $w$.
+
+\begin{theorem}\label{prop:bounded}
+For nonidentity $u,v$, the inequalities
+$\clen{\alpha(v)}\le C\clen{\alpha(u)}$ for some $C$ and all
+$\alpha\in\Aut(F_r)$ hold exactly when $H_u[v]$ is finite.
+Hence bounded translation equivalence is equivalent to commensurability
+of $H_u,H_v$, and is decidable.
+\end{theorem}
+
+Necessity follows because bounded cyclic length leaves finitely many
+conjugacy classes. The proposed sufficiency uses a quantitative relative
+shortening lemma, proved from Sela's \emph{graded} shortening theorem,
+with a separate treatment of primitive powers in rank two. The exact
+reduction and its normalization are in Appendix~\ref{app:shortening}.
+An unqualified replacement of automorphisms by arbitrary injections
+would be false for this bounded question.
+
+The finite decision step is more elementary once the criterion is
+granted. Whitehead peak reduction computes generators for $H_u,H_v$.
+Let $I=\ker(\Out(F_r)\to\GL(r,\F_3))$. Handel--Mosher's
+aperiodicity theorem says a periodic conjugacy class under an element
+of $I$ is fixed~\cite[Theorem 4.1]{handel-mosher}. For a finitely
+generated $H$, the orbit $H[w]$ is finite exactly when $H\cap I$
+fixes $[w]$. Explore the finite mod-three image, retaining actual
+automorphism representatives and the image of $[w]$ at each matrix.
+Different classes at the same matrix certify an element of $H\cap I$
+moving $[w]$ and therefore an infinite orbit. Otherwise the finite
+graph closes consistently. Apply this to both orbits.
+
+The code implements that finite procedure; it does not calculate a
+shortening constant or validate the graded theorem. Rank-two decisions
+are prior~\cite{lee,lee-translation}; the proposed additional range is higher rank.
+For identity inputs, the ratio is undefined; its natural two-sided
+inequality extension is true for two identities and false for exactly
+one. Rank one is immediate.
+\evidence{F38}{bounded-proof.md}

@@ -1,0 +1,225 @@
+\section{Explicit constructions and obstructions}\label{sec:explicit}
+
+\subsection{A virtual isomorphism with no invariant subgroup (F28)}\label{sec:f28}
+\entry{F28}{S.~Sidki}
+Must an isomorphism from an index-two subgroup of $F_2$ to a subgroup
+of $F_2$ preserve a nontrivial subgroup of its domain? The following
+example excludes even forward invariance, without a normality or
+finite-generation assumption on the subgroup.
+
+\begin{theorem}\label{prop:f28}
+In $F=F(a,b)$ let $S=\langle a,bab^{-1},b^2\rangle$ and define
+\[
+ f(a)=b^{-2},\qquad f(bab^{-1})=b^{-1}a^2b,
+ \qquad f(b^2)=b^{-1}a.
+\]
+Then $S$ and $f(S)$ have index two, $f$ is injective, and
+$H\le S$, $f(H)\le H$ imply $H=1$.
+\end{theorem}
+\begin{proof}
+The displayed generators of $S$ are the Schreier basis for the kernel
+of $b$-parity, using transversal $\{1,b\}$. Represent $a,b$ in
+$\mathrm{PSL}_2(\R)$ by
+\[
+ A=\begin{pmatrix}1&2\\0&1\end{pmatrix},\qquad
+ B=\begin{pmatrix}1&0\\2&1\end{pmatrix}.
+\]
+Ping-pong on $\{|x|>1\}\cup\{\infty\}$ and $\{|x|<1\}$ shows
+that this representation is faithful: every nonzero power of $A$
+sends the second set into the first, and every nonzero power of $B$
+sends the first into the second. Put
+\[
+ Q=\begin{pmatrix}0&-1\\2&1\end{pmatrix}.
+\]
+Direct multiplication gives
+\[
+ QAQ^{-1}=B^{-2},\quad Q(BAB^{-1})Q^{-1}=B^{-1}A^2B,
+ \quad QB^2Q^{-1}=-B^{-1}A.
+\]
+The sign disappears projectively, so $f$ is injective. For the image
+index, put $c=b^{-1}a$. The image is
+$\langle b^2,c,bcb^{-1}\rangle$, an index-two Schreier subgroup
+in the basis $b,c$.
+
+If $h\in H$ has an integral determinant-one representative $M$, every
+$M_n=Q^nMQ^{-n}$ is integral, since it represents $f^n(h)$ up to sign.
+For $X=\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)$ define
+\[
+ E(X)=(8a-4b+2c-d)^2+7(4b+d)^2+7(2c-d)^2+49d^2.
+\]
+Expansion gives $E(QXQ^{-1})=E(X)$. The four linear forms determine
+$X$, so the integral matrices of a fixed energy form a finite set.
+Hence $M_i=M_j$ for some $i<j$, and $M$ commutes with $Q^{j-i}$.
+
+Write $Q^n=u_nQ+v_nI$. From $Q^2=Q-2I$ one obtains
+\[
+ (u_0,v_0)=(0,1),\qquad (u_{n+1},v_{n+1})=(u_n+v_n,-2u_n).
+\]
+For $n\ge1$, $u_n$ is odd and $v_n$ is even. Thus $u_n\ne0$,
+and commuting with a positive power of $Q$ implies commuting with $Q$.
+The latter equation gives $c=-2b$, $d=a-b$, whence
+\[
+ 1=\det M=a^2-ab+2b^2=(a-b/2)^2+7b^2/4.
+\]
+Integrality forces $b=c=0$, $a=d=\pm1$. Thus $h=1$ projectively
+and, by faithfulness, in $F$.
+\end{proof}
+
+Related rational conjugations appear in work on self-similar
+groups~\cite{kapovich-selfsimilar}. Simplicity there excludes
+normal invariant subgroups; Proposition~\ref{prop:f28} concerns every
+subgroup. The integral-matrix implication has a Lean proof, while the
+free-group interpretation remains a written argument.
+\evidence{F28}{proof.md}
+
+\subsection{Short presentations and long Dehn output (H4)}\label{sec:h4}
+\entry{H4}{A.~Miasnikov}
+Can a finite presentation of a hyperbolic group be converted to a Dehn
+presentation in polynomial time? We use explicit words in generators
+and their inverses, and strict length-decreasing Dehn rules.
+
+\begin{theorem}\label{prop:h4}
+No uniform polynomial-time algorithm performs this conversion on all
+finite hyperbolic-group presentations. This remains so when the inputs
+are infinite non-elementary virtually free groups and the output may
+use different generators.
+\end{theorem}
+\begin{proof}
+Let a Dehn presentation have $r$ generators and longest relator length
+$L\ge1$. A classical observation bounds the number $T(G)$ of torsion
+conjugacy classes, including the identity, by
+\begin{equation}\label{eq:torsion-dehn}
+ T(G)\le\sum_{j=0}^{L-1}(2r)^j<(2r)^L.
+\end{equation}
+Indeed, take a shortest word $w$ in a nontrivial torsion conjugacy class.
+It is cyclically reduced. If $|w|\ge L$, a Dehn-shortenable subword
+of an identity power $w^e$ has length at most $L$ and lies in a cyclic
+rotation of $w$. Shortening it contradicts conjugacy minimality. This
+is the usual torsion-conjugacy argument~\cite[Theorem 3.27]{batty-papasoglu}.
+The same reasoning applies to an explicit finite list of shortening
+rules, using the largest left-hand-side length.
+
+For $n\ge1$ take generators $x,t_0,\ldots,t_n$ and relators
+\begin{equation}\label{eq:short-presentation}
+ t_i=t_{i-1}^2\ (1\le i\le n),\qquad t_n=1,
+ \qquad t_0xt_0^{-1}=x^2.
+\end{equation}
+Put $Q_n=2^n$, $M_n=2^{Q_n}-1$. Eliminating the $t_i$ gives
+\[
+ K_n\cong C_{M_n}\rtimes C_{Q_n},\qquad t_0xt_0^{-1}=x^2.
+\]
+To check equality rather than just a quotient, the relations give
+$t_0^{Q_n}=1$ and $x^{M_n}=1$ and collect every word to
+$x^it_0^j$, so the order is at most $M_nQ_n$. The indicated
+semidirect product realizes that order and the presentation. Multiplication
+by two has order $Q_n$ modulo $M_n$, since $0<2^j-1<M_n$ for
+$0<j<Q_n$.
+
+The conjugacy classes in $\langle x\rangle$ are the orbits of this
+cyclic action, so there are at least
+\[
+ M_n/Q_n>2^{2^n-n-1}
+\]
+of them. They remain distinct in $H_n=K_n*\langle z\rangle$ by
+free-product normal forms. The kernel of the retraction $H_n\to K_n$
+has free basis $\{kzk^{-1}:k\in K_n\}$ and finite index $|K_n|$.
+Its rank is at least six. Hence $H_n$ is infinite, non-elementary
+and virtually free, in particular hyperbolic.
+
+Adding $z$ to~\eqref{eq:short-presentation} gives explicit
+generator-letter size $4n+9$, or $O(n\log n)$ bits with indexed
+generators. Any explicit Dehn output of total size $m_n$ has at most
+$m_n$ generators and longest rule length at most $m_n$. Therefore
+\[
+ m_n\log_2(2m_n)>2^n-n-1,
+ \qquad m_n>\frac{2^n-n-1}{n+1}\quad(n\ge2).
+\]
+The second inequality follows by separating $m_n\le2^n$ and
+$m_n>2^n$. Merely writing the output takes superpolynomial time
+in the input length, regardless of its chosen generators.
+\end{proof}
+
+The torsion hypothesis and explicit-output convention matter. This
+argument makes no claim about torsion-free input or compressed output.
+The original finite-input argument, the classical torsion lemma and
+related earlier output-size observations are separately credited in
+the \record{problems/H4/audit.md}{audit}.
+\evidence{H4}{infinite-input-proof.md}
+
+\subsection{Primitive elements in free metabelian groups (M0)}\label{sec:m0}
+\entry{M0}{E.~I.~Timoshenko and V.~Shpilrain}
+The entry asks the analogue of F3 for $M_r=F_r/F_r''$: does preservation
+of all primitive elements force an endomorphism to be an automorphism?
+Primitive means membership in a free basis of the metabelian variety.
+
+\begin{theorem}\label{prop:m0}
+For every finite rank $r$, an endomorphism of $M_r$ preserving primitive
+elements is an automorphism. It suffices to preserve the images of
+primitive words of $F_r$.
+\end{theorem}
+\begin{proof}
+Use the Laurent ring $R=\Z[X_1^{\pm1},\ldots,X_r^{\pm1}]$ and
+abelianized left Fox derivative columns $D(w)$. Write $J_\phi$ for
+the matrix with columns $D(\phi(x_j))$ and
+$\lambda=(X_1-1,\ldots,X_r-1)$. The standard identities are
+\[
+ D(uv)=D(u)+\bar uD(v),\quad \lambda D(w)=\bar w-1,
+ \quad D(\phi(w))=J_\phi\bar\phi(D(w)).
+\]
+Bachmuth's inverse-function criterion, in this convention, says that
+$\phi$ is invertible exactly when $J_\phi$ is invertible over $R$
+\cite[Lemma 1]{ggr}. A primitive word's derivative cannot specialize
+to zero over a field, since it is a column of an invertible basis
+Jacobian.
+
+The induced integer matrix on abelianization preserves primitive
+vectors and is therefore unimodular. Otherwise reduction modulo a
+prime gives a nonzero kernel vector with a primitive integral lift,
+obtained by lifting elementary matrices in $\SL_r(\F_p)$; its image
+is divisible by $p$. Compose with a lifted inverse basis change to
+assume $\phi$ is IA. Then
+\begin{equation}\label{eq:ia-jacobian}
+ \lambda J_\phi=\lambda,\qquad J_\phi(1,\ldots,1)=I.
+\end{equation}
+Ranks zero and one are immediate, so assume $r\ge2$.
+
+If $\Delta=\det J_\phi$ is not a Laurent unit, augmentation one
+implies it has at least two monomials. Choose a prime preserving two
+nonzero coefficients and a maximal ideal containing its reduction.
+Its residue field $K$ is finite. The images $z_i$ of $X_i$ are
+nonzero, generate $K$ as a field, and are not all one. The associated
+character has a nontrivial finite cyclic image. A Nielsen basis change
+puts it in the form
+\[
+ \chi(x_1)=\cdots=\chi(x_{r-1})=1,\qquad
+ \chi(x_r)=t\ne1,\qquad K=\F_p(t).
+\]
+Indeed, apply integer elementary operations to an exponent row for
+a generator of that cyclic image; its gcd remains coprime to the
+image order. The Fox basis change conjugates $J_\phi(\chi)$,
+because $\phi$ is IA, so singularity is preserved. Equation~\eqref{eq:ia-jacobian}
+now puts its kernel in $W=\Span_K(e_1,\ldots,e_{r-1})$.
+
+For distinct $i,j<r$ and $P(T)=\sum a_kT^k\in\Z[T]$, fix the
+other generators and set
+\begin{equation}\label{eq:m0-transvection}
+ \theta(x_i)=x_i\prod_{k\ge0}x_r^kx_j^{a_k}x_r^{-k}.
+\end{equation}
+This is an actual free-group automorphism preserving $\chi$, and
+$J_\theta(\chi)=I+P(t)E_{ji}$. Since every element of $K$ is
+$P(t)$, for $r\ge3$ these maps realize $\SL_{r-1}(K)$ on $W$.
+Its transitivity on nonzero vectors shows that every nonzero kernel
+vector is $D(w)(\chi)$ for a primitive word $w$. If $r=2$, the
+nonzero kernel is the line $Ke_1$, and $w=x_1$ suffices.
+The chain rule gives $D(\phi(w))(\chi)=0$, contradicting primitivity.
+Thus $\Delta$ is a unit and the inverse-function criterion applies.
+\end{proof}
+
+The low-rank answers are prior; the all-rank finite-field detection is
+the proposed additional step. The proof neither assumes that every
+metabelian automorphism is tame nor substitutes preservation of whole
+primitive systems for preservation of individual elements. Exact
+finite-field witnesses include actual free bases and inverses. A later
+constructor removes a search cutoff by an explicit Kronecker bound;
+it gives termination without a useful complexity estimate.
+\evidence{M0}{proof.md}

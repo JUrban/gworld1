@@ -1,0 +1,189 @@
+\section{Two partial results}\label{sec:partial}
+
+\subsection{Effective free-metabelian growth (G9)}\label{sec:g9}
+\entry{G9}{Collection entry, with no individual author listed}
+The question asks for the growth rate of a free metabelian group of
+rank $r$, with its standard generators. An approximation algorithm and
+an interval leave the exact constant undetermined.
+
+Let $V_r(n)$ be the cardinality of the radius-$n$ ball in $M_r$ and
+$\lambda_r=\lim_n V_r(n)^{1/n}$. Put
+\[
+ P(t)=\#\{s_1>\cdots>s_k>0:\ \sum s_i\le t\},\qquad
+ K_n=(n+1)^3P(n+1)^2,
+\]
+including the empty list in $P(t)$.
+
+\begin{theorem}\label{prop:g9}
+Uniformly in $r$ and $n\ge1$,
+\begin{equation}\label{eq:growth-bounds}
+ \max\left\{1,\left(\frac{V_r(n)}{K_n}\right)^{1/(n+2)}\right\}
+ \le\lambda_r\le V_r(n)^{1/n}.
+\end{equation}
+For these endpoints $L_n,U_n$,
+\begin{equation}\label{eq:growth-modulus}
+ \log(U_n/L_n)\le
+ \frac{2\log(2r+1)+3\log(n+1)+4\sqrt{n+1}}{n+2}.
+\end{equation}
+Thus $\lambda_r$ is uniformly computable. The retained rank-two
+certificates give
+\[
+ \boxed{2.676891785\le\lambda_2\le2.943737759.}
+\]
+\end{theorem}
+
+\begin{proof}[Proof of the approximation assertion]
+A word in $F_r$ is a path in $\Z^r$. Its finitely supported net
+integral edge flow determines its image in $M_r$: this is the classical
+flow criterion, obtained from the first homology of the abelian cover
+\cite{guba,mruv}. In particular $V_r(n)$ is computable by enumerating
+words of length at most $n$ and deduplicating flows. No shortest-word
+oracle is required.
+
+Use the first coordinate as height. A strict bridge path starts at
+height zero, is positive thereafter, and ends at its maximum height $H$.
+Its edges, indexed by their upper height, lie in the band $(0,H]$.
+Concatenating bridge flows of equal height places them in disjoint
+bands. Restricting the product flow to these bands and recovering
+successive endpoints from boundaries recovers every factor. If
+$b(n,H)$ counts bridge elements with a representative of length at
+most $n$ and height $H$, then
+\[
+ b(n,H)^k\le V_r(kn),\qquad
+ b(n):=\sum_{H=1}^n b(n,H)\le n\lambda_r^n.
+\]
+
+For each element with a strict half-space representative, choose one
+deterministically. Cut it at the last highest remaining vertex, then
+the last lowest, and so on. The positive successive spans strictly
+decrease and their sum is at most its length. Reflect downward pieces
+and concatenate them into a bridge. Given its \emph{flow} and the
+span list, restrictions to disjoint bands recover the original piece
+flows and their endpoints; reversing reflections and translations
+recovers the original element. Thus, writing $h(n)$ for the number
+of half-space elements,
+\[
+ h(n)\le P(n)b(n)\le P(n)n\lambda_r^n.
+\]
+This adapts the classical bridge unfolding argument~\cite{hw}; the
+additional requirement here is recovery from total flow rather than
+from a path, allowing repeated edges and cancellations.
+
+Split an arbitrary representative $w=UV$ of length at most $n$ at a
+vertex of globally minimal height, after $i$ letters. Then
+$a_1U^{-1}$ and $a_1V$ are strict half-space words of lengths at most
+$i+1$ and $n-i+1$, and their quotient recovers $w$. Hence
+\[
+ V_r(n)\le\sum_{i=0}^n h(i+1)h(n-i+1)
+ \le(n+1)^3P(n+1)^2\lambda_r^{n+2}.
+\]
+This proves the lower bound. Submultiplicativity of balls gives the
+upper bound. For $s>0$,
+\[
+ P(t)\le e^{st}\prod_{j\ge1}(1+e^{-sj})
+ \le\exp(st+1/s),
+\]
+so $P(t)\le e^{2\sqrt t}$. Combining this with
+$V_r(n)\le(2r+1)^n$ gives~\eqref{eq:growth-modulus}. The effective
+error bound and exact finite counts yield rational outward approximations
+of any requested precision. The procedure need not be practical.
+\end{proof}
+
+The numerical lower bound uses a free monoid of bridge atoms, with
+infinite completed boundary and shear families. The upper bound uses
+648 verified rewriting relations, a 1,968-state avoidance automaton
+and exact positive-vector inequalities. Appendix~\ref{app:g9-certificate}
+gives the finite certificate structure and the final rational series.
+The flow-support connection construction used to shorten representatives
+is prior work~\cite[Section 2.7]{mruv}; no new general geodesic algorithm
+or current best-in-literature bound is asserted. The method's recorded
+extension to free solvable groups is not another problem count.
+\evidence{G9}{flow-growth-proof.md}
+
+\subsection{Infinitely many special five-strand braids (B9)}\label{sec:b9}
+\entry{B9}{P.~Dehornoy}
+Let $S(\sigma_i)=\sigma_{i+1}$ and
+\[
+ a\mathbin{\triangleright}b=aS(b)\sigma_1S(a)^{-1}.
+\]
+The special braids are the closure of $1$ under this operation in
+$B_\infty$. How many lie in each standard subgroup $B_N$?
+Intermediate terms in a special expression may have more strands
+than its final value.
+
+\begin{theorem}\label{prop:b9}
+For every $n\ge3$ the braid
+\begin{align*}
+ \beta_n={}&\sigma_1^n\sigma_3^{n-2}\sigma_2^{1-n}
+ \sigma_3^2\sigma_4^{-1}\sigma_2\sigma_1
+ \sigma_3^{n-1}\sigma_4^{2-n}\sigma_2^{-n}
+\end{align*}
+is special, has standard strand support exactly five, and the
+$\beta_n$ are pairwise distinct. There are therefore countably
+infinitely many special braids in every $B_N$ with $N\ge5$.
+\end{theorem}
+\begin{proof}
+Define $u_0=1$, $u_1=\sigma_1$, and
+$u_{n+1}=u_n\triangleright u_{n-1}$. Induction gives
+$u_nS(u_{n-1})=\sigma_1^n$. For $n\ge3$ set
+\[
+ q_n=u_{n-3},\qquad A_n=\sigma_1^n\sigma_3^{n-2}\sigma_2^{1-n}.
+\]
+Expanding the recurrence three times and commuting distant generators
+gives $u_nS^3(q_n)=A_n$. Now take the explicitly special expression
+\[
+ v_n=1\triangleright((1\triangleright q_n)\triangleright1),
+ \qquad \beta_n=u_n\triangleright v_n.
+\]
+Expansion yields
+\[
+ v_n=S^2(q_n)\sigma_2^2\sigma_3^{-1}S^3(q_n)^{-1}\sigma_1.
+\]
+In the next operation, move $S^4(q_n)^{-1}$ past $\sigma_2\sigma_1$
+and apply the recurrence. The result is
+\[
+ \beta_n=A_n\sigma_3^2\sigma_4^{-1}\sigma_2\sigma_1S(A_n)^{-1},
+\]
+which is the displayed five-strand word, of length $6n-1$ as written
+and exponent sum three.
+
+Use the unreduced Burau representation at $t=-1$, whose nontrivial
+two-by-two block is
+\[
+ T=\begin{pmatrix}2&-1\\1&0\end{pmatrix}=I+N,
+ \qquad N^2=0,\quad T^k=I+kN\quad(k\in\Z).
+\]
+Multiplying the fifth row through the displayed blocks gives
+\[
+ (0,\ n(n-1),\ 1-n^2,\ -n^2+3n-2,\ n^2-2n+2).
+\]
+Its second entry is strictly increasing for $n\ge3$ and nonzero,
+whereas every standard four-strand braid has fifth row $e_5$.
+This proves distinctness and strand support; faithfulness is not
+needed to distinguish unequal images. The same representation extends
+by identities for $N\ge5$. Countability of $B_N$ finishes the proof.
+\end{proof}
+
+The small-strand counts $1,2,4$ follow from Dehornoy's prior structural
+results~\cite[Sections 4--5]{dehornoy}. In particular a special braid
+in $B_N$ has exponent sum between $0$ and $N-1$; sum zero gives $1$
+and sum $N-1$ gives $\tau_{N-1}=\sigma_{N-1}\cdots\sigma_1$.
+The exponent-one elements are exactly $a\triangleright1$ with
+$a$ special in $B_{N-1}$, and this map is injective. Thus
+\[
+ \mathcal C\cap B_3=\{1,\sigma_1,\sigma_1^2\sigma_2^{-1},
+ \sigma_2\sigma_1\}.
+\]
+In $B_4$ only exponent two remains. Writing
+$I_p(A)=A\tau_p S(A)^{-1}$, that sector corresponds to right cosets
+$AB_2$ in $B_3$ admitting $A=aS(c)$ with both $a,c$ special.
+Four known cosets give at least ten special braids in total; exhaustion
+was not proved.
+
+Later reductions decide the complete partner set for each supplied
+first braid and exclude several infinite first-input families. For
+example, for $I_1(\beta_n)$, $n\ge3$, an invariant Burau entry
+$n(n-1)$ excludes every partner returning to the required three-strand
+subgroup. These results do not classify unrestricted first inputs.
+The global four-strand question therefore remains open here.
+\evidence{B9}{infinite-family-proof.md}

@@ -1,0 +1,130 @@
+\section{Certificates, implementations and formalization limits}\label{app:certificates}
+
+\subsection{The final growth certificate}\label{app:g9-certificate}
+A bridge atom has no internal level at which just one vertical edge
+has nonzero flow. Such an edge must have coefficient $+1$ by total
+flux. In a product of atoms, exactly these separating cuts mark the
+factor boundaries. Restriction to successive edge bands recovers
+their flows and endpoints. Thus distinct atoms of arbitrary positive
+heights freely generate a monoid. For a specified alphabet with
+cost series $F(t)$, its positive root $F(R)=1$ gives
+$\lambda_2\ge1/R$; for infinite alphabets exhaust by finite subsets.
+Costs are lengths of supplied representatives, not asserted geodesic
+lengths.
+
+The initial certificate has 21,483 distinct atoms of costs at most
+14, with count vector
+\[
+ (1,2,2,2,2,6,26,71,162,341,779,1961,5098,13030).
+\]
+Write $a$ for the vertical and $b$ for the horizontal generator.
+For height at least two, the operations
+$P_{s,t}(w)=ab^sa^{-1}wb^t$ preserve atom status. The fixed initial
+vertical edge cancels as indicated in a bridge representative. Removing
+the horizontal boundary lines at heights one and $H$, and normalizing
+the remaining flow by its first internal vertical support, classifies
+the resulting $\Z^2$ orbits. Equality of normalized cores plus endpoint
+coordinates implies equality of full flows: their difference would be
+a finitely supported circulation on two disjoint lines, hence zero.
+Height one is the separate family $ab^m$.
+
+For a retained orbit with seed coordinates $(x_j,z_j)$ and costs $c_j$,
+the cost at $(x,z)\in\Z^2$ is
+\[
+ f(x,z)=\min_j(c_j+|x-x_j|+|z-z_j|).
+\]
+Outside the seed bounding rectangle, clamping either coordinate adds
+exactly its outside distance. The central rectangle, four strips and
+four quadrants therefore give a rational series
+$F_{\rm old}(t)=C(t)+S(t)/(1-t)+Q(t)/(1-t)^2$, including the
+height-one series. Shortened representatives add 320 seeds to the
+original list, with the same full flows and verified smaller costs.
+The finite contracted-grid support-connection calculation uses the
+credited flow/Euler construction~\cite{mruv}; its polynomial data are
+retained in the
+\record{research/certificates/G9-steiner-completion-v1/manifest-v1.json}{completion manifest}.
+
+For height $H\ge3$, add the Nielsen shear
+$\alpha_k(a)=ab^k$, $\alpha_k(b)=b$. It commutes with both boundary
+operations. If $x_1,x_2$ are the minimum horizontal coordinates of
+nonzero vertical support at internal levels one and two, and $(H,y)$
+is the endpoint, put
+\[
+ d=x_2-x_1,\quad u=x_1-d,\quad v=y-x_1-(H-1)d.
+\]
+The boundary action changes $(u,v)$ freely, while $\alpha_k$ changes
+$d$ to $d+k$. Applying $\alpha_{-d}$ and $P_{-u,-v}$ and retaining
+the \emph{full} normalized flow classifies the free $\Z^3$ action.
+In each such orbit the old alphabet occupies finitely many complete
+$d$-planes. Add one tail strictly beyond each extremal plane, with
+all boundary coordinates. The two tails and all old planes are
+disjoint by their coordinates; different normalized flows give
+disjoint orbits.
+
+A chosen seed with $V$ vertical letters and initial tail cost $L$
+contributes
+\[
+ \frac{t^L}{1-t^V}\left(\frac{1+t}{1-t}\right)^2.
+\]
+The 21,803 retained seeds give 1,453 shear orbits and 2,906 tails.
+Their aggregated additional series is
+\begin{align*}
+ F(t)-F_{\rm old}(t)=\left(\frac{1+t}{1-t}\right)^2
+ \bigg(&\frac{80t^{19}+236t^{20}+1658t^{21}}{1-t^7}\\
+ &+\frac{68t^{22}+448t^{23}}{1-t^9}
+ +\frac{6t^{22}+48t^{23}+362t^{24}}{1-t^{10}}\bigg).
+\end{align*}
+Exact arithmetic verifies
+\[
+ F(10^9/2676891785)\ge1,\qquad
+ F(10^9/2676891786)<1.
+\]
+Only the lower endpoint of the resulting reciprocal-root interval is
+a lower bound on group growth; its upper endpoint is not a group
+upper bound. The independent upper certificate lists 648 words
+replaceable by shorter or lexicographically smaller equal-flow words.
+Every shortlex least representative avoids them. Its 1,968-state
+avoidance automaton has adjacency matrix $A$ and an explicit positive
+integer vector $v$ satisfying
+\[
+ Av\le \frac{2943737759}{10^9}v.
+\]
+This bounds accepted words, hence group balls, at that exponential rate.
+Separate GAP checks reconstruct all relations, transitions and integer
+inequalities. The
+\record{problems/G9/shear-tail-supplement.md}{shear supplement}
+and \record{problems/G9/flow-growth-audit.md}{upper-bound audit}
+link the exact certificates and commands.
+
+\subsection{Selected verification scopes}
+\begin{longtable}{@{}P{.12\textwidth}P{.44\textwidth}P{.38\textwidth}@{}}
+\toprule Entry & Retained evidence & Limit of that evidence \\\midrule
+\endfirsthead\toprule Entry & Retained evidence & Limit of that evidence \\\midrule\endhead
+F28 & Exact matrix identities, GAP subgroup indices and a universal Lean integral recurrence. & Free-group faithfulness and the invariant-subgroup interpretation remain written.\\[4pt]
+M0 & Explicit primitive words, bases and inverse bases over six finite fields; separate GAP evaluation; terminating witness construction. & Finite examples do not prove the all-rank implication; effective bounds need not be usable.\\[4pt]
+H4 & Exact finite torsion-class counts and native free-kernel controls. & The unbounded output lower bound is the written argument.\\[4pt]
+F34/F38 & 1,433 equation tuples, 18,072 literal and 2,300 native equation checks; polynomial-span and supplied-grammar checks. & The full constrained equation-to-grammar generator is unimplemented.\\[4pt]
+F38(c) & Whitehead stabilizers and finite mod-three orbit procedure. & No computational validation of graded shortening or its application.\\[4pt]
+N5 & Finite-group comparisons, mixed central constraints and the full promised-presentation command; actual returned factor words. & Rational-support uniqueness and finite completeness are mathematical dependencies.\\[4pt]
+N8 & Full word-input solver; integral leading branches, exact period residues, native group columns and positive/negative quadratic blocks. & The complete all-rank structural proof is not independently verified.\\[4pt]
+N9 & Integer-kernel saturation, actual GAP retractions for a small circuit, isolated-input checks and Lean normalization. & Neither DPRM nor the full fixed-group reduction is formalized here.\\[4pt]
+G9 & All retained flows and series, 26,154 tail/boundary controls, 2,906 shear compositions and exact rational inequalities. & Infinite distinctness and the growth argument are written; the exact constant is unknown.\\[4pt]
+B9 & Shelf identities, faithful Artin-action controls and separating Burau entries; complete partner decisions for 52 first colors. & Burau is used to distinguish, not certify equality; no exhaustion of $B_4$.\\[4pt]
+F41/GA3 & Counting and separator controls, plus source-specific dependency audits. & No finite check proves the imported definable-set or tree-collapse theorems.\\
+\bottomrule
+\end{longtable}
+
+The N8 higher-weight negative control is illustrative. In rank two and
+class eleven, the full solver rejects all four normalized weight types;
+the two surviving leading branches give quadratics $T^2-2T+2$ and
+$T^2+2T+2$. Native GAP reconstructs both integer kernels, 64 actual
+group columns and the two polynomials. It does not independently
+recompute the projective leading-pair lists. The complete
+\record{problems/N8/higher-negative-audit.md}{negative audit} states
+that boundary explicitly.
+
+The formal environment was Lean 4.24.0 with pinned Mathlib. The
+\record{reports/REPRODUCTION_GUIDE.md}{guide} gives exact revisions.
+An axiom audit and \texttt{--trust=0} do not mean every cached Mathlib
+artifact was rebuilt or checked by a second kernel. Formalization
+claims in this paper are confined to their stated fragments.

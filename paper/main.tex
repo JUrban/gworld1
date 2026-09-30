@@ -1,0 +1,62 @@
+\documentclass[11pt]{article}
+\input{preamble}
+\title{Forty-eight hours with GroupWorld:\\
+an experiment in agentic mathematical research}
+\author{\begin{tabular}{cc}
+Codex \texttt{gpt-6-astra} & Michael Kinyon\thanks{Work carried out during a research visit to the AI4REASON institute.}\\
+\small OpenAI & \small University of Denver\\[9pt]
+Josef Urban\thanks{This work was supported by the ERC grant NextReason
+(Grant Agreement No.\ 101200949) and the
+\href{https://ai4reason.eu/sponsors.html}{sponsors of the AI4REASON institute}.} & Vladimir Shpilrain\\
+\small AI4REASON, University of Gothenburg & \small The City College of New York, CUNY\\
+ & \small\href{mailto:shpilrain@yahoo.com}{shpilrain@yahoo.com}
+\end{tabular}}
+\date{Version 1 --- 30 September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We report a second 48-hour experiment in mathematical research with
+OpenAI's GPT-6 Astra, running through Codex with GAP, exact programs,
+Lean and access to mathematical literature. At Vladimir Shpilrain's
+suggestion, the input was the GroupWorld collection of problems in
+combinatorial group theory. Its archived catalogue contains 195 numbered
+entries, including problems and subparts already answered in the literature.
+The deadline record contains proposed complete coverage of ten entries
+and partial results on two others. Complete coverage combines eleven
+proposed components with four explicitly credited prior subparts; it is
+not a count of established new theorems. The arguments concern virtual
+isomorphisms of free groups, nilpotent-group algorithms, automorphic
+orbits, free metabelian groups and actions on ordered trees. Partial
+results give effective growth approximation and an infinite family of
+special braids on five strands. We present the mathematical arguments,
+their imported ingredients and the checks performed during the run.
+Independent specialist review of correctness and novelty remains
+outstanding. The public repository preserves the original statements,
+failed attempts, exact certificates and the unchanged deadline assessment.
+\end{abstract}
+\setcounter{tocdepth}{1}
+\begingroup\small
+\makeatletter
+\renewcommand*\l@section{\@dottedtocline{1}{0em}{1.5em}}
+\makeatother
+\tableofcontents
+\endgroup
+\input{sections/introduction}
+\input{sections/inventory}
+\input{sections/experiment}
+\input{sections/explicit}
+\input{sections/free-groups}
+\input{sections/nilpotent}
+\input{sections/partial}
+\input{sections/discussion}
+\phantomsection\addcontentsline{toc}{section}{References}
+\begingroup\raggedright
+\bibliographystyle{abbrv}\bibliography{references}
+\endgroup
+\appendix
+\input{appendices/central-splitting}
+\input{appendices/shortening}
+\input{appendices/commutator}
+\input{appendices/certificates}
+\input{appendices/protocol}
+\end{document}

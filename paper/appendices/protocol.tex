@@ -1,0 +1,107 @@
+\section{Protocol, provenance and reproduction}\label{app:protocol}
+
+\subsection{Authorization and dates}
+The organizers' launch instruction, preserved in
+\record{state/session.json}{the session record}, was:
+\begin{quote}\small
+great, now proceed as in the kourovka run: Solve as many previously
+unsolved problems as you can (from the dataset you just created) within
+an overall time limit of 48 hours. The gap system is again installed
+here but you can also download and install further SW if useful. In
+general, try to limit yourself to 20 CPU cores and 100G RAM on this
+machine while working. Write detailed plans and reports, iterate fast
+and use the local git repo keeping your work and documenting your
+progress, commit often there (but don't try to push). Work rigorously -
+your solutions will be independently reviewed.
+\end{quote}
+Line wrapping and the doubled space before ``within'' are normalized
+here; the session JSON preserves the exact text. The launch record names
+GPT-6 Astra with xhigh reasoning as supplied by the user; the runtime
+model identifier was not independently verified. No subagents or
+outside mathematical referee participated in the recorded run.
+
+\begin{center}\small
+\begin{tabular}{@{}lp{.62\textwidth}@{}}
+\toprule Record & UTC time or revision \\\midrule
+Start & 2026-09-28 10:04:49.670358\\
+Research cutoff & 2026-09-30 10:04:49.670358\\
+Last research commit & \texttt{401213c}, 2026-09-30 09:47:18\\
+Freeze observation & 2026-09-30 10:05:47.903924\\
+Administrative handoff & \texttt{0d6b855}\\
+Paper & Version 1, 30 September 2026; post-experiment exposition\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The final scope rendering preserves all 195 catalogue entries, all
+counts and all 96 bound inputs from the pre-deadline assessment. Its
+\record{research/audits/deadline-snapshot-manifest-v1.json}{snapshot}
+retains exact source bindings and the actual process observation.
+The paper does not rerun mathematical solvers or silently strengthen
+that assessment. Its build and editorial checks have their own records
+under \path{paper/data/}.
+
+\subsection{Where to start in the repository}
+The repository is \url{https://github.com/JUrban/gworld1}~\cite{gworld-repo}.
+Unlike the filtered public Kourovka history, the cited GroupWorld
+research and handoff commit identifiers are directly available there.
+The root README links this PDF, its source, the original collection
+and the research reports.
+
+\begin{longtable}{@{}P{.40\textwidth}P{.54\textwidth}@{}}
+\toprule Record & Purpose \\\midrule
+\endfirsthead\toprule Record & Purpose \\\midrule\endhead
+\record{reports/FINAL_REPORT.md}{Final report} & Deadline outcome, prior coverage, failed work and integrity limits.\\[3pt]
+\record{reports/CURRENT_RESULTS.md}{Review guide} & Controlling proofs, supplements, source audits and their exact scopes.\\[3pt]
+\record{reports/RESULT_SCOPE.md}{Scope ledger} & Whole entries, named parts, credited prior answers and all uncounted IDs.\\[3pt]
+\record{reports/REPRODUCTION_GUIDE.md}{Reproduction guide} & Pinned dependencies, selected commands, historical source recovery and omitted files.\\[3pt]
+\record{data/CATALOG.md}{Catalogue} & Original preparation index; its initial status labels are not the final assessment.\\[3pt]
+\record{sources/manifest.json}{Source manifest} & Archived problem pages, retrieval records and hashes.\\[3pt]
+\record{literature/LEDGER.md}{Literature ledger} & Dated primary-source comparisons and reading limits.\\[3pt]
+\record{research/LOG.md}{Research log} & Intermediate arguments, corrections and process chronology.\\
+\bottomrule
+\end{longtable}
+
+The full argument and audit of an entry live under
+\path{problems/ID/}. Exact source and result versions are bound by
+manifests under \path{research/certificates/} and
+\path{research/audits/}; terminal command receipts are in
+\path{results/}. Historical hash mismatches must be resolved through
+the retained exact-version recovery indices, rather than treating an
+old manifest as certification of the current working file.
+
+\subsection{Software and retained data}
+Recorded computation used Python 3.12.3, GAP 4.16.1, SymPy 1.14.0,
+mpmath 1.3.0 and python-flint 0.9.0. GAP package versions are in the
+guide. A fresh replay should use a separate checkout, new output names
+and separately dated review records. The original research runner
+refuses jobs after the deadline; resetting its clock would falsify the
+experiment. Direct review commands in the guide are distinct from
+the historical bounded research invocations.
+
+At the final handoff all 6,395 reachable Git blobs were below
+90,000,000 bytes; the largest was 75,046,692 bytes. This does not mean
+the software installation and every generated file are bundled. The
+91 intentionally untracked bound paths are 88 A5 dependency sources
+and three B9 compiled binaries, with source/build records. A
+127,724,170-byte formatted F34/F38 JSON was omitted; the retained
+19,478,346-byte compact JSON has the same parsed data, and the precise
+formatting and hash permit recovery of the former bytes. These omissions
+are disclosed even though no history filtering was needed for this
+GroupWorld publication.
+
+The paper itself needs only a LaTeX installation. Its build script
+records the TeX invocation and source/PDF hashes. The source archive
+includes the bibliography output and all included TeX files; it
+does not require GAP, Lean, the source problem website or a research
+certificate to compile. Mathematical reproduction is a separate task.
+
+\subsection{Authorship and acknowledgments}
+Michael Kinyon and Josef Urban organized the experimental format.
+Vladimir Shpilrain hosts the collection and suggested this follow-up.
+The AI author denotes the system that generated the research arguments,
+programs and this manuscript under the organizers' instructions; it does
+not denote an independently accountable mathematical referee. The author
+list does not assert that every human author has verified every proof.
+The research-visit and funding acknowledgments appear with Kinyon's and
+Urban's names on the first page, following the preceding paper's format.

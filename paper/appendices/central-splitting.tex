@@ -1,0 +1,72 @@
+\section{The integral central-splitting decision}\label{app:central}
+
+This supplies the abelian step of Proposition~\ref{prop:n5}. Given a
+finitely generated abelian group $Z$ and finitely many constraints
+$v\in Z_i+dZ$, decide whether $Z=Z_1\oplus Z_2$ satisfies them,
+including requirements that specified factors be nontrivial.
+
+Write $Z=F\oplus T$, with $F\cong\Z^n$ and $T$ finite. Enumerate
+all direct splittings $T=T_1\oplus T_2$ and all homomorphisms
+$\beta:F\to T$. These are finite sets. Every ordered splitting of
+$Z$ is the image of
+\[
+ Z_1=A\oplus T_1,\qquad Z_2=B\oplus T_2,\qquad F=A\oplus B
+\]
+under a shear $(f,t)\mapsto(f,t+\beta(f))$. Indeed the intersections
+with $T$ split $T$, the images in $F$ split $F$, and chosen free
+summands are graphs of homomorphisms into the complementary torsion
+factor. Combining these graph maps gives $\beta$.
+
+Apply the inverse shear to the constraints. Each separates into the
+finite test $t\in T_i+dT$ and a free test $f\in A_i+dF$.
+Let $W_i$ be the saturation of the lattice spanned by the exact
+($d=0$) vectors assigned to side $i$. The exact conditions are possible
+precisely when
+\[
+ W_1\cap W_2=0,\qquad W_1+W_2\text{ is primitive in }F.
+\]
+Test these by Smith form and choose $F=W_1\oplus W_2\oplus C$.
+Every splitting containing the $W_i$ is obtained from one of
+\[
+ A_k=W_1\oplus\langle c_1,\ldots,c_k\rangle,\qquad
+ B_k=W_2\oplus\langle c_{k+1},\ldots,c_e\rangle,\quad0\le k\le e,
+\]
+where $e=\rank C$, by an automorphism fixing $W_1+W_2$ pointwise.
+Such automorphisms have matrices
+\[
+ \Gamma=\left\{
+ \begin{pmatrix}I&0&U\\0&I&V\\0&0&W\end{pmatrix}:
+ W\in\GL_e(\Z)\right\}.
+\]
+A finite generating set consists of the displayed shears, elementary
+matrices, signed permutations on $C$. Let $M$ be the lcm of all
+positive moduli, or one if there are none. Enumerate the finite
+image of $\Gamma$ modulo $M$, retaining an actual word in integral
+generators for each image. For each image and each $k$, compute the
+projection $P$ onto the transported $A_k$ along $B_k$. The remaining
+constraints are exactly
+\[
+ (1-P)f=0\pmod d\quad\text{on side one},\qquad
+ Pf=0\pmod d\quad\text{on side two}.
+\]
+They are finite congruence tests. A passing stored word gives an actual
+integral splitting, not merely a modular idempotent; the free ranks and
+torsion sizes decide required nontriviality. Conversely every splitting
+is represented by one of these branches and residues. This proves the
+finite constructive step used in the group argument. In particular,
+idempotents with incompatible ranks at different primes cannot be
+mistaken for an integral splitting.
+
+For the preceding Smith reduction, if $UE_iV=D_i$, apply $U$ to the
+central defect vector. A zero row requires membership in $Z_i$;
+a diagonal entry $d>0$ requires membership in $Z_i+dZ$. These operations
+are valid over every abelian group, including finite groups. Once a
+splitting passes, solving the same Smith system constructs corrected
+lifts and therefore the group factors.
+
+The controlling \record{problems/N5/proof.md}{proof} and
+\record{problems/N5/integrality-audit.md}{integrality audit} include
+torsion shears, mixed centres, composite moduli and dependent-relator
+controls. The later
+\record{problems/N5/general-fp-audit.md}{finite-presentation command}
+connects this stage to rational support and the complete quotient search.

@@ -1,0 +1,32 @@
+\usepackage{iftex}
+\ifPDFTeX\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\fi
+\usepackage{lmodern}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{array,booktabs,longtable,graphicx}
+\usepackage{microtype,enumitem,xurl,xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\hypersetup{pdftitle={Forty-eight hours with GroupWorld: an experiment in agentic mathematical research},
+pdfauthor={Codex gpt-6-astra; Michael Kinyon; Josef Urban; Vladimir Shpilrain},
+pdfsubject={A 48-hour group-theory research experiment; candidate arguments awaiting independent review}}
+\setlist{topsep=4pt,itemsep=2pt}
+\setlength{\emergencystretch}{2em}
+\setlength{\LTcapwidth}{\textwidth}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newtheorem{theorem}{Proposition}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\DeclareMathOperator{\Aut}{Aut}\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\GL}{GL}\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Lie}{Lie}\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\rank}{rank}\DeclareMathOperator{\Span}{span}
+\newcommand{\Z}{\mathbb Z}\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}\newcommand{\N}{\mathbb N}
+\newcommand{\F}{\mathbb F}\newcommand{\clen}[1]{\lVert #1\rVert}
+\newcommand{\repo}{https://github.com/JUrban/gworld1}
+\newcommand{\recordbase}{https://github.com/JUrban/gworld1/blob/0d6b855fd6d9d9e5ddb5dbd186a2a590164c1341/}
+\newcommand{\record}[2]{\href{\recordbase#1}{#2}}
+\newcommand{\entry}[2]{\par\medskip\noindent\textbf{Problem #1.}\enspace\emph{#2.}\par\noindent}
+\newcommand{\evidence}[2]{\par\smallskip\noindent\emph{Record.}\enspace\record{problems/#1/#2}{Argument and supporting audit for #1}.\par}

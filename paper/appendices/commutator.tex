@@ -1,0 +1,300 @@
+\section{The all-class commutator recursion}\label{app:commutator}
+
+This appendix develops the candidate proof of Proposition~\ref{prop:n8}.
+The untruncated rational free Lie algebra is $L=L_\Z\otimes\Q$,
+graded by weight. Hall group coordinates remain integral throughout;
+rational changes below prove structural separation and do not replace
+the integral solution lattice. The elementary cases $g=1$, rank at
+most one and class at most one are handled directly.
+
+\subsection{Complete leading branches}
+The exact moves $(x,y)\mapsto(yx,y)$ and $(x,y)\mapsto(x,xy)$
+preserve $[x,y]$. The rotation
+$(x,y)\mapsto(y^{-1},y^{-1}xy)$ does so as well. On a common leading
+layer these realize $\SL_2(\Z)$. If the two leading terms are
+dependent, Euclidean reduction kills one of them and increases its
+weight. Nonzero commuting elements of an untruncated free Lie algebra
+are proportional: otherwise they span a two-dimensional abelian
+subalgebra, contrary to Shirshov--Witt. The normalized nonidentity
+target therefore has leading branches
+\[
+ [C,D]=W,\quad C\in(L_\Z)_p,\quad D\in(L_\Z)_q,
+ \quad p\le q,\quad p+q=d.
+\]
+
+For $p<q$ the bracket has no zero divisors, also over an algebraic
+closure. Its projective linear projection on
+$\mathbf P(L_p)\times\mathbf P(L_q)$ has centre disjoint from that
+Segre variety. A positive-dimensional projective fibre would meet
+the centre hyperplane in its ambient fibre space, so fibres are finite.
+Normalize a first nonzero coordinate of $C$ to one in finitely many
+charts. Gr\"obner bases give zero-dimensional coordinate algebras;
+rational roots of coordinate-multiplication characteristic polynomials,
+followed by testing the equations, enumerate all rational points.
+For each first-factor line choose primitive integral $C_0$. The
+solution $D_0$ of $[C_0,D_0]=W$ is unique. Integral factors exist
+only if $D_0$ is integral, and are then exactly
+\[
+ (kC_0,D_0/k),\qquad k\text{ a nonzero signed divisor of the content of }D_0.
+\]
+
+For $p=q$, the bracket map $\Lambda^2L_p\to L_{2p}$ is injective:
+split associative words into two length-$p$ blocks to recover
+$C\otimes D-D\otimes C$. The exterior preimage of $W$ must be
+integral and have alternating rank two. Intersect its rational support
+with $L_\Z$ to get a saturated rank-two lattice. In an oriented
+basis the exterior tensor is $h e_1\wedge e_2$, $h>0$. Enumerate
+the finitely many index-$h$ sublattices by Hermite form. Every other
+oriented basis is reached by the exact pair moves, leaving higher
+coordinates unrestricted. This proves finite completeness of the
+leading list, not just the existence of some leading decomposition.
+
+\subsection{Correction kernels and exact periods}
+Fix $C,D$, and put $n=c-d$. At offset $s$ the integral correction
+map is $A_s(U,V)=[U,D]+[C,V]$ on the full components of weights
+$p+s,q+s$. We use the two-coefficient inner-solution theorem:
+if $a,b$ belong to a free basis and $[a,V]+[U,b]=0$, then
+$U,V\in\Lie(a,b)$~\cite{remeslennikov-stoehr,altassan}. It is
+not applied to arbitrary coefficients without first constructing
+a free basis containing them.
+
+For $0<s<q-p$, a kernel has dimension at most one. For nonzero
+$U$, the graded subalgebra
+\[
+ \Q C+\Q U+\bigoplus_{j\ge p+s+1}L_j
+\]
+has a homogeneous free basis containing $C,U$, and contains $D,V$.
+The inner-solution theorem puts $D,V$ in $\Lie(C,U)$. Two independent
+first components $U_1,U_2$ would similarly give
+$D\in\Lie(C,U_1)\cap\Lie(C,U_2)=\Q C$, impossible by weight.
+These nonzero one-dimensional kernels are called exceptional.
+At $s=q-p>0$ the kernel is $\Q(D,0)$: use
+$\Q C+\bigoplus_{j\ge q}L_j$, kill $C$ and higher generators,
+and apply the centralizer fact. Its period is the exact substitution
+$x\mapsto y^kx$, with all residues retained if $D$ is nonprimitive.
+After that offset every kernel pair lies in $\Lie(C,D)$, by applying
+the same theorem in
+$\Q C+\Q D+\bigoplus_{j\ge q+1}L_j$; for equal weights use
+$L_{\ge p}$.
+
+Here is a finite period construction for all these latter kernels.
+In the free Lie algebra on $a,b$ with weights $p,q$, truncated at
+$c$, set $W_0=\log(e^{-a}e^{-b}e^ae^b)$. There is a filtered
+automorphism $\sigma$, with identity associated graded, satisfying
+$\sigma([a,b])=W_0$. Successively remove homogeneous discrepancies
+by correcting $a,b$: every derived Lie element is in
+$[a,H]+[H,b]$, by Jacobi induction. This is the degreewise
+symplectic-expansion construction; the related prior construction
+is credited in~\cite{kuno} and the retained gauge audit.
+
+If $[u,b]+[a,v]=0$ at offset $s$, the positive-weight derivation
+$\delta(a)=u$, $\delta(b)=v$ kills $[a,b]$. Thus
+\[
+ \alpha=\sigma\exp(\delta)\sigma^{-1}
+\]
+fixes $W_0$ and has first increments $u,v$. Its powers have rational
+polynomial coefficients in the exponent. In the weighted two-generator
+Hall group obtained by discarding weights greater than $c$, convert
+$\exp(\alpha^k(a)),\exp(\alpha^k(b))$ to group coordinates.
+Choose $M>0$ divisible by all denominators of their nonconstant
+coefficients. At $k=\pm M$ the coordinates are integral, so
+$\alpha^M$ and its inverse give actual group automorphisms fixing
+$[A,B]$. Substitution $A\mapsto x$, $B\mapsto y$ gives reversible
+pair substitutions in the target group, not necessarily automorphisms
+of that target.
+
+Noncommuting $C,D$ freely generate their subalgebra. Express a complete
+rational kernel basis in them and apply this construction to each
+integer kernel direction. The resulting integral multiples span a
+full-rank exact period lattice. Each such layer therefore has finitely
+many residue branches. Replacing the entire lattice by one rational
+representative would not be valid.
+
+\subsection{A diagonal positional-polynomial lemma}\label{app:positional}
+Let $E_0,E_1,\ldots$ freely generate an associative algebra over $\Q$,
+with $\delta(E_i)=E_{i+1}$. Encode the coefficient of
+$E_{i_1}\cdots E_{i_m}$ as that of $z_1^{i_1}\cdots z_m^{i_m}$.
+This is a linear dictionary, not an algebra homomorphism; $\delta$
+becomes multiplication by $z_1+\cdots+z_m$.
+
+Suppose $\delta V=[E_0,D]$ and $P$ encodes an $m$-letter $D$.
+Then $V$ has encoding
+\begin{equation}\label{eq:positional-quotient}
+ \frac{P(z_2,\ldots,z_{m+1})-P(z_1,\ldots,z_m)}
+ {z_1+\cdots+z_{m+1}}.
+\end{equation}
+Polynomiality implies cyclic invariance of $P(y_1,\ldots,y_m)$
+on the hyperplane $y_0+\cdots+y_m=0$. Let $R$ denote restriction
+of an $(m+2)$-letter encoding to
+\[
+ z_{m+2}=z_1,\qquad z_1+\cdots+z_{m+2}=0.
+\]
+
+\begin{lemma}\label{lem:diagonal}
+If $R([E_0,V])=0$, then $P$ is constant.
+\end{lemma}
+\begin{proof}
+Put $z=(z_1,\ldots,z_m)$ and $a=-\frac12\sum z_i$.
+Substituting~\eqref{eq:positional-quotient} into the assumption gives
+\[
+ 2P(z)=P(z_2,\ldots,z_m,a)+P(a,z_1,\ldots,z_{m-1}).
+\]
+The calculation may divide by $a$ on the nonempty open set $a\ne0$,
+then extends polynomially. Cyclic invariance rewrites it as
+\[
+ 2P(z)=P(z+ae_1)+P(z+ae_m).
+\]
+On the zero-sum hyperplane, let $T_{i\to j}$ halve coordinate $i$
+and add the other half to $j$. The last identity says $P$ is the
+average of its values under the two transfers from coordinate zero
+to its cyclic neighbors. Cyclic invariance gives the same identity
+at each coordinate. All these maps preserve the hyperplane and do
+not increase the $\ell^1$ norm.
+
+On a closed $\ell^1$ ball, $P$ attains a maximum. At a maximizing
+point both terms of each average must again maximize, so every finite
+transfer composition preserves maximality. Repeat a complete clockwise
+cycle of transfers $m+1$ times. Its matrix $B$ is positive and
+column-stochastic: retained halves permit waiting, and clockwise paths
+carry positive mass between every pair of coordinates. If $\epsilon$
+is its smallest entry and $\ell=m+1$, write
+$B=\epsilon J+(1-\ell\epsilon)C$ with $C$ column-stochastic when
+the latter coefficient is positive. On the zero-sum hyperplane
+$Jy=0$, so $B$ strictly contracts $\ell^1$; if that coefficient is
+zero it annihilates the hyperplane. Iteration tends to zero, making
+the maximum $P(0)$. The same applies to the minimum. Every ball
+therefore has constant value.
+\end{proof}
+
+For a Lie element $D$, a nonzero constant positional polynomial would
+be a multiple of $E_0^m$, which is a Lie element only for $m=1$.
+Except for $D=\lambda E_0,V=0$, the nonzero Lie solution therefore
+has $R([E_0,V])\ne0$. The other two identities needed below are
+\begin{equation}\label{eq:r-kills}
+ R(\delta F)=0,\qquad R([E_j,F])=z_1^jR([E_0,F]).
+\end{equation}
+They follow immediately from the restriction and apply at each fixed
+letter count. Injectivity of $\delta$ on positive-length tensors is
+injectivity of multiplication by their positional sum.
+
+\subsection{Why all later columns fail to cancel the first quadratic}
+Fix all pair coordinates below the first exceptional offset $t<q-p$.
+If $n\ge2t$, keep all coordinates at offsets $t,\ldots,2t-1$ and
+solve their commutator equations jointly. They are an affine integer
+linear system: products of two increments first enter at offset $2t$.
+Its complete solution set is empty or an affine integer lattice
+$\mathcal S$. The first kernel is a line. If its coefficient varies
+on $\mathcal S$, choose an integral lattice basis with that coefficient
+$k_0+bT$, $b\ne0$, and every other direction starting strictly later.
+At offset $2t$, the new error has the form
+\[
+ q(T)+B\mathbf s=0\pmod{\im A_{2t}},
+\]
+with $q$ of degree at most two and $B$ constant. The needed statement is
+\begin{equation}\label{eq:full-separation}
+ q_2\notin\Span_\Q(\im A_{2t},\text{ all columns of }B).
+\end{equation}
+Showing merely $q_2\notin\im A_{2t}$ would leave an essential gap.
+
+Write $X=\log x$, $Y=\log y$. In the free graded subalgebra
+$L_{\ge p}$ include $C$ in a homogeneous free basis. A fixed filtered
+substitution, identity on associated graded, removes the fixed
+$X$-components at offsets $1,\ldots,t-1$. This is a rational proof
+normalization independent of the parameters. Put
+\[
+ Z=h(\operatorname{ad}_X)Y,\qquad h(z)=(1-e^{-z})/z.
+\]
+The part of $\log[x,y]$ linear in $Y$ is $[X,Z]$. Every other term
+has at least two $Y$ occurrences and one $X$; any dependence on a
+block parameter has weight at least $p+2q+t>d+2t$. Such terms may
+contribute to the fixed target but do not affect its varying block.
+The required components of $X,Y,Z$ are affine in the block parameters:
+two varying $X$ increments already have weight $2(p+t)>p+2t$,
+and the analogous inequalities handle $Y$ and $h(\operatorname{ad}_X)Y$.
+
+Use the graded free subalgebra
+$\mathcal A=\Q C+\bigoplus_{j\ge p+t}L_j$. Include $C$ and the
+nonzero first kernel component $U$ in a homogeneous free basis and
+project onto $\Lie(C,U)$. The inner-solution theorem puts the leading
+$D$ and corresponding $V$ in this subalgebra, so the projection fixes
+them. Including all of $L_{p+t}$ also retains arbitrary particular
+solutions at that offset; it is not a projection justified only for
+the kernel line.
+
+Set $E_j=(\operatorname{ad}_C)^jU$, $\delta=\operatorname{ad}_C$.
+Lazard elimination makes the ideal of $U$ free on these $E_j$.
+Let $D_m$ be the nonzero component of $D$ with maximal $E$-letter
+count. Its associated $V_{m+1}$ satisfies
+$\delta V_{m+1}=-[E_0,D_m]$. The harmless sign change in
+Lemma~\ref{lem:diagonal} yields
+\[
+ R([E_0,V_{m+1}])\ne0.
+\]
+The constant exception is excluded by the Lie condition if $m>1$
+and by $q>p+t$ if $m=1$.
+
+Every projected first-factor component at offset $i\le2t$ has at
+most one $E$ letter, since $2(p+t)>p+2t$. Thus it is zero or a
+multiple of $E_j$ with $pj=i-t$. Consequently
+$[L_{p+2t},D]$ has at most $m+1$ such letters, and $R$ kills
+$[C,L_{q+2t}]$. At letter count $m+2$ it annihilates $\im A_{2t}$.
+
+For $0\le j<t$, let $F_j$ be the letter-count-$(m+1)$ part of the
+fixed $Z$ component at offset $j$; $F_0=0$. The coefficient of $T$
+in the already satisfied equation at degree $d+t+j$, followed by
+projection and $R$, gives the triangular convolution
+\[
+ bR([E_0,F_j])+\sum_{i=t+1}^{t+j}
+ b_i z_1^{(i-t)/p}R([E_0,F_{t+j-i}])=0.
+\]
+Only integral exponents occur. Induction gives $R([E_0,F_j])=0$
+for all $j<t$. At degree $d+2t$, any other parameter starts later
+than $t$: its varying $X$ part pairs only with such fixed $Z$ parts,
+and its varying $Z$ part pairs with $C$ or a vanished fixed lower
+$X$ part. Equation~\eqref{eq:r-kills} therefore kills every column
+of $B$, including universal-kernel columns.
+
+The coefficient of $T^2$ is $b^2[U,V]$, whose letter-count-$(m+2)$
+part has nonzero $R$-image. This proves~\eqref{eq:full-separation}.
+After the lower equations have been satisfied, the target error begins
+in degree $d+2t$. Hall and logarithmic coordinates agree there, and
+the filtered normalization is identity in that first error degree.
+Thus the functional pulls back to the actual group correction space.
+The retained \record{problems/N8/group-block-supplement.md}{coefficient dictionary}
+spells out this group interface and the later columns.
+
+\subsection{Termination and completeness}
+For each leading pair process successive offsets. A zero kernel has
+at most one integral affine solution. A universal kernel has finitely
+many branches modulo its full-rank exact period lattice. At the first
+exceptional offset $t$, if fewer than $2t$ offsets remain from the
+leading degree, the whole remaining system is jointly linear and is
+decided at once.
+
+Otherwise form $\mathcal S$. Reject an empty lattice. If its first
+exceptional coefficient is constant, fix the prefix through $t$ and
+restart at $t+1$. If it varies, use rational linear algebra to find a
+functional annihilating $\im A_{2t}$ and all later columns but not
+$q_2$, as guaranteed by~\eqref{eq:full-separation}. Its scalar
+quadratic has at most two integral roots. For each root fix the entire
+prefix through $t$ and restart, freeing higher coordinates again.
+
+Freeing those coordinates may repeat unsuccessful continuations, but
+cannot lose a solution. A positive answer still requires every equation
+through class $c$ and a final actual commutator check. The nonunit step
+$b$, all integer congruences and all exact-period residues remain in
+the corresponding integral systems. A rational correction or rational
+root is never accepted as an integral one. Each restart increases the
+fixed offset and every branch has finitely many children, so the tree
+terminates. Conversely any solution has a normalized leading branch
+and survives every necessary equation, exact period and quadratic root
+choice. This proves the proposed decision and construction.
+
+The proof needs no bound on the number of exceptional offsets and no
+integer-curve oracle. The positional argument has substantial Lean
+support, including its ordered-word dictionary and full correction-span
+formulation. The abstract free-Lie identification, the production of
+the group block and the full recursive program are outside Lean.
+Higher-weight positive and negative native group controls support
+specific instances; they do not establish the structural proof in
+all ranks and classes.

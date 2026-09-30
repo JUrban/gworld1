@@ -1,0 +1,143 @@
+\section{The shortening interface for bounded equivalence}\label{app:shortening}
+
+This appendix gives the substantive sufficiency step of
+Proposition~\ref{prop:bounded}. It is a candidate application of Sela's
+graded shortening theorem~\cite{sela}; the JSJ and Rips machinery is
+imported, not verified by the finite stabilizer program.
+
+\subsection{The relative lemma and its normalization}
+Let $A=F(a_1,\ldots,a_k)$, $k\ge2$, and let $u\ne1$ lie in no
+proper free factor of $A$. The required assertion is that for fixed
+target rank $r\ge2$ there is $K$ such that every injection
+$f:A\to F_r$ admits $c\in F_r$ and $\theta\in\Aut(A)$ fixing
+$u$ with
+\begin{equation}\label{eq:relative-short}
+ \max_i|cf(\theta(a_i))c^{-1}|\le K\clen{f(u)}.
+\end{equation}
+
+Adjoin a generator $z$, set $G=A*\langle z\rangle$ and
+$P=\langle u,z\rangle$. There is no nontrivial free splitting with
+$P$ in one factor. Indeed the intersection of that free factor with
+$A$ is a free factor of $A$ containing $u$, hence all of $A$; it
+also contains $z$. The same intersection argument shows that every
+automorphism fixing $P$ pointwise preserves $A$ and restricts to
+$\Aut(A/u)$.
+
+Conjugate $f(u)$ to a cyclically reduced word, then minimize
+$\max_i|f(\theta(a_i))|$ over $\Aut(A/u)$. The integer minimum
+exists. Failure of~\eqref{eq:relative-short} would give minimizing
+injections $f_m$ with
+\[
+ L_m=|f_m(u)|=\clen{f_m(u)},\qquad
+ M_m=\max_i|f_m(a_i)|>2^m(1+L_m).
+\]
+Extend to injections $h_m:G\to F_r*\langle z\rangle$ fixing $z$.
+Use the fixed generating set $\{a_1,\ldots,a_k,u,z\}$, with the
+parameters explicit. The maps are shortest under the graded modular
+subgroup, because it fixes $P$ and every such precomposition restricts
+to the minimization already made.
+
+In Sela's Definitions 10.1--10.3, the proposed reduction regards this
+relative group as rigid or solid. If the graded JSJ is trivial it is
+rigid. Otherwise minimizing an embedding in its graded modular orbit
+gives a constant shortening sequence with quotient $G$, which dominates
+every quotient and is the maximal shortening quotient; constant
+sequences are allowed in the source's convention. The no-relative-free-product
+condition follows from injectivity and the free-factor argument above.
+The displayed $2^m$ inequality then gives a flexible graded sequence.
+These are the hypotheses that must be checked in applying the deep
+proper-quotient conclusion, rather than replacing it by ordinary
+bounded-parameter shortening.
+
+Here is the normalization check needed to identify its canonical
+limiting quotient. In the target tree let $o$ be the identity,
+$D_m(x)$ the maximum displacement by the chosen generators, and
+$\mu_m=\min_xD_m(x)$ over vertices. The axes of $f_m(u)$ and $z$
+meet precisely at $o$. One of them has projection of $x$ equal to
+$o$, so $D_m(x)\ge2d(x,o)$. A generator attaining $M_m$ gives
+$M_m\le2d(x,o)+D_m(x)$. For a minimizing vertex $x_m$,
+\begin{equation}\label{eq:minimum-compare}
+ M_m/2\le\mu_m\le M_m,\qquad d(x_m,o)/\mu_m\le1/2.
+\end{equation}
+Moreover, for some $s\in\{u,z\}$ along a subsequence,
+$o\in[x_m,h_m(s)x_m]$. Thus $o$ and all its fixed orbit translates
+belong to finite orbit hulls in the minimum-displacement normalization;
+bounded distance alone is not being used to assume their survival.
+After rescaling by $\mu_m$, $P$ fixes the limiting point of $o$.
+
+Pass to a subsequence with $|f_m(a_i)|=M_m$ for one fixed $i$ and
+$M_m/\mu_m\to\rho\in[1,2]$. The three points
+$h_m(a_i)o,h_m(za_i)o,h_m(z^{-1}a_i)o$ have unscaled pairwise
+distances $2M_m+1,2M_m+1,2M_m+2$, by free-product normal forms.
+They give a nondegenerate tripod with all legs of length $\rho$ in
+the same canonical limit. An element in the action kernel fixes this
+tripod. Sela's elementary tripod lemma places it eventually in the
+kernels of the $h_m$~\cite[Lemma 1.3(iii)]{sela}; injectivity makes
+it trivial. Hence the limiting quotient is $G$ itself. The flexible
+inequality survives passage to a subsequence. This contradicts the
+properness of flexible graded quotients of rigid or solid groups
+\cite[Lemma 10.4(ii)]{sela}, giving~\eqref{eq:relative-short}.
+
+Shortness here concerns the original maps with their fixed parameter
+images. Conjugating to the minimizing basepoint is used for the limit;
+it is not asserted to preserve based graded shortness. The separate
+\record{problems/F38/normalization-supplement.md}{normalization supplement}
+records the complete comparison with the source convention.
+
+\subsection{From a finite stabilizer orbit to the length bound}
+Suppose first that $u$ fills $A$ as a free factor and the stabilizer
+has a finite orbit on $[v]$ in $A$, represented by words of lengths
+at most $B$. Applying~\eqref{eq:relative-short} to an injection $f$
+and then to a representative of $\theta^{-1}[v]$ gives
+\[
+ \clen{f(v)}\le BK\clen{f(u)}.
+\]
+No value of $K$ is required by the eventual decision algorithm.
+
+In ambient rank at least three choose a minimal free factor $A$
+containing $u$. If $\rank A\ge2$, every complementary letter $b$
+can be Nielsen-twisted as $b\mapsto ba_1$ or $b\mapsto ba_2$ for
+distinct basis letters $a_1,a_2$ of $A$. Finiteness of $H_u[v]$
+forces bounded lengths under both iterations. For a cyclic word whose
+non-$e$ letters are $t_1,\ldots,t_s$ and intervening $e$-runs are
+$e^{k_i}$, the exact formula for $d\mapsto de$ is
+\begin{equation}\label{eq:nielsen-exact}
+ \clen{\sigma_{d,e}^n(w)}
+ =s+\sum_i|k_i+n(\mathbf1_{t_i=d}-\mathbf1_{t_{i+1}=d^{-1}})|.
+\end{equation}
+Inverse non-$e$ neighbors cannot newly cancel: their intervening run
+was nonempty and its coefficient of $n$ is zero. Thus zero growth
+requires each positive $b$ to pair with a negative $b$ across a pure
+$a_j$ run. It cannot satisfy this for both $a_1,a_2$ unless no $b$
+occurs. Hence $v$ is conjugate into $A$, and the preceding bound applies
+to each restricted ambient automorphism.
+
+If $A=\langle a\rangle$ and the ambient rank is at least three,
+use the maps $b\mapsto bc$, $c\mapsto cb$, $b\mapsto ba$, and
+$x_j\mapsto x_jb$ for the remaining basis letters. Formula~\eqref{eq:nielsen-exact}
+shows that their common bounded conjugacy classes are exactly powers
+of $a$. One explicit check is the product of the first three two-vertex
+zero-growth graphs: its $b,c$ edges form a forest, leaving only
+$a$-loops and loops of the unused generators after pruning. The last
+maps remove those unused letters. The full eight-vertex graph is
+listed in the retained \record{problems/F38/primitive-power-proof.md}{Nielsen argument}.
+Therefore $v$ is a power of the same primitive element, with constant
+length ratio.
+
+Finally take ambient rank two and $u=a^p$. Bounded iterates under
+$b\mapsto ba$ put $v$, up to conjugacy, in
+$\langle a,bab^{-1}\rangle$. Fix an expression of length $L$ in
+these generators. Under an automorphism put $A=\alpha(a)$,
+$B=\alpha(b)$, $C=BAB^{-1}$ and $\ell=\clen A\ge1$.
+The rank-two commutator identity gives
+$\clen{AC^{-1}}=\clen{ABA^{-1}B^{-1}}=4$.
+If the axes of $A,C$ are disjoint their distance is at most one,
+by the tree product formula. At a nearest vertex their displacements
+are at most $\ell+2$. Therefore
+\[
+ \clen{\alpha(v)}\le L(\ell+2)\le3L\ell
+ =\frac{3L}{|p|}\clen{\alpha(u)}.
+\]
+This is specifically an ambient-automorphism argument. It completes
+the one-sided criterion. Applying it in both directions gives
+commensurability of the two oriented stabilizers.
