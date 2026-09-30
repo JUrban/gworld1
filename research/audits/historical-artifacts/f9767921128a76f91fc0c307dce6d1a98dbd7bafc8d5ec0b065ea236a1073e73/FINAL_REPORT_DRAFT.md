@@ -207,9 +207,9 @@ Mathlib artifact was rebuilt or that another kernel checked the result.
 The runner allocates cooperative CPU/memory reservations, sets CPU
 affinity and applies per-process address-space limits. These are not
 continuous measurements of aggregate peak memory or cgroup enforcement.
-The [latest evidence checkpoint](evidence-checkpoint-2026-09-30T0642.md)
+The [interim resource checkpoint](resource-process-checkpoint-2026-09-30.md)
 reconstructs peaks of eight CPU slots and 52 GB in requested limits, with
-no recorded slot overlap or budget excess. All 730 receipts in that
+no recorded slot overlap or budget excess. All 660 receipts in that
 checkpoint are now terminal; a separate /proc inspection found no
 remaining recorded workers. These are interim observations. The actual
 deadline still requires its own process and resource accounting.
@@ -220,12 +220,10 @@ to 25 exact old versions recovered from Git. No bound content was missing
 after correcting the scanner's path resolution. The 88 ignored A5 source
 files also matched the retained publisher source archive; three B9
 binaries remain intentionally omitted with build records. Later closing
-audits have additional manifests. After the
-[expanded checkpoint](artifact-checkpoint-expanded-2026-09-30.md), the
-[06:42 checkpoint](evidence-checkpoint-2026-09-30T0642.md) reconciles 15,274
-bindings across 172 selected records: 15,216 current matches and 58 exact
-historical matches, with no unresolved bound content. All 57 historical
-file versions indexed at that observation have their exact bytes retained.
+audits have additional manifests. The [expanded checkpoint](artifact-checkpoint-expanded-2026-09-30.md)
+now reconciles 6,731 bindings across 141 selected manifests/ledgers: 6,692
+current matches and 39 exact historical matches, with no unresolved bound
+content. Its subsequent process observation found all 664 receipts terminal.
 Hash reconciliation establishes which bytes were retained, not that their
 mathematical claims are correct.
 

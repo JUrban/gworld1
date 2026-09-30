@@ -22,14 +22,8 @@ boundary of the published free-nilpotent algorithm.
 [N8](problems/N8/README.md) also has a candidate
 algorithm for single commutator equations in every finite-rank free
 nilpotent group. See its [general proof](problems/N8/general-proof.md)
-and [audit](problems/N8/general-audit.md). A [limited Lean check](problems/N8/averaging-lean-audit.md) verifies the stochastic contraction and maximum principle used in its separation argument. The full all-rank/class
-[word command](problems/N8/general-word-audit.md) is now implemented, with
-[native group and integer-lattice checks](problems/N8/general-lattice-branches-audit.md).
-The theorem argument and novelty require specialist review. N5 also has a
-[general promised-nilpotent presentation command](problems/N5/general-fp-audit.md).
-The [latest evidence checkpoint](reports/evidence-checkpoint-2026-09-30T0642.md)
-records retained artifact and process/resource checks; final deadline closure
-remains outstanding.
+and [audit](problems/N8/general-audit.md). A [limited Lean check](problems/N8/averaging-lean-audit.md) verifies the stochastic contraction and maximum principle used in its separation argument. The full all-rank implementation
+is not complete; the theorem argument and novelty require specialist review.
 The new [B9 partial candidate](problems/B9/infinite-family-proof.md) constructs
 infinitely many special braids on five strands, giving countably infinitely
 many in every B_N with N>=5. The [small-strand supplement](problems/B9/small-strand-proof.md)

@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 06:43 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 06:31 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -106,9 +106,6 @@ covers arbitrary finite rank/class, including elementary boundaries. Twelve
 integrated controls and separate native GAP reconstruction cover delayed and
 nonprimitive cases and exact negative obstructions. The all-rank structural
 proof remains a specialist-review dependency, not established by finite tests.
-The subsequent [integral-block audit](../problems/N8/general-lattice-branches-audit.md)
-checks fixed and step-two parameters in the complete recursion, including
-native comparison of the full integer kernel lattices.
 
 The largest shared dependency is the full solution-language construction
 used by F34(a) and F38(a). Other priority review points are F38(c)'s graded
@@ -158,9 +155,7 @@ The [interim resource/process checkpoint](resource-process-checkpoint-2026-09-30
 records the requested-limit peaks and actual process observation. It is
 not the final deadline closeout or a measurement of peak memory use.
 
-The [latest evidence checkpoint](evidence-checkpoint-2026-09-30T0642.md)
-reconciles 15,274 bindings across 172 selected records, including exact
-historical versions, with no missing bound content. All 730 recorded jobs
-were terminal after that observation; no reservation conflict or remaining
-worker was found in its stated scope. Final deadline reconciliation remains
-outstanding.
+The [expanded artifact checkpoint](artifact-checkpoint-expanded-2026-09-30.md)
+includes the closing manifests and historical scope versions: all 6,731
+examined bindings have exact available content. Final deadline reconciliation
+remains outstanding.
