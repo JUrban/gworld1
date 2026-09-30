@@ -2272,3 +2272,8 @@ After09ad49a, returned to broader portfolio. F32 unsplitpriorlead replaced by ex
 ## N5 higher-class native input (2026-09-30T05:35:50.009125+00:00)
 
 Active goal/state revalidated at18dc6a4; general native-pcp Malcev input implemented using torsion quotient, power-free upper-central rebase and faithful matrix logarithms. Nine groups include class3/class4, mixed classes, noncentral finite torsion and finite-relative-order torsion-free control. Three sequential1CPU8GB jobs pass2.176/3.181/1.875s; Python reconstructs108words/222brackets and rejects23linear-log shortcuts; GAP replays full centroid/CRT for11factors. Empty stderr, all hashes verified, PIDs absent. Closure observes696terminal receipts/emptyregistry/no remainingworkers. 30 bindings retained. Originalpage/fragment reread and renderingviewed. No fullhigher-class groupalgorithm, count, novelty, deadline, subagentorpush change. Currentresults remains explicitly dated05:13 until next reportrefresh.
+
+
+## N5 general rational support kernels (2026-09-30T05:42:48.647469+00:00)
+
+Aftera83f132 implemented adjoint exponential kernel construction, upper-triangular basis conjugation and denominator clearing. Twelve native groups/forty rational partitions pass actual subgroup comparisons, zero/full boundaries and complementary intersections inT(K); nontrivialdenominators2/12exercised. Index2gluedsubgroup retains generation-index2obstruction forproperpartitions. Three sequential1CPU8GB runs pass2.527/2.677/3.731s, emptystderr, allhashesverified/PIDsabsent. Closure699terminal receipts/emptyregistry/no remainingworkers. 38 bindings; two exactoldreports archivedbeforeupdates. Generalbounded-index and central-lifting integration stillpending. No count,novelty,deadline,subagentorpushchange.
