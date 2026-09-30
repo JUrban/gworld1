@@ -2103,3 +2103,8 @@ verification/reporting reserve.
 ## M0 constructive dependency check (2026-09-29T23:56:51.515894+00:00)
 
 Previous turn made concrete progress at f146fef and8dce224, with source-scope note801e885. Revalidated active state, unchanged deadline, clean worktree and empty registry. Audited M0 square Jacobian dependency: reread primary lemma and viewed p517, wrote the exact derivative-convention conversion and a direct integral-flow proof with inverse-word construction. Python and two GAP runs pass. GAP checks16 maps,84 two-sided generator compositions,3 disconnected signed-flow fixtures,84 derivative identities, and an S4 separator showing one displayed free lift is not surjective despite inducing a metabelian automorphism. Three sequential1CPU/6GB jobs terminal. No count, novelty or deadline change; no push.
+
+
+## F37 finite-quotient obstruction (2026-09-30T00:10:45.994599+00:00)
+
+Finished the F37 finite-quotient route audit. Read the global finite-group and symmetric-generator hypotheses of Nikolov--Segal v6, viewed actual p3, and derived the bound with explicit primitive lifts and two primitive abelian representatives. Downloaded Bardakov--Shpilrain--Tolstykh v1 after failed author-host and guessed-v2 requests; read Section2 and viewed pp8--9. Their prior explicit family gives undetectable lower bounds. No mathematical job, count change, push or deadline change. This turn supplies a concrete obstruction, not another solution.

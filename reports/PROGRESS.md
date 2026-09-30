@@ -873,3 +873,8 @@ or deadline change and no independent specialist review is implied.
 ## M0 constructive dependency check (2026-09-29T23:56:51.515894+00:00)
 
 [M0 constructive Jacobian audit](../problems/M0/flow-inverse-audit.md) now supplies the exact source-convention conversion and an explicit integral-flow construction of inverse words. Independent GAP replay checks the finite certificates and a free/metabelian boundary example. The criterion remains credited prior work; no new result count. Tally10whole/2partial/0established-novel unchanged.
+
+
+## F37 finite-quotient obstruction (2026-09-30T00:10:45.994599+00:00)
+
+[F37 approach obstruction](../research/notes/F37-finite-quotient-obstruction.md): Nikolov--Segal's prescribed-generator commutator theorem implies a uniform bound on primitive-image length in every marked finite quotient. The prior unbounded-width theorem supplies words outside any fixed primitive-length ball. Thus sufficiently large balls are proper and profinitely dense; quotient exclusion cannot decide all negative instances. This does not answer F37 or change the10whole/2partial/0established-novel tally.

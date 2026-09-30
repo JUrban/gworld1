@@ -940,3 +940,8 @@ Sections2–3 through Lemma3.2 and Section6 including Theorem6.1 proof;
 actual pages2/8/9 viewed. Used the prior theorem only in the stronger
 F39 obstruction. No new F40 claim, full novelty search or specialist
 validation. Exact inference and computation boundaries are in the note.
+
+
+## F37 finite-quotient obstruction (2026-09-30T00:10:45.994599+00:00)
+
+Nikolov--Segal1102.3037v6 Theorem1.2: finite groups, symmetric generating set, normal H, bounded products of commutators with those generators. Introduction/theorem read, printed p3 actually viewed; no full80-page proof audit. Separately downloaded v3 retained, not controlling. Bardakov--Shpilrain--Tolstykh math0311257v1 Section2 and Lemma2.4 proof read, pp8--9 viewed; explicit unbounded primitive-length family is prior. Exact sources/hashes, failed retrievals, bounded search queries and our uncounted deduction are in research/notes/F37-finite-quotient-obstruction.md. No novelty claim.

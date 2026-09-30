@@ -955,3 +955,8 @@ verification/reporting reserve.
 ## M0 constructive dependency check (2026-09-29T23:56:51.515894+00:00)
 
 M0 square-Jacobian dependency now has a direct constructive flow proof and exact inverse-word replay; no need to repeat its finite field or inverse suites without a new concern. Continue a distinct unresolved lead or a concrete dependency issue in another candidate, preserving the final-eight-hours audit/reporting reserve. All jobs terminal; original deadline remains30September10:04:49UTC.
+
+
+## F37 finite-quotient obstruction (2026-09-30T00:10:45.994599+00:00)
+
+Retire finite-quotient exclusion as a complete F37 decision strategy: the new uniform primitive-image bound obstructs it for all sufficiently large fixed lengths. Do not enlarge finite quotient searches for that purpose. Higher-rank primitive-length decision and same-rank determinant reflection remain unresolved. Continue another structural lead or concrete candidate audit; retain the final-eight-hours reporting reserve and the original30September10:04:49UTC deadline.
