@@ -2307,3 +2307,8 @@ After0eb0ec5 added actual word-input decision/constructor with rank0/class0/abel
 ## Scope reconciliation through06:33 (2026-09-30T06:34:11.665480+00:00)
 
 Afterfd5f577 updated onlyN8 implementation boundary in scope/triage and rebuilt interimledger. Fourexactpreviousversionsarchived;CSVLFpreserved. scope-ledger-v7passes0.119s1CPU2GB,83currentbindings/all195IDs/counts10whole2partial0novelverified. Receiptloghashesverified,PIDabsent,registryempty.13manifestbindings. No mathematicalrerun,deadlinefreeze,countchangeorpush.
+
+
+## N8 integral block branch coverage (2026-09-30T06:40:28.907506+00:00)
+
+Previous turn progressed through0eb0ec5/fd5f577/59b4726; originalclock andcleanstate revalidated. Targetedclass10controls cover two fixed-exception branches and one step2integerparameter; no solverchange. Three86x53blocks havekernelranks0,1,0; quadratic-4(2T+7)(T+3)retainsintegerroot-3only. NativeGAPcheckscompleteintegerlattices/unimodularchange plus3witnesses/464columns/8blocks/1quadratic6samples. Sequential1CPU8GB jobs20.437s/7.945s pass,empty stderr,hashes/PIDsverified. Closure728terminalreceipts/emptyregistry/no remainingworkers; 46bindings. BroaderG6/MA5/S6/S8webscan andoriginalfragments producedno newargument: amenabilitydoesnotboundfractiongrowth, connectedlinearfinitebasisdoesnotsettlefiniteextensions, f.p.embeddingdoesnotpreservesolvability. No status/candidate/novelty/deadline change orpush.
