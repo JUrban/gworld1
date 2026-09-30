@@ -120,7 +120,9 @@ Representative evidence illustrates the differing scopes:
   An unfaithful representation is never used to infer braid equality.
 
 The imported mathematics is substantive in several candidates. In
-particular, F38(c)'s shortening application, F41's arbitrary-definable-set
+particular, F38(c)'s shortening application (with its explicit
+[canonical-normalization comparison](../problems/F38/normalization-supplement.md)),
+F41's arbitrary-definable-set
 theorem, GA3's general ordered-tree collapse, N5's rational decomposition
 machinery, N8's all-rank structural lemmas and N9's fixed-group encoding
 deserve targeted specialist review. Successful examples do not prove
