@@ -2,7 +2,7 @@
 
 **Active run: 28 September 2026, 10:04:49 UTC → 30 September 2026, 10:04:49 UTC.**
 
-[Current results and review guide](reports/CURRENT_RESULTS.md) · [Progress history](reports/PROGRESS.md) · [Research plan](research/PLAN.md) · [Research log](research/LOG.md). The initial preparation snapshot is preserved in Git. The generated catalogue and original source metadata remain preparation snapshots; current candidate notes appear on the problem pages, with complete assessments in [the working triage](research/triage.csv) and [dated claim ledger](research/claims.jsonl).
+[Current results and review guide](reports/CURRENT_RESULTS.md) · [Progress history](reports/PROGRESS.md) · [Research plan](research/PLAN.md) · [Research log](research/LOG.md). The initial preparation snapshot is preserved in Git. The generated catalogue and problem READMEs retain their preparation status; current assessments are in [the working triage](research/triage.csv) and [dated claim ledger](research/claims.jsonl).
 
 [Entry/subpart scope ledger](reports/RESULT_SCOPE.md) ·
 [Interim final-report draft](reports/FINAL_REPORT_DRAFT.md) ·

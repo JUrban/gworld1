@@ -6,7 +6,7 @@ Source begins at line 12; byte range [386, 514). The raw fragment is stored in `
 
 Heading star: False. Starred subparts: none detected. Hall of Fame entries: 0. Linked background sections indexed: 0.
 
-Current openness and exact scope require review. No solving has started. The machine-readable source evidence is in `data/problems.json`; the extracted text below is a search aid, not an authoritative transcription.
+Current research: **whole-entry candidate**. The [proof](proof.md) shows that a primitive-preserving endomorphism of a free metabelian group of any finite rank is an automorphism. Ranks at most two and the credited Fox/Magnus ingredients are prior. See the [audit](audit.md), [constructive witness](kronecker-construction.md), and [integral-flow audit](flow-inverse-audit.md). The effective bounds are not practical complexity bounds. Correctness and novelty await independent specialist review. The following retains the original source metadata. The machine-readable source evidence is in `data/problems.json`; the extracted text below is a search aid, not an authoritative transcription.
 
 ```text
 (M0) (E. I. Timoshenko, V. Shpilrain)

@@ -6,7 +6,7 @@ Source begins at line 190; byte range [9936, 10232). The raw fragment is stored 
 
 Heading star: False. Starred subparts: none detected. Hall of Fame entries: 0. Linked background sections indexed: 1.
 
-Current research: **whole-entry candidate**. The [proof](proof.md) constructs an isomorphism between index-two subgroups of the rank-two free group with no nontrivial forward-invariant subgroup, even without finite generation or normality. See the [audit](audit.md) and [matrix formalization](matrix-lean-audit.md); Lean verifies the matrix argument, not the full group theorem. Correctness and novelty await independent specialist review. The following retains the original source metadata. The machine-readable source evidence is in `data/problems.json`; the extracted text below is a search aid, not an authoritative transcription.
+Current openness and exact scope require review. No solving has started. The machine-readable source evidence is in `data/problems.json`; the extracted text below is a search aid, not an authoritative transcription.
 
 ```text
 (F28) (S.Sidki) Let S be a subgroup of index 2 in the group F_2, and
