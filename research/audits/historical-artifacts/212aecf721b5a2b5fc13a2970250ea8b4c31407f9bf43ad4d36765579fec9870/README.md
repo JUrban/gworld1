@@ -28,7 +28,7 @@ and [audit](problems/N8/general-audit.md). A [limited Lean check](problems/N8/av
 [native group and integer-lattice checks](problems/N8/general-lattice-branches-audit.md).
 The theorem argument and novelty require specialist review. N5 also has a
 [general promised-nilpotent presentation command](problems/N5/general-fp-audit.md).
-The [latest evidence checkpoint](reports/evidence-checkpoint-2026-09-30T0925.md)
+The [latest evidence checkpoint](reports/evidence-checkpoint-2026-09-30T0830.md)
 records retained artifact and process/resource checks; final deadline closure
 remains outstanding.
 The new [B9 partial candidate](problems/B9/infinite-family-proof.md) constructs

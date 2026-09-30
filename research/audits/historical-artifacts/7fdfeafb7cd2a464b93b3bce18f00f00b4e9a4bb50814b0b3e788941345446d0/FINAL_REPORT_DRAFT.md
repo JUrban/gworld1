@@ -151,9 +151,8 @@ Representative evidence illustrates the differing scopes:
   nineteen original-generator factor words. A serialization failure is retained.
 - N5's class-two presentation interface was checked on 27 presentations,
   with 810 arithmetic identities, 251 relators and 12 native direct
-  decompositions, plus three standalone invocations. That earlier interface
-  covered class two only; the later general command above covers the full
-  promised-nilpotent input class.
+  decompositions, plus three standalone invocations. This is not an
+  implementation of the arbitrary-class theorem.
 - M0's finite-field witnesses come with actual free bases and inverses;
   separate GAP arithmetic checks their evaluations. The integral-flow
   supplement reconstructs inverse words for the credited Jacobian criterion.
@@ -239,18 +238,18 @@ Mathlib artifact was rebuilt or that another kernel checked the result.
 The runner allocates cooperative CPU/memory reservations, sets CPU
 affinity and applies per-process address-space limits. These are not
 continuous measurements of aggregate peak memory or cgroup enforcement.
-The [09:25 evidence checkpoint](evidence-checkpoint-2026-09-30T0925.md)
+The [08:30 evidence checkpoint](evidence-checkpoint-2026-09-30T0830.md)
 reconstructs peaks of eight CPU slots, 52 GB in requested per-process limits
 and seven simultaneous jobs, with no recorded conflict or budget excess.
-All 782 receipts at that checkpoint are terminal: 586 process successes
+All 763 receipts at that checkpoint are terminal: 567 process successes
 and 196 nonsuccesses, including 46 timeout and 24 interruption flags. These
 are process conditions, not counts of proofs. Its later /proc observation
-found no matching worker. The actual deadline still requires its own final
-accounting.
+found no matching worker. Subsequent work has additional receipts; the
+actual deadline still requires its own final accounting.
 
-That checkpoint reconciles 26,533 bindings across 202 selected records:
-26,370 current matches and 163 historical matches, with no unresolved bound
-content. All 152 historical file versions indexed there retain their exact
+That checkpoint reconciles 21,612 bindings across 189 selected records:
+21,502 current matches and 110 historical matches, with no unresolved bound
+content. All 114 historical file versions indexed there retain their exact
 bytes. The 91 intentionally untracked bound paths comprise 88 A5 dependency
 sources and three B9 compiled binaries, with archive/build records. Hash
 reconciliation identifies retained bytes; it does not prove their claims.
@@ -276,3 +275,4 @@ are reproducible from the recorded formatting and hash.
    links and deliverables, and record remaining reproduction limitations.
 5. Only after those deliverables exist, replace this interim draft by the
    self-contained final report and mark the research goal complete.
+

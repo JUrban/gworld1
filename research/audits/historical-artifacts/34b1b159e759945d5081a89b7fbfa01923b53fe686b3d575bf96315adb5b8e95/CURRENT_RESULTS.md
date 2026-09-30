@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 09:28 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 09:20 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -194,12 +194,11 @@ The [interim resource/process checkpoint](resource-process-checkpoint-2026-09-30
 records the requested-limit peaks and actual process observation. It is
 not the final deadline closeout or a measurement of peak memory use.
 
-The [09:25 evidence checkpoint](evidence-checkpoint-2026-09-30T0925.md)
-reconciles 26,533 bindings across 202 selected records, including 152 exact
-historical versions, with no missing bound content. All 782 recorded jobs
-are terminal after that observation; no matching worker remains. This
-includes the latest G9 and N8 work. Final deadline reconciliation remains
-outstanding.
+The [08:30 evidence checkpoint](evidence-checkpoint-2026-09-30T0830.md)
+reconciles 21,612 bindings across 189 selected records, including exact
+historical versions, with no missing bound content. All 763 recorded jobs
+were terminal after that observation. Later G9/N8 work has its own records;
+final deadline reconciliation remains outstanding.
 
 The [reproduction guide](REPRODUCTION_GUIDE.md) gives environment pins,
 selected native replay entry points, source-version recovery and omitted
