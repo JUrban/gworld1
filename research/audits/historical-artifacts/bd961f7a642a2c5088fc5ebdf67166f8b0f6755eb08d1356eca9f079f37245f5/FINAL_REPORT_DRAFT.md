@@ -272,8 +272,3 @@ mathematical claims are correct.
   exercise leading weights (2,2) and (2,7) in the complete solver. Native GAP
   verifies both witnesses and the class-eleven exceptional block; the
   general structural proof remains a separate review requirement.
-
-- The [N8 higher-weight negative control](../problems/N8/higher-negative-audit.md) rejects all four normalized
-  leading types. Native GAP reconstructs both full integer kernels, 64 group
-  correction columns and both rootless exceptional quadratics; leading-list
-  completeness remains a written and implementation dependency.

@@ -202,8 +202,3 @@ historical versions, with no missing bound content. All 730 recorded jobs
 were terminal after that observation; no reservation conflict or remaining
 worker was found in its stated scope. Final deadline reconciliation remains
 outstanding.
-
-- The [N8 higher-weight negative control](../problems/N8/higher-negative-audit.md) rejects all four normalized
-  leading types. Native GAP reconstructs both full integer kernels, 64 group
-  correction columns and both rootless exceptional quadratics; leading-list
-  completeness remains a written and implementation dependency.

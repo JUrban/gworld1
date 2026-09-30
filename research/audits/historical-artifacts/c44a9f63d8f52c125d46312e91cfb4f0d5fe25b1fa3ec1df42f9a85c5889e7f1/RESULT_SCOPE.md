@@ -1,6 +1,6 @@
 # Interim result scope ledger
 
-Assessment: **2026-09-30T09:04:02.940151+00:00**. Research remains active until
+Assessment: **2026-09-30T08:54:02.389112+00:00**. Research remains active until
 **2026-09-30T10:04:49.670358+00:00**. This is not the frozen deadline result.
 
 **10 whole-entry coverage candidates, 2 partial-entry candidates, 0 established novel results.**
@@ -133,7 +133,7 @@ The complete arbitrary-rank/class word-input candidate solver is implemented, in
 
 Proofs: [general-proof.md](../problems/N8/general-proof.md), [group-block-supplement.md](../problems/N8/group-block-supplement.md).
 
-Audits: [general-audit.md](../problems/N8/general-audit.md), [positional-polynomial-audit.md](../problems/N8/positional-polynomial-audit.md), [N8-closing-proof-reread.md](../research/audits/N8-closing-proof-reread.md), [word-dictionary-audit.md](../problems/N8/word-dictionary-audit.md), [lie-exception-audit.md](../problems/N8/lie-exception-audit.md), [weighted-block-audit.md](../problems/N8/weighted-block-audit.md), [projective-leading-pairs-audit.md](../problems/N8/projective-leading-pairs-audit.md), [general-implementation-audit.md](../problems/N8/general-implementation-audit.md), [general-word-audit.md](../problems/N8/general-word-audit.md), [general-lattice-branches-audit.md](../problems/N8/general-lattice-branches-audit.md), [higher-leading-group-audit.md](../problems/N8/higher-leading-group-audit.md), [higher-negative-audit.md](../problems/N8/higher-negative-audit.md).
+Audits: [general-audit.md](../problems/N8/general-audit.md), [positional-polynomial-audit.md](../problems/N8/positional-polynomial-audit.md), [N8-closing-proof-reread.md](../research/audits/N8-closing-proof-reread.md), [word-dictionary-audit.md](../problems/N8/word-dictionary-audit.md), [lie-exception-audit.md](../problems/N8/lie-exception-audit.md), [weighted-block-audit.md](../problems/N8/weighted-block-audit.md), [projective-leading-pairs-audit.md](../problems/N8/projective-leading-pairs-audit.md), [general-implementation-audit.md](../problems/N8/general-implementation-audit.md), [general-word-audit.md](../problems/N8/general-word-audit.md), [general-lattice-branches-audit.md](../problems/N8/general-lattice-branches-audit.md), [higher-leading-group-audit.md](../problems/N8/higher-leading-group-audit.md).
 
 ### N9
 

@@ -23,7 +23,3 @@ is an earlier implementation stage, superseded by the complete recursion.
 The [higher-leading group audit](higher-leading-group-audit.md) checks
 weight-(2,2) integral normalization and a weight-(2,7) exceptional block
 in the full solver, with separate native GAP reconstruction.
-
-The [higher-weight negative control](higher-negative-audit.md) rejects every
-leading branch and separately checks its two integer lattices and rootless
-quadratic obstructions in native GAP groups.
