@@ -46,8 +46,3 @@ a \wedge b = a S(b) sigma_1 S(a)^{-1}, where
 S is the shift endomorphism that maps \sigma_i to \sigma_{i+1}
 for every i. How many special braids are there in B_n?
 ```
-
-The [infinite-family partner exclusion](infinite-family-partner-exclusion.md)
-now rules out every partner braid for every I1(beta_n), n>=3, by one
-exact polynomial matrix entry. It strengthens the earlier ten-input check
-without settling the remaining B4 sector.

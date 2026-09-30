@@ -966,5 +966,3 @@ Full flow-growth/solvable-extension and infinite-braid-family/small-strand/param
 ## Interim final-report draft (2026-09-30T02:49:42.021129+00:00)
 
 reports/FINAL_REPORT_DRAFT.md now gives a self-contained current outcome, entry/subpart accounting, exact clock and provenance, verification boundaries, selected prior/uncounted work, retained failures and reproduction/resource limitations. Explicitly interim: no deadline snapshot, final process closure or goal completion claimed. All 22 local Markdown targets checked; original deadline remains10:04:49.670358UTC. Root/report/research-plan entry points link the closing work. No new mathematical job, count or novelty conclusion.
-
-- 2026-09-30T08:29:05.423290+00:00: B9 family I1(beta_n) has no returning braid partner for any n>=3; fifth Burau first-column coordinate n(n-1) is invariant under every shifted partner. Separate GAP polynomial replay passes; interpreter and polynomial-zero control failures preserved. Counts unchanged.

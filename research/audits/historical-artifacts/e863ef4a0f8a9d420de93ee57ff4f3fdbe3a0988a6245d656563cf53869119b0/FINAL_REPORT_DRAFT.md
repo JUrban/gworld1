@@ -262,8 +262,3 @@ mathematical claims are correct.
    links and deliverables, and record remaining reproduction limitations.
 5. Only after those deliverables exist, replace this interim draft by the
    self-contained final report and mark the research goal complete.
-
-- B9: the [universal family obstruction](../problems/B9/infinite-family-partner-exclusion.md)
-  excludes every braid partner of I1(beta_n), for all n>=3. Separate exact
-  polynomial calculations agree; this is a partial-case exclusion, not a
-  completed B4 classification.

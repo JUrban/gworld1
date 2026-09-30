@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 08:29 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 08:18 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -63,11 +63,6 @@ input in B_m. On the same 52 saved first colors, native GAP reconstruction
 confirms 40 empty fibres and 16 partners for the other 12, all in known
 parameter classes. This is complete for each input, with explicit resource
 failures, but does not classify all possible first colors.
-
-The [infinite-family exclusion](../problems/B9/infinite-family-partner-exclusion.md)
-further rules out every partner braid for every first color I1(beta_n),
-n>=3: an invariant matrix entry is n(n-1). This holds for arbitrary
-partners and does not assume that the ten known B4 inputs exhaust them.
 
 
 ## How to review the evidence
