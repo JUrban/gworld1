@@ -147,6 +147,10 @@ F11 and F42 led to independently derived arguments subsequently identified
 with prior answers and excluded from the candidate count. Prior Lean
 developments for A5 and S5 were reproduced and audited; those are
 reproductions of another author's work, not new solutions here.
+F31's prior Lei--Zhang counterexample also received a
+[construction audit](../research/notes/F31-prior-construction-audit.md),
+including the graph-embedding rank argument and separate Python/GAP
+checks. It remains excluded from this experiment's candidates.
 
 N3 yielded a concrete obstruction to a step in a published proposed
 cover construction and to one attempted repair. A restricted nested-

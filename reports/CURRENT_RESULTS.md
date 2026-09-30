@@ -71,6 +71,10 @@ new solutions from this experiment. In particular, GAP tests of selected
 nilpotent groups, finite word graphs or polynomial examples cannot establish
 all-rank structural claims or the hypotheses of an imported theorem.
 
+The [F31 prior-result audit](../research/notes/F31-prior-construction-audit.md)
+checks Lei--Zhang's counterexample construction and its graph-embedding
+rank argument. It is credited prior work, with no candidate-count increase.
+
 N8's [assembled analytic theorem](../problems/N8/analytic-assembly-audit.md)
 now proves constancy directly from the positional delta/diagonal functional
 identities and continuity. It includes cyclic relocation and the concrete
