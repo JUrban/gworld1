@@ -1,0 +1,47 @@
+Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)
+{"source": "/project/gworld1/research/certificates/N8-energy-lean/Energy.lean", "command": ["lake", "env", "lean", "--trust=0", "--stdin"], "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7", "scope": "Concrete half transfers and continuous harmonic constancy on the zero-sum hyperplane; no convergence hypothesis. The positional/Lie bridge and full algorithm are separate."}
+<stdin>:25:28: error: `simp` made no progress
+<stdin>:107:19: error: linarith failed to find a contradiction
+case h1.h
+I : Type u_1
+inst✝¹ : Fintype I
+inst✝ : DecidableEq I
+S : Set (I → ℝ)
+hc : IsCompact S
+hzero : 0 ∈ S
+hsum : ∀ y ∈ S, ∑ i, y i = 0
+sigma : I → I
+hneq : ∀ (i : I), i ≠ sigma i
+hcycle : ∀ (i j : I), ∃ n, sigma^[n] i = j
+B : I → (I → ℝ) → I → ℝ
+ha : ∀ (i : I), ∀ y ∈ S, half i (sigma i) y ∈ S
+hb : ∀ (i : I), ∀ y ∈ S, B i y ∈ S
+f : (I → ℝ) → ℝ
+hf : Continuous f
+hmean : ∀ (i : I), ∀ y ∈ S, 2 * f y = f (half i (sigma i) y) + f (B i y)
+x : I → ℝ
+hx : x ∈ S
+hmax : IsMaxOn f S x
+K : Set (I → ℝ) := {y | y ∈ S ∧ f y = f x}
+hk : IsCompact K
+he : Continuous energy
+y : I → ℝ
+hy : y ∈ K
+hmin : IsMinOn energy K y
+i : I
+ha' : half i (sigma i) y ∈ S
+hb' : B i y ∈ S
+hma : half i (sigma i) y ∈ {x_1 | (fun x_2 => f x_2 ≤ f x) x_1}
+hmb : B i y ∈ {x_1 | (fun x_2 => f x_2 ≤ f x) x_1}
+hm : 2 * f y = f (half i (sigma i) y) + f (B i y)
+a✝ : f (half i (sigma i) y) < f x
+⊢ False
+failed
+<stdin>:136:0: warning: automatically included section variable(s) unused in theorem `N8Energy.compact_zeroBall`:
+  [DecidableEq I]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq I] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+'N8Energy.hyperplane_harmonic_constant' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+<stdin>:172:0: error: Unexpected axiom sorryAx

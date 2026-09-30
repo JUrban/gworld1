@@ -883,3 +883,8 @@ or deadline change and no independent specialist review is implied.
 ## Shared F34/F38 span formalization (2026-09-30T00:18:59.128695+00:00)
 
 [Shared span audit](../problems/F38/shared-span-lean-audit.md): fifteen universal Lean declarations verify the linear reachability/span step used by F34(a) and F38(a), including finite-dimensional termination and genuine path witnesses. Concrete polynomial lifting and the imported equation-to-EDT0L theorem remain outside the formal check. One failed source retained, final run passes in7.79s. No tally change.
+
+
+## N8 energy simplification (2026-09-30T00:29:20.373867+00:00)
+
+[N8 energy proof](../problems/N8/energy-maximum-audit.md) replaces the analytic convergence construction with a shorter maximum-set/minimum-squared-norm argument. Ten Lean declarations verify the concrete half-transfer theorem in every finite dimension, with no convergence hypothesis. Connection to the positional bridge remains written; the full N8 algorithm is not formalized. Count10whole/2partial/0established-novel unchanged.

@@ -2113,3 +2113,8 @@ Finished the F37 finite-quotient route audit. Read the global finite-group and s
 ## Shared F34/F38 span formalization (2026-09-30T00:18:59.128695+00:00)
 
 After recording the F37 obstruction at2cd1a39, reviewed the unresolved portfolio without enlarging any bounded search. Formalized the common F34(a)/F38(a) linear-span argument: all fields/spaces/operators, exact bounded-word span, stable tails, actual nonzero witnesses, dimension-bound termination, and directed-graph certificate soundness. v1 rejected on two proof-script details; v2 passes15 declarations with only standard allowed axioms. Both1CPU/12GB/120s, terminal. Explicit monomial/block bridges and full equation theorem remain written/imported. No count/deadline change or push.
+
+
+## N8 energy simplification (2026-09-30T00:29:20.373867+00:00)
+
+Previous goal turn made concrete progress at2cd1a39 and6c02c8e. Revalidated clean worktree, active state and terminal registry. A bounded A6/F37 source query and local S3/portfolio reread gave no new solution. Found a shorter N8 analytic argument: minimize squared norm among function maximizers; the exact half-transfer energy change propagates a positive coordinate around the cycle, contradicting zero sum. Formalized concrete transfers, compact zero-sum balls and full continuous harmonic conclusion in10 declarations. v1 failed on proof-script details; v2 passes9.10s, empty stderr. Both sequential1CPU/12GB/120s. No finite suite rerun, count/deadline change or push.

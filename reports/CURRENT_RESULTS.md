@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 00:19 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 00:29 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -54,6 +54,11 @@ Separate reproduced Lean proofs for the prior A5 and S5 results are not
 new solutions from this experiment. In particular, GAP tests of selected
 nilpotent groups, finite word graphs or polynomial examples cannot establish
 all-rank structural claims or the hypotheses of an imported theorem.
+
+N8 also has a shorter [energy proof](../problems/N8/energy-maximum-audit.md)
+of its analytic implication, universally checked for concrete half-transfers.
+It removes the convergence hypothesis while leaving the positional/Lie
+connection and complete algorithm outside that formalization.
 
 The largest shared dependency is the full solution-language construction
 used by F34(a) and F38(a). Other priority review points are F38(c)'s graded

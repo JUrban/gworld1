@@ -965,3 +965,8 @@ Retire finite-quotient exclusion as a complete F37 decision strategy: the new un
 ## Shared F34/F38 span formalization (2026-09-30T00:18:59.128695+00:00)
 
 The shared F34/F38 span implication now has universal Lean support, not merely finite fixtures. Do not repeat passed tests or imply full algorithm formalization. Continue another unresolved structural route or a precise imported dependency audit; the actual EDT0L recompression remains unimplemented. Keep the original final-eight-hours reporting reserve and deadline.
+
+
+## N8 energy simplification (2026-09-30T00:29:20.373867+00:00)
+
+The new N8 energy argument removes the need for the transfer-convergence construction in the analytic proof. Universal concrete implication passes Lean; all-index averaging still connects to the prior positional bridge by a written cyclic-rotation argument. Do not repeat passed suites. Preserve previous arguments and proceed to a distinct unresolved lead or a concrete application dependency; original final-eight-hours reporting reserve and deadline unchanged.
