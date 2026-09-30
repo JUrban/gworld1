@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 00:29 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 00:41 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -55,10 +55,11 @@ new solutions from this experiment. In particular, GAP tests of selected
 nilpotent groups, finite word graphs or polynomial examples cannot establish
 all-rank structural claims or the hypotheses of an imported theorem.
 
-N8 also has a shorter [energy proof](../problems/N8/energy-maximum-audit.md)
-of its analytic implication, universally checked for concrete half-transfers.
-It removes the convergence hypothesis while leaving the positional/Lie
-connection and complete algorithm outside that formalization.
+N8's [assembled analytic theorem](../problems/N8/analytic-assembly-audit.md)
+now proves constancy directly from the positional delta/diagonal functional
+identities and continuity. It includes cyclic relocation and the concrete
+energy argument, with no convergence assumption. Free-associative encoding,
+Lie/group application and the complete algorithm remain outside Lean.
 
 The largest shared dependency is the full solution-language construction
 used by F34(a) and F38(a). Other priority review points are F38(c)'s graded

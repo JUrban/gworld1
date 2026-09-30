@@ -1,0 +1,22 @@
+Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)
+{"components": [{"path": "research/certificates/N8-polynomial-bridge-lean/Bridge.lean", "sha256": "ad4697b0313dd3ba7cb18bf63ca9b4825b29d93e3d749e310447c1d6b77ccf10"}, {"path": "research/certificates/N8-energy-lean/Energy.lean", "sha256": "63ae082e726df82e198f6a64478d91d443b868a3477f024e017baba9883123d0"}, {"path": "research/certificates/N8-analytic-assembly/Assembly.lean", "sha256": "4140e223b63a3b5b999607f0345e27620082694ab4a094d4147b1fbcd2b83563"}], "snapshot": "/project/gworld1/research/certificates/N8-analytic-assembly/Combined-v2.lean", "snapshot_sha256": "deec91e850741dcdca7a5e0d5dadb0e348748c7ce29a9f0dff83841e94960851", "command": ["lake", "env", "lean", "--trust=0", "--stdin"], "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7", "scope": "Full continuous-function implication from positional delta/diagonal identities to constancy. Free-associative/Lie encoding and full N8 algorithm remain outside."}
+'N8Bridge.transfer_average_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 division-free positional averaging bridge
+'N8Energy.hyperplane_harmonic_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 concrete half-transfer energy maximum principle
+<stdin>:459:14: error: Tactic `assumption` failed
+
+case zero
+n : ℕ
+f : (Fin (n + 2) → ℝ) → ℝ
+hrot : ∀ (y : Fin (n + 1 + 1) → ℝ), ∑ i, y i = 0 → f (N8Bridge.rotate y) = f y
+k : Fin (n + 2)
+y : Fin (n + 2) → ℝ
+hy : ∑ i, y i = 0
+⊢ f (shift 0 y) = f y
+<stdin>:495:2: error: 'change' tactic failed, pattern
+  i + ↑↑(j - i) = j
+is not definitionally equal to target
+  i + ↑(j - i) • 1 = j
+'N8Assembly.positional_constant' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+<stdin>:592:0: error: Unexpected axiom sorryAx

@@ -888,3 +888,8 @@ or deadline change and no independent specialist review is implied.
 ## N8 energy simplification (2026-09-30T00:29:20.373867+00:00)
 
 [N8 energy proof](../problems/N8/energy-maximum-audit.md) replaces the analytic convergence construction with a shorter maximum-set/minimum-squared-norm argument. Ten Lean declarations verify the concrete half-transfer theorem in every finite dimension, with no convergence hypothesis. Connection to the positional bridge remains written; the full N8 algorithm is not formalized. Count10whole/2partial/0established-novel unchanged.
+
+
+## N8 positional constancy assembled (2026-09-30T00:41:25.505810+00:00)
+
+[N8 analytic assembly](../problems/N8/analytic-assembly-audit.md) now formally derives constancy from the original delta/diagonal functional identities and continuity. The cyclic-coordinate and energy connections are included, with no convergence assumption. Fifteen new Lean declarations plus30 unchanged prerequisites pass. Free-associative/Lie identification and the full decision algorithm remain outside. Tally10whole/2partial/0established-novel unchanged.

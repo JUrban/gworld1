@@ -1,0 +1,91 @@
+Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)
+{"components": [{"path": "research/certificates/N8-polynomial-bridge-lean/Bridge.lean", "sha256": "ad4697b0313dd3ba7cb18bf63ca9b4825b29d93e3d749e310447c1d6b77ccf10"}, {"path": "research/certificates/N8-energy-lean/Energy.lean", "sha256": "63ae082e726df82e198f6a64478d91d443b868a3477f024e017baba9883123d0"}, {"path": "research/certificates/N8-analytic-assembly/Assembly.lean", "sha256": "1e9bce890b547b78134992cd60ed0013bf398220b201de34e975cc3f1f855f38"}], "snapshot": "/project/gworld1/research/certificates/N8-analytic-assembly/Combined-v1.lean", "snapshot_sha256": "f475241794a537082ec16406c35df5ee4e422545f3c7fb313f1fef91ea0875a4", "command": ["lake", "env", "lean", "--trust=0", "--stdin"], "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7", "scope": "Full continuous-function implication from positional delta/diagonal identities to constancy. Free-associative/Lie encoding and full N8 algorithm remain outside."}
+'N8Bridge.transfer_average_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 division-free positional averaging bridge
+'N8Energy.hyperplane_harmonic_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 concrete half-transfer energy maximum principle
+<stdin>:437:65: error: Application type mismatch: The argument
+  y
+has type
+  Fin (n + 2) → ℝ
+but is expected to have type
+  Finset (Fin (n + 2))
+in the application
+  Equiv.Perm.sum_comp (Equiv.addRight k) y
+<stdin>:456:29: error: Type mismatch
+  m
+has type
+  ℕ
+but is expected to have type
+  Fin (n + 2)
+<stdin>:458:14: error: Tactic `assumption` failed
+
+case zero
+n : ℕ
+f : (Fin (n + 2) → ℝ) → ℝ
+hrot : ∀ (y : Fin (n + 1 + 1) → ℝ), ∑ i, y i = 0 → f (N8Bridge.rotate y) = f y
+k : Fin (n + 2)
+y : Fin (n + 2) → ℝ
+hy : ∑ i, y i = 0
+⊢ f (shift (sorry ()) y) = f y
+<stdin>:466:47: error: unsolved goals
+n : ℕ
+k i j : Fin (n + 2)
+y : Fin (n + 2) → ℝ
+⊢ Function.update (Function.update (fun x => y ((Equiv.addRight k) x)) (i + -k) (y i / 2)) (j + -k) (y j + y i / 2) =
+    Function.update (Function.update (shift k y) (i - k) (y i / 2)) (j - k) (y j + y i / 2)
+<stdin>:492:2: error: `simp` made no progress
+<stdin>:504:4: error: unsolved goals
+case h.refine_2.refine_1
+n : ℕ
+y : Fin (n + 2) → ℝ
+i : Fin (n + 2)
+j : Fin (n + 1)
+⊢ Fin.tail y 0 = y 1
+<stdin>:502:45: warning: This simp argument is unused:
+  one_ne_zero
+
+Hint: Omit it from the simp argument list.
+  simp [N8Bridge.clockwise, N8Energy.half, one_ne_zero,̵ ̵o̵n̵e̵_̵n̵e̵_̵z̵e̵r̵o̵.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:512:8: warning: This simp argument is unused:
+  Function.update_of_ne h0
+
+Hint: Omit it from the simp argument list.
+  simp [N8Bridge.clockwise, N8Bridge.shiftFirst, N8Energy.half, Function.update_of_ne h̵0̵,̵ ̵F̵u̵n̵c̵t̵i̵o̵n̵.̵u̵p̵d̵a̵t̵e̵_̵o̵f̵_̵n̵e̵ ̵h1,
+  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲Fin.tail]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:526:70: error(lean.unknownIdentifier): Unknown constant `Fin.val_castSucc`
+<stdin>:526:111: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  b - c ≥ -1
+  a ≥ 0
+  a - b ≤ 1
+  a - c ≤ -1
+where
+ a := ↑↑(Fin.last (n + 1))
+ b := ↑↑k.castSucc
+ c := ↑↑0
+<stdin>:528:8: warning: This simp argument is unused:
+  Function.update_of_ne h0
+
+Hint: Omit it from the simp argument list.
+  simp [N8Bridge.counterclockwise, N8Bridge.shiftLast, N8Energy.half, Function.update_of_ne h̵0̵,̵ ̵F̵u̵n̵c̵t̵i̵o̵n̵.̵u̵p̵d̵a̵t̵e̵_̵o̵f̵_̵n̵e̵ ̵hl,
+  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲Fin.tail, Fin.init]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:528:34: warning: This simp argument is unused:
+  Function.update_of_ne hl
+
+Hint: Omit it from the simp argument list.
+  simp [N8Bridge.counterclockwise, N8Bridge.shiftLast, N8Energy.half, Function.update_of_ne h0,
+  ̲  ̲ ̲ ̲ ̲ ̲ ̲ ̲F̵u̵n̵c̵t̵i̵o̵n̵.̵u̵p̵d̵a̵t̵e̵_̵o̵f̵_̵n̵e̵ ̵h̵l̵,̵ ̵Fin.tail, Fin.init]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:571:32: error(lean.unknownIdentifier): Unknown constant `Fin.tail_zero`
+'N8Assembly.positional_constant' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+<stdin>:586:0: error: Unexpected axiom sorryAx

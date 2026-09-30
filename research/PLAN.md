@@ -970,3 +970,8 @@ The shared F34/F38 span implication now has universal Lean support, not merely f
 ## N8 energy simplification (2026-09-30T00:29:20.373867+00:00)
 
 The new N8 energy argument removes the need for the transfer-convergence construction in the analytic proof. Universal concrete implication passes Lean; all-index averaging still connects to the prior positional bridge by a written cyclic-rotation argument. Do not repeat passed suites. Preserve previous arguments and proceed to a distinct unresolved lead or a concrete application dependency; original final-eight-hours reporting reserve and deadline unchanged.
+
+
+## N8 positional constancy assembled (2026-09-30T00:41:25.505810+00:00)
+
+N8's analytic interface is now closed in Lean: no remaining cyclic-relocation/convergence assumption in the functional implication. The source-to-function encoding, rational polynomial coefficient identification, Lie/group instantiation and full algorithm remain distinct written obligations. Do not rerun the passed assembly without a new concern. Return to another unresolved lead or specific imported dependency, preserving the original final-eight-hours reporting reserve and deadline.

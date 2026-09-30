@@ -2118,3 +2118,8 @@ After recording the F37 obstruction at2cd1a39, reviewed the unresolved portfolio
 ## N8 energy simplification (2026-09-30T00:29:20.373867+00:00)
 
 Previous goal turn made concrete progress at2cd1a39 and6c02c8e. Revalidated clean worktree, active state and terminal registry. A bounded A6/F37 source query and local S3/portfolio reread gave no new solution. Found a shorter N8 analytic argument: minimize squared norm among function maximizers; the exact half-transfer energy change propagates a positive coordinate around the cycle, contradicting zero sum. Formalized concrete transfers, compact zero-sum balls and full continuous harmonic conclusion in10 declarations. v1 failed on proof-script details; v2 passes9.10s, empty stderr. Both sequential1CPU/12GB/120s. No finite suite rerun, count/deadline change or push.
+
+
+## N8 positional constancy assembled (2026-09-30T00:41:25.505810+00:00)
+
+The previous goal turn made concrete progress at e410c2c. Revalidated active state, clean worktree and terminal registry. Closed N8's cyclic-coordinate interface: shifts, half-transfer covariance, exact origin-map identities, all-index averaging, finite cyclic transitivity and the zero-sum embedding. Final theorem now assumes only continuity of P and the two positional evaluation identities. Three sequential1CPU/16GB/180s checks: v1 and v2 fail on retained elaboration/proof details; v3 passes45 total declarations in19.48s with empty stderr. Exact combined inputs preserve all source bodies except hoisted import lines. No count/deadline change or push.
