@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 02:22 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 02:38 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -89,9 +89,15 @@ The closing audit has begun. Its current same-agent proof rereads cover
 [N5](../research/audits/N5-closing-proof-reread.md),
 [F34/F38](../research/audits/F34-F38-closing-proof-reread.md), and
 [F41](../research/audits/F41-closing-proof-reread.md), together with
-[N8](../research/audits/N8-closing-proof-reread.md).
+[N8](../research/audits/N8-closing-proof-reread.md),
+[GA3](../research/audits/GA3-closing-proof-reread.md), and
+[N9](../research/audits/N9-closing-proof-reread.md).
 No new gap was identified in those passes; their imported-theorem and
 implementation limits remain explicit. Artifact reconciliation is recorded
 in [the checkpoint](artifact-checkpoint-2026-09-30.md), and remaining work
 in [the closing plan](CLOSING_AUDIT_PLAN.md). These are interim checks,
 not a completed experiment or outside mathematical validation.
+
+The [current scope ledger](RESULT_SCOPE.md) separates entry coverage from
+named-part answers and credited prior parts. Its JSON companion retains
+all 195 catalogue IDs, including uncounted and status-unverified entries.

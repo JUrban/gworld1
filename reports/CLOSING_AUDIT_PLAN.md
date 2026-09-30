@@ -48,3 +48,18 @@ The prior preparation-only response did not advance the active mathematical
 goal. Work resumed in the original research checkout and completed the N5
 finite-presentation interface without changing its clock. Subsequent work
 should continue from this audit, not from the separate preparation checkout.
+
+## Progress at 02:38 UTC
+
+Closing proof rereads now cover N5, F34/F38, F41, N8, GA3 and N9.
+Each has a separate note recording the implications checked, sources
+actually read/viewed, and remaining dependency or implementation limits.
+No new gap has been identified in these passes. F28, M0, H4 and the
+G9/B9 partial boundaries remain for the closing round.
+
+The interim [scope ledger](RESULT_SCOPE.md) now distinguishes six
+unpartitioned candidate answers, five proposed named-part answers,
+four credited prior named parts, and two other partial-entry candidates.
+It retains all 195 catalogue IDs and does not label the uncounted remainder
+as open. The final deadline snapshot/report and final process closure
+remain outstanding; this progress record does not close the experiment.

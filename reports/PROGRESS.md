@@ -933,3 +933,13 @@ Closing audit started with5708 historical hash bindings:5676 current matches and
 ## N8 closing audit and rational polynomial interface (2026-09-30T02:22:43.998491+00:00)
 
 [Closing reread](../research/audits/N8-closing-proof-reread.md) checks leading-factor completeness, actual free-basis hypotheses, reversible integral periods and the full later-column obstruction. [New Lean interface](../problems/N8/positional-polynomial-audit.md) gives rational coefficient constancy from polynomial identities and explicit diagonal substitution, for every finite dimension. Thirteen new declarations plus45 unchanged prerequisites pass; two failed inputs and all logs retained. Free-associative/Lie/group connections and the full algorithm remain outside. Counts10whole/2partial/0established-novel unchanged.
+
+
+## Closing GA3/N9 proof audit (2026-09-30T02:36:41.567988+00:00)
+
+General-Lambda collapse/separator and fixed-group DPRM/retraction/isolation implications reread with exact original statements and retained renderings. Guirardel general-Lambda remark and local proof checked in text and actual page images; DPRM parameter theorem checked in text. No new gap or novelty conclusion. Source-reading limits explicit,19 file bindings retained, no new mathematical job. Counts10whole/2partial/0established-novel unchanged. See research/audits/GA3-closing-proof-reread.md and N9-closing-proof-reread.md.
+
+
+## Interim scope reconciliation (2026-09-30T02:38:16.544125+00:00)
+
+All195 catalogue IDs retained in reports/result-scope-ledger.json with exact source references/current triage. Ten whole-entry candidates comprise6 unpartitioned proposed answers plus5 proposed named parts, with4 prior named parts. Two other partial entries remain. Eleven proposed components are bookkeeping, not11established new theorems.183 other entries are not asserted open. Both1CPU/2GB administrative runs pass; v1 exact generator/output retained before replacing static count prose, v2 final dynamic version passes.65 input/artifact bindings verified, bothPIDs terminated, registry empty. New research/result-scopes.json controls reports/RESULT_SCOPE.md generation; no original catalogue or mathematical proof changed. No tally/deadline change or push.

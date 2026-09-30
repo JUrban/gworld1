@@ -2163,3 +2163,13 @@ Revalidated the original active clock, clean worktree and empty process registry
 ## N8 closing audit and polynomial interface (2026-09-30T02:22:43.998491+00:00)
 
 Committed the F34/F38/F41 closing audits at75687aa. Reread complete N8 general proof/audit, exact-period argument, original full HTML/background, and primary homogeneous/inner-solution hypotheses with Altassan proof. Actually viewed N8 statement and Altassan p24. No new gap identified. Added polynomial-to-function interface, real extensionality/rational descent, and explicit restriction parameterization. Four sequential1CPU/16GB/180s jobs: v1 tuple simplification fails22.39s; v2 eight-declaration pass23.60s; v3 extension fails26.16s on wrong lemma name/endpoint rewrite; v4 thirteen-declaration pass27.16s, empty stderr/no warnings. Exact combined inputs and original components retained and matched to run hashes. All recorded PIDs gone and registry empty. No finite group suite rerun, new candidate count, novelty conclusion, original deadline change or push.
+
+
+## Closing GA3/N9 proof audit (2026-09-30T02:36:41.567988+00:00)
+
+General-Lambda collapse/separator and fixed-group DPRM/retraction/isolation implications reread with exact original statements and retained renderings. Guirardel general-Lambda remark and local proof checked in text and actual page images; DPRM parameter theorem checked in text. No new gap or novelty conclusion. Source-reading limits explicit,19 file bindings retained, no new mathematical job. Counts10whole/2partial/0established-novel unchanged. See research/audits/GA3-closing-proof-reread.md and N9-closing-proof-reread.md.
+
+
+## Interim scope reconciliation (2026-09-30T02:38:16.544125+00:00)
+
+All195 catalogue IDs retained in reports/result-scope-ledger.json with exact source references/current triage. Ten whole-entry candidates comprise6 unpartitioned proposed answers plus5 proposed named parts, with4 prior named parts. Two other partial entries remain. Eleven proposed components are bookkeeping, not11established new theorems.183 other entries are not asserted open. Both1CPU/2GB administrative runs pass; v1 exact generator/output retained before replacing static count prose, v2 final dynamic version passes.65 input/artifact bindings verified, bothPIDs terminated, registry empty. New research/result-scopes.json controls reports/RESULT_SCOPE.md generation; no original catalogue or mathematical proof changed. No tally/deadline change or push.
