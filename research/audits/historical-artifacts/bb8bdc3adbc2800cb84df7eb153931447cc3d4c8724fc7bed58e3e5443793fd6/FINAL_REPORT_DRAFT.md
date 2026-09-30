@@ -267,8 +267,3 @@ mathematical claims are correct.
   excludes every braid partner of I1(beta_n), for all n>=3. Separate exact
   polynomial calculations agree; this is a partial-case exclusion, not a
   completed B4 classification.
-
-- N8: the [higher-leading group controls](../problems/N8/higher-leading-group-audit.md)
-  exercise leading weights (2,2) and (2,7) in the complete solver. Native GAP
-  verifies both witnesses and the class-eleven exceptional block; the
-  general structural proof remains a separate review requirement.

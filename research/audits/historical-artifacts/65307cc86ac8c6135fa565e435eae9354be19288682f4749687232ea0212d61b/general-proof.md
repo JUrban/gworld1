@@ -4,13 +4,7 @@
 during the experiment. It is a candidate mathematical proof, subject to
 independent specialist review and a separate novelty assessment. Its
 components and finite checks are distinguished in `general-audit.md`.
-At the time of this 29 September draft the complete arbitrary-rank algorithm
-was not implemented end to end. **Implementation update, 30 September:**
-the [general word command](general-word-audit.md) now implements it, with
-[native reconstruction](general-implementation-audit.md),
-[integral branch checks](general-lattice-branches-audit.md), and
-[higher-leading-weight checks](higher-leading-group-audit.md). These additions
-do not replace the structural proof or establish its correctness in all cases.
+The complete arbitrary-rank algorithm is not implemented end to end.
 
 **Proposed theorem.** Given nonnegative finite rank r, finite nilpotency
 class c, and a word g in the standard free nilpotent group

@@ -970,5 +970,3 @@ reports/FINAL_REPORT_DRAFT.md now gives a self-contained current outcome, entry/
 - 2026-09-30T08:29:05.423290+00:00: B9 family I1(beta_n) has no returning braid partner for any n>=3; fifth Burau first-column coordinate n(n-1) is invariant under every shifted partner. Separate GAP polynomial replay passes; interpreter and polynomial-zero control failures preserved. Counts unchanged.
 
 - 2026-09-30T08:40:46.743330+00:00: G9 finite Steiner connections add 34 two-letter improvements to the previous 286, retaining the same 3239 two-ended atom families. Native GAP verifies all 320 literal replacements and complete envelopes, certifying 2.676880030 <= lambda_2 <= 2.943737759. No new atom enumeration or count change.
-
-- 2026-09-30T08:48:43.852837+00:00: N8 complete-solver controls for weights (2,2) and (2,7) pass; native GAP verifies two witnesses/195 columns/six blocks/one quadratic plus its complete integer kernel. Solver unchanged. Added current implementation pointers to the dated N8 proof and N5 audit; counts unchanged.

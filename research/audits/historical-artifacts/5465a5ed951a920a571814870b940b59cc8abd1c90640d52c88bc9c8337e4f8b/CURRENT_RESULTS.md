@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 08:48 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 08:40 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -144,9 +144,6 @@ proof remains a specialist-review dependency, not established by finite tests.
 The subsequent [integral-block audit](../problems/N8/general-lattice-branches-audit.md)
 checks fixed and step-two parameters in the complete recursion, including
 native comparison of the full integer kernel lattices.
-The [higher-leading group audit](../problems/N8/higher-leading-group-audit.md)
-adds complete-solver checks with leading weights (2,2) and (2,7), including
-a class-eleven exceptional block with its full integer kernel and quadratic.
 
 The largest shared dependency is the full solution-language construction
 used by F34(a) and F38(a). Other priority review points are F38(c)'s graded

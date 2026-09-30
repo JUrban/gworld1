@@ -19,7 +19,3 @@ The [projective-factor audit](projective-factor-audit.md) gives an
 alternative central-target decision argument and implementation, with
 13 exact Lie cases and 16 independent GAP group-witness checks. This
 is an earlier implementation stage, superseded by the complete recursion.
-
-The [higher-leading group audit](higher-leading-group-audit.md) checks
-weight-(2,2) integral normalization and a weight-(2,7) exceptional block
-in the full solver, with separate native GAP reconstruction.

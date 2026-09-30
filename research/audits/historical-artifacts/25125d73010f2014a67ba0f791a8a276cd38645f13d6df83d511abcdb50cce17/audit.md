@@ -1,11 +1,5 @@
 # N5 audit notes
 
-**Implementation update, 30 September 2026:** the [general finite-presentation
-command](general-fp-audit.md) now connects the rational decomposition, complete
-bounded-index enumeration and central lifting. The earlier implementation
-status below describes its dated checkpoint. The structural proof and
-specialist-review limits remain unchanged.
-
 ## Statement
 
 The full original HTML and its N5 paragraph were read. The screenshot was inspected on 28 September 2026. The statement has no torsion-free restriction, no fixed-class restriction, and no named subpart. The proposed theorem assumes a finite presentation promised to define a finitely generated nilpotent group. It decides a nontrivial binary direct decomposition, which is the requested indecomposability property.
