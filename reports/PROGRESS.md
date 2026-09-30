@@ -898,3 +898,8 @@ or deadline change and no independent specialist review is implied.
 ## GA3 separator simplification (2026-09-30T00:53:15.520379+00:00)
 
 [Elementary separator](../problems/GA3/elementary-separator-supplement.md): a finite choice among2|C|+1 endpoints and two conjugations now gives the required simultaneous separator directly. Axis translations prove its uniform boundary dynamics. This removes the imported endpoint-density theorem from that step, while preserving the general collapse dependency and all review qualifications. No new computation or tally change: ten whole/two partial/zero established novel.
+
+
+## N5 rational Lie implementation (2026-09-30T01:08:28.110142+00:00)
+
+[New audit](../problems/N5/rational-lie-audit.md): the established rational Lie decomposition stage now has a general exact implementation, with a finite centroid-character separation bound and rational CRT projections. Python and native GAP check19 fixtures/34 factors, including quadratic fields, repeated factors, dual numbers and rational basis changes. Three retained GAP factor-normalization comparison failures preceded the final pass. The whole arbitrary-input group pipeline remains incomplete. Tally10whole/2partial/0established-novel unchanged.

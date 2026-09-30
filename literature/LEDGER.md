@@ -950,3 +950,8 @@ Nikolov--Segal1102.3037v6 Theorem1.2: finite groups, symmetric generating set, n
 ## GA3 dependency simplification and bounded scope queries (2026-09-30T00:53:15.520379+00:00)
 
 Reread archived Guirardel2004 Fact5.1, its arbitrary-Lambda/convex-subgroup remark and local proof in extracted text. No fresh PDF viewing or download. The new GA3 elementary separator supplement proves the needed boundary step directly; earlier Rybak2026 credit and historical reading limits remain intact. Searches `"nilpotent" "direct decomposability" torsion algorithm`, `"nilpotent groups" "direct decomposition" torsion decidable`, and `"free group" "bounded translation equivalence" stabilizers` re-found previously recorded torsion-free and bounded tree-action scopes, with no matching new theorem or novelty conclusion. Search snippets alone were not promoted to a mathematical source.
+
+
+## N5 implemented prior rational stage (2026-09-30T01:08:28.110142+00:00)
+
+Reread the retained BMO1510.05632 text around Proposition13 and its de Graaf Section1.15 credit. No new visual PDF inspection. The new rational-lie-audit.md provides a self-contained centroid/trace/CRT version of this established ingredient, without claiming novelty. Broad trace-form/centroid searches produced no additional theorem used here; the radical calculation is proved directly in the supplement. Consulted official GAP tutorial Chapter6 (https://gap-system.github.io/gap/doc/tut/chap6.html) for native structure-constant constructors, including its warning that the Lie constructor assumes Jacobi; the checker tests Jacobi explicitly. No new problem-status inference follows.
