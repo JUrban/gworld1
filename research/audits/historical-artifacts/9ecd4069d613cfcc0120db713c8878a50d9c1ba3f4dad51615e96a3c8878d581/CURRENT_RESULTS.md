@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 09:20 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 08:48 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -32,7 +32,7 @@ not an independent mathematical referee.
 
 | Entry | Current proposed result | Controlling argument and audit | What remains |
 | --- | --- | --- | --- |
-| G9 | The standard growth constant of a free metabelian group is computable, with an explicit approximation modulus in every finite rank. Certified rank-two bounds are 2.676891785 ≤ λ₂ ≤ 2.943737759. The method extends to free solvable groups. | [Flow proof](../problems/G9/flow-growth-proof.md) and [audit](../problems/G9/flow-growth-audit.md); [solvable extension](../problems/G9/solvable-extension-proof.md) and [audit](../problems/G9/solvable-extension-audit.md). | The exact growth constant requested by the entry remains undetermined. Fine-precision computation is not demonstrated. The extension is not a second problem count. |
+| G9 | The standard growth constant of a free metabelian group is computable, with an explicit approximation modulus in every finite rank. Certified rank-two bounds are 2.676880030 ≤ λ₂ ≤ 2.943737759. The method extends to free solvable groups. | [Flow proof](../problems/G9/flow-growth-proof.md) and [audit](../problems/G9/flow-growth-audit.md); [solvable extension](../problems/G9/solvable-extension-proof.md) and [audit](../problems/G9/solvable-extension-audit.md). | The exact growth constant requested by the entry remains undetermined. Fine-precision computation is not demonstrated. The extension is not a second problem count. |
 | B9 | There are countably infinitely many special braids in every B_N with N at least five. Deductions from Dehornoy's prior structure give exact counts 1, 2 and 4 in B₁, B₂ and B₃. | [Infinite-family proof](../problems/B9/infinite-family-proof.md) and [audit](../problems/B9/infinite-family-audit.md); [small-strand proof](../problems/B9/small-strand-proof.md) and [audit](../problems/B9/small-strand-audit.md). | In B₄, only the exponent-two sector remains unclassified; at least ten special braids are known in total. The [positive-parameter reduction](../problems/B9/positive-parameter-reduction.md), [strand restriction](../problems/B9/exponent-two-parameter-reduction.md) and [excluded families](../research/notes/B9-family-return-obstruction.md) do not exhaust that sector. |
 
 For B9, the [three-strand underlying exclusion](../problems/B9/three-strand-underlying-exclusion.md)
@@ -72,13 +72,15 @@ partners and does not assume that the ten known B4 inputs exhaust them.
 
 ## How to review the evidence
 
-G9's lower endpoint uses the [completed and shortened alphabet](../problems/G9/steiner-shortening-supplement.md)
-and its [disjoint shear tails](../problems/G9/shear-tail-supplement.md).
-The old 3,239 two-boundary families and height-one family are retained.
-Another 2,906 infinite tails lie outside every old occupied shear coordinate
-in 1,453 full-flow orbits. Separate GAP reconstructions check the retained
-words, orbit assignments and exact rational bound. Earlier proofs retain
-their dated endpoints; the independent upper bound is unchanged.
+G9's stronger lower endpoint comes from the
+[two-ended completion](../problems/G9/two-ended-completion-proof.md) and its
+[shortening supplement](../problems/G9/steiner-shortening-supplement.md):
+the existing 21,483 atoms define 3,239 disjoint two-parameter families
+and one height-one family, with an exact rational cost series. GAP
+checks the complete finite description, all 320 shorter replacements,
+and the root enclosure. The original
+finite-alphabet and one-ended proofs retain their earlier lower endpoints
+2.658596558 and 2.668423113; the upper bound is unchanged.
 
 Start with the controlling proof and its audit, then follow its certificate
 and source links. They distinguish a universal argument from finite
@@ -194,16 +196,12 @@ The [interim resource/process checkpoint](resource-process-checkpoint-2026-09-30
 records the requested-limit peaks and actual process observation. It is
 not the final deadline closeout or a measurement of peak memory use.
 
-The [08:30 evidence checkpoint](evidence-checkpoint-2026-09-30T0830.md)
-reconciles 21,612 bindings across 189 selected records, including exact
-historical versions, with no missing bound content. All 763 recorded jobs
-were terminal after that observation. Later G9/N8 work has its own records;
-final deadline reconciliation remains outstanding.
-
-The [reproduction guide](REPRODUCTION_GUIDE.md) gives environment pins,
-selected native replay entry points, source-version recovery and omitted
-data. The [portability inventory](../research/audits/review-portability-v1.json)
-finds no reachable Git blob at or above 90 MB in its recorded snapshot.
+The [latest evidence checkpoint](evidence-checkpoint-2026-09-30T0642.md)
+reconciles 15,274 bindings across 172 selected records, including exact
+historical versions, with no missing bound content. All 730 recorded jobs
+were terminal after that observation; no reservation conflict or remaining
+worker was found in its stated scope. Final deadline reconciliation remains
+outstanding.
 
 - The [N8 higher-weight negative control](../problems/N8/higher-negative-audit.md) rejects all four normalized
   leading types. Native GAP reconstructs both full integer kernels, 64 group

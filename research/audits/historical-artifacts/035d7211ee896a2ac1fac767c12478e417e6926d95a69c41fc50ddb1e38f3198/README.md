@@ -8,12 +8,13 @@ Heading star: False. Starred subparts: none detected. Hall of Fame entries: 0. L
 
 Current status: **partial candidate**. A [flow argument](flow-growth-proof.md) gives effective two-sided approximation of the standard-basis growth constant in every finite rank, with explicit error bounds; a [supplement](solvable-extension-proof.md) extends this to free solvable groups. The exact constant and novelty remain unresolved, and specialist review is pending. See the [flow audit](flow-growth-audit.md) and [extension audit](solvable-extension-audit.md) for the checks and their limits. The machine-readable source evidence is in `data/problems.json`; the extracted text below is a search aid, not an authoritative transcription.
 
-The current certified rank-two interval is **2.676891785 to 2.943737759**.
-The [shear-tail supplement](shear-tail-supplement.md) adds disjoint infinite
-families to the [completed and shortened alphabet](steiner-shortening-supplement.md).
-The 1,453 shear orbits supply 2,906 tails, with exact costs and a separate
-native GAP reconstruction. Earlier supplements retain their dated numerical
-endpoints; the upper bound is unchanged.
+The current certified rank-two interval is **2.676880030 to 2.943737759**.
+The [shortening supplement](steiner-shortening-supplement.md) to the
+[two-ended completion](two-ended-completion-proof.md) strengthens the
+lower bound by completing 3,239 two-parameter atom families and the
+height-one family analytically. Separate GAP reconstruction checks the
+exact rational bound. The [one-ended completion](horizontal-completion-proof.md)
+and original finite-alphabet proof retain their earlier numerical endpoints.
 
 ```text
 (G9) Find the growth rate of the free metabelian group of rank r.

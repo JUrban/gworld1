@@ -14,7 +14,4 @@ partial results, known-result rediscoveries, computations without proofs,
 failed attempts and open leads. State both historical deadline counts and
 current assessments, with qualifications.
 
-[REPRODUCTION_GUIDE.md](REPRODUCTION_GUIDE.md) gives pinned environments,
-selected replay entry points and explicit data/toolchain omissions.
-
 `preparation-check.txt` records infrastructure checks only; it is not mathematical evidence.

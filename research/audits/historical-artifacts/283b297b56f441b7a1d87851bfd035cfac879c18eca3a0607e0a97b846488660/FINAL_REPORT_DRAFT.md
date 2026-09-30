@@ -38,7 +38,7 @@ equally thoroughly.
 | [F38(a,c)](../problems/F38/bounded-proof.md) | Translation equivalence and bounded translation equivalence are uniformly decidable in every finite rank. | Part (b) and rank-two decisions are prior. The two arguments respectively import full equation languages and graded shortening. |
 | [N8(b)](../problems/N8/general-proof.md) | Single commutator equations are decidable, with solutions constructed, in every finite-rank free nilpotent group of every finite class. | Part (a) and the free class-two case are prior. The complete arbitrary-rank/class [word-input solver](../problems/N8/general-word-audit.md) is implemented; finite controls do not establish its structural proof. |
 | [N9(a)](../problems/N9/proof.md) | The retract problem is undecidable in one fixed torsion-free class-two group, even on isolated two-generator Heisenberg subgroups with primitive graded images. | The class-wide result and part (b) are prior. DPRM is imported and the universal numerical presentation is not expanded. |
-| [G9, partial](../problems/G9/flow-growth-proof.md) | Effective approximation of the standard free-metabelian growth constant in every finite rank, with rank-two bounds 2.676891785 to 2.943737759. | The exact constant remains undetermined. The extension to free solvable groups adds no problem count. |
+| [G9, partial](../problems/G9/flow-growth-proof.md) | Effective approximation of the standard free-metabelian growth constant in every finite rank, with rank-two bounds 2.676880030 to 2.943737759. | The exact constant remains undetermined. The extension to free solvable groups adds no problem count. |
 | [B9, partial](../problems/B9/infinite-family-proof.md) | Countably infinitely many special braids in every B_N with N at least five; prior structure gives counts 1,2,4 in B1,B2,B3. | B4 remains unresolved, specifically its exponent-two sector; at least ten examples are known. |
 
 ## Experiment and provenance
@@ -89,18 +89,14 @@ Representative evidence illustrates the differing scopes:
   reduces all partners of any supplied first braid to a finite candidate
   list, using exact strand deletion and prior specialness algorithms.
   Separate GAP replay covers all 52 retained first colors, with 40 empty
-  fibres and 16 partners among the other 12. The
-  [universal family obstruction](../problems/B9/infinite-family-partner-exclusion.md)
-  also excludes every braid partner of I1(beta_n), n>=3. Global B4
-  exhaustion remains open.
+  fibres and 16 partners among the other 12. Global B4 exhaustion remains open.
 
 - G9's [completed and shortened families](../problems/G9/steiner-shortening-supplement.md)
-  and [disjoint shear tails](../problems/G9/shear-tail-supplement.md) give
-  the lower bound 2.676891785, retaining the independent earlier upper bound.
-  The 3,239 old two-boundary families and height-one family are augmented by
-  2,906 tails in 1,453 shear orbits. Separate GAP code checks seed flows,
-  orbit coverage, costs and rational inequalities. Infinite disjointness
-  and free concatenation remain written proof obligations.
+  upgrade the existing finite atom alphabet to 3,239 disjoint two-parameter
+  families and one height-one family. Their exact rational cost series gives
+  the stronger lower bound 2.676880030; the older upper bound is unchanged. A separate
+  GAP implementation checks all original words, orbit assignments, costs
+  and rational inequalities. This is not a computation of the exact constant.
 - F28 has a universal Lean theorem for its integral matrix recurrence.
   The Schreier, free-group and projective-matrix connections remain written.
 - The shared F34/F38 linear-span argument has universal Lean reachability
@@ -182,12 +178,7 @@ separate GAP checks of the eight lift decisions. The subsequent
 all integral period residues, exceptional quadratics and linear tails.
 The [word-input command](../problems/N8/general-word-audit.md) also covers
 elementary rank/class boundaries. Native GAP reconstructs its finite group
-certificates; the general structural proof remains a review obligation. The
-[higher-leading positive controls](../problems/N8/higher-leading-group-audit.md)
-and [complete negative control](../problems/N8/higher-negative-audit.md)
-exercise leading weights above one. In the latter, native GAP verifies both
-complete integer kernels, 64 group columns and two rootless quadratics;
-it does not independently recompute the projective leading lists.
+certificates; the general structural proof remains a review obligation.
 
 ## Prior results, exclusions and unsuccessful work
 
@@ -212,9 +203,8 @@ links the relevant arguments and negative controls.
 Failures remain available rather than being counted as verification.
 They include mathematical overextensions, unsupported bounds, limited
 searches, timeouts, script/API errors and rejected Lean inputs. For
-example, the initial B9 family-return comparison overlooked an entry
-of 34; its historical correction treats n=3 separately. The later
-first-column argument gives a different, uniform exclusion for all n>=3.
+example, the initial B9 family-return bound overlooked a comparison
+entry of 34; the corrected universal exclusion treats n=3 separately.
 GAP sometimes exits zero after an error, so its exit code alone was not
 accepted. Expected markers, error output, actual completion and the
 mathematical meaning of a check were assessed separately.
@@ -238,30 +228,27 @@ Mathlib artifact was rebuilt or that another kernel checked the result.
 The runner allocates cooperative CPU/memory reservations, sets CPU
 affinity and applies per-process address-space limits. These are not
 continuous measurements of aggregate peak memory or cgroup enforcement.
-The [08:30 evidence checkpoint](evidence-checkpoint-2026-09-30T0830.md)
-reconstructs peaks of eight CPU slots, 52 GB in requested per-process limits
-and seven simultaneous jobs, with no recorded conflict or budget excess.
-All 763 receipts at that checkpoint are terminal: 567 process successes
-and 196 nonsuccesses, including 46 timeout and 24 interruption flags. These
-are process conditions, not counts of proofs. Its later /proc observation
-found no matching worker. Subsequent work has additional receipts; the
-actual deadline still requires its own final accounting.
+The [latest evidence checkpoint](evidence-checkpoint-2026-09-30T0642.md)
+reconstructs peaks of eight CPU slots and 52 GB in requested limits, with
+no recorded slot overlap or budget excess. All 730 receipts in that
+checkpoint are now terminal; a separate /proc inspection found no
+remaining recorded workers. These are interim observations. The actual
+deadline still requires its own process and resource accounting.
 
-That checkpoint reconciles 21,612 bindings across 189 selected records:
-21,502 current matches and 110 historical matches, with no unresolved bound
-content. All 114 historical file versions indexed there retain their exact
-bytes. The 91 intentionally untracked bound paths comprise 88 A5 dependency
-sources and three B9 compiled binaries, with archive/build records. Hash
-reconciliation identifies retained bytes; it does not prove their claims.
-
-The [reproduction guide](REPRODUCTION_GUIDE.md) gives pinned dependencies,
-selected native replay commands, source-version recovery and omitted-data
-limits. The [portability inventory](../research/audits/review-portability-v1.json)
-finds all 6,294 Git blobs reachable at its recorded snapshot below 90 MB;
-the largest is 75,046,692 bytes. Later commits require the final size check.
-The omitted 127,724,170-byte formatted F34/F38 language JSON has the same
-parsed data as the retained 19,478,346-byte compact file; its original bytes
-are reproducible from the recorded formatting and hash.
+The [first artifact checkpoint](artifact-checkpoint-2026-09-30.md)
+reconciled 5,708 historical bindings: 5,676 current matches and 32 bindings
+to 25 exact old versions recovered from Git. No bound content was missing
+after correcting the scanner's path resolution. The 88 ignored A5 source
+files also matched the retained publisher source archive; three B9
+binaries remain intentionally omitted with build records. Later closing
+audits have additional manifests. After the
+[expanded checkpoint](artifact-checkpoint-expanded-2026-09-30.md), the
+[06:42 checkpoint](evidence-checkpoint-2026-09-30T0642.md) reconciles 15,274
+bindings across 172 selected records: 15,216 current matches and 58 exact
+historical matches, with no unresolved bound content. All 57 historical
+file versions indexed at that observation have their exact bytes retained.
+Hash reconciliation establishes which bytes were retained, not that their
+mathematical claims are correct.
 
 ## Still required before this becomes the final report
 
@@ -276,3 +263,17 @@ are reproducible from the recorded formatting and hash.
 5. Only after those deliverables exist, replace this interim draft by the
    self-contained final report and mark the research goal complete.
 
+- B9: the [universal family obstruction](../problems/B9/infinite-family-partner-exclusion.md)
+  excludes every braid partner of I1(beta_n), for all n>=3. Separate exact
+  polynomial calculations agree; this is a partial-case exclusion, not a
+  completed B4 classification.
+
+- N8: the [higher-leading group controls](../problems/N8/higher-leading-group-audit.md)
+  exercise leading weights (2,2) and (2,7) in the complete solver. Native GAP
+  verifies both witnesses and the class-eleven exceptional block; the
+  general structural proof remains a separate review requirement.
+
+- The [N8 higher-weight negative control](../problems/N8/higher-negative-audit.md) rejects all four normalized
+  leading types. Native GAP reconstructs both full integer kernels, 64 group
+  correction columns and both rootless exceptional quadratics; leading-list
+  completeness remains a written and implementation dependency.

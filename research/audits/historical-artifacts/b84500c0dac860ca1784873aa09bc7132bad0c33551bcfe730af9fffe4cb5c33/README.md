@@ -6,8 +6,7 @@
 
 [Entry/subpart scope ledger](reports/RESULT_SCOPE.md) ·
 [Interim final-report draft](reports/FINAL_REPORT_DRAFT.md) ·
-[Closing audit plan](reports/CLOSING_AUDIT_PLAN.md) ·
-[Reproduction guide](reports/REPRODUCTION_GUIDE.md).
+[Closing audit plan](reports/CLOSING_AUDIT_PLAN.md).
 These are preparation for the original deadline, not a completed run.
 
 Current working tally: **ten whole-entry candidates and two partial
@@ -28,7 +27,7 @@ and [audit](problems/N8/general-audit.md). A [limited Lean check](problems/N8/av
 [native group and integer-lattice checks](problems/N8/general-lattice-branches-audit.md).
 The theorem argument and novelty require specialist review. N5 also has a
 [general promised-nilpotent presentation command](problems/N5/general-fp-audit.md).
-The [latest evidence checkpoint](reports/evidence-checkpoint-2026-09-30T0830.md)
+The [latest evidence checkpoint](reports/evidence-checkpoint-2026-09-30T0642.md)
 records retained artifact and process/resource checks; final deadline closure
 remains outstanding.
 The new [B9 partial candidate](problems/B9/infinite-family-proof.md) constructs
@@ -38,8 +37,8 @@ deduces the counts 1, 2 and 4 for B1, B2 and B3 from prior structural
 results; only the exponent-two sector in B4 remains unclassified.
 [G9](problems/G9/flow-growth-proof.md) provides
 effective approximation of free-metabelian growth in every finite rank,
-and certified rank-two bounds `2.676891785 <= lambda_2 <= 2.943737759`.
-The [disjoint shear tails](problems/G9/shear-tail-supplement.md)
+and certified rank-two bounds `2.676880030 <= lambda_2 <= 2.943737759`.
+The [completed and shortened atom families](problems/G9/steiner-shortening-supplement.md)
 give the stronger lower endpoint from the existing atom certificate.
 The exact constant remains undetermined; the upper endpoint retains its
 [earlier audit](problems/G9/flow-growth-audit.md).
