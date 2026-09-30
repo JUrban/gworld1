@@ -2193,3 +2193,10 @@ reports/FINAL_REPORT_DRAFT.md now gives a self-contained current outcome, entry/
 ## N8 ordered-word dictionary (2026-09-30T03:10:59.531536+00:00)
 
 39 new Lean declarations connect the rational positional theorem to the actual rational free associative algebra. Injective homogeneous realization, prefix/suffix multiplication, global derivation and Leibniz rule, positive-component injectivity, D=cE0^m/V=0 separation, and both restriction identities checked. Six sequential1CPU/16GB/180s jobs: five retained tactic/interface failures, final49.99s pass without warnings/stderr. Exact combined/component snapshots and log hashes verified; all six PIDs absent and registry empty. Free-Lie/group application outside; no whole-proof claim, new result count, novelty conclusion, deadline change or push.
+
+
+## N8 generated Lie exception (2026-09-30T03:17:33.067847+00:00)
+
+Committed ordered-word work as a9f77c7. Ten additional universal Lean declarations check generated-Lie scalar-power exclusion including m0, closure under the actual derivation, and the precise positional separation exception. Two sequential1CPU/16GB/180s runs: first64.23s fails only on coefficient simplification; second67.59s passes with no warnings/stderr. Both PIDs gone and registry empty; exact combined/component and log hashes verified. Homogeneous projections/abstract identification/full group algorithm remain outside. Updating current scope boundaries, with old bound scope inputs/reports preserved separately. No count, novelty, deadline or authorization change.
+
+Scope ledger v3 passes in0.121s with67 input/artifact bindings and all195IDs. Four exact old ledger/input versions preserved before the boundary update; old manifests unchanged. Terminal PID absent and registry empty. Current proof/report local links and both new formal manifests verified.

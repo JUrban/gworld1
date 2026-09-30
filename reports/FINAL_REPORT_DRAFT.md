@@ -93,9 +93,11 @@ Representative evidence illustrates the differing scopes:
 - N8's formal work includes an all-dimension analytic argument and an
   exact rational positional-polynomial constancy theorem, now connected
   to ordered words and the actual free-associative derivation by the
-  [word dictionary](../problems/N8/word-dictionary-audit.md). The Lie/group
-  identification, structural projections and complete decision algorithm
-  are not formally verified.
+  [word dictionary](../problems/N8/word-dictionary-audit.md). The
+  [Lie exception](../problems/N8/lie-exception-audit.md) also checks the
+  scalar-power exclusion and separation in the generated Lie subalgebra.
+  Abstract free-Lie identification, structural projections, group
+  application and the complete algorithm are not formally verified.
 - N9 has a Lean integer-normalization lemma and actual retractions in
   fixed toy groups. These do not formalize DPRM or its complete reduction.
 - N5's class-two presentation interface was checked on 27 presentations,

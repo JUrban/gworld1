@@ -1,6 +1,6 @@
 # Interim result scope ledger
 
-Assessment: **2026-09-30T03:17:33.067847+00:00**. Research remains active until
+Assessment: **2026-09-30T02:36:41.567988+00:00**. Research remains active until
 **2026-09-30T10:04:49.670358+00:00**. This is not the frozen deadline result.
 
 **10 whole-entry coverage candidates, 2 partial-entry candidates, 0 established novel results.**
@@ -129,11 +129,11 @@ Audits: [part-a-audit.md](../problems/F38/part-a-audit.md), [bounded-audit.md](.
 
 Part (a) and the free class-two instance of (b) are prior. The current candidate has no class cutoff.
 
-The complete all-rank/class solver is unimplemented. Universal Lean ingredients now include the ordered-word/free-associative dictionary and scalar-power exclusion in the generated Lie subalgebra. Abstract free-Lie identification, homogeneous projections, group application and the full algorithm remain written.
+The complete all-rank/class solver is unimplemented. Formal analytic and polynomial ingredients leave the free-associative/Lie/group dictionary and full algorithm written.
 
 Proofs: [general-proof.md](../problems/N8/general-proof.md).
 
-Audits: [general-audit.md](../problems/N8/general-audit.md), [positional-polynomial-audit.md](../problems/N8/positional-polynomial-audit.md), [N8-closing-proof-reread.md](../research/audits/N8-closing-proof-reread.md), [word-dictionary-audit.md](../problems/N8/word-dictionary-audit.md), [lie-exception-audit.md](../problems/N8/lie-exception-audit.md).
+Audits: [general-audit.md](../problems/N8/general-audit.md), [positional-polynomial-audit.md](../problems/N8/positional-polynomial-audit.md), [N8-closing-proof-reread.md](../research/audits/N8-closing-proof-reread.md).
 
 ### N9
 
