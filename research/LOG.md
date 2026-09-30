@@ -2242,3 +2242,8 @@ Afterd876338, extended the positive-v case to every q>=3. Small-class f^-1(1)<=2
 ## B9 four-strand underlying permutation reduction (2026-09-30T04:26:33.039869+00:00)
 
 Previous turn made progress at7a16937/d876338/6a8efc6; active state and clean worktree revalidated. Complete upper permutation bounds for specialB4/B5 yield130pairs for the remaining m(v)=4sector, with one necessary survivor: v exponent2/pi tau2, u exponent3/pi tau3, A pure. Native GAP separately confirms all cases and that nine possible B4permutations are realized by ten knownwords; none of the six known exact4 v has the requiredimage. This gives all-known-v exclusion for arbitrary specialu and a conditional minimal-term descent, not exhaustion. Sequential1CPU2GB jobs0.071/1.825s pass,empty stderr,loghashesverified,PIDsabsent,registryempty.20bindings; no new source/novelty/count/deadline change orpush.
+
+
+## Scope reconciliation through the 04:32 assessment (2026-09-30T04:33:15.213281+00:00)
+
+Aftera515f85, reviewed wider unresolved leads and N5 structural proof without finding a new route or gap. G7 retains its subexponential hypothesis; the elementary exponential free-product ratio example would not answer it. A guessed F37 filename was absent; controlling scope ledger points to its actual finite-quotient-obstruction note. No new mathematical computation from this portfolio reread. Updated F38/N8/B9 scope boundaries and triage, preserving four exact prior versions before edits and maintaining CSV LF. Recorded scope-ledger-v5 passes0.118s,74 bindings/all195IDs/countsunchanged. All hashes and reportlinksverified,terminalPIDabsent,registryempty.13manifestbindings retained. This is interim, not deadlinefreeze or completion.

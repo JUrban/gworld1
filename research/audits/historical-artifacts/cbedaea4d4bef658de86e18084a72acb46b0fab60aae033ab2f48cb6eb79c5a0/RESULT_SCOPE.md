@@ -1,6 +1,6 @@
 # Interim result scope ledger
 
-Assessment: **2026-09-30T04:32:20.227872+00:00**. Research remains active until
+Assessment: **2026-09-30T03:17:33.067847+00:00**. Research remains active until
 **2026-09-30T10:04:49.670358+00:00**. This is not the frozen deadline result.
 
 **10 whole-entry coverage candidates, 2 partial-entry candidates, 0 established novel results.**
@@ -119,9 +119,9 @@ Audits: [part-a-audit.md](../problems/F34/part-a-audit.md), [F34-coverage-reconc
 
 Part (b) and the rank-two decisions are prior. The proposed new scope is higher-rank (a) and (c).
 
-Part (a) imports an unimplemented full EDT0L construction. Part (c) still imports graded shortening; the canonical displacement/finite-orbit-hull normalization is now explicit. The quantifier is over ambient automorphisms, with separate identity cases.
+Part (a) imports an unimplemented full EDT0L construction. Part (c)'s sufficiency imports graded shortening. The quantifier is over ambient automorphisms, with separate identity cases.
 
-Proofs: [part-a-proof.md](../problems/F38/part-a-proof.md), [bounded-proof.md](../problems/F38/bounded-proof.md), [normalization-supplement.md](../problems/F38/normalization-supplement.md).
+Proofs: [part-a-proof.md](../problems/F38/part-a-proof.md), [bounded-proof.md](../problems/F38/bounded-proof.md).
 
 Audits: [part-a-audit.md](../problems/F38/part-a-audit.md), [bounded-audit.md](../problems/F38/bounded-audit.md), [F34-F38-closing-proof-reread.md](../research/audits/F34-F38-closing-proof-reread.md).
 
@@ -129,11 +129,11 @@ Audits: [part-a-audit.md](../problems/F38/part-a-audit.md), [bounded-audit.md](.
 
 Part (a) and the free class-two instance of (b) are prior. The current candidate has no class cutoff.
 
-The complete all-rank/class solver is unimplemented. Universal Lean work connects the positional theorem to actual ordered words, the generated-Lie exception, coefficient weights and full correction-span/two-value separation. The Hall/BCH production of its equations now has a written dictionary. Abstract free-Lie identification, homogeneous projections, the group bridge and full algorithm remain outside Lean.
+The complete all-rank/class solver is unimplemented. Universal Lean ingredients now include the ordered-word/free-associative dictionary and scalar-power exclusion in the generated Lie subalgebra. Abstract free-Lie identification, homogeneous projections, group application and the full algorithm remain written.
 
-Proofs: [general-proof.md](../problems/N8/general-proof.md), [group-block-supplement.md](../problems/N8/group-block-supplement.md).
+Proofs: [general-proof.md](../problems/N8/general-proof.md).
 
-Audits: [general-audit.md](../problems/N8/general-audit.md), [positional-polynomial-audit.md](../problems/N8/positional-polynomial-audit.md), [N8-closing-proof-reread.md](../research/audits/N8-closing-proof-reread.md), [word-dictionary-audit.md](../problems/N8/word-dictionary-audit.md), [lie-exception-audit.md](../problems/N8/lie-exception-audit.md), [weighted-block-audit.md](../problems/N8/weighted-block-audit.md).
+Audits: [general-audit.md](../problems/N8/general-audit.md), [positional-polynomial-audit.md](../problems/N8/positional-polynomial-audit.md), [N8-closing-proof-reread.md](../research/audits/N8-closing-proof-reread.md), [word-dictionary-audit.md](../problems/N8/word-dictionary-audit.md), [lie-exception-audit.md](../problems/N8/lie-exception-audit.md).
 
 ### N9
 
@@ -159,11 +159,11 @@ Audits: [flow-growth-audit.md](../problems/G9/flow-growth-audit.md), [solvable-e
 
 Dehornoy's structure and right-power theorem are credited. Small-strand deductions and the known ten B4 braids are not separately counted.
 
-B4 remains unresolved, specifically its exponent-two sector. An additional terminal parameter of total exponent two requires nonpositive underlying v with m(v)>=4; at m(v)=4 one unknown permutation case survives and all known second inputs are excluded for arbitrary special first input. Higher underlying inputs and larger total parameter exponents remain unclassified. The finite permutation bounds are not braid exhaustion.
+B4 remains unresolved, specifically its exponent-two sector. At least ten special B4 braids are known; excluded families and parameter restrictions are not exhaustion.
 
-Proofs: [infinite-family-proof.md](../problems/B9/infinite-family-proof.md), [small-strand-proof.md](../problems/B9/small-strand-proof.md), [three-strand-underlying-exclusion.md](../problems/B9/three-strand-underlying-exclusion.md), [positive-underlying-exclusion.md](../problems/B9/positive-underlying-exclusion.md), [four-strand-underlying-reduction.md](../problems/B9/four-strand-underlying-reduction.md).
+Proofs: [infinite-family-proof.md](../problems/B9/infinite-family-proof.md), [small-strand-proof.md](../problems/B9/small-strand-proof.md).
 
-Audits: [infinite-family-audit.md](../problems/B9/infinite-family-audit.md), [small-strand-audit.md](../problems/B9/small-strand-audit.md), [exponent-two-parameter-reduction.md](../problems/B9/exponent-two-parameter-reduction.md), [positive-parameter-reduction.md](../problems/B9/positive-parameter-reduction.md).
+Audits: [infinite-family-audit.md](../problems/B9/infinite-family-audit.md), [small-strand-audit.md](../problems/B9/small-strand-audit.md), [exponent-two-parameter-reduction.md](../problems/B9/exponent-two-parameter-reduction.md).
 
 ## Selected uncounted work
 
