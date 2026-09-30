@@ -108,6 +108,9 @@ Representative evidence illustrates the differing scopes:
   The [positive underlying exclusion](../problems/B9/positive-underlying-exclusion.md)
   also treats that whole positive family without a strand bound. Nonpositive
   higher underlying inputs and larger total parameter exponents remain.
+  The [four-strand reduction](../problems/B9/four-strand-underlying-reduction.md)
+  excludes all ten known second inputs for arbitrary first input, apart
+  from three already classified pairs; one unknown permutation case survives.
 - N9 has a Lean integer-normalization lemma and actual retractions in
   fixed toy groups. These do not formalize DPRM or its complete reduction.
 - N5's class-two presentation interface was checked on 27 presentations,

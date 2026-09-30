@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 04:17 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 04:26 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -42,7 +42,10 @@ two would require underlying strand numbers at least five and four. The
 [positive underlying exclusion](../problems/B9/positive-underlying-exclusion.md)
 also rules out every positive special second underlying braid beyond B2,
 without a strand bound. Any remaining input in this sector has a nonpositive
-second underlying braid. The B4 sector is still not exhausted.
+second underlying braid. The [four-strand reduction](../problems/B9/four-strand-underlying-reduction.md)
+leaves one necessary permutation case there, requiring a second input
+outside the ten known B4 examples. It excludes all known inputs for
+arbitrary special first underlying braid. The B4 sector is still not exhausted.
 
 ## How to review the evidence
 
