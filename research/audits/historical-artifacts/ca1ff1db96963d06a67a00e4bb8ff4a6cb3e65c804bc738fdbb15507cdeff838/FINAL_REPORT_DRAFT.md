@@ -38,7 +38,7 @@ equally thoroughly.
 | [F38(a,c)](../problems/F38/bounded-proof.md) | Translation equivalence and bounded translation equivalence are uniformly decidable in every finite rank. | Part (b) and rank-two decisions are prior. The two arguments respectively import full equation languages and graded shortening. |
 | [N8(b)](../problems/N8/general-proof.md) | Single commutator equations are decidable, with solutions constructed, in every finite-rank free nilpotent group of every finite class. | Part (a) and the free class-two case are prior. The complete arbitrary-rank/class [word-input solver](../problems/N8/general-word-audit.md) is implemented; finite controls do not establish its structural proof. |
 | [N9(a)](../problems/N9/proof.md) | The retract problem is undecidable in one fixed torsion-free class-two group, even on isolated two-generator Heisenberg subgroups with primitive graded images. | The class-wide result and part (b) are prior. DPRM is imported and the universal numerical presentation is not expanded. |
-| [G9, partial](../problems/G9/flow-growth-proof.md) | Effective approximation of the standard free-metabelian growth constant in every finite rank, with rank-two bounds 2.676871486 to 2.943737759. | The exact constant remains undetermined. The extension to free solvable groups adds no problem count. |
+| [G9, partial](../problems/G9/flow-growth-proof.md) | Effective approximation of the standard free-metabelian growth constant in every finite rank, with rank-two bounds 2.676836909 to 2.943737759. | The exact constant remains undetermined. The extension to free solvable groups adds no problem count. |
 | [B9, partial](../problems/B9/infinite-family-proof.md) | Countably infinitely many special braids in every B_N with N at least five; prior structure gives counts 1,2,4 in B1,B2,B3. | B4 remains unresolved, specifically its exponent-two sector; at least ten examples are known. |
 
 ## Experiment and provenance
@@ -85,10 +85,10 @@ acceptance or a proof of novelty.
 
 Representative evidence illustrates the differing scopes:
 
-- G9's [completed and shortened families](../problems/G9/flow-shortening-supplement.md)
+- G9's [two-ended completion](../problems/G9/two-ended-completion-proof.md)
   upgrades the existing finite atom alphabet to 3,239 disjoint two-parameter
   families and one height-one family. Their exact rational cost series gives
-  the stronger lower bound 2.676871486; the older upper bound is unchanged. A separate
+  the stronger lower bound 2.676836909; the older upper bound is unchanged. A separate
   GAP implementation checks all original words, orbit assignments, costs
   and rational inequalities. This is not a computation of the exact constant.
 - F28 has a universal Lean theorem for its integral matrix recurrence.
