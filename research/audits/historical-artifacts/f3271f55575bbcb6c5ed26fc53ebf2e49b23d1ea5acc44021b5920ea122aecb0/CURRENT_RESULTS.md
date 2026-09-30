@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 08:18 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 07:55 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -55,15 +55,6 @@ now excludes all first colors on the four known parameter rays, with
 arbitrary special second colors and arbitrary total parameter exponent.
 Its exact membership test needs at most eight word comparisons. Other
 first colors remain unclassified; this does not close the B4 case.
-
-The [fixed-color decision](../problems/B9/fixed-color-decision.md) now
-computes the complete partner set for any supplied first braid. Its
-strand-deletion reduction leaves at most m-1 specialness tests for an
-input in B_m. On the same 52 saved first colors, native GAP reconstruction
-confirms 40 empty fibres and 16 partners for the other 12, all in known
-parameter classes. This is complete for each input, with explicit resource
-failures, but does not classify all possible first colors.
-
 
 ## How to review the evidence
 

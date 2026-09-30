@@ -31,11 +31,7 @@ The [fixed-first-color reduction](fixed-first-color-reduction.md) proves
 uniqueness of the second color outside B3. It excludes every first color
 on all four known parameter rays, for arbitrary special second colors,
 and implements an exact eight-comparison test for those families.
-The [fixed-color decision](fixed-color-decision.md) now computes all
-possible special partners for any given first braid by strand deletion
-and finitely many specialness tests. On the existing 52 first colors it
-proves 40 have no partner and finds the 16 partners of the other 12.
-Unrestricted first colors still leave the B4 count unresolved.
+First colors outside those families still leave the B4 count unresolved.
 The machine-readable source evidence is in `data/problems.json`; the
 extracted text below is a search aid, not an authoritative transcription.
 

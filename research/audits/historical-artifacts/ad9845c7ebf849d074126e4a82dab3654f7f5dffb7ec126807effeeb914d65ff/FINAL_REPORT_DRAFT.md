@@ -85,12 +85,6 @@ acceptance or a proof of novelty.
 
 Representative evidence illustrates the differing scopes:
 
-- B9's [fixed-color procedure](../problems/B9/fixed-color-decision.md)
-  reduces all partners of any supplied first braid to a finite candidate
-  list, using exact strand deletion and prior specialness algorithms.
-  Separate GAP replay covers all 52 retained first colors, with 40 empty
-  fibres and 16 partners among the other 12. Global B4 exhaustion remains open.
-
 - G9's [completed and shortened families](../problems/G9/flow-shortening-supplement.md)
   upgrades the existing finite atom alphabet to 3,239 disjoint two-parameter
   families and one height-one family. Their exact rational cost series gives

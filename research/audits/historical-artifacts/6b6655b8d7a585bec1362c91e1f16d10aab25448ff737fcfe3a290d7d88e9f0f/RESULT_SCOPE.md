@@ -1,6 +1,6 @@
 # Interim result scope ledger
 
-Assessment: **2026-09-30T08:18:06.914061+00:00**. Research remains active until
+Assessment: **2026-09-30T07:55:31.898797+00:00**. Research remains active until
 **2026-09-30T10:04:49.670358+00:00**. This is not the frozen deadline result.
 
 **10 whole-entry coverage candidates, 2 partial-entry candidates, 0 established novel results.**
@@ -159,11 +159,11 @@ Audits: [flow-growth-audit.md](../problems/G9/flow-growth-audit.md), [solvable-e
 
 Dehornoy's structure and right-power theorem are credited. Small-strand deductions and the known ten B4 braids are not separately counted.
 
-B4 remains unresolved, specifically its exponent-two sector. An additional terminal parameter of total exponent two requires nonpositive underlying v with m(v)>=4; at m(v)=4 one unknown permutation case survives and all known second inputs are excluded for arbitrary special first input. Higher underlying inputs and larger total parameter exponents remain unclassified. The finite permutation bounds are not braid exhaustion. The complete partner set for a supplied first color is now computable and implemented; unrestricted first-color classification remains unresolved.
+B4 remains unresolved, specifically its exponent-two sector. An additional terminal parameter of total exponent two requires nonpositive underlying v with m(v)>=4; at m(v)=4 one unknown permutation case survives and all known second inputs are excluded for arbitrary special first input. Higher underlying inputs and larger total parameter exponents remain unclassified. The finite permutation bounds are not braid exhaustion.
 
-Proofs: [infinite-family-proof.md](../problems/B9/infinite-family-proof.md), [small-strand-proof.md](../problems/B9/small-strand-proof.md), [three-strand-underlying-exclusion.md](../problems/B9/three-strand-underlying-exclusion.md), [positive-underlying-exclusion.md](../problems/B9/positive-underlying-exclusion.md), [four-strand-underlying-reduction.md](../problems/B9/four-strand-underlying-reduction.md), [fixed-color-decision.md](../problems/B9/fixed-color-decision.md).
+Proofs: [infinite-family-proof.md](../problems/B9/infinite-family-proof.md), [small-strand-proof.md](../problems/B9/small-strand-proof.md), [three-strand-underlying-exclusion.md](../problems/B9/three-strand-underlying-exclusion.md), [positive-underlying-exclusion.md](../problems/B9/positive-underlying-exclusion.md), [four-strand-underlying-reduction.md](../problems/B9/four-strand-underlying-reduction.md).
 
-Audits: [infinite-family-audit.md](../problems/B9/infinite-family-audit.md), [small-strand-audit.md](../problems/B9/small-strand-audit.md), [exponent-two-parameter-reduction.md](../problems/B9/exponent-two-parameter-reduction.md), [positive-parameter-reduction.md](../problems/B9/positive-parameter-reduction.md), [fixed-first-color-reduction.md](../problems/B9/fixed-first-color-reduction.md), [fixed-color-decision.md](../problems/B9/fixed-color-decision.md).
+Audits: [infinite-family-audit.md](../problems/B9/infinite-family-audit.md), [small-strand-audit.md](../problems/B9/small-strand-audit.md), [exponent-two-parameter-reduction.md](../problems/B9/exponent-two-parameter-reduction.md), [positive-parameter-reduction.md](../problems/B9/positive-parameter-reduction.md), [fixed-first-color-reduction.md](../problems/B9/fixed-first-color-reduction.md).
 
 ## Selected uncounted work
 
