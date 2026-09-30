@@ -1,6 +1,6 @@
 # Interim result scope ledger
 
-Assessment: **2026-09-30T07:30:12.247447+00:00**. Research remains active until
+Assessment: **2026-09-30T06:33:42.553506+00:00**. Research remains active until
 **2026-09-30T10:04:49.670358+00:00**. This is not the frozen deadline result.
 
 **10 whole-entry coverage candidates, 2 partial-entry candidates, 0 established novel results.**
@@ -40,7 +40,7 @@ prior answers, partial results, failed approaches and unverified status.
 | [F38](../problems/F38/README.md) | a: candidate; b: prior; c: candidate | Uniform decisions of translation equivalence (a) and bounded translation equivalence (c) in every finite rank; (b) is credited prior. |
 | [N8](../problems/N8/README.md) | a: prior; b: candidate | Single commutator equations are decidable, with solution construction, in every finite-rank free nilpotent group of every finite class; general class-two undecidability in (a) is prior. |
 | [N9](../problems/N9/README.md) | a: candidate; b: prior | Undecidable retract problem in one fixed finitely generated torsion-free class-two group, on two-generator isolated Heisenberg subgroups with primitive images in both graded layers. |
-| [G9](../problems/G9/README.md) | entry: partial candidate | Computable standard growth constant with an explicit approximation modulus for every finite-rank free metabelian group; certified rank-two interval 2.668423113 to 2.943737759. Extension to free solvable groups. |
+| [G9](../problems/G9/README.md) | entry: partial candidate | Computable standard growth constant with an explicit approximation modulus for every finite-rank free metabelian group; certified rank-two interval 2.658596558 to 2.943737759. Extension to free solvable groups. |
 | [B9](../problems/B9/README.md) | entry: partial candidate | Countably infinitely many special braids in each B_N for N at least five; deductions from prior structure give counts 1, 2 and 4 for N=1,2,3. |
 
 ## Prior coverage, limits and controlling files
@@ -113,7 +113,7 @@ Full EDT0L solution-relation construction is imported and unimplemented. Shared 
 
 Proofs: [part-a-proof.md](../problems/F34/part-a-proof.md).
 
-Audits: [part-a-audit.md](../problems/F34/part-a-audit.md), [F34-coverage-reconciliation.md](../research/notes/F34-coverage-reconciliation.md), [F34-F38-closing-proof-reread.md](../research/audits/F34-F38-closing-proof-reread.md), [language-interface-audit.md](../problems/F38/language-interface-audit.md).
+Audits: [part-a-audit.md](../problems/F34/part-a-audit.md), [F34-coverage-reconciliation.md](../research/notes/F34-coverage-reconciliation.md), [F34-F38-closing-proof-reread.md](../research/audits/F34-F38-closing-proof-reread.md).
 
 ### F38
 
@@ -123,7 +123,7 @@ Part (a) imports an unimplemented full EDT0L construction. Part (c) still import
 
 Proofs: [part-a-proof.md](../problems/F38/part-a-proof.md), [bounded-proof.md](../problems/F38/bounded-proof.md), [normalization-supplement.md](../problems/F38/normalization-supplement.md).
 
-Audits: [part-a-audit.md](../problems/F38/part-a-audit.md), [bounded-audit.md](../problems/F38/bounded-audit.md), [F34-F38-closing-proof-reread.md](../research/audits/F34-F38-closing-proof-reread.md), [language-interface-audit.md](../problems/F38/language-interface-audit.md).
+Audits: [part-a-audit.md](../problems/F38/part-a-audit.md), [bounded-audit.md](../problems/F38/bounded-audit.md), [F34-F38-closing-proof-reread.md](../research/audits/F34-F38-closing-proof-reread.md).
 
 ### N8
 
@@ -133,7 +133,7 @@ The complete arbitrary-rank/class word-input candidate solver is implemented, in
 
 Proofs: [general-proof.md](../problems/N8/general-proof.md), [group-block-supplement.md](../problems/N8/group-block-supplement.md).
 
-Audits: [general-audit.md](../problems/N8/general-audit.md), [positional-polynomial-audit.md](../problems/N8/positional-polynomial-audit.md), [N8-closing-proof-reread.md](../research/audits/N8-closing-proof-reread.md), [word-dictionary-audit.md](../problems/N8/word-dictionary-audit.md), [lie-exception-audit.md](../problems/N8/lie-exception-audit.md), [weighted-block-audit.md](../problems/N8/weighted-block-audit.md), [projective-leading-pairs-audit.md](../problems/N8/projective-leading-pairs-audit.md), [general-implementation-audit.md](../problems/N8/general-implementation-audit.md), [general-word-audit.md](../problems/N8/general-word-audit.md), [general-lattice-branches-audit.md](../problems/N8/general-lattice-branches-audit.md).
+Audits: [general-audit.md](../problems/N8/general-audit.md), [positional-polynomial-audit.md](../problems/N8/positional-polynomial-audit.md), [N8-closing-proof-reread.md](../research/audits/N8-closing-proof-reread.md), [word-dictionary-audit.md](../problems/N8/word-dictionary-audit.md), [lie-exception-audit.md](../problems/N8/lie-exception-audit.md), [weighted-block-audit.md](../problems/N8/weighted-block-audit.md), [projective-leading-pairs-audit.md](../problems/N8/projective-leading-pairs-audit.md), [general-implementation-audit.md](../problems/N8/general-implementation-audit.md), [general-word-audit.md](../problems/N8/general-word-audit.md).
 
 ### N9
 
@@ -151,9 +151,9 @@ Flow models, bridge/unfolding arguments and earlier estimates are credited. The 
 
 The exact growth constant remains undetermined. Fine-precision computation is not demonstrated.
 
-Proofs: [flow-growth-proof.md](../problems/G9/flow-growth-proof.md), [solvable-extension-proof.md](../problems/G9/solvable-extension-proof.md), [horizontal-completion-proof.md](../problems/G9/horizontal-completion-proof.md).
+Proofs: [flow-growth-proof.md](../problems/G9/flow-growth-proof.md), [solvable-extension-proof.md](../problems/G9/solvable-extension-proof.md).
 
-Audits: [flow-growth-audit.md](../problems/G9/flow-growth-audit.md), [solvable-extension-audit.md](../problems/G9/solvable-extension-audit.md), [horizontal-completion-proof.md](../problems/G9/horizontal-completion-proof.md).
+Audits: [flow-growth-audit.md](../problems/G9/flow-growth-audit.md), [solvable-extension-audit.md](../problems/G9/solvable-extension-audit.md).
 
 ### B9
 
@@ -163,7 +163,7 @@ B4 remains unresolved, specifically its exponent-two sector. An additional termi
 
 Proofs: [infinite-family-proof.md](../problems/B9/infinite-family-proof.md), [small-strand-proof.md](../problems/B9/small-strand-proof.md), [three-strand-underlying-exclusion.md](../problems/B9/three-strand-underlying-exclusion.md), [positive-underlying-exclusion.md](../problems/B9/positive-underlying-exclusion.md), [four-strand-underlying-reduction.md](../problems/B9/four-strand-underlying-reduction.md).
 
-Audits: [infinite-family-audit.md](../problems/B9/infinite-family-audit.md), [small-strand-audit.md](../problems/B9/small-strand-audit.md), [exponent-two-parameter-reduction.md](../problems/B9/exponent-two-parameter-reduction.md), [positive-parameter-reduction.md](../problems/B9/positive-parameter-reduction.md), [fixed-first-color-reduction.md](../problems/B9/fixed-first-color-reduction.md).
+Audits: [infinite-family-audit.md](../problems/B9/infinite-family-audit.md), [small-strand-audit.md](../problems/B9/small-strand-audit.md), [exponent-two-parameter-reduction.md](../problems/B9/exponent-two-parameter-reduction.md), [positive-parameter-reduction.md](../problems/B9/positive-parameter-reduction.md).
 
 ## Selected uncounted work
 

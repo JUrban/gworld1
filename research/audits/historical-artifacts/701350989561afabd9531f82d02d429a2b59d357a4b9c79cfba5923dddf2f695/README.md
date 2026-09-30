@@ -37,11 +37,8 @@ deduces the counts 1, 2 and 4 for B1, B2 and B3 from prior structural
 results; only the exponent-two sector in B4 remains unclassified.
 [G9](problems/G9/flow-growth-proof.md) provides
 effective approximation of free-metabelian growth in every finite rank,
-and certified rank-two bounds `2.668423113 <= lambda_2 <= 2.943737759`.
-The [horizontal-family completion](problems/G9/horizontal-completion-proof.md)
-gives the stronger lower endpoint from the existing atom certificate.
-The exact constant remains undetermined; the upper endpoint retains its
-[earlier audit](problems/G9/flow-growth-audit.md).
+and certified rank-two bounds `2.658596558 <= lambda_2 <= 2.943737759`.
+The exact constant remains undetermined; see the [audit](problems/G9/flow-growth-audit.md).
 
 This is a fresh repository for the collection of [open problems in combinatorial group theory](https://shpilrain.ccny.cuny.edu/gworld/problems/oproblems.html) selected by G. Baumslag, A. G. Myasnikov and V. Shpilrain, together with its [Hall of Fame](https://shpilrain.ccny.cuny.edu/gworld/problems/Halloffame.html). The snapshot was downloaded on 28 September 2026.
 
