@@ -27,11 +27,6 @@ The [exponent-two parameter follow-up](exponent-two-parameter-reduction.md)
 gives an adjacent-strand restriction, rules out the smallest underlying
 strand cases, and records a counterexample to a proposed general rigidity
 lemma. Its 268-case filtered probe yields no new B4 example.
-The [fixed-first-color reduction](fixed-first-color-reduction.md) proves
-uniqueness of the second color outside B3. It excludes every first color
-on all four known parameter rays, for arbitrary special second colors,
-and implements an exact eight-comparison test for those families.
-First colors outside those families still leave the B4 count unresolved.
 The machine-readable source evidence is in `data/problems.json`; the
 extracted text below is a search aid, not an authoritative transcription.
 

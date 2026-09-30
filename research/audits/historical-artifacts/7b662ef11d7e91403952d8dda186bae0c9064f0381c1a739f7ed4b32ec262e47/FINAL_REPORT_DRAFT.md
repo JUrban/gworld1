@@ -119,10 +119,6 @@ Representative evidence illustrates the differing scopes:
   A [higher-strand obstruction note](../research/notes/B9-general-permutation-obstruction.md)
   retains a failed permutation-only extension, with explicit special lifts
   whose parameters have three-position permutations but need seven strands.
-  The [fixed-first-color reduction](../problems/B9/fixed-first-color-reduction.md)
-  excludes all four known first-color families for arbitrary special second
-  colors, without restricting the total parameter exponent. The remaining
-  first colors are not exhausted.
 - N9 has a Lean integer-normalization lemma and actual retractions in
   fixed toy groups. These do not formalize DPRM or its complete reduction.
 - N5's [higher-class native input](../problems/N5/general-malcev-input-audit.md)

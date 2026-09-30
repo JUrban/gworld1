@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 07:18 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 07:05 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -50,11 +50,6 @@ The [higher-strand permutation check](../research/notes/B9-general-permutation-o
 records why that permutation pattern cannot simply be extended: explicit
 special lifts pass the three-position permutation test while their
 parameters need seven strands. They give no new B4 braid.
-The [fixed-first-color reduction](../problems/B9/fixed-first-color-reduction.md)
-now excludes all first colors on the four known parameter rays, with
-arbitrary special second colors and arbitrary total parameter exponent.
-Its exact membership test needs at most eight word comparisons. Other
-first colors remain unclassified; this does not close the B4 case.
 
 ## How to review the evidence
 
