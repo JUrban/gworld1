@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 04:10 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 04:17 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -38,8 +38,11 @@ not an independent mathematical referee.
 For B9, the [three-strand underlying exclusion](../problems/B9/three-strand-underlying-exclusion.md)
 now treats every special pair in its stated sector, including the unknown
 exponent-two first braid. An additional terminal parameter of total exponent
-two would require underlying strand numbers at least five and four. This
-does not exhaust the remaining B4 sector.
+two would require underlying strand numbers at least five and four. The
+[positive underlying exclusion](../problems/B9/positive-underlying-exclusion.md)
+also rules out every positive special second underlying braid beyond B2,
+without a strand bound. Any remaining input in this sector has a nonpositive
+second underlying braid. The B4 sector is still not exhausted.
 
 ## How to review the evidence
 

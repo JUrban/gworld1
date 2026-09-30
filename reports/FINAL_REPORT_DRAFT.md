@@ -105,7 +105,9 @@ Representative evidence illustrates the differing scopes:
 - B9's [three-strand underlying exclusion](../problems/B9/three-strand-underlying-exclusion.md)
   rules out the entire next underlying strand number using prior structure,
   complete permutation cases and a separately checked exact obstruction.
-  Higher underlying strands and larger total parameter exponents remain.
+  The [positive underlying exclusion](../problems/B9/positive-underlying-exclusion.md)
+  also treats that whole positive family without a strand bound. Nonpositive
+  higher underlying inputs and larger total parameter exponents remain.
 - N9 has a Lean integer-normalization lemma and actual retractions in
   fixed toy groups. These do not formalize DPRM or its complete reduction.
 - N5's class-two presentation interface was checked on 27 presentations,
