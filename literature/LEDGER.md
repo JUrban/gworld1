@@ -955,3 +955,8 @@ Reread archived Guirardel2004 Fact5.1, its arbitrary-Lambda/convex-subgroup rema
 ## N5 implemented prior rational stage (2026-09-30T01:08:28.110142+00:00)
 
 Reread the retained BMO1510.05632 text around Proposition13 and its de Graaf Section1.15 credit. No new visual PDF inspection. The new rational-lie-audit.md provides a self-contained centroid/trace/CRT version of this established ingredient, without claiming novelty. Broad trace-form/centroid searches produced no additional theorem used here; the radical calculation is proved directly in the supplement. Consulted official GAP tutorial Chapter6 (https://gap-system.github.io/gap/doc/tut/chap6.html) for native structure-constant constructors, including its warning that the Lie constructor assumes Jacobi; the checker tests Jacobi explicitly. No new problem-status inference follows.
+
+
+## F32 named-part scope (2026-09-30T05:19:30.030126+00:00)
+
+Archived Bardakov--Mikhailov math/0701441v1 and Ershov2601.01377v1, with exact URLs/hashes in literature/F32-scope-sources-v1.json. Read the former Section4 including Theorem5 and the latter introduction/Theorem1.1; viewed primarypp9/10 andp2. Nonlinearity(b) prior for every n>=3; finitepresentability(a) n>=4 retainedopen in the January2026source, not settled by its partialTorelli result. No exhaustive later-status claim. Fullnote research/notes/F32-prior-scope-audit.md. BroaderS7/AUX4queries supplied no newproof.
