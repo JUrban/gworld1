@@ -37,9 +37,9 @@ deduces the counts 1, 2 and 4 for B1, B2 and B3 from prior structural
 results; only the exponent-two sector in B4 remains unclassified.
 [G9](problems/G9/flow-growth-proof.md) provides
 effective approximation of free-metabelian growth in every finite rank,
-and certified rank-two bounds `2.676880030 <= lambda_2 <= 2.943737759`.
-The [completed and shortened atom families](problems/G9/steiner-shortening-supplement.md)
-give the stronger lower endpoint from the existing atom certificate.
+and certified rank-two bounds `2.676871486 <= lambda_2 <= 2.943737759`.
+The [completed and shortened atom families](problems/G9/flow-shortening-supplement.md)
+gives the stronger lower endpoint from the existing atom certificate.
 The exact constant remains undetermined; the upper endpoint retains its
 [earlier audit](problems/G9/flow-growth-audit.md).
 
