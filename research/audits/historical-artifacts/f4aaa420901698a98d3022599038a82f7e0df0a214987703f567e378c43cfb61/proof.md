@@ -164,20 +164,7 @@ Together with Section 4.1 this proves a terminating, constructive algorithm for 
 
 Section 2 gives a finite complete list, with the explicit index bound |T(G/Z(G))|. Sections 3 and 4 decide exactly which of these decompositions lift with two nontrivial factors. Every loop is finite or invokes one of the established effective nilpotent-group operations stated in Section 1. Positive answers construct the factors; if all branches fail, every possible group decomposition has been excluded.
 
-The argument therefore proposes a positive answer to the whole of N5.
-At the time of this 28 September draft, the general rational decomposition
-and bounded-index subgroup stages were not implemented end to end; the
-proof invokes the established algorithms for those operations. Section 6
-records the lifting implementation and finite-central-quotient checks
-available then.
-
-**Implementation update, 30 September:** the
-[general finite-presentation command](general-fp-audit.md) now implements
-the full pipeline, with no supplied class bound, under the explicit
-nilpotency promise. Its [native pipeline audit](general-pipeline-audit.md)
-and command audit record the later checks and returned original-generator
-factor words. The written completeness argument and novelty still require
-specialist review; implementation does not establish either.
+The argument therefore proposes a positive answer to the whole of N5. An end-to-end implementation of the general rational decomposition and bounded-index subgroup stages is not claimed. The theorem invokes the established algorithms for those operations. The new lifting algorithm and complete examples with finite central quotient were tested as follows.
 
 ## 6. Exact checks, independent evaluations and limits
 
