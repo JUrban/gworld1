@@ -960,3 +960,8 @@ Reread the retained BMO1510.05632 text around Proposition13 and its de Graaf Sec
 ## F32 named-part scope (2026-09-30T05:19:30.030126+00:00)
 
 Archived Bardakov--Mikhailov math/0701441v1 and Ershov2601.01377v1, with exact URLs/hashes in literature/F32-scope-sources-v1.json. Read the former Section4 including Theorem5 and the latter introduction/Theorem1.1; viewed primarypp9/10 andp2. Nonlinearity(b) prior for every n>=3; finitepresentability(a) n>=4 retainedopen in the January2026source, not settled by its partialTorelli result. No exhaustive later-status claim. Fullnote research/notes/F32-prior-scope-audit.md. BroaderS7/AUX4queries supplied no newproof.
+
+
+## G9 support-connection predecessor (2026-09-30T08:54:02.389112+00:00)
+
+Archived MRUV arXiv0807.1032v1; read introduction/Section2.7 proof and Theorem4.1 statement/context; actually viewed printedpages15/16. The support-connection/Euler and minimum-forest formulation are prior and now explicitly credited in the current shortening supplement. No new geodesic or complexity theorem is claimed. See research/notes/G9-connector-prior-audit.md for hashes, exact scope and bounded search limitations. The already archived Bodart--Osin v3 remains the April2026 revision. No stronger matching growth result was located in this pass; novelty remains unverified.

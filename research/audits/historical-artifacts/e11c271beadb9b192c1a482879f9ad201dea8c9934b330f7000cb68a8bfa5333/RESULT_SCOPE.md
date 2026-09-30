@@ -1,6 +1,6 @@
 # Interim result scope ledger
 
-Assessment: **2026-09-30T08:54:02.389112+00:00**. Research remains active until
+Assessment: **2026-09-30T08:48:43.852837+00:00**. Research remains active until
 **2026-09-30T10:04:49.670358+00:00**. This is not the frozen deadline result.
 
 **10 whole-entry coverage candidates, 2 partial-entry candidates, 0 established novel results.**
@@ -147,13 +147,13 @@ Audits: [audit.md](../problems/N9/audit.md), [N9-closing-proof-reread.md](../res
 
 ### G9
 
-Flow models, bridge/unfolding arguments and earlier estimates are credited. The solvable extension is not another problem count. The flow-support connection/Euler construction is also credited to Myasnikov-Romankov-Ushakov-Vershik Section 2.7.
+Flow models, bridge/unfolding arguments and earlier estimates are credited. The solvable extension is not another problem count.
 
 The exact growth constant remains undetermined. Fine-precision computation is not demonstrated.
 
 Proofs: [flow-growth-proof.md](../problems/G9/flow-growth-proof.md), [solvable-extension-proof.md](../problems/G9/solvable-extension-proof.md), [horizontal-completion-proof.md](../problems/G9/horizontal-completion-proof.md), [two-ended-completion-proof.md](../problems/G9/two-ended-completion-proof.md), [flow-shortening-supplement.md](../problems/G9/flow-shortening-supplement.md), [steiner-shortening-supplement.md](../problems/G9/steiner-shortening-supplement.md).
 
-Audits: [flow-growth-audit.md](../problems/G9/flow-growth-audit.md), [solvable-extension-audit.md](../problems/G9/solvable-extension-audit.md), [horizontal-completion-proof.md](../problems/G9/horizontal-completion-proof.md), [two-ended-completion-proof.md](../problems/G9/two-ended-completion-proof.md), [flow-shortening-supplement.md](../problems/G9/flow-shortening-supplement.md), [steiner-shortening-supplement.md](../problems/G9/steiner-shortening-supplement.md), [G9-connector-prior-audit.md](../research/notes/G9-connector-prior-audit.md).
+Audits: [flow-growth-audit.md](../problems/G9/flow-growth-audit.md), [solvable-extension-audit.md](../problems/G9/solvable-extension-audit.md), [horizontal-completion-proof.md](../problems/G9/horizontal-completion-proof.md), [two-ended-completion-proof.md](../problems/G9/two-ended-completion-proof.md), [flow-shortening-supplement.md](../problems/G9/flow-shortening-supplement.md), [steiner-shortening-supplement.md](../problems/G9/steiner-shortening-supplement.md).
 
 ### B9
 

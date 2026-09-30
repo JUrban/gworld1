@@ -15,13 +15,6 @@ shorter representatives in the same atom families. The upper bound and
 the general computability argument are unchanged. The exact constant and
 novelty remain unresolved; G9 stays one partial-entry candidate.
 
-The flow-support connection and Euler construction are credited prior work:
-see Myasnikov--Roman'kov--Ushakov--Vershik,
-[*The Word and Geodesic Problems in Free Solvable Groups*](https://arxiv.org/abs/0807.1032),
-Section 2.7, equation (6) and Theorem 2.10. The
-[source audit](../../research/notes/G9-connector-prior-audit.md) records the
-comparison. The refinement here concerns these particular atom costs.
-
 ## 1. A finite connection problem
 
 For a strict bridge flow f of height H, let its required vertices be the

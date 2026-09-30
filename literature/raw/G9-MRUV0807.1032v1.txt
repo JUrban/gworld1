@@ -1,0 +1,1501 @@
+                                               The Word and Geodesic Problems in Free
+                                                          Solvable Groups
+arXiv:0807.1032v1 [math.GR] 7 Jul 2008
+
+
+
+
+                                                 A. Myasnikov, V. Roman’kov, A. Ushakov, A.Vershik
+                                                                         October 30, 2018
+
+                                                                               Abstract
+                                                  We study the computational complexity of the Word Problem (WP)
+                                              in free solvable groups Sr,d , where r ≥ 2 is the rank and d ≥ 2 is the
+                                              solvability class of the group. It is known that the Magnus embedding
+                                              of Sr,d into matrices provides a polynomial time decision algorithm for
+                                              WP in a fixed group Sr,d . Unfortunately, the degree of the polynomial
+                                              grows together with d, so the uniform algorithm is not polynomial in d.
+                                              In this paper we show that WP has time complexity O(rn log2 n) in Sr,2 ,
+                                              and O(n3 rd) in Sr,d for d ≥ 3. However, it turns out, that a seemingly
+                                              close problem of computing the geodesic length of elements in Sr,2 is N P -
+                                              complete. We prove also that one can compute Fox derivatives of elements
+                                              from Sr,d in time O(n3 rd), in particular one can use efficiently the Magnus
+                                              embedding in computations with free solvable groups. Our approach is
+                                              based on such classical tools as the Magnus embedding and Fox calculus,
+                                              as well as, on a relatively new geometric ideas, in particular, we establish a
+                                              direct link between Fox derivatives and geometric flows on Cayley graphs.
+
+
+                                         Contents
+                                         1 Introduction                                                                        2
+
+                                         2 Preliminaries                                                                        7
+                                           2.1 The Word Problem . . . . . . . . . . . . . . . . . . . . . . . . . .             7
+                                           2.2 Free solvable groups and the Magnus embedding . . . . . . . . .                  7
+                                           2.3 Free Fox derivatives . . . . . . . . . . . . . . . . . . . . . . . . .           8
+                                           2.4 Flows on F/N . . . . . . . . . . . . . . . . . . . . . . . . . . . .            10
+                                           2.5 Geometric interpretation of Fox derivatives . . . . . . . . . . . .             12
+                                           2.6 Geometric circulations and the first homology group of Γ . . . .                14
+                                           2.7 Geodesics in F/N ′ . . . . . . . . . . . . . . . . . . . . . . . . . .          15
+
+                                         3 The Word Problem in free solvable groups                               17
+                                           3.1 The Word Problem in free metabelian groups . . . . . . . . . . . 17
+                                           3.2 The Word problem in free solvable groups . . . . . . . . . . . . . 19
+
+
+
+                                                                                    1
+Word Problem in free solvable groups                                                2
+
+
+4 Geodesics in free metabelian groups                                       23
+  4.1 Algorithmic problems with geodesics in groups . . . . . . . . . . 23
+  4.2 Reduction to M2 . . . . . . . . . . . . . . . . . . . . . . . . . . . 25
+  4.3 Rectilinear Steiner Tree Problem . . . . . . . . . . . . . . . . . . 26
+  4.4 NP-completeness of BGLP in M2 . . . . . . . . . . . . . . . . . . 26
+
+5 Open Problems                                                                    29
+
+
+1     Introduction
+In this paper we study the computational complexity of several algorithmic
+problems related to the Word Problem (WP) in free solvable groups. Let Sr,d
+be a free solvable group of rank r ≥ 2 and the solvability class d ≥ 2. We
+present here a uniform decision algorithm that solves WP in time O(rn log 2 n)
+in the free metabelian group Sr,2 (also denoted by Mr ), and O(n3 rd) in the
+free solvable group Sr,d for d ≥ 3, where n is the length of the input word. In
+particular, this algorithm is at most cubic in n and linear in r and d for all
+free solvable groups Sr,d . Notice, that in all previously known polynomial time
+decision algorithms for WP in Sr,d the degree of the polynomial grows together
+with d. In fact, we prove more, we show that one can compute Fox derivatives
+of elements from Sr,d in time O(n3 rd). This allows one to use efficiently the
+Magnus embedding in computations with free solvable groups. On the other
+hand, we describe geodesics in Sr,d and show that a seemingly close problem of
+finding the geodesic length of a given element from Sr,2 is surprisingly hard –
+it is NP-complete. Our approach is based on such classical tools as the Magnus
+embedding and Fox calculus, as well as, on a relatively new (in group theory)
+geometric ideas from [12] and [53]. In particular, we establish a direct link
+between Fox derivatives and geometric flows on Cayley graphs.
+     The study of algorithmic problems in free solvable groups can be traced to
+the the work [36] of Magnus, who in 1939 introduced an embedding (now called
+the Magnus embedding) of an arbitrary group of the type F/N ′ into a matrix
+group of a particular type with coefficients in the group ring of F/N (see section
+2.2 below). Since WP in free abelian groups is decidable in polynomial time, by
+induction, this embedding immediately gives a polynomial time decision algo-
+rithm for a fixed free solvable group Sr,d . However the degree of the polynomial
+here grows together with d.
+     In 1950’s R. Fox introduced his free differential calculus and made the Mag-
+nus embedding much more transparent [20, 21, 22, 23] (see also Section 2.3).
+Namely, besides other things, he showed that an element w ∈ F belongs to
+N ′ = [N, N ] if and only if all partial derivatives of w is equal to 0 in the integer
+group ring of F/N . This reduces WP in F/N ′ directly to the word problem in
+F/N . In particular, it solves, by induction, WP in Sr,d . Again, the decision
+algorithm is polynomial in a fixed group Sr,d , but the degree of the polynomial
+grows with d – not a surprise since the partial derivatives of w describe precisely
+the image of w under the Magnus embedding.
+Word Problem in free solvable groups                                                 3
+
+
+     A few years later P. Hall proved the finiteness of all subdirect indecompos-
+able finitely generated abelian-by-nilpotent groups. This implies that all finitely
+generated abelian-by-nilpotent, in particular, metabelian, groups are residually
+finite. About the same time Gruenberg extended this result to arbitrary free
+solvable groups [27]. Now one can solve WP in Sr,d in the following way. Given
+w ∈ Sr,d , as a word in the fixed set of generators, one can start two processes in
+parallel. The first one enumerates effectively all consequences of the defining re-
+lations of Sr,d in Fr (which is possible since the group is recursively presented)
+until the word w occurs, and the second one enumerates all homomorphisms
+from Sr,d into all finite symmetric groups Sn (checking if a given r-tuple of
+elements in Sn generates a solvable group of class d) until it finds one where
+the image of w is non-trivial. However, computer experiments show that the
+algorithm described above is extremely inefficient (though its complexity is un-
+known).
+     Another shot at WP in metabelian groups comes from their linear represen-
+tations. V. Remeslennikov proved in [45] that a finitely generated metabelian
+group (under some restrictions) is embeddable into GL(n, R) for a suitable n
+and a suitable ring R = K1 × . . . × Kn which is a finite direct product of fields
+Ki . In [54], see also [55], B. Wehrfritz generalized this result to arbitrary finitely
+generated metabelian groups G. It follows that G is embeddable into a finite
+direct product of linear groups. Since WP in linear groups is polynomial time
+decidable this implies that WP in G is polynomial time decidable. Notice, that
+it is unclear if there is a uniform polynomial time decision algorithm for WP in
+arbitrary finitely generated metabelian groups.
+     In comparison, observe, that there are finitely presented solvable groups of
+class 3 with undecidable WP. In [34] O. Kharlampovich constructed the first
+example of such a group by simulating a universal Minski machine in WP of the
+group. There are several results which clarify the boundary between decidability
+and undecidability of the word problems in solvable groups, we refer to a survey
+[35] for details.
+     Our approach to WP in free solvable groups is based on the Fox Theorem
+mentioned above. Using binary tree search techniques and associative arrays we
+were able to compute Fox’s derivatives of elements w of a free solvable group
+Sd,r in time O(n3 d), where n = |w|. Significance of this result goes beyond WP
+for these groups - it gives a fast algorithm to compute images of elements under
+the Magnus embedding. This opens up an opportunity to solve effectively other
+algorithmic problems in groups Sr,d using the classical techniques developed for
+wreath products of groups.
+     In the second half of the paper, Section 4, we study algorithmic problems
+on geodesics in free metabelian groups. Let G be a group with a finite set of
+generators X = {x1 , . . . , xr } and µ : F (X) → G the canonical epimorphism.
+For a word w in the alphabet X ±1 by |w| we denote the length of w. The
+geodesic length lX (g) of an element g ∈ G relative to X is defined by
+                      lX (g) = min{|w| | w ∈ F (X), wµ = g}.
+We write, sometimes, lX (w) instead of lX (wµ ). A word w ∈ F (X) is called
+Word Problem in free solvable groups                                            4
+
+
+geodesic in G relative to X, if |w| = lX (w). We are interested here in the
+following two algorithmic search problems in G.
+The Geodesic Problem (GP): Given a word w ∈ F (X) find a word u ∈
+F (X) which is geodesic in G such that wµ = uµ .
+The Geodesic Length Problem (GLP): Given a word w ∈ F (X) find
+lX (w).
+    Though GLP seems easier than GP, in practice, to solve GLP one usually
+solves GP first, and only then computes the geodesic length. It is an interesting
+question if there exists a group G and a finite set X of generators for G relative
+to which GP is strictly harder than GLP.
+    As customary in complexity theory one can modify the search problem GLP
+to get the corresponding bounded decision problem (that requires only answers
+”yes” or ”no”):
+The Bounded Geodesic Length Problem (BGLP): Let G be a group
+with a finite generating set X. Given a word w ∈ F (X) and a natural number
+k determine if lX (w) ≤ k.
+    In Section 4.1 we compare in detail the algorithmic ”hardness” of the prob-
+lems WP, BGLP, GLP, and GP in a given group G. Here we would like only to
+mention that in the list of the problems above each one is Turing reducible in
+polynomial time to the next one in the list, and GP is Turing reducible to WP
+in exponential time (see definitions in Section 4.1).
+    Among general facts on computational complexity of geodesics notice that
+if G has a polynomial growth, i.e., there is a polynomial p(n) such that for each
+n ∈ N cardinality of the ball Bn of radius n in the Cayley graph Γ(G, X) is at
+most p(n), then one can easily construct this ball Bn in polynomial time with an
+oracle for WP in G. If, in addition, such a group G has WP decidable in polyno-
+mial time then all the problems above have polynomial time complexity with re-
+spect to any finite generating set of G (since the growth and WP stay polynomial
+for any finite set of generators). Now, by Gromov’s theorem [25], groups of poly-
+nomial growth are virtually nilpotent, hence linear, so they have WP decidable
+in polynomial time. It follows that all Geodesic Problems are polynomial time
+decidable in groups of polynomial growth (finitely generated virtually nilpo-
+tent groups). On the other hand, there are many groups of exponential growth
+where GP is decidable in polynomial time, for example, hyperbolic groups [15]
+or metabelian Baumslag-Solitar group BS(1, n) = ha, t | t−1 at = an i, n ≥ 2
+(see [14] and Section 4.1 for comments).
+    In general, if WP in G is decidable in polynomial time then BGLP is in the
+class NP, i.e., it is decidable in polynomial time by a non-deterministic Turing
+machine. It might happen though, that BGLP in a group G is as hard as any
+in the class NP, i.e., it is NP-complete. The simplest example of this type is
+due to Perry, who showed in [44] that BGLP is NP-complete in the metabelian
+group Z2 wr(Z × Z) (the wreath product of Z2 and Z × Z). Correspondingly, the
+search problems GP and GLP are NP-hard, which means, precisely, that some
+(any) NP-complete problem is Turing reducible to them in polynomial time.
+Word Problem in free solvable groups                                             5
+
+
+    Our view-point on geodesics in free solvable groups is based on geometric
+ideas from the following two papers. In 1993 Droms, Lewin, and Servatius in-
+troduced a new geometric approach to study WP and GLP in groups of the
+type F/N ′ via paths in the Cayley graph of F/N [12]. In 2004 Vershik and Do-
+brynin studied algebraic structure of solvable groups, using homology of related
+Cayley graphs [53]. This approach was outlined earlier in the papers [51, 52],
+where possible applications to random walks on metabelian groups have been
+discussed. In the papers [51, 52] (see also [53]) a new robust presentation of a
+free metabelian group Sr,2 was introduced as an extension of Zr by the integer
+first homology group of the lattice Zr (viewed as a one-dimensional complex)
+with a distinguished 2-cocycle. Similar presentations of other metabelian and
+solvable groups laid out foundations of a new approach to algorithmic problems
+in solvable groups.
+    It seems these ideas are still underdeveloped in group-theoretic context, de-
+spite their obvious potential. Meanwhile, in semigroup theory similar geometric
+techniques have been widely used to deal with free objects in semidirect products
+of varieties. One can find an explicit exposition of these techniques in the pa-
+pers due to Almeida [1] and Almeida and Weil [2], while in [48, ?, 4, 3] Auinger,
+Rhodes and Steinberg use similar machinery on a regular basis. Earlier, similar
+methods, though sometimes implicitly, were used in inverse semigroups theory,
+we refer here to papers [42, 37, 38, 8].
+    In group theory most of the results in this area relied on various forms of the
+Magnus embedding and Fox derivatives. The role that the Magnus embeddings
+play in varieties of groups was clarified by Shmelkin [49]. In [39] Matthews
+proved that the conjugacy problem (CP) in free metabelian groups is decidable,
+and Kargapolov and Remeslennikov generalized this to free solvable groups Sr,d
+[32]. A few years later Remeslennikov and Sokolov described precisely the image
+of F/N ′ under the Magnus embedding and showed that CP is residually finite in
+Sr,d [47]. We refer to a survey [46] on algorithmic problems in solvable groups.
+    In Sections 2.4 and 2.5 we study elements of groups of the type F/N ′ via flows
+on the Cayley graph Γ of F/N . It turns out the flow generated by a word w ∈ F
+on the graph Γ directly corresponds to the Fox derivatives of w in the group
+ring ZF/N . This simple observation links together the techniques developed in
+group theory for the Magnus embeddings with the extensive geometric and the
+graph-theoretic machinery for flows. Indeed, the set of geometric circulations
+(flows where the Kirchhoff law holds for all vertices, including the source and
+the sink) form a group which is naturally isomorphic to the first homology group
+H1 (Γ, Z) of Γ. In this content the geometric circulations on Γ represent precisely
+the 1-cycles of Γ (viewed as 1-complex). The classical result in homology theory
+describes H1 (Γ, Z) as the abelianization of the fundamental group π1 (Γ), which,
+in this case, is isomorphic to the free group N . Putting all these together one
+has another geometric proof of the Fox theorem, as well as the description of
+the kernel of the Magnus embedding.
+    In Section 2.7 we describe geodesics in groups F/N ′ as Euler tours in some
+finite subgraphs of Γ generated by the supports of the flows of the elements of
+F/N ′ on Γ. The description is geometric, explicit, and it gives a natural way
+Word Problem in free solvable groups                                             6
+
+
+to compute the geodesic length of elements. In this part geometric ideas seem
+unavoidable. However, this simplicity becomes treacherous when one concerns
+the efficiency of computations.
+     We prove that BGLP (relative to the standard basis) is NP-complete even
+in Sr,2 . Consequently, the problems GP and GLP are NP-hard in Sr,2 . To show
+this we construct a polynomial-time reduction of the Rectilinear Steiner Tree
+Problem (RSTP), which is NP-complete, to BGLP in Sr,2 . The necessary infor-
+mation on RSTP is outlined in Section 4.3 and the proof of the main theorem
+is in Section 4.4. Notice, that in [12] GLP was claimed to be polynomial time
+decidable in arbitrary finitely generated free solvable groups, but the argument
+turned out to be fallacious.
+     In the second half of the 20th century free solvable groups, as well as, solv-
+able wreath products of groups and finitely generated metabelian groups, were
+intensely studied, but mostly from the view-point of combinatorial groups the-
+ory. Now they stand at the heart of research in various areas of algebra. On the
+one hand, the rejuvenated interest to these groups stems from random walks
+on groups and, cohomology theory. For example, wreath products of abelian
+groups give exciting examples and counterexamples to several conjectures on the
+numerical characteristics of random walks. It seems, the main reasons that fa-
+cilitate research here come from some paradoxical properties of the groups itself:
+all these groups are amenable (as solvable group), but they have exponential
+growth and may have nontrivial Poisson boundary [31], etc. These groups, con-
+trary to, say, free nilpotent groups, may have irreducible unitary representations
+with nontrivial cohomology. Some numerical characteristics of these groups are
+very intriguing, giving new exciting examples in the quantitative group theory.
+For example, metabelian ”lamplighter” groups have intermediate growth of the
+drift, positive entropy, etc. These groups were intensively studied recently (see
+papers [31, 16] and the bibliography in the latter).
+     On the other hand, metabelian groups are currently at the focus of a very
+active research in geometric groups theory. In 1983 Gromov proposed a program
+for studying finitely generated groups as geometric objects [26]. One of the
+principal directions of this program is the classification of finitely generated
+groups up to quasi-isometry. It follows from Gromov’s result on groups with
+polynomial growth [25] that a group quasi-isometric to a nilpotent group is
+virtually nilpotent. In the case of solvable groups the situation is much less
+known. Erschler shown in [13] that a group quasi-isometric to a solvable group
+may be not virtually solvable. Thus, the class of virtually solvable groups is not
+closed under quasi-isometry. On the other hand there are interesting classes of
+solvable non-polycyclic groups that are quasi-isometrically rigid, for example,
+solvable Baumslag-Solitar groups (Farb and Mosher [18, 19]). We refer to the
+papers [41] and [17] for some recent results in this area.
+     It seems timely to try extend the results of this paper to the classes of
+solvable groups mentioned above. There are many interesting open questions
+concerning computational complexity of algorithmic problems in these classes
+of solvable groups, we discuss some of them in Section 5.
+     All polynomial time algorithms presented in this work are implemented and
+Word Problem in free solvable groups                                            7
+
+
+available at [10].
+Acknowledgement
+    We would like to thank M.Sapir and B.Steinberg who brought to our atten-
+tion some relevant geometric ideas from semigroup theory.
+
+
+2     Preliminaries
+2.1    The Word Problem
+Let F = Fr = F (X) be a free group with a basis X = {x1 , . . . , xr }. A subset
+R ⊆ F defines a presentation P = hX | Ri of a group G = F/N where N =
+ncl(R) is the normal closure of R in F . If R is finite (recursively enumerable)
+then the presentation is called finite (recursively enumerable).
+    The Word Problem W P for P is termed decidable if the normal closure N is
+a decidable subset of F (X), i.e., there exists an algorithm A to decide whether a
+given word w ∈ F (X) belongs to N or not. The time function TA : F (X) → N
+of the algorithm A is defined as the number of steps required for A to halt
+on an input w ∈ F (X). We say that the Word Problem for P is decidable in
+polynomial time if there exists a decision algorithm A, as above, and constants
+c, k ∈ N such that
+                                   TA (w) ≤ c|w|k
+for every w ∈ F (X) (here |w| is the length of the word w). In this case we say
+that the time complexity of WP for P is O(nk ).
+
+2.2    Free solvable groups and the Magnus embedding
+For a free group F = F (X) of rank r denote by F (1) = F ′ = [F, F ] the derived
+subgroup of F , and by F (d) = [F (d−1) , F (d−1) ] - the d-th derived subgroup of
+F , d ≥ 2. The quotient group Ar = Fr /Fr′ is a free abelian group of rank r,
+                (2)                                                     (d)
+Mr = Fr /Fr is a free metabelian group of rank r, and Sr,d = Fr /Fr is a free
+solvable group of rank r and class d. In the sequel we usually identify the set X
+with its canonical images in Ar , Mr and Sr,d .
+    One of the most powerful approaches to study free solvable groups is via the,
+so-called, Magnus embedding. To explain we need to introduce some notation.
+Let G = F/N and ZG the group ring of G with integer coefficients. By µ :
+F → G we denote the canonical factorization epimorphism, as well its linear
+extension to µ : ZF → ZG. Let T be a free (left) ZG-module of rank r with a
+basis {t1 , . . . , tr }. Then the set of matrices
+                                                                 
+                                G T              g t
+                    M (G) =               =            | g ∈ G, t ∈ T
+                                0 1              0 1
+
+forms a group with respect to the matrix multiplication. It is easy to see that
+the group M (G) is a discrete wreath product M (G) = Ar wrG of the free abelian
+group Ar and G.
+Word Problem in free solvable groups                                           8
+
+
+   In [36] Magnus showed that the homomorphism φ : F → M (G) defined by
+                           µ       
+                             xi ti
+                     xi →             , i = 1, . . . , r,
+                             0    1
+
+satisfies ker φ = N ′ . It follows that φ induces a monomorphism
+
+                             ψ : F/N ′ ֒→ M (F/N ),
+
+which is now called the Magnus embedding.
+    The Magnus embedding allows one to solve WP in the group F/N ′ if WP
+in G = F/N is decidable. Indeed, given a word w ∈ F (X) one can compute
+its image φ(w) in M (G) (multiplying the images of the letters in w) and then,
+using a decision algorithm for WP in G, check if the resulting matrix φ(w) is
+the identity matrix or not. To estimate the complexity of such an algorithm
+notice first, that the coefficients from ZG that occur in the upper-right corner
+of the matrix φ(w) have O(|w|) summands. Secondly, to check whether or not
+an element h = m1 v1 + . . . + mk vk ∈ ZG, where mi ∈ Z and vi ∈ G are given
+as words in the generators X from G, is trivial in ZG it requires about O(k 2 )
+comparisons of the type vi = vj ? in G. This gives an estimate for the time
+function T ′ of WP in F/N ′ via the time function T for WP in F/N :
+
+                             T ′ (n) = O(rn2 T (n)),
+
+where n = |w|. Since WP in Ar can be decided in linear time the estimate above
+shows that the complexity of WP in Mr is O(rn3 ). Moreover, induction on the
+solvability class d gives a polynomial estimate O(rd−1 n2d−1 ) for WP in the
+free solvable group Sr,d . Thus, the Magnus embedding gives a straightforward
+polynomial time (in r and n) decision algorithm for W P in Sr,d , but the degree
+of the polynomial grows with d. In particular, this algorithm is not polynomial
+as a uniform algorithm on the whole class of free solvable groups.
+
+2.3    Free Fox derivatives
+Let F = Fr (X) be a free group of rank r with a basis X = {x1 , ..., xr }. The
+trivial group homomorphism F → 1 extends to a ring homomorphism ε : ZF →
+Z. The kernel of ε is called the fundamental ideal ∆F of ZF , it is a free (left)
+ZF -module freely generated by elements x1 − 1, . . . , xr − 1.
+    In [20, 21, 22, 23] R. Fox introduced and gave a thorough account of the
+free differential calculus in the group ring ZF . Here we recall some notions and
+results referring to books [9, 5, 28] for details.
+    A map D : ZF → ZF is called a derivation if it satisfies the following
+conditions:
+(D1) D(u + v) = D(u) + D(v);
+(D2) D(uv) = D(u)v ε + uD(v), where ε is the ring homomorphism defined
+     above.
+Word Problem in free solvable groups                                                                9
+
+
+    For every xi ∈ X there is a unique derivation, the so-called, a free partial
+derivative ∂/∂xi , such that ∂xj /∂xi = δij , where δij is the Kronecker’s delta.
+It turned out that for every u ∈ ZF
+
+                 u − uε = ∂u/∂x1 (x1 − 1) + ... + ∂u/∂xr (xr − 1).                                 (1)
+
+Since ∆F is a free ZF -module the equality (1) gives another definition of the
+partial derivatives.
+   Condition (D2) implies the following useful formulas, that allow one to com-
+pute easily partial derivatives of elements of ZF
+
+                                    ∂x−1             −1
+                                      j /∂xi = −δij xj .                                           (2)
+
+and, hence, for a word w = xεi11 . . . xεinn ∈ F (X) one has
+                                                         ε       ε
+                      ∂w/∂xi = Σnj=1 xεi11 . . . xij−1
+                                                   j−1
+                                                       (∂xijj /∂xi ) =                             (3)
+
+                                             ε                                               ε
+                    X                                            X
+         =                         xεi11 . . . xij−1
+                                                 j−1
+                                                     −                          xεi11 . . . xijj
+             1≤j≤n, ij =i, εj =1                         1≤j≤n, ij =i, εj =−1
+
+    The following result is one of the principle technical tools in this area, it
+follows easily from the Magnus embedding theorem, but in the current form it
+is due to Fox [20, 21, 22, 23].
+Theorem [Fox] Let N be a normal subgroup of F and µ : F → F/N the
+canonical epimorphism. Then for every u ∈ F the following equivalence holds:
+
+                         ∀i (∂u/∂xi )µ = 0 ⇐⇒ u ∈ [N, N ].
+
+
+   In particular, for N = F (d) the standard epimorphism µ : F → Sd = F/F (d)
+gives rise to a ring homomorphism µ : ZF → ZSd such that
+
+               F (d+1) = {u ∈ F | (∂u/∂xi )µ = 0 f or i = 1, . . . , r}.                           (4)
+
+Composition of ∂/∂xi with µ gives an induced partial derivative ∂ µ /∂xi : ZF →
+ZSd , which we often denote again by ∂/∂xi omitting µ (when it is clear from
+the context).
+   Partial derivatives ∂ µ /∂xi are useful when computing images under the Mag-
+nus embedding. Indeed, by induction on the length of w ∈ F it is easy to show
+that the image of w, under the Magnus embedding φ : F/N ′ → M (F/N ), can
+be written as follows
+                              µ Pr
+                                             ∂ µ w/∂xi · ti
+                                                            
+                        φ        w       i=1
+                      w =                                     .
+                                 0    1
+
+This shows that the faithfulness of the Magnus embedding is, in fact, equivalent
+to the Fox Theorem above.
+Word Problem in free solvable groups                                               10
+
+
+2.4    Flows on F/N
+In this section we relate flow networks on the Cayley graph of F/N to the
+elements of F/N ′ .
+    Let X = {x1 , . . . , xr } be a finite alphabet. An X-labeled directed graph Γ (or
+X-digraph) is a pair of sets (V, E) where the set V is called the vertex set and
+the set E ⊆ V × V × X is called the edge set. An element e = (v1 , v2 , x) ∈ E
+designates an edge with the origin v1 (also denoted by o(e)), the terminus v2
+(also denoted by t(e)), labeled by x. If for e ∈ E we have o(e) = t(e) then we
+say that e is a loop. The graph Γ can be finite or infinite.
+Example 2.1. The Cayley graph Γ(G, X) of the group G = F/N is an X-
+digraph.
+    Given an X-digraph Γ, we can make Γ into a directed graph labeled by
+the alphabet X ±1 = X ∪ X −1 . Namely, for each edge e = (v1 , v2 , x) of Γ we
+introduce a formal inverse e−1 = (v2 , v1 , x−1 ). For the new edges e−1 we set
+(e−1 )−1 = e. The new graph, endowed with this additional structure, is denoted
+by Γ̂. In fact in many instances we abuse notation by disregarding the difference
+between Γ and Γ̂.
+Remark 2.2. If X is a generating set of G such that X ∩ X −1 = then Γ̂(G, X)
+is the Cayley graph Γ(G, X ±1 ) of G relative to the generating set X ±1 .
+    The edges of Γ̂ inherited from Γ are called positively oriented or positive. The
+formal inverses of positive edges in Γ̂ are called negatively oriented or negative.
+The edge set of Γ̂ splits in a disjoint union E(Γ̂) = E + (Γ) ⊔ E − (Γ) of the sets
+of positive and negative edges.
+    The use of Γ̂ allows us to define the notion of a path in Γ. Namely, a path
+p in Γ is a sequence of edges p = e1 , . . . , ek where each ei is an edge of Γ̂ and
+the origin of each ei (for i > 1) is the terminus of ei−1 . In this situation we say
+that the origin o(p) of p is o(e1 ) and the terminus t(p) is t(ek ). The length |p|
+of this path is set to be k. Also, such a path p has a naturally defined label
+ν(p) = ν(e1 ) . . . ν(ek ). Thus ν(p) is a word in the alphabet Σ = X ∪ X −1 . Note
+that it is possible that ν(p) contains subwords of the form aa−1 or a−1 a for
+some a ∈ X. If v is a vertex of Γ, we will consider the sequence p = v to be a
+path with o(p) = t(p) = v, |p| = 0 and ν(p) = 1 (the empty word).
+    In general, one can consider labels in an arbitrary inverse semigroups, the
+construction above applies to this case as well. In particular, we will consider
+directed graphs with labels in Z. We consider also digraphs with no labels at
+all (to unify terminology, we view them sometimes, as labeled in the trivial
+semigroup {1}), the construction above still applies.
+    Let Γ = (V, E) be an X-digraph with two distinguished vertices s (called
+source) and t (called sink) from V . Recall that a flow (more precisely Z-flow)
+on Γ is a function f : E → Z such that
+                                             P              P
+ (F) for all v ∈ V − {s, t} the equality o(e)=v f (e) − t(e)=v f (e) = 0 holds.
+Word Problem in free solvable groups                                                11
+
+
+The number f ∗ (v) = o(e)=v f (e)− t(e)=v f (e) is called the net flow at v ∈ V .
+                      P              P
+
+The condition (F) is often referred to as the Kirchhoff law (see, for example,
+[6, 11]) or a conservation law [7].
+    For the digraph Γ̂ the definition above can be formulated in the following
+equivalent way, which is the standard one in flow networks:
+(F1) f (e) = −f (e−1 ) for any e ∈ E.
+     P
+(F2)    o(e)=v f (e) = 0 for all v ∈ V − {s, t}.
+
+Here the net flow at v is equal to f ∗ (v) = o(e)=v f (e).
+                                              P
+   Usually a flow network comes equipped with a capacity function c : E → N,
+in which case a flow f has to satisfy the capacity restriction
+(F3) f (e) ≤ c(e) for all e ∈ E.
+In the sequel we do not make much use of the capacity function (it occurs in
+an obvious way), so in most cases we consider flows on graphs Γ satisfying the
+Kirchhoff law (F) (or, equivalently, on graphs Γ̂ satisfying (F1) and (F2)).
+   A flow f is called a circulation if (F) holds for all vertices from V (including
+s and t).
+Example 2.3. Let Γ = Γ(G, X) be the Cayley graph of G = F/N relative
+to the generating set X. The constant function f : E(Γ) → {1} defines a
+circulation on Γ, since for every vertex g ∈ V (Γ) and every label x ∈ X there is
+precisely one edge (gx−1 , g) with label x incoming into g and precisely one edge
+(g, gx) with the label x leaving g.
+    An important class of flows on Γ = Γ(G, X) comes from paths in Γ. A path
+p in Γ defines an integer-valued function πp : E(Γ) → Z, such that for an edge
+e π(e) is the algebraic sum (with respect to the orientation) of the number of
+times the path p traverses e, i.e., each traversal of e in the positive direction
+adds +1, and in the negative direction adds −1. It is obvious that πP is a flow
+on Γ with the source o(p) (the initial vertex of p) and the sink t(p) (the terminal
+vertex of p). Notice that πp satisfies also the following conditions:
+(F4) either πp is a circulation (iff p is a closed path), or f ∗ (s) = 1, f ∗ (t) = −1.
+(F5) πp has finite support, i.e, the set supp(π) = {e ∈ E | π(e) 6= 0} is finite.
+We say that a flow π on Γ is geometric if it satisfies conditions (F4) and (F5).
+   It is easy to see that the set C(Γ) of all circulations on Γ forms an abelian
+group with respect to the operations (here f, g ∈ C(Γ)):
+    • (f + g)(e) = f (e) + g(e),
+    • (−f )(e) = −f (e).
+Word Problem in free solvable groups                                             12
+
+
+Meanwhile, the set GC(Γ) of all geometric circulations is a subgroup of C(Γ).
+On the other hand, the sum f + g of two geometric flows gives a geometric flow
+only if the sink of f is equal to the source of g, or either f or g (or both) is a
+circulation. In fact, the set GF (Γ) of all geometric flows is a groupoid.
+    Let Π(Γ) be the fundamental groupoid of paths in Γ. Then the map σ :
+Π(Γ) → GF (Γ) defined for p ∈ Π(Γ) by σ(p) = πp is a morphism in the category
+of groupoids, i.e., the following holds (here p, q ∈ Π(Γ)):
+
+   • πpq = πp + πq , if pq is defined in Π(Γ),
+   • πp−1 = −πp .
+
+    Now we will show that every geometric flow π on Γ can be realized as a path
+flow πp for a suitable path p.
+Lemma 2.4. Let π be a geometric flow on Γ. Then there exists a path p in Γ
+such that π = πp .
+Proof. Let π be a geometric flow on Γ with the source s and the sink t. Denote
+by Γπ the subgraph of Γ generated by supp(π) ∪ {s, t}. Suppose Q is a subgraph
+of Γ such that ∆ = Γπ ∪Q is a connected graph (every two vertices are connected
+by a path in Γ̂). Clearly, π induces a flow on ∆. Now we construct another X-
+digraph ∆∗ by adding new edges to ∆ in the following manner. For every edge
+e ∈ E(∆) with |π(e)| > 1 we add extra |π(e)| − 1 new edges e(1) , . . . , e|π(e)|−1
+from o(e) to t(e) if π(e) > 0 and from t(e) to o(e), if π(e) < 0. We label
+the new edges by the same label if π(e) > 0, and by its inverse, otherwise. If
+π(e) = 0 then we add a new edge e−1 from t(e) to o(e) with the inverse label.
+In the case |π(e)| = 1 we do not add any new edges. Notice that every vertex in
+V (∆∗ ) − {s, t} has even directed degree (the number of incoming edges is equal
+to the number of outgoing edges). There are two cases to consider.
+    Case 1). Suppose π is a circulation. Then every vertex in ∆∗ has even
+directed degree. Therefore, the digraph ∆∗ has an Euler tour p∗ , i.e., a closed
+path at s that traverses every edge in ∆∗ precisely once. Let φ : ∆∗ → ∆   ˆ be the
+morphism of X-digraphs that maps all the new edges e(1) , . . . , e|π(e)|−1 to their
+                                                            ˆ such that πp = π.
+original edge e. Clearly, the image p = φ(p∗ ) is a path in ∆
+    Case 2). Suppose π is not a circulation. Let q be a path in ∆∗ from s to t.
+Then π ′ = π − πq is a circulation. Hence by Case 1) there exists a path p in Γ
+such that π ′ = πp . Therefore, πpq = πp + πq = π ′ + πq = π, as required.
+
+
+2.5    Geometric interpretation of Fox derivatives
+In this section we give a geometric interpretation of Fox derivatives.
+    Let G = F/N , µ : F → F/N the canonical epimorphism, and Γ = Γ(G, X)
+the Cayley graph of G with respect to the generating set X. A word w ∈ F (X)
+determines a unique path pw in Γ labeled by w which starts at 1 (the vertex
+corresponding to the identity of G). As we mentioned in Section 2.4 the path
+pw defines a geometric flow πpw on Γ which we denote by πw .
+Word Problem in free solvable groups                                            13
+
+
+Lemma 2.5. Let w ∈ F = F (X). Then for any g ∈ F/N and x ∈ X the value
+of πw on the edge e = (g, gx) is equal to the coefficient in front of g in the Fox
+derivative (∂w/∂x)µ ∈ ZG, i.e.,
+                                        X
+                       (∂w/∂x)µ =             πw (g, gx)g
+                                            g∈G,x∈X
+
+Proof. Follows by induction on the length of w from formulas (3).
+   Figure 1 is an example for F = F ({x1 , x2 }) and N = F ′ . Non-zero values of
+πw are shown as weights on the edges (zero weights are omitted).
+
+                                            x2
+                                4
+                                                     -1
+                                3                             1
+                                            -1
+                                2
+                                             1        1
+                                1
+                                       1             -1
+                                0
+                                            -1                        x1
+                                -1
+                                     -1 0        1        2       3
+
+
+
+Figure 1: The values of πw for w = x2 x1 x2 x1 x2 x−1 −3 −1
+                                                   1 x2 x1 on (x1 , x2 )-grid. In
+this case ∂w/∂x1 = −1 + x2 − x1 x2 + x1 x2 and ∂w/∂x2 = 1 − x1 + x22 x22 − x1 x22 .
+                                 3       2
+
+
+   The following theorem has been proven in [12, 53] using a homological ar-
+gument similar to the one in Proposition 2.8. Here we give a short independent
+proof based on the Fox theorem.
+Theorem 2.6. [12, 53] Let N be a normal subgroup of F and ∼N an equivalence
+relation on F defined by
+
+                               u ∼N v ⇐⇒ πu = πv .
+
+Then F/N ′ = F/ ∼N .
+Proof. Let u, v ∈ F . Suppose u = v in F/N ′ . Then uv −1 ∈ N ′ hence by
+Fox theorem ∂ µ (uv −1 )/∂x = 0 for every x ∈ X (here by ∂ µ /∂x we denote the
+canonical image of ∂/∂x in the group ring Z(F/N )). Observe that
+
+                           ∂             ∂u        ∂v
+                              (uv −1 ) =    − uv −1 .                          (5)
+                           ∂x            ∂x        ∂x
+Hence in Z(F/N )
+                            ∂µ             ∂ µu ∂ µv
+                          0=    (uv −1 ) =     −     ,
+                            ∂x             ∂x    ∂x
+so, by Lemma 2.5 πu = πv , as claimed.
+Word Problem in free solvable groups                                           14
+
+
+   To show the converse, notice first that πu = πv implies that u = v in F/N .
+Indeed, it can be seen from the definition of π but also follows from (1) and
+Lemma 2.5 since in this case
+                                         X ∂µ
+              (uµ − v µ ) − (u − v)ε =              (u − v) · (x − 1) = 0
+                                               ∂x
+                                         x∈X
+
+which implies uµ = v µ . Now by (5)
+
+                          ∂µ            ∂ µu ∂ µv
+                             (uv −1 ) =     −     = 0,
+                          ∂x             ∂x   ∂x
+and, hence, by Fox theorem uv −1 ∈ N ′ .
+
+
+Remark 2.7. Theorem 2.6 relates the algebraic and geometric points of view
+on derivatives. One can prove this theorem (see Section 2.6) using a pure topo-
+logical argument, then the Fox theorem, as well as, the Magnus embedding,
+come along as easy corollaries.
+
+2.6    Geometric circulations and the first homology group
+       of Γ
+We describe here geometric circulations on Γ = Γ(G, X) in a pure topological
+manner. For all required notions and results on homology of simplicial com-
+plexes we refer to [30] or [50].
+   In this section we view Γ as an infinite 1-complex.
+Proposition 2.8. Let G = F/N , Γ = Γ(G, X), and σ : π1 (Γ) → GC(Γ) be a
+map defined by σ(p) = πp for p ∈ π1 (Γ) . Then:
+   • σ is an epimorphism of groups;
+   • every geometric circulation on Γ defines a 1-cycle on Γ;
+   • H1 (Γ, Z) ≃ GC(Γ);
+   • π1 (Γ) ≃ N and ker σ = N ′ .
+Proof. It was mentioned already in Section 2.4 that the map p → πp is a mor-
+phism from the fundamental groupoid Π(Γ) of paths in Γ into the groupoid of
+geometric flows GF (Γ). Hence, the restriction of this map onto the fundamental
+group π1 (Γ) of Γ gives a homomorphism of groups. We have seen in Lemma 2.4
+that σ is onto. This proves the first statement.
+                  P first that a geometric circulation f : E(Γ) → Z, viewed
+    To see 2) observe
+as a formal sum e∈E(Γ) f (e)e, gives precisely a 1-chain in Γ (see, for example,
+[30]). Moreover,by definition, the net flow f ∗ (v) at the vertex v ∈ V (Γ) is the
+coefficient in front of v in the boundary ∂f of f . Therefore, ∂f = 0, so f is a
+1-cycle.
+Word Problem in free solvable groups                                              15
+
+
+    3) follows easily from the 2). Indeed, Γ is an 1-complex, so there are no
+non-trivial 1-boundaries in Γ. In this event H1 (Γ, Z) is isomorphic to the group
+GC(Γ) of 1-cycles, as claimed.
+    4) It is a classical result that the kernel of σ : π1 (Γ) → H1 (Γ, Z) is equal to
+the derived subgroup of π1 (Γ) (see [30]). To prove 4) it suffices to notice that
+π1 (Γ) ≃ N , which is easy.
+Remark 2.9. Proposition 2.8 gives a simple geometric proof of Theorem 2.6,
+that relates the algebraic and geometric points of view on derivatives. Now one
+can derive the Fox theorem from the geometric argument above and then obtain
+the description of the kernel of the Magnus embedding, as an easy corollary.
+
+2.7    Geodesics in F/N ′
+Let G = F/N and µ : F (X) → G the canonical epimorphism. In this section
+we describe geodesics of elements of the group H = F/N ′ relative to the set of
+generators X µ .
+    It is convenient to view the free group F = F (X) as the set of all freely
+reduced words in the alphabet X ±1 = X ∪ X −1 with the obvious multiplication.
+    To describe geodesics in H (relative to X) of a given word w ∈ F we need a
+construction from Lemma 2.4. Recall that pw is the path in the Cayley graph
+Γ = Γ(G, X) from 1 to wµ with the label w and πw the induced geometric flow
+on Γ with the source 1 and the sink wµ . By Γw we denote the subgraph of
+Γ generated by supp(πw ) ∪ {1, wµ }. Suppose Q is a finite subgraph of Γ such
+that ∆ = Γw ∪ Q is a connected graph and Q has the least number of edges
+among all such subgraphs. It follows from minimality of Q that every connected
+component of Q is a tree. Moreover, if in the graph ∆ = Γw ∪ Q one collapses
+every connected component Γw to a point, then the resulting graph is a tree.
+We refer to Q as a minimal forest for w. In general, there could be several
+minimal forests for w.
+    Similarly as in the proof of Lemma 2.4, we construct a finite X-digraph ∆∗
+by replicating every edge e ∈ E(∆) with ||πw (e)| − 1| new edges in such a way
+that every vertex in V (∆∗ )−{1, wµ } has even directed degree and the map, that
+sends every replica of an edge e back to e (or e−1 depending on the orientation)
+is a morphism of X-labeled digraphs φ : ∆∗ → ∆.  ˆ There are two cases.
+
+   • Case I. Suppose that pw is a closed path in Γ, i.e., w ∈ N . In this case
+     every vertex in ∆∗ has even degree, so ∆∗ has a Euler tour, say p∗Q at
+     1. Denote by pQ the image φ(p∗Q ) of p∗Q under φ. It follows from the
+     construction (see Lemma 2.4) that pQ is a closed path at 1 in Γ such that
+     πw = πpQ . Therefore, if wpQ ∈ F is the label of pQ then by Theorem 2.6
+     w = wpQ in H. Moreover, since pQ is a Euler tour in ∆∗ its length, hence
+     the length of wpQ is equal to
+                                       X
+                          |pQ | =                 |πw (e)| + 2|E(Q)|.            (6)
+                                    e∈supp(pw )
+Word Problem in free solvable groups                                                16
+
+
+   • Case II. Suppose that pw is a not a closed path in Γ, i.e., w 6∈ N . By
+     induction on |w| it is easy to show that the vertices 1 and wµ belong
+     to the same connected component of Γw . Again, there exists an Euler’s
+     tour p∗Q in the graph ∆∗ which starts at the source and ends at the sink.
+     Clearly, πpQ satisfies the equality (6). If u is the label of the path πpQ
+     then πu = πpQ = πw and u is a geodesic word for w.
+   Now, with the construction in place, we are ready to characterize geodesics
+in H of elements from N .
+Theorem 2.10. Let H = F/N ′ and w ∈ F . Then the following holds:
+   • if Q is a minimal forest for w then wpQ is a geodesic for w and
+                                    X
+                        lX (w) =          πw (e) + 2|E(Q)|.
+                                        e∈supp(pw )
+
+   • every geodesic word for w is equal (in F ) to a word wpQ for a suitable
+     minimal forest Q and an Euler path p∗Q .
+Proof. Let u ∈ F be a geodesic word for wµ in H. Observe, that ∆ = supp(πu )∪
+pu is a connected subgraph of Γ and
+                          X
+                 |pu | ≥         πu (e) + 2|E(∆ − supp(πu ))|.
+                          e∈supp(pu )
+
+Now, by Theorem 2.6 the equality u = w in H implies πu = πw . In particular,
+supp(πu ) = supp(πw ). Hence
+                          X
+                |pu | ≥        πw (e) + 2|E(∆ − supp(πw ))|.             (7)
+                         e∈supp(pw )
+
+Since u is geodesic for w the number |∆ − supp(πw )| is minimal possible, so
+Q = ∆ − supp(πw ) is a minimal forest for w. In fact, the equation 7 shows that
+the converse is also true. This proves the theorem.
+   The discussion above shows that GP is easy in F/N ′ provided one can solve
+the following problem efficiently.
+Minimal Forest Problem (MFP) Given a finite set of connected finite sub-
+graphs Γ1 , . . . , Γs in Γ find a finite subgraph Q of Γ such that Γ1 ∪ . . . ∪ Γs ∪ Q
+is connected and Q has a minimal possible number of edges.
+
+Proposition 2.11. GP in F/N ′ (relative to X) is linear time reducible to MFP
+for Γ(F/N, X).
+Proof. Follows from the discussion above. Indeed, given a word w ∈ F one can in
+linear time compute the flow πw and find the connected components Γ1 , . . . , Γs
+of supp(πw ) ∪ {o(pw ), t(pw )} in Γ = Γ(F/N, X). Then, solving MFP for these
+components, one gets the subgraph Q which makes the graph Γ1 ∪ . . . ∪ Γs ∪ Q
+connected. Obviously, it takes linear time to find a Euler path in the graph ∆,
+hence to find a geodesic for w.
+Word Problem in free solvable groups                                             17
+
+
+3     The Word Problem in free solvable groups
+In this section we present fast algorithms to compute Fox derivatives of elements
+of a free group F in the group ring ZSr,d of a free solvable group Sr,d . As an im-
+mediate application, we obtain a decision algorithm for WP in a free metabelian
+group Mr with time complexity O(rn log 2 n) and a decision algorithm for WP in
+Sr,d , d ≥ 3, with time complexity O(rdn3 ). These are significant improvements
+in comparison with the known decision algorithms discussed in Introduction
+and Section 2.2. As another application we get a fast algorithm to compute
+images of elements from Sr,d under the Magnus embedding, which opens up
+an opportunity to use efficiently the classical techniques developed for wreath
+products.
+
+3.1    The Word Problem in free metabelian groups
+In this section we compute Fox derivatives of elements of F in the group ring
+Z(F/F ′ ). Then we apply this to WP in free metabelian groups.
+    Let X = {x1 , . . . , xr }, F = Fr = F (X), M = Mr = F/F (2) , A = Ar =
+F/F ′ , and µ : F → A the canonical epimorphism. All Fox derivatives in this
+section are computed in the ring ZA.
+    Let w ∈ F . Then
+                          ∂ µw   X
+                               =   ma,i a,      ma,i ∈ Z.
+                          ∂xi
+                                  a∈A
+
+One can encode all the derivatives ∂ µ w/∂xi in one mapping Mw : A ×
+{1, . . . , r} → Z, where Mw (a, i) = ma,i . Let
+
+                       supp(Mw ) = {(a, i) | Mw (a, i) 6= 0},
+
+and Sw the restriction of Mw onto supp(Mw ). To compute Fox derivatives of w
+we construct a sequence of finite maps S0 = ∅, S1 , . . . , Sn = Sw , as we read w.
+On each step k we either extend the domain Dom(Sk ) of Sk or change the value
+of Sk on some element from Dom(Sk ). To do this we need a data structure
+which allows one to do the following operations efficiently:
+
+    • for a given (a, i) determine if (a, i) ∈ Dom(Sk ) or not;
+    • add (a, i) to Dom(Sk ) if (a, i) 6∈ Dom(Sk ) and define Sk (a, i) = q for some
+      q ∈ Z;
+    • change the value of Sk on (a, i) if (a, i) ∈ Dom(Sk ).
+                                                                     δ (a)    δ (a)
+Every element a ∈ A can be written uniquely in the form a = x11 . . . xrr ,
+where δi (a) ∈ Z, so one may use the tuple of coordinates δ(a) =
+(δ1 (a), . . . , δr (a)) to represents a. It follows from the formula (3) for par-
+tial derivatives that for every (a, i) ∈ Dom(Sw ) the components δj (a) of δ(a)
+satisfy the inequality |δj (a)| ≤ |w|, as well as the values of Sw and, hence,
+Word Problem in free solvable groups                                                18
+
+
+|Sw (a, i)| ≤ |w|. Therefore, it takes ⌈log2 (|w| + 1)⌉ bits to encode one coordi-
+nate δj (a) (one extra bit to encode the sign + or −), r⌈log2 (|w| + 1)⌉ bits to
+encode δ(a), and at most r⌈log2 (|w| + 1)⌉ + ⌈log2 r⌉ bits to encode (a, i). We
+denote the binary word encoding (a, i) by (a, i)∗ .
+    Thus every function Sk can be uniquely represented by a directed {0, 1}-
+labeled binary tree Tk with the root ε and with leaves labeled by integers such
+that (a, i) ∈ Dom(Sk ) if and only if there exists a path in Tk from the root
+ε to a leaf labeled by the code of (a, i) and such that the leaf of this path is
+labeled precisely by the integer Sk (a, i). Notice, that the height of Tk is equal
+to r⌈log2 (|w| + 1)⌉ + ⌈log2 r⌉. Such a tree is visualized schematically in Figure
+2.
+
+
+                                                            A
+                                           0
+                                    0      1                B
+
+                                ε                           C
+                                    1      0
+
+
+                                    r (log2 |w|+1) +log2r
+
+
+              Figure 2: The tree Tk representing the function Sk .
+
+
+Remark 3.1. It is clear that one can perform every operation mentioned above
+on this data structure in at most r⌈log2 (|w| + 1)⌉ + ⌈log2 r⌉ elementary steps.
+    We use this data structure to design the following algorithm for computing
+Sw .
+Algorithm 3.2. (Computing Fox derivatives in F/F ′ )
+Input. r ∈ N and w = xεi11 . . . xεinn ∈ F (X), where ij ∈ {1, . . . , r} and εj = ±1.
+Output. Sw .
+Computations.
+  A. Set S = ∅ and δ(a) = (0, . . . , 0) ∈ Zr .
+  B. For j = 1, . . . , n do:
+       (1) if εj = 1 then
+              ∗ check if there is a path (from the root to a leaf) labeled by
+                (δ(a), ij )∗ in S;
+              ∗ if such a path does not exist in S then create it, add it to S, and
+                put 1 as the corresponding value at the new leaf;
+              ∗ if such a path exists in S then add 1 to the value at its leaf.
+Word Problem in free solvable groups                                              19
+
+
+       (2) if εj = −1 then
+             ∗ add εj to the ij th coordinate of δ(a);
+             ∗ check if there is a path (from the root to a leaf) labeled by
+               (δ(a), ij )∗ in S;
+             ∗ if such a path does not exist in S then create it, add it to S, and
+               put −1 at the corresponding leaf;
+             ∗ if such a path exists in S then subtract 1 from the value at its
+               leaf.
+  C. Output Sn .
+
+Theorem 3.3. Given r ∈ N and w ∈ F Algorithm 3.2 computes all partial
+derivatives of w in ZA (the mapping Sw ) in time O(r|w| log 2 |w|).
+Proof. Using the formula (3) for partial derivatives it is easy to check that
+given w ∈ F Algorithm 3.2, indeed, computes the mapping Sw . To verify the
+complexity estimates observe, first that there are |w| iterations in the part [B.] of
+Algorithm 3.2. Each such iteration requires O(r⌈log2 (|w|+1)⌉) elementary steps
+(see Remark 3.1), so altogether one has O(r|w|log2 |w|) as the time complexity
+estimate for Algorithm 3.2, as claimed.
+
+
+Algorithm 3.4. (Word Problem in free metabelian groups)
+Input. r ∈ N and w ∈ F .
+Output. T rue if w represents the identity in Mr and F alse otherwise.
+Computations.
+   • Apply Algorithm 3.2 to compute Sw .
+   • Check, looking at the values assigned to leaves of Sw , if all Fox derivatives
+     ∂w/∂xi , i = 1, . . . , r are equal to 0 or not.
+   • If all the derivatives are 0 then output T rue. If there is a non-zero deriva-
+     tive then output F alse.
+Theorem 3.5. Algorithm 3.4 solves the Word problem in a free metabelian
+group Mr in time O(r|w| log 2 |w|).
+Proof. Follows from Theorem 3.3 and the Fox Theorem (see Section 2.3).
+
+3.2    The Word problem in free solvable groups
+In this section we present an algorithm to compute all Fox derivatives of a word
+w ∈ F in the group ring ZSr,d−1 , d ≥ 2 in time O(rd|w|3 ). This gives a decision
+algorithm for WP in Sr,d within time complexity O(rd|n|3 ).
+    Let X = {x1 , . . . , xr }, F = Fr = F (X), S = Sr,d = F/F (d) , d ≥ 3, and
+µ : F → Sr,d−1 the canonical epimorphism. All Fox derivatives in this section
+are computed in the ring ZSr,d−1 .
+Word Problem in free solvable groups                                                         20
+
+
+    In Section 3.1 we used a unique representation of elements a ∈ Ar by their
+coordinate vectors δ(a) to compute Fox derivatives in nearly linear time. Now
+we do not have such normal forms of elements of Sr,d , d ≥ 2, so our computations
+are slightly different, however, the general strategy is quite similar. To speed
+up computations we use some data structures based on efficient partitioning
+techniques.
+    In general, let G be a group generated by X and D a finite subset of F (X).
+A G-partition of D is a partition of D into a union of disjoint non-empty subsets
+Di such that for any u, v ∈ D, u = v in G if and only if they belong to some
+subset Di . Clearly, the G-partition of D is unique. Observe that if a group
+H is a quotient of G then the G-partition of D is the same or finer than the
+H-partition of D.
+    If the set D is ordered, say D = {w0 , . . . , wn } then the G-partition of D
+can be represented by a function P : {0, . . . , n} → {0, . . . , n} where P (j) = i if
+and only if wi = wj in G and i is the smallest with such property. Given the
+G-partition P of D one can arrange his data in such a way that it takes linear
+time (in the size of j) to compute P (j). In particular, given i, j one can check
+in linear time if wi = wj in G. Also, for a given word w ∈ D one can find in
+linear time an index i such that w = wi . These are the main two subroutines
+concerning partitions of D.
+    Let w = xεi11 . . . xεikk , where ij ∈ {1, . . . , r} and εj = ±1. Put
+
+              Dw = {ε, xεi11 , xεi11 xεi22 , . . . , xεi11 . . . xεinn } ⊂ F (Xr ).          (8)
+
+We order the set Dw as follows w0 = ε, . . . , wn = w. Now, to check whether
+or not the derivative ∂w/∂xi is trivial in ZSr,d−1 one has to determine which
+pairs (wi , wj ) of elements from Dw represent the same element in Sr,d−1 and
+then cancel out wi with wj in ∂w/∂xi if they have the opposite signs.
+    The goal of Algorithm 3.10 below is to compute Sr,d -partition for Dw . This
+is performed in a sequence of iterations. The algorithm starts out by computing
+the Ar -partition of Dw . On the second iteration the algorithm computes the
+Mr -partition of Dw . On the third step it computes the Sr,3 -partition of Dw . It
+continues this way until it computes the Sr,d -partition of Dw .
+    To explain how the algorithm works assume that the Sr,d−1 -partition of Dw
+is given by the partition function Pd−1 described above. Notice, that the Sr,d -
+partition of Dw is the same or finer than the Sr,d−1 -partition of Dw , since Sr,d−1
+is a quotient of Sr,d . This shows that to construct Sr,d -partition Pd of Dw one
+has only to compare elements from Dw which are equal in Sr,d−1 . Suppose
+that ws , wt ∈ Dw , s < t and ws = wt in Sr,d−1 . To check if ws = wt in Sr,d
+we compare all their Fox derivatives in ZSr,d−1 , so for every k = 1, . . . , r we
+compute the following differences:
+
+                                    ∂ws /∂xk − ∂wt /∂xk =
+                                             εj−1                                     ε
+                 X                                    X
+                                xεi11 . . . xij−1 −                     xεi11 . . . xijj −
+          1≤j≤s, ij =k, εj =1                    1≤j≤s, ij =k, εj =−1
+Word Problem in free solvable groups                                                                     21
+
+
+                                              ε                                             ε
+                      X                                           X
+          −                         xεi11 . . . xij−1
+                                                  j−1
+                                                      +                          xεi11 . . . xijj =
+              1≤j≤t, ij =k, εj =1                         1≤j≤t, ij =k, εj =−1
+
+                                              ε                                                 ε
+                    X                                              X
+      −                             xεi11 . . . xij−1
+                                                  j−1
+                                                      +                             xεi11 . . . xijj =
+          s+1≤j≤t, ij =k, εj =1                           s+1≤j≤t, ij =k, εj =−1
+                              X                                      X
+                  −                            wj−1 +                                 wj                 (9)
+                      s+1≤j≤t, ij =k, εj =1                s+1≤j≤t, ij =k, εj =−1
+
+Clearly, given w and s, as above one can compute the formal expression (9) in
+time O(|w|). To check if (9), viewed as an element in ZS   Pr,d−1 , is equal to 0
+it suffices to represent it in the standard group ring form g∈Sr,d−1 mg (where
+m ∈ Z) and verify if all coefficients in this representation are zeros. Now we
+describe a particular procedure, termed Collecting Similar Terms Algorithm,
+which gives the standard group ring form for (9). Given (9) one can compute
+in time O(|w|) the following sum
+                       X                             X
+             −                     wP (j−1) +                  wP (j) ,      (10)
+                 s+1≤j≤t, ij =k, εj =1                     s+1≤j≤t, ij =k, εj =−1
+
+
+Observe now, that two summands wp and wq in (10) are equal in Sr,d−1 if and
+only if p = q. It is easy to see that it takes time O(|w|) to collect similar terms
+in (10), i.e., to compute the coefficients in the standard group ring presentation
+of (10).
+    It follows that ∂ws /∂xk = ∂wt /∂xk in ZSr,d−1 if and only if all the co-
+efficients in the standard group ring form of (10) are equal to 0. The argu-
+ment above shows that one can check whether or not ∂ws /∂xk = ∂wt /∂xk
+in ZSr,d−1 in time O(|w|). Since we need to compare all partial derivatives
+∂/∂xk , k = 1, . . . , r, of the elements ws and wt it takes altogether O(r|w|) time
+to verify if ws = wt in Sr,d−1 .
+    The routine above allows one to construct effectively the Sr,d -partition Pd
+of Dw when given the Sr,d−1 -partition Pd−1 . A more formal description of the
+algorithm is given below.
+Algorithm 3.6. (Computing the Sr,d -partition of Dw )
+Input. Positive integers r ≥ 2, d ≥ 2, and a word w ∈ F (X).
+Output. The Sr,d -partition function Pd for the set Dw .
+Initialization. Compute the set Dw and form the initial (trivial) F -partition
+P0 of Dw , so P0 (i) = i for every i ∈ {0, . . . , n}.
+Computations.
+  A. Compute A-partition P1 of Dw .
+  B. For c = 2, . . . , d do:
+          1) For each 0 ≤ s < t ≤ n such that ws = wt in Sr,c−1 check whether
+             or not ws = wt in Sr,c .
+          2) Form the Sr,c -partition Pd of Dw .
+Word Problem in free solvable groups                                           22
+
+
+  C. Output Pd .
+Lemma 3.7. Given integers r, d ≥ 2 and w ∈ F Algorithm 3.6 computes the
+Sr,d -partition (the function Pd ) of Dw in time O(dr|w|3 ).
+Proof. Algorithm 3.6 makes precisely d iterations c = 1, . . . , d by consequently
+computing the Sr,c -partitions of Dw . After the Sr,c−1 -partition of Dw is com-
+puted, the algorithm computes the Sr,c -partition of Dw by comparing elements
+ws , wt ∈ Dw in Sr,c . It requires at most |w|(|w| + 1)/2 such checks, and, as was
+explained above, every such check can be done in time O(r|w|). Altogether one
+needs O(r|w|3 ) steps to construct the function Pc on the iteration c. Since the
+algorithm makes altogether d iterations it takes it O(dr|w|3 ) time to produce
+Pd , as claimed.
+
+
+    Now we are in a position to show two applications of Algorithm 3.6. The
+first one concerns with computing Fox derivatives in ZSr,d .
+Algorithm 3.8. (Computing Fox derivatives)
+Input. Positive integers r ≥ 2, d ≥ 2, a word w ∈ F (X), and a number
+k ∈ {1, . . . , r}.
+Output. The standard group ring presentation of the Fox derivative ∂w/∂xk
+in ZSr,d .
+Computations.
+  A. Compute, using formals (3), the Fox derivative ∂w/∂xk in ZF .
+  B. Compute, using Algorithm 3.6, the Sr,d -partition of Dw .
+  C. Compute, using the Collecting Similar Terms Algorithm, the standard
+     group ring form of ∂w/∂xk in ZSr,d
+  D. Output ∂w/∂xk computed in [C.].
+Lemma 3.9. Given integers r, d ≥ 2, a word w ∈ F , and a number k ∈
+{1, . . . , r} Algorithm 3.8 computes the standard group ring presentation of the
+Fox derivative ∂w/∂xk in ZSr,d in time O(dr|w|3 ).
+Proof. Follows from Lemma 3.7.
+   The second application of Algorithm 3.6 is to WP in Sr,d .
+Algorithm 3.10. (WP in Sr,d )
+Input. Positive integers r ≥ 2, d ≥ 2, and a word w ∈ F (X).
+Output. T rue if w = 1 in Sr,d and F alse otherwise.
+Computations.
+  A. Compute the set Dw .
+  B. Using Algorithm 3.6 compute Sr,d -partition Pd of Dw .
+Word Problem in free solvable groups                                             23
+
+
+    C. If Pd (0) = Pd (n), i.e., 1 = w in Sr,d , then output T rue. Otherwise output
+       F alse.
+Theorem 3.11. Algorithm 3.10 solves the Word Problem in a free solvable
+group Sr,d in time O(dr|w|3 ).
+Proof. Follows immediately from Lemma 3.7.
+
+
+4      Geodesics in free metabelian groups
+In this section we discuss the computational hardness of different variations of
+Geodesic problems and prove the main result about NP-completeness of BGLP
+in free metabelian groups.
+
+4.1     Algorithmic problems with geodesics in groups
+Let G be a group with a finite set of generators X = {x1 , . . . , xr } and µ :
+F (X) → G the canonical epimorphism. In this section we view the free group
+F (X) as the set of all freely reduced words in the alphabet X ±1 = X ∪ X −1
+with the obvious multiplication.
+   For a word w in the alphabet X ±1 by |w| we denote the length of w. The
+geodesic length of an element g ∈ G relative to X, denoted by lX (g), is the
+length of a shortest word w ∈ F (X) representing g, i.e.,
+
+                      lX (g) = min{|w| | w ∈ F (X), wµ = g}.
+
+To simplify notation we write, sometimes, lX (w) instead of lX (wµ ). A word
+w ∈ F (X) is called geodesic in G relative to X, if |w| = lX (w).
+   We are interested here in the following algorithmic search problem in a given
+group G described as above.
+
+The Geodesic Problem (GP):
+Given a word w ∈ F (X) find a geodesic (in G) word w̃ ∈ F (X) such that
+wµ = w̃µ .
+
+     One can consider the following variation of GP.
+
+The Geodesic Length Problem (GLP):
+Given a word w ∈ F (X) find lX (w).
+
+    Though GLP seems easier than GP (since a solution to GP gives, in linear
+time, a solution to GLP), in practice, to solve GP one usually solves GP first,
+and only then computes the geodesic length.
+    As customary in complexity theory one can modify the search problem GLP
+to get the corresponding bounded decision problem:
+
+The Bounded Geodesic Length Problem (BGLP):
+Word Problem in free solvable groups                                            24
+
+
+Let G be a group with a finite generating set X. Given a word w ∈ F (X) and
+a natural number k determine if lX (w) ≤ k.
+
+    It is instructive to compare the algorithmic ”hardness” of the problems above
+and the Word Problem (WP). Clearly, if one of them is decidable then all of
+them are decidable. To see the difference we need to recall a few definitions.
+Let A and B be algorithmic problems with inputs sets IA and IB . Then A is
+termed Turing reducible to B in polynomial time, if there exists an algorithm
+A with an oracle for B (which can be viewed as a ”subroutine” of A that for
+a given input e ∈ IB in one step returns the answer for B on e) that solves A
+in polynomial time. Similarly, one can define Turing reducibility in exponential
+time. In these cases we write A T,p B or, correspondingly, A T,exp B.
+    Again, it is not hard to see W P T,p BGLP T,p GLP T,p GP . More-
+over, since (by brute force algorithm) GP T,exp W P it follows that all these
+problems are Turing reducible to each other in exponential time. Moreover, if
+G has polynomial growth, i.e., there is a polynomial p(n) such that for each
+nN cardinality of the ball Bn of radius n in the Cayley graph Γ(G, X) is at
+most p(n), then one can easily construct this ball Bn in polynomial time with
+an oracle for the WP in G (see, for example, [12] for details). It follows that
+if a group with polynomial growth has WP decidable in polynomial time then
+all the problems above have polynomial time complexity with respect to any
+finite generating set (since the growth and WP stay polynomial for any finite
+set of generators). Observe now, that by Gromov’s theorem [25] finitely gener-
+ated groups of polynomial growth are virtually nilpotent. It is also known that
+the latter have WP decidable in polynomial time (nilpotent finitely generated
+groups are linear). These two facts together imply that the Geodesic Problem
+is polynomial time decidable in finitely generated virtually nilpotent groups.
+    On the other hand, there are many groups of exponential growth where GP
+is decidable in polynomial time, for example, hyperbolic groups [15]. Among
+metabelian groups the Baumslag-Solitar group BS(1, 2) = ha, t | t−1 at = a2 i
+has exponential growth (it is solvable but not polycyclic - and the claim follows
+from the Milnor theorem [40]) and GP in BS(1, 2) is decidable in polynomial
+time (see [14]).
+    In general, if WP in G is polynomially decidable then BGLP is in the
+class NP, i.e., it is decidable in polynomial time by a non-deterministic Turing
+machine. Indeed, if lX (w) ≤ k then there is a word u ∈ F (X) of length at most
+k which is equal to w in G - this u is a ”witness” of polynomial size which allows
+one to verify in polynomial time that lX (w) ≤ k (just checking that u = w in G).
+In this case GLP is Turing reducible in polynomial time to an NP problem, but
+we cannot claim the same for GP. Observe, that BGLP is in NP for any finitely
+generated metabelian group, since they have WP decidable in polynomial time
+(see Introduction).
+    It might happen though, that WP in a group G is polynomial time decidable,
+but BGLP in G is as hard as any problem in the class NP, i.e., it is NP-complete.
+Recall (in the notation above) that a decision problem B is NP-complete if it is in
+NP and for any decision problem A from NP there is a computable in polynomial
+Word Problem in free solvable groups                                             25
+
+
+time function f : IA → IB (Karp reduction, or a polynomial reduction), such
+that A is true on x ∈ IA if and only if B is true on f (x). The simplest example
+of this type is due to Perry, who showed in [44] that BGLP is NP-complete in
+the metabelian group Z2 wr(Z × Z) (the wreath product of Z2 and Z × Z). In
+this event, the search problems GP and GLP are called NP-hard, this means
+precisely that some (any) NP-complete problem is a Turing reducible to them
+in polynomial time.
+    It would be very interesting to classify finitely generated metabelian groups
+with respect to computational hardness of their GP or GLP problems. In the
+next section we clarify the situation with free metabelian groups. Some remain-
+ing open problems are discussed in Section 5.
+    It was claimed in [12] that in free solvable groups of finite rank GLP is decid-
+able in polynomial time. Unfortunately, in this particular case their argument
+is fallacious. Our main result of this section is the following theorem.
+Theorem 4.1. (Main Theorem) Let Mr be a free metabelian group Mr of
+finite rank r ≥ 2. Then BGLP in Mr (relative to the standard basis) is NP-
+complete.
+
+Proof. The proof of this result consists of two parts. Firstly, in Section 4.2
+(Corollary 4.5) we show that it suffices to prove that BGLP is NP-complete in
+M2 . Secondly, in Section 4.4 (Theorem 4.11) we give a proof that BGLP is,
+indeed, NP-complete in M2 .
+   This immediately implies the following results.
+Corollary 4.2. The search problems GP and GLP are NP-hard in non-abelian
+Mr (relative to the standard basis).
+   To prove the Main Theorem we reduce the problem to the case r = 2 and
+then show that BGLP in M2 is NP-complete. To see the latter we construct a
+polynomial reduction of the Rectilinear Steiner Tree Problem to BGLP in Mr .
+
+4.2    Reduction to M2
+Let V be a variety of groups. For groups A, B ∈ V we denote by A ∗V B the
+free product of A and B relative to V. In particular, if A = hX | Ri, and
+B = hY | Si are presentations of A and B in V then A ∗V B = hx ∪ Y | R ∪ Si is
+a presentation of A ∗V B in V. As usual, A ∗V B satisfies the canonical universal
+property: any two homomorphism A → C, B → C into a group C ∈ V extends
+to a unique homomorphism A ∗V B → C (we refer to [43] for details). It follows
+that if FV (X ∪ Y ) is a free group in V with basis X ∪ Y then FV (X ∪ Y ) =
+FV (X) ∗V FV (Y ).
+    The following lemma claims that free V-factors of a group G are isometrically
+embedded into G.
+Lemma 4.3. Let A, B ∈ V with finite generating sets X and Y . Then in the
+group A∗V B no geodesic word (relative to X ∪Y ) for an element from A contains
+Word Problem in free solvable groups                                          26
+
+
+a letter from Y . In particular, for any word w ∈ F (X) its geodesic length in A
+(relative to X) is equal to the geodesic length in A ∗V B (relative to X ∪ Y ).
+Proof. Let w ∈ F (X) be a geodesic word in A relative to X. Suppose that
+u ∈ F (X ∪ Y ) is a geodesic word in G = A ∗V B (relative to X ∪ Y ) that
+defines the same element as w. The identical map A → A and the trivial map
+B → 1 give rise to a homomorphism φ : G → A. This φ, when applied to u,
+just ”erases” all letters from Y . It follows that if u contains a letter from Y
+then |uφ | < |u| ≤ |w| - contradiction with the assumption that w is geodesic in
+A relative to X (since w = uφ in A).
+Corollary 4.4. In the notation above, each of the problems GP, GLP, BGLP
+in A (relative to X) is polynomial time reducible to the problem of the same
+type in A ∗V B (relative to X ∪ Y ).
+   Notice, that Mn+m = Mn ∗A2 Mm , where A2 is the variety of all metabelian
+groups. Since WP is in P for groups from M Corollary implies the following
+result.
+Corollary 4.5. If BGLP is NP-complete in M2 then it is NP-complete in
+Mr , r ≥ 2, relative to the standard bases.
+Remark 4.6. Corollary 4.5 easily generalizes to free groups in an arbitrary
+variety, provided they have WP decidable in polynomial time.
+
+4.3    Rectilinear Steiner Tree Problem
+The Steiner Tree Problem (STP), which was originally introduced by Gauss, is
+one of the initial twenty one NP-complete problems that appeared in the Karp’s
+list [33]. We need the following rectilinear variation of STP.
+    Let R2 be the Euclidean plane and Γ the integer grid canonically embedded
+into R2 (all vertices from Z2 together with all the horizontal and vertical lines
+connecting them). If A is a finite subset of Z2 then a rectilinear Steiner tree
+(RST) for A is a subgraph T of Γ such that A ∪ T is connected in Γ. By s(T )
+(size of T ) we denote the number of edges in T . An RST for A is optimal if it
+has a smallest possible size among all RST for A, we denote such RST by TA .
+Observe, that a given A may have several different optimal RST, but their size
+is the same, we denote it by s(A).
+    Notice that, in general, TA for A is not a spanning tree for A in Γ, it may
+contain some vertices from Z2 which are not in A (so-called, Steiner points).
+The Rectilinear Steiner Tree Problem (RSTP) asks for a given finite A ⊆ Z2
+and k ∈ N decide if there exists some TA for A with s(TA ) < k. It is known
+that RSTP is NP-complete [24].
+
+4.4    NP-completeness of BGLP in M2
+Now we construct a polynomial reduction of RSTP to GLDP in M2 relative to
+the standard basis X = {x, y}.
+Word Problem in free solvable groups                                                                                                      27
+
+
+   With each point (s, t) ∈ Z2 we associate a word
+
+                                     ws,t = xs1 xt2 · (x2 x1 x2−1 x−1     −t −s
+                                                                   1 ) · x2 x1
+
+in F (x, y). Similarly, with a set of points A = {(s1 , t1 ), . . . , (sn , tn )} ⊂ Z2 ,
+ordered in an arbitrary way, we associate a word
+                                                           n
+                                                           Y
+                                                   wA =            wsi ,ti .
+                                                           i=1
+
+Observe, that the word ws,t , as well as wA , belongs to F ′ = [F, F ], so in M2 they
+define elements from M2′ . In particular, the path pwA is a closed path in the
+grid Γ = Z2 , which is viewed as the Cayley graph of the abelianization F/F ′ .
+    For A ⊂ Z2 , (p, q) ∈ Z2 , and m ∈ Z we put
+   • A + (p, q) = {(s + p, t + q) | (s, t) ∈ A},
+   • mA = {(ms, mt) | (s, t) ∈ A}.
+
+
+                    x2                                    x2                                           x2
+                                                                                                                        1
+        4                                     4                                          4                     1                -1
+                                                                                                 1
+        3                                     3                                          3 1          -1
+                                                                       1                                                -1
+        2                                     2                1               -1        2
+                    1                                                                            -1
+        1                                     1                                          1
+               1            -1                                         -1                                      1
+        0                                x1   0                                     x1   0             1               -1            x1
+                    -1
+        -1                                    -1                                         -1
+                                                                                                               -1
+             -1 0       1        2   3             -1 0    1       2       3                   -1 0        1       2        3
+
+
+
+ Figure 3: Flows on Z2 defined by words w0,0 , w2,1 , and w{(−1,2),(1,−1),(2,3)} .
+
+   The following result is due to Hanan [29].
+Theorem 4.7. [29, Theorem 4]
+   Let A = {(x1 , y1 ), . . . , (xn , yn )} be a finite subset of Z × Z. There exists
+some TA for A with the set of Steiner points Q = {(a1 , b1 ), . . . , (aq , bq )} such
+that {a1 , . . . , aq } ⊆ {x1 , . . . , xn } and {b1 , . . . , bq } ⊆ {y1 , . . . , yn }.
+Corollary 4.8. Let A be a finite subset of Z × Z. Then
+   1. s(A + (b, c)) = s(A) for any (b, c) ∈ Z2 ;
+   2. s(A) = ms(mA) for any m ∈ N.
+Proof. The first statement is obvious because the parallel shift (x, y) → (x, y) +
+(b, c) is an isomorphism of the Cayley graph Γ (in particular, an isometry).
+     To prove the second statement, notice first that s(mA) ≤ ms(A). Indeed,
+stretching TA by the factor of m along all horizontal and vertical lines gives
+some RST for mA, hence the claim.
+Word Problem in free solvable groups                                         28
+
+
+    On the other hand, s(A) < s(mA)/m. To see this, observe that by Theorem
+4.7 there exists R = TmA which lies inside the grid mZ × mZ. Since the
+coordinates of all vertices in R are multiples of k one can shrink R by the
+factor of m, in such a way that the image of R becomes an RST for A. Clearly,
+the size of the image is equal to s(TmA )/m, hence the result.
+Proposition 4.9. Let A be a finite subset of Z2 , (b, c) ∈ A, and n = |A|. Put
+A∗ = 10n(A − (b, c)). Then lX (wA∗ ) ∈ [20ns(A), 20ns(A) + 4n].
+Proof. Let u be a geodesic word for wA∗ relative to the basis X. Since wA∗ ∈ F ′
+the paths pu and pwA∗ are closed paths in Γ = Z2 (viewed as the Cayley graph
+of M2 /M2′ ). Hence u and wA∗ determine the same circulations πu = πAw∗ on
+Γ. As described in Section 2.7, the flow πu is associated with the subgraph Γu
+generated in Γ by supp(πu ) ∪ {(0, 0)}. It follows from the construction of the
+word wA∗ that the connected components of Γu are precisely the 1 × 1-squares
+in Γ, whose lower-left corners are located at the points from A∗ . Notice that
+(0, 0) ∈ A − (b, c) hence (0, 0) ∈ A∗ . Now, if Q is a minimal forest for u (a
+subgraph of Γ of minimal size that makes the graph Γu ∪ Q connected in Γ)
+then by Theorem 2.10
+                               X
+          |u| = lX (wA∗ ) =          πu (e) + 2|E(Q)| = 4n + 2|E(Q)|.      (11)
+                           e∈supp(pu )
+
+Observe, that an optimal RST TA∗ for A∗ also makes the graph Γu ∪Q connected
+in Γ, hence |E(Q)| ≤ s(A∗ ). Therefore, lX (wA∗ ) ≤ 20ns(A) + 4n.
+    On the other hand assume that |u| = lX (wA∗ ) < 20ns(A). Hence, from
+(11), there exists a minimal forest Q for A∗ such that 2|E(Q)| < 20ns(A) − 4n.
+Since every connected component has precisely 4 edges and there are n such
+components, it follows that there is an RST for A∗ of size strictly less than
+10ns(A) - contradiction with Corollary 4.8. This proves the proposition.
+
+
+Corollary 4.10. Let A be a finite subset of Z2 and k ∈ N. In the notation
+above,
+                  s(A) < k ⇐⇒ lX (wA∗ ) < 20nk + 4n.
+In particular, this gives a polynomial reduction of RSTP to BGLP in M2 relative
+to X.
+Proof. Indeed, if s(A) < k then by Proposition 4.9 lX (wA∗ ) ≤ 20ns(A) + 4n <
+20nk + 4n. On the other hand, suppose s(A) ≥ k, say s(A) = k + l for some
+positive l ∈ N. Then, again by Proposition 4.9 lX (wA∗ ) ≥ 20ns(A) = 20n(k +
+l) > 20nk + 4n, as required.
+Theorem 4.11. GLDP in a free metabelian group M2 is NP-complete.
+Proof. Corollary 4.10 gives a polynomial reduction of RSTP in Z2 to BGLP in
+M2 . Therefore BGLP in M2 is NP-hard. Meanwhile, as was mentioned above
+BGLP for M2 is in NP, since WP in M2 is polynomial.
+Word Problem in free solvable groups                                          29
+
+
+5      Open Problems
+Denote by M the class of all finitely generated metabelian groups.
+Problem 5.1. Describe groups in M with GP in P. In particular, the following
+partial questions are of interest here:
+    • Are there any groups in M with GP not in P?
+    • Do polycyclic groups from M have GP in P?
+    • Describe wreath products of two f.g. abelian groups have GP in P?
+    Notice, since WP is in P for groups from M, it follows that GLP is at most
+in NP (Turing reducible in P time to BGLP which is in NP). This makes the
+following problem very interesting.
+Problem 5.2. Classify groups in M with NP-complete BGLP. In particular,
+the following partial questions are of interest:
+    • Do polycyclic groups from M have GLP in P?
+    • Is it true that a wreath product of finitely generated abelian groups AwrB
+      has NP-complete BGLP if A 6= 1 and the torsion-free rank of B is at least
+      2?
+    Clearly, GLP is polynomial time reducible to GP. On the other hand, it is
+not clear if there are finitely presented (or finitely generated) groups where GP
+is not polynomial time reducible to GLP. It would be interesting to clarify the
+situation in the class M. To this end we post the following
+Problem 5.3. Are there group is M where GP is not polinomial time reducible
+to GLP?
+
+
+References
+ [1] J. Almeida, Semidirect products of pseudovarieties from the universal alge-
+     braist’s point of view, J. Pure Appl. Algebra 60 (1989), pp. 113–128.
+ [2] J. Almeida and P. Weil, Free profinite semigroups over semidirect products,
+     Izvestiya VUZ Matematika 39 (1995), pp. 3–31.
+ [3] K. Auinger and B. Steinberg, The geometry of profinite graphs with appli-
+     cations to free groups and finite monoids., T. Am. Math. Soc. 356 (2004),
+     pp. 805–851.
+ [4]          , Constructing divisions into power groups, Theoret. Comput. Sci.
+       341 (2005), pp. 1–21.
+ [5] J. Birman, Braids, Links and Mapping Class Groups, Annals of Math.
+     Studies. Princeton University Press, 1974.
+Word Problem in free solvable groups                                              30
+
+
+ [6] B. Bollobas, Graph Theory: An Introductory Course, Graduate Texts in
+     Mathematics. Springer, 1990.
+ [7] G. Chartrand and O. Oellermann, Applied and Algorithmic Graph Theory.
+     McGraw-Hill, New York, 1993.
+ [8] D. F. Cowan, A class of varieties of inverse semigroups, J. Algebra 141
+     (1991), pp. 115–142.
+ [9] R. Crowell and R. Fox, Introduction to Knot Theory, Graduate Texts in
+     Mathematics. Springer, 1984.
+[10] CRyptography And Groups (CRAG) C++ Library,                      Available at
+     http://www.acc.stevens.edu/downloads.php.
+[11] R. Diestel, Graph Theory, Graduate Texts in Mathematics. Springer, 2006.
+[12] C. Droms, J. Lewin, and H. Servatius, The length of elements in free solv-
+     able groups, P. Am. Math. Soc. 119 (1993), pp. 27–33.
+[13] A. Dyubina, Instability of the virtual solvability and the property of being
+     virtually torsion-free for quasi-isometric groups, Int. Math. Res. Notices 21
+     (2000), pp. 1097–1101.
+[14] M. Elder, A polynomial-time algorithm to compute geodesic length in
+     BS(1,p), in preparation.
+[15] D. B. A. Epstein, J. W. Cannon, D. F. Holt, S. V. F. Levy, M. S. Pater-
+     son, and W. P. Thurston, Word processing in groups. Jones and Bartlett
+     Publishers, 1992.
+[16] A. Ershler, Drift and entropy growth for random walks on groups, Ann. of
+     Prob. 31 (2003), pp. 1193–1204.
+[17] A. Eskin, D. Fisher, and Whyte K., Quasi-isometries and Rigidity of Solv-
+     able Groups, Pure Appl. Math. Quart. 3 (2007), pp. 927–947.
+[18] B. Farb and L. Mosher, A rigidity theorem for the solvable Baumslag-Solitar
+     groups. With an appendix by Daryl Cooper, Invent. Math. 131 (1998),
+     pp. 419–451.
+[19]           , Quasi-isometric rigidity for the solvable Baumslag-Solitar groups.
+       II, Invent. Math. 137 (1999), pp. 613–649.
+[20] R. H. Fox, Free differential calculus I, Ann. of Math. 57 (1953), pp. 547–560.
+[21]          , Free differential calculus II, Ann. of Math. 59 (1954), pp. 196–210.
+[22]          , Free differential calculus III, Ann. of Math. 64 (1956), pp. 407–419.
+[23]          , Free differential calculus IV, Ann. of Math. 71 (1960), pp. 408–422.
+Word Problem in free solvable groups                                          31
+
+
+[24] M. Garey and D. Johnson, The Rectilinear Steiner Tree Problem is NP-
+     complete, SIAM J. Comput. 32 (1977), pp. 826–834.
+[25] M. Gromov, Groups of polynomial growth and expanding maps, Publ. Math.
+     IHES 53 (1981), pp. 53–73.
+[26]          , Infinite groups as geometric objects. Proceedings of the Interna-
+       tional Congress of Mathematicians, 1, pp. 385–395, 1983.
+[27] K. W. Gruenberg, Residual properties of infinite soluble groups, P. Lond.
+     Math. Soc. 7 (1957), pp. 29–62.
+[28] N. Gupta, Free Group Rings, Contemporary Mathematics 66. American
+     Mathematical Society, 1987.
+[29] M. Hanan, On Steiner’s problem with rectilinear distance, SIAM J. Appl.
+     Math. 14 (1966), pp. 255–265.
+[30] A. Hatcher, Algebraic Topology. Cambridge University Press, 2001.
+[31] V. Kaimanovich and A. M. Vershik, Random walks on discrete groups:
+     Boundary and entropy., Ann. Probab. 11 (1983), pp. 457–490.
+[32] M. I. Kargapolov and V. N. Remeslennikov, The conjugacy problem for free
+     solvable groups, Algebra i Logika Sem. 5 (1966), pp. 15–25. Russian.
+[33] R. M. Karp, Reducibility Among Combinatorial Problems. Complexity of
+     Computer Computations, Computer Applications in the Earth Sciences,
+     pp. 85–103. Springer, 1972.
+[34] O. Kharlampovich, A finitely presented solvable group with unsolvable word
+     problem, Izvest. Ak. Nauk, Ser. Mat. 45 (1981), pp. 852–873.
+[35] O. Kharlampovich and M. Sapir, Algorithmic problems in varieties, Int. J.
+     Algebr. Comput. 5 (1995), pp. 379–602.
+[36] W. Magnus, On a theorem of Marshall Hall, Ann. of Math. 40 (1939),
+     pp. 764–768.
+[37] S. W. Margolis and J. C. Meakin, E-unitary inverse monoids and the Cay-
+     ley graph of a group presentation, J. Pure Appl. Algebra 58 (1989), pp. 45–
+     76.
+[38] S. W. Margolis, J. C. Meakin, and J. B. Stephen, Free objects in certain
+     varieties of inverse semigroups, Canadian J. Math. 42 (1990), pp. 1084–
+     1097.
+[39] J. Matthews, The conjugacy problem in wreath products and free metabelian
+     groups, T. Am. Math. Soc. 121 (1966), pp. 329–339. English transl., Soviet
+     Math. Dokl. 8 (1967), 555–557.
+Word Problem in free solvable groups                                            32
+
+
+[40] J. Milnor, Growth of finitely generated solvable groups, J. Differ. Geom. 2
+     (1968), pp. 447–449.
+[41] L. Mosher, M. Sageev, and Whyte K., Quasi-actions on trees. I. Bounded
+     valence, Ann. Math. 158 (2003), pp. 115–164.
+[42] W. D. Munn, Free inverse semigroups, Proc. London Math. Soc. 29 (1974),
+     pp. 385–404.
+[43] H. Newmann, Varieties of groups. Springer, 1967.
+[44] W. Parry, Growth Series of Some Wreath Products, T. Am. Math. Soc. 331
+     (1992), pp. 751–759.
+[45] V. N. Remeslennikov, Certain properties of Magnus embedding, Algebra i
+     Logika 8 (1969), pp. 72–76.
+[46] V. N. Remeslennikov and N. S. Romanovskii, Algorithmic problems for
+     solvable groups. Word Problems II: The Oxford book, pp. 337–346. North-
+     Holland, 1980.
+[47] V. N. Remeslennikov and V. G. Sokolov, Certain properties of Magnus
+     embedding, Algebra i Logika 9 (1970), pp. 566–578.
+[48] J. Rhodes and B. Steinberg, Profinite semigroups, varieties, expansions and
+     the structure of relatively free profinite semigroups, Internat. J. Algebra
+     Comput. 11 (2001), pp. 627–672.
+[49] A. L. Shmel’kin, Wreath products and group varities, Izvestiya AN SSSR,
+     seriya matematika, 29 (1965), pp. 149–176.
+[50] I. M. Singer and J. A. Thorpe, Lectures Notes on Elementary Topology and
+     Geometry, Undergraduate Texts in Mathematics. Springer-Verlag, 1967.
+[51] A. M. Vershik, Geometry and dynamics on the free solvable groups,
+     preprint. Erwin Schroedinger Institute, Vienna, 1999, pp. 1–16.
+[52]          , Dynamic theory of growth in groups: entropy, boundaries, exam-
+       ples, Uspekhi Mat. Nauk 55 (2000), pp. 59–128.
+[53] A. M. Vershik and S. Dobrynin, Geometrical approach to the free sovable
+     groups, Int. J. Algebr. Comput. 15 (2005), pp. 1243–1260.
+[54] B. A. F. Wehrfritz, Two examples of soluble groups that are not conjugacy
+     separable, J. London Math. Soc. 2 (1973), pp. 312–316.
+[55]          , Another example of a soluble group that is not conjugacy separable,
+       J. London Math. Soc. 14 (1976), pp. 380–382.
+
