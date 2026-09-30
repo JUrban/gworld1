@@ -2382,3 +2382,8 @@ Bounded latest/bounds/computability search returned already credited AGG and Bod
 ## N8 higher-weight complete negative control (2026-09-30T09:04:57.714976+00:00)
 
 After 684c115 perturbed the retained class-eleven target by the square of its separating central Hall coordinate. Unchanged solver rejects all four weight types, with two signed (2,7) branches and rootless polynomials T^2-2T+2/T^2+2T+2. Native GAP checks complete integer kernels/unimodular changes, 64 columns/two blocks/twelve quadratic samples. Python/GAP sequential1CPU8GB passes11.107/6.940s, empty stderr; hashes/PIDs verified. Six exact old report/scope versions archived. Scopev16 passes0.119s1CPU2GB,95bindings/all195IDs/counts10whole2partial0novel verified. Closure776terminal,emptyregistry/no workers. 54 manifest bindings. General leading-list completeness is not independently recomputed by this native checker. No theorem scope, novelty, deadline or publication change.
+
+
+## Reproduction handoff and Git portability (2026-09-30T09:19:44.088238+00:00)
+
+Added a reviewer guide with separate-clock replay instructions, exact dependency pins, selected native check entry points, current command formats, Lean trust boundaries and omitted-data records. No software installed or successful mathematical suite repeated. The recorded read-only inventory at c5d9081 checks9732reachableobjects/6294blobs; largest75046692bytes, none at or above90000000bytes. Records Python distribution metadata and local executable hashes; no remote configured. One1CPU4GB job passes0.722s, empty stderr; terminalPID/loghashes and guide links checked. Seven manifest bindings. Subsequent G9 shear work is separate and not included in this earlier Git object snapshot. No original clock, count or publication change.
