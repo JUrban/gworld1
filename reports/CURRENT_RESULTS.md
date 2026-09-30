@@ -120,3 +120,8 @@ all 195 catalogue IDs, including uncounted and status-unverified entries.
 The [interim resource/process checkpoint](resource-process-checkpoint-2026-09-30.md)
 records the requested-limit peaks and actual process observation. It is
 not the final deadline closeout or a measurement of peak memory use.
+
+The [expanded artifact checkpoint](artifact-checkpoint-expanded-2026-09-30.md)
+includes the closing manifests and historical scope versions: all 6,731
+examined bindings have exact available content. Final deadline reconciliation
+remains outstanding.

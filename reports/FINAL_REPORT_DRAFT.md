@@ -183,8 +183,12 @@ to 25 exact old versions recovered from Git. No bound content was missing
 after correcting the scanner's path resolution. The 88 ignored A5 source
 files also matched the retained publisher source archive; three B9
 binaries remain intentionally omitted with build records. Later closing
-audits have additional manifests. Hash reconciliation establishes which
-bytes were retained, not that their mathematical claims are correct.
+audits have additional manifests. The [expanded checkpoint](artifact-checkpoint-expanded-2026-09-30.md)
+now reconciles 6,731 bindings across 141 selected manifests/ledgers: 6,692
+current matches and 39 exact historical matches, with no unresolved bound
+content. Its subsequent process observation found all 664 receipts terminal.
+Hash reconciliation establishes which bytes were retained, not that their
+mathematical claims are correct.
 
 ## Still required before this becomes the final report
 

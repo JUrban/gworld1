@@ -55,32 +55,9 @@ def main():
                         size+=len(block);h.update(block)
                 cache[key]=(h.hexdigest(),size)
         return cache[key]
-    # Validate explicitly indexed historical bytes without changing either
-    # their original manifest or the current working version.
-    historical={};recovery_observations=[];recovery_errors=[]
-    for index in sorted((ROOT/'research/audits').glob('historical*recovery*.json')):
-        try:
-            recovery=json.loads(index.read_text())
-            for row in recovery['records']:
-                archive=ROOT/row['archived_path']
-                actual=inspect(archive)
-                valid=bool(actual and actual[0]==row['expected_sha256'] and
-                           actual[1]==row['bytes'])
-                entry=dict(row,index=str(index.relative_to(ROOT)),archive_matches=valid,
-                           archive_tracked=row['archived_path'] in tracked)
-                recovery_observations.append(entry)
-                if valid:
-                    historical[(row['original_path'],row['expected_sha256'])]=entry
-                else:
-                    recovery_errors.append(entry)
-        except Exception as error:
-            recovery_errors.append(dict(index=str(index.relative_to(ROOT)),error=str(error)))
     files=sorted(p for p in (ROOT/'research/certificates').rglob('*.json')
                  if 'manifest' in p.name or 'hash' in p.name)
-    files += sorted((ROOT/'research/audits').glob('*manifest*.json'))
     files += [ROOT/'sources/manifest.json',ROOT/'sources/status-evidence.json']
-    files += [ROOT/'reports/result-scope-ledger.json']
-    files += sorted((ROOT/'research/audits').glob('*process-closure*.json'))
     observations=[];empty=[];parse_errors=[]
     for manifest in files:
         try:obj=json.loads(manifest.read_text())
@@ -94,7 +71,7 @@ def main():
                 candidates=[path]
             elif isinstance(obj,dict) and obj.get('project_path') and name!=obj.get('archive'):
                 candidates=[ROOT/obj['project_path']/path]
-            elif path.parts[0] in {'research','results','scripts','sources','literature','problems','reports','state','scratch','provenance','config','bin','large-artifacts','data','docs'}:
+            elif path.parts[0] in {'research','results','scripts','sources','literature','problems','reports','state','scratch','provenance','config','bin','large-artifacts'}:
                 candidates=[ROOT/path]
             else:
                 candidates=[manifest.parent/path]
@@ -104,16 +81,10 @@ def main():
             actual=inspect(path)
             status='missing' if actual is None else ('match' if actual[0]==expected and
                       (size is None or actual[1]==size) else 'mismatch')
-            current_status=status
-            old=historical.get((resolved,expected))
-            if status!='match' and old and (size is None or old['bytes']==size):
-                status='historical_match'
             observations.append(dict(manifest=str(manifest.relative_to(ROOT)),declared_path=name,
                 resolved_path=resolved,expected_sha256=expected,expected_bytes=size,
                 actual_sha256=actual[0] if actual else None,actual_bytes=actual[1] if actual else None,
-                status=status,current_path_status=current_status,tracked=resolved in tracked,
-                historical_archive=old['archived_path'] if status=='historical_match' else None,
-                recovery_index=old['index'] if status=='historical_match' else None))
+                status=status,tracked=resolved in tracked))
     processes=[];process_issues=[]
     for p in sorted((ROOT/'results').glob('*/process.json')):
         try:r=json.loads(p.read_text())
@@ -147,7 +118,6 @@ def main():
     report=dict(created_utc=datetime.now(timezone.utc).isoformat(),head=head,
         scope='Artifact/receipt integrity only. No proof checking, solver rerun, or novelty determination.',
         source_manifest_count=len(files),unrecognized_empty_manifests=empty,parse_errors=parse_errors,
-        historical_recoveries=recovery_observations,recovery_errors=recovery_errors,
         bindings=observations,binding_counts=dict(Counter(x['status'] for x in observations)),
         distinct_files_hashed=sum(v is not None for v in cache.values()),
         distinct_bytes_hashed=sum(v[1] for v in cache.values() if v is not None),
@@ -158,7 +128,6 @@ def main():
     print(json.dumps({k:report[k] for k in ['source_manifest_count','binding_counts','distinct_files_hashed','distinct_bytes_hashed']}))
     print('Untracked binding paths:',len(report['untracked_binding_paths']))
     print('Process issues:',len(process_issues),'Unrecognized manifests:',len(empty))
-    print('Historical recovery errors:',len(recovery_errors))
     print('COMPLETE artifact inventory; inspect findings before judging integrity')
 
 
