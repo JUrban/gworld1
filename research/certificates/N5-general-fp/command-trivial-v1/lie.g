@@ -1,0 +1,3 @@
+N5ExpectedMalcev := rec(hirsch_length:=0,logs:=[],matrices:=[],matrix_dimension:=1,native_signature:=rec(presentation_generator_exponents:=[],presentation_relators:=[],relative_orders:=[]),nilclass:=0,original_generator_images:=[],relative_orders:=[],structure_constants:=[],torsion_order:=1,word_checks:=[]);
+N5ExactMalcevJson := "{\"hirsch_length\":0,\"logs\":[],\"matrices\":[],\"matrix_dimension\":1,\"native_signature\":{\"presentation_generator_exponents\":[],\"presentation_relators\":[],\"relative_orders\":[]},\"nilclass\":0,\"original_generator_images\":[],\"relative_orders\":[],\"structure_constants\":[],\"torsion_order\":1,\"word_checks\":[]}";
+N5Rational := rec(dimension:=0,nilclass:=0,basis_change:=[],stem_dimension:=0,projections:=[],factor_dimensions:=[]);

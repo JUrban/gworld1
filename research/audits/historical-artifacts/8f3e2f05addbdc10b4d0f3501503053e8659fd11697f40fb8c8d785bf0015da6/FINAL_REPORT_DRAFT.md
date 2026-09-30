@@ -29,7 +29,7 @@ equally thoroughly.
 | Entry | Proposed outcome | Principal qualification |
 | --- | --- | --- |
 | [F28](../problems/F28/proof.md) | An explicit index-two virtual isomorphism of F2 has no nontrivial forward-invariant subgroup. | Covers arbitrary subgroups, including infinitely generated and nonnormal ones; the free-group bridge is outside its matrix formalization. |
-| [N5](../problems/N5/proof.md) | A uniform direct-decomposition decision and constructor for finitely generated nilpotent groups, including torsion. | Input is a finite presentation promised nilpotent. Torsion-free scope is prior. The complete general presentation command is implemented and checked, with no supplied class bound and factor words returned. The nilpotency promise and written completeness argument remain essential. |
+| [N5](../problems/N5/proof.md) | A uniform direct-decomposition decision and constructor for finitely generated nilpotent groups, including torsion. | Input is a finite presentation promised nilpotent. Torsion-free scope is prior; the complete presentation pipeline stops at class two. Higher-class native input and rational-support kernels are implemented, with later integration still pending. |
 | [M0](../problems/M0/proof.md) | Every primitive-preserving endomorphism of a finite-rank free metabelian group is an automorphism. | Ranks at most two and the classical Jacobian criterion are prior. Effective witness bounds may be enormous. |
 | [H4](../problems/H4/infinite-input-proof.md) | No uniform polynomial-time conversion to an explicit Dehn presentation, even for infinite non-elementary virtually free inputs and changed output generators. | An output-size obstruction with torsion; compressed output and torsion-free input restrictions are not covered. |
 | [F41](../problems/F41/multipattern-proof.md) | Nontrivial nonprimitive words in rank r at least two have automorphic-orbit ball growth sqrt(2r-1). | The spherical assertion is a limsup. Identity/rank-one cases are separate; substantial definable-set and genericity theorems are imported. |
@@ -120,10 +120,7 @@ Representative evidence illustrates the differing scopes:
   was checked on nine groups,108 native words and222 bracket entries. Its
   [rational-support kernels](../problems/N5/general-support-audit.md) pass twelve
   groups and forty partitions, retaining an index-two integral gluing obstruction.
-  The [complete native pipeline](../problems/N5/general-pipeline-audit.md) checks
-  34 central branches and15 actual products. The [general presentation command](../problems/N5/general-fp-audit.md)
-  passes fifteen conversion controls and five standalone commands, returning
-  nineteen original-generator factor words. A serialization failure is retained.
+  These are stages of the general candidate, not a completed higher-class solver.
 - N5's class-two presentation interface was checked on 27 presentations,
   with 810 arithmetic identities, 251 relators and 12 native direct
   decompositions, plus three standalone invocations. This is not an
