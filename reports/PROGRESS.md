@@ -913,3 +913,8 @@ or deadline change and no independent specialist review is implied.
 ## N5 class-two torsion pipeline (2026-09-30T01:34:11.633346+00:00)
 
 [Mixed class-two implementation](../problems/N5/class2-mixed-audit.md) joins rational support with all finite quotient splittings, central power defects and the existing mixed-center solver. Twenty fixtures pass; native GAP checks480 arithmetic equalities,102 defects,96 cross obstructions and9 actual decompositions, with separate finite-group decisions and negative quotient-coverage checks. The general mixed-center negative solver is not independently rerun in GAP; infinite negative examples retain written proofs. No new count or novelty claim.
+
+
+## N5 finite-presentation interface (2026-09-30T01:51:53.957366+00:00)
+
+[Finite-presentation interface](../problems/N5/class2-input-audit.md): class-two input conversion, exact coordinate maps and recovery of original factor words now connect to the mixed solver. Twenty-seven presentations pass810 arithmetic identities/251 relators, with12 native direct decompositions. Three standalone commands pass. Higher-class input remains unimplemented, and the fp class-two promise is not recognized. Counts unchanged.
