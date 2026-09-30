@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 01:51 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 02:10 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -81,3 +81,13 @@ remain in dated notes and immutable audit artifacts. This index identifies
 the current scopes without rewriting that history. Later corrections must
 be recorded explicitly in the claim ledger and reflected here. No external
 publication, contact with authors, or Git push has been performed.
+
+The closing audit has begun. Its current same-agent proof rereads cover
+[N5](../research/audits/N5-closing-proof-reread.md),
+[F34/F38](../research/audits/F34-F38-closing-proof-reread.md), and
+[F41](../research/audits/F41-closing-proof-reread.md).
+No new gap was identified in those passes; their imported-theorem and
+implementation limits remain explicit. Artifact reconciliation is recorded
+in [the checkpoint](artifact-checkpoint-2026-09-30.md), and remaining work
+in [the closing plan](CLOSING_AUDIT_PLAN.md). These are interim checks,
+not a completed experiment or outside mathematical validation.

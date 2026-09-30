@@ -923,3 +923,8 @@ or deadline change and no independent specialist review is implied.
 ## Closing audit checkpoint (2026-09-30T01:58:43.186500+00:00)
 
 Closing audit started with5708 historical hash bindings:5676 current matches and32 bindings to25 old versions, all recovered exactly from Git. No missing files after correcting the scanner's project-relative/ignored-binary resolution. Four launch-input hashes match; all historical process receipts and log hashes reconcile, with the audit's own terminal record checked afterward. See artifact-checkpoint-2026-09-30.md and CLOSING_AUDIT_PLAN.md. Full principal N5 proof and integrality audit reread; no new gap identified, imported machinery and higher-class implementation limits retained.
+
+
+## Closing F34/F38/F41 audit (2026-09-30T02:11:44.213008+00:00)
+
+[Shared decisions and shortening](../research/audits/F34-F38-closing-proof-reread.md) and [F41 piece-cover growth](../research/audits/F41-closing-proof-reread.md): exact imported theorem interfaces, quantifiers and proof boundaries reread. No new gap identified; equation-language implementation, deep shortening/model theory and outside specialist review remain outstanding. Counts remain ten whole-entry coverage candidates, two partial entries, zero established novel results.
