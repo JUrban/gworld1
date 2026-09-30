@@ -1,6 +1,6 @@
 # Interim result scope ledger
 
-Assessment: **2026-09-30T06:33:42.553506+00:00**. Research remains active until
+Assessment: **2026-09-30T06:00:15.636240+00:00**. Research remains active until
 **2026-09-30T10:04:49.670358+00:00**. This is not the frozen deadline result.
 
 **10 whole-entry coverage candidates, 2 partial-entry candidates, 0 established novel results.**
@@ -129,11 +129,11 @@ Audits: [part-a-audit.md](../problems/F38/part-a-audit.md), [bounded-audit.md](.
 
 Part (a) and the free class-two instance of (b) are prior. The current candidate has no class cutoff.
 
-The complete arbitrary-rank/class word-input candidate solver is implemented, including elementary boundaries. Complete integral residues, exceptional blocks and joint linear tails are connected; native GAP reconstructs finite group certificates. The general structural proof and novelty still require specialist review. Universal Lean work connects the positional theorem to actual ordered words, the generated-Lie exception, coefficient weights and full correction-span/two-value separation. The Hall/BCH production of its equations now has a written dictionary. Abstract free-Lie identification, homogeneous projections, the group bridge and full algorithm remain outside Lean. The projective leading-pair stage now retains all signed content divisors; a rank-two/class-five control has four successful nonprimitive and four failing leading branches, including both primitive branches.
+The complete all-rank/class solver is unimplemented. Universal Lean work connects the positional theorem to actual ordered words, the generated-Lie exception, coefficient weights and full correction-span/two-value separation. The Hall/BCH production of its equations now has a written dictionary. Abstract free-Lie identification, homogeneous projections, the group bridge and full algorithm remain outside Lean. The projective leading-pair stage now retains all signed content divisors; a rank-two/class-five control has four successful nonprimitive and four failing leading branches, including both primitive branches.
 
 Proofs: [general-proof.md](../problems/N8/general-proof.md), [group-block-supplement.md](../problems/N8/group-block-supplement.md).
 
-Audits: [general-audit.md](../problems/N8/general-audit.md), [positional-polynomial-audit.md](../problems/N8/positional-polynomial-audit.md), [N8-closing-proof-reread.md](../research/audits/N8-closing-proof-reread.md), [word-dictionary-audit.md](../problems/N8/word-dictionary-audit.md), [lie-exception-audit.md](../problems/N8/lie-exception-audit.md), [weighted-block-audit.md](../problems/N8/weighted-block-audit.md), [projective-leading-pairs-audit.md](../problems/N8/projective-leading-pairs-audit.md), [general-implementation-audit.md](../problems/N8/general-implementation-audit.md), [general-word-audit.md](../problems/N8/general-word-audit.md).
+Audits: [general-audit.md](../problems/N8/general-audit.md), [positional-polynomial-audit.md](../problems/N8/positional-polynomial-audit.md), [N8-closing-proof-reread.md](../research/audits/N8-closing-proof-reread.md), [word-dictionary-audit.md](../problems/N8/word-dictionary-audit.md), [lie-exception-audit.md](../problems/N8/lie-exception-audit.md), [weighted-block-audit.md](../problems/N8/weighted-block-audit.md), [projective-leading-pairs-audit.md](../problems/N8/projective-leading-pairs-audit.md).
 
 ### N9
 

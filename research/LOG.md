@@ -2302,3 +2302,8 @@ Resumed original active run after preparation-only response; prior turn verified
 ## N8 complete word command (2026-09-30T06:32:39.587701+00:00)
 
 After0eb0ec5 added actual word-input decision/constructor with rank0/class0/abelian boundaries, compact original-generator Hall witnesses, flushed traces and explicit incomplete/failed states. Eight elementary cases and4invalidinputs pass; fouractualcommands2positive2negative checked. NativeGAP checks10elementaryoutputs and2nonabeliancommands,1witness/70columns/6blocks/2quadratics12samples. Sixrecorded1CPU8GB jobs pass, max2CPU16GBrequested overlap, empty stderr; all hashesandPIDsverified. Closure725terminalreceipts/emptyregistry/no remainingworkers. Fourexactoldreport/README/planversionsarchivedbeforecurrent06:31updates; reportlinkschecked. 84bindings. Full N8candidatealgorithmimplemented, structuralproofandspecialist/noveltyreviewstillpending. Dated06:00scopeledgerawaitsreconciliation. No count,deadline,subagentorpushchange.
+
+
+## Scope reconciliation through06:33 (2026-09-30T06:34:11.665480+00:00)
+
+Afterfd5f577 updated onlyN8 implementation boundary in scope/triage and rebuilt interimledger. Fourexactpreviousversionsarchived;CSVLFpreserved. scope-ledger-v7passes0.119s1CPU2GB,83currentbindings/all195IDs/counts10whole2partial0novelverified. Receiptloghashesverified,PIDabsent,registryempty.13manifestbindings. No mathematicalrerun,deadlinefreeze,countchangeorpush.
