@@ -2173,3 +2173,8 @@ General-Lambda collapse/separator and fixed-group DPRM/retraction/isolation impl
 ## Interim scope reconciliation (2026-09-30T02:38:16.544125+00:00)
 
 All195 catalogue IDs retained in reports/result-scope-ledger.json with exact source references/current triage. Ten whole-entry candidates comprise6 unpartitioned proposed answers plus5 proposed named parts, with4 prior named parts. Two other partial entries remain. Eleven proposed components are bookkeeping, not11established new theorems.183 other entries are not asserted open. Both1CPU/2GB administrative runs pass; v1 exact generator/output retained before replacing static count prose, v2 final dynamic version passes.65 input/artifact bindings verified, bothPIDs terminated, registry empty. New research/result-scopes.json controls reports/RESULT_SCOPE.md generation; no original catalogue or mathematical proof changed. No tally/deadline change or push.
+
+
+## Closing F28/M0/H4 audit (2026-09-30T02:41:54.082614+00:00)
+
+Reread full controlling proofs and relevant supplements: F28 arbitrary-subgroup/PSL-to-integral-sequence bridge, M0 true primitive-word finite-field detection and constructive classical Jacobian criterion, H4 all-output size bound with infinite-input torsion-class extension. Original pages/references/background and four statement images checked; GGR Lemma1 page517 and Batty/Papasoglu Theorem3.27 page29 actually viewed. No new gap identified.28 hash bindings retained; no new mathematical job or bibliography conclusion. All ten whole-entry candidates now have closing reread notes; partial boundaries and final closeout remain. No count/deadline change or push.

@@ -63,3 +63,8 @@ four credited prior named parts, and two other partial-entry candidates.
 It retains all 195 catalogue IDs and does not label the uncounted remainder
 as open. The final deadline snapshot/report and final process closure
 remain outstanding; this progress record does not close the experiment.
+
+At 02:41 UTC the closing round also covers F28, M0 and H4, with no
+new gap found and no successful computation repeated. All ten whole-entry
+candidates now have a closing reread note. The G9/B9 partial boundaries
+and final deliverables remain to be completed.
