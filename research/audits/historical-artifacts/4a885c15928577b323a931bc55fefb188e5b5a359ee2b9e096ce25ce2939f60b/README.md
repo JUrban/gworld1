@@ -1,25 +1,18 @@
 # GroupWorld: a 48-hour experiment
 
-**Completed research window: 28 September 2026, 10:04:49 UTC → 30 September 2026, 10:04:49 UTC.**
+**Active run: 28 September 2026, 10:04:49 UTC → 30 September 2026, 10:04:49 UTC.**
 
-[Final report](reports/FINAL_REPORT.md) ·
-[Results and review guide](reports/CURRENT_RESULTS.md) ·
+[Current results and review guide](reports/CURRENT_RESULTS.md) · [Progress history](reports/PROGRESS.md) · [Research plan](research/PLAN.md) · [Research log](research/LOG.md). The initial preparation snapshot is preserved in Git. The generated catalogue and original source metadata remain preparation snapshots; current candidate notes appear on the problem pages, with complete assessments in [the working triage](research/triage.csv) and [dated claim ledger](research/claims.jsonl).
+
 [Entry/subpart scope ledger](reports/RESULT_SCOPE.md) ·
+[Interim final-report draft](reports/FINAL_REPORT_DRAFT.md) ·
+[Closing audit plan](reports/CLOSING_AUDIT_PLAN.md) ·
 [Reproduction guide](reports/REPRODUCTION_GUIDE.md).
+These are preparation for the original deadline, not a completed run.
 
-The [deadline snapshot](research/audits/deadline-snapshot-manifest-v1.json)
-freezes the research record. Subsequent report preparation and integrity
-checks are dated administrative closeout. The [progress history](reports/PROGRESS.md)
-and [research log](research/LOG.md) preserve intermediate results and corrections.
-The source catalogue remains a preparation snapshot; the frozen scope
-ledger records the outcome and assessments for all 195 entries.
-
-Deadline tally: **ten whole-entry coverage candidates, two partial
-candidates and zero established novel results**. Whole-entry coverage can
-combine proposed arguments with credited prior answers. All candidates
-await independent review and novelty assessment.
-The [final report](reports/FINAL_REPORT.md) gives all twelve scopes.
-One candidate is [N9](problems/N9/proof.md): undecidability of the
+Current working tally: **ten whole-entry candidates and two partial
+candidates**, all awaiting independent review and novelty assessment.
+The latest candidate is [N9](problems/N9/proof.md): undecidability of the
 retract problem in one fixed torsion-free class-two group, already for
 two-generator subgroups. Its [audit](problems/N9/audit.md) includes actual
 GAP retractions and a Lean check of the integer normalization lemma;
@@ -35,8 +28,10 @@ and [audit](problems/N8/general-audit.md). A [limited Lean check](problems/N8/av
 [native group and integer-lattice checks](problems/N8/general-lattice-branches-audit.md).
 The theorem argument and novelty require specialist review. N5 also has a
 [general promised-nilpotent presentation command](problems/N5/general-fp-audit.md).
-The final report links the process, resource and artifact inventories.
-The [B9 partial candidate](problems/B9/infinite-family-proof.md) constructs
+The [latest evidence checkpoint](reports/evidence-checkpoint-2026-09-30T0925.md)
+records retained artifact and process/resource checks; final deadline closure
+remains outstanding.
+The new [B9 partial candidate](problems/B9/infinite-family-proof.md) constructs
 infinitely many special braids on five strands, giving countably infinitely
 many in every B_N with N>=5. The [small-strand supplement](problems/B9/small-strand-proof.md)
 deduces the counts 1, 2 and 4 for B1, B2 and B3 from prior structural
@@ -55,11 +50,11 @@ This is a fresh repository for the collection of [open problems in combinatorial
 
 The archive contains **195 numbered entries in 16 categories**, both background pages, the Hall of Fame and the locally linked PDF. Each entry has an offline HTML excerpt and an exact source fragment under `problems/ID/`. The numbered-entry count is not a count of currently open problems: entries have multiple parts, overlap, and include known results.
 
-The catalogue preserves 49 heading stars, 11 entries with subpart stars, and 69 Hall of Fame links referring to 58 distinct entries. Sixty entries have at least one of these site indications. One additional bibliographic update records Gardam's 2021 answer to O12(b), which is unmarked on the site. These preparation indications do not settle present openness. Research assessments and bounded literature checks are in the scope ledger; no exhaustive current literature survey is claimed.
+The catalogue preserves 49 heading stars, 11 entries with subpart stars, and 69 Hall of Fame links referring to 58 distinct entries. Sixty entries have at least one of these site indications. One additional bibliographic update records Gardam's 2021 answer to O12(b), which is unmarked on the site. All scope and openness assessments still require review before research; no exhaustive current literature survey has been done.
 
 ## Relationship to Kourovka
 
-This repository has its own Git history, corpus, clock and result ledgers. The existing Kourovka repository is a read-only reference for methods, code, arguments and corrections. It is **not** a clean-room experiment: any use of a Kourovka result must be recorded in [the transfer ledger](research/transfers.jsonl). The preparation source revision and file hashes are in [provenance/kourovka.json](provenance/kourovka.json).
+This repository has its own Git history, corpus, clock and result ledgers. The existing Kourovka repository is a read-only reference for methods, code, arguments and corrections. It is **not** a clean-room experiment: any later use of a Kourovka result must be recorded in [the transfer ledger](research/transfers.jsonl). The preparation source revision and file hashes are in [provenance/kourovka.json](provenance/kourovka.json).
 
 Locally this checkout is `/project/gworld1`, excluded from the enclosing Kourovka checkout using that checkout's `.git/info/exclude`. It can be moved or published as a separate repository. No remote is configured. The GAP installation is shared through a local configuration file; its binaries and large datasets are not copied.
 

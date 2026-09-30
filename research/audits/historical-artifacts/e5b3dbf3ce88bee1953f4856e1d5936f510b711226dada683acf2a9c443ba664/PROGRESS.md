@@ -1,19 +1,8 @@
 # GroupWorld progress
 
-Research window (completed): 28 September 2026 10:04:49 UTC to 30 September 2026 10:04:49 UTC.
+Active experiment: 28 September 2026 10:04:49 UTC to 30 September 2026 10:04:49 UTC.
 
 Current counts: **2 partial candidates**, **10 whole-entry candidate solutions**, **0 established novel results**. All twelve candidates await independent review; novelty remains provisional. See [the current results and review guide](CURRENT_RESULTS.md) for controlling proofs and exact scopes. The development notes below include superseded intermediate scopes as well as current results; they preserve the research history.
-
-- 30 September, deadline closeout: the frozen count is ten whole-entry
-  coverage candidates, two partial entries and zero established novel results.
-  G9 ends with `2.676891785 <= lambda_2 <= 2.943737759`, using shortened atoms
-  and disjoint shear tails. The N8 word-input and N5 promised-nilpotent
-  presentation commands are implemented; structural proofs await specialist
-  review. All 786 research receipts are terminal. The [final report](FINAL_REPORT.md)
-  and its integrity inventories were prepared administratively after the
-  original cutoff, with no additional mathematical work.
-
-## Historical research checkpoints
 
 - 30 September, 08:18 UTC: B9's [complete fixed-color procedure](../problems/B9/fixed-color-decision.md) decides every special partner of a supplied first braid via strand deletion and at most m-1 specialness tests. All 52 original first-color fixtures complete:40 have no partner,12 have16 total partners,all in known classes. Native GAP independently checks every decision, including failed-division and nonspecial-root controls. B4 still requires classification of unrestricted first colors; no tally change.
 

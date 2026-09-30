@@ -1,0 +1,104 @@
+{
+  "created_utc": "2026-09-30T10:05:48.338559+00:00",
+  "deadline_utc": "2026-09-30T10:04:49.670358+00:00",
+  "commands": [
+    {
+      "started_utc": "2026-09-30T10:05:48.239754+00:00",
+      "ended_utc": "2026-09-30T10:05:48.338559+00:00",
+      "scope": "Post-deadline administrative rendering only; frozen entries, counts and all96inputs must match",
+      "command": [
+        "python3",
+        "scripts/build_scope_ledger.py",
+        "--deadline-snapshot",
+        "research/audits/deadline-snapshot-manifest-v1.json"
+      ],
+      "returncode": 0,
+      "stdout_path": "research/audits/final-scope-render-v1.stdout.log",
+      "stderr_path": "research/audits/final-scope-render-v1.stderr.log",
+      "stdout_sha256": "bddd1cdfcbe725e81667e8a03f678c99f777b3d69afb8aae9889147aa7dbe658",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "started_utc": "2026-09-30T10:12:18.046309+00:00",
+      "ended_utc": "2026-09-30T10:12:18.212514+00:00",
+      "scope": "Post-deadline read-only administrative inventory; no mathematical rerun",
+      "command": [
+        "python3",
+        "scripts/audit_resource_process_records.py",
+        "--output",
+        "research/audits/resource-process-v6.json",
+        "--self-job",
+        "postdeadline-administrative-resource-audit"
+      ],
+      "returncode": 0,
+      "stdout_path": "research/audits/resource-process-v6.stdout.log",
+      "stderr_path": "research/audits/resource-process-v6.stderr.log",
+      "stdout_sha256": "9dac9a06d1786308d217bd8b6a2495faed1b4f4175c1fd78f584dce1d5904f9b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "started_utc": "2026-09-30T10:12:18.214162+00:00",
+      "ended_utc": "2026-09-30T10:12:18.702817+00:00",
+      "scope": "Post-deadline read-only administrative inventory; no mathematical rerun",
+      "command": [
+        ".venv/bin/python",
+        "scripts/audit_review_portability.py",
+        "--output",
+        "research/audits/review-portability-v2.json"
+      ],
+      "returncode": 0,
+      "stdout_path": "research/audits/review-portability-v2.stdout.log",
+      "stderr_path": "research/audits/review-portability-v2.stderr.log",
+      "stdout_sha256": "377b9b9dc8729c24f3b09d6e8c83dc0b3b452d155d2b5cbaaa813980966f4a8b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "started_utc": "2026-09-30T10:12:18.704971+00:00",
+      "ended_utc": "2026-09-30T10:12:18.823995+00:00",
+      "scope": "Post-deadline read-only administrative inventory; no mathematical rerun",
+      "command": [
+        "python3",
+        "scripts/inspect_recorded_process_closure.py",
+        "--output",
+        "research/audits/final-process-closure-v1.json"
+      ],
+      "returncode": 0,
+      "stdout_path": "research/audits/final-process-closure-v1.stdout.log",
+      "stderr_path": "research/audits/final-process-closure-v1.stderr.log",
+      "stdout_sha256": "b7ad71549be22c69c5853ce563c4e7684c43828ba534d63bb1d617a5296261e4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "started_utc": "2026-09-30T10:12:18.825156+00:00",
+      "ended_utc": "2026-09-30T10:12:23.707795+00:00",
+      "scope": "Post-deadline read-only administrative inventory; no mathematical rerun",
+      "command": [
+        "python3",
+        "scripts/audit_artifact_integrity.py",
+        "--output",
+        "research/audits/artifact-integrity-v9.json"
+      ],
+      "returncode": 0,
+      "stdout_path": "research/audits/artifact-integrity-v9.stdout.log",
+      "stderr_path": "research/audits/artifact-integrity-v9.stderr.log",
+      "stdout_sha256": "f38640dbb435890560bdd2eda52fce82cf198972e941f4ac73bc97eba97b6477",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "started_utc": "2026-09-30T10:13:46.046284+00:00",
+      "ended_utc": "2026-09-30T10:13:46.195002+00:00",
+      "scope": "Post-deadline local inline review-link inventory only",
+      "command": [
+        "python3",
+        "scripts/audit_review_links.py",
+        "--output",
+        "research/audits/review-links-v2.json"
+      ],
+      "returncode": 0,
+      "stdout_path": "research/audits/review-links-v2.stdout.log",
+      "stderr_path": "research/audits/review-links-v2.stderr.log",
+      "stdout_sha256": "e7190ce7875e2ab27513278227ceb4468f878e41bdc6a48e892d53b04010b484",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

@@ -1,18 +1,17 @@
 # Reports
 
-Start with [CURRENT_RESULTS.md](CURRENT_RESULTS.md) for current scopes,
-controlling proofs, credited prior coverage and verification limits.
+Start with the [final report](FINAL_REPORT.md) for the completed 48-hour
+experiment: ten whole-entry coverage candidates, two partial entries and
+zero established novel results. [CURRENT_RESULTS.md](CURRENT_RESULTS.md)
+links controlling proofs, credited prior coverage and verification limits.
 [RESULT_SCOPE.md](RESULT_SCOPE.md) separates whole entries, named parts,
 credited prior answers and selected exclusions; its JSON companion records
-the current triage status of every catalogue entry.
-[FINAL_REPORT_DRAFT.md](FINAL_REPORT_DRAFT.md) is the explicitly interim
-closing draft; it is not a deadline snapshot or completion certificate.
-[PROGRESS.md](PROGRESS.md) preserves the research history, including
-intermediate scopes and earlier counts. At the end of the run, produce
-`FINAL_REPORT.md` separating complete candidates, named subparts, other
-partial results, known-result rediscoveries, computations without proofs,
-failed attempts and open leads. State both historical deadline counts and
-current assessments, with qualifications.
+all 195 catalogue entries and agrees exactly with the frozen assessment.
+
+[PROGRESS.md](PROGRESS.md) preserves intermediate scopes and earlier counts.
+[FINAL_REPORT_DRAFT.md](FINAL_REPORT_DRAFT.md) and
+[CLOSING_AUDIT_PLAN.md](CLOSING_AUDIT_PLAN.md) are retained historical records;
+the final report supersedes their pending-closeout status.
 
 [REPRODUCTION_GUIDE.md](REPRODUCTION_GUIDE.md) gives pinned environments,
 selected replay entry points and explicit data/toolchain omissions.

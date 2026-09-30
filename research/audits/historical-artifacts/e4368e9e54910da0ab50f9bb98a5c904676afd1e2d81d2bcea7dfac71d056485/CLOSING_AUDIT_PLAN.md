@@ -1,9 +1,5 @@
 # Closing audit plan
 
-**Completed.** See the [final report](FINAL_REPORT.md) for the frozen outcome
-and post-deadline administrative checks. The dated plan below is retained
-as written; its pending-work statements are historical.
-
 Started 30 September 2026, 01:54 UTC, slightly before the reserved final
 eight hours. The immutable research deadline is **10:04:49.670358 UTC**.
 The experiment remains active. This file is a work plan, not a completion

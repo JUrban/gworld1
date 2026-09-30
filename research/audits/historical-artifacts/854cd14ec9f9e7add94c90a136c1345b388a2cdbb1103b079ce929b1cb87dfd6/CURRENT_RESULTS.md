@@ -1,10 +1,8 @@
 # Current candidate results and review guide
 
-Deadline record: **30 September 2026, 10:04:49.670358 UTC**.
-The experiment has ended. See the [final report](FINAL_REPORT.md) and
-[immutable snapshot](../research/audits/deadline-snapshot-manifest-v1.json).
-This guide was updated administratively after the cutoff; the mathematical
-scopes and bound artifacts are unchanged.
+Snapshot: **30 September 2026, 09:28 UTC**. The experiment is still active;
+its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
+index, not the final report.
 
 There are **ten whole-entry coverage candidates, two partial-entry
 candidates, and zero established novel results**. “Whole-entry” means
@@ -169,7 +167,7 @@ the current scopes without rewriting that history. Later corrections must
 be recorded explicitly in the claim ledger and reflected here. No external
 publication, contact with authors, or Git push has been performed.
 
-The closing same-agent proof rereads cover
+The closing audit has begun. Its current same-agent proof rereads cover
 [N5](../research/audits/N5-closing-proof-reread.md),
 [F34/F38](../research/audits/F34-F38-closing-proof-reread.md), and
 [F41](../research/audits/F41-closing-proof-reread.md), together with
@@ -183,10 +181,10 @@ The partial boundaries are also checked for
 [G9](../research/audits/G9-closing-proof-reread.md) and
 [B9](../research/audits/B9-closing-proof-reread.md).
 No new gap was identified in those passes; their imported-theorem and
-implementation limits remain explicit. The [final report](FINAL_REPORT.md)
-records deadline closure and final administrative inventories. The
-[closing plan](CLOSING_AUDIT_PLAN.md) and earlier checkpoints retain their
-historical status; they are not outside mathematical validation.
+implementation limits remain explicit. Artifact reconciliation is recorded
+in [the checkpoint](artifact-checkpoint-2026-09-30.md), and remaining work
+in [the closing plan](CLOSING_AUDIT_PLAN.md). These are interim checks,
+not a completed experiment or outside mathematical validation.
 
 The [current scope ledger](RESULT_SCOPE.md) separates entry coverage from
 named-part answers and credited prior parts. Its JSON companion retains
@@ -196,17 +194,17 @@ The [interim resource/process checkpoint](resource-process-checkpoint-2026-09-30
 records the requested-limit peaks and actual process observation. It is
 not the final deadline closeout or a measurement of peak memory use.
 
-The [final artifact inventory](../research/audits/artifact-integrity-v9.json)
-reconciles current and archived bindings. The
-[final process observation](../research/audits/final-process-closure-v1.json)
-records closure of all 786 research-window receipts and checks actual
-attributable workers. These are integrity checks, not theorem verification.
+The [09:25 evidence checkpoint](evidence-checkpoint-2026-09-30T0925.md)
+reconciles 26,533 bindings across 202 selected records, including 152 exact
+historical versions, with no missing bound content. All 782 recorded jobs
+are terminal after that observation; no matching worker remains. This
+includes the latest G9 and N8 work. Final deadline reconciliation remains
+outstanding.
 
 The [reproduction guide](REPRODUCTION_GUIDE.md) gives environment pins,
 selected native replay entry points, source-version recovery and omitted
-data. The [portability inventory](../research/audits/review-portability-v2.json)
-records the reachable Git objects at its stated HEAD; closeout additions
-are checked separately before and after the local commit.
+data. The [portability inventory](../research/audits/review-portability-v1.json)
+finds no reachable Git blob at or above 90 MB in its recorded snapshot.
 
 - The [N8 higher-weight negative control](../problems/N8/higher-negative-audit.md) rejects all four normalized
   leading types. Native GAP reconstructs both full integer kernels, 64 group

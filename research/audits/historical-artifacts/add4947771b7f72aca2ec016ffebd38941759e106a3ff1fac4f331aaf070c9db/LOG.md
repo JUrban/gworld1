@@ -2412,37 +2412,3 @@ Reread the controlling proof and earlier closing audit, including the finite sup
 ## Deadline scope-rendering guard (2026-09-30T09:47:18.029523+00:00)
 
 The scope reporter previously hardcoded interim labels. Added an explicit post-deadline snapshot mode requiring the cutoff to pass, a completed research session, a successful actual-process closure observation and exact frozen scope/input/entry/count agreement. It changes reporting metadata only. Premature invocation is intentionally rejected with status1 before any report, snapshot or clock write; unchanged HEAD bytes were checked. Ordinary interim scopev19 passes0.119s1CPU2GB,96bindings/all195IDs/counts10whole2partial0novel. The actual post-deadline branch remains to be exercised with the real snapshot; no fake closeout was created. Four oldversions archived. Both terminal receipts/loghashes/PIDs verified; closure786terminal/emptyregistry/no workers. Twelve manifestbindings. No mathematicalrerun, assessment-scope change, clockresetorpush.
-
-## Deadline freeze and administrative closeout (2026-09-30T10:13:21.158820+00:00)
-
-The original cutoff was 2026-09-30T10:04:49.670358+00:00. At
-10:05:47.903924 UTC observed the unchanged pre-deadline HEAD
-401213c09222ebebaf99589553258cf74a918187 (commit time 09:47:18 UTC), archived
-ten exact status/report versions and froze the original assessment.
-All 786 recorded receipts were terminal; the registry and attributable
-worker set were empty. Session phase is completed without changing the
-original clock or launch-input hashes. The final scope renderer passed
-and preserves all 195 entries, counts and 96 bindings exactly. The count
-is ten whole-entry coverage candidates, two partial entries and zero
-established novel results; G9's lower endpoint is 2.676891785 and B9's B4
-case remains open here.
-
-Post-deadline administration produced FINAL_REPORT.md, updated landing
-and status documents and ran direct read-only inventories, with separately
-dated command/log hashes in postdeadline-administration-v1.json. Resource
-accounting closes all 786 receipts (589 successes,197 nonsuccesses,
-46 timeout flags,24 interruption flags), with no recorded interval outside
-the window, resource excess or CPU conflict. Peaks are 8 requested CPU
-slots,52 GB requested per-process limits and7 jobs, not measured aggregate
-consumption. The final process observation again finds no workers.
-Artifact v9 reconciles 31406 bindings in212 selected records,31192 current
-and214 exact historical matches, with no unresolved/parse/recovery/process
-issues and all four launch inputs unchanged. The same91 intentional
-local-only dependency/binary paths retain archive/build records.
-Portability v2 records6369 reachable blobs at the pre-closeout HEAD,
-maximum75046692bytes,none at or above90000000bytes and no remote. The final
-review-link inventory covers98 sources and601 local inline destinations,
-all tracked and present, with zero findings. The handoff manifest binds
-the final report, current status documents and administrative audit files. No
-additional mathematical work, solver run, novelty determination, external
-review, clock reset, author contact or push occurred during closeout.

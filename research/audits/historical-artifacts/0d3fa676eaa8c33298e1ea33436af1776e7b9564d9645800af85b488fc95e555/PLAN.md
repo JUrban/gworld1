@@ -1,9 +1,4 @@
-# Research plan — completed experiment
-
-The original research window has ended. The [final report](../reports/FINAL_REPORT.md)
-records ten whole-entry coverage candidates, two partial entries and zero
-established novel results. The dated plans below are historical; subsequent
-report preparation and integrity inventories are administrative only.
+# Active research plan
 
 Closing phase, 30 September: the current plan is
 [CLOSING_AUDIT_PLAN.md](../reports/CLOSING_AUDIT_PLAN.md). All twelve
