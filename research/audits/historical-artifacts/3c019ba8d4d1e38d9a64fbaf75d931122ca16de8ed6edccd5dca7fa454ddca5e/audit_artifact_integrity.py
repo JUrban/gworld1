@@ -94,10 +94,6 @@ def main():
                 candidates=[path]
             elif isinstance(obj,dict) and obj.get('project_path') and name!=obj.get('archive'):
                 candidates=[ROOT/obj['project_path']/path]
-            elif name in {'README.md','AGENTS.md','START_HERE.md','.gitignore'}:
-                # These exact names denote repository-root metadata in our
-                # manifests. Preserve project-local handling above for Lean.
-                candidates=[ROOT/path]
             elif path.parts[0] in {'research','results','scripts','sources','literature','problems','reports','state','scratch','provenance','config','bin','large-artifacts','data','docs'}:
                 candidates=[ROOT/path]
             else:
