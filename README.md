@@ -4,6 +4,11 @@
 
 [Current results and review guide](reports/CURRENT_RESULTS.md) · [Progress history](reports/PROGRESS.md) · [Research plan](research/PLAN.md) · [Research log](research/LOG.md). The initial preparation snapshot is preserved in Git. The generated catalogue and problem READMEs retain their preparation status; current assessments are in [the working triage](research/triage.csv) and [dated claim ledger](research/claims.jsonl).
 
+[Entry/subpart scope ledger](reports/RESULT_SCOPE.md) ·
+[Interim final-report draft](reports/FINAL_REPORT_DRAFT.md) ·
+[Closing audit plan](reports/CLOSING_AUDIT_PLAN.md).
+These are preparation for the original deadline, not a completed run.
+
 Current working tally: **ten whole-entry candidates and two partial
 candidates**, all awaiting independent review and novelty assessment.
 The latest candidate is [N9](problems/N9/proof.md): undecidability of the

@@ -1,5 +1,13 @@
 # Active research plan
 
+Closing phase, 30 September: the current plan is
+[CLOSING_AUDIT_PLAN.md](../reports/CLOSING_AUDIT_PLAN.md). All twelve
+counted entries have a first closing proof reread; the interim scope
+ledger and final-report draft exist. Counts remain ten whole-entry
+coverage candidates, two partial entries and zero established novel
+results. The deadline and final process/artifact closure remain ahead.
+Earlier checkpoints below retain their dates and historical scopes.
+
 Start: 2026-09-28 10:04:49 UTC. Deadline: **2026-09-30 10:04:49 UTC**. The full dataset is in scope. The goal is as many rigorous previously unsolved answers as possible within the allotted time; bibliographic updates and known rediscoveries are useful but are not counted as new answers.
 
 Latest checkpoint, approximately 20:35 UTC on 29 September: ten whole-entry

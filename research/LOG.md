@@ -2183,3 +2183,8 @@ Reread full controlling proofs and relevant supplements: F28 arbitrary-subgroup/
 ## Closing G9/B9 partial boundaries (2026-09-30T02:45:48.945338+00:00)
 
 Full flow-growth/solvable-extension and infinite-braid-family/small-strand/parameter-reduction arguments reread. Original source pages and actual statement renderings checked; Guba Lemma3 page5 and Dehornoy page26 viewed, specified local proofs read. No new gap identified. Exact G9 constant and B4 exponent-two exhaustion remain unresolved.20bindings retained, no new mathematical computation. A read-only wrong-case path probbr.html was absent; actual probBr.html then read in full. All twelve counted entries now have closing notes. No scope/count/deadline change, outside reviewer or push.
+
+
+## Interim final-report draft (2026-09-30T02:49:42.021129+00:00)
+
+reports/FINAL_REPORT_DRAFT.md now gives a self-contained current outcome, entry/subpart accounting, exact clock and provenance, verification boundaries, selected prior/uncounted work, retained failures and reproduction/resource limitations. Explicitly interim: no deadline snapshot, final process closure or goal completion claimed. All 22 local Markdown targets checked; original deadline remains10:04:49.670358UTC. Root/report/research-plan entry points link the closing work. No new mathematical job, count or novelty conclusion.
