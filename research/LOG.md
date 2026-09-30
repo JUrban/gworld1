@@ -2222,3 +2222,8 @@ After8ea91fd, expanded scanner to closing manifests, current scope ledger and pr
 ## F38 canonical normalization interface (2026-09-30T03:49:35.320263+00:00)
 
 Previous turn made progress at8ea91fd/351d0e3; active state and clean worktree revalidated. Deeper source check makes the minimum-displacement normalization explicit: add u to the fixed generators, derive M/2<=mu<=M and d(x,o)/mu<=1/2, and show o lies in [x,h(u)x] or [x,h(z)x]. This finite-orbit-hull inclusion places the explicit tripod in the actual source limit; no faithfulness or conjugation-invariance of shortness assumed. Reread relevant primary text, reopened publisher record, and viewed newly rendered printedpp34--36 plus originalF38 statement. One1CPU/2GB render job1.273s terminal, logs empty,PIDgone,registryempty. An administrative report-link update first stopped on a wrong expected phrase; corrected before writing the manifest/claim. No solver rerun, theoremcount, novelty or deadline change; original bound proof/manifests unchanged.
+
+
+## N8 group-block interface (2026-09-30T03:59:02.672814+00:00)
+
+Revalidated active clock and clean state ataed5040. Wrote the exact Hall/BCH-to-weighted-word dictionary: affine prefixes, fixed two-Y terms, actual free-basis projection, sign D=-D_m, earlier pre-restriction derivative identities, every later column and pullback to the degree-N group error. A draft used homogeneous logarithms of Hall group generators; corrected to their leading-weight bound before binding the supplement. This clarification does not change the original proof. Nine bindings retained; original proofs/formal inputs/manifests unchanged. No mathematical computation, suite rerun, novelty/count/deadline change or push.

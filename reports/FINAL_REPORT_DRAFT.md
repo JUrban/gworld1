@@ -100,7 +100,8 @@ Representative evidence illustrates the differing scopes:
   full-span separation and the two-value bound from actual word equations.
   Abstract free-Lie identification, structural projections, production of
   those equations from group coordinates and the complete algorithm are
-  not formally verified.
+  not formally verified. The [group-block supplement](../problems/N8/group-block-supplement.md)
+  gives the written coefficient dictionary, including all later columns.
 - N9 has a Lean integer-normalization lemma and actual retractions in
   fixed toy groups. These do not formalize DPRM or its complete reduction.
 - N5's class-two presentation interface was checked on 27 presentations,
