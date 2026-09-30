@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-"""Validate scope bookkeeping and build dated reports; not a proof checker."""
+"""Validate scope bookkeeping and build interim reports; not a proof checker."""
 
-import argparse
 import csv
 import hashlib
 import json
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,29 +33,9 @@ def links(paths):
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--deadline-snapshot', type=Path,
-                        help='Post-deadline administrative rendering from an existing frozen snapshot.')
-    args = parser.parse_args()
     scope = read_json("research/result-scopes.json")
     source = read_json("data/problems.json")
     session = read_json("state/session.json")
-    snapshot = None
-    if args.deadline_snapshot is not None:
-        require(datetime.now(timezone.utc) >= datetime.fromisoformat(session['deadline_utc']),
-                'Deadline output is disabled before the original research cutoff')
-        require(session['phase'] == 'completed', 'Research session must be closed first')
-        snapshot = json.loads(args.deadline_snapshot.read_text())
-        require(snapshot['deadline_utc'] == session['deadline_utc'], 'Snapshot deadline mismatch')
-        require(datetime.fromisoformat(snapshot['observed_utc']) >=
-                datetime.fromisoformat(session['deadline_utc']), 'Premature deadline observation')
-        require(snapshot['process_closure']['all_recorded_jobs_closed_in_observed_scope'],
-                'Snapshot has no successful actual process-closure observation')
-        require(binding('research/result-scopes.json')['sha256'] == snapshot['scope_sha256'],
-                'Candidate scope changed after the deadline snapshot')
-        for previous in snapshot['frozen_ledger']['input_and_artifact_bindings']:
-            require(binding(previous['path']) == previous,
-                    f"Frozen scope input changed: {previous['path']}")
     with (ROOT / "research/triage.csv").open(newline="") as f:
         triage = list(csv.DictReader(f))
     catalog = {p["id"]: p for p in source}
@@ -125,41 +104,22 @@ def main():
                      "counted_coverage": entries[pid]["coverage"] if pid in entries else "uncounted",
                      "candidate_scope": entries.get(pid)})
     bindings = [binding(path) for path in sorted(all_paths)]
-    if snapshot is not None:
-        require(dict(counts) == snapshot['frozen_ledger']['counts'], 'Frozen count mismatch')
-        require(rows == snapshot['frozen_ledger']['entries'], 'Frozen entry/subpart assessment changed')
-        require(bindings == snapshot['frozen_ledger']['input_and_artifact_bindings'], 'Frozen binding set changed')
-    ledger = {"schema_version": 1, "assessed_utc": scope["assessed_utc"],
-              "phase": "deadline_frozen" if snapshot is not None else scope["phase"],
+    ledger = {"schema_version": 1, "assessed_utc": scope["assessed_utc"], "phase": scope["phase"],
               "deadline_utc": session["deadline_utc"], "counts": dict(counts),
               "review_status": scope["review_status"], "novelty_status": scope["novelty_status"],
               "cautions": ["Whole-entry coverage combines proposed arguments with credited prior answers.",
                            "Complete proposed components are bookkeeping units, not established new theorems.",
                            "Uncounted entries include prior answers and unchecked status; they are not all open.",
                            "This script checks bookkeeping and file availability, not proof correctness or novelty.",
-                           ("Deadline-frozen assessment; later research requires a separate dated record."
-                            if snapshot is not None else
-                            "This is an interim snapshot, not the deadline-frozen result.")],
+                           "This is an interim snapshot, not the deadline-frozen result."],
               "input_and_artifact_bindings": bindings,
               "selected_uncounted_work": scope["selected_uncounted_work"], "entries": rows}
-    if snapshot is not None:
-        ledger['deadline_snapshot'] = str(args.deadline_snapshot)
-        ledger['freeze_observed_utc'] = snapshot['observed_utc']
-        ledger['predeadline_head'] = snapshot['predeadline_head']
     out = ROOT / "reports/result-scope-ledger.json"
     out.write_text(json.dumps(ledger, indent=2, ensure_ascii=False) + "\n")
 
-    if snapshot is None:
-        lines = ["# Interim result scope ledger", "",
-                 f"Assessment: **{scope['assessed_utc']}**. Research remains active until",
-                 f"**{session['deadline_utc']}**. This is not the frozen deadline result.", ""]
-    else:
-        lines = ["# Deadline result scope ledger", "",
-                 f"Assessment: **{scope['assessed_utc']}**. Original research cutoff:",
-                 f"**{session['deadline_utc']}**. Freeze observed: **{snapshot['observed_utc']}**.",
-                 f"Pre-deadline research commit: `{snapshot['predeadline_head']}`.",
-                 "The entries, subparts, counts and all bound inputs match the frozen snapshot.", ""]
-    lines += [
+    lines = ["# Interim result scope ledger", "",
+             f"Assessment: **{scope['assessed_utc']}**. Research remains active until",
+             f"**{session['deadline_utc']}**. This is not the frozen deadline result.", "",
              f"**{counts['whole_entry_coverage_candidates']} whole-entry coverage candidates, "
              f"{counts['partial_entry_candidates']} partial-entry candidates, "
              f"{counts['established_novel_results']} established novel results.**",
@@ -203,15 +163,10 @@ def main():
               "The [JSON ledger](result-scope-ledger.json) records all catalogue IDs, their",
               "current triage rows, original source locations and hashes, and the precise",
               "candidate components. Its artifact bindings identify this assessment's files.", "",
-              ("Regenerate the same frozen assessment administratively with:" if snapshot is not None else
-               "Regenerate during the active run after an explicit scope update with:"), "", "```sh"]
-    if snapshot is None:
-        lines += ["python3 scripts/run_recorded.py --name scope-ledger-NEW --cores 1 --memory-gb 2 \\",
-                  "  --timeout 60 --expect 'PASS result scope ledger' -- python3 scripts/build_scope_ledger.py"]
-    else:
-        lines += ["python3 scripts/build_scope_ledger.py \\",
-                  f"  --deadline-snapshot {args.deadline_snapshot}"]
-    lines += ["```", "", "The script validates ID/part/count consistency, frozen launch-input hashes,",
+              "Regenerate after an explicit scope update with:", "", "```sh",
+              "python3 scripts/run_recorded.py --name scope-ledger-NEW --cores 1 --memory-gb 2 \\",
+              "  --timeout 60 --expect 'PASS result scope ledger' -- python3 scripts/build_scope_ledger.py",
+              "```", "", "The script validates ID/part/count consistency, frozen launch-input hashes,",
               "and linked-file availability. It does not establish the correctness of a",
               "proof, a literature assessment, or a novelty claim. Historical claims remain",
               "in the append-only ledger and dated notes. The final report must distinguish",
