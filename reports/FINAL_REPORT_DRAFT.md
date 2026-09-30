@@ -167,9 +167,12 @@ Mathlib artifact was rebuilt or that another kernel checked the result.
 The runner allocates cooperative CPU/memory reservations, sets CPU
 affinity and applies per-process address-space limits. These are not
 continuous measurements of aggregate peak memory or cgroup enforcement.
-Final resource accounting must distinguish requested limits from measured
-usage and historical terminal receipts from an actual closeout process
-inspection. That final observation has not happened yet.
+The [interim resource checkpoint](resource-process-checkpoint-2026-09-30.md)
+reconstructs peaks of eight CPU slots and 52 GB in requested limits, with
+no recorded slot overlap or budget excess. All 660 receipts in that
+checkpoint are now terminal; a separate /proc inspection found no
+remaining recorded workers. These are interim observations. The actual
+deadline still requires its own process and resource accounting.
 
 The [first artifact checkpoint](artifact-checkpoint-2026-09-30.md)
 reconciled 5,708 historical bindings: 5,676 current matches and 32 bindings

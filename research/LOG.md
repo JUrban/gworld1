@@ -2202,3 +2202,8 @@ Committed ordered-word work as a9f77c7. Ten additional universal Lean declaratio
 Scope ledger v3 passes in0.121s with67 input/artifact bindings and all195IDs. Four exact old ledger/input versions preserved before the boundary update; old manifests unchanged. Terminal PID absent and registry empty. Current proof/report local links and both new formal manifests verified.
 
 The scope-v3 update used the CSV writer default CRLF, unintentionally changing every line ending; diff-check reported these, and the commit command still ran because the shell did not stop on that check. Restoring the original LF format with no field changes, retaining the exact intermediate versions and regenerating ledger hashes. No mathematical check is being repeated.
+
+
+## Interim resource and actual-process accounting (2026-09-30T03:24:42.814226+00:00)
+
+Two recorded1CPU/2GB administrative inventories complete in0.171/0.168s. Initial census skipped unavailable CWDs; corrected version retains matching recorded PID/groups even then, with both exact sources retained.660 receipts now terminal:481 recorded successes179 nonsuccesses;46 timeout and24 interrupted flags. Peaks8 requestedCPU slots52GB requested per-process-memory sums7 simultaneousjobs; zero observedoverlap,budgetexcess,receipt inconsistency. Actual census showed only auditor/supervisor; subsequent read-only /proc observer found no remaining recorded workers, allreceipts terminal, registryempty. Not measured resource consumption or deadlineclosure. No solver rerun, resultcount/deadline change or push.

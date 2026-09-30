@@ -112,3 +112,7 @@ not a completed experiment or outside mathematical validation.
 The [current scope ledger](RESULT_SCOPE.md) separates entry coverage from
 named-part answers and credited prior parts. Its JSON companion retains
 all 195 catalogue IDs, including uncounted and status-unverified entries.
+
+The [interim resource/process checkpoint](resource-process-checkpoint-2026-09-30.md)
+records the requested-limit peaks and actual process observation. It is
+not the final deadline closeout or a measurement of peak memory use.

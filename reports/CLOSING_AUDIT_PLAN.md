@@ -75,3 +75,10 @@ identified; exact G9 growth and the B4 exponent-two classification remain
 unresolved. This completes the planned first closing proof pass, while
 independent specialist review, remaining audit work and final deadline
 closure are still outstanding.
+
+At 03:24 UTC, the [resource/process checkpoint](resource-process-checkpoint-2026-09-30.md)
+records660 terminal receipts, no detected reservation conflict, and no
+remaining recorded workers in an actual /proc observation. The N8 formal
+support has also advanced through the ordered-word dictionary and
+generated-Lie exception; current scope/report links reflect this. The
+deadline freeze and final closeout remain outstanding.
