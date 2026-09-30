@@ -2188,3 +2188,8 @@ Full flow-growth/solvable-extension and infinite-braid-family/small-strand/param
 ## Interim final-report draft (2026-09-30T02:49:42.021129+00:00)
 
 reports/FINAL_REPORT_DRAFT.md now gives a self-contained current outcome, entry/subpart accounting, exact clock and provenance, verification boundaries, selected prior/uncounted work, retained failures and reproduction/resource limitations. Explicitly interim: no deadline snapshot, final process closure or goal completion claimed. All 22 local Markdown targets checked; original deadline remains10:04:49.670358UTC. Root/report/research-plan entry points link the closing work. No new mathematical job, count or novelty conclusion.
+
+
+## N8 ordered-word dictionary (2026-09-30T03:10:59.531536+00:00)
+
+39 new Lean declarations connect the rational positional theorem to the actual rational free associative algebra. Injective homogeneous realization, prefix/suffix multiplication, global derivation and Leibniz rule, positive-component injectivity, D=cE0^m/V=0 separation, and both restriction identities checked. Six sequential1CPU/16GB/180s jobs: five retained tactic/interface failures, final49.99s pass without warnings/stderr. Exact combined/component snapshots and log hashes verified; all six PIDs absent and registry empty. Free-Lie/group application outside; no whole-proof claim, new result count, novelty conclusion, deadline change or push.

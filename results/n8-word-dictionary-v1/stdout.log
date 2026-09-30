@@ -1,0 +1,159 @@
+{"lean_version": "Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)", "components": [{"path": "research/certificates/N8-polynomial-bridge-lean/Bridge.lean", "sha256": "ad4697b0313dd3ba7cb18bf63ca9b4825b29d93e3d749e310447c1d6b77ccf10"}, {"path": "research/certificates/N8-energy-lean/Energy.lean", "sha256": "63ae082e726df82e198f6a64478d91d443b868a3477f024e017baba9883123d0"}, {"path": "research/certificates/N8-analytic-assembly/Assembly.lean", "sha256": "e13a72adfe914b2cbdee080554f2133f16b2aa9b47a4e12419a592d237673477"}, {"path": "research/certificates/N8-positional-polynomials/Polynomial.lean", "sha256": "3877d87cee7d0eb0dad7a7965fe77aefd885dd631a6a525ce29cdae8a8a2c3e1"}, {"path": "research/certificates/N8-word-dictionary/Words.lean", "sha256": "36f789e5a6337da8fcd613c7d7cf8fe5d813cea089c64ff6051fc4d9d6f986b3"}], "snapshot": "/project/gworld1/research/certificates/N8-word-dictionary/Combined-v1.lean", "snapshot_sha256": "f7c2343c6a0b75d72066a2d0258e27c894314ca736bbd5cf60ddb4884e8a5ac1", "command": ["lake", "env", "lean", "--trust=0", "--stdin"], "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7", "scope": "Universal ordered-word encoding, actual free-associative prefix/suffix commutators and positional implication; free-Lie and full N8 algorithm outside."}
+'N8Bridge.transfer_average_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 division-free positional averaging bridge
+'N8Energy.hyperplane_harmonic_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 concrete half-transfer energy maximum principle
+'N8Assembly.positional_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 assembled positional identities imply constancy
+'N8Polynomial.rational_polynomial_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'N8Polynomial.rational_diagonal_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 rational positional polynomial constancy
+<stdin>:804:25: error: Application type mismatch: The argument
+  Fin.cons ?m.23
+has type
+  ((i : Fin ?m.21) → ?m.22 i.succ) → (i : Fin (?m.21 + 1)) → ?m.22 i
+but is expected to have type
+  (Fin m → ℕ) → Fin (m + 1) → ℕ
+in the application
+  Finsupp.lmapDomain ℚ ℚ (Fin.cons ?m.23)
+<stdin>:821:2: error: Tactic `rfl` failed: The left-hand side
+  (Finsupp.mapDomain.linearEquiv ℚ ℚ Finsupp.equivFunOnFinite.symm) (Finsupp.single v c)
+is not definitionally equal to the right-hand side
+  (monomial (exponents v)) c
+
+m : ℕ
+v : Fin m → ℕ
+c : ℚ
+⊢ (Finsupp.mapDomain.linearEquiv ℚ ℚ Finsupp.equivFunOnFinite.symm) (Finsupp.single v c) = (monomial (exponents v)) c
+<stdin>:820:21: warning: This simp argument is unused:
+  Finsupp.mapDomain.coe_linearEquiv
+
+Hint: Omit it from the simp argument list.
+  simp only [encode, F̵i̵n̵s̵u̵p̵p̵.̵m̵a̵p̵D̵o̵m̵a̵i̵n̵.̵c̵o̵e̵_̵l̵i̵n̵e̵a̵r̵E̵q̵u̵i̵v̵,̵ ̵Finsupp.mapDomain_single]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:820:56: warning: This simp argument is unused:
+  Finsupp.mapDomain_single
+
+Hint: Omit it from the simp argument list.
+  simp only [encode, Finsupp.mapDomain.coe_linearEquiv,̵ ̵F̵i̵n̵s̵u̵p̵p̵.̵m̵a̵p̵D̵o̵m̵a̵i̵n̵_̵s̵i̵n̵g̵l̵e̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:824:66: error: unsolved goals
+m : ℕ
+v : Fin m → ℕ
+c : ℚ
+⊢ (Finsupp.lmapDomain ℚ ℚ word) (Finsupp.single v c) = Finsupp.single (word v) c
+<stdin>:836:53: warning: This simp argument is unused:
+  Finsupp.single_apply
+
+Hint: Omit it from the simp argument list.
+  simp [exponents, increment, F̵i̵n̵s̵u̵p̵p̵.̵s̵i̵n̵g̵l̵e̵_̵a̵p̵p̵l̵y̵,̵ ̵h, eq_comm, add_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:836:78: warning: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  simp [exponents, increment, Finsupp.single_apply, h, e̵q̵_̵c̵o̵m̵m̵,̵ ̵add_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:847:51: error: Application type mismatch: The argument
+  Fin.succ_injective
+has type
+  ∀ (n : ℕ), Function.Injective Fin.succ
+but is expected to have type
+  Function.Injective ?m.73
+in the application
+  Finsupp.mapDomain_apply Fin.succ_injective
+<stdin>:859:51: error: Application type mismatch: The argument
+  Fin.castSucc_injective
+has type
+  ∀ (n : ℕ), Function.Injective Fin.castSucc
+but is expected to have type
+  Function.Injective ?m.69
+in the application
+  Finsupp.mapDomain_apply Fin.castSucc_injective
+<stdin>:869:15: warning: declaration uses 'sorry'
+<stdin>:862:8: warning: declaration uses 'sorry'
+<stdin>:869:24: warning: This simp argument is unused:
+  Finsupp.lmapDomain_apply
+
+Hint: Omit it from the simp argument list.
+  simp only [prepend, F̵i̵n̵s̵u̵p̵p̵.̵l̵m̵a̵p̵D̵o̵m̵a̵i̵n̵_̵a̵p̵p̵l̵y̵,̵ ̵Finsupp.mapDomain_single, encode_single]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:869:50: warning: This simp argument is unused:
+  Finsupp.mapDomain_single
+
+Hint: Omit it from the simp argument list.
+  simp only [prepend, Finsupp.lmapDomain_apply, F̵i̵n̵s̵u̵p̵p̵.̵m̵a̵p̵D̵o̵m̵a̵i̵n̵_̵s̵i̵n̵g̵l̵e̵,̵ ̵encode_single]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:870:4: warning: 'rw [exponents_cons, monomial_single_add, rename_monomial]' tactic does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+<stdin>:908:15: error: unsolved goals
+case single
+m j : ℕ
+v : Fin m → ℕ
+c : ℚ
+⊢ (realize (m + 1)) ((sorry j) (Finsupp.single v c)) =
+    Finsupp.single (FreeMonoid.of j) 1 * Finsupp.single (FreeMonoid.ofList (List.ofFn v)) c
+<stdin>:909:15: warning: declaration uses 'sorry'
+<stdin>:909:24: warning: This simp argument is unused:
+  Finsupp.lmapDomain_apply
+
+Hint: Omit it from the simp argument list.
+  simp only [prepend, F̵i̵n̵s̵u̵p̵p̵.̵l̵m̵a̵p̵D̵o̵m̵a̵i̵n̵_̵a̵p̵p̵l̵y̵,̵ ̵Finsupp.mapDomain_single, realize_single]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:909:50: warning: This simp argument is unused:
+  Finsupp.mapDomain_single
+
+Hint: Omit it from the simp argument list.
+  simp only [prepend, Finsupp.lmapDomain_apply, F̵i̵n̵s̵u̵p̵p̵.̵m̵a̵p̵D̵o̵m̵a̵i̵n̵_̵s̵i̵n̵g̵l̵e̵,̵ ̵realize_single]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:910:16: warning: This simp argument is unused:
+  List.ofFn_cons
+
+Hint: Omit it from the simp argument list.
+  simp [word, L̵i̵s̵t̵.̵o̵f̵F̵n̵_̵c̵o̵n̵s̵,̵ ̵E, ← MonoidAlgebra.single_mul_single]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:910:35: warning: This simp argument is unused:
+  ← MonoidAlgebra.single_mul_single
+
+Hint: Omit it from the simp argument list.
+  simp [word, List.ofFn_cons, E,̵ ̵←̵ ̵M̵o̵n̵o̵i̵d̵A̵l̵g̵e̵b̵r̵a̵.̵s̵i̵n̵g̵l̵e̵_̵m̵u̵l̵_̵s̵i̵n̵g̵l̵e̵]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:918:15: error: unsolved goals
+case single
+m j : ℕ
+v : Fin m → ℕ
+c : ℚ
+hs : List.ofFn (Fin.snoc v j) = List.ofFn v ++ [j]
+⊢ Finsupp.single (FreeMonoid.of (Fin.snoc v j 0) * FreeMonoid.ofList (List.ofFn fun i => Fin.snoc v j i.succ)) c =
+    Finsupp.single (FreeMonoid.ofList (List.ofFn v)) c * Finsupp.single (FreeMonoid.of j) 1
+<stdin>:923:16: warning: This simp argument is unused:
+  hs
+
+Hint: Omit it from the simp argument list.
+  simp [word, h̵s̵,̵ ̵E, ← MonoidAlgebra.single_mul_single]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:923:23: warning: This simp argument is unused:
+  ← MonoidAlgebra.single_mul_single
+
+Hint: Omit it from the simp argument list.
+  simp [word, hs, E,̵ ̵←̵ ̵M̵o̵n̵o̵i̵d̵A̵l̵g̵e̵b̵r̵a̵.̵s̵i̵n̵g̵l̵e̵_̵m̵u̵l̵_̵s̵i̵n̵g̵l̵e̵]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'N8Words.positional_word_constant' depends on axioms: [propext, sorryAx, Classical.choice, Quot.sound]
+<stdin>:955:0: error: Unexpected axiom sorryAx

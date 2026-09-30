@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 02:45 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 03:10 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -61,8 +61,10 @@ identities and continuity. It includes cyclic relocation and the concrete
 energy argument, with no convergence assumption. The subsequent
 [polynomial interface](../problems/N8/positional-polynomial-audit.md)
 checks explicit diagonal substitution and rational coefficient constancy
-from polynomial identities. The free-associative coefficient dictionary,
-Lie/group application and the complete algorithm remain outside Lean.
+from polynomial identities. The [ordered-word dictionary](../problems/N8/word-dictionary-audit.md)
+now connects this to the actual free associative algebra, its global
+derivation and the two restriction identities. The Lie/group application
+and the complete algorithm remain outside Lean.
 
 The largest shared dependency is the full solution-language construction
 used by F34(a) and F38(a). Other priority review points are F38(c)'s graded

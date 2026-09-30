@@ -1,0 +1,47 @@
+{"lean_version": "Lean (version 4.24.0, x86_64-unknown-linux-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)", "components": [{"path": "research/certificates/N8-polynomial-bridge-lean/Bridge.lean", "sha256": "ad4697b0313dd3ba7cb18bf63ca9b4825b29d93e3d749e310447c1d6b77ccf10"}, {"path": "research/certificates/N8-energy-lean/Energy.lean", "sha256": "63ae082e726df82e198f6a64478d91d443b868a3477f024e017baba9883123d0"}, {"path": "research/certificates/N8-analytic-assembly/Assembly.lean", "sha256": "e13a72adfe914b2cbdee080554f2133f16b2aa9b47a4e12419a592d237673477"}, {"path": "research/certificates/N8-positional-polynomials/Polynomial.lean", "sha256": "3877d87cee7d0eb0dad7a7965fe77aefd885dd631a6a525ce29cdae8a8a2c3e1"}, {"path": "research/certificates/N8-word-dictionary/Words.lean", "sha256": "d3867f5ad5c673d4478b13da182a605262e1257640408842d67f9142e02a1d93"}], "snapshot": "/project/gworld1/research/certificates/N8-word-dictionary/Combined-v4.lean", "snapshot_sha256": "e3c481e1167fa6fabbe15ce6bdcdd97dda1183d72d34f1413f1f0cd17917a8ed", "command": ["lake", "env", "lean", "--trust=0", "--stdin"], "mathlib_revision": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7", "scope": "Universal ordered-word encoding, actual free-associative prefix/suffix commutators and positional implication; free-Lie and full N8 algorithm outside."}
+'N8Bridge.transfer_average_half' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 division-free positional averaging bridge
+'N8Energy.hyperplane_harmonic_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 concrete half-transfer energy maximum principle
+'N8Assembly.positional_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 assembled positional identities imply constancy
+'N8Polynomial.rational_polynomial_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'N8Polynomial.rational_diagonal_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+PASS N8 rational positional polynomial constancy
+<stdin>:1074:19: warning: This simp argument is unused:
+  Finsupp.smul_single
+
+Hint: Omit it from the simp argument list.
+  simp [basisWord,̵ ̵F̵i̵n̵s̵u̵p̵p̵.̵s̵m̵u̵l̵_̵s̵i̵n̵g̵l̵e̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+<stdin>:1086:17: error: unsolved goals
+case single.single
+u : FreeMonoid ℕ
+c : ℚ
+v : FreeMonoid ℕ
+d : ℚ
+⊢ (c * d) • (derivWord (FreeMonoid.toList u) * basisWord (FreeMonoid.toList v)) +
+      (c * d) • (basisWord (FreeMonoid.toList u) * derivWord (FreeMonoid.toList v)) =
+    (d * c) • (derivWord (FreeMonoid.toList u) * basisWord (FreeMonoid.toList v)) +
+      (d * c) • (basisWord (FreeMonoid.toList u) * derivWord (FreeMonoid.toList v))
+<stdin>:1111:52: error: failed to synthesize
+  HDiv ℕ ℕ (MvPolynomial (Fin m) ℚ)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+<stdin>:1111:60: error: unsolved goals
+m : ℕ
+⊢ C (1 / 2) = 1 / 2
+<stdin>:1112:6: error(lean.unknownIdentifier): Unknown identifier `hc`
+<stdin>:1109:79: error: unsolved goals
+case refine_1
+m : ℕ
+⊢ HDiv ℕ ℕ (MvPolynomial (Fin m) ℚ)
+
+case refine_2
+m : ℕ
+hc : C (-1 / 2) = -(1 / 2)
+⊢ C (-1 / 2) * ∑ i, X i + (∑ i, X i + C (-1 / 2) * ∑ i, X i) = 0
+'N8Words.positional_word_constant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'N8Words.associative_separation' depends on axioms: [propext, Classical.choice, Quot.sound]
+<stdin>:1133:0: error: Unexpected axiom sorryAx
