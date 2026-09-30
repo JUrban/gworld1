@@ -2207,3 +2207,8 @@ The scope-v3 update used the CSV writer default CRLF, unintentionally changing e
 ## Interim resource and actual-process accounting (2026-09-30T03:24:42.814226+00:00)
 
 Two recorded1CPU/2GB administrative inventories complete in0.171/0.168s. Initial census skipped unavailable CWDs; corrected version retains matching recorded PID/groups even then, with both exact sources retained.660 receipts now terminal:481 recorded successes179 nonsuccesses;46 timeout and24 interrupted flags. Peaks8 requestedCPU slots52GB requested per-process-memory sums7 simultaneousjobs; zero observedoverlap,budgetexcess,receipt inconsistency. Actual census showed only auditor/supervisor; subsequent read-only /proc observer found no remaining recorded workers, allreceipts terminal, registryempty. Not measured resource consumption or deadlineclosure. No solver rerun, resultcount/deadline change or push.
+
+
+## N8 weighted actual-word block (2026-09-30T03:34:42.390053+00:00)
+
+Revalidated previous-turn progress, active clock and clean state at00820dc. Ten new Lean declarations formally remove the m1 exception by actual coefficient weights and instantiate the full correction-span/two-value argument with word commutators and derivative images. Mathlib abstract-free-Lie/PBW distinction read and left explicit. Two sequential1CPU/16GB/240s runs:79.64s failure from a self-recursive simp rewrite and ambiguous deriv name;82.41s complete pass without warnings/stderr. All inputs and hashes retained/verified; bothPIDs absent, registryempty. No change to original candidate proof, count, novelty or deadline. Current guide/draft updated; structured scope ledger remains its explicitly dated03:17snapshot pending final reconciliation. No push.

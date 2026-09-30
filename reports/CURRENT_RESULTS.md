@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 03:17 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 03:34 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -67,7 +67,11 @@ derivation and the two restriction identities. The [Lie exception](../problems/N
 now proves scalar-power exclusion and separation inside the generated Lie
 subalgebra. Its identification with an abstract free Lie algebra, the
 homogeneous projections, group application and complete algorithm remain
-outside Lean.
+outside Lean. The [weighted word block](../problems/N8/weighted-block-audit.md)
+now checks the weight-based exception, separation from the full actual-word
+correction span, and the two-value consequence from concrete block equations.
+Producing those equations from arbitrary original group coordinates is
+still a written obligation.
 
 The largest shared dependency is the full solution-language construction
 used by F34(a) and F38(a). Other priority review points are F38(c)'s graded
