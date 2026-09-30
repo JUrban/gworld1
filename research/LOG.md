@@ -2277,3 +2277,8 @@ Active goal/state revalidated at18dc6a4; general native-pcp Malcev input impleme
 ## N5 general rational support kernels (2026-09-30T05:42:48.647469+00:00)
 
 Aftera83f132 implemented adjoint exponential kernel construction, upper-triangular basis conjugation and denominator clearing. Twelve native groups/forty rational partitions pass actual subgroup comparisons, zero/full boundaries and complementary intersections inT(K); nontrivialdenominators2/12exercised. Index2gluedsubgroup retains generation-index2obstruction forproperpartitions. Three sequential1CPU8GB runs pass2.527/2.677/3.731s, emptystderr, allhashesverified/PIDsabsent. Closure699terminal receipts/emptyregistry/no remainingworkers. 38 bindings; two exactoldreports archivedbeforeupdates. Generalbounded-index and central-lifting integration stillpending. No count,novelty,deadline,subagentorpushchange.
+
+
+## N5 complete native-group pipeline (2026-09-30T05:49:21.450194+00:00)
+
+Afterde4f238 connected rational kernels, exhaustive bounded-index normal support enumeration and central lifting. Explicit normality justifies using low-index conjugacy-class representatives. Twelve controls produce34central branches, fivepositive/sevennegative decisions; all15accepted branches reconstructed as actual native direct products. Largest control4732subgrouppairs. Three sequential1CPU8GB runs pass20.637/0.972/2.076s, emptystderr, hash/PIDchecks complete. Closure702terminal receipts/emptyregistry/no remainingworkers. 36bindings. Nativepipelinecomplete; generalfinite-presentation commandstillpending. Currentreportdated05:42awaitsnextinterfaceupdate. No count,novelty,deadline,subagentorpushchange.
