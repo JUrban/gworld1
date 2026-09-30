@@ -945,3 +945,8 @@ validation. Exact inference and computation boundaries are in the note.
 ## F37 finite-quotient obstruction (2026-09-30T00:10:45.994599+00:00)
 
 Nikolov--Segal1102.3037v6 Theorem1.2: finite groups, symmetric generating set, normal H, bounded products of commutators with those generators. Introduction/theorem read, printed p3 actually viewed; no full80-page proof audit. Separately downloaded v3 retained, not controlling. Bardakov--Shpilrain--Tolstykh math0311257v1 Section2 and Lemma2.4 proof read, pp8--9 viewed; explicit unbounded primitive-length family is prior. Exact sources/hashes, failed retrievals, bounded search queries and our uncounted deduction are in research/notes/F37-finite-quotient-obstruction.md. No novelty claim.
+
+
+## GA3 dependency simplification and bounded scope queries (2026-09-30T00:53:15.520379+00:00)
+
+Reread archived Guirardel2004 Fact5.1, its arbitrary-Lambda/convex-subgroup remark and local proof in extracted text. No fresh PDF viewing or download. The new GA3 elementary separator supplement proves the needed boundary step directly; earlier Rybak2026 credit and historical reading limits remain intact. Searches `"nilpotent" "direct decomposability" torsion algorithm`, `"nilpotent groups" "direct decomposition" torsion decidable`, and `"free group" "bounded translation equivalence" stabilizers` re-found previously recorded torsion-free and bounded tree-action scopes, with no matching new theorem or novelty conclusion. Search snippets alone were not promoted to a mathematical source.

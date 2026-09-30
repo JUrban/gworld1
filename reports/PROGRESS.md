@@ -893,3 +893,8 @@ or deadline change and no independent specialist review is implied.
 ## N8 positional constancy assembled (2026-09-30T00:41:25.505810+00:00)
 
 [N8 analytic assembly](../problems/N8/analytic-assembly-audit.md) now formally derives constancy from the original delta/diagonal functional identities and continuity. The cyclic-coordinate and energy connections are included, with no convergence assumption. Fifteen new Lean declarations plus30 unchanged prerequisites pass. Free-associative/Lie identification and the full decision algorithm remain outside. Tally10whole/2partial/0established-novel unchanged.
+
+
+## GA3 separator simplification (2026-09-30T00:53:15.520379+00:00)
+
+[Elementary separator](../problems/GA3/elementary-separator-supplement.md): a finite choice among2|C|+1 endpoints and two conjugations now gives the required simultaneous separator directly. Axis translations prove its uniform boundary dynamics. This removes the imported endpoint-density theorem from that step, while preserving the general collapse dependency and all review qualifications. No new computation or tally change: ten whole/two partial/zero established novel.
