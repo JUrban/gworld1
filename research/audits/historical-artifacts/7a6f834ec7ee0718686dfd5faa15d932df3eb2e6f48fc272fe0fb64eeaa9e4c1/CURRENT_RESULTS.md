@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 05:13 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 04:26 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -94,12 +94,6 @@ The [group-block supplement](../problems/N8/group-block-supplement.md)
 now spells out their production from Hall/BCH coordinates, including the
 sign, weight and full-column identities. That bridge remains a written
 proof obligation outside Lean.
-
-The [projective leading-pair implementation](../problems/N8/projective-leading-pairs-audit.md)
-now retains every signed integral scale. A class-five group example shows
-why that matters: both primitive branches fail while four nonprimitive
-branches succeed. GAP separately confirms all eight lift decisions.
-This implements the general proof's first stage, not its full recursion.
 
 The largest shared dependency is the full solution-language construction
 used by F34(a) and F38(a). Other priority review points are F38(c)'s graded

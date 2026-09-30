@@ -141,12 +141,6 @@ machinery, N8's all-rank structural lemmas and N9's fixed-group encoding
 deserve targeted specialist review. Successful examples do not prove
 those implications.
 
-N8's [complete projective leading-pair implementation](../problems/N8/projective-leading-pairs-audit.md)
-also checks a noncentral example where primitive normalization alone
-loses all successful branches. All signed scales are retained, with
-separate GAP checks of the eight lift decisions. This strengthens evidence
-for the leading-pair stage without implementing the complete algorithm.
-
 ## Prior results, exclusions and unsuccessful work
 
 F11 and F42 led to independently derived arguments subsequently identified
