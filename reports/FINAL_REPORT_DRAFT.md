@@ -111,6 +111,9 @@ Representative evidence illustrates the differing scopes:
   The [four-strand reduction](../problems/B9/four-strand-underlying-reduction.md)
   excludes all ten known second inputs for arbitrary first input, apart
   from three already classified pairs; one unknown permutation case survives.
+  A [higher-strand obstruction note](../research/notes/B9-general-permutation-obstruction.md)
+  retains a failed permutation-only extension, with explicit special lifts
+  whose parameters have three-position permutations but need seven strands.
 - N9 has a Lean integer-normalization lemma and actual retractions in
   fixed toy groups. These do not formalize DPRM or its complete reduction.
 - N5's class-two presentation interface was checked on 27 presentations,

@@ -46,6 +46,10 @@ second underlying braid. The [four-strand reduction](../problems/B9/four-strand-
 leaves one necessary permutation case there, requiring a second input
 outside the ten known B4 examples. It excludes all known inputs for
 arbitrary special first underlying braid. The B4 sector is still not exhausted.
+The [higher-strand permutation check](../research/notes/B9-general-permutation-obstruction.md)
+records why that permutation pattern cannot simply be extended: explicit
+special lifts pass the three-position permutation test while their
+parameters need seven strands. They give no new B4 braid.
 
 ## How to review the evidence
 
