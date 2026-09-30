@@ -2267,3 +2267,8 @@ Active goal/state and clean04d99af revalidated. Implemented all signed divisor a
 ## F32 prior-status split (2026-09-30T05:19:30.030126+00:00)
 
 After09ad49a, returned to broader portfolio. F32 unsplitpriorlead replaced by exact(b)negative/(a)unresolvedscope after originalHTML/fragment/background reread, theorem/construction reading and fouractualpageviews. Ershov2026partialTorelli theorem excludesd=n; no finitepresentation inference toIA_n. Three sequential1CPU2GB sourcejobs: first failed missingtextdirectory afterPDFdownload, then source/render successes1.674/1.323s; exactfailedscript preserved, downloadedbytes reused. Successfulstderr empty, allreceipthashes verified/PIDsabsent. Read-onlyclosure693terminalreceipts/emptyregistry/nootherworkers. 33bindings; oldtriagearchived before single-rowchange. No candidate,count,novelty,deadline,subagentorpush change.
+
+
+## N5 higher-class native input (2026-09-30T05:35:50.009125+00:00)
+
+Active goal/state revalidated at18dc6a4; general native-pcp Malcev input implemented using torsion quotient, power-free upper-central rebase and faithful matrix logarithms. Nine groups include class3/class4, mixed classes, noncentral finite torsion and finite-relative-order torsion-free control. Three sequential1CPU8GB jobs pass2.176/3.181/1.875s; Python reconstructs108words/222brackets and rejects23linear-log shortcuts; GAP replays full centroid/CRT for11factors. Empty stderr, all hashes verified, PIDs absent. Closure observes696terminal receipts/emptyregistry/no remainingworkers. 30 bindings retained. Originalpage/fragment reread and renderingviewed. No fullhigher-class groupalgorithm, count, novelty, deadline, subagentorpush change. Currentresults remains explicitly dated05:13 until next reportrefresh.
