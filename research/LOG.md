@@ -2227,3 +2227,8 @@ Previous turn made progress at8ea91fd/351d0e3; active state and clean worktree r
 ## N8 group-block interface (2026-09-30T03:59:02.672814+00:00)
 
 Revalidated active clock and clean state ataed5040. Wrote the exact Hall/BCH-to-weighted-word dictionary: affine prefixes, fixed two-Y terms, actual free-basis projection, sign D=-D_m, earlier pre-restriction derivative identities, every later column and pullback to the degree-N group error. A draft used homogeneous logarithms of Hall group generators; corrected to their leading-weight bound before binding the supplement. This clarification does not change the original proof. Nine bindings retained; original proofs/formal inputs/manifests unchanged. No mathematical computation, suite rerun, novelty/count/deadline change or push.
+
+
+## B9 complete three-strand underlying exclusion (2026-09-30T04:10:57.585318+00:00)
+
+After7a16937, new structural reduction excludes all special u when m(v)=3 in A=I1(u)S(I1(v)) inB3. Prior classification handles exponent1/3; all24permutations give3 possibilities for the unknown exponent2sector and all6 fail. One known-sector permutation survivor tau3,tau2 has unequal last Burau columns and fourth-generator Artin images. Independent Python/GAP checks pass0.069/1.775s, oneCPU2GB each, overlap2CPU4GB; empty stderr, logsverified,PIDsabsent,registryempty. Original fullpage/fragment read and statementimageviewed; exact primarynu/strandtheorems reread intext. A no-match Back.html search hadexit1; B9 has no backgroundlink. Three fresh webqueries mainly older knownsources/different specialness notion; nonew noveltyconclusion.21bindings retained. Unknown B4sector remains; no count/deadline change orpush.

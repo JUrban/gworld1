@@ -1,6 +1,6 @@
 # Current candidate results and review guide
 
-Snapshot: **30 September 2026, 03:59 UTC**. The experiment is still active;
+Snapshot: **30 September 2026, 04:10 UTC**. The experiment is still active;
 its deadline is **30 September 2026, 10:04:49 UTC**. This is an interim
 index, not the final report.
 
@@ -34,6 +34,12 @@ not an independent mathematical referee.
 | --- | --- | --- | --- |
 | G9 | The standard growth constant of a free metabelian group is computable, with an explicit approximation modulus in every finite rank. Certified rank-two bounds are 2.658596558 ≤ λ₂ ≤ 2.943737759. The method extends to free solvable groups. | [Flow proof](../problems/G9/flow-growth-proof.md) and [audit](../problems/G9/flow-growth-audit.md); [solvable extension](../problems/G9/solvable-extension-proof.md) and [audit](../problems/G9/solvable-extension-audit.md). | The exact growth constant requested by the entry remains undetermined. Fine-precision computation is not demonstrated. The extension is not a second problem count. |
 | B9 | There are countably infinitely many special braids in every B_N with N at least five. Deductions from Dehornoy's prior structure give exact counts 1, 2 and 4 in B₁, B₂ and B₃. | [Infinite-family proof](../problems/B9/infinite-family-proof.md) and [audit](../problems/B9/infinite-family-audit.md); [small-strand proof](../problems/B9/small-strand-proof.md) and [audit](../problems/B9/small-strand-audit.md). | In B₄, only the exponent-two sector remains unclassified; at least ten special braids are known in total. The [positive-parameter reduction](../problems/B9/positive-parameter-reduction.md), [strand restriction](../problems/B9/exponent-two-parameter-reduction.md) and [excluded families](../research/notes/B9-family-return-obstruction.md) do not exhaust that sector. |
+
+For B9, the [three-strand underlying exclusion](../problems/B9/three-strand-underlying-exclusion.md)
+now treats every special pair in its stated sector, including the unknown
+exponent-two first braid. An additional terminal parameter of total exponent
+two would require underlying strand numbers at least five and four. This
+does not exhaust the remaining B4 sector.
 
 ## How to review the evidence
 
