@@ -1,6 +1,6 @@
 # Interim result scope ledger
 
-Assessment: **2026-09-30T06:00:15.636240+00:00**. Research remains active until
+Assessment: **2026-09-30T04:32:20.227872+00:00**. Research remains active until
 **2026-09-30T10:04:49.670358+00:00**. This is not the frozen deadline result.
 
 **10 whole-entry coverage candidates, 2 partial-entry candidates, 0 established novel results.**
@@ -59,11 +59,11 @@ Audits: [audit.md](../problems/F28/audit.md), [matrix-lean-audit.md](../problems
 
 Torsion-free decision and rational decomposition machinery are prior. Potentially new scope is the general torsion case.
 
-The nilpotency promise is essential. The full finite-presentation command is now implemented with no supplied class bound and original-generator factor words. Twelve native controls, fifteen presentation conversions and five standalone commands pass. General completeness still rests on the written support/uniqueness argument and trusted exact algebra; no practical complexity claim or external specialist validation.
+The promise is essential. The finite-presentation pipeline is implemented only through class two; higher-class integration remains unimplemented.
 
 Proofs: [proof.md](../problems/N5/proof.md).
 
-Audits: [audit.md](../problems/N5/audit.md), [integrality-audit.md](../problems/N5/integrality-audit.md), [class2-input-audit.md](../problems/N5/class2-input-audit.md), [N5-closing-proof-reread.md](../research/audits/N5-closing-proof-reread.md), [general-malcev-input-audit.md](../problems/N5/general-malcev-input-audit.md), [general-support-audit.md](../problems/N5/general-support-audit.md), [general-pipeline-audit.md](../problems/N5/general-pipeline-audit.md), [general-fp-audit.md](../problems/N5/general-fp-audit.md).
+Audits: [audit.md](../problems/N5/audit.md), [integrality-audit.md](../problems/N5/integrality-audit.md), [class2-input-audit.md](../problems/N5/class2-input-audit.md), [N5-closing-proof-reread.md](../research/audits/N5-closing-proof-reread.md).
 
 ### M0
 
@@ -129,11 +129,11 @@ Audits: [part-a-audit.md](../problems/F38/part-a-audit.md), [bounded-audit.md](.
 
 Part (a) and the free class-two instance of (b) are prior. The current candidate has no class cutoff.
 
-The complete all-rank/class solver is unimplemented. Universal Lean work connects the positional theorem to actual ordered words, the generated-Lie exception, coefficient weights and full correction-span/two-value separation. The Hall/BCH production of its equations now has a written dictionary. Abstract free-Lie identification, homogeneous projections, the group bridge and full algorithm remain outside Lean. The projective leading-pair stage now retains all signed content divisors; a rank-two/class-five control has four successful nonprimitive and four failing leading branches, including both primitive branches.
+The complete all-rank/class solver is unimplemented. Universal Lean work connects the positional theorem to actual ordered words, the generated-Lie exception, coefficient weights and full correction-span/two-value separation. The Hall/BCH production of its equations now has a written dictionary. Abstract free-Lie identification, homogeneous projections, the group bridge and full algorithm remain outside Lean.
 
 Proofs: [general-proof.md](../problems/N8/general-proof.md), [group-block-supplement.md](../problems/N8/group-block-supplement.md).
 
-Audits: [general-audit.md](../problems/N8/general-audit.md), [positional-polynomial-audit.md](../problems/N8/positional-polynomial-audit.md), [N8-closing-proof-reread.md](../research/audits/N8-closing-proof-reread.md), [word-dictionary-audit.md](../problems/N8/word-dictionary-audit.md), [lie-exception-audit.md](../problems/N8/lie-exception-audit.md), [weighted-block-audit.md](../problems/N8/weighted-block-audit.md), [projective-leading-pairs-audit.md](../problems/N8/projective-leading-pairs-audit.md).
+Audits: [general-audit.md](../problems/N8/general-audit.md), [positional-polynomial-audit.md](../problems/N8/positional-polynomial-audit.md), [N8-closing-proof-reread.md](../research/audits/N8-closing-proof-reread.md), [word-dictionary-audit.md](../problems/N8/word-dictionary-audit.md), [lie-exception-audit.md](../problems/N8/lie-exception-audit.md), [weighted-block-audit.md](../problems/N8/weighted-block-audit.md).
 
 ### N9
 
@@ -180,8 +180,6 @@ of prior answers or unsuccessful work.
 | F39 | Primitive-free unimodular embeddings defeat an injection/nilpotent-quotient shortcut. The requested general decision remains unresolved here. | [F39-unimodular-obstruction.md](../research/notes/F39-unimodular-obstruction.md) |
 | F37 | Finite quotients cannot supply all the needed primitive-length lower bounds. This does not decide primitive length in general. | [F37-finite-quotient-obstruction.md](../research/notes/F37-finite-quotient-obstruction.md) |
 | F20 | Finite-quotient, homology, rewriting and equational probes did not yield a proof or counterexample. | [F20-finite-images.md](../research/notes/F20-finite-images.md), [F20-finite-cover-homology.md](../research/notes/F20-finite-cover-homology.md), [F20-equational-probe.md](../research/notes/F20-equational-probe.md) |
-| F31 | Lei--Zhang prior counterexamples cover the original rank bound for n>=3, even with both maps injective. The colored graph embeds as a free factor; no subgroup-rank monotonicity is assumed. | [F31-prior-construction-audit.md](../research/notes/F31-prior-construction-audit.md) |
-| F32 | Part (b) is prior negative for every n>=3. Part (a) remains unresolved here: Ershov January2026 partial-Torelli finite-presentability theorem excludes IA_n itself. | [F32-prior-scope-audit.md](../research/notes/F32-prior-scope-audit.md) |
 
 ## Reproduction and complete inventory
 

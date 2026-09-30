@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "assessed_utc": "2026-09-30T06:00:15.636240+00:00",
+  "assessed_utc": "2026-09-30T04:32:20.227872+00:00",
   "phase": "interim_closing_audit",
   "deadline_utc": "2026-09-30T10:04:49.670358+00:00",
   "counts": {
@@ -226,26 +226,6 @@
       "sha256": "cbdcd63456d8b53864d2a1164b998c369136ea9690a7ea56d40c1b01b551911e"
     },
     {
-      "path": "problems/N5/general-fp-audit.md",
-      "bytes": 6730,
-      "sha256": "dac19201ba0901dfbdc63a189a3bc038e72277fc398e85410835432f9fd50f32"
-    },
-    {
-      "path": "problems/N5/general-malcev-input-audit.md",
-      "bytes": 5205,
-      "sha256": "ea9a262dca2fc4fefbad42c8c1faa7d794ef9319bca29b0e232b1a8a047723b9"
-    },
-    {
-      "path": "problems/N5/general-pipeline-audit.md",
-      "bytes": 4857,
-      "sha256": "d17154974b613fd10669b664692c8281104340ca679a93bc8e6afa5ababe42a6"
-    },
-    {
-      "path": "problems/N5/general-support-audit.md",
-      "bytes": 4835,
-      "sha256": "68631cc3784c87b2e0c7002060c39282fe8249c775615d929d171cbd07fe4ce3"
-    },
-    {
       "path": "problems/N5/integrality-audit.md",
       "bytes": 5550,
       "sha256": "00f395be9b7f7f86109b80bd22f930654b482da6058bd9b81c6f8f5b170714c9"
@@ -279,11 +259,6 @@
       "path": "problems/N8/positional-polynomial-audit.md",
       "bytes": 6351,
       "sha256": "868afb61f67888c9143bb4ce09e39670321e02a1f50a000eee57f98bc7f696d6"
-    },
-    {
-      "path": "problems/N8/projective-leading-pairs-audit.md",
-      "bytes": 6354,
-      "sha256": "c115ebed4c9f2d9f6b8530ee73b18cc663258748b8d0c6da9aff3008ca27dbf1"
     },
     {
       "path": "problems/N8/weighted-block-audit.md",
@@ -366,16 +341,6 @@
       "sha256": "3464fbf7f9ad6be4be3679afb1497926b3f5812882527b594b8067c1bd40ca49"
     },
     {
-      "path": "research/notes/F31-prior-construction-audit.md",
-      "bytes": 5327,
-      "sha256": "617482041d20f68cc7f7ff5c42fcc7602f88836c3d597a582afb13c2557d63ce"
-    },
-    {
-      "path": "research/notes/F32-prior-scope-audit.md",
-      "bytes": 3134,
-      "sha256": "b50a5d404872fb4f62fd8af4b305e325dc72a032ea5d475a9300399a9988be59"
-    },
-    {
       "path": "research/notes/F34-coverage-reconciliation.md",
       "bytes": 2811,
       "sha256": "2355b46f964132c744e8190945a7868752b9b260d368f530bf1affa74ac156f1"
@@ -417,13 +382,13 @@
     },
     {
       "path": "research/result-scopes.json",
-      "bytes": 16764,
-      "sha256": "e8e0247373dc018b0fa503172f87c7f95715f2807616bdb4ef70af6d22b0e68f"
+      "bytes": 15275,
+      "sha256": "3f019b6472d17aa5ff3fb4277b907f1bc016f923a430fb9bd727b66504c0d736"
     },
     {
       "path": "research/triage.csv",
-      "bytes": 55818,
-      "sha256": "469a1a7cd3613de30d3ef64c80eaa116814a46b8c15edd1ea6af130297467cc9"
+      "bytes": 54585,
+      "sha256": "c89087e1ff538b9ce6ecbc47f833e960fcfb3d71194998589803e5e12ee4903b"
     },
     {
       "path": "scripts/build_scope_ledger.py",
@@ -498,22 +463,6 @@
         "research/notes/F20-finite-images.md",
         "research/notes/F20-finite-cover-homology.md",
         "research/notes/F20-equational-probe.md"
-      ]
-    },
-    {
-      "id": "F31",
-      "classification": "prior_counterexample_construction_audited",
-      "reason": "Lei--Zhang prior counterexamples cover the original rank bound for n>=3, even with both maps injective. The colored graph embeds as a free factor; no subgroup-rank monotonicity is assumed.",
-      "artifacts": [
-        "research/notes/F31-prior-construction-audit.md"
-      ]
-    },
-    {
-      "id": "F32",
-      "classification": "prior_part_separated_from_unresolved_part",
-      "reason": "Part (b) is prior negative for every n>=3. Part (a) remains unresolved here: Ershov January2026 partial-Torelli finite-presentability theorem excludes IA_n itself.",
-      "artifacts": [
-        "research/notes/F32-prior-scope-audit.md"
       ]
     }
   ],
@@ -1758,12 +1707,12 @@
       },
       "triage": {
         "id": "F31",
-        "scope": "Original universal bound; prior counterexamples with both maps injective, n>=3",
-        "status": "prior_negative_preprint_construction_audited",
-        "source_audit": "full_original_HTML_fragment_background_read_and_static_render_actually_viewed",
-        "literature_check": "Lei_Zhang_2604.24502v2_Sections2to4_main_proof_read_pages7_9_11_viewed",
-        "priority": "exclude_prior",
-        "notes": "Prior counterexamples, not new candidates. Injective coloring gives a free factor of the equalizer, not merely subgroup membership. Python and native GAP reproduce11 ranks n2..12,198 edge identities and rank-monotonicity negative control; full equalizer rank not computed. research/notes/F31-prior-construction-audit.md. No journal acceptance or specialist review inferred."
+        "scope": "entry; split subparts before research",
+        "status": "prior_negative_preprint",
+        "source_audit": "pending",
+        "literature_check": "primary_abstract_checked",
+        "priority": "retire_pending_check",
+        "notes": "Lei–Zhang arXiv:2604.24502; equalizers of two injections F_n to F_2 have rank at least 2n-2, n>=3."
       },
       "counted_coverage": "uncounted",
       "candidate_scope": null
@@ -1786,12 +1735,12 @@
       },
       "triage": {
         "id": "F32",
-        "scope": "(a) finite presentability of IA_n for n>=4; (b) linearity of IA_n for n>=3",
-        "status": "known_partial_negative",
-        "source_audit": "original_full_HTML_fragment_background_and_render_inspected",
-        "literature_check": "BardakovMikhailov2007_Theorem5_construction_read_Ershov2026_Theorem1.1_scope_checked",
-        "priority": "part_a_unresolved_here",
-        "notes": "(b) prior negative via poison subgroup in IA3 and stabilization. Ershov arXiv2601.01377v1 retains (a) open; its partial Torelli finite-presentation theorem excludes d=n. Source/proof-reading limits in research/notes/F32-prior-scope-audit.md; no new candidate."
+        "scope": "entry; split subparts before research",
+        "status": "prior_resolution_evidence_scope_check_needed",
+        "source_audit": "pending",
+        "literature_check": "pending",
+        "priority": "",
+        "notes": ""
       },
       "counted_coverage": "uncounted",
       "candidate_scope": null
@@ -4978,7 +4927,7 @@
         "source_audit": "original_render_inspected",
         "literature_check": "primary_sources_checked_novelty_provisional",
         "priority": "independent_review",
-        "notes": "Candidate uniform decision/constructor including torsion, under the nilpotent finite-presentation promise. Full general pipeline now implemented without supplied class bound and returns original-generator factor words. Twelve native controls/40 rational-support partitions/34 central branches/15 actual products, fifteen faithful presentation conversions and five standalone commands/19 returned words. Integral gluing and class-four negatives retained, as are a serialization failure and omitted-promise rejection. Completeness relies on the written proof and trusted exact algebra, with specialist review and novelty unresolved. See general-fp-audit.md, general-pipeline-audit.md, general-support-audit.md and general-malcev-input-audit.md in problems/N5/; older class-two and centroid evidence remains credited."
+        "notes": "Candidate uniform decision/constructor including torsion, under the nilpotent finite-presentation promise. Whole proof/audits in problems/N5/. Rational Lie centroid/CRT stage implemented and independently checked on19 fixtures. Class-two mixed coordinate pipeline includes power defects and finite quotient shears. Class-two finite-presentation interface now executable, with original factor words;27 presentations/810 arithmetic identities/251 relators/12 direct decompositions plus3 standalone command checks. Higher-class integration remains unimplemented. General mixed-center negative direction relies on written proof and prior checks; independent specialist review and novelty unresolved. See class2-input-audit.md and linked earlier audits."
       },
       "counted_coverage": "whole_entry_candidate",
       "candidate_scope": {
@@ -4992,7 +4941,7 @@
         ],
         "result": "Uniform direct-decomposition decision and factor construction for finite presentations promised to define finitely generated nilpotent groups, including torsion.",
         "prior_scope": "Torsion-free decision and rational decomposition machinery are prior. Potentially new scope is the general torsion case.",
-        "limits": "The nilpotency promise is essential. The full finite-presentation command is now implemented with no supplied class bound and original-generator factor words. Twelve native controls, fifteen presentation conversions and five standalone commands pass. General completeness still rests on the written support/uniqueness argument and trusted exact algebra; no practical complexity claim or external specialist validation.",
+        "limits": "The promise is essential. The finite-presentation pipeline is implemented only through class two; higher-class integration remains unimplemented.",
         "proofs": [
           "problems/N5/proof.md"
         ],
@@ -5000,11 +4949,7 @@
           "problems/N5/audit.md",
           "problems/N5/integrality-audit.md",
           "problems/N5/class2-input-audit.md",
-          "research/audits/N5-closing-proof-reread.md",
-          "problems/N5/general-malcev-input-audit.md",
-          "problems/N5/general-support-audit.md",
-          "problems/N5/general-pipeline-audit.md",
-          "problems/N5/general-fp-audit.md"
+          "research/audits/N5-closing-proof-reread.md"
         ]
       }
     },
@@ -5081,7 +5026,7 @@
         "source_audit": "original_render_inspected",
         "literature_check": "primary_sources_checked_novelty_provisional",
         "priority": "independent_review",
-        "notes": "Consolidated proof and audit: problems/N8/general-proof.md and general-audit.md. Finite leading pairs, diagonal separation from every later block column, full integer first-parameter recursion, exact universal periods. 44 complete Lie spaces and three actual group fixtures independently reconstructed in GAP; all integer steps retained. General algorithm not implemented end to end. Specialist validation and novelty pending. Limited universal Lean ingredients: averaging-lean-audit.md and polynomial-bridge-lean-audit.md; full theorem not formalized. Abstract full-block and two-value bound checked in block-separation-lean-audit.md; group/Lie instantiation remains written. Concrete half-transfer sweep convergence now formally checked in all finite lengths; sweep-convergence-lean-audit.md. Full algorithm still not formalized. Alternative minimum-energy analytic proof passes10 universal Lean declarations without a convergence hypothesis; energy-maximum-audit.md. Full algorithm not formalized. Positional identities-to-constancy now assembled in Lean, including cyclic relocation; analytic-assembly-audit.md. Source/Lie interpretation and full algorithm remain written. Closing reread and rational positional polynomial interface:13 new Lean declarations plus45 prerequisites; positional-polynomial-audit.md. Exact polynomial hypotheses and rational coefficient constancy now formalized; free-associative/Lie/group dictionary and full algorithm remain written. Subsequent word-dictionary-audit.md and lie-exception-audit.md supersede the earlier formal boundary:39+10 new declarations connect ordered words, global derivation, restriction identities and the generated-Lie scalar exception. Abstract free-Lie identification, homogeneous projections and full group algorithm remain written. FOLLOW-UP30Sept: weighted-block-audit.md checks coefficient weights and separation from the full actual-word correction span with at most two parameter values. group-block-supplement.md supplies the written Hall/BCH-to-word dictionary, including signs and all later columns. That bridge and the full algorithm remain outside Lean. Complete projective leading-pair implementation now retains every signed content divisor; projective-leading-pairs-audit.md checks nine lists/80 pairs and an actual rank2/class5 target where both primitive leading branches fail but four nonprimitive ones lift. Full solver remains unimplemented."
+        "notes": "Consolidated proof and audit: problems/N8/general-proof.md and general-audit.md. Finite leading pairs, diagonal separation from every later block column, full integer first-parameter recursion, exact universal periods. 44 complete Lie spaces and three actual group fixtures independently reconstructed in GAP; all integer steps retained. General algorithm not implemented end to end. Specialist validation and novelty pending. Limited universal Lean ingredients: averaging-lean-audit.md and polynomial-bridge-lean-audit.md; full theorem not formalized. Abstract full-block and two-value bound checked in block-separation-lean-audit.md; group/Lie instantiation remains written. Concrete half-transfer sweep convergence now formally checked in all finite lengths; sweep-convergence-lean-audit.md. Full algorithm still not formalized. Alternative minimum-energy analytic proof passes10 universal Lean declarations without a convergence hypothesis; energy-maximum-audit.md. Full algorithm not formalized. Positional identities-to-constancy now assembled in Lean, including cyclic relocation; analytic-assembly-audit.md. Source/Lie interpretation and full algorithm remain written. Closing reread and rational positional polynomial interface:13 new Lean declarations plus45 prerequisites; positional-polynomial-audit.md. Exact polynomial hypotheses and rational coefficient constancy now formalized; free-associative/Lie/group dictionary and full algorithm remain written. Subsequent word-dictionary-audit.md and lie-exception-audit.md supersede the earlier formal boundary:39+10 new declarations connect ordered words, global derivation, restriction identities and the generated-Lie scalar exception. Abstract free-Lie identification, homogeneous projections and full group algorithm remain written. FOLLOW-UP30Sept: weighted-block-audit.md checks coefficient weights and separation from the full actual-word correction span with at most two parameter values. group-block-supplement.md supplies the written Hall/BCH-to-word dictionary, including signs and all later columns. That bridge and the full algorithm remain outside Lean."
       },
       "counted_coverage": "whole_entry_candidate",
       "candidate_scope": {
@@ -5099,7 +5044,7 @@
         ],
         "result": "Single commutator equations are decidable, with solution construction, in every finite-rank free nilpotent group of every finite class; general class-two undecidability in (a) is prior.",
         "prior_scope": "Part (a) and the free class-two instance of (b) are prior. The current candidate has no class cutoff.",
-        "limits": "The complete all-rank/class solver is unimplemented. Universal Lean work connects the positional theorem to actual ordered words, the generated-Lie exception, coefficient weights and full correction-span/two-value separation. The Hall/BCH production of its equations now has a written dictionary. Abstract free-Lie identification, homogeneous projections, the group bridge and full algorithm remain outside Lean. The projective leading-pair stage now retains all signed content divisors; a rank-two/class-five control has four successful nonprimitive and four failing leading branches, including both primitive branches.",
+        "limits": "The complete all-rank/class solver is unimplemented. Universal Lean work connects the positional theorem to actual ordered words, the generated-Lie exception, coefficient weights and full correction-span/two-value separation. The Hall/BCH production of its equations now has a written dictionary. Abstract free-Lie identification, homogeneous projections, the group bridge and full algorithm remain outside Lean.",
         "proofs": [
           "problems/N8/general-proof.md",
           "problems/N8/group-block-supplement.md"
@@ -5110,8 +5055,7 @@
           "research/audits/N8-closing-proof-reread.md",
           "problems/N8/word-dictionary-audit.md",
           "problems/N8/lie-exception-audit.md",
-          "problems/N8/weighted-block-audit.md",
-          "problems/N8/projective-leading-pairs-audit.md"
+          "problems/N8/weighted-block-audit.md"
         ]
       }
     },

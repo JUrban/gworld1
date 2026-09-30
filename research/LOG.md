@@ -2287,3 +2287,8 @@ Afterde4f238 connected rational kernels, exhaustive bounded-index normal support
 ## N5 general finite-presentation command (2026-09-30T05:58:46.321953+00:00)
 
 After17075b3 implemented promised-nilpotent fp input without suppliedclassbound, largestquotientconversion, markednativebindings and originalgeneratorfactorwords. Fifteenfaithful conversioncontrols inclredundantgenerator; fivecommands pass with3positive/2negative,12centralbranches/7accepted/19factorwords. Firstcommand failsnumericstringbinding; exactsource/generatedfiles/logs retained, canonicalJSONbindingfix verified. FailedGAPstage exits0but haserrorstderr andmissingmarker; commandcorrectlyrejects. Administrativehashcheckinitiallyusedstatusalone andstopped; correctedbeforemanifest, nosolverrerun. Missingpromiseguard exits2beforeoutputcreation, retainednonsuccess. Eightrecordedjobs, maxima3CPU24GBrequested overlap, successfulstderr empty; allouter/nestedloghashes verified andPIDsabsent. Closure710terminal receipts/emptyregistry/no remainingworkers. 176bindings and exactoldreports archivedbeforeupdate. Currentguide/draft now describecompletegeneralcommand; datedscopeledgerrefreshstillpending. No count,novelty,deadline,subagentorpushchange.
+
+
+## Scope reconciliation through06:00 (2026-09-30T06:00:51.198170+00:00)
+
+After0b1650a updated N5 implementation boundary, N8complete leading-scales evidence and selecteduncountedF31/F32prior audits. Four exactprior scope/triage/reportversions archived; CSVLFpreserved. scope-ledger-v6 passes0.118s at1CPU2GB; 81bindings/all195IDs/counts10whole2partial0novel verified. Receiptloghashesverified, PIDabsent, registryempty. Thirteen manifestbindings retained. No mathematical rerun, deadlinefreeze, countchange orpush.
